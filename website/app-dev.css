@@ -21,11 +21,6 @@
     }
 }
 
-.animate-on-load {
-    opacity: 0;
-    animation: fadeInUp 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-}
-
 .navbar {
     animation: fadeIn 0.4s ease forwards;
 }

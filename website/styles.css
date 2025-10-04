@@ -5051,6 +5051,30 @@ input:focus, textarea:focus, select:focus, .w-input:focus {
     height: auto;
     max-width: 400px; /* You can adjust this value to control the logo size */
     display: block;
+  /* Site-wide: ensure hamburger is visible & white on mobile */
+  .menu-button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    pointer-events: auto !important;
+    z-index: 10000 !important;
+    background: rgba(0,0,0,0.48) !important;
+    border-radius: 10px !important;
+    padding: 6px !important;
+  }
+
+  .hamburger-menu {
+    width: 28px !important;
+    height: 28px !important;
+    opacity: 1 !important;
+  }
+
+  /* If Lottie injects an inline SVG, force fills/strokes to white for contrast */
+  .hamburger-menu svg,
+  .hamburger-menu svg * {
+    fill: #fff !important;
+    stroke: #fff !important;
+  }
     margin: 0 0 0 auto;
     
     /* --- Animation Properties --- */
@@ -10880,6 +10904,20 @@ input:focus, textarea:focus, select:focus, .w-input:focus {
 
     .nav-wrap {
       padding: 10px;
+    }
+    
+    .navbar-wrapper {
+      justify-content: space-between;
+    }
+
+    /* Ensure the menu button sits at the right edge */
+    .menu-button {
+      margin-left: auto;
+    }
+
+    /* Hide vertical decorative lines on mobile */
+    .horizontal-line-linear {
+      display: none !important;
     }
 
     .footer {
@@ -17665,5 +17703,12 @@ input:focus, textarea:focus, select:focus, .w-input:focus {
 
     .tech-carousel { width: 100px; height: 100px; }
     .logo-item img { height: 40px; width: 40px; }
+    hero-v1-right,
+  .hero-v1-right .hero-logo-image {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+  }
 }
 /* --- END: 3D LOGO CAROUSEL STYLES --- */

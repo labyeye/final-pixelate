@@ -29,7 +29,8 @@
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
-    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link href="./styles.css" rel="stylesheet" type="text/css" />
+    <link href="./pricing.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link
       href="https://fonts.gstatic.com"
@@ -64,215 +65,21 @@
     />
     <style>
       /* --- START: PRICING PAGE STYLES --- */
-      .pricing-section {
-        padding-top: var(--_responsive---margin-80-px);
-        padding-bottom: var(--_responsive---margin-160-px);
-      }
-      .pricing-category {
-        margin-bottom: 5rem;
-      }
-      .pricing-category-title {
-        text-align: center;
-        margin-bottom: 4rem;
-      }
-      .pricing-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 2.5rem;
-      }
-      .pricing-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 24px;
-        padding: 2.5rem 2rem;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        transition: transform 0.4s ease, box-shadow 0.4s ease,
-          border-color 0.4s ease;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        overflow: hidden;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeIn 0.5s ease-out forwards;
-      }
-      .pricing-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        border-color: rgba(255, 100, 13, 0.5);
-      }
-      .pricing-card-header h3 {
-        font-size: 1.75rem;
-        line-height: 1.3;
-        color: var(--white);
-        margin-bottom: 0.5rem;
-      }
-      .price-container {
-        margin: 1.5rem 0;
-        color: var(--white);
-      }
-      .price {
-        font-size: 3rem;
-        font-weight: 600;
-        letter-spacing: -0.05em;
-      }
-      .price-unit {
-        font-size: 1rem;
-        color: #ffffffb3;
-        font-weight: 400;
-        margin-left: 0.5rem;
-      }
-      .features-list {
-        list-style: none;
-        padding: 0;
-        margin: 1.5rem 0;
-        flex-grow: 1;
-      }
-      .features-list li {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        margin-bottom: 1rem;
-        font-size: 1rem;
-        color: #ffffffd9;
-        font-weight: 400;
-        line-height: 1.5;
-        text-align: left;
-      }
-      .feature-icon {
-        width: 20px;
-        height: 20px;
-        color: var(--primary);
-        flex-shrink: 0;
-        margin-top: 2px;
-      }
-      .pricing-card .button-02 {
-        width: 100%;
-        margin-top: auto;
-        padding: 15px 20px;
-        justify-content: center;
-        text-align: center;
-        color: white;
-        font-weight: 600;
-      }
-      .best-value-badge {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        transform: translateY(-50%);
-        background-image: linear-gradient(to right, var(--primary), #ab2020);
-        color: white;
-        padding: 6px 16px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        box-shadow: 0 4px 15px rgba(255, 100, 13, 0.3);
-      }
-      /* Animation */
-      @keyframes fadeIn {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
 
-      @keyframes slideInFromTop {
-        from {
-          transform: translateY(-50px);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-
-      @keyframes scaleIn {
-        from {
-          transform: scale(0.8);
-          opacity: 0;
-        }
-        to {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      @keyframes fadeInUp {
-        from {
-          transform: translateY(20px);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-
-      /* Add animation classes */
-      .animate-intro {
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out forwards;
-      }
-
-      .animate-delay-1 {
-        animation-delay: 0.2s;
-      }
-      .animate-delay-2 {
-        animation-delay: 0.4s;
-      }
-      .animate-delay-3 {
-        animation-delay: 0.6s;
-      }
-
-      .hero-01-wrap .short-teg-wrap {
-        animation: slideInFromTop 0.8s ease-out forwards;
-      }
-
-      .hero-01-wrap .heading-wrap {
-        opacity: 0;
-        animation: scaleIn 0.8s ease-out 0.3s forwards;
-      }
-
-      .hero-01-wrap .sub-heading-wrap {
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out 0.5s forwards;
-      }
-
-      .pricing-category-title {
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out forwards;
-      }
-
-      /* Update existing pricing card animations */
-      .pricing-grid .pricing-card {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 0.8s ease-out forwards;
-      }
-
-      .pricing-grid .pricing-card:nth-child(1) {
-        animation-delay: 0.2s;
-      }
-      .pricing-grid .pricing-card:nth-child(2) {
-        animation-delay: 0.4s;
-      }
-      .pricing-grid .pricing-card:nth-child(3) {
-        animation-delay: 0.6s;
-      }
-      .pricing-grid .pricing-card:nth-child(4) {
-        animation-delay: 0.8s;
-      }
       /* --- END: PRICING PAGE STYLES --- */
     </style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T64KPYDX6P"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-T64KPYDX6P"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-T64KPYDX6P');
+      gtag("config", "G-T64KPYDX6P");
     </script>
   </head>
   <body>
@@ -291,7 +98,10 @@
             >
               <div class="navbar-wrapper">
                 <div class="navbar-left">
-                  <a href="./index.html" class="navbar-brand w-nav-brand"
+                  <a
+                    href="./index.html"
+                    aria-current="page"
+                    class="navbar-brand w-nav-brand w--current"
                     ><img
                       loading="lazy"
                       src="./assets/logo-2.png"
@@ -303,43 +113,44 @@
                   <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
                     <ul role="list" class="nav-menu w-list-unstyled">
                       <li class="nav-item">
-                        <a href="./index.html" class="nav-link w-inline-block"
-                          ><div class="nav-link-text">Home</div></a
+                        <a
+                          href="./index.html"
+                          aria-current="page"
+                          class="nav-link w-inline-block w--current"
+                          ><span class="nav-link-text">Home</span></a
                         >
                       </li>
                       <li class="nav-item">
                         <a href="./about.html" class="nav-link w-inline-block"
-                          ><div class="nav-link-text">About</div></a
+                          ><span class="nav-link-text">About</span></a
                         >
                       </li>
                       <li class="nav-item">
-                        <a
-                          href="./pricing.html"
-                          aria-current="page"
-                          class="nav-link w-inline-block w--current"
-                          ><div class="nav-link-text">Pricing</div></a
+                        <a href="./pricing.html" class="nav-link w-inline-block"
+                          ><span class="nav-link-text">Pricing</span></a
                         >
                       </li>
                       <li class="nav-item">
                         <a href="./webdev.html" class="nav-link w-inline-block"
-                          ><div class="nav-link-text">Web Development</div></a
+                          ><span class="nav-link-text">Web Development</span></a
                         >
                       </li>
                       <li class="nav-item">
                         <a href="./app-dev.html" class="nav-link w-inline-block"
-                          ><div class="nav-link-text">App Development</div></a
+                          ><span class="nav-link-text">App Development</span></a
                         >
                       </li>
                       <li class="nav-item">
                         <a
                           href="./video-ed.html"
                           class="nav-link w-inline-block"
-                          ><div class="nav-link-text">Video Editing</div></a
+                          ><span class="nav-link-text">Video Editing</span></a
                         >
                       </li>
+
                       <li class="nav-item">
-                        <a href="/blogs.html" class="nav-link w-inline-block"
-                          ><div class="nav-link-text">Blogs</div></a
+                        <a href="./blogs.html" class="nav-link w-inline-block"
+                          ><span class="nav-link-text">Blogs</span></a
                         >
                       </li>
                     </ul>
@@ -357,14 +168,14 @@
                       data-direction="1"
                       data-autoplay="0"
                       data-renderer="svg"
-                      data-default-duration="2.3333333333333335"
+                      data-default-duration="0"
+                      data-duration="2.3333333333333335"
                       data-ix2-initial-state="0"
                     ></div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="back-groung-blur"></div>
           </div>
         </section>
         <section class="hero">
@@ -425,8 +236,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Remote deployment with full setup guide</span>
+                      ></path>
+                    </svg>
+                    <span>Remote deployment with full setup guide</span>
                   </li>
                   <li>
                     <svg
@@ -437,8 +249,10 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Cloud integration for accessibility</span>
+                      ></path>
+                    </svg>
+
+                    <span>Cloud integration for accessibility</span>
                   </li>
                   <li>
                     <svg
@@ -449,8 +263,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Lightweight and scalable solutions</span>
+                      ></path>
+                    </svg>
+                    <span>Lightweight and scalable solutions</span>
                   </li>
                   <li>
                     <svg
@@ -461,8 +276,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Quick turnaround time</span>
+                      ></path>
+                    </svg>
+                    <span>Quick turnaround time</span>
                   </li>
                   <li>
                     <svg
@@ -473,8 +289,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Cost-effective maintenance</span>
+                      ></path>
+                    </svg>
+                    <span>Cost-effective maintenance</span>
                   </li>
                 </ul>
                 <a
@@ -502,7 +319,8 @@
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
                       ></path></svg
-                    ><span>On-site installation and configuration</span>
+                    >>
+                    <span>On-site installation and configuration</span>
                   </li>
                   <li>
                     <svg
@@ -514,7 +332,8 @@
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
                       ></path></svg
-                    ><span>Personalized in-person training</span>
+                    >>
+                    <span>Personalized in-person training</span>
                   </li>
                   <li>
                     <svg
@@ -526,7 +345,8 @@
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
                       ></path></svg
-                    ><span>Works without internet dependency</span>
+                    >>
+                    <span>Works without internet dependency</span>
                   </li>
                   <li>
                     <svg
@@ -538,7 +358,8 @@
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
                       ></path></svg
-                    ><span>Enhanced security for local environments</span>
+                    >>
+                    <span>Enhanced security for local environments</span>
                   </li>
                   <li>
                     <svg
@@ -550,7 +371,8 @@
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
                       ></path></svg
-                    ><span>Direct face-to-face support</span>
+                    >>
+                    <span>Direct face-to-face support</span>
                   </li>
                 </ul>
                 <a
@@ -578,8 +400,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Hybrid model for flexibility</span>
+                      ></path>
+                    </svg>
+                    <span>Hybrid model for flexibility</span>
                   </li>
                   <li>
                     <svg
@@ -590,8 +413,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Both local and cloud-based operations</span>
+                      ></path>
+                    </svg>
+                    <span>Both local and cloud-based operations</span>
                   </li>
                   <li>
                     <svg
@@ -602,8 +426,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Secure local backup with cloud sync</span>
+                      ></path>
+                    </svg>
+                    <span>Secure local backup with cloud sync</span>
                   </li>
                   <li>
                     <svg
@@ -614,8 +439,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Suitable for multi-branch operations</span>
+                      ></path>
+                    </svg>
+                    <span>Suitable for multi-branch operations</span>
                   </li>
                   <li>
                     <svg
@@ -626,8 +452,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Online & offline training included</span>
+                      ></path>
+                    </svg>
+                    <span>Online & offline training included</span>
                   </li>
                 </ul>
                 <a
@@ -662,8 +489,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Mobile-responsive design</span>
+                      ></path>
+                    </svg>
+                    <span>Mobile-responsive design</span>
                   </li>
                   <li>
                     <svg
@@ -674,8 +502,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Lightweight and fast loading</span>
+                      ></path>
+                    </svg>
+                    <span>Lightweight and fast loading</span>
                   </li>
                   <li>
                     <svg
@@ -686,8 +515,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>SEO-optimized structure</span>
+                      ></path>
+                    </svg>
+                    <span>SEO-optimized structure</span>
                   </li>
                   <li>
                     <svg
@@ -698,8 +528,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Secure with SSL setup</span>
+                      ></path>
+                    </svg>
+                    <span>Secure with SSL setup</span>
                   </li>
                   <li>
                     <svg
@@ -710,8 +541,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Custom branding with logo/colors</span>
+                      ></path>
+                    </svg>
+                    <span>Custom branding with logo/colors</span>
                   </li>
                 </ul>
                 <a
@@ -738,8 +570,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Admin dashboard for content updates</span>
+                      ></path>
+                    </svg>
+                    <span>Admin dashboard for content updates</span>
                   </li>
                   <li>
                     <svg
@@ -750,8 +583,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>CMS support (WordPress/Custom)</span>
+                      ></path>
+                    </svg>
+                    <span>CMS support (WordPress/Custom)</span>
                   </li>
                   <li>
                     <svg
@@ -762,8 +596,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Database integration</span>
+                      ></path>
+                    </svg>
+                    <span>Database integration</span>
                   </li>
                   <li>
                     <svg
@@ -774,8 +609,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Interactive elements for users</span>
+                      ></path>
+                    </svg>
+                    <span>Interactive elements for users</span>
                   </li>
                   <li>
                     <svg
@@ -786,8 +622,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Secure login functionality</span>
+                      ></path>
+                    </svg>
+                    <span>Secure login functionality</span>
                   </li>
                 </ul>
                 <a
@@ -814,8 +651,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Product catalog, cart & checkout</span>
+                      ></path>
+                    </svg>
+                    <span>Product catalog, cart & checkout</span>
                   </li>
                   <li>
                     <svg
@@ -826,8 +664,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Multiple payment gateways</span>
+                      ></path>
+                    </svg>
+                    <span>Multiple payment gateways</span>
                   </li>
                   <li>
                     <svg
@@ -838,8 +677,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Inventory management system</span>
+                      ></path>
+                    </svg>
+                    <span>Inventory management system</span>
                   </li>
                   <li>
                     <svg
@@ -850,8 +690,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Order tracking & discount system</span>
+                      ></path>
+                    </svg>
+                    <span>Order tracking & discount system</span>
                   </li>
                   <li>
                     <svg
@@ -862,8 +703,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Analytics and reporting tools</span>
+                      ></path>
+                    </svg>
+                    <span>Analytics and reporting tools</span>
                   </li>
                 </ul>
                 <a
@@ -891,8 +733,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Website + Android/iOS app combo</span>
+                      ></path>
+                    </svg>
+                    <span>Website + Android/iOS app combo</span>
                   </li>
                   <li>
                     <svg
@@ -903,8 +746,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Sync between app and website</span>
+                      ></path>
+                    </svg>
+                    <span>Sync between app and website</span>
                   </li>
                   <li>
                     <svg
@@ -915,8 +759,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Push notifications for customers</span>
+                      ></path>
+                    </svg>
+                    <span>Push notifications for customers</span>
                   </li>
                   <li>
                     <svg
@@ -927,8 +772,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Full-fledged admin control</span>
+                      ></path>
+                    </svg>
+                    <span>Full-fledged admin control</span>
                   </li>
                   <li>
                     <svg
@@ -939,8 +785,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>App store & play store publishing support</span>
+                      ></path>
+                    </svg>
+                    <span>App store & play store publishing support</span>
                   </li>
                 </ul>
                 <a
@@ -976,8 +823,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Quick turnaround for social media</span>
+                      ></path>
+                    </svg>
+                    <span>Quick turnaround for social media</span>
                   </li>
                   <li>
                     <svg
@@ -988,8 +836,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Engaging transitions and effects</span>
+                      ></path>
+                    </svg>
+                    <span>Engaging transitions and effects</span>
                   </li>
                   <li>
                     <svg
@@ -1000,8 +849,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Captions and branding included</span>
+                      ></path>
+                    </svg>
+                    <span>Captions and branding included</span>
                   </li>
                   <li>
                     <svg
@@ -1012,8 +862,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Monthly: ₹20,000 (25 reels)</span>
+                      ></path>
+                    </svg>
+                    <span>Monthly: ₹20,000 (25 reels)</span>
                   </li>
                 </ul>
                 <a
@@ -1042,8 +893,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Longer storytelling format</span>
+                      ></path>
+                    </svg>
+                    <span>Longer storytelling format</span>
                   </li>
                   <li>
                     <svg
@@ -1054,8 +906,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Enhanced visual effects</span>
+                      ></path>
+                    </svg>
+                    <span>Enhanced visual effects</span>
                   </li>
                   <li>
                     <svg
@@ -1066,8 +919,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Professional color grading</span>
+                      ></path>
+                    </svg>
+                    <span>Professional color grading</span>
                   </li>
                   <li>
                     <svg
@@ -1078,8 +932,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Monthly: ₹25,000 (25 reels)</span>
+                      ></path>
+                    </svg>
+                    <span>Monthly: ₹25,000 (25 reels)</span>
                   </li>
                 </ul>
                 <a
@@ -1107,8 +962,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Animated charts & custom graphics</span>
+                      ></path>
+                    </svg>
+                    <span>Animated charts & custom graphics</span>
                   </li>
                   <li>
                     <svg
@@ -1119,8 +975,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Highlight-based storytelling</span>
+                      ></path>
+                    </svg>
+                    <span>Highlight-based storytelling</span>
                   </li>
                   <li>
                     <svg
@@ -1131,8 +988,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Voice-over & music sync</span>
+                      ></path>
+                    </svg>
+                    <span>Voice-over & music sync</span>
                   </li>
                   <li>
                     <svg
@@ -1143,8 +1001,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>HD export for presentations & events</span>
+                      ></path>
+                    </svg>
+                    <span>HD export for presentations & events</span>
                   </li>
                 </ul>
                 <a
@@ -1172,8 +1031,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>On-site shoot with crew (₹3,000/hr)</span>
+                      ></path>
+                    </svg>
+                    <span>On-site shoot with crew (₹3,000/hr)</span>
                   </li>
                   <li>
                     <svg
@@ -1184,8 +1044,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Professional 4K cameras & lighting</span>
+                      ></path>
+                    </svg>
+                    <span>Professional 4K cameras & lighting</span>
                   </li>
                   <li>
                     <svg
@@ -1196,8 +1057,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Cinematic editing (₹3,500/min)</span>
+                      ></path>
+                    </svg>
+                    <span>Cinematic editing (₹3,500/min)</span>
                   </li>
                   <li>
                     <svg
@@ -1208,8 +1070,9 @@
                     >
                       <path
                         d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
-                      ></path></svg
-                    ><span>Multi-camera sync & sound mixing</span>
+                      ></path>
+                    </svg>
+                    <span>Multi-camera sync & sound mixing</span>
                   </li>
                 </ul>
                 <a
@@ -1282,21 +1145,15 @@
                   <div class="p-text-01">Follow us</div>
                   <div class="footer-link-list">
                     <a
-                      href="https://www.instagram.com/"
+                      href="https://www.instagram.com/pixelate.nest/"
                       target="_blank"
                       class="footer-link w-inline-block"
                     >
                       <div class="footer-link-text">Instagram</div>
                     </a>
+
                     <a
-                      href="https://web.facebook.com/"
-                      target="_blank"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Facebook</div>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/"
+                      href="https://www.linkedin.com/company/pixelate-nest/"
                       target="_blank"
                       class="footer-link w-inline-block"
                     >
@@ -1327,6 +1184,10 @@
     ></script>
     <script
       src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.40f517e78f82ea08.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.a0aa2c62e5a30201.js"
       type="text/javascript"
     ></script>
     <script
