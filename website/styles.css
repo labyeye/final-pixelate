@@ -273,6 +273,17 @@
     display: inline-block;
   }
 
+/* Responsive hero layout moved from index.html */
+.hero-v1-left{ display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+.hero-v1-title-wrap{ flex:1 1 320px; min-width:240px; }
+.hero-v1-right{ flex:0 0 auto; margin-left:12px; }
+.hero-logo-image{ max-width:460px; height:auto; display:block; }
+@media (max-width:768px){
+  .hero-v1-left{ flex-direction:column; align-items:flex-start; }
+  .hero-v1-right{ margin-left:0; }
+  .hero-logo-image{ max-width:140px; }
+}
+
   html.w-mod-touch * {
     background-attachment: scroll !important;
   }

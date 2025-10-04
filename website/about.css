@@ -116,7 +116,7 @@
   transform: translateY(-5px);
 }
 
-/* Overlay container that appears on hover */
+/* Overlay container that appears on hover: hidden by default, reveals on hover */
 .team-overlay {
   position: absolute;
   inset: 0;
@@ -124,39 +124,45 @@
   align-items: flex-end;
   justify-content: center;
   padding: 18px;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.85) 100%);
+  background: rgba(0,0,0,0.85); /* solid dark overlay for details */
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.28s ease, transform 0.28s ease;
-  z-index: 50;
+  z-index: 9999;
   pointer-events: none;
 }
 
-/* Show overlay when card is hovered or focused (for accessibility) */
+/* Reveal overlay when card is hovered or focused (keyboard accessibility) */
 .final-team-card:hover .team-overlay,
 .final-team-card:focus-within .team-overlay,
-.final-team-card:focus .team-overlay {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+.final-team-card:focus .team-overlay,
+.final-team-card:active .team-overlay {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
 }
 
-/* Initial state for the text elements inside the overlay */
+/* Text inside overlay: hidden initially and revealed with staggered delays */
 .overlay-name,
 .overlay-role,
 .overlay-socials {
   opacity: 0;
-  transform: translateY(15px); /* Start slightly lower */
+  transform: translateY(15px);
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-/* Animate the text elements when the card is hovered or focused */
+/* Staggered reveal: name first, role second, socials last */
 .final-team-card:hover .overlay-name,
 .final-team-card:focus-within .overlay-name,
 .final-team-card:focus .overlay-name {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 0.15s; /* Name appears first */
+  transition-delay: 0.12s;
+}
+
+.final-team-card:active .overlay-name {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 .final-team-card:hover .overlay-role,
@@ -164,7 +170,12 @@
 .final-team-card:focus .overlay-role {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 0.25s; /* Role appears second */
+  transition-delay: 0.24s;
+}
+
+.final-team-card:active .overlay-role {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 .final-team-card:hover .overlay-socials,
@@ -172,15 +183,20 @@
 .final-team-card:focus .overlay-socials {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 0.35s; /* Socials appear last */
+  transition-delay: 0.36s;
 }
 
-/* Subtle image transform on hover/focus */
+.final-team-card:active .overlay-socials {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Dim and slightly scale the image behind the overlay for contrast */
 .final-team-card:hover .final-team-image,
 .final-team-card:focus-within .final-team-image,
 .final-team-card:focus .final-team-image {
   transform: scale(1.04);
-  filter: brightness(0.75) contrast(0.95);
+  filter: brightness(0.55) contrast(0.95);
   transition: transform 0.35s ease, filter 0.35s ease;
 }
 
@@ -254,58 +270,7 @@
   transform: translateY(-10px);
 }
 
-/* --- FIX: Adds the missing styles for the overlay --- */
-
-/* Initial state of the overlay (hidden) */
-.team-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 18px;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.85) 100%);
-  opacity: 0;
-  transform: translateY(10px);
-  pointer-events: none;
-  z-index: 5;
-  transition: opacity 0.28s ease, transform 0.28s ease;
-}
-
-/* Hover state of the overlay (visible) */
-.final-team-card:hover .team-overlay {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* Initial state for the text inside the overlay */
-.overlay-name,
-.overlay-role,
-.overlay-socials {
-  opacity: 1;
-  transform: translateY(15px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-/* Hover state for the text inside the overlay */
-.final-team-card:hover .overlay-name {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.15s;
-}
-
-.final-team-card:hover .overlay-role {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.25s;
-}
-
-.final-team-card:hover .overlay-socials {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.35s;
-}
+/* The overlay rules above are consolidated — duplicate rules removed */
 .member-name {
   color: #fff;
   margin: 0 0 8px;
@@ -363,5 +328,37 @@
 
   .about-us-content-list-main {
     padding: 30px;
+  }
+}
+/* Styles moved from inline attributes for about page and small responsive helpers */
+.about-us-content-bg.blur {
+  filter: blur(20px);
+}
+
+/* Responsive adjustments for the About page */
+@media (max-width: 991px) {
+  .about-us-v1 {
+    padding: 60px 0;
+  }
+  .about-us-v1-bottom {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .about-v1-heading,
+  .about-us-v1-top,
+  .final-team-header {
+    text-align: center;
+  }
+  .final-team-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .about-us-content-list-main {
+    padding: 24px;
+  }
+  .heading-wrap.h2 {
+    font-size: 1.25rem;
   }
 }

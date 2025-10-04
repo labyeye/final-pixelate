@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <link href="styles.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
@@ -53,6 +53,20 @@
     ></script>
     <script type="text/javascript">
       WebFont.load({ google: { families: ["Great Vibes:400"] } });
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Pixelate Nest",
+        "url": "https://pixelatenest.com/",
+        "logo": "https://pixelatenest.com/assets/logo-transparent.png",
+        "sameAs": [
+          "https://www.instagram.com/",
+          "https://web.facebook.com/",
+          "https://www.linkedin.com/"
+        ]
+      }
     </script>
     <script type="text/javascript">
       !(function (o, c) {
@@ -125,7 +139,7 @@
                         >
                       </li>
                       <li class="nav-item">
-                        <a href="/about.html" class="nav-link w-inline-block"
+                        <a href="./about.html" class="nav-link w-inline-block"
                           ><span class="nav-link-text">About</span></a
                         >
                       </li>
@@ -145,7 +159,9 @@
                         >
                       </li>
                       <li class="nav-item">
-                        <a href="./video-ed.html" class="nav-link w-inline-block"
+                        <a
+                          href="./video-ed.html"
+                          class="nav-link w-inline-block"
                           ><span class="nav-link-text">Video Editing</span></a
                         >
                       </li>
@@ -237,13 +253,13 @@
                     </p>
                   </div>
                 </div>
-                <div class="hero-v1-right">
-                  <img
-                    src="assets/logo-transparent.png"
-                    alt="Pixelate Nest Logo"
-                    class="hero-logo-image"
-                  />
-                </div>
+              </div>
+              <div class="hero-v1-right">
+                <img
+                  src="assets/logo-transparent.png"
+                  alt="Pixelate Nest Logo"
+                  class="hero-logo-image"
+                />
               </div>
             </div>
           </div>
@@ -266,12 +282,12 @@
                     <p class="counter-number">1</p>
                   </div>
                   <div class="counter-single-wrap lower">
-                    <p class="counter-number">9</p>
+                    <p class="counter-number">0</p>
                     <p class="counter-number">0</p>
                   </div>
                   <h3 class="h3 text-primary">+</h3>
                 </div>
-                <div class="p-text-01 text-white-70">Brands Empowered</div>
+                <div class="p-text-01 text-white-70">Clients Empowered</div>
               </div>
 
               <div class="horizontal-line-linear hide-mobile"></div>
@@ -282,19 +298,19 @@
                   class="count-wrap"
                 >
                   <div class="counter-single-wrap upper">
+                    <p class="counter-number">0</p>
+                    <p class="counter-number">0</p>
                     <p class="counter-number">1</p>
-                    <p class="counter-number">2</p>
-                    <p class="counter-number">3</p>
                   </div>
                   <div class="counter-single-wrap lower">
-                    <p class="counter-number">1</p>
+                    <p class="counter-number">0</p>
                     <p class="counter-number">2</p>
                     <p class="counter-number">3</p>
                   </div>
                   <div class="counter-single-wrap upper">
                     <p class="counter-number">1</p>
                     <p class="counter-number">2</p>
-                    <p class="counter-number">3</p>
+                    <p class="counter-number">0</p>
                   </div>
                   <h3 class="h3 text-primary">K</h3>
                   <h3 class="h3 text-primary">+</h3>
@@ -318,16 +334,10 @@
                     <p class="counter-number">1</p>
                     <p class="counter-number">2</p>
                   </div>
-                  <div class="counter-single-wrap upper">
-                    <p class="counter-number">7</p>
-                    <p class="counter-number">8</p>
-                    <p class="counter-number">9</p>
-                    <p class="counter-number">0</p>
-                  </div>
                   <h3 class="h3 text-primary">+</h3>
                 </div>
                 <div class="p-text-01 text-white-70">
-                  Digital Experiences Launched
+                  Digital Experiences Delivered
                 </div>
               </div>
             </div>
@@ -1692,7 +1702,7 @@
                                 <div class="p-text-01">Company</div>
                                 <div class="footer-link-list">
                                   <a
-                                    href="/about.html"
+                                    href="./about.html"
                                     class="footer-link w-inline-block"
                                   >
                                     <div class="footer-link-text">About Us</div>
@@ -1803,13 +1813,9 @@
                       type="text/javascript"
                     ></script>
                     <script>
-                      // This script adds a class to the scrollers when they come into view.
-                      // We're not using it for animation in this version, but it's good practice.
                       document.addEventListener("DOMContentLoaded", () => {
                         const scrollers =
                           document.querySelectorAll(".logo-scroller");
-
-                        // If a user hasn't opted in for reduced motion, add the animation
                         if (
                           !window.matchMedia("(prefers-reduced-motion: reduce)")
                             .matches
@@ -1819,16 +1825,13 @@
 
                         function addAnimation() {
                           scrollers.forEach((scroller) => {
-                            // add data-animated="true" to every `.scroller` on the page
                             scroller.setAttribute("data-animated", true);
-
                             const scrollerInner = scroller.querySelector(
                               ".logo-scroller-inner"
                             );
                             const scrollerContent = Array.from(
                               scrollerInner.children
                             );
-
                             scrollerContent.forEach((item) => {
                               const duplicatedItem = item.cloneNode(true);
                               duplicatedItem.setAttribute("aria-hidden", true);
