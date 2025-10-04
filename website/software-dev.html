@@ -22,31 +22,31 @@
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="canonical" href="https://pixelatenest.com/software-dev.html" />
+    <meta name="robots" content="index,follow" />
+    <meta
+      property="og:url"
+      content="https://pixelatenest.com/software-dev.html"
+    />
 
-    <!-- Main Stylesheet -->
     <link href="web-dev.css" rel="stylesheet" type="text/css" />
-    <!-- Page-Specific Stylesheet -->
     <link href="styles.css" rel="stylesheet" type="text/css" />
     <style>
-      /* Portfolio grid: 1 column mobile, 2 tablet, 3 desktop */
       #portfolio-grid {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 16px;
       }
       @media (min-width: 640px) {
-        /* tablet */
         #portfolio-grid {
           grid-template-columns: repeat(2, 1fr);
         }
       }
       @media (min-width: 1024px) {
-        /* desktop */
         #portfolio-grid {
           grid-template-columns: repeat(3, 1fr);
         }
       }
-      /* ensure cards stretch nicely */
       .portfolio-card {
         display: block;
         height: 100%;
@@ -57,11 +57,27 @@
         object-fit: cover;
         display: block;
       }
-        /* Stars for rating */
-        .stars { margin-top: 6px; display: flex; gap: 4px; }
-        .star { color: #d1d5db; font-size: 14px; }
-        .star.filled { color: #f59e0b; }
+      .stars {
+        margin-top: 6px;
+        display: flex;
+        gap: 4px;
+      }
+      .star {
+        color: #d1d5db;
+        font-size: 14px;
+      }
+      .star.filled {
+        color: #f59e0b;
+      }
     </style>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-T64KPYDX6P"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-T64KPYDX6P');
+      </script>
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link
@@ -95,10 +111,23 @@
       href="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/687bf25268ea6656fee08b5f_Trenox%20Webclip%20.svg"
       rel="apple-touch-icon"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Pixelate Nest",
+        "url": "https://pixelatenest.com",
+        "logo": "https://pixelatenest.com/assets/only-icon.png",
+        "sameAs": [
+          "https://www.instagram.com/",
+          "https://web.facebook.com/",
+          "https://www.linkedin.com/"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="page-wrapper">
-      <!-- Main Hero Section with Navbar -->
       <div class="main-hero">
         <section class="nav-wrap">
           <div class="nav-bar-wrap">
@@ -113,7 +142,7 @@
             >
               <div class="navbar-wrapper">
                 <div class="navbar-left">
-                  <a href="/" class="navbar-brand w-nav-brand">
+                  <a href="./index.html" class="navbar-brand w-nav-brand">
                     <img
                       loading="lazy"
                       src="./assets/logo-2.png"
@@ -126,7 +155,7 @@
                   <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
                     <ul role="list" class="nav-menu w-list-unstyled">
                       <li class="nav-item">
-                        <a href="/" class="nav-link w-inline-block"
+                        <a href="./index.html" class="nav-link w-inline-block"
                           ><div class="nav-link-text">Home</div></a
                         >
                       </li>
@@ -152,7 +181,10 @@
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="/app-dev.html" class="nav-link w-inline-block">
+                        <a
+                          href="./app-dev.html"
+                          class="nav-link w-inline-block"
+                        >
                           <div class="nav-link-text">App Development</div>
                         </a>
                       </li>
@@ -216,7 +248,11 @@
               </div>
             </div>
 
-            <div id="portfolio-grid" class="portfolio-grid" style="margin-top: 80px;"></div>
+            <div
+              id="portfolio-grid"
+              class="portfolio-grid"
+              style="margin-top: 80px"
+            ></div>
           </div>
         </section>
         <div class="bg-linear"></div>
@@ -268,7 +304,6 @@
         </div>
       </section>
 
-      <!-- CTA Section (Copied from index.html) -->
       <section class="cta-v1">
         <div class="container">
           <div class="cta-v1-wrap">
@@ -290,7 +325,7 @@
                   </p>
                 </div>
                 <div class="cta-v1-button-wrap">
-                  <a href="/contact.html" class="cta-button w-inline-block">
+                  <a href="./contact.html" class="cta-button w-inline-block">
                     <div class="button-02-cover _02">
                       <div class="button-02-text">
                         <div class="button-text-01 text-white">
@@ -324,7 +359,6 @@
         </div>
       </section>
 
-      <!-- Footer (Copied from index.html) -->
       <section class="footer">
         <div class="container">
           <div class="footer-wrap">
@@ -348,8 +382,10 @@
                   </div>
                   <p class="p-text-03">
                     Creative Digital Experiences That Build Your Brand.
-                    <!-- clickable stars to open review modal -->
-                    <span id="footer-review-stars" style="margin-left:12px; cursor:pointer;">
+                    <span
+                      id="footer-review-stars"
+                      style="margin-left: 12px; cursor: pointer"
+                    >
                       <span class="star filled">★</span>
                       <span class="star filled">★</span>
                       <span class="star filled">★</span>
@@ -372,7 +408,7 @@
                     >
                       <div class="footer-link-text">Careers</div>
                     </a>
-                    <a href="/contact.html" class="footer-link w-inline-block">
+                    <a href="./contact.html" class="footer-link w-inline-block">
                       <div class="footer-link-text">Build With Us</div>
                     </a>
                   </div>
@@ -444,18 +480,14 @@
     ></script>
 
     <script>
-      // Load gallery items from dashboard API and render those marked for web-development
       async function loadGallery() {
         try {
-          // determine API base: if the site is served from localhost (static files),
-          // point to the dashboard backend running on port 9002. Otherwise use
-          // a relative path so it works when hosted together.
           const API_BASE =
             window.location.hostname === "localhost" ||
             window.location.hostname === "127.0.0.1"
               ? "http://localhost:9002"
               : "";
-          const res = await fetch(API_BASE + '/api/work-gallery');
+          const res = await fetch(API_BASE + "/api/work-gallery");
           if (!res.ok) throw new Error("Failed to fetch gallery");
           const items = await res.json();
           const grid = document.getElementById("portfolio-grid");
@@ -501,14 +533,13 @@
                 tagsDiv.appendChild(s);
               });
             overlay.appendChild(h4);
-            // stars
-            const stars = document.createElement('div');
-            stars.className = 'stars';
+            const stars = document.createElement("div");
+            stars.className = "stars";
             const rating = Math.max(0, Math.min(5, Number(it.rating || 0)));
             for (let si = 1; si <= 5; si++) {
-              const sp = document.createElement('span');
-              sp.className = 'star' + (si <= rating ? ' filled' : '');
-              sp.innerHTML = '&#9733;'; // star char
+              const sp = document.createElement("span");
+              sp.className = "star" + (si <= rating ? " filled" : "");
+              sp.innerHTML = "&#9733;";
               stars.appendChild(sp);
             }
             overlay.appendChild(stars);
@@ -525,19 +556,40 @@
       loadGallery();
     </script>
 
-    <!-- Review Modal -->
-    <div id="review-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); align-items:center; justify-content:center; z-index:9999;">
-      <div style="background:#fff; padding:20px; max-width:480px; width:95%; border-radius:6px;">
+    <div
+      id="review-modal"
+      style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      "
+    >
+      <div
+        style="
+          background: #fff;
+          padding: 20px;
+          max-width: 480px;
+          width: 95%;
+          border-radius: 6px;
+        "
+      >
         <h3>Leave a Review</h3>
         <p>Select rating:</p>
-        <div id="modal-stars" style="display:flex; gap:6px; font-size:22px; margin-bottom:8px;">
+        <div
+          id="modal-stars"
+          style="display: flex; gap: 6px; font-size: 22px; margin-bottom: 8px"
+        >
           <span data-value="1" class="star">★</span>
           <span data-value="2" class="star">★</span>
           <span data-value="3" class="star">★</span>
           <span data-value="4" class="star">★</span>
           <span data-value="5" class="star">★</span>
         </div>
-        <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display: flex; flex-direction: column; gap: 8px">
           <div class="form-field">
             <label class="form-label" for="rv-name">Name</label>
             <input id="rv-name" placeholder="Your name" />
@@ -550,7 +602,7 @@
             <label class="form-label" for="rv-message">Message</label>
             <textarea id="rv-message" placeholder="Message"></textarea>
           </div>
-          <div style="display:flex; gap:8px; justify-content:flex-end;">
+          <div style="display: flex; gap: 8px; justify-content: flex-end">
             <button id="rv-cancel" class="w-button">Cancel</button>
             <button id="rv-submit" class="form-submit-button">Submit</button>
           </div>
@@ -559,56 +611,74 @@
     </div>
 
     <script>
-      // review modal logic
-      (function(){
-        const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://localhost:9002' : '';
-        const modal = document.getElementById('review-modal');
-        const footerStars = document.getElementById('footer-review-stars');
-        const modalStars = document.getElementById('modal-stars');
+      (function () {
+        const API_BASE =
+          window.location.hostname === "localhost" ||
+          window.location.hostname === "127.0.0.1"
+            ? "http://localhost:9002"
+            : "";
+        const modal = document.getElementById("review-modal");
+        const footerStars = document.getElementById("footer-review-stars");
+        const modalStars = document.getElementById("modal-stars");
         let selectedRating = 4;
 
-        function setModalStars(r){
+        function setModalStars(r) {
           selectedRating = r;
-          Array.from(modalStars.children).forEach(s=>{
-            const v = Number(s.getAttribute('data-value'));
-            s.classList.toggle('filled', v <= r);
+          Array.from(modalStars.children).forEach((s) => {
+            const v = Number(s.getAttribute("data-value"));
+            s.classList.toggle("filled", v <= r);
           });
         }
 
-        footerStars?.addEventListener('click', ()=>{
-          modal.style.display = 'flex';
+        footerStars?.addEventListener("click", () => {
+          modal.style.display = "flex";
           setModalStars(4);
         });
 
-        modalStars?.addEventListener('click', (ev)=>{
+        modalStars?.addEventListener("click", (ev) => {
           const t = ev.target;
-          if(t && t.getAttribute && t.getAttribute('data-value')){
-            setModalStars(Number(t.getAttribute('data-value')));
+          if (t && t.getAttribute && t.getAttribute("data-value")) {
+            setModalStars(Number(t.getAttribute("data-value")));
           }
         });
 
-        document.getElementById('rv-cancel').addEventListener('click', ()=> modal.style.display='none');
-        document.getElementById('rv-submit').addEventListener('click', async ()=>{
-          const nameEl = document.getElementById('rv-name');
-          const emailEl = document.getElementById('rv-email');
-          const messageEl = document.getElementById('rv-message');
-          const name = nameEl ? (nameEl.value || '') : '';
-          const email = emailEl ? (emailEl.value || '') : '';
-          const message = messageEl ? (messageEl.value || '') : '';
-          try{
-            const res = await fetch(API_BASE + '/api/reviews', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, email, message, rating: selectedRating, createdAt: new Date() }) });
-            if(!res.ok) throw new Error('Failed');
-            modal.style.display='none';
-            alert('Thanks for your review!');
-          }catch(e){ console.error(e); alert('Failed to send review'); }
-        });
+        document
+          .getElementById("rv-cancel")
+          .addEventListener("click", () => (modal.style.display = "none"));
+        document
+          .getElementById("rv-submit")
+          .addEventListener("click", async () => {
+            const nameEl = document.getElementById("rv-name");
+            const emailEl = document.getElementById("rv-email");
+            const messageEl = document.getElementById("rv-message");
+            const name = nameEl ? nameEl.value || "" : "";
+            const email = emailEl ? emailEl.value || "" : "";
+            const message = messageEl ? messageEl.value || "" : "";
+            try {
+              const res = await fetch(API_BASE + "/api/reviews", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  name,
+                  email,
+                  message,
+                  rating: selectedRating,
+                  createdAt: new Date(),
+                }),
+              });
+              if (!res.ok) throw new Error("Failed");
+              modal.style.display = "none";
+              alert("Thanks for your review!");
+            } catch (e) {
+              console.error(e);
+              alert("Failed to send review");
+            }
+          });
       })();
     </script>
 
-    <!-- Animation Script -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Add animation classes to main sections
         const sections = document.querySelectorAll(
           "section:not(.nav-wrap), .portfolio-grid, .process-grid"
         );
@@ -616,7 +686,6 @@
           section.classList.add("section-animate");
         });
 
-        // Set up intersection observer for scroll animations
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
@@ -633,12 +702,10 @@
           }
         );
 
-        // Observe all animated sections
         sections.forEach((section) => {
           observer.observe(section);
         });
 
-        // Add staggered animations to grid items
         const gridItems = document.querySelectorAll(
           ".portfolio-item, .process-step"
         );
@@ -648,7 +715,6 @@
           observer.observe(item);
         });
 
-        // Add immediate animations to hero elements
         const heroElements = document.querySelectorAll(
           ".main-hero *:not(nav *)"
         );

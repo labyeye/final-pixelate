@@ -87,7 +87,8 @@
         padding: 2.5rem 2rem;
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
-        transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        transition: transform 0.4s ease, box-shadow 0.4s ease,
+          border-color 0.4s ease;
         display: flex;
         flex-direction: column;
         position: relative;
@@ -152,8 +153,8 @@
         padding: 15px 20px;
         justify-content: center;
         text-align: center;
-         color: white;
-         font-weight: 600;
+        color: white;
+        font-weight: 600;
       }
       .best-value-badge {
         position: absolute;
@@ -215,9 +216,15 @@
         animation: fadeInUp 0.8s ease-out forwards;
       }
 
-      .animate-delay-1 { animation-delay: 0.2s; }
-      .animate-delay-2 { animation-delay: 0.4s; }
-      .animate-delay-3 { animation-delay: 0.6s; }
+      .animate-delay-1 {
+        animation-delay: 0.2s;
+      }
+      .animate-delay-2 {
+        animation-delay: 0.4s;
+      }
+      .animate-delay-3 {
+        animation-delay: 0.6s;
+      }
 
       .hero-01-wrap .short-teg-wrap {
         animation: slideInFromTop 0.8s ease-out forwards;
@@ -245,12 +252,28 @@
         animation: fadeInUp 0.8s ease-out forwards;
       }
 
-      .pricing-grid .pricing-card:nth-child(1) { animation-delay: 0.2s; }
-      .pricing-grid .pricing-card:nth-child(2) { animation-delay: 0.4s; }
-      .pricing-grid .pricing-card:nth-child(3) { animation-delay: 0.6s; }
-      .pricing-grid .pricing-card:nth-child(4) { animation-delay: 0.8s; }
+      .pricing-grid .pricing-card:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .pricing-grid .pricing-card:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      .pricing-grid .pricing-card:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      .pricing-grid .pricing-card:nth-child(4) {
+        animation-delay: 0.8s;
+      }
       /* --- END: PRICING PAGE STYLES --- */
     </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T64KPYDX6P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-T64KPYDX6P');
+    </script>
   </head>
   <body>
     <div class="page-wrapper">
@@ -268,7 +291,7 @@
             >
               <div class="navbar-wrapper">
                 <div class="navbar-left">
-                  <a href="/" class="navbar-brand w-nav-brand"
+                  <a href="./index.html" class="navbar-brand w-nav-brand"
                     ><img
                       loading="lazy"
                       src="./assets/logo-2.png"
@@ -280,14 +303,12 @@
                   <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
                     <ul role="list" class="nav-menu w-list-unstyled">
                       <li class="nav-item">
-                        <a href="/" class="nav-link w-inline-block"
+                        <a href="./index.html" class="nav-link w-inline-block"
                           ><div class="nav-link-text">Home</div></a
                         >
                       </li>
                       <li class="nav-item">
-                        <a
-                          href="./about.html"
-                          class="nav-link w-inline-block"
+                        <a href="./about.html" class="nav-link w-inline-block"
                           ><div class="nav-link-text">About</div></a
                         >
                       </li>
@@ -305,12 +326,14 @@
                         >
                       </li>
                       <li class="nav-item">
-                        <a href="/app-dev.html" class="nav-link w-inline-block"
+                        <a href="./app-dev.html" class="nav-link w-inline-block"
                           ><div class="nav-link-text">App Development</div></a
                         >
                       </li>
                       <li class="nav-item">
-                        <a href="./video-ed.html" class="nav-link w-inline-block"
+                        <a
+                          href="./video-ed.html"
+                          class="nav-link w-inline-block"
                           ><div class="nav-link-text">Video Editing</div></a
                         >
                       </li>
@@ -393,13 +416,73 @@
                   <span class="price">₹18,000</span>
                 </div>
                 <ul class="features-list">
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Remote deployment with full setup guide</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Cloud integration for accessibility</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Lightweight and scalable solutions</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Quick turnaround time</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Cost-effective maintenance</span></li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Remote deployment with full setup guide</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Cloud integration for accessibility</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Lightweight and scalable solutions</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Quick turnaround time</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Cost-effective maintenance</span>
+                  </li>
                 </ul>
-                <a href="/contact.html" class="button-02 plan-button-02 w-inline-block" onclick="selectPlan('Online Software Development - ₹18,000')">Choose Plan</a>
+                <a
+                  href="./contact.html"
+                  class="button-02 plan-button-02 w-inline-block"
+                  onclick="selectPlan('Online Software Development - ₹18,000')"
+                  >Choose Plan</a
+                >
               </div>
               <div class="pricing-card">
                 <div class="pricing-card-header">
@@ -409,13 +492,73 @@
                   <span class="price">₹20,000</span>
                 </div>
                 <ul class="features-list">
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>On-site installation and configuration</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Personalized in-person training</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Works without internet dependency</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Enhanced security for local environments</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Direct face-to-face support</span></li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>On-site installation and configuration</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Personalized in-person training</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Works without internet dependency</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Enhanced security for local environments</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Direct face-to-face support</span>
+                  </li>
                 </ul>
-                 <a href="/contact.html" class="button-02 plan-button-02 w-inline-block" onclick="selectPlan('Offline Software Development - ₹20,000')">Choose Plan</a>
+                <a
+                  href="./contact.html"
+                  class="button-02 plan-button-02 w-inline-block"
+                  onclick="selectPlan('Offline Software Development - ₹20,000')"
+                  >Choose Plan</a
+                >
               </div>
               <div class="pricing-card">
                 <div class="best-value-badge">BEST VALUE</div>
@@ -426,13 +569,73 @@
                   <span class="price">₹25,000</span>
                 </div>
                 <ul class="features-list">
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Hybrid model for flexibility</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Both local and cloud-based operations</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Secure local backup with cloud sync</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Suitable for multi-branch operations</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Online & offline training included</span></li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Hybrid model for flexibility</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Both local and cloud-based operations</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Secure local backup with cloud sync</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Suitable for multi-branch operations</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Online & offline training included</span>
+                  </li>
                 </ul>
-                <a href="/contact.html" class="button-02 plan-button w-inline-block" onclick="selectPlan('Online + Offline Software Development - ₹25,000')">Choose Plan</a>
+                <a
+                  href="./contact.html"
+                  class="button-02 plan-button w-inline-block"
+                  onclick="selectPlan('Online + Offline Software Development - ₹25,000')"
+                  >Choose Plan</a
+                >
               </div>
             </div>
           </div>
@@ -450,13 +653,73 @@
                   <span class="price">₹8,000</span>
                 </div>
                 <ul class="features-list">
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Mobile-responsive design</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Lightweight and fast loading</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>SEO-optimized structure</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Secure with SSL setup</span></li>
-                   <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Custom branding with logo/colors</span></li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Mobile-responsive design</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Lightweight and fast loading</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>SEO-optimized structure</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Secure with SSL setup</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Custom branding with logo/colors</span>
+                  </li>
                 </ul>
-                <a href="/contact.html" class="button-02 plan-button-02 w-inline-block" onclick="selectPlan('Static Website Development - ₹8,000')">Choose Plan</a>
+                <a
+                  href="./contact.html"
+                  class="button-02 plan-button-02 w-inline-block"
+                  onclick="selectPlan('Static Website Development - ₹8,000')"
+                  >Choose Plan</a
+                >
               </div>
               <div class="pricing-card">
                 <div class="pricing-card-header">
@@ -466,13 +729,73 @@
                   <span class="price">₹10k-20k</span>
                 </div>
                 <ul class="features-list">
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Admin dashboard for content updates</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>CMS support (WordPress/Custom)</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Database integration</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Interactive elements for users</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Secure login functionality</span></li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Admin dashboard for content updates</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>CMS support (WordPress/Custom)</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Database integration</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Interactive elements for users</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Secure login functionality</span>
+                  </li>
                 </ul>
-                <a href="/contact.html" class="button-02 plan-button-02 w-inline-block" onclick="selectPlan('Dynamic Website Development - ₹10,000 to ₹20,000')">Choose Plan</a>
+                <a
+                  href="./contact.html"
+                  class="button-02 plan-button-02 w-inline-block"
+                  onclick="selectPlan('Dynamic Website Development - ₹10,000 to ₹20,000')"
+                  >Choose Plan</a
+                >
               </div>
               <div class="pricing-card">
                 <div class="pricing-card-header">
@@ -482,15 +805,75 @@
                   <span class="price">₹25k-35k</span>
                 </div>
                 <ul class="features-list">
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Product catalog, cart & checkout</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Multiple payment gateways</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Inventory management system</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Order tracking & discount system</span></li>
-                   <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Analytics and reporting tools</span></li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Product catalog, cart & checkout</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Multiple payment gateways</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Inventory management system</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Order tracking & discount system</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Analytics and reporting tools</span>
+                  </li>
                 </ul>
-                <a href="/contact.html" class="button-02 plan-button-02 w-inline-block" onclick="selectPlan('E-commerce Website Development - ₹25,000 to ₹35,000')">Choose Plan</a>
+                <a
+                  href="./contact.html"
+                  class="button-02 plan-button-02 w-inline-block"
+                  onclick="selectPlan('E-commerce Website Development - ₹25,000 to ₹35,000')"
+                  >Choose Plan</a
+                >
               </div>
-               <div class="pricing-card">
+              <div class="pricing-card">
                 <div class="best-value-badge">ECOSYSTEM</div>
                 <div class="pricing-card-header">
                   <h3>E-commerce + Mobile App</h3>
@@ -499,13 +882,73 @@
                   <span class="price">₹45,000</span>
                 </div>
                 <ul class="features-list">
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Website + Android/iOS app combo</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Sync between app and website</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Push notifications for customers</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Full-fledged admin control</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>App store & play store publishing support</span></li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Website + Android/iOS app combo</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Sync between app and website</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Push notifications for customers</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Full-fledged admin control</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>App store & play store publishing support</span>
+                  </li>
                 </ul>
-                <a href="/contact.html" class="button-02 plan-button w-inline-block" onclick="selectPlan('E-commerce + Mobile App Development - ₹45,000')">Choose Plan</a>
+                <a
+                  href="./contact.html"
+                  class="button-02 plan-button w-inline-block"
+                  onclick="selectPlan('E-commerce + Mobile App Development - ₹45,000')"
+                  >Choose Plan</a
+                >
               </div>
             </div>
           </div>
@@ -515,66 +958,266 @@
               Video Editing & Production
             </h2>
             <div class="pricing-grid">
-               <div class="pricing-card">
+              <div class="pricing-card">
                 <div class="pricing-card-header">
                   <h3>Reels (15-30 sec)</h3>
                 </div>
                 <div class="price-container">
-                  <span class="price">₹1,100</span><span class="price-unit">/ reel</span>
+                  <span class="price">₹1,100</span
+                  ><span class="price-unit">/ reel</span>
                 </div>
                 <ul class="features-list">
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Quick turnaround for social media</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Engaging transitions and effects</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Captions and branding included</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Monthly: ₹20,000 (25 reels)</span></li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Quick turnaround for social media</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Engaging transitions and effects</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Captions and branding included</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Monthly: ₹20,000 (25 reels)</span>
+                  </li>
                 </ul>
-                <a href="/contact.html" class="button-02 plan-button-02 w-inline-block" onclick="selectPlan('Reels (15-30 sec) Video Editing - ₹1,100 per reel')">Choose Plan</a>
+                <a
+                  href="./contact.html"
+                  class="button-02 plan-button-02 w-inline-block"
+                  onclick="selectPlan('Reels (15-30 sec) Video Editing - ₹1,100 per reel')"
+                  >Choose Plan</a
+                >
               </div>
               <div class="pricing-card">
-                 <div class="best-value-badge">POPULAR</div>
+                <div class="best-value-badge">POPULAR</div>
                 <div class="pricing-card-header">
                   <h3>Reels (30-60 sec)</h3>
                 </div>
                 <div class="price-container">
-                  <span class="price">₹1,800</span><span class="price-unit">/ reel</span>
+                  <span class="price">₹1,800</span
+                  ><span class="price-unit">/ reel</span>
                 </div>
                 <ul class="features-list">
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Longer storytelling format</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Enhanced visual effects</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Professional color grading</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Monthly: ₹25,000 (25 reels)</span></li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Longer storytelling format</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Enhanced visual effects</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Professional color grading</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Monthly: ₹25,000 (25 reels)</span>
+                  </li>
                 </ul>
-                <a href="/contact.html" class="button-02 plan-button w-inline-block" onclick="selectPlan('Reels (30-60 sec) Video Editing - ₹1,800 per reel')">Choose Plan</a>
+                <a
+                  href="./contact.html"
+                  class="button-02 plan-button w-inline-block"
+                  onclick="selectPlan('Reels (30-60 sec) Video Editing - ₹1,800 per reel')"
+                  >Choose Plan</a
+                >
               </div>
               <div class="pricing-card">
-                 <div class="pricing-card-header">
+                <div class="pricing-card-header">
                   <h3>Infographics & Montage</h3>
                 </div>
                 <div class="price-container">
-                  <span class="price">₹2,000</span><span class="price-unit">/ min</span>
+                  <span class="price">₹2,000</span
+                  ><span class="price-unit">/ min</span>
                 </div>
                 <ul class="features-list">
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Animated charts & custom graphics</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Highlight-based storytelling</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Voice-over & music sync</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>HD export for presentations & events</span></li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Animated charts & custom graphics</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Highlight-based storytelling</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Voice-over & music sync</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>HD export for presentations & events</span>
+                  </li>
                 </ul>
-                <a href="/contact.html" class="button-02 plan-button-02 w-inline-block" onclick="selectPlan('Infographics & Montage Video Editing - ₹2,000 per minute')">Choose Plan</a>
+                <a
+                  href="./contact.html"
+                  class="button-02 plan-button-02 w-inline-block"
+                  onclick="selectPlan('Infographics & Montage Video Editing - ₹2,000 per minute')"
+                  >Choose Plan</a
+                >
               </div>
-                <div class="pricing-card">
-                 <div class="pricing-card-header">
+              <div class="pricing-card">
+                <div class="pricing-card-header">
                   <h3>Event Video & Shoot</h3>
                 </div>
                 <div class="price-container">
-                  <span class="price">₹3,000+</span><span class="price-unit">/ hour+</span>
+                  <span class="price">₹3,000+</span
+                  ><span class="price-unit">/ hour+</span>
                 </div>
                 <ul class="features-list">
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>On-site shoot with crew (₹3,000/hr)</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Professional 4K cameras & lighting</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Cinematic editing (₹3,500/min)</span></li>
-                  <li><svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg><span>Multi-camera sync & sound mixing</span></li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>On-site shoot with crew (₹3,000/hr)</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Professional 4K cameras & lighting</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Cinematic editing (₹3,500/min)</span>
+                  </li>
+                  <li>
+                    <svg
+                      class="feature-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+                      ></path></svg
+                    ><span>Multi-camera sync & sound mixing</span>
+                  </li>
                 </ul>
-                <a href="/contact.html" class="button-02 plan-button w-inline-block" onclick="selectPlan('Event Video & Shoot - ₹3,000+ per hour')">Book Now</a>
+                <a
+                  href="./contact.html"
+                  class="button-02 plan-button w-inline-block"
+                  onclick="selectPlan('Event Video & Shoot - ₹3,000+ per hour')"
+                  >Book Now</a
+                >
               </div>
             </div>
           </div>
@@ -588,7 +1231,7 @@
               <div class="footer-top-left">
                 <div class="footer-logo-details">
                   <div class="footer-logo-wrap">
-                    <a href="/" class="footer-logo w-inline-block"
+                    <a href="./index.html" class="footer-logo w-inline-block"
                       ><img
                         src="assets/only-icon.png"
                         loading="lazy"
@@ -612,7 +1255,7 @@
                     <a href="#" class="footer-link w-inline-block">
                       <div class="footer-link-text">Careers</div>
                     </a>
-                    <a href="/contact.html" class="footer-link w-inline-block">
+                    <a href="./contact.html" class="footer-link w-inline-block">
                       <div class="footer-link-text">Build With Us</div>
                     </a>
                   </div>
@@ -691,9 +1334,9 @@
       type="text/javascript"
     ></script>
     <script>
-function selectPlan(planDetails) {
-  localStorage.setItem('selectedPlan', planDetails);
-}
-</script>
+      function selectPlan(planDetails) {
+        localStorage.setItem("selectedPlan", planDetails);
+      }
+    </script>
   </body>
 </html>

@@ -13,26 +13,26 @@
 
     <link href="video-ed-styles.css" rel="stylesheet" type="text/css" />
 
+    <link rel="canonical" href="https://pixelatenest.com/video-ed.html" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:url" content="https://pixelatenest.com/video-ed.html" />
+
     <style>
-      /* Portfolio grid: 1 column mobile, 2 tablet, 3 desktop */
       #portfolio-grid {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 16px;
       }
       @media (min-width: 640px) {
-        /* tablet */
         #portfolio-grid {
           grid-template-columns: repeat(2, 1fr);
         }
       }
       @media (min-width: 1024px) {
-        /* desktop */
         #portfolio-grid {
           grid-template-columns: repeat(3, 1fr);
         }
       }
-      /* ensure cards stretch nicely */
       .portfolio-card {
         display: block;
         height: 100%;
@@ -43,7 +43,6 @@
         object-fit: cover;
         display: block;
       }
-      /* Stars for rating */
       .stars {
         margin-top: 6px;
         display: flex;
@@ -90,13 +89,25 @@
       href="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/687bf25268ea6656fee08b5f_Trenox%20Webclip%20.svg"
       rel="apple-touch-icon"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Pixelate Nest",
+        "url": "https://pixelatenest.com",
+        "logo": "https://pixelatenest.com/assets/only-icon.png",
+        "sameAs": [
+          "https://www.instagram.com/",
+          "https://web.facebook.com/",
+          "https://www.linkedin.com/"
+        ]
+      }
+    </script>
   </head>
 
   <body>
     <div class="page-wrapper">
-      <div
-        class="main-hero opacity: 0; animation: fadeInUp 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;"
-      >
+      <div class="main-hero" style="opacity:0; animation: fadeInUp 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;">
         <section class="nav-wrap">
           <div class="nav-bar-wrap">
             <div
@@ -110,7 +121,7 @@
             >
               <div class="navbar-wrapper">
                 <div class="navbar-left">
-                  <a href="/" class="navbar-brand w-nav-brand">
+                  <a href="./index.html" class="navbar-brand w-nav-brand">
                     <img
                       loading="lazy"
                       src="./assets/logo-2.png"
@@ -123,7 +134,7 @@
                   <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
                     <ul role="list" class="nav-menu w-list-unstyled">
                       <li class="nav-item">
-                        <a href="/" class="nav-link w-inline-block"
+                        <a href="./index.html" class="nav-link w-inline-block"
                           ><div class="nav-link-text">Home</div></a
                         >
                       </li>
@@ -146,7 +157,7 @@
                         >
                       </li>
                       <li class="nav-item">
-                        <a href="/app-dev.html" class="nav-link w-inline-block"
+                        <a href="./app-dev.html" class="nav-link w-inline-block"
                           ><div class="nav-link-text">App Development</div></a
                         >
                       </li>
@@ -236,7 +247,7 @@
                   </p>
                 </div>
                 <div class="cta-v1-button-wrap">
-                  <a href="/contact.html" class="cta-button w-inline-block">
+                  <a href="./contact.html" class="cta-button w-inline-block">
                     <div class="button-02-cover _02">
                       <div class="button-02-text">
                         <div class="button-text-01 text-white">
@@ -316,7 +327,7 @@
                     <a href="#" class="footer-link w-inline-block"
                       ><div class="footer-link-text">Careers</div></a
                     >
-                    <a href="/contact.html" class="footer-link w-inline-block"
+                    <a href="./contact.html" class="footer-link w-inline-block"
                       ><div class="footer-link-text">Build With Us</div></a
                     >
                   </div>
@@ -410,7 +421,6 @@
       });
     </script>
     <script>
-      // Load gallery items from dashboard API and render those marked for video-editing
       async function loadVideoGallery() {
         try {
           const API_BASE =
@@ -488,7 +498,6 @@
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // --- Part 1: Your existing scroll animation logic ---
         const sections = document.querySelectorAll(".section-animate");
         const observer = new IntersectionObserver(
           (entries) => {
@@ -507,30 +516,30 @@
           observer.observe(section);
         });
 
-        // --- Part 2: NEW logic for the hero text animation ---
-        // We select the elements inside the hero section you want to animate
         const heroElements = document.querySelectorAll(".video-hero-wrap > *");
-
         heroElements.forEach((element, index) => {
-          // We set the initial state to invisible
           element.style.opacity = "0";
-          // We apply the animation with a slight delay for each element
-          element.style.animation = `fadeInUp 0.6s ease-out ${
-            0.2 + index * 0.2
-          }s forwards`;
+          element.style.animation = `fadeInUp 0.6s ease-out ${0.2 + index * 0.2}s forwards`;
         });
       });
     </script>
-    <!-- Review Modal -->
-    <div
-      id="review-modal"
-      style="
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.5);
-        align-items: center;
-        justify-content: center;
+    <link
+      href="/assets/PixelateNest_icons.ico"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/687bf25268ea6656fee08b5f_Trenox%20Webclip%20.svg"
+      rel="apple-touch-icon"
+    />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T64KPYDX6P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-T64KPYDX6P');
+    </script>
         z-index: 9999;
       "
     >
