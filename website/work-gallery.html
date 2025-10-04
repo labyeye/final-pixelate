@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Work Gallery | Pixelate Nest</title>
+    <link href="styles.css" rel="stylesheet" />
+    <style>
+      .grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap: 16px; }
+      .card { border: 1px solid #ddd; border-radius: 6px; padding: 8px; }
+      .thumb { width: 100%; height: 140px; object-fit: cover; display:block; }
+      .meta { padding-top: 8px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Work Gallery</h1>
+      <p>Showcasing projects from our team. Use the filters to view by category.</p>
+      <div>
+        <label>Filter: </label>
+        <select id="filter">
+          <option value="all">All</option>
+          <option value="web-development">Web Development</option>
+          <option value="software-development">Software Development</option>
+          <option value="app-development">App Development</option>
+          <option value="video-editing">Video Editing</option>
+        </select>
+      </div>
+    </header>
+    <main>
+      <div id="grid" class="grid"></div>
+    </main>
+
+    <script>
+      async function load(filter='all'){
+        try{
+          const res = await fetch('/api/work-gallery');
+          const items = await res.json();
+          const grid = document.getElementById('grid');
+          grid.innerHTML = '';
+          const filtered = items.filter(i=>filter==='all' ? true : (i.showOn === filter));
+          for(const it of filtered){
+            const div = document.createElement('div'); div.className='card';
+            const img = document.createElement('img'); img.className='thumb'; img.src = it.thumbnailBase64 || '/assets/placeholder.png';
+            const meta = document.createElement('div'); meta.className='meta';
+            const title = document.createElement('div'); title.innerText = it.title || 'Untitled';
+            const tech = document.createElement('div'); tech.innerText = it.tech || '';
+            const link = document.createElement('a'); link.href = it.link || '#'; link.innerText = 'View Project'; link.target='_blank';
+            meta.appendChild(title); meta.appendChild(tech); meta.appendChild(link);
+            div.appendChild(img); div.appendChild(meta);
+            grid.appendChild(div);
+          }
+        }catch(e){ console.error(e); }
+      }
+      document.getElementById('filter').addEventListener('change', (e)=> load(e.target.value));
+      load();
+    </script>
+  </body>
+ </html>
