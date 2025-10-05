@@ -479,9 +479,9 @@
           const API_BASE =
             window.location.hostname === "localhost" ||
             window.location.hostname === "127.0.0.1"
-              ? "https://pixelatenest-crm.vercel.app/"
+              ? "https://pixelatenest-crm.vercel.app"
               : "";
-          const res = await fetch("https://pixelatenest-crm.vercel.app//api/work-gallery");
+          const res = await fetch("https://pixelatenest-crm.vercel.app/api/work-gallery");
           if (!res.ok) throw new Error("Failed to fetch gallery");
           const items = await res.json();
           const grid = document.getElementById("portfolio-grid");
@@ -612,7 +612,7 @@
         const API_BASE =
           window.location.hostname === "localhost" ||
           window.location.hostname === "127.0.0.1"
-            ? "https://pixelatenest-crm.vercel.app/"
+            ? "https://pixelatenest-crm.vercel.app"
             : "";
         const modal = document.getElementById("review-modal");
         const footerStars = document.getElementById("footer-review-stars");
