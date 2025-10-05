@@ -412,10 +412,7 @@
       async function loadVideoGallery() {
         try {
           const API_BASE =
-            window.location.hostname === "localhost" ||
-            window.location.hostname === "127.0.0.1"
-              ? "https://pixelatenest-crm.vercel.app"
-              : "";
+            window.location.hostname === "https://pixelatenest-crm.vercel.app"
           const res = await fetch(API_BASE + "/api/work-gallery");
           if (!res.ok) throw new Error("Failed to fetch gallery");
           const items = await res.json();
