@@ -57,12 +57,16 @@ export interface Lead {
     name: string;
     project?: string;
     value?: number;
-    status?: 'NEW' | 'QUALIFIED' | 'PROPOSAL SENT';
+    status?: 'called' | 'not interested' | 'meeting booked' | 'interested' | 'call back later' | 'other';
+    phone?: string;
+    email?: string;
+    assignedTo?: string | any; // team member id
+    assignedToName?: string;
 }
 
 export const leads: Lead[] = [];
 
-export const leadStatuses: ('NEW' | 'QUALIFIED' | 'PROPOSAL SENT')[] = ['NEW', 'QUALIFIED', 'PROPOSAL SENT'];
+export const leadStatuses: ('called' | 'not interested' | 'meeting booked' | 'interested' | 'call back later' | 'other')[] = ['called', 'not interested', 'meeting booked', 'interested', 'call back later', 'other'];
 
 export async function getLeads() {
     const svc = await import('./services');

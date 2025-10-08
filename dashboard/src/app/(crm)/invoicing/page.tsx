@@ -7,6 +7,9 @@ import { useEffect, useState } from 'react';
 import { AddInvoiceDialog } from '@/components/invoices/add-invoice-dialog';
 import EditInvoiceDialog from '@/components/invoices/edit-invoice-dialog';
 import RecordPaymentDialog from '@/components/invoices/record-payment-dialog';
+import { InvoicePDF } from '@/components/invoices/invoice-pdf';
+import jsPDF from 'jspdf';
+import { renderToString } from 'react-dom/server';
 
 type Invoice = any;
 
@@ -15,6 +18,7 @@ export default function InvoicingPage() {
   const [clients, setClients] = useState<any[]>([]);
   const [services, setServices] = useState<any[]>([]);
   const [projects, setProjects] = useState<any[]>([]);
+  const [downloading, setDownloading] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     let mounted = true;
@@ -48,6 +52,27 @@ export default function InvoicingPage() {
       const list = await res.json();
       setInvoices(list as Invoice[]);
     } catch (err) { console.error(err); }
+  };
+
+  const downloadInvoice = async (invoice: any) => {
+    const id = String(invoice._id ?? invoice.id ?? Date.now());
+    try {
+      setDownloading(prev => ({ ...prev, [id]: true }));
+      const pdfContent = renderToString(<InvoicePDF invoice={invoice} />);
+      const doc = new jsPDF();
+      await doc.html(pdfContent, {
+        callback: function (doc) { doc.save(`Invoice-${id}.pdf`); },
+        x: 10, y: 10, width: 180, windowWidth: 800
+      });
+    } catch (e) {
+      console.error('Failed to generate PDF', e);
+    } finally {
+      setDownloading(prev => {
+        const next = { ...prev };
+        delete next[id];
+        return next;
+      });
+    }
   };
 
   return (
@@ -97,6 +122,9 @@ export default function InvoicingPage() {
                   <div className="flex items-center justify-end gap-2">
                     <EditInvoiceDialog invoice={invoice} clients={clients} services={services} projects={projects} onUpdated={refresh} />
                     <RecordPaymentDialog invoice={invoice} onRecorded={refresh} />
+                    <Button size="sm" onClick={() => downloadInvoice(invoice)} disabled={!!downloading[String(invoice._id ?? invoice.id ?? '')]}> 
+                      {downloading[String(invoice._id ?? invoice.id ?? '')] ? 'Downloading...' : 'Download'}
+                    </Button>
                     <Button size="sm" variant="destructive" onClick={async () => {
                       if (!confirm('Delete this invoice?')) return;
                       try {

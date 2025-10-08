@@ -88,9 +88,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const logout = () => {
+    // Clear in-memory state and any persisted auth/session data
     setUser(null);
-    sessionStorage.removeItem('userId');
-    router.push('/login');
+    try { sessionStorage.removeItem('userId'); } catch (e) {}
+    try { localStorage.removeItem('auth_token'); } catch (e) {}
+    // Redirect to the login page and refresh navigation state
+    try {
+      router.replace('/login');
+      // ensure any server-side props / caches are refreshed
+      // router.refresh is available in app-router
+      try { (router as any).refresh(); } catch (e) {}
+    } catch (e) {
+      try { router.push('/login'); } catch (er) {}
+    }
   };
   
   if (loading) {

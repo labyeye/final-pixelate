@@ -43,6 +43,13 @@ export function Sidebar() {
   }
   
   const isAdmin = user?.role === 'admin';
+  const isStaff = user?.role === 'staff';
+
+  // If staff, only show a small subset of pages
+  const staffAllowed = ['/leads', '/blogs', '/work-gallery'];
+  const itemsToShow = isStaff
+    ? navItems.filter(i => staffAllowed.includes(i.href))
+    : navItems.filter((i) => !(i.adminOnly && !isAdmin));
 
   return (
     <aside className="hidden md:flex md:w-60 lg:w-72 flex-col fixed inset-y-0 z-10 border-r-2 border-black bg-background">
@@ -53,22 +60,20 @@ export function Sidebar() {
         </Link>
       </div>
       <nav className="flex-1 p-6 space-y-2">
-        {navItems.map((item) => (
-          (item.adminOnly && !isAdmin) ? null : (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "flex items-center gap-4 rounded-none border-2 border-foreground p-3 text-base font-bold transition-colors",
-                pathname.startsWith(item.href)
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-background text-foreground hover:bg-foreground hover:text-background'
-              )}
-            >
-              {item.icon && <item.icon />}
-              {item.label}
-            </Link>
-          )
+        {itemsToShow.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={cn(
+              "flex items-center gap-4 rounded-none border-2 border-foreground p-3 text-base font-bold transition-colors",
+              pathname.startsWith(item.href)
+                ? 'bg-primary text-primary-foreground'
+                : 'bg-background text-foreground hover:bg-foreground hover:text-background'
+            )}
+          >
+            {item.icon && <item.icon />}
+            {item.label}
+          </Link>
         ))}
       </nav>
       <div className="p-6 border-t-2 border-black">

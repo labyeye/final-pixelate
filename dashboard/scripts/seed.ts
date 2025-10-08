@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import { MongoClient } from 'mongodb';
+import bcrypt from 'bcryptjs';
 
 async function seed() {
   const uri = process.env.MONGODB_URI || process.env.MONGO_URI;
@@ -31,9 +32,12 @@ async function seed() {
 
   const users = [
     { name: 'Admin User', email: 'admin@pixelate.test', role: 'admin', password: 'admin' },
-    { name: 'Staff User', email: 'staff@pixelate.test', role: 'staff', password: 'staff' }
+    { name: 'Staff User', email: 'staff@pixelate.test', role: 'staff', password: 'staff' },
+    { name: 'Alice Admin', email: 'alice.admin@pixelate.test', role: 'admin', password: 'alicepass' },
+    { name: 'Bob Staff', email: 'bob.staff@pixelate.test', role: 'staff', password: 'bobpass' }
   ];
-  await db.collection('users').insertMany(users.map(u => ({ ...u, createdAt: new Date() })));
+  // Hash passwords like the API does
+  await db.collection('users').insertMany(users.map(u => ({ ...u, password: bcrypt.hashSync(u.password, 10), createdAt: new Date() })));
 
   const services = [
     { name: 'Web Development' },
@@ -55,8 +59,8 @@ async function seed() {
   await db.collection('projects').insertMany(projects.map(p => ({ ...p, createdAt: new Date() })));
 
   const leads = [
-    { name: 'Lead One', project: 'Acme Website', value: 50000, status: 'NEW' },
-    { name: 'Lead Two', project: 'Beta Promo', value: 25000, status: 'QUALIFIED' }
+    { name: 'Lead One', project: 'Acme Website', value: 50000, status: 'called' },
+    { name: 'Lead Two', project: 'Beta Promo', value: 25000, status: 'interested' }
   ];
   await db.collection('leads').insertMany(leads.map(l => ({ ...l, createdAt: new Date() })));
 

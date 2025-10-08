@@ -14,6 +14,7 @@ export async function GET() {
 export async function POST(request: Request) {
 	try {
 		const body = await request.json();
+		// create in users collection with jobRole
 		const created = await svc.createTeamMember(body);
 		return NextResponse.json(created, { status: 201 });
 	} catch (e: any) {

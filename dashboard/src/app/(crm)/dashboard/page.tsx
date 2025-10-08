@@ -67,6 +67,8 @@ const projectChartConfig = {
 export default function DashboardPage() {
   const { user } = useAuth();
 
+  const isStaff = user?.role === 'staff';
+
   const [stats, setStats] = useState<any[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const [invoices, setInvoices] = useState<any[]>([]);
@@ -271,133 +273,163 @@ export default function DashboardPage() {
           <TabsTrigger value="overview" className="h-12 text-lg">
             Overview
           </TabsTrigger>
-          <TabsTrigger value="revenue" className="h-12 text-lg">
-            Revenue
-          </TabsTrigger>
+          {!isStaff && (
+            <TabsTrigger value="revenue" className="h-12 text-lg">
+              Revenue
+            </TabsTrigger>
+          )}
         </TabsList>
 
         <TabsContent value="overview" className="space-y-8 mt-8">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((stat) => (
-              <Card key={stat.name} className="border-2 border-black">
+          {isStaff ? (
+            <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
+              <Card className="border-2 border-black">
                 <CardHeader>
-                  <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">
-                    {stat.name.toUpperCase()}
+                  <CardTitle className="text-2xl font-black tracking-tighter">
+                    Leads Pipeline
                   </CardTitle>
+                  <CardDescription>Current status of all leads.</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-5xl font-black tracking-tighter">
-                    {stat.value}
-                  </p>
-                  <p
-                    className={cn(
-                      "text-sm font-bold",
-                      stat.changeType === "positive" && "text-success",
-                      stat.changeType === "negative" && "text-destructive"
-                    )}
-                  >
-                    {stat.change}
-                  </p>
+                <CardContent className="space-y-4">
+                  {Object.entries(leadsByStatus).map(([status, count]) => (
+                    <div
+                      key={status}
+                      className="flex justify-between items-center bg-muted p-3"
+                    >
+                      <span className="font-bold text-muted-foreground text-lg">
+                        {status}
+                      </span>
+                      <span className="font-black text-3xl">{Number(count)}</span>
+                    </div>
+                  ))}
                 </CardContent>
               </Card>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <Card className="lg:col-span-2 border-2 border-black">
-              <CardHeader>
-                <CardTitle className="text-2xl font-black tracking-tighter">
-                  Recent Invoices
-                </CardTitle>
-                <CardDescription>
-                  A quick look at the latest billing activity.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Invoice ID</TableHead>
-                      <TableHead>Client</TableHead>
-                      <TableHead>Project / Title</TableHead>
-                      <TableHead>Amount</TableHead>
-                      <TableHead className="text-right">Status</TableHead>
-                      <TableHead className="text-right">Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {invoices.slice(0, 4).map((invoice: any) => (
-                      <TableRow key={invoice.id}>
-                        <TableCell className="font-bold">
-                          {invoice.id}
-                        </TableCell>
-                        <TableCell>{invoice.client || invoice.clientName || '-'}</TableCell>
-                        <TableCell>{invoice.clientName || invoice.client || (clients.find((c:any) => String(c.id ?? c._id) === String(invoice.clientId))?.name) || '-'}</TableCell>
-                        <TableCell>{invoice.title || invoice.projectTitle || '-'}</TableCell>
-                        <TableCell>
-                          ₹{Number(invoice.amount || 0).toLocaleString()}
-                        </TableCell>
-                        <TableCell className="text-right font-bold">
-                          {invoice.status}
-                        </TableCell>
-                        <TableCell className="text-right">
-                          {invoice.status !== 'RECEIVED' ? (
-                            <button
-                              className="px-3 py-1 rounded bg-green-600 text-white text-sm font-bold"
-                              onClick={async () => {
-                                try {
-                                  // Optimistic update
-                                  setInvoices((prev) =>
-                                    prev.map((inv: any) =>
-                                      inv.id === invoice.id ? { ...inv, status: 'RECEIVED' } : inv
-                                    )
-                                  );
-
-                                  // Call API to update invoice status
-                                  await fetch(`/api/invoices/${invoice.id}`, {
-                                    method: 'PUT',
-                                    headers: { 'Content-Type': 'application/json' },
-                                    body: JSON.stringify({ status: 'RECEIVED' }),
-                                  });
-                                } catch (e) {
-                                  console.error('Failed to mark invoice received', e);
-                                }
-                              }}
-                            >
-                              Mark received
-                            </button>
-                          ) : (
-                            <span className="text-sm font-bold text-success">Received</span>
-                          )}
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
-            <Card className="border-2 border-black">
-              <CardHeader>
-                <CardTitle className="text-2xl font-black tracking-tighter">
-                  Leads Pipeline
-                </CardTitle>
-                <CardDescription>Current status of all leads.</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {Object.entries(leadsByStatus).map(([status, count]) => (
-                  <div
-                    key={status}
-                    className="flex justify-between items-center bg-muted p-3"
-                  >
-                    <span className="font-bold text-muted-foreground text-lg">
-                      {status}
-                    </span>
-                    <span className="font-black text-3xl">{Number(count)}</span>
-                  </div>
+            </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {stats.map((stat) => (
+                  <Card key={stat.name} className="border-2 border-black">
+                    <CardHeader>
+                      <CardTitle className="text-base font-bold text-muted-foreground tracking-widest">
+                        {stat.name.toUpperCase()}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-5xl font-black tracking-tighter">
+                        {stat.value}
+                      </p>
+                      <p
+                        className={cn(
+                          "text-sm font-bold",
+                          stat.changeType === "positive" && "text-success",
+                          stat.changeType === "negative" && "text-destructive"
+                        )}
+                      >
+                        {stat.change}
+                      </p>
+                    </CardContent>
+                  </Card>
                 ))}
-              </CardContent>
-            </Card>
-          </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <Card className="lg:col-span-2 border-2 border-black">
+                  <CardHeader>
+                    <CardTitle className="text-2xl font-black tracking-tighter">
+                      Recent Invoices
+                    </CardTitle>
+                    <CardDescription>
+                      A quick look at the latest billing activity.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Invoice ID</TableHead>
+                          <TableHead>Client</TableHead>
+                          <TableHead>Project / Title</TableHead>
+                          <TableHead>Amount</TableHead>
+                          <TableHead className="text-right">Status</TableHead>
+                          <TableHead className="text-right">Actions</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {invoices.slice(0, 4).map((invoice: any) => (
+                          <TableRow key={invoice.id}>
+                            <TableCell className="font-bold">
+                              {invoice.id}
+                            </TableCell>
+                            <TableCell>{invoice.client || invoice.clientName || '-'}</TableCell>
+                            <TableCell>{invoice.clientName || invoice.client || (clients.find((c:any) => String(c.id ?? c._id) === String(invoice.clientId))?.name) || '-'}</TableCell>
+                            <TableCell>{invoice.title || invoice.projectTitle || '-'}</TableCell>
+                            <TableCell>
+                              ₹{Number(invoice.amount || 0).toLocaleString()}
+                            </TableCell>
+                            <TableCell className="text-right font-bold">
+                              {invoice.status}
+                            </TableCell>
+                            <TableCell className="text-right">
+                              {invoice.status !== 'RECEIVED' ? (
+                                <button
+                                  className="px-3 py-1 rounded bg-green-600 text-white text-sm font-bold"
+                                  onClick={async () => {
+                                    try {
+                                      // Optimistic update
+                                      setInvoices((prev) =>
+                                        prev.map((inv: any) =>
+                                          inv.id === invoice.id ? { ...inv, status: 'RECEIVED' } : inv
+                                        )
+                                      );
+
+                                      // Call API to update invoice status
+                                      await fetch(`/api/invoices/${invoice.id}`, {
+                                        method: 'PUT',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify({ status: 'RECEIVED' }),
+                                      });
+                                    } catch (e) {
+                                      console.error('Failed to mark invoice received', e);
+                                    }
+                                  }}
+                                >
+                                  Mark received
+                                </button>
+                              ) : (
+                                <span className="text-sm font-bold text-success">Received</span>
+                              )}
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </CardContent>
+                </Card>
+                <Card className="border-2 border-black">
+                  <CardHeader>
+                    <CardTitle className="text-2xl font-black tracking-tighter">
+                      Leads Pipeline
+                    </CardTitle>
+                    <CardDescription>Current status of all leads.</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    {Object.entries(leadsByStatus).map(([status, count]) => (
+                      <div
+                        key={status}
+                        className="flex justify-between items-center bg-muted p-3"
+                      >
+                        <span className="font-bold text-muted-foreground text-lg">
+                          {status}
+                        </span>
+                        <span className="font-black text-3xl">{Number(count)}</span>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              </div>
+            </>
+          )}
         </TabsContent>
 
         <TabsContent value="revenue" className="space-y-8 mt-8">

@@ -1,4 +1,5 @@
 import { getDb } from '@/lib/mongodb';
+import { hashPassword } from '@/lib/auth';
 import { ObjectId } from 'mongodb';
 
 // Basic CRUD wrappers for main collections. These return plain JS objects.
@@ -34,14 +35,25 @@ export async function createService(service: any) {
 
 // Team Members
 export async function getTeamMembers() {
-  const col = await getCollection('teamMembers');
-  return col.find().toArray();
+  // Team members are now stored in the 'users' collection with a jobRole field
+  const col = await getCollection('users');
+  return col.find({ jobRole: { $exists: true } }).toArray();
 }
 
 export async function createTeamMember(member: any) {
-  const col = await getCollection('teamMembers');
-  const res = await col.insertOne({ ...member, createdAt: new Date() });
-  return { ...member, _id: res.insertedId };
+  // Create a user document representing a team member. Map member.role -> jobRole and default auth role to staff
+  const usersCol = await getCollection('users');
+  const toInsert = { ...member, jobRole: member.role ?? member.jobRole, role: member.authRole ?? 'staff', createdAt: new Date() };
+  // remove old role field used for job title
+  delete toInsert.role; // we'll set auth role below
+  const authRole = member.loginRole ?? member.authRole ?? 'staff';
+  toInsert.role = authRole;
+  // Hash password if provided (defensive)
+  if (member.password) {
+    toInsert.password = hashPassword(member.password);
+  }
+  const res = await usersCol.insertOne(toInsert);
+  return { ...toInsert, _id: res.insertedId };
 }
 
 // Users
@@ -52,8 +64,12 @@ export async function getUsers() {
 
 export async function createUser(user: any) {
   const col = await getCollection('users');
-  const res = await col.insertOne({ ...user, createdAt: new Date() });
-  return { ...user, _id: res.insertedId };
+  const toInsert = { ...user };
+  if (toInsert.password) {
+    toInsert.password = hashPassword(toInsert.password);
+  }
+  const res = await col.insertOne({ ...toInsert, createdAt: new Date() });
+  return { ...toInsert, _id: res.insertedId };
 }
 
 // Generic helpers for single item by id
@@ -64,6 +80,10 @@ export async function findById(collectionName: string, id: string) {
 
 export async function updateById(collectionName: string, id: string, update: any) {
   const col = await getCollection(collectionName);
+  // If password is being updated, hash it before saving
+  if (update && update.password) {
+    update.password = hashPassword(update.password);
+  }
   await col.updateOne({ _id: new ObjectId(id) }, { $set: update });
   return findById(collectionName, id);
 }

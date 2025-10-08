@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import type { TeamMember } from "@/lib/data";
 import { AddMemberDialog } from "@/components/developers-and-editors/add-member-dialog";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
+import EditUserDialog from '../../../components/developers-and-editors/edit-user-dialog';
 import { MoreVertical } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,23 +14,55 @@ import { Button } from "@/components/ui/button";
 
 export default function DevelopersAndEditorsPage() {
   const { user } = useAuth();
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+  const [users, setUsers] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isUserDialogOpen, setIsUserDialogOpen] = useState(false);
+  const [editingMember, setEditingMember] = useState<any | null>(null);
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
 
   useEffect(() => {
     let mounted = true;
+    setLoading(true);
+    setError(null);
     (async () => {
       try {
-        const res = await fetch('/api/team-members');
-        if (!res.ok) throw new Error(`Failed to fetch team members: ${res.status}`);
+        const res = await fetch('/api/users');
+        if (!res.ok) {
+          const txt = await res.text();
+          throw new Error(`Failed to fetch users: ${res.status} ${txt}`);
+        }
         const items = await res.json();
-        if (mounted) setTeamMembers(items as TeamMember[]);
-      } catch (err) {
-        console.error('Failed to load team members', err);
+        if (mounted) setUsers(items as any[]);
+      } catch (e: any) {
+        console.error('Failed to load users', e);
+        if (mounted) setError(e?.message || String(e));
+      } finally {
+        if (mounted) setLoading(false);
       }
     })();
     return () => { mounted = false; };
   }, []);
+
+  const refreshAll = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const res = await fetch('/api/users');
+      if (!res.ok) {
+        const txt = await res.text();
+        throw new Error(`users fetch failed: ${res.status} ${txt}`);
+      }
+      const items = await res.json();
+      setUsers(items as any[]);
+    } catch (e: any) {
+      console.error('Refresh failed', e);
+      setError(e?.message || String(e));
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (user?.role !== 'admin') {
     return (
@@ -46,43 +79,47 @@ export default function DevelopersAndEditorsPage() {
     );
   }
   
-  const handleAddMember = async (newMemberData: Omit<TeamMember, 'id'>) => {
+  const handleAddMember = async (newMemberData: any) => {
     try {
-      const res = await fetch('/api/team-members', { method: 'POST', body: JSON.stringify(newMemberData), headers: { 'Content-Type': 'application/json' } });
-      if (!res.ok) throw new Error(`Failed to create team member: ${res.status}`);
-      const addedMember = await res.json();
-      setTeamMembers(prev => [...prev, addedMember as TeamMember]);
+      // create as a user with jobRole and auth role
+      const payload = { ...newMemberData, jobRole: newMemberData.role, role: newMemberData.loginRole ?? 'staff' };
+      const res = await fetch('/api/users', { method: 'POST', body: JSON.stringify(payload), headers: { 'Content-Type': 'application/json' } });
+      if (!res.ok) throw new Error(`Failed to create member: ${res.status}`);
+      const added = await res.json();
+      setUsers(prev => [...prev, added]);
+      return added;
     } catch (err) {
       console.error('Failed to add member', err);
       throw err;
     }
   };
 
-  const handleDeleteMember = async (member: TeamMember) => {
+  // removed team-members specific delete/save; use user endpoints below
+
+  const handleDeleteUser = async (u: any) => {
     try {
-      const id = member._id ?? member.id;
-      const res = await fetch(`/api/team-members/${id}`, { method: 'DELETE' });
-      if (!res.ok) throw new Error(`Failed to delete member: ${res.status}`);
-      setTeamMembers(prev => prev.filter(m => (m._id ?? m.id) !== id));
+      const id = u._id ?? u.id;
+      const res = await fetch(`/api/users/${id}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error(`Failed to delete user: ${res.status}`);
+      setUsers(prev => prev.filter(x => (x._id ?? x.id) !== id));
     } catch (err) {
-      console.error('Failed to delete member', err);
+      console.error('Failed to delete user', err);
     }
   };
 
-  const handleSaveMember = async (id: string | number, update: Partial<TeamMember>) => {
+  const handleSaveUser = async (id: string, update: Partial<Record<string, any>>) => {
     try {
-      const res = await fetch(`/api/team-members/${id}`, { method: 'PUT', body: JSON.stringify(update), headers: { 'Content-Type': 'application/json' } });
-      if (!res.ok) throw new Error(`Failed to update member: ${res.status}`);
+      const res = await fetch(`/api/users/${id}`, { method: 'PUT', body: JSON.stringify(update), headers: { 'Content-Type': 'application/json' } });
+      if (!res.ok) throw new Error(`Failed to update user: ${res.status}`);
       const updated = await res.json();
-      setTeamMembers(prev => prev.map(m => ((m._id ?? m.id) === id ? updated : m)));
+      setUsers(prev => prev.map(u => ((u._id ?? u.id) === id ? updated : u)));
+      setIsEditDialogOpen(false);
     } catch (err) {
-      console.error('Failed to save member', err);
+      console.error('Failed to save user', err);
       throw err;
     }
   };
 
-  const [editingMember, setEditingMember] = useState<TeamMember | null>(null);
-  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
 
   return (
     <div className="space-y-8 font-headline">
@@ -91,46 +128,64 @@ export default function DevelopersAndEditorsPage() {
           <h1 className="text-5xl font-black tracking-tighter">DEVELOPERS & EDITORS</h1>
           <p className="text-muted-foreground text-lg">Manage your creative and technical team members.</p>
         </div>
-    <AddMemberDialog 
-      isOpen={isDialogOpen}
-      setIsOpen={setIsDialogOpen}
-      onAddMember={handleAddMember}
-    >
-      <Button size="lg" className="text-lg">Add New</Button>
-    </AddMemberDialog>
+    <div className="flex items-center gap-2">
+      <Button onClick={refreshAll} variant="ghost">Refresh</Button>
+      <AddMemberDialog 
+        isOpen={isDialogOpen}
+        setIsOpen={setIsDialogOpen}
+        onAddMember={handleAddMember}
+        onCreated={(created) => setUsers(prev => [...prev, created])}
+      >
+        <Button size="lg" className="text-lg">Add New</Button>
+      </AddMemberDialog>
+    </div>
 
     <AddMemberDialog
       isOpen={isEditDialogOpen}
       setIsOpen={setIsEditDialogOpen}
       initialValues={editingMember ?? undefined}
-      onSave={handleSaveMember as any}
+      onSave={async (id, update) => {
+        // when editing a member, update via users endpoint
+        await handleSaveUser(id as string, update as any);
+      }}
     >
       <div />
     </AddMemberDialog>
       </header>
 
       <div className="border-2 border-black">
+          <div className="p-4 flex items-center justify-between">
+            <div>
+              {loading ? <div className="text-sm text-muted-foreground">Loading…</div> : null}
+              {error ? <div className="text-sm text-destructive">{error}</div> : null}
+            </div>
+          </div>
         <Table>
           <TableHeader>
             <TableRow className="border-b-2 border-black">
               <TableHead className="text-base font-bold">Name</TableHead>
-              <TableHead className="text-base font-bold">Contact</TableHead>
+              <TableHead className="text-base font-bold">Email</TableHead>
+              <TableHead className="text-base font-bold">Auth Role</TableHead>
+              <TableHead className="text-base font-bold">Job Role</TableHead>
+              <TableHead className="text-base font-bold">Phone</TableHead>
               <TableHead className="text-base font-bold">Address</TableHead>
-              <TableHead className="text-right text-base font-bold">Role</TableHead>
+              <TableHead className="text-base font-bold">Created</TableHead>
+              <TableHead className="text-right text-base font-bold">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {teamMembers.map((member) => (
+            {users.map((member) => (
               <TableRow key={member._id ?? member.id} className="border-b-2 border-black last:border-b-0">
                 <TableCell className="font-bold text-base py-4">{member.name}</TableCell>
-                <TableCell className="text-base py-4">
-                  <div>{member.email}</div>
-                  <div>{member.phone}</div>
-                </TableCell>
+                <TableCell className="text-base py-4">{member.email}</TableCell>
+                <TableCell className="text-base py-4">{member.role ?? 'staff'}</TableCell>
+                <TableCell className="text-base py-4">{member.jobRole ?? ''}</TableCell>
+                <TableCell className="text-base py-4">{member.phone}</TableCell>
                 <TableCell className="text-base py-4">{member.address}</TableCell>
+                <TableCell className="text-base py-4">{member.createdAt ? new Date(member.createdAt).toLocaleString() : ''}</TableCell>
                 <TableCell className="text-right py-4 text-base font-bold uppercase">
                   <div className="flex items-center justify-end gap-2">
-                    <div>{member.role}</div>
+                    <div>{member.role ?? 'staff'}</div>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <Button variant="ghost" size="icon" className="h-8 w-8">
@@ -139,7 +194,7 @@ export default function DevelopersAndEditorsPage() {
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuItem onClick={() => { setEditingMember(member); setIsEditDialogOpen(true); }}>Edit</DropdownMenuItem>
-                        <DropdownMenuItem onClick={() => handleDeleteMember(member)} className="text-destructive">Delete</DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleDeleteUser(member)} className="text-destructive">Delete</DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </div>
@@ -149,6 +204,19 @@ export default function DevelopersAndEditorsPage() {
           </TableBody>
         </Table>
       </div>
+      
+      {/* single combined users/team-members table shown above; edit dialog uses editingMember/isEditDialogOpen */}
+      {editingMember && (
+        <EditUserDialog
+          isOpen={isEditDialogOpen}
+          setIsOpen={setIsEditDialogOpen}
+          initialValues={editingMember}
+          onSave={async (update) => {
+            const id = editingMember._id ?? editingMember.id;
+            await handleSaveUser(id, update as any);
+          }}
+        />
+      )}
     </div>
   );
 }

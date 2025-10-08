@@ -61,7 +61,6 @@ export function MobileHeader() {
   const handleLogout = () => {
     logout();
     setIsOpen(false);
-    router.push('/login');
   }
 
     return (

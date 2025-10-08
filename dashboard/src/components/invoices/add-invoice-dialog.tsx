@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
-import { Client, Service } from '@/lib/data';
+import type { Client, Service } from '@/lib/data';
 import { InvoicePDF } from './invoice-pdf';
 import jsPDF from 'jspdf';
 import { renderToString } from 'react-dom/server';
