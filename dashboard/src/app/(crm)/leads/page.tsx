@@ -13,13 +13,15 @@ export default function LeadsPage() {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [team, setTeam] = useState<any[]>([]);
   const [file, setFile] = useState<File | null>(null);
+  const [isImporting, setIsImporting] = useState(false);
+  const [importProgress, setImportProgress] = useState({ current: 0, total: 0 });
 
   useEffect(() => {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch('/api/leads');
-        const items = await res.json();
+        // include auth header for GET so server can return role-filtered leads
+        const items = await fetchLeadsWithAuth();
         if (mounted) setLeads(items as Lead[]);
         // load team members for name matching
         const t = await fetch('/api/team-members');
@@ -31,6 +33,25 @@ export default function LeadsPage() {
     })();
     return () => { mounted = false; };
   }, []);
+
+  // Helper to fetch leads securely and return an array. Handles 401 and non-array responses.
+  async function fetchLeadsWithAuth(): Promise<Lead[]> {
+    try {
+      const token = localStorage.getItem('auth_token') || ''
+      const res = await fetch('/api/leads', { headers: token ? { Authorization: 'Bearer ' + token } : {} });
+      if (!res.ok) {
+        console.warn('fetchLeadsWithAuth: server returned', res.status);
+        // return empty array on auth failure or other errors to avoid UI crashes
+        return [];
+      }
+      const data = await res.json();
+      if (!Array.isArray(data)) return [];
+      return data as Lead[];
+    } catch (e) {
+      console.error('fetchLeadsWithAuth error', e);
+      return [];
+    }
+  }
 
   // parse uploaded XLSX/CSV and map into lead objects
   async function handleImport() {
@@ -82,43 +103,91 @@ export default function LeadsPage() {
       return {
         name: r['Name'] || r['Full Name'] || r.name || '',
         phone: r['Phone'] || r.Phone || r.phone || '',
+        category: r['Category'] || r.Category || r.category || '',
         email: r['Email'] || r.email || '',
         assignedTo: matched ? matched._id || matched.id : null,
         assignedToName: matched ? matched.name : staffName || null,
-        status: leadStatuses[0],
+        // default imported status should be 'not called'
+        status: 'not called',
         project: r['Project'] || r.project || '',
         value: r['Value'] || r.value || 0,
         createdAt: new Date().toISOString(),
       };
     });
 
-    // POST bulk to server
+    // Attempt batch upload so we can show progress. We send in small batches to
+    // update progress reliably and avoid long blocking requests.
+    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:9002' : '';
+    const token = localStorage.getItem('auth_token') || ''
+    const batchSize = 10;
+    setIsImporting(true);
+    setImportProgress({ current: 0, total: parsed.length });
     try {
-      const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:9002' : '';
-      const token = localStorage.getItem('auth_token') || ''
-      const res = await fetch(API_BASE + '/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: 'Bearer ' + token } : {}) },
-        body: JSON.stringify(parsed),
-      });
+      // Try to POST in batches to the same endpoint which accepts array bodies
+      for (let i = 0; i < parsed.length; i += batchSize) {
+        const batch = parsed.slice(i, i + batchSize);
+        const res = await fetch(API_BASE + '/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: 'Bearer ' + token } : {}) },
+          body: JSON.stringify(batch),
+        });
+        if (!res.ok) {
+          // Stop and throw so we fallback to local behavior
+          throw new Error('Server returned ' + res.status);
+        }
+        // update progress
+        setImportProgress(p => ({ current: Math.min(parsed.length, p.current + batch.length), total: parsed.length }));
+      }
+    // refresh list
+    try { const list = await fetchLeadsWithAuth(); setLeads(list || []); } catch (er) {}
+      alert('Imported and saved to DB')
+    } catch (e) {
+      console.error('Batch upload failed, falling back to local append', e);
+      // fallback: append locally and persist via localStorage for now
+      const existingRaw = localStorage.getItem('leads_local') || '[]';
+      const existing = JSON.parse(existingRaw);
+      const combined = [...parsed, ...existing];
+      localStorage.setItem('leads_local', JSON.stringify(combined));
+      setLeads(combined as Lead[]);
+      alert('Imported locally (server unreachable).')
+      setImportProgress({ current: parsed.length, total: parsed.length });
+    } finally {
+      setIsImporting(false);
+    }
+  }
+
+  // Delete all leads: try server endpoint DELETE /api/leads, fallback to deleting per id.
+  async function deleteAllLeads() {
+    if (!confirm('Delete ALL leads? This cannot be undone.')) return;
+    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:9002' : '';
+    const token = localStorage.getItem('auth_token') || ''
+    try {
+      // Attempt bulk delete endpoint first (may not exist)
+      const res = await fetch(API_BASE + '/api/leads', { method: 'DELETE', headers: token ? { Authorization: 'Bearer ' + token } : {} });
       if (res.ok) {
-        // refresh list
-        const list = await (await fetch('/api/leads')).json();
-        setLeads(list || []);
-        alert('Imported and saved to DB')
+        setLeads([]);
+        localStorage.removeItem('leads_local');
+        alert('All leads deleted (server)');
         return;
       }
     } catch (e) {
-      console.error('Bulk upload failed, falling back to local append', e);
+      console.warn('Bulk delete not available or failed, falling back', e);
     }
-
-    // fallback: append locally and persist via localStorage for now
-    const existingRaw = localStorage.getItem('leads_local') || '[]';
-    const existing = JSON.parse(existingRaw);
-    const combined = [...parsed, ...existing];
-    localStorage.setItem('leads_local', JSON.stringify(combined));
-    setLeads(combined as Lead[]);
-    alert('Imported locally (server unreachable).')
+    try {
+      // Fallback: fetch list and delete one-by-one
+  const list = await fetchLeadsWithAuth();
+  for (const l of list) {
+        try {
+          await fetch('/api/leads/' + String(l._id || l.id), { method: 'DELETE', headers: token ? { Authorization: 'Bearer ' + token } : {} });
+        } catch (er) { /* continue deleting others */ }
+      }
+      setLeads([]);
+      localStorage.removeItem('leads_local');
+      alert('All leads deleted (per-item)')
+    } catch (e) {
+      console.error('Failed to delete leads', e);
+      alert('Failed to delete all leads')
+    }
   }
 
   async function deleteLead(leadId: string | number | undefined) {
@@ -126,42 +195,59 @@ export default function LeadsPage() {
     const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:9002' : '';
     try {
       const token = localStorage.getItem('auth_token') || ''
-      const res = await fetch(API_BASE + '/api/leads/' + String(leadId), { method: 'DELETE', headers: token ? { Authorization: 'Bearer ' + token } : {} });
-      if (res.ok) {
-        setLeads(leads.filter(l => String(l._id || l.id) !== String(leadId)));
-        alert('Deleted from DB')
-        return;
+      let decoded: any = null
+      try {
+        if (token) decoded = JSON.parse(atob(token.split('.')[1]));
+      } catch (e) { decoded = null }
+      // if user is admin, attempt permanent delete
+      if (decoded && decoded.role === 'admin') {
+        const res = await fetch(API_BASE + '/api/leads/' + String(leadId), { method: 'DELETE', headers: token ? { Authorization: 'Bearer ' + token } : {} });
+        if (res.ok) {
+          setLeads(leads.filter(l => String(l._id || l.id) !== String(leadId)));
+          alert('Deleted from DB')
+          return;
+        }
       }
+      // non-admins: mark as not deletable with a reason
+      const note = prompt('You are not allowed to permanently delete leads. Enter a short note to mark this lead as not deletable:') || '';
+      await fetch(API_BASE + '/api/leads/' + String(leadId), {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: 'Bearer ' + token } : {}) },
+        body: JSON.stringify({ doNotDelete: true, reason: note }),
+      });
+      setLeads(leads.map(l => (String(l._id || l.id) === String(leadId) ? { ...l, doNotDelete: true, reason: note } : l)));
+      alert('Marked as not deletable');
     } catch (e) {
       console.error('Delete failed', e);
+      // fallback local-only deletion
+      setLeads(leads.filter(l => String(l._id || l.id) !== String(leadId)));
+      alert('Deleted locally (server may be unreachable)')
     }
-    // fallback local-only deletion
-    setLeads(leads.filter(l => String(l._id || l.id) !== String(leadId)));
-    alert('Deleted locally (server may be unreachable)')
   }
 
   async function updateLeadStatus(leadId: string | number | undefined, newStatus: (typeof leadStatuses)[number]) {
     if (!leadId) return;
+    // prompt user for an optional reason when changing status
+    const reason = prompt('Optional: enter a reason for this status change') || '';
     // optimistic UI update
-    setLeads(l => l.map(x => (String(x._id || x.id) === String(leadId) ? { ...x, status: newStatus } : x)));
+    setLeads(l => l.map(x => (String(x._id || x.id) === String(leadId) ? { ...x, status: newStatus, statusReason: reason } : x)));
     const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:9002' : '';
     const token = localStorage.getItem('auth_token') || ''
     try {
       const res = await fetch(API_BASE + '/api/leads/' + String(leadId), {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: 'Bearer ' + token } : {}) },
-        body: JSON.stringify({ status: newStatus }),
+        body: JSON.stringify({ status: newStatus, statusReason: reason }),
       });
       if (!res.ok) {
-        // revert UI on failure
-        const list = await (await fetch('/api/leads')).json();
-        setLeads(list || []);
+        // revert UI on failure - reload leads with auth header
+        try { const list = await fetchLeadsWithAuth(); setLeads(list || []); } catch (er) {}
         alert('Failed to update status on server')
       }
     } catch (e) {
       console.error('Status update failed', e);
       // on network error, revert to server state
-      try { const list = await (await fetch('/api/leads')).json(); setLeads(list || []); } catch (er) {}
+      try { const token = localStorage.getItem('auth_token') || ''; const list = await (await fetch('/api/leads', { headers: token ? { Authorization: 'Bearer ' + token } : {} })).json(); setLeads(list || []); } catch (er) {}
       alert('Network error while updating status')
     }
   }
@@ -182,10 +268,12 @@ export default function LeadsPage() {
         <TableHeader>
           <TableRow>
             <TableHead>Name</TableHead>
+            <TableHead>Category</TableHead>
             <TableHead>Phone</TableHead>
             <TableHead>Email</TableHead>
             <TableHead>Assigned</TableHead>
             <TableHead>Status</TableHead>
+            <TableHead>Status Reason</TableHead>
             <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -193,6 +281,7 @@ export default function LeadsPage() {
           {leads.map(lead => (
             <TableRow key={String(lead._id || lead.id)}>
               <TableCell>{lead.name}</TableCell>
+              <TableCell>{(lead as any).category || '-'}</TableCell>
               <TableCell>{lead.phone}</TableCell>
               <TableCell>{lead.email}</TableCell>
               <TableCell>{lead.assignedToName || lead.assignedTo || '-'}</TableCell>
@@ -203,7 +292,9 @@ export default function LeadsPage() {
                   ))}
                 </select>
               </TableCell>
+              <TableCell>{(lead as any).statusReason || '-'}</TableCell>
               <TableCell>
+                {lead.doNotDelete ? <div className="text-sm text-muted-foreground">Not deletable</div> : null}
                 <Button variant="destructive" size="sm" onClick={() => deleteLead(lead._id || lead.id)}><Trash /></Button>
               </TableCell>
             </TableRow>

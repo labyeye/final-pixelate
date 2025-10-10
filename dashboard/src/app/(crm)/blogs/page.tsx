@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import { useAuth } from '@/hooks/use-auth'
 import { Button } from '@/components/ui/button'
 
 type BlogPost = {
@@ -21,13 +22,29 @@ export default function BlogsAdminPage() {
   const [content, setContent] = useState<string>('')
   const [imagePreview, setImagePreview] = useState<string>('')
   const [importText, setImportText] = useState<string>('')
+  const [serverPosts, setServerPosts] = useState<BlogPost[]>([]);
 
   useEffect(()=>{
     const raw = localStorage.getItem('pn_posts')
     if(raw){
       try { setPosts(JSON.parse(raw)) } catch(e){}
     }
+    // fetch server posts
+    (async () => {
+      try {
+        const res = await fetch('/api/blogs');
+        if (res.ok) {
+          const data = await res.json();
+          setServerPosts(Array.isArray(data) ? data : []);
+        }
+      } catch (e) {
+        // ignore
+      }
+    })();
   },[])
+
+  const { user } = useAuth();
+  const isAdmin = user?.role === 'admin';
 
   function persist(p: BlogPost[]) {
     localStorage.setItem('pn_posts', JSON.stringify(p))
@@ -219,22 +236,58 @@ export default function BlogsAdminPage() {
 
       <div className="mt-8">
         <h3 className="font-bold mb-2">Existing Posts</h3>
-        <div className="space-y-2">
-          {posts.map((p: BlogPost) => (
-            <div key={p.id} className="p-3 bg-background rounded-md flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <img src={p.image || '/favicon.ico'} alt="" className="w-16 h-12 object-cover" />
-                <div>
-                  <div className="font-bold">{p.title}</div>
-                  <div className="text-sm text-muted">{p.category} · {new Date(p.createdAt).toLocaleString()}</div>
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <Button onClick={() => { navigator.clipboard?.writeText(JSON.stringify(p)); alert('Copied post JSON to clipboard') }}>Copy JSON</Button>
-                <Button onClick={() => removePost(p.id)}>Delete</Button>
-              </div>
+        <div className="space-y-6">
+          <div>
+            <h4 className="font-bold mb-2">Server posts</h4>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left">
+                <thead>
+                  <tr>
+                    <th className="px-2 py-1">Title</th>
+                    <th className="px-2 py-1">Category</th>
+                    <th className="px-2 py-1">Created</th>
+                    <th className="px-2 py-1">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {serverPosts.map((sp) => (
+                    <tr key={(sp as any)._id || sp.id} className="border-t">
+                      <td className="px-2 py-2">{sp.title}</td>
+                      <td className="px-2 py-2">{sp.category || '-'}</td>
+                      <td className="px-2 py-2">{sp.createdAt ? new Date(sp.createdAt).toLocaleString() : '-'}</td>
+                      <td className="px-2 py-2">
+                        <div className="flex gap-2">
+                          <Button onClick={() => { navigator.clipboard?.writeText(JSON.stringify(sp)); alert('Copied post JSON to clipboard') }}>Copy JSON</Button>
+                          {isAdmin ? <Button onClick={() => { if(confirm('Delete server post?')) fetch('/api/blogs/' + ((sp as any)._id || sp.id), { method: 'DELETE' }).then(r => r.ok && setServerPosts(s => s.filter(x => ((x as any)._id || x.id) !== ((sp as any)._id || sp.id)))) }}>Delete</Button> : null}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-          ))}
+          </div>
+
+          <div>
+            <h4 className="font-bold mb-2">Local posts</h4>
+            <div className="space-y-2">
+              {posts.map((p: BlogPost) => (
+                <div key={p.id} className="p-3 bg-background rounded-md flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <img src={p.image || '/favicon.ico'} alt="" className="w-16 h-12 object-cover" />
+                    <div>
+                      <div className="font-bold">{p.title}</div>
+                      <div className="text-sm text-muted">{p.category} · {new Date(p.createdAt).toLocaleString()}</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button onClick={() => { navigator.clipboard?.writeText(JSON.stringify(p)); alert('Copied post JSON to clipboard') }}>Copy JSON</Button>
+                    {isAdmin ? <Button onClick={() => removePost(p.id)}>Delete</Button> : null}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 

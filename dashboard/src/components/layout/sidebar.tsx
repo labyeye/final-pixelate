@@ -45,8 +45,8 @@ export function Sidebar() {
   const isAdmin = user?.role === 'admin';
   const isStaff = user?.role === 'staff';
 
-  // If staff, only show a small subset of pages
-  const staffAllowed = ['/leads', '/blogs', '/work-gallery'];
+  // If staff, only show a small subset of pages (include dashboard)
+  const staffAllowed = ['/dashboard', '/leads', '/blogs', '/work-gallery'];
   const itemsToShow = isStaff
     ? navItems.filter(i => staffAllowed.includes(i.href))
     : navItems.filter((i) => !(i.adminOnly && !isAdmin));

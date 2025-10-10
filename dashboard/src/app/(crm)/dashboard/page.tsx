@@ -67,7 +67,7 @@ const projectChartConfig = {
 export default function DashboardPage() {
   const { user } = useAuth();
 
-  const isStaff = user?.role === 'staff';
+  const isStaff = user?.role === "staff";
 
   const [stats, setStats] = useState<any[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
@@ -82,11 +82,14 @@ export default function DashboardPage() {
 
     async function load() {
       try {
+        const token = localStorage.getItem("auth_token") || "";
         const [projectsRes, invoicesRes, leadsRes, quotationsRes, servicesRes] =
           await Promise.all([
             fetch("/api/projects"),
             fetch("/api/invoices"),
-            fetch("/api/leads"),
+            fetch("/api/leads", {
+              headers: token ? { Authorization: "Bearer " + token } : {},
+            }),
             fetch("/api/quotations"),
             fetch("/api/services"),
           ]);
@@ -106,13 +109,14 @@ export default function DashboardPage() {
         if (!mounted) return;
         setProjects(projectsData || []);
         setInvoices(invoicesData || []);
-        setLeads(leadsData || []);
+        // ensure leads is an array even if server returned an error object (401 etc)
+        setLeads(Array.isArray(leadsData) ? leadsData : []);
         setQuotations(quotationsData || []);
         setServices(servicesData || []);
 
         // Derived metrics
         const clientsList = await (await fetch("/api/clients")).json();
-  setClients(clientsList || []);
+        setClients(clientsList || []);
         const clientsCount = (clientsList || []).length || 0;
         const projectsCount = (projectsData || []).length || 0;
         const totalRevenue = (invoicesData || []).reduce(
@@ -259,6 +263,103 @@ export default function DashboardPage() {
     .filter((p) => p.status === "COMPLETED")
     .map((p) => ({ title: p.title, amount: Number(p.amount || 0) }));
 
+  // Compute earnings for the logged-in staff user by summing payouts in project.assignees
+  const myEarnings = (() => {
+    if (!user || user.role !== "staff") return 0;
+    const uid = user.id ?? (user._id as any);
+    let sum = 0;
+    for (const p of projects || []) {
+      const ass = p.assignees || [];
+      for (const aRaw of ass) {
+        const a: any = aRaw as any;
+        // assignee id may be stored in multiple shapes; tolerate common keys
+        const aid =
+          a && (a.id ?? a._id ?? a.teamMemberId ?? a.memberId ?? a.userId ?? a);
+        if (!aid) continue;
+        if (String(aid) === String(uid)) {
+          sum += Number(a.payout || 0);
+        }
+      }
+    }
+    return sum;
+  })();
+
+  // Breakdown of earnings per project for the logged-in staff user
+  const myEarningsByProject = (() => {
+    if (!user || user.role !== "staff")
+      return [] as {
+        projectId: any;
+        title: string;
+        payout: number;
+        clientName?: string;
+      }[];
+    const uid = user.id ?? (user._id as any);
+    const map = new Map<
+      string,
+      { projectId: any; title: string; payout: number; clientName?: string }
+    >();
+    for (const p of projects || []) {
+      const ass = p.assignees || [];
+      for (const aRaw of ass) {
+        const a: any = aRaw as any;
+        const aid =
+          a && (a.id ?? a._id ?? a.teamMemberId ?? a.memberId ?? a.userId ?? a);
+        if (!aid) continue;
+        if (String(aid) === String(uid)) {
+          const pid = String(p._id ?? p.id ?? p.title);
+          // resolve client name with multiple fallbacks:
+          // 1) explicit p.clientName, 2) p.client as object with .name,
+          // 3) p.client or p.clientId treated as id to lookup in clients list,
+          // 4) p.client as string fallback, otherwise '-'
+          let clientName = (p as any).clientName || "-";
+          try {
+            if (!clientName || clientName === "-") {
+              // case: project.client is an object like { id, name }
+              if (
+                p.client &&
+                typeof p.client === "object" &&
+                ((p.client as any).name || (p.client as any).title)
+              ) {
+                clientName =
+                  (p.client as any).name ||
+                  (p.client as any).title ||
+                  String(p.client);
+              } else if (p.client) {
+                // p.client may be an id or a string name
+                const found = (clients || []).find(
+                  (c: any) => String(c.id ?? c._id) === String(p.client)
+                );
+                clientName = found?.name || String(p.client);
+              } else if ((p as any).clientId) {
+                const found = (clients || []).find(
+                  (c: any) =>
+                    String(c.id ?? c._id) === String((p as any).clientId)
+                );
+                clientName = found?.name || String((p as any).clientId);
+              } else {
+                clientName = "-";
+              }
+            }
+          } catch (e) {
+            clientName = "-";
+          }
+
+          const prev = map.get(pid) || {
+            projectId: p._id ?? p.id ?? pid,
+            title: p.title || "Untitled",
+            payout: 0,
+            clientName,
+          };
+          prev.payout += Number(a.payout || 0);
+          // keep the clientName (if already present, preserve)
+          if (!prev.clientName) prev.clientName = clientName;
+          map.set(pid, prev);
+        }
+      }
+    }
+    return Array.from(map.values()).sort((a, b) => b.payout - a.payout);
+  })();
+
   return (
     <div className="space-y-8 font-headline">
       <header>
@@ -288,7 +389,9 @@ export default function DashboardPage() {
                   <CardTitle className="text-2xl font-black tracking-tighter">
                     Leads Pipeline
                   </CardTitle>
-                  <CardDescription>Current status of all leads.</CardDescription>
+                  <CardDescription>
+                    Current status of all leads.
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {Object.entries(leadsByStatus).map(([status, count]) => (
@@ -299,9 +402,66 @@ export default function DashboardPage() {
                       <span className="font-bold text-muted-foreground text-lg">
                         {status}
                       </span>
-                      <span className="font-black text-3xl">{Number(count)}</span>
+                      <span className="font-black text-3xl">
+                        {Number(count)}
+                      </span>
                     </div>
                   ))}
+                </CardContent>
+              </Card>
+              <Card className="border-2 border-black">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-black tracking-tighter">
+                    My Earnings
+                  </CardTitle>
+                  <CardDescription>
+                    Total payouts assigned to you across projects
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-5xl font-black">
+                    ₹{Number(myEarnings || 0).toLocaleString()}
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="border-2 border-black">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-black tracking-tighter">
+                    Earnings by Project
+                  </CardTitle>
+                  <CardDescription>
+                    Which projects contributed to your earnings
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  {myEarningsByProject.length === 0 ? (
+                    <div className="text-sm text-muted-foreground">
+                      No assigned payouts found
+                    </div>
+                  ) : (
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Project</TableHead>
+                          <TableHead>Client</TableHead>
+                          <TableHead className="text-right">Payout</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {myEarningsByProject.map((p) => (
+                          <TableRow key={String(p.projectId)}>
+                            <TableCell className="font-bold">
+                              {p.title}
+                            </TableCell>
+                            <TableCell>{p.clientName || "-"}</TableCell>
+                            <TableCell className="text-right font-black">
+                              ₹{Number(p.payout || 0).toLocaleString()}
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  )}
                 </CardContent>
               </Card>
             </div>
@@ -361,9 +521,22 @@ export default function DashboardPage() {
                             <TableCell className="font-bold">
                               {invoice.id}
                             </TableCell>
-                            <TableCell>{invoice.client || invoice.clientName || '-'}</TableCell>
-                            <TableCell>{invoice.clientName || invoice.client || (clients.find((c:any) => String(c.id ?? c._id) === String(invoice.clientId))?.name) || '-'}</TableCell>
-                            <TableCell>{invoice.title || invoice.projectTitle || '-'}</TableCell>
+                            <TableCell>
+                              {invoice.client || invoice.clientName || "-"}
+                            </TableCell>
+                            <TableCell>
+                              {invoice.clientName ||
+                                invoice.client ||
+                                clients.find(
+                                  (c: any) =>
+                                    String(c.id ?? c._id) ===
+                                    String(invoice.clientId)
+                                )?.name ||
+                                "-"}
+                            </TableCell>
+                            <TableCell>
+                              {invoice.title || invoice.projectTitle || "-"}
+                            </TableCell>
                             <TableCell>
                               ₹{Number(invoice.amount || 0).toLocaleString()}
                             </TableCell>
@@ -371,7 +544,7 @@ export default function DashboardPage() {
                               {invoice.status}
                             </TableCell>
                             <TableCell className="text-right">
-                              {invoice.status !== 'RECEIVED' ? (
+                              {invoice.status !== "RECEIVED" ? (
                                 <button
                                   className="px-3 py-1 rounded bg-green-600 text-white text-sm font-bold"
                                   onClick={async () => {
@@ -379,25 +552,39 @@ export default function DashboardPage() {
                                       // Optimistic update
                                       setInvoices((prev) =>
                                         prev.map((inv: any) =>
-                                          inv.id === invoice.id ? { ...inv, status: 'RECEIVED' } : inv
+                                          inv.id === invoice.id
+                                            ? { ...inv, status: "RECEIVED" }
+                                            : inv
                                         )
                                       );
 
                                       // Call API to update invoice status
-                                      await fetch(`/api/invoices/${invoice.id}`, {
-                                        method: 'PUT',
-                                        headers: { 'Content-Type': 'application/json' },
-                                        body: JSON.stringify({ status: 'RECEIVED' }),
-                                      });
+                                      await fetch(
+                                        `/api/invoices/${invoice.id}`,
+                                        {
+                                          method: "PUT",
+                                          headers: {
+                                            "Content-Type": "application/json",
+                                          },
+                                          body: JSON.stringify({
+                                            status: "RECEIVED",
+                                          }),
+                                        }
+                                      );
                                     } catch (e) {
-                                      console.error('Failed to mark invoice received', e);
+                                      console.error(
+                                        "Failed to mark invoice received",
+                                        e
+                                      );
                                     }
                                   }}
                                 >
                                   Mark received
                                 </button>
                               ) : (
-                                <span className="text-sm font-bold text-success">Received</span>
+                                <span className="text-sm font-bold text-success">
+                                  Received
+                                </span>
                               )}
                             </TableCell>
                           </TableRow>
@@ -411,7 +598,9 @@ export default function DashboardPage() {
                     <CardTitle className="text-2xl font-black tracking-tighter">
                       Leads Pipeline
                     </CardTitle>
-                    <CardDescription>Current status of all leads.</CardDescription>
+                    <CardDescription>
+                      Current status of all leads.
+                    </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {Object.entries(leadsByStatus).map(([status, count]) => (
@@ -422,7 +611,9 @@ export default function DashboardPage() {
                         <span className="font-bold text-muted-foreground text-lg">
                           {status}
                         </span>
-                        <span className="font-black text-3xl">{Number(count)}</span>
+                        <span className="font-black text-3xl">
+                          {Number(count)}
+                        </span>
                       </div>
                     ))}
                   </CardContent>

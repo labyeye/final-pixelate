@@ -27,6 +27,8 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     const token = auth.replace('Bearer ', '')
     if (!verifyToken(token)) return new Response(JSON.stringify({ error: 'unauthorized' }), { status: 401, headers: CORS })
     const body = await request.json()
+    // allow status updates/reasons/doNotDelete updates by any authenticated user
+    // server trusts request body; front-end should ensure staff cannot set doNotDelete=true without confirmation
     const updated = await svc.updateById('leads', params.id, body)
     return NextResponse.json(updated, { headers: CORS })
   } catch (e: any) {
@@ -38,7 +40,10 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
   try {
     const auth = request.headers.get('authorization') || ''
     const token = auth.replace('Bearer ', '')
-    if (!verifyToken(token)) return new Response(JSON.stringify({ error: 'unauthorized' }), { status: 401, headers: CORS })
+    const decoded: any = verifyToken(token)
+    if (!decoded) return new Response(JSON.stringify({ error: 'unauthorized' }), { status: 401, headers: CORS })
+    // only admin may permanently delete leads
+    if (decoded.role !== 'admin') return new Response(JSON.stringify({ error: 'forbidden' }), { status: 403, headers: CORS })
     const ok = await svc.deleteById('leads', params.id)
     return NextResponse.json({ deleted: ok }, { headers: CORS })
   } catch (e: any) {

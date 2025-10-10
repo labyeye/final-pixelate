@@ -12,10 +12,23 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS })
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
+    // Expect an Authorization header with a Bearer token. Admins see all leads.
+    // Staff role users will only receive leads where assignedTo === their id.
+    const auth = request.headers.get('authorization') || ''
+    const token = auth.replace('Bearer ', '')
+    const decoded: any = token ? verifyToken(token) : null
+    if (!decoded) return new Response(JSON.stringify({ error: 'unauthorized' }), { status: 401, headers: CORS })
+
     const col = await svc.getCollection('leads')
-    const items = await col.find().sort({ createdAt: -1 }).toArray()
+    let items: any[]
+    if (decoded.role === 'admin') {
+      items = await col.find().sort({ createdAt: -1 }).toArray()
+    } else {
+      // for staff, return only leads assigned to this user (_id stored as string in assignedTo)
+      items = await col.find({ assignedTo: decoded.id }).sort({ createdAt: -1 }).toArray()
+    }
     return NextResponse.json(items, { headers: CORS })
   } catch (e: any) {
     return NextResponse.json({ error: e.message || String(e) }, { status: 500, headers: CORS })

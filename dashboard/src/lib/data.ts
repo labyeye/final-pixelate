@@ -57,7 +57,14 @@ export interface Lead {
     name: string;
     project?: string;
     value?: number;
-    status?: 'called' | 'not interested' | 'meeting booked' | 'interested' | 'call back later' | 'other';
+    category?: string;
+    // when staff/admin marks a lead as non-deletable
+    doNotDelete?: boolean;
+    // optional free-form reason/note about the lead
+    reason?: string;
+    status?: 'not called' | 'called' | 'not interested' | 'meeting booked' | 'interested' | 'call back later' | 'other';
+    // reason for the current status (saved when status changes)
+    statusReason?: string;
     phone?: string;
     email?: string;
     assignedTo?: string | any; // team member id
@@ -66,7 +73,7 @@ export interface Lead {
 
 export const leads: Lead[] = [];
 
-export const leadStatuses: ('called' | 'not interested' | 'meeting booked' | 'interested' | 'call back later' | 'other')[] = ['called', 'not interested', 'meeting booked', 'interested', 'call back later', 'other'];
+export const leadStatuses: ('not called' | 'called' | 'not interested' | 'meeting booked' | 'interested' | 'call back later' | 'other')[] = ['not called', 'called', 'not interested', 'meeting booked', 'interested', 'call back later', 'other'];
 
 export async function getLeads() {
     const svc = await import('./services');

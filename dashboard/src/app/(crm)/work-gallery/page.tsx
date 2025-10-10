@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useAuth } from '@/hooks/use-auth'
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,6 +24,8 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function WorkGalleryPage() {
+  const { user } = useAuth();
+  const isAdmin = user?.role === 'admin';
   const [items, setItems] = useState<any[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const form = useForm<FormValues>({ resolver: zodResolver(formSchema), defaultValues: { title: "", link: "", tech: "", rating: 0, showOn: "none" } });
@@ -204,7 +207,7 @@ export default function WorkGalleryPage() {
                   <div className="flex gap-2">
                     <Button size="sm" onClick={() => window.open(it.link || '#', '_blank')}>Open</Button>
                     <Button size="sm" onClick={() => startEdit(it)}>Edit</Button>
-                    <Button size="sm" variant="destructive" onClick={() => deleteItem(String(it._id ?? it.id))}>Delete</Button>
+                    {isAdmin ? <Button size="sm" variant="destructive" onClick={() => deleteItem(String(it._id ?? it.id))}>Delete</Button> : null}
                   </div>
                 </TableCell>
               </TableRow>
