@@ -29,25 +29,32 @@ import { Separator } from "../ui/separator";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 
 
+const serviceItemSchema = z.object({
+  id: z.string().min(1),
+  name: z.string().min(1),
+  startDate: z.date().optional(),
+  endDate: z.date().optional(),
+  amount: z.coerce.number().min(0),
+  deliverables: z.string().optional(),
+});
+
 const formSchema = z.object({
-  // IDs come from the database as `_id` (ObjectId). We normalize to strings on the client,
-  // so validate clientId and service ids as non-empty strings.
   clientId: z.string({ required_error: "Please select a client." }).min(1, "Please select a client."),
-  services: z.array(z.object({ id: z.string(), name: z.string() })).min(1, "At least one service is required."),
-  amount: z.coerce.number().positive("Amount must be positive."),
+  services: z.array(serviceItemSchema).min(1, "At least one service is required."),
+  amount: z.coerce.number().min(0).default(0),
   discount: z.coerce.number().min(0, "Discount cannot be negative.").default(0),
-  deliveryDate: z.date({ required_error: "A delivery date is required."}),
+  deliveryDate: z.date().optional(),
 });
 
 type AddQuotationDialogProps = {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
-  // The client sends clientId and service ids as strings (normalized from `_id`).
-  onAddQuotation: (newQuote: Omit<Quotation, 'id' | 'status' | 'authorId' | 'clientName'> & { clientId: string; services: { id: string; name: string }[] }) => void;
+  onAddQuotation: (newQuote: any) => void;
+  initialValues?: any;
   children: React.ReactNode;
 };
 
-export function AddQuotationDialog({ isOpen, setIsOpen, onAddQuotation, children }: AddQuotationDialogProps) {
+export function AddQuotationDialog({ isOpen, setIsOpen, onAddQuotation, children, initialValues }: AddQuotationDialogProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -56,9 +63,33 @@ export function AddQuotationDialog({ isOpen, setIsOpen, onAddQuotation, children
       discount: 0,
     },
   });
+  
+  // If initialValues are provided (editing), populate the form when dialog opens
+  React.useEffect(() => {
+    if (isOpen && initialValues) {
+      // Normalize date fields for the form if they are strings
+      const norm = { ...initialValues };
+      if (norm.deliveryDate) norm.deliveryDate = norm.deliveryDate ? new Date(norm.deliveryDate) : undefined;
+      if (Array.isArray(norm.services)) {
+        norm.services = norm.services.map((s: any) => ({
+          ...s,
+          startDate: s.startDate ? new Date(s.startDate) : undefined,
+          endDate: s.endDate ? new Date(s.endDate) : undefined,
+        }));
+      }
+      form.reset(norm);
+      return;
+    }
+    if (!isOpen) {
+      form.reset({ services: [], amount: 0, discount: 0 });
+    }
+  }, [isOpen, initialValues]);
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    onAddQuotation(values);
+    // compute subtotal from service amounts if not provided
+    const subtotal = (values.services || []).reduce((s, it) => s + Number(it.amount || 0), 0);
+    const payload = { ...values, amount: subtotal };
+    onAddQuotation(payload);
     form.reset();
     setIsOpen(false);
   }
@@ -137,53 +168,94 @@ export function AddQuotationDialog({ isOpen, setIsOpen, onAddQuotation, children
                     
                     <Separator className="border-t-2 border-black" />
 
-                    <FormField control={form.control} name="services" render={({ field }) => (
-                        <FormItem className="flex flex-col">
-                            <FormLabel>Services</FormLabel>
-                            <Popover>
-                                <PopoverTrigger asChild>
-                                <FormControl>
-                                    <Button variant="outline" role="combobox" className={cn("w-full justify-between h-auto", !field.value.length && "text-muted-foreground")}>
-                                        <div className="flex flex-wrap gap-1">
-                                            {field.value.length > 0 ? field.value.map(s => <div key={String(s.id)} className="bg-muted text-muted-foreground text-xs font-bold p-1">{s.name}</div>) : "Select services"}
-                                        </div>
-                                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                    </Button>
-                                </FormControl>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
-                                    <Command>
-                                        <CommandInput placeholder="Search services..." />
-                                        <CommandEmpty>No service found.</CommandEmpty>
-                                        <CommandGroup>
-                    {allServices.map((service) => (
-                      <CommandItem
-                        value={service.name}
-                        key={String(service.id)}
-                        // Prevent the popover/command from closing on mouse down so multiple
-                        // services can be toggled without the command losing focus.
-                        onMouseDown={(e) => e.preventDefault()}
-                        onSelect={(val: string) => {
-                          const currentServices = field.value || [];
-                          const isSelected = currentServices.some(s => String(s.id) === String(service.id));
-                          if (isSelected) {
-                            field.onChange(currentServices.filter(s => String(s.id) !== String(service.id)));
-                          } else {
-                            field.onChange([...currentServices, { ...service, id: String(service.id) }]);
-                          }
-                        }}
-                      >
-                        <Check className={cn("mr-2 h-4 w-4", field.value.some(s => String(s.id) === String(service.id)) ? "opacity-100" : "opacity-0")} />
-                        {service.name}
-                      </CommandItem>
-                    ))}
-                                        </CommandGroup>
-                                    </Command>
-                                </PopoverContent>
-                            </Popover>
-                            <FormMessage />
-                        </FormItem>
-                    )} />
+          {/* Services: allow adding multiple service entries with details */}
+          <FormField control={form.control} name="services" render={({ field }) => (
+            <FormItem className="flex flex-col">
+              <FormLabel>Services</FormLabel>
+              <div className="space-y-3">
+                {(field.value || []).map((svcItem: any, idx: number) => (
+                  <div key={idx} className="p-3 border rounded">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                      <div>
+                        <FormLabel>Service</FormLabel>
+                        <Select onValueChange={(v) => {
+                          const found = allServices.find(s => String(s.id) === String(v));
+                          const next = [...field.value];
+                          next[idx] = { ...next[idx], id: String(v), name: found?.name || v };
+                          field.onChange(next);
+                        }} value={String(svcItem.id || '')}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select service" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {(allServices ?? []).map(s => (
+                              <SelectItem key={String(s.id)} value={String(s.id)}>{s.name}</SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div>
+                        <FormLabel>Amount (₹)</FormLabel>
+                        <FormControl>
+                          <Input type="number" value={svcItem.amount || ''} onChange={(e) => {
+                            const next = [...field.value];
+                            next[idx] = { ...next[idx], amount: Number(e.target.value || 0) };
+                            field.onChange(next);
+                          }} />
+                        </FormControl>
+                      </div>
+                      <div>
+                        <FormLabel>Start Date</FormLabel>
+                        <FormControl>
+                          <Input type="date" value={svcItem.startDate ? (new Date(svcItem.startDate)).toISOString().slice(0,10) : ''} onChange={(e) => {
+                            const next = [...field.value];
+                            next[idx] = { ...next[idx], startDate: e.target.value ? new Date(e.target.value) : undefined };
+                            field.onChange(next);
+                          }} />
+                        </FormControl>
+                      </div>
+                      <div>
+                        <FormLabel>End Date</FormLabel>
+                        <FormControl>
+                          <Input type="date" value={svcItem.endDate ? (new Date(svcItem.endDate)).toISOString().slice(0,10) : ''} onChange={(e) => {
+                            const next = [...field.value];
+                            next[idx] = { ...next[idx], endDate: e.target.value ? new Date(e.target.value) : undefined };
+                            field.onChange(next);
+                          }} />
+                        </FormControl>
+                      </div>
+                      <div className="md:col-span-2">
+                        <FormLabel>Deliverables</FormLabel>
+                        <FormControl>
+                          <Input value={svcItem.deliverables || ''} onChange={(e) => {
+                            const next = [...field.value];
+                            next[idx] = { ...next[idx], deliverables: e.target.value };
+                            field.onChange(next);
+                          }} />
+                        </FormControl>
+                      </div>
+                    </div>
+                    <div className="mt-2 flex justify-end">
+                      <Button variant="destructive" onClick={() => {
+                        const next = (field.value || []).filter((_: any, i: number) => i !== idx);
+                        field.onChange(next);
+                      }}>Remove</Button>
+                    </div>
+                  </div>
+                ))}
+
+                <div>
+                  <Button onClick={() => {
+                    const next = [...(field.value || []), { id: '', name: '', amount: 0 }];
+                    field.onChange(next);
+                  }}>Add service</Button>
+                </div>
+              </div>
+              <FormMessage />
+            </FormItem>
+          )} />
 
                     <Separator className="border-t-2 border-black" />
 

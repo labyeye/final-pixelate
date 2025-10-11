@@ -114,8 +114,24 @@ export async function getQuotations() {
 
 export async function createQuotation(q: any) {
   const col = await getCollection('quotations');
-  const res = await col.insertOne({ ...q, createdAt: new Date() });
-  return { ...q, _id: res.insertedId };
+  // generate human-friendly id like pn-00001
+  try {
+    const last = await col.find({}).sort({ createdAt: -1 }).limit(1).toArray();
+    let lastNum = 0;
+    if (last && last.length) {
+      const lastId = last[0].id || last[0]._id || '';
+      const match = String(lastId).match(/pn-(\d+)/i);
+      if (match) lastNum = parseInt(match[1], 10);
+    }
+    const nextNum = lastNum + 1;
+    const padded = String(nextNum).padStart(5, '0');
+    const id = `PN-${padded}`;
+    const res = await col.insertOne({ ...q, id, createdAt: new Date() });
+    return { ...q, id, _id: res.insertedId };
+  } catch (e) {
+    const res = await col.insertOne({ ...q, createdAt: new Date() });
+    return { ...q, _id: res.insertedId };
+  }
 }
 
 export default {
