@@ -109,6 +109,9 @@ export function QuotationPDF({
               Kalahanu Enterprises Private Limited
             </div>
             <div style={{ fontSize: 12, color: "#666", marginTop: 2 }}>
+              GST - 10AADCK1491R2ZB
+            </div>
+            <div style={{ fontSize: 12, color: "#666", marginTop: 2 }}>
               Kala Bhawan, Akharaghat Road, Muzaffarpur, Bihar
             </div>
           </div>
