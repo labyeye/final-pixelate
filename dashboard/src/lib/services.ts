@@ -80,6 +80,11 @@ export async function findById(collectionName: string, id: string) {
   if (hex24) {
     return col.findOne({ _id: new ObjectId(id) });
   }
+  // For invoices, allow lookup by invoiceNo (INV-00001) as well as by `id` field
+  if (collectionName === 'invoices') {
+    const byInvoiceNo = await col.findOne({ invoiceNo: id });
+    if (byInvoiceNo) return byInvoiceNo;
+  }
   // Otherwise, try to find by custom `id` field
   const byCustom = await col.findOne({ id: id });
   return byCustom;
@@ -100,7 +105,14 @@ export async function updateById(collectionName: string, id: string, update: any
     await col.updateOne({ _id: new ObjectId(id) }, { $set: updateDoc });
     return findById(collectionName, id);
   }
-  // try update by custom `id` field
+  // try update by custom `id` field; for invoices also allow invoiceNo
+  if (collectionName === 'invoices') {
+    const byInvoiceNo = await col.findOne({ invoiceNo: id });
+    if (byInvoiceNo) {
+      await col.updateOne({ _id: byInvoiceNo._id }, { $set: updateDoc });
+      return findById(collectionName, String(byInvoiceNo._id));
+    }
+  }
   await col.updateOne({ id: id }, { $set: updateDoc });
   return findById(collectionName, id);
 }
@@ -119,8 +131,29 @@ export async function getInvoices() {
 
 export async function createInvoice(invoice: any) {
   const col = await getCollection('invoices');
-  const res = await col.insertOne({ ...invoice, createdAt: new Date() });
-  return { ...invoice, _id: res.insertedId };
+  // generate human-friendly id like PN-00001 (reuse same pattern as quotations)
+  try {
+    const last = await col.find({}).sort({ createdAt: -1 }).limit(1).toArray();
+    let lastNum = 0;
+    if (last && last.length) {
+      const lastId = last[0].id || last[0]._id || '';
+      const match = String(lastId).match(/pn-(\d+)/i);
+      if (match) lastNum = parseInt(match[1], 10);
+    }
+    const nextNum = lastNum + 1;
+    const padded = String(nextNum).padStart(5, '0');
+    const id = `PN-${padded}`;
+    // generate invoiceNo if not provided (INV-00001 pattern)
+    let invoiceNo = invoice?.invoiceNo || null;
+    if (!invoiceNo) {
+      invoiceNo = `INV-${padded}`;
+    }
+    const res = await col.insertOne({ ...invoice, id, createdAt: new Date() });
+    return { ...invoice, id, invoiceNo, _id: res.insertedId };
+  } catch (e) {
+    const res = await col.insertOne({ ...invoice, createdAt: new Date() });
+    return { ...invoice, _id: res.insertedId };
+  }
 }
 
 // Quotations

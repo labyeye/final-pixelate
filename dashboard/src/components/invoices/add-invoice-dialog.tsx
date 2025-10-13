@@ -13,7 +13,7 @@ import { renderToString } from 'react-dom/server';
 
 export function AddInvoiceDialog({ clients, services, projects, onCreated }: { clients: Client[]; services: Service[]; projects: any[]; onCreated?: () => void }) {
   const [open, setOpen] = React.useState(false);
-  const form = useForm({ defaultValues: { clientId: '', serviceId: '', projectTitle: '', title: '', amount: 0, dueDate: '' } });
+  const form = useForm({ defaultValues: { clientId: '', serviceId: '', projectTitle: '', title: '', amount: 0, dueDate: '', invoiceNo: '' } });
 
   const handleSave = async (values: any) => {
     try {
@@ -21,6 +21,7 @@ export function AddInvoiceDialog({ clients, services, projects, onCreated }: { c
         clientId: values.clientId || null,
         clientName: clients.find(c => String(c.id ?? c._id) === String(values.clientId))?.name || '',
         serviceId: values.serviceId || null,
+        invoiceNo: values.invoiceNo || undefined,
         projectTitle: values.projectTitle || values.title || '',
         title: values.title || values.projectTitle || 'Invoice',
         amount: Number(values.amount || 0),
@@ -71,7 +72,7 @@ export function AddInvoiceDialog({ clients, services, projects, onCreated }: { c
         const pageWidth = doc.internal.pageSize.getWidth();
         const pageHeight = doc.internal.pageSize.getHeight();
         doc.html(finalHtml, {
-          callback: function (doc) { doc.save(`Invoice-${created._id ?? created.id}.pdf`); },
+          callback: function (doc) { doc.save(`Invoice-${created.invoiceNo ?? created.id ?? created._id}.pdf`); },
           x: 0, y: 0, width: pageWidth, windowWidth: 1200
         });
       } catch (e) {
@@ -79,7 +80,7 @@ export function AddInvoiceDialog({ clients, services, projects, onCreated }: { c
         const pdfContent = renderToString(<InvoicePDF invoice={{ ...created, ...invoice }} />);
         const finalPdfContent = String(pdfContent).replace(/₹/g, 'Rs.');
         const pageWidth = doc.internal.pageSize.getWidth();
-        doc.html(finalPdfContent, { callback: function (doc) { doc.save(`Invoice-${created._id ?? created.id}.pdf`); }, x: 0, y: 0, width: pageWidth, windowWidth: 1200 });
+  doc.html(finalPdfContent, { callback: function (doc) { doc.save(`Invoice-${created.invoiceNo ?? created.id ?? created._id}.pdf`); }, x: 0, y: 0, width: pageWidth, windowWidth: 1200 });
       }
 
       setOpen(false);
@@ -100,6 +101,14 @@ export function AddInvoiceDialog({ clients, services, projects, onCreated }: { c
         <Form {...form}>
           <form onSubmit={form.handleSubmit(handleSave)} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <FormField name="invoiceNo" control={form.control} render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Invoice No</FormLabel>
+                  <FormControl>
+                    <Input {...field} placeholder="Optional - INV-00001" />
+                  </FormControl>
+                </FormItem>
+              )} />
               <FormField name="clientId" control={form.control} render={({ field }) => (
                 <FormItem>
                   <FormLabel>Client</FormLabel>

@@ -11,6 +11,11 @@ export function RecordPaymentDialog({ invoice, onRecorded }: { invoice: any; onR
   const [open, setOpen] = React.useState(false);
   const form = useForm({ defaultValues: { amount: '', note: '' } });
 
+  // If invoice is already paid, don't show the record payment UI
+  if (invoice?.status === 'PAID') {
+    return null;
+  }
+
   React.useEffect(() => {
     if (open) {
       form.reset({ amount: '', note: '' });

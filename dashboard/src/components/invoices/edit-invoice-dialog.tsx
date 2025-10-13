@@ -9,12 +9,13 @@ import { useForm } from 'react-hook-form';
 
 export function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }: { invoice: any; clients: any[]; services: any[]; projects: any[]; onUpdated?: () => void }) {
   const [open, setOpen] = React.useState(false);
-  const form = useForm({ defaultValues: { clientId: '', projectTitle: '', title: '', amount: 0, dueDate: '', serviceId: '', status: '' } });
+  const form = useForm({ defaultValues: { clientId: '', projectTitle: '', title: '', amount: 0, dueDate: '', serviceId: '', status: '', invoiceNo: '' } });
 
   React.useEffect(() => {
     if (open && invoice) {
       form.reset({
         clientId: String(invoice.clientId ?? invoice.client ?? invoice.clientName ?? ''),
+        invoiceNo: invoice.invoiceNo ?? invoice.invoiceNo ?? '',
         projectTitle: invoice.projectTitle ?? invoice.title ?? '',
         title: invoice.title ?? invoice.projectTitle ?? '',
         amount: invoice.amount ?? 0,
@@ -30,6 +31,7 @@ export function EditInvoiceDialog({ invoice, clients, services, projects, onUpda
       const body = {
         clientId: values.clientId || null,
         clientName: clients.find(c => String(c.id ?? c._id) === String(values.clientId))?.name || '',
+        invoiceNo: values.invoiceNo || undefined,
         projectTitle: values.projectTitle || values.title || '',
         title: values.title || values.projectTitle || 'Invoice',
         amount: Number(values.amount || 0),
@@ -59,6 +61,14 @@ export function EditInvoiceDialog({ invoice, clients, services, projects, onUpda
         <Form {...form}>
           <form onSubmit={form.handleSubmit(handleSave)} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <FormField name="invoiceNo" control={form.control} render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Invoice No</FormLabel>
+                  <FormControl>
+                    <Input {...field} placeholder="INV-00001" />
+                  </FormControl>
+                </FormItem>
+              )} />
               <FormField name="clientId" control={form.control} render={({ field }) => (
                 <FormItem>
                   <FormLabel>Client</FormLabel>

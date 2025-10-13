@@ -121,7 +121,7 @@ export function InvoicePDF({
           </div>
           <div style={{ marginTop: 8, fontSize: 13 }}>
             <div>
-              <strong>Invoice #:</strong> {invoice?.id ?? invoice?._id}
+              <strong>Invoice #:</strong> {invoice?.invoiceNo ?? invoice?.id ?? invoice?._id}
             </div>
             <div>
               <strong>Date:</strong>{" "}
@@ -340,7 +340,7 @@ export function InvoicePDF({
               alt="Signature"
               style={{ width: 380, height: 300, objectFit: "contain" }}
             />
-            <div style={{ marginTop: 6, fontSize: 14, color: "#333" }}>
+            <div style={{ marginTop: -40, fontSize: 14, color: "#333" }}>
               Authorized Signatory
             </div>
             <div style={{ fontSize: 14, color: "#666" }}>
