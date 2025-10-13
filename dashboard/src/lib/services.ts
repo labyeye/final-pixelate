@@ -75,16 +75,33 @@ export async function createUser(user: any) {
 // Generic helpers for single item by id
 export async function findById(collectionName: string, id: string) {
   const col = await getCollection(collectionName);
-  return col.findOne({ _id: new ObjectId(id) });
+  // If id looks like a 24-char hex string, treat it as Mongo ObjectId
+  const hex24 = typeof id === 'string' && /^[a-fA-F0-9]{24}$/.test(id);
+  if (hex24) {
+    return col.findOne({ _id: new ObjectId(id) });
+  }
+  // Otherwise, try to find by custom `id` field
+  const byCustom = await col.findOne({ id: id });
+  return byCustom;
 }
 
 export async function updateById(collectionName: string, id: string, update: any) {
   const col = await getCollection(collectionName);
   // If password is being updated, hash it before saving
-  if (update && update.password) {
-    update.password = hashPassword(update.password);
+  const updateDoc = { ...(update || {}) };
+  // remove _id to avoid Mongo errors trying to modify the immutable _id field
+  if (updateDoc._id) delete updateDoc._id;
+  // If password is being updated, hash it before saving
+  if (updateDoc && updateDoc.password) {
+    updateDoc.password = hashPassword(updateDoc.password);
   }
-  await col.updateOne({ _id: new ObjectId(id) }, { $set: update });
+  const hex24 = typeof id === 'string' && /^[a-fA-F0-9]{24}$/.test(id);
+  if (hex24) {
+    await col.updateOne({ _id: new ObjectId(id) }, { $set: updateDoc });
+    return findById(collectionName, id);
+  }
+  // try update by custom `id` field
+  await col.updateOne({ id: id }, { $set: updateDoc });
   return findById(collectionName, id);
 }
 

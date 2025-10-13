@@ -361,9 +361,9 @@ export function QuotationPDF({
             <img
               src={typeof signImg === "string" ? signImg : (signImg as any).src}
               alt="Signature"
-              style={{ width: 380, height: 100, objectFit: "contain" }}
+              style={{ width: 380, height: 300, objectFit: "cover" }}
             />
-            <div style={{ marginTop: 2, fontSize: 15, color: "#333" }}>
+            <div style={{ marginTop: -40, fontSize: 15, color: "#333" }}>
               Authorized Signatory
             </div>
             <div style={{ fontSize: 14, color: "#666" }}>

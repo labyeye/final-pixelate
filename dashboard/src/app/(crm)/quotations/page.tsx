@@ -27,6 +27,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 // This is a global state hack for demo purposes.
 if (typeof window !== "undefined" && !(window as any).__projectsStore) {
@@ -82,8 +83,9 @@ export default function QuotationsPage() {
     try {
       const token = localStorage.getItem("auth_token") || "";
       // If editing an existing quotation (editingQuote set), call PUT
-      if (editingQuote && editingQuote.id) {
-        const res = await fetch("/api/quotations/" + editingQuote.id, {
+      if (editingQuote) {
+        const editId = (editingQuote as any).id || (editingQuote as any)._id;
+        const res = await fetch("/api/quotations/" + editId, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -93,9 +95,7 @@ export default function QuotationsPage() {
         });
         if (!res.ok) throw new Error("Failed to update quotation");
         const updated = await res.json();
-        setQuotations((prev) =>
-          prev.map((q) => (q.id === updated.id ? updated : q))
-        );
+        setQuotations((prev) => prev.map((q) => ((q.id && updated.id && q.id === updated.id) || (q._id && updated._id && String(q._id) === String(updated._id))) ? updated : q));
         setEditingQuote(null);
         toast({ title: "Quotation updated", description: "Quotation saved." });
       } else {
@@ -122,6 +122,30 @@ export default function QuotationsPage() {
     } catch (e) {
       console.error("Failed to create quotation", e);
       toast({ title: "Failed", description: "Could not create quotation" });
+    }
+  };
+
+  // Persist a status change to the server and update local state
+  const persistStatus = async (quote: Quotation, newStatus: string) => {
+    const token = localStorage.getItem("auth_token") || "";
+    try {
+      const id = (quote as any).id || (quote as any)._id;
+      if (!id) throw new Error("No id to update");
+      const res = await fetch(`/api/quotations/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify({ ...quote, status: newStatus }),
+      });
+      if (!res.ok) throw new Error('Failed to update status');
+      const updated = await res.json();
+      setQuotations((prev) => prev.map((q) => ((q as any).id && (updated as any).id && (q as any).id === (updated as any).id) || ((q as any)._id && (updated as any)._id && String((q as any)._id) === String((updated as any)._id)) ? updated : q));
+      toast({ title: 'Updated', description: 'Quotation status saved.' });
+    } catch (err: any) {
+      console.error('Failed to persist status', err);
+      toast({ title: 'Failed', description: err?.message || 'Could not update status' });
     }
   };
 
@@ -370,7 +394,7 @@ export default function QuotationsPage() {
           <TableBody>
             {quotations.map((quote, idx) => (
               <TableRow
-                key={quote.id}
+                key={quote._id ?? quote.id ?? idx}
                 className="border-b-2 border-black last:border-b-0"
               >
                 <TableCell className="py-4">
@@ -397,8 +421,8 @@ export default function QuotationsPage() {
                 </TableCell>
                 <TableCell className="text-base py-4">
                   <div className="flex flex-wrap gap-1">
-                    {(quote.services ?? []).map((s) => (
-                      <Badge key={s.id} variant="secondary">
+                    {(quote.services ?? []).map((s, sidx) => (
+                      <Badge key={`${String(s.id ?? s.name ?? 'service')}-${sidx}`} variant="secondary">
                         {s.name}
                       </Badge>
                     ))}
@@ -408,19 +432,24 @@ export default function QuotationsPage() {
                   {formatCurrency((quote.amount ?? 0) - (quote.discount ?? 0))}
                 </TableCell>
                 <TableCell className="text-center py-4">
-                  <span
-                    className={cn(
-                      "text-xl font-black tracking-widest p-2",
-                      quote.status === "APPROVED" &&
-                        "bg-success text-success-foreground",
-                      quote.status === "REJECTED" &&
-                        "bg-destructive text-destructive-foreground",
-                      quote.status === "PENDING" &&
-                        "bg-accent text-accent-foreground"
-                    )}
-                  >
-                    {quote.status}
-                  </span>
+                  <Select value={quote.status} onValueChange={(v) => {
+                    // update locally by matching id (avoid reference equality issues)
+                    setQuotations((prev) => prev.map((q) => {
+                      const same = (q as any)._id && (quote as any)._id ? String((q as any)._id) === String((quote as any)._id) : (q as any).id && (quote as any).id ? (q as any).id === (quote as any).id : false;
+                      return same ? { ...q, status: v as any } : q;
+                    }));
+                    // persist to server
+                    persistStatus(quote, v);
+                  }}>
+                    <SelectTrigger className={cn("h-10 px-3", quote.status === "APPROVED" && "bg-success text-success-foreground", quote.status === "REJECTED" && "bg-destructive text-destructive-foreground", quote.status === "PENDING" && "bg-accent text-accent-foreground")}>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="PENDING">PENDING</SelectItem>
+                      <SelectItem value="APPROVED">APPROVED</SelectItem>
+                      <SelectItem value="REJECTED">REJECTED</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </TableCell>
                 <TableCell className="text-right py-4">
                   <div className="flex items-center justify-end gap-2">

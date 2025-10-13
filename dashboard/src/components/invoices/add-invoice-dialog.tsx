@@ -32,13 +32,55 @@ export function AddInvoiceDialog({ clients, services, projects, onCreated }: { c
       if (!res.ok) throw new Error('Failed to create invoice');
       const created = await res.json();
 
-      // generate PDF and download
-      const doc = new jsPDF();
-      const pdfContent = renderToString(<InvoicePDF invoice={{ ...created, ...invoice }} />);
-      doc.html(pdfContent, {
-        callback: function (doc) { doc.save(`Invoice-${created._id ?? created.id}.pdf`); },
-        x: 10, y: 10, width: 180, windowWidth: 800
-      });
+      // generate PDF and download (A4, full page, use embedded fonts when possible)
+      const doc = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+      try {
+        const { loadNotoSansForJsPDF } = await import('@/lib/pdf-fonts');
+        const family = await loadNotoSansForJsPDF(doc, 'NotoSans');
+        if (family) {
+          try { doc.setFont(family); } catch (e) {}
+        }
+
+        const pdfBody = renderToString(<InvoicePDF invoice={{ ...created, ...invoice }} />);
+        const notoHref = 'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap';
+
+        // attempt to inline local font as base64 for robust PDF rendering
+        let styledHtml: string;
+        try {
+          const fres = await fetch('/fonts/NotoSans-Regular.ttf');
+          if (fres && fres.ok) {
+            const arrayBuffer = await fres.arrayBuffer();
+            const bytes = new Uint8Array(arrayBuffer);
+            let binary = '';
+            const chunkSize = 0x8000;
+            for (let i = 0; i < bytes.length; i += chunkSize) {
+              binary += String.fromCharCode.apply(null, Array.from(bytes.slice(i, i + chunkSize)) as any);
+            }
+            const base64 = typeof btoa !== 'undefined' ? btoa(binary) : Buffer.from(binary, 'binary').toString('base64');
+            const fontDataFace = `\n<style>\n@font-face { font-family: 'Noto Sans Local'; src: url('data:font/truetype;base64,${base64}') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }\n</style>\n`;
+            styledHtml = `${fontDataFace}<link href="${notoHref}" rel="stylesheet">` + `<div style="width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;">${pdfBody}</div>`;
+          } else {
+            const localFontFace = `\n<style>\n@font-face { font-family: 'Noto Sans Local'; src: url('/fonts/NotoSans-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }\n@font-face { font-family: 'Noto Sans Local'; src: url('/fonts/NotoSans-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }\n</style>\n`;
+            styledHtml = `${localFontFace}<link href="${notoHref}" rel="stylesheet"><div style="width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans Local','Noto Sans',${family ? family : 'sans-serif'};">${pdfBody}</div>`;
+          }
+        } catch (e) {
+          styledHtml = `<link href="${notoHref}" rel="stylesheet"><div style="width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans',${family ? family : 'sans-serif'};">${pdfBody}</div>`;
+        }
+
+        const finalHtml = styledHtml.replace(/₹/g, 'Rs.');
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const pageHeight = doc.internal.pageSize.getHeight();
+        doc.html(finalHtml, {
+          callback: function (doc) { doc.save(`Invoice-${created._id ?? created.id}.pdf`); },
+          x: 0, y: 0, width: pageWidth, windowWidth: 1200
+        });
+      } catch (e) {
+        // fallback simple render
+        const pdfContent = renderToString(<InvoicePDF invoice={{ ...created, ...invoice }} />);
+        const finalPdfContent = String(pdfContent).replace(/₹/g, 'Rs.');
+        const pageWidth = doc.internal.pageSize.getWidth();
+        doc.html(finalPdfContent, { callback: function (doc) { doc.save(`Invoice-${created._id ?? created.id}.pdf`); }, x: 0, y: 0, width: pageWidth, windowWidth: 1200 });
+      }
 
       setOpen(false);
       form.reset();

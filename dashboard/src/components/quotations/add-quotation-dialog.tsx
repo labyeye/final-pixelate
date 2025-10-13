@@ -131,9 +131,9 @@ export function AddQuotationDialog({ isOpen, setIsOpen, onAddQuotation, children
       </DialogTrigger>
       <DialogContent className="max-w-xl">
         <DialogHeader>
-          <DialogTitle className="font-headline text-3xl font-black tracking-tighter">New Quotation</DialogTitle>
+          <DialogTitle className="font-headline text-3xl font-black tracking-tighter">{initialValues ? 'Edit Quotation' : 'New Quotation'}</DialogTitle>
           <DialogDescription>
-            Fill in the details below to create a new quotation.
+            {initialValues ? 'Modify the quotation and save changes.' : 'Fill in the details below to create a new quotation.'}
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
@@ -287,9 +287,9 @@ export function AddQuotationDialog({ isOpen, setIsOpen, onAddQuotation, children
                     </div>
                 </div>
               </ScrollArea>
-              <DialogFooter className="pt-8">
-                  <Button type="submit" size="lg" className="text-lg w-full">Create Quotation</Button>
-              </DialogFooter>
+        <DialogFooter className="pt-8">
+          <Button type="submit" size="lg" className="text-lg w-full">{initialValues ? 'Save Changes' : 'Create Quotation'}</Button>
+        </DialogFooter>
             </form>
         </Form>
       </DialogContent>
