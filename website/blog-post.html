@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Blog Post | Pixelate Nest</title>
     <link href="styles.css" rel="stylesheet" />
+    <!-- If the post is served dynamically with ?id=, canonical points to the blogs index or should be set server-side to the full post URL -->
+    <link rel="canonical" href="https://www.pixelatenest.com/blog-post.html" />
     <style>
       body{background:#070707;color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto}
       .container{max-width:900px;margin:32px auto;padding:16px}
@@ -16,8 +18,8 @@
   <body>
     <div class="container">
       <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px">
-        <a href="blogs.html" style="color:#9ca3af;display:inline-block">← Back to blogs</a>
-        <a href="software-dev.html" style="color:#9ca3af;display:inline-block">Software Development</a>
+  <a href="https://www.pixelatenest.com/blogs.html" style="color:#9ca3af;display:inline-block">← Back to blogs</a>
+  <a href="https://www.pixelatenest.com/software-dev.html" style="color:#9ca3af;display:inline-block">Software Development</a>
       </div>
       <div id="post-shell">
         <h1 id="post-title">Loading…</h1>
