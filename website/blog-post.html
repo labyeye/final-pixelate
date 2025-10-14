@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Blog Post | Pixelate Nest</title>
+  <title>Pixelate Nest — Blog</title>
     <link href="styles.css" rel="stylesheet" />
     <!-- If the post is served dynamically with ?id=, canonical points to the blogs index or should be set server-side to the full post URL -->
     <link rel="canonical" href="https://www.pixelatenest.com/blog-post.html" />
@@ -42,7 +42,11 @@
       if(!p){
         document.getElementById('post-shell').innerHTML = '<p class="muted">Post not found. It may have been removed from the dashboard.</p>'
       } else {
-        document.getElementById('post-title').innerText = p.title || ''
+        const titleText = p.title || ''
+        // Truncate title to max 30 chars for page title to meet configured limit
+        const truncated = titleText.length > 30 ? titleText.slice(0, 27).trimEnd() + '…' : titleText
+        document.title = truncated ? `${truncated} | Pixelate Nest` : document.title
+        document.getElementById('post-title').innerText = titleText
         document.getElementById('post-meta').innerText = (p.category||'') + ' · ' + (new Date(p.createdAt||'').toLocaleString())
         if(p.image) document.getElementById('post-image').src = p.image
         document.getElementById('post-content').innerHTML = p.content || ('<p>'+ (p.excerpt || '') + '</p>')
