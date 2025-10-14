@@ -48,7 +48,14 @@
         document.title = truncated ? `${truncated} | Pixelate Nest` : document.title
         document.getElementById('post-title').innerText = titleText
         document.getElementById('post-meta').innerText = (p.category||'') + ' · ' + (new Date(p.createdAt||'').toLocaleString())
-        if(p.image) document.getElementById('post-image').src = p.image
+        const postImg = document.getElementById('post-image')
+        if (p.image) {
+          postImg.src = p.image
+          postImg.alt = p.title ? (p.title + ' — image') : 'Post image'
+        } else {
+          // keep placeholder but provide a neutral alt for assistive tech
+          postImg.alt = p.title ? (p.title + ' — image') : 'Post image'
+        }
         document.getElementById('post-content').innerHTML = p.content || ('<p>'+ (p.excerpt || '') + '</p>')
       }
     </script>
