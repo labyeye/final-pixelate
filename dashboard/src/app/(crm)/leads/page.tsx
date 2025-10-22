@@ -12,6 +12,9 @@ import { Trash, Upload } from 'lucide-react';
 export default function LeadsPage() {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [team, setTeam] = useState<any[]>([]);
+  const [staffFilter, setStaffFilter] = useState<string>('');
+  const [isDeletingAssigned, setIsDeletingAssigned] = useState(false);
+  const [deleteProgress, setDeleteProgress] = useState({ current: 0, total: 0 });
   const [file, setFile] = useState<File | null>(null);
   const [isImporting, setIsImporting] = useState(false);
   const [importProgress, setImportProgress] = useState({ current: 0, total: 0 });
@@ -190,6 +193,45 @@ export default function LeadsPage() {
     }
   }
 
+  // Delete all leads assigned to a specific staff member.
+  async function deleteLeadsForStaff(staffId: string | null) {
+    if (!staffId) return alert('Choose a staff member first');
+    if (!confirm('Delete ALL leads assigned to this staff member? This cannot be undone.')) return;
+    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:9002' : '';
+    const token = localStorage.getItem('auth_token') || ''
+    try {
+      const allLeads = await fetchLeadsWithAuth();
+      const toDelete = allLeads.filter(l => String(l.assignedTo) === String(staffId));
+      if (!toDelete.length) return alert('No leads assigned to this staff member');
+      setIsDeletingAssigned(true);
+      setDeleteProgress({ current: 0, total: toDelete.length });
+      for (const l of toDelete) {
+        try {
+          const res = await fetch(API_BASE + '/api/leads/' + String(l._id || l.id), { method: 'DELETE', headers: token ? { Authorization: 'Bearer ' + token } : {} });
+          // If deletion was forbidden (non-admin) or failed, throw to stop and surface message
+          if (!res.ok) {
+            throw new Error('Server returned ' + res.status);
+          }
+        } catch (e) {
+          console.error('Failed to delete lead', l, e);
+          // Continue attempting remaining deletions but record failure
+        } finally {
+          setDeleteProgress(p => ({ current: Math.min(p.total, p.current + 1), total: p.total }));
+        }
+      }
+      // Refresh list from server
+      try { const list = await fetchLeadsWithAuth(); setLeads(list || []); } catch (er) {}
+      alert('Deletion of assigned leads completed (check server logs for failures)');
+    } catch (e) {
+      console.error('deleteLeadsForStaff failed', e);
+      alert('Failed to delete assigned leads: ' + (e instanceof Error ? e.message : String(e)));
+    } finally {
+      setIsDeletingAssigned(false);
+      setDeleteProgress({ current: 0, total: 0 });
+      setStaffFilter('');
+    }
+  }
+
   async function deleteLead(leadId: string | number | undefined) {
     if (!leadId) return;
     const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:9002' : '';
@@ -262,6 +304,20 @@ export default function LeadsPage() {
       <div className="flex items-center gap-4">
         <input type="file" accept=".xlsx,.xls,.csv" onChange={e => setFile(e.target.files ? e.target.files[0] : null)} />
         <Button onClick={handleImport}><Upload className="mr-2" /> Import</Button>
+      </div>
+      
+      <div className="flex items-center gap-4">
+        <label className="text-sm">Filter by staff:</label>
+        <select value={staffFilter} onChange={e => setStaffFilter(e.target.value)} className="px-2 py-1 rounded-md bg-background border">
+          <option value="">-- Select staff --</option>
+          {team.map(t => (
+            <option key={String(t._id || t.id)} value={String(t._id || t.id)}>{t.name}</option>
+          ))}
+        </select>
+        <Button variant="destructive" onClick={() => deleteLeadsForStaff(staffFilter)} disabled={!staffFilter || isDeletingAssigned}>
+          Delete leads for selected staff
+        </Button>
+        {isDeletingAssigned ? <div className="text-sm">Deleting {deleteProgress.current}/{deleteProgress.total}...</div> : null}
       </div>
 
       <Table>
