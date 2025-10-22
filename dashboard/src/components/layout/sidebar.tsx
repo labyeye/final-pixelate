@@ -59,7 +59,12 @@ export function Sidebar() {
           <p className="text-sm text-muted-foreground">Creative Agency CRM</p>
         </Link>
       </div>
-      <nav className="flex-1 p-6 space-y-2">
+      {/*
+        Make the central navigation area scrollable when the viewport is short.
+        We keep header (brand) and footer (user area) fixed and allow the nav
+        to overflow-y:auto. This preserves all existing classes and styles.
+      */}
+      <nav className="flex-1 p-6 space-y-2 overflow-y-auto" aria-label="Primary navigation">
         {itemsToShow.map((item) => (
           <Link
             key={item.href}
