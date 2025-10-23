@@ -22,6 +22,20 @@ export default function EnquiriesPage() {
     }
   }
 
+  const deleteItem = async (id: string) => {
+    try {
+      if (!confirm('Are you sure you want to delete this enquiry? This cannot be undone.')) return
+      const res = await fetch(`/api/enquiries?id=${encodeURIComponent(id)}`, {
+        method: 'DELETE',
+      })
+      if (!res.ok) throw new Error('delete failed')
+      // remove from state
+      setItems((prev) => prev.filter((p) => String(p._id || p.id) !== String(id)))
+    } catch (e) {
+      console.error('Failed to delete enquiry', e)
+    }
+  }
+
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -81,7 +95,10 @@ export default function EnquiriesPage() {
                       <option value="rejected">Rejected</option>
                     </select>
                   </TableCell>
-                  <TableCell>{it.createdAt ? new Date(it.createdAt).toLocaleString() : '-'}</TableCell>
+                  <TableCell className="flex items-center gap-2">
+                    <span>{it.createdAt ? new Date(it.createdAt).toLocaleString() : '-'}</span>
+                    <button onClick={() => deleteItem(String(it._id || it.id))} className="ml-2 text-sm text-red-600 hover:underline">Delete</button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
