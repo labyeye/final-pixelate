@@ -13,6 +13,7 @@ export default function LeadsPage() {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [team, setTeam] = useState<any[]>([]);
   const [staffFilter, setStaffFilter] = useState<string>('');
+  const [statusFilter, setStatusFilter] = useState<string>('');
   const [isDeletingAssigned, setIsDeletingAssigned] = useState(false);
   const [deleteProgress, setDeleteProgress] = useState({ current: 0, total: 0 });
   const [file, setFile] = useState<File | null>(null);
@@ -120,7 +121,7 @@ export default function LeadsPage() {
 
     // Attempt batch upload so we can show progress. We send in small batches to
     // update progress reliably and avoid long blocking requests.
-    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:9002' : '';
+    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://pixelatenest-crm.vercel.app' : '';
     const token = localStorage.getItem('auth_token') || ''
     const batchSize = 10;
     setIsImporting(true);
@@ -162,7 +163,7 @@ export default function LeadsPage() {
   // Delete all leads: try server endpoint DELETE /api/leads, fallback to deleting per id.
   async function deleteAllLeads() {
     if (!confirm('Delete ALL leads? This cannot be undone.')) return;
-    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:9002' : '';
+    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://pixelatenest-crm.vercel.app' : '';
     const token = localStorage.getItem('auth_token') || ''
     try {
       // Attempt bulk delete endpoint first (may not exist)
@@ -197,7 +198,7 @@ export default function LeadsPage() {
   async function deleteLeadsForStaff(staffId: string | null) {
     if (!staffId) return alert('Choose a staff member first');
     if (!confirm('Delete ALL leads assigned to this staff member? This cannot be undone.')) return;
-    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:9002' : '';
+    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://pixelatenest-crm.vercel.app' : '';
     const token = localStorage.getItem('auth_token') || ''
     try {
       const allLeads = await fetchLeadsWithAuth();
@@ -234,7 +235,7 @@ export default function LeadsPage() {
 
   async function deleteLead(leadId: string | number | undefined) {
     if (!leadId) return;
-    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:9002' : '';
+    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://pixelatenest-crm.vercel.app' : '';
     try {
       const token = localStorage.getItem('auth_token') || ''
       let decoded: any = null
@@ -273,7 +274,7 @@ export default function LeadsPage() {
     const reason = prompt('Optional: enter a reason for this status change') || '';
     // optimistic UI update
     setLeads(l => l.map(x => (String(x._id || x.id) === String(leadId) ? { ...x, status: newStatus, statusReason: reason } : x)));
-    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:9002' : '';
+    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://pixelatenest-crm.vercel.app' : '';
     const token = localStorage.getItem('auth_token') || ''
     try {
       const res = await fetch(API_BASE + '/api/leads/' + String(leadId), {
@@ -314,6 +315,13 @@ export default function LeadsPage() {
             <option key={String(t._id || t.id)} value={String(t._id || t.id)}>{t.name}</option>
           ))}
         </select>
+        <label className="text-sm">Filter by status:</label>
+        <select value={statusFilter} onChange={e => setStatusFilter(e.target.value)} className="px-2 py-1 rounded-md bg-background border">
+          <option value="">-- Any status --</option>
+          {leadStatuses.map(s => (
+            <option key={s} value={s}>{s}</option>
+          ))}
+        </select>
         <Button variant="destructive" onClick={() => deleteLeadsForStaff(staffFilter)} disabled={!staffFilter || isDeletingAssigned}>
           Delete leads for selected staff
         </Button>
@@ -334,7 +342,19 @@ export default function LeadsPage() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {leads.map(lead => (
+          {leads
+            .filter(l => {
+              // apply staff filter first
+              if (staffFilter) {
+                if (String(l.assignedTo || l.assignedToName) !== String(staffFilter)) return false;
+              }
+              // apply status filter
+              if (statusFilter) {
+                if (String(l.status || '') !== String(statusFilter)) return false;
+              }
+              return true;
+            })
+            .map(lead => (
             <TableRow key={String(lead._id || lead.id)}>
               <TableCell>{lead.name}</TableCell>
               <TableCell>{(lead as any).category || '-'}</TableCell>

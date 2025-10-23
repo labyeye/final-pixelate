@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-  <title>Pixelate Nest — Contact</title>
+    <title>Pixelate Nest — Contact</title>
     <meta
       content="Contact Pixelate Nest to start your next project — web, app, or video. We're here to help you build and grow your brand's digital presence."
       name="description"
@@ -59,6 +59,13 @@
           "https://web.facebook.com/",
           "https://www.linkedin.com/"
         ]
+      }
+    </script>
+    <script>
+      // Dev convenience: if not provided elsewhere, point the website to the local dashboard
+      // Change or remove this in production.
+      if (!window.DASHBOARD_API_BASE) {
+        window.DASHBOARD_API_BASE = 'https://pixelatenest-crm.vercel.app';
       }
     </script>
 
@@ -176,18 +183,23 @@
         }
       }
     </style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T64KPYDX6P"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-T64KPYDX6P"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-T64KPYDX6P');
+      gtag("config", "G-T64KPYDX6P");
     </script>
   </head>
   <body>
     <div class="page-wrapper">
-  <a href="https://www.pixelatenest.com/" class="back-to-home-button">
+      <a href="https://www.pixelatenest.com/" class="back-to-home-button">
         <img
           src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6843da816d8ee176a3dadb9a_arrow-left.svg"
           alt="Back Arrow"
@@ -297,7 +309,9 @@
                       <option value="Digital Marketing">
                         Digital Marketing
                       </option>
-                       <option value="Software Development">Software Development</option>
+                      <option value="Software Development">
+                        Software Development
+                      </option>
                       <option value="General Inquiry">General Inquiry</option>
                     </select>
                   </div>
@@ -347,7 +361,10 @@
               <div class="footer-top-left">
                 <div class="footer-logo-details">
                   <div class="footer-logo-wrap">
-                    <a href="https://www.pixelatenest.com/" class="footer-logo w-inline-block">
+                    <a
+                      href="https://www.pixelatenest.com/"
+                      class="footer-logo w-inline-block"
+                    >
                       <img
                         src="assets/only-icon.png"
                         loading="lazy"
@@ -366,7 +383,10 @@
                 <div class="footer-link-wrap">
                   <div class="p-text-01">Company</div>
                   <div class="footer-link-list">
-                    <a href="https://www.pixelatenest.com/about.html" class="footer-link w-inline-block">
+                    <a
+                      href="https://www.pixelatenest.com/about.html"
+                      class="footer-link w-inline-block"
+                    >
                       <div class="footer-link-text">About Us</div>
                     </a>
                     <a href="#" class="footer-link w-inline-block">
@@ -384,7 +404,6 @@
                 <div class="footer-link-wrap">
                   <div class="p-text-01">What We Do</div>
                   <div class="footer-link-list">
-                    
                     <a href="#" class="footer-link w-inline-block">
                       <div class="footer-link-text">Portfolio</div>
                     </a>
@@ -404,7 +423,7 @@
                     >
                       <div class="footer-link-text">Instagram</div>
                     </a>
-                    
+
                     <a
                       href="https://www.linkedin.com/company/pixelate-nest/"
                       target="_blank"

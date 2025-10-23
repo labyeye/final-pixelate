@@ -14,6 +14,7 @@ const navItems = [
   { href: '/dashboard', label: 'Dashboard', adminOnly: false, icon: LayoutDashboard },
   { href: '/timeline', label: 'Timeline', adminOnly: false, icon: Columns },
   { href: '/leads', label: 'Leads', adminOnly: false, icon: KanbanSquare },
+  { href: '/enquiries', label: 'Enquiries', adminOnly: false, icon: LifeBuoy },
   { href: '/clients', label: 'Clients', adminOnly: false, icon: Users },
   { href: '/quotations', label: 'Quotations', adminOnly: false, icon: FileText },
   { href: '/projects', label: 'Projects', adminOnly: false, icon: Briefcase },
@@ -46,7 +47,7 @@ export function Sidebar() {
   const isStaff = user?.role === 'staff';
 
   // If staff, only show a small subset of pages (include dashboard)
-  const staffAllowed = ['/dashboard', '/leads', '/blogs', '/work-gallery'];
+  const staffAllowed = ['/dashboard', '/leads', '/blogs', '/work-gallery', '/enquiries'];
   const itemsToShow = isStaff
     ? navItems.filter(i => staffAllowed.includes(i.href))
     : navItems.filter((i) => !(i.adminOnly && !isAdmin));
