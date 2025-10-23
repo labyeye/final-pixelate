@@ -72,6 +72,7 @@ export default function DashboardPage() {
   const [stats, setStats] = useState<any[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const [invoices, setInvoices] = useState<any[]>([]);
+  const [expenses, setExpenses] = useState<any[]>([]);
   const [clients, setClients] = useState<any[]>([]);
   const [leads, setLeads] = useState<any[]>([]);
   const [quotations, setQuotations] = useState<Quotation[]>([]);
@@ -83,7 +84,7 @@ export default function DashboardPage() {
     async function load() {
       try {
         const token = localStorage.getItem("auth_token") || "";
-        const [projectsRes, invoicesRes, leadsRes, quotationsRes, servicesRes] =
+        const [projectsRes, invoicesRes, leadsRes, quotationsRes, servicesRes, expensesRes] =
           await Promise.all([
             fetch("/api/projects"),
             fetch("/api/invoices"),
@@ -92,6 +93,7 @@ export default function DashboardPage() {
             }),
             fetch("/api/quotations"),
             fetch("/api/services"),
+            fetch("/api/expenses"),
           ]);
         const [
           projectsData,
@@ -99,22 +101,25 @@ export default function DashboardPage() {
           leadsData,
           quotationsData,
           servicesData,
+          expensesData,
         ] = await Promise.all([
           projectsRes.json(),
           invoicesRes.json(),
           leadsRes.json(),
           quotationsRes.json(),
           servicesRes.json(),
+          expensesRes.json(),
         ]);
         if (!mounted) return;
-        setProjects(projectsData || []);
-        setInvoices(invoicesData || []);
+    setProjects(projectsData || []);
+    setInvoices(invoicesData || []);
+    setExpenses(expensesData || []);
         // ensure leads is an array even if server returned an error object (401 etc)
         setLeads(Array.isArray(leadsData) ? leadsData : []);
         setQuotations(quotationsData || []);
         setServices(servicesData || []);
 
-        // Derived metrics
+  // Derived metrics
         const clientsList = await (await fetch("/api/clients")).json();
         setClients(clientsList || []);
         const clientsCount = (clientsList || []).length || 0;
@@ -123,13 +128,11 @@ export default function DashboardPage() {
           (s: any, inv: any) => s + Number(inv.amount || 0),
           0
         );
-        const totalExpense = (projectsData || []).reduce((s: any, p: any) => {
-          const assSum = (p.assignees || []).reduce(
-            (aSum: any, a: any) => aSum + Number((a && a.payout) || 0),
-            0
-          );
-          return s + assSum;
-        }, 0);
+        // Use recorded expenses from the expenses collection for dashboard expense
+        const totalExpense = (expensesData || []).reduce(
+          (s: any, ex: any) => s + Number(ex.amount || 0),
+          0
+        );
 
         setStats([
           {
@@ -370,15 +373,10 @@ export default function DashboardPage() {
       </header>
 
       <Tabs defaultValue="overview">
-        <TabsList className="grid w-full grid-cols-2 h-auto">
+        <TabsList className="grid w-full grid-cols-1 h-auto">
           <TabsTrigger value="overview" className="h-12 text-lg">
             Overview
           </TabsTrigger>
-          {!isStaff && (
-            <TabsTrigger value="revenue" className="h-12 text-lg">
-              Revenue
-            </TabsTrigger>
-          )}
         </TabsList>
 
         <TabsContent value="overview" className="space-y-8 mt-8">
@@ -475,9 +473,10 @@ export default function DashboardPage() {
                         {stat.name.toUpperCase()}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent>
+                      <CardContent>
                       <p className="text-5xl font-black tracking-tighter">
-                        {stat.value}
+                        {stat.name === 'revenue' || stat.name === 'expense' ? 
+                          `₹${Number(stat.value || 0).toLocaleString()}` : stat.value}
                       </p>
                       <p
                         className={cn(
@@ -512,7 +511,6 @@ export default function DashboardPage() {
                           <TableHead>Project / Title</TableHead>
                           <TableHead>Amount</TableHead>
                           <TableHead className="text-right">Status</TableHead>
-                          <TableHead className="text-right">Actions</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
@@ -543,50 +541,7 @@ export default function DashboardPage() {
                             <TableCell className="text-right font-bold">
                               {invoice.status}
                             </TableCell>
-                            <TableCell className="text-right">
-                              {invoice.status !== "RECEIVED" ? (
-                                <button
-                                  className="px-3 py-1 rounded bg-green-600 text-white text-sm font-bold"
-                                  onClick={async () => {
-                                    try {
-                                      // Optimistic update
-                                      setInvoices((prev) =>
-                                        prev.map((inv: any) =>
-                                          inv.id === invoice.id
-                                            ? { ...inv, status: "RECEIVED" }
-                                            : inv
-                                        )
-                                      );
-
-                                      // Call API to update invoice status
-                                      await fetch(
-                                        `/api/invoices/${invoice.id}`,
-                                        {
-                                          method: "PUT",
-                                          headers: {
-                                            "Content-Type": "application/json",
-                                          },
-                                          body: JSON.stringify({
-                                            status: "RECEIVED",
-                                          }),
-                                        }
-                                      );
-                                    } catch (e) {
-                                      console.error(
-                                        "Failed to mark invoice received",
-                                        e
-                                      );
-                                    }
-                                  }}
-                                >
-                                  Mark received
-                                </button>
-                              ) : (
-                                <span className="text-sm font-bold text-success">
-                                  Received
-                                </span>
-                              )}
-                            </TableCell>
+                            
                           </TableRow>
                         ))}
                       </TableBody>
@@ -623,8 +578,9 @@ export default function DashboardPage() {
           )}
         </TabsContent>
 
-        <TabsContent value="revenue" className="space-y-8 mt-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Insert monthly revenue into Overview for non-staff users */}
+        { !isStaff && (
+          <div className="space-y-8 mt-8">
             <Card className="lg:col-span-2 border-2 border-black">
               <CardHeader>
                 <CardTitle className="text-2xl font-black tracking-tighter">
@@ -657,144 +613,18 @@ export default function DashboardPage() {
                         axisLine={false}
                         tickFormatter={(value) => `₹${value / 1000}k`}
                       />
-                      <Bar
-                        dataKey="revenue"
-                        fill="hsl(var(--primary))"
-                        radius={[4, 4, 0, 0]}
-                      />
+                      <Bar dataKey="revenue" radius={[4,4,0,0]}>
+                        {revenueData.map((entry, idx) => (
+                          <Cell key={entry.month} fill={['#0ea5e9','#7c3aed','#ef4444','#f59e0b','#10b981','#06b6d4'][idx % 6]} />
+                        ))}
+                      </Bar>
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
-
-                <div className="mt-6">
-                  <h3 className="text-lg font-bold mb-2">
-                    Completed Projects Revenue
-                  </h3>
-                  <div className="h-[300px] w-full">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <BarChart
-                        data={completedProjectChartData}
-                        layout="vertical"
-                        margin={{ top: 5, right: 20, left: 20, bottom: 5 }}
-                      >
-                        <CartesianGrid
-                          strokeDasharray="3 3"
-                          stroke="hsl(var(--foreground))"
-                          opacity={0.2}
-                        />
-                        <XAxis
-                          type="number"
-                          stroke="hsl(var(--foreground))"
-                          fontSize={12}
-                          tickLine={false}
-                          axisLine={false}
-                        />
-                        <YAxis
-                          type="category"
-                          dataKey="title"
-                          stroke="hsl(var(--foreground))"
-                          fontSize={12}
-                          tickLine={false}
-                          axisLine={false}
-                          width={200}
-                        />
-                        <Bar
-                          dataKey="amount"
-                          fill="hsl(var(--primary))"
-                          radius={[4, 4, 0, 0]}
-                        />
-                      </BarChart>
-                    </ResponsiveContainer>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 border-black flex flex-col">
-              <CardHeader>
-                <CardTitle className="text-2xl font-black tracking-tighter">
-                  Project Status
-                </CardTitle>
-                <CardDescription>
-                  Distribution of current projects.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex-1 flex items-center justify-center">
-                <ChartContainer
-                  config={projectChartConfig}
-                  className="mx-auto aspect-square h-[250px]"
-                >
-                  <PieChart>
-                    <Pie
-                      data={projectChartData}
-                      dataKey="count"
-                      nameKey="status"
-                      innerRadius={60}
-                      strokeWidth={5}
-                    >
-                      {projectChartData.map((entry) => (
-                        <Cell key={entry.status} fill={entry.fill} />
-                      ))}
-                    </Pie>
-                    <ChartLegend
-                      content={<ChartLegendContent nameKey="status" />}
-                    />
-                  </PieChart>
-                </ChartContainer>
               </CardContent>
             </Card>
           </div>
-
-          <Card className="border-2 border-black">
-            <CardHeader>
-              <CardTitle className="text-2xl font-black tracking-tighter">
-                Top Services
-              </CardTitle>
-              <CardDescription>
-                Which services are bringing in the most business.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="h-[400px] w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart
-                    layout="vertical"
-                    data={serviceChartData}
-                    margin={{ top: 5, right: 20, left: 20, bottom: 5 }}
-                  >
-                    <CartesianGrid
-                      strokeDasharray="3 3"
-                      stroke="hsl(var(--foreground))"
-                      opacity={0.2}
-                    />
-                    <XAxis
-                      type="number"
-                      stroke="hsl(var(--foreground))"
-                      fontSize={12}
-                      tickLine={false}
-                      axisLine={false}
-                    />
-                    <YAxis
-                      type="category"
-                      dataKey="service"
-                      stroke="hsl(var(--foreground))"
-                      fontSize={12}
-                      tickLine={false}
-                      axisLine={false}
-                      width={120}
-                    />
-                    <Bar
-                      dataKey="count"
-                      name="Projects"
-                      fill="hsl(var(--primary))"
-                      radius={[0, 4, 4, 0]}
-                    />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
+        )}
       </Tabs>
     </div>
   );
