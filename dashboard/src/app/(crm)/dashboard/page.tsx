@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRef } from 'react'
 import {
   Card,
   CardContent,
@@ -77,6 +78,36 @@ export default function DashboardPage() {
   const [leads, setLeads] = useState<any[]>([]);
   const [quotations, setQuotations] = useState<Quotation[]>([]);
   const [services, setServices] = useState<any[]>([]);
+
+  // Animated number component: safe to use anywhere (including lists)
+  function AnimatedNumber({ value, duration = 800, currency = false }: { value: number; duration?: number; currency?: boolean }) {
+    const ref = useRef<number | null>(null);
+    const [display, setDisplay] = useState<number>(0);
+    useEffect(() => {
+      let start: number | null = null;
+      const from = 0;
+      const to = Number(value || 0);
+      if (to === from) {
+        setDisplay(to);
+        return;
+      }
+      const step = (ts: number) => {
+        if (!start) start = ts;
+        const elapsed = Math.min(duration, ts - start);
+        const pct = elapsed / duration;
+        const cur = Math.round(from + (to - from) * pct);
+        setDisplay(cur);
+        if (elapsed < duration) {
+          ref.current = requestAnimationFrame(step);
+        }
+      };
+      ref.current = requestAnimationFrame(step);
+      return () => {
+        if (ref.current) cancelAnimationFrame(ref.current as any);
+      };
+    }, [value, duration]);
+    return <>{currency ? `₹${Number(display || 0).toLocaleString()}` : display}</>;
+  }
 
   useEffect(() => {
     let mounted = true;
@@ -363,6 +394,8 @@ export default function DashboardPage() {
     return Array.from(map.values()).sort((a, b) => b.payout - a.payout);
   })();
 
+  
+
   return (
     <div className="space-y-8 font-headline">
       <header>
@@ -475,8 +508,15 @@ export default function DashboardPage() {
                     </CardHeader>
                       <CardContent>
                       <p className="text-5xl font-black tracking-tighter">
-                        {stat.name === 'revenue' || stat.name === 'expense' ? 
-                          `₹${Number(stat.value || 0).toLocaleString()}` : stat.value}
+                        {stat.name === 'revenue' || stat.name === 'expense' ? (
+                          <AnimatedNumber value={Number(stat.value || 0)} duration={1000} currency />
+                        ) : stat.name === 'clients' ? (
+                          <AnimatedNumber value={Number(stat.value || 0)} duration={900} />
+                        ) : stat.name === 'projects' ? (
+                          <AnimatedNumber value={Number(stat.value || 0)} duration={900} />
+                        ) : (
+                          stat.value
+                        )}
                       </p>
                       <p
                         className={cn(
@@ -567,7 +607,7 @@ export default function DashboardPage() {
                           {status}
                         </span>
                         <span className="font-black text-3xl">
-                          {Number(count)}
+                          <AnimatedNumber value={Number(count)} duration={700} />
                         </span>
                       </div>
                     ))}

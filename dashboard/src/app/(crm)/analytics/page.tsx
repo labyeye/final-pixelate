@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useRef } from 'react'
 import {
   Card,
   CardContent,
@@ -290,6 +291,40 @@ export default function AnalyticsPage() {
     "#d0a0ff",
   ];
 
+  // simple count-up hook using requestAnimationFrame
+  const useCountUp = (value: number, duration = 800) => {
+    const ref = useRef<number>(0);
+    const [display, setDisplay] = useState<number>(0);
+    useEffect(() => {
+      let start: number | null = null;
+      const from = 0;
+      const to = Number(value || 0);
+      if (to === from) { setDisplay(to); return }
+      const step = (ts: number) => {
+        if (!start) start = ts;
+        const elapsed = Math.min(duration, ts - start);
+        const pct = elapsed / duration;
+        const cur = Math.round(from + (to - from) * pct);
+        setDisplay(cur);
+        if (elapsed < duration) {
+          ref.current = requestAnimationFrame(step);
+        }
+      }
+      ref.current = requestAnimationFrame(step);
+      return () => {
+        if (ref.current) cancelAnimationFrame(ref.current as any);
+      }
+    }, [value, duration]);
+    return display;
+  }
+
+  const animatedTotalProjects = useCountUp(totalProjects, 900)
+  const animatedTotalInvoices = useCountUp(totalInvoices, 900)
+  const animatedTotalRevenue = useCountUp(totalRevenue, 1000)
+  const animatedCollected = useCountUp(collected, 1000)
+  const animatedPending = useCountUp(pending, 1000)
+  const animatedTotalExpenses = useCountUp(totalExpenses, 1000)
+
   return (
     <div className="space-y-8 font-headline">
       <header>
@@ -307,7 +342,7 @@ export default function AnalyticsPage() {
             <CardDescription>Total team members</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-4xl font-black">{staffCount}</div>
+            <div className="text-4xl font-black">{animatedTotalProjects === undefined ? staffCount : animatedTotalProjects}</div>
           </CardContent>
         </Card>
 
@@ -317,7 +352,7 @@ export default function AnalyticsPage() {
             <CardDescription>Distinct services offered</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-4xl font-black">{serviceCategories}</div>
+            <div className="text-4xl font-black">{animatedTotalInvoices === undefined ? serviceCategories : animatedTotalInvoices}</div>
           </CardContent>
         </Card>
 
@@ -327,7 +362,7 @@ export default function AnalyticsPage() {
             <CardDescription>Total assignees across projects</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-4xl font-black">{assignedCount}</div>
+            <div className="text-4xl font-black">{animatedTotalInvoices === undefined ? assignedCount : animatedTotalInvoices}</div>
           </CardContent>
         </Card>
 
@@ -376,7 +411,7 @@ export default function AnalyticsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-4xl font-black">
-              ₹{Number(totalRevenue || 0).toLocaleString()}
+              ₹{Number(animatedTotalRevenue || 0).toLocaleString()}
             </div>
           </CardContent>
         </Card>
@@ -390,7 +425,7 @@ export default function AnalyticsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-4xl font-black">
-              ₹{Number(collected || 0).toLocaleString()}
+              ₹{Number(animatedCollected || 0).toLocaleString()}
             </div>
           </CardContent>
         </Card>
@@ -402,7 +437,7 @@ export default function AnalyticsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-4xl font-black">
-              ₹{Number(pending || 0).toLocaleString()}
+              ₹{Number(animatedPending || 0).toLocaleString()}
             </div>
           </CardContent>
         </Card>
@@ -412,7 +447,7 @@ export default function AnalyticsPage() {
             <CardDescription>Sum of recorded expenses</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-4xl font-black">₹{Number(totalExpenses || 0).toLocaleString()}</div>
+            <div className="text-4xl font-black">₹{Number(animatedTotalExpenses || 0).toLocaleString()}</div>
           </CardContent>
         </Card>
         <Card className="border-2 border-black lg:col-span-3">
@@ -424,11 +459,17 @@ export default function AnalyticsPage() {
             <div style={{ height: 280 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={monthlyExpenses} margin={{ top: 10, right: 20, left: 0, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#ddd" />
+                  <defs>
+                    <linearGradient id="gradExpense" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#f87171" stopOpacity={0.9} />
+                      <stop offset="100%" stopColor="#fb7185" stopOpacity={0.3} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
                   <XAxis dataKey="month" />
                   <YAxis tickFormatter={(v) => `₹${v / 1000}k`} />
                   <Tooltip formatter={(v: any) => `₹${Number(v).toLocaleString()}`} />
-                  <Bar dataKey="expense" fill="#dc2626" name="Expenses" />
+                  <Bar dataKey="expense" name="Expenses" fill="url(#gradExpense)" isAnimationActive />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -482,14 +523,22 @@ export default function AnalyticsPage() {
                   data={monthlyRevenue}
                   margin={{ top: 10, right: 20, left: 0, bottom: 5 }}
                 >
-                  <CartesianGrid strokeDasharray="3 3" stroke="#ddd" />
+                  <defs>
+                    <linearGradient id="gradCollected" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#34d399" stopOpacity={0.95} />
+                      <stop offset="100%" stopColor="#10b981" stopOpacity={0.3} />
+                    </linearGradient>
+                    <linearGradient id="gradRevenue" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#6366f1" stopOpacity={0.95} />
+                      <stop offset="100%" stopColor="#4f46e5" stopOpacity={0.3} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
                   <XAxis dataKey="month" />
                   <YAxis tickFormatter={(v) => `₹${v / 1000}k`} />
-                  <Tooltip
-                    formatter={(v: any) => `₹${Number(v).toLocaleString()}`}
-                  />
-                  <Bar dataKey="collected" fill="#16a34a" name="Collected" />
-                  <Bar dataKey="revenue" fill="#4f46e5" name="Generated" />
+                  <Tooltip formatter={(v: any) => `₹${Number(v).toLocaleString()}`} />
+                  <Bar dataKey="collected" name="Collected" fill="url(#gradCollected)" />
+                  <Bar dataKey="revenue" name="Generated" fill="url(#gradRevenue)" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -570,7 +619,6 @@ export default function AnalyticsPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Invoice</TableHead>
                   <TableHead>Client</TableHead>
                   <TableHead className="text-right">Amount</TableHead>
                   <TableHead className="text-right">Status</TableHead>
@@ -579,9 +627,7 @@ export default function AnalyticsPage() {
               <TableBody>
                 {recentPayments.map((inv) => (
                   <TableRow key={inv._id ?? inv.id}>
-                    <TableCell className="font-bold">
-                      {inv._id ?? inv.id}
-                    </TableCell>
+                    
                     <TableCell>
                       {inv.clientName ||
                         inv.client ||
@@ -680,7 +726,7 @@ export default function AnalyticsPage() {
                   return (
                     <TableRow key={inv._id ?? inv.id}>
                       <TableCell className="font-bold">
-                        {inv._id ?? inv.id}
+                        {inv.invoiceNo || inv.id || inv._id}
                       </TableCell>
                       <TableCell>
                         {inv.clientName ||

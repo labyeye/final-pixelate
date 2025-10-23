@@ -12,7 +12,7 @@ import { Code, Users, LayoutDashboard, KanbanSquare, FileText, Briefcase, Receip
 
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', adminOnly: false, icon: LayoutDashboard },
-  { href: '/timeline', label: 'Timeline', adminOnly: false, icon: Columns },
+  { href: '/profile', label: 'Profile', adminOnly: false, icon: Users },
   { href: '/leads', label: 'Leads', adminOnly: false, icon: KanbanSquare },
   { href: '/enquiries', label: 'Enquiries', adminOnly: false, icon: LifeBuoy },
   { href: '/clients', label: 'Clients', adminOnly: false, icon: Users },
@@ -85,7 +85,13 @@ export function Sidebar() {
       <div className="p-6 border-t-2 border-black">
         <div className="flex items-center gap-4">
             <Avatar className="h-12 w-12 border-2 border-black rounded-none">
-                {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt="User Avatar" />}
+                {user?.avatar ? (
+                  // If user has uploaded an avatar (data URL or URL), use it
+                  <AvatarImage src={user.avatar} alt={`${user.name || 'User'} avatar`} />
+                ) : (
+                  // fallback to repo placeholder image
+                  userAvatar ? <AvatarImage src={userAvatar.imageUrl} alt="User Avatar" /> : null
+                )}
                 <AvatarFallback className="rounded-none bg-accent text-accent-foreground font-bold">
                     {user?.name?.charAt(0).toUpperCase() ?? 'U'}
                 </AvatarFallback>

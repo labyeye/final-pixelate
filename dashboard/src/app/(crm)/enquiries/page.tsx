@@ -7,6 +7,21 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 export default function EnquiriesPage() {
   const [items, setItems] = useState<any[]>([]);
 
+  const updateItem = async (id: string, patch: any) => {
+    try {
+      const res = await fetch(`/api/enquiries?id=${encodeURIComponent(id)}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(patch),
+      })
+      if (!res.ok) throw new Error('update failed')
+      const updated = await res.json()
+      setItems((prev) => prev.map((p) => (String(p._id || p.id) === String(id) ? updated : p)))
+    } catch (e) {
+      console.error('Failed to update enquiry', e)
+    }
+  }
+
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -44,6 +59,8 @@ export default function EnquiriesPage() {
                 <TableHead>Subject</TableHead>
                 <TableHead>Project Type</TableHead>
                 <TableHead>Message</TableHead>
+                <TableHead>Budget</TableHead>
+                <TableHead>Status</TableHead>
                 <TableHead>Date</TableHead>
               </TableRow>
             </TableHeader>
@@ -56,6 +73,14 @@ export default function EnquiriesPage() {
                   <TableCell>{it.subject || '-'}</TableCell>
                   <TableCell>{it.projectType || '-'}</TableCell>
                   <TableCell style={{maxWidth: 300}}>{it.message || '-'}</TableCell>
+                  <TableCell>{it.budget || '-'}</TableCell>
+                  <TableCell>
+                    <select value={it.status || 'pending'} onChange={(e) => updateItem(String(it._id || it.id), { status: e.target.value })} className="border rounded px-2 py-1">
+                      <option value="pending">Pending</option>
+                      <option value="confirmation">Confirmation</option>
+                      <option value="rejected">Rejected</option>
+                    </select>
+                  </TableCell>
                   <TableCell>{it.createdAt ? new Date(it.createdAt).toLocaleString() : '-'}</TableCell>
                 </TableRow>
               ))}

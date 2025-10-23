@@ -65,7 +65,7 @@
       // Dev convenience: if not provided elsewhere, point the website to the local dashboard
       // Change or remove this in production.
       if (!window.DASHBOARD_API_BASE) {
-        window.DASHBOARD_API_BASE = 'https://pixelatenest-crm.vercel.app';
+        window.DASHBOARD_API_BASE = "https://pixelatenest-crm.vercel.app";
       }
     </script>
 
@@ -199,14 +199,124 @@
   </head>
   <body>
     <div class="page-wrapper">
-      <a href="https://www.pixelatenest.com/" class="back-to-home-button">
-        <img
-          src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6843da816d8ee176a3dadb9a_arrow-left.svg"
-          alt="Back Arrow"
-          class="back-arrow"
-        />
-        <span>Back to Home</span>
-      </a>
+      <section class="nav-wrap">
+        <div class="nav-bar-wrap">
+          <div
+            data-animation="default"
+            data-collapse="medium"
+            data-duration="400"
+            data-easing="ease"
+            data-easing2="ease"
+            role="banner"
+            class="navbar w-nav"
+          >
+            <div class="navbar-wrapper">
+              <div class="navbar-left">
+                <a
+                  href="https://www.pixelatenest.com/"
+                  aria-current="page"
+                  class="navbar-brand w-nav-brand w--current"
+                  ><img
+                    loading="lazy"
+                    src="./assets/logo-2.png"
+                    alt="Navbar Brand Image"
+                    class="navbar-brand-logo"
+                /></a>
+              </div>
+              <div class="navbar-center">
+                <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
+                  <ul role="list" class="nav-menu w-list-unstyled">
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/"
+                        aria-current="page"
+                        class="nav-link w-inline-block w--current"
+                        ><span class="nav-link-text">Home</span></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/about.html"
+                        class="nav-link w-inline-block"
+                        ><span class="nav-link-text">About</span></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/pricing.html"
+                        class="nav-link w-inline-block"
+                        ><span class="nav-link-text">Pricing</span></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/webdev.html"
+                        class="nav-link w-inline-block"
+                        ><span class="nav-link-text">Web Development</span></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/app-dev.html"
+                        class="nav-link w-inline-block"
+                        ><span class="nav-link-text">App Development</span></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/software-dev.html"
+                        class="nav-link w-inline-block"
+                      >
+                        <span class="nav-link-text">Software Development</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/video-ed.html"
+                        class="nav-link w-inline-block"
+                        ><span class="nav-link-text">Video Editing</span></a
+                      >
+                    </li>
+
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/blogs.html"
+                        class="nav-link w-inline-block"
+                        ><span class="nav-link-text">Blogs</span></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/contact.html"
+                        class="nav-link w-inline-block"
+                        ><span class="nav-link-text">Contact</span></a
+                      >
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="navbar-right">
+                <div class="menu-button w-nav-button">
+                  <div
+                    data-is-ix2-target="1"
+                    class="hamburger-menu"
+                    data-w-id="87959840-dee1-9d4c-adfe-a49c217b8a08"
+                    data-animation-type="lottie"
+                    data-src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/686b9c8a6088b99ac2420c42_Animation%20-%201751882800099.json"
+                    data-loop="0"
+                    data-direction="1"
+                    data-autoplay="0"
+                    data-renderer="svg"
+                    data-default-duration="0"
+                    data-duration="2.3333333333333335"
+                    data-ix2-initial-state="0"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section class="contact">
         <div class="container">
@@ -314,6 +424,18 @@
                       </option>
                       <option value="General Inquiry">General Inquiry</option>
                     </select>
+                  </div>
+                  <div class="form-field">
+                    <label for="budget" class="form-label">Budget (INR)</label>
+                    <input
+                      class="text-field-v5 w-input"
+                      maxlength="32"
+                      name="budget"
+                      data-name="Budget"
+                      placeholder="Estimated budget"
+                      type="text"
+                      id="budget"
+                    />
                   </div>
                   <div class="form-field" style="grid-column: 1 / -1">
                     <label for="Message" class="form-label"

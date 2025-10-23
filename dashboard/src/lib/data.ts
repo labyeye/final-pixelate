@@ -37,6 +37,8 @@ export interface User {
   role: "admin" | "staff";
   password?: string;
   avatarUrl?: string;
+  // optional avatar (data URL or external URL)
+  avatar?: string;
 }
 
 export const users: User[] = [];

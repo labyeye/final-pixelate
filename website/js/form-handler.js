@@ -28,6 +28,7 @@ async function handleFormSubmit(event) {
     projectType: formData.get("field"),
     message: formData.get("Message"),
     selectedPlan: formData.get("selected-plan"),
+    budget: formData.get("budget"),
   };
 
   try {
