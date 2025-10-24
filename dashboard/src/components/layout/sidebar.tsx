@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { useAuth } from '@/hooks/use-auth';
-import { Code, Users, LayoutDashboard, KanbanSquare, FileText, Briefcase, Receipt, LifeBuoy, Columns, BarChart as BarChartIcon, DollarSign as DollarIcon, Image as ImageIcon } from 'lucide-react';
+import { Code, Users, LayoutDashboard, KanbanSquare, FileText, Briefcase, Receipt, LifeBuoy, Columns, BarChart as BarChartIcon, DollarSign as DollarIcon, Image as ImageIcon, PlayCircle } from 'lucide-react';
 
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', adminOnly: false, icon: LayoutDashboard },
@@ -19,6 +19,7 @@ const navItems = [
   { href: '/quotations', label: 'Quotations', adminOnly: false, icon: FileText },
   { href: '/projects', label: 'Projects', adminOnly: false, icon: Briefcase },
   { href: '/work-gallery', label: 'Work Gallery', adminOnly: true, icon: ImageIcon },
+  { href: '/reels', label: 'Reels', adminOnly: true, icon: PlayCircle },
   { href: '/blogs', label: 'Blogs', adminOnly: true, icon: FileText },
   { href: '/analytics', label: 'Analytics', adminOnly: false, icon: BarChartIcon },
   { href: '/invoicing', label: 'Invoicing', adminOnly: true, icon: Receipt },
