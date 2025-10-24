@@ -13,7 +13,7 @@ type FormValues = { brandName: string; brandLogoBase64?: string; entries: Entry[
 export default function ReelsPage() {
   const [items, setItems] = useState<any[]>([])
   const [editingId, setEditingId] = useState<string | null>(null)
-  const { register, control, handleSubmit, reset, setValue } = useForm<FormValues>({ defaultValues: { brandName: '', brandLogoBase64: '', entries: [] } })
+  const { register, control, handleSubmit, reset, setValue, getValues } = useForm<FormValues>({ defaultValues: { brandName: '', brandLogoBase64: '', entries: [] } })
   const { fields, append, remove, replace } = useFieldArray({ control, name: 'entries' })
 
   useEffect(() => {
@@ -49,9 +49,13 @@ export default function ReelsPage() {
 
   const onEntryFile = async (index: number, f: File | null) => {
     const data = f ? await toBase64(f) : ''
-    const copy = [...(control._formValues?.entries ?? [])]
-    copy[index] = { ...(copy[index] || {}), thumbnailBase64: data }
-    replace(copy)
+    // Use getValues to obtain current entries safely, then replace the array
+    const current = getValues().entries || []
+    const entriesCopy = [...current]
+    // ensure length
+    while (entriesCopy.length <= index) entriesCopy.push({ thumbnailBase64: '', link: '', title: '' })
+    entriesCopy[index] = { ...(entriesCopy[index] || {}), thumbnailBase64: data }
+    replace(entriesCopy)
   }
 
   const onSubmit = async (v: FormValues) => {
