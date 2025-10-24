@@ -12,7 +12,7 @@ export async function OPTIONS() { return new NextResponse(null, { headers: CORS 
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
   try {
-    const { id } = params as any
+    const { id } = await params as any
     const col = await svc.getCollection('reels')
     const item = await col.findOne({ _id: new ObjectId(id) })
     return NextResponse.json(item, { headers: CORS })
@@ -23,7 +23,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
 
 export async function PUT(request: Request, { params }: { params: { id: string } }) {
   try {
-    const { id } = params as any
+    const { id } = await params as any
     const body = await request.json()
     const col = await svc.getCollection('reels')
     const updates = { ...body, updatedAt: new Date() }
@@ -38,7 +38,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
 
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
   try {
-    const { id } = params as any
+    const { id } = await params as any
     const col = await svc.getCollection('reels')
     const { acknowledged, deletedCount } = await col.deleteOne({ _id: new ObjectId(id) })
     if (!acknowledged || deletedCount === 0) return NextResponse.json({ error: 'delete failed' }, { status: 500, headers: CORS })

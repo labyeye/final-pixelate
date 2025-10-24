@@ -420,73 +420,61 @@
                     "reels-slider-container"
                   );
                   if (!container) return;
+                  container.innerHTML = "";
                   if (!reels || reels.length === 0) {
                     container.innerHTML = "";
                     return;
                   }
-                  // Build slider using first reel set (showing all reels)
-                  const reel = reels[0];
-                  // populate brand header
-                  const headerEl = document.getElementById("reel-brand-header");
-                  if (headerEl) {
+
+                  // For each reel set, render a brand header and its slider
+                  reels.forEach((reel) => {
+                    // brand header
+                    const headerEl = document.createElement("div");
+                    headerEl.className = "reel-brand-header-wrapper";
                     if (reel.brandLogoBase64 || reel.brandName) {
                       const logo = reel.brandLogoBase64
-                        ? '<img src="' +
-                          reel.brandLogoBase64 +
-                          '" alt="' +
-                          (reel.brandName || "Brand") +
-                          '" />'
-                        : "";
+                        ? '<img src="' + reel.brandLogoBase64 + '" alt="' + (reel.brandName || 'Brand') + '" />'
+                        : '';
                       const name = reel.brandName
-                        ? '<div class="reel-brand-name">' +
-                          reel.brandName +
-                          "</div>"
-                        : "";
-                      headerEl.innerHTML =
-                        '<div class="reel-brand-header">' +
-                        logo +
-                        name +
-                        "</div>";
-                    } else {
-                      headerEl.innerHTML = "";
+                        ? '<div class="reel-brand-name">' + reel.brandName + '</div>'
+                        : '';
+                      headerEl.innerHTML = '<div class="reel-brand-header">' + logo + name + '</div>';
                     }
-                  }
-                  const div = document.createElement("div");
-                  div.className = "reels-slider";
-                  const entries = reel.entries || [];
-                  // choose up to 3 for stacked look; if more, allow scrolling
-                  const take = entries.slice(0, 5);
-                  take.forEach((e, i) => {
-                    const a = document.createElement("a");
-                    a.href = e.link || "#";
-                    a.target = "_blank";
-                    a.rel = "noopener";
-                    const card = document.createElement("div");
-                    card.className =
-                      "reel-card " +
-                      (i === 1
-                        ? "center"
-                        : i === 0
-                        ? "left"
-                        : i === 2
-                        ? "right"
-                        : "");
-                    const img = document.createElement("img");
-                    img.src = e.thumbnailBase64 || e.thumbnail || "";
-                    img.alt = e.title || reel.brandName || "Reel";
-                    card.appendChild(img);
-                    const overlay = document.createElement("div");
-                    overlay.className = "reel-overlay";
-                    overlay.innerHTML =
-                      '<div style="font-weight:700;font-size:18px">' +
-                      (e.title || "") +
-                      "</div>";
-                    card.appendChild(overlay);
-                    a.appendChild(card);
-                    div.appendChild(a);
+
+                    // slider
+                    const div = document.createElement("div");
+                    div.className = "reels-slider";
+                    const entries = reel.entries || [];
+                    const take = entries.slice(0, 5); // show up to 5 per brand for stacked look
+                    take.forEach((e, i) => {
+                      const a = document.createElement("a");
+                      a.href = e.link || "#";
+                      a.target = "_blank";
+                      a.rel = "noopener";
+                      const card = document.createElement("div");
+                      // Apply stacked card positioning classes based on index
+                      let posClass = '';
+                      if (i === 0) posClass = 'left';
+                      else if (i === 1) posClass = 'center';
+                      else if (i === 2) posClass = 'right';
+                      else if (i === 3) posClass = 'right'; // 4th card same as 3rd
+                      else if (i === 4) posClass = 'left'; // 5th card same as 1st
+                      card.className = "reel-card " + posClass;
+                      const img = document.createElement("img");
+                      img.src = e.thumbnailBase64 || e.thumbnail || "";
+                      img.alt = e.title || reel.brandName || "Reel";
+                      card.appendChild(img);
+                      const overlay = document.createElement("div");
+                      overlay.className = "reel-overlay";
+                      overlay.innerHTML = '<div style="font-weight:700;font-size:18px">' + (e.title || "") + "</div>";
+                      card.appendChild(overlay);
+                      a.appendChild(card);
+                      div.appendChild(a);
+                    });
+
+                    container.appendChild(headerEl);
+                    container.appendChild(div);
                   });
-                  container.innerHTML = "";
-                  container.appendChild(div);
                 } catch (e) {
                   console.error("Failed to load reels", e);
                 }
