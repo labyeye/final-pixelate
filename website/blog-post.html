@@ -1,81 +1,163 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Blog Article — Insights on Video Editing, Web Development & Digital Marketing | Pixelate Nest</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self';"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>
+      Blog Article — Insights on Video Editing, Web Development & Digital
+      Marketing | Pixelate Nest
+    </title>
     <link href="styles.css" rel="stylesheet" />
     <!-- If the post is served dynamically with ?id=, canonical points to the blogs index or should be set server-side to the full post URL -->
     <link rel="canonical" href="https://www.pixelatenest.com/blog-post.html" />
     <style>
-      body{background:#070707;color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto}
-      .container{max-width:900px;margin:32px auto;padding:16px}
-      .cover{width:100%;height:420px;object-fit:cover;border-radius:12px;margin-bottom:16px}
-      .meta{color:#9ca3af;margin-bottom:12px}
-      .content{line-height:1.7;color:#e5e7eb}
+      body {
+        background: #070707;
+        color: #fff;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto;
+      }
+      .container {
+        max-width: 900px;
+        margin: 32px auto;
+        padding: 16px;
+      }
+      .cover {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 16px;
+      }
+      .meta {
+        color: #9ca3af;
+        margin-bottom: 12px;
+      }
+      .content {
+        line-height: 1.7;
+        color: #e5e7eb;
+      }
     </style>
   </head>
   <!-- Facebook Pixel Code -->
   <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window,document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-   fbq('init', '1529543734863040'); 
-  fbq('track', 'PageView');
+    !(function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod
+          ? n.callMethod.apply(n, arguments)
+          : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = "2.0";
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(
+      window,
+      document,
+      "script",
+      "https://connect.facebook.net/en_US/fbevents.js"
+    );
+    fbq("init", "1529543734863040");
+    fbq("track", "PageView");
   </script>
   <noscript>
-   <img height="1" width="1" 
-  src="https://www.facebook.com/tr?id=1529543734863040&ev=PageView
-  &noscript=1"/>
+    <img
+      height="1"
+      width="1"
+      src="https://www.facebook.com/tr?id=1529543734863040&ev=PageView
+  &noscript=1"
+    />
   </noscript>
   <!-- End Facebook Pixel Code -->
   <body>
     <div class="container">
-      <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px">
-  <a href="https://www.pixelatenest.com/blogs.html" style="color:#9ca3af;display:inline-block">← Back to blogs</a>
-  <a href="https://www.pixelatenest.com/software-dev.html" style="color:#9ca3af;display:inline-block">Software Development</a>
+      <div
+        style="
+          display: flex;
+          gap: 12px;
+          align-items: center;
+          margin-bottom: 12px;
+        "
+      >
+        <a
+          href="https://www.pixelatenest.com/blogs.html"
+          style="color: #9ca3af; display: inline-block"
+          >← Back to blogs</a
+        >
+        <a
+          href="https://www.pixelatenest.com/software-dev.html"
+          style="color: #9ca3af; display: inline-block"
+          >Software Development</a
+        >
       </div>
       <div id="post-shell">
         <h1 id="post-title">Loading…</h1>
         <div class="meta" id="post-meta"></div>
-  <img id="post-image" class="cover" src="assets/placeholder.png" alt="" width="900" height="420" />
+        <img
+          id="post-image"
+          class="cover"
+          src="assets/placeholder.png"
+          alt=""
+          width="900"
+          height="420"
+        />
         <div id="post-content" class="content"></div>
       </div>
     </div>
     <script>
-      function getPosts(){
-        try{ return JSON.parse(localStorage.getItem('pn_posts')||'[]') }catch(e){return []}
+      function getPosts() {
+        try {
+          return JSON.parse(localStorage.getItem("pn_posts") || "[]");
+        } catch (e) {
+          return [];
+        }
       }
-      function qs(name){
+      function qs(name) {
         const u = new URL(location.href);
-        return u.searchParams.get(name)
+        return u.searchParams.get(name);
       }
-      const id = qs('id')
-      const posts = getPosts()
-      const p = posts.find(x=>String(x.id)===String(id))
-      if(!p){
-        document.getElementById('post-shell').innerHTML = '<p class="muted">Post not found. It may have been removed from the dashboard.</p>'
+      const id = qs("id");
+      const posts = getPosts();
+      const p = posts.find((x) => String(x.id) === String(id));
+      if (!p) {
+        document.getElementById("post-shell").innerHTML =
+          '<p class="muted">Post not found. It may have been removed from the dashboard.</p>';
       } else {
-        const titleText = p.title || ''
+        const titleText = p.title || "";
         // Truncate title to max 30 chars for page title to meet configured limit
-        const truncated = titleText.length > 30 ? titleText.slice(0, 27).trimEnd() + '…' : titleText
-        document.title = truncated ? `${truncated} | Pixelate Nest` : document.title
-        document.getElementById('post-title').innerText = titleText
-        document.getElementById('post-meta').innerText = (p.category||'') + ' · ' + (new Date(p.createdAt||'').toLocaleString())
-        const postImg = document.getElementById('post-image')
+        const truncated =
+          titleText.length > 30
+            ? titleText.slice(0, 27).trimEnd() + "…"
+            : titleText;
+        document.title = truncated
+          ? `${truncated} | Pixelate Nest`
+          : document.title;
+        document.getElementById("post-title").innerText = titleText;
+        document.getElementById("post-meta").innerText =
+          (p.category || "") +
+          " · " +
+          new Date(p.createdAt || "").toLocaleString();
+        const postImg = document.getElementById("post-image");
         if (p.image) {
-          postImg.src = p.image
-          postImg.alt = p.title ? (p.title + ' — image') : 'Post image'
+          postImg.src = p.image;
+          postImg.alt = p.title ? p.title + " — image" : "Post image";
         } else {
           // keep placeholder but provide a neutral alt for assistive tech
-          postImg.alt = p.title ? (p.title + ' — image') : 'Post image'
+          postImg.alt = p.title ? p.title + " — image" : "Post image";
         }
-        document.getElementById('post-content').innerHTML = p.content || ('<p>'+ (p.excerpt || '') + '</p>')
+        document.getElementById("post-content").innerHTML =
+          p.content || "<p>" + (p.excerpt || "") + "</p>";
       }
     </script>
   </body>
