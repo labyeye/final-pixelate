@@ -1,0 +1,29 @@
+# Pixelate Nest - Robots.txt
+# https://www.pixelatenest.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.pixelatenest.com/sitemap.xml
+
+# Block access to sensitive directories
+Disallow: /server/
+Disallow: /.vscode/
+Disallow: /js/
+Disallow: /scripts/
+
+# Allow all stylesheets and assets
+Allow: /styles.css
+Allow: /*.css$
+Allow: /assets/
+
+# Crawl-delay (optional - helps prevent server overload)
+Crawl-delay: 1
+
+# Block bad bots (optional)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
