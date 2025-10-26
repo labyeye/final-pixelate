@@ -14,6 +14,9 @@ interface JobPosting {
   location: string;
   type: string;
   experience: string;
+  salaryType: 'paid' | 'unpaid';
+  salary?: string;
+  duration: string;
   description: string;
   requirements: string[];
   responsibilities: string[];
@@ -198,6 +201,10 @@ export default function CareersPage() {
                       <span>📍 {job.location}</span>
                       <span>⏰ {job.type}</span>
                       <span>💼 {job.experience}</span>
+                      {job.salaryType && (
+                        <span>💰 {job.salaryType === 'paid' ? (job.salary || 'Paid') : 'Unpaid'}</span>
+                      )}
+                      {job.duration && <span>📅 {job.duration}</span>}
                     </CardDescription>
                   </div>
                   <div className="flex gap-2">

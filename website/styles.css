@@ -10500,7 +10500,7 @@ input:focus, textarea:focus, select:focus, .w-input:focus {
 
   .navbar {
     margin: auto;
-    width: 1277px;
+    width: 1320px;
     background-color: #0000000f;
     border: 1px solid #ffffff05;
     border-radius: 10px;
@@ -17174,7 +17174,7 @@ input:focus, textarea:focus, select:focus, .w-input:focus {
 
   /* 4. Animate on hover */
   .footer-link:hover .footer-link-text {
-    transform: translateY(-100%); /* Move the original text up and out of sight */
+    transform: translateY(10%); /* Move the original text up and out of sight */
   }
 
   .footer-link:hover .footer-link-text.absolute-link {

@@ -2,6 +2,18 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getDb } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 
+// CORS headers
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+};
+
+// Handle OPTIONS request for CORS preflight
+export async function OPTIONS() {
+  return NextResponse.json({}, { headers: corsHeaders });
+}
+
 // GET applications (with optional jobId filter)
 export async function GET(request: NextRequest) {
   try {
@@ -18,10 +30,10 @@ export async function GET(request: NextRequest) {
       .sort({ appliedAt: -1 })
       .toArray();
 
-    return NextResponse.json(applications);
+    return NextResponse.json(applications, { headers: corsHeaders });
   } catch (error) {
     console.error('Error fetching applications:', error);
-    return NextResponse.json({ error: 'Failed to fetch applications' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to fetch applications' }, { status: 500, headers: corsHeaders });
   }
 }
 
@@ -40,9 +52,9 @@ export async function POST(request: NextRequest) {
 
     const result = await db.collection('applications').insertOne(newApplication);
 
-    return NextResponse.json({ _id: result.insertedId, ...newApplication }, { status: 201 });
+    return NextResponse.json({ _id: result.insertedId, ...newApplication }, { status: 201, headers: corsHeaders });
   } catch (error) {
     console.error('Error creating application:', error);
-    return NextResponse.json({ error: 'Failed to submit application' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to submit application' }, { status: 500, headers: corsHeaders });
   }
 }

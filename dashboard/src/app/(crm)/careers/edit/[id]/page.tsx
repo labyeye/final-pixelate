@@ -24,6 +24,9 @@ export default function EditJobPage() {
     location: '',
     type: '',
     experience: '',
+    salaryType: 'paid' as 'paid' | 'unpaid',
+    salary: '',
+    duration: '',
     description: '',
     requirements: [''],
     responsibilities: [''],
@@ -39,7 +42,12 @@ export default function EditJobPage() {
     try {
       const response = await fetch(`/api/careers/${jobId}`);
       const data = await response.json();
-      setFormData(data);
+      setFormData({
+        ...data,
+        salaryType: data.salaryType || 'paid',
+        salary: data.salary || '',
+        duration: data.duration || '',
+      });
     } catch (error) {
       console.error('Error fetching job:', error);
     } finally {
@@ -206,6 +214,17 @@ export default function EditJobPage() {
               </div>
 
               <div className="space-y-2">
+                <Label htmlFor="duration">Duration *</Label>
+                <Input
+                  id="duration"
+                  required
+                  value={formData.duration}
+                  onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
+                  placeholder="e.g., 6 months, 1 year, Permanent"
+                />
+              </div>
+
+              <div className="space-y-2">
                 <Label htmlFor="status">Status *</Label>
                 <Select
                   value={formData.status}
@@ -222,6 +241,41 @@ export default function EditJobPage() {
                     <SelectItem value="closed">Closed</SelectItem>
                   </SelectContent>
                 </Select>
+              </div>
+            </div>
+
+            {/* Salary Information */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="salaryType">Salary Type *</Label>
+                <Select
+                  value={formData.salaryType}
+                  onValueChange={(value: 'paid' | 'unpaid') =>
+                    setFormData({ ...formData, salaryType: value })
+                  }
+                  required
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select salary type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="paid">Paid</SelectItem>
+                    <SelectItem value="unpaid">Unpaid</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="salary">
+                  Salary Range {formData.salaryType === 'paid' ? '*' : '(N/A for unpaid)'}
+                </Label>
+                <Input
+                  id="salary"
+                  value={formData.salary}
+                  onChange={(e) => setFormData({ ...formData, salary: e.target.value })}
+                  placeholder={formData.salaryType === 'paid' ? 'e.g., ₹30K per month or ₹5L per annum' : 'Not applicable'}
+                  disabled={formData.salaryType === 'unpaid'}
+                />
               </div>
             </div>
 

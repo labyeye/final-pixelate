@@ -2,14 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Careers — Join the Pixelate Nest Team</title>
+    <title>Careers at Pixelate Nest — Join Our Creative Team | Open Positions in Development, Design & Marketing</title>
     <meta
       name="description"
-      content="Join Pixelate Nest and be part of a creative team building innovative digital experiences. Explore open positions in development, design, and marketing."
+      content="Join Pixelate Nest's innovative team! Explore exciting career opportunities in web development, app development, video editing, UI/UX design, and digital marketing. Work on cutting-edge projects with a passionate, creative team."
+    />
+    <meta
+      name="keywords"
+      content="pixelate nest careers, creative agency jobs, web developer jobs, app developer jobs, video editor jobs, UI UX designer jobs, digital marketing jobs, remote jobs, tech jobs, creative jobs, design jobs, frontend developer, backend developer, full stack developer, motion graphics designer, content creator, social media manager, SEO specialist, career opportunities, job openings, work at pixelate nest"
     />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="canonical" href="https://www.pixelatenest.com/careers.html" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
 
     <link href="styles.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -30,10 +34,17 @@
       rel="shortcut icon"
       type="image/x-icon"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
     <style>
+      .icon-orange {
+        color: #fb8a02;
+      }
       :root {
-        --primary-gradient: linear-gradient(135deg, #00d9ff, #7b2ff7);
+        --primary-gradient: linear-gradient(135deg, #fb8a02, #da4900);
         --dark-bg: #0a0a0a;
       }
 
@@ -163,8 +174,8 @@
       }
 
       .jobs-list {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 24px;
       }
 
@@ -175,11 +186,13 @@
         border-radius: 24px;
         transition: all 0.3s ease;
         cursor: pointer;
+        display: flex;
+        flex-direction: column;
       }
 
       .job-card:hover {
         border-color: rgba(0, 217, 255, 0.3);
-        transform: translateX(8px);
+        transform: translateY(-8px);
       }
 
       .job-header {
@@ -226,8 +239,8 @@
 
       .job-tag {
         padding: 6px 16px;
-        background: rgba(0, 217, 255, 0.1);
-        color: #00d9ff;
+        background: #fb8a02;
+        color: black;
         border-radius: 100px;
         font-size: 13px;
         font-weight: 500;
@@ -404,7 +417,7 @@
       .form-group input:focus,
       .form-group textarea:focus {
         outline: none;
-        border-color: #00d9ff;
+        border-color: #fb8a02;
         background: rgba(255, 255, 255, 0.08);
       }
 
@@ -477,7 +490,7 @@
         width: 40px;
         height: 40px;
         border: 3px solid rgba(0, 217, 255, 0.2);
-        border-top-color: #00d9ff;
+        border-top-color: #fb8a02;
         border-radius: 50%;
         animation: spin 1s linear infinite;
         margin-top: 20px;
@@ -486,6 +499,12 @@
       @keyframes spin {
         to {
           transform: rotate(360deg);
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .jobs-list {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
 
@@ -498,6 +517,9 @@
         }
         .job-header {
           flex-direction: column;
+        }
+        .jobs-list {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -652,6 +674,100 @@
       </p>
     </section>
 
+    <!-- Jobs Section -->
+    <section class="jobs-section">
+      <div class="container">
+        <h2 class="section-title">Open Positions</h2>
+        <p class="section-subtitle">
+          Explore our current openings and find the perfect role to grow your
+          career.
+        </p>
+
+        <div class="job-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="development">
+            Development
+          </button>
+          <button class="filter-btn" data-filter="design">Design</button>
+          <button class="filter-btn" data-filter="video">Video Editing</button>
+          <button class="filter-btn" data-filter="marketing">Marketing</button>
+        </div>
+
+        <div class="jobs-list" id="jobs-grid">
+          <!-- Jobs will be loaded dynamically from API -->
+        </div>
+
+        <div class="no-jobs" id="no-jobs" style="display: none">
+          No positions available in this department at the moment.
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <div class="container">
+        <h2 class="section-title">Why Join Us?</h2>
+        <p class="section-subtitle">
+          We offer competitive benefits and a supportive environment to help you
+          grow.
+        </p>
+
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <div class="benefit-icon">💰</div>
+            <div class="benefit-content">
+              <h3>Competitive Salary</h3>
+              <p>
+                Market-leading compensation packages with performance bonuses.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">🏠</div>
+            <div class="benefit-content">
+              <h3>Remote Flexibility</h3>
+              <p>Work from anywhere or enjoy our hybrid working model.</p>
+            </div>
+          </div>
+
+                    <div class="benefit-item">
+            <div class="benefit-icon">📚</div>
+            <div class="benefit-content">
+              <h3>Learning & Development</h3>
+              <p>
+                Continuous learning opportunities with courses and
+                certifications.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">🏥</div>
+            <div class="benefit-content">
+              <h3>Health & Wellness</h3>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">⏰</div>
+            <div class="benefit-content">
+              <h3>Work-Life Balance</h3>
+              <p>Flexible hours and generous paid time off.</p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">🎉</div>
+            <div class="benefit-content">
+              <h3>Team Culture</h3>
+              <p>
+                Regular team events, celebrations, and collaborative projects.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Values Section -->
     <section class="values-section">
       <div class="container">
@@ -701,102 +817,6 @@
       </div>
     </section>
 
-    <!-- Jobs Section -->
-    <section class="jobs-section">
-      <div class="container">
-        <h2 class="section-title">Open Positions</h2>
-        <p class="section-subtitle">
-          Explore our current openings and find the perfect role to grow your
-          career.
-        </p>
-
-        <div class="job-filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="development">
-            Development
-          </button>
-          <button class="filter-btn" data-filter="design">Design</button>
-          <button class="filter-btn" data-filter="video">Video Editing</button>
-          <button class="filter-btn" data-filter="marketing">Marketing</button>
-        </div>
-
-        <div class="jobs-list" id="jobs-grid">
-          <!-- Jobs will be loaded dynamically from API -->
-        </div>
-
-        <div class="no-jobs" id="no-jobs" style="display: none">
-          No positions available in this department at the moment.
-        </div>
-      </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="benefits-section">
-      <div class="container">
-        <h2 class="section-title">Why Join Us?</h2>
-        <p class="section-subtitle">
-          We offer competitive benefits and a supportive environment to help you
-          grow.
-        </p>
-
-        <div class="benefits-grid">
-          <div class="benefit-item">
-            <div class="benefit-icon">💰</div>
-            <div class="benefit-content">
-              <h4>Competitive Salary</h4>
-              <p>
-                Market-leading compensation packages with performance bonuses.
-              </p>
-            </div>
-          </div>
-
-          <div class="benefit-item">
-            <div class="benefit-icon">🏠</div>
-            <div class="benefit-content">
-              <h4>Remote Flexibility</h4>
-              <p>Work from anywhere or enjoy our hybrid working model.</p>
-            </div>
-          </div>
-
-          <div class="benefit-item">
-            <div class="benefit-icon">📚</div>
-            <div class="benefit-content">
-              <h4>Learning & Development</h4>
-              <p>
-                Access to courses, conferences, and skill development programs.
-              </p>
-            </div>
-          </div>
-
-          <div class="benefit-item">
-            <div class="benefit-icon">🏥</div>
-            <div class="benefit-content">
-              <h4>Health & Wellness</h4>
-              <p>Comprehensive health insurance and wellness benefits.</p>
-            </div>
-          </div>
-
-          <div class="benefit-item">
-            <div class="benefit-icon">⏰</div>
-            <div class="benefit-content">
-              <h4>Work-Life Balance</h4>
-              <p>Flexible hours and generous paid time off.</p>
-            </div>
-          </div>
-
-          <div class="benefit-item">
-            <div class="benefit-icon">🎉</div>
-            <div class="benefit-content">
-              <h4>Team Culture</h4>
-              <p>
-                Regular team events, celebrations, and collaborative projects.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- CTA Section -->
     <section class="cta-section">
       <div class="container">
@@ -808,6 +828,196 @@
         <a href="mailto:careers@pixelatenest.com" class="apply-btn"
           >Get in Touch</a
         >
+      </div>
+    </section>
+    <section class="footer">
+      <div class="container">
+        <div class="footer-wrap">
+          <div class="footer-top">
+            <div class="footer-top-left">
+              <div class="footer-logo-details">
+                <div class="footer-logo-wrap">
+                  <a
+                    href="https://www.pixelatenest.com/"
+                    aria-current="page"
+                    class="footer-logo w-inline-block w--current"
+                  >
+                    <img
+                      src="assets/only-icon.png"
+                      loading="lazy"
+                      alt="Pixelate Nest Logo"
+                      class="fit-cover"
+                    />
+                  </a>
+                  <p class="p-text-01">Pixelate Nest®</p>
+                </div>
+                <p class="p-text-03">
+                  Creative Digital Experiences That Build Your Brand.
+                </p>
+                <div style="margin-top: 20px">
+                  <p class="p-text-03" style="margin-bottom: 8px">
+                    <strong>Contact Us</strong>
+                  </p>
+                  <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
+                    📧 pixelatenest@gmail.com
+                  </p>
+                  <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
+                    📞 +91 9234112345
+                  </p>
+                  <p class="p-text-03 text-white-60">
+                    📍 Bangalore, Karnataka, India
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-right-link-wrap">
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Company</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/about.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">About Us</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/careers.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Careers</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/contact.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Contact Us</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/blogs.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Blog</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Services</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/video-ed.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Video Editing</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/webdev.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Web Development</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/app-dev.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">App Development</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/software-dev.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Software Development</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Resources</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/pricing.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Pricing</div>
+                  </a>
+                  <a href="#" class="footer-link w-inline-block">
+                    <div class="footer-link-text">Portfolio</div>
+                  </a>
+                  <a href="#" class="footer-link w-inline-block">
+                    <div class="footer-link-text">Case Studies</div>
+                  </a>
+                  <a href="#" class="footer-link w-inline-block">
+                    <div class="footer-link-text">FAQ</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Legal</div>
+                <div class="footer-link-list">
+                  <a href="#" class="footer-link w-inline-block">
+                    <div class="footer-link-text">Privacy Policy</div>
+                  </a>
+                  <a href="#" class="footer-link w-inline-block">
+                    <div class="footer-link-text">Terms of Service</div>
+                  </a>
+                  <a href="#" class="footer-link w-inline-block">
+                    <div class="footer-link-text">Cookie Policy</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Follow Us</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.instagram.com/pixelate.nest/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Instagram</div>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/pixelate-nest/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">LinkedIn</div>
+                  </a>
+                  <a
+                    href="https://twitter.com/pixelatenest"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Twitter</div>
+                  </a>
+                  <a
+                    href="https://www.facebook.com/pixelatenest"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Facebook</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <div class="vertical-divider"></div>
+            <div class="footer-bottom-wrap">
+              <div class="p-text-03 text-white-60">
+                © 2025 Pixelate Nest®. All Rights Reserved. | Crafted with ❤️ in
+                India
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -901,7 +1111,7 @@
     </div>
 
     <script>
-      const API_BASE_URL = "https://pixelatenest-crm.vercel.app/api";
+      const API_BASE_URL = "http://localhost:9002/api";
       let currentJobId = null;
       let allJobs = [];
 
@@ -915,6 +1125,11 @@
 
         try {
           const response = await fetch(`${API_BASE_URL}/careers`);
+
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status} ${response.statusText}`);
+          }
+
           const jobs = await response.json();
 
           // Filter only active jobs
@@ -931,8 +1146,22 @@
           renderJobs(allJobs);
         } catch (error) {
           console.error("Error fetching jobs:", error);
-          jobsGrid.innerHTML =
-            '<div class="loading-spinner">Error loading jobs. Please try again later.</div>';
+          jobsGrid.innerHTML = "";
+          noJobs.style.display = "block";
+          noJobs.innerHTML = `
+            <div style="max-width: 600px; margin: 0 auto;">
+              <p style="margin-bottom: 20px;">Unable to load current job openings.</p>
+              <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 24px;">
+                This may be due to a network issue or the API being temporarily unavailable.
+              </p>
+              <button onclick="fetchJobs()" class="filter-btn" style="margin-right: 12px;">
+                🔄 Try Again
+              </button>
+              <a href="mailto:careers@pixelatenest.com" class="filter-btn" style="text-decoration: none;">
+                ✉️ Email Us Directly
+              </a>
+            </div>
+          `;
         }
       }
 
@@ -956,9 +1185,23 @@
               <div>
                 <h3 class="job-title">${job.title}</h3>
                 <div class="job-meta">
-                  <span class="job-meta-item">📍 ${job.location}</span>
-                  <span class="job-meta-item">⏰ ${job.type}</span>
-                  <span class="job-meta-item">💼 ${job.experience}</span>
+                  <span class="job-meta-item"><i class="fas fa-map-marker-alt icon-orange"></i> ${job.location}</span>
+                  <span class="job-meta-item"><i class="fas fa-clock icon-orange"></i> ${job.type}</span>
+                  <span class="job-meta-item"><i class="fas fa-briefcase icon-orange"></i> ${job.experience}</span>
+                  ${
+                    job.salaryType
+                      ? `<span class="job-meta-item"><i class="fas fa-money-bill-wave icon-orange"></i> ${
+                          job.salaryType === "paid"
+                            ? job.salary || "Paid"
+                            : "Unpaid"
+                        }</span>`
+                      : ""
+                  }
+                  ${
+                    job.duration
+                      ? `<span class="job-meta-item"><i class="fas fa-calendar-alt icon-orange"></i> ${job.duration}</span>`
+                      : ""
+                  }
                 </div>
               </div>
             </div>

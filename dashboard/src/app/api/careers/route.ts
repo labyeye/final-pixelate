@@ -2,6 +2,18 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getDb } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 
+// CORS headers
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+};
+
+// Handle OPTIONS request for CORS preflight
+export async function OPTIONS() {
+  return NextResponse.json({}, { headers: corsHeaders });
+}
+
 // GET all job postings
 export async function GET(request: NextRequest) {
   try {
@@ -34,10 +46,10 @@ export async function GET(request: NextRequest) {
       ])
       .toArray();
 
-    return NextResponse.json(jobs);
+    return NextResponse.json(jobs, { headers: corsHeaders });
   } catch (error) {
     console.error('Error fetching jobs:', error);
-    return NextResponse.json({ error: 'Failed to fetch jobs' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to fetch jobs' }, { status: 500, headers: corsHeaders });
   }
 }
 
@@ -55,9 +67,9 @@ export async function POST(request: NextRequest) {
 
     const result = await db.collection('careers').insertOne(newJob);
 
-    return NextResponse.json({ _id: result.insertedId, ...newJob }, { status: 201 });
+    return NextResponse.json({ _id: result.insertedId, ...newJob }, { status: 201, headers: corsHeaders });
   } catch (error) {
     console.error('Error creating job:', error);
-    return NextResponse.json({ error: 'Failed to create job' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to create job' }, { status: 500, headers: corsHeaders });
   }
 }
