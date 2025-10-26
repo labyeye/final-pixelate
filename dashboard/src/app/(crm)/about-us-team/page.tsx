@@ -192,7 +192,7 @@ export default function AboutUsTeamPage() {
                       id="phone"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 9876543210"
+                      placeholder="+91 9234112345"
                     />
                   </div>
                   <div className="space-y-2">
