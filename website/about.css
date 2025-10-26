@@ -110,10 +110,12 @@
   text-decoration: none;
   transition: transform 0.3s ease;
   position: relative;
+  isolation: isolate; /* Create new stacking context */
 }
 
 .final-team-card:hover {
   transform: translateY(-5px);
+  z-index: 10; /* Bring card above others on hover */
 }
 
 /* Overlay container that appears on hover: hidden by default, reveals on hover */
@@ -124,11 +126,11 @@
   align-items: flex-end;
   justify-content: center;
   padding: 18px;
-  background: rgba(0,0,0,0.85); /* solid dark overlay for details */
+  background: rgba(0,0,0,0.90); /* slightly darker for better contrast */
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.28s ease, transform 0.28s ease;
-  z-index: 9999;
+  z-index: 100;
   pointer-events: none;
 }
 
@@ -136,28 +138,32 @@
 .final-team-card:hover .team-overlay,
 .final-team-card:focus-within .team-overlay,
 .final-team-card:focus .team-overlay,
-.final-team-card:active .team-overlay {
+.final-team-card:active .team-overlay,
+.final-team-card.is-hover .team-overlay {
   opacity: 1 !important;
   transform: translateY(0) !important;
   pointer-events: auto !important;
+  visibility: visible !important;
 }
 
 /* Text inside overlay: hidden initially and revealed with staggered delays */
 .overlay-name,
 .overlay-role,
 .overlay-socials {
-  opacity: 0;
-  transform: translateY(15px);
+  opacity: 1 !important;
+  transform: translateY(0) !important;
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 /* Staggered reveal: name first, role second, socials last */
 .final-team-card:hover .overlay-name,
 .final-team-card:focus-within .overlay-name,
-.final-team-card:focus .overlay-name {
-  opacity: 1;
-  transform: translateY(0);
+.final-team-card:focus .overlay-name,
+.final-team-card.is-hover .overlay-name {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
   transition-delay: 0.12s;
+  visibility: visible !important;
 }
 
 .final-team-card:active .overlay-name {
@@ -167,10 +173,12 @@
 
 .final-team-card:hover .overlay-role,
 .final-team-card:focus-within .overlay-role,
-.final-team-card:focus .overlay-role {
-  opacity: 1;
-  transform: translateY(0);
+.final-team-card:focus .overlay-role,
+.final-team-card.is-hover .overlay-role {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
   transition-delay: 0.24s;
+  visibility: visible !important;
 }
 
 .final-team-card:active .overlay-role {
@@ -180,10 +188,12 @@
 
 .final-team-card:hover .overlay-socials,
 .final-team-card:focus-within .overlay-socials,
-.final-team-card:focus .overlay-socials {
-  opacity: 1;
-  transform: translateY(0);
+.final-team-card:focus .overlay-socials,
+.final-team-card.is-hover .overlay-socials {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
   transition-delay: 0.36s;
+  visibility: visible !important;
 }
 
 .final-team-card:active .overlay-socials {
@@ -203,41 +213,63 @@
 .overlay-inner {
   width: 100%;
   text-align: center;
-  color: #fff;
+  color: #fff !important;
+  position: relative;
+  z-index: 1;
+  opacity: 1 !important;
 }
 
 .overlay-name {
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 6px;
+  color: #fff !important;
+  opacity: 1 !important;
 }
 
 .overlay-role {
-  font-size: 13px;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.9) !important;
+  margin-bottom: 12px;
+  opacity: 1 !important;
 }
 
 .overlay-socials {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .social-link {
-  display: inline-block;
-  background: rgba(255,255,255,0.12);
-  padding: 6px 10px;
-  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.15);
+  padding: 8px;
+  border-radius: 50%;
   color: #fff;
-  font-size: 13px;
   text-decoration: none;
-  transition: background 0.18s ease, transform 0.18s ease;
+  transition: all 0.25s ease;
+  width: 36px;
+  height: 36px;
+  opacity: 1 !important;
 }
 
 .social-link:hover {
-  background: rgba(255,255,255,0.2);
-  transform: translateY(-3px);
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  opacity: 1 !important;
 }
 
 .final-team-image-wrapper {
@@ -362,3 +394,60 @@
     font-size: 1.25rem;
   }
 }
+
+/* DEBUG: Force overlay visible to help diagnose rendering conflicts. Remove after verification. */
+.final-team-card .team-overlay {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  background: rgba(0,0,0,0.95) !important;
+}
+
+.final-team-card .overlay-inner,
+.final-team-card .overlay-inner * {
+  color: #fff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.final-team-card .overlay-socials,
+.final-team-card .social-link,
+.final-team-card .social-link svg {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Strong, high-specificity fix for overlay social icons to override other CSS (permanent) */
+.final-team-card .team-overlay .overlay-inner .overlay-socials {
+  display: flex !important;
+  gap: 12px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 12px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.final-team-card .team-overlay .overlay-inner .overlay-socials .social-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255,255,255,0.12) !important;
+  padding: 8px !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  width: 36px !important;
+  height: 36px !important;
+  pointer-events: auto !important;
+}
+
+.final-team-card .team-overlay .overlay-inner .overlay-socials .social-link svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: #fff !important;
+  fill: #fff !important;
+}
+

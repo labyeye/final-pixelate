@@ -128,21 +128,39 @@
     </script>
     <!-- Facebook Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-     fbq('init', '1529543734863040'); 
-    fbq('track', 'PageView');
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "1529543734863040");
+      fbq("track", "PageView");
     </script>
     <noscript>
-     <img height="1" width="1" 
-    src="https://www.facebook.com/tr?id=1529543734863040&ev=PageView
-    &noscript=1"/>
+      <img
+        height="1"
+        width="1"
+        src="https://www.facebook.com/tr?id=1529543734863040&ev=PageView
+    &noscript=1"
+      />
     </noscript>
     <!-- End Facebook Pixel Code -->
   </head>
@@ -170,9 +188,7 @@
                       src="./assets/logo-2.png"
                       alt="Navbar Brand Image"
                       class="navbar-brand-logo"
-                    
-                    /></a
-                  >
+                  /></a>
                 </div>
                 <div class="navbar-center">
                   <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
@@ -459,620 +475,149 @@
                 </div>
               </div>
 
-              <div class="final-team-container">
-                <a href="#" class="final-team-card">
-                  <span class="final-team-image-wrapper">
-                    <img
-                      src="./assets/about/labh.webp"
-                      loading="lazy"
-                      alt="Labh Chandra Bothra"
-                      class="final-team-image"
-                    />
-                  </span>
-                  <div class="final-team-details">
-                    <h4 class="member-name">Labh Chandra Bothra</h4>
-                    <p class="member-role">Founder</p>
-                    <span class="member-arrow">&rightarrow;</span>
-                  </div>
-                  <div class="team-overlay">
-                    <div class="overlay-inner">
-                      <div class="overlay-name">Labh Chandra Bothra</div>
-                      <div class="overlay-role">Founder</div>
-                      <div class="overlay-socials">
-                        <a href="#" class="social-link" aria-label="Instagram">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M17.5 6.5h.01"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v6h-4v-12h4v2"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M2 9h4v12H2z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M4 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="final-team-card">
-                  <span class="final-team-image-wrapper">
-                    <img
-                      src="./assets/about/laxmi.webp"
-                      loading="lazy"
-                      alt="Laxmi Bothra"
-                      class="final-team-image"
-                    />
-                  </span>
-                  <div class="final-team-details">
-                    <h4 class="member-name">Laxmi Bothra</h4>
-                    <p class="member-role">Co-Founder, CFO</p>
-                    <span class="member-arrow">&rightarrow;</span>
-                  </div>
-                  <div class="team-overlay">
-                    <div class="overlay-inner">
-                      <div class="overlay-name">Laxmi Bothra</div>
-                      <div class="overlay-role">Co-Founder, CFO</div>
-                      <div class="overlay-socials">
-                        <a href="#" class="social-link" aria-label="Instagram">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M17.5 6.5h.01"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v6h-4v-12h4v2"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M2 9h4v12H2z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M4 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="final-team-card">
-                  <span class="final-team-image-wrapper">
-                    <img
-                      src="./assets/about/hershul.webp"
-                      loading="lazy"
-                      alt="Hershul Singh"
-                      class="final-team-image"
-                    />
-                  </span>
-                  <div class="final-team-details">
-                    <h4 class="member-name">Hershul Singh</h4>
-                    <p class="member-role">Chief Executive Officer</p>
-                    <span class="member-arrow">&rightarrow;</span>
-                  </div>
-                  <div class="team-overlay">
-                    <div class="overlay-inner">
-                      <div class="overlay-name">Hershul Singh</div>
-                      <div class="overlay-role">Chief Executive Officer</div>
-                      <div class="overlay-socials">
-                        <a href="#" class="social-link" aria-label="Instagram">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M17.5 6.5h.01"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v6h-4v-12h4v2"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M2 9h4v12H2z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M4 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
-                <a href="#" class="final-team-card">
-                  <span class="final-team-image-wrapper">
-                    <img
-                      src="./assets/about/sumit.webp"
-                      loading="lazy"
-                      alt="Sumith Yogi"
-                      class="final-team-image"
-                    />
-                  </span>
-                  <div class="final-team-details">
-                    <h4 class="member-name">Sumith Yogi</h4>
-                    <p class="member-role">Chief Executive Officer</p>
-                    <span class="member-arrow">&rightarrow;</span>
-                  </div>
-                  <div class="team-overlay">
-                    <div class="overlay-inner">
-                      <div class="overlay-name">Sumith Yogi</div>
-                      <div class="overlay-role">Chief Executive Officer</div>
-                      <div class="overlay-socials">
-                        <a href="#" class="social-link" aria-label="Instagram">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M17.5 6.5h.01"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v6h-4v-12h4v2"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M2 9h4v12H2z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M4 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="final-team-card">
-                  <span class="final-team-image-wrapper">
-                    <img
-                      src="./assets/about/shobu.webp"
-                      loading="lazy"
-                      alt="Seikh Sahabuddin"
-                      class="final-team-image"
-                    />
-                  </span>
-                  <div class="final-team-details">
-                    <h4 class="member-name">Seikh Sahabuddin</h4>
-                    <p class="member-role">Creative Director,Media</p>
-                    <span class="member-arrow">&rightarrow;</span>
-                  </div>
-                  <div class="team-overlay">
-                    <div class="overlay-inner">
-                      <div class="overlay-name">Seikh Sahabuddin</div>
-                      <div class="overlay-role">Creative Director, Media</div>
-                      <div class="overlay-socials">
-                        <a href="#" class="social-link" aria-label="Instagram">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M17.5 6.5h.01"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v6h-4v-12h4v2"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M2 9h4v12H2z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M4 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="final-team-card">
-                  <span class="final-team-image-wrapper">
-                    <img
-                      src="./assets/about/kxz.webp"
-                      loading="lazy"
-                      alt="Kshitiz Kumar"
-                      class="final-team-image"
-                    />
-                  </span>
-                  <div class="final-team-details">
-                    <h4 class="member-name">Kshitiz Kumar</h4>
-                    <p class="member-role">Junior Media Associate</p>
-                    <span class="member-arrow">&rightarrow;</span>
-                  </div>
-                  <div class="team-overlay">
-                    <div class="overlay-inner">
-                      <div class="overlay-name">Kshitiz Kumar</div>
-                      <div class="overlay-role">Junior Media Associate</div>
-                      <div class="overlay-socials">
-                        <a href="#" class="social-link" aria-label="Instagram">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M17.5 6.5h.01"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v6h-4v-12h4v2"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M2 9h4v12H2z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M4 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="final-team-card">
-                  <span class="final-team-image-wrapper">
-                    <img
-                      src="./assets/about/arnav.webp"
-                      loading="lazy"
-                      alt="Arnav Rangwani"
-                      class="final-team-image"
-                    />
-                  </span>
-                  <div class="final-team-details">
-                    <h4 class="member-name">Arnav Rangwani</h4>
-                    <p class="member-role">Technical Lead</p>
-                    <span class="member-arrow">&rightarrow;</span>
-                  </div>
-                  <div class="team-overlay">
-                    <div class="overlay-inner">
-                      <div class="overlay-name">Arnav Rangwani</div>
-                      <div class="overlay-role">Technical Lead</div>
-                      <div class="overlay-socials">
-                        <a href="#" class="social-link" aria-label="Instagram">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M17.5 6.5h.01"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v6h-4v-12h4v2"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M2 9h4v12H2z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M4 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </a>
+              <div class="final-team-container" id="team-container">
+                <!-- Team members will be dynamically loaded here -->
+                <div
+                  class="text-center"
+                  style="grid-column: 1 / -1; padding: 40px 0"
+                >
+                  <p class="p-text-02 text-white-70">Loading team members...</p>
+                </div>
               </div>
             </div>
           </section>
+          <script>
+            // Fetch and display team members from API
+            (async function loadTeamMembers() {
+              try {
+                // Update this URL to your actual dashboard API URL
+                const API_URL =
+                  window.location.hostname === "localhost"
+                    ? "http://localhost:9002/api/public/about-team"
+                    : "http://localhost:9002/api/public/about-team";
+
+                const response = await fetch(API_URL);
+                if (!response.ok)
+                  throw new Error("Failed to fetch team members");
+
+                const members = await response.json();
+                const container = document.getElementById("team-container");
+
+                if (members.length === 0) {
+                  container.innerHTML =
+                    '<div class="text-center" style="grid-column: 1 / -1; padding: 40px 0;"><p class="p-text-02 text-white-70">No team members to display yet.</p></div>';
+                  return;
+                }
+
+                // Clear loading message
+                container.innerHTML = "";
+
+                // Generate HTML for each member
+                members.forEach((member) => {
+                  console.log(
+                    "Processing member:",
+                    member.name,
+                    "Social links:",
+                    member.socialLinks
+                  );
+                  const socialLinks = [];
+
+                  if (
+                    member.socialLinks?.instagram &&
+                    member.socialLinks.instagram.trim()
+                  ) {
+                    socialLinks.push(`
+                      <a href="${member.socialLinks.instagram}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram" title="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+                          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                          <circle cx="18" cy="6" r="1.5" fill="currentColor"/>
+                        </svg>
+                      </a>
+                    `);
+                  }
+
+                  if (
+                    member.socialLinks?.linkedin &&
+                    member.socialLinks.linkedin.trim()
+                  ) {
+                    socialLinks.push(`
+                      <a href="${member.socialLinks.linkedin}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn" title="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/>
+                          <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      </a>
+                    `);
+                  }
+
+                  if (
+                    member.socialLinks?.facebook &&
+                    member.socialLinks.facebook.trim()
+                  ) {
+                    socialLinks.push(`
+                      <a href="${member.socialLinks.facebook}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook" title="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </a>
+                    `);
+                  }
+
+                  const cardHtml = `
+                    <a href="#" class="final-team-card">
+                      <span class="final-team-image-wrapper">
+                        <img
+                          src="${
+                            member.imageUrl || "./assets/about/default.webp"
+                          }"
+                          loading="lazy"
+                          alt="${member.name}"
+                          class="final-team-image"
+                          onerror="this.src='./assets/about/default.webp'"
+                        />
+                      </span>
+                      <div class="final-team-details">
+                        <h4 class="member-name">${member.name}</h4>
+                        <p class="member-role">${member.designation}</p>
+                        <span class="member-arrow">&rightarrow;</span>
+                      </div>
+                      <div class="team-overlay">
+                        <div class="overlay-inner">
+                          <div class="overlay-name">${member.name}</div>
+                          <div class="overlay-role">${member.designation}</div>
+                          <div class="overlay-socials">
+                            ${socialLinks.join("")}
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  `;
+
+                  container.innerHTML += cardHtml;
+                });
+
+                // Add event listeners to manually trigger hover state
+                setTimeout(() => {
+                  const cards = document.querySelectorAll(".final-team-card");
+                  cards.forEach((card) => {
+                    card.addEventListener("mouseenter", function () {
+                      this.classList.add("is-hover");
+                    });
+                    card.addEventListener("mouseleave", function () {
+                      this.classList.remove("is-hover");
+                    });
+                  });
+                }, 100);
+              } catch (error) {
+                console.error("Error loading team members:", error);
+                const container = document.getElementById("team-container");
+                container.innerHTML =
+                  '<div class="text-center" style="grid-column: 1 / -1; padding: 40px 0;"><p class="p-text-02 text-white-70">Unable to load team members. Please try again later.</p></div>';
+              }
+            })();
+          </script>
           <section class="cta-v1">
             <div class="container">
               <div class="cta-v1-wrap">
@@ -1227,6 +772,26 @@
                   <p class="p-text-03">
                     Creative Digital Experiences That Build Your Brand.
                   </p>
+                  <div style="margin-top: 20px">
+                    <p class="p-text-03" style="margin-bottom: 8px">
+                      <strong>Contact Us</strong>
+                    </p>
+                    <p
+                      class="p-text-03 text-white-60"
+                      style="margin-bottom: 5px"
+                    >
+                      📧 info@pixelatenest.com
+                    </p>
+                    <p
+                      class="p-text-03 text-white-60"
+                      style="margin-bottom: 5px"
+                    >
+                      📞 +91 9876543210
+                    </p>
+                    <p class="p-text-03 text-white-60">
+                      📍 Bangalore, Karnataka, India
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -1250,25 +815,85 @@
                       href="https://www.pixelatenest.com/contact.html"
                       class="footer-link w-inline-block"
                     >
-                      <div class="footer-link-text">Build With Us</div>
+                      <div class="footer-link-text">Contact Us</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/blogs.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Blog</div>
                     </a>
                   </div>
                 </div>
 
                 <div class="footer-link-wrap">
-                  <div class="p-text-01">What We Do</div>
+                  <div class="p-text-01">Services</div>
                   <div class="footer-link-list">
+                    <a
+                      href="https://www.pixelatenest.com/video-ed.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Video Editing</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/webdev.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Web Development</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/app-dev.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">App Development</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/software-dev.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Software Development</div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="footer-link-wrap">
+                  <div class="p-text-01">Resources</div>
+                  <div class="footer-link-list">
+                    <a
+                      href="https://www.pixelatenest.com/pricing.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Pricing</div>
+                    </a>
                     <a href="#" class="footer-link w-inline-block">
                       <div class="footer-link-text">Portfolio</div>
                     </a>
                     <a href="#" class="footer-link w-inline-block">
                       <div class="footer-link-text">Case Studies</div>
                     </a>
+                    <a href="#" class="footer-link w-inline-block">
+                      <div class="footer-link-text">FAQ</div>
+                    </a>
                   </div>
                 </div>
 
                 <div class="footer-link-wrap">
-                  <div class="p-text-01">Follow us</div>
+                  <div class="p-text-01">Legal</div>
+                  <div class="footer-link-list">
+                    <a href="#" class="footer-link w-inline-block">
+                      <div class="footer-link-text">Privacy Policy</div>
+                    </a>
+                    <a href="#" class="footer-link w-inline-block">
+                      <div class="footer-link-text">Terms of Service</div>
+                    </a>
+                    <a href="#" class="footer-link w-inline-block">
+                      <div class="footer-link-text">Cookie Policy</div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="footer-link-wrap">
+                  <div class="p-text-01">Follow Us</div>
                   <div class="footer-link-list">
                     <a
                       href="https://www.instagram.com/pixelate.nest/"
@@ -1278,7 +903,6 @@
                     >
                       <div class="footer-link-text">Instagram</div>
                     </a>
-
                     <a
                       href="https://www.linkedin.com/company/pixelate-nest/"
                       target="_blank"
@@ -1286,6 +910,22 @@
                       class="footer-link w-inline-block"
                     >
                       <div class="footer-link-text">LinkedIn</div>
+                    </a>
+                    <a
+                      href="https://twitter.com/pixelatenest"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Twitter</div>
+                    </a>
+                    <a
+                      href="https://www.facebook.com/pixelatenest"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Facebook</div>
                     </a>
                   </div>
                 </div>
@@ -1296,7 +936,8 @@
               <div class="vertical-divider"></div>
               <div class="footer-bottom-wrap">
                 <div class="p-text-03 text-white-60">
-                  © 2025 Pixelate Nest. All Rights Reserved.
+                  © 2025 Pixelate Nest®. All Rights Reserved. | Crafted with ❤️
+                  in India
                 </div>
               </div>
             </div>
