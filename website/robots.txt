@@ -10,8 +10,10 @@ Sitemap: https://www.pixelatenest.com/sitemap.xml
 # Block access to sensitive directories
 Disallow: /server/
 Disallow: /.vscode/
-Disallow: /js/
 Disallow: /scripts/
+
+# Allow JavaScript files (needed for site functionality)
+Allow: /js/
 
 # Allow all stylesheets and assets
 Allow: /styles.css
