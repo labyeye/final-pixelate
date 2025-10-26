@@ -563,7 +563,7 @@
                         <img
                           src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/68542477ba9433778ddefc7e_payment-01.svg"
                           loading="lazy"
-                          alt=""
+                          alt="Seamless project delivery icon"
                         />
                       </div>
                       <div class="service-01-left-list">
@@ -575,7 +575,7 @@
                           <img
                             src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/68542477ba9433778ddefc7e_payment-01.svg"
                             loading="lazy"
-                            alt=""
+                            alt="Seamless project delivery icon"
                           />
                         </div>
                         <p class="p-text-02 text-white-70">
@@ -592,7 +592,7 @@
                         <img
                           src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/68542477226a139330c855e3_piggy-bank.svg"
                           loading="lazy"
-                          alt=""
+                          alt="Cost-effective solutions icon"
                         />
                       </div>
                       <div class="service-01-left-list">
@@ -604,7 +604,7 @@
                           <img
                             src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/68542477226a139330c855e3_piggy-bank.svg"
                             loading="lazy"
-                            alt=""
+                            alt="Cost-effective solutions icon"
                           />
                         </div>
                         <p class="p-text-02 text-white-70">
@@ -622,7 +622,7 @@
                         <img
                           src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/68542477b04293e63bf32a2c_payment-success-01.svg"
                           loading="lazy"
-                          alt=""
+                          alt="Success / confirmation icon"
                         />
                       </div>
                       <div class="service-01-left-list">
@@ -634,7 +634,7 @@
                           <img
                             src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/68542477b04293e63bf32a2c_payment-success-01.svg"
                             loading="lazy"
-                            alt=""
+                            alt="Success / confirmation icon"
                           />
                         </div>
                         <p class="p-text-02 text-white-70">
@@ -919,7 +919,7 @@
                         <img
                           src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/68551408eaac57702b8297bc_Star%20Image.svg"
                           loading="lazy"
-                          alt=""
+                          alt="rating star"
                           class="star-image"
                         />
                       </div>
@@ -984,7 +984,7 @@
                         <img
                           src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/68551408eaac57702b8297bc_Star%20Image.svg"
                           loading="lazy"
-                          alt=""
+                          alt="rating star"
                           class="star-image"
                         />
                       </div>
@@ -1135,7 +1135,7 @@
                       <img
                         src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855173acae718ba94941220_Client%20(2).avif"
                         loading="lazy"
-                        alt=""
+                        alt="Liam Everhart — client photo"
                         class="testimonials-01-client"
                       />
                       <div class="client-name-wrap">
@@ -1166,7 +1166,7 @@
                       <img
                         src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6855137e0e099c26657569a5_Client%2001.avif"
                         loading="lazy"
-                        alt=""
+                        alt="Carmen Waters — client photo"
                         class="testimonials-01-client"
                       />
                       <div class="client-name-wrap">
@@ -1227,7 +1227,7 @@
                       <img
                         src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/68551737fee37b146118c336_Client%20(1).avif"
                         loading="lazy"
-                        alt=""
+                        alt="Carole Kiehn — client photo"
                         class="testimonials-01-client"
                       />
                       <div class="client-name-wrap">
@@ -1415,7 +1415,7 @@
                       <img
                         src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/685517372b66c1e6d27815b6_Client%20(3).avif"
                         loading="lazy"
-                        alt=""
+                        alt="Sophie Ahmed — client photo"
                         class="testimonials-01-client"
                       />
                       <div class="client-name-wrap">
@@ -1475,7 +1475,7 @@
                       <img
                         src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/68551737de9b51a5c1fdc626_Client%20(4).avif"
                         loading="lazy"
-                        alt=""
+                        alt="Figo Nath — client photo"
                         class="testimonials-01-client"
                       />
                       <div class="client-name-wrap">
@@ -2103,5 +2103,36 @@
         </div>
       </section>
     </div>
+    <script>
+      // Accessibility helper: populate missing alt text for testimonial images
+      (function () {
+        try {
+          // For client images: use adjacent client name when available
+          document.querySelectorAll('img.testimonials-01-client').forEach(function (img) {
+            if (img && (!img.getAttribute('alt') || img.getAttribute('alt').trim() === '')) {
+              var wrap = img.parentElement && img.parentElement.querySelector('.client-name-wrap');
+              if (!wrap && img.nextElementSibling && img.nextElementSibling.classList && img.nextElementSibling.classList.contains('client-name-wrap')) {
+                wrap = img.nextElementSibling;
+              }
+              if (wrap) {
+                var nameEl = wrap.querySelector('div');
+                var name = nameEl ? nameEl.textContent.trim() : '';
+                if (name) img.setAttribute('alt', name + ' — client photo');
+              }
+            }
+          });
+
+          // For rating/star images: set descriptive alt if missing
+          document.querySelectorAll('img.star-image').forEach(function (img) {
+            if (img && (!img.getAttribute('alt') || img.getAttribute('alt').trim() === '')) {
+              img.setAttribute('alt', 'rating star');
+            }
+          });
+        } catch (e) {
+          // no-op on errors
+          console.error('Alt-helper error', e);
+        }
+      })();
+    </script>
   </body>
 </html>
