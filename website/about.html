@@ -535,8 +535,8 @@
                 // Update this URL to your actual dashboard API URL
                 const API_URL =
                   window.location.hostname === "localhost"
-                    ? "http://localhost:9002/api/public/about-team"
-                    : "http://localhost:9002/api/public/about-team";
+                    ? "https://pixelatenest-crm.vercel.app/api/public/about-team"
+                    : "https://pixelatenest-crm.vercel.app/api/public/about-team";
 
                 const response = await fetch(API_URL);
                 if (!response.ok)
