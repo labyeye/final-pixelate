@@ -85,6 +85,33 @@
       .star.filled {
         color: #f59e0b;
       }
+      
+      /* Loading skeleton animation */
+      .skeleton {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.05) 25%,
+          rgba(255, 255, 255, 0.1) 50%,
+          rgba(255, 255, 255, 0.05) 75%
+        );
+        background-size: 200% 100%;
+        animation: loading 1.5s ease-in-out infinite;
+        border-radius: 12px;
+      }
+      
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+      
+      .skeleton-card {
+        height: 350px;
+        width: 100%;
+      }
+      
+      #portfolio-grid {
+        min-height: 400px; /* Prevent layout shift */
+      }
     </style>
     <!-- Facebook Pixel Code -->
     <script>
@@ -130,6 +157,9 @@
       rel="preconnect"
       crossorigin="anonymous"
     />
+    <!-- Preconnect to API for faster data loading -->
+    <link href="https://pixelatenest-crm.vercel.app" rel="preconnect" crossorigin />
+    <link href="https://pixelatenest-crm.vercel.app" rel="dns-prefetch" />
     <script
       src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
       type="text/javascript"
@@ -373,7 +403,15 @@
               id="portfolio-grid"
               class="portfolio-grid"
               style="margin-top: 40px"
-            ></div>
+            >
+              <!-- Loading skeletons -->
+              <div class="skeleton skeleton-card"></div>
+              <div class="skeleton skeleton-card"></div>
+              <div class="skeleton skeleton-card"></div>
+              <div class="skeleton skeleton-card"></div>
+              <div class="skeleton skeleton-card"></div>
+              <div class="skeleton skeleton-card"></div>
+            </div>
             <h2
               style="
                 color: #fb8a02;

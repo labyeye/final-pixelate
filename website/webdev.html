@@ -51,6 +51,7 @@
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 16px;
+        min-height: 400px; /* Prevent layout shift */
       }
       @media (min-width: 640px) {
         /* tablet */
@@ -88,6 +89,29 @@
       .star.filled {
         color: #f59e0b;
       }
+      
+      /* Loading skeleton animation */
+      .skeleton {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.05) 25%,
+          rgba(255, 255, 255, 0.1) 50%,
+          rgba(255, 255, 255, 0.05) 75%
+        );
+        background-size: 200% 100%;
+        animation: loading 1.5s ease-in-out infinite;
+        border-radius: 12px;
+      }
+      
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+      
+      .skeleton-card {
+        height: 350px;
+        width: 100%;
+      }
     </style>
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -96,6 +120,9 @@
       rel="preconnect"
       crossorigin="anonymous"
     />
+    <!-- Preconnect to API for faster data loading -->
+    <link href="https://pixelatenest-crm.vercel.app" rel="preconnect" crossorigin />
+    <link href="https://pixelatenest-crm.vercel.app" rel="dns-prefetch" />
     <script
       src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
       type="text/javascript"
@@ -347,7 +374,15 @@
               id="portfolio-grid"
               class="portfolio-grid"
               style="margin-top: 80px"
-            ></div>
+            >
+              <!-- Loading skeletons -->
+              <div class="skeleton skeleton-card"></div>
+              <div class="skeleton skeleton-card"></div>
+              <div class="skeleton skeleton-card"></div>
+              <div class="skeleton skeleton-card"></div>
+              <div class="skeleton skeleton-card"></div>
+              <div class="skeleton skeleton-card"></div>
+            </div>
           </div>
         </section>
         <div class="bg-linear"></div>
@@ -764,86 +799,172 @@
     ></script>
 
     <script>
-      // Load gallery items from dashboard API and render those marked for web-development
-      async function loadGallery() {
+      // START LOADING IMMEDIATELY - Don't wait for DOMContentLoaded
+      // Cache key and duration
+      const CACHE_KEY = 'webdev_gallery_cache';
+      const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+
+      // Check cache first
+      function getCachedData() {
         try {
-          // determine API base: if the site is served from localhost (static files),
-          // point to the dashboard backend running on port 9002. Otherwise use
-          // a relative path so it works when hosted together.
-          const API_BASE =
-            window.location.hostname === "localhost" ||
-            window.location.hostname === "127.0.0.1"
-              ? "https://pixelatenest-crm.vercel.app"
-              : "";
-          const res = await fetch(
-            "https://pixelatenest-crm.vercel.app/api/work-gallery"
-          );
-          if (!res.ok) throw new Error("Failed to fetch gallery");
-          const items = await res.json();
-          const grid = document.getElementById("portfolio-grid");
-          grid.innerHTML = "";
-          const filtered = (items || []).filter(
-            (i) => i.showOn === "web-development"
-          );
-          if (filtered.length === 0) {
-            grid.innerHTML =
-              '<p class="p-text-01 text-white-60">No projects to show right now. Check back later.</p>';
-            return;
-          }
-          for (const it of filtered) {
-            const a = document.createElement("a");
-            a.className = "portfolio-card w-inline-block";
-            a.href = it.link || "#";
-            const imgWrap = document.createElement("div");
-            imgWrap.className = "portfolio-image-wrapper";
-            const img = document.createElement("img");
-            img.className = "portfolio-image";
-            img.alt = it.title || "Project";
-            img.src = it.thumbnailBase64 || "/assets/placeholder.png";
-            imgWrap.appendChild(img);
-            const overlay = document.createElement("div");
-            overlay.className = "portfolio-overlay";
-            const h4 = document.createElement("h4");
-            h4.className = "portfolio-title";
-            h4.innerText = it.title || "Untitled";
-            const p = document.createElement("p");
-            p.className = "portfolio-description";
-            p.innerText = it.note || "";
-            const tagsDiv = document.createElement("div");
-            tagsDiv.className = "portfolio-tags";
-            (it.tech || "")
-              .split(",")
-              .map((t) => t.trim())
-              .filter(Boolean)
-              .slice(0, 5)
-              .forEach((t) => {
-                const s = document.createElement("span");
-                s.className = "tag";
-                s.innerText = t;
-                tagsDiv.appendChild(s);
-              });
-            overlay.appendChild(h4);
-            // stars
-            const stars = document.createElement("div");
-            stars.className = "stars";
-            const rating = Math.max(0, Math.min(5, Number(it.rating || 0)));
-            for (let si = 1; si <= 5; si++) {
-              const sp = document.createElement("span");
-              sp.className = "star" + (si <= rating ? " filled" : "");
-              sp.innerHTML = "&#9733;"; // star char
-              stars.appendChild(sp);
-            }
-            overlay.appendChild(stars);
-            overlay.appendChild(p);
-            overlay.appendChild(tagsDiv);
-            a.appendChild(imgWrap);
-            a.appendChild(overlay);
-            grid.appendChild(a);
+          const cached = localStorage.getItem(CACHE_KEY);
+          if (!cached) return null;
+          
+          const { data, timestamp } = JSON.parse(cached);
+          const now = Date.now();
+          
+          // Check if cache is still valid
+          if (now - timestamp < CACHE_DURATION) {
+            console.log('Using cached data');
+            return data;
+          } else {
+            localStorage.removeItem(CACHE_KEY);
+            return null;
           }
         } catch (e) {
-          console.error(e);
+          return null;
         }
       }
+
+      // Save to cache
+      function setCachedData(data) {
+        try {
+          localStorage.setItem(CACHE_KEY, JSON.stringify({
+            data,
+            timestamp: Date.now()
+          }));
+        } catch (e) {
+          console.warn('Failed to cache data:', e);
+        }
+      }
+
+      // Load gallery items from dashboard API and render those marked for web-development
+      async function loadGallery() {
+        const grid = document.getElementById("portfolio-grid");
+        
+        try {
+          // Try cache first
+          const cachedData = getCachedData();
+          if (cachedData) {
+            renderGallery(cachedData, grid);
+            // Still fetch fresh data in background to update cache
+            fetchAndRender(grid, true);
+            return;
+          }
+          
+          // No cache, fetch immediately
+          await fetchAndRender(grid, false);
+          
+        } catch (e) {
+          console.error(e);
+          grid.innerHTML = '<p class="p-text-01 text-white-60">Failed to load projects. Please try again later.</p>';
+        }
+      }
+
+      async function fetchAndRender(grid, isBackground = false) {
+        try {
+          const res = await fetch(
+            "https://pixelatenest-crm.vercel.app/api/work-gallery",
+            {
+              cache: "force-cache", // Use browser cache if available
+              headers: {
+                'Cache-Control': 'max-age=300' // 5 minutes
+              }
+            }
+          );
+          
+          if (!res.ok) throw new Error("Failed to fetch gallery");
+          
+          const items = await res.json();
+          
+          // Save to cache
+          setCachedData(items);
+          
+          // Only render if not background refresh
+          if (!isBackground) {
+            renderGallery(items, grid);
+          }
+        } catch (e) {
+          if (!isBackground) throw e;
+        }
+      }
+
+      function renderGallery(items, grid) {
+        grid.innerHTML = "";
+        
+        const filtered = (items || []).filter(
+          (i) => i.showOn === "web-development"
+        );
+        
+        if (filtered.length === 0) {
+          grid.innerHTML =
+            '<p class="p-text-01 text-white-60">No projects to show right now. Check back later.</p>';
+          return;
+        }
+        
+        for (const it of filtered) {
+          const a = document.createElement("a");
+          a.className = "portfolio-card w-inline-block";
+          a.href = it.link || "#";
+          
+          const imgWrap = document.createElement("div");
+          imgWrap.className = "portfolio-image-wrapper";
+          
+          const img = document.createElement("img");
+          img.className = "portfolio-image";
+          img.alt = it.title || "Project";
+          img.src = it.thumbnailBase64 || "/assets/placeholder.png";
+          img.loading = "lazy"; // Lazy load images
+          imgWrap.appendChild(img);
+          
+          const overlay = document.createElement("div");
+          overlay.className = "portfolio-overlay";
+          
+          const h4 = document.createElement("h4");
+          h4.className = "portfolio-title";
+          h4.innerText = it.title || "Untitled";
+          
+          const p = document.createElement("p");
+          p.className = "portfolio-description";
+          p.innerText = it.note || "";
+          
+          const tagsDiv = document.createElement("div");
+          tagsDiv.className = "portfolio-tags";
+          (it.tech || "")
+            .split(",")
+            .map((t) => t.trim())
+            .filter(Boolean)
+            .slice(0, 5)
+            .forEach((t) => {
+              const s = document.createElement("span");
+              s.className = "tag";
+              s.innerText = t;
+              tagsDiv.appendChild(s);
+            });
+          
+          overlay.appendChild(h4);
+          
+          // stars
+          const stars = document.createElement("div");
+          stars.className = "stars";
+          const rating = Math.max(0, Math.min(5, Number(it.rating || 0)));
+          for (let si = 1; si <= 5; si++) {
+            const sp = document.createElement("span");
+            sp.className = "star" + (si <= rating ? " filled" : "");
+            sp.innerHTML = "&#9733;"; // star char
+            stars.appendChild(sp);
+          }
+          overlay.appendChild(stars);
+          overlay.appendChild(p);
+          overlay.appendChild(tagsDiv);
+          
+          a.appendChild(imgWrap);
+          a.appendChild(overlay);
+          grid.appendChild(a);
+        }
+      }
+
+      // START IMMEDIATELY - Don't wait for page load
       loadGallery();
     </script>
 

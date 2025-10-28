@@ -103,6 +103,14 @@
   gap: 30px;
 }
 
+/* Wrapper for entire team member (image card + info card) */
+.final-team-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Image Card (Top) - Shifted up */
 .final-team-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
@@ -110,141 +118,58 @@
   text-decoration: none;
   transition: transform 0.3s ease;
   position: relative;
-  isolation: isolate; /* Create new stacking context */
+  isolation: isolate;
+  transform: translateY(-10px);
 }
 
 .final-team-card:hover {
-  transform: translateY(-5px);
-  z-index: 10; /* Bring card above others on hover */
+  transform: translateY(-15px);
+  z-index: 10;
 }
 
-/* Overlay container that appears on hover: hidden by default, reveals on hover */
-.team-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 18px;
-  background: rgba(0,0,0,0.90); /* slightly darker for better contrast */
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.28s ease, transform 0.28s ease;
-  z-index: 100;
-  pointer-events: none;
-}
-
-/* Reveal overlay when card is hovered or focused (keyboard accessibility) */
-.final-team-card:hover .team-overlay,
-.final-team-card:focus-within .team-overlay,
-.final-team-card:focus .team-overlay,
-.final-team-card:active .team-overlay,
-.final-team-card.is-hover .team-overlay {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  pointer-events: auto !important;
-  visibility: visible !important;
-}
-
-/* Text inside overlay: hidden initially and revealed with staggered delays */
-.overlay-name,
-.overlay-role,
-.overlay-socials {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-/* Staggered reveal: name first, role second, socials last */
-.final-team-card:hover .overlay-name,
-.final-team-card:focus-within .overlay-name,
-.final-team-card:focus .overlay-name,
-.final-team-card.is-hover .overlay-name {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  transition-delay: 0.12s;
-  visibility: visible !important;
-}
-
-.final-team-card:active .overlay-name {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-.final-team-card:hover .overlay-role,
-.final-team-card:focus-within .overlay-role,
-.final-team-card:focus .overlay-role,
-.final-team-card.is-hover .overlay-role {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  transition-delay: 0.24s;
-  visibility: visible !important;
-}
-
-.final-team-card:active .overlay-role {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-.final-team-card:hover .overlay-socials,
-.final-team-card:focus-within .overlay-socials,
-.final-team-card:focus .overlay-socials,
-.final-team-card.is-hover .overlay-socials {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  transition-delay: 0.36s;
-  visibility: visible !important;
-}
-
-.final-team-card:active .overlay-socials {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-/* Dim and slightly scale the image behind the overlay for contrast */
-.final-team-card:hover .final-team-image,
-.final-team-card:focus-within .final-team-image,
-.final-team-card:focus .final-team-image {
-  transform: scale(1.04);
-  filter: brightness(0.55) contrast(0.95);
-  transition: transform 0.35s ease, filter 0.35s ease;
-}
-
-.overlay-inner {
-  width: 100%;
+/* Info Card (Bottom) - Starts hidden above, slides down on hover */
+.team-info-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px 20px;
   text-align: center;
-  color: #fff !important;
-  position: relative;
-  z-index: 1;
-  opacity: 1 !important;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, background 0.3s ease;
 }
 
-.overlay-name {
+/* Slide down info card on wrapper hover */
+.final-team-card-wrapper:hover .team-info-card {
+  transform: translateY(0);
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.info-card-name {
+  color: #fff;
   font-weight: 700;
   font-size: 18px;
-  margin-bottom: 6px;
-  color: #fff !important;
-  opacity: 1 !important;
+  margin: 0 0 8px;
 }
 
-.overlay-role {
+.info-card-role {
+  color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
-  color: rgba(255,255,255,0.9) !important;
-  margin-bottom: 12px;
-  opacity: 1 !important;
+  margin: 0 0 12px;
 }
 
-.overlay-socials {
+/* Social icons in info card */
+.info-card-socials {
   display: flex;
   gap: 12px;
   justify-content: center;
   align-items: center;
   margin-top: 12px;
-  opacity: 1 !important;
-  visibility: visible !important;
 }
 
-.social-link {
+.info-card-socials .social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -256,20 +181,92 @@
   transition: all 0.25s ease;
   width: 36px;
   height: 36px;
-  opacity: 1 !important;
 }
 
-.social-link:hover {
+.info-card-socials .social-link:hover {
   background: rgba(255,255,255,0.3);
   transform: translateY(-3px) scale(1.1);
   box-shadow: 0 4px 12px rgba(255,255,255,0.2);
 }
 
-.social-link svg {
+.info-card-socials .social-link svg {
   width: 20px;
   height: 20px;
   stroke: currentColor;
-  opacity: 1 !important;
+}
+
+/* Social Icons Box - Initially hidden above the card */
+.social-icons-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.88) 100%);
+  backdrop-filter: blur(10px);
+  border-radius: 0 0 16px 16px;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+  z-index: 50;
+  pointer-events: none;
+}
+
+/* Slide down the social icons box on hover */
+.final-team-card:hover .social-icons-box,
+.final-team-card:focus-within .social-icons-box,
+.final-team-card.is-hover .social-icons-box {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.social-icons-inner {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.social-icons-box .social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.15);
+  padding: 8px;
+  border-radius: 50%;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  width: 36px;
+  height: 36px;
+}
+
+.social-icons-box .social-link:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+}
+
+.social-icons-box .social-link svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+/* Subtle zoom and darken effect on image when social icons slide down */
+.final-team-card:hover .final-team-image,
+.final-team-card:focus-within .final-team-image,
+.final-team-card:focus .final-team-image {
+  transform: scale(1.08);
+  filter: brightness(0.75);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
 }
 
 .final-team-image-wrapper {
@@ -284,43 +281,6 @@
   position: relative;
   z-index: 0;
   transition: transform 0.35s ease, filter 0.35s ease;
-}
-
-.final-team-details {
-  padding: 20px;
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  transition: opacity 0.28s ease, transform 0.28s ease;
-}
-
-/* --- FIX: Hides the initial details on hover --- */
-.final-team-card:hover .final-team-details,
-.final-team-card:focus-within .final-team-details,
-.final-team-card:focus .final-team-details {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
-/* The overlay rules above are consolidated — duplicate rules removed */
-.member-name {
-  color: #fff;
-  margin: 0 0 8px;
-  font-size: 18px;
-}
-
-.member-role {
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0;
-  font-size: 14px;
-}
-
-.member-arrow {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .final-team-card::before {
@@ -393,61 +353,5 @@
   .heading-wrap.h2 {
     font-size: 1.25rem;
   }
-}
-
-/* DEBUG: Force overlay visible to help diagnose rendering conflicts. Remove after verification. */
-.final-team-card .team-overlay {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-  background: rgba(0,0,0,0.95) !important;
-}
-
-.final-team-card .overlay-inner,
-.final-team-card .overlay-inner * {
-  color: #fff !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.final-team-card .overlay-socials,
-.final-team-card .social-link,
-.final-team-card .social-link svg {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* Strong, high-specificity fix for overlay social icons to override other CSS (permanent) */
-.final-team-card .team-overlay .overlay-inner .overlay-socials {
-  display: flex !important;
-  gap: 12px !important;
-  justify-content: center !important;
-  align-items: center !important;
-  margin-top: 12px !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-}
-
-.final-team-card .team-overlay .overlay-inner .overlay-socials .social-link {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background: rgba(255,255,255,0.12) !important;
-  padding: 8px !important;
-  border-radius: 50% !important;
-  color: #fff !important;
-  text-decoration: none !important;
-  width: 36px !important;
-  height: 36px !important;
-  pointer-events: auto !important;
-}
-
-.final-team-card .team-overlay .overlay-inner .overlay-socials .social-link svg {
-  width: 20px !important;
-  height: 20px !important;
-  stroke: #fff !important;
-  fill: #fff !important;
 }
 
