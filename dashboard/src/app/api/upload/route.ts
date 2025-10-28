@@ -6,9 +6,10 @@ import os from 'os';
 
 // CORS headers
 const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+	'Access-Control-Allow-Origin': '*',
+	'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+	// Allow Cache-Control and common X- headers so client-side fetches that set them succeed
+	'Access-Control-Allow-Headers': 'Content-Type, Authorization, Cache-Control, X-Requested-With',
 };
 
 // Handle OPTIONS request for CORS preflight

@@ -866,10 +866,10 @@
           const res = await fetch(
             "https://pixelatenest-crm.vercel.app/api/work-gallery",
             {
-              cache: "force-cache", // Use browser cache if available
-              headers: {
-                'Cache-Control': 'max-age=300' // 5 minutes
-              }
+              // Use browser cache if available. Avoid sending a custom
+              // Cache-Control header — that triggers a CORS preflight which
+              // requires server-side Access-Control-Allow-Headers to include it.
+              cache: "force-cache",
             }
           );
           

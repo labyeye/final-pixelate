@@ -820,7 +820,7 @@
             window.location.hostname === "127.0.0.1"
               ? "https://pixelatenest-crm.vercel.app"
               : "";
-          const res = await fetch(API_BASE + "/api/work-gallery");
+          const res = await fetch(`https://pixelatenest-crm.vercel.app/api/work-gallery`);
           if (!res.ok) throw new Error("Failed to fetch gallery");
           const items = await res.json();
           const grid = document.getElementById("portfolio-grid");
