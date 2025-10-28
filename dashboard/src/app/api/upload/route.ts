@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { writeFile, mkdir } from 'fs/promises';
 import { join } from 'path';
 import { existsSync } from 'fs';
+import os from 'os';
 
 // CORS headers
 const corsHeaders = {
@@ -46,20 +47,68 @@ export async function POST(request: Request) {
 		const originalName = file.name.replace(/\s+/g, '-').toLowerCase();
 		const filename = `${timestamp}-${originalName}`;
 
-		// Define upload path (website/assets/resumes/)
-		const uploadDir = join(process.cwd(), '..', 'website', 'assets', 'resumes');
-		
-		// Create directory if it doesn't exist
-		if (!existsSync(uploadDir)) {
-			await mkdir(uploadDir, { recursive: true });
-		}
+				// Define candidate upload paths and pick a safe one.
+				// On some serverless hosts writing outside the allowed directory (or to a sibling folder)
+				// may fail. We'll attempt a few sensible locations and fall back to the OS temp dir.
 
-		// Save file
-		const filePath = join(uploadDir, filename);
-		await writeFile(filePath, buffer);
+				const candidates = [
+					// sibling website folder (used in local dev setups)
+					join(process.cwd(), '..', 'website', 'assets', 'resumes'),
+					// website under current working directory
+					join(process.cwd(), 'website', 'assets', 'resumes'),
+					// public folder (Next.js / static public)
+					join(process.cwd(), 'public', 'assets', 'resumes'),
+					// final fallback: system temp directory
+					join(os.tmpdir(), 'pixelatenest', 'resumes'),
+				];
 
-		// Return relative URL for the website
-		const url = `./assets/resumes/${filename}`;
+				let uploadDir: string | null = null;
+
+				for (const cand of candidates) {
+					try {
+						// Try to create the directory (recursive). If it succeeds, use it.
+						await mkdir(cand, { recursive: true });
+						// Double-check existsSync just in case
+						if (existsSync(cand)) {
+							uploadDir = cand;
+							break;
+						}
+					} catch (err) {
+						// Ignore and try next candidate
+						// Some hosts will throw when attempting to write to protected paths.
+						// We'll continue to the next candidate.
+						console.warn('Could not use upload candidate', cand, err && (err as Error).message);
+					}
+				}
+
+				if (!uploadDir) {
+					// As a last resort, try os.tmpdir() without nested folders
+					const fallback = join(os.tmpdir(), filename);
+					try {
+						await writeFile(fallback, buffer);
+						const url = `file://${fallback}`;
+						return NextResponse.json({ success: true, url, filename, message: 'File uploaded to temporary storage' }, { headers: corsHeaders });
+					} catch (err) {
+						console.error('Failed to write to fallback tmp file', err);
+						return NextResponse.json({ error: 'Server cannot store uploaded files. Please configure external storage.' }, { status: 500, headers: corsHeaders });
+					}
+				}
+
+				// Save file into chosen uploadDir
+				const filePath = join(uploadDir, filename);
+				await writeFile(filePath, buffer);
+
+				// If we wrote into a public-facing path, return a relative URL that the website can use.
+				// Prefer relative public paths when possible.
+				let url: string;
+				if (uploadDir.includes(join('public', 'assets')) || uploadDir.includes(join('website', 'assets'))) {
+					// site can serve from ./assets/resumes/
+					url = `./assets/resumes/${filename}`;
+				} else if (uploadDir.includes(os.tmpdir())) {
+					url = `file://${filePath}`;
+				} else {
+					url = `./assets/resumes/${filename}`;
+				}
 
 		return NextResponse.json({ 
 			success: true, 
