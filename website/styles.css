@@ -3830,7 +3830,6 @@
 
   .h2.text-linear {
     background-image: linear-gradient(81deg, #fff 40%, #535353);
-    margin-top: 100px;
   }
 
   .h2.about-heading {
@@ -18563,7 +18562,6 @@
   /* Testimonials Section */
   .testimonials-section {
     padding: 80px 0;
-    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
     position: relative;
     overflow: hidden;
   }
@@ -19001,14 +18999,220 @@
     display: block;
   }
 
-  /* Responsive Styles */
-  @media (max-width: 1200px) {
-    .testimonial-card {
-      min-width: calc(50% - 12px);
+  /* ========================================
+     MOBILE RESPONSIVE STYLES
+     ======================================== */
+
+  /* Tablet/Medium Screens (max-width: 991px) */
+  @media (max-width: 991px) {
+    /* Service Cards - Why Choose Us */
+    .service-01 {
+      margin-top: 80px;
+    }
+
+    .service-01-bottom {
+      margin-top: 60px;
+    }
+
+    .service-cards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      height: auto;
+    }
+
+    .service-card {
+      height: auto;
+      min-height: 240px;
+      padding: 20px;
+    }
+
+    .service-card .h4 {
+      font-size: 17px;
+    }
+
+    .service-card .p-text-02 {
+      font-size: 13px;
+    }
+
+    /* Tech Stack Section */
+    .tech-stack {
+      margin-top: 80px;
+    }
+
+    .tech-stack-top {
+      margin-bottom: 60px;
+    }
+
+    .tech-stack-top .h2 {
+      font-size: 48px;
+    }
+
+    /* Footer */
+    .footer {
+      padding-top: 60px;
+    }
+
+    .footer-top {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .footer-top-left {
+      width: 100%;
+    }
+
+    .footer-right-link-wrap {
+      grid-template-columns: repeat(2, 1fr);
+      display: grid;
+      gap: 40px;
+      width: 100%;
+    }
+
+    .footer-bottom-wrap {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
     }
   }
 
+  /* Mobile Screens (max-width: 768px) */
   @media (max-width: 768px) {
+    /* Service Cards - Why Choose Us */
+    .service-01 {
+      margin-top: 60px;
+    }
+
+    .service-01-top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .service-01-top .h2 {
+      font-size: 32px;
+    }
+
+    .service-01-bottom {
+      margin-top: 40px;
+    }
+
+    .service-cards {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .service-card {
+      min-height: auto;
+      padding: 24px;
+    }
+
+    .card-icon {
+      width: 45px;
+      height: 45px;
+      margin-bottom: 12px;
+    }
+
+    .icon-gradient {
+      font-size: 22px;
+    }
+
+    .service-card .h4 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .service-card .p-text-02 {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Tech Stack Section */
+    .tech-stack {
+      margin-top: 60px;
+    }
+
+    .tech-stack-top {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .tech-stack-top .h2 {
+      font-size: 32px;
+    }
+
+    .tech-stack-top p {
+      font-size: 15px;
+    }
+
+    .tech-carousel-container {
+      height: 350px;
+    }
+
+    /* Footer */
+    .footer {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
+
+    .footer-top {
+      gap: 40px;
+    }
+
+    .footer-logo-wrap {
+      gap: 16px;
+    }
+
+    .footer-logo {
+      width: 36px;
+      height: 36px;
+    }
+
+    .footer-logo-wrap .p-text-01 {
+      font-size: 18px;
+    }
+
+    .footer-logo-details {
+      gap: 16px;
+    }
+
+    .footer-logo-details .p-text-03 {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-right-link-wrap {
+      gap: 30px;
+    }
+
+    .footer-link-wrap {
+      min-width: 0;
+    }
+
+    .footer-link-wrap .p-text-01 {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .footer-link-list {
+      gap: 10px;
+    }
+
+    .footer-link-text {
+      font-size: 14px;
+    }
+
+    .footer-bottom {
+      margin-top: 40px;
+    }
+
+    .footer-bottom-wrap {
+      gap: 16px;
+    }
+
+    .footer-bottom-wrap .p-text-03 {
+      font-size: 13px;
+    }
+
+    /* Testimonials Section */
     .testimonials-section {
       padding: 60px 0;
     }
@@ -19065,7 +19269,161 @@
     }
   }
 
+  /* Small Mobile Screens (max-width: 480px) */
   @media (max-width: 480px) {
+    /* Service Cards - Why Choose Us */
+    .process-section .h2{
+      font-size: 48px !important; 
+    }
+    .service-01 {
+      margin-top: 50px;
+    }
+
+    .service-01-top .h2 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .service-01-top .p-text-01 {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .service-01-bottom {
+      margin-top: 30px;
+    }
+
+    .service-cards {
+      gap: 14px;
+    }
+
+    .service-card {
+      padding: 20px;
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .icon-gradient {
+      font-size: 20px;
+    }
+
+    .service-card .h4 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .service-card .p-text-02 {
+      font-size: 13px;
+    }
+
+    /* Tech Stack Section */
+    .tech-stack {
+      margin-top: 0px;
+    }
+
+    .tech-stack-top {
+      margin-bottom: 30px;
+    }
+
+    .tech-stack-top .h2 {
+      font-size: 48px;
+    }
+
+    .tech-stack-top p {
+      font-size: 14px;
+    }
+
+    .tech-carousel-container {
+      height: 300px;
+    }
+
+    .tech-carousel {
+      width: 100px;
+      height: 100px;
+    }
+
+    .logo-item img {
+      height: 40px;
+      width: 40px;
+    }
+
+    .logo-item:hover {
+      transform: scale(1.2) translateY(-30px) !important;
+    }
+
+    /* Footer */
+    .footer {
+      padding-top: 40px;
+    }
+
+    .footer-top {
+      gap: 30px;
+    }
+
+    .footer-logo {
+      width: 32px;
+      height: 32px;
+    }
+
+    .footer-logo-wrap .p-text-01 {
+      font-size: 16px;
+    }
+
+    .footer-logo-details {
+      gap: 14px;
+    }
+
+    .footer-logo-details .p-text-03 {
+      font-size: 13px;
+    }
+
+    .footer-right-link-wrap {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .footer-link-wrap .p-text-01 {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .footer-link-list {
+      gap: 8px;
+    }
+
+    .footer-link-text {
+      font-size: 13px;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+    }
+
+    .footer-bottom-wrap {
+      gap: 12px;
+    }
+
+    .footer-bottom-wrap .p-text-03 {
+      font-size: 12px;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: 50px 0;
+    }
+
+    .testimonials-heading {
+      margin-bottom: 30px;
+    }
+
+    .testimonials-heading h2 {
+      font-size: 28px;
+    }
+
     .testimonial-card {
       padding: 20px;
     }
@@ -19082,6 +19440,38 @@
     .carousel-btn {
       width: 36px;
       height: 36px;
+    }
+
+    .review-modal-content {
+      padding: 25px 16px;
+      max-width: 95%;
+    }
+
+    .modal-title {
+      font-size: 22px;
+    }
+
+    .form-group label {
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      font-size: 14px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      padding: 12px 20px;
+      font-size: 14px;
+    }
+  }
+
+  /* Responsive Styles - Legacy (keeping for backwards compatibility) */
+  @media (max-width: 1200px) {
+    .testimonial-card {
+      min-width: calc(50% - 12px);
     }
   }
 
