@@ -344,13 +344,9 @@
           }
         } catch (e) {
           console.log('Could not load announcement:', e);
-          // Fallback: show default text if API fails
-          const container = document.getElementById('announcement-content');
-          for (let i = 0; i < 20; i++) {
-            const span = document.createElement('span');
-            span.textContent = 'Get FLAT 25% OFF Sitewide';
-            container.appendChild(span);
-          }
+          // If announcement can't be loaded, hide the announcement bar
+          const bar = document.getElementById('announcement-bar');
+          if (bar) bar.style.display = 'none';
         }
       })();
     </script>
