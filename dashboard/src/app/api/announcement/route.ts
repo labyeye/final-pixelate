@@ -5,6 +5,8 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET,PUT,OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, Authorization, Cache-Control, X-Requested-With',
+  // Prevent intermediate caching of announcement responses
+  'Cache-Control': 'no-store',
 };
 
 export async function OPTIONS() {

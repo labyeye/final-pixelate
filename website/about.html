@@ -247,7 +247,7 @@
       (async function loadAnnouncement() {
         try {
           const res = await fetch('https://pixelatenest-crm.vercel.app/api/announcement', {
-            cache: 'force-cache'
+            cache: 'no-store'
           });
           if (res.ok) {
             const data = await res.json();
