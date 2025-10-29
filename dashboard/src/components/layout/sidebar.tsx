@@ -8,11 +8,12 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { useAuth } from '@/hooks/use-auth';
-import { Code, Users, LayoutDashboard, KanbanSquare, FileText, Briefcase, Receipt, LifeBuoy, Columns, BarChart as BarChartIcon, DollarSign as DollarIcon, Image as ImageIcon, PlayCircle, UserPlus, Star } from 'lucide-react';
+import { Code, Users, LayoutDashboard, KanbanSquare, FileText, Briefcase, Receipt, LifeBuoy, Columns, BarChart as BarChartIcon, DollarSign as DollarIcon, Image as ImageIcon, PlayCircle, UserPlus, Star, Megaphone } from 'lucide-react';
 
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', adminOnly: false, icon: LayoutDashboard },
   { href: '/profile', label: 'Profile', adminOnly: false, icon: Users },
+  { href: '/announcement-bar', label: 'Announcement Bar', adminOnly: true, icon: Megaphone },
   { href: '/leads', label: 'Leads', adminOnly: false, icon: KanbanSquare },
   { href: '/enquiries', label: 'Enquiries', adminOnly: false, icon: LifeBuoy },
   { href: '/clients', label: 'Clients', adminOnly: false, icon: Users },

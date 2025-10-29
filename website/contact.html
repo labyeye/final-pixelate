@@ -29,6 +29,9 @@
       rel="preconnect"
       crossorigin="anonymous"
     />
+    <!-- Preconnect to API for faster data loading -->
+    <link href="https://pixelatenest-crm.vercel.app" rel="preconnect" crossorigin />
+    <link href="https://pixelatenest-crm.vercel.app" rel="dns-prefetch" />
     <script
       src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
       type="text/javascript"
@@ -244,6 +247,92 @@
     <!-- End Facebook Pixel Code -->
   </head>
   <body>
+    <!-- Announcement Bar -->
+    <div id="announcement-bar" class="announcement-bar">
+      <div class="announcement-content" id="announcement-content"></div>
+    </div>
+
+    <style>
+      .announcement-bar {
+        background: linear-gradient(90deg, #da4900 0%, black 100%);
+        background-size: 200% 100%;
+        animation: gradient-shift 3s ease infinite;
+        color: white;
+        padding: 12px 0;
+        text-align: center;
+        font-weight: 600;
+        font-size: 14px;
+        position: relative;
+        z-index: 1000;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      
+      .announcement-content {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        animation: scroll-announcement 30s linear infinite;
+      }
+      
+      .announcement-content span {
+        display: inline-block;
+        padding: 0 50px;
+      }
+      
+      @keyframes gradient-shift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      
+      @keyframes scroll-announcement {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      
+      @media (max-width: 768px) {
+        .announcement-bar {
+          font-size: 12px;
+          padding: 10px 0;
+        }
+        .announcement-content span {
+          padding: 0 30px;
+        }
+      }
+    </style>
+
+    <script>
+      (async function loadAnnouncement() {
+        try {
+          const res = await fetch('https://pixelatenest-crm.vercel.app/api/announcement', {
+            cache: 'force-cache'
+          });
+          if (res.ok) {
+            const data = await res.json();
+            if (data.text && data.enabled) {
+              const container = document.getElementById('announcement-content');
+              for (let i = 0; i < 20; i++) {
+                const span = document.createElement('span');
+                span.textContent = data.text;
+                container.appendChild(span);
+              }
+              document.getElementById('announcement-bar').style.display = 'block';
+            } else if (!data.enabled) {
+              document.getElementById('announcement-bar').style.display = 'none';
+            }
+          }
+        } catch (e) {
+          console.log('Could not load announcement:', e);
+          const container = document.getElementById('announcement-content');
+          for (let i = 0; i < 20; i++) {
+            const span = document.createElement('span');
+            span.textContent = 'Get FLAT 25% OFF Sitewide';
+            container.appendChild(span);
+          }
+        }
+      })();
+    </script>
+
     <div class="page-wrapper">
       <section class="nav-wrap">
         <div class="nav-bar-wrap">
