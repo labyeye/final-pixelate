@@ -17,22 +17,27 @@ export async function GET() {
     const announcement = await col.findOne({ _id: 'main' } as any);
     
     if (!announcement) {
-      // Return default announcement if none exists
-      return NextResponse.json({ 
-        text: 'Get FLAT 25% OFF Sitewide', 
-        enabled: true 
+      // No announcement configured — return empty/disabled response
+      return NextResponse.json({
+        text: '',
+        enabled: false,
       }, { headers: CORS_HEADERS });
     }
-    
+
+    // Only enable the announcement when text exists and enabled isn't false
+    const text = announcement.text ?? '';
+    const enabled = (announcement.enabled !== false) && Boolean(text);
+
     return NextResponse.json({
-      text: announcement.text || 'Get FLAT 25% OFF Sitewide',
-      enabled: announcement.enabled !== false
+      text,
+      enabled,
     }, { headers: CORS_HEADERS });
   } catch (e: any) {
     console.error('Error fetching announcement:', e);
-    return NextResponse.json({ 
-      text: 'Get FLAT 25% OFF Sitewide', 
-      enabled: true 
+    // On error, return an empty/disabled announcement so clients hide the bar
+    return NextResponse.json({
+      text: '',
+      enabled: false,
     }, { status: 200, headers: CORS_HEADERS });
   }
 }
