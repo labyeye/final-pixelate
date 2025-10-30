@@ -90,6 +90,71 @@
     <priority>0.7</priority>
   </url>
   
+  <!-- Locations Hub -->
+  <url>
+    <loc>https://www.pixelatenest.com/locations.html</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- City Pages - Dynamic Location Pages -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Delhi</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Mumbai</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Bangalore</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Chennai</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Hyderabad</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Pune</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Kolkata</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Ahmedabad</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
   <!-- Legal Pages -->
   <url>
     <loc>https://www.pixelatenest.com/privacy-policy.html</loc>

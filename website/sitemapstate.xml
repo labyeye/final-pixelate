@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Locations Hub Page -->
+  <url>
+    <loc>https://www.pixelatenest.com/locations.html</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Delhi -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Delhi</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Mumbai -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Mumbai</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Bangalore -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Bangalore</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Chennai -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Chennai</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Hyderabad -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Hyderabad</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Pune -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Pune</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Kolkata -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Kolkata</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Ahmedabad -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Ahmedabad</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Jaipur -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Jaipur</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Lucknow -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Lucknow</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Chandigarh -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Chandigarh</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Indore -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Indore</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Bhopal -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Bhopal</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Patna -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Patna</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Guwahati -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Guwahati</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Bhubaneswar -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Bhubaneswar</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Thiruvananthapuram -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Thiruvananthapuram</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Kochi -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Kochi</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Visakhapatnam -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Visakhapatnam</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Surat -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Surat</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- State/City Pages - Nagpur -->
+  <url>
+    <loc>https://www.pixelatenest.com/state.html?city=Nagpur</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+</urlset>
