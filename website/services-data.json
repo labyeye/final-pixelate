@@ -31,19 +31,54 @@
       ],
       "subServices": [
         {
-          "name": "Website Designing",
-          "description": "Custom UI/UX design with modern aesthetics and brand-focused layouts",
-          "icon": "🎨"
+          "name": "Static Website Design",
+          "description": "Fast, lightweight static sites built with HTML/CSS and optimized for speed",
+          "icon": "📄"
         },
         {
-          "name": "Web Development",
-          "description": "Full-stack development with scalable architecture and clean code",
-          "icon": "⚙️"
+          "name": "Dynamic Website Design",
+          "description": "Interactive websites driven by server-side logic and databases",
+          "icon": "⚡"
         },
         {
-          "name": "Ecommerce Website",
+          "name": "E-Commerce Website Design",
           "description": "Complete online stores with payment gateways and inventory management",
           "icon": "🛒"
+        },
+        {
+          "name": "Blog / Magazine Website Design",
+          "description": "Content-first platforms optimized for articles, categories and SEO",
+          "icon": "📰"
+        },
+        {
+          "name": "Corporate / Business Website Design",
+          "description": "Professional websites tailored for companies, services and lead generation",
+          "icon": "🏢"
+        },
+        {
+          "name": "Portfolio / Creative Website Design",
+          "description": "Visually-driven portfolio sites for artists, photographers and creatives",
+          "icon": "🖼️"
+        },
+        {
+          "name": "Landing Page Design",
+          "description": "High-converting single-page layouts for campaigns and product launches",
+          "icon": "🚀"
+        },
+        {
+          "name": "Educational / Institutional Website Design",
+          "description": "Sites for schools, colleges and institutions with course and admissions support",
+          "icon": "🎓"
+        },
+        {
+          "name": "Personal / Resume Website Design",
+          "description": "Simple personal websites and online resumes to showcase achievements",
+          "icon": "🧾"
+        },
+        {
+          "name": "Non-Profit / Community Website Design",
+          "description": "Websites for NGOs, charities and community groups with donation and event features",
+          "icon": "🤝"
         },
         {
           "name": "Website Redesigning",
@@ -87,24 +122,54 @@
       ],
       "subServices": [
         {
-          "name": "Corporate Videos",
-          "description": "Professional videos for internal communication and marketing",
-          "icon": "🏢"
+          "name": "Cinematic / Film-Style Editing",
+          "description": "Narrative-driven editing with pacing, transitions and color grading for a cinematic look.",
+          "icon": "🎞️"
         },
         {
-          "name": "Social Media Videos",
-          "description": "Short-form content optimized for Instagram, TikTok, and Facebook",
+          "name": "Corporate / Commercial Editing",
+          "description": "Brand films, commercials and corporate video editing for professional presentations.",
+          "icon": "💼"
+        },
+        {
+          "name": "Social Media Short-Form Editing (Reels, Shorts, TikTok)",
+          "description": "Vertical, punchy edits optimized for short-form platforms with captions and motion.",
           "icon": "📱"
         },
         {
-          "name": "YouTube Content",
-          "description": "Long-form videos with thumbnails, intros, and outros",
-          "icon": "▶️"
+          "name": "Music Video Editing",
+          "description": "Rhythmic cutting, stylized effects and pacing tuned to musical tracks.",
+          "icon": "🎵"
         },
         {
-          "name": "Explainer Videos",
-          "description": "Animated explainer videos for products and services",
-          "icon": "💡"
+          "name": "Event / Wedding Editing",
+          "description": "Story-driven event and wedding highlight reels with emotion-led sequencing.",
+          "icon": "�"
+        },
+        {
+          "name": "Documentary Editing",
+          "description": "Long-form narrative assembly, interview structuring and archival footage integration.",
+          "icon": "🎥"
+        },
+        {
+          "name": "Vlog / YouTube Editing",
+          "description": "Vlog-friendly cuts, jump cuts, thumbnails, intros/outros and pacing for creators.",
+          "icon": "📹"
+        },
+        {
+          "name": "Promotional / Ad Editing",
+          "description": "Short promotional videos and ad creatives optimized for conversions.",
+          "icon": "📣"
+        },
+        {
+          "name": "Motion Graphics & Visual Effects (VFX)",
+          "description": "Title sequences, animated graphics, compositing and VFX work to enhance visuals.",
+          "icon": "✨"
+        },
+        {
+          "name": "Educational / Tutorial Video Editing",
+          "description": "Clear, instructional edits with callouts, captions and step-by-step structure.",
+          "icon": "🎓"
         }
       ],
       "pricing": {
@@ -143,24 +208,54 @@
       ],
       "subServices": [
         {
-          "name": "iOS App Development",
-          "description": "Native apps for iPhone and iPad with Swift",
-          "icon": "🍎"
+          "name": "Native App Development",
+          "description": "Platform-specific native apps for iOS (Swift) and Android (Kotlin) optimized for performance.",
+          "icon": "📱"
         },
         {
-          "name": "Android App Development",
-          "description": "Native Android apps with Kotlin and Java",
-          "icon": "🤖"
+          "name": "Hybrid App Development",
+          "description": "Hybrid apps built with web technologies wrapped for mobile using frameworks like Ionic or Cordova.",
+          "icon": "🧩"
         },
         {
-          "name": "Cross-Platform Apps",
-          "description": "Single codebase for both iOS and Android using React Native or Flutter",
-          "icon": "🔄"
+          "name": "Web App Development",
+          "description": "Browser-based applications with responsive UIs and progressive features for mobile and desktop.",
+          "icon": "🌐"
         },
         {
-          "name": "App Maintenance",
-          "description": "Ongoing support, updates, and bug fixes",
-          "icon": "🔧"
+          "name": "Progressive Web App (PWA) Development",
+          "description": "Installable, offline-capable PWAs that behave like native apps using service workers and manifests.",
+          "icon": "⚙️"
+        },
+        {
+          "name": "Cross-Platform App Development",
+          "description": "Single-codebase solutions using React Native, Flutter or similar for both iOS and Android.",
+          "icon": "🔁"
+        },
+        {
+          "name": "Enterprise App Development",
+          "description": "Scalable, secure apps tailored for enterprise workflows, integrations and compliance.",
+          "icon": "🏢"
+        },
+        {
+          "name": "E-Commerce App Development",
+          "description": "Feature-rich mobile commerce apps with catalogs, carts, payments, and order management.",
+          "icon": "�️"
+        },
+        {
+          "name": "On-Demand Service App Development",
+          "description": "Apps for gig and on-demand services with real-time tracking, booking and payments.",
+          "icon": "🚚"
+        },
+        {
+          "name": "Educational / E-Learning App Development",
+          "description": "Learning platforms and e-learning apps with courses, quizzes, and progress tracking.",
+          "icon": "🎓"
+        },
+        {
+          "name": "Gaming App Development",
+          "description": "Mobile game development including casual, hyper-casual and mid-core game experiences.",
+          "icon": "🎮"
         }
       ],
       "pricing": {
@@ -199,140 +294,58 @@
       ],
       "subServices": [
         {
-          "name": "CRM Development",
-          "description": "Custom customer relationship management systems",
+          "name": "Sales & CRM Software Development",
+          "description": "Custom CRM and sales automation systems to manage leads, pipelines and customer relationships.",
+          "icon": "🤝"
+        },
+        {
+          "name": "Accounting & Finance Software Development",
+          "description": "Financial systems for invoicing, bookkeeping, payroll and financial reporting.",
+          "icon": "�"
+        },
+        {
+          "name": "Inventory & Supply Chain Software Development",
+          "description": "Inventory tracking, order management and supply chain optimization solutions.",
+          "icon": "📦"
+        },
+        {
+          "name": "Human Resource (HRM) Software Development",
+          "description": "HRM platforms for employee records, attendance, payroll and performance management.",
           "icon": "👥"
         },
         {
-          "name": "ERP Solutions",
-          "description": "Enterprise resource planning for business operations",
-          "icon": "📊"
+          "name": "ERP (Enterprise Resource Planning) Software Development",
+          "description": "Integrated ERP systems to unify finance, HR, inventory, and operations for enterprises.",
+          "icon": "🏭"
         },
         {
-          "name": "SaaS Development",
-          "description": "Cloud-based software as a service platforms",
-          "icon": "☁️"
+          "name": "Project Management Software Development",
+          "description": "Tools for project planning, task tracking, collaboration and resource allocation.",
+          "icon": "�"
         },
         {
-          "name": "API Development",
-          "description": "RESTful and GraphQL API services",
-          "icon": "🔌"
+          "name": "POS (Point of Sale) & Billing Software Development",
+          "description": "Point-of-sale systems with billing, inventory sync and reporting for retail businesses.",
+          "icon": "💳"
+        },
+        {
+          "name": "Customer Support / Helpdesk Software Development",
+          "description": "Ticketing systems, knowledge bases and live-chat integrations for customer support.",
+          "icon": "🎧"
+        },
+        {
+          "name": "E-Commerce & Retail Software Development",
+          "description": "E-commerce platforms, catalog management, payments and order fulfillment systems.",
+          "icon": "🛒"
+        },
+        {
+          "name": "Healthcare / Hospital Management Software Development",
+          "description": "Clinical management, patient records, appointments and billing software for healthcare providers.",
+          "icon": "🏥"
         }
       ],
       "pricing": {
         "starting": "₹1,00,000",
-        "currency": "INR"
-      }
-    },
-    {
-      "id": "digital-marketing",
-      "name": "Digital Marketing",
-      "slug": "digital-marketing",
-      "icon": "📢",
-      "tagline": "Data-Driven Marketing Strategies",
-      "shortDescription": "Comprehensive digital marketing services including SEO, social media marketing, and paid advertising campaigns.",
-      "longDescription": "Grow your online presence with our results-driven digital marketing strategies. We help businesses reach their target audience through SEO, content marketing, social media, and paid advertising.",
-      "mainPage": "pricing.html",
-      "features": [
-        "Search Engine Optimization (SEO)",
-        "Social Media Marketing",
-        "Pay-Per-Click (PPC) Advertising",
-        "Content Marketing",
-        "Email Marketing",
-        "Influencer Marketing",
-        "Analytics & Reporting",
-        "Conversion Rate Optimization"
-      ],
-      "technologies": [
-        "Google Analytics",
-        "Google Ads",
-        "Facebook Ads Manager",
-        "SEMrush",
-        "Ahrefs",
-        "Mailchimp",
-        "Hootsuite",
-        "HubSpot"
-      ],
-      "subServices": [
-        {
-          "name": "SEO Services",
-          "description": "Improve search engine rankings and organic traffic",
-          "icon": "🔍"
-        },
-        {
-          "name": "Social Media Management",
-          "description": "Manage and grow your social media presence",
-          "icon": "💬"
-        },
-        {
-          "name": "PPC Campaigns",
-          "description": "Targeted paid advertising on Google and social media",
-          "icon": "💰"
-        },
-        {
-          "name": "Content Strategy",
-          "description": "Create engaging content that converts",
-          "icon": "📝"
-        }
-      ],
-      "pricing": {
-        "starting": "₹15,000",
-        "currency": "INR"
-      }
-    },
-    {
-      "id": "ui-ux-design",
-      "name": "UI/UX Design",
-      "slug": "ui-ux-design",
-      "icon": "🎨",
-      "tagline": "User-Centered Design Solutions",
-      "shortDescription": "Create intuitive and beautiful user interfaces with our expert UI/UX design services.",
-      "longDescription": "Design exceptional user experiences that delight your customers. Our UI/UX design team combines aesthetic appeal with usability research to create interfaces that are both beautiful and functional.",
-      "mainPage": "pricing.html",
-      "features": [
-        "User Research & Testing",
-        "Wireframing & Prototyping",
-        "Visual Design",
-        "Interaction Design",
-        "Design Systems",
-        "Responsive Design",
-        "Accessibility Design",
-        "Brand Identity Design"
-      ],
-      "technologies": [
-        "Figma",
-        "Adobe XD",
-        "Sketch",
-        "InVision",
-        "Adobe Photoshop",
-        "Adobe Illustrator",
-        "Principle",
-        "Zeplin"
-      ],
-      "subServices": [
-        {
-          "name": "Web UI Design",
-          "description": "Beautiful interfaces for websites and web apps",
-          "icon": "🖥️"
-        },
-        {
-          "name": "Mobile App UI",
-          "description": "Intuitive mobile app interfaces",
-          "icon": "📱"
-        },
-        {
-          "name": "UX Research",
-          "description": "User testing and usability studies",
-          "icon": "🔬"
-        },
-        {
-          "name": "Design Systems",
-          "description": "Scalable design component libraries",
-          "icon": "📚"
-        }
-      ],
-      "pricing": {
-        "starting": "₹20,000",
         "currency": "INR"
       }
     }
