@@ -1,0 +1,340 @@
+{
+  "services": [
+    {
+      "id": "web-development",
+      "name": "Web Development",
+      "slug": "web-development",
+      "icon": "💻",
+      "tagline": "Building Modern, Scalable Web Solutions",
+      "shortDescription": "Professional web development services using cutting-edge technologies to create fast, secure, and user-friendly websites.",
+      "longDescription": "Our expert web development team specializes in creating custom websites, web applications, and digital platforms that drive business growth. From responsive design to complex backend systems, we deliver solutions that meet your unique requirements.",
+      "mainPage": "webdev.html",
+      "features": [
+        "Custom Website Development",
+        "Responsive Web Design",
+        "Progressive Web Apps (PWA)",
+        "CMS Development (WordPress, Drupal)",
+        "API Development & Integration",
+        "Performance Optimization",
+        "SEO-Friendly Architecture",
+        "Cloud Deployment & Hosting"
+      ],
+      "technologies": [
+        "React.js",
+        "Next.js",
+        "Node.js",
+        "Python/Django",
+        "PHP/Laravel",
+        "MongoDB",
+        "PostgreSQL",
+        "AWS/Azure"
+      ],
+      "subServices": [
+        {
+          "name": "Website Designing",
+          "description": "Custom UI/UX design with modern aesthetics and brand-focused layouts",
+          "icon": "🎨"
+        },
+        {
+          "name": "Web Development",
+          "description": "Full-stack development with scalable architecture and clean code",
+          "icon": "⚙️"
+        },
+        {
+          "name": "Ecommerce Website",
+          "description": "Complete online stores with payment gateways and inventory management",
+          "icon": "🛒"
+        },
+        {
+          "name": "Website Redesigning",
+          "description": "Modernize existing websites with improved UX and performance",
+          "icon": "🔄"
+        }
+      ],
+      "pricing": {
+        "starting": "₹25,000",
+        "currency": "INR"
+      }
+    },
+    {
+      "id": "video-editing",
+      "name": "Video Editing",
+      "slug": "video-editing",
+      "icon": "🎬",
+      "tagline": "Professional Video Production & Post-Production",
+      "shortDescription": "High-quality video editing services for corporate videos, promotional content, social media, and YouTube channels.",
+      "longDescription": "Transform your raw footage into compelling visual stories with our professional video editing services. We handle everything from color grading to motion graphics, delivering broadcast-quality videos that engage your audience.",
+      "mainPage": "video-ed.html",
+      "features": [
+        "Corporate Video Editing",
+        "Promotional Videos",
+        "Social Media Content",
+        "YouTube Video Production",
+        "Documentary Editing",
+        "Motion Graphics & Animation",
+        "Color Grading & Correction",
+        "Audio Mixing & Enhancement"
+      ],
+      "technologies": [
+        "Adobe Premiere Pro",
+        "Final Cut Pro",
+        "DaVinci Resolve",
+        "After Effects",
+        "Audition",
+        "Cinema 4D",
+        "Blender",
+        "Frame.io"
+      ],
+      "subServices": [
+        {
+          "name": "Corporate Videos",
+          "description": "Professional videos for internal communication and marketing",
+          "icon": "🏢"
+        },
+        {
+          "name": "Social Media Videos",
+          "description": "Short-form content optimized for Instagram, TikTok, and Facebook",
+          "icon": "📱"
+        },
+        {
+          "name": "YouTube Content",
+          "description": "Long-form videos with thumbnails, intros, and outros",
+          "icon": "▶️"
+        },
+        {
+          "name": "Explainer Videos",
+          "description": "Animated explainer videos for products and services",
+          "icon": "💡"
+        }
+      ],
+      "pricing": {
+        "starting": "₹5,000",
+        "currency": "INR"
+      }
+    },
+    {
+      "id": "app-development",
+      "name": "App Development",
+      "slug": "app-development",
+      "icon": "📱",
+      "tagline": "Native & Cross-Platform Mobile Applications",
+      "shortDescription": "Custom mobile app development for iOS and Android with intuitive interfaces and powerful functionality.",
+      "longDescription": "We build mobile applications that users love. Whether you need a native iOS app, Android app, or cross-platform solution, our team delivers high-performance mobile experiences that drive engagement and business growth.",
+      "mainPage": "app-dev.html",
+      "features": [
+        "Native iOS Development",
+        "Native Android Development",
+        "Cross-Platform Development",
+        "Mobile UI/UX Design",
+        "API Integration",
+        "Push Notifications",
+        "In-App Purchases",
+        "App Store Optimization (ASO)"
+      ],
+      "technologies": [
+        "Swift",
+        "Kotlin",
+        "React Native",
+        "Flutter",
+        "Firebase",
+        "SQLite",
+        "REST APIs",
+        "GraphQL"
+      ],
+      "subServices": [
+        {
+          "name": "iOS App Development",
+          "description": "Native apps for iPhone and iPad with Swift",
+          "icon": "🍎"
+        },
+        {
+          "name": "Android App Development",
+          "description": "Native Android apps with Kotlin and Java",
+          "icon": "🤖"
+        },
+        {
+          "name": "Cross-Platform Apps",
+          "description": "Single codebase for both iOS and Android using React Native or Flutter",
+          "icon": "🔄"
+        },
+        {
+          "name": "App Maintenance",
+          "description": "Ongoing support, updates, and bug fixes",
+          "icon": "🔧"
+        }
+      ],
+      "pricing": {
+        "starting": "₹50,000",
+        "currency": "INR"
+      }
+    },
+    {
+      "id": "software-development",
+      "name": "Software Development",
+      "slug": "software-development",
+      "icon": "⚡",
+      "tagline": "Custom Enterprise Software Solutions",
+      "shortDescription": "Tailored software solutions for businesses including CRM, ERP, and custom enterprise applications.",
+      "longDescription": "Build powerful custom software that streamlines your business operations. From CRM systems to inventory management, we develop scalable enterprise solutions that integrate seamlessly with your existing infrastructure.",
+      "mainPage": "software-dev.html",
+      "features": [
+        "Custom Software Development",
+        "Enterprise Resource Planning (ERP)",
+        "Customer Relationship Management (CRM)",
+        "Inventory Management Systems",
+        "Business Process Automation",
+        "Legacy System Modernization",
+        "Cloud-Based Solutions",
+        "System Integration"
+      ],
+      "technologies": [
+        "Java/Spring Boot",
+        "C#/.NET Core",
+        "Python",
+        "Microservices",
+        "Docker",
+        "Kubernetes",
+        "PostgreSQL",
+        "Redis"
+      ],
+      "subServices": [
+        {
+          "name": "CRM Development",
+          "description": "Custom customer relationship management systems",
+          "icon": "👥"
+        },
+        {
+          "name": "ERP Solutions",
+          "description": "Enterprise resource planning for business operations",
+          "icon": "📊"
+        },
+        {
+          "name": "SaaS Development",
+          "description": "Cloud-based software as a service platforms",
+          "icon": "☁️"
+        },
+        {
+          "name": "API Development",
+          "description": "RESTful and GraphQL API services",
+          "icon": "🔌"
+        }
+      ],
+      "pricing": {
+        "starting": "₹1,00,000",
+        "currency": "INR"
+      }
+    },
+    {
+      "id": "digital-marketing",
+      "name": "Digital Marketing",
+      "slug": "digital-marketing",
+      "icon": "📢",
+      "tagline": "Data-Driven Marketing Strategies",
+      "shortDescription": "Comprehensive digital marketing services including SEO, social media marketing, and paid advertising campaigns.",
+      "longDescription": "Grow your online presence with our results-driven digital marketing strategies. We help businesses reach their target audience through SEO, content marketing, social media, and paid advertising.",
+      "mainPage": "pricing.html",
+      "features": [
+        "Search Engine Optimization (SEO)",
+        "Social Media Marketing",
+        "Pay-Per-Click (PPC) Advertising",
+        "Content Marketing",
+        "Email Marketing",
+        "Influencer Marketing",
+        "Analytics & Reporting",
+        "Conversion Rate Optimization"
+      ],
+      "technologies": [
+        "Google Analytics",
+        "Google Ads",
+        "Facebook Ads Manager",
+        "SEMrush",
+        "Ahrefs",
+        "Mailchimp",
+        "Hootsuite",
+        "HubSpot"
+      ],
+      "subServices": [
+        {
+          "name": "SEO Services",
+          "description": "Improve search engine rankings and organic traffic",
+          "icon": "🔍"
+        },
+        {
+          "name": "Social Media Management",
+          "description": "Manage and grow your social media presence",
+          "icon": "💬"
+        },
+        {
+          "name": "PPC Campaigns",
+          "description": "Targeted paid advertising on Google and social media",
+          "icon": "💰"
+        },
+        {
+          "name": "Content Strategy",
+          "description": "Create engaging content that converts",
+          "icon": "📝"
+        }
+      ],
+      "pricing": {
+        "starting": "₹15,000",
+        "currency": "INR"
+      }
+    },
+    {
+      "id": "ui-ux-design",
+      "name": "UI/UX Design",
+      "slug": "ui-ux-design",
+      "icon": "🎨",
+      "tagline": "User-Centered Design Solutions",
+      "shortDescription": "Create intuitive and beautiful user interfaces with our expert UI/UX design services.",
+      "longDescription": "Design exceptional user experiences that delight your customers. Our UI/UX design team combines aesthetic appeal with usability research to create interfaces that are both beautiful and functional.",
+      "mainPage": "pricing.html",
+      "features": [
+        "User Research & Testing",
+        "Wireframing & Prototyping",
+        "Visual Design",
+        "Interaction Design",
+        "Design Systems",
+        "Responsive Design",
+        "Accessibility Design",
+        "Brand Identity Design"
+      ],
+      "technologies": [
+        "Figma",
+        "Adobe XD",
+        "Sketch",
+        "InVision",
+        "Adobe Photoshop",
+        "Adobe Illustrator",
+        "Principle",
+        "Zeplin"
+      ],
+      "subServices": [
+        {
+          "name": "Web UI Design",
+          "description": "Beautiful interfaces for websites and web apps",
+          "icon": "🖥️"
+        },
+        {
+          "name": "Mobile App UI",
+          "description": "Intuitive mobile app interfaces",
+          "icon": "📱"
+        },
+        {
+          "name": "UX Research",
+          "description": "User testing and usability studies",
+          "icon": "🔬"
+        },
+        {
+          "name": "Design Systems",
+          "description": "Scalable design component libraries",
+          "icon": "📚"
+        }
+      ],
+      "pricing": {
+        "starting": "₹20,000",
+        "currency": "INR"
+      }
+    }
+  ]
+}

@@ -108,14 +108,110 @@
         filter: invert(1);
       }
       .contact-top {
-        padding-top: 120px;
+        padding-top: 0px;
       }
 
-      /* Contact form improvements: wider inputs, spacing, responsive grid and nicer button */
+      /* Contact Page New Layout */
+      .contact-bottom {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 3rem;
+        align-items: start;
+      }
+
+      /* Contact Cards Section */
+      .contact-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .contact-card {
+        background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+        border: 2px solid #222;
+        border-radius: 15px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .contact-card:hover {
+        border-color: #e65100;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(230, 81, 0, 0.2);
+      }
+
+      .contact-card-icon {
+        font-size: 2rem;
+        background: linear-gradient(135deg, #e65100 0%, #ff6b35 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        flex-shrink: 0;
+      }
+
+      .contact-card-content {
+        flex: 1;
+      }
+
+      .contact-card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-card-text {
+        font-size: 0.95rem;
+        color: #9ca3af;
+        line-height: 1.6;
+      }
+
+      .contact-card-text a {
+        color: #e65100;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-card-text a:hover {
+        color: #ff6b35;
+        text-decoration: underline;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 0.75rem;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: #0a0a0a;
+        border: 1px solid #222;
+        border-radius: 10px;
+        color: #e65100;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background: #e65100;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(230, 81, 0, 0.3);
+      }
+
+      /* Contact form improvements */
       .contact .contact-form-wrap {
-        max-width: 960px;
-        margin: 0 auto;
         width: 100%;
+        max-width: none;
       }
 
       .contact-form-wrap .form-grid {
@@ -173,6 +269,13 @@
       .form-submit-button:hover {
         transform: translateY(-2px);
         box-shadow: 0 12px 30px rgba(255, 78, 80, 0.18);
+      }
+
+      @media screen and (max-width: 991px) {
+        .contact-bottom {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
       }
 
       @media screen and (max-width: 767px) {
@@ -488,16 +591,74 @@
               </div>
             </div>
             <div class="contact-bottom">
-              <h2
-                style="
-                  color: #fb8a02;
-                  font-size: 1.75rem;
-                  margin-bottom: 1.5rem;
-                "
-              >
-                Get in Touch
-              </h2>
-              <div class="contact-form w-form">
+              <!-- Contact Cards -->
+              <div class="contact-cards">
+                <!-- Phone Card -->
+                <div class="contact-card">
+                  <div class="contact-card-icon">📞</div>
+                  <div class="contact-card-content">
+                    <div class="contact-card-title">Call Us</div>
+                    <div class="contact-card-text">
+                      Let's discuss your project over a call<br>
+                      <a href="tel:+919234112345">+91 9234112345</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Email Card -->
+                <div class="contact-card">
+                  <div class="contact-card-icon">📧</div>
+                  <div class="contact-card-content">
+                    <div class="contact-card-title">Email Us</div>
+                    <div class="contact-card-text">
+                      Drop us an email anytime<br>
+                      <a href="mailto:pixelatenest@gmail.com">pixelatenest@gmail.com</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Location Card -->
+                <div class="contact-card">
+                  <div class="contact-card-icon">📍</div>
+                  <div class="contact-card-content">
+                    <div class="contact-card-title">Visit Us</div>
+                    <div class="contact-card-text">
+                      Bangalore, Karnataka, India<br>
+                      <a href="https://www.google.com/maps/place/Bangalore" target="_blank" rel="noopener">View on Map</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Social Media Card -->
+                <div class="contact-card">
+                  <div class="contact-card-icon">🌐</div>
+                  <div class="contact-card-content">
+                    <div class="contact-card-title">Follow Us</div>
+                    <div class="contact-card-text">
+                      Connect with us on social media
+                    </div>
+                    <div class="social-links">
+                      <a href="https://www.instagram.com/pixelate.nest/" target="_blank" rel="noopener" class="social-link" title="Instagram">📷</a>
+                      <a href="https://www.linkedin.com/company/pixelate-nest/" target="_blank" rel="noopener" class="social-link" title="LinkedIn">💼</a>
+                      <a href="https://twitter.com/pixelatenest" target="_blank" rel="noopener" class="social-link" title="Twitter">🐦</a>
+                      <a href="https://www.facebook.com/pixelatenest" target="_blank" rel="noopener" class="social-link" title="Facebook">👥</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact Form -->
+              <div class="contact-form-section">
+                <h2
+                  style="
+                    color: #fb8a02;
+                    font-size: 1.75rem;
+                    margin-bottom: 1.5rem;
+                  "
+                >
+                  Get in Touch
+                </h2>
+                <div class="contact-form w-form">
                 <form
                   id="email-form"
                   name="email-form"
@@ -635,6 +796,7 @@
                   </div>
                 </div>
               </div>
+              </div>
             </div>
           </div>
         </div>
@@ -757,15 +919,14 @@
                     >
                       <div class="footer-link-text">Pricing</div>
                     </a>
-                    <a href="#" class="footer-link w-inline-block">
-                      <div class="footer-link-text">Portfolio</div>
+                    <a
+                      href="https://www.pixelatenest.com/locations.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Locations</div>
                     </a>
-                    <a href="#" class="footer-link w-inline-block">
-                      <div class="footer-link-text">Case Studies</div>
-                    </a>
-                    <a href="#" class="footer-link w-inline-block">
-                      <div class="footer-link-text">FAQ</div>
-                    </a>
+                    
+                    
                   </div>
                 </div>
 

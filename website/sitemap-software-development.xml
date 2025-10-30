@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- Software Development Service Page -->
+    
+    <!-- Main Software Development Page -->
+    <url>
+        <loc>https://www.pixelatenest.com/software-dev.html</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/video-ed.html#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Delhi -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Delhi#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Mumbai -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Mumbai#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Bangalore -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Bangalore#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Chennai -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Chennai#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Hyderabad -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Hyderabad#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Pune -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Pune#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Kolkata -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Kolkata#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Ahmedabad -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Ahmedabad#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Jaipur -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Jaipur#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Lucknow -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Lucknow#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Chandigarh -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Chandigarh#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Indore -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Indore#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Bhopal -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Bhopal#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Patna -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Patna#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Guwahati -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Guwahati#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Bhubaneswar -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Bhubaneswar#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Thiruvananthapuram -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Thiruvananthapuram#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Kochi -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Kochi#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Visakhapatnam -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Visakhapatnam#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Surat -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Surat#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Video Editing - Nagpur -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Nagpur#software-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>

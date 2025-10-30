@@ -63,7 +63,11 @@
       crossorigin="anonymous"
     />
     <!-- Preconnect to API for faster data loading -->
-    <link href="https://pixelatenest-crm.vercel.app" rel="preconnect" crossorigin />
+    <link
+      href="https://pixelatenest-crm.vercel.app"
+      rel="preconnect"
+      crossorigin
+    />
     <link href="https://pixelatenest-crm.vercel.app" rel="dns-prefetch" />
     <script
       src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
@@ -173,31 +177,40 @@
         position: relative;
         z-index: 1000;
         overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
-      
+
       .announcement-content {
         display: flex;
         align-items: center;
         white-space: nowrap;
         animation: scroll-announcement 30s linear infinite;
       }
-      
+
       .announcement-content span {
         display: inline-block;
         padding: 0 50px;
       }
-      
+
       @keyframes gradient-shift {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
       }
-      
+
       @keyframes scroll-announcement {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
       }
-      
+
       @media (max-width: 768px) {
         .announcement-bar {
           font-size: 12px;
@@ -212,27 +225,32 @@
     <script>
       (async function loadAnnouncement() {
         try {
-          const res = await fetch('https://pixelatenest-crm.vercel.app/api/announcement', {
-            cache: 'no-store'
-          });
+          const res = await fetch(
+            "https://pixelatenest-crm.vercel.app/api/announcement",
+            {
+              cache: "no-store",
+            }
+          );
           if (res.ok) {
             const data = await res.json();
             if (data.text && data.enabled) {
-              const container = document.getElementById('announcement-content');
+              const container = document.getElementById("announcement-content");
               for (let i = 0; i < 20; i++) {
-                const span = document.createElement('span');
+                const span = document.createElement("span");
                 span.textContent = data.text;
                 container.appendChild(span);
               }
-              document.getElementById('announcement-bar').style.display = 'block';
+              document.getElementById("announcement-bar").style.display =
+                "block";
             } else if (!data.enabled) {
-              document.getElementById('announcement-bar').style.display = 'none';
+              document.getElementById("announcement-bar").style.display =
+                "none";
             }
           }
         } catch (e) {
-          console.log('Could not load announcement:', e);
-          const bar = document.getElementById('announcement-bar');
-          if (bar) bar.style.display = 'none';
+          console.log("Could not load announcement:", e);
+          const bar = document.getElementById("announcement-bar");
+          if (bar) bar.style.display = "none";
         }
       })();
     </script>
@@ -371,7 +389,6 @@
         <section class="hero">
           <div class="container">
             <div class="hero-01-wrap features-v1-hero">
-              
               <div class="heading-wrap">
                 <h1 class="h1 hero-heading text-linear">
                   Transparent Pricing for Every Vision
@@ -1382,14 +1399,11 @@
                     >
                       <div class="footer-link-text">Pricing</div>
                     </a>
-                    <a href="#" class="footer-link w-inline-block">
-                      <div class="footer-link-text">Portfolio</div>
-                    </a>
-                    <a href="#" class="footer-link w-inline-block">
-                      <div class="footer-link-text">Case Studies</div>
-                    </a>
-                    <a href="#" class="footer-link w-inline-block">
-                      <div class="footer-link-text">FAQ</div>
+                    <a
+                      href="https://www.pixelatenest.com/locations.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Locations</div>
                     </a>
                   </div>
                 </div>

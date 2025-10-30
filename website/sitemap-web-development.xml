@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- Web Development Service Pages -->
+    
+    <!-- Main Web Development Page -->
+    <url>
+        <loc>https://www.pixelatenest.com/webdev.html</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Delhi NCR -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Delhi#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Mumbai -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Mumbai#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Bangalore -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Bangalore#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Chennai -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Chennai#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Hyderabad -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Hyderabad#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Pune -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Pune#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Kolkata -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Kolkata#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Ahmedabad -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Ahmedabad#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Jaipur -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Jaipur#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Lucknow -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Lucknow#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Chandigarh -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Chandigarh#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Indore -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Indore#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Bhopal -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Bhopal#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Patna -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Patna#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Guwahati -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Guwahati#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Bhubaneswar -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Bhubaneswar#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Thiruvananthapuram -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Thiruvananthapuram#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Kochi -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Kochi#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Visakhapatnam -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Visakhapatnam#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Surat -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Surat#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- City-Specific Web Development - Nagpur -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Nagpur#web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Website Designing Service Links -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Delhi#website-designing</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Ecommerce Website Development Links -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Mumbai#ecommerce-website</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Website Redesigning Service Links -->
+    <url>
+        <loc>https://www.pixelatenest.com/state.html?city=Bangalore#website-redesigning</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Detailed Service Pages (detailed-services) for Web Development per city -->
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Delhi</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Mumbai</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Bangalore</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Chennai</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Hyderabad</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Pune</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Kolkata</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Ahmedabad</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Jaipur</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Lucknow</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Chandigarh</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Indore</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Bhopal</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Patna</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Guwahati</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Bhubaneswar</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Thiruvananthapuram</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Kochi</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Visakhapatnam</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Surat</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development&city=Nagpur</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>
