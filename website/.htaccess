@@ -1,19 +1,80 @@
 # Apache .htaccess Configuration for Pixelate Nest
 # Enable if using Apache server
+# Last Updated: October 30, 2025
 
-# Force HTTPS
 <IfModule mod_rewrite.c>
 RewriteEngine On
+RewriteBase /
+
+# ============================================
+# 301 REDIRECTS - Old URLs to New Structure
+# Fix Google Search Console 404 Errors
+# ============================================
+
+# Old video editing page redirects
+RewriteRule ^videoediting\.html$ /video-ed.html [R=301,L]
+RewriteRule ^video-editing\.html$ /video-ed.html [R=301,L]
+
+# Old app development page redirects
+RewriteRule ^appdev\.html$ /app-dev.html [R=301,L]
+RewriteRule ^app-development\.html$ /app-dev.html [R=301,L]
+
+# Old blog page redirects
+RewriteRule ^blog\.html$ /blogs.html [R=301,L]
+RewriteRule ^blog\.htmls/(.*)$ /blogs.html [R=301,L]
+
+# Old works/portfolio page (redirect to homepage or create works page)
+RewriteRule ^works\.html$ /pricing.html [R=301,L]
+
+# Old services page (redirect to homepage)
+RewriteRule ^services\.html$ /webdev.html [R=301,L]
+RewriteRule ^services/works\.html$ /pricing.html [R=301,L]
+RewriteRule ^services/contact\.html$ /contact.html [R=301,L]
+RewriteRule ^services/blog\.html$ /blogs.html [R=301,L]
+RewriteRule ^services/(.*)$ /webdev.html [R=301,L]
+
+# Old features page (redirect to about)
+RewriteRule ^features\.html$ /about.html [R=301,L]
+
+# Old team members pages (redirect to about)
+RewriteRule ^team-members/(.*)$ /about.html [R=301,L]
+
+# Old inner pages
+RewriteRule ^inner-pages/career$ /careers.html [R=301,L]
+RewriteRule ^inner-pages/(.*)$ / [R=301,L]
+
+# Branding page redirect
+RewriteRule ^services\.html/branding$ /webdev.html [R=301,L]
+
+# Checkout page redirect (if doesn't exist)
+RewriteRule ^checkout$ /contact.html [R=301,L]
+
+# API endpoints - Return 410 Gone (better than 404 for SEO)
+RewriteRule ^api/(.*)$ - [R=410,L]
+
+# Old domain redirect (if applicable)
+RewriteCond %{HTTP_HOST} ^na\.com$ [NC]
+RewriteRule ^(.*)$ https://www.pixelatenest.com/$1 [R=301,L]
+
+# Fix double slashes
+RewriteCond %{THE_REQUEST} //
+RewriteRule ^.*$ /$0 [R=301,L,NE]
+
+# ============================================
+# Force HTTPS
+# ============================================
+
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-</IfModule>
 
-# Remove .html extensions
-<IfModule mod_rewrite.c>
-RewriteEngine On
+# ============================================
+# Remove .html extensions (Clean URLs)
+# ============================================
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
 </IfModule>
 
 # Enable Gzip Compression
