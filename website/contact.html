@@ -14,7 +14,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdn.prod.website-files.com data:; img-src 'self' data: https:; connect-src 'self' https://pixelatenest-crm.vercel.app https://www.google-analytics.com https://www.facebook.com https://connect.facebook.net; frame-src 'self' https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com http://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com http://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdn.prod.website-files.com data:; img-src 'self' data: https:; connect-src 'self' https://pixelatenest-crm.vercel.app https://www.google-analytics.com https://www.facebook.com https://connect.facebook.net https://ap.stape.info; frame-src 'self' https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -29,9 +29,24 @@
       rel="preconnect"
       crossorigin="anonymous"
     />
+    <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
+    
     <!-- Preconnect to API for faster data loading -->
-    <link href="https://pixelatenest-crm.vercel.app" rel="preconnect" crossorigin />
+    <link
+      href="https://pixelatenest-crm.vercel.app"
+      rel="preconnect"
+      crossorigin
+    />
     <link href="https://pixelatenest-crm.vercel.app" rel="dns-prefetch" />
+    
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script
       src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
       type="text/javascript"
@@ -150,6 +165,7 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
         flex-shrink: 0;
+        
       }
 
       .contact-card-content {
@@ -368,31 +384,40 @@
         position: relative;
         z-index: 1000;
         overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
-      
+
       .announcement-content {
         display: flex;
         align-items: center;
         white-space: nowrap;
         animation: scroll-announcement 30s linear infinite;
       }
-      
+
       .announcement-content span {
         display: inline-block;
         padding: 0 50px;
       }
-      
+
       @keyframes gradient-shift {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
       }
-      
+
       @keyframes scroll-announcement {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
       }
-      
+
       @media (max-width: 768px) {
         .announcement-bar {
           font-size: 12px;
@@ -407,27 +432,32 @@
     <script>
       (async function loadAnnouncement() {
         try {
-          const res = await fetch('https://pixelatenest-crm.vercel.app/api/announcement', {
-            cache: 'no-store'
-          });
+          const res = await fetch(
+            "https://pixelatenest-crm.vercel.app/api/announcement",
+            {
+              cache: "no-store",
+            }
+          );
           if (res.ok) {
             const data = await res.json();
             if (data.text && data.enabled) {
-              const container = document.getElementById('announcement-content');
+              const container = document.getElementById("announcement-content");
               for (let i = 0; i < 20; i++) {
-                const span = document.createElement('span');
+                const span = document.createElement("span");
                 span.textContent = data.text;
                 container.appendChild(span);
               }
-              document.getElementById('announcement-bar').style.display = 'block';
+              document.getElementById("announcement-bar").style.display =
+                "block";
             } else if (!data.enabled) {
-              document.getElementById('announcement-bar').style.display = 'none';
+              document.getElementById("announcement-bar").style.display =
+                "none";
             }
           }
         } catch (e) {
-          console.log('Could not load announcement:', e);
-          const bar = document.getElementById('announcement-bar');
-          if (bar) bar.style.display = 'none';
+          console.log("Could not load announcement:", e);
+          const bar = document.getElementById("announcement-bar");
+          if (bar) bar.style.display = "none";
         }
       })();
     </script>
@@ -452,8 +482,8 @@
                   class="navbar-brand w-nav-brand w--current"
                   ><img
                     loading="lazy"
-                    src="./assets/logo-2.png"
-                    alt="Navbar Brand Image"
+                    src="./assets/navbarlogo.png"
+                    alt="Pixelate Nest"
                     class="navbar-brand-logo"
                 /></a>
               </div>
@@ -595,11 +625,13 @@
               <div class="contact-cards">
                 <!-- Phone Card -->
                 <div class="contact-card">
-                  <div class="contact-card-icon">📞</div>
+                  <div class="contact-card-icon">
+                    <i class="fas fa-phone"></i>
+                  </div>
                   <div class="contact-card-content">
                     <div class="contact-card-title">Call Us</div>
                     <div class="contact-card-text">
-                      Let's discuss your project over a call<br>
+                      Let's discuss your project over a call<br />
                       <a href="tel:+919234112345">+91 9234112345</a>
                     </div>
                   </div>
@@ -607,41 +639,75 @@
 
                 <!-- Email Card -->
                 <div class="contact-card">
-                  <div class="contact-card-icon">📧</div>
+                  <div class="contact-card-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
                   <div class="contact-card-content">
                     <div class="contact-card-title">Email Us</div>
                     <div class="contact-card-text">
-                      Drop us an email anytime<br>
-                      <a href="mailto:pixelatenest@gmail.com">pixelatenest@gmail.com</a>
+                      Drop us an email anytime<br />
+                      <a href="mailto:pixelatenest@gmail.com"
+                        >pixelatenest@gmail.com</a
+                      >
                     </div>
                   </div>
                 </div>
 
                 <!-- Location Card -->
                 <div class="contact-card">
-                  <div class="contact-card-icon">📍</div>
+                  <div class="contact-card-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
                   <div class="contact-card-content">
                     <div class="contact-card-title">Visit Us</div>
                     <div class="contact-card-text">
-                      Bangalore, Karnataka, India<br>
-                      <a href="https://www.google.com/maps/place/Bangalore" target="_blank" rel="noopener">View on Map</a>
+                      Bangalore, Karnataka, India<br />
+                      <a
+                        href="https://www.google.com/maps/place/Bangalore"
+                        target="_blank"
+                        rel="noopener"
+                        >View on Map</a
+                      >
                     </div>
                   </div>
                 </div>
 
                 <!-- Social Media Card -->
                 <div class="contact-card">
-                  <div class="contact-card-icon">🌐</div>
+                  <div class="contact-card-icon">
+                    <i class="fas fa-globe"></i>
+                  </div>
                   <div class="contact-card-content">
                     <div class="contact-card-title">Follow Us</div>
                     <div class="contact-card-text">
                       Connect with us on social media
                     </div>
                     <div class="social-links">
-                      <a href="https://www.instagram.com/pixelate.nest/" target="_blank" rel="noopener" class="social-link" title="Instagram">📷</a>
-                      <a href="https://www.linkedin.com/company/pixelate-nest/" target="_blank" rel="noopener" class="social-link" title="LinkedIn">💼</a>
-                      <a href="https://twitter.com/pixelatenest" target="_blank" rel="noopener" class="social-link" title="Twitter">🐦</a>
-                      <a href="https://www.facebook.com/pixelatenest" target="_blank" rel="noopener" class="social-link" title="Facebook">👥</a>
+                      <a
+                        href="https://www.instagram.com/pixelate.nest/"
+                        target="_blank"
+                        rel="noopener"
+                        class="social-link"
+                        title="Instagram"
+                        ><i class="fab fa-instagram"></i
+                      ></a>
+                      <a
+                        href="https://www.linkedin.com/company/pixelate-nest/"
+                        target="_blank"
+                        rel="noopener"
+                        class="social-link"
+                        title="LinkedIn"
+                        ><i class="fab fa-linkedin"></i
+                      ></a>
+                     
+                      <a
+                        href="https://www.facebook.com/profile.php?id=61582873344961"
+                        target="_blank"
+                        rel="noopener"
+                        class="social-link"
+                        title="Facebook"
+                        ><i class="fab fa-facebook"></i
+                      ></a>
                     </div>
                   </div>
                 </div>
@@ -659,143 +725,145 @@
                   Get in Touch
                 </h2>
                 <div class="contact-form w-form">
-                <form
-                  id="email-form"
-                  name="email-form"
-                  data-name="Email Form"
-                  method="POST"
-                  class="contact-form-wrap form-grid two-col"
-                  onsubmit="return handleFormSubmit(event)"
-                >
-                  <input
-                    type="hidden"
-                    id="selected-plan"
-                    name="selected-plan"
-                    value=""
-                  />
-                  <div class="form-field">
-                    <label for="name" class="form-label">Full Name</label>
-                    <input
-                      class="text-field-v5 w-input"
-                      maxlength="256"
-                      name="name"
-                      data-name="Name"
-                      placeholder="Enter full name"
-                      type="text"
-                      id="name"
-                      required=""
-                    />
-                  </div>
-                  <div class="form-field">
-                    <label for="Email-Address" class="form-label"
-                      >Email Address</label
-                    >
-                    <input
-                      class="text-field-v5 w-input"
-                      maxlength="256"
-                      name="Email-Address"
-                      data-name="Email Address"
-                      placeholder="Email Address"
-                      type="email"
-                      id="Email-Address"
-                      required=""
-                    />
-                  </div>
-                  <div class="form-field">
-                    <label for="Phone" class="form-label">Phone</label>
-                    <input
-                      class="text-field-v5 w-input"
-                      maxlength="256"
-                      name="Phone"
-                      data-name="Phone"
-                      placeholder="Enter phone number"
-                      type="tel"
-                      id="Phone"
-                      required=""
-                    />
-                  </div>
-                  <div class="form-field">
-                    <label for="Enter-your-subject" class="form-label"
-                      >Subject</label
-                    >
-                    <input
-                      class="text-field-v5 w-input"
-                      maxlength="256"
-                      name="Enter-your-subject"
-                      data-name="Enter your subject"
-                      placeholder="Enter your subject"
-                      type="text"
-                      id="Enter-your-subject"
-                      required=""
-                    />
-                  </div>
-                  <div class="form-field" style="grid-column: 1 / -1">
-                    <label for="field" class="form-label">Project Type</label>
-                    <select
-                      id="field"
-                      name="field"
-                      data-name="Field"
-                      class="text-field-v5 _02 w-select"
-                    >
-                      <option value="">Select a service...</option>
-                      <option value="Web Development">Web Development</option>
-                      <option value="App Development">App Development</option>
-                      <option value="Video Editing">Video Editing</option>
-                      <option value="Digital Marketing">
-                        Digital Marketing
-                      </option>
-                      <option value="Software Development">
-                        Software Development
-                      </option>
-                      <option value="General Inquiry">General Inquiry</option>
-                    </select>
-                  </div>
-                  <div class="form-field">
-                    <label for="budget" class="form-label">Budget (INR)</label>
-                    <input
-                      class="text-field-v5 w-input"
-                      maxlength="32"
-                      name="budget"
-                      data-name="Budget"
-                      placeholder="Estimated budget"
-                      type="text"
-                      id="budget"
-                    />
-                  </div>
-                  <div class="form-field" style="grid-column: 1 / -1">
-                    <label for="Message" class="form-label"
-                      >Message (Optional)</label
-                    >
-                    <textarea
-                      placeholder="Tell us a little about your project..."
-                      maxlength="5000"
-                      id="Message"
-                      name="Message"
-                      data-name="Message"
-                      class="text-field-v5 _01 w-input"
-                    ></textarea>
-                  </div>
-                  <div
-                    class="form-field form-actions"
-                    style="grid-column: 1 / -1"
+                  <form
+                    id="email-form"
+                    name="email-form"
+                    data-name="Email Form"
+                    method="POST"
+                    class="contact-form-wrap form-grid two-col"
+                    onsubmit="return handleFormSubmit(event)"
                   >
                     <input
-                      type="submit"
-                      data-wait="Please wait..."
-                      class="form-submit-button v6 w-button"
-                      value="Submit"
+                      type="hidden"
+                      id="selected-plan"
+                      name="selected-plan"
+                      value=""
                     />
+                    <div class="form-field">
+                      <label for="name" class="form-label">Full Name</label>
+                      <input
+                        class="text-field-v5 w-input"
+                        maxlength="256"
+                        name="name"
+                        data-name="Name"
+                        placeholder="Enter full name"
+                        type="text"
+                        id="name"
+                        required=""
+                      />
+                    </div>
+                    <div class="form-field">
+                      <label for="Email-Address" class="form-label"
+                        >Email Address</label
+                      >
+                      <input
+                        class="text-field-v5 w-input"
+                        maxlength="256"
+                        name="Email-Address"
+                        data-name="Email Address"
+                        placeholder="Email Address"
+                        type="email"
+                        id="Email-Address"
+                        required=""
+                      />
+                    </div>
+                    <div class="form-field">
+                      <label for="Phone" class="form-label">Phone</label>
+                      <input
+                        class="text-field-v5 w-input"
+                        maxlength="256"
+                        name="Phone"
+                        data-name="Phone"
+                        placeholder="Enter phone number"
+                        type="tel"
+                        id="Phone"
+                        required=""
+                      />
+                    </div>
+                    <div class="form-field">
+                      <label for="Enter-your-subject" class="form-label"
+                        >Subject</label
+                      >
+                      <input
+                        class="text-field-v5 w-input"
+                        maxlength="256"
+                        name="Enter-your-subject"
+                        data-name="Enter your subject"
+                        placeholder="Enter your subject"
+                        type="text"
+                        id="Enter-your-subject"
+                        required=""
+                      />
+                    </div>
+                    <div class="form-field" style="grid-column: 1 / -1">
+                      <label for="field" class="form-label">Project Type</label>
+                      <select
+                        id="field"
+                        name="field"
+                        data-name="Field"
+                        class="text-field-v5 _02 w-select"
+                      >
+                        <option value="">Select a service...</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="App Development">App Development</option>
+                        <option value="Video Editing">Video Editing</option>
+                        <option value="Digital Marketing">
+                          Digital Marketing
+                        </option>
+                        <option value="Software Development">
+                          Software Development
+                        </option>
+                        <option value="General Inquiry">General Inquiry</option>
+                      </select>
+                    </div>
+                    <div class="form-field">
+                      <label for="budget" class="form-label"
+                        >Budget (INR)</label
+                      >
+                      <input
+                        class="text-field-v5 w-input"
+                        maxlength="32"
+                        name="budget"
+                        data-name="Budget"
+                        placeholder="Estimated budget"
+                        type="text"
+                        id="budget"
+                      />
+                    </div>
+                    <div class="form-field" style="grid-column: 1 / -1">
+                      <label for="Message" class="form-label"
+                        >Message (Optional)</label
+                      >
+                      <textarea
+                        placeholder="Tell us a little about your project..."
+                        maxlength="5000"
+                        id="Message"
+                        name="Message"
+                        data-name="Message"
+                        class="text-field-v5 _01 w-input"
+                      ></textarea>
+                    </div>
+                    <div
+                      class="form-field form-actions"
+                      style="grid-column: 1 / -1"
+                    >
+                      <input
+                        type="submit"
+                        data-wait="Please wait..."
+                        class="form-submit-button v6 w-button"
+                        value="Submit"
+                      />
+                    </div>
+                  </form>
+                  <div class="form-success-message w-form-done">
+                    <div>Thank you! Your submission has been received!</div>
                   </div>
-                </form>
-                <div class="form-success-message w-form-done">
-                  <div>Thank you! Your submission has been received!</div>
-                </div>
-                <div class="form-error-message w-form-fail">
-                  <div>
-                    Oops! Something went wrong while submitting the form.
+                  <div class="form-error-message w-form-fail">
+                    <div>
+                      Oops! Something went wrong while submitting the form.
+                    </div>
                   </div>
                 </div>
-              </div>
               </div>
             </div>
           </div>
@@ -834,16 +902,22 @@
                       class="p-text-03 text-white-60"
                       style="margin-bottom: 5px"
                     >
-                      📧 pixelatenest@gmail.com
+                      <i class="fas fa-envelope" style="margin-right: 8px"></i>
+                      pixelatenest@gmail.com
                     </p>
                     <p
                       class="p-text-03 text-white-60"
                       style="margin-bottom: 5px"
                     >
-                      📞 +91 9234112345
+                      <i class="fas fa-phone" style="margin-right: 8px"></i> +91
+                      9234112345
                     </p>
                     <p class="p-text-03 text-white-60">
-                      📍 Bangalore, Karnataka, India
+                      <i
+                        class="fas fa-map-marker-alt"
+                        style="margin-right: 8px"
+                      ></i>
+                      Bangalore, Karnataka, India
                     </p>
                   </div>
                 </div>
@@ -925,21 +999,28 @@
                     >
                       <div class="footer-link-text">Locations</div>
                     </a>
-                    
-                    
                   </div>
                 </div>
 
                 <div class="footer-link-wrap">
                   <div class="p-text-01">Legal</div>
                   <div class="footer-link-list">
-                    <a href="https://www.pixelatenest.com/privacy-policy.html" class="footer-link w-inline-block">
+                    <a
+                      href="https://www.pixelatenest.com/privacy-policy.html"
+                      class="footer-link w-inline-block"
+                    >
                       <div class="footer-link-text">Privacy Policy</div>
                     </a>
-                    <a href="https://www.pixelatenest.com/terms-of-service.html" class="footer-link w-inline-block">
+                    <a
+                      href="https://www.pixelatenest.com/terms-of-service.html"
+                      class="footer-link w-inline-block"
+                    >
                       <div class="footer-link-text">Terms of Service</div>
                     </a>
-                    <a href="https://www.pixelatenest.com/cookie-policy.html" class="footer-link w-inline-block">
+                    <a
+                      href="https://www.pixelatenest.com/cookie-policy.html"
+                      class="footer-link w-inline-block"
+                    >
                       <div class="footer-link-text">Cookie Policy</div>
                     </a>
                   </div>
@@ -973,7 +1054,7 @@
                       <div class="footer-link-text">Twitter</div>
                     </a>
                     <a
-                      href="https://www.facebook.com/pixelatenest"
+                      href="https://www.facebook.com/profile.php?id=61582873344961"
                       target="_blank"
                       rel="noopener noreferrer"
                       class="footer-link w-inline-block"
@@ -989,7 +1070,7 @@
               <div class="vertical-divider"></div>
               <div class="footer-bottom-wrap">
                 <div class="p-text-03 text-white-60">
-                  © 2025 Pixelate Nest. All Rights Reserved. | Crafted with ❤️
+                  © 2025 Pixelate Nest. All Rights Reserved. | Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i>
                   in India
                 </div>
 
@@ -1105,6 +1186,6 @@
       src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.40f517e78f82ea08.js"
       type="text/javascript"
     ></script>
-    <script src="/js/form-handler.js"></script>
+    <script src="js/form-handler.js"></script>
   </body>
 </html>

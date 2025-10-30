@@ -14,7 +14,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdn.prod.website-files.com data:; img-src 'self' data: https:; connect-src 'self' https://pixelatenest-crm.vercel.app https://www.google-analytics.com https://www.facebook.com https://connect.facebook.net; frame-src 'self' https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.prod.website-files.com data:; img-src 'self' data: https:; connect-src 'self' https://pixelatenest-crm.vercel.app https://www.google-analytics.com https://www.facebook.com https://connect.facebook.net; frame-src 'self' https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -32,7 +32,11 @@
       crossorigin="anonymous"
     />
     <!-- Preconnect to API for faster data loading -->
-    <link href="https://pixelatenest-crm.vercel.app" rel="preconnect" crossorigin />
+    <link
+      href="https://pixelatenest-crm.vercel.app"
+      rel="preconnect"
+      crossorigin
+    />
     <link href="https://pixelatenest-crm.vercel.app" rel="dns-prefetch" />
     <script
       src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
@@ -290,11 +294,29 @@
         display: flex;
         gap: 16px;
         align-items: flex-start;
+        padding: 20px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .benefit-item:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(230, 81, 0, 0.3);
+        box-shadow: 0 10px 30px rgba(230, 81, 0, 0.15);
       }
 
       .benefit-icon {
         font-size: 32px;
         flex-shrink: 0;
+        color: #e65100;
+        transition: transform 0.3s ease;
+      }
+
+      .benefit-item:hover .benefit-icon {
+        transform: scale(1.1);
       }
 
       .benefit-content h4 {
@@ -561,31 +583,40 @@
         position: relative;
         z-index: 1000;
         overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
-      
+
       .announcement-content {
         display: flex;
         align-items: center;
         white-space: nowrap;
         animation: scroll-announcement 30s linear infinite;
       }
-      
+
       .announcement-content span {
         display: inline-block;
         padding: 0 50px;
       }
-      
+
       @keyframes gradient-shift {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
       }
-      
+
       @keyframes scroll-announcement {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
       }
-      
+
       @media (max-width: 768px) {
         .announcement-bar {
           font-size: 12px;
@@ -600,27 +631,32 @@
     <script>
       (async function loadAnnouncement() {
         try {
-          const res = await fetch('https://pixelatenest-crm.vercel.app/api/announcement', {
-            cache: 'no-store'
-          });
+          const res = await fetch(
+            "https://pixelatenest-crm.vercel.app/api/announcement",
+            {
+              cache: "no-store",
+            }
+          );
           if (res.ok) {
             const data = await res.json();
             if (data.text && data.enabled) {
-              const container = document.getElementById('announcement-content');
+              const container = document.getElementById("announcement-content");
               for (let i = 0; i < 20; i++) {
-                const span = document.createElement('span');
+                const span = document.createElement("span");
                 span.textContent = data.text;
                 container.appendChild(span);
               }
-              document.getElementById('announcement-bar').style.display = 'block';
+              document.getElementById("announcement-bar").style.display =
+                "block";
             } else if (!data.enabled) {
-              document.getElementById('announcement-bar').style.display = 'none';
+              document.getElementById("announcement-bar").style.display =
+                "none";
             }
           }
         } catch (e) {
-          console.log('Could not load announcement:', e);
-          const bar = document.getElementById('announcement-bar');
-          if (bar) bar.style.display = 'none';
+          console.log("Could not load announcement:", e);
+          const bar = document.getElementById("announcement-bar");
+          if (bar) bar.style.display = "none";
         }
       })();
     </script>
@@ -644,7 +680,7 @@
               >
                 <img
                   loading="lazy"
-                  src="./assets/logo-2.png"
+                  src="./assets/navbarlogo.png"
                   alt="Pixelate Nest Logo"
                   class="navbar-brand-logo"
                 />
@@ -808,7 +844,7 @@
 
         <div class="benefits-grid">
           <div class="benefit-item">
-            <div class="benefit-icon">💰</div>
+            <div class="benefit-icon"><i class="fas fa-dollar-sign"></i></div>
             <div class="benefit-content">
               <h4>Competitive Salary</h4>
               <p>
@@ -818,7 +854,7 @@
           </div>
 
           <div class="benefit-item">
-            <div class="benefit-icon">🏠</div>
+            <div class="benefit-icon"><i class="fas fa-home"></i></div>
             <div class="benefit-content">
               <h4>Remote Flexibility</h4>
               <p>Work from anywhere or enjoy our hybrid working model.</p>
@@ -826,7 +862,7 @@
           </div>
 
           <div class="benefit-item">
-            <div class="benefit-icon">📚</div>
+            <div class="benefit-icon"><i class="fas fa-book"></i></div>
             <div class="benefit-content">
               <h4>Learning & Development</h4>
               <p>
@@ -837,7 +873,7 @@
           </div>
 
           <div class="benefit-item">
-            <div class="benefit-icon">⏰</div>
+            <div class="benefit-icon"><i class="fas fa-clock"></i></div>
             <div class="benefit-content">
               <h4>Work-Life Balance</h4>
               <p>Flexible hours and generous paid time off.</p>
@@ -845,62 +881,13 @@
           </div>
 
           <div class="benefit-item">
-            <div class="benefit-icon">🎉</div>
+            <div class="benefit-icon"><i class="fas fa-users"></i></div>
             <div class="benefit-content">
               <h4>Team Culture</h4>
               <p>
                 Regular team events, celebrations, and collaborative projects.
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Values Section -->
-    <section class="values-section">
-      <div class="container">
-        <h2 class="section-title">Our Values</h2>
-        <p class="section-subtitle">
-          We believe in building a culture where creativity thrives and
-          innovation is celebrated.
-        </p>
-
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="value-icon">🚀</div>
-            <h3>Innovation First</h3>
-            <p>
-              We push boundaries and embrace new technologies to deliver
-              cutting-edge solutions.
-            </p>
-          </div>
-
-          <div class="value-card">
-            <div class="value-icon">🤝</div>
-            <h3>Collaboration</h3>
-            <p>
-              We work together as one team, supporting each other to achieve
-              amazing results.
-            </p>
-          </div>
-
-          <div class="value-card">
-            <div class="value-icon">🎨</div>
-            <h3>Creative Excellence</h3>
-            <p>
-              We take pride in our craft and constantly strive to raise the bar
-              for quality.
-            </p>
-          </div>
-
-          <div class="value-card">
-            <div class="value-icon">⚡</div>
-            <h3>Impact Driven</h3>
-            <p>
-              Every project we take on is an opportunity to make a meaningful
-              difference.
-            </p>
           </div>
         </div>
       </div>
@@ -948,13 +935,19 @@
                     <strong>Contact Us</strong>
                   </p>
                   <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
-                    📧 pixelatenest@gmail.com
+                    <i class="fas fa-envelope" style="margin-right: 8px"></i>
+                    pixelatenest@gmail.com
                   </p>
                   <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
-                    📞 +91 9234112345
+                    <i class="fas fa-phone" style="margin-right: 8px"></i> +91
+                    9234112345
                   </p>
                   <p class="p-text-03 text-white-60">
-                    📍 Bangalore, Karnataka, India
+                    <i
+                      class="fas fa-map-marker-alt"
+                      style="margin-right: 8px"
+                    ></i>
+                    Bangalore, Karnataka, India
                   </p>
                 </div>
               </div>
@@ -1048,13 +1041,22 @@
               <div class="footer-link-wrap">
                 <div class="p-text-01">Legal</div>
                 <div class="footer-link-list">
-                  <a href="https://www.pixelatenest.com/privacy-policy.html" class="footer-link w-inline-block">
+                  <a
+                    href="https://www.pixelatenest.com/privacy-policy.html"
+                    class="footer-link w-inline-block"
+                  >
                     <div class="footer-link-text">Privacy Policy</div>
                   </a>
-                  <a href="https://www.pixelatenest.com/terms-of-service.html" class="footer-link w-inline-block">
+                  <a
+                    href="https://www.pixelatenest.com/terms-of-service.html"
+                    class="footer-link w-inline-block"
+                  >
                     <div class="footer-link-text">Terms of Service</div>
                   </a>
-                  <a href="https://www.pixelatenest.com/cookie-policy.html" class="footer-link w-inline-block">
+                  <a
+                    href="https://www.pixelatenest.com/cookie-policy.html"
+                    class="footer-link w-inline-block"
+                  >
                     <div class="footer-link-text">Cookie Policy</div>
                   </a>
                 </div>
@@ -1088,7 +1090,7 @@
                     <div class="footer-link-text">Twitter</div>
                   </a>
                   <a
-                    href="https://www.facebook.com/pixelatenest"
+                    href="https://www.facebook.com/profile.php?id=61582873344961"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="footer-link w-inline-block"
@@ -1104,8 +1106,8 @@
             <div class="vertical-divider"></div>
             <div class="footer-bottom-wrap">
               <div class="p-text-03 text-white-60">
-                © 2025 Pixelate Nest. All Rights Reserved. | Crafted with ❤️
-                in India
+                © 2025 Pixelate Nest. All Rights Reserved. | Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i> in
+                India
               </div>
 
               <!-- Star Rating Section -->

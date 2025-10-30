@@ -14,8 +14,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "Digital Marketing"
+        "Software Development"
       ],
       "latitude": "28.6139",
       "longitude": "77.2090"
@@ -34,8 +33,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "Motion Graphics"
+        "Software Development"
       ],
       "latitude": "19.0760",
       "longitude": "72.8777"
@@ -54,8 +52,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "UI/UX Design"
+        "Software Development"
       ],
       "latitude": "12.9716",
       "longitude": "77.5946"
@@ -74,8 +71,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "SEO Services"
+        "Software Development"
       ],
       "latitude": "13.0827",
       "longitude": "80.2707"
@@ -94,8 +90,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "E-commerce Solutions"
+        "Software Development"
       ],
       "latitude": "17.3850",
       "longitude": "78.4867"
@@ -114,8 +109,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "UI/UX Design"
+        "Software Development"
       ],
       "latitude": "18.5204",
       "longitude": "73.8567"
@@ -134,8 +128,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "Graphic Design"
+        "Software Development"
       ],
       "latitude": "22.5726",
       "longitude": "88.3639"
@@ -154,8 +147,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "E-commerce Solutions"
+        "Software Development"
       ],
       "latitude": "23.0225",
       "longitude": "72.5714"
@@ -174,8 +166,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "Tourism Marketing"
+        "Software Development"
       ],
       "latitude": "26.9124",
       "longitude": "75.7873"
@@ -194,8 +185,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "E-learning Solutions"
+        "Software Development"
       ],
       "latitude": "26.8467",
       "longitude": "80.9462"
@@ -211,11 +201,10 @@
       "landmark": "Rock Garden",
       "population": "1.2 million",
       "services": [
-        "Video Editing",
         "Web Development",
+        "Video Editing",
         "App Development",
-        "UI/UX Design",
-        "Corporate Branding"
+        "Software Development"
       ],
       "latitude": "30.7333",
       "longitude": "76.7794"
@@ -234,8 +223,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "Industrial Solutions"
+        "Software Development"
       ],
       "latitude": "22.7196",
       "longitude": "75.8577"
@@ -254,8 +242,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "Government Solutions"
+        "Software Development"
       ],
       "latitude": "23.2599",
       "longitude": "77.4126"
@@ -274,8 +261,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "E-learning Solutions"
+        "Software Development"
       ],
       "latitude": "25.5941",
       "longitude": "85.1376"
@@ -294,8 +280,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "Tourism Marketing"
+        "Software Development"
       ],
       "latitude": "26.1445",
       "longitude": "91.7362"
@@ -314,8 +299,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "Smart City Solutions"
+        "Software Development"
       ],
       "latitude": "20.2961",
       "longitude": "85.8245"
@@ -331,11 +315,10 @@
       "landmark": "Padmanabhaswamy Temple",
       "population": "1.7 million",
       "services": [
+         "Web Development",
         "Video Editing",
-        "Web Development",
         "App Development",
-        "Tourism Videos",
-        "Healthcare Solutions"
+        "Software Development"
       ],
       "latitude": "8.5241",
       "longitude": "76.9366"
@@ -354,8 +337,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "Healthcare Tech"
+        "Software Development"
       ],
       "latitude": "9.9312",
       "longitude": "76.2673"
@@ -374,8 +356,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "Industrial Solutions"
+        "Software Development"
       ],
       "latitude": "17.6869",
       "longitude": "83.2185"
@@ -394,8 +375,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "E-commerce Solutions"
+        "Software Development"
       ],
       "latitude": "21.1702",
       "longitude": "72.8311"
@@ -414,8 +394,7 @@
         "Web Development",
         "Video Editing",
         "App Development",
-        "Software Development",
-        "Logistics Solutions"
+        "Software Development"
       ],
       "latitude": "21.1458",
       "longitude": "79.0882"
