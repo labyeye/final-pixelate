@@ -1,3 +1,39 @@
-User-agent: *
-Disallow:
+# Pixelate Nest - Robots.txt
+# https://www.pixelatenest.com/robots.txt
+# Last Updated: October 30, 2025
 
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.pixelatenest.com/sitemap-index.xml
+
+# Block access to sensitive directories
+Disallow: /server/
+Disallow: /.vscode/
+Disallow: /scripts/
+
+# Block old/deprecated URLs that no longer exist
+Disallow: /api/
+Disallow: /inner-pages/
+Disallow: /team-members/
+Disallow: /services/
+Disallow: /blog.htmls/
+
+# Allow JavaScript files (needed for site functionality)
+Allow: /js/
+
+# Allow all stylesheets and assets
+Allow: /styles.css
+Allow: /*.css$
+Allow: /assets/
+
+# Crawl-delay (optional - helps prevent server overload)
+Crawl-delay: 1
+
+# Block bad bots (optional)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
