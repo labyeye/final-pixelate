@@ -169,7 +169,7 @@ export default function LeadsPage() {
         ? ""
         : "https://pixelatenest-crm.vercel.app";
     const token = localStorage.getItem("auth_token") || "";
-    const batchSize = 20; // increased default batch size; server accepts arrays
+    const batchSize = 500; // increased default batch size; server accepts arrays
     setIsImporting(true);
     setImportProgress({ current: 0, total: parsed.length });
 
