@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://www.pixelatenest.com/sitemap.xml</loc>
+    <lastmod>2025-11-01</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.pixelatenest.com/sitemap-web-development.xml</loc>
+    <lastmod>2025-11-01</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.pixelatenest.com/sitemap-app-development.xml</loc>
+    <lastmod>2025-11-01</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.pixelatenest.com/sitemap-software-development.xml</loc>
+    <lastmod>2025-11-01</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.pixelatenest.com/sitemap-video-editing.xml</loc>
+    <lastmod>2025-11-01</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.pixelatenest.com/sitemapstate.xml</loc>
+    <lastmod>2025-11-01</lastmod>
+  </sitemap>
+</sitemapindex>
