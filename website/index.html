@@ -3,7 +3,10 @@
   <head>
     <link href="styles.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
-    <title>Pixelate Nest | Creative Agency for Video Editing, Web & App Development in India</title>
+    <title>
+      Pixelate Nest | Creative Agency for Video Editing, Web & App Development
+      in India
+    </title>
     <meta
       name="description"
       content="Award-winning creative agency specializing in video editing, web development, mobile apps, and digital marketing. Transform your brand today! Serving Bangalore, Bihar, and all India."
@@ -199,7 +202,14 @@
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
             "opens": "09:00",
             "closes": "18:00"
           }
@@ -420,8 +430,8 @@
         try {
           const res = await fetch(
             "https://pixelatenest-crm.vercel.app/api/announcement",
-              { 
-                cache: "no-store",
+            {
+              cache: "no-store",
             }
           );
           if (res.ok) {
@@ -2378,6 +2388,166 @@
                   </div>
                 </section>
 
+                <!-- Responsive CSS for testimonials and modal -->
+                <style>
+                  /* Prevent horizontal overflow globally */
+                  html,
+                  body {
+                    overflow-x: hidden;
+                  }
+                  /* Box sizing reset for predictable sizing */
+                  *,
+                  *::before,
+                  *::after {
+                    box-sizing: border-box;
+                  }
+
+                  .testimonials-carousel-wrap {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                  }
+                  .testimonials-carousel {
+                    overflow: hidden;
+                    width: 100%;
+                  }
+                  .testimonials-track {
+                    display: flex;
+                    gap: 16px;
+                    transition: transform 0.45s ease;
+                    will-change: transform;
+                    align-items: stretch;
+                  }
+                  .testimonial-card {
+                    flex: 0 0 calc(33.333% - 10.666px);
+                    max-width: 33.333%;
+                    padding: 18px;
+                    background: rgba(255, 255, 255, 0.02);
+                    border-radius: 10px;
+                    min-width: 0;
+                  }
+                  .testimonial-message {
+                    font-size: 15px;
+                    line-height: 1.6;
+                    margin: 12px 0;
+                    color: rgba(255, 255, 255, 0.9);
+                    word-break: break-word;
+                  }
+                  .testimonial-author .author-name {
+                    font-weight: 700;
+                    margin-top: 6px;
+                  }
+                  .carousel-btn {
+                    background: transparent;
+                    border: 0;
+                    color: inherit;
+                    cursor: pointer;
+                    padding: 6px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  }
+                  .carousel-indicators {
+                    display: flex;
+                    gap: 8px;
+                    justify-content: center;
+                    margin-top: 16px;
+                  }
+                  .indicator {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.2);
+                    display: inline-block;
+                  }
+                  .indicator.active {
+                    background: rgba(255, 255, 255, 0.9);
+                  }
+
+                  /* Modal responsive */
+                  .review-modal {
+                    display: none;
+                    position: fixed;
+                    inset: 0;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(0, 0, 0, 0.6);
+                    z-index: 2000;
+                    padding: 20px;
+                    overflow: auto;
+                  }
+                  .review-modal-content {
+                    background: #000;
+                    color: #fff;
+                    padding: 24px;
+                    border-radius: 12px;
+                    max-width: 720px;
+                    width: 100%;
+                    box-sizing: border-box;
+                    max-height: calc(100vh - 48px);
+                    overflow: auto;
+                    -webkit-overflow-scrolling: touch;
+                  }
+                  .modal-title {
+                    margin: 0 0 8px 0;
+                    font-size: 22px;
+                  }
+                  .modal-subtitle {
+                    margin: 0 0 16px 0;
+                    color: #555;
+                  }
+                  .review-form .form-group {
+                    margin-bottom: 14px;
+                  }
+                  .review-form input[type="text"],
+                  .review-form input[type="email"],
+                  .review-form select,
+                  .review-form textarea {
+                    width: 100%;
+                    display: block;
+                  }
+                  .form-actions {
+                    display: flex;
+                    gap: 12px;
+                    justify-content: flex-end;
+                  }
+
+                  @media (max-width: 1024px) {
+                    .testimonial-card {
+                      flex-basis: 50%;
+                      max-width: 50%;
+                    }
+                  }
+
+                  @media (max-width: 640px) {
+                    .testimonial-card {
+                      flex-basis: 100%;
+                      max-width: 100%;
+                    }
+                    .testimonials-carousel-wrap {
+                      padding: 0 12px;
+                    }
+                    .carousel-btn {
+                      display: none;
+                    }
+                    .carousel-indicators {
+                      margin-top: 12px;
+                    }
+                    .review-modal-content {
+                      padding: 16px;
+                      border-radius: 10px;
+                    }
+                    .form-actions {
+                      flex-direction: column-reverse;
+                    }
+                    .btn-primary,
+                    .btn-secondary {
+                      width: 100%;
+                    }
+                  }
+                </style>
+
                 <section class="cta-v1">
                   <div class="container">
                     <div class="cta-v1-wrap">
@@ -2749,16 +2919,22 @@
                       class="p-text-03 text-white-60"
                       style="margin-bottom: 5px"
                     >
-                      <i class="fas fa-envelope" style="margin-right: 8px"></i> pixelatenest@gmail.com
+                      <i class="fas fa-envelope" style="margin-right: 8px"></i>
+                      pixelatenest@gmail.com
                     </p>
                     <p
                       class="p-text-03 text-white-60"
                       style="margin-bottom: 5px"
                     >
-                      <i class="fas fa-phone" style="margin-right: 8px"></i> +91 9234112345
+                      <i class="fas fa-phone" style="margin-right: 8px"></i> +91
+                      9234112345
                     </p>
                     <p class="p-text-03 text-white-60">
-                      <i class="fas fa-map-marker-alt" style="margin-right: 8px"></i> Bangalore, Karnataka, India
+                      <i
+                        class="fas fa-map-marker-alt"
+                        style="margin-right: 8px"
+                      ></i>
+                      Bangalore, Karnataka, India
                     </p>
                   </div>
                 </div>
@@ -2840,8 +3016,6 @@
                     >
                       <div class="footer-link-text">Locations</div>
                     </a>
-                    
-                    
                   </div>
                 </div>
 
@@ -2913,7 +3087,8 @@
               <div class="vertical-divider"></div>
               <div class="footer-bottom-wrap">
                 <div class="p-text-03 text-white-60">
-                  © 2025 Pixelate Nest. All Rights Reserved. | Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i>
+                  © 2025 Pixelate Nest. All Rights Reserved. | Crafted with
+                  <i class="fas fa-heart" style="color: #e74c3c"></i>
                   in India
                 </div>
 
@@ -3192,17 +3367,28 @@
           return stars;
         }
 
-        // Update carousel indicators
+        // Responsive carousel helpers and indicators
+        function getCardsVisible() {
+          const w = window.innerWidth;
+          if (w <= 640) return 1;
+          if (w <= 1024) return 2;
+          return 3;
+        }
+
         function updateCarouselIndicators() {
           const indicators = document.getElementById("carouselIndicators");
           if (!indicators || testimonials.length === 0) return;
 
-          const totalPages = Math.ceil(testimonials.length / 3);
+          const cardsVisible = getCardsVisible();
+          const totalPages = Math.max(
+            1,
+            Math.ceil(testimonials.length / cardsVisible)
+          );
           indicators.innerHTML = Array.from(
             { length: totalPages },
             (_, i) => `
             <span class="indicator ${
-              i === Math.floor(currentIndex / 3) ? "active" : ""
+              i === Math.floor(currentIndex / cardsVisible) ? "active" : ""
             }" data-page="${i}"></span>
           `
           ).join("");
@@ -3210,51 +3396,72 @@
           // Add click listeners to indicators
           indicators.querySelectorAll(".indicator").forEach((indicator, i) => {
             indicator.addEventListener("click", () => {
-              currentIndex = i * 3;
+              currentIndex = i * cardsVisible;
               updateCarouselPosition();
               updateCarouselIndicators();
             });
           });
         }
 
-        // Update carousel position
+        // Update carousel position using pixel offsets (handles gaps reliably)
         function updateCarouselPosition() {
           const track = document.getElementById("testimonialsTrack");
           if (!track) return;
 
-          const cardWidth = 100 / 3; // 3 cards visible
-          const offset = -(currentIndex * cardWidth);
-          track.style.transform = `translateX(${offset}%)`;
+          const cardsVisible = getCardsVisible();
+          const cards = track.querySelectorAll(".testimonial-card");
+          if (!cards.length) return;
+
+          // Measure card width and gap (gap returns px string like '16px')
+          const cardRect = cards[0].getBoundingClientRect();
+          const computed = window.getComputedStyle(track);
+          const gapPx = computed.gap ? parseFloat(computed.gap) : 16;
+          const cardFullWidth = cardRect.width + gapPx;
+
+          // Clamp currentIndex so it never overflows the available pages
+          const maxIndex = Math.max(0, testimonials.length - cardsVisible);
+          if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+          const offsetPx = currentIndex * cardFullWidth;
+          track.style.transform = `translateX(${-offsetPx}px)`;
         }
 
         // Carousel navigation
         document.querySelector(".prev-btn")?.addEventListener("click", () => {
           stopAutoScroll();
           if (currentIndex > 0) {
-            currentIndex--;
-            updateCarouselPosition();
-            updateCarouselIndicators();
+            currentIndex = Math.max(0, currentIndex - 1);
+          } else {
+            currentIndex = 0;
           }
+          updateCarouselPosition();
+          updateCarouselIndicators();
           startAutoScroll();
         });
 
         document.querySelector(".next-btn")?.addEventListener("click", () => {
           stopAutoScroll();
-          if (currentIndex < testimonials.length - 3) {
-            currentIndex++;
-            updateCarouselPosition();
-            updateCarouselIndicators();
+          const cardsVisible = getCardsVisible();
+          if (currentIndex < testimonials.length - cardsVisible) {
+            currentIndex = Math.min(
+              testimonials.length - cardsVisible,
+              currentIndex + 1
+            );
+          } else {
+            currentIndex = 0;
           }
+          updateCarouselPosition();
+          updateCarouselIndicators();
           startAutoScroll();
         });
 
-        // Auto-scroll carousel
+        // Auto-scroll carousel (responsive-aware)
         function startAutoScroll() {
           stopAutoScroll(); // Clear any existing interval
-
-          if (testimonials.length > 3) {
+          const cardsVisible = getCardsVisible();
+          if (testimonials.length > cardsVisible) {
             autoScrollInterval = setInterval(() => {
-              if (currentIndex < testimonials.length - 3) {
+              if (currentIndex < testimonials.length - cardsVisible) {
                 currentIndex++;
               } else {
                 currentIndex = 0;
@@ -3264,6 +3471,77 @@
             }, 5000); // Rotate every 5 seconds
           }
         }
+
+        // Recompute layout on resize
+        window.addEventListener("resize", () => {
+          // Ensure currentIndex is valid for new cardsVisible
+          const cardsVisible = getCardsVisible();
+          if (currentIndex > Math.max(0, testimonials.length - cardsVisible)) {
+            currentIndex = Math.max(0, testimonials.length - cardsVisible);
+          }
+          updateCarouselPosition();
+          updateCarouselIndicators();
+        });
+
+        // Touch/swipe support for mobile
+        (function enableTouchSwipe() {
+          const trackEl = document.getElementById("testimonialsTrack");
+          if (!trackEl) return;
+          let startX = 0;
+          let moved = false;
+
+          trackEl.addEventListener(
+            "touchstart",
+            (e) => {
+              if (!e.touches || !e.touches.length) return;
+              startX = e.touches[0].clientX;
+              moved = false;
+              stopAutoScroll();
+            },
+            { passive: true }
+          );
+
+          trackEl.addEventListener(
+            "touchmove",
+            (e) => {
+              if (!e.touches || !e.touches.length) return;
+              const dx = e.touches[0].clientX - startX;
+              if (Math.abs(dx) > 10) moved = true;
+            },
+            { passive: true }
+          );
+
+          trackEl.addEventListener("touchend", (e) => {
+            if (!moved) {
+              startAutoScroll();
+              return;
+            }
+            const endX =
+              e.changedTouches && e.changedTouches[0]
+                ? e.changedTouches[0].clientX
+                : 0;
+            const dx = endX - startX;
+            const threshold = 50; // px
+            const cardsVisible = getCardsVisible();
+            if (dx > threshold) {
+              // swipe right -> previous
+              currentIndex = Math.max(0, currentIndex - 1);
+            } else if (dx < -threshold) {
+              // swipe left -> next
+              if (currentIndex < testimonials.length - cardsVisible) {
+                currentIndex = Math.min(
+                  testimonials.length - cardsVisible,
+                  currentIndex + 1
+                );
+              } else {
+                currentIndex = 0;
+              }
+            }
+            updateCarouselPosition();
+            updateCarouselIndicators();
+            startAutoScroll();
+          });
+        })();
 
         function stopAutoScroll() {
           if (autoScrollInterval) {
@@ -3441,3 +3719,84 @@
     </script>
   </body>
 </html>
+
+<script>
+  // Warm other pages & critical domains after homepage load/idle so navigation appears instant
+  (function () {
+    const pages = [
+      "/about.html",
+      "/webdev.html",
+      "/app-dev.html",
+      "/software-dev.html",
+      "/video-ed.html",
+      "/blogs.html",
+      "/contact.html",
+      "/pricing.html",
+      "/careers.html",
+    ];
+
+    const domains = [
+      "https://pixelatenest-crm.vercel.app",
+      "https://fonts.googleapis.com",
+      "https://fonts.gstatic.com",
+      "https://cdn.prod.website-files.com",
+      "https://cdnjs.cloudflare.com",
+      "https://www.google-analytics.com",
+      "https://www.googletagmanager.com",
+    ];
+
+    function addLink(rel, href, as, crossorigin) {
+      try {
+        const l = document.createElement("link");
+        l.rel = rel;
+        l.href = href;
+        if (as) l.as = as;
+        if (crossorigin) l.crossOrigin = "anonymous";
+        document.head.appendChild(l);
+      } catch (e) {
+        // ignore
+      }
+    }
+
+    function warm() {
+      // preconnect + dns-prefetch
+      domains.forEach((d) => {
+        addLink("preconnect", d, null, true);
+        addLink("dns-prefetch", d);
+      });
+
+      // prefetch HTML pages (low priority)
+      pages.forEach((p) => {
+        addLink("prefetch", p, "document");
+      });
+
+      // preload a couple of critical assets that speed navigation
+      addLink("preload", "/styles.css", "style");
+      addLink(
+        "preload",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+        "style",
+        true
+      );
+
+      // gentle fetch to warm API and page caches (no-cors so we don't get blocked)
+      try {
+        fetch("/", { method: "GET", mode: "no-cors", cache: "no-cache" }).catch(
+          () => {}
+        );
+        fetch("https://pixelatenest-crm.vercel.app", {
+          method: "GET",
+          mode: "no-cors",
+        }).catch(() => {});
+      } catch (e) {}
+    }
+
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(warm, { timeout: 2000 });
+    } else {
+      window.addEventListener("load", function () {
+        setTimeout(warm, 1000);
+      });
+    }
+  })();
+</script>
