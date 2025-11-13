@@ -6,6 +6,12 @@
 RewriteEngine On
 RewriteBase /
 
+# Enforce canonical host and HTTPS: redirect any non-www or http requests
+# to the canonical https://www.pixelatenest.com host with a 301.
+RewriteCond %{HTTP_HOST} !^www\.pixelatenest\.com$ [NC,OR]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://www.pixelatenest.com%{REQUEST_URI} [L,R=301]
+
 # ============================================
 # 301 REDIRECTS - Old URLs to New Structure
 # Fix Google Search Console 404 Errors
@@ -31,6 +37,8 @@ RewriteRule ^services\.html$ /webdev.html [R=301,L]
 RewriteRule ^services/works\.html$ /pricing.html [R=301,L]
 RewriteRule ^services/contact\.html$ /contact.html [R=301,L]
 RewriteRule ^services/blog\.html$ /blogs.html [R=301,L]
+
+# Fallback for any other /services/* to webdev (kept as last-resort)
 RewriteRule ^services/(.*)$ /webdev.html [R=301,L]
 
 # Old features page (redirect to about)

@@ -31,11 +31,31 @@
       content="https://pixelatenest.com/detailed-services.html"
     />
 
-    <!-- Canonical URL -->
-    <link
-      rel="canonical"
-      href="https://pixelatenest.com/detailed-services.html"
-    />
+    <!-- Canonical URL (dynamic: keeps only `service` param, strips `city`) -->
+    <link rel="canonical" href="https://www.pixelatenest.com/detailed-services.html" />
+
+    <script>
+      (function () {
+        try {
+          var base = 'https://www.pixelatenest.com/detailed-services.html';
+          var params = new URLSearchParams(window.location.search);
+          var service = params.get('service');
+          var canonical = base;
+          if (service) canonical += '?service=' + encodeURIComponent(service);
+          var link = document.querySelector('link[rel="canonical"]');
+          if (link) {
+            link.setAttribute('href', canonical);
+          } else {
+            link = document.createElement('link');
+            link.setAttribute('rel', 'canonical');
+            link.setAttribute('href', canonical);
+            document.head.appendChild(link);
+          }
+        } catch (e) {
+          /* fail silently */
+        }
+      })();
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
