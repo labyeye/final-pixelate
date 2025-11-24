@@ -48,101 +48,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       crossorigin="anonymous"
     />
-
-    <style>
-      /* Mosaic / collage grid for photos (flat list, no brands) */
-      #portfolio-grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-auto-rows: 8px; /* small row height so we can span rows for varied heights */
-        gap: 14px;
-        min-height: 420px;
-        align-items: start;
-      }
-      .portfolio-card {
-        position: relative;
-        display: block;
-        overflow: hidden;
-        border-radius: 18px;
-        background: #111;
-        box-shadow: 0 18px 40px rgba(8,10,20,0.12);
-      }
-      .portfolio-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-      /* size utilities: span columns for variety */
-      .size-3 { grid-column: span 5; grid-row: span 48; }
-      .size-2 { grid-column: span 4; grid-row: span 36; }
-      .size-1 { grid-column: span 3; grid-row: span 28; }
-      /* slightly different look on smaller screens */
-      @media (max-width: 1023px) {
-        #portfolio-grid { grid-template-columns: repeat(8, 1fr); grid-auto-rows: 8px; }
-        .size-3 { grid-column: span 8; grid-row: span 42; }
-        .size-2 { grid-column: span 4; grid-row: span 34; }
-        .size-1 { grid-column: span 4; grid-row: span 28; }
-      }
-      @media (max-width: 767px) {
-        #portfolio-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 8px; gap: 12px }
-        .portfolio-card { border-radius: 12px }
-        .size-3,.size-2,.size-1 { grid-column: auto; grid-row: span 46 }
-      }
-      .stars {
-        margin-top: 6px;
-        display: flex;
-        gap: 4px;
-      }
-      .star {
-        color: #d1d5db;
-        font-size: 14px;
-      }
-      .star.filled {
-        color: #f59e0b;
-      }
-      .skeleton {
-        background: linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.05) 25%,
-          rgba(255, 255, 255, 0.1) 50%,
-          rgba(255, 255, 255, 0.05) 75%
-        );
-        background-size: 200% 100%;
-        animation: loading 1.5s ease-in-out infinite;
-        border-radius: 12px;
-      }
-      @keyframes loading {
-        0% {
-          background-position: 200% 0;
-        }
-        100% {
-          background-position: -200% 0;
-        }
-      }
-      .skeleton-card {
-        height: 350px;
-        width: 100%;
-      }
-      .portfolio-overlay {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 12px;
-        color: #fff;
-        background: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0) 0%,
-          rgba(0, 0, 0, 0.6) 100%
-        );
-      }
-      .portfolio-image-wrapper {
-        position: relative;
-        overflow: hidden;
-        border-radius: 8px;
-      }
-    </style>
+    <!-- portfolio/mosaic styles moved to photography-carousel.css -->
   </head>
   <body>
     <div class="page-wrapper">
@@ -299,10 +205,15 @@
         <h2 style="color: #fb8a02; text-align: center; margin-top: 10px">
           Our Photography Portfolio
         </h2>
+
+          <div style="text-align:center; margin-top:14px">
+            <div id="gallery-filters" class="filter-bar" aria-hidden="false"></div>
+          </div>
+
         <div
           id="portfolio-grid"
           class="portfolio-grid"
-          style="margin-top: 24px"
+          style="margin-top: 12px"
         >
           <div class="skeleton skeleton-card"></div>
           <div class="skeleton skeleton-card"></div>
@@ -322,63 +233,117 @@
       async function loadPhotoGalleries() {
         try {
           // try the photos API first (flat list). If not available, fall back to old galleries shape.
-          const res = await fetch("https://pixelatenest-crm.vercel.app/api/photos");
+          const res = await fetch(
+            "https://pixelatenest-crm.vercel.app/api/photos"
+          );
           let galleries = [];
           if (res.ok) {
             const json = await res.json();
             // if API returns flat photos (has thumbnailBase64) wrap into single gallery for rendering convenience
-            if (Array.isArray(json) && json.length && (json[0].thumbnailBase64 || json[0].thumbnail || json[0].url)) {
-              galleries = [{ brandName: 'All Photos', entries: json }];
+            if (
+              Array.isArray(json) &&
+              json.length &&
+              (json[0].thumbnailBase64 || json[0].thumbnail || json[0].url)
+            ) {
+              galleries = [{ brandName: "All Photos", entries: json }];
             } else {
               galleries = json;
             }
-          }
-          else {
-            console.warn('Deployed API returned', res.status, '– falling back to local sample');
-            const local = await fetch('./photo-galleries-sample.json');
+          } else {
+            console.warn(
+              "Deployed API returned",
+              res.status,
+              "– falling back to local sample"
+            );
+            const local = await fetch("./photo-galleries-sample.json");
             galleries = local.ok ? await local.json() : [];
           }
 
-          const grid = document.getElementById('portfolio-grid');
+          const grid = document.getElementById("portfolio-grid");
           if (!grid) return;
-          grid.innerHTML = '';
+          grid.innerHTML = "";
 
           // Flatten all entries into a single photos array
           const photos = [];
-          galleries.forEach(g => {
+          galleries.forEach((g) => {
             const entries = Array.isArray(g.entries) ? g.entries : [];
-            entries.forEach(e => photos.push(e));
+            entries.forEach((e) => photos.push(e));
           });
 
           if (!photos || photos.length === 0) {
-            grid.innerHTML = '<p class="p-text-01 text-white-60">No photos available right now.</p>';
+            grid.innerHTML =
+              '<p class="p-text-01 text-white-60">No photos available right now.</p>';
             return;
           }
 
-          // Render photos into a mosaic: apply a repeating size pattern for visual variety
-          const sizePattern = ['size-3','size-1','size-2','size-1','size-2'];
+          // Render photos into a column-based masonry layout (like `Gallery.tsx`).
+          // We'll rely on CSS columns for layout and fixed card heights so JS doesn't need to calculate spans.
           photos.forEach((p, idx) => {
-            const card = document.createElement('div');
-            const sizeClass = sizePattern[idx % sizePattern.length];
+            const card = document.createElement("div");
+            // use the same size mapping as the React component: height === 2 -> large tile
+            // if entry does not specify height, randomly make some tiles large for visual variety
+            let forceLarge = false;
+            if (p.height === 3 || p.height === "3") forceLarge = true;
+            else if (p.height == null) {
+              // 24% chance to be large (adjustable)
+              forceLarge = Math.random() < 0.24;
+              // add a little bias so every 8th item is occasionally large for denser galleries
+              if (!forceLarge && idx % 8 === 0 && Math.random() < 0.5) forceLarge = true;
+            }
+
+            const sizeClass = forceLarge ? "size-large" : "size-small";
             card.className = `portfolio-card ${sizeClass}`;
-            const img = document.createElement('img');
-            img.className = 'portfolio-image';
-            img.alt = p.title || 'Photo';
-            img.src = p.thumbnailBase64 || p.thumbnail || p.url || '/assets/placeholder.png';
+
+            const img = document.createElement("img");
+            img.className = "portfolio-image";
+            img.alt = p.title || "Photo";
+            img.loading = "lazy";
+            img.src =
+              p.thumbnailBase64 ||
+              p.thumbnail ||
+              p.url ||
+              "/assets/placeholder.png";
+
+            // fade-in when loaded
+            img.addEventListener("load", () => card.classList.add("loaded"));
+
             card.appendChild(img);
             grid.appendChild(card);
           });
-
         } catch (err) {
-          console.error('Failed to load photos', err);
+          console.error("Failed to load photos", err);
         }
       }
 
-      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      if (
+        document.readyState === "complete" ||
+        document.readyState === "interactive"
+      ) {
         setTimeout(loadPhotoGalleries, 300);
       } else {
-        document.addEventListener('DOMContentLoaded', loadPhotoGalleries);
+        document.addEventListener("DOMContentLoaded", loadPhotoGalleries);
       }
+
+      // initialize mosaic controls (radius adjuster)
+      (function initMosaicControls() {
+        const range = document.getElementById("radiusRange");
+        const valSpan = document.getElementById("radiusValue");
+        const grid = document.getElementById("portfolio-grid");
+        if (!range || !valSpan) return;
+        // ensure CSS var is in sync with control
+        const apply = (v) => {
+          document.documentElement.style.setProperty(
+            "--portfolio-radius",
+            v + "px"
+          );
+          valSpan.textContent = v + "px";
+        };
+        // initial
+        apply(range.value || "0");
+        range.addEventListener("input", (e) => {
+          apply(e.target.value);
+        });
+      })();
     </script>
   </body>
 </html>
