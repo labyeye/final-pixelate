@@ -21,7 +21,7 @@ const navItems = [
   { href: '/quotations', label: 'Quotations', adminOnly: false, icon: FileText },
   { href: '/projects', label: 'Projects', adminOnly: false, icon: Briefcase },
   { href: '/work-gallery', label: 'Work Gallery', adminOnly: true, icon: ImageIcon },
-  { href: '/photo-galleries', label: 'Photo Galleries', adminOnly: true, icon: ImageIcon },
+  { href: '/photo-galleries', label: 'Photos', adminOnly: true, icon: ImageIcon },
   { href: '/reels', label: 'Reels', adminOnly: true, icon: PlayCircle },
   { href: '/blogs', label: 'Blogs', adminOnly: true, icon: FileText },
   { href: '/about-us-team', label: 'About Us Team', adminOnly: true, icon: Users },

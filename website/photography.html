@@ -42,6 +42,7 @@
       href="https://www.pixelatenest.com/photography.html"
     />
     <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link href="photography-carousel.css" rel="stylesheet" type="text/css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -49,31 +50,44 @@
     />
 
     <style>
+      /* Mosaic / collage grid for photos (flat list, no brands) */
       #portfolio-grid {
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 16px;
-        min-height: 400px;
-      }
-      @media (min-width: 640px) {
-        #portfolio-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      @media (min-width: 1024px) {
-        #portfolio-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: 8px; /* small row height so we can span rows for varied heights */
+        gap: 14px;
+        min-height: 420px;
+        align-items: start;
       }
       .portfolio-card {
+        position: relative;
         display: block;
-        height: 100%;
+        overflow: hidden;
+        border-radius: 18px;
+        background: #111;
+        box-shadow: 0 18px 40px rgba(8,10,20,0.12);
       }
-      .portfolio-image {
+      .portfolio-card img {
         width: 100%;
-        height: 220px;
+        height: 100%;
         object-fit: cover;
         display: block;
+      }
+      /* size utilities: span columns for variety */
+      .size-3 { grid-column: span 5; grid-row: span 48; }
+      .size-2 { grid-column: span 4; grid-row: span 36; }
+      .size-1 { grid-column: span 3; grid-row: span 28; }
+      /* slightly different look on smaller screens */
+      @media (max-width: 1023px) {
+        #portfolio-grid { grid-template-columns: repeat(8, 1fr); grid-auto-rows: 8px; }
+        .size-3 { grid-column: span 8; grid-row: span 42; }
+        .size-2 { grid-column: span 4; grid-row: span 34; }
+        .size-1 { grid-column: span 4; grid-row: span 28; }
+      }
+      @media (max-width: 767px) {
+        #portfolio-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 8px; gap: 12px }
+        .portfolio-card { border-radius: 12px }
+        .size-3,.size-2,.size-1 { grid-column: auto; grid-row: span 46 }
       }
       .stars {
         margin-top: 6px;
@@ -304,93 +318,59 @@
     </div>
 
     <script>
-      // Brand-wise photo gallery rendering (stacked slider similar to reels)
+      // Load all photo entries (flatten brand galleries) and render a mosaic
       async function loadPhotoGalleries() {
         try {
-          const res = await fetch('https://pixelatenest-crm.vercel.app/api/photo-galleries');
-          if (!res.ok) throw new Error('Failed to fetch photo galleries');
-          const galleries = await res.json();
+          // try the photos API first (flat list). If not available, fall back to old galleries shape.
+          const res = await fetch("https://pixelatenest-crm.vercel.app/api/photos");
+          let galleries = [];
+          if (res.ok) {
+            const json = await res.json();
+            // if API returns flat photos (has thumbnailBase64) wrap into single gallery for rendering convenience
+            if (Array.isArray(json) && json.length && (json[0].thumbnailBase64 || json[0].thumbnail || json[0].url)) {
+              galleries = [{ brandName: 'All Photos', entries: json }];
+            } else {
+              galleries = json;
+            }
+          }
+          else {
+            console.warn('Deployed API returned', res.status, '– falling back to local sample');
+            const local = await fetch('./photo-galleries-sample.json');
+            galleries = local.ok ? await local.json() : [];
+          }
+
           const grid = document.getElementById('portfolio-grid');
           if (!grid) return;
           grid.innerHTML = '';
 
-          if (!galleries || galleries.length === 0) {
-            grid.innerHTML = '<p class="p-text-01 text-white-60">No photo galleries to show right now. Check back later.</p>';
+          // Flatten all entries into a single photos array
+          const photos = [];
+          galleries.forEach(g => {
+            const entries = Array.isArray(g.entries) ? g.entries : [];
+            entries.forEach(e => photos.push(e));
+          });
+
+          if (!photos || photos.length === 0) {
+            grid.innerHTML = '<p class="p-text-01 text-white-60">No photos available right now.</p>';
             return;
           }
 
-          // For each gallery (brand), render a brand header and its stacked slider
-          galleries.forEach((gal) => {
-            const headerEl = document.createElement('div');
-            headerEl.className = 'reel-brand-header-wrapper';
-            if (gal.brandLogoBase64 || gal.brandName) {
-              const logo = gal.brandLogoBase64 ? '<img src="' + gal.brandLogoBase64 + '" alt="' + (gal.brandName || 'Brand') + '" style="height:48px;object-fit:contain;border-radius:6px;" />' : '';
-              const name = gal.brandName ? '<div class="reel-brand-name" style="font-weight:700;color:#fff;margin-left:12px">' + gal.brandName + '</div>' : '';
-              headerEl.innerHTML = '<div class="reel-brand-header" style="display:flex;align-items:center;justify-content:center;gap:12px;margin:24px 0">' + logo + name + '</div>';
-            }
-
-            const div = document.createElement('div');
-            div.className = 'reels-slider';
-            const entries = gal.entries || [];
-            const take = entries.slice(0, 8); // show up to 8 photos per brand
-
-            take.forEach((e, i) => {
-              const a = document.createElement('a');
-              a.href = e.link || '#';
-              a.target = '_blank';
-              a.rel = 'noopener';
-              const card = document.createElement('div');
-              // Apply stacked card positioning classes based on index
-              let posClass = '';
-              if (i === 0) posClass = 'left';
-              else if (i === 1) posClass = 'center';
-              else if (i === 2) posClass = 'right';
-              else if (i === 3) posClass = 'right';
-              else if (i === 4) posClass = 'left';
-              card.className = 'reel-card ' + posClass;
-              card.style.width = '220px';
-              card.style.height = '320px';
-              card.style.borderRadius = '18px';
-              card.style.overflow = 'hidden';
-              card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.35)';
-              card.style.position = 'relative';
-              const img = document.createElement('img');
-              img.src = e.thumbnailBase64 || e.thumbnail || '/assets/placeholder.png';
-              img.alt = e.title || gal.brandName || 'Photo';
-              img.style.width = '100%';
-              img.style.height = '100%';
-              img.style.objectFit = 'cover';
-              card.appendChild(img);
-              const overlay = document.createElement('div');
-              overlay.className = 'reel-overlay';
-              overlay.style.position = 'absolute';
-              overlay.style.left = '12px';
-              overlay.style.bottom = '12px';
-              overlay.style.color = 'white';
-              overlay.style.textShadow = '0 6px 18px rgba(0,0,0,0.6)';
-              overlay.innerHTML = '<div style="font-weight:700;font-size:16px">' + (e.title || '') + '</div>';
-              card.appendChild(overlay);
-              a.appendChild(card);
-              div.appendChild(a);
-            });
-
-            grid.appendChild(headerEl);
-            grid.appendChild(div);
+          // Render photos into a mosaic: apply a repeating size pattern for visual variety
+          const sizePattern = ['size-3','size-1','size-2','size-1','size-2'];
+          photos.forEach((p, idx) => {
+            const card = document.createElement('div');
+            const sizeClass = sizePattern[idx % sizePattern.length];
+            card.className = `portfolio-card ${sizeClass}`;
+            const img = document.createElement('img');
+            img.className = 'portfolio-image';
+            img.alt = p.title || 'Photo';
+            img.src = p.thumbnailBase64 || p.thumbnail || p.url || '/assets/placeholder.png';
+            card.appendChild(img);
+            grid.appendChild(card);
           });
 
-          // Minimal styles for slider container to enable horizontal scrolling on small screens
-          const style = document.createElement('style');
-          style.innerHTML = `
-            .reels-slider { display:flex; gap:20px; align-items:center; justify-content:flex-start; padding:24px 0; overflow-x:auto; }
-            .reel-card.center { transform: rotate(0deg) scale(1.02); z-index:30; }
-            .reel-card.left { transform: rotate(-12deg) translateY(12px); z-index:20; }
-            .reel-card.right { transform: rotate(12deg) translateY(12px); z-index:20; }
-            @media (max-width:768px) { .reels-slider { padding:16px; } .reel-card { flex:0 0 66vw; height:300px } }
-          `;
-          document.head.appendChild(style);
-
-        } catch (e) {
-          console.error('Failed to load photo galleries', e);
+        } catch (err) {
+          console.error('Failed to load photos', err);
         }
       }
 

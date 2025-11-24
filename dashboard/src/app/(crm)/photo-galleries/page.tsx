@@ -1,206 +1,171 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useForm, useFieldArray } from "react-hook-form";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
+import { useForm } from "react-hook-form";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
-type Entry = { thumbnailBase64?: string; link?: string; title?: string }
-type FormValues = { brandName: string; brandLogoBase64?: string; entries: Entry[] }
+type Photo = { _id?: string; thumbnailBase64?: string; link?: string; title?: string };
+type FormValues = { title?: string; link?: string };
 
 export default function PhotoGalleriesPage() {
-  const [items, setItems] = useState<any[]>([])
-  const [editingId, setEditingId] = useState<string | null>(null)
-  const { register, control, handleSubmit, reset, setValue, getValues } = useForm<FormValues>({ defaultValues: { brandName: '', brandLogoBase64: '', entries: [] } })
-  const { fields, append, remove, replace } = useFieldArray({ control, name: 'entries' })
+  const [items, setItems] = useState<Photo[]>([]);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const { register, handleSubmit, reset, setValue } = useForm<FormValues>({ defaultValues: { title: '', link: '' } });
 
   useEffect(() => {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch('/api/photo-galleries')
-        if (!res.ok) throw new Error('Failed to fetch photo galleries')
-        const json = await res.json()
-        if (mounted) setItems(json || [])
-      } catch (e) { console.error(e) }
-    })()
-    return () => { mounted = false }
-  }, [])
+        const res = await fetch('/api/photos');
+        if (!res.ok) throw new Error('Failed to fetch photos');
+        const json = await res.json();
+        if (mounted) setItems(json || []);
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+    return () => { mounted = false; };
+  }, []);
 
   const toBase64 = (f: File | null) => {
-    if (!f) return Promise.resolve<string>('')
+    if (!f) return Promise.resolve<string>('');
     return new Promise<string>((resolve, reject) => {
       const r = new FileReader();
       r.onload = () => resolve(String(r.result));
       r.onerror = reject;
       r.readAsDataURL(f);
-    })
-  }
+    });
+  };
 
-  const onBrandLogo = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const f = e.target.files?.[0] ?? null
-    const data = await toBase64(f)
-    setValue('brandLogoBase64', data)
-  }
-
-  // Handle multiple file uploads at once and append each as an entry
+  // upload multiple files, create separate photo docs
   const onAddFiles = async (files: FileList | null) => {
-    if (!files || files.length === 0) return
-    const arr: Entry[] = []
+    if (!files || files.length === 0) return;
+    const perFileMax = 8 * 1024 * 1024; // 8MB
+    const created: Photo[] = [];
     for (let i = 0; i < files.length; i++) {
       try {
-        // Client-side validation: only accept images under 4MB
-        const f = files[i]
-        const maxBytes = 4 * 1024 * 1024 // 4MB
-        if (!f.type.startsWith('image/')) {
-          alert(`Skipped ${f.name}: not an image`)
-          continue
-        }
-        if (f.size > maxBytes) {
-          alert(`Skipped ${f.name}: file too large (max 4MB)`)
-          continue
-        }
-        const data = await toBase64(f)
-        arr.push({ thumbnailBase64: data, link: '', title: '' })
-      } catch (e) {
-        console.error('Failed to read file', e)
-      }
+        const f = files[i];
+        if (!f.type.startsWith('image/')) { alert(`Skipped ${f.name}: not an image`); continue; }
+        if (f.size > perFileMax) { alert(`Skipped ${f.name}: file too large`); continue; }
+        const data = await toBase64(f);
+        const res = await fetch('/api/photos', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ thumbnailBase64: data, title: f.name || '', link: '' })
+        });
+        if (!res.ok) { console.warn('Failed to save', await res.text()); continue; }
+        const json = await res.json(); created.push(json);
+      } catch (e) { console.error(e); }
     }
-    // Append all new entries
-    for (const a of arr) append(a)
-  }
+    if (created.length) setItems(prev => [...created, ...prev]);
+  };
 
-  const onEntryFile = async (index: number, f: File | null) => {
-    const data = f ? await toBase64(f) : ''
-    const current = getValues().entries || []
-    const entriesCopy = [...current]
-    while (entriesCopy.length <= index) entriesCopy.push({ thumbnailBase64: '', link: '', title: '' })
-    entriesCopy[index] = { ...(entriesCopy[index] || {}), thumbnailBase64: data }
-    replace(entriesCopy)
-  }
+  const onReplaceImage = async (id: string, f: File | null) => {
+    if (!f) return;
+    const data = await toBase64(f);
+    try {
+      const res = await fetch(`/api/photos/${id}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ thumbnailBase64: data }) });
+      if (!res.ok) throw new Error('Replace failed');
+      const updated = await res.json();
+      setItems(prev => prev.map(p => String(p._id) === String(id) ? updated : p));
+    } catch (e) { console.error(e); }
+  };
 
   const onSubmit = async (v: FormValues) => {
     try {
       if (editingId) {
-        const res = await fetch(`/api/photo-galleries/${editingId}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(v) })
-        if (!res.ok) throw new Error('Update failed')
-        const updated = await res.json()
-        setItems(prev => prev.map(i => (String(i._id ?? i.id) === String(editingId) ? updated : i)))
-        setEditingId(null)
-        reset()
+        const res = await fetch(`/api/photos/${editingId}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(v) });
+        if (!res.ok) throw new Error('Update failed');
+        const updated = await res.json();
+        setItems(prev => prev.map(p => String(p._id) === String(editingId) ? updated : p));
+        setEditingId(null); reset();
       } else {
-        const res = await fetch('/api/photo-galleries', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(v) })
-        if (!res.ok) throw new Error('Save failed')
-        const created = await res.json()
-        setItems(prev => [created, ...prev])
-        reset()
+        const res = await fetch('/api/photos', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(v) });
+        if (!res.ok) throw new Error('Save failed');
+        const created = await res.json(); setItems(prev => [created, ...prev]); reset();
       }
-    } catch (e) { console.error('Failed to save photo gallery', e) }
-  }
+    } catch (e) { console.error(e); }
+  };
 
-  const startEdit = (it: any) => {
-    setEditingId(String(it._id ?? it.id))
-    reset({ brandName: it.brandName || '', brandLogoBase64: it.brandLogoBase64 || '', entries: it.entries || [] })
-  }
+  const startEdit = (p: Photo) => { setEditingId(String(p._id ?? p._id)); setValue('title', p.title || ''); setValue('link', p.link || ''); };
 
   const deleteItem = async (id: string) => {
-    if (!confirm('Delete this photo gallery?')) return
+    if (!confirm('Delete this photo?')) return;
     try {
-      const res = await fetch(`/api/photo-galleries/${id}`, { method: 'DELETE' })
-      if (!res.ok) throw new Error('Delete failed')
-      setItems(prev => prev.filter(x => String(x._id ?? x.id) !== String(id)))
-    } catch (e) { console.error(e) }
-  }
+      const res = await fetch(`/api/photos/${id}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error('Delete failed');
+      setItems(prev => prev.filter(x => String(x._id ?? x._id) !== String(id)));
+    } catch (e) { console.error(e); }
+  };
 
   return (
     <div className="space-y-8">
       <header>
-        <h1 className="text-4xl font-black">Photo Galleries Management</h1>
-        <p className="text-muted-foreground">Upload a brand logo and multiple photo thumbnails with links. These will appear on the Photography page in brand-wise sliders.</p>
+        <h1 className="text-4xl font-black">Photos</h1>
+        <p className="text-muted-foreground">Upload photos — they will appear on the public Photography page as a flat list.</p>
       </header>
 
       <Card>
         <CardHeader>
-          <CardTitle>{editingId ? 'Edit Gallery' : 'Add Gallery'}</CardTitle>
-          <CardDescription>Brand logo + list of thumbnails and links</CardDescription>
+          <CardTitle>{editingId ? 'Edit Photo' : 'Upload Photos'}</CardTitle>
+          <CardDescription>{editingId ? 'Edit selected photo metadata' : 'Upload one or more photos. Each photo becomes a record.'}</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium">Brand Name</label>
-              <Input {...register('brandName')} />
-            </div>
-            <div>
-              <label className="block text-sm font-medium">Brand Logo</label>
-              <input type="file" accept="image/*" onChange={onBrandLogo} />
-            </div>
-
-            <div>
               <label className="block text-sm font-medium">Photos</label>
               <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">You can upload multiple photos at once. Links and titles are optional — leave blank to just upload images.</p>
+                <p className="text-sm text-muted-foreground">Upload multiple images at once. After upload you can edit title/link or replace the image.</p>
                 <input type="file" accept="image/*" multiple onChange={async (e) => await onAddFiles(e.target.files)} />
+              </div>
+            </div>
 
-                <div className="mt-4">
-                  <label className="block text-sm font-medium">Uploaded / Edit Photos</label>
-                  <div className="space-y-2">
-                    {fields.map((f, idx) => (
-                        <div key={f.id} className="grid grid-cols-3 gap-2 items-center">
-                          <div>
-                            {/* preview */}
-                            {getValues().entries?.[idx]?.thumbnailBase64 ? (
-                              <img src={getValues().entries[idx].thumbnailBase64} alt={`photo-${idx}`} style={{ width: 120, height: 80, objectFit: 'cover', borderRadius: 8 }} />
-                            ) : (
-                              <div style={{ width: 120, height: 80, background: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 8 }}>
-                                <span className="text-muted-foreground text-sm">No preview</span>
-                              </div>
-                            )}
-                          </div>
-                          <input type="file" accept="image/*" onChange={async (e) => {
-                            const file = e.target.files?.[0] ?? null
-                            if (file && file.size > 4 * 1024 * 1024) { alert('File too large (max 4MB)'); return }
-                            await onEntryFile(idx, file)
-                          }} />
-                          <div>
-                            <Input {...register(`entries.${idx}.link` as const)} placeholder="Link (optional)" />
-                            <Input {...register(`entries.${idx}.title` as const)} placeholder="Title (optional)" className="mt-2" />
-                          </div>
-                          <div className="col-span-3">
-                            <Button variant="destructive" onClick={() => remove(idx)}>Remove</Button>
-                          </div>
-                        </div>
-                    ))}
-                  </div>
+            <div>
+              <label className="block text-sm font-medium">Edit Selected</label>
+              <div className="space-y-2">
+                <Input {...register('title')} placeholder="Title (optional)" />
+                <Input {...register('link')} placeholder="Link (optional)" className="mt-2" />
+                <div className="mt-2">
+                  <label className="text-sm">Replace Image</label>
+                  <input type="file" accept="image/*" onChange={async (e) => { const f = e.target.files?.[0] ?? null; if (editingId && f) await onReplaceImage(editingId, f); }} />
                 </div>
               </div>
             </div>
 
             <div className="flex gap-2">
-              <Button type="submit">{editingId ? 'Update' : 'Save'}</Button>
-              <Button variant="ghost" onClick={() => { reset(); setEditingId(null) }}>Reset</Button>
+              <Button type="submit">{editingId ? 'Update' : 'Create'}</Button>
+              <Button variant="ghost" onClick={() => { reset(); setEditingId(null); }}>Reset</Button>
             </div>
           </form>
         </CardContent>
       </Card>
 
-      <div className="space-y-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {items.map(it => (
-          <div key={String(it._id ?? it.id)} className="border p-4 rounded">
-            <div className="flex items-center gap-4">
-              {it.brandLogoBase64 ? <img src={it.brandLogoBase64} alt={it.brandName} style={{ width: 80, height: 40, objectFit: 'contain' }} /> : <div className="w-20 h-10 bg-gray-100" />}
-              <div className="flex-1">
-                <div className="font-bold">{it.brandName}</div>
-                <div className="text-sm text-muted-foreground">{(it.entries||[]).length} photos</div>
+          <div key={String(it._id ?? '')} className="border p-3 rounded">
+            <div className="flex items-start gap-4">
+              <div style={{ width: 160, height: 100, overflow: 'hidden', borderRadius: 8 }}>
+                {it.thumbnailBase64 ? <img src={it.thumbnailBase64} alt={it.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : <div className="w-full h-full bg-gray-100" />}
               </div>
-              <div className="flex gap-2">
-                <Button onClick={() => startEdit(it)}>Edit</Button>
-                <Button variant="destructive" onClick={() => deleteItem(String(it._id ?? it.id))}>Delete</Button>
+              <div className="flex-1">
+                <div className="font-bold">{it.title || 'Untitled'}</div>
+                <div className="text-sm text-muted-foreground">{it.link || ''}</div>
+                <div className="flex gap-2 mt-2">
+                  <Button onClick={() => startEdit(it)}>Edit</Button>
+                  <Button variant="destructive" onClick={() => deleteItem(String(it._id ?? ''))}>Delete</Button>
+                </div>
               </div>
             </div>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
