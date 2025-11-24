@@ -16,7 +16,7 @@ const formSchema = z.object({
   link: z.string().url().or(z.string().min(0)),
   tech: z.string().optional(),
   rating: z.number().min(0).max(5).optional(),
-  showOn: z.enum(["web-development","software-development","app-development","video-editing","none"]),
+  showOn: z.enum(["web-development","software-development","app-development","video-editing","photography","none"]),
   thumbnailBase64: z.string().optional(),
   note: z.string().optional(),
 });
@@ -156,6 +156,7 @@ export default function WorkGalleryPage() {
                 <option value="software-development">Software Development</option>
                 <option value="app-development">App Development</option>
                 <option value="video-editing">Video Editing</option>
+                <option value="photography">Photography</option>
               </select>
             </div>
 

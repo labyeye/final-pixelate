@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Professional Photography Services — Product, Portrait & Events | Pixelate
+      Nest India
+    </title>
+    <meta
+      name="description"
+      content="Professional photography services for products, portraits, events and brand storytelling. High-quality images for e-commerce, marketing & social media."
+    />
+    <meta
+      name="keywords"
+      content="photography services, product photography, portrait photography, event photography, brand photography, e-commerce photography, professional photographer, studio photography, lifestyle photography, commercial photography"
+    />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large"
+    />
+    <meta
+      property="og:title"
+      content="Professional Photography Services — Product, Portrait & Events | Pixelate Nest"
+    />
+    <meta
+      property="og:description"
+      content="High-quality photography for brands and creators — product, portrait and event photography. Capture images that convert and tell your story visually."
+    />
+    <meta
+      property="og:image"
+      content="https://www.pixelatenest.com/assets/photography-og-image.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://www.pixelatenest.com/photography.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="canonical"
+      href="https://www.pixelatenest.com/photography.html"
+    />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      #portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 16px;
+        min-height: 400px;
+      }
+      @media (min-width: 640px) {
+        #portfolio-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 1024px) {
+        #portfolio-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .portfolio-card {
+        display: block;
+        height: 100%;
+      }
+      .portfolio-image {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+      }
+      .stars {
+        margin-top: 6px;
+        display: flex;
+        gap: 4px;
+      }
+      .star {
+        color: #d1d5db;
+        font-size: 14px;
+      }
+      .star.filled {
+        color: #f59e0b;
+      }
+      .skeleton {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.05) 25%,
+          rgba(255, 255, 255, 0.1) 50%,
+          rgba(255, 255, 255, 0.05) 75%
+        );
+        background-size: 200% 100%;
+        animation: loading 1.5s ease-in-out infinite;
+        border-radius: 12px;
+      }
+      @keyframes loading {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+      .skeleton-card {
+        height: 350px;
+        width: 100%;
+      }
+      .portfolio-overlay {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 12px;
+        color: #fff;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.6) 100%
+        );
+      }
+      .portfolio-image-wrapper {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header class="main-hero">
+        <section class="nav-wrap">
+          <div class="nav-bar-wrap">
+            <div
+              data-animation="default"
+              data-collapse="medium"
+              data-duration="400"
+              data-easing="ease"
+              data-easing2="ease"
+              role="banner"
+              class="navbar w-nav"
+            >
+              <div class="navbar-wrapper">
+                <div class="navbar-left">
+                  <a
+                    href="https://www.pixelatenest.com/"
+                    aria-current="page"
+                    class="navbar-brand w-nav-brand w--current"
+                  >
+                    <img src="./assets/navbarlogo.png" alt="Pixelate Nest" />
+                  </a>
+                </div>
+                <div class="navbar-center">
+                  <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
+                    <ul role="list" class="nav-menu w-list-unstyled">
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/"
+                          aria-current="page"
+                          class="nav-link w-inline-block w--current"
+                          ><span class="nav-link-text">Home</span></a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/about.html"
+                          class="nav-link w-inline-block"
+                          ><span class="nav-link-text">About</span></a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/pricing.html"
+                          class="nav-link w-inline-block"
+                          ><span class="nav-link-text">Pricing</span></a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/webdev.html"
+                          class="nav-link w-inline-block"
+                          ><span class="nav-link-text">Web Development</span></a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/app-dev.html"
+                          class="nav-link w-inline-block"
+                          ><span class="nav-link-text">App Development</span></a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/software-dev.html"
+                          class="nav-link w-inline-block"
+                        >
+                          <span class="nav-link-text"
+                            >Software Development</span
+                          >
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/video-ed.html"
+                          class="nav-link w-inline-block"
+                          ><span class="nav-link-text">Video Editing</span></a
+                        >
+                      </li>
+
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/photography.html"
+                          class="nav-link w-inline-block"
+                        >
+                          <span class="nav-link-text">Photography</span>
+                        </a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/blogs.html"
+                          class="nav-link w-inline-block"
+                          ><span class="nav-link-text">Blogs</span></a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/careers.html"
+                          class="nav-link w-inline-block"
+                        >
+                          <div class="nav-link-text">Careers</div>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/contact.html"
+                          class="nav-link w-inline-block"
+                        >
+                          <div class="nav-link-text">Contact</div>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="navbar-right">
+                  <div class="menu-button w-nav-button">
+                    <div
+                      data-is-ix2-target="1"
+                      class="hamburger-menu"
+                      data-w-id="87959840-dee1-9d4c-adfe-a49c217b8a08"
+                      data-animation-type="lottie"
+                      data-src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/686b9c8a6088b99ac2420c42_Animation%20-%201751882800099.json"
+                      data-loop="0"
+                      data-direction="1"
+                      data-autoplay="0"
+                      data-renderer="svg"
+                      data-default-duration="0"
+                      data-duration="2.3333333333333335"
+                      data-ix2-initial-state="0"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="container" style="padding: 40px 16px">
+          <h1 style="font-size: 2.25rem; color: #fff; margin-bottom: 12px">
+            Photography Services
+          </h1>
+          <p style="color: #e6e6e6; max-width: 900px">
+            High-quality photography for product, portrait and event needs —
+            images that convert, build trust and tell your brand story. We
+            provide studio and on-location shoots, retouching and delivery-ready
+            images for web and print.
+          </p>
+        </div>
+      </header>
+
+      <main class="container" style="padding: 40px 16px">
+        <h2 style="color: #fb8a02; text-align: center; margin-top: 10px">
+          Our Photography Portfolio
+        </h2>
+        <div
+          id="portfolio-grid"
+          class="portfolio-grid"
+          style="margin-top: 24px"
+        >
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+          <div class="skeleton skeleton-card"></div>
+        </div>
+      </main>
+
+      <footer style="padding: 40px 16px">
+        <div style="text-align: center; color: #bdbdbd">
+          © 2025 Pixelate Nest
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // Brand-wise photo gallery rendering (stacked slider similar to reels)
+      async function loadPhotoGalleries() {
+        try {
+          const res = await fetch('https://pixelatenest-crm.vercel.app/api/photo-galleries');
+          if (!res.ok) throw new Error('Failed to fetch photo galleries');
+          const galleries = await res.json();
+          const grid = document.getElementById('portfolio-grid');
+          if (!grid) return;
+          grid.innerHTML = '';
+
+          if (!galleries || galleries.length === 0) {
+            grid.innerHTML = '<p class="p-text-01 text-white-60">No photo galleries to show right now. Check back later.</p>';
+            return;
+          }
+
+          // For each gallery (brand), render a brand header and its stacked slider
+          galleries.forEach((gal) => {
+            const headerEl = document.createElement('div');
+            headerEl.className = 'reel-brand-header-wrapper';
+            if (gal.brandLogoBase64 || gal.brandName) {
+              const logo = gal.brandLogoBase64 ? '<img src="' + gal.brandLogoBase64 + '" alt="' + (gal.brandName || 'Brand') + '" style="height:48px;object-fit:contain;border-radius:6px;" />' : '';
+              const name = gal.brandName ? '<div class="reel-brand-name" style="font-weight:700;color:#fff;margin-left:12px">' + gal.brandName + '</div>' : '';
+              headerEl.innerHTML = '<div class="reel-brand-header" style="display:flex;align-items:center;justify-content:center;gap:12px;margin:24px 0">' + logo + name + '</div>';
+            }
+
+            const div = document.createElement('div');
+            div.className = 'reels-slider';
+            const entries = gal.entries || [];
+            const take = entries.slice(0, 8); // show up to 8 photos per brand
+
+            take.forEach((e, i) => {
+              const a = document.createElement('a');
+              a.href = e.link || '#';
+              a.target = '_blank';
+              a.rel = 'noopener';
+              const card = document.createElement('div');
+              // Apply stacked card positioning classes based on index
+              let posClass = '';
+              if (i === 0) posClass = 'left';
+              else if (i === 1) posClass = 'center';
+              else if (i === 2) posClass = 'right';
+              else if (i === 3) posClass = 'right';
+              else if (i === 4) posClass = 'left';
+              card.className = 'reel-card ' + posClass;
+              card.style.width = '220px';
+              card.style.height = '320px';
+              card.style.borderRadius = '18px';
+              card.style.overflow = 'hidden';
+              card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.35)';
+              card.style.position = 'relative';
+              const img = document.createElement('img');
+              img.src = e.thumbnailBase64 || e.thumbnail || '/assets/placeholder.png';
+              img.alt = e.title || gal.brandName || 'Photo';
+              img.style.width = '100%';
+              img.style.height = '100%';
+              img.style.objectFit = 'cover';
+              card.appendChild(img);
+              const overlay = document.createElement('div');
+              overlay.className = 'reel-overlay';
+              overlay.style.position = 'absolute';
+              overlay.style.left = '12px';
+              overlay.style.bottom = '12px';
+              overlay.style.color = 'white';
+              overlay.style.textShadow = '0 6px 18px rgba(0,0,0,0.6)';
+              overlay.innerHTML = '<div style="font-weight:700;font-size:16px">' + (e.title || '') + '</div>';
+              card.appendChild(overlay);
+              a.appendChild(card);
+              div.appendChild(a);
+            });
+
+            grid.appendChild(headerEl);
+            grid.appendChild(div);
+          });
+
+          // Minimal styles for slider container to enable horizontal scrolling on small screens
+          const style = document.createElement('style');
+          style.innerHTML = `
+            .reels-slider { display:flex; gap:20px; align-items:center; justify-content:flex-start; padding:24px 0; overflow-x:auto; }
+            .reel-card.center { transform: rotate(0deg) scale(1.02); z-index:30; }
+            .reel-card.left { transform: rotate(-12deg) translateY(12px); z-index:20; }
+            .reel-card.right { transform: rotate(12deg) translateY(12px); z-index:20; }
+            @media (max-width:768px) { .reels-slider { padding:16px; } .reel-card { flex:0 0 66vw; height:300px } }
+          `;
+          document.head.appendChild(style);
+
+        } catch (e) {
+          console.error('Failed to load photo galleries', e);
+        }
+      }
+
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(loadPhotoGalleries, 300);
+      } else {
+        document.addEventListener('DOMContentLoaded', loadPhotoGalleries);
+      }
+    </script>
+  </body>
+</html>
