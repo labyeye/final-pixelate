@@ -22,6 +22,7 @@
     <meta name="robots" content="index, follow, max-snippet:-1" />
 
     <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link href="contact.css" rel="stylesheet" type="text/css" />
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link
@@ -96,224 +97,7 @@
       }
     </script>
 
-    <style>
-      .back-to-home-button {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        padding: 12px 24px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 100px;
-        text-decoration: none;
-        color: var(--white);
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        position: absolute;
-        top: 40px;
-        left: 40px;
-        z-index: 100;
-      }
-      .back-to-home-button:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        transform: scale(1.05);
-      }
-      .back-arrow {
-        width: 20px;
-        height: 20px;
-        filter: invert(1);
-      }
-      .contact-top {
-        padding-top: 0px;
-      }
-
-      /* Contact Page New Layout */
-      .contact-bottom {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        gap: 3rem;
-        align-items: start;
-      }
-
-      /* Contact Cards Section */
-      .contact-cards {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-
-      .contact-card {
-        background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
-        border: 2px solid #222;
-        border-radius: 15px;
-        padding: 1.5rem;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: flex-start;
-        gap: 1rem;
-      }
-
-      .contact-card:hover {
-        border-color: #e65100;
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(230, 81, 0, 0.2);
-      }
-
-      .contact-card-icon {
-        font-size: 2rem;
-        background: linear-gradient(135deg, #e65100 0%, #ff6b35 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        flex-shrink: 0;
-        
-      }
-
-      .contact-card-content {
-        flex: 1;
-      }
-
-      .contact-card-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #fff;
-        margin-bottom: 0.5rem;
-      }
-
-      .contact-card-text {
-        font-size: 0.95rem;
-        color: #9ca3af;
-        line-height: 1.6;
-      }
-
-      .contact-card-text a {
-        color: #e65100;
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
-
-      .contact-card-text a:hover {
-        color: #ff6b35;
-        text-decoration: underline;
-      }
-
-      .social-links {
-        display: flex;
-        gap: 1rem;
-        margin-top: 0.75rem;
-      }
-
-      .social-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: #0a0a0a;
-        border: 1px solid #222;
-        border-radius: 10px;
-        color: #e65100;
-        text-decoration: none;
-        font-size: 1.2rem;
-        transition: all 0.3s ease;
-      }
-
-      .social-link:hover {
-        background: #e65100;
-        color: white;
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(230, 81, 0, 0.3);
-      }
-
-      /* Contact form improvements */
-      .contact .contact-form-wrap {
-        width: 100%;
-        max-width: none;
-      }
-
-      .contact-form-wrap .form-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
-
-      .contact-form-wrap .form-field {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .contact-form-wrap .text-field-v5,
-      .contact-form-wrap textarea,
-      .contact-form-wrap select {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 14px 16px;
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        background-color: rgba(255, 255, 255, 0.03);
-        color: var(--white);
-        font-size: 16px;
-        outline: none;
-        transition: box-shadow 0.18s ease, transform 0.12s ease;
-      }
-
-      .contact-form-wrap .text-field-v5:focus,
-      .contact-form-wrap textarea:focus,
-      .contact-form-wrap select:focus {
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
-        transform: translateY(-1px);
-        border-color: rgba(255, 255, 255, 0.18);
-      }
-
-      .contact-form-wrap .form-actions {
-        display: flex;
-        justify-content: flex-end;
-      }
-
-      .form-submit-button {
-        padding: 12px 28px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, #ff7a18, #ff4e50);
-        border: none;
-        color: white;
-        font-weight: 600;
-        cursor: pointer;
-        box-shadow: 0 8px 24px rgba(255, 78, 80, 0.14);
-        transition: transform 0.16s ease, box-shadow 0.16s ease;
-      }
-
-      .form-submit-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 30px rgba(255, 78, 80, 0.18);
-      }
-
-      @media screen and (max-width: 991px) {
-        .contact-bottom {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-      }
-
-      @media screen and (max-width: 767px) {
-        .back-to-home-button {
-          top: 20px;
-          left: 20px;
-          padding: 10px 20px;
-        }
-        .contact-top {
-          padding-top: 100px;
-        }
-        .contact-form-wrap .form-grid {
-          grid-template-columns: 1fr;
-        }
-        .contact-form-wrap .form-actions {
-          justify-content: stretch;
-        }
-        .form-submit-button {
-          width: 100%;
-        }
-      }
-    </style>
+    <!-- moved styles into contact.css -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-T64KPYDX6P"
@@ -371,63 +155,7 @@
       <div class="announcement-content" id="announcement-content"></div>
     </div>
 
-    <style>
-      .announcement-bar {
-        background: linear-gradient(90deg, #da4900 0%, black 100%);
-        background-size: 200% 100%;
-        animation: gradient-shift 3s ease infinite;
-        color: white;
-        padding: 12px 0;
-        text-align: center;
-        font-weight: 600;
-        font-size: 14px;
-        position: relative;
-        z-index: 1000;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .announcement-content {
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-        animation: scroll-announcement 30s linear infinite;
-      }
-
-      .announcement-content span {
-        display: inline-block;
-        padding: 0 50px;
-      }
-
-      @keyframes gradient-shift {
-        0%,
-        100% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-      }
-
-      @keyframes scroll-announcement {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .announcement-bar {
-          font-size: 12px;
-          padding: 10px 0;
-        }
-        .announcement-content span {
-          padding: 0 30px;
-        }
-      }
-    </style>
+    <!-- announcement styles moved to contact.css -->
 
     <script>
       (async function loadAnnouncement() {
@@ -616,7 +344,7 @@
                   creator wanting professional video production, we're here to
                   help transform your vision into reality.
                 </p>
-                <p class="p-text-01 text-white-60" style="margin-top: 1rem">
+                <p class="p-text-01 text-white-60 mt-1rem">
                   Our dedicated team responds to all inquiries within 24 hours
                   and offers free initial consultations to discuss your project
                   goals, timeline, and budget. We pride ourselves on transparent
@@ -722,13 +450,7 @@
 
               <!-- Contact Form -->
               <div class="contact-form-section">
-                <h2
-                  style="
-                    color: #fb8a02;
-                    font-size: 1.75rem;
-                    margin-bottom: 1.5rem;
-                  "
-                >
+                <h2 class="contact-form-heading">
                   Get in Touch
                 </h2>
                 <div class="contact-form w-form">
@@ -802,7 +524,7 @@
                         required=""
                       />
                     </div>
-                    <div class="form-field" style="grid-column: 1 / -1">
+                    <div class="form-field full-span">
                       <label for="field" class="form-label">Project Type</label>
                       <select
                         id="field"
@@ -837,7 +559,7 @@
                         id="budget"
                       />
                     </div>
-                    <div class="form-field" style="grid-column: 1 / -1">
+                    <div class="form-field full-span">
                       <label for="Message" class="form-label"
                         >Message (Optional)</label
                       >
@@ -851,8 +573,7 @@
                       ></textarea>
                     </div>
                     <div
-                      class="form-field form-actions"
-                      style="grid-column: 1 / -1"
+                      class="form-field form-actions full-span"
                     >
                       <input
                         type="submit"
@@ -901,29 +622,19 @@
                   <p class="p-text-03">
                     Creative Digital Experiences That Build Your Brand.
                   </p>
-                  <div style="margin-top: 20px">
-                    <p class="p-text-03" style="margin-bottom: 8px">
+                  <div class="mt-20">
+                    <p class="p-text-03 mb-8">
                       <strong>Contact Us</strong>
                     </p>
-                    <p
-                      class="p-text-03 text-white-60"
-                      style="margin-bottom: 5px"
-                    >
-                      <i class="fas fa-envelope" style="margin-right: 8px"></i>
+                    <p class="p-text-03 text-white-60 mb-5">
+                      <i class="fas fa-envelope mr-8"></i>
                       pixelatenest@gmail.com
                     </p>
-                    <p
-                      class="p-text-03 text-white-60"
-                      style="margin-bottom: 5px"
-                    >
-                      <i class="fas fa-phone" style="margin-right: 8px"></i> +91
-                      9234112345
+                    <p class="p-text-03 text-white-60 mb-5">
+                      <i class="fas fa-phone mr-8"></i> +91 9234112345
                     </p>
                     <p class="p-text-03 text-white-60">
-                      <i
-                        class="fas fa-map-marker-alt"
-                        style="margin-right: 8px"
-                      ></i>
+                      <i class="fas fa-map-marker-alt mr-8"></i>
                       Bangalore, Karnataka, India
                     </p>
                   </div>
@@ -1077,7 +788,7 @@
               <div class="vertical-divider"></div>
               <div class="footer-bottom-wrap">
                 <div class="p-text-03 text-white-60">
-                  © 2025 Pixelate Nest. All Rights Reserved. | Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i>
+                  © 2025 Pixelate Nest. All Rights Reserved. | Crafted with <i class="fas fa-heart heart-red"></i>
                   in India
                 </div>
 
