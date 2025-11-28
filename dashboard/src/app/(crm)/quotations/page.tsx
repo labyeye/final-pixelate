@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import jsPDF from "jspdf";
 import { Button } from "@/components/ui/button";
 import type { Quotation, Project } from "@/lib/data";
 import { cn } from "@/lib/utils";
-import { AddQuotationDialog } from "@/components/quotations/add-quotation-dialog";
+// Quick quotation dialog removed per request
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -27,7 +28,13 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 // This is a global state hack for demo purposes.
 if (typeof window !== "undefined" && !(window as any).__projectsStore) {
@@ -35,10 +42,10 @@ if (typeof window !== "undefined" && !(window as any).__projectsStore) {
 }
 
 export default function QuotationsPage() {
+  const router = useRouter();
   const [quotations, setQuotations] = useState<Quotation[]>([]);
   const [clientsMap, setClientsMap] = useState<Record<string, any>>({});
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [editingQuote, setEditingQuote] = useState<Quotation | null>(null);
+
   const { toast } = useToast();
   const { user } = useAuth();
 
@@ -78,53 +85,6 @@ export default function QuotationsPage() {
     };
   }, []);
 
-  const addQuotation = async (newQuoteData: any) => {
-    if (!user) return;
-    try {
-      const token = localStorage.getItem("auth_token") || "";
-      // If editing an existing quotation (editingQuote set), call PUT
-      if (editingQuote) {
-        const editId = (editingQuote as any).id || (editingQuote as any)._id;
-        const res = await fetch("/api/quotations/" + editId, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            ...(token ? { Authorization: "Bearer " + token } : {}),
-          },
-          body: JSON.stringify(newQuoteData),
-        });
-        if (!res.ok) throw new Error("Failed to update quotation");
-        const updated = await res.json();
-        setQuotations((prev) => prev.map((q) => ((q.id && updated.id && q.id === updated.id) || (q._id && updated._id && String(q._id) === String(updated._id))) ? updated : q));
-        setEditingQuote(null);
-        toast({ title: "Quotation updated", description: "Quotation saved." });
-      } else {
-        const res = await fetch("/api/quotations", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            ...(token ? { Authorization: "Bearer " + token } : {}),
-          },
-          body: JSON.stringify({
-            ...newQuoteData,
-            status: "PENDING",
-            authorId: user.id,
-          }),
-        });
-        if (!res.ok) throw new Error("Failed to create quotation");
-        const created = await res.json();
-        setQuotations((prev) => [created, ...prev]);
-        toast({
-          title: "Quotation created",
-          description: "Quotation saved to server.",
-        });
-      }
-    } catch (e) {
-      console.error("Failed to create quotation", e);
-      toast({ title: "Failed", description: "Could not create quotation" });
-    }
-  };
-
   // Persist a status change to the server and update local state
   const persistStatus = async (quote: Quotation, newStatus: string) => {
     const token = localStorage.getItem("auth_token") || "";
@@ -132,20 +92,34 @@ export default function QuotationsPage() {
       const id = (quote as any).id || (quote as any)._id;
       if (!id) throw new Error("No id to update");
       const res = await fetch(`/api/quotations/${id}`, {
-        method: 'PUT',
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
         body: JSON.stringify({ ...quote, status: newStatus }),
       });
-      if (!res.ok) throw new Error('Failed to update status');
+      if (!res.ok) throw new Error("Failed to update status");
       const updated = await res.json();
-      setQuotations((prev) => prev.map((q) => ((q as any).id && (updated as any).id && (q as any).id === (updated as any).id) || ((q as any)._id && (updated as any)._id && String((q as any)._id) === String((updated as any)._id)) ? updated : q));
-      toast({ title: 'Updated', description: 'Quotation status saved.' });
+      setQuotations((prev) =>
+        prev.map((q) =>
+          ((q as any).id &&
+            (updated as any).id &&
+            (q as any).id === (updated as any).id) ||
+          ((q as any)._id &&
+            (updated as any)._id &&
+            String((q as any)._id) === String((updated as any)._id))
+            ? updated
+            : q
+        )
+      );
+      toast({ title: "Updated", description: "Quotation status saved." });
     } catch (err: any) {
-      console.error('Failed to persist status', err);
-      toast({ title: 'Failed', description: err?.message || 'Could not update status' });
+      console.error("Failed to persist status", err);
+      toast({
+        title: "Failed",
+        description: err?.message || "Could not update status",
+      });
     }
   };
 
@@ -358,30 +332,31 @@ export default function QuotationsPage() {
             Create, send, and track client quotations.
           </p>
         </div>
-        <AddQuotationDialog
-          isOpen={isDialogOpen}
-          setIsOpen={(v) => {
-            setIsDialogOpen(v);
-            if (!v) setEditingQuote(null);
-          }}
-          onAddQuotation={addQuotation}
-          initialValues={editingQuote || undefined}
-        >
-          <Button size="lg" className="text-lg">
-            New Quotation
+        <div className="flex gap-2">
+          <Button
+            size="lg"
+            className="text-lg bg-[#F36F21] hover:bg-[#d85e1a]"
+            onClick={() => router.push("/quotations/create")}
+          >
+            New Professional Quotation
           </Button>
-        </AddQuotationDialog>
+          {/* Quick Quotation removed — professional flow only */}
+        </div>
       </header>
 
-      <div className="border-2 border-black">
+      <div className="border-2 border-black rounded-lg overflow-hidden">
         <Table>
           <TableHeader>
-            <TableRow className="border-b-2 border-black">
-              <TableHead className="text-base font-bold">Details</TableHead>
+            <TableRow className="border-b-2 border-black bg-gray-50">
+              <TableHead className="text-base font-bold">
+                Quote ID / Title
+              </TableHead>
               <TableHead className="text-base font-bold">Client</TableHead>
+              <TableHead className="text-base font-bold">Date</TableHead>
               <TableHead className="text-base font-bold">Services</TableHead>
+              <TableHead className="text-base font-bold">Modules</TableHead>
               <TableHead className="text-base font-bold text-right">
-                Amount
+                Total Amount
               </TableHead>
               <TableHead className="text-base font-bold text-center">
                 Status
@@ -392,137 +367,270 @@ export default function QuotationsPage() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {quotations.map((quote, idx) => (
-              <TableRow
-                key={quote._id ?? quote.id ?? idx}
-                className="border-b-2 border-black last:border-b-0"
-              >
-                <TableCell className="py-4">
-                  <div className="font-bold text-base">
-                    {quote.id ||
-                      (quote._id
-                        ? `PN-${String(idx + 1).padStart(5, "0")}`
-                        : "PN-00001")}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    by {getAuthorName(quote.authorId)}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    {quote.deliveryDate
-                      ? new Date(quote.deliveryDate).toLocaleDateString()
-                      : ""}
-                  </div>
-                </TableCell>
-                <TableCell className="text-base py-4 font-bold">
-                  {(quote.clientId &&
-                    clientsMap[String(quote.clientId)]?.name) ||
-                    quote.clientName ||
-                    "Client"}
-                </TableCell>
-                <TableCell className="text-base py-4">
-                  <div className="flex flex-wrap gap-1">
-                    {(quote.services ?? []).map((s, sidx) => (
-                      <Badge key={`${String(s.id ?? s.name ?? 'service')}-${sidx}`} variant="secondary">
-                        {s.name}
-                      </Badge>
-                    ))}
-                  </div>
-                </TableCell>
-                <TableCell className="text-right font-bold text-base py-4">
-                  {formatCurrency((quote.amount ?? 0) - (quote.discount ?? 0))}
-                </TableCell>
-                <TableCell className="text-center py-4">
-                  <Select value={quote.status} onValueChange={(v) => {
-                    // update locally by matching id (avoid reference equality issues)
-                    setQuotations((prev) => prev.map((q) => {
-                      const same = (q as any)._id && (quote as any)._id ? String((q as any)._id) === String((quote as any)._id) : (q as any).id && (quote as any).id ? (q as any).id === (quote as any).id : false;
-                      return same ? { ...q, status: v as any } : q;
-                    }));
-                    // persist to server
-                    persistStatus(quote, v);
-                  }}>
-                    <SelectTrigger className={cn("h-10 px-3", quote.status === "APPROVED" && "bg-success text-success-foreground", quote.status === "REJECTED" && "bg-destructive text-destructive-foreground", quote.status === "PENDING" && "bg-accent text-accent-foreground")}>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="PENDING">PENDING</SelectItem>
-                      <SelectItem value="APPROVED">APPROVED</SelectItem>
-                      <SelectItem value="REJECTED">REJECTED</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </TableCell>
-                <TableCell className="text-right py-4">
-                  <div className="flex items-center justify-end gap-2">
-                    {quote.status === "PENDING" && (
-                      <>
-                        {quote.id && (
-                          <>
-                            <Button
-                              size="sm"
-                              variant="destructive"
-                              onClick={() =>
-                                updateStatus(quote.id as string, "REJECTED")
-                              }
-                            >
-                              REJECT
-                            </Button>
-                            <Button
-                              size="sm"
-                              className="bg-success text-success-foreground hover:bg-success/90"
-                              onClick={() =>
-                                updateStatus(quote.id as string, "APPROVED")
-                              }
-                            >
-                              APPROVE
-                            </Button>
-                          </>
-                        )}
-                      </>
-                    )}
-                    {quote.status === "APPROVED" && (
-                      <Button
-                        size="sm"
-                        onClick={() => createProjectFromQuote(quote)}
-                      >
-                        CREATE PROJECT
-                      </Button>
-                    )}
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
-                          <MoreVertical className="h-5 w-5" />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuItem
-                          onClick={() => {
-                            setEditingQuote(quote);
-                            setIsDialogOpen(true);
-                          }}
-                        >
-                          Edit
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          onClick={() => generatePdf(quote)}
-                          className="font-bold"
-                        >
-                          <Download className="mr-2 h-4 w-4" />
-                          Download PDF
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          onClick={() =>
-                            quote.id && deleteQuotation(quote.id as string)
-                          }
-                          className="text-destructive font-bold"
-                        >
-                          Delete
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </div>
+            {quotations.length === 0 ? (
+              <TableRow>
+                <TableCell
+                  colSpan={8}
+                  className="text-center py-10 text-muted-foreground"
+                >
+                  No quotations found. Create your first quotation to get
+                  started.
                 </TableCell>
               </TableRow>
-            ))}
+            ) : (
+              quotations.map((quote, idx) => {
+                // Calculate total from services if available.
+                // Support multiple possible service shapes: { amount }, { total }, or { price, qty }
+                const servicesTotal = (quote.services || []).reduce(
+                  (sum: number, item: any) => {
+                    const fromAmount = Number(item?.amount ?? NaN);
+                    const fromTotal = Number(item?.total ?? NaN);
+                    const fromPriceQty =
+                      item?.price && item?.qty
+                        ? Number(item.price) * Number(item.qty)
+                        : NaN;
+                    const fromUnitPriceQty =
+                      item?.unitPrice && item?.qty
+                        ? Number(item.unitPrice) * Number(item.qty)
+                        : NaN;
+                    const val =
+                      Number.isFinite(fromAmount) && !Number.isNaN(fromAmount)
+                        ? fromAmount
+                        : Number.isFinite(fromTotal) && !Number.isNaN(fromTotal)
+                        ? fromTotal
+                        : Number.isFinite(fromPriceQty) &&
+                          !Number.isNaN(fromPriceQty)
+                        ? fromPriceQty
+                        : Number.isFinite(fromUnitPriceQty) &&
+                          !Number.isNaN(fromUnitPriceQty)
+                        ? fromUnitPriceQty
+                        : 0;
+                    return sum + val;
+                  },
+                  0
+                );
+                const totalAmount = servicesTotal || quote.amount || 0;
+
+                return (
+                  <TableRow
+                    key={quote._id ?? quote.id ?? idx}
+                    className="border-b border-gray-200 last:border-b-0 hover:bg-orange-50 transition-colors"
+                  >
+                    <TableCell className="py-4 max-w-xs">
+                      <div className="font-bold text-base text-[#F36F21]">
+                        {(quote as any).quoteId ||
+                          quote.id ||
+                          `PN-${String(idx + 1).padStart(5, "0")}`}
+                      </div>
+                      <div className="text-sm font-semibold text-gray-900 mt-1 truncate">
+                        {(quote as any).title || "Untitled Project"}
+                      </div>
+                      {(quote as any).subtitle && (
+                        <div className="text-xs text-gray-600 mt-0.5 truncate">
+                          {(quote as any).subtitle}
+                        </div>
+                      )}
+                    </TableCell>
+
+                    <TableCell className="py-4">
+                      <div className="font-bold text-gray-900">
+                        {(quote.clientId &&
+                          clientsMap[String(quote.clientId)]?.businessName) ||
+                          (quote.clientId &&
+                            clientsMap[String(quote.clientId)]?.name) ||
+                          quote.clientName ||
+                          "Client"}
+                      </div>
+                      {quote.clientId &&
+                        clientsMap[String(quote.clientId)]?.email && (
+                          <div className="text-xs text-gray-600 mt-0.5">
+                            {clientsMap[String(quote.clientId)].email}
+                          </div>
+                        )}
+                    </TableCell>
+
+                    <TableCell className="py-4">
+                      <div className="text-sm text-gray-900">
+                        {(quote as any).date
+                          ? new Date((quote as any).date).toLocaleDateString(
+                              "en-GB",
+                              {
+                                day: "2-digit",
+                                month: "short",
+                                year: "numeric",
+                              }
+                            )
+                          : "N/A"}
+                      </div>
+                    </TableCell>
+
+                    <TableCell className="py-4 max-w-xs">
+                      <div className="flex flex-wrap gap-1">
+                        {quote.services && quote.services.length > 0 ? (
+                          quote.services
+                            .slice(0, 3)
+                            .map((s: any, sidx: number) => (
+                              <Badge
+                                key={`${String(
+                                  s._id ?? s.id ?? s.serviceName ?? "service"
+                                )}-${sidx}`}
+                                variant="secondary"
+                                className="text-xs"
+                              >
+                                {s.serviceName || s.name || "Service"}
+                              </Badge>
+                            ))
+                        ) : (
+                          <span className="text-xs text-gray-500">
+                            No services
+                          </span>
+                        )}
+                        {quote.services && quote.services.length > 3 && (
+                          <Badge variant="outline" className="text-xs">
+                            +{quote.services.length - 3} more
+                          </Badge>
+                        )}
+                      </div>
+                    </TableCell>
+
+                    <TableCell className="py-4 max-w-xs">
+                      <div className="flex flex-wrap gap-1">
+                        {(quote as any).modules &&
+                        (quote as any).modules.length > 0 ? (
+                          (quote as any).modules
+                            .slice(0, 2)
+                            .map((m: any, midx: number) => (
+                              <Badge
+                                key={`${String(
+                                  m._id ?? m.id ?? m.moduleName ?? "module"
+                                )}-${midx}`}
+                                variant="outline"
+                                className="text-xs"
+                              >
+                                {m.moduleName || "Module"}
+                              </Badge>
+                            ))
+                        ) : (
+                          <span className="text-xs text-gray-500">
+                            No modules
+                          </span>
+                        )}
+                        {(quote as any).modules &&
+                          (quote as any).modules.length > 2 && (
+                            <Badge variant="outline" className="text-xs">
+                              +{(quote as any).modules.length - 2}
+                            </Badge>
+                          )}
+                      </div>
+                    </TableCell>
+
+                    <TableCell className="text-right font-bold text-base py-4">
+                      {formatCurrency(totalAmount)}
+                    </TableCell>
+
+                    <TableCell className="text-center py-4">
+                      <Select
+                        value={quote.status || "PENDING"}
+                        onValueChange={(v) => {
+                          setQuotations((prev) =>
+                            prev.map((q) => {
+                              const same =
+                                (q as any)._id && (quote as any)._id
+                                  ? String((q as any)._id) ===
+                                    String((quote as any)._id)
+                                  : (q as any).id && (quote as any).id
+                                  ? (q as any).id === (quote as any).id
+                                  : false;
+                              return same ? { ...q, status: v as any } : q;
+                            })
+                          );
+                          persistStatus(quote, v);
+                        }}
+                      >
+                        <SelectTrigger
+                          className={cn(
+                            "h-9 px-3 font-semibold text-xs w-[110px]",
+                            quote.status === "APPROVED" &&
+                              "bg-green-100 text-green-800 border-green-300",
+                            quote.status === "REJECTED" &&
+                              "bg-red-100 text-red-800 border-red-300",
+                            (!quote.status || quote.status === "PENDING") &&
+                              "bg-yellow-100 text-yellow-800 border-yellow-300"
+                          )}
+                        >
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="PENDING">PENDING</SelectItem>
+                          <SelectItem value="APPROVED">APPROVED</SelectItem>
+                          <SelectItem value="REJECTED">REJECTED</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </TableCell>
+
+                    <TableCell className="text-right py-4">
+                      <div className="flex items-center justify-end gap-2">
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="h-8"
+                          onClick={() =>
+                            router.push(
+                              `/quotations/${
+                                (quote as any)._id || (quote as any).id
+                              }/view`
+                            )
+                          }
+                        >
+                          View
+                        </Button>
+
+                        {quote.status === "APPROVED" && (
+                          <Button
+                            size="sm"
+                            className="bg-[#F36F21] hover:bg-[#d85e1a] h-8"
+                            onClick={() => createProjectFromQuote(quote)}
+                          >
+                            Create Project
+                          </Button>
+                        )}
+
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="h-8 w-8"
+                            >
+                              <MoreVertical className="h-4 w-4" />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuItem
+                              onClick={() => {
+                                const id =
+                                  (quote as any)._id || (quote as any).id;
+                                if (
+                                  id &&
+                                  confirm(
+                                    "Are you sure you want to delete this quotation?"
+                                  )
+                                ) {
+                                  deleteQuotation(String(id));
+                                }
+                              }}
+                              className="text-destructive font-semibold"
+                            >
+                              Delete
+                            </DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                );
+              })
+            )}
           </TableBody>
         </Table>
       </div>

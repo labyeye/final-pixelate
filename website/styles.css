@@ -11709,8 +11709,6 @@
       /* This value matches your card's border-radius */
       overflow: hidden;
 
-      /* This line helps ensure the rounding is applied smoothly in all browsers */
-      -webkit-mask-image: -webkit-radial-gradient(white, black);
     }
 
     .rounded-image {
