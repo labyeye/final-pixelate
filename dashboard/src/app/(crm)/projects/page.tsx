@@ -58,10 +58,7 @@ export default function ProjectsPage() {
         <h1 className="text-5xl font-black tracking-tighter">PROJECTS</h1>
         <p className="text-muted-foreground text-lg">An overview of all active and completed projects.</p>
       </header>
-
-      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-        {/* Add Project card */}
-        <Card className="border-2 border-black">
+      <Card className="border-2 border-black">
           <CardHeader>
             <CardTitle className="text-2xl font-black tracking-tighter">Add Project</CardTitle>
           </CardHeader>
@@ -84,6 +81,10 @@ export default function ProjectsPage() {
             />
           </CardContent>
         </Card>
+
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {/* Add Project card */}
+        
         {projects.map((project) => (
           <Card key={project.id} className="flex flex-col border-4 border-black relative">
             {project.status === 'COMPLETED' && (
