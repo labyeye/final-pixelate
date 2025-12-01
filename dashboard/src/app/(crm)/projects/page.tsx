@@ -59,7 +59,7 @@ export default function ProjectsPage() {
         <p className="text-muted-foreground text-lg">An overview of all active and completed projects.</p>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {/* Add Project card */}
         <Card className="border-2 border-black">
           <CardHeader>
@@ -170,102 +170,7 @@ export default function ProjectsPage() {
           </Card>
         ))}
       </div>
-        <div className="grid grid-cols-1 gap-6">
-          <div>
-            <Card className="border-2 border-black">
-              <CardHeader>
-                <CardTitle className="text-2xl font-black tracking-tighter">Add Project</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <AddProjectForm
-                  clients={clients}
-                  services={services}
-                  teamMembers={teamMembers}
-                  initialValues={editing}
-                  editingId={editing ? (editing._id ?? editing.id) : null}
-                  onCreate={(p) => {
-                    if (editing) {
-                      setProjects(prev => prev.map(pr => (pr._id ?? pr.id) === (editing._id ?? editing.id) ? p : pr));
-                      setEditing(null);
-                    } else {
-                      setProjects(prev => [p, ...prev]);
-                    }
-                  }}
-                />
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="border-2 border-black">
-            <table className="min-w-full border-collapse">
-              <thead>
-                <tr className="border-b-2 border-black">
-                  <th className="text-left p-3 font-bold">Title</th>
-                  <th className="text-left p-3 font-bold">Client</th>
-                  <th className="text-left p-3 font-bold">Progress</th>
-                  <th className="text-left p-3 font-bold">Amount</th>
-                  <th className="text-left p-3 font-bold">Status</th>
-                  <th className="text-right p-3 font-bold">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {projects.map(project => (
-                  <tr key={project._id ?? project.id} className="border-b-2 border-black">
-                    <td className="p-3 align-top">
-                      <div className="text-lg font-bold">{project.title}</div>
-                      <div className="text-sm text-muted-foreground">{project.description}</div>
-                    </td>
-                    <td className="p-3 align-top">{project.client}</td>
-                    <td className="p-3 align-top">
-                      <div className="text-sm">{project.progress}%</div>
-                      <Progress value={project.progress} />
-                    </td>
-                    <td className="p-3 align-top">₹{(project.amount ?? 0).toLocaleString()}</td>
-                    <td className="p-3 align-top">{project.status}</td>
-                    <td className="p-3 align-top text-right">
-                      <div className="flex gap-2 justify-end">
-                        <Button variant="ghost" onClick={async () => {
-                          try {
-                            const res = await fetch(`/api/projects/${project._id ?? project.id}`);
-                            if (!res.ok) throw new Error('Failed to fetch project');
-                            const data = await res.json();
-                            setEditing({ ...data, id: data._id ? String(data._id) : data.id });
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                          } catch (err) { console.error(err); }
-                        }}>Edit</Button>
-                        {project.status !== 'COMPLETED' && (
-                          <Button variant="secondary" onClick={async () => {
-                            try {
-                              const id = project._id ?? project.id;
-                              const res = await fetch(`/api/projects/${id}`, { method: 'PUT', body: JSON.stringify({ status: 'COMPLETED' }), headers: { 'Content-Type': 'application/json' } });
-                              if (!res.ok) throw new Error('Failed to mark complete');
-                              const updated = await res.json();
-                              setProjects(prev => prev.map(p => (p._id ?? p.id) === id ? updated : p));
-                              try {
-                                const invoicesRes = await fetch('/api/invoices');
-                                const invoicesData = invoicesRes.ok ? await invoicesRes.json() : [];
-                                window.dispatchEvent(new CustomEvent('data:changed', { detail: { type: 'invoices', invoices: invoicesData } }));
-                              } catch(e) { /* ignore */ }
-                            } catch (err) { console.error(err); }
-                          }}>Mark as Complete</Button>
-                        )}
-                        <Button variant="destructive" onClick={async () => {
-                          if (!confirm('Delete this project?')) return;
-                          try {
-                            const id = project._id ?? project.id;
-                            const res = await fetch(`/api/projects/${id}`, { method: 'DELETE' });
-                            if (!res.ok) throw new Error('Delete failed');
-                            setProjects(prev => prev.filter(p => (p._id ?? p.id) !== id));
-                          } catch (err) { console.error(err); }
-                        }}>Delete</Button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+        
     </div>
   );
 }
