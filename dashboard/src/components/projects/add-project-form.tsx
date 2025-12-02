@@ -95,7 +95,7 @@ export default function AddProjectForm({ clients, services, teamMembers, onCreat
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleCreate)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(handleCreate)} className="space-y-4 grid grid-cols-2 gap-4">
         <FormField name="clientId" control={form.control} render={({ field }) => (
           <FormItem>
             <FormLabel>Client</FormLabel>
