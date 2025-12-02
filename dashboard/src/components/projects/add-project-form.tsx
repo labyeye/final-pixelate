@@ -161,7 +161,7 @@ export default function AddProjectForm({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleCreate)} className="space-y-4">
-        <div className="space-y-4 grid grid-cols-12">
+        <div className="space-y-4 grid grid-cols-2">
           <FormField
             name="clientId"
             control={form.control}
@@ -393,79 +393,83 @@ export default function AddProjectForm({
 
         <div className="grid grid-cols-3 gap-4">
           <FormField
-          name="brandLogo"
-          control={form.control}
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Brand Logo (optional)</FormLabel>
-              <FormControl>
-                <div>
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => {
-                      const f = e.target.files?.[0];
-                      if (!f) return;
-                      const reader = new FileReader();
-                      reader.onload = () => {
-                        field.onChange(String(reader.result));
-                      };
-                      reader.readAsDataURL(f);
-                    }}
+            name="brandLogo"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Brand Logo (optional)</FormLabel>
+                <FormControl>
+                  <div>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => {
+                        const f = e.target.files?.[0];
+                        if (!f) return;
+                        const reader = new FileReader();
+                        reader.onload = () => {
+                          field.onChange(String(reader.result));
+                        };
+                        reader.readAsDataURL(f);
+                      }}
+                    />
+                    {field.value && (
+                      <div className="mt-2">
+                        <img
+                          src={field.value}
+                          alt="logo"
+                          className="h-12 w-12 object-contain"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            name="progress"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Progress (%)</FormLabel>
+                <FormControl>
+                  <Input
+                    type="number"
+                    value={field.value ?? 0}
+                    onChange={(e) =>
+                      field.onChange(Number(e.target.value || 0))
+                    }
+                    min={0}
+                    max={100}
                   />
-                  {field.value && (
-                    <div className="mt-2">
-                      <img
-                        src={field.value}
-                        alt="logo"
-                        className="h-12 w-12 object-contain"
-                      />
-                    </div>
-                  )}
-                </div>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          name="progress"
-          control={form.control}
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Progress (%)</FormLabel>
-              <FormControl>
-                <Input
-                  type="number"
-                  value={field.value ?? 0}
-                  onChange={(e) => field.onChange(Number(e.target.value || 0))}
-                  min={0}
-                  max={100}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          name="amount"
-          control={form.control}
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Project Amount (₹)</FormLabel>
-              <FormControl>
-                <Input
-                  type="number"
-                  value={field.value ?? ""}
-                  onChange={(e) => field.onChange(Number(e.target.value || 0))}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          <FormField
+            name="amount"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Project Amount (₹)</FormLabel>
+                <FormControl>
+                  <Input
+                    type="number"
+                    value={field.value ?? ""}
+                    onChange={(e) =>
+                      field.onChange(Number(e.target.value || 0))
+                    }
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
 
         <Button type="submit" className="w-full">
