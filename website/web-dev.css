@@ -36,16 +36,6 @@
 }
 
 /* --- Portfolio Section --- */
-.portfolio-section {
-    padding-top: var(--_responsive---margin-160-px, 160px);
-    padding-bottom: var(--_responsive---margin-160-px, 160px);
-}
-
-.portfolio-top {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 80px;
-}
 
 .portfolio-grid {
     display: grid;
@@ -251,12 +241,6 @@
   background: var(--text-linear);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--grid-gap);
 }
 
 /* Use existing component classes instead of custom ones */

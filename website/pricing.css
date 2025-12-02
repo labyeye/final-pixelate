@@ -144,20 +144,6 @@
 }
 
 /* Add animation classes */
-.animate-intro {
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.animate-delay-1 {
-  animation-delay: 0.2s;
-}
-.animate-delay-2 {
-  animation-delay: 0.4s;
-}
-.animate-delay-3 {
-  animation-delay: 0.6s;
-}
 
 .hero-01-wrap .short-teg-wrap {
   animation: slideInFromTop 0.8s ease-out forwards;

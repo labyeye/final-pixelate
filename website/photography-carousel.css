@@ -54,22 +54,6 @@
     pointer-events: none;
     transition: background 220ms ease, opacity 220ms ease, transform 220ms ease;
 }
-.portfolio-overlay-inner {
-    width: 100%;
-    padding: 12px 14px;
-    box-sizing: border-box;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.65) 100%);
-    color: #fff;
-    transform: translateY(14px);
-    opacity: 0;
-    pointer-events: none;
-}
-.portfolio-card:hover .portfolio-overlay-inner,
-.portfolio-card.loaded .portfolio-overlay-inner {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-}
 .portfolio-title { font-weight: 600; font-size: 14px; }
 
 /* small interaction lift */
@@ -77,9 +61,6 @@
 
 /* filter UI */
 .filter-bar { display: inline-flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 6px; }
-.filter-pill { background:#f1f5f9; border:none; padding:6px 12px; border-radius:8px; color:#0b1220; cursor:pointer; font-weight:600; box-shadow:0 2px 6px rgba(2,6,23,0.06); }
-.filter-pill.active { background:#2b6cb0; color:#fff; box-shadow: 0 6px 18px rgba(43,108,176,0.18); }
-.filter-pill:focus { outline: 2px solid rgba(59,130,246,0.3); }
 
 /* sizes used by the gallery rendering (mirrors Gallery.tsx) */
 .size-large { height: 400px; }
