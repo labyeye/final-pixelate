@@ -17,6 +17,13 @@ import RecordPaymentDialog from "@/components/invoices/record-payment-dialog";
 import { InvoicePDF } from "@/components/invoices/invoice-pdf";
 import jsPDF from "jspdf";
 import { renderToString } from "react-dom/server";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 type Invoice = any;
 
@@ -26,6 +33,8 @@ export default function InvoicingPage() {
   const [services, setServices] = useState<any[]>([]);
   const [projects, setProjects] = useState<any[]>([]);
   const [downloading, setDownloading] = useState<Record<string, boolean>>({});
+  const [previewInvoice, setPreviewInvoice] = useState<any | null>(null);
+  const [previewLoading, setPreviewLoading] = useState(false);
 
   useEffect(() => {
     let mounted = true;
@@ -76,14 +85,43 @@ export default function InvoicingPage() {
   };
 
   const downloadInvoice = async (invoice: any) => {
+    // Open preview dialog instead of auto-saving
+    setPreviewInvoice(invoice);
+  };
+
+  const sanitizeFileName = (s: string) =>
+    String(s || "invoice")
+      .replace(/[^a-z0-9\-\_ ]/gi, "")
+      .trim()
+      .replace(/\s+/g, "-")
+      .slice(0, 120);
+
+  const generatePdfAndSave = async (invoice: any) => {
     const id = String(invoice._id ?? invoice.id ?? Date.now());
+    const clientName =
+      invoice.clientName ||
+      invoice.client ||
+      clients.find((c) => String(c.id ?? c._id) === String(invoice.clientId))
+        ?.name ||
+      "Client";
+    const namePart = sanitizeFileName(clientName);
+    const fileName = `Invoice-${namePart}-${id}.pdf`;
+
     try {
+      setPreviewLoading(true);
       setDownloading((prev) => ({ ...prev, [id]: true }));
-      const pdfContent = renderToString(<InvoicePDF invoice={invoice} />);
+      const pdfContent = renderToString(
+        <InvoicePDF
+          invoice={invoice}
+          client={clients.find(
+            (c) => String(c.id ?? c._id) === String(invoice.clientId)
+          )}
+        />
+      );
       const doc = new jsPDF();
       await doc.html(pdfContent, {
         callback: function (doc) {
-          doc.save(`Invoice-${id}.pdf`);
+          doc.save(fileName);
         },
         x: 10,
         y: 10,
@@ -93,11 +131,13 @@ export default function InvoicingPage() {
     } catch (e) {
       console.error("Failed to generate PDF", e);
     } finally {
+      setPreviewLoading(false);
       setDownloading((prev) => {
         const next = { ...prev };
         delete next[id];
         return next;
       });
+      setPreviewInvoice(null);
     }
   };
 
@@ -282,6 +322,45 @@ export default function InvoicingPage() {
           </TableBody>
         </Table>
       </div>
+      {/* Preview Dialog */}
+      <Dialog
+        open={!!previewInvoice}
+        onOpenChange={(open) => {
+          if (!open) setPreviewInvoice(null);
+        }}
+      >
+        <DialogContent className="max-w-4xl w-full">
+          <DialogHeader>
+            <DialogTitle>Invoice Preview</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 max-h-[70vh] overflow-auto border-t pt-4">
+            {previewInvoice ? (
+              <div className="p-4 bg-white">
+                <InvoicePDF
+                  invoice={previewInvoice}
+                  client={clients.find((c) => String(c.id ?? c._id) === String(previewInvoice.clientId))}
+                />
+              </div>
+            ) : (
+              <div className="p-4">No preview available</div>
+            )}
+          </div>
+          <DialogFooter>
+            <div className="flex gap-2">
+              <Button size="sm" onClick={() => setPreviewInvoice(null)}>
+                Close
+              </Button>
+              <Button
+                size="sm"
+                onClick={() => previewInvoice && generatePdfAndSave(previewInvoice)}
+                disabled={previewLoading}
+              >
+                {previewLoading ? "Preparing..." : "Download PDF"}
+              </Button>
+            </div>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

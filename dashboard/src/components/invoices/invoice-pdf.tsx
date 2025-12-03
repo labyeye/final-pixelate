@@ -48,7 +48,7 @@ export function InvoicePDF({
     if (!client && invoice?.clientId) {
       (async () => {
         try {
-          const res = await fetch(`/api/clients/${invoice.clientId}`);
+          const res = await fetch(`https://pixelatenest-crm.vercel.app/api/clients/${invoice.clientId}`);
           if (!mounted) return;
           if (res.ok) {
             const data = await res.json();
@@ -73,6 +73,17 @@ export function InvoicePDF({
   const discount = Number(invoice?.discount ?? 0) || 0;
   const tax = Number(invoice?.tax ?? 0) || 0;
   const total = subtotal - discount + tax;
+
+  const paidAmount = Number(invoice?.paidAmount ?? invoice?.paid ?? 0) || 0;
+  let status = "DUE";
+  let statusColor = "#e65200";
+  if (paidAmount >= total && total > 0) {
+    status = "PAID";
+    statusColor = "#16a34a"; // green
+  } else if (paidAmount > 0 && paidAmount < total) {
+    status = "PARTIAL";
+    statusColor = "#f59e0b"; // amber
+  }
 
   const effectiveClientName =
     client?.name || invoice?.clientName || invoice?.client || "Client";
@@ -128,7 +139,7 @@ export function InvoicePDF({
               Pixelate Nest
             </div>
             <div style={{ fontSize: 12, color: "#666", marginTop: 2 }}>
-              Kalahanu Enterprises Private Limited
+              Kalahanu Tech Studios
             </div>
           </div>
         </div>
@@ -141,7 +152,20 @@ export function InvoicePDF({
               color: "#e65200",
             }}
           >
-            INVOICE
+            TAX INVOICE
+          </div>
+          <div style={{ marginTop: 8, display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 12 }}>
+            <div style={{ display: "inline-block", padding: "6px 10px", borderRadius: 8, background: statusColor, color: "#fff", fontWeight: 800, fontSize: 12 }}>
+              {status}
+            </div>
+            <div style={{ fontSize: 11, color: "#666", marginTop: 0, textAlign: "right" }}>
+              <div>
+                <strong>Paid:</strong> {formatCurrency(paidAmount)}
+              </div>
+              <div>
+                <strong>Total:</strong> {formatCurrency(total)}
+              </div>
+            </div>
           </div>
           <div style={{ fontSize: 11, color: "#666", marginTop: 4 }}>
             <div>
@@ -498,28 +522,27 @@ export function InvoicePDF({
             Payment Info
           </div>
           <div style={{ fontSize: 11, color: "#666", lineHeight: 1.5 }}>
-            <div>Bank: State Bank of India</div>
+            <div>Bank: HDFC BANK PVT LTD</div>
             <div>A/C: 0000 1234 5678</div>
-            <div>Name: Kalahanu Enterprises</div>
-            <div>IFSC: SBIN0001234</div>
+            <div>Name: Kalahanu Tech Studios</div>
+            <div>IFSC: HDFC0001234</div>
           </div>
         </div>
 
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center",alignItems: "center" }}>
           <img
             src={typeof signImg === "string" ? signImg : (signImg as any).src}
             alt="Signature"
             style={{
-              width: 120,
-              height: "auto",
+              width: "180px",
+              height: "100px",
               objectFit: "contain",
-              marginBottom: 6,
             }}
           />
           <div
             style={{
               height: 1,
-              width: "80%",
+              width: "100%",
               backgroundColor: "#e65200",
               margin: "0 auto 6px",
               opacity: 0.5,
@@ -528,7 +551,7 @@ export function InvoicePDF({
           <div style={{ fontSize: 12, fontWeight: 700, color: "#333" }}>
             Labh Chandra Bothra
           </div>
-          <div style={{ fontSize: 11, color: "#666" }}>Founder & CEO</div>
+          <div style={{ fontSize: 11, color: "#666" }}>Co-Founder</div>
         </div>
 
         <div style={{ textAlign: "right" }}>
@@ -544,8 +567,8 @@ export function InvoicePDF({
             Contact
           </div>
           <div style={{ fontSize: 11, color: "#666", lineHeight: 1.5 }}>
-            <div>📧 contact@pixelatenest.com</div>
-            <div>📞 +91 9876543210</div>
+            <div>📧 support@pixelatenest.com</div>
+            <div>📞 +91 9234112345</div>
             <div>🌐 pixelatenest.com</div>
           </div>
         </div>
