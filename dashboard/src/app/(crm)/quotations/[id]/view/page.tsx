@@ -560,7 +560,7 @@ export default function QuotationViewPage() {
 
                   <div className="flex items-center gap-2">
                     <span className="text-gray-700 font-small">
-                      pixelatenest@gmail.com
+                      support@pixelatenest.com
                     </span>
                   </div>
                 </div>

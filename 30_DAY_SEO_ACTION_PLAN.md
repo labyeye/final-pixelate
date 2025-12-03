@@ -530,7 +530,7 @@ By Day 30, you should have:
 - Google it first
 - Check: Moz, Ahrefs, Search Engine Journal blogs
 - Ask in: r/SEO, r/webdev on Reddit
-- Email: pixelatenest@gmail.com (for internal team)
+- Email: support@pixelatenest.com (for internal team)
 
 ---
 

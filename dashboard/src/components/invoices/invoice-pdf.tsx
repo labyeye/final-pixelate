@@ -7,7 +7,11 @@ import { formatCurrency } from "@/lib/currency";
 function formatDate(value: any) {
   try {
     const d = new Date(value);
-    return d.toLocaleDateString();
+    return d.toLocaleDateString("en-IN", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
   } catch (e) {
     return String(value || "");
   }
@@ -15,13 +19,28 @@ function formatDate(value: any) {
 
 function getItems(invoice: any) {
   if (!invoice) return [];
-  if (Array.isArray(invoice.items) && invoice.items.length) return invoice.items;
-  if (Array.isArray(invoice.lineItems) && invoice.lineItems.length) return invoice.lineItems;
-  if (invoice.amount && !Array.isArray(invoice.items)) return [{ description: invoice.title || invoice.projectTitle || "Service", quantity: 1, price: Number(invoice.amount) }];
+  if (Array.isArray(invoice.items) && invoice.items.length)
+    return invoice.items;
+  if (Array.isArray(invoice.lineItems) && invoice.lineItems.length)
+    return invoice.lineItems;
+  if (invoice.amount && !Array.isArray(invoice.items))
+    return [
+      {
+        description: invoice.title || invoice.projectTitle || "Service",
+        quantity: 1,
+        price: Number(invoice.amount),
+      },
+    ];
   return [];
 }
 
-export function InvoicePDF({ invoice, client: initialClient }: { invoice: any; client?: Client }) {
+export function InvoicePDF({
+  invoice,
+  client: initialClient,
+}: {
+  invoice: any;
+  client?: Client;
+}) {
   const [client, setClient] = useState<Client | undefined>(initialClient);
 
   useEffect(() => {
@@ -55,82 +74,291 @@ export function InvoicePDF({ invoice, client: initialClient }: { invoice: any; c
   const tax = Number(invoice?.tax ?? 0) || 0;
   const total = subtotal - discount + tax;
 
-  const effectiveClientName = client?.name || invoice?.clientName || invoice?.client || "Client";
+  const effectiveClientName =
+    client?.name || invoice?.clientName || invoice?.client || "Client";
 
   return (
-    <div style={{ fontFamily: "'Noto Sans Local', 'Noto Sans', Inter, Roboto, sans-serif", width: "100%", padding: "10mm", color: "#111", background: "#fff", boxSizing: "border-box" }}>
-      {/* Top header with brand */}
-      <div style={{ position: "relative", marginBottom: 8 }}>
-        <div style={{ height: 90, borderRadius: 12, background: "linear-gradient(90deg,#ff7a18 0%,#ff4e50 100%)", overflow: "hidden", display: "flex", alignItems: "center", padding: "0 14px" }}>
-          <img src={typeof logo === "string" ? logo : (logo as any).src} alt="Logo" style={{ width: 72, height: 72, objectFit: "contain" }} />
-          <div style={{ marginLeft: 12, color: "#fff" }}>
-            <div style={{ fontSize: 20, fontWeight: 800 }}>Pixelate Nest</div>
-            <div style={{ fontSize: 12, opacity: 0.95 }}>Creative Software & Digital Solutions</div>
+    <div
+      style={{
+        fontFamily: "'Inter', 'Segoe UI', sans-serif",
+        width: "100%",
+        padding: "15mm 20mm",
+        color: "#333",
+        background: "#fff",
+        boxSizing: "border-box",
+        maxWidth: "210mm",
+        minHeight: "297mm",
+        margin: "0 auto",
+      }}
+    >
+      {/* Header Section */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-start",
+          marginBottom: 20,
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <div
+            style={{
+              width: 60,
+              height: 60,
+              background: "#e65200",
+              borderRadius: 8,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <img
+              src={typeof logo === "string" ? logo : (logo as any).src}
+              alt="Logo"
+              style={{
+                width: 45,
+                height: 45,
+                objectFit: "contain",
+                filter: "brightness(0) invert(1)",
+              }}
+            />
+          </div>
+          <div>
+            <div style={{ fontSize: 22, fontWeight: 800, color: "#e65200" }}>
+              Pixelate Nest
+            </div>
+            <div style={{ fontSize: 12, color: "#666", marginTop: 2 }}>
+              Kalahanu Enterprises Private Limited
+            </div>
           </div>
         </div>
 
-        <div style={{ position: 'absolute', right: 0, top: 10, background: '#111', color: '#fff', padding: '12px 18px', borderRadius: 8, textAlign: 'right' }}>
-          <div style={{ fontSize: 22, fontWeight: 800 }}>INVOICE</div>
-          <div style={{ fontSize: 12, marginTop: 6 }}>
-            <div><strong>Invoice #:</strong> {invoice?.id ?? invoice?.invoiceNo ?? invoice?._id}</div>
-            <div><strong>Date:</strong> {formatDate(invoice?.createdAt ?? Date.now())}</div>
-            <div><strong>Due:</strong> {invoice?.dueDate ? formatDate(invoice.dueDate) : 'On receipt'}</div>
+        <div style={{ textAlign: "right" }}>
+          <div
+            style={{
+              fontSize: 26,
+              fontWeight: 800,
+              color: "#e65200",
+            }}
+          >
+            INVOICE
+          </div>
+          <div style={{ fontSize: 11, color: "#666", marginTop: 4 }}>
+            <div>
+              <strong>Invoice #:</strong>{" "}
+              {invoice?.id ?? invoice?.invoiceNo ?? invoice?._id}
+            </div>
+            <div>
+              <strong>Date:</strong>{" "}
+              {formatDate(invoice?.createdAt ?? Date.now())}
+            </div>
+            <div>
+              <strong>Due:</strong>{" "}
+              {invoice?.dueDate ? formatDate(invoice.dueDate) : "On receipt"}
+            </div>
           </div>
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 16, marginTop: 10 }}>
+      {/* Company and Client Info */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: 30,
+          marginBottom: 20,
+        }}
+      >
         <div>
-          <div style={{ fontSize: 14, fontWeight: 700 }}>Pixelate Nest</div>
-          <div style={{ fontSize: 12, color: '#666', marginTop: 6 }}>Kalahanu Enterprises Private Limited</div>
-          <div style={{ fontSize: 12, color: '#666', marginTop: 4 }}>GST - 10AADCK1491R2ZB</div>
-          <div style={{ fontSize: 12, color: '#666', marginTop: 4 }}>Kala Bhawan, Akharaghat Road, Muzaffarpur, Bihar</div>
+          <div
+            style={{
+              fontSize: 11,
+              fontWeight: 600,
+              color: "#e65200",
+              textTransform: "uppercase",
+              marginBottom: 6,
+            }}
+          >
+            From
+          </div>
+          <div style={{ fontSize: 14, fontWeight: 700, color: "#333" }}>
+            Pixelate Nest
+          </div>
+          <div style={{ fontSize: 11, color: "#666", marginTop: 3 }}>
+            GST: 10AADCK1491R2ZB
+          </div>
+          <div style={{ fontSize: 11, color: "#666", marginTop: 3 }}>
+            Kala Bhawan, Akharaghat Road
+          </div>
+          <div style={{ fontSize: 11, color: "#666", marginTop: 3 }}>
+            Muzaffarpur, Bihar - 842001
+          </div>
         </div>
 
-        <div style={{ border: '1px solid #e6e6e6', borderRadius: 10, padding: 12 }}>
-          <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 6 }}>Invoice Details</div>
-          <div style={{ fontSize: 12 }}><strong>Invoice #</strong>: {invoice?.id ?? invoice?.invoiceNo ?? invoice?._id}</div>
-          <div style={{ fontSize: 12 }}><strong>Date</strong>: {formatDate(invoice?.createdAt ?? Date.now())}</div>
-          <div style={{ fontSize: 12 }}><strong>Due</strong>: {invoice?.dueDate ? formatDate(invoice.dueDate) : 'On receipt'}</div>
+        <div>
+          <div
+            style={{
+              fontSize: 11,
+              fontWeight: 600,
+              color: "#e65200",
+              textTransform: "uppercase",
+              marginBottom: 6,
+            }}
+          >
+            Bill To
+          </div>
+          <div
+            style={{
+              fontSize: 14,
+              fontWeight: 700,
+              color: "#333",
+              marginBottom: 4,
+            }}
+          >
+            {effectiveClientName}
+          </div>
+          <div style={{ fontSize: 11, color: "#666", marginBottom: 3 }}>
+            {client?.address || invoice?.clientAddress || ""}
+          </div>
+          <div style={{ fontSize: 11, color: "#666" }}>
+            {client?.email || invoice?.clientEmail || ""}
+          </div>
+          <div style={{ fontSize: 11, color: "#666" }}>
+            {client?.phone || invoice?.clientPhone || ""}
+          </div>
         </div>
       </div>
 
-      <div style={{ marginTop: 22, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-        <div>
-          <div style={{ fontSize: 12, fontWeight: 700 }}>BILLED TO</div>
-          <div style={{ fontSize: 16, fontWeight: 700, marginTop: 6 }}>{effectiveClientName}</div>
-          <div style={{ fontSize: 12, marginTop: 6 }}>{client?.address || invoice?.clientAddress || ''}</div>
-          <div style={{ fontSize: 12, marginTop: 4, color: '#666' }}>{client ? `${client.email} | ${client.phone || ''}` : `${invoice?.clientEmail || ''} ${invoice?.clientPhone ? `| ${invoice.clientPhone}` : ''}`}</div>
-        </div>
-
-        <div style={{ textAlign: 'right' }}>
-          {invoice?.projectTitle && <div style={{ fontSize: 12, color: '#666' }}>{invoice.projectTitle}</div>}
-        </div>
-      </div>
-
-      <div style={{ marginTop: 22 }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+      {/* Items Table */}
+      <div style={{ marginBottom: 20 }}>
+        <table
+          style={{
+            width: "100%",
+            borderCollapse: "collapse",
+            fontSize: 12,
+          }}
+        >
           <thead>
-            <tr style={{ background: '#fafafa' }}>
-              <th style={{ padding: 10, borderBottom: '1px solid #e6e6e6', textAlign: 'left', width: 40 }}>NO</th>
-              <th style={{ padding: 10, borderBottom: '1px solid #e6e6e6', textAlign: 'left' }}>DESCRIPTION</th>
-              <th style={{ padding: 10, borderBottom: '1px solid #e6e6e6', textAlign: 'right', width: 60 }}>QTY</th>
-              <th style={{ padding: 10, borderBottom: '1px solid #e6e6e6', textAlign: 'right', width: 120 }}>PRICE</th>
-              <th style={{ padding: 10, borderBottom: '1px solid #e6e6e6', textAlign: 'right', width: 140 }}>AMOUNT</th>
+            <tr
+              style={{
+                background: "#e65200",
+                color: "#fff",
+              }}
+            >
+              <th
+                style={{
+                  padding: "10px 12px",
+                  textAlign: "left",
+                  fontWeight: 600,
+                  fontSize: 11,
+                }}
+              >
+                #
+              </th>
+              <th
+                style={{
+                  padding: "10px 12px",
+                  textAlign: "left",
+                  fontWeight: 600,
+                  fontSize: 11,
+                }}
+              >
+                Description
+              </th>
+              <th
+                style={{
+                  padding: "10px 12px",
+                  textAlign: "right",
+                  fontWeight: 600,
+                  fontSize: 11,
+                }}
+              >
+                Qty
+              </th>
+              <th
+                style={{
+                  padding: "10px 12px",
+                  textAlign: "right",
+                  fontWeight: 600,
+                  fontSize: 11,
+                }}
+              >
+                Unit Price
+              </th>
+              <th
+                style={{
+                  padding: "10px 12px",
+                  textAlign: "right",
+                  fontWeight: 600,
+                  fontSize: 11,
+                }}
+              >
+                Amount
+              </th>
             </tr>
           </thead>
           <tbody>
-            {items.map((it: any, index: number) => {
+            {items.slice(0, 8).map((it: any, index: number) => {
               const qty = Number(it?.quantity ?? it?.qty ?? 1);
-              const unit = Number(it?.price ?? it?.unitPrice ?? it?.amount ?? 0);
+              const unit = Number(
+                it?.price ?? it?.unitPrice ?? it?.amount ?? 0
+              );
               const amt = qty * unit;
+
               return (
-                <tr key={index}>
-                  <td style={{ padding: 10, borderBottom: '1px solid #f0f0f0' }}>{String(index + 1).padStart(2, '0')}</td>
-                  <td style={{ padding: 10, borderBottom: '1px solid #f0f0f0' }}>{it?.description || it?.name || 'Service'}</td>
-                  <td style={{ padding: 10, borderBottom: '1px solid #f0f0f0', textAlign: 'right' }}>{qty}</td>
-                  <td style={{ padding: 10, borderBottom: '1px solid #f0f0f0', textAlign: 'right' }}>{formatCurrency(unit).replace(/₹/g, 'Rs.')}</td>
-                  <td style={{ padding: 10, borderBottom: '1px solid #f0f0f0', textAlign: 'right' }}>{formatCurrency(amt).replace(/₹/g, 'Rs.')}</td>
+                <tr
+                  key={index}
+                  style={{
+                    borderBottom: "1px solid #eee",
+                  }}
+                >
+                  <td
+                    style={{
+                      padding: "10px 12px",
+                      fontWeight: 500,
+                      color: "#666",
+                    }}
+                  >
+                    {index + 1}
+                  </td>
+                  <td
+                    style={{
+                      padding: "10px 12px",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {it?.description || it?.name || "Service"}
+                  </td>
+                  <td
+                    style={{
+                      padding: "10px 12px",
+                      textAlign: "right",
+                      fontWeight: 500,
+                      color: "#666",
+                    }}
+                  >
+                    {qty}
+                  </td>
+                  <td
+                    style={{
+                      padding: "10px 12px",
+                      textAlign: "right",
+                      fontWeight: 500,
+                      color: "#666",
+                    }}
+                  >
+                    {formatCurrency(unit)}
+                  </td>
+                  <td
+                    style={{
+                      padding: "10px 12px",
+                      textAlign: "right",
+                      fontWeight: 600,
+                      color: "#333",
+                    }}
+                  >
+                    {formatCurrency(amt)}
+                  </td>
                 </tr>
               );
             })}
@@ -138,51 +366,205 @@ export function InvoicePDF({ invoice, client: initialClient }: { invoice: any; c
         </table>
       </div>
 
-      <div style={{ marginTop: 20, display: 'flex', justifyContent: 'flex-end' }}>
-        <div style={{ width: 320, border: '1px solid #e6e6e6', borderRadius: 8, padding: 12 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 8 }}>
-            <div>SUBTOTAL</div>
-            <div>{formatCurrency(subtotal).replace(/₹/g, 'Rs.')}</div>
+      {/* Summary Section */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          gap: 40,
+          marginBottom: 25,
+        }}
+      >
+        <div style={{ flex: 1 }}>
+          <div
+            style={{
+              fontSize: 11,
+              fontWeight: 600,
+              color: "#e65200",
+              textTransform: "uppercase",
+              marginBottom: 10,
+            }}
+          >
+            Notes
           </div>
+          <div style={{ fontSize: 11, color: "#666", lineHeight: 1.5 }}>
+            {invoice?.notes ||
+              "Payment due within 30 days of invoice date. Please include invoice number with payment."}
+          </div>
+        </div>
+
+        <div
+          style={{
+            width: 280,
+            padding: 15,
+            border: "1px solid #eee",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginBottom: 8,
+            }}
+          >
+            <span style={{ fontSize: 12, color: "#666" }}>Subtotal</span>
+            <span style={{ fontSize: 12, fontWeight: 600, color: "#333" }}>
+              {formatCurrency(subtotal)}
+            </span>
+          </div>
+
           {discount > 0 && (
-            <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 8 }}>
-              <div style={{ color: 'green' }}>DISCOUNT</div>
-              <div style={{ color: 'green' }}>- {formatCurrency(discount).replace(/₹/g, 'Rs.')}</div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: 8,
+              }}
+            >
+              <span style={{ fontSize: 12, color: "#666" }}>Discount</span>
+              <span style={{ fontSize: 12, fontWeight: 600, color: "#333" }}>
+                - {formatCurrency(discount)}
+              </span>
             </div>
           )}
-          <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 8 }}>
-            <div>Tax</div>
-            <div style={{ fontWeight: 600 }}>{formatCurrency(tax).replace(/₹/g, 'Rs.')}</div>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 10, borderTop: '2px solid #e6e6e6', fontWeight: 800, fontSize: 16 }}>
-            <div>TOTAL</div>
-            <div>{formatCurrency(total).replace(/₹/g, 'Rs.')}</div>
+
+          {tax > 0 && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: 12,
+              }}
+            >
+              <span style={{ fontSize: 12, color: "#666" }}>Tax</span>
+              <span style={{ fontSize: 12, fontWeight: 600, color: "#333" }}>
+                {formatCurrency(tax)}
+              </span>
+            </div>
+          )}
+
+          <div
+            style={{
+              paddingTop: 12,
+              borderTop: "2px solid #e65200",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <span
+              style={{
+                fontSize: 14,
+                fontWeight: 700,
+                color: "#e65200",
+              }}
+            >
+              Total
+            </span>
+            <span
+              style={{
+                fontSize: 18,
+                fontWeight: 800,
+                color: "#e65200",
+              }}
+            >
+              {formatCurrency(total)}
+            </span>
           </div>
         </div>
       </div>
 
-      <div style={{ marginTop: 36, display: 'flex', justifyContent: 'space-between', gap: 20 }}>
-        <div style={{ flex: 1, fontSize: 12, color: '#666' }}>
-          <div style={{ fontWeight: 700, marginBottom: 8 }}>Payment Info</div>
-          <div>Account No: 0000 1234 5678</div>
-          <div>A/C Name: Kalahanu Enterprises Private Limited</div>
-          <div>Bank Details: Your Bank Details here</div>
+      {/* Footer */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+          gap: 20,
+          marginBottom: 20,
+          paddingTop: 20,
+          borderTop: "1px solid #eee",
+        }}
+      >
+        <div>
+          <div
+            style={{
+              fontSize: 11,
+              fontWeight: 600,
+              color: "#e65200",
+              textTransform: "uppercase",
+              marginBottom: 8,
+            }}
+          >
+            Payment Info
+          </div>
+          <div style={{ fontSize: 11, color: "#666", lineHeight: 1.5 }}>
+            <div>Bank: State Bank of India</div>
+            <div>A/C: 0000 1234 5678</div>
+            <div>Name: Kalahanu Enterprises</div>
+            <div>IFSC: SBIN0001234</div>
+          </div>
         </div>
 
-        <div style={{ width: 320, textAlign: 'center' }}>
-          <img src={typeof signImg === 'string' ? signImg : (signImg as any).src} alt="Signature" style={{ width: 260, height: 90, objectFit: 'contain' }} />
-          <div style={{ marginTop: 6, fontSize: 13, fontWeight: 700 }}>Authorized Signatory</div>
-          <div style={{ fontSize: 12, color: '#666' }}>Labh Chandra Bothra (Founder)</div>
-          <div style={{ fontSize: 12, color: '#666' }}>Pixelate Nest</div>
+        <div style={{ textAlign: "center" }}>
+          <img
+            src={typeof signImg === "string" ? signImg : (signImg as any).src}
+            alt="Signature"
+            style={{
+              width: 120,
+              height: "auto",
+              objectFit: "contain",
+              marginBottom: 6,
+            }}
+          />
+          <div
+            style={{
+              height: 1,
+              width: "80%",
+              backgroundColor: "#e65200",
+              margin: "0 auto 6px",
+              opacity: 0.5,
+            }}
+          />
+          <div style={{ fontSize: 12, fontWeight: 700, color: "#333" }}>
+            Labh Chandra Bothra
+          </div>
+          <div style={{ fontSize: 11, color: "#666" }}>Founder & CEO</div>
+        </div>
+
+        <div style={{ textAlign: "right" }}>
+          <div
+            style={{
+              fontSize: 11,
+              fontWeight: 600,
+              color: "#e65200",
+              textTransform: "uppercase",
+              marginBottom: 8,
+            }}
+          >
+            Contact
+          </div>
+          <div style={{ fontSize: 11, color: "#666", lineHeight: 1.5 }}>
+            <div>📧 contact@pixelatenest.com</div>
+            <div>📞 +91 9876543210</div>
+            <div>🌐 pixelatenest.com</div>
+          </div>
         </div>
       </div>
 
-      <div style={{ marginTop: 60, fontSize: 12, color: '#666' }}>
-        <h3 style={{ fontSize: 14, fontWeight: 700, paddingBottom: 5 }}>Terms & Conditions</h3>
-        <p>Payment due within 30 days. This invoice is subject to our standard terms of service.</p>
+      {/* Terms */}
+      <div
+        style={{
+          fontSize: 10,
+          color: "#666",
+          textAlign: "center",
+          paddingTop: 15,
+          borderTop: "1px solid #eee",
+        }}
+      >
+        This invoice is computer generated and does not require a signature. All
+        goods and services remain the property of Pixelate Nest until paid in
+        full.
       </div>
     </div>
   );
 }
-
-

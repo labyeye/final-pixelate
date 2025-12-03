@@ -29,7 +29,7 @@
 "addressRegion": "Karnataka"
 "postalCode": "560001"
 "telephone": "+91-9234112345"
-"email": "pixelatenest@gmail.com"
+"email": "support@pixelatenest.com"
 "geo": {
   "latitude": "12.9716",
   "longitude": "77.5946"

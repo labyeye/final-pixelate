@@ -427,7 +427,7 @@ MONTHLY CHECK:
 - 📚 Moz Beginner's Guide to SEO
 - 🎓 Ahrefs Academy (free courses)
 - 💬 r/SEO on Reddit
-- 📧 pixelatenest@gmail.com (internal)
+- 📧 support@pixelatenest.com (internal)
 
 **Emergency Support:**
 - Technical issues: Google it first

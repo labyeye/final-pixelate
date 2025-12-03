@@ -341,7 +341,7 @@ const featuredServices = [
 ## 📞 Support
 
 For issues or questions:
-- **Email:** pixelatenest@gmail.com
+- **Email:** support@pixelatenest.com
 - **Phone:** +91 9234112345
 - **Location:** Bangalore, Karnataka, India
 

@@ -42,7 +42,7 @@
   "@type": "ContactPoint",
   "telephone": "+91-9234112345",
   "contactType": "Customer Service",
-  "email": "pixelatenest@gmail.com",
+  "email": "support@pixelatenest.com",
   "areaServed": ["IN", "US", "GB"],
   "availableLanguage": ["English", "Hindi"]
 }
@@ -118,7 +118,7 @@
   },
   "url": "https://www.pixelatenest.com/",
   "telephone": "+91-9234112345",
-  "email": "pixelatenest@gmail.com",
+  "email": "support@pixelatenest.com",
   "priceRange": "$$",
   "openingHoursSpecification": [
     {
@@ -529,7 +529,7 @@ This reduces font loading time by ~200ms!
 
 ### Current:
 ```html
-<a href="mailto:pixelatenest@gmail.com">pixelatenest@gmail.com</a>
+<a href="mailto:support@pixelatenest.com">support@pixelatenest.com</a>
 ```
 
 ### Better:
@@ -722,7 +722,7 @@ After implementing fixes, test with:
 ## 📞 SUPPORT
 
 **Questions about implementation?**
-- Email: pixelatenest@gmail.com
+- Email: support@pixelatenest.com
 - Review issues before: Each Friday
 - Expected completion: 4 weeks
 

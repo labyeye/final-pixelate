@@ -157,7 +157,9 @@ export default function ProjectsPage() {
                     } catch (err) { console.error(err); }
                   }}>Mark as Complete</Button>
                 )}
-                <Button variant="destructive" className="w-full" onClick={async () => {
+                
+              </div>
+              <Button variant="destructive" className="w-full" onClick={async () => {
                   if (!confirm('Delete this project?')) return;
                   try {
                     const id = project._id ?? project.id;
@@ -166,7 +168,6 @@ export default function ProjectsPage() {
                     setProjects(prev => prev.filter(p => (p._id ?? p.id) !== id));
                   } catch (err) { console.error(err); }
                 }}>Delete</Button>
-              </div>
             </CardFooter>
           </Card>
         ))}
