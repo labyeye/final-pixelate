@@ -21,9 +21,13 @@
     <meta name="robots" content="noindex, nofollow" />
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link href="styles.css" rel="stylesheet" type="text/css" />
     <link
       href="/assets/PixelateNest_icons.ico"
@@ -31,579 +35,263 @@
       type="image/x-icon"
     />
     <style>
+      /* Minimal CSS for video-backed 404 page */
+      :root {
+        --accent: #e65100;
+      }
+      html,
       body {
+        height: 100%;
         margin: 0;
-        padding: 0;
-        background: #0a0a0a;
-        color: white;
+      }
+      body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           sans-serif;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        color: #ffffff;
+        background: #000;
       }
-      
+
+      /* Fullscreen video background */
+      .video-bg {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -3;
+      }
+
+      /* Darken overlay to reduce brightness of the video */
+      .video-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
+      }
+
+      /* Top-left logo on 404 page */
+      .error-logo {
+        position: fixed;
+        top: calc(18px + env(safe-area-inset-top, 0px));
+        left: 38px;
+        z-index: 4;
+        display: inline-block;
+        width: 156px;
+        height: 156px;
+      }
+      .error-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
       .error-page-wrapper {
-        flex: 1;
+        min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 80px 20px;
         position: relative;
-        overflow: hidden;
+        z-index: 1;
       }
 
-      .error-container {
+      .error-content {
         text-align: center;
-        padding: 40px;
-        max-width: 600px;
+        max-width: 1100px;
+        width: 100%;
+        margin: 0 auto;
       }
 
-      .error-code {
-        font-size: 120px;
-        font-weight: 900;
+      .huge-404 {
+        font-size: 220px;
+        line-height: 0.9;
         margin: 0;
-        background: linear-gradient(135deg, #00d9ff, #7b2ff7);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: glitch 3s infinite;
-      }
-
-      @keyframes glitch {
-        0%,
-        100% {
-          transform: translate(0);
-        }
-        20% {
-          transform: translate(-2px, 2px);
-        }
-        40% {
-          transform: translate(-2px, -2px);
-        }
-        60% {
-          transform: translate(2px, 2px);
-        }
-        80% {
-          transform: translate(2px, -2px);
-        }
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.98);
+        text-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
       }
 
       .error-title {
-        font-size: 32px;
+        font-size: 28px;
+        margin-top: 8px;
         font-weight: 700;
-        margin: 20px 0;
+        color: rgba(255, 255, 255, 0.95);
       }
 
-      .error-message {
+      .error-sub {
+        color: rgba(255, 255, 255, 0.85);
+        margin: 16px auto 28px;
+        max-width: 760px;
         font-size: 18px;
-        color: rgba(255, 255, 255, 0.7);
-        margin-bottom: 40px;
-        line-height: 1.6;
+      }
+      .error-message {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: calc(120px + env(safe-area-inset-bottom, 0px));
+        display: block;
+        font-size: 44px;
+        font-weight: 600;
+        margin-bottom: 24px;
+        color: rgba(255, 255, 255, 0.95);
       }
 
       .button-group {
+        /* Pin the primary action to the bottom-center of the viewport */
+        position: fixed;
+        left: 50%;
+        bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+        transform: translateX(-50%);
+        z-index: 3;
+        margin: 0;
+        background-color: transparent;
+        border: none;
         display: flex;
-        gap: 16px;
+        align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
+        pointer-events: auto;
       }
 
-      .btn {
+      .btn-404 {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        padding: 14px 32px;
-        text-decoration: none;
-        border-radius: 100px;
-        font-weight: 600;
-        font-size: 16px;
-        transition: all 0.3s ease;
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, #00d9ff, #7b2ff7);
-        color: white;
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
-      }
-
-      .btn-secondary {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: white;
-      }
-
-      .btn-secondary:hover {
-        background: rgba(255, 255, 255, 0.1);
-        transform: translateY(-2px);
-      }
-
-      .popular-links {
-        margin-top: 60px;
-        padding-top: 40px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .popular-links h3 {
-        font-size: 18px;
-        margin-bottom: 20px;
-        color: rgba(255, 255, 255, 0.8);
-      }
-
-      .links-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         gap: 12px;
-      }
-
-      .quick-link {
-        padding: 12px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        color: rgba(255, 255, 255, 0.8);
+        padding: 4px 10px;
+        border-radius: 999px;
         text-decoration: none;
-        transition: all 0.3s ease;
-        font-size: 14px;
+        background: #fff;
+        color: black;
+        font-size: 20px;
+        border: 4px solid transparent;
+        transition: transform 180ms ease, box-shadow 180ms ease,
+          color 180ms ease, border 180ms ease;
       }
 
-      .quick-link:hover {
-        background: rgba(255, 255, 255, 0.05);
-        border-color: rgba(0, 217, 255, 0.3);
-        color: white;
+      .btn-404 .btn-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 999px;
+        display: inline-grid;
+        place-items: center;
+        background: var(--accent);
+        color: #fff;
       }
 
-      @media (max-width: 768px) {
-        .error-code {
-          font-size: 80px;
+      .btn-404:hover {
+        background: var(--accent);
+        color: #fff;
+        border-color: #fff;
+        transform: translateY(-6px);
+        box-shadow: 0 26px 64px rgba(230, 81, 0, 0.2);
+      }
+
+      @media (max-width: 900px) {
+        .huge-404 {
+          font-size: 120px;
         }
         .error-title {
-          font-size: 24px;
+          font-size: 22px;
+        }
+        .btn-404 {
+          padding: 12px 26px;
         }
         .button-group {
-          flex-direction: column;
-        }
-        .btn {
-          width: 100%;
-          justify-content: center;
+          bottom: calc(20px + env(safe-area-inset-bottom, 0px));
         }
       }
-
-      .particles {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -1;
-      }
-
-      .particle {
-        position: absolute;
-        width: 2px;
-        height: 2px;
-        background: rgba(0, 217, 255, 0.3);
-        border-radius: 50%;
-        animation: float 20s infinite;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0) translateX(0);
-          opacity: 0;
+      @media (max-width: 480px) {
+        .error-logo {
+          width: 100px;
+          height: 100px;
+          left: 20px;
         }
-        10% {
-          opacity: 1;
+        .btn-404 {
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          padding: 1px 10px;
+          border-radius: 999px;
+          text-decoration: none;
+          background: #fff;
+          color: black;
+          font-size: 16px;
+          border: 4px solid transparent;
+          transition: transform 180ms ease, box-shadow 180ms ease,
+            color 180ms ease, border 180ms ease;
         }
-        90% {
-          opacity: 1;
+
+        .btn-404 .btn-icon {
+          width: 30px;
+          height: 30px;
+          border-radius: 999px;
+          display: inline-grid;
+          place-items: center;
+          background: var(--accent);
+          color: #fff;
         }
-        100% {
-          transform: translateY(-100vh) translateX(100px);
-          opacity: 0;
+        .error-message {
+          position: fixed;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+          display: block;
+          font-size: 24px;
+          font-weight: 600;
+          margin-bottom: 24px;
+          color: rgba(255, 255, 255, 0.95);
         }
       }
     </style>
   </head>
   <body>
-    <!-- Navigation -->
-    <section class="nav-wrap">
-      <div class="nav-bar-wrap">
-        <div
-          data-animation="default"
-          data-collapse="medium"
-          data-duration="400"
-          data-easing="ease"
-          data-easing2="ease"
-          role="banner"
-          class="navbar w-nav"
-        >
-          <div class="navbar-wrapper">
-            <div class="navbar-left">
-              <a
-                href="https://www.pixelatenest.com/"
-                class="navbar-brand w-nav-brand"
-              >
-                <img src="./assets/navbarlogo.png" alt="Pixelate Nest" />
-              </a>
-            </div>
-            <div class="navbar-center">
-              <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
-                <ul role="list" class="nav-menu w-list-unstyled">
-                  <li class="nav-item">
-                    <a
-                      href="https://www.pixelatenest.com/"
-                      class="nav-link w-inline-block"
-                      ><span class="nav-link-text">Home</span></a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      href="https://www.pixelatenest.com/about.html"
-                      class="nav-link w-inline-block"
-                      ><span class="nav-link-text">About</span></a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      href="https://www.pixelatenest.com/pricing.html"
-                      class="nav-link w-inline-block"
-                      ><span class="nav-link-text">Pricing</span></a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      href="https://www.pixelatenest.com/webdev.html"
-                      class="nav-link w-inline-block"
-                      ><span class="nav-link-text">Web Development</span></a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      href="https://www.pixelatenest.com/app-dev.html"
-                      class="nav-link w-inline-block"
-                      ><span class="nav-link-text">App Development</span></a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      href="https://www.pixelatenest.com/software-dev.html"
-                      class="nav-link w-inline-block"
-                    >
-                      <span class="nav-link-text"
-                        >Software Development</span
-                      >
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      href="https://www.pixelatenest.com/video-ed.html"
-                      class="nav-link w-inline-block"
-                      ><span class="nav-link-text">Video Editing</span></a
-                    >
-                  </li>
-
-                  <li class="nav-item">
-                    <a
-                      href="https://www.pixelatenest.com/blogs.html"
-                      class="nav-link w-inline-block"
-                      ><span class="nav-link-text">Blogs</span></a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      href="https://www.pixelatenest.com/careers.html"
-                      class="nav-link w-inline-block"
-                    >
-                      <div class="nav-link-text">Careers</div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      href="https://www.pixelatenest.com/contact.html"
-                      class="nav-link w-inline-block"
-                    >
-                      <div class="nav-link-text">Contact</div>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-            <div class="navbar-right">
-              <div class="menu-button w-nav-button">
-                <div
-                  data-is-ix2-target="1"
-                  class="hamburger-menu"
-                  data-w-id="87959840-dee1-9d4c-adfe-a49c217b8a08"
-                  data-animation-type="lottie"
-                  data-src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/686b9c8a6088b99ac2420c42_Animation%20-%201751882800099.json"
-                  data-loop="0"
-                  data-direction="1"
-                  data-autoplay="0"
-                  data-renderer="svg"
-                  data-default-duration="0"
-                  data-duration="2.3333333333333335"
-                  data-ix2-initial-state="0"
-                ></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Navigation removed (malformed) -->
 
     <div class="error-page-wrapper">
-      <div class="particles" id="particles"></div>
+      <video
+        class="video-bg"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="./assets/404-poster.jpg"
+      >
+        <source src="./assets/404animation.mp4" type="video/mp4" />
+      </video>
 
-      <div class="error-container">
-      <h1 class="error-code">404</h1>
-      <h2 class="error-title">Oops! Page Not Found</h2>
-      <p class="error-message">
-        The page you're looking for seems to have wandered off into the digital
-        void. Don't worry, even the best explorers get lost sometimes.
-      </p>
+      <!-- Top-left logo -->
+      <a href="/" class="error-logo" aria-label="Pixelate Nest home">
+        <img src="./assets/logo-transparent.png" alt="Pixelate Nest" />
+      </a>
 
-      <div class="button-group">
-        <a href="/" class="btn btn-primary"> ← Back to Home </a>
-        <a href="/contact.html" class="btn btn-secondary"> Contact Support </a>
-      </div>
+      <div class="error-content">
+        <span class="error-message">Oops, I think we're lost </span>
 
-      <div class="popular-links">
-        <h3>Popular Pages</h3>
-        <div class="links-grid">
-          <a href="/about.html" class="quick-link">About Us</a>
-          <a href="/webdev.html" class="quick-link">Web Dev</a>
-          <a href="/app-dev.html" class="quick-link">App Dev</a>
-          <a href="/video-ed.html" class="quick-link">Video Editing</a>
-          <a href="/pricing.html" class="quick-link">Pricing</a>
-          <a href="/blogs.html" class="quick-link">Blogs</a>
-          <a href="/careers.html" class="quick-link">Careers</a>
+        <div class="button-group">
+          <a href="/" class="btn-404">
+            <span class="btn-icon" aria-hidden="true">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M15 18l-6-6 6-6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+            Back Home
+          </a>
         </div>
       </div>
     </div>
-    </div>
-
-    <!-- Footer -->
-    <section class="footer">
-      <div class="container">
-        <div class="footer-wrap">
-          <div class="footer-top">
-            <div class="footer-top-left">
-              <div class="footer-logo-details">
-                <div class="footer-logo-wrap">
-                  <a
-                    href="https://www.pixelatenest.com/"
-                    class="footer-logo w-inline-block"
-                  >
-                    <img
-                      src="assets/only-icon.png"
-                      loading="lazy"
-                      alt="Pixelate Nest Logo"
-                      class="fit-cover"
-                    />
-                  </a>
-                  <p class="p-text-01">Pixelate Nest</p>
-                </div>
-                <p class="p-text-03">
-                  Creative Digital Experiences That Build Your Brand.
-                </p>
-                <div style="margin-top: 20px">
-                  <p class="p-text-03" style="margin-bottom: 8px">
-                    <strong>Contact Us</strong>
-                  </p>
-                  <p
-                    class="p-text-03 text-white-60"
-                    style="margin-bottom: 5px"
-                  >
-                    <i class="fas fa-envelope" style="margin-right: 8px"></i> pixelatenest@gmail.com
-                  </p>
-                  <p
-                    class="p-text-03 text-white-60"
-                    style="margin-bottom: 5px"
-                  >
-                    <i class="fas fa-phone" style="margin-right: 8px"></i> +91 9234112345
-                  </p>
-                  <p class="p-text-03 text-white-60">
-                    <i class="fas fa-map-marker-alt" style="margin-right: 8px"></i> Bangalore, Karnataka, India
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="footer-right-link-wrap">
-              <div class="footer-link-wrap">
-                <div class="p-text-01">Company</div>
-                <div class="footer-link-list">
-                  <a
-                    href="https://www.pixelatenest.com/about.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">About Us</div>
-                  </a>
-                  <a
-                    href="https://www.pixelatenest.com/careers.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Careers</div>
-                  </a>
-                  <a
-                    href="https://www.pixelatenest.com/contact.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Contact Us</div>
-                  </a>
-                  <a
-                    href="https://www.pixelatenest.com/blogs.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Blog</div>
-                  </a>
-                </div>
-              </div>
-
-              <div class="footer-link-wrap">
-                <div class="p-text-01">Services</div>
-                <div class="footer-link-list">
-                  <a
-                    href="https://www.pixelatenest.com/video-ed.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Video Editing</div>
-                  </a>
-                  <a
-                    href="https://www.pixelatenest.com/webdev.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Web Development</div>
-                  </a>
-                  <a
-                    href="https://www.pixelatenest.com/app-dev.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">App Development</div>
-                  </a>
-                  <a
-                    href="https://www.pixelatenest.com/software-dev.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Software Development</div>
-                  </a>
-                </div>
-              </div>
-
-              <div class="footer-link-wrap">
-                <div class="p-text-01">Resources</div>
-                <div class="footer-link-list">
-                  <a
-                    href="https://www.pixelatenest.com/pricing.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Pricing</div>
-                  </a>
-                  <a
-                    href="https://www.pixelatenest.com/locations.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Locations</div>
-                  </a>
-                </div>
-              </div>
-
-              <div class="footer-link-wrap">
-                <div class="p-text-01">Legal</div>
-                <div class="footer-link-list">
-                  <a
-                    href="https://www.pixelatenest.com/privacy-policy.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Privacy Policy</div>
-                  </a>
-                  <a
-                    href="https://www.pixelatenest.com/terms-of-service.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Terms of Service</div>
-                  </a>
-                  <a
-                    href="https://www.pixelatenest.com/cookie-policy.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Cookie Policy</div>
-                  </a>
-                </div>
-              </div>
-
-              <div class="footer-link-wrap">
-                <div class="p-text-01">Follow Us</div>
-                <div class="footer-link-list">
-                  <a
-                    href="https://www.instagram.com/pixelate.nest/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Instagram</div>
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/company/pixelate-nest/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">LinkedIn</div>
-                  </a>
-                  <a
-                    href="https://twitter.com/pixelatenest"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Twitter</div>
-                  </a>
-                  <a
-                    href="https://www.facebook.com/profile.php?id=61582873344961"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Facebook</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="footer-bottom">
-            <div class="vertical-divider"></div>
-            <div class="footer-bottom-wrap">
-              <div class="p-text-03 text-white-60">
-                © 2025 Pixelate Nest. All Rights Reserved. | Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i>
-                in India
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <script>
-      // Create floating particles
-      const particlesContainer = document.getElementById("particles");
-      for (let i = 0; i < 50; i++) {
-        const particle = document.createElement("div");
-        particle.className = "particle";
-        particle.style.left = Math.random() * 100 + "%";
-        particle.style.animationDelay = Math.random() * 20 + "s";
-        particle.style.animationDuration = Math.random() * 10 + 15 + "s";
-        particlesContainer.appendChild(particle);
-      }
-    </script>
-
     <script
       src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6840859dc0e82803d10f5190"
       type="text/javascript"
