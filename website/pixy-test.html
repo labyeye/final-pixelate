@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixy Chatbot Test</title>
+  <link href="pixy-chatbot.css" rel="stylesheet" type="text/css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .container {
+      text-align: center;
+      max-width: 600px;
+      padding: 40px;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    .emoji {
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+    .instructions {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+      text-align: left;
+    }
+    .instructions h2 {
+      margin-top: 0;
+    }
+    .instructions ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    .instructions li {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="emoji">🤖</div>
+    <h1>Pixy Chatbot Test Page</h1>
+    <p>This is a test page for the Pixy chatbot widget. Look for the chat button in the bottom right corner!</p>
+    
+    <div class="instructions">
+      <h2>✅ Testing Checklist</h2>
+      <ul>
+        <li>Check if chat button appears in bottom right corner</li>
+        <li>Click the button to open the chat modal</li>
+        <li>Try sending messages</li>
+        <li>Test quick reply buttons</li>
+        <li>Complete the full conversation flow</li>
+        <li>Submit your contact details</li>
+        <li>Check if lead is created in CRM</li>
+      </ul>
+    </div>
+    
+    <p style="margin-top: 30px; font-size: 14px; opacity: 0.8;">
+      If you don't see the chat button, check your browser console for errors.
+    </p>
+  </div>
+
+  <!-- Pixy Chatbot Widget -->
+  <script src="js/pixy-chatbot.js"></script>
+</body>
+</html>
