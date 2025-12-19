@@ -48,7 +48,7 @@ export function InvoicePDF({
     if (!client && invoice?.clientId) {
       (async () => {
         try {
-          const res = await fetch(`https://pixelatenest-crm.vercel.app/api/clients/${invoice.clientId}`);
+          const res = await fetch(`https://backend.pixelatenest.com/api/clients/${invoice.clientId}`);
           if (!mounted) return;
           if (res.ok) {
             const data = await res.json();

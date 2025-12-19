@@ -36,7 +36,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.prod.website-files.com data:; img-src 'self' data: https:; connect-src 'self' https://pixelatenest-crm.vercel.app https://www.google-analytics.com https://www.google.com https://www.facebook.com https://connect.facebook.net; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.prod.website-files.com data:; img-src 'self' data: https:; connect-src 'self' https://backend.pixelatenest.com https://www.google-analytics.com https://www.google.com https://www.facebook.com https://connect.facebook.net; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -162,11 +162,11 @@
     />
     <!-- Preconnect to API for faster data loading -->
     <link
-      href="https://pixelatenest-crm.vercel.app"
+      href="https://backend.pixelatenest.com"
       rel="preconnect"
       crossorigin
     />
-    <link href="https://pixelatenest-crm.vercel.app" rel="dns-prefetch" />
+    <link href="https://backend.pixelatenest.com" rel="dns-prefetch" />
     <script
       src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
       type="text/javascript"
@@ -857,10 +857,10 @@
           const API_BASE =
             window.location.hostname === "localhost" ||
             window.location.hostname === "127.0.0.1"
-              ? "https://pixelatenest-crm.vercel.app"
+              ? "https://backend.pixelatenest.com"
               : "";
           const res = await fetch(
-            `https://pixelatenest-crm.vercel.app/api/work-gallery`
+            `https://backend.pixelatenest.com/api/work-gallery`
           );
           if (!res.ok) throw new Error("Failed to fetch gallery");
           const items = await res.json();
@@ -989,7 +989,7 @@
         const API_BASE =
           window.location.hostname === "localhost" ||
           window.location.hostname === "127.0.0.1"
-            ? "https://pixelatenest-crm.vercel.app"
+            ? "https://backend.pixelatenest.com"
             : "";
         const modal = document.getElementById("review-modal");
         const footerStars = document.getElementById("footer-review-stars");
@@ -1120,7 +1120,7 @@
         "/index.html",
       ];
       const domains = [
-        "https://pixelatenest-crm.vercel.app",
+        "https://backend.pixelatenest.com",
         "https://fonts.googleapis.com",
         "https://fonts.gstatic.com",
         "https://cdn.prod.website-files.com",
@@ -1157,7 +1157,7 @@
             mode: "no-cors",
             cache: "no-cache",
           }).catch(() => {});
-          fetch("https://pixelatenest-crm.vercel.app", {
+          fetch("https://backend.pixelatenest.com", {
             method: "GET",
             mode: "no-cors",
           }).catch(() => {});

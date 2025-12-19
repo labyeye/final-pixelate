@@ -71,7 +71,7 @@ export default function BlogsAdminPage() {
     }
 
     // try to POST to server API first (dashboard dev server runs on 9002)
-    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://pixelatenest-crm.vercel.app' : '';
+    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://backend.pixelatenest.com' : '';
     try {
       const res = await fetch(API_BASE + '/api/blogs', {
         method: 'POST',
@@ -110,7 +110,7 @@ export default function BlogsAdminPage() {
 
   function removePost(id: number) {
     ;(async () => {
-      const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://pixelatenest-crm.vercel.app' : '';
+      const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://backend.pixelatenest.com' : '';
       try {
         // try to delete from server by numeric id or _id if present
         const res = await fetch(`${API_BASE}/api/blogs/${id}`, { method: 'DELETE' })
@@ -143,7 +143,7 @@ export default function BlogsAdminPage() {
     }
     if (!local.length) return alert('No local posts to publish')
 
-    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://pixelatenest-crm.vercel.app' : '';
+    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://backend.pixelatenest.com' : '';
     const published: BlogPost[] = [...posts]
     for (const post of local) {
       try {
@@ -178,7 +178,7 @@ export default function BlogsAdminPage() {
       return alert('Invalid JSON')
     }
     const arr: BlogPost[] = Array.isArray(parsed) ? parsed : [parsed]
-    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://pixelatenest-crm.vercel.app' : '';
+    const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://backend.pixelatenest.com' : '';
     const published: BlogPost[] = [...posts]
     for (const post of arr) {
       try {

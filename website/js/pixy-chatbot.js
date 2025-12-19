@@ -1468,7 +1468,7 @@
       };
 
       // Send to backend API
-      const apiUrl = "https://pixelatenest-crm.vercel.app/api/pixy-lead";
+      const apiUrl = "https://backend.pixelatenest.com/api/pixy-lead";
 
       const response = await fetch(apiUrl, {
         method: "POST",

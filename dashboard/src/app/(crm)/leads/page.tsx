@@ -167,7 +167,7 @@ export default function LeadsPage() {
       window.location.hostname === "localhost" ||
       window.location.hostname === "127.0.0.1"
         ? ""
-        : "https://pixelatenest-crm.vercel.app";
+        : "https://backend.pixelatenest.com";
     const token = localStorage.getItem("auth_token") || "";
     const batchSize = 500; // increased default batch size; server accepts arrays
     setIsImporting(true);
@@ -244,7 +244,7 @@ export default function LeadsPage() {
     const API_BASE =
       window.location.hostname === "localhost" ||
       window.location.hostname === "127.0.0.1"
-        ? "https://pixelatenest-crm.vercel.app"
+        ? "https://backend.pixelatenest.com"
         : "";
     const token = localStorage.getItem("auth_token") || "";
     try {
@@ -296,7 +296,7 @@ export default function LeadsPage() {
     const API_BASE =
       window.location.hostname === "localhost" ||
       window.location.hostname === "127.0.0.1"
-        ? "https://pixelatenest-crm.vercel.app"
+        ? "https://backend.pixelatenest.com"
         : "";
     const token = localStorage.getItem("auth_token") || "";
     try {
@@ -357,7 +357,7 @@ export default function LeadsPage() {
     const API_BASE =
       window.location.hostname === "localhost" ||
       window.location.hostname === "127.0.0.1"
-        ? "https://pixelatenest-crm.vercel.app"
+        ? "https://backend.pixelatenest.com"
         : "";
     try {
       const token = localStorage.getItem("auth_token") || "";
@@ -429,7 +429,7 @@ export default function LeadsPage() {
     const API_BASE =
       window.location.hostname === "localhost" ||
       window.location.hostname === "127.0.0.1"
-        ? "https://pixelatenest-crm.vercel.app"
+        ? "https://backend.pixelatenest.com"
         : "";
     const token = localStorage.getItem("auth_token") || "";
     try {

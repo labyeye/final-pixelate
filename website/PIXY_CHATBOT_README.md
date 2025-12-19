@@ -44,7 +44,7 @@ Add the following to your HTML pages:
 ### 2. Backend Setup
 
 The backend API endpoint is already configured at:
-- **Endpoint**: `https://pixelatenest-crm.vercel.app/api/pixy-lead`
+- **Endpoint**: `https://backend.pixelatenest.com/api/pixy-lead`
 - **Method**: POST
 - **Authentication**: Public (no auth required)
 

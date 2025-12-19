@@ -640,7 +640,7 @@ Then use:
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
 <!-- Preconnect to critical origins -->
-<link rel="preconnect" href="https://pixelatenest-crm.vercel.app" crossorigin>
+<link rel="preconnect" href="https://backend.pixelatenest.com" crossorigin>
 
 <!-- Prefetch next likely page -->
 <link rel="prefetch" href="/contact.html">

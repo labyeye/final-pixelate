@@ -50,11 +50,11 @@
       crossorigin="anonymous"
     />
     <link
-      href="https://pixelatenest-crm.vercel.app"
+      href="https://backend.pixelatenest.com"
       rel="preconnect"
       crossorigin
     />
-    <link href="https://pixelatenest-crm.vercel.app" rel="dns-prefetch" />
+    <link href="https://backend.pixelatenest.com" rel="dns-prefetch" />
     <!-- portfolio/mosaic styles moved to photography-carousel.css -->
   </head>
   <body>
@@ -535,7 +535,7 @@
         try {
           // try the photos API first (flat list). If not available, fall back to old galleries shape.
           const res = await fetch(
-            "https://pixelatenest-crm.vercel.app/api/photos"
+            "https://backend.pixelatenest.com/api/photos"
           );
           let galleries = [];
           if (res.ok) {
