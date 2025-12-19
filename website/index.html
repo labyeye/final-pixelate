@@ -3808,4 +3808,72 @@
       });
     }
   })();
+
+  // Mobile navbar toggle functionality
+  (function() {
+    function initMobileNav() {
+      const navbar = document.querySelector('.w-nav[data-collapse="medium"]');
+      const menuButton = document.querySelector('.menu-button');
+      const navMenu = document.querySelector('.nav-menu-wrapper');
+      
+      if (!navbar || !menuButton) {
+        console.warn('Navbar elements not found');
+        return;
+      }
+      
+      // Toggle menu on button click
+      menuButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        navbar.classList.toggle('w--open');
+        
+        // Update aria-expanded for accessibility
+        const isOpen = navbar.classList.contains('w--open');
+        menuButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        
+        // Prevent body scroll when menu is open on mobile
+        if (window.innerWidth <= 991) {
+          document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.navbar')) {
+          navbar.classList.remove('w--open');
+          menuButton.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
+      });
+      
+      // Close menu when clicking a nav link
+      if (navMenu) {
+        const navLinks = navMenu.querySelectorAll('.nav-link');
+        navLinks.forEach(function(link) {
+          link.addEventListener('click', function() {
+            navbar.classList.remove('w--open');
+            menuButton.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+      
+      // Close menu on window resize if opened
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 991 && navbar.classList.contains('w--open')) {
+          navbar.classList.remove('w--open');
+          menuButton.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+    
+    // Initialize after DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMobileNav);
+    } else {
+      initMobileNav();
+    }
+  })();
 </script>
+
