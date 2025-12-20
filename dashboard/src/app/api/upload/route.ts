@@ -126,10 +126,3 @@ export async function POST(request: Request) {
 		);
 	}
 }
-
-// Configure for file uploads
-export const config = {
-	api: {
-		bodyParser: false,
-	},
-};
