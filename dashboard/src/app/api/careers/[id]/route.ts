@@ -8,10 +8,11 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
+    const { id } = await params;
     const db = await getDb();
     
     const job = await db.collection('careers').findOne({
-      _id: new ObjectId(params.id),
+      _id: new ObjectId(id),
     });
 
     if (!job) {
@@ -31,6 +32,7 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
     const db = await getDb();
 
@@ -38,7 +40,7 @@ export async function PUT(
     updateData.updatedAt = new Date().toISOString();
 
     const result = await db.collection('careers').updateOne(
-      { _id: new ObjectId(params.id) },
+      { _id: new ObjectId(id) },
       { $set: updateData }
     );
 
@@ -59,10 +61,11 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
+    const { id } = await params;
     const db = await getDb();
 
     const result = await db.collection('careers').deleteOne({
-      _id: new ObjectId(params.id),
+      _id: new ObjectId(id),
     });
 
     if (result.deletedCount === 0) {

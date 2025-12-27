@@ -52,10 +52,23 @@ export default function CareersPage() {
     if (!confirm('Are you sure you want to delete this job posting?')) return;
 
     try {
-      await fetch(`/api/careers/${id}`, { method: 'DELETE' });
+      const token = typeof window !== 'undefined' ? localStorage.getItem('auth_token') : '';
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+      
+      const response = await fetch(`/api/careers/${id}`, { method: 'DELETE', headers });
+      const data = await response.json();
+      
+      if (!response.ok) {
+        alert(`Failed to delete: ${data.error || 'Unknown error'}`);
+        return;
+      }
+      
       setJobs(jobs.filter(job => job._id !== id));
+      alert('Job posting deleted successfully');
     } catch (error) {
       console.error('Error deleting job:', error);
+      alert(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   };
 

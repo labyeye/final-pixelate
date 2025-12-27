@@ -1,10 +1,11 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Professional Video Editing Services - Cinematic & Promotional | Pixelate Nest India</title>
+    <title>
+      Professional Video Editing Services - Cinematic & Promotional | Pixelate
+      Nest India
+    </title>
     <meta
       name="description"
       content="Expert video editing: cinematic color grading, motion graphics, VFX, and storytelling. Transform footage for YouTube, social media, and brands. Best video editing company in India."
@@ -47,9 +48,13 @@
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <link href="styles.css" rel="stylesheet" type="text/css" />
 
@@ -93,7 +98,7 @@
       .star.filled {
         color: #f59e0b;
       }
-      
+
       /* Loading skeleton animation */
       .skeleton {
         background: linear-gradient(
@@ -106,17 +111,21 @@
         animation: loading 1.5s ease-in-out infinite;
         border-radius: 12px;
       }
-      
+
       @keyframes loading {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
       }
-      
+
       .skeleton-card {
         height: 350px;
         width: 100%;
       }
-      
+
       #portfolio-grid {
         min-height: 400px; /* Prevent layout shift */
       }
@@ -166,7 +175,11 @@
       crossorigin="anonymous"
     />
     <!-- Preconnect to API for faster data loading -->
-    <link href="https://backend.pixelatenest.com" rel="preconnect" crossorigin />
+    <link
+      href="https://backend.pixelatenest.com"
+      rel="preconnect"
+      crossorigin
+    />
     <link href="https://backend.pixelatenest.com" rel="dns-prefetch" />
     <script
       src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
@@ -241,31 +254,40 @@
         position: relative;
         z-index: 1000;
         overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
-      
+
       .announcement-content {
         display: flex;
         align-items: center;
         white-space: nowrap;
         animation: scroll-announcement 30s linear infinite;
       }
-      
+
       .announcement-content span {
         display: inline-block;
         padding: 0 50px;
       }
-      
+
       @keyframes gradient-shift {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
       }
-      
+
       @keyframes scroll-announcement {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
       }
-      
+
       @media (max-width: 768px) {
         .announcement-bar {
           font-size: 12px;
@@ -280,27 +302,32 @@
     <script>
       (async function loadAnnouncement() {
         try {
-          const res = await fetch('https://backend.pixelatenest.com/api/announcement', {
-            cache: 'no-store'
-          });
+          const res = await fetch(
+            "https://backend.pixelatenest.com/api/announcement",
+            {
+              cache: "no-store",
+            }
+          );
           if (res.ok) {
             const data = await res.json();
             if (data.text && data.enabled) {
-              const container = document.getElementById('announcement-content');
+              const container = document.getElementById("announcement-content");
               for (let i = 0; i < 20; i++) {
-                const span = document.createElement('span');
+                const span = document.createElement("span");
                 span.textContent = data.text;
                 container.appendChild(span);
               }
-              document.getElementById('announcement-bar').style.display = 'block';
+              document.getElementById("announcement-bar").style.display =
+                "block";
             } else if (!data.enabled) {
-              document.getElementById('announcement-bar').style.display = 'none';
+              document.getElementById("announcement-bar").style.display =
+                "none";
             }
           }
         } catch (e) {
-          console.log('Could not load announcement:', e);
-          const bar = document.getElementById('announcement-bar');
-          if (bar) bar.style.display = 'none';
+          console.log("Could not load announcement:", e);
+          const bar = document.getElementById("announcement-bar");
+          if (bar) bar.style.display = "none";
         }
       })();
     </script>
@@ -476,14 +503,6 @@
                 have the skills and tools to bring your vision to life with
                 precision color grading, smooth transitions, and engaging motion
                 graphics.
-              </p>
-              <p class="p-text-01 text-white-70" style="margin-top: 1rem">
-                We specialize in Adobe Premiere Pro, After Effects, DaVinci
-                Resolve, and Final Cut Pro, ensuring your content stands out
-                with Hollywood-grade quality. From YouTube creators to
-                enterprise brands, we've helped hundreds of clients transform
-                their raw footage into captivating visual experiences that drive
-                results and build lasting audience connections.
               </p>
             </div>
             <h2
@@ -711,60 +730,6 @@
         </section>
       </div>
 
-      <section class="cta-v1 section-animate">
-        <div class="container">
-          <div class="cta-v1-wrap">
-            <div class="cta-v1-main-wrap">
-              <div class="cta-v1-main">
-                <div class="heading-wrap">
-                  <h2 class="h2 text-linear">Ready to Tell Your Story?</h2>
-                </div>
-                <div class="sub-heading-wrap">
-                  <p class="p-text-02 text-white-70">
-                    Let's collaborate to turn your vision into a cinematic
-                    reality. Whether it's a brand film, a product demo, or
-                    social content, we're ready to create something
-                    unforgettable.
-                  </p>
-                </div>
-                <div class="cta-v1-button-wrap">
-                  <a
-                    href="https://www.pixelatenest.com/contact.html"
-                    class="cta-button w-inline-block"
-                  >
-                    <div class="button-02-cover _02">
-                      <div class="button-02-text">
-                        <div class="button-text-01 text-white">
-                          Start Your Project
-                        </div>
-                        <div class="button-text-01 text-white">
-                          Start Your Project
-                        </div>
-                      </div>
-                      <img
-                        loading="lazy"
-                        src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6842e0e84343d9719dd6e3e7_Vector%20Top%20White.svg"
-                        alt="Background"
-                        class="button-icon"
-                      />
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="cta-v1-card-shadow"></div>
-            <div class="ta-v1-dot">
-              <img
-                src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6856448a7b751bd4fcaef4af_BG%20Dot.avif"
-                loading="lazy"
-                alt="Background"
-                class="cta-bg-gif"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section class="footer">
         <div class="container">
           <div class="footer-wrap">
@@ -797,16 +762,22 @@
                       class="p-text-03 text-white-60"
                       style="margin-bottom: 5px"
                     >
-                      <i class="fas fa-envelope" style="margin-right: 8px"></i> support@pixelatenest.com
+                      <i class="fas fa-envelope" style="margin-right: 8px"></i>
+                      support@pixelatenest.com
                     </p>
                     <p
                       class="p-text-03 text-white-60"
                       style="margin-bottom: 5px"
                     >
-                      <i class="fas fa-phone" style="margin-right: 8px"></i> +91 9234112345
+                      <i class="fas fa-phone" style="margin-right: 8px"></i> +91
+                      9234112345
                     </p>
                     <p class="p-text-03 text-white-60">
-                      <i class="fas fa-map-marker-alt" style="margin-right: 8px"></i> Bangalore, Karnataka, India
+                      <i
+                        class="fas fa-map-marker-alt"
+                        style="margin-right: 8px"
+                      ></i>
+                      Bangalore, Karnataka, India
                     </p>
                   </div>
                 </div>
@@ -888,21 +859,28 @@
                     >
                       <div class="footer-link-text">Locations</div>
                     </a>
-                    
-                    
                   </div>
                 </div>
 
                 <div class="footer-link-wrap">
                   <div class="p-text-01">Legal</div>
                   <div class="footer-link-list">
-                    <a href="https://www.pixelatenest.com/privacy-policy.html" class="footer-link w-inline-block">
+                    <a
+                      href="https://www.pixelatenest.com/privacy-policy.html"
+                      class="footer-link w-inline-block"
+                    >
                       <div class="footer-link-text">Privacy Policy</div>
                     </a>
-                    <a href="https://www.pixelatenest.com/terms-of-service.html" class="footer-link w-inline-block">
+                    <a
+                      href="https://www.pixelatenest.com/terms-of-service.html"
+                      class="footer-link w-inline-block"
+                    >
                       <div class="footer-link-text">Terms of Service</div>
                     </a>
-                    <a href="https://www.pixelatenest.com/cookie-policy.html" class="footer-link w-inline-block">
+                    <a
+                      href="https://www.pixelatenest.com/cookie-policy.html"
+                      class="footer-link w-inline-block"
+                    >
                       <div class="footer-link-text">Cookie Policy</div>
                     </a>
                   </div>
@@ -952,7 +930,8 @@
               <div class="vertical-divider"></div>
               <div class="footer-bottom-wrap">
                 <div class="p-text-03 text-white-60">
-                  © 2025 Pixelate Nest. All Rights Reserved. | Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i>
+                  © 2025 Pixelate Nest. All Rights Reserved. | Crafted with
+                  <i class="fas fa-heart" style="color: #e74c3c"></i>
                   in India
                 </div>
 
@@ -1367,18 +1346,81 @@
     </script>
   </body>
 
-<script>
-  (function () {
-    if (localStorage.getItem('pn_prefetch_optout') === '1' || document.cookie.indexOf('pn_prefetch_optout=1') !== -1) return;
-    const pages = ["/about.html","/webdev.html","/app-dev.html","/software-dev.html","/photography.html","/blogs.html","/contact.html","/pricing.html","/careers.html","/index.html"];
-    const domains = ["https://backend.pixelatenest.com","https://fonts.googleapis.com","https://fonts.gstatic.com","https://cdn.prod.website-files.com","https://cdnjs.cloudflare.com","https://www.google-analytics.com","https://www.googletagmanager.com"];
-    function addLink(rel, href, as, crossorigin){try{const l=document.createElement('link');l.rel=rel;l.href=href;if(as)l.as=as;if(crossorigin)l.crossOrigin='anonymous';document.head.appendChild(l);}catch(e){}
-    }
-    function warm(){domains.forEach(d=>{addLink('preconnect',d,null,true);addLink('dns-prefetch',d);});pages.forEach(p=>addLink('prefetch',p,'document'));addLink('preload','/styles.css','style');addLink('preload','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css','style',true);try{fetch('/',{method:'GET',mode:'no-cors',cache:'no-cache'}).catch(()=>{});fetch('https://backend.pixelatenest.com',{method:'GET',mode:'no-cors'}).catch(()=>{});}catch(e){}
-    }
-    if('requestIdleCallback' in window) requestIdleCallback(warm,{timeout:2000}); else window.addEventListener('load',()=>setTimeout(warm,1000));
-    window.pixelateNestDisablePrefetch = function(){localStorage.setItem('pn_prefetch_optout','1');document.cookie='pn_prefetch_optout=1;path=/;max-age='+(60*60*24*365);}    
-    window.pixelateNestEnablePrefetch = function(){localStorage.removeItem('pn_prefetch_optout');document.cookie='pn_prefetch_optout=;path=/;max-age=0';}
-  })();
-</script>
+  <script>
+    (function () {
+      if (
+        localStorage.getItem("pn_prefetch_optout") === "1" ||
+        document.cookie.indexOf("pn_prefetch_optout=1") !== -1
+      )
+        return;
+      const pages = [
+        "/about.html",
+        "/webdev.html",
+        "/app-dev.html",
+        "/software-dev.html",
+        "/photography.html",
+        "/blogs.html",
+        "/contact.html",
+        "/pricing.html",
+        "/careers.html",
+        "/index.html",
+      ];
+      const domains = [
+        "https://backend.pixelatenest.com",
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com",
+        "https://cdn.prod.website-files.com",
+        "https://cdnjs.cloudflare.com",
+        "https://www.google-analytics.com",
+        "https://www.googletagmanager.com",
+      ];
+      function addLink(rel, href, as, crossorigin) {
+        try {
+          const l = document.createElement("link");
+          l.rel = rel;
+          l.href = href;
+          if (as) l.as = as;
+          if (crossorigin) l.crossOrigin = "anonymous";
+          document.head.appendChild(l);
+        } catch (e) {}
+      }
+      function warm() {
+        domains.forEach((d) => {
+          addLink("preconnect", d, null, true);
+          addLink("dns-prefetch", d);
+        });
+        pages.forEach((p) => addLink("prefetch", p, "document"));
+        addLink("preload", "/styles.css", "style");
+        addLink(
+          "preload",
+          "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+          "style",
+          true
+        );
+        try {
+          fetch("/", {
+            method: "GET",
+            mode: "no-cors",
+            cache: "no-cache",
+          }).catch(() => {});
+          fetch("https://backend.pixelatenest.com", {
+            method: "GET",
+            mode: "no-cors",
+          }).catch(() => {});
+        } catch (e) {}
+      }
+      if ("requestIdleCallback" in window)
+        requestIdleCallback(warm, { timeout: 2000 });
+      else window.addEventListener("load", () => setTimeout(warm, 1000));
+      window.pixelateNestDisablePrefetch = function () {
+        localStorage.setItem("pn_prefetch_optout", "1");
+        document.cookie =
+          "pn_prefetch_optout=1;path=/;max-age=" + 60 * 60 * 24 * 365;
+      };
+      window.pixelateNestEnablePrefetch = function () {
+        localStorage.removeItem("pn_prefetch_optout");
+        document.cookie = "pn_prefetch_optout=;path=/;max-age=0";
+      };
+    })();
+  </script>
 </html>
