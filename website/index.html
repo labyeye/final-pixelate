@@ -359,7 +359,7 @@
       />
     </noscript>
     <!-- End Facebook Pixel Code -->
-    
+
     <!-- Pixy Chatbot Styles -->
     <link href="pixy-chatbot.css" rel="stylesheet" type="text/css" />
   </head>
@@ -368,64 +368,6 @@
     <div id="announcement-bar" class="announcement-bar">
       <div class="announcement-content" id="announcement-content"></div>
     </div>
-
-    <style>
-      .announcement-bar {
-        background: linear-gradient(90deg, #da4900 0%, black 100%);
-        background-size: 200% 100%;
-        animation: gradient-shift 3s ease infinite;
-        color: white;
-        padding: 12px 0;
-        text-align: center;
-        font-weight: 600;
-        font-size: 14px;
-        position: relative;
-        z-index: 1000;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .announcement-content {
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-        animation: scroll-announcement 30s linear infinite;
-      }
-
-      .announcement-content span {
-        display: inline-block;
-        padding: 0 50px;
-      }
-
-      @keyframes gradient-shift {
-        0%,
-        100% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-      }
-
-      @keyframes scroll-announcement {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .announcement-bar {
-          font-size: 12px;
-          padding: 10px 0;
-        }
-        .announcement-content span {
-          padding: 0 30px;
-        }
-      }
-    </style>
 
     <script>
       // Fetch and display announcement from API with 10 duplicates
@@ -663,15 +605,6 @@
                 />
               </div>
             </div>
-          </div>
-        </section>
-      </div>
-      <section data-wf--success-rate--variant="base" class="success-rate">
-        <div class="container">
-          <div
-            data-w-id="b2d21e1e-5714-7dd5-f811-41e50de78682"
-            class="success-rate-wrap"
-          >
             <div class="success-rate-bottom">
               <div class="success-rate-box">
                 <div
@@ -723,16 +656,28 @@
                 <div class="p-text-01 text-white-70">Client Satisfaction</div>
               </div>
             </div>
+          </div>
+        </section>
+      </div>
+      <section data-wf--success-rate--variant="base" class="success-rate">
+        <div>
+          <div
+            data-w-id="b2d21e1e-5714-7dd5-f811-41e50de78682"
+            class="success-rate-wrap"
+          >
             <section class="service-01">
-              <div class="container">
+              <div>
                 <div class="service-01-wrap">
                   <div class="service-01-top">
-                    <div class="heading-wrap service-01-heading">
-                      <h2 class="h2 text-linear">Why Choose Us?</h2>
-                      <p
-                        class="p-text-01 text-white-60"
-                        style="text-align: left; margin-top: 10px"
-                      >
+                    <div
+                      style="
+                        text-align: center;
+                        width: 100%;
+                        margin-bottom: 30px;
+                      "
+                    >
+                      <h2>Why Choose Us?</h2>
+                      <p>
                         At Pixelate Nest, we are more than just a creative
                         agency. We are your partners in innovation, delivering
                         tailored solutions that drive results and elevate your
@@ -740,200 +685,73 @@
                       </p>
                     </div>
                   </div>
-                  <div class="service-01-bottom">
-                    <div class="service-cards">
-                      <article class="service-card" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800'); background-size: cover; background-position: center; position: relative;">
-                        <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.75); border-radius: 16px; z-index: 1;"></div>
-                        <div style="position: relative; z-index: 2;">
-                          <div class="card-icon">
-                            <i
-                              class="fas fa-paint-brush icon-gradient"
-                              aria-hidden="true"
-                            ></i>
-                          </div>
-                          <h3 class="h4">Creative Design Excellence</h3>
-                          <p class="p-text-02 text-white-70">
-                            Expert graphic design, UI/UX, branding, and visual
-                            identity solutions that capture attention and elevate
-                            your brand storytelling across all digital platforms.
+                  <div class="choose-container">
+                    <div class="outer">
+                      <div class="dot"></div>
+                      <div class="card">
+                        <div class="ray"></div>
+                        <div class="text">Strategy-Driven Thinking</div>
+                        <div style="width: 70%">
+                          <p>
+                            We plan every move with purpose to deliver
+                            measurable growth and real impact.
                           </p>
                         </div>
-                      </article>
-
-                      <article class="service-card" style="background-image: url('https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=800'); background-size: cover; background-position: center; position: relative;">
-                        <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.75); border-radius: 16px; z-index: 1;"></div>
-                        <div style="position: relative; z-index: 2;">
-                          <div class="card-icon">
-                            <i
-                              class="fas fa-video icon-gradient"
-                              aria-hidden="true"
-                            ></i>
-                          </div>
-                          <h3 class="h4">Video Production & Editing</h3>
-                          <p class="p-text-02 text-white-70">
-                            Professional video editing, motion graphics,
-                            promotional content, and social media video production
-                            that drives engagement and conversion rates.
-                          </p>
-                        </div>
-                      </article>
-
-                      <article class="service-card" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800'); background-size: cover; background-position: center; position: relative;">
-                        <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.75); border-radius: 16px; z-index: 1;"></div>
-                        <div style="position: relative; z-index: 2;">
-                          <div class="card-icon">
-                            <i
-                              class="fas fa-code icon-gradient"
-                              aria-hidden="true"
-                            ></i>
-                          </div>
-                          <h3 class="h4">Web & App Development</h3>
-                          <p class="p-text-02 text-white-70">
-                            Custom web development, mobile app development,
-                            responsive design, and full-stack solutions optimized
-                            for performance, SEO, and user experience.
-                          </p>
-                        </div>
-                      </article>
-
-                      <article class="service-card" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800'); background-size: cover; background-position: center; position: relative;">
-                        <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.75); border-radius: 16px; z-index: 1;"></div>
-                        <div style="position: relative; z-index: 2;">
-                          <div class="card-icon">
-                            <i
-                              class="fas fa-chart-line icon-gradient"
-                              aria-hidden="true"
-                            ></i>
-                          </div>
-                          <h3 class="h4">Digital Marketing Strategy</h3>
-                          <p class="p-text-02 text-white-70">
-                            Data-driven digital marketing, content strategy,
-                            social media management, SEO optimization, and lead
-                            generation campaigns that maximize ROI.
-                          </p>
-                        </div>
-                      </article>
+                        <div class="line topl"></div>
+                        <div class="line leftl"></div>
+                        <div class="line bottoml"></div>
+                        <div class="line rightl"></div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="tech-stack">
-              <div class="container">
-                <div class="tech-stack-wrap">
-                  <div class="tech-stack-top">
-                    <div class="heading-wrap languages-heading">
-                      <h2 class="h2 text-linear">Our Tech Stack</h2>
-                      <p style="color: #da4900">
-                        We use a variety of tools and technologies to deliver
-                        the best results for our clients.
-                      </p>
+                    <div class="outer">
+                      <div class="dot"></div>
+                      <div class="card">
+                        <div class="ray"></div>
+                        <div class="text">Creativity With Clear Purpose</div>
+                        <div style="width: 70%">
+                          <p>
+                            Designs and visuals crafted to attract, engage, and
+                            convert your audience.
+                          </p>
+                        </div>
+                        <div class="line topl"></div>
+                        <div class="line leftl"></div>
+                        <div class="line bottoml"></div>
+                        <div class="line rightl"></div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="tech-carousel-container">
-                    <div class="tech-carousel">
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobeaftereffects.svg"
-                          alt="After Effects"
-                        />
+                    <div class="outer">
+                      <div class="dot"></div>
+                      <div class="card">
+                        <div class="ray"></div>
+                        <div class="text">Tech-Powered Execution</div>
+                        <div style="width: 70%">
+                          <p>
+                            Modern tools and smart tech to build fast, scalable,
+                            and reliable solutions.
+                          </p>
+                        </div>
+                        <div class="line topl"></div>
+                        <div class="line leftl"></div>
+                        <div class="line bottoml"></div>
+                        <div class="line rightl"></div>
                       </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobepremierepro.svg"
-                          alt="Premiere Pro"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/davinciresolve.svg"
-                          alt="DaVinci Resolve"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobephotoshop.svg"
-                          alt="Photoshop"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobelightroom.svg"
-                          alt="LightRoom"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/html5.svg"
-                          alt="HTML5"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/css3.svg"
-                          alt="CSS3"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg"
-                          alt="JavaScript"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg"
-                          alt="React"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nodedotjs.svg"
-                          alt="Node.js"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/mongodb.svg"
-                          alt="MongoDB"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg"
-                          alt="Tailwind CSS"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/wordpress.svg"
-                          alt="WordPress"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/shopify.svg"
-                          alt="Shopify"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/woo.svg"
-                          alt="WooCommerce"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg"
-                          alt="Figma"
-                        />
-                      </div>
-                      <div class="logo-item">
-                        <img
-                          src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/flutter.svg"
-                          alt="Flutter"
-                        />
+                    </div>
+                    <div class="outer">
+                      <div class="dot"></div>
+                      <div class="card">
+                        <div class="ray"></div>
+                        <div class="text">True Creative Partnership</div>
+                        <div style="width: 70%">
+                          <p>
+                            We work as an extension of your team, focused on
+                            long-term success.
+                          </p>
+                        </div>
+                        <div class="line topl"></div>
+                        <div class="line leftl"></div>
+                        <div class="line bottoml"></div>
+                        <div class="line rightl"></div>
                       </div>
                     </div>
                   </div>
@@ -942,7 +760,127 @@
             </section>
           </div>
         </div>
+        <section class="tech-stack main-hero">
+          <div class="tech-stack-wrap">
+            <div class="tech-stack-top">
+              <div class="tech-title-container">
+                <h2>Our Tech Stack</h2>
+                <p>
+                  We use a variety of tools and technologies to deliver the best
+                  results for our clients.
+                </p>
+              </div>
+            </div>
+            <div class="tech-carousel-container">
+              <div class="tech-carousel">
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobeaftereffects.svg"
+                    alt="After Effects"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobepremierepro.svg"
+                    alt="Premiere Pro"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/davinciresolve.svg"
+                    alt="DaVinci Resolve"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobephotoshop.svg"
+                    alt="Photoshop"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobelightroom.svg"
+                    alt="LightRoom"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/html5.svg"
+                    alt="HTML5"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/css3.svg"
+                    alt="CSS3"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg"
+                    alt="JavaScript"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg"
+                    alt="React"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nodedotjs.svg"
+                    alt="Node.js"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/mongodb.svg"
+                    alt="MongoDB"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg"
+                    alt="Tailwind CSS"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/wordpress.svg"
+                    alt="WordPress"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/shopify.svg"
+                    alt="Shopify"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/woo.svg"
+                    alt="WooCommerce"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg"
+                    alt="Figma"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/flutter.svg"
+                    alt="Flutter"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
+
       <!-- Typewriter CSS moved to website/styles.css -->
 
       <script>
@@ -1012,24 +950,32 @@
         })();
       </script>
 
-      <!-- How We Work - Complete Process Section -->
       <section
         class="process-section"
         style="padding: 2px 0; background: black"
       >
-        <div class="container">
+        <div
+          class="process-container"
+          style="
+            max-width: 1200px;
+            margin: auto;
+            margin-top: 60px;
+            margin-bottom: 80px;
+            padding: 0 20px;
+          "
+        >
           <div
             class="process-header"
-            style="text-align: center; margin-bottom: 80px"
+            style="text-align: center; margin-bottom: 80px; width: 100%"
           >
-            <h2 class="h2 text-linear">How We Work With You</h2>
+            <h2>How We Work With You</h2>
             <p
               style="
                 font-size: 18px;
                 color: rgba(255, 255, 255, 0.6);
-                max-width: 750px;
-                margin: 0 auto;
+                margin-top: 20px;
                 line-height: 1.8;
+                text-align: center;
               "
             >
               Our transparent, streamlined process from consultation to
@@ -2080,24 +2026,80 @@
           </div>
         </div>
       </section>
+      <section class="testimonials-section main-hero">
+        <div>
+          <div class="testimonials-wrap">
+            <div class="heading-wrap testimonials-heading">
+              <h2 class="h2 text-linear">What Our Clients Say</h2>
+              <p class="p-text-02 text-white-70">
+                Real experiences from businesses we've helped transform
+              </p>
+            </div>
 
-      <style>
-        /* Card hover */
-        .process-step:hover {
-          transform: translateY(-6px);
-          border-color: rgba(251, 138, 2, 0.35) !important;
-          box-shadow: 0 18px 48px rgba(251, 138, 2, 0.12);
-        }
+            <div class="testimonials-carousel-wrap">
+              <button
+                class="carousel-btn prev-btn"
+                aria-label="Previous testimonial"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 18L9 12L15 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
 
-        /* Icon animation */
-        .process-step:hover .process-icon {
-          transform: scale(1.06) rotate(6deg);
-        }
+              <div class="testimonials-carousel">
+                <div class="testimonials-track" id="testimonialsTrack">
+                  <!-- Testimonials will be loaded here dynamically -->
+                  <div class="testimonial-card skeleton">
+                    <div class="skeleton-loader"></div>
+                  </div>
+                  <div class="testimonial-card skeleton">
+                    <div class="skeleton-loader"></div>
+                  </div>
+                  <div class="testimonial-card skeleton">
+                    <div class="skeleton-loader"></div>
+                  </div>
+                </div>
+              </div>
 
-        .process-icon {
-          transition: all 0.35s ease;
-        }
-      </style>
+              <button
+                class="carousel-btn next-btn"
+                aria-label="Next testimonial"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 18L15 12L9 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div class="carousel-indicators" id="carouselIndicators"></div>
+          </div>
+        </div>
+      </section>
+
       <section class="priceing-01">
         <div class="container">
           <div class="priceing-01-wrap">
@@ -2329,103 +2331,7 @@
                     </div>
                   </div>
                 </section>
-
-                <!-- Customer Testimonials Section -->
-                <section class="testimonials-section">
-                  <div class="container">
-                    <div class="testimonials-wrap">
-                      <div class="heading-wrap testimonials-heading">
-                        <h2 class="h2 text-linear">What Our Clients Say</h2>
-                        <p class="p-text-02 text-white-70">
-                          Real experiences from businesses we've helped
-                          transform
-                        </p>
-                      </div>
-
-                      <div class="testimonials-carousel-wrap">
-                        <button
-                          class="carousel-btn prev-btn"
-                          aria-label="Previous testimonial"
-                        >
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M15 18L9 12L15 6"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </button>
-
-                        <div class="testimonials-carousel">
-                          <div
-                            class="testimonials-track"
-                            id="testimonialsTrack"
-                          >
-                            <!-- Testimonials will be loaded here dynamically -->
-                            <div class="testimonial-card skeleton">
-                              <div class="skeleton-loader"></div>
-                            </div>
-                            <div class="testimonial-card skeleton">
-                              <div class="skeleton-loader"></div>
-                            </div>
-                            <div class="testimonial-card skeleton">
-                              <div class="skeleton-loader"></div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <button
-                          class="carousel-btn next-btn"
-                          aria-label="Next testimonial"
-                        >
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M9 18L15 12L9 6"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-
-                      <div
-                        class="carousel-indicators"
-                        id="carouselIndicators"
-                      ></div>
-                    </div>
-                  </div>
-                </section>
-
-                <!-- Responsive CSS for testimonials and modal -->
                 <style>
-                  /* Prevent horizontal overflow globally */
-                  html,
-                  body {
-                    overflow-x: hidden;
-                  }
-                  /* Box sizing reset for predictable sizing */
-                  *,
-                  *::before,
-                  *::after {
-                    box-sizing: border-box;
-                  }
-
                   .testimonials-carousel-wrap {
                     position: relative;
                     display: flex;
@@ -2571,95 +2477,6 @@
                     }
                   }
                 </style>
-
-                <section class="cta-v1">
-                  <div class="container">
-                    <div class="cta-v1-wrap">
-                      <div class="cta-v1-main-wrap">
-                        <div class="cta-v1-main">
-                          <div
-                            data-w-id="f45b20ca-9f45-fafa-f816-47d73e45a344"
-                            class="short-teg-wrap"
-                          >
-                            <div
-                              data-w-id="f45b20ca-9f45-fafa-f816-47d73e45a345"
-                              class="short-teg caption-linear-bg"
-                            >
-                              <div
-                                data-w-id="f45b20ca-9f45-fafa-f816-47d73e45a346"
-                                class="tagline _01"
-                              >
-                                Introducing our Insights
-                              </div>
-                              <div
-                                data-w-id="f45b20ca-9f45-fafa-f816-47d73e45a348"
-                                class="teg-icon"
-                              >
-                                <img
-                                  src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/68430a4b59642a7f50e3d955_Top%20str.svg"
-                                  loading="lazy"
-                                  alt="Background"
-                                  class="fit-cover"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <div class="heading-wrap">
-                            <h3 class="h2 text-linear">
-                              Your Creative Growth Partner. Let's Build a Brand
-                              That Stands Out !
-                            </h3>
-                          </div>
-                          <div class="sub-heading-wrap">
-                            <p class="p-text-02 text-white-70">
-                              Partner with our in-house team of developers,
-                              designers, and marketers to build a powerful and
-                              cohesive online presence from concept to
-                              conversion.
-                            </p>
-                          </div>
-                          <div
-                            data-w-id="b0e2ffc4-90a4-c98b-5f83-a750c460e65c"
-                            class="cta-v1-button-wrap"
-                          >
-                            <a
-                              data-w-id="b0e2ffc4-90a4-c98b-5f83-a750c460e65d"
-                              href="https://www.pixelatenest.com/contact.html"
-                              class="cta-button w-inline-block"
-                              ><div class="button-02-cover _02">
-                                <div class="button-02-text">
-                                  <div class="button-text-01 text-white">
-                                    Get a Free Consultation
-                                  </div>
-                                  <div class="button-text-01 text-white">
-                                    Get a Free Consultation
-                                  </div>
-                                </div>
-                                <img
-                                  loading="lazy"
-                                  src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6842e0e84343d9719dd6e3e7_Vector%20Top%20White.svg"
-                                  alt="Background"
-                                  class="button-icon"
-                                /></div
-                            ></a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="cta-v1-card-shadow"></div>
-                      <div
-                        data-w-id="b0e2ffc4-90a4-c98b-5f83-a750c460e666"
-                        class="ta-v1-dot"
-                      >
-                        <img
-                          src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6856448a7b751bd4fcaef4af_BG%20Dot.avif"
-                          loading="lazy"
-                          alt="Background"
-                          class="cta-bg-gif"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </section>
               </div>
 
               <!-- Review Modal -->
@@ -2911,6 +2728,7 @@
           </div>
         </div>
       </section>
+
       <section class="footer">
         <div class="container">
           <div class="footer-wrap">
@@ -3115,8 +2933,6 @@
                   <i class="fas fa-heart" style="color: #e74c3c"></i>
                   in India
                 </div>
-
-                <!-- Star Rating Section -->
                 <div class="footer-rating-wrap">
                   <span class="p-text-03 text-white-60">Rate Us:</span>
                   <div class="footer-stars" id="footerStars">
@@ -3219,10 +3035,8 @@
       </section>
     </div>
     <script>
-      // Accessibility helper: populate missing alt text for testimonial images
       (function () {
         try {
-          // For client images: use adjacent client name when available
           document
             .querySelectorAll("img.testimonials-01-client")
             .forEach(function (img) {
@@ -3249,8 +3063,6 @@
                 }
               }
             });
-
-          // For rating/star images: set descriptive alt if missing
           document.querySelectorAll("img.star-image").forEach(function (img) {
             if (
               img &&
@@ -3261,32 +3073,23 @@
             }
           });
         } catch (e) {
-          // no-op on errors
           console.error("Alt-helper error", e);
         }
       })();
     </script>
 
     <script type="text/javascript">
-      // Testimonials and Review System
       (function () {
-        // API URL - Update this based on your environment
-        // For local development: https://backend.pixelatenest.com/api/reviews
-        // For production: https://your-domain.com/api/reviews
         const API_URL = "https://backend.pixelatenest.com/api/reviews";
         let currentIndex = 0;
         let testimonials = [];
         let selectedRating = 0;
         let autoScrollInterval;
-
-        // Load testimonials from API
         async function loadTestimonials() {
           try {
             const response = await fetch(`${API_URL}?approved=true&limit=50`);
             if (!response.ok) throw new Error("Failed to fetch testimonials");
             const data = await response.json();
-
-            // Filter only approved reviews
             testimonials = data.filter((review) => review.approved === true);
 
             if (testimonials.length === 0) {
@@ -3301,8 +3104,6 @@
             showErrorMessage();
           }
         }
-
-        // Show message when no reviews available
         function showNoReviewsMessage() {
           const track = document.getElementById("testimonialsTrack");
           if (!track) return;
@@ -3315,8 +3116,6 @@
             </div>
           `;
         }
-
-        // Show error message
         function showErrorMessage() {
           const track = document.getElementById("testimonialsTrack");
           if (!track) return;
@@ -3329,8 +3128,6 @@
             </div>
           `;
         }
-
-        // Render testimonials in carousel
         function renderTestimonials() {
           const track = document.getElementById("testimonialsTrack");
           if (!track || testimonials.length === 0) return;
@@ -3361,8 +3158,6 @@
 
           updateCarouselPosition();
         }
-
-        // Escape HTML to prevent XSS
         function escapeHtml(text) {
           const map = {
             "&": "&amp;",
@@ -3373,8 +3168,6 @@
           };
           return text.replace(/[&<>"']/g, (m) => map[m]);
         }
-
-        // Generate star icons
         function generateStars(rating) {
           let stars = "";
           for (let i = 1; i <= 5; i++) {
@@ -3390,8 +3183,6 @@
           }
           return stars;
         }
-
-        // Responsive carousel helpers and indicators
         function getCardsVisible() {
           const w = window.innerWidth;
           if (w <= 640) return 1;
@@ -3416,8 +3207,6 @@
             }" data-page="${i}"></span>
           `
           ).join("");
-
-          // Add click listeners to indicators
           indicators.querySelectorAll(".indicator").forEach((indicator, i) => {
             indicator.addEventListener("click", () => {
               currentIndex = i * cardsVisible;
@@ -3426,8 +3215,6 @@
             });
           });
         }
-
-        // Update carousel position using pixel offsets (handles gaps reliably)
         function updateCarouselPosition() {
           const track = document.getElementById("testimonialsTrack");
           if (!track) return;
@@ -3435,22 +3222,16 @@
           const cardsVisible = getCardsVisible();
           const cards = track.querySelectorAll(".testimonial-card");
           if (!cards.length) return;
-
-          // Measure card width and gap (gap returns px string like '16px')
           const cardRect = cards[0].getBoundingClientRect();
           const computed = window.getComputedStyle(track);
           const gapPx = computed.gap ? parseFloat(computed.gap) : 16;
           const cardFullWidth = cardRect.width + gapPx;
-
-          // Clamp currentIndex so it never overflows the available pages
           const maxIndex = Math.max(0, testimonials.length - cardsVisible);
           if (currentIndex > maxIndex) currentIndex = maxIndex;
 
           const offsetPx = currentIndex * cardFullWidth;
           track.style.transform = `translateX(${-offsetPx}px)`;
         }
-
-        // Carousel navigation
         document.querySelector(".prev-btn")?.addEventListener("click", () => {
           stopAutoScroll();
           if (currentIndex > 0) {
@@ -3478,10 +3259,8 @@
           updateCarouselIndicators();
           startAutoScroll();
         });
-
-        // Auto-scroll carousel (responsive-aware)
         function startAutoScroll() {
-          stopAutoScroll(); // Clear any existing interval
+          stopAutoScroll();
           const cardsVisible = getCardsVisible();
           if (testimonials.length > cardsVisible) {
             autoScrollInterval = setInterval(() => {
@@ -3492,13 +3271,10 @@
               }
               updateCarouselPosition();
               updateCarouselIndicators();
-            }, 5000); // Rotate every 5 seconds
+            }, 5000);
           }
         }
-
-        // Recompute layout on resize
         window.addEventListener("resize", () => {
-          // Ensure currentIndex is valid for new cardsVisible
           const cardsVisible = getCardsVisible();
           if (currentIndex > Math.max(0, testimonials.length - cardsVisible)) {
             currentIndex = Math.max(0, testimonials.length - cardsVisible);
@@ -3507,7 +3283,6 @@
           updateCarouselIndicators();
         });
 
-        // Touch/swipe support for mobile
         (function enableTouchSwipe() {
           const trackEl = document.getElementById("testimonialsTrack");
           if (!trackEl) return;
@@ -3545,13 +3320,11 @@
                 ? e.changedTouches[0].clientX
                 : 0;
             const dx = endX - startX;
-            const threshold = 50; // px
+            const threshold = 50;
             const cardsVisible = getCardsVisible();
             if (dx > threshold) {
-              // swipe right -> previous
               currentIndex = Math.max(0, currentIndex - 1);
             } else if (dx < -threshold) {
-              // swipe left -> next
               if (currentIndex < testimonials.length - cardsVisible) {
                 currentIndex = Math.min(
                   testimonials.length - cardsVisible,
@@ -3573,15 +3346,11 @@
             autoScrollInterval = null;
           }
         }
-
-        // Pause auto-scroll on hover
         const carouselWrap = document.querySelector(
           ".testimonials-carousel-wrap"
         );
         carouselWrap?.addEventListener("mouseenter", stopAutoScroll);
         carouselWrap?.addEventListener("mouseleave", startAutoScroll);
-
-        // Modal functionality
         const modal = document.getElementById("reviewModal");
         const closeModal = document.getElementById("closeModal");
         const cancelReview = document.getElementById("cancelReview");
@@ -3589,14 +3358,10 @@
         const footerStars = document.getElementById("footerStars");
         const modalStars = document.getElementById("modalStars");
         const formMessage = document.getElementById("formMessage");
-
-        // Open modal when clicking footer stars
         footerStars?.addEventListener("click", () => {
           modal.style.display = "flex";
           document.body.style.overflow = "hidden";
         });
-
-        // Close modal
         function closeReviewModal() {
           modal.style.display = "none";
           document.body.style.overflow = "auto";
@@ -3609,15 +3374,11 @@
 
         closeModal?.addEventListener("click", closeReviewModal);
         cancelReview?.addEventListener("click", closeReviewModal);
-
-        // Close modal when clicking outside
         modal?.addEventListener("click", (e) => {
           if (e.target === modal) {
             closeReviewModal();
           }
         });
-
-        // Star rating functionality for modal
         modalStars?.querySelectorAll(".modal-star").forEach((star) => {
           star.addEventListener("click", function () {
             selectedRating = parseInt(this.dataset.rating);
@@ -3646,8 +3407,6 @@
             }
           });
         }
-
-        // Handle form submission
         reviewForm?.addEventListener("submit", async (e) => {
           e.preventDefault();
 
@@ -3667,8 +3426,6 @@
             rating: selectedRating,
             message: document.getElementById("reviewMessage").value.trim(),
           };
-
-          // Validate all fields
           if (
             !formData.name ||
             !formData.email ||
@@ -3679,8 +3436,6 @@
             showMessage("Please fill in all required fields", "error");
             return;
           }
-
-          // Disable submit button
           if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.textContent = "Submitting...";
@@ -3707,8 +3462,6 @@
               "Thank you for your review! It will be published after our team approves it.",
               "success"
             );
-
-            // Reload testimonials to check if there are new approved ones
             setTimeout(() => {
               loadTestimonials();
             }, 1000);
@@ -3724,7 +3477,6 @@
               "error"
             );
           } finally {
-            // Re-enable submit button
             if (submitBtn) {
               submitBtn.disabled = false;
               submitBtn.textContent = originalText || "Submit Review";
@@ -3736,19 +3488,14 @@
           formMessage.textContent = text;
           formMessage.className = `form-message ${type}`;
         }
-
-        // Initialize
         loadTestimonials();
       })();
     </script>
-    
-    <!-- Pixy Chatbot Widget -->
     <script src="js/pixy-chatbot.js"></script>
   </body>
 </html>
 
 <script>
-  // Warm other pages & critical domains after homepage load/idle so navigation appears instant
   (function () {
     const pages = [
       "/about.html",
@@ -3786,18 +3533,13 @@
     }
 
     function warm() {
-      // preconnect + dns-prefetch
       domains.forEach((d) => {
         addLink("preconnect", d, null, true);
         addLink("dns-prefetch", d);
       });
-
-      // prefetch HTML pages (low priority)
       pages.forEach((p) => {
         addLink("prefetch", p, "document");
       });
-
-      // preload a couple of critical assets that speed navigation
       addLink("preload", "/styles.css", "style");
       addLink(
         "preload",
@@ -3805,8 +3547,6 @@
         "style",
         true
       );
-
-      // gentle fetch to warm API and page caches (no-cors so we don't get blocked)
       try {
         fetch("/", { method: "GET", mode: "no-cors", cache: "no-cache" }).catch(
           () => {}
@@ -3826,72 +3566,55 @@
       });
     }
   })();
-
-  // Mobile navbar toggle functionality
-  (function() {
+  (function () {
     function initMobileNav() {
       const navbar = document.querySelector('.w-nav[data-collapse="medium"]');
-      const menuButton = document.querySelector('.menu-button');
-      const navMenu = document.querySelector('.nav-menu-wrapper');
-      
+      const menuButton = document.querySelector(".menu-button");
+      const navMenu = document.querySelector(".nav-menu-wrapper");
+
       if (!navbar || !menuButton) {
-        console.warn('Navbar elements not found');
+        console.warn("Navbar elements not found");
         return;
       }
-      
-      // Toggle menu on button click
-      menuButton.addEventListener('click', function(e) {
+      menuButton.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        navbar.classList.toggle('w--open');
-        
-        // Update aria-expanded for accessibility
-        const isOpen = navbar.classList.contains('w--open');
-        menuButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        
-        // Prevent body scroll when menu is open on mobile
+        navbar.classList.toggle("w--open");
+        const isOpen = navbar.classList.contains("w--open");
+        menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
         if (window.innerWidth <= 991) {
-          document.body.style.overflow = isOpen ? 'hidden' : '';
+          document.body.style.overflow = isOpen ? "hidden" : "";
         }
       });
-      
-      // Close menu when clicking outside
-      document.addEventListener('click', function(e) {
-        if (!e.target.closest('.navbar')) {
-          navbar.classList.remove('w--open');
-          menuButton.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
+      document.addEventListener("click", function (e) {
+        if (!e.target.closest(".navbar")) {
+          navbar.classList.remove("w--open");
+          menuButton.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
         }
       });
-      
-      // Close menu when clicking a nav link
       if (navMenu) {
-        const navLinks = navMenu.querySelectorAll('.nav-link');
-        navLinks.forEach(function(link) {
-          link.addEventListener('click', function() {
-            navbar.classList.remove('w--open');
-            menuButton.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
+        const navLinks = navMenu.querySelectorAll(".nav-link");
+        navLinks.forEach(function (link) {
+          link.addEventListener("click", function () {
+            navbar.classList.remove("w--open");
+            menuButton.setAttribute("aria-expanded", "false");
+            document.body.style.overflow = "";
           });
         });
       }
-      
-      // Close menu on window resize if opened
-      window.addEventListener('resize', function() {
-        if (window.innerWidth > 991 && navbar.classList.contains('w--open')) {
-          navbar.classList.remove('w--open');
-          menuButton.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 991 && navbar.classList.contains("w--open")) {
+          navbar.classList.remove("w--open");
+          menuButton.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
         }
       });
     }
-    
-    // Initialize after DOM is ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initMobileNav);
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initMobileNav);
     } else {
       initMobileNav();
     }
   })();
 </script>
-

@@ -18,6 +18,7 @@ const formSchema = z.object({
   rating: z.number().min(0).max(5).optional(),
   showOn: z.enum(["web-development","software-development","app-development","video-editing","photography","none"]),
   thumbnailBase64: z.string().optional(),
+  webDevBgImageUrl: z.string().optional(),
   note: z.string().optional(),
 });
 
@@ -28,7 +29,7 @@ export default function WorkGalleryPage() {
   const isAdmin = user?.role === 'admin';
   const [items, setItems] = useState<any[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
-  const form = useForm<FormValues>({ resolver: zodResolver(formSchema), defaultValues: { title: "", link: "", tech: "", rating: 0, showOn: "none" } });
+  const form = useForm<FormValues>({ resolver: zodResolver(formSchema), defaultValues: { title: "", link: "", tech: "", rating: 0, showOn: "none", webDevBgImageUrl: "" } });
 
   useEffect(() => {
     let mounted = true;
@@ -106,6 +107,7 @@ export default function WorkGalleryPage() {
       rating: Number(it.rating ?? 0),
       showOn: it.showOn || 'none',
       thumbnailBase64: it.thumbnailBase64 || '',
+      webDevBgImageUrl: it.webDevBgImageUrl || '',
       note: it.note || '',
     });
   };
@@ -164,6 +166,18 @@ export default function WorkGalleryPage() {
               <label className="block text-sm font-medium">Thumbnail</label>
               <input type="file" accept="image/*" onChange={handleFileChange} />
             </div>
+
+            {form.watch('showOn') === 'web-development' && (
+              <div>
+                <label className="block text-sm font-medium">Web Dev Background Image URL</label>
+                <Input 
+                  {...form.register('webDevBgImageUrl')} 
+                  placeholder="https://example.com/bg-image.jpg"
+                  className="font-mono text-sm"
+                />
+                <p className="text-xs text-muted-foreground mt-1">This image will be used as background for large showcase cards on the Web Development page.</p>
+              </div>
+            )}
 
             <div>
               <label className="block text-sm font-medium">Note</label>

@@ -2,122 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Web Development Services - Custom Websites | Pixelate Nest India</title>
-    <meta
-      content="Expert web development: custom websites, e-commerce, and progressive web apps. Secure, scalable solutions with React, Next.js, Node.js. Serving Bangalore, Bihar, and all India. Free quote!"
-      name="description"
-    />
-    <meta
-      name="keywords"
-      content="web development services, custom website development, responsive web design, e-commerce development, progressive web apps, PWA development, React development, Next.js development, Node.js development, full stack development, frontend development, backend development, WordPress development, Shopify development, website redesign, website maintenance, web application development, SaaS development, API development, cloud hosting, website optimization, mobile-first design, CMS development, HTML5, CSS3, JavaScript, TypeScript"
-    />
-    <meta
-      name="robots"
-      content="index, follow, max-snippet:-1, max-image-preview:large"
-    />
-    <meta
-      content="Web Development Services — Custom Websites & Web Apps | Pixelate Nest"
-      property="og:title"
-    />
-    <meta
-      content="Transform your business with professional web development. We build secure, scalable, high-performance websites and web applications tailored to your needs. From e-commerce to enterprise solutions."
-      property="og:description"
-    />
-    <meta
-      content="https://www.pixelatenest.com/assets/web-dev-og-image.webp"
-      property="og:image"
-    />
-    <meta
-      property="og:url"
-      content="https://www.pixelatenest.com/webdev.html"
-    />
-    <meta property="og:type" content="website" />
-    <meta content="summary_large_image" name="twitter:card" />
+    <title>
+      Web Development Services - Custom Websites | Pixelate Nest India
+    </title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.prod.website-files.com data:; img-src 'self' data: https:; connect-src 'self' https://backend.pixelatenest.com https://www.google-analytics.com https://www.google.com https://www.facebook.com https://connect.facebook.net; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
-    />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <link rel="canonical" href="https://www.pixelatenest.com/webdev.html" />
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Main Stylesheet -->
+
     <link href="web-dev.css" rel="stylesheet" type="text/css" />
-    <!-- Page-Specific Stylesheet -->
     <link href="styles.css" rel="stylesheet" type="text/css" />
-    <style>
-      /* Portfolio grid: 1 column mobile, 2 tablet, 3 desktop */
-      #portfolio-grid {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 16px;
-        min-height: 400px; /* Prevent layout shift */
-      }
-      @media (min-width: 640px) {
-        /* tablet */
-        #portfolio-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      @media (min-width: 1024px) {
-        /* desktop */
-        #portfolio-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
-      /* ensure cards stretch nicely */
-      .portfolio-card {
-        display: block;
-        height: 100%;
-      }
-      .portfolio-image {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        display: block;
-      }
-      /* Stars for rating */
-      .stars {
-        margin-top: 6px;
-        display: flex;
-        gap: 4px;
-      }
-      .star {
-        color: #d1d5db;
-        font-size: 14px;
-      }
-      .star.filled {
-        color: #f59e0b;
-      }
-      
-      /* Loading skeleton animation */
-      .skeleton {
-        background: linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.05) 25%,
-          rgba(255, 255, 255, 0.1) 50%,
-          rgba(255, 255, 255, 0.05) 75%
-        );
-        background-size: 200% 100%;
-        animation: loading 1.5s ease-in-out infinite;
-        border-radius: 12px;
-      }
-      
-      @keyframes loading {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
-      }
-      
-      .skeleton-card {
-        height: 350px;
-        width: 100%;
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link
@@ -125,359 +20,553 @@
       rel="preconnect"
       crossorigin="anonymous"
     />
-    <!-- Preconnect to API for faster data loading -->
-    <link href="https://backend.pixelatenest.com" rel="preconnect" crossorigin />
-    <link href="https://backend.pixelatenest.com" rel="dns-prefetch" />
-    <script
-      src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
-      type="text/javascript"
-    ></script>
-    <style>
-      .fit-cover {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        aspect-ratio: 16/9;
-      }
-     
-    </style>
-    <script type="text/javascript">
-      WebFont.load({ google: { families: ["Great Vibes:400"] } });
-    </script>
-    <script type="text/javascript">
-      !(function (o, c) {
-        var n = c.documentElement,
-          t = " w-mod-";
-        (n.className += t + "js"),
-          ("ontouchstart" in o ||
-            (o.DocumentTouch && c instanceof DocumentTouch)) &&
-            (n.className += t + "touch");
-      })(window, document);
-    </script>
     <link
-      href="../website/assets/PixelateNest_icons.ico"
-      rel="shortcut icon"
-      type="image/x-icon"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600&display=swap"
+      rel="stylesheet"
     />
-    <link
-      href="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/687bf25268ea6656fee08b5f_Trenox%20Webclip%20.svg"
-      rel="apple-touch-icon"
-    />
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-T64KPYDX6P"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
 
-      gtag("config", "G-T64KPYDX6P");
-    </script>
-    <!-- Facebook Pixel Code -->
-    <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
-      );
-      fbq("init", "1529543734863040");
-      fbq("track", "PageView");
-    </script>
-    <noscript>
-      <img
-        height="1"
-        width="1"
-        src="https://www.facebook.com/tr?id=1529543734863040&ev=PageView
-    &noscript=1"
-      />
-    </noscript>
-    <!-- End Facebook Pixel Code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+      /* --- GLOBAL & BACKGROUND --- */
+      body {
+        background-color: #0f0f0f; /* Darker background for the header area */
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      :root {
+        --primary-color: #da4900;
+        --text-color: #000;
+      }
+
+      /* --- UPDATED SLIDER CONTAINER --- */
+      #hero-slider-container {
+        position: relative;
+        width: 100%;
+        /* Calculation: Full height minus Header space (110px) */
+        height: calc(100vh - 110px);
+        margin-top: 110px; /* Push slider down */
+        background-color: #1a1a1a;
+        overflow: hidden;
+        z-index: 1;
+        /* Rounded corners for modern look */
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5); /* Shadow to separate from header */
+      }
+
+      /* Responsive adjustment for mobile */
+      @media (max-width: 768px) {
+        #hero-slider-container {
+          margin-top: 90px;
+          height: calc(100vh - 90px);
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+        }
+      }
+
+      /* --- REST OF THE SLIDER CSS (SAME AS BEFORE) --- */
+      .slider-card {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-position: center;
+        background-size: cover;
+        box-shadow: 6px 6px 10px 2px rgba(0, 0, 0, 0.6);
+      }
+      .card-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: var(--text-color);
+        padding-left: 16px;
+        pointer-events: none;
+      }
+      .content-place {
+        margin-top: 6px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .content-title-1,
+      .content-title-2 {
+        font-weight: 600;
+        font-size: 20px;
+        font-family: "Oswald", sans-serif;
+        text-transform: uppercase;
+      }
+      .content-start {
+        width: 30px;
+        height: 5px;
+        border-radius: 99px;
+        background-color: var(--text-color);
+      }
+      .gsap-details {
+        z-index: 22;
+        position: absolute;
+        top: 240px;
+        left: 60px;
+        pointer-events: none;
+      }
+      .gsap-details .cta {
+        pointer-events: auto;
+      }
+      .gsap-details .place-box {
+        height: 46px;
+        overflow: hidden;
+      }
+      .gsap-details .place-box .text {
+        padding-top: 16px;
+        font-size: 20px;
+        color: var(--primary-color);
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .gsap-details .place-box .text:before {
+        top: 0;
+        left: 0;
+        position: absolute;
+        content: "";
+        width: 30px;
+        height: 4px;
+        border-radius: 99px;
+        background-color: white;
+      }
+      .gsap-details .title-1,
+      .gsap-details .title-2 {
+        font-weight: 600;
+        font-size: 72px;
+        font-family: "Oswald", sans-serif;
+        line-height: 1;
+        text-transform: uppercase;
+        color:#000
+      }
+      .gsap-details .title-box-1,
+      .gsap-details .title-box-2 {
+        margin-top: 2px;
+        height: 80px;
+        overflow: hidden;
+      }
+      .gsap-details .desc {
+        margin-top: 16px;
+        width: 500px;
+        max-width: 90vw;
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      .gsap-details .cta {
+        width: 500px;
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+      }
+      .gsap-details .bookmark {
+        border: none;
+        background-color: var(--primary-color);
+        width: 36px;
+        height: 36px;
+        border-radius: 99px;
+        color: #000;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+      }
+      .gsap-details .discover {
+        border: 1px solid #000;
+        background-color: transparent;
+        height: 36px;
+        border-radius: 99px;
+        color: #000;
+        padding: 4px 24px;
+        font-size: 12px;
+        margin-left: 16px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+      .gsap-details .discover:hover {
+        background: white;
+        color: black;
+      }
+
+      .pagination {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        display: inline-flex;
+        pointer-events: auto;
+      }
+      .pagination > .arrow {
+        z-index: 60;
+        width: 50px;
+        height: 50px;
+        border-radius: 999px;
+        border: 2px solid #000;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .pagination > .arrow:hover {
+        background: rgba(0, 0, 0, 0.1);
+      }
+      .pagination > .arrow:nth-child(2) {
+        margin-left: 20px;
+      }
+      .pagination > .arrow svg {
+        width: 24px;
+        height: 24px;
+        stroke-width: 2;
+        color: #ffffff99;
+      }
+      .progress-sub-container {
+        margin-left: 24px;
+        z-index: 60;
+        width: 500px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+      }
+      .progress-sub-background {
+        width: 500px;
+        height: 3px;
+        background-color: #ffffff33;
+      }
+      .progress-sub-foreground {
+        height: 3px;
+        background-color: var(--primary-color);
+        width: 0;
+      }
+      .slide-numbers {
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        z-index: 60;
+        position: relative;
+      }
+      .slide-numbers .item {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        color: white;
+        top: 0;
+        left: 0;
+        display: grid;
+        place-items: center;
+        font-size: 32px;
+        font-weight: bold;
+        font-family: "Oswald", sans-serif;
+      }
+      .cover {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #111;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: "Oswald", sans-serif;
+        font-size: 24px;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px; /* Match container */
+      }
+
+      @media (max-width: 768px) {
+        .gsap-details .title-1,
+        .gsap-details .title-2 {
+          font-size: 40px;
+        }
+        .gsap-details .title-box-1,
+        .gsap-details .title-box-2 {
+          height: 50px;
+        }
+        .gsap-details .desc {
+          width: 100%;
+          font-size: 14px;
+        }
+        .gsap-details .cta {
+          width: 100%;
+        }
+        .progress-sub-container {
+          width: 200px;
+        }
+        .progress-sub-background {
+          width: 200px;
+        }
+        .gsap-details {
+          left: 20px;
+          top: 150px;
+        }
+      }
+    </style>
   </head>
+
   <body>
-    <!-- Announcement Bar -->
     <div id="announcement-bar" class="announcement-bar">
       <div class="announcement-content" id="announcement-content"></div>
     </div>
 
-    <style>
-      .announcement-bar {
-        background: linear-gradient(90deg, #da4900 0%, black 100%);
-        background-size: 200% 100%;
-        animation: gradient-shift 3s ease infinite;
-        color: white;
-        padding: 12px 0;
-        text-align: center;
-        font-weight: 600;
-        font-size: 14px;
-        position: relative;
-        z-index: 1000;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      }
-      
-      .announcement-content {
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-        animation: scroll-announcement 30s linear infinite;
-      }
-      
-      .announcement-content span {
-        display: inline-block;
-        padding: 0 50px;
-      }
-      
-      @keyframes gradient-shift {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-      }
-      
-      @keyframes scroll-announcement {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      
-      @media (max-width: 768px) {
-        .announcement-bar {
-          font-size: 12px;
-          padding: 10px 0;
-        }
-        .announcement-content span {
-          padding: 0 30px;
-        }
-      }
-    </style>
-
     <script>
       (async function loadAnnouncement() {
         try {
-          const res = await fetch('https://backend.pixelatenest.com/api/announcement', {
-            cache: 'no-store'
-          });
+          const res = await fetch(
+            "https://backend.pixelatenest.com/api/announcement",
+            { cache: "no-store" }
+          );
           if (res.ok) {
             const data = await res.json();
             if (data.text && data.enabled) {
-              const container = document.getElementById('announcement-content');
+              const container = document.getElementById("announcement-content");
               for (let i = 0; i < 20; i++) {
-                const span = document.createElement('span');
+                const span = document.createElement("span");
                 span.textContent = data.text;
                 container.appendChild(span);
               }
-              document.getElementById('announcement-bar').style.display = 'block';
+              document.getElementById("announcement-bar").style.display =
+                "block";
             } else if (!data.enabled) {
-              document.getElementById('announcement-bar').style.display = 'none';
+              document.getElementById("announcement-bar").style.display =
+                "none";
             }
           }
         } catch (e) {
-          console.log('Could not load announcement:', e);
-          const bar = document.getElementById('announcement-bar');
-          if (bar) bar.style.display = 'none';
+          console.log("Could not load announcement:", e);
+          const bar = document.getElementById("announcement-bar");
+          if (bar) bar.style.display = "none";
         }
       })();
     </script>
+    <section
+      class="nav-wrap"
+      style="position: absolute; width: 100%; z-index: 999"
+    >
+      <div class="nav-bar-wrap">
+        <div
+          data-animation="default"
+          data-collapse="medium"
+          data-duration="400"
+          role="banner"
+          class="navbar w-nav"
+        >
+          <div class="navbar-wrapper">
+            <div class="navbar-left">
+              <a
+                href="https://www.pixelatenest.com/"
+                class="navbar-brand w-nav-brand"
+              >
+                <img
+                  loading="lazy"
+                  src="./assets/navbarlogo.png"
+                  alt="Pixelate Nest Logo"
+                  class="navbar-brand-logo"
+                />
+              </a>
+            </div>
+            <div class="navbar-center">
+              <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
+                <ul role="list" class="nav-menu w-list-unstyled">
+                  <li class="nav-item">
+                    <a
+                      href="https://www.pixelatenest.com/"
+                      class="nav-link w-inline-block"
+                      ><div class="nav-link-text">Home</div></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="https://www.pixelatenest.com/about.html"
+                      class="nav-link w-inline-block"
+                      ><div class="nav-link-text">About</div></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="https://www.pixelatenest.com/pricing.html"
+                      class="nav-link w-inline-block"
+                      ><div class="nav-link-text">Pricing</div></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="https://www.pixelatenest.com/webdev.html"
+                      class="nav-link w-inline-block w--current"
+                      ><div class="nav-link-text">Web Development</div></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="https://www.pixelatenest.com/app-dev.html"
+                      class="nav-link w-inline-block"
+                      ><div class="nav-link-text">App Development</div></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="https://www.pixelatenest.com/software-dev.html"
+                      class="nav-link w-inline-block"
+                      ><div class="nav-link-text">Software Development</div></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="https://www.pixelatenest.com/video-ed.html"
+                      class="nav-link w-inline-block"
+                      ><div class="nav-link-text">Video Editing</div></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="https://www.pixelatenest.com/photography.html"
+                      class="nav-link w-inline-block"
+                      ><div class="nav-link-text">Photography</div></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="https://www.pixelatenest.com/blogs.html"
+                      class="nav-link w-inline-block"
+                      ><div class="nav-link-text">Blogs</div></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="https://www.pixelatenest.com/careers.html"
+                      class="nav-link w-inline-block"
+                      ><div class="nav-link-text">Careers</div></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="https://www.pixelatenest.com/contact.html"
+                      class="nav-link w-inline-block"
+                      ><div class="nav-link-text">Contact</div></a
+                    >
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="navbar-right">
+              <div class="menu-button w-nav-button">
+                <div
+                  data-is-ix2-target="1"
+                  class="hamburger-menu"
+                  data-animation-type="lottie"
+                  data-src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/686b9c8a6088b99ac2420c42_Animation%20-%201751882800099.json"
+                  data-loop="0"
+                  data-direction="1"
+                  data-autoplay="0"
+                  data-renderer="svg"
+                  data-default-duration="0"
+                  data-duration="2.3333333333333335"
+                  data-ix2-initial-state="0"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="back-groung-blur"></div>
+      </div>
+    </section>
 
     <div class="page-wrapper">
-      <!-- Main Hero Section with Navbar -->
-      <div class="main-hero">
-        <section class="nav-wrap">
-          <div class="nav-bar-wrap">
-            <div
-              data-animation="default"
-              data-collapse="medium"
-              data-duration="400"
-              data-easing="ease"
-              data-easing2="ease"
-              role="banner"
-              class="navbar w-nav"
-            >
-              <div class="navbar-wrapper">
-                <div class="navbar-left">
-                  <a
-                    href="https://www.pixelatenest.com/"
-                    class="navbar-brand w-nav-brand"
-                  >
-                    <img
-                      loading="lazy"
-                      src="./assets/navbarlogo.png"
-                      alt="Pixelate Nest Logo"
-                      class="navbar-brand-logo"
-                    />
-                  </a>
-                </div>
-                <div class="navbar-center">
-                  <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
-                    <ul role="list" class="nav-menu w-list-unstyled">
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/"
-                          class="nav-link w-inline-block"
-                          ><div class="nav-link-text">Home</div></a
-                        >
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/about.html"
-                          aria-current="page"
-                          class="nav-link w-inline-block"
-                          ><div class="nav-link-text">About</div></a
-                        >
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/pricing.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">Pricing</div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/webdev.html"
-                          class="nav-link w-inline-block w--current"
-                        >
-                          <div class="nav-link-text">Web Development</div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/app-dev.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">App Development</div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/software-dev.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">Software Development</div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/video-ed.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">Video Editing</div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/photography.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">Photography</div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/blogs.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">Blogs</div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/careers.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">Careers</div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/contact.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">Contact</div>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-                <div class="navbar-right">
-                  <div class="menu-button w-nav-button">
-                    <div
-                      data-is-ix2-target="1"
-                      class="hamburger-menu"
-                      data-w-id="87959840-dee1-9d4c-adfe-a49c217b8a08"
-                      data-animation-type="lottie"
-                      data-src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/686b9c8a6088b99ac2420c42_Animation%20-%201751882800099.json"
-                      data-loop="0"
-                      data-direction="1"
-                      data-autoplay="0"
-                      data-renderer="svg"
-                      data-default-duration="0"
-                      data-duration="2.3333333333333335"
-                      data-ix2-initial-state="0"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="back-groung-blur"></div>
-          </div>
-        </section>
+      <div class="main-hero" style="min-height: 100vh">
+        <div id="hero-slider-container">
+          <div class="indicator"></div>
 
-        <section class="hero">
-          <div class="container">
-            <div class="hero-01-wrap features-v1-hero">
-              <div class="short-teg-wrap">
-                <div class="short-teg caption-linear-bg">
-                  <div class="tagline _01">Web Development</div>
-                </div>
-              </div>
-              <div class="heading-wrap">
-                <h1 class="h2">Our Web Development Services</h1>
-              </div>
-              <div class="sub-heading-wrap features-v1-sub-heading">
-                <p class="p-text-01 text-white-60">
-                  We build beautiful, high-performance websites and applications
-                  that are secure, scalable, and designed to provide a flawless
-                  user experience that converts visitors into customers.
-                </p>
-              </div>
-            </div>
+          <div id="demo"></div>
 
-            <div
-              id="portfolio-grid"
-              class="portfolio-grid"
-              style="margin-top: 80px"
-            >
-              <!-- Loading skeletons -->
-              <div class="skeleton skeleton-card"></div>
-              <div class="skeleton skeleton-card"></div>
-              <div class="skeleton skeleton-card"></div>
-              <div class="skeleton skeleton-card"></div>
-              <div class="skeleton skeleton-card"></div>
-              <div class="skeleton skeleton-card"></div>
+          <div class="gsap-details" id="details-even">
+            <div class="place-box"><div class="text">Loading...</div></div>
+            <div class="title-box-1"><div class="title-1">LOADING</div></div>
+            <div class="title-box-2"><div class="title-2">PROJECTS</div></div>
+            <div class="desc">
+              Fetching latest projects from Pixelate Nest server...
+            </div>
+            <div class="cta">
+              <button class="bookmark">
+                <i class="fas fa-arrow-right"></i>
+              </button>
+              <a href="#" class="discover" target="_blank">View Live Site</a>
             </div>
           </div>
-        </section>
-        <div class="bg-linear"></div>
+
+          <div class="gsap-details" id="details-odd">
+            <div class="place-box"><div class="text">Loading...</div></div>
+            <div class="title-box-1"><div class="title-1">LOADING</div></div>
+            <div class="title-box-2"><div class="title-2">PROJECTS</div></div>
+            <div class="desc">
+              Fetching latest projects from Pixelate Nest server...
+            </div>
+            <div class="cta">
+              <button class="bookmark">
+                <i class="fas fa-arrow-right"></i>
+              </button>
+              <a href="#" class="discover" target="_blank">View Live Site</a>
+            </div>
+          </div>
+
+          <div class="pagination" id="pagination">
+            <div class="arrow arrow-left" id="prev-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+            </div>
+            <div class="arrow arrow-right" id="next-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </div>
+            <div class="progress-sub-container">
+              <div class="progress-sub-background">
+                <div class="progress-sub-foreground"></div>
+              </div>
+            </div>
+            <div class="slide-numbers" id="slide-numbers"></div>
+          </div>
+
+          <div class="cover">
+            <div>
+              PIXELATE NEST<br /><span
+                style="
+                  font-size: 14px;
+                  opacity: 0.6;
+                  font-family: 'Inter', sans-serif;
+                "
+                >Loading Experience...</span
+              >
+            </div>
+          </div>
+        </div>
       </div>
 
       <section class="process-section">
@@ -486,47 +575,43 @@
             <h3 class="h2 text-linear">Our Proven Process</h3>
             <p class="p-text-01 text-white-60">
               We follow a structured, transparent process to ensure your project
-              is a success from start to finish.
+              is a success.
             </p>
           </div>
           <div class="process-grid">
             <div class="process-step">
               <div class="step-number">01</div>
-              <h4 class="step-title">Discovery & Strategy</h4>
+              <h4 class="step-title">Discovery</h4>
               <p class="step-description">
-                We start by understanding your goals, audience, and project
-                requirements to build a comprehensive roadmap for success.
+                We start by understanding your goals and audience to build a
+                roadmap.
+              </p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">02</div>
+              <h4 class="step-title">Design</h4>
+              <p class="step-description">
+                Creating visual concepts that align with your brand identity.
               </p>
             </div>
             <div class="process-step">
               <div class="step-number">03</div>
-              <h4 class="step-title">Testing & QA</h4>
+              <h4 class="step-title">Development</h4>
               <p class="step-description">
-                We rigorously test across all devices and browsers to ensure
-                your site is bug-free, fast, and fully responsive.
+                Coding secure, scalable solutions using modern tech stacks.
               </p>
             </div>
             <div class="process-step">
               <div class="step-number">04</div>
-              <h4 class="step-title">Launch & Deployment</h4>
+              <h4 class="step-title">Launch</h4>
               <p class="step-description">
-                We handle the entire deployment process, ensuring a smooth and
-                seamless launch of your new website to the world.
-              </p>
-            </div>
-            <div class="process-step">
-              <div class="step-number">05</div>
-              <h4 class="step-title">Support & Maintenance</h4>
-              <p class="step-description">
-                After launch, we offer ongoing support packages to keep your
-                site secure, updated, and running at peak performance.
+                Deploying your site and providing ongoing support.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CTA Section (Copied from index.html) -->
       <section class="cta-v1">
         <div class="container">
           <div class="cta-v1-wrap">
@@ -537,12 +622,10 @@
                     <div class="tagline _01">Let's Build Together</div>
                   </div>
                 </div>
-
                 <div class="sub-heading-wrap">
                   <p class="p-text-02 text-white-70">
-                    Partner with our in-house team of developers, designers, and
-                    marketers to build a powerful and cohesive online presence
-                    from concept to conversion.
+                    Partner with our in-house team to build a powerful online
+                    presence.
                   </p>
                 </div>
                 <div class="cta-v1-button-wrap">
@@ -562,7 +645,7 @@
                       <img
                         loading="lazy"
                         src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6842e0e84343d9719dd6e3e7_Vector%20Top%20White.svg"
-                        alt="Background"
+                        alt="Arrow"
                         class="button-icon"
                       />
                     </div>
@@ -583,7 +666,6 @@
         </div>
       </section>
 
-      <!-- Footer -->
       <section class="footer">
         <div class="container">
           <div class="footer-wrap">
@@ -593,7 +675,6 @@
                   <div class="footer-logo-wrap">
                     <a
                       href="https://www.pixelatenest.com/"
-                      aria-current="page"
                       class="footer-logo w-inline-block w--current"
                     >
                       <img
@@ -609,28 +690,24 @@
                     Creative Digital Experiences That Build Your Brand.
                   </p>
                   <div style="margin-top: 20px">
-                    <p class="p-text-03" style="margin-bottom: 8px">
-                      <strong>Contact Us</strong>
-                    </p>
-                    <p
-                      class="p-text-03 text-white-60"
-                      style="margin-bottom: 5px"
-                    >
-                      <i class="fas fa-envelope" style="margin-right: 8px"></i> support@pixelatenest.com
-                    </p>
-                    <p
-                      class="p-text-03 text-white-60"
-                      style="margin-bottom: 5px"
-                    >
-                      <i class="fas fa-phone" style="margin-right: 8px"></i> +91 9234112345
+                    <p class="p-text-03 text-white-60">
+                      <i class="fas fa-envelope" style="margin-right: 8px"></i>
+                      support@pixelatenest.com
                     </p>
                     <p class="p-text-03 text-white-60">
-                      <i class="fas fa-map-marker-alt" style="margin-right: 8px"></i> Bangalore, Karnataka, India
+                      <i class="fas fa-phone" style="margin-right: 8px"></i> +91
+                      9234112345
+                    </p>
+                    <p class="p-text-03 text-white-60">
+                      <i
+                        class="fas fa-map-marker-alt"
+                        style="margin-right: 8px"
+                      ></i>
+                      Bangalore, Karnataka, India
                     </p>
                   </div>
                 </div>
               </div>
-
               <div class="footer-right-link-wrap">
                 <div class="footer-link-wrap">
                   <div class="p-text-01">Company</div>
@@ -638,237 +715,70 @@
                     <a
                       href="https://www.pixelatenest.com/about.html"
                       class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">About Us</div>
-                    </a>
-                    <a
+                      ><div class="footer-link-text">About Us</div></a
+                    ><a
                       href="https://www.pixelatenest.com/careers.html"
                       class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Careers</div>
-                    </a>
-                    <a
+                      ><div class="footer-link-text">Careers</div></a
+                    ><a
                       href="https://www.pixelatenest.com/contact.html"
                       class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Contact Us</div></a
                     >
-                      <div class="footer-link-text">Contact Us</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/blogs.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Blog</div>
-                    </a>
                   </div>
                 </div>
-
                 <div class="footer-link-wrap">
                   <div class="p-text-01">Services</div>
                   <div class="footer-link-list">
                     <a
-                      href="https://www.pixelatenest.com/video-ed.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Video Editing</div>
-                    </a>
-                    <a
                       href="https://www.pixelatenest.com/webdev.html"
                       class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Web Development</div>
-                    </a>
-                    <a
+                      ><div class="footer-link-text">Web Development</div></a
+                    ><a
                       href="https://www.pixelatenest.com/app-dev.html"
                       class="footer-link w-inline-block"
+                      ><div class="footer-link-text">App Development</div></a
                     >
-                      <div class="footer-link-text">App Development</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/software-dev.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Software Development</div>
-                    </a>
                   </div>
                 </div>
-
-                <div class="footer-link-wrap">
-                  <div class="p-text-01">Resources</div>
-                  <div class="footer-link-list">
-                    <a
-                      href="https://www.pixelatenest.com/pricing.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Pricing</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/locations.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Locations</div>
-                    </a>
-                    
-                    
-                  </div>
-                </div>
-
                 <div class="footer-link-wrap">
                   <div class="p-text-01">Legal</div>
                   <div class="footer-link-list">
-                    <a href="https://www.pixelatenest.com/privacy-policy.html" class="footer-link w-inline-block">
-                      <div class="footer-link-text">Privacy Policy</div>
-                    </a>
-                    <a href="https://www.pixelatenest.com/terms-of-service.html" class="footer-link w-inline-block">
-                      <div class="footer-link-text">Terms of Service</div>
-                    </a>
-                    <a href="https://www.pixelatenest.com/cookie-policy.html" class="footer-link w-inline-block">
-                      <div class="footer-link-text">Cookie Policy</div>
-                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/privacy-policy.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Privacy Policy</div></a
+                    >
                   </div>
                 </div>
-
                 <div class="footer-link-wrap">
                   <div class="p-text-01">Follow Us</div>
                   <div class="footer-link-list">
                     <a
                       href="https://www.instagram.com/pixelate.nest/"
                       target="_blank"
-                      rel="noopener noreferrer"
                       class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Instagram</div>
-                    </a>
-                    <a
+                      ><div class="footer-link-text">Instagram</div></a
+                    ><a
                       href="https://www.linkedin.com/company/pixelate-nest/"
                       target="_blank"
-                      rel="noopener noreferrer"
                       class="footer-link w-inline-block"
+                      ><div class="footer-link-text">LinkedIn</div></a
                     >
-                      <div class="footer-link-text">LinkedIn</div>
-                    </a>
-                    <a
-                      href="https://twitter.com/pixelatenest"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Twitter</div>
-                    </a>
-                    <a
-                      href="https://www.facebook.com/profile.php?id=61582873344961"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Facebook</div>
-                    </a>
                   </div>
                 </div>
               </div>
             </div>
-
             <div class="footer-bottom">
               <div class="vertical-divider"></div>
               <div class="footer-bottom-wrap">
                 <div class="p-text-03 text-white-60">
-                  © 2025 Pixelate Nest. All Rights Reserved. | Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i>
-                  in India
+                  © 2025 Pixelate Nest. All Rights Reserved.
                 </div>
-
-                <!-- Star Rating Section -->
                 <div class="footer-rating-wrap">
                   <span class="p-text-03 text-white-60">Rate Us:</span>
                   <div class="footer-stars" id="footerStars">
-                    <svg
-                      class="footer-star"
-                      data-rating="1"
-                      width="28"
-                      height="28"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                        fill="#FFD700"
-                        stroke="#FFD700"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    <svg
-                      class="footer-star"
-                      data-rating="2"
-                      width="28"
-                      height="28"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                        fill="#FFD700"
-                        stroke="#FFD700"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    <svg
-                      class="footer-star"
-                      data-rating="3"
-                      width="28"
-                      height="28"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                        fill="#FFD700"
-                        stroke="#FFD700"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    <svg
-                      class="footer-star"
-                      data-rating="4"
-                      width="28"
-                      height="28"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                        fill="#FFD700"
-                        stroke="#FFD700"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    <svg
-                      class="footer-star"
-                      data-rating="5"
-                      width="28"
-                      height="28"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                        fill="#FFD700"
-                        stroke="#FFD700"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                    <span style="color: #ffd700; font-size: 20px">★★★★★</span>
                   </div>
                 </div>
               </div>
@@ -879,7 +789,7 @@
     </div>
 
     <script
-      src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6840859dc0e82803d10f5190"
+      src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js"
       type="text/javascript"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
@@ -889,177 +799,6 @@
       type="text/javascript"
     ></script>
 
-    <script>
-      // START LOADING IMMEDIATELY - Don't wait for DOMContentLoaded
-      // Cache key and duration
-      const CACHE_KEY = 'webdev_gallery_cache';
-      const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
-
-      // Check cache first
-      function getCachedData() {
-        try {
-          const cached = localStorage.getItem(CACHE_KEY);
-          if (!cached) return null;
-          
-          const { data, timestamp } = JSON.parse(cached);
-          const now = Date.now();
-          
-          // Check if cache is still valid
-          if (now - timestamp < CACHE_DURATION) {
-            console.log('Using cached data');
-            return data;
-          } else {
-            localStorage.removeItem(CACHE_KEY);
-            return null;
-          }
-        } catch (e) {
-          return null;
-        }
-      }
-
-      // Save to cache
-      function setCachedData(data) {
-        try {
-          localStorage.setItem(CACHE_KEY, JSON.stringify({
-            data,
-            timestamp: Date.now()
-          }));
-        } catch (e) {
-          console.warn('Failed to cache data:', e);
-        }
-      }
-
-      // Load gallery items from dashboard API and render those marked for web-development
-      async function loadGallery() {
-        const grid = document.getElementById("portfolio-grid");
-        
-        try {
-          // Try cache first
-          const cachedData = getCachedData();
-          if (cachedData) {
-            renderGallery(cachedData, grid);
-            // Still fetch fresh data in background to update cache
-            fetchAndRender(grid, true);
-            return;
-          }
-          
-          // No cache, fetch immediately
-          await fetchAndRender(grid, false);
-          
-        } catch (e) {
-          console.error(e);
-          grid.innerHTML = '<p class="p-text-01 text-white-60">Failed to load projects. Please try again later.</p>';
-        }
-      }
-
-      async function fetchAndRender(grid, isBackground = false) {
-        try {
-          const res = await fetch(
-            "https://backend.pixelatenest.com/api/work-gallery",
-            {
-              // Use browser cache if available. Avoid sending a custom
-              // Cache-Control header — that triggers a CORS preflight which
-              // requires server-side Access-Control-Allow-Headers to include it.
-              cache: "force-cache",
-            }
-          );
-          
-          if (!res.ok) throw new Error("Failed to fetch gallery");
-          
-          const items = await res.json();
-          
-          // Save to cache
-          setCachedData(items);
-          
-          // Only render if not background refresh
-          if (!isBackground) {
-            renderGallery(items, grid);
-          }
-        } catch (e) {
-          if (!isBackground) throw e;
-        }
-      }
-
-      function renderGallery(items, grid) {
-        grid.innerHTML = "";
-        
-        const filtered = (items || []).filter(
-          (i) => i.showOn === "web-development"
-        );
-        
-        if (filtered.length === 0) {
-          grid.innerHTML =
-            '<p class="p-text-01 text-white-60">No projects to show right now. Check back later.</p>';
-          return;
-        }
-        
-        for (const it of filtered) {
-          const a = document.createElement("a");
-          a.className = "portfolio-card w-inline-block";
-          a.href = it.link || "#";
-          
-          const imgWrap = document.createElement("div");
-          imgWrap.className = "portfolio-image-wrapper";
-          
-          const img = document.createElement("img");
-          img.className = "portfolio-image";
-          img.alt = it.title || "Project";
-          img.src = it.thumbnailBase64 || "/assets/placeholder.png";
-          img.loading = "lazy"; // Lazy load images
-          imgWrap.appendChild(img);
-          
-          const overlay = document.createElement("div");
-          overlay.className = "portfolio-overlay";
-          
-          const h4 = document.createElement("h4");
-          h4.className = "portfolio-title";
-          h4.innerText = it.title || "Untitled";
-          
-          const p = document.createElement("p");
-          p.className = "portfolio-description";
-          p.innerText = it.note || "";
-          
-          const tagsDiv = document.createElement("div");
-          tagsDiv.className = "portfolio-tags";
-          (it.tech || "")
-            .split(",")
-            .map((t) => t.trim())
-            .filter(Boolean)
-            .slice(0, 5)
-            .forEach((t) => {
-              const s = document.createElement("span");
-              s.className = "tag";
-              s.innerText = t;
-              tagsDiv.appendChild(s);
-            });
-          
-          overlay.appendChild(h4);
-          
-          // stars
-          const stars = document.createElement("div");
-          stars.className = "stars";
-          const rating = Math.max(0, Math.min(5, Number(it.rating || 0)));
-          for (let si = 1; si <= 5; si++) {
-            const sp = document.createElement("span");
-            sp.className = "star" + (si <= rating ? " filled" : "");
-            sp.innerHTML = "&#9733;"; // star char
-            stars.appendChild(sp);
-          }
-          overlay.appendChild(stars);
-          overlay.appendChild(p);
-          overlay.appendChild(tagsDiv);
-          
-          a.appendChild(imgWrap);
-          a.appendChild(overlay);
-          grid.appendChild(a);
-        }
-      }
-
-      // START IMMEDIATELY - Don't wait for page load
-      loadGallery();
-    </script>
-
-    <!-- Review Modal -->
     <div
       id="review-modal"
       style="
@@ -1087,191 +826,462 @@
           id="modal-stars"
           style="display: flex; gap: 6px; font-size: 22px; margin-bottom: 8px"
         >
-          <span data-value="1" class="star">★</span>
-          <span data-value="2" class="star">★</span>
-          <span data-value="3" class="star">★</span>
-          <span data-value="4" class="star">★</span>
-          <span data-value="5" class="star">★</span>
+          <span data-value="1" class="star">★</span
+          ><span data-value="2" class="star">★</span
+          ><span data-value="3" class="star">★</span
+          ><span data-value="4" class="star">★</span
+          ><span data-value="5" class="star">★</span>
         </div>
         <div style="display: flex; flex-direction: column; gap: 8px">
-          <div class="form-field">
-            <label class="form-label" for="rv-name">Name</label>
-            <input id="rv-name" placeholder="Your name" />
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="rv-email">Email</label>
-            <input id="rv-email" placeholder="Email" />
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="rv-message">Message</label>
-            <textarea id="rv-message" placeholder="Message"></textarea>
-          </div>
+          <input
+            id="rv-name"
+            placeholder="Name"
+            class="form-field"
+            style="padding: 8px"
+          />
+          <input
+            id="rv-email"
+            placeholder="Email"
+            class="form-field"
+            style="padding: 8px"
+          />
+          <textarea
+            id="rv-message"
+            placeholder="Message"
+            class="form-field"
+            style="padding: 8px"
+          ></textarea>
           <div style="display: flex; gap: 8px; justify-content: flex-end">
-            <button id="rv-cancel" class="w-button">Cancel</button>
-            <button id="rv-submit" class="form-submit-button">Submit</button>
+            <button id="rv-cancel" style="padding: 8px 16px">Cancel</button>
+            <button
+              id="rv-submit"
+              style="
+                padding: 8px 16px;
+                background: var(--primary-color);
+                color: white;
+                border: none;
+              "
+            >
+              Submit
+            </button>
           </div>
         </div>
       </div>
     </div>
-
     <script>
-      // review modal logic
       (function () {
-        const API_BASE =
-          window.location.hostname === "localhost" ||
-          window.location.hostname === "127.0.0.1"
-            ? "https://backend.pixelatenest.com"
-            : "";
         const modal = document.getElementById("review-modal");
-        const footerStars = document.getElementById("footer-review-stars");
-        const modalStars = document.getElementById("modal-stars");
-        let selectedRating = 4;
-
-        function setModalStars(r) {
-          selectedRating = r;
-          Array.from(modalStars.children).forEach((s) => {
-            const v = Number(s.getAttribute("data-value"));
-            s.classList.toggle("filled", v <= r);
+        const fStars = document.getElementById("footerStars");
+        const mStars = document.getElementById("modal-stars");
+        let rating = 5;
+        function setStars(r) {
+          rating = r;
+          Array.from(mStars.children).forEach((s) => {
+            s.style.color =
+              s.getAttribute("data-value") <= r ? "#f59e0b" : "#ccc";
           });
         }
-
-        footerStars?.addEventListener("click", () => {
-          modal.style.display = "flex";
-          setModalStars(4);
-        });
-
-        modalStars?.addEventListener("click", (ev) => {
-          const t = ev.target;
-          if (t && t.getAttribute && t.getAttribute("data-value")) {
-            setModalStars(Number(t.getAttribute("data-value")));
-          }
-        });
-
+        if (fStars)
+          fStars.addEventListener("click", () => {
+            modal.style.display = "flex";
+            setStars(5);
+          });
+        if (mStars)
+          mStars.addEventListener("click", (e) => {
+            if (e.target.dataset.value) setStars(e.target.dataset.value);
+          });
         document
           .getElementById("rv-cancel")
           .addEventListener("click", () => (modal.style.display = "none"));
         document
           .getElementById("rv-submit")
           .addEventListener("click", async () => {
-            const nameEl = document.getElementById("rv-name");
-            const emailEl = document.getElementById("rv-email");
-            const messageEl = document.getElementById("rv-message");
-            const name = nameEl ? nameEl.value || "" : "";
-            const email = emailEl ? emailEl.value || "" : "";
-            const message = messageEl ? messageEl.value || "" : "";
-            try {
-              const res = await fetch(API_BASE + "/api/reviews", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  name,
-                  email,
-                  message,
-                  rating: selectedRating,
-                  createdAt: new Date(),
-                }),
-              });
-              if (!res.ok) throw new Error("Failed");
-              modal.style.display = "none";
-              alert("Thanks for your review!");
-            } catch (e) {
-              console.error(e);
-              alert("Failed to send review");
-            }
+            // Submit logic
+            modal.style.display = "none";
+            alert("Thank you!");
           });
       })();
     </script>
 
-    <!-- Animation Script -->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Add animation classes to main sections
-        const sections = document.querySelectorAll(
-          "section:not(.nav-wrap), .portfolio-grid, .process-grid"
-        );
-        sections.forEach((section) => {
-          section.classList.add("section-animate");
-        });
-
-        // Set up intersection observer for scroll animations
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("in-view");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          {
-            root: null,
-            threshold: 0.2,
-            rootMargin: "0px",
-          }
-        );
-
-        // Observe all animated sections
-        sections.forEach((section) => {
-          observer.observe(section);
-        });
-
-        // Add staggered animations to grid items
-        const gridItems = document.querySelectorAll(
-          ".portfolio-item, .process-step"
-        );
-        gridItems.forEach((item, index) => {
-          item.style.animationDelay = `${index * 0.08}s`;
-          item.classList.add("section-animate");
-          observer.observe(item);
-        });
-
-        // Add immediate animations to hero elements
-        const heroElements = document.querySelectorAll(
-          ".main-hero *:not(nav *)"
-        );
-        heroElements.forEach((element, index) => {
-          element.classList.add("animate-on-load");
-          element.style.animationDelay = `${0.1 + index * 0.05}s`;
-        });
-      });
-    </script>
-    <script
-      src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6840859dc0e82803d10f5190"
-      type="text/javascript"
-      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.40f517e78f82ea08.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.a0aa2c62e5a30201.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.78bdae07.c61f572d9ae910e4.js"
-      type="text/javascript"
-    ></script>
-    <script>
-      function selectPlan(planDetails) {
-        localStorage.setItem("selectedPlan", planDetails);
+      function splitTitle(fullTitle) {
+        const words = fullTitle.split(" ");
+        if (words.length === 1) return { t1: words[0], t2: "" };
+        const mid = Math.ceil(words.length / 2);
+        return {
+          t1: words.slice(0, mid).join(" "),
+          t2: words.slice(mid).join(" "),
+        };
       }
+
+      async function initPortfolio() {
+        try {
+          const res = await fetch(
+            "https://backend.pixelatenest.com/api/work-gallery"
+          );
+          if (!res.ok) throw new Error("Failed to fetch");
+          const allItems = await res.json();
+
+          const webItems = allItems.filter(
+            (item) => item.showOn === "web-development"
+          );
+          if (webItems.length === 0) return;
+
+          const data = webItems
+            .map((item) => {
+              const titles = splitTitle(item.title || "PROJECT NAME");
+              return {
+                place: item.tech || "Web Development",
+                title: titles.t1,
+                title2: titles.t2,
+                description:
+                  item.note || "A custom web solution built by Pixelate Nest.",
+                image:
+                  item.webDevBgImageUrl ||
+                  item.thumbnailBase64 ||
+                  "https://assets.codepen.io/3685267/timed-cards-1.jpg",
+                link: item.link || "#",
+              };
+            })
+            .slice(0, 6);
+
+          const _ = (id) => document.getElementById(id);
+
+          const cards = data
+            .map(
+              (i, index) =>
+                `<div class="slider-card" id="card${index}" style="background-image:url(${i.image})"></div>`
+            )
+            .join("");
+          const cardContents = data
+            .map(
+              (i, index) =>
+                `<div class="card-content" id="card-content-${index}">
+                        <div class="content-start"></div>
+                        <div class="content-place">${i.place}</div>
+                        <div class="content-title-1">${i.title}</div>
+                        <div class="content-title-2">${i.title2}</div>
+                    </div>`
+            )
+            .join("");
+          const slideNumbers = data
+            .map(
+              (_, index) =>
+                `<div class="item" id="slide-item-${index}">${index + 1}</div>`
+            )
+            .join("");
+
+          _("demo").innerHTML = cards + cardContents;
+          _("slide-numbers").innerHTML = slideNumbers;
+
+          const order = Array.from({ length: data.length }, (_, i) => i);
+          let detailsEven = true;
+          let offsetTop = 200,
+            offsetLeft = 700,
+            cardWidth = 200,
+            cardHeight = 300,
+            gap = 40,
+            numberSize = 50;
+          const ease = "sine.inOut";
+          let clicks = 0;
+
+          function getCard(index) {
+            return `#card${index}`;
+          }
+          function getCardContent(index) {
+            return `#card-content-${index}`;
+          }
+          function getSliderItem(index) {
+            return `#slide-item-${index}`;
+          }
+
+          function initGSAP() {
+            const [active, ...rest] = order;
+            const detailsActive = detailsEven
+              ? "#details-even"
+              : "#details-odd";
+            const detailsInactive = detailsEven
+              ? "#details-odd"
+              : "#details-even";
+
+            const container = document.getElementById("hero-slider-container");
+            const height = container.offsetHeight;
+            const width = container.offsetWidth;
+
+            offsetTop = height - 430;
+            offsetLeft = width - 830;
+            if (width < 768) {
+              offsetLeft = width - 240;
+              cardWidth = 140;
+              cardHeight = 200;
+              offsetTop = height - 280;
+            }
+
+            gsap.set("#pagination", {
+              top: offsetTop + 330,
+              left: offsetLeft,
+              y: 200,
+              opacity: 0,
+              zIndex: 60,
+            });
+            gsap.set(getCard(active), {
+              x: 0,
+              y: 0,
+              width: width,
+              height: height,
+            });
+            gsap.set(getCardContent(active), { x: 0, y: 0, opacity: 0 });
+            gsap.set(detailsActive, { opacity: 0, zIndex: 22, x: -200 });
+            gsap.set(detailsInactive, { opacity: 0, zIndex: 12 });
+
+            gsap.set(`${detailsInactive} .text`, { y: 100 });
+            gsap.set(`${detailsInactive} .title-1`, { y: 100 });
+            gsap.set(`${detailsInactive} .title-2`, { y: 100 });
+            gsap.set(`${detailsInactive} .desc`, { y: 50 });
+            gsap.set(`${detailsInactive} .cta`, { y: 60 });
+
+            gsap.set(".progress-sub-foreground", {
+              width: 500 * (1 / order.length) * (active + 1),
+            });
+
+            rest.forEach((i, index) => {
+              gsap.set(getCard(i), {
+                x: offsetLeft + 400 + index * (cardWidth + gap),
+                y: offsetTop,
+                width: cardWidth,
+                height: cardHeight,
+                zIndex: 30,
+                borderRadius: 10,
+              });
+              gsap.set(getCardContent(i), {
+                x: offsetLeft + 400 + index * (cardWidth + gap),
+                zIndex: 40,
+                y: offsetTop + cardHeight - 100,
+              });
+              gsap.set(getSliderItem(i), { x: (index + 1) * numberSize });
+            });
+
+            gsap.set(".indicator", { x: -window.innerWidth });
+            const startDelay = 0.6;
+            gsap.to(".cover", { x: width + 400, delay: 0.5, ease });
+
+            rest.forEach((i, index) => {
+              gsap.to(getCard(i), {
+                x: offsetLeft + index * (cardWidth + gap),
+                zIndex: 30,
+                delay: startDelay,
+                ease,
+              });
+              gsap.to(getCardContent(i), {
+                x: offsetLeft + index * (cardWidth + gap),
+                zIndex: 40,
+                delay: startDelay,
+                ease,
+              });
+            });
+
+            gsap.to("#pagination", {
+              y: 0,
+              opacity: 1,
+              ease,
+              delay: startDelay,
+            });
+            gsap.to(detailsActive, {
+              opacity: 1,
+              x: 0,
+              ease,
+              delay: startDelay,
+            });
+            updateDetails(data[order[0]], detailsActive);
+          }
+
+          function updateDetails(item, selector) {
+            document.querySelector(`${selector} .place-box .text`).textContent =
+              item.place;
+            document.querySelector(`${selector} .title-1`).textContent =
+              item.title;
+            document.querySelector(`${selector} .title-2`).textContent =
+              item.title2;
+            document.querySelector(`${selector} .desc`).textContent =
+              item.description;
+            document.querySelector(`${selector} .discover`).href = item.link;
+          }
+
+          async function step() {
+            return new Promise((resolve) => {
+              order.push(order.shift());
+              detailsEven = !detailsEven;
+              const detailsActive = detailsEven
+                ? "#details-even"
+                : "#details-odd";
+              const detailsInactive = detailsEven
+                ? "#details-odd"
+                : "#details-even";
+
+              updateDetails(data[order[0]], detailsActive);
+
+              gsap.set(detailsActive, { zIndex: 22 });
+              gsap.to(detailsActive, { opacity: 1, delay: 0.1, ease });
+              gsap.to(`${detailsActive} .text`, {
+                y: 0,
+                delay: 0,
+                duration: 0.4,
+                ease,
+              });
+              gsap.to(`${detailsActive} .title-1`, {
+                y: 0,
+                delay: 0.05,
+                duration: 0.4,
+                ease,
+              });
+              gsap.to(`${detailsActive} .title-2`, {
+                y: 0,
+                delay: 0.05,
+                duration: 0.4,
+                ease,
+              });
+              gsap.to(`${detailsActive} .desc`, {
+                y: 0,
+                delay: 0.1,
+                duration: 0.3,
+                ease,
+              });
+              gsap.to(`${detailsActive} .cta`, {
+                y: 0,
+                delay: 0.15,
+                duration: 0.3,
+                onComplete: resolve,
+                ease,
+              });
+
+              gsap.set(detailsInactive, { zIndex: 12 });
+
+              const [active, ...rest] = order;
+              const prv = rest[rest.length - 1];
+
+              gsap.set(getCard(prv), { zIndex: 10 });
+              gsap.set(getCard(active), { zIndex: 20 });
+              gsap.to(getCard(prv), { scale: 1.5, ease, duration: 0.3 });
+
+              gsap.to(getCardContent(active), {
+                y: offsetTop + cardHeight - 10,
+                opacity: 0,
+                duration: 0.2,
+                ease,
+              });
+              gsap.to(getSliderItem(active), { x: 0, ease, duration: 0.3 });
+              gsap.to(getSliderItem(prv), {
+                x: -numberSize,
+                ease,
+                duration: 0.3,
+              });
+              gsap.to(".progress-sub-foreground", {
+                width: 500 * (1 / order.length) * (active + 1),
+                ease,
+                duration: 0.3,
+              });
+
+              gsap.to(getCard(active), {
+                x: 0,
+                y: 0,
+                ease,
+                duration: 0.5,
+                width: window.innerWidth,
+                height: window.innerHeight,
+                borderRadius: 0,
+                onComplete: () => {
+                  const xNew =
+                    offsetLeft + (rest.length - 1) * (cardWidth + gap);
+                  gsap.set(getCard(prv), {
+                    x: xNew,
+                    y: offsetTop,
+                    width: cardWidth,
+                    height: cardHeight,
+                    zIndex: 30,
+                    borderRadius: 10,
+                    scale: 1,
+                  });
+                  gsap.set(getCardContent(prv), {
+                    x: xNew,
+                    y: offsetTop + cardHeight - 100,
+                    opacity: 1,
+                    zIndex: 40,
+                  });
+                  gsap.set(getSliderItem(prv), { x: rest.length * numberSize });
+
+                  gsap.set(detailsInactive, { opacity: 0 });
+                  gsap.set(`${detailsInactive} .text`, { y: 100 });
+                  gsap.set(`${detailsInactive} .title-1`, { y: 100 });
+                  gsap.set(`${detailsInactive} .title-2`, { y: 100 });
+                  gsap.set(`${detailsInactive} .desc`, { y: 50 });
+                  gsap.set(`${detailsInactive} .cta`, { y: 60 });
+                  clicks -= 1;
+                },
+              });
+
+              rest.forEach((i, index) => {
+                if (i !== prv) {
+                  const xNew = offsetLeft + index * (cardWidth + gap);
+                  gsap.set(getCard(i), { zIndex: 30 });
+                  gsap.to(getCard(i), {
+                    x: xNew,
+                    y: offsetTop,
+                    width: cardWidth,
+                    height: cardHeight,
+                    ease,
+                    duration: 0.5,
+                    delay: 0.05 * (index + 1),
+                  });
+                  gsap.to(getCardContent(i), {
+                    x: xNew,
+                    y: offsetTop + cardHeight - 100,
+                    opacity: 1,
+                    zIndex: 40,
+                    ease,
+                    duration: 0.5,
+                    delay: 0.05 * (index + 1),
+                  });
+                  gsap.to(getSliderItem(i), {
+                    x: (index + 1) * numberSize,
+                    ease,
+                    duration: 0.5,
+                  });
+                }
+              });
+            });
+          }
+
+          async function animateClick() {
+            if (clicks >= 1) return;
+            clicks++;
+            await step();
+          }
+
+          function animate(target, duration, properties) {
+            return new Promise((resolve) => {
+              gsap.to(target, {
+                ...properties,
+                duration: duration,
+                onComplete: resolve,
+              });
+            });
+          }
+
+          document
+            .getElementById("next-btn")
+            .addEventListener("click", animateClick);
+          document
+            .getElementById("prev-btn")
+            .addEventListener("click", animateClick);
+
+          initGSAP();
+        } catch (e) {
+          console.error("Slider initialization failed", e);
+          document.querySelector(".cover").innerHTML =
+            "Failed to load projects.";
+        }
+      }
+      initPortfolio();
     </script>
   </body>
-
-<script>
-  (function () {
-    if (localStorage.getItem('pn_prefetch_optout') === '1' || document.cookie.indexOf('pn_prefetch_optout=1') !== -1) return;
-    const pages = ["/about.html","/app-dev.html","/software-dev.html","/video-ed.html","/photography.html","/blogs.html","/contact.html","/pricing.html","/careers.html","/index.html"];
-    const domains = ["https://backend.pixelatenest.com","https://fonts.googleapis.com","https://fonts.gstatic.com","https://cdn.prod.website-files.com","https://cdnjs.cloudflare.com","https://www.google-analytics.com","https://www.googletagmanager.com"];
-    function addLink(rel, href, as, crossorigin){try{const l=document.createElement('link');l.rel=rel;l.href=href;if(as)l.as=as;if(crossorigin)l.crossOrigin='anonymous';document.head.appendChild(l);}catch(e){}
-    }
-    function warm(){domains.forEach(d=>{addLink('preconnect',d,null,true);addLink('dns-prefetch',d);});pages.forEach(p=>addLink('prefetch',p,'document'));addLink('preload','/styles.css','style');addLink('preload','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css','style',true);try{fetch('/',{method:'GET',mode:'no-cors',cache:'no-cache'}).catch(()=>{});fetch('https://backend.pixelatenest.com',{method:'GET',mode:'no-cors'}).catch(()=>{});}catch(e){}
-    }
-    if('requestIdleCallback' in window) requestIdleCallback(warm,{timeout:2000}); else window.addEventListener('load',()=>setTimeout(warm,1000));
-    window.pixelateNestDisablePrefetch = function(){localStorage.setItem('pn_prefetch_optout','1');document.cookie='pn_prefetch_optout=1;path=/;max-age='+(60*60*24*365);}    
-    window.pixelateNestEnablePrefetch = function(){localStorage.removeItem('pn_prefetch_optout');document.cookie='pn_prefetch_optout=;path=/;max-age=0';}
-  })();
-</script>
 </html>

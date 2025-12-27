@@ -91,7 +91,7 @@
           <div class="pixy-chat-header">
             <div class="pixy-chat-header-info">
               <div class="pixy-avatar">
-                <img src="assets/pixylogo.png" alt="Pixy" />
+                <img src="assets/pixylogo.webp" alt="Pixy" />
               </div>
               <div>
                 <h3>Pixy</h3>
@@ -200,7 +200,7 @@
 
     const content = `
       <div class="pixy-message-avatar">
-        <img src="assets/pixylogo.png" alt="Pixy" />
+        <img src="assets/pixylogo.webp" alt="Pixy" />
       </div>
       <div class="pixy-message-content">
         ${isHtml ? message : `<p>${message}</p>`}
@@ -300,7 +300,7 @@
 
     typingDiv.innerHTML = `
       <div class="pixy-message-avatar">
-        <img src="assets/pixylogo.png" alt="Pixy" />
+        <img src="assets/pixylogo.webp" alt="Pixy" />
       </div>
       <div class="pixy-message-content">
         <div class="pixy-typing-dots">
