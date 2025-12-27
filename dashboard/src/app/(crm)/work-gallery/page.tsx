@@ -89,7 +89,11 @@ export default function WorkGalleryPage() {
   const deleteItem = async (id: string) => {
     try {
       if (!confirm('Delete this gallery item?')) return;
-      const res = await fetch(`/api/work-gallery/${id}`, { method: 'DELETE' });
+      // Include JWT for admin-only deletion
+      const token = typeof window !== 'undefined' ? localStorage.getItem('auth_token') : '';
+      const headers: Record<string, string> = {};
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+      const res = await fetch(`/api/work-gallery/${id}`, { method: 'DELETE', headers });
       if (!res.ok) throw new Error('Delete failed');
       setItems(prev => prev.filter(x => String(x._id ?? x.id) !== String(id)));
     } catch (e) {
