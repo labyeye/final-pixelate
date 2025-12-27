@@ -41,8 +41,9 @@ export async function DELETE(_request: Request, { params }: { params: { id: stri
     const decoded: any = verifyToken(token);
     if (!decoded) return new NextResponse(JSON.stringify({ error: 'unauthorized' }), { status: 401, headers: CORS_HEADERS });
     if (decoded.role !== 'admin') return new NextResponse(JSON.stringify({ error: 'forbidden' }), { status: 403, headers: CORS_HEADERS });
-    const ok = await svc.deleteById('workGallery', params.id);
-    return NextResponse.json({ ok }, { headers: CORS_HEADERS });
+    const deleted = await svc.deleteById('workGallery', params.id);
+    if (!deleted) return NextResponse.json({ error: 'Item not found or already deleted' }, { status: 404, headers: CORS_HEADERS });
+    return NextResponse.json({ success: true }, { headers: CORS_HEADERS });
   } catch (e: any) {
     return NextResponse.json({ error: e.message || String(e) }, { status: 500, headers: CORS_HEADERS });
   }
