@@ -119,7 +119,21 @@ export async function updateById(collectionName: string, id: string, update: any
 
 export async function deleteById(collectionName: string, id: string) {
   const col = await getCollection(collectionName);
-  const res = await col.deleteOne({ _id: new ObjectId(id) });
+  const hex24 = typeof id === 'string' && /^[a-fA-F0-9]{24}$/.test(id);
+  if (hex24) {
+    const res = await col.deleteOne({ _id: new ObjectId(id) });
+    return res.deletedCount === 1;
+  }
+  // For invoices, also try by invoiceNo
+  if (collectionName === 'invoices') {
+    const byInvoiceNo = await col.findOne({ invoiceNo: id });
+    if (byInvoiceNo) {
+      const res = await col.deleteOne({ _id: byInvoiceNo._id });
+      return res.deletedCount === 1;
+    }
+  }
+  // Fall back to custom `id` field
+  const res = await col.deleteOne({ id: id });
   return res.deletedCount === 1;
 }
 
