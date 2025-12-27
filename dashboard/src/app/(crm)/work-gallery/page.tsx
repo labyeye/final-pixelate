@@ -94,10 +94,17 @@ export default function WorkGalleryPage() {
       const headers: Record<string, string> = {};
       if (token) headers['Authorization'] = `Bearer ${token}`;
       const res = await fetch(`/api/work-gallery/${id}`, { method: 'DELETE', headers });
-      if (!res.ok) throw new Error('Delete failed');
+      const body = await res.json();
+      if (!res.ok) {
+        console.error('Delete failed:', res.status, body);
+        alert(`Delete failed: ${body.error || 'Unknown error'}`);
+        return;
+      }
       setItems(prev => prev.filter(x => String(x._id ?? x.id) !== String(id)));
+      alert('Item deleted successfully');
     } catch (e) {
       console.error('Failed to delete', e);
+      alert(`Error: ${e instanceof Error ? e.message : 'Unknown error'}`);
     }
   };
 

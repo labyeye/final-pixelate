@@ -14,7 +14,8 @@ export async function OPTIONS() {
 
 export async function GET(_request: Request, { params }: { params: { id: string } }) {
   try {
-    const item = await svc.findById('workGallery', params.id);
+    const { id } = await params;
+    const item = await svc.findById('workGallery', id);
   return NextResponse.json(item || {}, { headers: CORS_HEADERS });
   } catch (e: any) {
     return NextResponse.json({ error: e.message || String(e) }, { status: 500, headers: CORS_HEADERS });
@@ -23,8 +24,9 @@ export async function GET(_request: Request, { params }: { params: { id: string 
 
 export async function PUT(request: Request, { params }: { params: { id: string } }) {
   try {
+    const { id } = await params;
     const body = await request.json();
-    const updated = await svc.updateById('workGallery', params.id, { ...body, updatedAt: new Date() });
+    const updated = await svc.updateById('workGallery', id, { ...body, updatedAt: new Date() });
     return NextResponse.json(updated, { headers: CORS_HEADERS });
   } catch (e: any) {
     return NextResponse.json({ error: e.message || String(e) }, { status: 500, headers: CORS_HEADERS });
@@ -33,6 +35,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
 
 export async function DELETE(_request: Request, { params }: { params: { id: string } }) {
   try {
+    const { id } = await params;
     // enforce auth & admin-only deletion
     // read auth header from the request (Next.js Request isn't strongly typed for headers here)
     const auth = _request.headers.get('authorization') || '';
@@ -41,7 +44,7 @@ export async function DELETE(_request: Request, { params }: { params: { id: stri
     const decoded: any = verifyToken(token);
     if (!decoded) return new NextResponse(JSON.stringify({ error: 'unauthorized' }), { status: 401, headers: CORS_HEADERS });
     if (decoded.role !== 'admin') return new NextResponse(JSON.stringify({ error: 'forbidden' }), { status: 403, headers: CORS_HEADERS });
-    const deleted = await svc.deleteById('workGallery', params.id);
+    const deleted = await svc.deleteById('workGallery', id);
     if (!deleted) return NextResponse.json({ error: 'Item not found or already deleted' }, { status: 404, headers: CORS_HEADERS });
     return NextResponse.json({ success: true }, { headers: CORS_HEADERS });
   } catch (e: any) {
