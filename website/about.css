@@ -1,4 +1,3 @@
-/* About Hero Section */
 .main-hero {
   position: relative;
   background-color: #000;
@@ -21,7 +20,7 @@
   text-align: center;
 }
 
-/* About Us Section */
+
 .about-us-v1 {
   padding: 100px 0;
   position: relative;
@@ -86,7 +85,7 @@
   border-radius: 50%;
 }
 
-/* Team Section */
+
 .final-team-section {
   padding: 100px 0;
   background-color: #000;
@@ -103,14 +102,14 @@
   gap: 30px;
 }
 
-/* Wrapper for entire team member (image card + info card) */
+
 .final-team-card-wrapper {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* Image Card (Top) - Shifted up */
+
 .final-team-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
@@ -127,7 +126,7 @@
   z-index: 10;
 }
 
-/* Info Card (Bottom) - Starts hidden above, slides down on hover */
+
 .team-info-card {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -139,7 +138,7 @@
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, background 0.3s ease;
 }
 
-/* Slide down info card on wrapper hover */
+
 .final-team-card-wrapper:hover .team-info-card {
   transform: translateY(0);
   opacity: 1;
@@ -160,7 +159,7 @@
   margin: 0 0 12px;
 }
 
-/* Social icons in info card */
+
 .info-card-socials {
   display: flex;
   gap: 12px;
@@ -173,7 +172,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   padding: 8px;
   border-radius: 50%;
   color: #fff;
@@ -184,9 +183,9 @@
 }
 
 .info-card-socials .social-link:hover {
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.3);
   transform: translateY(-3px) scale(1.1);
-  box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
 }
 
 .info-card-socials .social-link svg {
@@ -195,14 +194,14 @@
   stroke: currentColor;
 }
 
-/* Social Icons Box - Initially hidden above the card */
+
 .social-icons-box {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 16px;
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.88) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.88) 100%);
   backdrop-filter: blur(10px);
   border-radius: 0 0 16px 16px;
   transform: translateY(-50%);
@@ -212,7 +211,7 @@
   pointer-events: none;
 }
 
-/* Slide down the social icons box on hover */
+
 .final-team-card:hover .social-icons-box,
 .final-team-card:focus-within .social-icons-box,
 .final-team-card.is-hover .social-icons-box {
@@ -238,7 +237,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   padding: 8px;
   border-radius: 50%;
   color: #fff;
@@ -249,9 +248,9 @@
 }
 
 .social-icons-box .social-link:hover {
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.3);
   transform: translateY(-3px) scale(1.1);
-  box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
 }
 
 .social-icons-box .social-link svg {
@@ -260,7 +259,7 @@
   stroke: currentColor;
 }
 
-/* Subtle zoom and darken effect on image when social icons slide down */
+
 .final-team-card:hover .final-team-image,
 .final-team-card:focus-within .final-team-image,
 .final-team-card:focus .final-team-image {
@@ -287,12 +286,12 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.45) 100%);
   z-index: 0;
   pointer-events: none;
 }
 
-/* Responsive Styles */
+
 @media screen and (max-width: 991px) {
   .about-us-v1-bottom {
     grid-template-columns: repeat(2, 1fr);
@@ -322,25 +321,28 @@
     padding: 30px;
   }
 }
-/* Styles moved from inline attributes for about page and small responsive helpers */
+
 .about-us-content-bg.blur {
   filter: blur(20px);
 }
 
-/* Responsive adjustments for the About page */
+
 @media (max-width: 991px) {
   .about-us-v1 {
     padding: 60px 0;
   }
+
   .about-us-v1-bottom {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+
   .about-v1-heading,
   .about-us-v1-top,
   .final-team-header {
     text-align: center;
   }
+
   .final-team-container {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
@@ -350,8 +352,158 @@
   .about-us-content-list-main {
     padding: 24px;
   }
+
   .heading-wrap.h2 {
     font-size: 1.25rem;
   }
 }
 
+
+:root {
+  --gutter: 16px;
+  --gap: 16px;
+  --site-max-width: 1200px;
+  --radius: 6px;
+  --transition: 220ms ease
+}
+
+html,
+body {
+  overflow-x: hidden
+}
+
+h1 {
+  font-size: clamp(24px, calc(1.35rem + 1.2vw), 48px)
+}
+
+h2 {
+  font-size: clamp(20px, calc(1.15rem + 1.0vw), 36px)
+}
+
+h3 {
+  font-size: clamp(18px, calc(1rem + 0.6vw), 28px)
+}
+
+p,
+li,
+button {
+  font-size: clamp(13px, calc(0.95rem + 0.2vw), 16px)
+}
+
+.container {
+  width: 100%;
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding: 0 calc(var(--gutter))
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  align-items: flex-start
+}
+
+.col {
+  flex: 1 1 100%;
+  min-width: 0
+}
+
+.col-50 {
+  flex: 1 1 100%
+}
+
+.card {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius);
+  background: #fff
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block
+}
+
+.w-button {
+  padding: 12px 18px;
+  border-radius: 6px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center
+}
+
+.hamburger {
+  display: none
+}
+
+.nav-main {
+  display: flex;
+  gap: var(--gap);
+  align-items: center
+}
+
+* {
+  transition: var(--transition)
+}
+
+@media (min-width:768px) and (max-width:1023px) {
+  :root {
+    --gutter: 20px;
+    --gap: 20px
+  }
+
+  .col-50 {
+    flex: 1 1 calc(50% - var(--gap))
+  }
+
+  .col-33 {
+    flex: 1 1 calc(33.333% - var(--gap))
+  }
+
+  .hamburger {
+    display: block
+  }
+
+  .nav-main {
+    flex-wrap: wrap
+  }
+}
+
+@media (min-width:1024px) and (max-width:1439px) {
+  :root {
+    --gutter: 28px;
+    --gap: 28px
+  }
+
+  .col-50 {
+    flex: 1 1 calc(50% - var(--gap))
+  }
+
+  .col-33 {
+    flex: 1 1 calc(33.333% - var(--gap))
+  }
+
+  .container {
+    padding: 0 calc(var(--gutter) * 0.75)
+  }
+}
+
+@media (min-width:1440px) {
+  :root {
+    --gutter: 42px;
+    --gap: 32px;
+    --site-max-width: 1440px
+  }
+
+  .container {
+    padding: 0 calc(var(--gutter))
+  }
+
+  .col-50 {
+    flex: 1 1 calc(50% - var(--gap))
+  }
+}

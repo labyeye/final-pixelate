@@ -1,11 +1,9 @@
-/* --- START: WEB DEVELOPMENT PAGE STYLES --- */
-
-/* --- Animations --- */
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -16,6 +14,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -35,7 +34,7 @@
     animation: fadeInUp 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
 }
 
-/* --- Portfolio Section --- */
+
 
 .portfolio-grid {
     display: grid;
@@ -131,12 +130,13 @@
     letter-spacing: 0.5px;
 }
 
-/* --- Our Process Section --- */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -175,11 +175,22 @@
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Add staggered delay for each process step */
-.process-step:nth-child(1) { animation-delay: 0.2s; }
-.process-step:nth-child(2) { animation-delay: 0.4s; }
-.process-step:nth-child(3) { animation-delay: 0.6s; }
-.process-step:nth-child(4) { animation-delay: 0.8s; }
+
+.process-step:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.process-step:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.process-step:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.process-step:nth-child(4) {
+    animation-delay: 0.8s;
+}
 
 .process-step:hover {
     background-color: rgba(255, 255, 255, 0.08);
@@ -220,7 +231,7 @@
 }
 
 .step-description {
-    color: #ffffffb3; /* 70% white */
+    color: #ffffffb3;
     font-size: 16px;
     line-height: 1.6;
     margin: 0;
@@ -231,17 +242,167 @@
 
 .process-step:hover .step-description {
     transform: translateY(-2px);
-    color: #ffffffcc; /* Slightly brighter on hover */
+    color: #ffffffcc;
 }
 
-/* video-ed.css */
+
 .hero-title {
-  font-size: var(--h2);
-  font-weight: 700;
-  background: var(--text-linear);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    font-size: var(--h2);
+    font-weight: 700;
+    background: var(--text-linear);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* Use existing component classes instead of custom ones */
-/* --- END: WEB DEVELOPMENT PAGE STYLES --- */
+
+
+
+
+:root {
+    --gutter: 16px;
+    --gap: 16px;
+    --site-max-width: 1200px;
+    --radius: 6px;
+    --transition: 220ms ease
+}
+
+html,
+body {
+    overflow-x: hidden
+}
+
+h1 {
+    font-size: clamp(24px, calc(1.35rem + 1.2vw), 48px)
+}
+
+h2 {
+    font-size: clamp(20px, calc(1.15rem + 1.0vw), 36px)
+}
+
+h3 {
+    font-size: clamp(18px, calc(1rem + 0.6vw), 28px)
+}
+
+p,
+li,
+button {
+    font-size: clamp(13px, calc(0.95rem + 0.2vw), 16px)
+}
+
+.container {
+    width: 100%;
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 0 calc(var(--gutter))
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+    align-items: flex-start
+}
+
+.col {
+    flex: 1 1 100%;
+    min-width: 0
+}
+
+.col-50 {
+    flex: 1 1 100%
+}
+
+.card {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius);
+    background: #fff
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+    display: block
+}
+
+.w-button {
+    padding: 12px 18px;
+    border-radius: 6px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center
+}
+
+.hamburger {
+    display: none
+}
+
+.nav-main {
+    display: flex;
+    gap: var(--gap);
+    align-items: center
+}
+
+* {
+    transition: var(--transition)
+}
+
+@media (min-width:768px) and (max-width:1023px) {
+    :root {
+        --gutter: 20px;
+        --gap: 20px
+    }
+
+    .col-50 {
+        flex: 1 1 calc(50% - var(--gap))
+    }
+
+    .col-33 {
+        flex: 1 1 calc(33.333% - var(--gap))
+    }
+
+    .hamburger {
+        display: block
+    }
+
+    .nav-main {
+        flex-wrap: wrap
+    }
+}
+
+@media (min-width:1024px) and (max-width:1439px) {
+    :root {
+        --gutter: 28px;
+        --gap: 28px
+    }
+
+    .col-50 {
+        flex: 1 1 calc(50% - var(--gap))
+    }
+
+    .col-33 {
+        flex: 1 1 calc(33.333% - var(--gap))
+    }
+
+    .container {
+        padding: 0 calc(var(--gutter) * 0.75)
+    }
+}
+
+@media (min-width:1440px) {
+    :root {
+        --gutter: 42px;
+        --gap: 32px;
+        --site-max-width: 1440px
+    }
+
+    .container {
+        padding: 0 calc(var(--gutter))
+    }
+
+    .col-50 {
+        flex: 1 1 calc(50% - var(--gap))
+    }
+}
