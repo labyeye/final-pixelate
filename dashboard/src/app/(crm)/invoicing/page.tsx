@@ -141,6 +141,66 @@ export default function InvoicingPage() {
     }
   };
 
+  const exportCsv = async () => {
+    try {
+      const escape = (v: any) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+      const headers = [
+        'Invoice No',
+        'Client',
+        'Title',
+        'Amount',
+        'Paid Amount',
+        'Due Date',
+        'Status',
+        'Inventory Items',
+        'Inventory Items Total',
+        'GST Total',
+        'Final Total',
+        'Created At',
+        'Updated At',
+      ];
+      const rows: string[] = [];
+      rows.push(headers.map(h => escape(h)).join(','));
+      for (const inv of invoices) {
+        const invItems = Array.isArray(inv.inventoryItems) ? inv.inventoryItems : [];
+        const invItemsStr = invItems.map((it: any) => `${it.inventoryId || ''}:${it.quantity || 0}@${it.sellingPrice || 0}`).join('; ');
+        const itemsTotal = invItems.reduce((s: number, r: any) => s + (Number(r.sellingPrice || 0) * Number(r.quantity || 0)), 0);
+        const gstTotal = invItems.reduce((s: number, r: any) => s + ((Number(r.sellingPrice || 0) * Number(r.quantity || 0)) * (Number(r.gstPercentage || 0) / 100)), 0);
+        const finalTotal = Number(inv.amount || 0);
+        const clientName = inv.clientName || inv.client || clients.find((c) => String(c.id ?? c._id) === String(inv.clientId))?.name || '';
+        const row = [
+          inv.invoiceNo ?? inv.id ?? '',
+          clientName,
+          inv.title ?? inv.projectTitle ?? '',
+          Number(inv.amount ?? 0).toFixed(2),
+          Number(inv.paidAmount ?? 0).toFixed(2),
+          inv.dueDate ? new Date(inv.dueDate).toISOString() : '',
+          inv.status || '',
+          invItemsStr,
+          itemsTotal.toFixed(2),
+          gstTotal.toFixed(2),
+          finalTotal.toFixed(2),
+          inv.createdAt ? new Date(inv.createdAt).toISOString() : '',
+          inv.updatedAt ? new Date(inv.updatedAt).toISOString() : '',
+        ];
+        rows.push(row.map((c) => escape(c)).join(','));
+      }
+      const csv = rows.join('\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.setAttribute('download', `invoices-${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    } catch (e) {
+      console.error('Export CSV failed', e);
+      alert('Failed to export invoices');
+    }
+  };
+
   return (
     <div className="space-y-8 font-headline">
       <header className="flex items-center justify-between gap-4">
@@ -150,12 +210,15 @@ export default function InvoicingPage() {
             Manage and track all client invoices.
           </p>
         </div>
-        <AddInvoiceDialog
-          clients={clients}
-          services={services}
-          projects={projects}
-          onCreated={refresh}
-        />
+        <div className="flex items-center gap-2">
+          <Button size="sm" onClick={exportCsv}>Export Excel</Button>
+          <AddInvoiceDialog
+            clients={clients}
+            services={services}
+            projects={projects}
+            onCreated={refresh}
+          />
+        </div>
       </header>
 
       <div className="border-2 border-black">

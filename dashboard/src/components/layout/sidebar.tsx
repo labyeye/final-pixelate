@@ -24,8 +24,10 @@ import {
   UserPlus,
   Star,
   Megaphone,
+  BoxIcon,
 } from "lucide-react";
 
+// Sidebar trimmed to only Inventory as requested
 const navItems = [
   {
     href: "/dashboard",
@@ -50,6 +52,10 @@ const navItems = [
     adminOnly: false,
     icon: FileText,
   },
+    { href: "/invoicing", label: "Invoicing", adminOnly: true, icon: Receipt },
+
+    { href: '/inventory', label: 'Inventory', adminOnly: false, icon: BoxIcon },
+
   { href: "/projects", label: "Projects", adminOnly: false, icon: Briefcase },
   {
     href: "/work-gallery",
@@ -78,7 +84,6 @@ const navItems = [
     adminOnly: false,
     icon: BarChartIcon,
   },
-  { href: "/invoicing", label: "Invoicing", adminOnly: true, icon: Receipt },
   {
     href: "/developers-and-editors",
     label: "Developers & Editors",

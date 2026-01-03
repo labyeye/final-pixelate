@@ -1,0 +1,296 @@
+[00:00:01.361] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.566] Server  LOG      ✓ Ready in 1165ms
+[00:00:05.266] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:23.126] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:00:23.126] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:00:28.663] Browser DEBUG   #1 0ms Starting document clone with size 1922x1123 scrolled to 0,0
+[00:00:29.059] Browser DEBUG   #1 208ms Document cloned, element located at -100000,0 with size 1200x1122.515625 using computed rendering
+[00:00:29.059] Browser DEBUG   #1 209ms Starting DOM parsing
+[00:00:29.059] Browser DEBUG   #1 215ms Added image http://localhost:9002/_next/static/media/logo-transparent.19988348.png
+[00:00:29.059] Browser DEBUG   #1 227ms Added image http://localhost:9002/_next/static/media/sign.d135599b.png
+[00:00:29.060] Browser DEBUG   #1 228ms Starting renderer for element at -100000,0 with size 1200x1123
+[00:00:29.060] Browser DEBUG   #1 229ms Canvas renderer initialized (1200x1123) with scale 0.17500129629629627
+[00:00:29.060] Browser DEBUG   #1 447ms Finished rendering
+[00:00:36.054] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:36.056] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\.next\dev\server\chunks\[root-of-the-server]__fc1f2265._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:36.057] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\trace\tracer.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:36.058] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:36.058] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\@opentelemetry\api\build\src\api\context.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:36.058] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:36.059] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:36.061] Server  WARN    Error: Route "/api/invoices/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:00:36.278] Browser ERROR   {}
+[00:02:58.222] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:56.277] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:12:56.277] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:26:46.926] Server  LOG      ✓ Compiled in 153ms
+[00:27:32.046] Server  LOG      ✓ Compiled in 94ms
+[00:28:14.612] Server  LOG      ✓ Compiled in 89ms
+[00:28:33.116] Server  LOG      ✓ Compiled in 90ms
+[00:29:01.305] Server  LOG      ✓ Compiled in 99ms
+[00:35:25.129] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:35:25.129] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:36:00.743] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:36:00.743] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:37:22.033] Server  LOG      ✓ Compiled in 52ms
+[00:37:31.118] Server  LOG      ✓ Compiled in 58ms
+[00:37:44.737] Server  LOG      ✓ Compiled in 48ms
+[00:38:01.878] Server  LOG      ✓ Compiled in 52ms
+[00:38:06.509] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:38:06.509] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:38:10.801] Server  LOG      ✓ Compiled in 83ms
+[00:38:35.212] Server  LOG      ✓ Compiled in 47ms
+[00:39:14.834] Server  LOG      ✓ Compiled in 56ms
+[00:39:50.120] Server  LOG      ✓ Compiled in 46ms
+[00:41:53.512] Server  LOG      ✓ Compiled in 45ms
+[00:41:57.422] Server  LOG      ✓ Compiled in 53ms
+[00:48:38.647] Server  LOG      ✓ Compiled in 58ms
+[00:49:05.599] Server  LOG      ✓ Compiled in 46ms
+[00:52:03.090] Server  LOG      ✓ Compiled in 55ms
+[00:52:03.675] Browser ERROR   ./src/components/invoices/add-invoice-dialog.tsx:127:89
+Parsing ecmascript source code failed
+  125 |         );
+  126 |         const invoice: any = {
+> 127 |           "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
+      |                                                                                         ^
+  128 |
+  129 |         // attempt to inline local font as base64 for robust PDF rendering
+  130 |         let styledHtml: string;
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+[00:53:59.228] Server  LOG      ✓ Compiled in 51ms
+[00:53:59.678] Browser ERROR   ./src/components/invoices/add-invoice-dialog.tsx:127:89
+Parsing ecmascript source code failed
+  125 |         );
+  126 |         const invoice: any = {
+> 127 |           "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
+      |                                                                                         ^
+  128 |
+  129 |         // attempt to inline local font as base64 for robust PDF rendering
+  130 |         let styledHtml: string;
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+[00:56:28.218] Browser ERROR   ./src/components/invoices/add-invoice-dialog.tsx:127:89
+Parsing ecmascript source code failed
+  125 |         );
+  126 |         const invoice: any = {
+> 127 |           "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
+      |                                                                                         ^
+  128 |
+  129 |         // attempt to inline local font as base64 for robust PDF rendering
+  130 |         let styledHtml: string;
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+[00:56:28.678] Browser ERROR   ./src/components/invoices/add-invoice-dialog.tsx:127:89
+Parsing ecmascript source code failed
+  125 |         );
+  126 |         const invoice: any = {
+> 127 |           "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
+      |                                                                                         ^
+  128 |
+  129 |         // attempt to inline local font as base64 for robust PDF rendering
+  130 |         let styledHtml: string;
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+[00:56:28.790] Browser ERROR   ./src/components/invoices/add-invoice-dialog.tsx:127:89
+Parsing ecmascript source code failed
+  125 |         );
+  126 |         const invoice: any = {
+> 127 |           "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
+      |                                                                                         ^
+  128 |
+  129 |         // attempt to inline local font as base64 for robust PDF rendering
+  130 |         let styledHtml: string;
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+[00:56:29.225] Browser ERROR   ./src/components/invoices/add-invoice-dialog.tsx:127:89
+Parsing ecmascript source code failed
+  125 |         );
+  126 |         const invoice: any = {
+> 127 |           "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
+      |                                                                                         ^
+  128 |
+  129 |         // attempt to inline local font as base64 for robust PDF rendering
+  130 |         let styledHtml: string;
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+[00:56:29.225] Browser ERROR   Failed to load inventory {}
+[00:56:29.225] Browser ERROR   Failed to load team members {}
+[00:56:30.634] Server  ERROR    ⨯ ./src/components/invoices/add-invoice-dialog.tsx:127:89
+Parsing ecmascript source code failed
+  125 |         );
+  126 |         const invoice: any = {
+> 127 |           "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
+      |                                                                                         ^
+  128 |
+  129 |         // attempt to inline local font as base64 for robust PDF rendering
+  130 |         let styledHtml: string;
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+
+
+[00:56:30.842] Browser ERROR   uncaughtError: Error: ./src/components/invoices/add-invoice-dialog.tsx:127:89
+Parsing ecmascript source code failed
+  125 |         );
+  126 |         const invoice: any = {
+> 127 |           "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
+      |                                                                                         ^
+  128 |
+  129 |         // attempt to inline local font as base64 for robust PDF rendering
+  130 |         let styledHtml: string;
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+
+
+[00:56:31.011] Browser ERROR   ./src/components/invoices/add-invoice-dialog.tsx:127:89
+Parsing ecmascript source code failed
+  125 |         );
+  126 |         const invoice: any = {
+> 127 |           "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
+      |                                                                                         ^
+  128 |
+  129 |         // attempt to inline local font as base64 for robust PDF rendering
+  130 |         let styledHtml: string;
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+[00:56:31.011] Browser ERROR   ./src/components/invoices/add-invoice-dialog.tsx:127:89
+Parsing ecmascript source code failed
+  125 |         );
+  126 |         const invoice: any = {
+> 127 |           "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
+      |                                                                                         ^
+  128 |
+  129 |         // attempt to inline local font as base64 for robust PDF rendering
+  130 |         let styledHtml: string;
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component Browser]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/invoices/add-invoice-dialog.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Client Component SSR]
+    ./src/app/(crm)/invoicing/page.tsx [Server Component]
+[00:58:20.774] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:59:14.453] Server  LOG      ✓ Compiled in 47ms
+[00:59:45.019] Server  LOG      ✓ Compiled in 43ms
+[01:00:14.045] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:00:14.045] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:00:36.341] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:00:36.343] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\.next\dev\server\chunks\[root-of-the-server]__fc1f2265._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:00:36.363] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\.next\dev\server\chunks\node_modules_1d5de3ca._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:00:36.366] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:00:36.367] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:00:36.368] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:00:36.369] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:00:36.371] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:00:36.375] Server  ERROR   C:\Users\labhb\Desktop\projects\final-pixelate\dashboard\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[01:00:36.377] Server  WARN    Error: Route "/api/invoices/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[01:00:39.090] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:00:39.090] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:01:12.995] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:01:12.995] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:09:03.622] Server  LOG      ✓ Compiled in 47ms

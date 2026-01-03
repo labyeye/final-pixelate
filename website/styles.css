@@ -1009,12 +1009,136 @@ li {
 }
 
 .main-hero {
-  background-image: url("./assets/background.webp");
+  background: #000;
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;
   position: relative;
+}
+
+/* Animated fog using two blurred orange circles (ff640d) */
+.animated-fog {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Ensure hero content sits above the animated fog */
+.main-hero > *:not(.animated-fog) {
+  position: relative;
+}
+
+.fog-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: #ff640d;
+  filter: blur(60px);
+  opacity: 0.14;
+  transform: translateZ(0);
+  will-change: transform, opacity, width, height;
+}
+
+.fog1 {
+  width: 520px;
+  height: 520px;
+  left: 0;
+  top: 40px;
+  opacity: 0.18;
+  animation: fogMotion1 28s ease-in-out infinite;
+}
+
+.fog2 {
+  width: 420px;
+  height: 420px;
+  left: 0;
+  top: 80px;
+  opacity: 0.12;
+  animation: fogMotion2 24s ease-in-out infinite;
+}
+
+/* Motion across the full viewport width with gentle rotation + vertical bobbing */
+@keyframes fogMotion1 {
+  0% {
+    transform: translateX(-60vw) translateY(10px) scale(0.92) rotate(0deg);
+    opacity: 0.14;
+  }
+  25% {
+    transform: translateX(-10vw) translateY(2px) scale(1.02) rotate(6deg);
+    opacity: 0.18;
+  }
+  50% {
+    transform: translateX(30vw) translateY(-12px) scale(1.12) rotate(12deg);
+    opacity: 0.22;
+  }
+  75% {
+    transform: translateX(85vw) translateY(-4px) scale(1.04) rotate(6deg);
+    opacity: 0.18;
+  }
+  100% {
+    transform: translateX(140vw) translateY(10px) scale(0.92) rotate(0deg);
+    opacity: 0.14;
+  }
+}
+
+@keyframes fogMotion2 {
+  0% {
+    transform: translateX(140vw) translateY(6px) scale(1) rotate(0deg);
+    opacity: 0.1;
+  }
+  25% {
+    transform: translateX(95vw) translateY(2px) scale(0.94) rotate(-6deg);
+    opacity: 0.12;
+  }
+  50% {
+    transform: translateX(50vw) translateY(-8px) scale(0.84) rotate(-14deg);
+    opacity: 0.16;
+  }
+  75% {
+    transform: translateX(10vw) translateY(4px) scale(0.96) rotate(-6deg);
+    opacity: 0.12;
+  }
+  100% {
+    transform: translateX(-60vw) translateY(6px) scale(1) rotate(0deg);
+    opacity: 0.1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .fog1 {
+    width: 420px;
+    height: 420px;
+    left: -80px;
+    top: 20px;
+    filter: blur(56px);
+  }
+  .fog2 {
+    width: 320px;
+    height: 320px;
+    right: -80px;
+    top: 70px;
+    filter: blur(48px);
+  }
+}
+
+@media (max-width: 480px) {
+  .fog1 {
+    width: 300px;
+    height: 300px;
+    left: -60px;
+    top: 0;
+    filter: blur(44px);
+  }
+  .fog2 {
+    width: 220px;
+    height: 220px;
+    right: -60px;
+    top: 40px;
+    filter: blur(36px);
+  }
 }
 
 .main-hero.changelog {
@@ -3078,8 +3202,8 @@ li {
 
   .service-01 {
     margin-top: 60px;
-    
-  overflow: hidden;
+
+    overflow: hidden;
   }
 
   .service-01-top {
@@ -5055,7 +5179,7 @@ li {
 /* Restored Webflow Navbar Styles */
 [data-nav-menu-open] {
   text-align: center;
-  background: #c8c8c8;
+  background: black;
   min-width: 200px;
   position: absolute;
   top: 100%;
@@ -5207,7 +5331,7 @@ li {
   line-height: 1;
   margin-bottom: 8px;
   text-align: center;
-  width:70%
+  width: 70%;
 }
 .card p {
   font-weight: bolder;
@@ -5262,7 +5386,6 @@ li {
 .process-icon {
   transition: all 0.35s ease;
 }
-
 
 /* Mobile layout tweaks */
 @media (max-width: 768px) {

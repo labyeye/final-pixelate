@@ -390,6 +390,23 @@ export function InvoicePDF({
         </table>
       </div>
 
+      {/* Work / Job Details (optional) */}
+      {(invoice?.assignedStaff || invoice?.workDate || invoice?.workTime || invoice?.venueName || invoice?.venueAddress || (invoice?.equipmentAssigned && invoice?.equipmentAssigned.length) || invoice?.description) && (
+        <div style={{ marginBottom: 20, padding: 12, border: '1px solid #eee', borderRadius: 6 }}>
+          <div style={{ fontSize: 12, fontWeight: 700, color: '#e65200', marginBottom: 8 }}>Work Details</div>
+          <div style={{ fontSize: 11, color: '#333', lineHeight: 1.4 }}>
+            {invoice?.assignedStaff && <div><strong>Assigned Staff:</strong> {invoice.assignedStaff}</div>}
+            {(invoice?.workDate || invoice?.workTime) && <div><strong>Date / Time:</strong> {(invoice.workDate ? formatDate(invoice.workDate) : '')} {invoice.workTime ? ` ${invoice.workTime}` : ''}</div>}
+            {invoice?.venueName && <div><strong>Venue:</strong> {invoice.venueName}</div>}
+            {invoice?.venueAddress && <div><strong>Address:</strong> {invoice.venueAddress}</div>}
+            {invoice?.equipmentAssigned && (Array.isArray(invoice.equipmentAssigned) ? invoice.equipmentAssigned.join(', ') : String(invoice.equipmentAssigned)) && (
+              <div><strong>Equipment:</strong> {Array.isArray(invoice.equipmentAssigned) ? invoice.equipmentAssigned.join(', ') : String(invoice.equipmentAssigned)}</div>
+            )}
+            {invoice?.description && <div style={{ marginTop: 8 }}><strong>Description:</strong> <div style={{ fontSize: 11, color: '#666' }}>{invoice.description}</div></div>}
+          </div>
+        </div>
+      )}
+
       {/* Summary Section */}
       <div
         style={{

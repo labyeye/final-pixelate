@@ -1,0 +1,21 @@
+{
+  "/(crm)/blogs/page": "app/(crm)/blogs/page.js",
+  "/(crm)/clients/page": "app/(crm)/clients/page.js",
+  "/(crm)/enquiries/page": "app/(crm)/enquiries/page.js",
+  "/(crm)/inventory/page": "app/(crm)/inventory/page.js",
+  "/(crm)/invoicing/page": "app/(crm)/invoicing/page.js",
+  "/(crm)/leads/page": "app/(crm)/leads/page.js",
+  "/(crm)/reviews/page": "app/(crm)/reviews/page.js",
+  "/api/blogs/route": "app/api/blogs/route.js",
+  "/api/clients/route": "app/api/clients/route.js",
+  "/api/enquiries/route": "app/api/enquiries/route.js",
+  "/api/inventory/route": "app/api/inventory/route.js",
+  "/api/invoices/[id]/route": "app/api/invoices/[id]/route.js",
+  "/api/invoices/route": "app/api/invoices/route.js",
+  "/api/leads/route": "app/api/leads/route.js",
+  "/api/projects/route": "app/api/projects/route.js",
+  "/api/reviews/route": "app/api/reviews/route.js",
+  "/api/services/route": "app/api/services/route.js",
+  "/api/team-members/route": "app/api/team-members/route.js",
+  "/api/users/route": "app/api/users/route.js"
+}

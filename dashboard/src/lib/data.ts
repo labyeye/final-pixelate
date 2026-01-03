@@ -200,6 +200,34 @@ export interface Service {
   id?: number | string;
   _id?: string | any;
   name: string;
+  // optional free-form description (used for Web Development services)
+  description?: string;
+}
+
+export interface Invoice {
+  id?: string;
+  _id?: any;
+  invoiceNo?: string;
+  clientId?: string | any;
+  clientName?: string;
+  clientAddress?: string;
+  clientEmail?: string;
+  clientPhone?: string;
+  projectTitle?: string;
+  title?: string;
+  amount?: number;
+  dueDate?: string | Date;
+  status?: string;
+  createdAt?: string | Date;
+  // New fields
+  assignedStaff?: string[] | string;
+  workDate?: string; // ISO date
+  workTime?: string; // time string
+  venueName?: string;
+  venueAddress?: string;
+  equipmentAssigned?: string[] | string; // array or comma separated
+  // Optional description used when service is Web Development
+  description?: string;
 }
 
 export const services: Service[] = [];
