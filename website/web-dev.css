@@ -1,28 +1,23 @@
-/* --- START: WEB DEVELOPMENT PAGE STYLES --- */
-.container-webdev{
-    max-width: 1700px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-/* --- Animations --- */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .main-hero {
@@ -39,7 +34,7 @@
   animation: fadeInUp 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
 }
 
-/* --- Portfolio Section --- */
+
 
 .portfolio-grid {
   display: grid;
@@ -131,16 +126,17 @@
   letter-spacing: 0.5px;
 }
 
-/* --- Our Process Section --- */
+
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .process-section {
@@ -242,13 +238,13 @@
   color: #ffffffcc; /* Slightly brighter on hover */
 }
 
-/* video-ed.css */
+
 .hero-title {
-  font-size: var(--h2);
-  font-weight: 700;
-  background: var(--text-linear);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    font-size: var(--h2);
+    font-weight: 700;
+    background: var(--text-linear);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Use existing component classes instead of custom ones */

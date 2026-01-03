@@ -1,6 +1,3 @@
-/* Portfolio / mosaic styles (moved from photography.html)
-     - reduced vertical/horizontal gap for tighter packing
-*/
 :root {
     --portfolio-radius: 0px;
     --portfolio-row-height: 10px;
@@ -8,8 +5,7 @@
 }
 
 #portfolio-grid {
-    /* use CSS columns for a simple masonry layout (matches Gallery.tsx style)
-       JS will only inject .portfolio-card items; CSS handles column-count responsively */
+
     display: block;
     column-count: 4;
     column-gap: var(--portfolio-gap);
@@ -19,7 +15,7 @@
 
 .portfolio-card {
     position: relative;
-    display: inline-block; /* required for column layout */
+    display: inline-block;
     width: 100%;
     overflow: hidden;
     break-inside: avoid;
@@ -27,7 +23,7 @@
     border-radius: var(--portfolio-radius);
     background: #111;
     box-shadow: 0 18px 40px rgba(8, 10, 20, 0.12);
-    margin: 0 0 var(--portfolio-gap) 0; /* vertical spacing between column items */
+    margin: 0 0 var(--portfolio-gap) 0;
     box-sizing: border-box;
 }
 
@@ -41,7 +37,7 @@
     box-sizing: border-box;
 }
 
-/* overlay revealed on hover to show title / caption */
+
 .portfolio-overlay {
     position: absolute;
     left: 0;
@@ -54,25 +50,48 @@
     pointer-events: none;
     transition: background 220ms ease, opacity 220ms ease, transform 220ms ease;
 }
-.portfolio-title { font-weight: 600; font-size: 14px; }
 
-/* small interaction lift */
-.portfolio-card:hover { transform: translateY(-6px); transition: transform 240ms ease; }
+.portfolio-title {
+    font-weight: 600;
+    font-size: 14px;
+}
 
-/* filter UI */
-.filter-bar { display: inline-flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 6px; }
 
-/* sizes used by the gallery rendering (mirrors Gallery.tsx) */
-.size-large { height: 400px; }
-.size-small { height: 200px; }
+.portfolio-card:hover {
+    transform: translateY(-6px);
+    transition: transform 240ms ease;
+}
+
+
+.filter-bar {
+    display: inline-flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 6px;
+}
+
+
+.size-large {
+    height: 400px;
+}
+
+.size-small {
+    height: 200px;
+}
 
 @media (max-width:1023px) {
     #portfolio-grid {
         column-count: 3;
     }
 
-    .size-large { height: 320px; }
-    .size-small { height: 160px; }
+    .size-large {
+        height: 320px;
+    }
+
+    .size-small {
+        height: 160px;
+    }
 }
 
 @media (max-width:767px) {
@@ -81,10 +100,165 @@
         column-gap: calc(var(--portfolio-gap) * 0.95);
     }
 
-    .size-large { height: 260px; }
-    .size-small { height: 120px; }
+    .size-large {
+        height: 260px;
+    }
+
+    .size-small {
+        height: 120px;
+    }
 }
 
 .skeleton-card {
     margin: 0
+}
+
+
+:root {
+    --gutter: 16px;
+    --gap: 16px;
+    --site-max-width: 1200px;
+    --radius: 6px;
+    --transition: 220ms ease
+}
+
+html,
+body {
+    overflow-x: hidden
+}
+
+h1 {
+    font-size: clamp(24px, calc(1.35rem + 1.2vw), 48px)
+}
+
+h2 {
+    font-size: clamp(20px, calc(1.15rem + 1.0vw), 36px)
+}
+
+h3 {
+    font-size: clamp(18px, calc(1rem + 0.6vw), 28px)
+}
+
+p,
+li,
+button {
+    font-size: clamp(13px, calc(0.95rem + 0.2vw), 16px)
+}
+
+.container {
+    width: 100%;
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 0 calc(var(--gutter))
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+    align-items: flex-start
+}
+
+.col {
+    flex: 1 1 100%;
+    min-width: 0
+}
+
+.col-50 {
+    flex: 1 1 100%
+}
+
+.card {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius);
+    background: #fff
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+    display: block
+}
+
+.w-button {
+    padding: 12px 18px;
+    border-radius: 6px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center
+}
+
+.hamburger {
+    display: none
+}
+
+.nav-main {
+    display: flex;
+    gap: var(--gap);
+    align-items: center
+}
+
+* {
+    transition: var(--transition)
+}
+
+@media (min-width:768px) and (max-width:1023px) {
+    :root {
+        --gutter: 20px;
+        --gap: 20px
+    }
+
+    .col-50 {
+        flex: 1 1 calc(50% - var(--gap))
+    }
+
+    .col-33 {
+        flex: 1 1 calc(33.333% - var(--gap))
+    }
+
+    .hamburger {
+        display: block
+    }
+
+    .nav-main {
+        flex-wrap: wrap
+    }
+}
+
+@media (min-width:1024px) and (max-width:1439px) {
+    :root {
+        --gutter: 28px;
+        --gap: 28px
+    }
+
+    .col-50 {
+        flex: 1 1 calc(50% - var(--gap))
+    }
+
+    .col-33 {
+        flex: 1 1 calc(33.333% - var(--gap))
+    }
+
+    .container {
+        padding: 0 calc(var(--gutter) * 0.75)
+    }
+}
+
+@media (min-width:1440px) {
+    :root {
+        --gutter: 42px;
+        --gap: 32px;
+        --site-max-width: 1440px
+    }
+
+    .container {
+        padding: 0 calc(var(--gutter))
+    }
+
+    .col-50 {
+        flex: 1 1 calc(50% - var(--gap))
+    }
 }
