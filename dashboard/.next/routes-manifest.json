@@ -61,6 +61,14 @@
       "namedRegex": "^/api/expenses/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/inventory/[id]",
+      "regex": "^/api/inventory/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/inventory/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/invoices/[id]",
       "regex": "^/api/invoices/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -273,10 +281,22 @@
       "namedRegex": "^/api/expenses(?:/)?$"
     },
     {
+      "page": "/api/inventory",
+      "regex": "^/api/inventory(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/inventory(?:/)?$"
+    },
+    {
       "page": "/api/invoices",
       "regex": "^/api/invoices(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/invoices(?:/)?$"
+    },
+    {
+      "page": "/api/invoices/renumber",
+      "regex": "^/api/invoices/renumber(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/invoices/renumber(?:/)?$"
     },
     {
       "page": "/api/leads",
@@ -439,6 +459,12 @@
       "regex": "^/favicon\\.ico(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/inventory",
+      "regex": "^/inventory(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/inventory(?:/)?$"
     },
     {
       "page": "/invoicing",
