@@ -140,7 +140,7 @@
     const sendBtn = document.getElementById("pixy-send-btn");
     const messagesContainer = document.getElementById("pixy-chat-messages");
     const notificationBadge = document.querySelector(
-      ".pixy-notification-badge"
+      ".pixy-notification-badge",
     );
 
     // Event listeners
@@ -154,7 +154,7 @@
     // Initialize with greeting
     setTimeout(() => {
       addBotMessage(
-        "Hi, I'm Pixy 👋 I help you find the perfect solution for your business needs!"
+        "Hi, I'm Pixy 👋 I help you find the perfect solution for your business needs!",
       );
       setTimeout(() => {
         addBotMessage("Which service are you interested in?");
@@ -173,7 +173,7 @@
     const chatModal = document.getElementById("pixy-chat-modal");
     const chatButton = document.getElementById("pixy-chat-button");
     const notificationBadge = document.querySelector(
-      ".pixy-notification-badge"
+      ".pixy-notification-badge",
     );
 
     chatButton.classList.toggle("active");
@@ -368,7 +368,7 @@
         setTimeout(() => askVideoProjectType(), 500);
       } else if (lowerInput.includes("not sure")) {
         addBotMessage(
-          "No worries! Can you tell me what you're trying to achieve? For example:"
+          "No worries! Can you tell me what you're trying to achieve? For example:",
         );
         addBotMessage("- Need an online presence? → Web Development");
         addBotMessage("- Building business software? → Software Development");
@@ -426,7 +426,7 @@
         ) {
           sessionState.website_type = "static";
           addBotMessage(
-            "✅ Static website selected - Great for simple, fast sites!"
+            "✅ Static website selected - Great for simple, fast sites!",
           );
         } else if (
           lowerInput.includes("dynamic") ||
@@ -434,13 +434,13 @@
         ) {
           sessionState.website_type = "dynamic";
           addBotMessage(
-            "✅ Dynamic website selected - Perfect for interactive features!"
+            "✅ Dynamic website selected - Perfect for interactive features!",
           );
         } else if (lowerInput.includes("not sure")) {
           sessionState.website_type =
             sessionState.project_type === "ecommerce" ? "dynamic" : "static";
           addBotMessage(
-            `✅ I'd recommend a ${sessionState.website_type} website for your needs.`
+            `✅ I'd recommend a ${sessionState.website_type} website for your needs.`,
           );
         }
 
@@ -640,7 +640,7 @@
         if (numMatch) {
           sessionState.video_quantity = numMatch[0];
           addBotMessage(
-            `Got it! ${sessionState.video_quantity} videos. Now, what type of videos do you need?`
+            `Got it! ${sessionState.video_quantity} videos. Now, what type of videos do you need?`,
           );
           setTimeout(() => askVideoType(), 500);
         } else if (
@@ -649,12 +649,12 @@
         ) {
           sessionState.video_quantity = "1";
           addBotMessage(
-            "Perfect! One video. What type of video editing do you need?"
+            "Perfect! One video. What type of video editing do you need?",
           );
           setTimeout(() => askVideoType(), 500);
         } else {
           addBotMessage(
-            "Please tell me how many videos you need. Just type a number (e.g., 5, 10, 30)"
+            "Please tell me how many videos you need. Just type a number (e.g., 5, 10, 30)",
           );
         }
         return;
@@ -744,7 +744,7 @@
           sessionState.video_budget = "flexible";
         } else {
           addBotMessage(
-            "Could you specify your budget? (e.g., 50000 or 'flexible')"
+            "Could you specify your budget? (e.g., 50000 or 'flexible')",
           );
           return;
         }
@@ -815,7 +815,7 @@
 
     addBotMessage("I didn't quite catch that. Could you please clarify?");
     addBotMessage(
-      "💡 Tip: Type 'help' for assistance or 'restart' to start over."
+      "💡 Tip: Type 'help' for assistance or 'restart' to start over.",
     );
   }
 
@@ -878,7 +878,7 @@
     addBotMessage("  • Type 'restart' to start a new conversation");
     addBotMessage("  • Type 'help' to see this message again");
     addBotMessage("");
-    addBotMessage("📞 Contact: +91-9234112345");
+    addBotMessage("📞 Contact: +91-84069 12345");
     addBotMessage("📧 Email: support@pixelatenest.com");
     addBotMessage("");
     addBotMessage("Let's continue! Where were we? 😊");
@@ -909,7 +909,7 @@
 
   function askWebsiteType() {
     addBotMessage(
-      "Do you want a static website (content only) or a dynamic website (admin panel, forms, updates)?"
+      "Do you want a static website (content only) or a dynamic website (admin panel, forms, updates)?",
     );
     showQuickReplies(["Static", "Dynamic", "Not sure"]);
   }
@@ -954,7 +954,7 @@
   function askSoftwareFeatures() {
     sessionState.conversationStep = 2;
     addBotMessage(
-      "Great! Can you briefly describe the key features you need? (e.g., user management, reporting, inventory, etc.)"
+      "Great! Can you briefly describe the key features you need? (e.g., user management, reporting, inventory, etc.)",
     );
   }
 
@@ -1018,23 +1018,23 @@
   // === VIDEO EDITING HELPERS ===
   function askVideoProjectType() {
     addBotMessage(
-      "First, how many videos do you need? (Just type a number like 1, 5, 10, 30)"
+      "First, how many videos do you need? (Just type a number like 1, 5, 10, 30)",
     );
   }
 
   function askVideoType() {
     addBotMessage("What type of video editing do you need?");
     addBotMessage(
-      "1️⃣ Basic Editing - Cuts, transitions, simple effects (₹5K-15K per video)"
+      "1️⃣ Basic Editing - Cuts, transitions, simple effects (₹5K-15K per video)",
     );
     addBotMessage(
-      "2️⃣ Professional - Color grading, advanced effects, motion graphics (₹15K-40K per video)"
+      "2️⃣ Professional - Color grading, advanced effects, motion graphics (₹15K-40K per video)",
     );
     addBotMessage(
-      "3️⃣ Commercial/Ads - High-end production, brand videos (₹40K-1L per video)"
+      "3️⃣ Commercial/Ads - High-end production, brand videos (₹40K-1L per video)",
     );
     addBotMessage(
-      "4️⃣ Cinematic/Premium - Top-tier quality, storytelling (₹1L+ per video)"
+      "4️⃣ Cinematic/Premium - Top-tier quality, storytelling (₹1L+ per video)",
     );
     showQuickReplies([
       "1 - Basic",
@@ -1068,24 +1068,24 @@
         addBotMessage(`Great! For ${quantity} short reels (30 seconds each):`);
         addBotMessage(
           `💰 Price: ₹1,500 per video × ${quantity} = ₹${totalPrice.toLocaleString(
-            "en-IN"
-          )}`
+            "en-IN",
+          )}`,
         );
       } else {
         pricePerVideo = 1200;
         totalPrice = 1200 * quantity;
         addBotMessage(
-          `Awesome! For ${quantity} short reels (30 seconds each), you get bulk pricing:`
+          `Awesome! For ${quantity} short reels (30 seconds each), you get bulk pricing:`,
         );
         addBotMessage(
           `💰 Price: ₹1,200 per video × ${quantity} = ₹${totalPrice.toLocaleString(
-            "en-IN"
-          )}`
+            "en-IN",
+          )}`,
         );
         addBotMessage(
           `🎉 You saved ₹${((1500 - 1200) * quantity).toLocaleString(
-            "en-IN"
-          )} with bulk discount!`
+            "en-IN",
+          )} with bulk discount!`,
         );
       }
     } else {
@@ -1099,25 +1099,25 @@
         addBotMessage(
           `Based on ${quantity} ${sessionState.video_type.replace(
             "_",
-            " "
-          )} video(s), the estimated range would be:`
+            " ",
+          )} video(s), the estimated range would be:`,
         );
         addBotMessage(
           `💰 ₹${totalMin.toLocaleString("en-IN")} - ₹${totalMax.toLocaleString(
-            "en-IN"
-          )}`
+            "en-IN",
+          )}`,
         );
       }
     }
 
     addBotMessage(
-      "What's your budget for this project? (Type amount in ₹ or say 'flexible')"
+      "What's your budget for this project? (Type amount in ₹ or say 'flexible')",
     );
   }
 
   function askVideoQuantity() {
     addBotMessage(
-      "How many videos do you need per month? (Just type a number or 'one-time project')"
+      "How many videos do you need per month? (Just type a number or 'one-time project')",
     );
   }
 
@@ -1159,10 +1159,10 @@
       serviceDetails = `
         <p><strong>Service:</strong> Web Development</p>
         <p><strong>Project Type:</strong> ${capitalize(
-          sessionState.project_type
+          sessionState.project_type,
         )}</p>
         <p><strong>Website Type:</strong> ${capitalize(
-          sessionState.website_type
+          sessionState.website_type,
         )}</p>
         <p><strong>Pages:</strong> ${sessionState.number_of_pages}</p>
       `;
@@ -1175,7 +1175,7 @@
       serviceDetails = `
         <p><strong>Service:</strong> Software Development</p>
         <p><strong>Project Type:</strong> ${capitalize(
-          sessionState.project_type.replace("_", " ")
+          sessionState.project_type.replace("_", " "),
         )}</p>
         <p><strong>User Count:</strong> ${sessionState.user_count || "TBD"}</p>
       `;
@@ -1193,7 +1193,7 @@
       serviceDetails = `
         <p><strong>Service:</strong> App Development</p>
         <p><strong>App Type:</strong> ${capitalize(
-          sessionState.project_type.replace("_", " ")
+          sessionState.project_type.replace("_", " "),
         )}</p>
         <p><strong>Platform:</strong> ${capitalize(sessionState.platform)}</p>
       `;
@@ -1227,7 +1227,7 @@
       serviceDetails = `
         <p><strong>Service:</strong> Video Editing 🎬</p>
         <p><strong>Video Type:</strong> ${capitalize(
-          sessionState.video_type.replace("_", " ")
+          sessionState.video_type.replace("_", " "),
         )}</p>
         <p><strong>Quantity:</strong> ${
           sessionState.video_quantity
@@ -1241,7 +1241,7 @@
             : parseInt(sessionState.video_budget).toLocaleString("en-IN")
         }</p>
         <p><strong>Delivery Timeline:</strong> ${capitalize(
-          sessionState.timeline
+          sessionState.timeline,
         )}</p>
       `;
     }
@@ -1286,18 +1286,18 @@
         <p><strong>💰 Estimated Price Range:</strong></p>
         <p style="font-size: 1.2em; color: #ff640d; font-weight: bold;">
           ₹${totalMin.toLocaleString("en-IN")} - ₹${totalMax.toLocaleString(
-        "en-IN"
-      )}
+            "en-IN",
+          )}
         </p>
         ${
           sessionState.service_type === "video-editing"
             ? `
           <p style="font-size: 0.9em; color: #555;">
             📊 Per video cost: ₹${Math.round(
-              totalMin / parseInt(sessionState.video_quantity)
+              totalMin / parseInt(sessionState.video_quantity),
             ).toLocaleString("en-IN")} - 
             ₹${Math.round(
-              totalMax / parseInt(sessionState.video_quantity)
+              totalMax / parseInt(sessionState.video_quantity),
             ).toLocaleString("en-IN")}
           </p>
         `
@@ -1313,7 +1313,7 @@
         ${
           sessionState.addons_selected.length > 0
             ? `<p><strong>Add-ons:</strong> ${sessionState.addons_selected.join(
-                ", "
+                ", ",
               )}</p>`
             : ""
         }
@@ -1358,7 +1358,7 @@
       sessionState.userEmail = response;
       addBotMessage("✅ Email saved!");
       addBotMessage(
-        "And your phone number? (Optional - type 'skip' if you don't want to share)"
+        "And your phone number? (Optional - type 'skip' if you don't want to share)",
       );
       sessionState.conversationStep = 13;
       return;
@@ -1367,13 +1367,13 @@
       if (lowerResponse === "skip") {
         sessionState.userPhone = "";
         addBotMessage(
-          "📝 No problem, we'll proceed without your phone number."
+          "📝 No problem, we'll proceed without your phone number.",
         );
       } else {
         if (!validatePhone(response)) {
           addBotMessage("⚠️ That doesn't look like a valid phone number.");
           addBotMessage(
-            "Please enter a valid Indian phone number (10 digits) or type 'skip':"
+            "Please enter a valid Indian phone number (10 digits) or type 'skip':",
           );
           return;
         }
@@ -1390,7 +1390,7 @@
       }
       sessionState.userName = response;
       addBotMessage(
-        `Nice to meet you, ${response}! 😊 What's your email address?`
+        `Nice to meet you, ${response}! 😊 What's your email address?`,
       );
       sessionState.conversationStep = 12;
       return;
@@ -1404,13 +1404,13 @@
       sessionState.negotiation_requested = true;
       addBotMessage("I understand you'd like to discuss pricing. 💰");
       addBotMessage(
-        "For price negotiations and custom packages, please contact our team directly:"
+        "For price negotiations and custom packages, please contact our team directly:",
       );
-      addBotMessage("📞 <strong>+91-9234112345</strong>");
+      addBotMessage("📞 <strong>+91-84069 12345</strong>");
       addBotMessage("📧 <strong>support@pixelatenest.com</strong>");
       addBotMessage("");
       addBotMessage(
-        "Would you still like to fill the contact form so we can reach out to you?"
+        "Would you still like to fill the contact form so we can reach out to you?",
       );
       showQuickReplies(["Yes, fill form", "No, I'll call directly"]);
       sessionState.conversationStep = 11;
@@ -1436,7 +1436,7 @@
       lowerResponse.includes("call directly")
     ) {
       addBotMessage(
-        "No problem! Feel free to reach out anytime. Have a great day! 😊"
+        "No problem! Feel free to reach out anytime. Have a great day! 😊",
       );
     }
   }
@@ -1482,40 +1482,42 @@
 
       if (response.ok) {
         addBotMessage(
-          "Perfect! ✅ Your contact form has been automatically submitted!"
+          "Perfect! ✅ Your contact form has been automatically submitted!",
         );
         addBotMessage(
-          "Our team will reach out to you within 24 hours to discuss your project in detail. 🚀"
+          "Our team will reach out to you within 24 hours to discuss your project in detail. 🚀",
         );
         addBotMessage(
-          "For urgent queries, feel free to call us at: 📞 <strong>+91-9234112345</strong>"
+          "For urgent queries, feel free to call us at: 📞 <strong>+91-84069 12345</strong>",
         );
         addBotMessage("Thank you for choosing Pixelate Nest! 💼");
       } else {
         const errorMsg = await response.text();
         addBotMessage(
-          "⚠️ We encountered an issue submitting your form. But don't worry!"
+          "⚠️ We encountered an issue submitting your form. But don't worry!",
         );
         addBotMessage("We've saved your details: " + sessionState.userEmail);
         addBotMessage(
-          "Our team will reach out soon. You can also contact us directly:"
+          "Our team will reach out soon. You can also contact us directly:",
         );
         addBotMessage("📧 support@pixelatenest.com");
-        addBotMessage("📞 +91-9234112345");
+        addBotMessage("📞 +91-84069 12345");
       }
     } catch (error) {
       console.error("Error submitting lead:", error);
-      
+
       // Save to localStorage as backup
       try {
-        const backupLeads = JSON.parse(localStorage.getItem('pixy_backup_leads') || '[]');
+        const backupLeads = JSON.parse(
+          localStorage.getItem("pixy_backup_leads") || "[]",
+        );
         backupLeads.push(leadData);
-        localStorage.setItem('pixy_backup_leads', JSON.stringify(backupLeads));
-        console.log('Lead saved to localStorage backup');
+        localStorage.setItem("pixy_backup_leads", JSON.stringify(backupLeads));
+        console.log("Lead saved to localStorage backup");
       } catch (storageError) {
-        console.error('Could not save to localStorage:', storageError);
+        console.error("Could not save to localStorage:", storageError);
       }
-      
+
       addBotMessage("⚠️ Connection issue detected!");
       addBotMessage("");
       addBotMessage("Don't worry! We've saved your information:");
@@ -1531,11 +1533,9 @@
       addBotMessage("");
       addBotMessage("📞 Please contact us directly:");
       addBotMessage("📧 support@pixelatenest.com");
-      addBotMessage("📞 +91-9234112345");
+      addBotMessage("📞 +91-84069 12345");
       addBotMessage("");
-      addBotMessage(
-        "💡 Send us an email and we'll respond within 24 hours!"
-      );
+      addBotMessage("💡 Send us an email and we'll respond within 24 hours!");
     }
   }
 

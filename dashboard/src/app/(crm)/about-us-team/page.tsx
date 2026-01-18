@@ -1,14 +1,28 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Plus, Pencil, Trash2 } from 'lucide-react';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { useToast } from '@/hooks/use-toast';
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Plus, Pencil, Trash2 } from "lucide-react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
 
 interface AboutTeamMember {
   _id?: string;
@@ -29,20 +43,22 @@ export default function AboutUsTeamPage() {
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [editingMember, setEditingMember] = useState<AboutTeamMember | null>(null);
+  const [editingMember, setEditingMember] = useState<AboutTeamMember | null>(
+    null,
+  );
   const { toast } = useToast();
 
   const emptyMember: AboutTeamMember = {
-    name: '',
-    designation: '',
-    phone: '',
-    imageUrl: '',
+    name: "",
+    designation: "",
+    phone: "",
+    imageUrl: "",
     socialLinks: {
-      instagram: '',
-      linkedin: '',
-      facebook: ''
+      instagram: "",
+      linkedin: "",
+      facebook: "",
     },
-    order: 0
+    order: 0,
   };
 
   const [formData, setFormData] = useState<AboutTeamMember>(emptyMember);
@@ -54,15 +70,15 @@ export default function AboutUsTeamPage() {
   const fetchMembers = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/about-team');
-      if (!res.ok) throw new Error('Failed to fetch team members');
+      const res = await fetch("/api/about-team");
+      if (!res.ok) throw new Error("Failed to fetch team members");
       const data = await res.json();
       setMembers(data);
     } catch (error: any) {
       toast({
-        title: 'Error',
-        description: error.message || 'Failed to load team members',
-        variant: 'destructive'
+        title: "Error",
+        description: error.message || "Failed to load team members",
+        variant: "destructive",
       });
     } finally {
       setLoading(false);
@@ -73,21 +89,23 @@ export default function AboutUsTeamPage() {
     e.preventDefault();
     try {
       setLoading(true);
-      
-      const method = editingMember ? 'PUT' : 'POST';
-      const body = editingMember ? { ...formData, _id: editingMember._id } : formData;
 
-      const res = await fetch('/api/about-team', {
+      const method = editingMember ? "PUT" : "POST";
+      const body = editingMember
+        ? { ...formData, _id: editingMember._id }
+        : formData;
+
+      const res = await fetch("/api/about-team", {
         method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
       });
 
-      if (!res.ok) throw new Error('Failed to save team member');
+      if (!res.ok) throw new Error("Failed to save team member");
 
       toast({
-        title: 'Success',
-        description: `Team member ${editingMember ? 'updated' : 'added'} successfully`
+        title: "Success",
+        description: `Team member ${editingMember ? "updated" : "added"} successfully`,
       });
 
       setDialogOpen(false);
@@ -96,9 +114,9 @@ export default function AboutUsTeamPage() {
       fetchMembers();
     } catch (error: any) {
       toast({
-        title: 'Error',
-        description: error.message || 'Failed to save team member',
-        variant: 'destructive'
+        title: "Error",
+        description: error.message || "Failed to save team member",
+        variant: "destructive",
       });
     } finally {
       setLoading(false);
@@ -112,27 +130,27 @@ export default function AboutUsTeamPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm('Are you sure you want to delete this team member?')) return;
+    if (!confirm("Are you sure you want to delete this team member?")) return;
 
     try {
       setLoading(true);
       const res = await fetch(`/api/about-team?id=${id}`, {
-        method: 'DELETE'
+        method: "DELETE",
       });
 
-      if (!res.ok) throw new Error('Failed to delete team member');
+      if (!res.ok) throw new Error("Failed to delete team member");
 
       toast({
-        title: 'Success',
-        description: 'Team member deleted successfully'
+        title: "Success",
+        description: "Team member deleted successfully",
       });
 
       fetchMembers();
     } catch (error: any) {
       toast({
-        title: 'Error',
-        description: error.message || 'Failed to delete team member',
-        variant: 'destructive'
+        title: "Error",
+        description: error.message || "Failed to delete team member",
+        variant: "destructive",
       });
     } finally {
       setLoading(false);
@@ -152,7 +170,12 @@ export default function AboutUsTeamPage() {
           <CardTitle>About Us - Team Management</CardTitle>
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <DialogTrigger asChild>
-              <Button onClick={() => { setFormData(emptyMember); setEditingMember(null); }}>
+              <Button
+                onClick={() => {
+                  setFormData(emptyMember);
+                  setEditingMember(null);
+                }}
+              >
                 <Plus className="mr-2 h-4 w-4" />
                 Add Team Member
               </Button>
@@ -160,7 +183,7 @@ export default function AboutUsTeamPage() {
             <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
               <DialogHeader>
                 <DialogTitle>
-                  {editingMember ? 'Edit Team Member' : 'Add New Team Member'}
+                  {editingMember ? "Edit Team Member" : "Add New Team Member"}
                 </DialogTitle>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -170,7 +193,9 @@ export default function AboutUsTeamPage() {
                     <Input
                       id="name"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                       required
                     />
                   </div>
@@ -179,7 +204,12 @@ export default function AboutUsTeamPage() {
                     <Input
                       id="designation"
                       value={formData.designation}
-                      onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          designation: e.target.value,
+                        })
+                      }
                       required
                     />
                   </div>
@@ -191,8 +221,10 @@ export default function AboutUsTeamPage() {
                     <Input
                       id="phone"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 9234112345"
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
+                      placeholder="+91 84069 12345"
                     />
                   </div>
                   <div className="space-y-2">
@@ -201,7 +233,12 @@ export default function AboutUsTeamPage() {
                       id="order"
                       type="number"
                       value={formData.order}
-                      onChange={(e) => setFormData({ ...formData, order: parseInt(e.target.value) || 0 })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          order: parseInt(e.target.value) || 0,
+                        })
+                      }
                     />
                   </div>
                 </div>
@@ -212,7 +249,9 @@ export default function AboutUsTeamPage() {
                     <Input
                       id="imageUrl"
                       value={formData.imageUrl}
-                      onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, imageUrl: e.target.value })
+                      }
                       placeholder="./assets/about/member.webp"
                       className="flex-1"
                     />
@@ -220,9 +259,11 @@ export default function AboutUsTeamPage() {
                       type="button"
                       variant="outline"
                       disabled={uploading}
-                      onClick={() => document.getElementById('file-upload')?.click()}
+                      onClick={() =>
+                        document.getElementById("file-upload")?.click()
+                      }
                     >
-                      {uploading ? 'Uploading...' : 'Upload Image'}
+                      {uploading ? "Uploading..." : "Upload Image"}
                     </Button>
                   </div>
                   <input
@@ -234,37 +275,38 @@ export default function AboutUsTeamPage() {
                       const file = e.target.files?.[0];
                       if (file) {
                         const formDataUpload = new FormData();
-                        formDataUpload.append('file', file);
-                        
+                        formDataUpload.append("file", file);
+
                         try {
                           setUploading(true);
-                          const res = await fetch('/api/upload', {
-                            method: 'POST',
+                          const res = await fetch("/api/upload", {
+                            method: "POST",
                             body: formDataUpload,
                           });
-                          
+
                           if (!res.ok) {
                             const errorData = await res.json();
-                            throw new Error(errorData.error || 'Upload failed');
+                            throw new Error(errorData.error || "Upload failed");
                           }
-                          
+
                           const data = await res.json();
                           setFormData({ ...formData, imageUrl: data.url });
-                          
+
                           toast({
-                            title: 'Success',
-                            description: 'Image uploaded successfully'
+                            title: "Success",
+                            description: "Image uploaded successfully",
                           });
                         } catch (error: any) {
                           toast({
-                            title: 'Error',
-                            description: error.message || 'Failed to upload image',
-                            variant: 'destructive'
+                            title: "Error",
+                            description:
+                              error.message || "Failed to upload image",
+                            variant: "destructive",
                           });
                         } finally {
                           setUploading(false);
                           // Reset input
-                          e.target.value = '';
+                          e.target.value = "";
                         }
                       }
                     }}
@@ -276,7 +318,7 @@ export default function AboutUsTeamPage() {
                         alt="Preview"
                         className="h-24 w-24 rounded-lg object-cover border-2"
                         onError={(e) => {
-                          e.currentTarget.src = '/placeholder-avatar.png';
+                          e.currentTarget.src = "/placeholder-avatar.png";
                         }}
                       />
                     </div>
@@ -287,17 +329,24 @@ export default function AboutUsTeamPage() {
                 </div>
 
                 <div className="space-y-3">
-                  <Label className="text-base font-semibold">Social Links (Optional)</Label>
-                  
+                  <Label className="text-base font-semibold">
+                    Social Links (Optional)
+                  </Label>
+
                   <div className="space-y-2">
                     <Label htmlFor="instagram">Instagram</Label>
                     <Input
                       id="instagram"
                       value={formData.socialLinks.instagram}
-                      onChange={(e) => setFormData({
-                        ...formData,
-                        socialLinks: { ...formData.socialLinks, instagram: e.target.value }
-                      })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          socialLinks: {
+                            ...formData.socialLinks,
+                            instagram: e.target.value,
+                          },
+                        })
+                      }
                       placeholder="https://instagram.com/username"
                     />
                   </div>
@@ -307,10 +356,15 @@ export default function AboutUsTeamPage() {
                     <Input
                       id="linkedin"
                       value={formData.socialLinks.linkedin}
-                      onChange={(e) => setFormData({
-                        ...formData,
-                        socialLinks: { ...formData.socialLinks, linkedin: e.target.value }
-                      })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          socialLinks: {
+                            ...formData.socialLinks,
+                            linkedin: e.target.value,
+                          },
+                        })
+                      }
                       placeholder="https://linkedin.com/in/username"
                     />
                   </div>
@@ -320,21 +374,31 @@ export default function AboutUsTeamPage() {
                     <Input
                       id="facebook"
                       value={formData.socialLinks.facebook}
-                      onChange={(e) => setFormData({
-                        ...formData,
-                        socialLinks: { ...formData.socialLinks, facebook: e.target.value }
-                      })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          socialLinks: {
+                            ...formData.socialLinks,
+                            facebook: e.target.value,
+                          },
+                        })
+                      }
                       placeholder="https://facebook.com/username"
                     />
                   </div>
                 </div>
 
                 <DialogFooter>
-                  <Button type="button" variant="outline" onClick={handleDialogClose}>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={handleDialogClose}
+                  >
                     Cancel
                   </Button>
                   <Button type="submit" disabled={loading}>
-                    {loading ? 'Saving...' : editingMember ? 'Update' : 'Add'} Team Member
+                    {loading ? "Saving..." : editingMember ? "Update" : "Add"}{" "}
+                    Team Member
                   </Button>
                 </DialogFooter>
               </form>
@@ -360,8 +424,12 @@ export default function AboutUsTeamPage() {
               <TableBody>
                 {members.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={7} className="text-center py-10 text-muted-foreground">
-                      No team members added yet. Click "Add Team Member" to get started.
+                    <TableCell
+                      colSpan={7}
+                      className="text-center py-10 text-muted-foreground"
+                    >
+                      No team members added yet. Click "Add Team Member" to get
+                      started.
                     </TableCell>
                   </TableRow>
                 ) : (
@@ -379,17 +447,26 @@ export default function AboutUsTeamPage() {
                           <div className="h-10 w-10 rounded-full bg-gray-200" />
                         )}
                       </TableCell>
-                      <TableCell className="font-medium">{member.name}</TableCell>
+                      <TableCell className="font-medium">
+                        {member.name}
+                      </TableCell>
                       <TableCell>{member.designation}</TableCell>
-                      <TableCell>{member.phone || '-'}</TableCell>
+                      <TableCell>{member.phone || "-"}</TableCell>
                       <TableCell>
                         <div className="flex gap-1">
-                          {member.socialLinks.instagram && <span title="Instagram">📷</span>}
-                          {member.socialLinks.linkedin && <span title="LinkedIn">💼</span>}
-                          {member.socialLinks.facebook && <span title="Facebook">📘</span>}
+                          {member.socialLinks.instagram && (
+                            <span title="Instagram">📷</span>
+                          )}
+                          {member.socialLinks.linkedin && (
+                            <span title="LinkedIn">💼</span>
+                          )}
+                          {member.socialLinks.facebook && (
+                            <span title="Facebook">📘</span>
+                          )}
                           {!member.socialLinks.instagram &&
                             !member.socialLinks.linkedin &&
-                            !member.socialLinks.facebook && '-'}
+                            !member.socialLinks.facebook &&
+                            "-"}
                         </div>
                       </TableCell>
                       <TableCell className="text-right">
@@ -404,7 +481,9 @@ export default function AboutUsTeamPage() {
                           <Button
                             variant="ghost"
                             size="sm"
-                            onClick={() => member._id && handleDelete(member._id)}
+                            onClick={() =>
+                              member._id && handleDelete(member._id)
+                            }
                           >
                             <Trash2 className="h-4 w-4 text-red-500" />
                           </Button>

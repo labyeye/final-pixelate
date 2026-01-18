@@ -552,7 +552,7 @@ export default function QuotationViewPage() {
                 <div className="flex items-center justify-center gap-6 mt-1 text-xs">
                   <div className="flex items-center gap-2">
                     <span className="text-gray-700 font-small">
-                      +91 92341 12345
+                      +91 84069 12345
                     </span>
                   </div>
 

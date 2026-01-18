@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -68,8 +68,8 @@
         background: var(--dark-bg);
         color: white;
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          sans-serif;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       }
 
       .careers-hero {
@@ -635,7 +635,7 @@
             "https://backend.pixelatenest.com/api/announcement",
             {
               cache: "no-store",
-            }
+            },
           );
           if (res.ok) {
             const data = await res.json();
@@ -940,14 +940,14 @@
                   </p>
                   <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
                     <i class="fas fa-phone" style="margin-right: 8px"></i> +91
-                    9234112345
+                    84069 12345
                   </p>
                   <p class="p-text-03 text-white-60">
                     <i
                       class="fas fa-map-marker-alt"
                       style="margin-right: 8px"
                     ></i>
-                    Bangalore, Karnataka, India
+                    Muzaffarpur, Bihar, India
                   </p>
                 </div>
               </div>
@@ -1106,8 +1106,8 @@
             <div class="vertical-divider"></div>
             <div class="footer-bottom-wrap">
               <div class="p-text-03 text-white-60">
-                © 2025 Pixelate Nest. All Rights Reserved. | Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i> in
-                India
+                © 2025 Pixelate Nest. All Rights Reserved. | Crafted with
+                <i class="fas fa-heart" style="color: #e74c3c"></i> in India
               </div>
 
               <!-- Star Rating Section -->
@@ -1404,8 +1404,8 @@
             </div>
             <p class="job-description">
               ${job.description.substring(0, 200)}${
-              job.description.length > 200 ? "..." : ""
-            }
+                job.description.length > 200 ? "..." : ""
+              }
             </p>
             <div class="job-tags">
               ${job.tags
@@ -1418,7 +1418,7 @@
               Apply Now
             </button>
           </div>
-        `
+        `,
           )
           .join("");
       }
@@ -1518,13 +1518,13 @@
           }
 
           alert(
-            "Application submitted successfully! We'll review it and get back to you soon."
+            "Application submitted successfully! We'll review it and get back to you soon.",
           );
           closeApplicationModal();
         } catch (error) {
           console.error("Error submitting application:", error);
           alert(
-            "Failed to submit application. Please try again or email us directly at careers@pixelatenest.com"
+            "Failed to submit application. Please try again or email us directly at careers@pixelatenest.com",
           );
         } finally {
           submitBtn.disabled = false;
@@ -1546,18 +1546,81 @@
     </script>
   </body>
 
-<script>
-  (function () {
-    if (localStorage.getItem('pn_prefetch_optout') === '1' || document.cookie.indexOf('pn_prefetch_optout=1') !== -1) return;
-    const pages = ["/about.html","/webdev.html","/app-dev.html","/software-dev.html","/video-ed.html","/photography.html","/blogs.html","/contact.html","/pricing.html","/index.html"];
-    const domains = ["https://backend.pixelatenest.com","https://fonts.googleapis.com","https://fonts.gstatic.com","https://cdn.prod.website-files.com","https://cdnjs.cloudflare.com","https://www.google-analytics.com","https://www.googletagmanager.com"];
-    function addLink(rel, href, as, crossorigin){try{const l=document.createElement('link');l.rel=rel;l.href=href;if(as)l.as=as;if(crossorigin)l.crossOrigin='anonymous';document.head.appendChild(l);}catch(e){}
-    }
-    function warm(){domains.forEach(d=>{addLink('preconnect',d,null,true);addLink('dns-prefetch',d);});pages.forEach(p=>addLink('prefetch',p,'document'));addLink('preload','/styles.css','style');addLink('preload','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css','style',true);try{fetch('/',{method:'GET',mode:'no-cors',cache:'no-cache'}).catch(()=>{});fetch('https://backend.pixelatenest.com',{method:'GET',mode:'no-cors'}).catch(()=>{});}catch(e){}
-    }
-    if('requestIdleCallback' in window) requestIdleCallback(warm,{timeout:2000}); else window.addEventListener('load',()=>setTimeout(warm,1000));
-    window.pixelateNestDisablePrefetch = function(){localStorage.setItem('pn_prefetch_optout','1');document.cookie='pn_prefetch_optout=1;path=/;max-age='+(60*60*24*365);}    
-    window.pixelateNestEnablePrefetch = function(){localStorage.removeItem('pn_prefetch_optout');document.cookie='pn_prefetch_optout=;path=/;max-age=0';}
-  })();
-</script>
+  <script>
+    (function () {
+      if (
+        localStorage.getItem("pn_prefetch_optout") === "1" ||
+        document.cookie.indexOf("pn_prefetch_optout=1") !== -1
+      )
+        return;
+      const pages = [
+        "/about.html",
+        "/webdev.html",
+        "/app-dev.html",
+        "/software-dev.html",
+        "/video-ed.html",
+        "/photography.html",
+        "/blogs.html",
+        "/contact.html",
+        "/pricing.html",
+        "/index.html",
+      ];
+      const domains = [
+        "https://backend.pixelatenest.com",
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com",
+        "https://cdn.prod.website-files.com",
+        "https://cdnjs.cloudflare.com",
+        "https://www.google-analytics.com",
+        "https://www.googletagmanager.com",
+      ];
+      function addLink(rel, href, as, crossorigin) {
+        try {
+          const l = document.createElement("link");
+          l.rel = rel;
+          l.href = href;
+          if (as) l.as = as;
+          if (crossorigin) l.crossOrigin = "anonymous";
+          document.head.appendChild(l);
+        } catch (e) {}
+      }
+      function warm() {
+        domains.forEach((d) => {
+          addLink("preconnect", d, null, true);
+          addLink("dns-prefetch", d);
+        });
+        pages.forEach((p) => addLink("prefetch", p, "document"));
+        addLink("preload", "/styles.css", "style");
+        addLink(
+          "preload",
+          "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+          "style",
+          true,
+        );
+        try {
+          fetch("/", {
+            method: "GET",
+            mode: "no-cors",
+            cache: "no-cache",
+          }).catch(() => {});
+          fetch("https://backend.pixelatenest.com", {
+            method: "GET",
+            mode: "no-cors",
+          }).catch(() => {});
+        } catch (e) {}
+      }
+      if ("requestIdleCallback" in window)
+        requestIdleCallback(warm, { timeout: 2000 });
+      else window.addEventListener("load", () => setTimeout(warm, 1000));
+      window.pixelateNestDisablePrefetch = function () {
+        localStorage.setItem("pn_prefetch_optout", "1");
+        document.cookie =
+          "pn_prefetch_optout=1;path=/;max-age=" + 60 * 60 * 24 * 365;
+      };
+      window.pixelateNestEnablePrefetch = function () {
+        localStorage.removeItem("pn_prefetch_optout");
+        document.cookie = "pn_prefetch_optout=;path=/;max-age=0";
+      };
+    })();
+  </script>
 </html>

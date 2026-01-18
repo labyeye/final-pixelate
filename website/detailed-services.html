@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -32,23 +32,26 @@
     />
 
     <!-- Canonical URL (dynamic: keeps only `service` param, strips `city`) -->
-    <link rel="canonical" href="https://www.pixelatenest.com/detailed-services.html" />
+    <link
+      rel="canonical"
+      href="https://www.pixelatenest.com/detailed-services.html"
+    />
 
     <script>
       (function () {
         try {
-          var base = 'https://www.pixelatenest.com/detailed-services.html';
+          var base = "https://www.pixelatenest.com/detailed-services.html";
           var params = new URLSearchParams(window.location.search);
-          var service = params.get('service');
+          var service = params.get("service");
           var canonical = base;
-          if (service) canonical += '?service=' + encodeURIComponent(service);
+          if (service) canonical += "?service=" + encodeURIComponent(service);
           var link = document.querySelector('link[rel="canonical"]');
           if (link) {
-            link.setAttribute('href', canonical);
+            link.setAttribute("href", canonical);
           } else {
-            link = document.createElement('link');
-            link.setAttribute('rel', 'canonical');
-            link.setAttribute('href', canonical);
+            link = document.createElement("link");
+            link.setAttribute("rel", "canonical");
+            link.setAttribute("href", canonical);
             document.head.appendChild(link);
           }
         } catch (e) {
@@ -62,9 +65,13 @@
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css" />
@@ -86,7 +93,9 @@
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
         line-height: 1.6;
         color: #e5e7eb;
         background: #070707;
@@ -688,9 +697,7 @@
                       href="https://www.pixelatenest.com/software-dev.html"
                       class="nav-link w-inline-block"
                     >
-                      <span class="nav-link-text"
-                        >Software Development</span
-                      >
+                      <span class="nav-link-text">Software Development</span>
                     </a>
                   </li>
                   <li class="nav-item">
@@ -834,9 +841,10 @@
           // If service param present, show subservices as individual cards
           if (serviceParam) {
             const service = services.find(
-              (s) => s.slug === serviceParam || slugify(s.name) === serviceParam
+              (s) =>
+                s.slug === serviceParam || slugify(s.name) === serviceParam,
             );
-            
+
             if (!service) {
               container.innerHTML = `<div class="loading"><p style="color:#e74c3c">Service not found.</p></div>`;
               return;
@@ -862,7 +870,7 @@
                 const card = createSubServiceCard(
                   subService,
                   service,
-                  gradients[index % gradients.length]
+                  gradients[index % gradients.length],
                 );
                 container.appendChild(card);
               });
@@ -876,7 +884,7 @@
             services.forEach((service, index) => {
               const card = createServiceCard(
                 service,
-                gradients[index % gradients.length]
+                gradients[index % gradients.length],
               );
               container.appendChild(card);
             });
@@ -887,7 +895,6 @@
           cards.forEach((card, index) => {
             card.style.animation = `fadeInUp 0.6s ease ${index * 0.08}s both`;
           });
-
         } catch (error) {
           console.error("Error loading services:", error);
           document.getElementById("services-container").innerHTML =
@@ -905,12 +912,12 @@
         const subSlug = slugify(subService.name);
         const ctaHref = cityParam
           ? `detailed-services.html?service=${encodeURIComponent(
-              parentService.slug
+              parentService.slug,
             )}&city=${encodeURIComponent(cityParam)}&sub=${encodeURIComponent(
-              subSlug
+              subSlug,
             )}`
           : `detailed-services.html?service=${encodeURIComponent(
-              parentService.slug
+              parentService.slug,
             )}&sub=${encodeURIComponent(subSlug)}`;
 
         card.innerHTML = `
@@ -932,7 +939,7 @@
                               .map(
                                 (feature) => `
                                 <div class="feature-item">${feature}</div>
-                            `
+                            `,
                               )
                               .join("")}
                         </div>
@@ -944,7 +951,7 @@
                           .map(
                             (tech) => `
                             <span class="tech-tag">${tech}</span>
-                        `
+                        `,
                           )
                           .join("")}
                     </div>
@@ -970,10 +977,10 @@
         // Build CTA to detailed view for a city if provided, else to main service page
         const ctaHref = cityParam
           ? `detailed-services.html?service=${encodeURIComponent(
-              service.slug
+              service.slug,
             )}&city=${encodeURIComponent(cityParam)}`
           : `detailed-services.html?service=${encodeURIComponent(
-              service.slug
+              service.slug,
             )}`;
 
         card.innerHTML = `
@@ -998,7 +1005,7 @@
                               .map(
                                 (feature) => `
                                 <div class="feature-item">${feature}</div>
-                            `
+                            `,
                               )
                               .join("")}
                         </div>
@@ -1022,19 +1029,19 @@
                                           sub.description || ""
                                         }</div>
                                         <div style="margin-top:8px"><a class="link" href="detailed-services.html?service=${encodeURIComponent(
-                                          service.slug
+                                          service.slug,
                                         )}${
-                                      cityParam
-                                        ? "&city=" +
-                                          encodeURIComponent(cityParam)
-                                        : ""
-                                    }&sub=${encodeURIComponent(
-                                      slugify(sub.name)
-                                    )}">Explore ${sub.name}${
-                                      cityParam ? " in " + cityParam : ""
-                                    }</a></div>
+                                          cityParam
+                                            ? "&city=" +
+                                              encodeURIComponent(cityParam)
+                                            : ""
+                                        }&sub=${encodeURIComponent(
+                                          slugify(sub.name),
+                                        )}">Explore ${sub.name}${
+                                          cityParam ? " in " + cityParam : ""
+                                        }</a></div>
                                     </div>
-                                `
+                                `,
                                   )
                                   .join("")}
                             </div>
@@ -1049,7 +1056,7 @@
                           .map(
                             (tech) => `
                             <span class="tech-tag">${tech}</span>
-                        `
+                        `,
                           )
                           .join("")}
                     </div>
@@ -1105,20 +1112,14 @@
                   <p class="p-text-03" style="margin-bottom: 8px">
                     <strong>Contact Us</strong>
                   </p>
-                  <p
-                    class="p-text-03 text-white-60"
-                    style="margin-bottom: 5px"
-                  >
+                  <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
                     📧 support@pixelatenest.com
                   </p>
-                  <p
-                    class="p-text-03 text-white-60"
-                    style="margin-bottom: 5px"
-                  >
-                    📞 +91 9234112345
+                  <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
+                    📞 +91 84069 12345
                   </p>
                   <p class="p-text-03 text-white-60">
-                    📍 Bangalore, Karnataka, India
+                    📍 Muzaffarpur, Bihar, India
                   </p>
                 </div>
               </div>
@@ -1271,7 +1272,8 @@
             <div class="vertical-divider"></div>
             <div class="footer-bottom-wrap">
               <div class="p-text-03 text-white-60">
-                © 2025 Pixelate Nest. All Rights Reserved. | Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i>
+                © 2025 Pixelate Nest. All Rights Reserved. | Crafted with
+                <i class="fas fa-heart" style="color: #e74c3c"></i>
                 in India
               </div>
             </div>
@@ -1280,7 +1282,6 @@
       </div>
     </section>
 
-    
     <script
       src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6840859dc0e82803d10f5190"
       type="text/javascript"

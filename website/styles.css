@@ -1635,10 +1635,8 @@ li {
 
 .hero-brands-section {
   margin-top: 80px;
-  padding: 60px 0;
   position: relative;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.01);
 }
 
 /* Dark grid background */
@@ -1690,18 +1688,15 @@ li {
 }
 
 .brand-logo-img {
-  height: 60px;
+  height: 80px;
   width: auto;
-  max-width: 150px;
   object-fit: contain;
-  opacity: 0.5;
-  filter: grayscale(100%) brightness(1.2);
+  opacity: 1;
   transition: all 0.3s ease;
 }
 
 .brand-logo-slide:hover .brand-logo-img {
   opacity: 0.9;
-  filter: grayscale(0%) brightness(1);
   transform: scale(1.05);
 }
 
@@ -5306,6 +5301,7 @@ li {
 
   .tech-carousel-container {
     height: 240px;
+    margin: auto;
   }
 
   .tech-carousel {

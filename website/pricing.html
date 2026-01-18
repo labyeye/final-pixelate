@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -56,9 +56,13 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link href="./styles.css" rel="stylesheet" type="text/css" />
     <link href="./pricing.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -85,10 +89,10 @@
       !(function (o, c) {
         var n = c.documentElement,
           t = " w-mod-";
-        (n.className += t + "js"),
+        ((n.className += t + "js"),
           ("ontouchstart" in o ||
             (o.DocumentTouch && c instanceof DocumentTouch)) &&
-            (n.className += t + "touch");
+            (n.className += t + "touch"));
       })(window, document);
     </script>
     <link
@@ -148,7 +152,7 @@
         window,
         document,
         "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
+        "https://connect.facebook.net/en_US/fbevents.js",
       );
       fbq("init", "1529543734863040");
       fbq("track", "PageView");
@@ -234,7 +238,7 @@
             "https://backend.pixelatenest.com/api/announcement",
             {
               cache: "no-store",
-            }
+            },
           );
           if (res.ok) {
             const data = await res.json();
@@ -660,7 +664,11 @@
                 <a
                   href="https://www.pixelatenest.com/contact.html"
                   class="button-02 plan-button w-inline-block"
-                  onclick="selectPlan('Online + Offline Software Development - ₹25,000')"
+                  onclick="
+                    selectPlan(
+                      'Online + Offline Software Development - ₹25,000',
+                    )
+                  "
                   >Choose Plan</a
                 >
               </div>
@@ -830,7 +838,11 @@
                 <a
                   href="https://www.pixelatenest.com/contact.html"
                   class="button-02 plan-button-02 w-inline-block"
-                  onclick="selectPlan('Dynamic Website Development - ₹10,000 to ₹20,000')"
+                  onclick="
+                    selectPlan(
+                      'Dynamic Website Development - ₹10,000 to ₹20,000',
+                    )
+                  "
                   >Choose Plan</a
                 >
               </div>
@@ -911,7 +923,11 @@
                 <a
                   href="https://www.pixelatenest.com/contact.html"
                   class="button-02 plan-button-02 w-inline-block"
-                  onclick="selectPlan('E-commerce Website Development - ₹25,000 to ₹35,000')"
+                  onclick="
+                    selectPlan(
+                      'E-commerce Website Development - ₹25,000 to ₹35,000',
+                    )
+                  "
                   >Choose Plan</a
                 >
               </div>
@@ -993,7 +1009,9 @@
                 <a
                   href="https://www.pixelatenest.com/contact.html"
                   class="button-02 plan-button w-inline-block"
-                  onclick="selectPlan('E-commerce + Mobile App Development - ₹45,000')"
+                  onclick="
+                    selectPlan('E-commerce + Mobile App Development - ₹45,000')
+                  "
                   >Choose Plan</a
                 >
               </div>
@@ -1070,7 +1088,11 @@
                 <a
                   href="https://www.pixelatenest.com/contact.html"
                   class="button-02 plan-button-02 w-inline-block"
-                  onclick="selectPlan('Reels (15-30 sec) Video Editing - ₹1,100 per reel')"
+                  onclick="
+                    selectPlan(
+                      'Reels (15-30 sec) Video Editing - ₹1,100 per reel',
+                    )
+                  "
                   >Choose Plan</a
                 >
               </div>
@@ -1140,7 +1162,11 @@
                 <a
                   href="https://www.pixelatenest.com/contact.html"
                   class="button-02 plan-button w-inline-block"
-                  onclick="selectPlan('Reels (30-60 sec) Video Editing - ₹1,800 per reel')"
+                  onclick="
+                    selectPlan(
+                      'Reels (30-60 sec) Video Editing - ₹1,800 per reel',
+                    )
+                  "
                   >Choose Plan</a
                 >
               </div>
@@ -1209,7 +1235,11 @@
                 <a
                   href="https://www.pixelatenest.com/contact.html"
                   class="button-02 plan-button-02 w-inline-block"
-                  onclick="selectPlan('Infographics & Montage Video Editing - ₹2,000 per minute')"
+                  onclick="
+                    selectPlan(
+                      'Infographics & Montage Video Editing - ₹2,000 per minute',
+                    )
+                  "
                   >Choose Plan</a
                 >
               </div>
@@ -1319,16 +1349,22 @@
                       class="p-text-03 text-white-60"
                       style="margin-bottom: 5px"
                     >
-                      <i class="fas fa-envelope" style="margin-right: 8px"></i> support@pixelatenest.com
+                      <i class="fas fa-envelope" style="margin-right: 8px"></i>
+                      support@pixelatenest.com
                     </p>
                     <p
                       class="p-text-03 text-white-60"
                       style="margin-bottom: 5px"
                     >
-                      <i class="fas fa-phone" style="margin-right: 8px"></i> +91 9234112345
+                      <i class="fas fa-phone" style="margin-right: 8px"></i> +91
+                      84069 12345
                     </p>
                     <p class="p-text-03 text-white-60">
-                      <i class="fas fa-map-marker-alt" style="margin-right: 8px"></i> Bangalore, Karnataka, India
+                      <i
+                        class="fas fa-map-marker-alt"
+                        style="margin-right: 8px"
+                      ></i>
+                      Muzaffarpur, Bihar, India
                     </p>
                   </div>
                 </div>
@@ -1481,7 +1517,8 @@
               <div class="vertical-divider"></div>
               <div class="footer-bottom-wrap">
                 <div class="p-text-03 text-white-60">
-                  © 2025 Pixelate Nest. All Rights Reserved. | Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i>
+                  © 2025 Pixelate Nest. All Rights Reserved. | Crafted with
+                  <i class="fas fa-heart" style="color: #e74c3c"></i>
                   in India
                 </div>
 
@@ -1613,18 +1650,81 @@
     </script>
   </body>
 
-<script>
-  (function () {
-    if (localStorage.getItem('pn_prefetch_optout') === '1' || document.cookie.indexOf('pn_prefetch_optout=1') !== -1) return;
-    const pages = ["/about.html","/webdev.html","/app-dev.html","/software-dev.html","/video-ed.html","/photography.html","/blogs.html","/contact.html","/careers.html","/index.html"];
-    const domains = ["https://backend.pixelatenest.com","https://fonts.googleapis.com","https://fonts.gstatic.com","https://cdn.prod.website-files.com","https://cdnjs.cloudflare.com","https://www.google-analytics.com","https://www.googletagmanager.com"];
-    function addLink(rel, href, as, crossorigin){try{const l=document.createElement('link');l.rel=rel;l.href=href;if(as)l.as=as;if(crossorigin)l.crossOrigin='anonymous';document.head.appendChild(l);}catch(e){}
-    }
-    function warm(){domains.forEach(d=>{addLink('preconnect',d,null,true);addLink('dns-prefetch',d);});pages.forEach(p=>addLink('prefetch',p,'document'));addLink('preload','/styles.css','style');addLink('preload','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css','style',true);try{fetch('/',{method:'GET',mode:'no-cors',cache:'no-cache'}).catch(()=>{});fetch('https://backend.pixelatenest.com',{method:'GET',mode:'no-cors'}).catch(()=>{});}catch(e){}
-    }
-    if('requestIdleCallback' in window) requestIdleCallback(warm,{timeout:2000}); else window.addEventListener('load',()=>setTimeout(warm,1000));
-    window.pixelateNestDisablePrefetch = function(){localStorage.setItem('pn_prefetch_optout','1');document.cookie='pn_prefetch_optout=1;path=/;max-age='+(60*60*24*365);}    
-    window.pixelateNestEnablePrefetch = function(){localStorage.removeItem('pn_prefetch_optout');document.cookie='pn_prefetch_optout=;path=/;max-age=0';}
-  })();
-</script>
+  <script>
+    (function () {
+      if (
+        localStorage.getItem("pn_prefetch_optout") === "1" ||
+        document.cookie.indexOf("pn_prefetch_optout=1") !== -1
+      )
+        return;
+      const pages = [
+        "/about.html",
+        "/webdev.html",
+        "/app-dev.html",
+        "/software-dev.html",
+        "/video-ed.html",
+        "/photography.html",
+        "/blogs.html",
+        "/contact.html",
+        "/careers.html",
+        "/index.html",
+      ];
+      const domains = [
+        "https://backend.pixelatenest.com",
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com",
+        "https://cdn.prod.website-files.com",
+        "https://cdnjs.cloudflare.com",
+        "https://www.google-analytics.com",
+        "https://www.googletagmanager.com",
+      ];
+      function addLink(rel, href, as, crossorigin) {
+        try {
+          const l = document.createElement("link");
+          l.rel = rel;
+          l.href = href;
+          if (as) l.as = as;
+          if (crossorigin) l.crossOrigin = "anonymous";
+          document.head.appendChild(l);
+        } catch (e) {}
+      }
+      function warm() {
+        domains.forEach((d) => {
+          addLink("preconnect", d, null, true);
+          addLink("dns-prefetch", d);
+        });
+        pages.forEach((p) => addLink("prefetch", p, "document"));
+        addLink("preload", "/styles.css", "style");
+        addLink(
+          "preload",
+          "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+          "style",
+          true,
+        );
+        try {
+          fetch("/", {
+            method: "GET",
+            mode: "no-cors",
+            cache: "no-cache",
+          }).catch(() => {});
+          fetch("https://backend.pixelatenest.com", {
+            method: "GET",
+            mode: "no-cors",
+          }).catch(() => {});
+        } catch (e) {}
+      }
+      if ("requestIdleCallback" in window)
+        requestIdleCallback(warm, { timeout: 2000 });
+      else window.addEventListener("load", () => setTimeout(warm, 1000));
+      window.pixelateNestDisablePrefetch = function () {
+        localStorage.setItem("pn_prefetch_optout", "1");
+        document.cookie =
+          "pn_prefetch_optout=1;path=/;max-age=" + 60 * 60 * 24 * 365;
+      };
+      window.pixelateNestEnablePrefetch = function () {
+        localStorage.removeItem("pn_prefetch_optout");
+        document.cookie = "pn_prefetch_optout=;path=/;max-age=0";
+      };
+    })();
+  </script>
 </html>

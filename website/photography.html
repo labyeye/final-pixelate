@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -45,7 +45,6 @@
     <link href="photography-carousel.css" rel="stylesheet" type="text/css" />
     <link
       rel="stylesheet"
-      
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       crossorigin="anonymous"
     />
@@ -261,14 +260,14 @@
                       style="margin-bottom: 5px"
                     >
                       <i class="fas fa-phone" style="margin-right: 8px"></i> +91
-                      9234112345
+                      84069 12345
                     </p>
                     <p class="p-text-03 text-white-60">
                       <i
                         class="fas fa-map-marker-alt"
                         style="margin-right: 8px"
                       ></i>
-                      Bangalore, Karnataka, India
+                      Muzaffarpur, Bihar, India
                     </p>
                   </div>
                 </div>
@@ -535,7 +534,7 @@
         try {
           // try the photos API first (flat list). If not available, fall back to old galleries shape.
           const res = await fetch(
-            "https://backend.pixelatenest.com/api/photos"
+            "https://backend.pixelatenest.com/api/photos",
           );
           let galleries = [];
           if (res.ok) {
@@ -554,7 +553,7 @@
             console.warn(
               "Deployed API returned",
               res.status,
-              "– falling back to local sample"
+              "– falling back to local sample",
             );
             const local = await fetch("./photo-galleries-sample.json");
             galleries = local.ok ? await local.json() : [];
@@ -636,7 +635,7 @@
         const apply = (v) => {
           document.documentElement.style.setProperty(
             "--portfolio-radius",
-            v + "px"
+            v + "px",
           );
           valSpan.textContent = v + "px";
         };

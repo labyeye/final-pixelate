@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -88,10 +88,10 @@
       !(function (o, c) {
         var n = c.documentElement,
           t = " w-mod-";
-        (n.className += t + "js"),
+        ((n.className += t + "js"),
           ("ontouchstart" in o ||
             (o.DocumentTouch && c instanceof DocumentTouch)) &&
-            (n.className += t + "touch");
+            (n.className += t + "touch"));
       })(window, document);
     </script>
     <link
@@ -139,7 +139,7 @@
         window,
         document,
         "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
+        "https://connect.facebook.net/en_US/fbevents.js",
       );
       fbq("init", "1529543734863040");
       fbq("track", "PageView");
@@ -225,7 +225,7 @@
             "https://backend.pixelatenest.com/api/announcement",
             {
               cache: "no-store",
-            }
+            },
           );
           if (res.ok) {
             const data = await res.json();
@@ -577,14 +577,14 @@
                       style="margin-bottom: 5px"
                     >
                       <i class="fas fa-phone" style="margin-right: 8px"></i> +91
-                      9234112345
+                      84069 12345
                     </p>
                     <p class="p-text-03 text-white-60">
                       <i
                         class="fas fa-map-marker-alt"
                         style="margin-right: 8px"
                       ></i>
-                      Bangalore, Karnataka, India
+                      Muzaffarpur, Bihar, India
                     </p>
                   </div>
                 </div>
@@ -892,7 +892,7 @@
             JSON.stringify({
               data,
               timestamp: Date.now(),
-            })
+            }),
           );
         } catch (e) {
           console.warn("Failed to cache data:", e);
@@ -931,7 +931,7 @@
               // Cache-Control header — that triggers a CORS preflight which
               // requires server-side Access-Control-Allow-Headers to include it.
               cache: "force-cache",
-            }
+            },
           );
 
           if (!res.ok) throw new Error("Failed to fetch gallery");
@@ -954,7 +954,7 @@
         grid.innerHTML = "";
 
         const filtered = (items || []).filter(
-          (i) => i.showOn === "web-development"
+          (i) => i.showOn === "web-development",
         );
 
         if (filtered.length === 0) {
@@ -1158,7 +1158,7 @@
       document.addEventListener("DOMContentLoaded", function () {
         // Add animation classes to main sections
         const sections = document.querySelectorAll(
-          "section:not(.nav-wrap), .portfolio-grid, .process-grid"
+          "section:not(.nav-wrap), .portfolio-grid, .process-grid",
         );
         sections.forEach((section) => {
           section.classList.add("section-animate");
@@ -1178,7 +1178,7 @@
             root: null,
             threshold: 0.2,
             rootMargin: "0px",
-          }
+          },
         );
 
         // Observe all animated sections
@@ -1188,7 +1188,7 @@
 
         // Add staggered animations to grid items
         const gridItems = document.querySelectorAll(
-          ".portfolio-item, .process-step"
+          ".portfolio-item, .process-step",
         );
         gridItems.forEach((item, index) => {
           item.style.animationDelay = `${index * 0.08}s`;
@@ -1198,7 +1198,7 @@
 
         // Add immediate animations to hero elements
         const heroElements = document.querySelectorAll(
-          ".main-hero *:not(nav *)"
+          ".main-hero *:not(nav *)",
         );
         heroElements.forEach((element, index) => {
           element.classList.add("animate-on-load");
@@ -1280,7 +1280,7 @@
           "preload",
           "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
           "style",
-          true
+          true,
         );
         try {
           fetch("/", {

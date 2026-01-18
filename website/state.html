@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -131,7 +131,8 @@
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           "Helvetica Neue", Arial, sans-serif;
         line-height: 1.6;
         color: #e5e7eb;
@@ -246,7 +247,9 @@
         gap: 8px;
         color: #9ca3af;
         font-size: 1rem;
-        transition: color 0.3s ease, transform 0.3s ease;
+        transition:
+          color 0.3s ease,
+          transform 0.3s ease;
       }
 
       .city-meta span:hover {
@@ -649,12 +652,20 @@
         <!-- City Content (Hidden by default) -->
         <div id="city-content" style="display: none">
           <div class="city-header">
-            <div class="city-icon" id="city-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="city-icon" id="city-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
             <h1 id="city-heading">City Name</h1>
             <div class="city-meta">
-              <span id="city-state"><i class="fas fa-map-marker-alt"></i> State</span>
-              <span id="city-population"><i class="fas fa-users"></i> Population</span>
-              <span id="city-landmark"><i class="fas fa-landmark"></i> Landmark</span>
+              <span id="city-state"
+                ><i class="fas fa-map-marker-alt"></i> State</span
+              >
+              <span id="city-population"
+                ><i class="fas fa-users"></i> Population</span
+              >
+              <span id="city-landmark"
+                ><i class="fas fa-landmark"></i> Landmark</span
+              >
             </div>
           </div>
 
@@ -722,16 +733,22 @@
                       class="p-text-03 text-white-60"
                       style="margin-bottom: 5px"
                     >
-                      <i class="fas fa-envelope" style="margin-right: 8px"></i> support@pixelatenest.com
+                      <i class="fas fa-envelope" style="margin-right: 8px"></i>
+                      support@pixelatenest.com
                     </p>
                     <p
                       class="p-text-03 text-white-60"
                       style="margin-bottom: 5px"
                     >
-                      <i class="fas fa-phone" style="margin-right: 8px"></i> +91 9234112345
+                      <i class="fas fa-phone" style="margin-right: 8px"></i> +91
+                      84069 12345
                     </p>
                     <p class="p-text-03 text-white-60">
-                      <i class="fas fa-map-marker-alt" style="margin-right: 8px"></i> Bangalore, Karnataka, India
+                      <i
+                        class="fas fa-map-marker-alt"
+                        style="margin-right: 8px"
+                      ></i>
+                      Muzaffarpur, Bihar, India
                     </p>
                   </div>
                 </div>
@@ -884,7 +901,8 @@
               <div class="vertical-divider"></div>
               <div class="footer-bottom-wrap">
                 <div class="p-text-03 text-white-60">
-                  © 2025 Pixelate Nest. All Rights Reserved. | Crafted with <i class="fas fa-heart" style="color: #e74c3c;"></i>
+                  © 2025 Pixelate Nest. All Rights Reserved. | Crafted with
+                  <i class="fas fa-heart" style="color: #e74c3c"></i>
                   in India
                 </div>
               </div>
@@ -939,7 +957,7 @@
 
           // Find the requested city (updated to use "states" key)
           const cityData = data.states.find(
-            (city) => city.city.toLowerCase() === cityParam.toLowerCase()
+            (city) => city.city.toLowerCase() === cityParam.toLowerCase(),
           );
 
           if (!cityData) {
@@ -972,7 +990,7 @@
           .getElementById("page-canonical")
           .setAttribute(
             "href",
-            `https://www.pixelatenest.com/state.html?city=${city.city}`
+            `https://www.pixelatenest.com/state.html?city=${city.city}`,
           );
 
         // Open Graph tags
@@ -984,7 +1002,7 @@
           .getElementById("og-url")
           .setAttribute(
             "content",
-            `https://www.pixelatenest.com/state.html?city=${city.city}`
+            `https://www.pixelatenest.com/state.html?city=${city.city}`,
           );
 
         // Twitter tags
@@ -1007,13 +1025,12 @@
         document.getElementById("city-heading").textContent = city.heading;
 
         // Update meta information
-        document.getElementById("city-state").innerHTML = `<i class="fas fa-map-marker-alt"></i> ${city.state}`;
-        document.getElementById(
-          "city-population"
-        ).innerHTML = `<i class="fas fa-users"></i> ${city.population}`;
-        document.getElementById(
-          "city-landmark"
-        ).innerHTML = `<i class="fas fa-landmark"></i> ${city.landmark}`;
+        document.getElementById("city-state").innerHTML =
+          `<i class="fas fa-map-marker-alt"></i> ${city.state}`;
+        document.getElementById("city-population").innerHTML =
+          `<i class="fas fa-users"></i> ${city.population}`;
+        document.getElementById("city-landmark").innerHTML =
+          `<i class="fas fa-landmark"></i> ${city.landmark}`;
 
         // Update content
         document.getElementById("city-description").textContent = city.content;
@@ -1055,14 +1072,14 @@
           // Use mapping or fallback to slugified version
           const slug = serviceSlugMap[service] || slugify(service);
           const serviceHref = `detailed-services.html?service=${encodeURIComponent(
-            slug
+            slug,
           )}&city=${encodeURIComponent(city.city)}`;
           serviceCard.setAttribute("href", serviceHref);
           serviceCard.innerHTML = `
                     <h3>${service}</h3>
                     <p>Professional ${service.toLowerCase()} services in ${
-            city.city
-          }</p>
+                      city.city
+                    }</p>
                 `;
           servicesGrid.appendChild(serviceCard);
         });
@@ -1074,7 +1091,7 @@
           name: `Pixelate Nest ${city.city}`,
           description: city.metaDescription,
           url: `https://www.pixelatenest.com/state.html?city=${city.city}`,
-          telephone: "+91-9234112345",
+          telephone: "+91-84069 12345",
           email: "support@pixelatenest.com",
           address: {
             "@type": "PostalAddress",
@@ -1115,7 +1132,7 @@
         document.getElementById("schema-markup").textContent = JSON.stringify(
           schema,
           null,
-          2
+          2,
         );
       }
 

@@ -48,7 +48,9 @@ export function InvoicePDF({
     if (!client && invoice?.clientId) {
       (async () => {
         try {
-          const res = await fetch(`https://backend.pixelatenest.com/api/clients/${invoice.clientId}`);
+          const res = await fetch(
+            `https://backend.pixelatenest.com/api/clients/${invoice.clientId}`,
+          );
           if (!mounted) return;
           if (res.ok) {
             const data = await res.json();
@@ -154,11 +156,36 @@ export function InvoicePDF({
           >
             TAX INVOICE
           </div>
-          <div style={{ marginTop: 8, display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 12 }}>
-            <div style={{ display: "inline-block", padding: "6px 10px", borderRadius: 8, background: statusColor, color: "#fff", fontWeight: 800, fontSize: 12 }}>
+          <div
+            style={{
+              marginTop: 8,
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "center",
+              gap: 12,
+            }}
+          >
+            <div
+              style={{
+                display: "inline-block",
+                padding: "6px 10px",
+                borderRadius: 8,
+                background: statusColor,
+                color: "#fff",
+                fontWeight: 800,
+                fontSize: 12,
+              }}
+            >
               {status}
             </div>
-            <div style={{ fontSize: 11, color: "#666", marginTop: 0, textAlign: "right" }}>
+            <div
+              style={{
+                fontSize: 11,
+                color: "#666",
+                marginTop: 0,
+                textAlign: "right",
+              }}
+            >
               <div>
                 <strong>Paid:</strong> {formatCurrency(paidAmount)}
               </div>
@@ -325,7 +352,7 @@ export function InvoicePDF({
             {items.slice(0, 8).map((it: any, index: number) => {
               const qty = Number(it?.quantity ?? it?.qty ?? 1);
               const unit = Number(
-                it?.price ?? it?.unitPrice ?? it?.amount ?? 0
+                it?.price ?? it?.unitPrice ?? it?.amount ?? 0,
               );
               const amt = qty * unit;
 
@@ -391,18 +418,73 @@ export function InvoicePDF({
       </div>
 
       {/* Work / Job Details (optional) */}
-      {(invoice?.assignedStaff || invoice?.workDate || invoice?.workTime || invoice?.venueName || invoice?.venueAddress || (invoice?.equipmentAssigned && invoice?.equipmentAssigned.length) || invoice?.description) && (
-        <div style={{ marginBottom: 20, padding: 12, border: '1px solid #eee', borderRadius: 6 }}>
-          <div style={{ fontSize: 12, fontWeight: 700, color: '#e65200', marginBottom: 8 }}>Work Details</div>
-          <div style={{ fontSize: 11, color: '#333', lineHeight: 1.4 }}>
-            {invoice?.assignedStaff && <div><strong>Assigned Staff:</strong> {invoice.assignedStaff}</div>}
-            {(invoice?.workDate || invoice?.workTime) && <div><strong>Date / Time:</strong> {(invoice.workDate ? formatDate(invoice.workDate) : '')} {invoice.workTime ? ` ${invoice.workTime}` : ''}</div>}
-            {invoice?.venueName && <div><strong>Venue:</strong> {invoice.venueName}</div>}
-            {invoice?.venueAddress && <div><strong>Address:</strong> {invoice.venueAddress}</div>}
-            {invoice?.equipmentAssigned && (Array.isArray(invoice.equipmentAssigned) ? invoice.equipmentAssigned.join(', ') : String(invoice.equipmentAssigned)) && (
-              <div><strong>Equipment:</strong> {Array.isArray(invoice.equipmentAssigned) ? invoice.equipmentAssigned.join(', ') : String(invoice.equipmentAssigned)}</div>
+      {(invoice?.assignedStaff ||
+        invoice?.workDate ||
+        invoice?.workTime ||
+        invoice?.venueName ||
+        invoice?.venueAddress ||
+        (invoice?.equipmentAssigned && invoice?.equipmentAssigned.length) ||
+        invoice?.description) && (
+        <div
+          style={{
+            marginBottom: 20,
+            padding: 12,
+            border: "1px solid #eee",
+            borderRadius: 6,
+          }}
+        >
+          <div
+            style={{
+              fontSize: 12,
+              fontWeight: 700,
+              color: "#e65200",
+              marginBottom: 8,
+            }}
+          >
+            Work Details
+          </div>
+          <div style={{ fontSize: 11, color: "#333", lineHeight: 1.4 }}>
+            {invoice?.assignedStaff && (
+              <div>
+                <strong>Assigned Staff:</strong> {invoice.assignedStaff}
+              </div>
             )}
-            {invoice?.description && <div style={{ marginTop: 8 }}><strong>Description:</strong> <div style={{ fontSize: 11, color: '#666' }}>{invoice.description}</div></div>}
+            {(invoice?.workDate || invoice?.workTime) && (
+              <div>
+                <strong>Date / Time:</strong>{" "}
+                {invoice.workDate ? formatDate(invoice.workDate) : ""}{" "}
+                {invoice.workTime ? ` ${invoice.workTime}` : ""}
+              </div>
+            )}
+            {invoice?.venueName && (
+              <div>
+                <strong>Venue:</strong> {invoice.venueName}
+              </div>
+            )}
+            {invoice?.venueAddress && (
+              <div>
+                <strong>Address:</strong> {invoice.venueAddress}
+              </div>
+            )}
+            {invoice?.equipmentAssigned &&
+              (Array.isArray(invoice.equipmentAssigned)
+                ? invoice.equipmentAssigned.join(", ")
+                : String(invoice.equipmentAssigned)) && (
+                <div>
+                  <strong>Equipment:</strong>{" "}
+                  {Array.isArray(invoice.equipmentAssigned)
+                    ? invoice.equipmentAssigned.join(", ")
+                    : String(invoice.equipmentAssigned)}
+                </div>
+              )}
+            {invoice?.description && (
+              <div style={{ marginTop: 8 }}>
+                <strong>Description:</strong>{" "}
+                <div style={{ fontSize: 11, color: "#666" }}>
+                  {invoice.description}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -546,7 +628,7 @@ export function InvoicePDF({
           </div>
         </div>
 
-        <div style={{ textAlign: "center",alignItems: "center" }}>
+        <div style={{ textAlign: "center", alignItems: "center" }}>
           <img
             src={typeof signImg === "string" ? signImg : (signImg as any).src}
             alt="Signature"
@@ -585,7 +667,7 @@ export function InvoicePDF({
           </div>
           <div style={{ fontSize: 11, color: "#666", lineHeight: 1.5 }}>
             <div>📧 support@pixelatenest.com</div>
-            <div>📞 +91 9234112345</div>
+            <div>📞 +91 84069 12345</div>
             <div>🌐 pixelatenest.com</div>
           </div>
         </div>

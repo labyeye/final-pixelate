@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -153,7 +153,7 @@
         window,
         document,
         "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
+        "https://connect.facebook.net/en_US/fbevents.js",
       );
       fbq("init", "1529543734863040");
       fbq("track", "PageView");
@@ -192,10 +192,10 @@
       !(function (o, c) {
         var n = c.documentElement,
           t = " w-mod-";
-        (n.className += t + "js"),
+        ((n.className += t + "js"),
           ("ontouchstart" in o ||
             (o.DocumentTouch && c instanceof DocumentTouch)) &&
-            (n.className += t + "touch");
+            (n.className += t + "touch"));
       })(window, document);
     </script>
     <link
@@ -306,7 +306,7 @@
             "https://backend.pixelatenest.com/api/announcement",
             {
               cache: "no-store",
-            }
+            },
           );
           if (res.ok) {
             const data = await res.json();
@@ -635,12 +635,12 @@
                 try {
                   const base = window.DASHBOARD_API_BASE || "";
                   const res = await fetch(
-                    "https://backend.pixelatenest.com/api/reels"
+                    "https://backend.pixelatenest.com/api/reels",
                   );
                   if (!res.ok) return;
                   const reels = await res.json();
                   const container = document.getElementById(
-                    "reels-slider-container"
+                    "reels-slider-container",
                   );
                   if (!container) return;
                   container.innerHTML = "";
@@ -770,14 +770,14 @@
                       style="margin-bottom: 5px"
                     >
                       <i class="fas fa-phone" style="margin-right: 8px"></i> +91
-                      9234112345
+                      84069 12345
                     </p>
                     <p class="p-text-03 text-white-60">
                       <i
                         class="fas fa-map-marker-alt"
                         style="margin-right: 8px"
                       ></i>
-                      Bangalore, Karnataka, India
+                      Muzaffarpur, Bihar, India
                     </p>
                   </div>
                 </div>
@@ -1052,7 +1052,7 @@
           },
           {
             threshold: 0.15,
-          }
+          },
         );
         sections.forEach((section) => {
           observer.observe(section);
@@ -1065,14 +1065,14 @@
           const API_BASE =
             window.location.hostname === "https://backend.pixelatenest.com";
           const res = await fetch(
-            "https://backend.pixelatenest.com/api/work-gallery"
+            "https://backend.pixelatenest.com/api/work-gallery",
           );
           if (!res.ok) throw new Error("Failed to fetch gallery");
           const items = await res.json();
           const grid = document.getElementById("portfolio-grid");
           grid.innerHTML = "";
           const filtered = (items || []).filter(
-            (i) => i.showOn === "video-editing"
+            (i) => i.showOn === "video-editing",
           );
           if (filtered.length === 0) {
             grid.innerHTML =
@@ -1148,7 +1148,7 @@
           },
           {
             threshold: 0.15,
-          }
+          },
         );
         sections.forEach((section) => {
           observer.observe(section);
@@ -1395,7 +1395,7 @@
           "preload",
           "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
           "style",
-          true
+          true,
         );
         try {
           fetch("/", {
