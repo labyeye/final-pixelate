@@ -1,7 +1,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  font-family: sans-serif;
+  font-family: "rubik-stone", sans-serif;
 }
 
 body {
@@ -173,7 +173,7 @@ body {
   background-color: #fff;
   min-height: 100%;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Google Sans", sans-serif;
   font-size: 14px;
   line-height: 20px;
 }
@@ -611,7 +611,7 @@ body {
   --_responsive---padding-140-px: 140px;
   --_responsive---margin-80-px: 80px;
   --_responsive---padding-211-px: 211px;
-  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-family: "Google Sans", "Google Sans Placeholder", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
@@ -621,7 +621,7 @@ h1 {
   letter-spacing: var(--2);
   margin-top: 0;
   margin-bottom: 0;
-  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-family: "Google Sans", "Google Sans Placeholder", sans-serif;
   font-size: 62px;
   font-weight: 500;
   line-height: 120%;
@@ -669,7 +669,7 @@ h5 {
 p {
   margin-top: 16px;
   margin-bottom: 0;
-  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-family: "Google Sans", "Google Sans Placeholder", sans-serif;
   font-weight: 400;
   line-height: 24px;
 }
@@ -753,7 +753,7 @@ li {
 .p-text-01 {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-family: "Google Sans", "Google Sans Placeholder", sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;
@@ -771,7 +771,7 @@ li {
   letter-spacing: var(--1);
   margin-top: 0;
   margin-bottom: 0;
-  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-family: "Google Sans", "Google Sans Placeholder", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 150%;
@@ -786,7 +786,7 @@ li {
   letter-spacing: var(--1);
   margin-top: 0;
   margin-bottom: 0;
-  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-family: "Google Sans", "Google Sans Placeholder", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 150%;
@@ -848,7 +848,7 @@ li {
 
 .button-text-01 {
   margin-bottom: 0;
-  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-family: "Google Sans", "Google Sans Placeholder", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 32px;
@@ -861,7 +861,7 @@ li {
 .tagline {
   letter-spacing: var(--2);
   margin-bottom: 0;
-  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-family: "Google Sans", "Google Sans Placeholder", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 28px;
@@ -1167,6 +1167,13 @@ li {
   margin-right: auto;
 }
 
+.heading-wrap i{
+  font-style: italic;
+  font-weight: normal;
+  font-size: 86px;
+  font-family: "Playfair Display", serif;
+}
+
 .short-teg {
   grid-column-gap: 16px;
   grid-row-gap: 16px;
@@ -1409,7 +1416,7 @@ li {
   justify-content: center;
   align-items: center;
   padding-bottom: 2px;
-  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-family: "Google Sans", "Google Sans Placeholder", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 150%;
@@ -2054,7 +2061,7 @@ li {
   letter-spacing: var(--2);
   margin-top: 0;
   margin-bottom: 0;
-  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-family: "Google Sans", "Google Sans Placeholder", sans-serif;
   font-size: 56px;
   font-weight: 500;
   line-height: 100%;
