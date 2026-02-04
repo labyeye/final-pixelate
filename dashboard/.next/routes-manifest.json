@@ -141,6 +141,14 @@
       "namedRegex": "^/api/services/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/tasks/[id]",
+      "regex": "^/api/tasks/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/tasks/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/team-members/[id]",
       "regex": "^/api/team\\-members/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -383,6 +391,12 @@
       "namedRegex": "^/api/support\\-tickets(?:/)?$"
     },
     {
+      "page": "/api/tasks",
+      "regex": "^/api/tasks(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/tasks(?:/)?$"
+    },
+    {
       "page": "/api/team-members",
       "regex": "^/api/team\\-members(?:/)?$",
       "routeKeys": {},
@@ -393,6 +407,12 @@
       "regex": "^/api/upload(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/upload(?:/)?$"
+    },
+    {
+      "page": "/api/user-activity",
+      "regex": "^/api/user\\-activity(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/user\\-activity(?:/)?$"
     },
     {
       "page": "/api/users",
@@ -533,10 +553,22 @@
       "namedRegex": "^/support(?:/)?$"
     },
     {
+      "page": "/tasks",
+      "regex": "^/tasks(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tasks(?:/)?$"
+    },
+    {
       "page": "/timeline",
       "regex": "^/timeline(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/timeline(?:/)?$"
+    },
+    {
+      "page": "/user-activity",
+      "regex": "^/user\\-activity(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/user\\-activity(?:/)?$"
     },
     {
       "page": "/users",
