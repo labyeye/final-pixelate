@@ -42,12 +42,15 @@
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <link rel="canonical" href="https://www.pixelatenest.com/webdev.html" />
+    <link rel="canonical" href="https://www.pixelatenest.com/webdev" />
     <link
       href="https://backend.pixelatenest.com"
       rel="preconnect"
       crossorigin
     />
+    <link href="styles.css" rel="stylesheet" />
+    <link href="web-dev.css" rel="stylesheet" />
+
     <link href="https://backend.pixelatenest.com" rel="dns-prefetch" />
     <script
       src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
@@ -75,7 +78,7 @@
       })(window, document);
     </script>
     <link
-      href="../website/assets/PixelateNest_icons.ico"
+      href="/assets/PixelateNest_icons.ico"
       rel="shortcut icon"
       type="image/x-icon"
     />
@@ -114,41 +117,71 @@
               <div class="navbar-left">
                 <a
                   href="https://www.pixelatenest.com/"
-                  class="navbar-brand w-nav-brand"
+                  aria-current="page"
+                  class="navbar-brand w-nav-brand w--current"
                 >
                   <img
-                    loading="lazy"
-                    src="./assets/Logo_Color_Name_Large.webp"
-                    alt="Pixelate Nest Logo"
-                    class="navbar-brand-logo"
+                    src="./assets/Logo_Color_Name_large.webp"
+                    alt="Pixelate Nest"
+                    class="logo-desktop"
+                  />
+                  <img
+                    src="./assets/Logo_Color.webp"
+                    alt="Pixelate Nest"
+                    class="logo-mobile"
                   />
                 </a>
               </div>
               <div class="navbar-center">
                 <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
+                  <div class="mobile-menu-header">
+                    <button class="mobile-menu-close" aria-label="Close menu">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                   <ul role="list" class="nav-menu w-list-unstyled">
                     <li class="nav-item">
                       <a
                         href="https://www.pixelatenest.com/"
-                        class="nav-link w-inline-block"
-                        ><div class="nav-link-text">Home</div></a
-                      >
-                    </li>
-                    <li class="nav-item">
-                      <a
-                        href="https://www.pixelatenest.com/about.html"
                         aria-current="page"
-                        class="nav-link w-inline-block"
-                        ><div class="nav-link-text">About</div></a
+                        class="nav-link w-inline-block w--current"
+                        ><span class="nav-link-text">Home</span></a
                       >
                     </li>
                     <li class="nav-item">
                       <a
-                        href="https://www.pixelatenest.com/pricing.html"
+                        href="https://www.pixelatenest.com/about"
                         class="nav-link w-inline-block"
+                        ><span class="nav-link-text">About</span></a
                       >
-                        <div class="nav-link-text">Pricing</div>
-                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/pricing"
+                        class="nav-link w-inline-block"
+                        ><span class="nav-link-text">Pricing</span></a
+                      >
                     </li>
                     <li class="nav-item has-dropdown">
                       <a
@@ -162,31 +195,34 @@
                         ></i>
                       </a>
                       <div class="dropdown-menu">
-                        <a href="webdev.html" class="dropdown-item">
+                        <a
+                          href="https://www.pixelatenest.com/webdev"
+                          class="dropdown-item"
+                        >
                           Web Development
                         </a>
-                        <a href="app-dev.html" class="dropdown-item">
+                        <a href="app-dev" class="dropdown-item">
                           App Development
                         </a>
-                        <a href="software-dev.html" class="dropdown-item">
+                        <a href="software-dev" class="dropdown-item">
                           Software Development
                         </a>
-                        <a href="video-ed.html" class="dropdown-item">
-                          Video Editing
+                        <a href="video-ed" class="dropdown-item">
+                          Content Creation
                         </a>
                       </div>
                     </li>
+
                     <li class="nav-item">
                       <a
-                        href="https://www.pixelatenest.com/blogs.html"
+                        href="https://www.pixelatenest.com/blogs"
                         class="nav-link w-inline-block"
+                        ><span class="nav-link-text">Blogs</span></a
                       >
-                        <div class="nav-link-text">Blogs</div>
-                      </a>
                     </li>
                     <li class="nav-item">
                       <a
-                        href="https://www.pixelatenest.com/careers.html"
+                        href="https://www.pixelatenest.com/careers"
                         class="nav-link w-inline-block"
                       >
                         <div class="nav-link-text">Careers</div>
@@ -194,7 +230,15 @@
                     </li>
                     <li class="nav-item">
                       <a
-                        href="https://www.pixelatenest.com/contact.html"
+                        href="https://www.pixelatenest.com/technologies"
+                        class="nav-link w-inline-block"
+                      >
+                        <div class="nav-link-text">Technologies</div>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/contact"
                         class="nav-link w-inline-block"
                       >
                         <div class="nav-link-text">Contact</div>
@@ -204,7 +248,15 @@
                 </nav>
               </div>
               <div class="navbar-right">
-                <div class="menu-button w-nav-button">
+                <div
+                  class="menu-button w-nav-button"
+                  aria-label="menu"
+                  role="button"
+                  tabindex="0"
+                  aria-controls="w-nav-overlay-0"
+                  aria-haspopup="menu"
+                  aria-expanded="false"
+                >
                   <div
                     data-is-ix2-target="1"
                     class="hamburger-menu"
@@ -217,184 +269,105 @@
                     data-default-duration="0"
                     data-duration="2.3333333333333335"
                     data-ix2-initial-state="0"
-                  ></div>
+                  >
+                    <svg
+                      class="hamburger-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 12H21"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M3 6H21"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M3 18H21"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      <section class="hero">
-        <div class="container-webdev">
-          <div class="hero-01-wrap features-v1-hero">
-            <div class="short-teg-wrap">
-              <div class="short-teg caption-linear-bg">
-                <div class="tagline _01">Web Development</div>
-              </div>
-            </div>
-            <div class="heading-wrap">
-              <h1 class="h2">Our Web Development Services</h1>
-            </div>
-            <div class="sub-heading-wrap features-v1-sub-heading">
-              <p class="p-text-01 text-white-60">
-                We build beautiful, high-performance websites and applications
-                that are secure, scalable, and designed to provide a flawless
-                user experience that converts visitors into customers.
-              </p>
-            </div>
-          </div>
-
-          <div
-            id="portfolio-grid"
-            class="portfolio-grid"
-            style="margin-top: 80px"
-          >
-            <section class="cta-v1">
-              <div class="container">
-                <div class="cta-v1-wrap">
-                  <div class="cta-v1-main-wrap">
-                    <div class="cta-v1-main">
-                      <div class="short-teg-wrap">
-                        <div class="short-teg caption-linear-bg">
-                          <div class="tagline _01">Let's Build Together</div>
-                        </div>
-                      </div>
-
-                      <div class="sub-heading-wrap">
-                        <p class="p-text-02 text-white-70">
-                          Partner with our in-house team of developers,
-                          designers, and marketers to build a powerful and
-                          cohesive online presence from concept to conversion.
-                        </p>
-                      </div>
-                      <div class="cta-v1-button-wrap">
-                        <a
-                          href="https://www.pixelatenest.com/contact.html"
-                          class="cta-button w-inline-block"
-                        >
-                          <div class="button-02-cover _02">
-                            <div class="button-02-text">
-                              <div class="button-text-01 text-white">
-                                Get a Free Consultation
-                              </div>
-                              <div class="button-text-01 text-white">
-                                Get a Free Consultation
-                              </div>
-                            </div>
-                            <img
-                              loading="lazy"
-                              src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6842e0e84343d9719dd6e3e7_Vector%20Top%20White.svg"
-                              alt="Background"
-                              class="button-icon"
-                            />
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="cta-v1-card-shadow"></div>
-                  <div class="ta-v1-dot">
+      <section class="home-hero-v1">
+        <div class="container">
+          <div class="home-hero-v1-wrap">
+            <div class="hero-v1-content">
+              <div class="hero-v1-title-wrap">
+                <div class="hero-trust-badge">
+                  <div class="trust-avatars">
                     <img
-                      src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6856448a7b751bd4fcaef4af_BG%20Dot.avif"
-                      loading="lazy"
-                      alt="Background"
-                      class="cta-bg-gif"
+                      src="./assets/homescreen/customer/customer1.webp"
+                      alt="Happy Customer"
+                      class="trust-avatar"
+                    />
+                    <img
+                      src="./assets/homescreen/customer/customer2.webp"
+                      alt="Happy Customer"
+                      class="trust-avatar"
+                    />
+                    <img
+                      src="./assets/homescreen/customer/customer3.webp"
+                      alt="Happy Customer"
+                      class="trust-avatar"
+                    />
+                    <img
+                      src="./assets/homescreen/customer/customer4.webp"
+                      alt="Happy Customer"
+                      class="trust-avatar"
                     />
                   </div>
-                </div>
-              </div>
-            </section>
-
-            <a
-              href="https://www.instagram.com/pixelate.nest/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="footer-link w-inline-block"
-            >
-              <div class="footer-link-text">
-                <i class="fab fa-instagram" aria-hidden="true"></i>
-                Instagram
-              </div>
-            </a>
-            <a
-              href="https://www.facebook.com/profile.php?id=61586872964348"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="footer-link w-inline-block"
-            >
-              <div class="footer-link-text">
-                <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                Facebook
-              </div>
-            </a>
-            <div
-              class="footer-social-icons"
-              style="
-                display: flex;
-                gap: 12px;
-                margin-top: 12px;
-                align-items: center;
-              "
-            >
-              <a
-                href="https://www.linkedin.com/company/pixelate-nest/?viewAsMember=true"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                style="color: inherit; font-size: 18px"
-              >
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/pixelate.nest/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                style="color: inherit; font-size: 18px"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a
-                href="https://www.facebook.com/profile.php?id=61586872964348"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                style="color: inherit; font-size: 18px"
-              >
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </div>
-
-            <div class="footer-bottom">
-              <div class="vertical-divider"></div>
-              <div class="footer-bottom-wrap">
-                <div class="p-text-03 text-white-60">
-                  © 2026 Kalahanu Tech Studios LLP. All Rights Reserved. |
-                  Crafted with
-                  <i class="fas fa-heart" style="color: #e74c3c"></i>
-                  in India
-                </div>
-                <div class="p-text-03 text-white-60">
-                  <strong>Payments Accepted:</strong>
-                  <div
-                    style="
-                      display: inline-flex;
-                      align-items: center;
-                      gap: 15px;
-                      margin-left: 10px;
-                    "
-                  >
-                    <span style="display: flex; align-items: center; gap: 5px">
-                      <i class="fas fa-money-bill-wave"></i> Cash
-                    </span>
-                    <span style="display: flex; align-items: center; gap: 5px">
-                      <i class="fas fa-university"></i> Bank
-                    </span>
-                    <span style="display: flex; align-items: center; gap: 5px">
-                      <i class="fas fa-mobile-alt"></i> UPI
-                    </span>
+                  <div class="trust-text">
+                    TRUSTED BY <span class="trust-number">20+</span> DELIGHTED
+                    CUSTOMERS
                   </div>
+                </div>
+
+                <div
+                  data-w-id="e4d25ab4-5221-11f5-0316-673572cc0f50"
+                  class="heading-wrap hero-v1-heading"
+                >
+                  <h1
+                    data-w-id="a92873da-c997-5cbc-a542-2425fbe84089"
+                    class="h1 hero-heading hero-main-title"
+                  >
+                    We turn your
+                    <i style="font-weight: 100">Website Dream</i> into Reality
+                  </h1>
+                </div>
+
+                <div
+                  data-w-id="509f52f0-277a-a704-9a52-c8d9022fecf4"
+                  class="sub-heading-wrap"
+                >
+                  <p class="hero-subheadline">
+                    Custom Web Development to build your digital presence.
+                    High-performance, secure, and scalable websites and apps.
+                  </p>
+                </div>
+
+                <div class="hero-cta-wrap">
+                  <a href="contact.html" class="hero-cta-button">
+                    Contact Experts <span class="cta-arrow">→</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -402,325 +375,672 @@
         </div>
       </section>
     </div>
+    <section class="hero">
+      <div class="container-webdev">
+        <div
+          id="portfolio-grid"
+          class="portfolio-grid"
+          style="margin-top: 80px"
+        ></div>
 
-    <script
-      src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6840859dc0e82803d10f5190"
-      type="text/javascript"
-      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.40f517e78f82ea08.js"
-      type="text/javascript"
-    ></script>
+        <script
+          src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6840859dc0e82803d10f5190"
+          type="text/javascript"
+          integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.40f517e78f82ea08.js"
+          type="text/javascript"
+        ></script>
 
-    <script>
-      const CACHE_KEY = "webdev_gallery_cache";
-      const CACHE_DURATION = 5 * 60 * 1000;
+        <script>
+          const CACHE_KEY = "webdev_gallery_cache";
+          const CACHE_DURATION = 5 * 60 * 1000;
 
-      function getCachedData() {
-        try {
-          const cached = localStorage.getItem(CACHE_KEY);
-          if (!cached) return null;
+          function getCachedData() {
+            try {
+              const cached = localStorage.getItem(CACHE_KEY);
+              if (!cached) return null;
 
-          const { data, timestamp } = JSON.parse(cached);
-          const now = Date.now();
+              const { data, timestamp } = JSON.parse(cached);
+              const now = Date.now();
 
-          if (now - timestamp < CACHE_DURATION) {
-            console.log("Using cached data");
-            return data;
-          } else {
-            localStorage.removeItem(CACHE_KEY);
-            return null;
-          }
-        } catch (e) {
-          return null;
-        }
-      }
-
-      function setCachedData(data) {
-        try {
-          localStorage.setItem(
-            CACHE_KEY,
-            JSON.stringify({
-              data,
-              timestamp: Date.now(),
-            }),
-          );
-        } catch (e) {
-          console.warn("Failed to cache data:", e);
-        }
-      }
-
-      async function loadGallery() {
-        const grid = document.getElementById("portfolio-grid");
-
-        try {
-          const cachedData = getCachedData();
-          if (cachedData) {
-            renderGallery(cachedData, grid);
-
-            fetchAndRender(grid, true);
-            return;
-          }
-
-          await fetchAndRender(grid, false);
-        } catch (e) {
-          console.error(e);
-          grid.innerHTML =
-            '<p class="p-text-01 text-white-60">Failed to load projects. Please try again later.</p>';
-        }
-      }
-
-      async function fetchAndRender(grid, isBackground = false) {
-        try {
-          const res = await fetch(
-            "https://backend.pixelatenest.com/api/work-gallery",
-            {
-              cache: "force-cache",
-            },
-          );
-
-          if (!res.ok) throw new Error("Failed to fetch gallery");
-
-          const items = await res.json();
-
-          setCachedData(items);
-
-          if (!isBackground) {
-            renderGallery(items, grid);
-          }
-        } catch (e) {
-          if (!isBackground) throw e;
-        }
-      }
-
-      function renderGallery(items, grid) {
-        grid.innerHTML = "";
-
-        const filtered = (items || []).filter(
-          (i) => i.showOn === "web-development",
-        );
-
-        if (filtered.length === 0) {
-          grid.innerHTML =
-            '<p class="p-text-01 text-white-60">No projects to show right now. Check back later.</p>';
-          return;
-        }
-
-        for (const it of filtered) {
-          const a = document.createElement("a");
-          a.className = "portfolio-card w-inline-block";
-          a.href = it.link || "#";
-
-          const imgWrap = document.createElement("div");
-          imgWrap.className = "portfolio-image-wrapper";
-
-          const img = document.createElement("img");
-          img.className = "portfolio-image";
-          img.alt = it.title || "Project";
-          img.src = it.thumbnailBase64 || "/assets/placeholder.png";
-          img.loading = "lazy";
-          imgWrap.appendChild(img);
-
-          const overlay = document.createElement("div");
-          overlay.className = "portfolio-overlay";
-
-          const h4 = document.createElement("h4");
-          h4.className = "portfolio-title";
-          h4.innerText = it.title || "Untitled";
-
-          const p = document.createElement("p");
-          p.className = "portfolio-description";
-          p.innerText = it.note || "";
-
-          const tagsDiv = document.createElement("div");
-          tagsDiv.className = "portfolio-tags";
-          (it.tech || "")
-            .split(",")
-            .map((t) => t.trim())
-            .filter(Boolean)
-            .slice(0, 5)
-            .forEach((t) => {
-              const s = document.createElement("span");
-              s.className = "tag";
-              s.innerText = t;
-              tagsDiv.appendChild(s);
-            });
-
-          const stars = document.createElement("div");
-          stars.className = "stars";
-          const rating = Math.max(0, Math.min(5, Number(it.rating || 0)));
-          for (let si = 1; si <= 5; si++) {
-            const sp = document.createElement("span");
-            sp.className = "star" + (si <= rating ? " filled" : "");
-            sp.innerHTML = "&#9733;";
-            stars.appendChild(sp);
-          }
-
-          overlay.appendChild(h4);
-          overlay.appendChild(stars);
-          overlay.appendChild(p);
-          overlay.appendChild(tagsDiv);
-
-          a.appendChild(imgWrap);
-          a.appendChild(overlay);
-          grid.appendChild(a);
-        }
-      }
-
-      loadGallery();
-    </script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const sections = document.querySelectorAll(
-          "section:not(.nav-wrap), .portfolio-grid, .process-grid",
-        );
-        sections.forEach((section) => {
-          section.classList.add("section-animate");
-        });
-
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("in-view");
-                observer.unobserve(entry.target);
+              if (now - timestamp < CACHE_DURATION) {
+                console.log("Using cached data");
+                return data;
+              } else {
+                localStorage.removeItem(CACHE_KEY);
+                return null;
               }
+            } catch (e) {
+              return null;
+            }
+          }
+
+          function setCachedData(data) {
+            try {
+              localStorage.setItem(
+                CACHE_KEY,
+                JSON.stringify({
+                  data,
+                  timestamp: Date.now(),
+                }),
+              );
+            } catch (e) {
+              console.warn("Failed to cache data:", e);
+            }
+          }
+
+          async function loadGallery() {
+            const grid = document.getElementById("portfolio-grid");
+
+            try {
+              const cachedData = getCachedData();
+              if (cachedData) {
+                renderGallery(cachedData, grid);
+
+                fetchAndRender(grid, true);
+                return;
+              }
+
+              await fetchAndRender(grid, false);
+            } catch (e) {
+              console.error(e);
+              grid.innerHTML =
+                '<p class="p-text-01 text-white-60">Failed to load projects. Please try again later.</p>';
+            }
+          }
+
+          async function fetchAndRender(grid, isBackground = false) {
+            try {
+              const res = await fetch(
+                "https://backend.pixelatenest.com/api/work-gallery",
+                {
+                  cache: "force-cache",
+                },
+              );
+
+              if (!res.ok) throw new Error("Failed to fetch gallery");
+
+              const items = await res.json();
+
+              setCachedData(items);
+
+              if (!isBackground) {
+                renderGallery(items, grid);
+              }
+            } catch (e) {
+              if (!isBackground) throw e;
+            }
+          }
+
+          function renderGallery(items, grid) {
+            grid.innerHTML = "";
+
+            const filtered = (items || []).filter(
+              (i) => i.showOn === "web-development",
+            );
+
+            if (filtered.length === 0) {
+              grid.innerHTML =
+                '<p class="p-text-01 text-white-60">No projects to show right now. Check back later.</p>';
+              return;
+            }
+
+            for (const it of filtered) {
+              const a = document.createElement("a");
+              a.className = "portfolio-card w-inline-block";
+              a.href = it.link || "#";
+
+              const imgWrap = document.createElement("div");
+              imgWrap.className = "portfolio-image-wrapper";
+
+              const img = document.createElement("img");
+              img.className = "portfolio-image";
+              img.alt = it.title || "Project";
+              img.src = it.thumbnailBase64 || "/assets/placeholder.png";
+              img.loading = "lazy";
+              imgWrap.appendChild(img);
+
+              const overlay = document.createElement("div");
+              overlay.className = "portfolio-overlay";
+
+              const h4 = document.createElement("h4");
+              h4.className = "portfolio-title";
+              h4.innerText = it.title || "Untitled";
+
+              const p = document.createElement("p");
+              p.className = "portfolio-description";
+              p.innerText = it.note || "";
+
+              const tagsDiv = document.createElement("div");
+              tagsDiv.className = "portfolio-tags";
+              (it.tech || "")
+                .split(",")
+                .map((t) => t.trim())
+                .filter(Boolean)
+                .slice(0, 5)
+                .forEach((t) => {
+                  const s = document.createElement("span");
+                  s.className = "tag";
+                  s.innerText = t;
+                  tagsDiv.appendChild(s);
+                });
+
+              const stars = document.createElement("div");
+              stars.className = "stars";
+              const rating = Math.max(0, Math.min(5, Number(it.rating || 0)));
+              for (let si = 1; si <= 5; si++) {
+                const sp = document.createElement("span");
+                sp.className = "star" + (si <= rating ? " filled" : "");
+                sp.innerHTML = "&#9733;";
+                stars.appendChild(sp);
+              }
+
+              overlay.appendChild(h4);
+              overlay.appendChild(stars);
+              overlay.appendChild(p);
+              overlay.appendChild(tagsDiv);
+
+              a.appendChild(imgWrap);
+              a.appendChild(overlay);
+              grid.appendChild(a);
+            }
+          }
+
+          loadGallery();
+        </script>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll(
+              "section:not(.nav-wrap), .portfolio-grid, .process-grid",
+            );
+            sections.forEach((section) => {
+              section.classList.add("section-animate");
             });
-          },
-          {
-            root: null,
-            threshold: 0.2,
-            rootMargin: "0px",
-          },
-        );
 
-        sections.forEach((section) => {
-          observer.observe(section);
-        });
+            const observer = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add("in-view");
+                    observer.unobserve(entry.target);
+                  }
+                });
+              },
+              {
+                root: null,
+                threshold: 0.2,
+                rootMargin: "0px",
+              },
+            );
 
-        const gridItems = document.querySelectorAll(
-          ".portfolio-item, .process-step",
-        );
-        gridItems.forEach((item, index) => {
-          item.style.animationDelay = `${index * 0.08}s`;
-          item.classList.add("section-animate");
-          observer.observe(item);
-        });
+            sections.forEach((section) => {
+              observer.observe(section);
+            });
 
-        const heroElements = document.querySelectorAll(
-          ".main-hero *:not(nav *)",
-        );
-        heroElements.forEach((element, index) => {
-          element.classList.add("animate-on-load");
-          element.style.animationDelay = `${0.1 + index * 0.05}s`;
-        });
-      });
-    </script>
-    <script
-      src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6840859dc0e82803d10f5190"
-      type="text/javascript"
-      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.40f517e78f82ea08.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.a0aa2c62e5a30201.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.78bdae07.c61f572d9ae910e4.js"
-      type="text/javascript"
-    ></script>
-    <script>
-      function selectPlan(planDetails) {
-        localStorage.setItem("selectedPlan", planDetails);
-      }
-    </script>
-    <script src="js/index.js"></script>
+            const gridItems = document.querySelectorAll(
+              ".portfolio-item, .process-step",
+            );
+            gridItems.forEach((item, index) => {
+              item.style.animationDelay = `${index * 0.08}s`;
+              item.classList.add("section-animate");
+              observer.observe(item);
+            });
 
-    <script>
-      (function () {
-        if (
-          localStorage.getItem("pn_prefetch_optout") === "1" ||
-          document.cookie.indexOf("pn_prefetch_optout=1") !== -1
-        )
-          return;
-        const pages = [
-          "/about.html",
-          "/app-dev.html",
-          "/software-dev.html",
-          "/video-ed.html",
-          "/photography.html",
-          "/blogs.html",
-          "/contact.html",
-          "/pricing.html",
-          "/careers.html",
-          "/index.html",
-        ];
-        const domains = [
-          "https://backend.pixelatenest.com",
-          "https://fonts.googleapis.com",
-          "https://fonts.gstatic.com",
-          "https://cdn.prod.website-files.com",
-          "https://cdnjs.cloudflare.com",
-          "https://www.google-analytics.com",
-          "https://www.googletagmanager.com",
-        ];
-        function addLink(rel, href, as, crossorigin) {
-          try {
-            const l = document.createElement("link");
-            l.rel = rel;
-            l.href = href;
-            if (as) l.as = as;
-            if (crossorigin) l.crossOrigin = "anonymous";
-            document.head.appendChild(l);
-          } catch (e) {}
-        }
-        function warm() {
-          domains.forEach((d) => {
-            addLink("preconnect", d, null, true);
-            addLink("dns-prefetch", d);
+            const heroElements = document.querySelectorAll(
+              ".main-hero *:not(nav *)",
+            );
+            heroElements.forEach((element, index) => {
+              element.classList.add("animate-on-load");
+              element.style.animationDelay = `${0.1 + index * 0.05}s`;
+            });
           });
-          pages.forEach((p) => addLink("prefetch", p, "document"));
-          addLink("preload", "/styles.css", "style");
-          addLink(
-            "preload",
-            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
-            "style",
-            true,
-          );
-          try {
-            fetch("/", {
-              method: "GET",
-              mode: "no-cors",
-              cache: "no-cache",
-            }).catch(() => {});
-            fetch("https://backend.pixelatenest.com", {
-              method: "GET",
-              mode: "no-cors",
-            }).catch(() => {});
-          } catch (e) {}
-        }
-        if ("requestIdleCallback" in window)
-          requestIdleCallback(warm, { timeout: 2000 });
-        else window.addEventListener("load", () => setTimeout(warm, 1000));
-        window.pixelateNestDisablePrefetch = function () {
-          localStorage.setItem("pn_prefetch_optout", "1");
-          document.cookie =
-            "pn_prefetch_optout=1;path=/;max-age=" + 60 * 60 * 24 * 365;
-        };
-        window.pixelateNestEnablePrefetch = function () {
-          localStorage.removeItem("pn_prefetch_optout");
-          document.cookie = "pn_prefetch_optout=;path=/;max-age=0";
-        };
-      })();
-    </script>
-    <script src="js/activity-tracker.js"></script>
+        </script>
+        <script
+          src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6840859dc0e82803d10f5190"
+          type="text/javascript"
+          integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.40f517e78f82ea08.js"
+          type="text/javascript"
+        ></script>
+        <script
+          src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.a0aa2c62e5a30201.js"
+          type="text/javascript"
+        ></script>
+        <script
+          src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.78bdae07.c61f572d9ae910e4.js"
+          type="text/javascript"
+        ></script>
+        <script>
+          function selectPlan(planDetails) {
+            localStorage.setItem("selectedPlan", planDetails);
+          }
+        </script>
+        <script src="js/index.js"></script>
+
+        <script>
+          (function () {
+            if (
+              localStorage.getItem("pn_prefetch_optout") === "1" ||
+              document.cookie.indexOf("pn_prefetch_optout=1") !== -1
+            )
+              return;
+            const pages = [
+              "/about.html",
+              "/app-dev.html",
+              "/software-dev.html",
+              "/video-ed.html",
+              "/photography.html",
+              "/blogs.html",
+              "/contact.html",
+              "/pricing.html",
+              "/careers.html",
+              "/index.html",
+            ];
+            const domains = [
+              "https://backend.pixelatenest.com",
+              "https://fonts.googleapis.com",
+              "https://fonts.gstatic.com",
+              "https://cdn.prod.website-files.com",
+              "https://cdnjs.cloudflare.com",
+              "https://www.google-analytics.com",
+              "https://www.googletagmanager.com",
+            ];
+            function addLink(rel, href, as, crossorigin) {
+              try {
+                const l = document.createElement("link");
+                l.rel = rel;
+                l.href = href;
+                if (as) l.as = as;
+                if (crossorigin) l.crossOrigin = "anonymous";
+                document.head.appendChild(l);
+              } catch (e) {}
+            }
+            function warm() {
+              domains.forEach((d) => {
+                addLink("preconnect", d, null, true);
+                addLink("dns-prefetch", d);
+              });
+              pages.forEach((p) => addLink("prefetch", p, "document"));
+              addLink("preload", "styles.css", "style");
+              addLink(
+                "preload",
+                "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+                "style",
+                true,
+              );
+              try {
+                fetch("/", {
+                  method: "GET",
+                  mode: "no-cors",
+                  cache: "no-cache",
+                }).catch(() => {});
+                fetch("https://backend.pixelatenest.com", {
+                  method: "GET",
+                  mode: "no-cors",
+                }).catch(() => {});
+              } catch (e) {}
+            }
+            if ("requestIdleCallback" in window)
+              requestIdleCallback(warm, { timeout: 2000 });
+            else window.addEventListener("load", () => setTimeout(warm, 1000));
+            window.pixelateNestDisablePrefetch = function () {
+              localStorage.setItem("pn_prefetch_optout", "1");
+              document.cookie =
+                "pn_prefetch_optout=1;path=/;max-age=" + 60 * 60 * 24 * 365;
+            };
+            window.pixelateNestEnablePrefetch = function () {
+              localStorage.removeItem("pn_prefetch_optout");
+              document.cookie = "pn_prefetch_optout=;path=/;max-age=0";
+            };
+          })();
+        </script>
+        <script src="js/activity-tracker.js"></script>
+      </div>
+    </section>
+    <section class="footer">
+      <div class="container">
+        <div class="footer-wrap">
+          <div class="footer-top">
+            <div class="footer-top-left">
+              <div class="footer-logo-details">
+                <div class="footer-logo-wrap">
+                  <a
+                    href="https://www.pixelatenest.com/"
+                    class="footer-logo w-inline-block"
+                  >
+                    <img
+                      src="./assets/Logo_Color_Name_Large.webp"
+                      loading="lazy"
+                      alt="Pixelate Nest Logo"
+                    />
+                  </a>
+                </div>
+                <p class="p-text-03">
+                  AI-first creative technology partner for web, app, and video
+                  that delivers measurable growth.
+                </p>
+                <div style="margin-top: 20px">
+                  <p class="p-text-03" style="margin-bottom: 8px">
+                    <strong>Contact Us</strong>
+                  </p>
+                  <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
+                    <i class="fas fa-envelope" style="margin-right: 8px"></i
+                    >support@pixelatenest.com
+                  </p>
+                  <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
+                    <i class="fas fa-phone" style="margin-right: 8px"></i>
+                    +91 84069 12345
+                  </p>
+                  <p class="p-text-03 text-white-60">
+                    <i
+                      class="fas fa-map-marker-alt"
+                      style="margin-right: 8px"
+                    ></i
+                    >Muzaffarpur, Bihar, India — Serving clients across India &
+                    globally
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-right-link-wrap">
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Company</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/about"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">About Us</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/careers"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Careers</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/contact"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Contact Us</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/blogs"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Blog</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Services</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/video-ed"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Video Editing</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/webdev"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Web Development</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/app-dev"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">App Development</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/software-dev"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Software Development</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Industries We Serve</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/industry-ecommerce"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Ecommerce & Multivendor</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-realestate"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">
+                      Real Estate & Construction
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-travel"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Travel & Hospitality</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-healthcare"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Healthcare</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-education"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Education</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-finance"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Finance & Insurance</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-logistics"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">
+                      Transportation & Logistics
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-manufacturing"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Manufacturing</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-utilities"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Utilities & On Demand</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-media"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Media & Entertainment</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Resources</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/pricing"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Pricing</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/locations"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Locations</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/technologies"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Technologies</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Legal</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/privacy-policy"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Privacy Policy</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/terms-of-service"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Terms of Service</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/cookie-policy"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Cookie Policy</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Follow Us</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.linkedin.com/company/pixelate-nest/?viewAsMember=true"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">
+                      <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                      LinkedIn
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/pixelate.nest/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">
+                      <i class="fab fa-instagram" aria-hidden="true"></i>
+                      Instagram
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61586872964348"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">
+                      <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                      Facebook
+                    </div>
+                  </a>
+                  <div
+                    class="footer-social-icons"
+                    style="
+                      display: flex;
+                      gap: 12px;
+                      margin-top: 12px;
+                      align-items: center;
+                    "
+                  >
+                    <a
+                      href="https://www.linkedin.com/company/pixelate-nest/?viewAsMember=true"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                      style="color: inherit; font-size: 18px"
+                    >
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a
+                      href="https://www.instagram.com/pixelate.nest/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                      style="color: inherit; font-size: 18px"
+                    >
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                    <a
+                      href="https://www.facebook.com/profile.php?id=61586872964348"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                      style="color: inherit; font-size: 18px"
+                    >
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <div class="vertical-divider"></div>
+            <div class="footer-bottom-wrap">
+              <div class="p-text-03 text-white-60">
+                © 2026 Kalahanu Tech Studios LLP. All Rights Reserved. | Crafted
+                with
+                <i class="fas fa-heart" style="color: #e74c3c"></i>
+                in India
+              </div>
+              <div class="p-text-03 text-white-60">
+                <strong>Payments Accepted:</strong>
+                <div
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 15px;
+                    margin-left: 10px;
+                  "
+                >
+                  <span style="display: flex; align-items: center; gap: 5px">
+                    <i class="fas fa-money-bill-wave"></i> Cash
+                  </span>
+                  <span style="display: flex; align-items: center; gap: 5px">
+                    <i class="fas fa-university"></i> Bank
+                  </span>
+                  <span style="display: flex; align-items: center; gap: 5px">
+                    <i class="fas fa-mobile-alt"></i> UPI
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
