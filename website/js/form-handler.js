@@ -1,13 +1,13 @@
-// Check for selected plan on page load
+
 window.addEventListener("DOMContentLoaded", () => {
   const selectedPlan = localStorage.getItem("selectedPlan");
   if (selectedPlan) {
     document.getElementById("selected-plan").value = selectedPlan;
-    // Optional: Update subject field with plan name
+    
     document.getElementById(
       "Enter-your-subject"
     ).value = `Inquiry for ${selectedPlan}`;
-    localStorage.removeItem("selectedPlan"); // Clear after setting
+    localStorage.removeItem("selectedPlan"); 
   }
 });
 
@@ -32,12 +32,12 @@ async function handleFormSubmit(event) {
   };
 
   try {
-    // Resolve API base (dashboard) if provided
+    
     const API_BASE =
       window.DASHBOARD_API_BASE && window.DASHBOARD_API_BASE.trim()
         ? window.DASHBOARD_API_BASE.replace(/\/$/, "")
         : "";
-    // First, store the enquiry in the app backend so it appears in the dashboard
+    
     const saveRes = await fetch((API_BASE || "") + "/api/enquiries", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -45,9 +45,9 @@ async function handleFormSubmit(event) {
     });
     if (!saveRes.ok) throw new Error("Failed to save enquiry");
 
-    // Also send the existing email notification (keep old behavior)
+    
     try {
-      // Call dashboard's send-email endpoint (if API_BASE not set, assumes same origin)
+      
       await fetch((API_BASE || "") + "/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -55,11 +55,11 @@ async function handleFormSubmit(event) {
         body: JSON.stringify(data),
       });
     } catch (e) {
-      // Non-fatal: email sending can fail but enquiry is saved
+      
       console.warn("Dashboard email send failed", e);
     }
 
-    // Show success message
+    
     document.querySelector(".form-success-message").style.display = "block";
     form.reset();
   } catch (error) {

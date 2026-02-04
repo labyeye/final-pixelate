@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { useAuth } from "@/hooks/use-auth";
+
 import {
   Code,
   Users,
@@ -16,7 +16,6 @@ import {
   Briefcase,
   Receipt,
   LifeBuoy,
-  Columns,
   BarChart as BarChartIcon,
   DollarSign as DollarIcon,
   Image as ImageIcon,
@@ -25,74 +24,133 @@ import {
   Star,
   Megaphone,
   BoxIcon,
+  Plus,
+  SquareCheck,
+  Activity,
 } from "lucide-react";
+import { Button } from "../ui/button";
 
-// Sidebar trimmed to only Inventory as requested
-const navItems = [
+// Grouped Navigation
+const navGroups = [
   {
-    href: "/dashboard",
-    label: "Dashboard",
-    adminOnly: false,
-    icon: LayoutDashboard,
-  },
-  { href: "/profile", label: "Profile", adminOnly: false, icon: Users },
-  {
-    href: "/announcement-bar",
-    label: "Announcement Bar",
-    adminOnly: true,
-    icon: Megaphone,
-  },
-  { href: "/leads", label: "Leads", adminOnly: false, icon: KanbanSquare },
-  { href: "/enquiries", label: "Enquiries", adminOnly: false, icon: LifeBuoy },
-  { href: "/clients", label: "Clients", adminOnly: false, icon: Users },
-  { href: "/reviews", label: "Reviews", adminOnly: false, icon: Star },
-  {
-    href: "/quotations",
-    label: "Quotations",
-    adminOnly: false,
-    icon: FileText,
-  },
-    { href: "/invoicing", label: "Invoicing", adminOnly: true, icon: Receipt },
-
-    { href: '/inventory', label: 'Inventory', adminOnly: false, icon: BoxIcon },
-
-  { href: "/projects", label: "Projects", adminOnly: false, icon: Briefcase },
-  {
-    href: "/work-gallery",
-    label: "Work Gallery",
-    adminOnly: true,
-    icon: ImageIcon,
+    title: "Overview",
+    items: [
+      {
+        href: "/dashboard",
+        label: "Dashboard",
+        adminOnly: false,
+        icon: LayoutDashboard,
+      },
+      {
+        href: "/analytics",
+        label: "Analytics",
+        adminOnly: false,
+        icon: BarChartIcon,
+      },
+      {
+        href: "/user-activity",
+        label: "User Activity",
+        adminOnly: true,
+        icon: Activity,
+      },
+      { href: "/profile", label: "Profile", adminOnly: false, icon: Users },
+      {
+        href: "/announcement-bar",
+        label: "Announcements",
+        adminOnly: true,
+        icon: Megaphone,
+      },
+    ],
   },
   {
-    href: "/photo-galleries",
-    label: "Photos",
-    adminOnly: true,
-    icon: ImageIcon,
+    title: "Sales & CRM",
+    items: [
+      { href: "/leads", label: "Leads", adminOnly: false, icon: KanbanSquare },
+      {
+        href: "/enquiries",
+        label: "Enquiries",
+        adminOnly: false,
+        icon: LifeBuoy,
+      },
+      { href: "/clients", label: "Clients", adminOnly: false, icon: Users },
+      { href: "/reviews", label: "Reviews", adminOnly: false, icon: Star },
+      {
+        href: "/quotations",
+        label: "Quotations",
+        adminOnly: false,
+        icon: FileText,
+      },
+      {
+        href: "/invoicing",
+        label: "Invoicing",
+        adminOnly: true,
+        icon: Receipt,
+      },
+    ],
   },
-  { href: "/reels", label: "Reels", adminOnly: true, icon: PlayCircle },
-  { href: "/blogs", label: "Blogs", adminOnly: true, icon: FileText },
   {
-    href: "/about-us-team",
-    label: "About Us Team",
-    adminOnly: true,
-    icon: Users,
+    title: "Operations",
+    items: [
+      { href: "/tasks", label: "Tasks", adminOnly: false, icon: SquareCheck }, // Added Tasks here
+      {
+        href: "/projects",
+        label: "Projects",
+        adminOnly: false,
+        icon: Briefcase,
+      },
+      {
+        href: "/inventory",
+        label: "Inventory",
+        adminOnly: false,
+        icon: BoxIcon,
+      },
+      {
+        href: "/expenses",
+        label: "Expenses",
+        adminOnly: false,
+        icon: DollarIcon,
+      },
+      { href: "/services", label: "Services", adminOnly: true, icon: Code },
+    ],
   },
-  { href: "/careers", label: "Careers", adminOnly: true, icon: UserPlus },
   {
-    href: "/analytics",
-    label: "Analytics",
-    adminOnly: false,
-    icon: BarChartIcon,
+    title: "Content",
+    items: [
+      {
+        href: "/work-gallery",
+        label: "Work Gallery",
+        adminOnly: true,
+        icon: ImageIcon,
+      },
+      {
+        href: "/photo-galleries",
+        label: "Photos",
+        adminOnly: true,
+        icon: ImageIcon,
+      },
+      { href: "/reels", label: "Reels", adminOnly: true, icon: PlayCircle },
+      { href: "/blogs", label: "Blogs", adminOnly: true, icon: FileText },
+    ],
   },
   {
-    href: "/developers-and-editors",
-    label: "Developers & Editors",
-    adminOnly: true,
-    icon: Users,
+    title: "Team & Support",
+    items: [
+      {
+        href: "/about-us-team",
+        label: "About Us Team",
+        adminOnly: true,
+        icon: Users,
+      },
+      { href: "/careers", label: "Careers", adminOnly: true, icon: UserPlus },
+      {
+        href: "/developers-and-editors",
+        label: "Developers",
+        adminOnly: true,
+        icon: Users,
+      },
+      { href: "/support", label: "Support", adminOnly: false, icon: LifeBuoy },
+    ],
   },
-  { href: "/services", label: "Services", adminOnly: true, icon: Code },
-  { href: "/expenses", label: "Expenses", adminOnly: false, icon: DollarIcon },
-  { href: "/support", label: "Support", adminOnly: false, icon: LifeBuoy },
 ];
 
 const userAvatar = PlaceHolderImages.find((p) => p.id === "user-avatar-1");
@@ -102,8 +160,6 @@ export function Sidebar() {
   const { user, logout } = useAuth();
 
   if (!user) {
-    // This case should be handled by the AuthProvider's loading state,
-    // but as a fallback, we render an empty sidebar.
     return (
       <aside className="hidden md:flex md:w-60 lg:w-72 flex-col fixed inset-y-0 z-10 border-r-2 border-black bg-background"></aside>
     );
@@ -112,7 +168,7 @@ export function Sidebar() {
   const isAdmin = user?.role === "admin";
   const isStaff = user?.role === "staff";
 
-  // If staff, only show a small subset of pages (include dashboard)
+  // If staff, only show a small subset of pages
   const staffAllowed = [
     "/dashboard",
     "/leads",
@@ -123,74 +179,91 @@ export function Sidebar() {
     "/quotations",
     "/quotations/create",
   ];
-  const itemsToShow = isStaff
-    ? navItems.filter((i) => staffAllowed.includes(i.href))
-    : navItems.filter((i) => !(i.adminOnly && !isAdmin));
 
   return (
-    <aside className="hidden md:flex md:w-60 lg:w-72 flex-col fixed inset-y-0 z-10 border-r-2 border-black bg-background">
-      <div className="p-6 border-b-2 border-black">
+    <aside className="hidden md:flex md:w-60 lg:w-72 flex-col fixed inset-y-0 z-10 border-r-2 border-black bg-background font-headline">
+      <div className="p-6 border-b-2 border-black bg-white/50 backdrop-blur-sm">
         <Link href="/dashboard" className="block group">
-          <h1 className="text-2xl font-bold tracking-tighter group-hover:text-primary">
-            Pixelate Nest
+          <h1 className="text-2xl font-black tracking-tighter group-hover:text-primary transition-colors">
+            Kalahanu Tech
           </h1>
-          <p className="text-sm text-muted-foreground">Creative Agency CRM</p>
+          <p className="text-sm text-muted-foreground font-bold">Studio CRM</p>
         </Link>
       </div>
-      {/*
-        Make the central navigation area scrollable when the viewport is short.
-        We keep header (brand) and footer (user area) fixed and allow the nav
-        to overflow-y:auto. This preserves all existing classes and styles.
-      */}
+
+      {/* Navigation Area */}
       <nav
-        className="flex-1 p-6 space-y-2 overflow-y-auto"
+        className="flex-1 p-4 space-y-6 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-muted-foreground/20"
         aria-label="Primary navigation"
       >
-        {itemsToShow.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={cn(
-              "flex items-center gap-4 rounded-none border-2 border-foreground p-3 text-base font-bold transition-colors",
-              pathname.startsWith(item.href)
-                ? "bg-primary text-primary-foreground"
-                : "bg-background text-foreground hover:bg-foreground hover:text-background"
-            )}
-          >
-            {item.icon && <item.icon />}
-            {item.label}
-          </Link>
-        ))}
+        {/* Quick Actions */}
+
+        {navGroups.map((group) => {
+          // Filter items based on permissions
+          const filteredItems = group.items.filter((item) => {
+            if (isStaff) {
+              return staffAllowed.includes(item.href);
+            }
+            return !(item.adminOnly && !isAdmin);
+          });
+
+          if (filteredItems.length === 0) return null;
+
+          return (
+            <div key={group.title} className="space-y-2">
+              <h3 className="px-2 text-xs font-black text-muted-foreground uppercase tracking-widest">
+                {group.title}
+              </h3>
+              <div className="space-y-1">
+                {filteredItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "flex items-center gap-3 px-3 py-2 text-sm font-bold transition-all border-2 rounded-md hover:translate-x-1",
+                      pathname.startsWith(item.href)
+                        ? "bg-primary text-primary-foreground border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                        : "bg-transparent text-muted-foreground border-transparent hover:text-foreground hover:bg-muted hover:border-black/10",
+                    )}
+                  >
+                    <item.icon className="w-4 h-4" />
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </nav>
-      <div className="p-6 border-t-2 border-black">
-        <div className="flex items-center gap-4">
-          <Avatar className="h-12 w-12 border-2 border-black rounded-none">
+
+      {/* User Footer */}
+      <div className="p-4 border-t-2 border-black bg-muted/30">
+        <div className="flex items-center gap-3">
+          <Avatar className="h-10 w-10 border-2 border-black rounded-lg">
             {user?.avatar ? (
-              // If user has uploaded an avatar (data URL or URL), use it
-              <AvatarImage
-                src={user.avatar}
-                alt={`${user.name || "User"} avatar`}
-              />
-            ) : // fallback to repo placeholder image
-            userAvatar ? (
+              <AvatarImage src={user.avatar} alt={user.name} />
+            ) : userAvatar ? (
               <AvatarImage src={userAvatar.imageUrl} alt="User Avatar" />
             ) : null}
-            <AvatarFallback className="rounded-none bg-accent text-accent-foreground font-bold">
+            <AvatarFallback className="rounded-lg bg-primary text-primary-foreground font-black">
               {user?.name?.charAt(0).toUpperCase() ?? "U"}
             </AvatarFallback>
           </Avatar>
-          <div>
-            <p className="font-bold">{user.name}</p>
-            <p className="text-sm text-muted-foreground uppercase">
+          <div className="flex-1 overflow-hidden">
+            <p className="font-bold truncate text-sm">{user.name}</p>
+            <p className="text-xs text-muted-foreground uppercase tracking-wider font-bold truncate">
               {user.role}
             </p>
-            <button
-              onClick={logout}
-              className="text-sm text-muted-foreground hover:text-primary underline"
-            >
-              Logout
-            </button>
           </div>
+          <Button
+            onClick={logout}
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 hover:bg-destructive hover:text-destructive-foreground rounded-md transition-colors"
+          >
+            <LifeBuoy className="w-4 h-4" />
+            <span className="sr-only">Logout</span>
+          </Button>
         </div>
       </div>
     </aside>

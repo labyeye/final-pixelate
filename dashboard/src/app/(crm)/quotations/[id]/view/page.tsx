@@ -546,7 +546,7 @@ export default function QuotationViewPage() {
               <div className="max-w-4xl mx-auto space-y-2">
                 <p>
                   {settings?.footerText ||
-                    "© 2025 Pixelate Nest. All rights reserved."}
+                    "© 2026 Kalahanu Tech Studios LLP. All Rights Reserved."}
                 </p>
 
                 <div className="flex items-center justify-center gap-6 mt-1 text-xs">

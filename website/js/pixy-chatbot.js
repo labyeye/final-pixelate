@@ -1,14 +1,8 @@
-/**
- * Pixy - AI Website Consultant Chatbot
- * Embedded widget for website consultation
- */
-
 (function () {
   "use strict";
 
-  // Session state
   let sessionState = {
-    service_type: null, // web-dev, software-dev, app-dev, video-editing
+    service_type: null,
     project_type: null,
     website_type: null,
     number_of_pages: null,
@@ -34,27 +28,22 @@
     isProcessing: false,
   };
 
-  // Pricing logic
   const pricingRanges = {
-    // Web Development
     static: { min: 15000, max: 30000 },
     dynamic: { min: 30000, max: 60000 },
     portfolio: { min: 20000, max: 40000 },
     ecommerce: { min: 60000, max: 150000 },
     webapp: { min: 80000, max: 200000 },
 
-    // Software Development
     desktop_app: { min: 100000, max: 300000 },
     saas: { min: 150000, max: 500000 },
     crm_erp: { min: 200000, max: 800000 },
     custom_software: "custom",
 
-    // App Development
     simple_app: { min: 80000, max: 150000 },
     medium_app: { min: 150000, max: 300000 },
     complex_app: { min: 300000, max: 800000 },
 
-    // Video Editing
     basic_video: { min: 5000, max: 15000 },
     professional_video: { min: 15000, max: 40000 },
     commercial_video: { min: 40000, max: 100000 },
@@ -69,9 +58,7 @@
     custom_ui: 10000,
   };
 
-  // Initialize chatbot
   function initPixyChatbot() {
-    // Create chatbot HTML structure
     const chatbotHTML = `
       <div id="pixy-chatbot-widget">
         <!-- Chat Button -->
@@ -129,10 +116,8 @@
       </div>
     `;
 
-    // Inject chatbot into page
     document.body.insertAdjacentHTML("beforeend", chatbotHTML);
 
-    // Get elements
     const chatButton = document.getElementById("pixy-chat-button");
     const chatModal = document.getElementById("pixy-chat-modal");
     const closeModal = document.getElementById("pixy-close-modal");
@@ -143,7 +128,6 @@
       ".pixy-notification-badge",
     );
 
-    // Event listeners
     chatButton.addEventListener("click", toggleChat);
     closeModal.addEventListener("click", closeChat);
     sendBtn.addEventListener("click", sendMessage);
@@ -151,7 +135,6 @@
       if (e.key === "Enter") sendMessage();
     });
 
-    // Initialize with greeting
     setTimeout(() => {
       addBotMessage(
         "Hi, I'm Pixy 👋 I help you find the perfect solution for your business needs!",
@@ -249,15 +232,12 @@
   }
 
   function handleQuickReply(option) {
-    // Remove all quick reply buttons
     document
       .querySelectorAll(".pixy-quick-replies")
       .forEach((el) => el.remove());
 
-    // Add user message
     addUserMessage(option);
 
-    // Process response
     processUserInput(option);
   }
 
@@ -267,22 +247,18 @@
 
     if (!message || sessionState.isProcessing) return;
 
-    // Prevent multiple messages while processing
     sessionState.isProcessing = true;
     chatInput.disabled = true;
 
     addUserMessage(message);
     chatInput.value = "";
 
-    // Remove any existing quick replies
     document
       .querySelectorAll(".pixy-quick-replies")
       .forEach((el) => el.remove());
 
-    // Show typing indicator
     showTypingIndicator();
 
-    // Process user input
     setTimeout(() => {
       hideTypingIndicator();
       processUserInput(message);
@@ -323,7 +299,6 @@
   function processUserInput(input) {
     const lowerInput = input.toLowerCase();
 
-    // Handle special commands
     if (
       lowerInput === "restart" ||
       lowerInput === "start over" ||
@@ -342,7 +317,6 @@
       return;
     }
 
-    // Step 0: Service Selection
     if (!sessionState.service_type) {
       if (lowerInput.includes("web dev") || lowerInput.includes("website")) {
         sessionState.service_type = "web-dev";
@@ -386,9 +360,7 @@
       return;
     }
 
-    // === WEB DEVELOPMENT FLOW ===
     if (sessionState.service_type === "web-dev") {
-      // Step 1: Web Project type
       if (!sessionState.project_type) {
         if (
           lowerInput.includes("information") ||
@@ -418,7 +390,6 @@
         return;
       }
 
-      // Step 2: Website type
       if (!sessionState.website_type) {
         if (
           lowerInput.includes("static") ||
@@ -450,7 +421,6 @@
         return;
       }
 
-      // Step 3: Number of pages
       if (!sessionState.number_of_pages) {
         if (lowerInput.includes("1-3") || lowerInput.match(/\b[1-3]\b/)) {
           sessionState.number_of_pages = "1-3";
@@ -475,7 +445,6 @@
         return;
       }
 
-      // Step 4: Domain
       if (sessionState.domain_status === null) {
         sessionState.domain_status =
           lowerInput.includes("yes") || lowerInput.includes("have")
@@ -485,7 +454,6 @@
         return;
       }
 
-      // Step 5: Hosting
       if (sessionState.hosting_status === null) {
         sessionState.hosting_status =
           lowerInput.includes("yes") || lowerInput.includes("need")
@@ -495,7 +463,6 @@
         return;
       }
 
-      // Step 6: CMS
       if (sessionState.cms_required === null) {
         sessionState.cms_required =
           lowerInput.includes("yes") || lowerInput.includes("want")
@@ -505,7 +472,6 @@
         return;
       }
 
-      // Step 7: Add-ons
       if (sessionState.conversationStep === 7) {
         if (lowerInput.includes("seo"))
           sessionState.addons_selected.push("seo");
@@ -520,9 +486,7 @@
       }
     }
 
-    // === SOFTWARE DEVELOPMENT FLOW ===
     if (sessionState.service_type === "software-dev") {
-      // Step 1: Software type
       if (!sessionState.project_type) {
         if (lowerInput.includes("desktop")) {
           sessionState.project_type = "desktop_app";
@@ -543,16 +507,13 @@
         return;
       }
 
-      // Step 2: Features
       if (sessionState.conversationStep === 2) {
-        // Capture features description
         sessionState.features = input;
         sessionState.conversationStep = 3;
         askUserCount();
         return;
       }
 
-      // Step 3: User count
       if (!sessionState.user_count) {
         if (lowerInput.includes("5") || lowerInput.includes("small")) {
           sessionState.user_count = "1-5";
@@ -574,9 +535,7 @@
       }
     }
 
-    // === APP DEVELOPMENT FLOW ===
     if (sessionState.service_type === "app-dev") {
-      // Step 1: App type
       if (!sessionState.project_type) {
         if (lowerInput.includes("simple") || lowerInput.includes("basic")) {
           sessionState.project_type = "simple_app";
@@ -598,7 +557,6 @@
         return;
       }
 
-      // Step 2: Platform
       if (!sessionState.platform) {
         if (lowerInput.includes("ios") && lowerInput.includes("android")) {
           sessionState.platform = "both";
@@ -614,7 +572,6 @@
         return;
       }
 
-      // Step 3: Features
       if (sessionState.conversationStep === 3) {
         if (lowerInput.includes("auth"))
           sessionState.addons_selected.push("authentication");
@@ -631,11 +588,8 @@
       }
     }
 
-    // === VIDEO EDITING FLOW ===
     if (sessionState.service_type === "video-editing") {
-      // Step 1: Quantity first
       if (!sessionState.video_quantity) {
-        // Extract number from input
         const numMatch = input.match(/\d+/);
         if (numMatch) {
           sessionState.video_quantity = numMatch[0];
@@ -660,7 +614,6 @@
         return;
       }
 
-      // Step 2: Video type
       if (!sessionState.video_type) {
         if (
           lowerInput.includes("basic") ||
@@ -698,7 +651,6 @@
         return;
       }
 
-      // Step 3: Duration
       if (!sessionState.duration) {
         if (
           lowerInput.includes("30") ||
@@ -732,7 +684,6 @@
         return;
       }
 
-      // Step 4: Budget
       if (!sessionState.video_budget) {
         const budgetMatch = input.match(/[\d,]+/);
         if (budgetMatch) {
@@ -753,7 +704,6 @@
         return;
       }
 
-      // Step 5: Timeline
       if (!sessionState.timeline) {
         if (
           lowerInput.includes("urgent") ||
@@ -782,7 +732,6 @@
       }
     }
 
-    // === OTHER SERVICES TIMELINE ===
     if (
       !sessionState.timeline &&
       sessionState.service_type !== "video-editing"
@@ -804,7 +753,6 @@
       return;
     }
 
-    // Handle lead capture (steps 10, 11, 12, 13)
     if (
       sessionState.conversationStep >= 10 &&
       sessionState.conversationStep <= 13
@@ -819,13 +767,10 @@
     );
   }
 
-  // === HELPER FUNCTIONS ===
   function resetConversation() {
-    // Clear all messages except welcome
     const messagesContainer = document.getElementById("pixy-chat-messages");
     messagesContainer.innerHTML = "";
 
-    // Reset session state
     sessionState = {
       service_type: null,
       project_type: null,
@@ -853,7 +798,6 @@
       isProcessing: false,
     };
 
-    // Restart conversation
     addBotMessage("🔄 Let's start fresh!");
     setTimeout(() => {
       addBotMessage("Which service are you interested in?");
@@ -890,12 +834,10 @@
   }
 
   function validatePhone(phone) {
-    // Accept Indian phone numbers with or without +91
     const phoneRegex = /^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$/;
     return phoneRegex.test(phone.replace(/\s/g, ""));
   }
 
-  // === WEB DEVELOPMENT HELPERS ===
   function askWebProjectType() {
     addBotMessage("What type of website do you need?");
     showQuickReplies([
@@ -940,7 +882,6 @@
     showQuickReplies(["SEO setup", "Maintenance", "Content writing", "None"]);
   }
 
-  // === SOFTWARE DEVELOPMENT HELPERS ===
   function askSoftwareProjectType() {
     addBotMessage("What type of software are you looking for?");
     showQuickReplies([
@@ -975,10 +916,9 @@
       "Normal (3-4 months)",
       "Flexible (6+ months)",
     ]);
-    sessionState.conversationStep = 0; // Reset for timeline detection
+    sessionState.conversationStep = 0;
   }
 
-  // === APP DEVELOPMENT HELPERS ===
   function askAppProjectType() {
     addBotMessage("What type of app do you want to build?");
     showQuickReplies([
@@ -1012,10 +952,9 @@
       "Normal (4-6 months)",
       "Flexible",
     ]);
-    sessionState.conversationStep = 0; // Reset for timeline detection
+    sessionState.conversationStep = 0;
   }
 
-  // === VIDEO EDITING HELPERS ===
   function askVideoProjectType() {
     addBotMessage(
       "First, how many videos do you need? (Just type a number like 1, 5, 10, 30)",
@@ -1057,7 +996,6 @@
   function askVideoBudget() {
     const quantity = parseInt(sessionState.video_quantity) || 1;
 
-    // Special pricing for 30-second reels
     if (sessionState.duration === "30 seconds") {
       let pricePerVideo;
       let totalPrice;
@@ -1089,7 +1027,6 @@
         );
       }
     } else {
-      // Regular pricing for other durations
       let priceRange = pricingRanges[sessionState.video_type];
 
       if (typeof priceRange === "object") {
@@ -1128,7 +1065,7 @@
       "2 - Normal (2-3 weeks)",
       "3 - Flexible (1 month+)",
     ]);
-    sessionState.conversationStep = 0; // Reset for timeline detection
+    sessionState.conversationStep = 0;
   }
 
   function askTimeline() {
@@ -1137,11 +1074,9 @@
   }
 
   function generateSummary() {
-    // Calculate pricing based on service type
     let basePrice = { min: 0, max: 0 };
     let serviceDetails = "";
 
-    // Determine base price
     if (sessionState.service_type === "web-dev") {
       if (sessionState.project_type === "ecommerce") {
         basePrice = pricingRanges.ecommerce;
@@ -1185,7 +1120,6 @@
         max: 300000,
       };
 
-      // Adjust for platform
       if (sessionState.platform === "both") {
         basePrice = { min: basePrice.min * 1.5, max: basePrice.max * 1.8 };
       }
@@ -1200,7 +1134,6 @@
     } else if (sessionState.service_type === "video-editing") {
       const quantity = parseInt(sessionState.video_quantity) || 1;
 
-      // Special pricing logic for 30-second reels
       if (sessionState.duration === "30 seconds") {
         let pricePerVideo;
         if (quantity <= 25) {
@@ -1212,13 +1145,11 @@
         const totalPrice = pricePerVideo * quantity;
         basePrice = { min: totalPrice, max: totalPrice };
       } else {
-        // Regular pricing for other durations
         basePrice = pricingRanges[sessionState.video_type] || {
           min: 5000,
           max: 40000,
         };
 
-        // Calculate total for multiple videos
         const totalMin = basePrice.min * quantity;
         const totalMax = basePrice.max * quantity;
         basePrice = { min: totalMin, max: totalMax };
@@ -1248,7 +1179,6 @@
 
     let addOnCost = { min: 0, max: 0 };
 
-    // Add-on calculations (for web dev)
     if (sessionState.service_type === "web-dev") {
       if (
         sessionState.domain_status === "no" ||
@@ -1272,7 +1202,6 @@
       });
     }
 
-    // Generate summary message with detailed breakdown
     let pricingSection = "";
 
     if (typeof basePrice === "string") {
@@ -1347,9 +1276,7 @@
   function captureLeadInfo(response) {
     const lowerResponse = response.toLowerCase();
 
-    // Handle form filling steps (check these FIRST)
     if (sessionState.conversationStep === 12) {
-      // Collecting email with validation
       if (!validateEmail(response)) {
         addBotMessage("⚠️ That doesn't look like a valid email address.");
         addBotMessage("Please enter a valid email (e.g., name@example.com):");
@@ -1363,7 +1290,6 @@
       sessionState.conversationStep = 13;
       return;
     } else if (sessionState.conversationStep === 13) {
-      // Collecting phone with validation
       if (lowerResponse === "skip") {
         sessionState.userPhone = "";
         addBotMessage(
@@ -1383,7 +1309,6 @@
       submitLead();
       return;
     } else if (sessionState.conversationStep === 11) {
-      // Collecting name
       if (response.length < 2) {
         addBotMessage("⚠️ Please enter your full name.");
         return;
@@ -1396,7 +1321,6 @@
       return;
     }
 
-    // Handle negotiation request
     if (
       lowerResponse.includes("negotiate") ||
       lowerResponse.includes("negotiation")
@@ -1417,7 +1341,6 @@
       return;
     }
 
-    // Initial prompt to fill form
     if (
       lowerResponse.includes("yes") ||
       lowerResponse.includes("connect") ||
@@ -1442,7 +1365,6 @@
   }
 
   async function submitLead() {
-    // Show loading message
     addBotMessage("Submitting your details... ⏳");
 
     try {
@@ -1467,7 +1389,6 @@
         timestamp: new Date().toISOString(),
       };
 
-      // Send to backend API
       const apiUrl = "https://backend.pixelatenest.com/api/pixy-lead";
 
       const response = await fetch(apiUrl, {
@@ -1506,7 +1427,6 @@
     } catch (error) {
       console.error("Error submitting lead:", error);
 
-      // Save to localStorage as backup
       try {
         const backupLeads = JSON.parse(
           localStorage.getItem("pixy_backup_leads") || "[]",
@@ -1549,7 +1469,6 @@
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
   }
 
-  // Initialize when DOM is ready
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initPixyChatbot);
   } else {

@@ -43,26 +43,6 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <link rel="canonical" href="https://www.pixelatenest.com/webdev.html" />
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link href="./styles.css" rel="stylesheet" type="text/css" />
-
-    <link href="web-dev.css" rel="stylesheet" type="text/css" />
-
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link
-      href="https://fonts.gstatic.com"
-      rel="preconnect"
-      crossorigin="anonymous"
-    />
-    <!-- Preconnect to API for faster data loading -->
     <link
       href="https://backend.pixelatenest.com"
       rel="preconnect"
@@ -116,726 +96,304 @@
 
       gtag("config", "G-T64KPYDX6P");
     </script>
-    <!-- Facebook Pixel Code -->
-    <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js",
-      );
-      fbq("init", "1529543734863040");
-      fbq("track", "PageView");
-    </script>
-    <noscript>
-      <img
-        height="1"
-        width="1"
-        src="https://www.facebook.com/tr?id=1529543734863040&ev=PageView
-    &noscript=1"
-      />
-    </noscript>
-    <!-- End Facebook Pixel Code -->
   </head>
   <body>
-    <!-- Announcement Bar -->
-    <div id="announcement-bar" class="announcement-bar">
-      <div class="announcement-content" id="announcement-content"></div>
-    </div>
-
-    <style>
-      .announcement-bar {
-        background: linear-gradient(90deg, #da4900 0%, black 100%);
-        background-size: 200% 100%;
-        animation: gradient-shift 3s ease infinite;
-        color: white;
-        padding: 12px 0;
-        text-align: center;
-        font-weight: 600;
-        font-size: 14px;
-        position: relative;
-        z-index: 1000;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .announcement-content {
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-        animation: scroll-announcement 30s linear infinite;
-      }
-
-      .announcement-content span {
-        display: inline-block;
-        padding: 0 50px;
-      }
-
-      @keyframes gradient-shift {
-        0%,
-        100% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-      }
-
-      @keyframes scroll-announcement {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .announcement-bar {
-          font-size: 12px;
-          padding: 10px 0;
-        }
-        .announcement-content span {
-          padding: 0 30px;
-        }
-      }
-    </style>
-
-    <script>
-      (async function loadAnnouncement() {
-        try {
-          const res = await fetch(
-            "https://backend.pixelatenest.com/api/announcement",
-            {
-              cache: "no-store",
-            },
-          );
-          if (res.ok) {
-            const data = await res.json();
-            if (data.text && data.enabled) {
-              const container = document.getElementById("announcement-content");
-              for (let i = 0; i < 20; i++) {
-                const span = document.createElement("span");
-                span.textContent = data.text;
-                container.appendChild(span);
-              }
-              document.getElementById("announcement-bar").style.display =
-                "block";
-            } else if (!data.enabled) {
-              document.getElementById("announcement-bar").style.display =
-                "none";
-            }
-          }
-        } catch (e) {
-          console.log("Could not load announcement:", e);
-          const bar = document.getElementById("announcement-bar");
-          if (bar) bar.style.display = "none";
-        }
-      })();
-    </script>
-
-    <div class="page-wrapper">
-      <!-- Main Hero Section with Navbar -->
-      <div class="main-hero">
-        <section class="nav-wrap">
-          <div class="nav-bar-wrap">
-            <div
-              data-animation="default"
-              data-collapse="medium"
-              data-duration="400"
-              data-easing="ease"
-              data-easing2="ease"
-              role="banner"
-              class="navbar w-nav"
-            >
-              <div class="navbar-wrapper">
-                <div class="navbar-left">
-                  <a
-                    href="https://www.pixelatenest.com/"
-                    class="navbar-brand w-nav-brand"
-                  >
-                    <img
-                      loading="lazy"
-                      src="./assets/navbarlogo.png"
-                      alt="Pixelate Nest Logo"
-                      class="navbar-brand-logo"
-                    />
-                  </a>
-                </div>
-                <div class="navbar-center">
-                  <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
-                    <ul role="list" class="nav-menu w-list-unstyled">
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/"
-                          class="nav-link w-inline-block"
-                          ><div class="nav-link-text">Home</div></a
-                        >
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/about.html"
-                          aria-current="page"
-                          class="nav-link w-inline-block"
-                          ><div class="nav-link-text">About</div></a
-                        >
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/pricing.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">Pricing</div>
+    <div class="main-hero">
+      <section class="nav-wrap">
+        <div class="nav-bar-wrap">
+          <div
+            data-animation="default"
+            data-collapse="medium"
+            data-duration="400"
+            data-easing="ease"
+            data-easing2="ease"
+            role="banner"
+            class="navbar w-nav"
+          >
+            <div class="navbar-wrapper">
+              <div class="navbar-left">
+                <a
+                  href="https://www.pixelatenest.com/"
+                  class="navbar-brand w-nav-brand"
+                >
+                  <img
+                    loading="lazy"
+                    src="./assets/Logo_Color_Name_Large.webp"
+                    alt="Pixelate Nest Logo"
+                    class="navbar-brand-logo"
+                  />
+                </a>
+              </div>
+              <div class="navbar-center">
+                <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
+                  <ul role="list" class="nav-menu w-list-unstyled">
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/"
+                        class="nav-link w-inline-block"
+                        ><div class="nav-link-text">Home</div></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/about.html"
+                        aria-current="page"
+                        class="nav-link w-inline-block"
+                        ><div class="nav-link-text">About</div></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/pricing.html"
+                        class="nav-link w-inline-block"
+                      >
+                        <div class="nav-link-text">Pricing</div>
+                      </a>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                      <a
+                        href="javascript:void(0)"
+                        class="nav-link dropdown-toggle w-inline-block"
+                      >
+                        <span class="nav-link-text">Services</span>
+                        <i
+                          class="fas fa-chevron-down dropdown-arrow"
+                          aria-hidden="true"
+                        ></i>
+                      </a>
+                      <div class="dropdown-menu">
+                        <a href="webdev.html" class="dropdown-item">
+                          Web Development
                         </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/webdev.html"
-                          class="nav-link w-inline-block w--current"
-                        >
-                          <div class="nav-link-text">Web Development</div>
+                        <a href="app-dev.html" class="dropdown-item">
+                          App Development
                         </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/app-dev.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">App Development</div>
+                        <a href="software-dev.html" class="dropdown-item">
+                          Software Development
                         </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/software-dev.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">Software Development</div>
+                        <a href="video-ed.html" class="dropdown-item">
+                          Video Editing
                         </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/video-ed.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">Video Editing</div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/photography.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">Photography</div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/blogs.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">Blogs</div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/careers.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">Careers</div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          href="https://www.pixelatenest.com/contact.html"
-                          class="nav-link w-inline-block"
-                        >
-                          <div class="nav-link-text">Contact</div>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-                <div class="navbar-right">
-                  <div class="menu-button w-nav-button">
-                    <div
-                      data-is-ix2-target="1"
-                      class="hamburger-menu"
-                      data-w-id="87959840-dee1-9d4c-adfe-a49c217b8a08"
-                      data-animation-type="lottie"
-                      data-src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/686b9c8a6088b99ac2420c42_Animation%20-%201751882800099.json"
-                      data-loop="0"
-                      data-direction="1"
-                      data-autoplay="0"
-                      data-renderer="svg"
-                      data-default-duration="0"
-                      data-duration="2.3333333333333335"
-                      data-ix2-initial-state="0"
-                    ></div>
-                  </div>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/blogs.html"
+                        class="nav-link w-inline-block"
+                      >
+                        <div class="nav-link-text">Blogs</div>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/careers.html"
+                        class="nav-link w-inline-block"
+                      >
+                        <div class="nav-link-text">Careers</div>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="https://www.pixelatenest.com/contact.html"
+                        class="nav-link w-inline-block"
+                      >
+                        <div class="nav-link-text">Contact</div>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="navbar-right">
+                <div class="menu-button w-nav-button">
+                  <div
+                    data-is-ix2-target="1"
+                    class="hamburger-menu"
+                    data-w-id="87959840-dee1-9d4c-adfe-a49c217b8a08"
+                    data-animation-type="lottie"
+                    data-loop="0"
+                    data-direction="1"
+                    data-autoplay="0"
+                    data-renderer="svg"
+                    data-default-duration="0"
+                    data-duration="2.3333333333333335"
+                    data-ix2-initial-state="0"
+                  ></div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="hero">
-          <div class="container-webdev">
-            <div class="hero-01-wrap features-v1-hero">
-              <div class="short-teg-wrap">
-                <div class="short-teg caption-linear-bg">
-                  <div class="tagline _01">Web Development</div>
-                </div>
-              </div>
-              <div class="heading-wrap">
-                <h1 class="h2">Our Web Development Services</h1>
-              </div>
-              <div class="sub-heading-wrap features-v1-sub-heading">
-                <p class="p-text-01 text-white-60">
-                  We build beautiful, high-performance websites and applications
-                  that are secure, scalable, and designed to provide a flawless
-                  user experience that converts visitors into customers.
-                </p>
-              </div>
-            </div>
-
-            <div
-              id="portfolio-grid"
-              class="portfolio-grid"
-              style="margin-top: 80px"
-            >
-              <!-- Loading skeletons -->
-              <div class="skeleton skeleton-card"></div>
-              <div class="skeleton skeleton-card"></div>
-              <div class="skeleton skeleton-card"></div>
-              <div class="skeleton skeleton-card"></div>
-              <div class="skeleton skeleton-card"></div>
-              <div class="skeleton skeleton-card"></div>
-            </div>
-          </div>
-        </section>
-        <div class="bg-linear"></div>
-      </div>
-
-      <section class="process-section">
-        <div class="container">
-          <div class="process-top">
-            <h3 class="h2 text-linear">Our Proven Process</h3>
-            <p class="p-text-01 text-white-60">
-              We follow a structured, transparent process to ensure your project
-              is a success from start to finish.
-            </p>
-          </div>
-          <div class="process-grid">
-            <div class="process-step">
-              <div class="step-number">01</div>
-              <h4 class="step-title">Discovery & Strategy</h4>
-              <p class="step-description">
-                We start by understanding your goals, audience, and project
-                requirements to build a comprehensive roadmap for success.
-              </p>
-            </div>
-            <div class="process-step">
-              <div class="step-number">03</div>
-              <h4 class="step-title">Testing & QA</h4>
-              <p class="step-description">
-                We rigorously test across all devices and browsers to ensure
-                your site is bug-free, fast, and fully responsive.
-              </p>
-            </div>
-            <div class="process-step">
-              <div class="step-number">04</div>
-              <h4 class="step-title">Launch & Deployment</h4>
-              <p class="step-description">
-                We handle the entire deployment process, ensuring a smooth and
-                seamless launch of your new website to the world.
-              </p>
-            </div>
-            <div class="process-step">
-              <div class="step-number">05</div>
-              <h4 class="step-title">Support & Maintenance</h4>
-              <p class="step-description">
-                After launch, we offer ongoing support packages to keep your
-                site secure, updated, and running at peak performance.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CTA Section (Copied from index.html) -->
-      <section class="cta-v1">
-        <div class="container">
-          <div class="cta-v1-wrap">
-            <div class="cta-v1-main-wrap">
-              <div class="cta-v1-main">
-                <div class="short-teg-wrap">
-                  <div class="short-teg caption-linear-bg">
-                    <div class="tagline _01">Let's Build Together</div>
-                  </div>
-                </div>
+      <section class="hero">
+        <div class="container-webdev">
+          <div class="hero-01-wrap features-v1-hero">
+            <div class="short-teg-wrap">
+              <div class="short-teg caption-linear-bg">
+                <div class="tagline _01">Web Development</div>
+              </div>
+            </div>
+            <div class="heading-wrap">
+              <h1 class="h2">Our Web Development Services</h1>
+            </div>
+            <div class="sub-heading-wrap features-v1-sub-heading">
+              <p class="p-text-01 text-white-60">
+                We build beautiful, high-performance websites and applications
+                that are secure, scalable, and designed to provide a flawless
+                user experience that converts visitors into customers.
+              </p>
+            </div>
+          </div>
 
-                <div class="sub-heading-wrap">
-                  <p class="p-text-02 text-white-70">
-                    Partner with our in-house team of developers, designers, and
-                    marketers to build a powerful and cohesive online presence
-                    from concept to conversion.
-                  </p>
-                </div>
-                <div class="cta-v1-button-wrap">
-                  <a
-                    href="https://www.pixelatenest.com/contact.html"
-                    class="cta-button w-inline-block"
-                  >
-                    <div class="button-02-cover _02">
-                      <div class="button-02-text">
-                        <div class="button-text-01 text-white">
-                          Get a Free Consultation
-                        </div>
-                        <div class="button-text-01 text-white">
-                          Get a Free Consultation
+          <div
+            id="portfolio-grid"
+            class="portfolio-grid"
+            style="margin-top: 80px"
+          >
+            <section class="cta-v1">
+              <div class="container">
+                <div class="cta-v1-wrap">
+                  <div class="cta-v1-main-wrap">
+                    <div class="cta-v1-main">
+                      <div class="short-teg-wrap">
+                        <div class="short-teg caption-linear-bg">
+                          <div class="tagline _01">Let's Build Together</div>
                         </div>
                       </div>
-                      <img
-                        loading="lazy"
-                        src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6842e0e84343d9719dd6e3e7_Vector%20Top%20White.svg"
-                        alt="Background"
-                        class="button-icon"
-                      />
+
+                      <div class="sub-heading-wrap">
+                        <p class="p-text-02 text-white-70">
+                          Partner with our in-house team of developers,
+                          designers, and marketers to build a powerful and
+                          cohesive online presence from concept to conversion.
+                        </p>
+                      </div>
+                      <div class="cta-v1-button-wrap">
+                        <a
+                          href="https://www.pixelatenest.com/contact.html"
+                          class="cta-button w-inline-block"
+                        >
+                          <div class="button-02-cover _02">
+                            <div class="button-02-text">
+                              <div class="button-text-01 text-white">
+                                Get a Free Consultation
+                              </div>
+                              <div class="button-text-01 text-white">
+                                Get a Free Consultation
+                              </div>
+                            </div>
+                            <img
+                              loading="lazy"
+                              src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6842e0e84343d9719dd6e3e7_Vector%20Top%20White.svg"
+                              alt="Background"
+                              class="button-icon"
+                            />
+                          </div>
+                        </a>
+                      </div>
                     </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="cta-v1-card-shadow"></div>
-            <div class="ta-v1-dot">
-              <img
-                src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6856448a7b751bd4fcaef4af_BG%20Dot.avif"
-                loading="lazy"
-                alt="Background"
-                class="cta-bg-gif"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <section class="footer">
-        <div class="container">
-          <div class="footer-wrap">
-            <div class="footer-top">
-              <div class="footer-top-left">
-                <div class="footer-logo-details">
-                  <div class="footer-logo-wrap">
-                    <a
-                      href="https://www.pixelatenest.com/"
-                      aria-current="page"
-                      class="footer-logo w-inline-block w--current"
-                    >
-                      <img
-                        src="assets/only-icon.png"
-                        loading="lazy"
-                        alt="Pixelate Nest Logo"
-                        class="fit-cover"
-                      />
-                    </a>
-                    <p class="p-text-01">Pixelate Nest</p>
                   </div>
-                  <p class="p-text-03">
-                    Creative Digital Experiences That Build Your Brand.
-                  </p>
-                  <div style="margin-top: 20px">
-                    <p class="p-text-03" style="margin-bottom: 8px">
-                      <strong>Contact Us</strong>
-                    </p>
-                    <p
-                      class="p-text-03 text-white-60"
-                      style="margin-bottom: 5px"
-                    >
-                      <i class="fas fa-envelope" style="margin-right: 8px"></i>
-                      support@pixelatenest.com
-                    </p>
-                    <p
-                      class="p-text-03 text-white-60"
-                      style="margin-bottom: 5px"
-                    >
-                      <i class="fas fa-phone" style="margin-right: 8px"></i> +91
-                      84069 12345
-                    </p>
-                    <p class="p-text-03 text-white-60">
-                      <i
-                        class="fas fa-map-marker-alt"
-                        style="margin-right: 8px"
-                      ></i>
-                      Muzaffarpur, Bihar, India
-                    </p>
+                  <div class="cta-v1-card-shadow"></div>
+                  <div class="ta-v1-dot">
+                    <img
+                      src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6856448a7b751bd4fcaef4af_BG%20Dot.avif"
+                      loading="lazy"
+                      alt="Background"
+                      class="cta-bg-gif"
+                    />
                   </div>
                 </div>
               </div>
+            </section>
 
-              <div class="footer-right-link-wrap">
-                <div class="footer-link-wrap">
-                  <div class="p-text-01">Company</div>
-                  <div class="footer-link-list">
-                    <a
-                      href="https://www.pixelatenest.com/about.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">About Us</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/careers.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Careers</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/contact.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Contact Us</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/blogs.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Blog</div>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="footer-link-wrap">
-                  <div class="p-text-01">Services</div>
-                  <div class="footer-link-list">
-                    <a
-                      href="https://www.pixelatenest.com/video-ed.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Video Editing</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/webdev.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Web Development</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/app-dev.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">App Development</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/software-dev.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Software Development</div>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="footer-link-wrap">
-                  <div class="p-text-01">Resources</div>
-                  <div class="footer-link-list">
-                    <a
-                      href="https://www.pixelatenest.com/pricing.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Pricing</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/locations.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Locations</div>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="footer-link-wrap">
-                  <div class="p-text-01">Legal</div>
-                  <div class="footer-link-list">
-                    <a
-                      href="https://www.pixelatenest.com/privacy-policy.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Privacy Policy</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/terms-of-service.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Terms of Service</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/cookie-policy.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Cookie Policy</div>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="footer-link-wrap">
-                  <div class="p-text-01">Follow Us</div>
-                  <div class="footer-link-list">
-                    <a
-                      href="https://www.instagram.com/pixelate.nest/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Instagram</div>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/company/pixelate-nest/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">LinkedIn</div>
-                    </a>
-                    <a
-                      href="https://twitter.com/pixelatenest"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Twitter</div>
-                    </a>
-                    <a
-                      href="https://www.facebook.com/profile.php?id=61582873344961"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Facebook</div>
-                    </a>
-                  </div>
-                </div>
+            <a
+              href="https://www.instagram.com/pixelate.nest/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link w-inline-block"
+            >
+              <div class="footer-link-text">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+                Instagram
               </div>
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61586872964348"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link w-inline-block"
+            >
+              <div class="footer-link-text">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                Facebook
+              </div>
+            </a>
+            <div
+              class="footer-social-icons"
+              style="
+                display: flex;
+                gap: 12px;
+                margin-top: 12px;
+                align-items: center;
+              "
+            >
+              <a
+                href="https://www.linkedin.com/company/pixelate-nest/?viewAsMember=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                style="color: inherit; font-size: 18px"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/pixelate.nest/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                style="color: inherit; font-size: 18px"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61586872964348"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                style="color: inherit; font-size: 18px"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
             </div>
 
             <div class="footer-bottom">
               <div class="vertical-divider"></div>
               <div class="footer-bottom-wrap">
                 <div class="p-text-03 text-white-60">
-                  © 2025 Pixelate Nest. All Rights Reserved. | Crafted with
+                  © 2026 Kalahanu Tech Studios LLP. All Rights Reserved. |
+                  Crafted with
                   <i class="fas fa-heart" style="color: #e74c3c"></i>
                   in India
                 </div>
-
-                <!-- Star Rating Section -->
-                <div class="footer-rating-wrap">
-                  <span class="p-text-03 text-white-60">Rate Us:</span>
-                  <div class="footer-stars" id="footerStars">
-                    <svg
-                      class="footer-star"
-                      data-rating="1"
-                      width="28"
-                      height="28"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                        fill="#FFD700"
-                        stroke="#FFD700"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    <svg
-                      class="footer-star"
-                      data-rating="2"
-                      width="28"
-                      height="28"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                        fill="#FFD700"
-                        stroke="#FFD700"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    <svg
-                      class="footer-star"
-                      data-rating="3"
-                      width="28"
-                      height="28"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                        fill="#FFD700"
-                        stroke="#FFD700"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    <svg
-                      class="footer-star"
-                      data-rating="4"
-                      width="28"
-                      height="28"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                        fill="#FFD700"
-                        stroke="#FFD700"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    <svg
-                      class="footer-star"
-                      data-rating="5"
-                      width="28"
-                      height="28"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                        fill="#FFD700"
-                        stroke="#FFD700"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                <div class="p-text-03 text-white-60">
+                  <strong>Payments Accepted:</strong>
+                  <div
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      gap: 15px;
+                      margin-left: 10px;
+                    "
+                  >
+                    <span style="display: flex; align-items: center; gap: 5px">
+                      <i class="fas fa-money-bill-wave"></i> Cash
+                    </span>
+                    <span style="display: flex; align-items: center; gap: 5px">
+                      <i class="fas fa-university"></i> Bank
+                    </span>
+                    <span style="display: flex; align-items: center; gap: 5px">
+                      <i class="fas fa-mobile-alt"></i> UPI
+                    </span>
                   </div>
                 </div>
               </div>
@@ -857,12 +415,9 @@
     ></script>
 
     <script>
-      // START LOADING IMMEDIATELY - Don't wait for DOMContentLoaded
-      // Cache key and duration
       const CACHE_KEY = "webdev_gallery_cache";
-      const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+      const CACHE_DURATION = 5 * 60 * 1000;
 
-      // Check cache first
       function getCachedData() {
         try {
           const cached = localStorage.getItem(CACHE_KEY);
@@ -871,7 +426,6 @@
           const { data, timestamp } = JSON.parse(cached);
           const now = Date.now();
 
-          // Check if cache is still valid
           if (now - timestamp < CACHE_DURATION) {
             console.log("Using cached data");
             return data;
@@ -884,7 +438,6 @@
         }
       }
 
-      // Save to cache
       function setCachedData(data) {
         try {
           localStorage.setItem(
@@ -899,21 +452,18 @@
         }
       }
 
-      // Load gallery items from dashboard API and render those marked for web-development
       async function loadGallery() {
         const grid = document.getElementById("portfolio-grid");
 
         try {
-          // Try cache first
           const cachedData = getCachedData();
           if (cachedData) {
             renderGallery(cachedData, grid);
-            // Still fetch fresh data in background to update cache
+
             fetchAndRender(grid, true);
             return;
           }
 
-          // No cache, fetch immediately
           await fetchAndRender(grid, false);
         } catch (e) {
           console.error(e);
@@ -927,9 +477,6 @@
           const res = await fetch(
             "https://backend.pixelatenest.com/api/work-gallery",
             {
-              // Use browser cache if available. Avoid sending a custom
-              // Cache-Control header — that triggers a CORS preflight which
-              // requires server-side Access-Control-Allow-Headers to include it.
               cache: "force-cache",
             },
           );
@@ -938,10 +485,8 @@
 
           const items = await res.json();
 
-          // Save to cache
           setCachedData(items);
 
-          // Only render if not background refresh
           if (!isBackground) {
             renderGallery(items, grid);
           }
@@ -975,7 +520,7 @@
           img.className = "portfolio-image";
           img.alt = it.title || "Project";
           img.src = it.thumbnailBase64 || "/assets/placeholder.png";
-          img.loading = "lazy"; // Lazy load images
+          img.loading = "lazy";
           imgWrap.appendChild(img);
 
           const overlay = document.createElement("div");
@@ -1003,18 +548,16 @@
               tagsDiv.appendChild(s);
             });
 
-          // stars
           const stars = document.createElement("div");
           stars.className = "stars";
           const rating = Math.max(0, Math.min(5, Number(it.rating || 0)));
           for (let si = 1; si <= 5; si++) {
             const sp = document.createElement("span");
             sp.className = "star" + (si <= rating ? " filled" : "");
-            sp.innerHTML = "&#9733;"; // star char
+            sp.innerHTML = "&#9733;";
             stars.appendChild(sp);
           }
 
-          // append overlay children in desired order (title, stars, description, tags)
           overlay.appendChild(h4);
           overlay.appendChild(stars);
           overlay.appendChild(p);
@@ -1026,137 +569,11 @@
         }
       }
 
-      // START IMMEDIATELY - Don't wait for page load
       loadGallery();
     </script>
 
-    <!-- Review Modal -->
-    <div
-      id="review-modal"
-      style="
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.5);
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-      "
-    >
-      <div
-        style="
-          background: #fff;
-          padding: 20px;
-          max-width: 480px;
-          width: 95%;
-          border-radius: 6px;
-        "
-      >
-        <h3>Leave a Review</h3>
-        <p>Select rating:</p>
-        <div
-          id="modal-stars"
-          style="display: flex; gap: 6px; font-size: 22px; margin-bottom: 8px"
-        >
-          <span data-value="1" class="star">★</span>
-          <span data-value="2" class="star">★</span>
-          <span data-value="3" class="star">★</span>
-          <span data-value="4" class="star">★</span>
-          <span data-value="5" class="star">★</span>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 8px">
-          <div class="form-field">
-            <label class="form-label" for="rv-name">Name</label>
-            <input id="rv-name" placeholder="Your name" />
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="rv-email">Email</label>
-            <input id="rv-email" placeholder="Email" />
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="rv-message">Message</label>
-            <textarea id="rv-message" placeholder="Message"></textarea>
-          </div>
-          <div style="display: flex; gap: 8px; justify-content: flex-end">
-            <button id="rv-cancel" class="w-button">Cancel</button>
-            <button id="rv-submit" class="form-submit-button">Submit</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script>
-      // review modal logic
-      (function () {
-        const API_BASE =
-          window.location.hostname === "localhost" ||
-          window.location.hostname === "127.0.0.1"
-            ? "https://backend.pixelatenest.com"
-            : "";
-        const modal = document.getElementById("review-modal");
-        const footerStars = document.getElementById("footer-review-stars");
-        const modalStars = document.getElementById("modal-stars");
-        let selectedRating = 4;
-
-        function setModalStars(r) {
-          selectedRating = r;
-          Array.from(modalStars.children).forEach((s) => {
-            const v = Number(s.getAttribute("data-value"));
-            s.classList.toggle("filled", v <= r);
-          });
-        }
-
-        footerStars?.addEventListener("click", () => {
-          modal.style.display = "flex";
-          setModalStars(4);
-        });
-
-        modalStars?.addEventListener("click", (ev) => {
-          const t = ev.target;
-          if (t && t.getAttribute && t.getAttribute("data-value")) {
-            setModalStars(Number(t.getAttribute("data-value")));
-          }
-        });
-
-        document
-          .getElementById("rv-cancel")
-          .addEventListener("click", () => (modal.style.display = "none"));
-        document
-          .getElementById("rv-submit")
-          .addEventListener("click", async () => {
-            const nameEl = document.getElementById("rv-name");
-            const emailEl = document.getElementById("rv-email");
-            const messageEl = document.getElementById("rv-message");
-            const name = nameEl ? nameEl.value || "" : "";
-            const email = emailEl ? emailEl.value || "" : "";
-            const message = messageEl ? messageEl.value || "" : "";
-            try {
-              const res = await fetch(API_BASE + "/api/reviews", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  name,
-                  email,
-                  message,
-                  rating: selectedRating,
-                  createdAt: new Date(),
-                }),
-              });
-              if (!res.ok) throw new Error("Failed");
-              modal.style.display = "none";
-              alert("Thanks for your review!");
-            } catch (e) {
-              console.error(e);
-              alert("Failed to send review");
-            }
-          });
-      })();
-    </script>
-
-    <!-- Animation Script -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Add animation classes to main sections
         const sections = document.querySelectorAll(
           "section:not(.nav-wrap), .portfolio-grid, .process-grid",
         );
@@ -1164,7 +581,6 @@
           section.classList.add("section-animate");
         });
 
-        // Set up intersection observer for scroll animations
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
@@ -1181,12 +597,10 @@
           },
         );
 
-        // Observe all animated sections
         sections.forEach((section) => {
           observer.observe(section);
         });
 
-        // Add staggered animations to grid items
         const gridItems = document.querySelectorAll(
           ".portfolio-item, .process-step",
         );
@@ -1196,7 +610,6 @@
           observer.observe(item);
         });
 
-        // Add immediate animations to hero elements
         const heroElements = document.querySelectorAll(
           ".main-hero *:not(nav *)",
         );
@@ -1229,83 +642,85 @@
         localStorage.setItem("selectedPlan", planDetails);
       }
     </script>
-  </body>
+    <script src="js/index.js"></script>
 
-  <script>
-    (function () {
-      if (
-        localStorage.getItem("pn_prefetch_optout") === "1" ||
-        document.cookie.indexOf("pn_prefetch_optout=1") !== -1
-      )
-        return;
-      const pages = [
-        "/about.html",
-        "/app-dev.html",
-        "/software-dev.html",
-        "/video-ed.html",
-        "/photography.html",
-        "/blogs.html",
-        "/contact.html",
-        "/pricing.html",
-        "/careers.html",
-        "/index.html",
-      ];
-      const domains = [
-        "https://backend.pixelatenest.com",
-        "https://fonts.googleapis.com",
-        "https://fonts.gstatic.com",
-        "https://cdn.prod.website-files.com",
-        "https://cdnjs.cloudflare.com",
-        "https://www.google-analytics.com",
-        "https://www.googletagmanager.com",
-      ];
-      function addLink(rel, href, as, crossorigin) {
-        try {
-          const l = document.createElement("link");
-          l.rel = rel;
-          l.href = href;
-          if (as) l.as = as;
-          if (crossorigin) l.crossOrigin = "anonymous";
-          document.head.appendChild(l);
-        } catch (e) {}
-      }
-      function warm() {
-        domains.forEach((d) => {
-          addLink("preconnect", d, null, true);
-          addLink("dns-prefetch", d);
-        });
-        pages.forEach((p) => addLink("prefetch", p, "document"));
-        addLink("preload", "/styles.css", "style");
-        addLink(
-          "preload",
-          "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
-          "style",
-          true,
-        );
-        try {
-          fetch("/", {
-            method: "GET",
-            mode: "no-cors",
-            cache: "no-cache",
-          }).catch(() => {});
-          fetch("https://backend.pixelatenest.com", {
-            method: "GET",
-            mode: "no-cors",
-          }).catch(() => {});
-        } catch (e) {}
-      }
-      if ("requestIdleCallback" in window)
-        requestIdleCallback(warm, { timeout: 2000 });
-      else window.addEventListener("load", () => setTimeout(warm, 1000));
-      window.pixelateNestDisablePrefetch = function () {
-        localStorage.setItem("pn_prefetch_optout", "1");
-        document.cookie =
-          "pn_prefetch_optout=1;path=/;max-age=" + 60 * 60 * 24 * 365;
-      };
-      window.pixelateNestEnablePrefetch = function () {
-        localStorage.removeItem("pn_prefetch_optout");
-        document.cookie = "pn_prefetch_optout=;path=/;max-age=0";
-      };
-    })();
-  </script>
+    <script>
+      (function () {
+        if (
+          localStorage.getItem("pn_prefetch_optout") === "1" ||
+          document.cookie.indexOf("pn_prefetch_optout=1") !== -1
+        )
+          return;
+        const pages = [
+          "/about.html",
+          "/app-dev.html",
+          "/software-dev.html",
+          "/video-ed.html",
+          "/photography.html",
+          "/blogs.html",
+          "/contact.html",
+          "/pricing.html",
+          "/careers.html",
+          "/index.html",
+        ];
+        const domains = [
+          "https://backend.pixelatenest.com",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+          "https://cdn.prod.website-files.com",
+          "https://cdnjs.cloudflare.com",
+          "https://www.google-analytics.com",
+          "https://www.googletagmanager.com",
+        ];
+        function addLink(rel, href, as, crossorigin) {
+          try {
+            const l = document.createElement("link");
+            l.rel = rel;
+            l.href = href;
+            if (as) l.as = as;
+            if (crossorigin) l.crossOrigin = "anonymous";
+            document.head.appendChild(l);
+          } catch (e) {}
+        }
+        function warm() {
+          domains.forEach((d) => {
+            addLink("preconnect", d, null, true);
+            addLink("dns-prefetch", d);
+          });
+          pages.forEach((p) => addLink("prefetch", p, "document"));
+          addLink("preload", "/styles.css", "style");
+          addLink(
+            "preload",
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+            "style",
+            true,
+          );
+          try {
+            fetch("/", {
+              method: "GET",
+              mode: "no-cors",
+              cache: "no-cache",
+            }).catch(() => {});
+            fetch("https://backend.pixelatenest.com", {
+              method: "GET",
+              mode: "no-cors",
+            }).catch(() => {});
+          } catch (e) {}
+        }
+        if ("requestIdleCallback" in window)
+          requestIdleCallback(warm, { timeout: 2000 });
+        else window.addEventListener("load", () => setTimeout(warm, 1000));
+        window.pixelateNestDisablePrefetch = function () {
+          localStorage.setItem("pn_prefetch_optout", "1");
+          document.cookie =
+            "pn_prefetch_optout=1;path=/;max-age=" + 60 * 60 * 24 * 365;
+        };
+        window.pixelateNestEnablePrefetch = function () {
+          localStorage.removeItem("pn_prefetch_optout");
+          document.cookie = "pn_prefetch_optout=;path=/;max-age=0";
+        };
+      })();
+    </script>
+    <script src="js/activity-tracker.js"></script>
+  </body>
 </html>

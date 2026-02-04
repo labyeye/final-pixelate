@@ -50,7 +50,7 @@
   text-decoration: none;
   box-shadow: 0 10px 30px rgba(109, 109, 109, 0.18);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  /* glass effect */
+  
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));
   border: 1px solid rgba(255,255,255,0.06);
   backdrop-filter: blur(8px) saturate(120%);
@@ -80,7 +80,7 @@
 }
 
 .portfolio-overlay {
-  /* overlay content always visible (not hover-only) */
+  
   position: relative;
   bottom: auto;
   left: auto;
@@ -91,10 +91,10 @@
   transform: none;
 }
 
-/* blurred orange SVG accent in top-left */
+
 .portfolio-card > * { position: relative; z-index: 1; }
 
-/* ensure overlay text sits above background elements */
+
 .portfolio-overlay > * { position: relative; z-index: 2; }
 
 .portfolio-title {
@@ -107,7 +107,7 @@
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 20px;
-  color: #ffffffb3;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .portfolio-tags {
@@ -171,7 +171,7 @@
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Add staggered delay for each process step */
+
 .process-step:nth-child(1) {
   animation-delay: 0.2s;
 }
@@ -224,7 +224,7 @@
 }
 
 .step-description {
-  color: #ffffffb3; /* 70% white */
+  color: rgba(255, 255, 255, 0.7); 
   font-size: 16px;
   line-height: 1.6;
   margin: 0;
@@ -235,7 +235,7 @@
 
 .process-step:hover .step-description {
   transform: translateY(-2px);
-  color: #ffffffcc; /* Slightly brighter on hover */
+  color: rgba(255, 255, 255, 0.8); 
 }
 
 
@@ -247,11 +247,11 @@
     -webkit-text-fill-color: transparent;
 }
 
-/* Use existing component classes instead of custom ones */
-/* --- END: WEB DEVELOPMENT PAGE STYLES --- */
 
-/* --- OVERRIDES: Portfolio card layout to match mock (image right, details left) --- */
-/* Default: mobile/tablet stacked cards */
+
+
+
+
 .portfolio-card {
   display: flex !important;
   flex-direction: column !important;
@@ -259,7 +259,7 @@
   height: auto !important;
   gap: 14px !important;
   padding: 14px !important;
-  background: linear-gradient(90deg, #000000 0%, #070707 100%) !important;
+  background: linear-gradient(90deg, var(--black) 0%, var(--tertiary-900) 100%) !important;
   border-radius: 14px !important;
 }
 
@@ -281,24 +281,24 @@
   transform: none !important;
   background: transparent !important;
   padding: 12px 0 0 0 !important;
-  color: #ffffff !important;
+  color: var(--white) !important;
 }
 
 .portfolio-title {
-  color: #ffffff !important;
+  color: var(--white) !important;
 }
 .portfolio-description {
   color: rgba(255, 255, 255, 0.9) !important;
 }
 .tag {
   background: rgba(218, 73, 0, 0.08) !important;
-  color: #da4900 !important;
+  color: var(--secondary-900) !important;
 }
 .star.filled {
-  color: #da4900 !important;
+  color: var(--secondary-900) !important;
 }
 
-/* Desktop: two-column cards with image on the right and increased height */
+
 @media (min-width: 1024px) {
   #portfolio-grid {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -320,12 +320,12 @@
   }
 }
 
-/* Keep hover interaction only for subtle image transform */
+
 .portfolio-card:hover .portfolio-image {
   transform: scale(1.04) rotate(-0.6deg);
 }
 
-/* Ensure skeleton matches new height */
+
 .skeleton-card {
   height: 340px !important;
 }

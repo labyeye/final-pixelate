@@ -66,13 +66,13 @@ type AddMemberDialogProps = {
   setIsOpen: (isOpen: boolean) => void;
   // allow onAddMember to return a Promise or sync value
   onAddMember?: (
-    newMember: Omit<TeamMember, "id">
+    newMember: Omit<TeamMember, "id">,
   ) => void | Promise<void | TeamMember>;
   onCreated?: (created: any) => void;
   // Support edit mode
   onSave?: (
     id: string | number,
-    update: Partial<TeamMember>
+    update: Partial<TeamMember>,
   ) => void | Promise<void | TeamMember>;
   initialValues?: Partial<TeamMember>;
   children: React.ReactNode;
@@ -123,21 +123,21 @@ export function AddMemberDialog({
       const id = initialValues._id ?? initialValues.id;
       if (onSave) {
         try {
-              // Normalize fields for update: keep job role (jobRole) separate from auth role (role)
-              const updatePayload: any = { ...memberPayload };
-              if (updatePayload.role) {
-                updatePayload.jobRole = updatePayload.role;
-                delete updatePayload.role;
-              }
-              if ((updatePayload as any).loginRole) {
-                updatePayload.role = (updatePayload as any).loginRole;
-                delete (updatePayload as any).loginRole;
-              }
-              await onSave(id as any, updatePayload as Partial<TeamMember>);
+          // Normalize fields for update: keep job role (jobRole) separate from auth role (role)
+          const updatePayload: any = { ...memberPayload };
+          if (updatePayload.role) {
+            updatePayload.jobRole = updatePayload.role;
+            delete updatePayload.role;
+          }
+          if ((updatePayload as any).loginRole) {
+            updatePayload.role = (updatePayload as any).loginRole;
+            delete (updatePayload as any).loginRole;
+          }
+          await onSave(id as any, updatePayload as Partial<TeamMember>);
         } catch (e) {
           console.error("onSave failed", e);
           alert(
-            "Failed to save team member: " + ((e as any)?.message || String(e))
+            "Failed to save team member: " + ((e as any)?.message || String(e)),
           );
           return;
         }
@@ -171,7 +171,7 @@ export function AddMemberDialog({
           delete userBody.role; // keep jobRole separately for display
           console.debug(
             "Posting consolidated userBody to /api/users",
-            userBody
+            userBody,
           );
           const res = await fetch("/api/users", {
             method: "POST",
@@ -181,7 +181,7 @@ export function AddMemberDialog({
           if (!res.ok) {
             const body = await res.text();
             throw new Error(
-              `Failed to create user/team member: ${res.status} ${body}`
+              `Failed to create user/team member: ${res.status} ${body}`,
             );
           }
           createdMember = await res.json();
@@ -190,7 +190,7 @@ export function AddMemberDialog({
           console.error("Failed to create team member via API", e);
           alert(
             "Failed to create team member: " +
-              ((e as any)?.message || String(e))
+              ((e as any)?.message || String(e)),
           );
           return;
         }
@@ -235,7 +235,7 @@ export function AddMemberDialog({
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <FormField
                 control={form.control}
                 name="name"

@@ -35,7 +35,7 @@ export async function GET() {
           "All deliverables remain property of Pixelate Nest until full payment",
           "Client must provide necessary content and assets on time",
         ],
-        footerText: "© 2025 Pixelate Nest. All rights reserved.",
+        footerText: "© 2026 Kalahanu Tech Studios LLP. All Rights Reserved.",
         address: "Bihar, India",
         email: "contact@pixelatenest.com",
         phone: "+91 XXXXXXXXXX",

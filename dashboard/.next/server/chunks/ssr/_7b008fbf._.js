@@ -1338,7 +1338,7 @@ module.exports = [
                             className: "jsx-b715cb8c1fa75266",
                             children:
                               o?.footerText ||
-                              "© 2025 Pixelate Nest. All rights reserved.",
+                              "© 2026 Kalahanu Tech Studios LLP. All Rights Reserved.",
                           }),
                           (0, b.jsxs)("div", {
                             className:

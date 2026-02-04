@@ -1,6 +1,6 @@
 .main-hero {
   position: relative;
-  background-color: #000;
+  background-color: var(--black);
 }
 
 .about-hero {
@@ -21,9 +21,8 @@
 }
 
 .about-us-v1 {
-  padding: 100px 0;
   position: relative;
-  background-color: #000;
+  background-color: var(--black);
 }
 
 .about-us-v1-wrap {
@@ -35,6 +34,7 @@
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  flex-direction: column;
 }
 
 .about-us-v1-heading {
@@ -56,9 +56,8 @@
 }
 
 .about-us-content-list-main {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg-1);
   border-radius: 24px;
-  padding: 40px;
   position: relative;
   z-index: 1;
 }
@@ -79,14 +78,13 @@
   left: 20px;
   right: 20px;
   height: 40px;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--shadow-dark);
   filter: blur(20px);
   border-radius: 50%;
 }
 
 .final-team-section {
   padding: 100px 0;
-  background-color: #000;
 }
 
 .final-team-header {
@@ -98,6 +96,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 30px;
+  padding: 0 50px;
 }
 
 .final-team-card-wrapper {
@@ -107,7 +106,7 @@
 }
 
 .final-team-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg-1);
   border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
@@ -123,8 +122,8 @@
 }
 
 .team-info-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(5, 75, 171, 0.05);
+  border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 16px 20px;
   text-align: center;
@@ -139,19 +138,19 @@
 .final-team-card-wrapper:hover .team-info-card {
   transform: translateY(0);
   opacity: 1;
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(5, 75, 171, 0.15);
+  border-color: var(--glass-border-hover);
 }
 
 .info-card-name {
-  color: #fff;
+  color: var(--primary-900);
   font-weight: 700;
   font-size: 18px;
   margin: 0 0 8px;
 }
 
 .info-card-role {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--primary-900);
   font-size: 14px;
   margin: 0 0 12px;
 }
@@ -168,10 +167,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--primary-900);
   padding: 8px;
   border-radius: 50%;
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
   transition: all 0.25s ease;
   width: 36px;
@@ -179,9 +178,9 @@
 }
 
 .info-card-socials .social-link:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--glass-bg-hover);
   transform: translateY(-3px) scale(1.1);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px var(--shadow-glass);
 }
 
 .info-card-socials .social-link svg {
@@ -196,11 +195,7 @@
   left: 0;
   right: 0;
   padding: 16px;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.95) 0%,
-    rgba(0, 0, 0, 0.88) 100%
-  );
+  background: var(--overlay-black-top);
   backdrop-filter: blur(10px);
   border-radius: 0 0 16px 16px;
   transform: translateY(-50%);
@@ -226,21 +221,21 @@
   justify-content: center;
   align-items: center;
   padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--glass-bg-2);
+  border: 1px solid var(--glass-bg-4);
   border-radius: 12px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px var(--shadow-dark);
 }
 
 .social-icons-box .social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--glass-bg-4);
   padding: 8px;
   border-radius: 50%;
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
   transition: all 0.25s ease;
   width: 36px;
@@ -248,9 +243,9 @@
 }
 
 .social-icons-box .social-link:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--glass-bg-hover);
   transform: translateY(-3px) scale(1.1);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px var(--shadow-glass);
 }
 
 .social-icons-box .social-link svg {
@@ -289,11 +284,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.45) 100%
-  );
+  background: var(--overlay-black-bottom);
   z-index: 0;
   pointer-events: none;
 }
@@ -320,7 +311,7 @@
 
 @media screen and (max-width: 479px) {
   .about-hero {
-    padding: 60px 0;
+    padding: 0 0 60px 0;
   }
 
   .about-us-content-list-main {
@@ -333,9 +324,7 @@
 }
 
 @media (max-width: 991px) {
-  .about-us-v1 {
-    padding: 60px 0;
-  }
+
 
   .about-us-v1-bottom {
     grid-template-columns: 1fr;
@@ -369,6 +358,28 @@
   --site-max-width: 1200px;
   --radius: 6px;
   --transition: 220ms ease;
+  
+  
+  --glass-bg-1: rgba(255, 255, 255, 0.05);
+  --glass-bg-2: rgba(255, 255, 255, 0.08);
+  --glass-bg-3: rgba(255, 255, 255, 0.12);
+  --glass-bg-4: rgba(255, 255, 255, 0.15);
+  --glass-bg-hover: rgba(255, 255, 255, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-hover: rgba(255, 255, 255, 0.2);
+  
+  
+  --text-white-70: rgba(255, 255, 255, 0.7);
+  --text-white-80: rgba(255, 255, 255, 0.8);
+  
+  
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+  --shadow-light: rgba(0, 0, 0, 0.06);
+  --shadow-glass: rgba(255, 255, 255, 0.2);
+  
+  
+  --overlay-black-top: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.88) 100%);
+  --overlay-black-bottom: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.45) 100%);
 }
 
 html,
@@ -418,9 +429,9 @@ button {
 }
 
 .card {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 18px var(--shadow-light);
   border-radius: var(--radius);
-  background: #fff;
+  background: var(--text-primary);
 }
 
 img,
@@ -440,16 +451,6 @@ iframe {
   justify-content: center;
 }
 
-.hamburger {
-  display: none;
-}
-
-.nav-main {
-  display: flex;
-  gap: var(--gap);
-  align-items: center;
-}
-
 * {
   transition: var(--transition);
 }
@@ -466,14 +467,6 @@ iframe {
 
   .col-33 {
     flex: 1 1 calc(33.333% - var(--gap));
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .nav-main {
-    flex-wrap: wrap;
   }
 }
 

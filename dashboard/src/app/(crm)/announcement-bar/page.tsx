@@ -102,7 +102,7 @@ export default function AnnouncementBarPage() {
   }
 
   return (
-    <div className="container max-w-4xl py-8">
+    <div className="container py-8">
       <Card>
         <CardHeader>
           <CardTitle>Announcement Bar Settings</CardTitle>
@@ -119,7 +119,7 @@ export default function AnnouncementBarPage() {
                 className="announcement-preview"
                 style={{
                   background:
-                    "linear-gradient(90deg, #ff6b6b 0%, #4ecdc4 50%, #ff6b6b 100%)",
+                    "linear-gradient(90deg, #004bab 0%, #ffffff 100%)",
                   backgroundSize: "200% 100%",
                   color: "white",
                   padding: "12px",
@@ -200,20 +200,6 @@ export default function AnnouncementBarPage() {
                 </>
               )}
             </Button>
-          </div>
-
-          {/* Help Text */}
-          <div className="bg-blue-50 dark:bg-blue-950 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
-            <h4 className="font-semibold text-sm mb-2">Tips:</h4>
-            <ul className="text-sm space-y-1 list-disc list-inside text-muted-foreground">
-              <li>Keep the message short and impactful (max 200 characters)</li>
-              <li>The announcement scrolls automatically across the screen</li>
-              <li>
-                Use this for promotions, important updates, or time-sensitive
-                information
-              </li>
-              <li>Toggle the switch to hide/show without deleting the text</li>
-            </ul>
           </div>
         </CardContent>
       </Card>

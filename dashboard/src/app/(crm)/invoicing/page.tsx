@@ -114,9 +114,9 @@ export default function InvoicingPage() {
         <InvoicePDF
           invoice={invoice}
           client={clients.find(
-            (c) => String(c.id ?? c._id) === String(invoice.clientId)
+            (c) => String(c.id ?? c._id) === String(invoice.clientId),
           )}
-        />
+        />,
       );
       const doc = new jsPDF();
       await doc.html(pdfContent, {
@@ -143,61 +143,87 @@ export default function InvoicingPage() {
 
   const exportCsv = async () => {
     try {
-      const escape = (v: any) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+      const escape = (v: any) => `"${String(v ?? "").replace(/"/g, '""')}"`;
       const headers = [
-        'Invoice No',
-        'Client',
-        'Title',
-        'Amount',
-        'Paid Amount',
-        'Due Date',
-        'Status',
-        'Inventory Items',
-        'Inventory Items Total',
-        'GST Total',
-        'Final Total',
-        'Created At',
-        'Updated At',
+        "Invoice No",
+        "Client",
+        "Title",
+        "Amount",
+        "Paid Amount",
+        "Due Date",
+        "Status",
+        "Inventory Items",
+        "Inventory Items Total",
+        "GST Total",
+        "Final Total",
+        "Created At",
+        "Updated At",
       ];
       const rows: string[] = [];
-      rows.push(headers.map(h => escape(h)).join(','));
+      rows.push(headers.map((h) => escape(h)).join(","));
       for (const inv of invoices) {
-        const invItems = Array.isArray(inv.inventoryItems) ? inv.inventoryItems : [];
-        const invItemsStr = invItems.map((it: any) => `${it.inventoryId || ''}:${it.quantity || 0}@${it.sellingPrice || 0}`).join('; ');
-        const itemsTotal = invItems.reduce((s: number, r: any) => s + (Number(r.sellingPrice || 0) * Number(r.quantity || 0)), 0);
-        const gstTotal = invItems.reduce((s: number, r: any) => s + ((Number(r.sellingPrice || 0) * Number(r.quantity || 0)) * (Number(r.gstPercentage || 0) / 100)), 0);
+        const invItems = Array.isArray(inv.inventoryItems)
+          ? inv.inventoryItems
+          : [];
+        const invItemsStr = invItems
+          .map(
+            (it: any) =>
+              `${it.inventoryId || ""}:${it.quantity || 0}@${it.sellingPrice || 0}`,
+          )
+          .join("; ");
+        const itemsTotal = invItems.reduce(
+          (s: number, r: any) =>
+            s + Number(r.sellingPrice || 0) * Number(r.quantity || 0),
+          0,
+        );
+        const gstTotal = invItems.reduce(
+          (s: number, r: any) =>
+            s +
+            Number(r.sellingPrice || 0) *
+              Number(r.quantity || 0) *
+              (Number(r.gstPercentage || 0) / 100),
+          0,
+        );
         const finalTotal = Number(inv.amount || 0);
-        const clientName = inv.clientName || inv.client || clients.find((c) => String(c.id ?? c._id) === String(inv.clientId))?.name || '';
+        const clientName =
+          inv.clientName ||
+          inv.client ||
+          clients.find((c) => String(c.id ?? c._id) === String(inv.clientId))
+            ?.name ||
+          "";
         const row = [
-          inv.invoiceNo ?? inv.id ?? '',
+          inv.invoiceNo ?? inv.id ?? "",
           clientName,
-          inv.title ?? inv.projectTitle ?? '',
+          inv.title ?? inv.projectTitle ?? "",
           Number(inv.amount ?? 0).toFixed(2),
           Number(inv.paidAmount ?? 0).toFixed(2),
-          inv.dueDate ? new Date(inv.dueDate).toISOString() : '',
-          inv.status || '',
+          inv.dueDate ? new Date(inv.dueDate).toISOString() : "",
+          inv.status || "",
           invItemsStr,
           itemsTotal.toFixed(2),
           gstTotal.toFixed(2),
           finalTotal.toFixed(2),
-          inv.createdAt ? new Date(inv.createdAt).toISOString() : '',
-          inv.updatedAt ? new Date(inv.updatedAt).toISOString() : '',
+          inv.createdAt ? new Date(inv.createdAt).toISOString() : "",
+          inv.updatedAt ? new Date(inv.updatedAt).toISOString() : "",
         ];
-        rows.push(row.map((c) => escape(c)).join(','));
+        rows.push(row.map((c) => escape(c)).join(","));
       }
-      const csv = rows.join('\n');
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const csv = rows.join("\n");
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
       const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
+      const a = document.createElement("a");
       a.href = url;
-      a.setAttribute('download', `invoices-${new Date().toISOString().slice(0,10)}.csv`);
+      a.setAttribute(
+        "download",
+        `invoices-${new Date().toISOString().slice(0, 10)}.csv`,
+      );
       document.body.appendChild(a);
       a.click();
       a.remove();
       URL.revokeObjectURL(url);
     } catch (e) {
-      console.error('Export CSV failed', e);
-      alert('Failed to export invoices');
+      console.error("Export CSV failed", e);
+      alert("Failed to export invoices");
     }
   };
 
@@ -211,7 +237,9 @@ export default function InvoicingPage() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Button size="sm" onClick={exportCsv}>Export Excel</Button>
+          <Button size="sm" onClick={exportCsv}>
+            Export Excel
+          </Button>
           <AddInvoiceDialog
             clients={clients}
             services={services}
@@ -254,7 +282,7 @@ export default function InvoicingPage() {
                   {invoice.clientName ||
                     invoice.client ||
                     clients.find(
-                      (c) => String(c.id ?? c._id) === String(invoice.clientId)
+                      (c) => String(c.id ?? c._id) === String(invoice.clientId),
                     )?.name ||
                     "-"}
                 </TableCell>
@@ -281,7 +309,7 @@ export default function InvoicingPage() {
                       invoice.status === "DUE" &&
                         "bg-destructive text-destructive-foreground",
                       invoice.status === "OVERDUE" &&
-                        "bg-accent text-accent-foreground"
+                        "bg-accent text-accent-foreground",
                     )}
                   >
                     {invoice.status}
@@ -302,18 +330,28 @@ export default function InvoicingPage() {
                     />
                     <Button
                       size="sm"
-                      onClick={() => downloadInvoice(invoice)}
+                      variant="outline"
+                      onClick={() => setPreviewInvoice(invoice)}
+                    >
+                      Preview
+                    </Button>
+                    <Button
+                      size="sm"
+                      onClick={() => generatePdfAndSave(invoice)}
                       disabled={
                         !!downloading[
                           String(
-                            invoice.invoiceNo ?? invoice._id ?? invoice.id ?? ""
+                            invoice.invoiceNo ??
+                              invoice._id ??
+                              invoice.id ??
+                              "",
                           )
                         ]
                       }
                     >
                       {downloading[
                         String(
-                          invoice.invoiceNo ?? invoice._id ?? invoice.id ?? ""
+                          invoice.invoiceNo ?? invoice._id ?? invoice.id ?? "",
                         )
                       ]
                         ? "Downloading..."
@@ -327,7 +365,7 @@ export default function InvoicingPage() {
                         try {
                           const res = await fetch(
                             `/api/invoices/${invoice._id ?? invoice.id}`,
-                            { method: "DELETE" }
+                            { method: "DELETE" },
                           );
                           if (!res.ok) throw new Error("Delete failed");
                           await refresh();
@@ -351,8 +389,8 @@ export default function InvoicingPage() {
                                 inv.id === invoice.id ||
                                 inv.invoiceNo === invoice.invoiceNo
                                   ? { ...inv, status: "PAID" }
-                                  : inv
-                              )
+                                  : inv,
+                              ),
                             );
                             const res = await fetch(
                               `/api/invoices/${
@@ -362,14 +400,14 @@ export default function InvoicingPage() {
                                 method: "PUT",
                                 headers: { "Content-Type": "application/json" },
                                 body: JSON.stringify({ status: "PAID" }),
-                              }
+                              },
                             );
                             if (!res.ok) throw new Error("Failed to mark paid");
                             await refresh();
                           } catch (err) {
                             console.error(
                               "Failed to mark invoice as paid",
-                              err
+                              err,
                             );
                             await refresh();
                           }
@@ -401,7 +439,10 @@ export default function InvoicingPage() {
               <div className="p-4 bg-white">
                 <InvoicePDF
                   invoice={previewInvoice}
-                  client={clients.find((c) => String(c.id ?? c._id) === String(previewInvoice.clientId))}
+                  client={clients.find(
+                    (c) =>
+                      String(c.id ?? c._id) === String(previewInvoice.clientId),
+                  )}
                 />
               </div>
             ) : (
@@ -415,7 +456,9 @@ export default function InvoicingPage() {
               </Button>
               <Button
                 size="sm"
-                onClick={() => previewInvoice && generatePdfAndSave(previewInvoice)}
+                onClick={() =>
+                  previewInvoice && generatePdfAndSave(previewInvoice)
+                }
                 disabled={previewLoading}
               >
                 {previewLoading ? "Preparing..." : "Download PDF"}

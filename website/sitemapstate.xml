@@ -6,7 +6,7 @@
   
   <!-- Locations Hub Page -->
   <url>
-    <loc>https://www.pixelatenest.com/locations.html</loc>
+    <loc>https://www.pixelatenest.com/locations</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -14,7 +14,7 @@
   
   <!-- State/City Pages - Delhi -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Delhi</loc>
+    <loc>https://www.pixelatenest.com/state?city=Delhi</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -22,7 +22,7 @@
   
   <!-- State/City Pages - Mumbai -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Mumbai</loc>
+    <loc>https://www.pixelatenest.com/state?city=Mumbai</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -30,7 +30,7 @@
   
   <!-- State/City Pages - Bangalore -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Bangalore</loc>
+    <loc>https://www.pixelatenest.com/state?city=Bangalore</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -38,7 +38,7 @@
   
   <!-- State/City Pages - Chennai -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Chennai</loc>
+    <loc>https://www.pixelatenest.com/state?city=Chennai</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -46,7 +46,7 @@
   
   <!-- State/City Pages - Hyderabad -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Hyderabad</loc>
+    <loc>https://www.pixelatenest.com/state?city=Hyderabad</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -54,7 +54,7 @@
   
   <!-- State/City Pages - Pune -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Pune</loc>
+    <loc>https://www.pixelatenest.com/state?city=Pune</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -62,7 +62,7 @@
   
   <!-- State/City Pages - Kolkata -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Kolkata</loc>
+    <loc>https://www.pixelatenest.com/state?city=Kolkata</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -70,7 +70,7 @@
   
   <!-- State/City Pages - Ahmedabad -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Ahmedabad</loc>
+    <loc>https://www.pixelatenest.com/state?city=Ahmedabad</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -78,7 +78,7 @@
   
   <!-- State/City Pages - Jaipur -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Jaipur</loc>
+    <loc>https://www.pixelatenest.com/state?city=Jaipur</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -86,7 +86,7 @@
   
   <!-- State/City Pages - Lucknow -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Lucknow</loc>
+    <loc>https://www.pixelatenest.com/state?city=Lucknow</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -94,7 +94,7 @@
   
   <!-- State/City Pages - Chandigarh -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Chandigarh</loc>
+    <loc>https://www.pixelatenest.com/state?city=Chandigarh</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -102,7 +102,7 @@
   
   <!-- State/City Pages - Indore -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Indore</loc>
+    <loc>https://www.pixelatenest.com/state?city=Indore</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -110,7 +110,7 @@
   
   <!-- State/City Pages - Bhopal -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Bhopal</loc>
+    <loc>https://www.pixelatenest.com/state?city=Bhopal</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -118,7 +118,7 @@
   
   <!-- State/City Pages - Patna -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Patna</loc>
+    <loc>https://www.pixelatenest.com/state?city=Patna</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -126,7 +126,7 @@
   
   <!-- State/City Pages - Guwahati -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Guwahati</loc>
+    <loc>https://www.pixelatenest.com/state?city=Guwahati</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -134,7 +134,7 @@
   
   <!-- State/City Pages - Bhubaneswar -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Bhubaneswar</loc>
+    <loc>https://www.pixelatenest.com/state?city=Bhubaneswar</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -142,7 +142,7 @@
   
   <!-- State/City Pages - Thiruvananthapuram -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Thiruvananthapuram</loc>
+    <loc>https://www.pixelatenest.com/state?city=Thiruvananthapuram</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -150,7 +150,7 @@
   
   <!-- State/City Pages - Kochi -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Kochi</loc>
+    <loc>https://www.pixelatenest.com/state?city=Kochi</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -158,7 +158,7 @@
   
   <!-- State/City Pages - Visakhapatnam -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Visakhapatnam</loc>
+    <loc>https://www.pixelatenest.com/state?city=Visakhapatnam</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -166,7 +166,7 @@
   
   <!-- State/City Pages - Surat -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Surat</loc>
+    <loc>https://www.pixelatenest.com/state?city=Surat</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -174,7 +174,7 @@
   
   <!-- State/City Pages - Nagpur -->
   <url>
-    <loc>https://www.pixelatenest.com/state.html?city=Nagpur</loc>
+    <loc>https://www.pixelatenest.com/state?city=Nagpur</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

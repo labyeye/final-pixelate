@@ -1,37 +1,17 @@
 "use client";
-
 import { useEffect, useState } from "react";
-import { useRef } from 'react'
+import { useRef } from "react";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-  CardFooter,
 } from "@/components/ui/card";
 import type { Project, Quotation } from "@/lib/data";
-import type { Client } from "@/lib/data";
 import { cn } from "@/lib/utils";
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-  Pie,
-  PieChart,
-  Cell,
-} from "recharts";
 import { useAuth } from "@/hooks/use-auth";
-import Link from "next/link";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
-} from "@/components/ui/chart";
+import { Tabs, TabsContent } from "@/components/ui/tabs";
 import {
   Table,
   TableBody,
@@ -40,6 +20,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { TeamMembersSection } from "@/components/dashboard/team-members-section";
+import { PaymentReceiptModal } from "@/components/dashboard/payment-receipt-modal";
+import { TaskCreationModal } from "@/components/dashboard/task-creation-modal";
+import { TrendsSection } from "@/components/dashboard/trends-section";
 
 // Helper: month names for display
 const MONTH_NAMES = [
@@ -78,9 +62,18 @@ export default function DashboardPage() {
   const [leads, setLeads] = useState<any[]>([]);
   const [quotations, setQuotations] = useState<Quotation[]>([]);
   const [services, setServices] = useState<any[]>([]);
+  const [teamMembers, setTeamMembers] = useState<any[]>([]);
 
   // Animated number component: safe to use anywhere (including lists)
-  function AnimatedNumber({ value, duration = 800, currency = false }: { value: number; duration?: number; currency?: boolean }) {
+  function AnimatedNumber({
+    value,
+    duration = 800,
+    currency = false,
+  }: {
+    value: number;
+    duration?: number;
+    currency?: boolean;
+  }) {
     const ref = useRef<number | null>(null);
     const [display, setDisplay] = useState<number>(0);
     useEffect(() => {
@@ -106,7 +99,9 @@ export default function DashboardPage() {
         if (ref.current) cancelAnimationFrame(ref.current as any);
       };
     }, [value, duration]);
-    return <>{currency ? `₹${Number(display || 0).toLocaleString()}` : display}</>;
+    return (
+      <>{currency ? `₹${Number(display || 0).toLocaleString()}` : display}</>
+    );
   }
 
   useEffect(() => {
@@ -115,17 +110,25 @@ export default function DashboardPage() {
     async function load() {
       try {
         const token = localStorage.getItem("auth_token") || "";
-        const [projectsRes, invoicesRes, leadsRes, quotationsRes, servicesRes, expensesRes] =
-          await Promise.all([
-            fetch("/api/projects"),
-            fetch("/api/invoices"),
-            fetch("/api/leads", {
-              headers: token ? { Authorization: "Bearer " + token } : {},
-            }),
-            fetch("/api/quotations"),
-            fetch("/api/services"),
-            fetch("/api/expenses"),
-          ]);
+        const [
+          projectsRes,
+          invoicesRes,
+          leadsRes,
+          quotationsRes,
+          servicesRes,
+          expensesRes,
+          teamMembersRes,
+        ] = await Promise.all([
+          fetch("/api/projects"),
+          fetch("/api/invoices"),
+          fetch("/api/leads", {
+            headers: token ? { Authorization: "Bearer " + token } : {},
+          }),
+          fetch("/api/quotations"),
+          fetch("/api/services"),
+          fetch("/api/expenses"),
+          fetch("/api/users"),
+        ]);
         const [
           projectsData,
           invoicesData,
@@ -133,6 +136,7 @@ export default function DashboardPage() {
           quotationsData,
           servicesData,
           expensesData,
+          teamMembersData,
         ] = await Promise.all([
           projectsRes.json(),
           invoicesRes.json(),
@@ -140,29 +144,31 @@ export default function DashboardPage() {
           quotationsRes.json(),
           servicesRes.json(),
           expensesRes.json(),
+          teamMembersRes.json(),
         ]);
         if (!mounted) return;
-    setProjects(projectsData || []);
-    setInvoices(invoicesData || []);
-    setExpenses(expensesData || []);
+        setProjects(projectsData || []);
+        setInvoices(invoicesData || []);
+        setExpenses(expensesData || []);
         // ensure leads is an array even if server returned an error object (401 etc)
         setLeads(Array.isArray(leadsData) ? leadsData : []);
         setQuotations(quotationsData || []);
         setServices(servicesData || []);
+        setTeamMembers(Array.isArray(teamMembersData) ? teamMembersData : []);
 
-  // Derived metrics
+        // Derived metrics
         const clientsList = await (await fetch("/api/clients")).json();
         setClients(clientsList || []);
         const clientsCount = (clientsList || []).length || 0;
         const projectsCount = (projectsData || []).length || 0;
         const totalRevenue = (invoicesData || []).reduce(
           (s: any, inv: any) => s + Number(inv.amount || 0),
-          0
+          0,
         );
         // Use recorded expenses from the expenses collection for dashboard expense
         const totalExpense = (expensesData || []).reduce(
           (s: any, ex: any) => s + Number(ex.amount || 0),
-          0
+          0,
         );
 
         setStats([
@@ -235,11 +241,14 @@ export default function DashboardPage() {
   }, []);
 
   // Derived helper data
-  const projectStatusCounts = projects.reduce((acc, project) => {
-    const status = project.status || "BACKLOG";
-    acc[status] = (acc[status] || 0) + 1;
-    return acc;
-  }, {} as Record<string, number>);
+  const projectStatusCounts = projects.reduce(
+    (acc, project) => {
+      const status = project.status || "BACKLOG";
+      acc[status] = (acc[status] || 0) + 1;
+      return acc;
+    },
+    {} as Record<string, number>,
+  );
 
   const projectChartData = Object.keys(projectStatusCounts).map((status) => ({
     status,
@@ -249,21 +258,27 @@ export default function DashboardPage() {
     }))`,
   }));
 
-  const leadsByStatus = leads.reduce((acc, lead) => {
-    const key = lead.status ?? "NEW";
-    acc[key] = (acc[key] || 0) + 1;
-    return acc;
-  }, {} as Record<string, number>);
+  const leadsByStatus = leads.reduce(
+    (acc, lead) => {
+      const key = lead.status ?? "NEW";
+      acc[key] = (acc[key] || 0) + 1;
+      return acc;
+    },
+    {} as Record<string, number>,
+  );
 
   const serviceUsageCounts = quotations
     .filter((q) => q.status === "APPROVED")
     .flatMap((q) => q.services ?? [])
-    .reduce((acc, service) => {
-      if (!service) return acc;
-      const name = service.name ?? "Unknown";
-      acc[name] = (acc[name] || 0) + 1;
-      return acc;
-    }, {} as Record<string, number>);
+    .reduce(
+      (acc, service) => {
+        if (!service) return acc;
+        const name = service.name ?? "Unknown";
+        acc[name] = (acc[name] || 0) + 1;
+        return acc;
+      },
+      {} as Record<string, number>,
+    );
 
   const serviceChartData = Object.entries(serviceUsageCounts)
     .map(([service, count]) => ({ service, count }))
@@ -361,13 +376,13 @@ export default function DashboardPage() {
               } else if (p.client) {
                 // p.client may be an id or a string name
                 const found = (clients || []).find(
-                  (c: any) => String(c.id ?? c._id) === String(p.client)
+                  (c: any) => String(c.id ?? c._id) === String(p.client),
                 );
                 clientName = found?.name || String(p.client);
               } else if ((p as any).clientId) {
                 const found = (clients || []).find(
                   (c: any) =>
-                    String(c.id ?? c._id) === String((p as any).clientId)
+                    String(c.id ?? c._id) === String((p as any).clientId),
                 );
                 clientName = found?.name || String((p as any).clientId);
               } else {
@@ -394,24 +409,22 @@ export default function DashboardPage() {
     return Array.from(map.values()).sort((a, b) => b.payout - a.payout);
   })();
 
-  
-
   return (
     <div className="space-y-8 font-headline">
-      <header>
-        <h1 className="text-5xl font-black tracking-tighter">DASHBOARD</h1>
-        <p className="text-muted-foreground text-lg">
-          Real-time pulse of your agency.
-        </p>
+      <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <h1 className="text-5xl font-black tracking-tighter">DASHBOARD</h1>
+          <p className="text-muted-foreground text-lg">
+            Real-time pulse of your agency.
+          </p>
+        </div>
+        <div className="flex gap-2">
+          <TaskCreationModal />
+          <PaymentReceiptModal clients={clients} invoices={invoices} />
+        </div>
       </header>
 
       <Tabs defaultValue="overview">
-        <TabsList className="grid w-full grid-cols-1 h-auto">
-          <TabsTrigger value="overview" className="h-12 text-lg">
-            Overview
-          </TabsTrigger>
-        </TabsList>
-
         <TabsContent value="overview" className="space-y-8 mt-8">
           {isStaff ? (
             <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
@@ -506,31 +519,46 @@ export default function DashboardPage() {
                         {stat.name.toUpperCase()}
                       </CardTitle>
                     </CardHeader>
-                      <CardContent>
-                      <p className="text-5xl font-black tracking-tighter">
-                        {stat.name === 'revenue' || stat.name === 'expense' ? (
-                          <AnimatedNumber value={Number(stat.value || 0)} duration={1000} currency />
-                        ) : stat.name === 'clients' ? (
-                          <AnimatedNumber value={Number(stat.value || 0)} duration={900} />
-                        ) : stat.name === 'projects' ? (
-                          <AnimatedNumber value={Number(stat.value || 0)} duration={900} />
+                    <CardContent>
+                      <p className="text-5xl font-black text-primary tracking-tighter">
+                        {stat.name === "revenue" || stat.name === "expense" ? (
+                          <AnimatedNumber
+                            value={Number(stat.value || 0)}
+                            duration={1000}
+                            currency
+                          />
+                        ) : stat.name === "clients" ? (
+                          <AnimatedNumber
+                            value={Number(stat.value || 0)}
+                            duration={900}
+                          />
+                        ) : stat.name === "projects" ? (
+                          <AnimatedNumber
+                            value={Number(stat.value || 0)}
+                            duration={900}
+                          />
                         ) : (
                           stat.value
                         )}
-                      </p>
-                      <p
-                        className={cn(
-                          "text-sm font-bold",
-                          stat.changeType === "positive" && "text-success",
-                          stat.changeType === "negative" && "text-destructive"
-                        )}
-                      >
-                        {stat.change}
                       </p>
                     </CardContent>
                   </Card>
                 ))}
               </div>
+
+              {/* Team Members Section - shown for non-staff users */}
+              {/* Trends Section - shown for non-staff users */}
+              {!isStaff && (
+                <TrendsSection invoices={invoices} clients={clients} />
+              )}
+
+              {/* Team Members Section - shown for non-staff users */}
+              {!isStaff && (
+                <TeamMembersSection
+                  teamMembers={teamMembers}
+                  projects={projects}
+                />
+              )}
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <Card className="lg:col-span-2 border-2 border-black">
@@ -568,7 +596,7 @@ export default function DashboardPage() {
                                 clients.find(
                                   (c: any) =>
                                     String(c.id ?? c._id) ===
-                                    String(invoice.clientId)
+                                    String(invoice.clientId),
                                 )?.name ||
                                 "-"}
                             </TableCell>
@@ -581,7 +609,6 @@ export default function DashboardPage() {
                             <TableCell className="text-right font-bold">
                               {invoice.status}
                             </TableCell>
-                            
                           </TableRow>
                         ))}
                       </TableBody>
@@ -607,7 +634,10 @@ export default function DashboardPage() {
                           {status}
                         </span>
                         <span className="font-black text-3xl">
-                          <AnimatedNumber value={Number(count)} duration={700} />
+                          <AnimatedNumber
+                            value={Number(count)}
+                            duration={700}
+                          />
                         </span>
                       </div>
                     ))}
@@ -617,54 +647,6 @@ export default function DashboardPage() {
             </>
           )}
         </TabsContent>
-
-        {/* Insert monthly revenue into Overview for non-staff users */}
-        { !isStaff && (
-          <div className="space-y-8 mt-8">
-            <Card className="lg:col-span-2 border-2 border-black">
-              <CardHeader>
-                <CardTitle className="text-2xl font-black tracking-tighter">
-                  MONTHLY REVENUE
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="h-[350px] w-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart
-                      data={revenueData}
-                      margin={{ top: 5, right: 20, left: -10, bottom: 5 }}
-                    >
-                      <CartesianGrid
-                        strokeDasharray="3 3"
-                        stroke="hsl(var(--foreground))"
-                        opacity={0.2}
-                      />
-                      <XAxis
-                        dataKey="month"
-                        stroke="hsl(var(--foreground))"
-                        fontSize={12}
-                        tickLine={false}
-                        axisLine={false}
-                      />
-                      <YAxis
-                        stroke="hsl(var(--foreground))"
-                        fontSize={12}
-                        tickLine={false}
-                        axisLine={false}
-                        tickFormatter={(value) => `₹${value / 1000}k`}
-                      />
-                      <Bar dataKey="revenue" radius={[4,4,0,0]}>
-                        {revenueData.map((entry, idx) => (
-                          <Cell key={entry.month} fill={['#0ea5e9','#7c3aed','#ef4444','#f59e0b','#10b981','#06b6d4'][idx % 6]} />
-                        ))}
-                      </Bar>
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        )}
       </Tabs>
     </div>
   );
