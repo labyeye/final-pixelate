@@ -1,16 +1,26 @@
-[00:00:00.782] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:00.910] Server  LOG      ✓ Ready in 687ms
-[00:00:03.902] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:18:39.196] Server  LOG      ✓ Compiled in 220ms
-[00:19:20.251] Server  LOG      ✓ Compiled in 87ms
-[00:19:21.026] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:19:21.820] Browser ERROR   uncaughtError: ReferenceError: Activity is not defined
-[00:19:21.835] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:19:21.972] Server  LOG      ✓ Compiled in 180ms
-[00:19:22.051] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:19:22.051] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./Desktop/Projects/final-pixelate/dashboard/src/components/layout/sidebar.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:19:22.052] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:19:22.120] Server  LOG      ✓ Compiled in 0ms
-[00:19:22.424] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:24:58.192] Server  LOG      ✓ Compiled in 239ms
-[02:26:15.262] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:01.004] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.106] Server  LOG      ✓ Ready in 867ms
+[00:00:05.218] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:18.250] Browser ERROR   Each child in a list should have a unique "key" prop.%s%s See https://react.dev/link/warning-keys for more information. 
+
+Check the render method of `TableBody`.  It was passed a child from DashboardPage.
+[00:07:27.964] Server  LOG      ✓ Compiled in 116ms
+[00:08:29.145] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:43.266] Server  LOG      ✓ Compiled in 130ms
+[00:14:43.732] Browser ERROR   uncaughtError: Error: A <Select.Item /> must have a value prop that is not an empty string. This is because the Select value can be set to an empty string to clear the selection and show the placeholder.
+[00:27:04.478] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:05.060] Browser ERROR   uncaughtError: Error: A <Select.Item /> must have a value prop that is not an empty string. This is because the Select value can be set to an empty string to clear the selection and show the placeholder.
+[00:27:08.329] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:08.828] Browser ERROR   uncaughtError: Error: A <Select.Item /> must have a value prop that is not an empty string. This is because the Select value can be set to an empty string to clear the selection and show the placeholder.
+[00:27:11.198] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:12.957] Browser ERROR   uncaughtError: Error: A <Select.Item /> must have a value prop that is not an empty string. This is because the Select value can be set to an empty string to clear the selection and show the placeholder.
+[00:27:47.188] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:27:47.410] Server  LOG      ✓ Compiled in 72ms
+[00:27:47.679] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:29:47.155] Server  LOG      ✓ Compiled in 164ms
+[00:29:47.238] Browser ERROR   uncaughtError: ReferenceError: Select is not defined
+[00:29:59.684] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:29:59.874] Server  LOG      ✓ Compiled in 54ms
+[00:30:00.116] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:31:28.759] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:31:40.406] Server  LOG      ✓ Compiled in 112ms

@@ -72,6 +72,7 @@ const navGroups = [
         adminOnly: false,
         icon: LifeBuoy,
       },
+          { href: "/onboarding", label: "Onboarding", adminOnly: false, icon: UserPlus },
       { href: "/clients", label: "Clients", adminOnly: false, icon: Users },
       { href: "/reviews", label: "Reviews", adminOnly: false, icon: Star },
       {
