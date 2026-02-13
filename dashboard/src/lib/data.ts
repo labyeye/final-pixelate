@@ -39,6 +39,7 @@ export interface User {
   avatarUrl?: string;
   // optional avatar (data URL or external URL)
   avatar?: string;
+  allowedPages?: string[];
 }
 
 export const users: User[] = [];

@@ -1,6 +1,6 @@
-import { getDb } from '@/lib/mongodb';
-import { hashPassword } from '@/lib/auth';
-import { ObjectId } from 'mongodb';
+import { getDb } from "@/lib/mongodb";
+import { hashPassword } from "@/lib/auth";
+import { ObjectId } from "mongodb";
 
 // Basic CRUD wrappers for main collections. These return plain JS objects.
 
@@ -11,49 +11,50 @@ export async function getCollection(name: string) {
 
 // Clients
 export async function getClients() {
-  const col = await getCollection('clients');
+  const col = await getCollection("clients");
   return col.find().toArray();
 }
 
 export async function createClient(client: any) {
-  const col = await getCollection('clients');
+  const col = await getCollection("clients");
   const res = await col.insertOne({ ...client, createdAt: new Date() });
   return { ...client, _id: res.insertedId };
 }
 
 // Services
 export async function getServices() {
-  const col = await getCollection('services');
+  const col = await getCollection("services");
   return col.find().toArray();
 }
 
 export async function createService(service: any) {
-  const col = await getCollection('services');
+  const col = await getCollection("services");
   const res = await col.insertOne({ ...service, createdAt: new Date() });
   return { ...service, _id: res.insertedId };
 }
 
 // Inventory
 export async function getInventory() {
-  const col = await getCollection('inventory');
+  const col = await getCollection("inventory");
   return col.find().toArray();
 }
 
 export async function createInventory(item: any) {
-  const col = await getCollection('inventory');
+  const col = await getCollection("inventory");
   const toInsert = {
-    itemName: item.itemName || '',
-    category: item.category || '',
+    itemName: item.itemName || "",
+    category: item.category || "",
     quantityAvailable: Number(item.quantityAvailable || 0),
-    unit: item.unit || 'pcs',
+    unit: item.unit || "pcs",
     price: Number(item.price || 0),
     sellingPrice: Number(item.price || 0),
-    vendorName: item.vendorName || '',
-    vendorContact: item.vendorContact || '',
+    vendorName: item.vendorName || "",
+    vendorContact: item.vendorContact || "",
     vendorGstNumber: item.vendorGstNumber || null,
-    gstPercentage: item.gstPercentage != null ? Number(item.gstPercentage) : null,
+    gstPercentage:
+      item.gstPercentage != null ? Number(item.gstPercentage) : null,
     gstAmount: item.gstAmount != null ? Number(item.gstAmount) : 0,
-    status: Number(item.quantityAvailable || 0) > 0 ? 'Available' : 'Booked',
+    status: Number(item.quantityAvailable || 0) > 0 ? "Available" : "Booked",
     createdAt: new Date(),
     updatedAt: new Date(),
   };
@@ -62,10 +63,10 @@ export async function createInventory(item: any) {
 }
 
 export async function updateInventory(id: string, update: any) {
-  const col = await getCollection('inventory');
+  const col = await getCollection("inventory");
   const updateDoc: any = { ...update, updatedAt: new Date() };
   if (updateDoc.price != null) updateDoc.sellingPrice = Number(updateDoc.price);
-  const hex24 = typeof id === 'string' && /^[a-fA-F0-9]{24}$/.test(id);
+  const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
   if (hex24) {
     await col.updateOne({ _id: new ObjectId(id) }, { $set: updateDoc });
     return (await col.findOne({ _id: new ObjectId(id) })) as any;
@@ -75,8 +76,8 @@ export async function updateInventory(id: string, update: any) {
 }
 
 export async function deleteInventory(id: string) {
-  const col = await getCollection('inventory');
-  const hex24 = typeof id === 'string' && /^[a-fA-F0-9]{24}$/.test(id);
+  const col = await getCollection("inventory");
+  const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
   if (hex24) {
     const res = await col.deleteOne({ _id: new ObjectId(id) });
     return res.deletedCount === 1;
@@ -86,24 +87,29 @@ export async function deleteInventory(id: string) {
 }
 
 // Helper to adjust stock quantities. `items` is array of { inventoryId, quantity }
-async function adjustInventoryQuantities(items: any[], direction: 'decrement' | 'increment') {
+async function adjustInventoryQuantities(
+  items: any[],
+  direction: "decrement" | "increment",
+) {
   if (!Array.isArray(items) || items.length === 0) return;
-  const col = await getCollection('inventory');
+  const col = await getCollection("inventory");
   for (const it of items) {
     try {
       const id = it.inventoryId || it._id || it.id;
       const qty = Number(it.quantity || 0);
       if (!id || qty === 0) continue;
-      const hex24 = typeof id === 'string' && /^[a-fA-F0-9]{24}$/.test(id);
+      const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
       const filter = hex24 ? { _id: new ObjectId(id) } : { id };
       const doc = await col.findOne(filter);
       if (!doc) continue;
       const current = Number(doc.quantityAvailable || 0);
-      const next = direction === 'decrement' ? current - qty : current + qty;
-      const status = next > 0 ? 'Available' : 'Booked';
-      await col.updateOne(filter, { $set: { quantityAvailable: next, status, updatedAt: new Date() } });
+      const next = direction === "decrement" ? current - qty : current + qty;
+      const status = next > 0 ? "Available" : "Booked";
+      await col.updateOne(filter, {
+        $set: { quantityAvailable: next, status, updatedAt: new Date() },
+      });
     } catch (e) {
-      console.error('Error adjusting inventory', e);
+      console.error("Error adjusting inventory", e);
     }
   }
 }
@@ -111,17 +117,22 @@ async function adjustInventoryQuantities(items: any[], direction: 'decrement' | 
 // Team Members
 export async function getTeamMembers() {
   // Team members are now stored in the 'users' collection with a jobRole field
-  const col = await getCollection('users');
+  const col = await getCollection("users");
   return col.find({ jobRole: { $exists: true } }).toArray();
 }
 
 export async function createTeamMember(member: any) {
   // Create a user document representing a team member. Map member.role -> jobRole and default auth role to staff
-  const usersCol = await getCollection('users');
-  const toInsert = { ...member, jobRole: member.role ?? member.jobRole, role: member.authRole ?? 'staff', createdAt: new Date() };
+  const usersCol = await getCollection("users");
+  const toInsert = {
+    ...member,
+    jobRole: member.role ?? member.jobRole,
+    role: member.authRole ?? "staff",
+    createdAt: new Date(),
+  };
   // remove old role field used for job title
   delete toInsert.role; // we'll set auth role below
-  const authRole = member.loginRole ?? member.authRole ?? 'staff';
+  const authRole = member.loginRole ?? member.authRole ?? "staff";
   toInsert.role = authRole;
   // Hash password if provided (defensive)
   if (member.password) {
@@ -133,12 +144,12 @@ export async function createTeamMember(member: any) {
 
 // Users
 export async function getUsers() {
-  const col = await getCollection('users');
+  const col = await getCollection("users");
   return col.find().toArray();
 }
 
 export async function createUser(user: any) {
-  const col = await getCollection('users');
+  const col = await getCollection("users");
   const toInsert = { ...user };
   if (toInsert.password) {
     toInsert.password = hashPassword(toInsert.password);
@@ -150,22 +161,40 @@ export async function createUser(user: any) {
 // Generic helpers for single item by id
 export async function findById(collectionName: string, id: string) {
   const col = await getCollection(collectionName);
-  // If id looks like a 24-char hex string, treat it as Mongo ObjectId
-  const hex24 = typeof id === 'string' && /^[a-fA-F0-9]{24}$/.test(id);
+
+  if (!id) return null;
+
+  // 1. Try finding by _id as raw String first (common in this DB)
+  const byRawId = await col.findOne({ _id: id } as any);
+  if (byRawId) return byRawId;
+
+  // 2. Try Mongo ObjectId if it matches the format
+  const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
   if (hex24) {
-    return col.findOne({ _id: new ObjectId(id) });
+    try {
+      const byObjectId = await col.findOne({ _id: new ObjectId(id) });
+      if (byObjectId) return byObjectId;
+    } catch (e) {
+      /* ignore */
+    }
   }
-  // For invoices, allow lookup by invoiceNo (INV-00001) as well as by `id` field
-  if (collectionName === 'invoices') {
+
+  // 3. For invoices, try lookup by invoiceNo (e.g. PN-2025/001)
+  if (collectionName === "invoices") {
     const byInvoiceNo = await col.findOne({ invoiceNo: id });
     if (byInvoiceNo) return byInvoiceNo;
   }
-  // Otherwise, try to find by custom `id` field
-  const byCustom = await col.findOne({ id: id });
-  return byCustom;
+
+  // 4. Try fallback to custom `id` field
+  const byCustomId = await col.findOne({ id: id });
+  return byCustomId;
 }
 
-export async function updateById(collectionName: string, id: string, update: any) {
+export async function updateById(
+  collectionName: string,
+  id: string,
+  update: any,
+) {
   const col = await getCollection(collectionName);
   // If password is being updated, hash it before saving
   const updateDoc = { ...(update || {}) };
@@ -175,13 +204,13 @@ export async function updateById(collectionName: string, id: string, update: any
   if (updateDoc && updateDoc.password) {
     updateDoc.password = hashPassword(updateDoc.password);
   }
-  const hex24 = typeof id === 'string' && /^[a-fA-F0-9]{24}$/.test(id);
+  const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
   if (hex24) {
     await col.updateOne({ _id: new ObjectId(id) }, { $set: updateDoc });
     return findById(collectionName, id);
   }
   // try update by custom `id` field; for invoices also allow invoiceNo
-  if (collectionName === 'invoices') {
+  if (collectionName === "invoices") {
     const byInvoiceNo = await col.findOne({ invoiceNo: id });
     if (byInvoiceNo) {
       await col.updateOne({ _id: byInvoiceNo._id }, { $set: updateDoc });
@@ -194,40 +223,53 @@ export async function updateById(collectionName: string, id: string, update: any
 
 export async function deleteById(collectionName: string, id: string) {
   const col = await getCollection(collectionName);
-  const hex24 = typeof id === 'string' && /^[a-fA-F0-9]{24}$/.test(id);
+  const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
   if (hex24) {
     try {
       // If deleting an invoice by ObjectId, restore inventory quantities first
-      if (collectionName === 'invoices') {
+      if (collectionName === "invoices") {
         const doc = await col.findOne({ _id: new ObjectId(id) });
-        if (doc && Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
+        if (
+          doc &&
+          Array.isArray(doc.inventoryItems) &&
+          doc.inventoryItems.length
+        ) {
           try {
-            const items = doc.inventoryItems.map((r: any) => ({ inventoryId: r.inventoryId, quantity: Number(r.quantity || 0) }));
-            await adjustInventoryQuantities(items, 'increment');
+            const items = doc.inventoryItems.map((r: any) => ({
+              inventoryId: r.inventoryId,
+              quantity: Number(r.quantity || 0),
+            }));
+            await adjustInventoryQuantities(items, "increment");
           } catch (e) {
-            console.error('Failed to restore inventory on invoice delete', e);
+            console.error("Failed to restore inventory on invoice delete", e);
           }
         }
       }
       const res = await col.deleteOne({ _id: new ObjectId(id) });
       return res.deletedCount === 1;
     } catch (e) {
-      console.error('Error deleting document', e);
+      console.error("Error deleting document", e);
       return false;
     }
   }
   // For invoices, also try by invoiceNo
-  if (collectionName === 'invoices') {
+  if (collectionName === "invoices") {
     const byInvoiceNo = await col.findOne({ invoiceNo: id });
     if (byInvoiceNo) {
       // restore inventory quantities if invoice had inventory usage
       try {
-        if (Array.isArray(byInvoiceNo.inventoryItems) && byInvoiceNo.inventoryItems.length) {
-          const items = byInvoiceNo.inventoryItems.map((r: any) => ({ inventoryId: r.inventoryId, quantity: Number(r.quantity || 0) }));
-          await adjustInventoryQuantities(items, 'increment');
+        if (
+          Array.isArray(byInvoiceNo.inventoryItems) &&
+          byInvoiceNo.inventoryItems.length
+        ) {
+          const items = byInvoiceNo.inventoryItems.map((r: any) => ({
+            inventoryId: r.inventoryId,
+            quantity: Number(r.quantity || 0),
+          }));
+          await adjustInventoryQuantities(items, "increment");
         }
       } catch (e) {
-        console.error('Failed to restore inventory on invoice delete', e);
+        console.error("Failed to restore inventory on invoice delete", e);
       }
       const res = await col.deleteOne({ _id: byInvoiceNo._id });
       return res.deletedCount === 1;
@@ -240,13 +282,13 @@ export async function deleteById(collectionName: string, id: string) {
 
 // Invoices
 export async function getInvoices() {
-  const col = await getCollection('invoices');
+  const col = await getCollection("invoices");
   return col.find().toArray();
 }
 
 // Renumber invoices: set invoiceNo to KTS/<financialYear>/<padded> in createdAt order or single FY
 export async function renumberInvoices(financialYear?: string) {
-  const col = await getCollection('invoices');
+  const col = await getCollection("invoices");
   // fetch invoices sorted by createdAt asc
   const invoices = await col.find({}).sort({ createdAt: 1 }).toArray();
   if (!invoices || !invoices.length) return { updated: 0 };
@@ -254,39 +296,49 @@ export async function renumberInvoices(financialYear?: string) {
   for (const inv of invoices) {
     // determine fy for this invoice
     const invDate = inv.createdAt ? new Date(inv.createdAt) : new Date();
-    const fy = financialYear || (function getFY(d: Date) {
-      const y = d.getFullYear();
-      const m = d.getMonth() + 1;
-      if (m >= 4) return `${y}-${y + 1}`;
-      return `${y - 1}-${y}`;
-    })(invDate);
-    const padded = String(counter).padStart(5, '0');
+    const fy =
+      financialYear ||
+      (function getFY(d: Date) {
+        const y = d.getFullYear();
+        const m = d.getMonth() + 1;
+        if (m >= 4) return `${y}-${y + 1}`;
+        return `${y - 1}-${y}`;
+      })(invDate);
+    const padded = String(counter).padStart(5, "0");
     const invoiceNo = `KTS/${fy}/${padded}`;
-    await col.updateOne({ _id: inv._id }, { $set: { invoiceNo, financialYear: fy } });
+    await col.updateOne(
+      { _id: inv._id },
+      { $set: { invoiceNo, financialYear: fy } },
+    );
     counter++;
   }
   return { updated: counter - 1 };
 }
 
 export async function createInvoice(invoice: any) {
-  const col = await getCollection('invoices');
+  const col = await getCollection("invoices");
   // generate invoice id and invoiceNo using KTS/<financialYear>/<padded>
   try {
     const now = new Date();
-    const fy = (invoice.financialYear as string) || (function getFY(d: Date) {
-      const y = d.getFullYear();
-      const m = d.getMonth() + 1;
-      // FY starts from April
-      if (m >= 4) return `${y}-${y + 1}`;
-      return `${y - 1}-${y}`;
-    })(now);
+    const fy =
+      (invoice.financialYear as string) ||
+      (function getFY(d: Date) {
+        const y = d.getFullYear();
+        const m = d.getMonth() + 1;
+        // FY starts from April
+        if (m >= 4) return `${y}-${y + 1}`;
+        return `${y - 1}-${y}`;
+      })(now);
 
     // find existing max number for this FY
-    const regex = new RegExp(`^KTS/${fy.replace(/[-\\/]/g, '\\$&')}/(\\d+)$`);
-    const docs = await col.find({ invoiceNo: { $regex: `^KTS/${fy.replace(/[-\\/]/g, '\\$&')}/` } }).project({ invoiceNo: 1 }).toArray();
+    const regex = new RegExp(`^KTS/${fy.replace(/[-\\/]/g, "\\$&")}/(\\d+)$`);
+    const docs = await col
+      .find({ invoiceNo: { $regex: `^KTS/${fy.replace(/[-\\/]/g, "\\$&")}/` } })
+      .project({ invoiceNo: 1 })
+      .toArray();
     let maxNum = 0;
     for (const d of docs) {
-      const s = String(d.invoiceNo || '');
+      const s = String(d.invoiceNo || "");
       const m = s.match(/\/(\d+)$/);
       if (m) {
         const n = parseInt(m[1], 10);
@@ -294,15 +346,33 @@ export async function createInvoice(invoice: any) {
       }
     }
     const nextNum = maxNum + 1;
-    const padded = String(nextNum).padStart(5, '0');
+    const padded = String(nextNum).padStart(5, "0");
     const invoiceNo = `KTS/${fy}/${padded}`;
     const id = `PN-${padded}`;
-    const res = await col.insertOne({ ...invoice, id, invoiceNo, financialYear: fy, createdAt: new Date() });
-    const created = { ...invoice, id, invoiceNo, financialYear: fy, _id: res.insertedId };
+    const res = await col.insertOne({
+      ...invoice,
+      id,
+      invoiceNo,
+      financialYear: fy,
+      createdAt: new Date(),
+    });
+    const created = {
+      ...invoice,
+      id,
+      invoiceNo,
+      financialYear: fy,
+      _id: res.insertedId,
+    };
     // If invoice contains inventory usage, decrement stock
-    if (Array.isArray(invoice.inventoryItems) && invoice.inventoryItems.length) {
-      const items = invoice.inventoryItems.map((r: any) => ({ inventoryId: r.inventoryId, quantity: Number(r.quantity || 0) }));
-      await adjustInventoryQuantities(items, 'decrement');
+    if (
+      Array.isArray(invoice.inventoryItems) &&
+      invoice.inventoryItems.length
+    ) {
+      const items = invoice.inventoryItems.map((r: any) => ({
+        inventoryId: r.inventoryId,
+        quantity: Number(r.quantity || 0),
+      }));
+      await adjustInventoryQuantities(items, "decrement");
     }
     return created;
   } catch (e) {
@@ -313,23 +383,23 @@ export async function createInvoice(invoice: any) {
 
 // Quotations
 export async function getQuotations() {
-  const col = await getCollection('quotations');
+  const col = await getCollection("quotations");
   return col.find().toArray();
 }
 
 export async function createQuotation(q: any) {
-  const col = await getCollection('quotations');
+  const col = await getCollection("quotations");
   // generate human-friendly id like pn-00001
   try {
     const last = await col.find({}).sort({ createdAt: -1 }).limit(1).toArray();
     let lastNum = 0;
     if (last && last.length) {
-      const lastId = last[0].id || last[0]._id || '';
+      const lastId = last[0].id || last[0]._id || "";
       const match = String(lastId).match(/pn-(\d+)/i);
       if (match) lastNum = parseInt(match[1], 10);
     }
     const nextNum = lastNum + 1;
-    const padded = String(nextNum).padStart(5, '0');
+    const padded = String(nextNum).padStart(5, "0");
     const id = `PN-${padded}`;
     const res = await col.insertOne({ ...q, id, createdAt: new Date() });
     return { ...q, id, _id: res.insertedId };
@@ -337,6 +407,32 @@ export async function createQuotation(q: any) {
     const res = await col.insertOne({ ...q, createdAt: new Date() });
     return { ...q, _id: res.insertedId };
   }
+}
+
+// NDA Approvals
+export async function getNdaApprovals() {
+  const col = await getCollection("nda_approvals");
+  return col.find().toArray();
+}
+
+export async function createNdaApproval(data: any) {
+  const col = await getCollection("nda_approvals");
+  const toInsert = { ...data, createdAt: new Date() };
+  const res = await col.insertOne(toInsert);
+  return { ...toInsert, _id: res.insertedId };
+}
+
+// Onboardings
+export async function getOnboardings() {
+  const col = await getCollection("onboardings");
+  return col.find().sort({ createdAt: -1 }).toArray();
+}
+
+export async function createOnboarding(data: any) {
+  const col = await getCollection("onboardings");
+  const toInsert = { ...data, createdAt: new Date() };
+  const res = await col.insertOne(toInsert);
+  return { ...toInsert, _id: res.insertedId };
 }
 
 export default {
@@ -355,4 +451,8 @@ export default {
   findById,
   updateById,
   deleteById,
+  getNdaApprovals,
+  createNdaApproval,
+  getOnboardings,
+  createOnboarding,
 };

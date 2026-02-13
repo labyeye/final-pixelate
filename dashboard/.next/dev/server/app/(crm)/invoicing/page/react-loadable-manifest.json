@@ -1,1 +1,9 @@
-{}
+{
+  "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/renderer/lib/react-pdf.browser.js [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/renderer/lib/react-pdf.browser.js [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/c729b_@react-pdf_renderer_lib_react-pdf_browser_b40066e1.js",
+      "static/chunks/c729b_@react-pdf_renderer_lib_react-pdf_browser_531785d8.js"
+    ]
+  }
+}

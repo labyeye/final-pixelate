@@ -6,153 +6,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { useAuth } from "@/hooks/use-auth";
-
-import {
-  Code,
-  Users,
-  LayoutDashboard,
-  KanbanSquare,
-  FileText,
-  Briefcase,
-  Receipt,
-  LifeBuoy,
-  BarChart as BarChartIcon,
-  DollarSign as DollarIcon,
-  Image as ImageIcon,
-  PlayCircle,
-  UserPlus,
-  Star,
-  Megaphone,
-  BoxIcon,
-  Plus,
-  SquareCheck,
-  Activity,
-} from "lucide-react";
+import { navGroups, defaultStaffAllowed } from "@/lib/nav-config";
+import { LifeBuoy } from "lucide-react";
 import { Button } from "../ui/button";
-
-// Grouped Navigation
-const navGroups = [
-  {
-    title: "Overview",
-    items: [
-      {
-        href: "/dashboard",
-        label: "Dashboard",
-        adminOnly: false,
-        icon: LayoutDashboard,
-      },
-      {
-        href: "/analytics",
-        label: "Analytics",
-        adminOnly: false,
-        icon: BarChartIcon,
-      },
-      {
-        href: "/user-activity",
-        label: "User Activity",
-        adminOnly: true,
-        icon: Activity,
-      },
-      { href: "/profile", label: "Profile", adminOnly: false, icon: Users },
-      {
-        href: "/announcement-bar",
-        label: "Announcements",
-        adminOnly: true,
-        icon: Megaphone,
-      },
-    ],
-  },
-  {
-    title: "Sales & CRM",
-    items: [
-      { href: "/leads", label: "Leads", adminOnly: false, icon: KanbanSquare },
-      {
-        href: "/enquiries",
-        label: "Enquiries",
-        adminOnly: false,
-        icon: LifeBuoy,
-      },
-          { href: "/onboarding", label: "Onboarding", adminOnly: false, icon: UserPlus },
-      { href: "/clients", label: "Clients", adminOnly: false, icon: Users },
-      { href: "/reviews", label: "Reviews", adminOnly: false, icon: Star },
-      {
-        href: "/quotations",
-        label: "Quotations",
-        adminOnly: false,
-        icon: FileText,
-      },
-      {
-        href: "/invoicing",
-        label: "Invoicing",
-        adminOnly: true,
-        icon: Receipt,
-      },
-    ],
-  },
-  {
-    title: "Operations",
-    items: [
-      { href: "/tasks", label: "Tasks", adminOnly: false, icon: SquareCheck }, // Added Tasks here
-      {
-        href: "/projects",
-        label: "Projects",
-        adminOnly: false,
-        icon: Briefcase,
-      },
-      {
-        href: "/inventory",
-        label: "Inventory",
-        adminOnly: false,
-        icon: BoxIcon,
-      },
-      {
-        href: "/expenses",
-        label: "Expenses",
-        adminOnly: false,
-        icon: DollarIcon,
-      },
-      { href: "/services", label: "Services", adminOnly: true, icon: Code },
-    ],
-  },
-  {
-    title: "Content",
-    items: [
-      {
-        href: "/work-gallery",
-        label: "Work Gallery",
-        adminOnly: true,
-        icon: ImageIcon,
-      },
-      {
-        href: "/photo-galleries",
-        label: "Photos",
-        adminOnly: true,
-        icon: ImageIcon,
-      },
-      { href: "/reels", label: "Reels", adminOnly: true, icon: PlayCircle },
-      { href: "/blogs", label: "Blogs", adminOnly: true, icon: FileText },
-    ],
-  },
-  {
-    title: "Team & Support",
-    items: [
-      {
-        href: "/about-us-team",
-        label: "About Us Team",
-        adminOnly: true,
-        icon: Users,
-      },
-      { href: "/careers", label: "Careers", adminOnly: true, icon: UserPlus },
-      {
-        href: "/developers-and-editors",
-        label: "Developers",
-        adminOnly: true,
-        icon: Users,
-      },
-      { href: "/support", label: "Support", adminOnly: false, icon: LifeBuoy },
-    ],
-  },
-];
 
 const userAvatar = PlaceHolderImages.find((p) => p.id === "user-avatar-1");
 
@@ -169,17 +25,11 @@ export function Sidebar() {
   const isAdmin = user?.role === "admin";
   const isStaff = user?.role === "staff";
 
-  // If staff, only show a small subset of pages
-  const staffAllowed = [
-    "/dashboard",
-    "/leads",
-    "/blogs",
-    "/work-gallery",
-    "/enquiries",
-    "/reviews",
-    "/quotations",
-    "/quotations/create",
-  ];
+  // Determine allowed pages for staff
+  // If user.allowedPages is set (even if empty, meaning no access), use it.
+  // If undefined, fallback to defaultStaffAllowed.
+  const userAllowedPages =
+    user.allowedPages !== undefined ? user.allowedPages : defaultStaffAllowed;
 
   return (
     <aside className="hidden md:flex md:w-60 lg:w-72 flex-col fixed inset-y-0 z-10 border-r-2 border-black bg-background font-headline">
@@ -203,8 +53,13 @@ export function Sidebar() {
           // Filter items based on permissions
           const filteredItems = group.items.filter((item) => {
             if (isStaff) {
-              return staffAllowed.includes(item.href);
+              return userAllowedPages.includes(item.href);
             }
+            // For admin, show everything unless item is explicitly hidden (none currently)
+            // But we respect adminOnly flag: if item.adminOnly is true, only admin can see.
+            // Since we are admin here (isStaff is false), we see everything except if there's some other condition.
+            // The original logic was: return !(item.adminOnly && !isAdmin);
+            // Since isAdmin is true (or user is not staff), let's keep it robust.
             return !(item.adminOnly && !isAdmin);
           });
 

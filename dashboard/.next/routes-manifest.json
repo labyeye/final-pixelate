@@ -85,6 +85,14 @@
       "namedRegex": "^/api/leads/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/payments/[id]",
+      "regex": "^/api/payments/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/payments/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/photo-galleries/[id]",
       "regex": "^/api/photo\\-galleries/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -139,6 +147,14 @@
         "nxtPid": "nxtPid"
       },
       "namedRegex": "^/api/services/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/support-tickets/[id]",
+      "regex": "^/api/support\\-tickets/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/support\\-tickets/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
       "page": "/api/tasks/[id]",
@@ -319,6 +335,24 @@
       "namedRegex": "^/api/me(?:/)?$"
     },
     {
+      "page": "/api/nda-approvals",
+      "regex": "^/api/nda\\-approvals(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/nda\\-approvals(?:/)?$"
+    },
+    {
+      "page": "/api/onboarding",
+      "regex": "^/api/onboarding(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/onboarding(?:/)?$"
+    },
+    {
+      "page": "/api/payments",
+      "regex": "^/api/payments(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/payments(?:/)?$"
+    },
+    {
       "page": "/api/photo-galleries",
       "regex": "^/api/photo\\-galleries(?:/)?$",
       "routeKeys": {},
@@ -361,6 +395,12 @@
       "namedRegex": "^/api/reels(?:/)?$"
     },
     {
+      "page": "/api/reports",
+      "regex": "^/api/reports(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/reports(?:/)?$"
+    },
+    {
       "page": "/api/reviews",
       "regex": "^/api/reviews(?:/)?$",
       "routeKeys": {},
@@ -383,6 +423,12 @@
       "regex": "^/api/settings(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/settings(?:/)?$"
+    },
+    {
+      "page": "/api/settings/sidebar",
+      "regex": "^/api/settings/sidebar(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/settings/sidebar(?:/)?$"
     },
     {
       "page": "/api/support-tickets",
@@ -457,6 +503,24 @@
       "namedRegex": "^/dashboard(?:/)?$"
     },
     {
+      "page": "/dashboard/payments",
+      "regex": "^/dashboard/payments(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/payments(?:/)?$"
+    },
+    {
+      "page": "/dashboard/reports",
+      "regex": "^/dashboard/reports(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/reports(?:/)?$"
+    },
+    {
+      "page": "/dashboard/settings",
+      "regex": "^/dashboard/settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/settings(?:/)?$"
+    },
+    {
       "page": "/developers-and-editors",
       "regex": "^/developers\\-and\\-editors(?:/)?$",
       "routeKeys": {},
@@ -503,6 +567,18 @@
       "regex": "^/login(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/nda-approval",
+      "regex": "^/nda\\-approval(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nda\\-approval(?:/)?$"
+    },
+    {
+      "page": "/onboarding",
+      "regex": "^/onboarding(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/onboarding(?:/)?$"
     },
     {
       "page": "/profile",

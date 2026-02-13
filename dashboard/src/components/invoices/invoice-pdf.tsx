@@ -78,8 +78,13 @@ export function InvoicePDF({
 
   const paidAmount = Number(invoice?.paidAmount ?? invoice?.paid ?? 0) || 0;
   let status = "DUE";
-  let statusColor = "#e65200";
-  if (paidAmount >= total && total > 0) {
+  let statusColor = "#044bab";
+
+  // Check if explicitly marked as PAID or if paid amount covers the total (with small tolerance)
+  const isPaid =
+    invoice?.status === "PAID" || (paidAmount >= total - 1 && total > 0);
+
+  if (isPaid) {
     status = "PAID";
     statusColor = "#16a34a"; // green
   } else if (paidAmount > 0 && paidAmount < total) {
@@ -118,7 +123,7 @@ export function InvoicePDF({
             style={{
               width: 60,
               height: 60,
-              background: "#e65200",
+              background: "#fff",
               borderRadius: 8,
               display: "flex",
               alignItems: "center",
@@ -132,12 +137,11 @@ export function InvoicePDF({
                 width: 45,
                 height: 45,
                 objectFit: "contain",
-                filter: "brightness(0) invert(1)",
               }}
             />
           </div>
           <div>
-            <div style={{ fontSize: 22, fontWeight: 800, color: "#e65200" }}>
+            <div style={{ fontSize: 22, fontWeight: 800, color: "#044bab" }}>
               Pixelate Nest
             </div>
             <div style={{ fontSize: 12, color: "#666", marginTop: 2 }}>
@@ -151,29 +155,36 @@ export function InvoicePDF({
             style={{
               fontSize: 26,
               fontWeight: 800,
-              color: "#e65200",
+              color: "#044bab",
+              marginBottom: 8,
             }}
           >
             TAX INVOICE
           </div>
+
+          {/* Improved Status Section with better centering */}
           <div
             style={{
-              marginTop: 8,
               display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
-              gap: 12,
+              flexDirection: "column",
+              alignItems: "flex-end",
+              gap: 4,
+              marginBottom: 8,
             }}
           >
             <div
               style={{
-                display: "inline-block",
-                padding: "6px 10px",
+                display: "inline-flex",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "6px 12px",
                 borderRadius: 8,
                 background: statusColor,
                 color: "#fff",
                 fontWeight: 800,
                 fontSize: 12,
+                width: "fit-content",
+                marginLeft: "auto",
               }}
             >
               {status}
@@ -182,30 +193,65 @@ export function InvoicePDF({
               style={{
                 fontSize: 11,
                 color: "#666",
-                marginTop: 0,
                 textAlign: "right",
+                width: "100%",
               }}
             >
-              <div>
-                <strong>Paid:</strong> {formatCurrency(paidAmount)}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "100%",
+                }}
+              >
+                <span style={{ fontWeight: 600 }}>Paid:</span>
+                <span>{formatCurrency(paidAmount)}</span>
               </div>
-              <div>
-                <strong>Total:</strong> {formatCurrency(total)}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "100%",
+                }}
+              >
+                <span style={{ fontWeight: 600 }}>Total:</span>
+                <span>{formatCurrency(total)}</span>
               </div>
             </div>
           </div>
+
           <div style={{ fontSize: 11, color: "#666", marginTop: 4 }}>
-            <div>
-              <strong>Invoice #:</strong>{" "}
-              {invoice?.id ?? invoice?.invoiceNo ?? invoice?._id}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 10,
+              }}
+            >
+              <span style={{ fontWeight: 600 }}>Invoice #:</span>
+              <span>{invoice?.id ?? invoice?.invoiceNo ?? invoice?._id}</span>
             </div>
-            <div>
-              <strong>Date:</strong>{" "}
-              {formatDate(invoice?.createdAt ?? Date.now())}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 10,
+              }}
+            >
+              <span style={{ fontWeight: 600 }}>Date:</span>
+              <span>{formatDate(invoice?.createdAt ?? Date.now())}</span>
             </div>
-            <div>
-              <strong>Due:</strong>{" "}
-              {invoice?.dueDate ? formatDate(invoice.dueDate) : "On receipt"}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 10,
+              }}
+            >
+              <span style={{ fontWeight: 600 }}>Due:</span>
+              <span>
+                {invoice?.dueDate ? formatDate(invoice.dueDate) : "On receipt"}
+              </span>
             </div>
           </div>
         </div>
@@ -225,7 +271,7 @@ export function InvoicePDF({
             style={{
               fontSize: 11,
               fontWeight: 600,
-              color: "#e65200",
+              color: "#044bab",
               textTransform: "uppercase",
               marginBottom: 6,
             }}
@@ -233,7 +279,7 @@ export function InvoicePDF({
             From
           </div>
           <div style={{ fontSize: 14, fontWeight: 700, color: "#333" }}>
-            Pixelate Nest
+            Kalahanu Tech Studios LLP
           </div>
           <div style={{ fontSize: 11, color: "#666", marginTop: 3 }}>
             GST: 10AADCK1491R2ZB
@@ -251,7 +297,7 @@ export function InvoicePDF({
             style={{
               fontSize: 11,
               fontWeight: 600,
-              color: "#e65200",
+              color: "#044bab",
               textTransform: "uppercase",
               marginBottom: 6,
             }}
@@ -292,7 +338,7 @@ export function InvoicePDF({
           <thead>
             <tr
               style={{
-                background: "#e65200",
+                background: "#044bab",
                 color: "#fff",
               }}
             >
@@ -302,6 +348,7 @@ export function InvoicePDF({
                   textAlign: "left",
                   fontWeight: 600,
                   fontSize: 11,
+                  width: "5%",
                 }}
               >
                 #
@@ -312,6 +359,7 @@ export function InvoicePDF({
                   textAlign: "left",
                   fontWeight: 600,
                   fontSize: 11,
+                  width: "50%",
                 }}
               >
                 Description
@@ -322,6 +370,7 @@ export function InvoicePDF({
                   textAlign: "right",
                   fontWeight: 600,
                   fontSize: 11,
+                  width: "10%",
                 }}
               >
                 Qty
@@ -332,6 +381,7 @@ export function InvoicePDF({
                   textAlign: "right",
                   fontWeight: 600,
                   fontSize: 11,
+                  width: "15%",
                 }}
               >
                 Unit Price
@@ -342,6 +392,7 @@ export function InvoicePDF({
                   textAlign: "right",
                   fontWeight: 600,
                   fontSize: 11,
+                  width: "20%",
                 }}
               >
                 Amount
@@ -418,76 +469,6 @@ export function InvoicePDF({
       </div>
 
       {/* Work / Job Details (optional) */}
-      {(invoice?.assignedStaff ||
-        invoice?.workDate ||
-        invoice?.workTime ||
-        invoice?.venueName ||
-        invoice?.venueAddress ||
-        (invoice?.equipmentAssigned && invoice?.equipmentAssigned.length) ||
-        invoice?.description) && (
-        <div
-          style={{
-            marginBottom: 20,
-            padding: 12,
-            border: "1px solid #eee",
-            borderRadius: 6,
-          }}
-        >
-          <div
-            style={{
-              fontSize: 12,
-              fontWeight: 700,
-              color: "#e65200",
-              marginBottom: 8,
-            }}
-          >
-            Work Details
-          </div>
-          <div style={{ fontSize: 11, color: "#333", lineHeight: 1.4 }}>
-            {invoice?.assignedStaff && (
-              <div>
-                <strong>Assigned Staff:</strong> {invoice.assignedStaff}
-              </div>
-            )}
-            {(invoice?.workDate || invoice?.workTime) && (
-              <div>
-                <strong>Date / Time:</strong>{" "}
-                {invoice.workDate ? formatDate(invoice.workDate) : ""}{" "}
-                {invoice.workTime ? ` ${invoice.workTime}` : ""}
-              </div>
-            )}
-            {invoice?.venueName && (
-              <div>
-                <strong>Venue:</strong> {invoice.venueName}
-              </div>
-            )}
-            {invoice?.venueAddress && (
-              <div>
-                <strong>Address:</strong> {invoice.venueAddress}
-              </div>
-            )}
-            {invoice?.equipmentAssigned &&
-              (Array.isArray(invoice.equipmentAssigned)
-                ? invoice.equipmentAssigned.join(", ")
-                : String(invoice.equipmentAssigned)) && (
-                <div>
-                  <strong>Equipment:</strong>{" "}
-                  {Array.isArray(invoice.equipmentAssigned)
-                    ? invoice.equipmentAssigned.join(", ")
-                    : String(invoice.equipmentAssigned)}
-                </div>
-              )}
-            {invoice?.description && (
-              <div style={{ marginTop: 8 }}>
-                <strong>Description:</strong>{" "}
-                <div style={{ fontSize: 11, color: "#666" }}>
-                  {invoice.description}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
 
       {/* Summary Section */}
       <div
@@ -503,7 +484,7 @@ export function InvoicePDF({
             style={{
               fontSize: 11,
               fontWeight: 600,
-              color: "#e65200",
+              color: "#044bab",
               textTransform: "uppercase",
               marginBottom: 10,
             }}
@@ -569,7 +550,7 @@ export function InvoicePDF({
           <div
             style={{
               paddingTop: 12,
-              borderTop: "2px solid #e65200",
+              borderTop: "2px solid #044bab",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
@@ -579,7 +560,7 @@ export function InvoicePDF({
               style={{
                 fontSize: 14,
                 fontWeight: 700,
-                color: "#e65200",
+                color: "#044bab",
               }}
             >
               Total
@@ -588,7 +569,7 @@ export function InvoicePDF({
               style={{
                 fontSize: 18,
                 fontWeight: 800,
-                color: "#e65200",
+                color: "#044bab",
               }}
             >
               {formatCurrency(total)}
@@ -613,7 +594,7 @@ export function InvoicePDF({
             style={{
               fontSize: 11,
               fontWeight: 600,
-              color: "#e65200",
+              color: "#044bab",
               textTransform: "uppercase",
               marginBottom: 8,
             }}
@@ -636,13 +617,15 @@ export function InvoicePDF({
               width: "180px",
               height: "100px",
               objectFit: "contain",
+              display: "block",
+              margin: "0 auto",
             }}
           />
           <div
             style={{
               height: 1,
               width: "100%",
-              backgroundColor: "#e65200",
+              backgroundColor: "#044bab",
               margin: "0 auto 6px",
               opacity: 0.5,
             }}
@@ -658,7 +641,7 @@ export function InvoicePDF({
             style={{
               fontSize: 11,
               fontWeight: 600,
-              color: "#e65200",
+              color: "#044bab",
               textTransform: "uppercase",
               marginBottom: 8,
             }}

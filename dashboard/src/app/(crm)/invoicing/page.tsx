@@ -14,9 +14,20 @@ import { useEffect, useState } from "react";
 import { AddInvoiceDialog } from "@/components/invoices/add-invoice-dialog";
 import EditInvoiceDialog from "@/components/invoices/edit-invoice-dialog";
 import RecordPaymentDialog from "@/components/invoices/record-payment-dialog";
-import { InvoicePDF } from "@/components/invoices/invoice-pdf";
-import jsPDF from "jspdf";
+import { pdf } from "@react-pdf/renderer";
 import { renderToString } from "react-dom/server";
+import { InvoicePDFDocument } from "@/components/invoices/invoice-pdf-document";
+import dynamic from "next/dynamic";
+
+const PDFViewer = dynamic(
+  () => import("@react-pdf/renderer").then((mod) => mod.PDFViewer),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex justify-center py-10">Loading PDF Viewer...</div>
+    ),
+  },
+);
 import {
   Dialog,
   DialogContent,
@@ -26,6 +37,41 @@ import {
 } from "@/components/ui/dialog";
 
 type Invoice = any;
+
+// Helper function to get invoice items
+const getInvoiceItems = (invoice: any) => {
+  if (!invoice) return [];
+  if (Array.isArray(invoice.items) && invoice.items.length)
+    return invoice.items;
+  if (Array.isArray(invoice.lineItems) && invoice.lineItems.length)
+    return invoice.lineItems;
+  if (invoice.amount && !Array.isArray(invoice.items)) {
+    return [
+      {
+        description: invoice.title || invoice.projectTitle || "Service",
+        quantity: 1,
+        unitPrice: Number(invoice.amount),
+        amount: Number(invoice.amount),
+      },
+    ];
+  }
+  return [];
+};
+
+// Helper function to calculate totals
+const calculateInvoiceTotals = (invoice: any) => {
+  const items = getInvoiceItems(invoice);
+  const subtotal = items.reduce(
+    (sum: number, item: any) => sum + (item.amount || 0),
+    0,
+  );
+  const discount = Number(invoice?.discount ?? 0);
+  const tax = Number(invoice?.tax ?? 0);
+  const total = subtotal - discount + tax;
+  const paidAmount = Number(invoice?.paidAmount ?? invoice?.paid ?? 0);
+
+  return { subtotal, discount, tax, total, paidAmount };
+};
 
 export default function InvoicingPage() {
   const [invoices, setInvoices] = useState<Invoice[]>([]);
@@ -73,6 +119,7 @@ export default function InvoicingPage() {
       mounted = false;
     };
   }, []);
+
   const refresh = async () => {
     try {
       const res = await fetch("/api/invoices");
@@ -82,11 +129,6 @@ export default function InvoicingPage() {
     } catch (err) {
       console.error(err);
     }
-  };
-
-  const downloadInvoice = async (invoice: any) => {
-    // Open preview dialog instead of auto-saving
-    setPreviewInvoice(invoice);
   };
 
   const sanitizeFileName = (s: string) =>
@@ -110,26 +152,302 @@ export default function InvoicingPage() {
     try {
       setPreviewLoading(true);
       setDownloading((prev) => ({ ...prev, [id]: true }));
-      const pdfContent = renderToString(
-        <InvoicePDF
-          invoice={invoice}
-          client={clients.find(
-            (c) => String(c.id ?? c._id) === String(invoice.clientId),
-          )}
-        />,
+
+      const client = clients.find(
+        (c) => String(c.id ?? c._id) === String(invoice.clientId),
       );
-      const doc = new jsPDF();
-      await doc.html(pdfContent, {
-        callback: function (doc) {
-          doc.save(fileName);
-        },
-        x: 10,
-        y: 10,
-        width: 180,
-        windowWidth: 800,
-      });
-    } catch (e) {
-      console.error("Failed to generate PDF", e);
+
+      console.log("Generating PDF with @react-pdf/renderer...");
+
+      // Generate PDF using @react-pdf/renderer
+      const blob = await pdf(
+        <InvoicePDFDocument invoice={invoice} client={client} />,
+      ).toBlob();
+
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      console.log("PDF generated successfully");
+    } catch (error) {
+      console.error("PDF generation failed:", error);
+
+      // Try a different approach - use the preview HTML
+      try {
+        console.log("Trying alternative PDF generation...");
+
+        // Create a print-friendly version of the preview
+        const printWindow = window.open("", "_blank");
+        if (printWindow) {
+          // Get the invoice preview HTML from the preview dialog
+          const previewContent = document.querySelector(
+            ".invoice-preview-content",
+          );
+
+          const htmlContent = `
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <title>Invoice ${invoice.invoiceNo || invoice.id}</title>
+              <style>
+                body { 
+                  font-family: 'Inter', 'Segoe UI', sans-serif; 
+                  padding: 15mm 20mm;
+                  color: #333;
+                  background: #fff;
+                  width: 210mm;
+                  min-height: 297mm;
+                  margin: 0 auto;
+                  box-sizing: border-box;
+                }
+                .invoice-header {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                  margin-bottom: 20px;
+                }
+                .company-info {
+                  display: flex;
+                  align-items: center;
+                  gap: 12px;
+                }
+                .company-name {
+                  font-size: 22px;
+                  font-weight: 800;
+                  color: #044bab;
+                }
+                .company-subtitle {
+                  font-size: 12px;
+                  color: #666;
+                  margin-top: 2px;
+                }
+                .invoice-title {
+                  font-size: 26px;
+                  font-weight: 800;
+                  color: #044bab;
+                  text-align: right;
+                  margin-bottom: 8px;
+                }
+                .status-section {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-end;
+                  gap: 4px;
+                  margin-bottom: 8px;
+                }
+                .status-badge {
+                  display: inline-flex;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 6px 12px;
+                  border-radius: 8px;
+                  background: #16a34a;
+                  color: #fff;
+                  font-weight: 800;
+                  font-size: 12px;
+                }
+                .amount-info {
+                  font-size: 11px;
+                  color: #666;
+                  text-align: right;
+                }
+                .from-to-section {
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  gap: 30px;
+                  margin-bottom: 20px;
+                }
+                .section-title {
+                  font-size: 11px;
+                  font-weight: 600;
+                  color: #044bab;
+                  text-transform: uppercase;
+                  margin-bottom: 6px;
+                }
+                .company-details {
+                  font-size: 14px;
+                  font-weight: 700;
+                  color: #333;
+                }
+                .details-text {
+                  font-size: 11px;
+                  color: #666;
+                  margin-top: 3px;
+                }
+                table {
+                  width: 100%;
+                  border-collapse: collapse;
+                  margin-bottom: 20px;
+                  font-size: 12px;
+                }
+                th {
+                  background: #044bab;
+                  color: #fff;
+                  padding: 10px 12px;
+                  text-align: left;
+                  font-weight: 600;
+                  font-size: 11px;
+                }
+                td {
+                  padding: 10px 12px;
+                  border-bottom: 1px solid #eee;
+                }
+                .text-right {
+                  text-align: right;
+                }
+                .work-details {
+                  margin-bottom: 20px;
+                  padding: 12px;
+                  border: 1px solid #eee;
+                  border-radius: 6px;
+                }
+                .work-details-title {
+                  font-size: 12px;
+                  font-weight: 700;
+                  color: #044bab;
+                  margin-bottom: 8px;
+                }
+                .work-details-content {
+                  font-size: 11px;
+                  color: #333;
+                  line-height: 1.4;
+                }
+                .summary-section {
+                  display: flex;
+                  justify-content: space-between;
+                  gap: 40px;
+                  margin-bottom: 25px;
+                }
+                .notes-section {
+                  flex: 1;
+                }
+                .notes-title {
+                  font-size: 11px;
+                  font-weight: 600;
+                  color: #044bab;
+                  text-transform: uppercase;
+                  margin-bottom: 10px;
+                }
+                .notes-content {
+                  font-size: 11px;
+                  color: #666;
+                  line-height: 1.5;
+                }
+                .totals-box {
+                  width: 280px;
+                  padding: 15px;
+                  border: 1px solid #eee;
+                }
+                .total-row {
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 8px;
+                }
+                .total-label {
+                  font-size: 12px;
+                  color: #666;
+                }
+                .total-value {
+                  font-size: 12px;
+                  font-weight: 600;
+                  color: #333;
+                }
+                .final-total {
+                  padding-top: 12px;
+                  border-top: 2px solid #044bab;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                }
+                .final-total-label {
+                  font-size: 14px;
+                  font-weight: 700;
+                  color: #044bab;
+                }
+                .final-total-value {
+                  font-size: 18px;
+                  font-weight: 800;
+                  color: #044bab;
+                }
+                .footer {
+                  display: grid;
+                  grid-template-columns: 1fr 1fr 1fr;
+                  gap: 20px;
+                  margin-bottom: 20px;
+                  padding-top: 20px;
+                  border-top: 1px solid #eee;
+                }
+                .footer-title {
+                  font-size: 11px;
+                  font-weight: 600;
+                  color: #044bab;
+                  text-transform: uppercase;
+                  margin-bottom: 8px;
+                }
+                .footer-content {
+                  font-size: 11px;
+                  color: #666;
+                  line-height: 1.5;
+                }
+                .terms {
+                  font-size: 10px;
+                  color: #666;
+                  text-align: center;
+                  padding-top: 15px;
+                  border-top: 1px solid #eee;
+                }
+                @media print {
+                  body { margin: 0; }
+                }
+              </style>
+            </head>
+            <body>
+              ${renderToString(
+                <div className="invoice-preview-content">
+                  <InvoicePDFDocument
+                    invoice={invoice}
+                    client={clients.find(
+                      (c) => String(c.id ?? c._id) === String(invoice.clientId),
+                    )}
+                  />
+                </div>,
+              )}
+            </body>
+          </html>
+        `;
+
+          printWindow.document.write(htmlContent);
+          printWindow.document.close();
+
+          // Wait for content to load, then print
+          printWindow.onload = function () {
+            printWindow.print();
+            setTimeout(() => {
+              printWindow.close();
+            }, 1000);
+          };
+        } else {
+          alert("Please allow popups to download the invoice, or try again.");
+        }
+      } catch (fallbackError) {
+        console.error("Fallback also failed:", fallbackError);
+
+        // Last resort: Simple alert with download link
+        const { total, paidAmount } = calculateInvoiceTotals(invoice);
+        const simpleText =
+          `Invoice #: ${invoice.invoiceNo || invoice.id}\n` +
+          `Client: ${clientName}\n` +
+          `Total: ₹${total.toLocaleString()}\n` +
+          `Paid: ₹${paidAmount.toLocaleString()}\n\n` +
+          `Please contact support for a proper invoice.`;
+
+        alert(simpleText);
+      }
     } finally {
       setPreviewLoading(false);
       setDownloading((prev) => {
@@ -140,7 +458,6 @@ export default function InvoicingPage() {
       setPreviewInvoice(null);
     }
   };
-
   const exportCsv = async () => {
     try {
       const escape = (v: any) => `"${String(v ?? "").replace(/"/g, '""')}"`;
@@ -324,10 +641,7 @@ export default function InvoicingPage() {
                       projects={projects}
                       onUpdated={refresh}
                     />
-                    <RecordPaymentDialog
-                      invoice={invoice}
-                      onRecorded={refresh}
-                    />
+
                     <Button
                       size="sm"
                       variant="outline"
@@ -376,46 +690,6 @@ export default function InvoicingPage() {
                     >
                       Delete
                     </Button>
-                    {invoice.status !== "PAID" && (
-                      <Button
-                        size="sm"
-                        className="bg-green-600 text-white"
-                        onClick={async () => {
-                          try {
-                            // optimistic update
-                            setInvoices((prev) =>
-                              prev.map((inv) =>
-                                inv._id === invoice._id ||
-                                inv.id === invoice.id ||
-                                inv.invoiceNo === invoice.invoiceNo
-                                  ? { ...inv, status: "PAID" }
-                                  : inv,
-                              ),
-                            );
-                            const res = await fetch(
-                              `/api/invoices/${
-                                invoice._id ?? invoice.id ?? invoice.invoiceNo
-                              }`,
-                              {
-                                method: "PUT",
-                                headers: { "Content-Type": "application/json" },
-                                body: JSON.stringify({ status: "PAID" }),
-                              },
-                            );
-                            if (!res.ok) throw new Error("Failed to mark paid");
-                            await refresh();
-                          } catch (err) {
-                            console.error(
-                              "Failed to mark invoice as paid",
-                              err,
-                            );
-                            await refresh();
-                          }
-                        }}
-                      >
-                        Mark received
-                      </Button>
-                    )}
                   </div>
                 </TableCell>
               </TableRow>
@@ -436,14 +710,21 @@ export default function InvoicingPage() {
           </DialogHeader>
           <div className="space-y-4 max-h-[70vh] overflow-auto border-t pt-4">
             {previewInvoice ? (
-              <div className="p-4 bg-white">
-                <InvoicePDF
-                  invoice={previewInvoice}
-                  client={clients.find(
-                    (c) =>
-                      String(c.id ?? c._id) === String(previewInvoice.clientId),
-                  )}
-                />
+              <div className="h-[70vh] w-full">
+                <PDFViewer
+                  width="100%"
+                  height="100%"
+                  className="w-full h-full border-0"
+                >
+                  <InvoicePDFDocument
+                    invoice={previewInvoice}
+                    client={clients.find(
+                      (c) =>
+                        String(c.id ?? c._id) ===
+                        String(previewInvoice.clientId),
+                    )}
+                  />
+                </PDFViewer>
               </div>
             ) : (
               <div className="p-4">No preview available</div>

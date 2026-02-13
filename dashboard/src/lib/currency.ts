@@ -1,8 +1,19 @@
 export function formatCurrency(v: number) {
-  try {
-    return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 2 }).format(v || 0);
-  } catch (e) {
-    // fallback to a readable ASCII representation when fonts may be missing in PDF
-    return ` ${(v || 0).toLocaleString()}`;
-  }
+  // Use "Rs." instead of ₹ symbol for PDF compatibility
+  // jsPDF converts ₹ (U+20B9) to "1" due to font encoding issues
+  // "Rs." is the traditional Indian currency notation and renders correctly
+  const formatted = (v || 0).toLocaleString("en-IN", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+  return `Rs. ${formatted}`;
+}
+
+// Alternative: Use ₹ for web display only (not recommended for PDFs)
+export function formatCurrencyWeb(v: number) {
+  const formatted = (v || 0).toLocaleString("en-IN", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+  return `₹${formatted}`;
 }
