@@ -1,5 +1,5 @@
 .contact-wrap {
-  background-image: url(./assets/back-left.webp);
+  background: white;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 40px;
@@ -104,7 +104,7 @@
 }
 
 .social-links {
-  display: flex;
+  align-items: center;
   gap: 12px;
   margin-top: 12px;
 }

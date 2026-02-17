@@ -51,13 +51,21 @@
       <div class="main-hero">
         <section class="nav-wrap">
           <div class="nav-bar-wrap">
-            <div role="banner" class="navbar w-nav">
+            <div
+              data-animation="default"
+              data-collapse="medium"
+              data-duration="400"
+              data-easing="ease"
+              data-easing2="ease"
+              role="banner"
+              class="navbar w-nav"
+            >
               <div class="navbar-wrapper">
                 <div class="navbar-left">
                   <a
                     href="https://www.pixelatenest.com/"
                     aria-current="page"
-                    class="navbar-brand w-nav-brand"
+                    class="navbar-brand w-nav-brand w--current"
                   >
                     <img
                       src="./assets/Logo_Color_Name_Large.webp"
@@ -103,6 +111,7 @@
                       <li class="nav-item">
                         <a
                           href="https://www.pixelatenest.com/"
+                          aria-current="page"
                           class="nav-link w-inline-block"
                           ><span class="nav-link-text">Home</span></a
                         >
@@ -136,19 +145,21 @@
                           <a
                             href="https://www.pixelatenest.com/webdev.html"
                             class="dropdown-item"
-                            >Web Development</a
                           >
-                          <a href="app-dev.html" class="dropdown-item"
-                            >App Development</a
-                          >
-                          <a href="software-dev.html" class="dropdown-item"
-                            >Software Development</a
-                          >
-                          <a href="video-ed.html" class="dropdown-item"
-                            >Content Creation</a
-                          >
+                            Web Development
+                          </a>
+                          <a href="app-dev.html" class="dropdown-item">
+                            App Development
+                          </a>
+                          <a href="software-dev.html" class="dropdown-item">
+                            Software Development
+                          </a>
+                          <a href="video-ed.html" class="dropdown-item">
+                            Content Creation
+                          </a>
                         </div>
                       </li>
+
                       <li class="nav-item">
                         <a
                           href="https://www.pixelatenest.com/blogs.html"
@@ -160,29 +171,52 @@
                         <a
                           href="https://www.pixelatenest.com/careers.html"
                           class="nav-link w-inline-block"
-                          ><div class="nav-link-text">Careers</div></a
                         >
+                          <div class="nav-link-text">Careers</div>
+                        </a>
                       </li>
                       <li class="nav-item">
                         <a
                           href="https://www.pixelatenest.com/technologies.html"
                           class="nav-link w-inline-block"
-                          ><div class="nav-link-text">Technologies</div></a
                         >
+                          <div class="nav-link-text">Technologies</div>
+                        </a>
                       </li>
                       <li class="nav-item">
                         <a
                           href="https://www.pixelatenest.com/contact.html"
                           class="nav-link w-inline-block"
-                          ><div class="nav-link-text">Contact</div></a
                         >
+                          <div class="nav-link-text">Contact</div>
+                        </a>
                       </li>
                     </ul>
                   </nav>
                 </div>
                 <div class="navbar-right">
-                  <div class="menu-button w-nav-button">
-                    <div class="hamburger-menu">
+                  <div
+                    class="menu-button w-nav-button"
+                    aria-label="menu"
+                    role="button"
+                    tabindex="0"
+                    aria-controls="w-nav-overlay-0"
+                    aria-haspopup="menu"
+                    aria-expanded="false"
+                  >
+                    <div
+                      data-is-ix2-target="1"
+                      class="hamburger-menu"
+                      data-w-id="87959840-dee1-9d4c-adfe-a49c217b8a08"
+                      data-animation-type="lottie"
+                      data-loop="0"
+                      data-direction="1"
+                      data-autoplay="0"
+                      data-renderer="svg"
+                      data-default-duration="0"
+                      data-duration="2.3333333333333335"
+                      data-ix2-initial-state="0"
+                    >
                       <svg
                         class="hamburger-icon"
                         width="24"
@@ -262,8 +296,8 @@
                       data-w-id="a92873da-c997-5cbc-a542-2425fbe84089"
                       class="h1 hero-heading hero-main-title"
                     >
-                      Our
-                      <i style="font-weight: 100">Locations </i>
+                      Our Servicable
+                      <i style="font-weight: 100">Locations</i>
                     </h1>
                   </div>
 
@@ -293,8 +327,7 @@
       <div
         class="locations-content-wrapper"
         style="
-          background-image: url(./assets/back-bottom.webp);
-          background-size: cover;
+          background-color: white;
         "
       >
         <div id="cities-container" class="cities-grid">
@@ -464,7 +497,6 @@
         </div>
       </section>
     </div>
-
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
         const container = document.getElementById("cities-container");
@@ -495,23 +527,9 @@
           container.innerHTML =
             '<p style="color:red">Failed to load locations. Please try again later.</p>';
         }
-
-        const menuBtn = document.querySelector(".menu-button");
-        const navMenu = document.querySelector(".nav-menu-wrapper");
-        const closeBtn = document.querySelector(".mobile-menu-close");
-
-        if (menuBtn && navMenu) {
-          menuBtn.addEventListener("click", () => {
-            navMenu.style.transform = "translateX(0)";
-          });
-        }
-        if (closeBtn && navMenu) {
-          closeBtn.addEventListener("click", () => {
-            navMenu.style.transform = "translateX(100%)";
-          });
-        }
       });
     </script>
     <script src="js/activity-tracker.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

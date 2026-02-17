@@ -14,7 +14,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com http://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com http://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.prod.website-files.com data:; img-src 'self' data: https:; connect-src 'self' https://backend.pixelatenest.com https://www.google-analytics.com https://www.google.com https://www.facebook.com https://connect.facebook.net https://ap.stape.info; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.prod.website-files.com data:; img-src 'self' data: https:; connect-src 'self' https://backend.pixelatenest.com https://www.google-analytics.com https://www.google.com https://www.facebook.com https://connect.facebook.net https://ap.stape.info; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -30,6 +30,11 @@
       rel="preconnect"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
     <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
 
     <link
@@ -62,7 +67,7 @@
       type="image/x-icon"
     />
     <link
-      href="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/687bf25268ea6656fee08b5f_Trenox%20Webclip%20.svg"
+      href="https://www.pixelatenest.com/assets/Logo_Color.webp"
       rel="apple-touch-icon"
     />
 
@@ -735,24 +740,14 @@
                     >
                       <div class="footer-link-text">Travel & Hospitality</div>
                     </a>
-                    <a
-                      href="https://www.pixelatenest.com/industry-healthcare.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Healthcare</div>
-                    </a>
+
                     <a
                       href="https://www.pixelatenest.com/industry-education.html"
                       class="footer-link w-inline-block"
                     >
                       <div class="footer-link-text">Education</div>
                     </a>
-                    <a
-                      href="https://www.pixelatenest.com/industry-finance.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Finance & Insurance</div>
-                    </a>
+
                     <a
                       href="https://www.pixelatenest.com/industry-logistics.html"
                       class="footer-link w-inline-block"
@@ -767,18 +762,8 @@
                     >
                       <div class="footer-link-text">Manufacturing</div>
                     </a>
-                    <a
-                      href="https://www.pixelatenest.com/industry-utilities.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Utilities & On Demand</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/industry-media.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Media & Entertainment</div>
-                    </a>
+                    
+                    
                   </div>
                 </div>
 
@@ -839,9 +824,12 @@
                       rel="noopener noreferrer"
                       class="footer-link w-inline-block"
                     >
-                      <div class="footer-link-text">
+                      <div
+                        class="footer-link-text"
+                        style="flex-direction: row; display: flex; gap: 10px"
+                      >
                         <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                        LinkedIn
+                        <span>LinkedIn</span>
                       </div>
                     </a>
                     <a
@@ -850,9 +838,12 @@
                       rel="noopener noreferrer"
                       class="footer-link w-inline-block"
                     >
-                      <div class="footer-link-text">
+                      <div
+                        class="footer-link-text"
+                        style="flex-direction: row; display: flex; gap: 10px"
+                      >
                         <i class="fab fa-instagram" aria-hidden="true"></i>
-                        Instagram
+                        <span>Instagram</span>
                       </div>
                     </a>
                     <a
@@ -861,48 +852,14 @@
                       rel="noopener noreferrer"
                       class="footer-link w-inline-block"
                     >
-                      <div class="footer-link-text">
+                      <div
+                        class="footer-link-text"
+                        style="flex-direction: row; display: flex; gap: 10px"
+                      >
                         <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                        Facebook
+                        <span>Facebook</span>
                       </div>
                     </a>
-                    <div
-                      class="footer-social-icons"
-                      style="
-                        display: flex;
-                        gap: 12px;
-                        margin-top: 12px;
-                        align-items: center;
-                      "
-                    >
-                      <a
-                        href="https://www.linkedin.com/company/pixelate-nest/?viewAsMember=true"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="LinkedIn"
-                        style="color: inherit; font-size: 18px"
-                      >
-                        <i class="fab fa-linkedin-in"></i>
-                      </a>
-                      <a
-                        href="https://www.instagram.com/pixelate.nest/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram"
-                        style="color: inherit; font-size: 18px"
-                      >
-                        <i class="fab fa-instagram"></i>
-                      </a>
-                      <a
-                        href="https://www.facebook.com/profile.php?id=61586872964348"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Facebook"
-                        style="color: inherit; font-size: 18px"
-                      >
-                        <i class="fab fa-facebook-f"></i>
-                      </a>
-                    </div>
                   </div>
                 </div>
               </div>

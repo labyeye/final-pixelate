@@ -24,7 +24,7 @@
     />
     <meta
       property="og:image"
-      content="https://www.pixelatenest.com/assets/logo-transparent.png"
+      content="https://www.pixelatenest.com/assets/Logo_Color.webp"
     />
 
     <link
@@ -42,625 +42,74 @@
       rel="stylesheet"
     />
     <link href="./styles.css" rel="stylesheet" type="text/css" />
+    <link href="./state.css" rel="stylesheet" type="text/css" />
 
-    <style>
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.05);
-        }
-      }
-
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      @keyframes slideIn {
-        from {
-          opacity: 0;
-          transform: translateX(-30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.6;
-        color: #e5e7eb;
-        background-color: #070707;
-        min-height: 100vh;
-      }
-
-      .page-wrapper {
-        animation: fadeIn 0.5s ease-out;
-      }
-
-      .container-footer {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 100px 20px 80px;
-      }
-
-      .loading {
-        text-align: center;
-        padding: 100px 20px;
-        min-height: 50vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .loading p {
-        color: #9ca3af;
-        font-size: 1.125rem;
-        margin-top: 20px;
-      }
-
-      .spinner {
-        border: 4px solid #222;
-        border-radius: 50%;
-        border-top: 4px solid #e65100;
-        width: 60px;
-        height: 60px;
-        animation: spin 1s linear infinite;
-        margin: 0 auto;
-      }
-
-      #city-content {
-        animation: fadeIn 0.6s ease-out;
-      }
-
-      .city-header {
-        text-align: center;
-        margin-bottom: 60px;
-        padding: 80px 20px 40px;
-        background: linear-gradient(135deg, #070707 0%, #1a1a1a 100%);
-        animation: fadeInUp 0.8s ease-out;
-      }
-
-      .city-icon {
-        width: 120px;
-        height: 120px;
-        margin: 0 auto 30px;
-        background: linear-gradient(135deg, #e65100 0%, #e65100 100%);
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 3rem;
-        box-shadow: 0 10px 40px #e65100;
-        animation: pulse 2s infinite;
-        transition: transform 0.3s ease;
-      }
-
-      .city-icon:hover {
-        transform: scale(1.1) rotate(5deg);
-      }
-
-      .city-icon img {
-        max-width: 100px;
-        height: auto;
-        border-radius: 15px;
-      }
-
-      h1 {
-        font-size: 3.5rem;
-        color: #fff;
-        margin: 20px 0;
-        line-height: 1.2;
-        font-weight: 700;
-        animation: fadeInUp 0.8s ease-out 0.2s both;
-      }
-
-      .city-meta {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        flex-wrap: wrap;
-        margin-top: 20px;
-        animation: fadeInUp 0.8s ease-out 0.4s both;
-      }
-
-      .city-meta span {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: #9ca3af;
-        font-size: 1rem;
-        transition:
-          color 0.3s ease,
-          transform 0.3s ease;
-      }
-
-      .city-meta span:hover {
-        color: #e65100;
-        transform: translateY(-2px);
-      }
-
-      .city-content {
-        background: #0a0a0a;
-        border-radius: 16px;
-        padding: 60px 40px;
-        margin-bottom: 60px;
-        border: 1px solid #222;
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-        animation: fadeInUp 1s ease-out 0.6s both;
-      }
-
-      .city-content p {
-        font-size: 1.125rem;
-        line-height: 1.8;
-        color: #e5e7eb;
-        margin-bottom: 1.5rem;
-      }
-
-      .services-section {
-        padding: 60px 20px;
-        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-        margin-bottom: 40px;
-        animation: fadeInUp 0.8s ease-out 0.6s both;
-      }
-
-      .services-section h2 {
-        font-size: 2.25rem;
-        font-weight: 700;
-        color: #fff;
-        margin-bottom: 50px;
-        text-align: center;
-      }
-
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .service-card {
-        background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
-        border: 2px solid #222;
-        border-radius: 20px;
-        padding: 40px 30px;
-        display: block;
-        text-align: center;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-        text-decoration: none;
-      }
-
-      .service-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(230, 81, 0, 0.1) 0%,
-          rgba(45, 123, 199, 0.05) 100%
-        );
-        opacity: 0;
-        transition: opacity 0.4s ease;
-        z-index: 0;
-      }
-
-      .service-card:hover::before {
-        opacity: 1;
-      }
-
-      .service-card:nth-child(1) {
-        animation: fadeInUp 1s ease-out 0.7s both;
-      }
-      .service-card:nth-child(2) {
-        animation: fadeInUp 1s ease-out 0.8s both;
-      }
-      .service-card:nth-child(3) {
-        animation: fadeInUp 1s ease-out 0.9s both;
-      }
-      .service-card:nth-child(4) {
-        animation: fadeInUp 1s ease-out 1s both;
-      }
-      .service-card:nth-child(5) {
-        animation: fadeInUp 1s ease-out 1.1s both;
-      }
-      .service-card:nth-child(6) {
-        animation: fadeInUp 1s ease-out 1.2s both;
-      }
-
-      .service-card:hover {
-        transform: translateY(-12px) scale(1.02);
-        border-color: #e65100;
-        box-shadow: 0 25px 50px rgba(230, 81, 0, 0.25);
-      }
-
-      .service-card h3 {
-        color: #fff;
-        margin-bottom: 15px;
-        font-size: 1.5rem;
-        font-weight: 600;
-        transition: color 0.3s ease;
-        position: relative;
-        z-index: 1;
-      }
-
-      .service-card:hover h3 {
-        color: #e65100;
-      }
-
-      .service-card p {
-        color: #9ca3af;
-        line-height: 1.7;
-        font-size: 1rem;
-        position: relative;
-        z-index: 1;
-      }
-
-      .cta-section {
-        padding: 80px 20px;
-        text-align: center;
-        background: linear-gradient(135deg, #070707 0%, #1a1a1a 100%);
-        animation: fadeInUp 1s ease-out 1.6s both;
-      }
-
-      .cta-section h2 {
-        color: #fff;
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 20px;
-      }
-
-      .cta-section p {
-        color: #9ca3af;
-        font-size: 1.125rem;
-        margin-bottom: 30px;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .cta-button {
-        display: inline-block;
-        background: #e65100;
-        color: #fff;
-        padding: 18px 40px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1.125rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px #e65100;
-      }
-
-      .cta-button:hover {
-        background: #e65100;
-        transform: scale(1.05);
-        box-shadow: 0 6px 25px rgba(230, 81, 0, 0.5);
-      }
-
-      .error-message {
-        text-align: center;
-        padding: 100px 20px;
-        animation: fadeInUp 0.6s ease-out;
-      }
-
-      .error-message h1 {
-        font-size: 3rem;
-        color: #ef4444;
-        margin-bottom: 20px;
-      }
-
-      .error-message p {
-        font-size: 1.25rem;
-        color: #9ca3af;
-        margin-bottom: 30px;
-      }
-
-      .error-message a {
-        color: #e65100;
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-      }
-
-      .error-message a:hover {
-        color: #e65100;
-      }
-
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 2.5rem;
-        }
-
-        .city-heading {
-          font-size: 2rem;
-        }
-
-        .city-content {
-          padding: 40px 20px;
-        }
-
-        .city-meta {
-          flex-direction: column;
-          gap: 15px;
-        }
-
-        .services-section {
-          padding: 40px 15px;
-        }
-
-        .services-section h2 {
-          font-size: 1.75rem;
-        }
-
-        .services-grid {
-          grid-template-columns: 1fr;
-          gap: 20px;
-        }
-
-        .service-card {
-          padding: 30px 20px;
-        }
-
-        .service-card h3 {
-          font-size: 1.25rem;
-        }
-
-        .service-card p {
-          font-size: 0.95rem;
-        }
-
-        .section-title {
-          font-size: 2rem;
-        }
-
-        .cta-section {
-          padding: 60px 20px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        h1 {
-          font-size: 2rem;
-        }
-
-        .city-icon {
-          width: 90px;
-          height: 90px;
-        }
-
-        .services-section h2 {
-          font-size: 1.5rem;
-        }
-
-        .service-card h3 {
-          font-size: 1.125rem;
-        }
-      }
-    </style>
+    <title id="page-title">Pixelate Nest - Creative Services</title>
+    <meta
+      name="description"
+      id="page-description"
+      content="Professional creative services"
+    />
+    <meta
+      name="twitter:title"
+      id="twitter-title"
+      content="Pixelate Nest - Creative Services"
+    />
+    <meta
+      name="twitter:description"
+      id="twitter-description"
+      content="Professional creative services"
+    />
+    <link
+      rel="canonical"
+      id="page-canonical"
+      href="https://www.pixelatenest.com/state.html"
+    />
+    <script type="application/ld+json" id="schema-markup">
+      {}
+    </script>
   </head>
   <body>
+    <div id="announcement-bar" class="announcement-bar">
+      <div class="announcement-content" id="announcement-content"></div>
+    </div>
     <div class="page-wrapper">
-      <section class="nav-wrap">
-        <div class="nav-bar-wrap">
-          <section class="nav-wrap">
-            <div class="nav-bar-wrap">
-              <div
-                data-animation="default"
-                data-collapse="medium"
-                data-duration="400"
-                data-easing="ease"
-                data-easing2="ease"
-                role="banner"
-                class="navbar w-nav"
-              >
-                <div class="navbar-wrapper">
-                  <div class="navbar-left">
-                    <a
-                      href="https://www.pixelatenest.com/"
-                      aria-current="page"
-                      class="navbar-brand w-nav-brand w--current"
-                    >
-                      <img
-                        src="./assets/Logo_Color_Name_Large.webp"
-                        alt="Pixelate Nest"
-                        class="logo-desktop"
-                      />
-                      <img
-                        src="./assets/Logo_Color.webp"
-                        alt="Pixelate Nest"
-                        class="logo-mobile"
-                      />
-                    </a>
-                  </div>
-                  <div class="navbar-center">
-                    <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
-                      <div class="mobile-menu-header">
-                        <button
-                          class="mobile-menu-close"
-                          aria-label="Close menu"
-                        >
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M18 6L6 18"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M6 6L18 18"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                      <ul role="list" class="nav-menu w-list-unstyled">
-                        <li class="nav-item">
-                          <a
-                            href="https://www.pixelatenest.com/"
-                            aria-current="page"
-                            class="nav-link w-inline-block w--current"
-                            ><span class="nav-link-text">Home</span></a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="https://www.pixelatenest.com/about.html"
-                            class="nav-link w-inline-block"
-                            ><span class="nav-link-text">About</span></a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="https://www.pixelatenest.com/pricing.html"
-                            class="nav-link w-inline-block"
-                            ><span class="nav-link-text">Pricing</span></a
-                          >
-                        </li>
-                        <li class="nav-item has-dropdown">
-                          <a
-                            href="javascript:void(0)"
-                            class="nav-link dropdown-toggle w-inline-block"
-                          >
-                            <span class="nav-link-text">Services</span>
-                            <i
-                              class="fas fa-chevron-down dropdown-arrow"
-                              aria-hidden="true"
-                            ></i>
-                          </a>
-                          <div class="dropdown-menu">
-                            <a href="webdev.html" class="dropdown-item">
-                              Web Development
-                            </a>
-                            <a href="app-dev.html" class="dropdown-item">
-                              App Development
-                            </a>
-                            <a href="software-dev.html" class="dropdown-item">
-                              Software Development
-                            </a>
-                            <a href="video-ed.html" class="dropdown-item">
-                              Video Editing
-                            </a>
-                          </div>
-                        </li>
-
-                        <li class="nav-item">
-                          <a
-                            href="https://www.pixelatenest.com/blogs.html"
-                            class="nav-link w-inline-block"
-                            ><span class="nav-link-text">Blogs</span></a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="https://www.pixelatenest.com/careers.html"
-                            class="nav-link w-inline-block"
-                          >
-                            <div class="nav-link-text">Careers</div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="https://www.pixelatenest.com/technologies.html"
-                            class="nav-link w-inline-block"
-                          >
-                            <div class="nav-link-text">Technologies</div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="https://www.pixelatenest.com/contact.html"
-                            class="nav-link w-inline-block"
-                          >
-                            <div class="nav-link-text">Contact</div>
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
-                  <div class="navbar-right">
-                    <div
-                      class="menu-button w-nav-button"
-                      aria-label="menu"
-                      role="button"
-                      tabindex="0"
-                      aria-controls="w-nav-overlay-0"
-                      aria-haspopup="menu"
-                      aria-expanded="false"
-                    >
-                      <div
-                        data-is-ix2-target="1"
-                        class="hamburger-menu"
-                        data-w-id="87959840-dee1-9d4c-adfe-a49c217b8a08"
-                        data-animation-type="lottie"
-                        data-loop="0"
-                        data-direction="1"
-                        data-autoplay="0"
-                        data-renderer="svg"
-                        data-default-duration="0"
-                        data-duration="2.3333333333333335"
-                        data-ix2-initial-state="0"
-                      >
+      <div class="main-hero">
+        <section class="nav-wrap">
+          <div class="nav-bar-wrap">
+            <div
+              data-animation="default"
+              data-collapse="medium"
+              data-duration="400"
+              data-easing="ease"
+              data-easing2="ease"
+              role="banner"
+              class="navbar w-nav"
+            >
+              <div class="navbar-wrapper">
+                <div class="navbar-left">
+                  <a
+                    href="https://www.pixelatenest.com/"
+                    aria-current="page"
+                    class="navbar-brand w-nav-brand w--current"
+                  >
+                    <img
+                      src="./assets/Logo_Color_Name_Large.webp"
+                      alt="Pixelate Nest"
+                      class="logo-desktop"
+                    />
+                    <img
+                      src="./assets/Logo_Color.webp"
+                      alt="Pixelate Nest"
+                      class="logo-mobile"
+                    />
+                  </a>
+                </div>
+                <div class="navbar-center">
+                  <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
+                    <div class="mobile-menu-header">
+                      <button class="mobile-menu-close" aria-label="Close menu">
                         <svg
-                          class="hamburger-icon"
                           width="24"
                           height="24"
                           viewBox="0 0 24 24"
@@ -668,288 +117,1038 @@
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M3 12H21"
+                            d="M18 6L6 18"
                             stroke="currentColor"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
                           />
                           <path
-                            d="M3 6H21"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                          <path
-                            d="M3 18H21"
+                            d="M6 6L18 18"
                             stroke="currentColor"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
                           />
                         </svg>
-                      </div>
+                      </button>
+                    </div>
+                    <ul role="list" class="nav-menu w-list-unstyled">
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/"
+                          aria-current="page"
+                          class="nav-link w-inline-block"
+                          ><span class="nav-link-text">Home</span></a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/about.html"
+                          class="nav-link w-inline-block"
+                          ><span class="nav-link-text">About</span></a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/pricing.html"
+                          class="nav-link w-inline-block"
+                          ><span class="nav-link-text">Pricing</span></a
+                        >
+                      </li>
+                      <li class="nav-item has-dropdown">
+                        <a
+                          href="javascript:void(0)"
+                          class="nav-link dropdown-toggle w-inline-block"
+                        >
+                          <span class="nav-link-text">Services</span>
+                          <i
+                            class="fas fa-chevron-down dropdown-arrow"
+                            aria-hidden="true"
+                          ></i>
+                        </a>
+                        <div class="dropdown-menu">
+                          <a
+                            href="javascript:void(0)"
+                            class="dropdown-item has-subdropdown"
+                          >
+                            Web Development
+                            <i
+                              class="fas fa-chevron-right subdropdown-arrow"
+                              aria-hidden="true"
+                            ></i>
+                            <div class="subdropdown-menu">
+                              <a
+                                href="https://www.pixelatenest.com/webdev.html#ecommerce"
+                                class="subdropdown-item"
+                                >E-commerce Development</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/webdev.html#cms"
+                                class="subdropdown-item"
+                                >CMS Development</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/webdev.html#custom"
+                                class="subdropdown-item"
+                                >Custom Web Apps</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/webdev.html#enterprise"
+                                class="subdropdown-item"
+                                >Enterprise Solutions</a
+                              >
+                            </div>
+                          </a>
+                          <a
+                            href="javascript:void(0)"
+                            class="dropdown-item has-subdropdown"
+                          >
+                            App Development
+                            <i
+                              class="fas fa-chevron-right subdropdown-arrow"
+                              aria-hidden="true"
+                            ></i>
+                            <div class="subdropdown-menu">
+                              <a
+                                href="https://www.pixelatenest.com/app-dev.html#ios"
+                                class="subdropdown-item"
+                                >iOS Development</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/app-dev.html#android"
+                                class="subdropdown-item"
+                                >Android Development</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/app-dev.html#cross-platform"
+                                class="subdropdown-item"
+                                >Cross-Platform Apps</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/app-dev.html#progressive"
+                                class="subdropdown-item"
+                                >Progressive Web Apps</a
+                              >
+                            </div>
+                          </a>
+                          <a
+                            href="javascript:void(0)"
+                            class="dropdown-item has-subdropdown"
+                          >
+                            Software Development
+                            <i
+                              class="fas fa-chevron-right subdropdown-arrow"
+                              aria-hidden="true"
+                            ></i>
+                            <div class="subdropdown-menu">
+                              <a
+                                href="https://www.pixelatenest.com/software-dev.html#saas"
+                                class="subdropdown-item"
+                                >SaaS Solutions</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/software-dev.html#erp"
+                                class="subdropdown-item"
+                                >ERP Systems</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/software-dev.html#crm"
+                                class="subdropdown-item"
+                                >CRM Software</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/software-dev.html#api"
+                                class="subdropdown-item"
+                                >API Development</a
+                              >
+                            </div>
+                          </a>
+                          <a
+                            href="javascript:void(0)"
+                            class="dropdown-item has-subdropdown"
+                          >
+                            Video Editing
+                            <i
+                              class="fas fa-chevron-right subdropdown-arrow"
+                              aria-hidden="true"
+                            ></i>
+                            <div class="subdropdown-menu">
+                              <a
+                                href="https://www.pixelatenest.com/video-ed.html#commercial"
+                                class="subdropdown-item"
+                                >Commercial Videos</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/video-ed.html#social"
+                                class="subdropdown-item"
+                                >Social Media Content</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/video-ed.html#corporate"
+                                class="subdropdown-item"
+                                >Corporate Videos</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/video-ed.html#motion"
+                                class="subdropdown-item"
+                                >Motion Graphics</a
+                              >
+                            </div>
+                          </a>
+                          <a
+                            href="javascript:void(0)"
+                            class="dropdown-item has-subdropdown"
+                          >
+                            Photography
+                            <i
+                              class="fas fa-chevron-right subdropdown-arrow"
+                              aria-hidden="true"
+                            ></i>
+                            <div class="subdropdown-menu">
+                              <a
+                                href="https://www.pixelatenest.com/photography.html#product"
+                                class="subdropdown-item"
+                                >Product Photography</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/photography.html#commercial"
+                                class="subdropdown-item"
+                                >Commercial Photography</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/photography.html#event"
+                                class="subdropdown-item"
+                                >Event Photography</a
+                              >
+                              <a
+                                href="https://www.pixelatenest.com/photography.html#portrait"
+                                class="subdropdown-item"
+                                >Portrait Photography</a
+                              >
+                            </div>
+                          </a>
+                        </div>
+                      </li>
+
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/blogs.html"
+                          class="nav-link w-inline-block"
+                          ><span class="nav-link-text">Blogs</span></a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/careers.html"
+                          class="nav-link w-inline-block"
+                        >
+                          <div class="nav-link-text">Careers</div>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/technologies.html"
+                          class="nav-link w-inline-block w--current"
+                        >
+                          <div class="nav-link-text">Technologies</div>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/contact.html"
+                          class="nav-link w-inline-block"
+                        >
+                          <div class="nav-link-text">Contact</div>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="navbar-right">
+                  <div
+                    class="menu-button w-nav-button"
+                    aria-label="menu"
+                    role="button"
+                    tabindex="0"
+                    aria-controls="w-nav-overlay-0"
+                    aria-haspopup="menu"
+                    aria-expanded="false"
+                  >
+                    <div
+                      data-is-ix2-target="1"
+                      class="hamburger-menu"
+                      data-w-id="87959840-dee1-9d4c-adfe-a49c217b8a08"
+                      data-animation-type="lottie"
+                      data-loop="0"
+                      data-direction="1"
+                      data-autoplay="0"
+                      data-renderer="svg"
+                      data-default-duration="0"
+                      data-duration="2.3333333333333335"
+                      data-ix2-initial-state="0"
+                    >
+                      <svg
+                        class="hamburger-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3 12H21"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M3 6H21"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M3 18H21"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
-
-          <div id="loading" class="loading">
-            <div class="spinner"></div>
-            <p>Loading city information...</p>
           </div>
-        </div>
+        </section>
+        <section class="home-hero-v1">
+          <div class="container">
+            <div class="home-hero-v1-wrap">
+              <div class="hero-v1-content">
+                <div class="hero-v1-title-wrap">
+                  <div class="hero-trust-badge">
+                    <div class="trust-avatars">
+                      <img
+                        src="assets/homescreen/customer/customer1.webp"
+                        alt="Happy Customer"
+                        class="trust-avatar"
+                      />
+                      <img
+                        src="assets/homescreen/customer/customer2.webp"
+                        alt="Happy Customer"
+                        class="trust-avatar"
+                      />
+                      <img
+                        src="assets/homescreen/customer/customer3.webp"
+                        alt="Happy Customer"
+                        class="trust-avatar"
+                      />
+                      <img
+                        src="assets/homescreen/customer/customer4.webp"
+                        alt="Happy Customer"
+                        class="trust-avatar"
+                      />
+                    </div>
+                    <div class="trust-text">
+                      TRUSTED BY
+                      <span class="trust-number">20+</span> DELIGHTED CUSTOMERS
+                    </div>
+                  </div>
 
-        <div class="cta-section">
-          <h2>Ready to Transform Your Business?</h2>
-          <p>
-            Contact Pixelate Nest today for a free consultation and discover how
-            our creative digital solutions can help your business grow.
-          </p>
-          <a href="contact.html" class="cta-button">Get Free Quote</a>
-        </div>
+                  <div
+                    data-w-id="e4d25ab4-5221-11f5-0316-673572cc0f50"
+                    class="heading-wrap hero-v1-heading"
+                  >
+                    <h1
+                      data-w-id="a92873da-c997-5cbc-a542-2425fbe84089"
+                      class="h1 hero-heading hero-main-title"
+                    >
+                      Our Best
+                      <i style="font-weight: 100">services </i> in
+                      <span id="city-name-services">City</span>
+                    </h1>
+                  </div>
 
-        <a
-          href="https://www.facebook.com/profile.php?id=61586872964348"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="footer-link w-inline-block"
-        >
-          <div class="footer-link-text">Facebook</div>
-        </a>
+                  <div
+                    data-w-id="509f52f0-277a-a704-9a52-c8d9022fecf4"
+                    class="sub-heading-wrap"
+                  >
+                    <p class="hero-subheadline">
+                      We Design in, Developing it. Your one stop solution for
+                      Video Editing, Web Development, App Development, and
+                      Software Development. services in
+                    </p>
+                  </div>
 
-        <div class="footer-bottom">
-          <div class="vertical-divider"></div>
-          <div class="footer-bottom-wrap">
-            <div class="p-text-03 text-white-60">
-              © 2026 Kalahanu Tech Studios LLP. All Rights Reserved. | Crafted
-              with
-              <i class="fas fa-heart" style="color: #e74c3c"></i>
-              in India
+                  <div class="hero-cta-wrap">
+                    <a href="contact.html" class="hero-cta-button">
+                      Contact Experts <span class="cta-arrow">→</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="p-text-03 text-white-60">
-              <strong>Payments Accepted:</strong>
-              <div
-                style="
-                  display: inline-flex;
-                  align-items: center;
-                  gap: 15px;
-                  margin-left: 10px;
-                "
-              >
-                <span style="display: flex; align-items: center; gap: 5px">
-                  <i class="fas fa-money-bill-wave"></i> Cash
-                </span>
-                <span style="display: flex; align-items: center; gap: 5px">
-                  <i class="fas fa-university"></i> Bank
-                </span>
-                <span style="display: flex; align-items: center; gap: 5px">
-                  <i class="fas fa-mobile-alt"></i> UPI
-                </span>
+            <div class="hero-brands-section">
+              <div class="brands-carousel-wrapper">
+                <div class="brands-carousel">
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/1.webp"
+                      alt="Brand Logo 1"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/2.webp"
+                      alt="Brand Logo 2"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/3.webp"
+                      alt="Brand Logo 3"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/4.webp"
+                      alt="Brand Logo 4"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/5.webp"
+                      alt="Brand Logo 5"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/6.webp"
+                      alt="Brand Logo 6"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/7.webp"
+                      alt="Brand Logo 7"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/8.webp"
+                      alt="Brand Logo 8"
+                      class="brand-logo-img"
+                    />
+                  </div>
+
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/1.webp"
+                      alt="Brand Logo 1"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/2.webp"
+                      alt="Brand Logo 2"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/3.webp"
+                      alt="Brand Logo 3"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/4.webp"
+                      alt="Brand Logo 4"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/5.webp"
+                      alt="Brand Logo 5"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/6.webp"
+                      alt="Brand Logo 6"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/7.webp"
+                      alt="Brand Logo 7"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                  <div class="brand-logo-slide">
+                    <img
+                      src="./assets/brands/8.webp"
+                      alt="Brand Logo 8"
+                      class="brand-logo-img"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+        </section>
+      </div>
+      <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Loading city data...</p>
+      </div>
+      <div id="error-content">
+        <h2>⚠️ Error Loading City</h2>
+        <p>
+          We couldn't find or load the city data. Please check the URL and try
+          again.
+        </p>
+      </div>
+      <div id="city-content">
+        <div class="city-header">
+          <div id="city-icon" class="city-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h1 id="city-heading">City Name</h1>
+          <div class="city-meta">
+            <span id="city-state"
+              ><i class="fas fa-map-marker-alt"></i> State</span
+            >
+            <span id="city-population"
+              ><i class="fas fa-users"></i> Population</span
+            >
+            <span id="city-landmark"
+              ><i class="fas fa-landmark"></i> Landmark</span
+            >
+          </div>
         </div>
 
-        <script>
-          const urlParams = new URLSearchParams(window.location.search);
-          const cityParam = urlParams.get("city");
+        <div class="city-content">
+          <p id="city-description">City description goes here.</p>
+        </div>
 
-          const loadingEl = document.getElementById("loading");
-          const cityContentEl = document.getElementById("city-content");
-          const errorContentEl = document.getElementById("error-content");
+        <section class="services-section">
+          <h2>Our Services in <span id="city-name-services">City</span></h2>
+          <div id="services-grid" class="services-grid"></div>
+        </section>
+      </div>
 
-          async function loadCityData() {
-            try {
-              loadingEl.style.display = "block";
-              cityContentEl.style.display = "none";
-              errorContentEl.style.display = "none";
+      <div class="cta-section">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>
+          Contact Pixelate Nest today for a free consultation and discover how
+          our creative digital solutions can help your business grow.
+        </p>
+        <a href="contact.html" class="cta-button">Get Free Quote</a>
+      </div>
 
-              if (!cityParam) {
-                throw new Error("No city specified");
-              }
+      <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const cityParam = urlParams.get("city");
 
-              const response = await fetch("cities.json");
-              if (!response.ok) {
-                throw new Error("Failed to load cities data");
-              }
+        const loadingEl = document.getElementById("loading");
+        const cityContentEl = document.getElementById("city-content");
+        const errorContentEl = document.getElementById("error-content");
 
-              const data = await response.json();
+        async function loadCityData() {
+          try {
+            loadingEl.style.display = "flex";
+            cityContentEl.style.display = "none";
+            errorContentEl.style.display = "none";
 
-              const cityData = data.states.find(
-                (city) => city.city.toLowerCase() === cityParam.toLowerCase(),
-              );
-
-              if (!cityData) {
-                throw new Error("City not found");
-              }
-
-              populatePage(cityData);
-
-              loadingEl.style.display = "none";
-              cityContentEl.style.display = "block";
-            } catch (error) {
-              console.error("Error loading city data:", error);
-
-              loadingEl.style.display = "none";
-              errorContentEl.style.display = "block";
+            if (!cityParam) {
+              throw new Error("No city specified");
             }
+
+            const response = await fetch("cities.json");
+            if (!response.ok) {
+              throw new Error("Failed to load cities data");
+            }
+
+            const data = await response.json();
+
+            const cityData = data.states.find(
+              (city) => city.city.toLowerCase() === cityParam.toLowerCase(),
+            );
+
+            if (!cityData) {
+              throw new Error("City not found");
+            }
+
+            populatePage(cityData);
+
+            loadingEl.style.display = "none";
+            cityContentEl.style.display = "block";
+          } catch (error) {
+            console.error("Error loading city data:", error);
+
+            loadingEl.style.display = "none";
+            errorContentEl.style.display = "flex";
+          }
+        }
+
+        function populatePage(city) {
+          document.getElementById("page-title").textContent = city.title;
+          document
+            .getElementById("page-description")
+            .setAttribute("content", city.metaDescription);
+          document
+            .getElementById("page-canonical")
+            .setAttribute(
+              "href",
+              `https://www.pixelatenest.com/state.html?city=${city.city}`,
+            );
+
+          document
+            .getElementById("og-title")
+            .setAttribute("content", city.title);
+          document
+            .getElementById("og-description")
+            .setAttribute("content", city.metaDescription);
+          document
+            .getElementById("og-url")
+            .setAttribute(
+              "content",
+              `https://www.pixelatenest.com/state.html?city=${city.city}`,
+            );
+
+          document
+            .getElementById("twitter-title")
+            .setAttribute("content", city.title);
+          document
+            .getElementById("twitter-description")
+            .setAttribute("content", city.metaDescription);
+
+          const iconEl = document.getElementById("city-icon");
+          if (city.icon) {
+            iconEl.innerHTML = `<img src="${city.icon}" alt="${city.city} Icon" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-map-marker-alt\\'></i>'">`;
+          } else {
+            iconEl.innerHTML = '<i class="fas fa-map-marker-alt"></i>';
           }
 
-          function populatePage(city) {
-            document.getElementById("page-title").textContent = city.title;
-            document
-              .getElementById("page-description")
-              .setAttribute("content", city.metaDescription);
-            document
-              .getElementById("page-canonical")
-              .setAttribute(
-                "href",
-                `https://www.pixelatenest.com/state.html?city=${city.city}`,
-              );
+          document.getElementById("city-heading").textContent = city.heading;
 
-            document
-              .getElementById("og-title")
-              .setAttribute("content", city.title);
-            document
-              .getElementById("og-description")
-              .setAttribute("content", city.metaDescription);
-            document
-              .getElementById("og-url")
-              .setAttribute(
-                "content",
-                `https://www.pixelatenest.com/state.html?city=${city.city}`,
-              );
+          document.getElementById("city-state").innerHTML =
+            `<i class="fas fa-map-marker-alt"></i> ${city.state}`;
+          document.getElementById("city-population").innerHTML =
+            `<i class="fas fa-users"></i> ${city.population}`;
+          document.getElementById("city-landmark").innerHTML =
+            `<i class="fas fa-landmark"></i> ${city.landmark}`;
 
-            document
-              .getElementById("twitter-title")
-              .setAttribute("content", city.title);
-            document
-              .getElementById("twitter-description")
-              .setAttribute("content", city.metaDescription);
+          document.getElementById("city-description").textContent =
+            city.content;
 
-            const iconEl = document.getElementById("city-icon");
-            if (city.icon) {
-              iconEl.innerHTML = `<img src="${city.icon}" alt="${city.city} Icon" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-map-marker-alt\\'></i>'">`;
-            } else {
-              iconEl.innerHTML = '<i class="fas fa-map-marker-alt"></i>';
-            }
+          function slugify(text) {
+            return String(text)
+              .toLowerCase()
+              .trim()
+              .replace(/[^a-z0-9\s-]/g, "")
+              .replace(/\s+/g, "-");
+          }
 
-            document.getElementById("city-heading").textContent = city.heading;
+          document.getElementById("city-name-services").textContent = city.city;
 
-            document.getElementById("city-state").innerHTML =
-              `<i class="fas fa-map-marker-alt"></i> ${city.state}`;
-            document.getElementById("city-population").innerHTML =
-              `<i class="fas fa-users"></i> ${city.population}`;
-            document.getElementById("city-landmark").innerHTML =
-              `<i class="fas fa-landmark"></i> ${city.landmark}`;
+          const servicesGrid = document.getElementById("services-grid");
+          servicesGrid.innerHTML = "";
 
-            document.getElementById("city-description").textContent =
-              city.content;
+          const serviceSlugMap = {
+            "Web Development": "web-development",
+            "Video Editing": "video-editing",
+            "App Development": "app-development",
+            "Software Development": "software-development",
+            "Digital Marketing": "digital-marketing",
+            "UI/UX Design": "ui-ux-design",
+            "Motion Graphics": "video-editing",
+            "E-commerce Solutions": "web-development",
+            "SEO Services": "digital-marketing",
+            "Graphic Design": "ui-ux-design",
+            "Tourism Marketing": "digital-marketing",
+            "E-learning Solutions": "software-development",
+          };
 
-            function slugify(text) {
-              return String(text)
-                .toLowerCase()
-                .trim()
-                .replace(/[^a-z0-9\s-]/g, "")
-                .replace(/\s+/g, "-");
-            }
+          city.services.forEach((service) => {
+            const serviceCard = document.createElement("a");
+            serviceCard.className = "service-card";
 
-            document.getElementById("city-name-services").textContent =
-              city.city;
-
-            const servicesGrid = document.getElementById("services-grid");
-            servicesGrid.innerHTML = "";
-
-            const serviceSlugMap = {
-              "Web Development": "web-development",
-              "Video Editing": "video-editing",
-              "App Development": "app-development",
-              "Software Development": "software-development",
-              "Digital Marketing": "digital-marketing",
-              "UI/UX Design": "ui-ux-design",
-              "Motion Graphics": "video-editing",
-              "E-commerce Solutions": "web-development",
-              "SEO Services": "digital-marketing",
-              "Graphic Design": "ui-ux-design",
-              "Tourism Marketing": "digital-marketing",
-              "E-learning Solutions": "software-development",
-            };
-
-            city.services.forEach((service) => {
-              const serviceCard = document.createElement("a");
-              serviceCard.className = "service-card";
-
-              const slug = serviceSlugMap[service] || slugify(service);
-              const serviceHref = `detailed-services.html?service=${encodeURIComponent(
-                slug,
-              )}&city=${encodeURIComponent(city.city)}`;
-              serviceCard.setAttribute("href", serviceHref);
-              serviceCard.innerHTML = `
+            const slug = serviceSlugMap[service] || slugify(service);
+            const serviceHref = `detailed-services.html?service=${encodeURIComponent(
+              slug,
+            )}&city=${encodeURIComponent(city.city)}`;
+            serviceCard.setAttribute("href", serviceHref);
+            serviceCard.innerHTML = `
                     <h3>${service}</h3>
                     <p>Professional ${service.toLowerCase()} services in ${
                       city.city
                     }</p>
                 `;
-              servicesGrid.appendChild(serviceCard);
-            });
+            servicesGrid.appendChild(serviceCard);
+          });
 
-            const schema = {
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: `Pixelate Nest ${city.city}`,
-              description: city.metaDescription,
-              url: `https://www.pixelatenest.com/state.html?city=${city.city}`,
-              telephone: "+91-84069 12345",
-              email: "support@pixelatenest.com",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: city.city,
-                addressRegion: city.state,
-                addressCountry: "IN",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: city.latitude,
-                longitude: city.longitude,
-              },
-              areaServed: {
-                "@type": "City",
-                name: city.city,
-              },
-              priceRange: "$$",
-              openingHours: "Mo-Sa 09:00-18:00",
-              sameAs: [
-                "https://www.facebook.com/profile.php?id=61586872964348",
-                "https://www.instagram.com/pixelatenest",
-                "https://www.linkedin.com/company/pixelatenest",
-              ],
-              hasOfferCatalog: {
-                "@type": "OfferCatalog",
-                name: "Digital Services",
-                itemListElement: city.services.map((service, index) => ({
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: service,
-                    description: `Professional ${service} services in ${city.city}`,
-                  },
-                })),
-              },
-            };
+          const schema = {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: `Pixelate Nest ${city.city}`,
+            description: city.metaDescription,
+            url: `https://www.pixelatenest.com/state.html?city=${city.city}`,
+            telephone: "+91-84069 12345",
+            email: "support@pixelatenest.com",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: city.city,
+              addressRegion: city.state,
+              addressCountry: "IN",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: city.latitude,
+              longitude: city.longitude,
+            },
+            areaServed: {
+              "@type": "City",
+              name: city.city,
+            },
+            priceRange: "$$",
+            openingHours: "Mo-Sa 09:00-18:00",
+            sameAs: [
+              "https://www.facebook.com/profile.php?id=61586872964348",
+              "https://www.instagram.com/pixelatenest",
+              "https://www.linkedin.com/company/pixelatenest",
+            ],
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Digital Services",
+              itemListElement: city.services.map((service, index) => ({
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: service,
+                  description: `Professional ${service} services in ${city.city}`,
+                },
+              })),
+            },
+          };
 
-            document.getElementById("schema-markup").textContent =
-              JSON.stringify(schema, null, 2);
-          }
+          document.getElementById("schema-markup").textContent = JSON.stringify(
+            schema,
+            null,
+            2,
+          );
+        }
 
-          document.addEventListener("DOMContentLoaded", loadCityData);
-        </script>
-        <script src="./js/index.js"></script>
-        <script src="js/activity-tracker.js"></script>
-      </section>
+        document.addEventListener("DOMContentLoaded", loadCityData);
+      </script>
+      <script src="./js/index.js"></script>
+      <script src="js/activity-tracker.js"></script>
     </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-wrap">
+          <div class="footer-top">
+            <div class="footer-top-left">
+              <div class="footer-logo-details">
+                <div class="footer-logo-wrap">
+                  <a
+                    href="https://www.pixelatenest.com/"
+                    class="footer-logo w-inline-block"
+                  >
+                    <img
+                      src="assets/Logo_Color_Name_large.webp"
+                      loading="lazy"
+                      alt="Pixelate Nest Logo"
+                      class="fit-cover"
+                    />
+                  </a>
+                </div>
+                <p class="p-text-03">
+                  AI-first creative technology partner for web, app, and video
+                  that delivers measurable growth.
+                </p>
+                <div style="margin-top: 20px">
+                  <p class="p-text-03" style="margin-bottom: 8px">
+                    <strong>Contact Us</strong>
+                  </p>
+                  <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
+                    <i class="fas fa-envelope" style="margin-right: 8px"></i
+                    >support@pixelatenest.com
+                  </p>
+                  <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
+                    <i class="fas fa-phone" style="margin-right: 8px"></i>+91
+                    84069 12345
+                  </p>
+                  <p class="p-text-03 text-white-60">
+                    <i
+                      class="fas fa-map-marker-alt"
+                      style="margin-right: 8px"
+                    ></i
+                    >Muzaffarpur, Bihar, India — Serving clients across India &
+                    globally
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-right-link-wrap">
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Company</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/about.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">About Us</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/careers.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Careers</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/contact.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Contact Us</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/blogs.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Blog</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Services</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/video-ed.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Video Editing</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/webdev.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Web Development</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/app-dev.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">App Development</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/software-dev.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Software Development</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Industries We Serve</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/industry-ecommerce.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Ecommerce & Multivendor</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-realestate.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">
+                      Real Estate & Construction
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-travel.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Travel & Hospitality</div>
+                  </a>
+
+                  <a
+                    href="https://www.pixelatenest.com/industry-education.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Education</div>
+                  </a>
+
+                  <a
+                    href="https://www.pixelatenest.com/industry-logistics.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">
+                      Transportation & Logistics
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-manufacturing.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Manufacturing</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Resources</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/pricing.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Pricing</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/locations.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Locations</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/technologies.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Technologies</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Legal</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/privacy-policy.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Privacy Policy</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/terms-of-service.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Terms of Service</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/cookie-policy.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Cookie Policy</div>
+                  </a>
+                </div>
+              </div>
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Follow Us</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.linkedin.com/company/pixelate-nest/?viewAsMember=true"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link w-inline-block"
+                  >
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
+                      <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                      <span>LinkedIn</span>
+                    </div>
+                  </a>
+
+                  <a
+                    href="https://www.instagram.com/pixelate.nest/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link w-inline-block"
+                  >
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
+                      <i class="fab fa-instagram" aria-hidden="true"></i>
+                      <span>Instagram</span>
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61586872964348"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link w-inline-block"
+                  >
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
+                      <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                      <span>Facebook</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <div class="vertical-divider"></div>
+            <div class="footer-bottom-wrap">
+              <div class="p-text-03 text-white-60">
+                © 2026 Kalahanu Tech Studios LLP. All Rights Reserved. | Crafted
+                with
+                <i class="fas fa-heart" style="color: #e74c3c"></i>
+                in India
+              </div>
+              <div class="p-text-03 text-white-60">
+                <strong>Payments Accepted:</strong>
+                <div
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 15px;
+                    margin-left: 10px;
+                  "
+                >
+                  <span style="display: flex; align-items: center; gap: 5px">
+                    <i class="fas fa-money-bill-wave"></i> Cash
+                  </span>
+                  <span style="display: flex; align-items: center; gap: 5px">
+                    <i class="fas fa-university"></i> Bank
+                  </span>
+                  <span style="display: flex; align-items: center; gap: 5px">
+                    <i class="fas fa-mobile-alt"></i> UPI
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

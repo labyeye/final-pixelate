@@ -53,17 +53,34 @@
     <meta content="Pixelate Nest" name="generator" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="pricing.css" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link
+      href="https://fonts.gstatic.com"
+      rel="preconnect"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      media="print"
+      onload="this.media = 'all'"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.prod.website-files.com data:; img-src 'self' data: https:; connect-src 'self' https://backend.pixelatenest.com https://www.google-analytics.com https://www.google.com https://www.facebook.com https://connect.facebook.net; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <link
-      href="https://backend.pixelatenest.com"
-      rel="preconnect"
-      crossorigin
-    />
+    <link href="https://backend.pixelatenest.com" rel="preconnect" crossorigin />
     <link href="https://backend.pixelatenest.com" rel="dns-prefetch" />
 
     <script
@@ -73,6 +90,9 @@
     ></script>
   </head>
   <body>
+    <div id="announcement-bar" class="announcement-bar">
+      <div class="announcement-content" id="announcement-content"></div>
+    </div>
     <div class="page-wrapper">
       <div class="main-hero">
         <section class="nav-wrap">
@@ -168,7 +188,10 @@
                           ></i>
                         </a>
                         <div class="dropdown-menu">
-                          <a href="webdev.html" class="dropdown-item">
+                          <a
+                            href="https://www.pixelatenest.com/webdev.html"
+                            class="dropdown-item"
+                          >
                             Web Development
                           </a>
                           <a href="app-dev.html" class="dropdown-item">
@@ -350,13 +373,7 @@
     </div>
     <section
       class="pricing-cards-section"
-      style="
-        padding: 100px 0;
-        background-image: url(./assets/back.webp);
-        background-position: center;
-        background-size: cover;
-        position: relative;
-      "
+      style="padding: 100px 0; background: white; position: relative"
     >
       <div class="container">
         <div style="text-align: center; margin-bottom: 60px">
@@ -402,7 +419,7 @@
               </div>
               <ul class="benefits-list">
                 <li><i class="fas fa-check"></i> Responsive Design</li>
-                <li><i class="fas fa-check"></i> SEO Optimized</li>
+                <li><i class="fas fa-check"></i> Basic SEO Optimized</li>
                 <li><i class="fas fa-check"></i> Fast Loading Speed</li>
                 <li><i class="fas fa-check"></i> Contact Form Integration</li>
                 <li><i class="fas fa-check"></i> Social Media Links</li>
@@ -425,7 +442,7 @@
               <h3 class="pricing-title">Dynamic Website</h3>
               <div class="price-tag">
                 <span class="currency">₹</span>
-                <span class="amount">15k-20k</span>
+                <span class="amount">20k-25k</span>
               </div>
               <p class="price-subtitle">Starting Price</p>
             </div>
@@ -442,7 +459,7 @@
                 <li><i class="fas fa-check"></i> Database Integration</li>
                 <li><i class="fas fa-check"></i> Content Management</li>
                 <li><i class="fas fa-check"></i> User Authentication</li>
-                <li><i class="fas fa-check"></i> Advanced SEO</li>
+                <li><i class="fas fa-check"></i> Basic SEO</li>
                 <li><i class="fas fa-check"></i> Analytics Integration</li>
                 <li><i class="fas fa-check"></i> Free 2 Months Support</li>
               </ul>
@@ -481,6 +498,43 @@
                 <li><i class="fas fa-check"></i> Inventory System</li>
                 <li><i class="fas fa-check"></i> Customer Accounts</li>
                 <li><i class="fas fa-check"></i> Shipping Integration</li>
+                <li><i class="fas fa-check"></i> Free 3 Months Support</li>
+              </ul>
+              <a
+                href="https://www.pixelatenest.com/contact.html"
+                class="card-cta-btn"
+              >
+                Get Started
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="pricing-card liquid-glass">
+            <div class="card-header">
+              <div class="featured-badge">Best Value</div>
+              <h3 class="pricing-title">E-commerce Website & Mobile App</h3>
+              <div class="price-tag">
+                <span class="currency">₹</span>
+                <span class="amount">50k-60k</span>
+              </div>
+              <p class="price-subtitle">Starting Price</p>
+            </div>
+            <div class="card-body">
+              <div class="delivery-info">
+                <i class="fas fa-clock"></i>
+                <span>30-60 days delivery</span>
+              </div>
+              <div class="best-for">
+                <strong>Best For:</strong> Online stores, retailers
+              </div>
+              <ul class="benefits-list">
+                <li><i class="fas fa-check"></i> Product & Order Management</li>
+                <li><i class="fas fa-check"></i> Payment Gateway</li>
+                <li><i class="fas fa-check"></i> Responsive Design</li>
+                <li><i class="fas fa-check"></i> Inventory System</li>
+                <li><i class="fas fa-check"></i> Customer Accounts</li>
+                <li><i class="fas fa-check"></i> Shipping Integration</li>
+                <li><i class="fas fa-check"></i> Mobile App Publish</li>
                 <li><i class="fas fa-check"></i> Free 3 Months Support</li>
               </ul>
               <a
@@ -609,12 +663,7 @@
     <section
       id="pricing-comparison"
       class="pricing-section"
-      style="
-        padding: 80px 0;
-        background-image: url(./assets/back.webp);
-        background-position: center;
-        background-size: cover;
-      "
+      style="padding: 80px 0; background: white"
     >
       <div class="container">
         <div style="text-align: center; margin-bottom: 50px">
@@ -717,7 +766,7 @@
                     font-weight: bold;
                   "
                 >
-                  ₹15k-20k
+                  ₹20k-25k
                 </td>
                 <td style="padding: 20px; text-align: center; color: #000">
                   15-20 days
@@ -740,6 +789,27 @@
                 </td>
                 <td style="padding: 20px; text-align: center; color: #000">
                   25-30 days
+                </td>
+                <td style="padding: 20px; text-align: center; color: #000">
+                  Online stores, retailers
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1)">
+                <td style="padding: 20px; color: #000">
+                  E-commerce Website & Mobile App
+                </td>
+                <td
+                  style="
+                    padding: 20px;
+                    text-align: center;
+                    color: #000000;
+                    font-weight: bold;
+                  "
+                >
+                  ₹50k-60k
+                </td>
+                <td style="padding: 20px; text-align: center; color: #000">
+                  30-60 days
                 </td>
                 <td style="padding: 20px; text-align: center; color: #000">
                   Online stores, retailers
@@ -806,6 +876,125 @@
           </table>
         </div>
       </div>
+      <!-- FAQ: inserted before Need Something Custom -->
+      <div class="pricing-faq-wrap">
+        <section class="faq-section" aria-labelledby="pricing-faq-headline">
+          <div class="faq-container">
+            <h2 id="pricing-faq-headline" class="faq-headline">
+              Your Questions, Answered
+            </h2>
+            <p class="faq-sub">
+              We believe in total transparency. Here’s everything you need to
+              know about our project pricing, delivery timelines, and what it’s
+              like to work with us.
+            </p>
+
+            <div class="faq-list">
+              <div class="faq-item" aria-expanded="false">
+                <button
+                  class="faq-question"
+                  aria-controls="pf1"
+                  aria-expanded="false"
+                >
+                  <span>Can I get a custom quote for my unique project?</span>
+                  <span class="chev" aria-hidden="true">▾</span>
+                </button>
+                <div id="pf1" class="faq-answer">
+                  Absolutely! Pixelate Nest understands that one price does not
+                  fit all. If you are having custom web development project with
+                  some special requirements, simply click on the "Request Custom
+                  Quote" button. We will jump on a quick discovery call to
+                  understand your requirements and give you a personalized price
+                  quote.
+                </div>
+              </div>
+
+              <div class="faq-item" aria-expanded="false">
+                <button
+                  class="faq-question"
+                  aria-controls="pf2"
+                  aria-expanded="false"
+                >
+                  <span>Are there any hidden fees or surprise costs?</span>
+                  <span class="chev" aria-hidden="true">▾</span>
+                </button>
+                <div id="pf2" class="faq-answer">
+                  When it comes to money, nobody likes surprises. You can be
+                  sure you know exactly where every dollar goes thanks to our
+                  pricing model. Third-party expenses like website hosting or
+                  software licensing fees are broken out separately, but our
+                  service fees are set. Before moving forward, we will always
+                  get your "thumbs up" on these.
+                </div>
+              </div>
+              <div class="faq-item" aria-expanded="false">
+                <button
+                  class="faq-question"
+                  aria-controls="pf3"
+                  aria-expanded="false"
+                >
+                  <span
+                    >What happens if I need changes? What's your refund
+                    policy?</span
+                  >
+                  <span class="chev" aria-hidden="true">▾</span>
+                </button>
+                <div id="pf3" class="faq-answer">
+                  We want you to be thrilled with the outcome! A predetermined
+                  number of design revisions are included in each service
+                  package to polish the specifics. We strive to be equitable
+                  when it comes to refunds: expenses are managed in accordance
+                  with the current project milestone. Our objective is always a
+                  clear solution that honors the work of our team as well as
+                  your investment.
+                </div>
+              </div>
+
+              <div class="faq-item" aria-expanded="false">
+                <button
+                  class="faq-question"
+                  aria-controls="pf4"
+                  aria-expanded="false"
+                >
+                  <span
+                    >Do you offer support and maintenance after the
+                    launch?</span
+                  >
+                  <span class="chev" aria-hidden="true">▾</span>
+                </button>
+                <div id="pf4" class="faq-answer">
+                  We don't merely "build and bolt." We are providing monthly
+                  retainer options and ongoing website maintenance plans to keep
+                  your site functioning properly. As your company expands, we
+                  can offer long-term technical support for anything from
+                  security updates to performance monitoring to minor
+                  adjustments.
+                </div>
+              </div>
+
+              <div class="faq-item" aria-expanded="false">
+                <button
+                  class="faq-question"
+                  aria-controls="pf5"
+                  aria-expanded="false"
+                >
+                  <span>How long will it take to see the final result?</span>
+                  <span class="chev" aria-hidden="true">▾</span>
+                </button>
+                <div id="pf5" class="faq-answer">
+                  Project turnaround times vary depending on the complexity of
+                  the work. You can find typical estimated delivery timelines
+                  listed under each package above. For bespoke solutions, we’ll
+                  provide a detailed project roadmap with specific deadlines
+                  during the quoting process so you can plan your launch with
+                  confidence.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
       <div
         style="
           text-align: center;
@@ -829,7 +1018,14 @@
         <a
           href="https://www.pixelatenest.com/contact.html"
           class="button-02 w-inline-block"
-          style="padding: 15px 40px; display: inline-block; color: white"
+          style="
+            padding: 15px 40px;
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            background-color: var(--primary-900);
+            border-radius: 20px;
+          "
         >
           Request Custom Quote
           <i class="fas fa-arrow-right" style="margin-left: 10px"></i>
@@ -859,6 +1055,59 @@
       function selectPlan(planDetails) {
         localStorage.setItem("selectedPlan", planDetails);
       }
+    </script>
+    <script>
+      // Pricing page FAQ accordion
+      (function () {
+        function initFAQ() {
+          const items = document.querySelectorAll(".faq-item");
+          if (!items.length) return;
+          function closeItem(other) {
+            other.setAttribute("aria-expanded", "false");
+            const b = other.querySelector(".faq-question");
+            const a = other.querySelector(".faq-answer");
+            if (b) b.setAttribute("aria-expanded", "false");
+            if (a) {
+              a.style.maxHeight = "0px";
+              a.style.paddingTop = "0px";
+            }
+          }
+          items.forEach((it) => {
+            const btn = it.querySelector(".faq-question");
+            const answer = it.querySelector(".faq-answer");
+            if (answer) {
+              answer.style.overflow = "hidden";
+              answer.style.maxHeight = "0px";
+              answer.style.transition =
+                "max-height 0.28s ease, padding 0.22s ease";
+              answer.style.paddingTop = "0px";
+            }
+            btn.addEventListener("click", () => {
+              const expanded = it.getAttribute("aria-expanded") === "true";
+              items.forEach(closeItem);
+              const newState = (!expanded).toString();
+              it.setAttribute("aria-expanded", newState);
+              btn.setAttribute("aria-expanded", newState);
+              if (!expanded && answer) {
+                answer.style.paddingTop = "12px";
+                answer.style.maxHeight = answer.scrollHeight + 24 + "px";
+              } else if (answer) {
+                answer.style.maxHeight = "0px";
+                answer.style.paddingTop = "0px";
+              }
+            });
+            btn.addEventListener("keydown", (ev) => {
+              if (ev.key === "Enter" || ev.key === " ") {
+                ev.preventDefault();
+                btn.click();
+              }
+            });
+          });
+        }
+        if (document.readyState === "loading")
+          document.addEventListener("DOMContentLoaded", initFAQ);
+        else initFAQ();
+      })();
     </script>
     <script src="js/index.js"></script>
 
@@ -1070,24 +1319,14 @@
                   >
                     <div class="footer-link-text">Travel & Hospitality</div>
                   </a>
-                  <a
-                    href="https://www.pixelatenest.com/industry-healthcare.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Healthcare</div>
-                  </a>
+
                   <a
                     href="https://www.pixelatenest.com/industry-education.html"
                     class="footer-link w-inline-block"
                   >
                     <div class="footer-link-text">Education</div>
                   </a>
-                  <a
-                    href="https://www.pixelatenest.com/industry-finance.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Finance & Insurance</div>
-                  </a>
+
                   <a
                     href="https://www.pixelatenest.com/industry-logistics.html"
                     class="footer-link w-inline-block"
@@ -1102,18 +1341,8 @@
                   >
                     <div class="footer-link-text">Manufacturing</div>
                   </a>
-                  <a
-                    href="https://www.pixelatenest.com/industry-utilities.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Utilities & On Demand</div>
-                  </a>
-                  <a
-                    href="https://www.pixelatenest.com/industry-media.html"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Media & Entertainment</div>
-                  </a>
+                  
+                  
                 </div>
               </div>
 
@@ -1174,9 +1403,12 @@
                     rel="noopener noreferrer"
                     class="footer-link w-inline-block"
                   >
-                    <div class="footer-link-text">
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
                       <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                      LinkedIn
+                      <span>LinkedIn</span>
                     </div>
                   </a>
                   <a
@@ -1185,9 +1417,12 @@
                     rel="noopener noreferrer"
                     class="footer-link w-inline-block"
                   >
-                    <div class="footer-link-text">
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
                       <i class="fab fa-instagram" aria-hidden="true"></i>
-                      Instagram
+                      <span>Instagram</span>
                     </div>
                   </a>
                   <a
@@ -1196,48 +1431,14 @@
                     rel="noopener noreferrer"
                     class="footer-link w-inline-block"
                   >
-                    <div class="footer-link-text">
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
                       <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                      Facebook
+                      <span>Facebook</span>
                     </div>
                   </a>
-                  <div
-                    class="footer-social-icons"
-                    style="
-                      display: flex;
-                      gap: 12px;
-                      margin-top: 12px;
-                      align-items: center;
-                    "
-                  >
-                    <a
-                      href="https://www.linkedin.com/company/pixelate-nest/?viewAsMember=true"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="LinkedIn"
-                      style="color: inherit; font-size: 18px"
-                    >
-                      <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a
-                      href="https://www.instagram.com/pixelate.nest/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Instagram"
-                      style="color: inherit; font-size: 18px"
-                    >
-                      <i class="fab fa-instagram"></i>
-                    </a>
-                    <a
-                      href="https://www.facebook.com/profile.php?id=61586872964348"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Facebook"
-                      style="color: inherit; font-size: 18px"
-                    >
-                      <i class="fab fa-facebook-f"></i>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>

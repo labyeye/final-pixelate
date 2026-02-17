@@ -21,6 +21,7 @@ export default function EditJobPage() {
   const [formData, setFormData] = useState({
     title: '',
     department: '',
+    imageUrl: '',
     location: '',
     type: '',
     experience: '',
@@ -44,6 +45,7 @@ export default function EditJobPage() {
       const data = await response.json();
       setFormData({
         ...data,
+        imageUrl: data.imageUrl || '',
         salaryType: data.salaryType || 'paid',
         salary: data.salary || '',
         duration: data.duration || '',
@@ -169,6 +171,16 @@ export default function EditJobPage() {
                     <SelectItem value="management">Management</SelectItem>
                   </SelectContent>
                 </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="imageUrl">Image URL</Label>
+                <Input
+                  id="imageUrl"
+                  value={formData.imageUrl}
+                  onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
+                  placeholder="https://example.com/logo.png"
+                />
               </div>
 
               <div className="space-y-2">

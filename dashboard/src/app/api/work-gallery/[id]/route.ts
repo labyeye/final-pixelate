@@ -26,8 +26,13 @@ export async function PUT(request: Request, { params }: { params: { id: string }
   try {
     const { id } = await params;
     const body = await request.json();
+    console.debug('[api/work-gallery/[id]] PUT body:', body);
     const updated = await svc.updateById('workGallery', id, { ...body, updatedAt: new Date() });
-    return NextResponse.json(updated, { headers: CORS_HEADERS });
+    console.debug('[api/work-gallery/[id]] updated doc from DB:', updated);
+    // Return merged object (DB doc plus incoming body) so the client can immediately
+    // see any fields the client sent even if the DB read path omits them.
+    const merged = { ...(updated || {}), ...(body || {}) };
+    return NextResponse.json(merged, { headers: CORS_HEADERS });
   } catch (e: any) {
     return NextResponse.json({ error: e.message || String(e) }, { status: 500, headers: CORS_HEADERS });
   }

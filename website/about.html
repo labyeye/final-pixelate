@@ -45,37 +45,19 @@
       name="twitter:image"
       content="https://www.pixelatenest.com/assets/logo-2.png"
     />
-    <meta
-      content="About V1 - Trenox Webflow Ecommerce Website Template"
-      property="og:title"
-    />
-    <meta
-      content="Trenox – A bold and modern Webflow Ecommerce template crafted for SaaS startups, tech companies, and digital products. Fully responsive and conversion-optimized, Trenox helps you showcase features, engage users, and grow your online business effortlessly."
-      property="og:description"
-    />
-    <meta
-      content="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6875693705638d9a189cda18_Trenox%20Social-share.webp"
-      property="og:image"
-    />
-    <meta
-      content="About V1 - Trenox Webflow Ecommerce Website Template"
-      property="twitter:title"
-    />
-    <meta
-      content="Trenox – A bold and modern Webflow Ecommerce template crafted for SaaS startups, tech companies, and digital products. Fully responsive and conversion-optimized, Trenox helps you showcase features, engage users, and grow your online business effortlessly."
-      property="twitter:description"
-    />
-    <meta
-      content="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/6875693705638d9a189cda18_Trenox%20Social-share.webp"
-      property="twitter:image"
-    />
+    <!-- Open Graph / Twitter (Pixelate Nest) -->
+    <meta property="og:site_name" content="Pixelate Nest" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:site" content="@pixelatenest" />
+    <meta name="twitter:creator" content="@pixelatenest" />
+    <meta property="og:image:alt" content="Pixelate Nest logo" />
 
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com http://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com http://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.prod.website-files.com data:; img-src 'self' data: https:; connect-src 'self' https://backend.pixelatenest.com https://www.google-analytics.com https://www.google.com https://www.facebook.com https://connect.facebook.net https://cdn.prod.website-files.com https://ap.stape.info; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.prod.website-files.com data:; img-src 'self' data: https:; connect-src 'self' https://backend.pixelatenest.com https://www.google-analytics.com https://www.google.com https://www.facebook.com https://connect.facebook.net https://cdn.prod.website-files.com https://ap.stape.info; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -149,10 +131,7 @@
       rel="shortcut icon"
       type="image/x-icon"
     />
-    <link
-      href="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/687bf25268ea6656fee08b5f_Trenox%20Webclip%20.svg"
-      rel="apple-touch-icon"
-    />
+    <link href="./assets/Logo_Color.webp" rel="apple-touch-icon" />
     <script type="text/javascript">
       window.__WEBFLOW_CURRENCY_SETTINGS = {
         currencyCode: "USD",
@@ -254,7 +233,12 @@
     </script>
 
     <div class="page-wrapper">
-      <div class="main-hero">
+      <div
+        style="
+          background-image: url(./assets/back.webp);
+          background-size: cover;
+        "
+      >
         <section class="nav-wrap">
           <div class="nav-bar-wrap">
             <div
@@ -348,7 +332,7 @@
                           ></i>
                         </a>
                         <div class="dropdown-menu">
-                          <a href="webdev.html" class="dropdown-item">
+                          <a href="https://www.pixelatenest.com/webdev.html" class="dropdown-item">
                             Web Development
                           </a>
                           <a href="app-dev.html" class="dropdown-item">
@@ -526,114 +510,120 @@
         </section>
       </div>
       <section
+        class="services-section"
         style="
-          background-image: url(./assets/back-left.webp);
-          padding: 30px 20px 0 20px;
+          position: relative;
+          width: 100%;
+          background: white;
+          padding: 100px 0;
         "
       >
-        <div class="about-us-v1-wrap">
-          <div class="about-us-v1-top">
-            <div class="about-us-v1-heading">
-              <h2 class="h2 text-linear">What we do?</h2>
-            </div>
-            <div class="about-us-v1-sub-heading">
-              <p class="p-text-02 text-white-70">
+        <style>
+          .services-grid .service-item {
+            position: relative;
+            padding-bottom: 2.5rem;
+          }
+          .services-grid .service-item .service-description {
+            margin-bottom: 1rem;
+          }
+          .services-grid .service-item a {
+            color: var(--secondary-900);
+            text-decoration: none;
+            position: absolute;
+            left: 16px;
+            bottom: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+          }
+          .services-grid .service-item a:hover {
+            color: var(--secondary-800);
+            text-decoration: none;
+          }
+          .services-grid .service-item a i.fa-arrow-right {
+            font-size: 0.85em;
+            line-height: 1;
+          }
+        </style>
+        <div style="position: relative; z-index: 1">
+          <div class="services-wrap">
+            <div class="heading-wrap">
+              <h2
+                style="
+                  margin-bottom: 10px;
+                  font-size: clamp(2rem, 6vw, 5rem);
+                  color: var(--primary-900);
+                  line-height: 1.2;
+                "
+              >
+                What We Do
+              </h2>
+              <span
+                style="
+                  display: block;
+                  font-size: clamp(0.8rem, 2.5vw, 1.25rem);
+                  margin-top: 20px;
+                  color: var(--tertiary-700);
+                  text-align: center;
+                  line-height: 1.6;
+                "
+              >
                 In 2024, Pixelate Nest was founded with a clear mission: to help
                 ambitious brands navigate the digital world with confidence. We
                 started by combining our passions for cinematic storytelling and
                 cutting-edge web technology, creating a single, integrated
                 agency where creative ideas can truly take flight.<br />
-                <br />Today, we partner with clients to build everything from
+                Today, we partner with clients to build everything from
                 high-performance websites to compelling video campaigns. At
                 every step, you get access to a dedicated team with the
                 strategic insights and technical expertise needed to turn your
                 vision into a powerful digital asset.
-              </p>
+              </span>
             </div>
-          </div>
-          <div
-            style="
-              grid-template-columns: repeat(1fr 1fr);
-              flex-direction: row;
-              display: flex;
-              padding: 30px;
-              @media screen and (max-width: 767px) {
-                flex-direction: column;
-              }
-            "
-          >
-            <div class="about-us-content-list">
-              <div class="card-content-wrap">
-                <h1
-                  class="h4"
-                  style="
-                    color: var(--primary-900);
-                    -webkit-background-clip: text;
-                    background-clip: text;
-                    font-size: clamp(2rem, 6vw, 3rem);
-                    text-align: center;
-                    padding-bottom: 25px;
-                  "
-                >
-                  Our Mission
-                </h1>
-                <p class="p-text-02 text-white-70">
+            <div class="services-grid">
+              <div class="service-item">
+                <img
+                  src="./assets/about/mission.webp"
+                  alt="Website Development Services"
+                />
+                <div class="title-caption">Our Mission</div>
+                <div class="title-description">
                   Our mission at PixelateNest is to transform ideas into
                   visually stunning, high-performing digital experiences through
                   expert web development, creative video editing, and smart
                   branding solutions.
-                </p>
+                </div>
               </div>
-            </div>
-
-            <div class="about-us-content-list">
-              <div class="card-content-wrap">
-                <h1
-                  class="h4"
-                  style="
-                    color: var(--primary-900);
-                    -webkit-background-clip: text;
-                    background-clip: text;
-                    font-size: clamp(2rem, 6vw, 3rem);
-                    text-align: center;
-                    padding-bottom: 25px;
-                  "
-                >
-                  Our Vision
-                </h1>
-                <p class="p-text-02 text-white-70">
+              <div class="service-item">
+                <img
+                  src="./assets/about/vision.webp"
+                  alt="Mobile App Development Services"
+                />
+                <div class="title-caption">Our Vision</div>
+                <div class="title-description">
                   We envision becoming a global leader in crafting innovative
                   brand experiences, blending creativity and technology for
                   businesses aiming to thrive in a connected world.
-                </p>
+                </div>
               </div>
-            </div>
-
-            <div class="about-us-content-list">
-              <div class="card-content-wrap">
-                <h1
-                  class="h4"
-                  style="
-                    color: var(--primary-900);
-                    -webkit-background-clip: text;
-                    background-clip: text;
-                    font-size: clamp(2rem, 6vw, 3rem);
-                    text-align: center;
-                    padding-bottom: 25px;
-                  "
-                >
-                  Our Goal
-                </h1>
-                <p class="p-text-02 text-white-70">
+              <div class="service-item">
+                <img
+                  src="./assets/about/goal.webp"
+                  alt="Software Development Services"
+                />
+                <div class="title-caption">Our Goal</div>
+                <div class="title-description">
                   Our goal is to empower businesses with tailored digital
                   strategies that increase visibility, accelerate growth, and
                   leave lasting impressions.
-                </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
+      </section>
+      <section style="background: white; padding: 30px 20px 0 20px">
         <script>
           (async function loadTeamMembers() {
             try {
@@ -802,10 +792,7 @@
           })();
         </script>
       </section>
-      <section
-        class="final-team-section"
-        style="background-image: url(./assets/back-bottom.webp)"
-      >
+      <section class="final-team-section" style="background: white">
         <div class="final-team-header">
           <div class="heading-wrap">
             <h2 class="h2 text-linear">Meet The Team</h2>
@@ -962,24 +949,14 @@
                     >
                       <div class="footer-link-text">Travel & Hospitality</div>
                     </a>
-                    <a
-                      href="https://www.pixelatenest.com/industry-healthcare.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Healthcare</div>
-                    </a>
+                    
                     <a
                       href="https://www.pixelatenest.com/industry-education.html"
                       class="footer-link w-inline-block"
                     >
                       <div class="footer-link-text">Education</div>
                     </a>
-                    <a
-                      href="https://www.pixelatenest.com/industry-finance.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Finance & Insurance</div>
-                    </a>
+                    
                     <a
                       href="https://www.pixelatenest.com/industry-logistics.html"
                       class="footer-link w-inline-block"
@@ -994,18 +971,8 @@
                     >
                       <div class="footer-link-text">Manufacturing</div>
                     </a>
-                    <a
-                      href="https://www.pixelatenest.com/industry-utilities.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Utilities & On Demand</div>
-                    </a>
-                    <a
-                      href="https://www.pixelatenest.com/industry-media.html"
-                      class="footer-link w-inline-block"
-                    >
-                      <div class="footer-link-text">Media & Entertainment</div>
-                    </a>
+                    
+                    
                   </div>
                 </div>
 
@@ -1066,10 +1033,13 @@
                       rel="noopener noreferrer"
                       class="footer-link w-inline-block"
                     >
-                      <div class="footer-link-text">
-                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                        LinkedIn
-                      </div>
+                      <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
+                      <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                      <span>LinkedIn</span>
+                    </div>
                     </a>
 
                     <a
@@ -1078,10 +1048,13 @@
                       rel="noopener noreferrer"
                       class="footer-link w-inline-block"
                     >
-                      <div class="footer-link-text">
-                        <i class="fab fa-instagram" aria-hidden="true"></i>
-                        Instagram
-                      </div>
+                      <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
+                      <i class="fab fa-instagram" aria-hidden="true"></i>
+                      <span>Instagram</span>
+                    </div>
                     </a>
                     <a
                       href="https://www.facebook.com/profile.php?id=61586872964348"
@@ -1089,10 +1062,13 @@
                       rel="noopener noreferrer"
                       class="footer-link w-inline-block"
                     >
-                      <div class="footer-link-text">
-                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                        Facebook
-                      </div>
+                      <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
+                      <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                      <span>Facebook</span>
+                    </div>
                     </a>
 
                     <div

@@ -203,6 +203,24 @@ export default function ReviewsPage() {
     );
   };
 
+  const renderServiceBadge = (service: string) => {
+    const map: Record<string, string> = {
+      "Video Editing": "bg-orange-500 text-white",
+      "Web Development": "bg-blue-600 text-white",
+      "App Development": "bg-indigo-600 text-white",
+      "Software Development": "bg-slate-700 text-white",
+      "Digital Marketing": "bg-emerald-500 text-white",
+      "UI/UX Design": "bg-pink-600 text-white",
+      Other: "bg-gray-500 text-white",
+    };
+    const cls = map[service] || "bg-gray-500 text-white";
+    return (
+      <Badge className={`${cls} inline-block`}>
+        {service}
+      </Badge>
+    );
+  };
+
   return (
     <div className="p-8">
       <div className="flex justify-between items-center mb-6">
@@ -255,7 +273,7 @@ export default function ReviewsPage() {
                   </TableCell>
                   <TableCell>{review.brand}</TableCell>
                   <TableCell>
-                    <Badge variant="outline">{review.workDone}</Badge>
+                    {renderServiceBadge(review.workDone)}
                   </TableCell>
                   <TableCell>{renderStars(review.rating)}</TableCell>
                   <TableCell className="max-w-xs truncate">

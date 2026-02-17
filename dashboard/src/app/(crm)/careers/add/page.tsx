@@ -17,6 +17,7 @@ export default function AddJobPage() {
   const [formData, setFormData] = useState({
     title: '',
     department: '',
+    imageUrl: '',
     location: '',
     type: '',
     experience: '',
@@ -141,6 +142,16 @@ export default function AddJobPage() {
                     <SelectItem value="management">Management</SelectItem>
                   </SelectContent>
                 </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="imageUrl">Image URL</Label>
+                <Input
+                  id="imageUrl"
+                  value={formData.imageUrl}
+                  onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
+                  placeholder="https://example.com/logo.png"
+                />
               </div>
 
               <div className="space-y-2">

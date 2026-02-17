@@ -17,7 +17,12 @@ export async function GET() {
   try {
     const col = await svc.getCollection('workGallery');
     const items = await col.find().toArray();
-    return NextResponse.json(items, { headers: CORS_HEADERS });
+    // Log and normalize items so consumers always see `description` (fallback to `note`).
+    try {
+      console.debug('[api/work-gallery] GET items count:', Array.isArray(items) ? items.length : 0, 'sample description:', items && items[0] ? items[0].description : null, 'sample note:', items && items[0] ? items[0].note : null);
+    } catch (e) {}
+    const normalized = (items || []).map((it: any) => ({ ...(it || {}), description: it?.description ?? it?.note ?? '' }));
+    return NextResponse.json(normalized, { headers: CORS_HEADERS });
   } catch (e: any) {
     return NextResponse.json({ error: e.message || String(e) }, { status: 500, headers: CORS_HEADERS });
   }

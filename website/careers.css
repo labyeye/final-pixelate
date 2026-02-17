@@ -101,13 +101,13 @@
 .filter-btn.active {
   background: var(--white);
   color: var(--secondary-900);
-  border-color: transparent;
+  border-color: var(--secondary-900);
   box-shadow: inset 0 0 0 2px var(--white);
 }
 
 .jobs-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
@@ -138,7 +138,8 @@
 .job-title {
   font-size: 28px;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
+  margin-top: 14px;
   color: var(--primary-900);
 }
 
@@ -160,22 +161,52 @@
   color: var(--primary-900);
   line-height: 1.6;
   margin-bottom: 20px;
+  font-size: 15px;
+  padding: 12px;
+  
+  white-space: normal;
+  overflow: visible;
 }
-
 .job-tags {
-  display: flex;
   gap: 8px;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 1fr);
+  display: grid;
   margin-bottom: 20px;
 }
 
 .job-tag {
-  padding: 6px 16px;
-  background: #fb8a02;
-  color: black;
-  border-radius: 100px;
+  padding: 6px 14px;
+  background: var(--primary-900);
+  color: #ffffff;
+  border-radius: 999px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+}
+
+.job-tags-top {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.job-desc-line {
+  margin: 6px 0;
+  color: var(--primary-900);
+  text-align: left;
+}
+
+.job-bullets {
+  margin: 8px 0 0 18px;
+  padding: 0;
+  color: var(--primary-900);
+}
+
+.job-bullets li {
+  margin: 6px 0;
+  line-height: 1.6;
 }
 
 .apply-btn {
@@ -225,6 +256,24 @@
 .benefit-item:hover {
   transform: translateY(-5px);
   background: rgba(255, 255, 255, 0.05);
+
+/* Job image */
+.job-image-wrap {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.job-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.04);
+}
   border-color: rgba(230, 81, 0, 0.3);
   box-shadow: 0 10px 30px rgba(51, 51, 51, 0.15);
 }
@@ -294,7 +343,7 @@
 }
 
 .modal-content {
-  background: #1a1a1a;
+  background: white;
   border-radius: 24px;
   padding: 40px;
   max-width: 700px;
@@ -311,7 +360,7 @@
   right: 20px;
   background: rgba(255, 255, 255, 0.1);
   border: none;
-  color: white;
+  color: var(--primary-900);
   font-size: 24px;
   width: 40px;
   height: 40px;
@@ -328,7 +377,7 @@
 .application-form h2 {
   font-size: 32px;
   margin-bottom: 12px;
-  background: var(--primary-gradient);
+  background: var(--primary-900);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -349,7 +398,7 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--primary-900);
 }
 
 .form-group label.required::after {
@@ -364,7 +413,7 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  color: white;
+  color: var(--primary-900);
   font-size: 15px;
   font-family: inherit;
   transition: all 0.3s ease;
@@ -389,7 +438,7 @@
 .form-group small {
   display: block;
   margin-top: 6px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--primary-900);
   font-size: 13px;
 }
 
@@ -411,7 +460,7 @@
 }
 
 .submit-btn {
-  background: var(--primary-gradient);
+  background: var(--primary-900);
   color: white;
 }
 
@@ -426,7 +475,7 @@
 }
 
 .cancel-btn {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--primary-900);
   color: white;
 }
 

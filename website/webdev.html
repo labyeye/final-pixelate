@@ -43,11 +43,7 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <link rel="canonical" href="https://www.pixelatenest.com/webdev" />
-    <link
-      href="https://backend.pixelatenest.com"
-      rel="preconnect"
-      crossorigin
-    />
+    <link href="https://backend.pixelatenest.com" rel="preconnect" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -67,6 +63,13 @@
       href="styles.css"
       as="style"
       onload="this.rel = 'stylesheet'"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
     <noscript><link href="styles.css" rel="stylesheet" /></noscript>
     <link
@@ -91,98 +94,10 @@
         aspect-ratio: 16/9;
       }
     </style>
-    <style>
-      .portfolio-card {
-        background: linear-gradient(135deg, #e8f0fe 0%, #f0f4ff 100%);
-        color: #044bab;
-        padding: 22px;
-        border-radius: 16px;
-        font-weight: 600;
-        box-shadow: 0 4px 20px rgba(4, 75, 171, 0.08);
-        transition: all 0.28s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        text-align: center;
-        min-height: 220px;
-        border: 1px solid rgba(4, 75, 171, 0.06);
-        overflow: hidden;
-      }
-      .portfolio-grid {
-        background-image:url("./assets/back-left.webp");
-        background-size:
-          cover;
-      }
-
-      .portfolio-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 12px 40px rgba(4, 75, 171, 0.14);
-        border-color: #044bab;
-      }
-
-      .portfolio-image-wrapper {
-        width: 100%;
-        height: 120px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        overflow: hidden;
-        background: rgba(255, 255, 255, 0.6);
-      }
-
-      .portfolio-image {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-        display: block;
-      }
-
-      .portfolio-overlay {
-        width: 100%;
-        padding-top: 6px;
-      }
-
-      .portfolio-title {
-        font-size: 1.05rem;
-        margin: 0 0 6px;
-        color: inherit;
-      }
-
-      .portfolio-description {
-        margin: 0;
-        color: rgba(4, 75, 171, 0.8);
-        font-size: 0.95rem;
-        line-height: 1.4;
-      }
-
-      .portfolio-tags {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .portfolio-tags .tag {
-        background: rgba(4, 75, 171, 0.08);
-        color: #044bab;
-        padding: 6px 10px;
-        border-radius: 999px;
-        font-size: 0.85rem;
-      }
-      @media (max-width: 720px) {
-        .portfolio-grid {
-          padding: 18px;
-          background-size:
-            220px auto,
-            cover;
-        }
-      }
-    </style>
-    <script type="text/javascript">
-      WebFont.load({ google: { families: ["Great Vibes:400"] } });
-    </script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Great+Vibes:400&display=swap"
+    />
     <script type="text/javascript">
       !(function (o, c) {
         var n = c.documentElement,
@@ -199,7 +114,7 @@
       type="image/x-icon"
     />
     <link
-      href="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/687bf25268ea6656fee08b5f_Trenox%20Webclip%20.svg"
+      href="https://www.pixelatenest.com/assets/Logo_Color.webp"
       rel="apple-touch-icon"
     />
     <script
@@ -217,6 +132,9 @@
     </script>
   </head>
   <body>
+    <div id="announcement-bar" class="announcement-bar">
+      <div class="announcement-content" id="announcement-content"></div>
+    </div>
     <div class="main-hero">
       <section class="nav-wrap">
         <div class="nav-bar-wrap">
@@ -281,7 +199,7 @@
                       <a
                         href="https://www.pixelatenest.com/"
                         aria-current="page"
-                        class="nav-link w-inline-block w--current"
+                        class="nav-link w-inline-block"
                         ><span class="nav-link-text">Home</span></a
                       >
                     </li>
@@ -302,7 +220,7 @@
                     <li class="nav-item has-dropdown">
                       <a
                         href="javascript:void(0)"
-                        class="nav-link dropdown-toggle w-inline-block"
+                        class="nav-link dropdown-toggle w-inline-block w--current"
                       >
                         <span class="nav-link-text">Services</span>
                         <i
@@ -312,18 +230,27 @@
                       </a>
                       <div class="dropdown-menu">
                         <a
-                          href="https://www.pixelatenest.com/webdev"
+                          href="https://www.pixelatenest.com/webdev.html"
                           class="dropdown-item"
                         >
                           Web Development
                         </a>
-                        <a href="app-dev" class="dropdown-item">
+                        <a
+                          href="https://www.pixelatenest.com/app-dev.html"
+                          class="dropdown-item"
+                        >
                           App Development
                         </a>
-                        <a href="software-dev" class="dropdown-item">
+                        <a
+                          href="https://www.pixelatenest.com/software-dev.html"
+                          class="dropdown-item"
+                        >
                           Software Development
                         </a>
-                        <a href="video-ed" class="dropdown-item">
+                        <a
+                          href="https://www.pixelatenest.com/video-ed.html"
+                          class="dropdown-item"
+                        >
                           Content Creation
                         </a>
                       </div>
@@ -491,6 +418,152 @@
         </div>
       </section>
     </div>
+    <section class="offerings-section" aria-labelledby="offerings-headline">
+      <div class="offerings-container">
+        <span id="offerings-headline" class="offerings-headline"
+          >Types of Website Development</span
+        >
+        <p class="offerings-sub">
+          We don't just write code; we build digital homes for your ideas.
+          Whether you're selling products, managing a school, or growing a
+          fitness community, we have the perfect fit.
+        </p>
+
+        <div class="offerings-grid">
+          <div class="offer-card">
+            <div>
+              <img
+                src="./assets/services/webdev/1.webp"
+                alt="Corporate & Professional Business"
+              />
+              <div class="offer-title">Corporate & Professional Business</div>
+              <div class="offer-desc">
+                Establish trust with a polished, informative presence. We build
+                clean, professional sites that tell your story and convert
+                visitors into long-term clients.
+              </div>
+              <div class="offer-keywords">
+                business, professional, informative, static, branding, lead
+                generation, corporate
+              </div>
+              <div class="offer-actions">
+                <a class="offer-button" href="contact.html">Get Quote</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="offer-card">
+            <div>
+              <img
+                src="./assets/services/webdev/2.webp"
+                alt="Ecommerce & Digital Shops"
+              />
+              <div class="offer-title">Ecommerce & Digital Shops</div>
+              <div class="offer-desc">
+                Turn your products into profits. From basic storefronts to
+                high-traffic marketplaces, we create seamless shopping
+                experiences that your customers will love.
+              </div>
+              <div class="offer-keywords">
+                ecommerce website design, shop, payments, checkout, inventory,
+                retail, sales, dynamic
+              </div>
+              <div class="offer-actions">
+                <a class="offer-button" href="contact.html">Get Quote</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="offer-card">
+            <div>
+              <img
+                src="./assets/services/webdev/3.webp"
+                alt="Schools & Educational Portals"
+              />
+              <div class="offer-title">Schools & Educational Portals</div>
+              <div class="offer-desc">
+                Empower students and faculty with organized, easy-to-use
+                platforms. We build informative hubs for resources, schedules,
+                and community updates.
+              </div>
+              <div class="offer-keywords">
+                school, education, portal, informative, database, learning,
+                academy, students
+              </div>
+              <div class="offer-actions">
+                <a class="offer-button" href="contact.html">Get Quote</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="offer-card">
+            <div>
+              <img
+                src="./assets/services/webdev/4.webp"
+                alt="Gyms & Fitness Studios"
+              />
+              <div class="offer-title">Gyms & Fitness Studios</div>
+              <div class="offer-desc">
+                Keep your community moving. Our dynamic fitness sites handle
+                everything from class bookings and trainer bios to membership
+                management.
+              </div>
+              <div class="offer-keywords">
+                gym, fitness, booking, schedule, wellness, dynamic, trainer,
+                health
+              </div>
+              <div class="offer-actions">
+                <a class="offer-button" href="contact.html">Get Quote</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="offer-card">
+            <div>
+              <img
+                src="./assets/services/webdev/5.webp"
+                alt="Sports Teams & Clubs"
+              />
+              <div class="offer-title">Sports Teams & Clubs</div>
+              <div class="offer-desc">
+                Celebrate the win with a high-energy site. Perfect for tracking
+                scores, managing player rosters, and keeping the fanbase engaged
+                24/7.
+              </div>
+              <div class="offer-keywords">
+                sports, team, club, scores, rankings, athletics, news, dynamic
+              </div>
+              <div class="offer-actions">
+                <a class="offer-button" href="contact.html">Get Quote</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="offer-card">
+            <div>
+              <img
+                src="./assets/services/webdev/6.webp"
+                alt="SaaS & Custom Web Apps"
+              />
+              <div class="offer-title">SaaS & Custom Web Apps</div>
+              <div class="offer-desc">
+                Need something complex? We build powerful, dynamic web
+                applications and dashboards that solve real-world problems with
+                high-level efficiency.
+              </div>
+              <div class="offer-keywords">
+                SaaS, web app, dashboard, tool, API, automation, multi-tenant,
+                cloud
+              </div>
+              <div class="offer-actions">
+                <a class="offer-button" href="contact.html">Get Quote</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="hero">
       <div id="portfolio-grid" class="portfolio-grid"></div>
 
@@ -536,8 +609,17 @@
           const grid = document.getElementById("portfolio-grid");
 
           try {
+            // allow developers to force-clear cache by adding ?clearCache=1 to the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get("clearCache") === "1")
+              localStorage.removeItem(CACHE_KEY);
+
             const cachedData = getCachedData();
             if (cachedData) {
+              console.debug(
+                "webdev: using cached gallery data",
+                cachedData && cachedData.length ? cachedData[0] : null,
+              );
               renderGallery(cachedData, grid);
 
               fetchAndRender(grid, true);
@@ -554,16 +636,17 @@
 
         async function fetchAndRender(grid, isBackground = false) {
           try {
-            const res = await fetch(
-              "https://backend.pixelatenest.com/api/work-gallery",
-              {
-                cache: "force-cache",
-              },
-            );
+            const res = await fetch("https://backend.pixelatenest.com/api/work-gallery", {
+              cache: "force-cache",
+            });
 
             if (!res.ok) throw new Error("Failed to fetch gallery");
 
             const items = await res.json();
+            console.debug(
+              "webdev: fetched /api/work-gallery =>",
+              Array.isArray(items) ? `items=${items.length}` : items,
+            );
 
             setCachedData(items);
 
@@ -589,9 +672,9 @@
           }
 
           for (const it of filtered) {
-            const a = document.createElement("a");
-            a.className = "portfolio-card w-inline-block";
-            a.href = it.link || "#";
+            // use a non-clickable card container so only the Visit button navigates
+            const card = document.createElement("div");
+            card.className = "portfolio-card w-inline-block";
 
             const imgWrap = document.createElement("div");
             imgWrap.className = "portfolio-image-wrapper";
@@ -610,13 +693,25 @@
             h4.className = "portfolio-title";
             h4.innerText = it.title || "Untitled";
 
-            const p = document.createElement("p");
-            p.className = "portfolio-description";
-            p.innerText = it.note || "";
+            const desc = document.createElement("p");
+            desc.className = "portfolio-desc";
+            const fullDesc = (
+              it.description ||
+              it.summary ||
+              it.excerpt ||
+              ""
+            ).trim();
+            const MAX_DESC = 240;
+            function truncateText(t, n) {
+              if (!t) return "";
+              return t.length > n ? t.slice(0, n).trim() + "…" : t;
+            }
+            desc.innerText = truncateText(fullDesc, MAX_DESC);
+            if (fullDesc && fullDesc.length > MAX_DESC) desc.title = fullDesc;
 
             const tagsDiv = document.createElement("div");
             tagsDiv.className = "portfolio-tags";
-            (it.tech || "")
+            (typeof it.tech === "string" ? it.tech : "")
               .split(",")
               .map((t) => t.trim())
               .filter(Boolean)
@@ -639,13 +734,53 @@
             }
 
             overlay.appendChild(h4);
-            overlay.appendChild(stars);
-            overlay.appendChild(p);
-            overlay.appendChild(tagsDiv);
 
-            a.appendChild(imgWrap);
-            a.appendChild(overlay);
-            grid.appendChild(a);
+            overlay.appendChild(stars);
+            overlay.appendChild(tagsDiv);
+            overlay.appendChild(desc);
+            const visitBtn = document.createElement("button");
+            visitBtn.className = "visit-button";
+            visitBtn.innerText = "Visit Website";
+            if (it.link) {
+              visitBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                try {
+                  window.open(it.link, "_blank", "noopener");
+                } catch (err) {
+                  window.location.href = it.link;
+                }
+              });
+            } else {
+              visitBtn.disabled = true;
+            }
+
+            // View Details button (opens portfolio-details.html and stores the item in localStorage)
+            const detailsBtn = document.createElement("button");
+            detailsBtn.className = "details-button";
+            detailsBtn.innerText = "View Details";
+            detailsBtn.addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              try {
+                // save the item for the details page to read
+                localStorage.setItem("pn_portfolio_item", JSON.stringify(it));
+              } catch (err) {
+                console.warn("Failed to save portfolio item:", err);
+              }
+              // open the details page (same folder)
+              window.location.href = "portfolio-details.html";
+            });
+
+            const buttonsContainer = document.createElement("div");
+            buttonsContainer.className = "portfolio-buttons-container";
+            buttonsContainer.appendChild(visitBtn);
+            buttonsContainer.appendChild(detailsBtn);
+            overlay.appendChild(buttonsContainer);
+
+            card.appendChild(imgWrap);
+            card.appendChild(overlay);
+            grid.appendChild(card);
           }
         }
 
@@ -732,16 +867,16 @@
           )
             return;
           const pages = [
-            "/about.html",
-            "/app-dev.html",
-            "/software-dev.html",
-            "/video-ed.html",
-            "/photography.html",
-            "/blogs.html",
-            "/contact.html",
-            "/pricing.html",
-            "/careers.html",
-            "/index.html",
+            "about.html",
+            "app-dev.html",
+            "software-dev.html",
+            "video-ed.html",
+            "photography.html",
+            "blogs.html",
+            "contact.html",
+            "pricing.html",
+            "careers.html",
+            "index.html",
           ];
           const domains = [
             "https://backend.pixelatenest.com",
@@ -801,9 +936,143 @@
           };
         })();
       </script>
-      <script src="js/activity-tracker.js"></script>
     </section>
-    <section class="footer">
+    <!-- FAQ + Custom Quote CTA (copied from pricing.html) -->
+    <div class="pricing-faq-wrap">
+      <section class="faq-section" aria-labelledby="webdev-faq-headline">
+        <div class="faq-container">
+          <h2 id="webdev-faq-headline" class="faq-headline">
+            Your Questions, Answered
+          </h2>
+          <p class="faq-sub">
+            Answers to common questions about our web development services,
+            timelines, and pricing.
+          </p>
+
+          <div class="faq-list">
+            <div class="faq-item" aria-expanded="false">
+              <button
+                class="faq-question"
+                aria-controls="wf1"
+                aria-expanded="false"
+              >
+                <span>Can I get a custom quote for my unique website?</span>
+                <span class="chev" aria-hidden="true">▾</span>
+              </button>
+              <div id="wf1" class="faq-answer">
+                Yes — we provide personalised quotes after a short discovery.
+                Use the Request Custom Quote button below to get started.
+              </div>
+            </div>
+
+            <div class="faq-item" aria-expanded="false">
+              <button
+                class="faq-question"
+                aria-controls="wf2"
+                aria-expanded="false"
+              >
+                <span>Do you handle hosting and maintenance?</span>
+                <span class="chev" aria-hidden="true">▾</span>
+              </button>
+              <div id="wf2" class="faq-answer">
+                We offer hosting and maintenance as add-on services with
+                SLA-backed support plans to keep your site secure and
+                up-to-date.
+              </div>
+            </div>
+
+            <div class="faq-item" aria-expanded="false">
+              <button
+                class="faq-question"
+                aria-controls="wf3"
+                aria-expanded="false"
+              >
+                <span>What technologies do you use for web apps?</span>
+                <span class="chev" aria-hidden="true">▾</span>
+              </button>
+              <div id="wf3" class="faq-answer">
+                We commonly use React, Next.js, Node.js, and modern cloud
+                platforms. We choose stacks that fit your product needs.
+              </div>
+            </div>
+
+            <div class="faq-item" aria-expanded="false">
+              <button
+                class="faq-question"
+                aria-controls="wf4"
+                aria-expanded="false"
+              >
+                <span>How do revisions and timelines work?</span>
+                <span class="chev" aria-hidden="true">▾</span>
+              </button>
+              <div id="wf4" class="faq-answer">
+                Minor revisions are included in each package. Timelines depend
+                on scope; we provide a roadmap and milestones in the quote.
+              </div>
+            </div>
+
+            <div class="faq-item" aria-expanded="false">
+              <button
+                class="faq-question"
+                aria-controls="wf5"
+                aria-expanded="false"
+              >
+                <span>How do we get started?</span>
+                <span class="chev" aria-hidden="true">▾</span>
+              </button>
+              <div id="wf5" class="faq-answer">
+                Click the Request Custom Quote button below or use the contact
+                form to schedule a discovery call.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div
+      style="
+        text-align: center;
+        margin-top: 60px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 28px;
+      "
+    >
+      <h3 class="text-linear" style="margin-bottom: 15px">
+        Need Something Custom?
+      </h3>
+      <p
+        class="p-text-01 text-white-60"
+        style="
+          margin-bottom: 25px;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        "
+      >
+        Every project is unique. Get a personalised quote tailored to your
+        specific requirements.
+      </p>
+      <a
+        href="https://www.pixelatenest.com/contact.html"
+        class="button-02 w-inline-block"
+        style="
+          padding: 15px 40px;
+          display: inline-block;
+          color: white;
+          text-decoration: none;
+          background-color: var(--primary-900);
+          border-radius: 20px;
+        "
+        >Request Custom Quote
+        <i class="fas fa-arrow-right" style="margin-left: 10px"></i
+      ></a>
+    </div>
+
+    <footer class="footer">
       <div class="container">
         <div class="footer-wrap">
           <div class="footer-top">
@@ -933,24 +1202,14 @@
                   >
                     <div class="footer-link-text">Travel & Hospitality</div>
                   </a>
-                  <a
-                    href="https://www.pixelatenest.com/industry-healthcare"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Healthcare</div>
-                  </a>
+
                   <a
                     href="https://www.pixelatenest.com/industry-education"
                     class="footer-link w-inline-block"
                   >
                     <div class="footer-link-text">Education</div>
                   </a>
-                  <a
-                    href="https://www.pixelatenest.com/industry-finance"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Finance & Insurance</div>
-                  </a>
+
                   <a
                     href="https://www.pixelatenest.com/industry-logistics"
                     class="footer-link w-inline-block"
@@ -1037,9 +1296,12 @@
                     rel="noopener noreferrer"
                     class="footer-link w-inline-block"
                   >
-                    <div class="footer-link-text">
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
                       <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                      LinkedIn
+                      <span>LinkedIn</span>
                     </div>
                   </a>
                   <a
@@ -1048,9 +1310,12 @@
                     rel="noopener noreferrer"
                     class="footer-link w-inline-block"
                   >
-                    <div class="footer-link-text">
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
                       <i class="fab fa-instagram" aria-hidden="true"></i>
-                      Instagram
+                      <span>Instagram</span>
                     </div>
                   </a>
                   <a
@@ -1059,48 +1324,14 @@
                     rel="noopener noreferrer"
                     class="footer-link w-inline-block"
                   >
-                    <div class="footer-link-text">
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
                       <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                      Facebook
+                      <span>Facebook</span>
                     </div>
                   </a>
-                  <div
-                    class="footer-social-icons"
-                    style="
-                      display: flex;
-                      gap: 12px;
-                      margin-top: 12px;
-                      align-items: center;
-                    "
-                  >
-                    <a
-                      href="https://www.linkedin.com/company/pixelate-nest/?viewAsMember=true"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="LinkedIn"
-                      style="color: inherit; font-size: 18px"
-                    >
-                      <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a
-                      href="https://www.instagram.com/pixelate.nest/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Instagram"
-                      style="color: inherit; font-size: 18px"
-                    >
-                      <i class="fab fa-instagram"></i>
-                    </a>
-                    <a
-                      href="https://www.facebook.com/profile.php?id=61586872964348"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Facebook"
-                      style="color: inherit; font-size: 18px"
-                    >
-                      <i class="fab fa-facebook-f"></i>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -1140,6 +1371,63 @@
           </div>
         </div>
       </div>
-    </section>
+    </footer>
+    <script>
+      (function () {
+        function initFAQ() {
+          const items = document.querySelectorAll(".faq-item");
+          if (!items.length) return;
+
+          function closeItem(other) {
+            other.setAttribute("aria-expanded", "false");
+            const b = other.querySelector(".faq-question");
+            const a = other.querySelector(".faq-answer");
+            if (b) b.setAttribute("aria-expanded", "false");
+            if (a) {
+              a.style.maxHeight = "0px";
+              a.style.paddingTop = "0px";
+            }
+          }
+
+          items.forEach((it) => {
+            const btn = it.querySelector(".faq-question");
+            const answer = it.querySelector(".faq-answer");
+            if (answer) {
+              answer.style.overflow = "hidden";
+              answer.style.maxHeight = "0px";
+              answer.style.transition =
+                "max-height 0.28s ease, padding 0.22s ease";
+              answer.style.paddingTop = "0px";
+            }
+
+            btn.addEventListener("click", () => {
+              const expanded = it.getAttribute("aria-expanded") === "true";
+              items.forEach(closeItem);
+              const newState = (!expanded).toString();
+              it.setAttribute("aria-expanded", newState);
+              btn.setAttribute("aria-expanded", newState);
+              if (!expanded && answer) {
+                answer.style.paddingTop = "12px";
+                answer.style.maxHeight = answer.scrollHeight + 24 + "px";
+              } else if (answer) {
+                answer.style.maxHeight = "0px";
+                answer.style.paddingTop = "0px";
+              }
+            });
+
+            btn.addEventListener("keydown", (ev) => {
+              if (ev.key === "Enter" || ev.key === " ") {
+                ev.preventDefault();
+                btn.click();
+              }
+            });
+          });
+        }
+
+        if (document.readyState === "loading")
+          document.addEventListener("DOMContentLoaded", initFAQ);
+        else initFAQ();
+      })();
+    </script>
   </body>
 </html>

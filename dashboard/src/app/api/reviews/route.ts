@@ -25,7 +25,9 @@ export async function GET(request: Request) {
     }
     
     const reviews = await col.find(filter).sort({ createdAt: -1 }).limit(limit).toArray();
-    return NextResponse.json(reviews, { headers: CORS_HEADERS });
+    // Convert MongoDB ObjectId to string for the client
+    const out = reviews.map((r: any) => ({ ...r, _id: String(r._id) }));
+    return NextResponse.json(out, { headers: CORS_HEADERS });
   } catch (e: any) {
     return NextResponse.json({ error: e.message || String(e) }, { status: 500, headers: CORS_HEADERS });
   }
@@ -40,7 +42,7 @@ export async function POST(request: Request) {
       createdAt: new Date(),
       approved: false // Reviews need approval by default
     });
-    return NextResponse.json({ ...body, _id: res.insertedId }, { status: 201, headers: CORS_HEADERS });
+    return NextResponse.json({ ...body, _id: String(res.insertedId) }, { status: 201, headers: CORS_HEADERS });
   } catch (e: any) {
     return NextResponse.json({ error: e.message || String(e) }, { status: 500, headers: CORS_HEADERS });
   }

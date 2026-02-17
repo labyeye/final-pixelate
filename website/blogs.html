@@ -103,6 +103,7 @@
       fbq("init", "1529543734863040");
       fbq("track", "PageView");
     </script>
+    <link href="blog.css" rel="stylesheet" type="text/css" />
     <noscript>
       <img
         height="1"
@@ -111,77 +112,12 @@
     &noscript=1"
       />
     </noscript>
-    <div id="announcement-bar" class="announcement-bar">
-      <div class="announcement-content" id="announcement-content"></div>
-    </div>
-
-    <style>
-      .announcement-bar {
-        background: linear-gradient(90deg, #da4900 0%, black 100%);
-        background-size: 200% 100%;
-        animation: gradient-shift 3s ease infinite;
-        color: white;
-        padding: 12px 0;
-        text-align: center;
-        font-weight: 600;
-        font-size: 14px;
-        position: relative;
-        z-index: 1000;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .announcement-content {
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-        animation: scroll-announcement 30s linear infinite;
-      }
-
-      .announcement-content span {
-        display: inline-block;
-        padding: 0 50px;
-      }
-
-      @keyframes gradient-shift {
-        0%,
-        100% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-      }
-
-      @keyframes scroll-announcement {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .announcement-bar {
-          font-size: 12px;
-          padding: 10px 0;
-        }
-        .announcement-content span {
-          padding: 0 30px;
-        }
-      }
-    </style>
-
     <script>
       (async function loadAnnouncement() {
         try {
-          const res = await fetch(
-            "https://backend.pixelatenest.com/api/announcement",
-            {
-              cache: "no-store",
-            },
-          );
+          const res = await fetch("https://backend.pixelatenest.com/api/announcement", {
+            cache: "no-store",
+          });
           if (res.ok) {
             const data = await res.json();
             if (data.text && data.enabled) {
@@ -207,6 +143,9 @@
     </script>
   </head>
   <body>
+    <div id="announcement-bar" class="announcement-bar">
+      <div class="announcement-content" id="announcement-content"></div>
+    </div>
     <div class="page-wrapper">
       <div class="main-hero">
         <section class="nav-wrap">
@@ -280,7 +219,7 @@
                             <a
                               href="https://www.pixelatenest.com/"
                               aria-current="page"
-                              class="nav-link w-inline-block w--current"
+                              class="nav-link w-inline-block"
                               ><span class="nav-link-text">Home</span></a
                             >
                           </li>
@@ -310,7 +249,10 @@
                               ></i>
                             </a>
                             <div class="dropdown-menu">
-                              <a href="webdev.html" class="dropdown-item">
+                              <a
+                                href="https://www.pixelatenest.com/webdev.html"
+                                class="dropdown-item"
+                              >
                                 Web Development
                               </a>
                               <a href="app-dev.html" class="dropdown-item">
@@ -320,7 +262,7 @@
                                 Software Development
                               </a>
                               <a href="video-ed.html" class="dropdown-item">
-                                Video Editing
+                                Content Creation
                               </a>
                             </div>
                           </li>
@@ -328,7 +270,7 @@
                           <li class="nav-item">
                             <a
                               href="https://www.pixelatenest.com/blogs.html"
-                              class="nav-link w-inline-block"
+                              class="nav-link w-inline-block w--current"
                               ><span class="nav-link-text">Blogs</span></a
                             >
                           </li>
@@ -419,137 +361,341 @@
                 </div>
               </div>
             </section>
-
-            <section class="hero">
+            <section class="home-hero-v1">
               <div class="container">
-                <div class="hero-01-wrap blog-hero-wrap">
-                  <div class="short-teg-wrap">
-                    <div class="short-teg caption-linear-bg">
-                      <div class="tagline _01">Our Blog</div>
-                      <div class="teg-icon">
-                        <img
-                          src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/68430a4b59642a7f50e3d955_Top%20str.svg"
-                          loading="lazy"
-                          alt="Background"
-                          class="fit-cover"
-                        />
+                <div class="home-hero-v1-wrap">
+                  <div class="hero-v1-content">
+                    <div class="hero-v1-title-wrap">
+                      <div class="hero-trust-badge">
+                        <div class="trust-avatars">
+                          <img
+                            src="assets/homescreen/customer/customer1.webp"
+                            alt="Happy Customer"
+                            class="trust-avatar"
+                          />
+                          <img
+                            src="assets/homescreen/customer/customer2.webp"
+                            alt="Happy Customer"
+                            class="trust-avatar"
+                          />
+                          <img
+                            src="assets/homescreen/customer/customer3.webp"
+                            alt="Happy Customer"
+                            class="trust-avatar"
+                          />
+                          <img
+                            src="assets/homescreen/customer/customer4.webp"
+                            alt="Happy Customer"
+                            class="trust-avatar"
+                          />
+                        </div>
+                        <div class="trust-text">
+                          TRUSTED BY
+                          <span class="trust-number">20+</span> DELIGHTED
+                          CUSTOMERS
+                        </div>
+                      </div>
+
+                      <div
+                        data-w-id="e4d25ab4-5221-11f5-0316-673572cc0f50"
+                        class="heading-wrap hero-v1-heading"
+                      >
+                        <h1
+                          data-w-id="a92873da-c997-5cbc-a542-2425fbe84089"
+                          class="h1 hero-heading hero-main-title"
+                        >
+                          Blogs & Insights: From
+                          <i style="font-weight: 100">Creative Minds</i> to
+                          <i style="font-weight: 100">Curious Minds</i>
+                        </h1>
+                      </div>
+
+                      <div
+                        data-w-id="509f52f0-277a-a704-9a52-c8d9022fecf4"
+                        class="sub-heading-wrap"
+                      >
+                        <p class="hero-subheadline">
+                          We Design in India, Developing it worldwide. Your one
+                          stop solution for Video Editing, Web Development, App
+                          Development, and Software Development.
+                        </p>
                       </div>
                     </div>
-                  </div>
-                  <div class="heading-wrap">
-                    <h1 class="h1 text-linear">Pixelate Nest Insights</h1>
-                  </div>
-                  <div class="sub-heading-wrap features-v1-sub-heading">
-                    <p class="p-text-01 text-white-60">
-                      Explore the latest in creative tech, video editing,
-                      development, and digital marketing strategies from our
-                      team of experts. Stay ahead of industry trends with our
-                      comprehensive guides, tutorials, and case studies covering
-                      web development best practices, mobile app design
-                      patterns, professional video editing techniques, color
-                      grading workflows, motion graphics tips, SEO strategies,
-                      social media marketing, and digital transformation
-                      insights. Whether you're a business owner, creative
-                      professional, or tech enthusiast, our blog delivers
-                      actionable knowledge to help you succeed in the digital
-                      landscape.
-                    </p>
                   </div>
                 </div>
               </div>
             </section>
           </div>
+        </section>
+      </div>
+      <section class="blog-section">
+        <div class="container">
+          <div id="blog-loader" class="blog-loader" aria-hidden="true">
+            <div class="spinner" role="status" aria-label="Loading posts"></div>
+            <div class="loader-text" aria-hidden="true">Loading Blogs</div>
+          </div>
+          <div id="blog-grid" class="blog-grid" aria-live="polite"></div>
+        </div>
+      </section>
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-wrap">
+            <div class="footer-top">
+              <div class="footer-top-left">
+                <div class="footer-logo-details">
+                  <div class="footer-logo-wrap">
+                    <a
+                      href="https://www.pixelatenest.com/"
+                      class="footer-logo w-inline-block"
+                    >
+                      <img
+                        src="assets/Logo_Color_Name_large.webp"
+                        loading="lazy"
+                        alt="Pixelate Nest Logo"
+                        class="fit-cover"
+                      />
+                    </a>
+                  </div>
+                  <p class="p-text-03">
+                    AI-first creative technology partner for web, app, and video
+                    that delivers measurable growth.
+                  </p>
+                  <div style="margin-top: 20px">
+                    <p class="p-text-03" style="margin-bottom: 8px">
+                      <strong>Contact Us</strong>
+                    </p>
+                    <p
+                      class="p-text-03 text-white-60"
+                      style="margin-bottom: 5px"
+                    >
+                      <i class="fas fa-envelope" style="margin-right: 8px"></i
+                      >support@pixelatenest.com
+                    </p>
+                    <p
+                      class="p-text-03 text-white-60"
+                      style="margin-bottom: 5px"
+                    >
+                      <i class="fas fa-phone" style="margin-right: 8px"></i>+91
+                      84069 12345
+                    </p>
+                    <p class="p-text-03 text-white-60">
+                      <i
+                        class="fas fa-map-marker-alt"
+                        style="margin-right: 8px"
+                      ></i
+                      >Muzaffarpur, Bihar, India — Serving clients across India
+                      & globally
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-          <section class="blog-section">
-            <div class="container">
-              <h2
-                class="section-title"
-                style="
-                  color: #fb8a02;
-                  font-size: 2rem;
-                  margin-bottom: 2rem;
-                  text-align: center;
-                "
-              >
-                Latest Articles & Insights
-              </h2>
-              <p
-                style="
-                  text-align: center;
-                  color: #fff;
-                  margin-bottom: 3rem;
-                  max-width: 800px;
-                  margin-left: auto;
-                  margin-right: auto;
-                "
-              >
-                Discover expert perspectives on the latest trends in video
-                production, web technologies, mobile development, and digital
-                marketing. Our articles combine technical depth with practical
-                applications, helping you make informed decisions for your
-                business. From beginner-friendly tutorials to advanced
-                techniques, we cover everything you need to know about modern
-                digital creativity and technology.
-              </p>
-              <div id="blog-grid" class="blog-grid">
-                <a
-                  href="https://www.instagram.com/pixelate.nest/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="footer-link w-inline-block"
-                >
-                  <div class="footer-link-text">
-                    <i class="fab fa-instagram" aria-hidden="true"></i>
-                    Instagram
+              <div class="footer-right-link-wrap">
+                <div class="footer-link-wrap">
+                  <div class="p-text-01">Company</div>
+                  <div class="footer-link-list">
+                    <a
+                      href="https://www.pixelatenest.com/about.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">About Us</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/careers.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Careers</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/contact.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Contact Us</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/blogs.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Blog</div>
+                    </a>
                   </div>
-                </a>
-                <a
-                  href="https://www.facebook.com/profile.php?id=61586872964348"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="footer-link w-inline-block"
-                >
-                  <div class="footer-link-text">
-                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                    Facebook
+                </div>
+
+                <div class="footer-link-wrap">
+                  <div class="p-text-01">Services</div>
+                  <div class="footer-link-list">
+                    <a
+                      href="https://www.pixelatenest.com/video-ed.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Video Editing</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/webdev.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Web Development</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/app-dev.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">App Development</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/software-dev.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Software Development</div>
+                    </a>
                   </div>
-                </a>
-                <div
-                  class="footer-social-icons"
-                  style="
-                    display: flex;
-                    gap: 12px;
-                    margin-top: 12px;
-                    align-items: center;
-                  "
-                >
-                  <a
-                    href="https://www.linkedin.com/company/pixelate-nest/?viewAsMember=true"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn"
-                    style="color: inherit; font-size: 18px"
-                  >
-                    <i class="fab fa-linkedin-in"></i>
-                  </a>
-                  <a
-                    href="https://www.instagram.com/pixelate.nest/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                    style="color: inherit; font-size: 18px"
-                  >
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                  <a
-                    href="https://www.facebook.com/profile.php?id=61586872964348"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Facebook"
-                    style="color: inherit; font-size: 18px"
-                  >
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
+                </div>
+
+                <div class="footer-link-wrap">
+                  <div class="p-text-01">Industries We Serve</div>
+                  <div class="footer-link-list">
+                    <a
+                      href="https://www.pixelatenest.com/industry-ecommerce.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">
+                        Ecommerce & Multivendor
+                      </div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/industry-realestate.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">
+                        Real Estate & Construction
+                      </div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/industry-travel.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Travel & Hospitality</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/industry-education.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Education</div>
+                    </a>
+
+                    <a
+                      href="https://www.pixelatenest.com/industry-logistics.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">
+                        Transportation & Logistics
+                      </div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/industry-manufacturing.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Manufacturing</div>
+                    </a>
+                    
+                    
+                  </div>
+                </div>
+
+                <div class="footer-link-wrap">
+                  <div class="p-text-01">Resources</div>
+                  <div class="footer-link-list">
+                    <a
+                      href="https://www.pixelatenest.com/pricing.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Pricing</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/locations.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Locations</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/technologies.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Technologies</div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="footer-link-wrap">
+                  <div class="p-text-01">Legal</div>
+                  <div class="footer-link-list">
+                    <a
+                      href="https://www.pixelatenest.com/privacy-policy.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Privacy Policy</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/terms-of-service.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Terms of Service</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/cookie-policy.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Cookie Policy</div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="footer-link-wrap">
+                  <div class="p-text-01">Follow Us</div>
+                  <div class="footer-link-list">
+                    <a
+                      href="https://www.linkedin.com/company/pixelate-nest/?viewAsMember=true"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="footer-link w-inline-block"
+                    >
+                      <div
+                        class="footer-link-text"
+                        style="flex-direction: row; display: flex; gap: 10px"
+                      >
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        <span>LinkedIn</span>
+                      </div>
+                    </a>
+                    <a
+                      href="https://www.instagram.com/pixelate.nest/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="footer-link w-inline-block"
+                    >
+                      <div
+                        class="footer-link-text"
+                        style="flex-direction: row; display: flex; gap: 10px"
+                      >
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                        <span>Instagram</span>
+                      </div>
+                    </a>
+                    <a
+                      href="https://www.facebook.com/profile.php?id=61586872964348"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="footer-link w-inline-block"
+                    >
+                      <div
+                        class="footer-link-text"
+                        style="flex-direction: row; display: flex; gap: 10px"
+                      >
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        <span>Facebook</span>
+                      </div>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -586,67 +732,76 @@
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </footer>
 
-          <script
-            src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6840859dc0e82803d10f5190"
-            type="text/javascript"
-            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-            crossorigin="anonymous"
-          ></script>
-          <script
-            src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.40f517e78f82ea08.js"
-            type="text/javascript"
-          ></script>
-          <script
-            src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.a0aa2c62e5a30201.js"
-            type="text/javascript"
-          ></script>
-          <script
-            src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.78bdae07.c61f572d9ae910e4.js"
-            type="text/javascript"
-          ></script>
-          <script>
-            (async function () {
-              async function getPosts() {
-                const API_BASE =
-                  window.location.hostname === "localhost" ||
-                  window.location.hostname === "127.0.0.1"
-                    ? "https://backend.pixelatenest.com"
-                    : "";
-                try {
-                  const res = await fetch(
-                    "https://backend.pixelatenest.com/api/blogs",
-                  );
-                  if (res.ok) {
-                    const data = await res.json();
-                    return Array.isArray(data) ? data : [];
-                  }
-                } catch (e) {}
-
-                try {
-                  return JSON.parse(localStorage.getItem("pn_posts") || "[]");
-                } catch (e) {
-                  return [];
-                }
+      <script
+        src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6840859dc0e82803d10f5190"
+        type="text/javascript"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.40f517e78f82ea08.js"
+        type="text/javascript"
+      ></script>
+      <script
+        src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.a0aa2c62e5a30201.js"
+        type="text/javascript"
+      ></script>
+      <script
+        src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.78bdae07.c61f572d9ae910e4.js"
+        type="text/javascript"
+      ></script>
+      <script>
+        (async function () {
+          async function getPosts() {
+            const API_BASE =
+              window.location.hostname === "localhost" ||
+              window.location.hostname === "127.0.0.1"
+                ? "https://backend.pixelatenest.com"
+                : "";
+            try {
+              const res = await fetch("https://backend.pixelatenest.com/api/blogs");
+              if (res.ok) {
+                const data = await res.json();
+                return Array.isArray(data) ? data : [];
               }
+            } catch (e) {}
 
-              async function render() {
-                const grid = document.getElementById("blog-grid");
-                const posts = await getPosts();
-                grid.innerHTML = "";
-                if (!posts || posts.length === 0) {
-                  grid.innerHTML =
-                    '<p class="p-text-01 text-white-60">No posts to show right now. Check back later.</p>';
-                  return;
-                }
-                posts.forEach((p) => {
-                  const a = document.createElement("a");
+            try {
+              return JSON.parse(localStorage.getItem("pn_posts") || "[]");
+            } catch (e) {
+              return [];
+            }
+          }
 
-                  a.href = "javascript:void(0)";
-                  a.className = "blog-card";
-                  a.setAttribute("data-id", String(p.id));
-                  a.innerHTML = `
+          async function render() {
+            const grid = document.getElementById("blog-grid");
+            const loader = document.getElementById("blog-loader");
+            if (loader) {
+              loader.style.display = "flex";
+              loader.setAttribute("aria-hidden", "false");
+            }
+            grid.innerHTML = "";
+            const posts = await getPosts();
+            if (loader) {
+              loader.style.display = "none";
+              loader.setAttribute("aria-hidden", "true");
+            }
+            if (!posts || posts.length === 0) {
+              grid.innerHTML =
+                '<p class="p-text-01 text-white-60">No posts to show right now. Check back later.</p>';
+              return;
+            }
+            posts.forEach((p) => {
+              const a = document.createElement("a");
+
+              a.href = "javascript:void(0)";
+              a.className = "blog-card";
+              a.setAttribute("data-id", String(p.id));
+              a.innerHTML = `
               <div class="blog-card-background">
                 <div class="blog-card-image-wrap">
                   <img src="${p.image || "assets/placeholder.png"}" alt="${
@@ -657,7 +812,7 @@
                 <h4 class="h4 blog-card-title">${p.title || ""}</h4>
                 <p class="p-text-03 blog-card-excerpt">${p.excerpt || ""}</p>
                 <div class="blog-author-info">
-                  <img src="assets/Logo_Color_Name_Large.webp" alt="Author Avatar" class="blog-author-avatar" width="40" height="40" />
+                  <img src="./assets/Logo_Color.webp" alt="Author Avatar" class="blog-author-avatar" width="40" height="40" />
                   <div class="blog-author-name-date">
                     <p class="p-text-03">${p.author || "Pixelate Nest"}</p>
                     <p class="date">${p.date || ""}</p>
@@ -666,21 +821,21 @@
               </div>
               <div class="blog-card-border"></div>
             `;
-                  grid.appendChild(a);
-                  a.addEventListener("click", function (ev) {
-                    ev.preventDefault();
-                    openModalWithPost(String(p.id));
-                  });
-                });
-              }
+              grid.appendChild(a);
+              a.addEventListener("click", function (ev) {
+                ev.preventDefault();
+                openModalWithPost(String(p.id));
+              });
+            });
+          }
 
-              try {
-                await render();
-              } catch (e) {
-                console.error("render blogs", e);
-              }
+          try {
+            await render();
+          } catch (e) {
+            console.error("render blogs", e);
+          }
 
-              const modalHtml = `
+          const modalHtml = `
           <div id="post-modal" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:9999;padding:20px">
             <div style="max-width:900px;width:100%;background:#0b0b0b;padding:20px;border-radius:12px;overflow:auto;max-height:90vh">
               <button id="post-modal-close" style="float:right;background:transparent;border:none;color:#fff;font-size:18px;cursor:pointer">✕</button>
@@ -691,138 +846,134 @@
             </div>
           </div>
         `;
-              document.body.insertAdjacentHTML("beforeend", modalHtml);
+          document.body.insertAdjacentHTML("beforeend", modalHtml);
 
-              async function openModalWithPost(id) {
-                const posts = await getPosts();
-                const p = posts.find((x) => String(x.id) === String(id));
-                const modal = document.getElementById("post-modal");
-                if (!modal) return;
-                if (!p) {
-                  document.getElementById("modal-title").innerText =
-                    "Post not found";
-                  document.getElementById("modal-content").innerHTML =
-                    '<p class="muted">This post was removed or not available.</p>';
-                  document.getElementById("modal-image").style.display = "none";
-                } else {
-                  document.getElementById("modal-title").innerText =
-                    p.title || "";
-                  document.getElementById("modal-meta").innerText =
-                    (p.category || "") +
-                    " · " +
-                    (p.date || new Date(p.createdAt || "").toLocaleString());
-                  const mi = document.getElementById("modal-image");
-                  if (p.image) {
-                    mi.src = p.image;
-                    mi.alt = p.title ? p.title + " — image" : "Post image";
-                    mi.style.display = "block";
-                  } else {
-                    mi.style.display = "none";
-                  }
-                  document.getElementById("modal-content").innerHTML =
-                    p.content || "<p>" + (p.excerpt || "") + "</p>";
-                }
-                modal.style.display = "flex";
-                document
-                  .getElementById("post-modal-close")
-                  .addEventListener("click", closeModal);
+          async function openModalWithPost(id) {
+            const posts = await getPosts();
+            const p = posts.find((x) => String(x.id) === String(id));
+            const modal = document.getElementById("post-modal");
+            if (!modal) return;
+            if (!p) {
+              document.getElementById("modal-title").innerText =
+                "Post not found";
+              document.getElementById("modal-content").innerHTML =
+                '<p class="muted">This post was removed or not available.</p>';
+              document.getElementById("modal-image").style.display = "none";
+            } else {
+              document.getElementById("modal-title").innerText = p.title || "";
+              document.getElementById("modal-meta").innerText =
+                (p.category || "") +
+                " · " +
+                (p.date || new Date(p.createdAt || "").toLocaleString());
+              const mi = document.getElementById("modal-image");
+              if (p.image) {
+                mi.src = p.image;
+                mi.alt = p.title ? p.title + " — image" : "Post image";
+                mi.style.display = "block";
+              } else {
+                mi.style.display = "none";
               }
+              document.getElementById("modal-content").innerHTML =
+                p.content || "<p>" + (p.excerpt || "") + "</p>";
+            }
+            modal.style.display = "flex";
+            document
+              .getElementById("post-modal-close")
+              .addEventListener("click", closeModal);
+          }
 
-              function closeModal() {
-                const m = document.getElementById("post-modal");
-                if (m) m.style.display = "none";
-              }
+          function closeModal() {
+            const m = document.getElementById("post-modal");
+            if (m) m.style.display = "none";
+          }
 
-              document.addEventListener("click", function (ev) {
-                const modal = document.getElementById("post-modal");
-                if (!modal || modal.style.display !== "flex") return;
-                if (ev.target === modal) closeModal();
-              });
-            })();
-          </script>
-          <script src="js/index.js"></script>
-          <script src="js/activity-tracker.js"></script>
+          document.addEventListener("click", function (ev) {
+            const modal = document.getElementById("post-modal");
+            if (!modal || modal.style.display !== "flex") return;
+            if (ev.target === modal) closeModal();
+          });
+        })();
+      </script>
+      <script src="js/index.js"></script>
+      <script src="js/activity-tracker.js"></script>
 
-          <script>
-            (function () {
-              if (
-                localStorage.getItem("pn_prefetch_optout") === "1" ||
-                document.cookie.indexOf("pn_prefetch_optout=1") !== -1
-              )
-                return;
-              const pages = [
-                "/about.html",
-                "/webdev.html",
-                "/app-dev.html",
-                "/software-dev.html",
-                "/photography.html",
-                "/video-ed.html",
-                "/contact.html",
-                "/pricing.html",
-                "/careers.html",
-                "/index.html",
-              ];
-              const domains = [
-                "https://backend.pixelatenest.com",
-                "https://fonts.googleapis.com",
-                "https://fonts.gstatic.com",
-                "https://cdn.prod.website-files.com",
-                "https://cdnjs.cloudflare.com",
-                "https://www.google-analytics.com",
-                "https://www.googletagmanager.com",
-              ];
-              function addLink(rel, href, as, crossorigin) {
-                try {
-                  const l = document.createElement("link");
-                  l.rel = rel;
-                  l.href = href;
-                  if (as) l.as = as;
-                  if (crossorigin) l.crossOrigin = "anonymous";
-                  document.head.appendChild(l);
-                } catch (e) {}
-              }
-              function warm() {
-                domains.forEach((d) => {
-                  addLink("preconnect", d, null, true);
-                  addLink("dns-prefetch", d);
-                });
-                pages.forEach((p) => addLink("prefetch", p, "document"));
-                addLink("preload", "/styles.css", "style");
-                addLink(
-                  "preload",
-                  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
-                  "style",
-                  true,
-                );
-                try {
-                  fetch("/", {
-                    method: "GET",
-                    mode: "no-cors",
-                    cache: "no-cache",
-                  }).catch(() => {});
-                  fetch("https://backend.pixelatenest.com", {
-                    method: "GET",
-                    mode: "no-cors",
-                  }).catch(() => {});
-                } catch (e) {}
-              }
-              if ("requestIdleCallback" in window)
-                requestIdleCallback(warm, { timeout: 2000 });
-              else
-                window.addEventListener("load", () => setTimeout(warm, 1000));
-              window.pixelateNestDisablePrefetch = function () {
-                localStorage.setItem("pn_prefetch_optout", "1");
-                document.cookie =
-                  "pn_prefetch_optout=1;path=/;max-age=" + 60 * 60 * 24 * 365;
-              };
-              window.pixelateNestEnablePrefetch = function () {
-                localStorage.removeItem("pn_prefetch_optout");
-                document.cookie = "pn_prefetch_optout=;path=/;max-age=0";
-              };
-            })();
-          </script>
-        </section>
-      </div>
+      <script>
+        (function () {
+          if (
+            localStorage.getItem("pn_prefetch_optout") === "1" ||
+            document.cookie.indexOf("pn_prefetch_optout=1") !== -1
+          )
+            return;
+          const pages = [
+            "/about.html",
+            "/webdev.html",
+            "/app-dev.html",
+            "/software-dev.html",
+            "/photography.html",
+            "/video-ed.html",
+            "/contact.html",
+            "/pricing.html",
+            "/careers.html",
+            "/index.html",
+          ];
+          const domains = [
+            "https://backend.pixelatenest.com",
+            "https://fonts.googleapis.com",
+            "https://fonts.gstatic.com",
+            "https://cdn.prod.website-files.com",
+            "https://cdnjs.cloudflare.com",
+            "https://www.google-analytics.com",
+            "https://www.googletagmanager.com",
+          ];
+          function addLink(rel, href, as, crossorigin) {
+            try {
+              const l = document.createElement("link");
+              l.rel = rel;
+              l.href = href;
+              if (as) l.as = as;
+              if (crossorigin) l.crossOrigin = "anonymous";
+              document.head.appendChild(l);
+            } catch (e) {}
+          }
+          function warm() {
+            domains.forEach((d) => {
+              addLink("preconnect", d, null, true);
+              addLink("dns-prefetch", d);
+            });
+            pages.forEach((p) => addLink("prefetch", p, "document"));
+            addLink("preload", "/styles.css", "style");
+            addLink(
+              "preload",
+              "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+              "style",
+              true,
+            );
+            try {
+              fetch("/", {
+                method: "GET",
+                mode: "no-cors",
+                cache: "no-cache",
+              }).catch(() => {});
+              fetch("https://backend.pixelatenest.com", {
+                method: "GET",
+                mode: "no-cors",
+              }).catch(() => {});
+            } catch (e) {}
+          }
+          if ("requestIdleCallback" in window)
+            requestIdleCallback(warm, { timeout: 2000 });
+          else window.addEventListener("load", () => setTimeout(warm, 1000));
+          window.pixelateNestDisablePrefetch = function () {
+            localStorage.setItem("pn_prefetch_optout", "1");
+            document.cookie =
+              "pn_prefetch_optout=1;path=/;max-age=" + 60 * 60 * 24 * 365;
+          };
+          window.pixelateNestEnablePrefetch = function () {
+            localStorage.removeItem("pn_prefetch_optout");
+            document.cookie = "pn_prefetch_optout=;path=/;max-age=0";
+          };
+        })();
+      </script>
     </div>
   </body>
 </html>

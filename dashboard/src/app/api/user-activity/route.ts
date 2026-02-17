@@ -1,15 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/mongodb";
 
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers":
+    "Content-Type, Authorization, Cache-Control, X-Requested-With",
+};
+
 export async function OPTIONS(req: NextRequest) {
-  return new NextResponse(null, {
-    status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type, Authorization",
-    },
-  });
+  return new NextResponse(null, { status: 200, headers: CORS_HEADERS });
 }
 
 export async function POST(req: NextRequest) {
@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
     if (!body.userId || !body.url) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 },
+        { status: 400, headers: CORS_HEADERS },
       );
     }
 
@@ -61,9 +61,7 @@ export async function POST(req: NextRequest) {
       result = await db.collection("user_activity").insertOne(insertData);
       return NextResponse.json(
         { success: true, id: result.insertedId.toString() },
-        {
-          headers: { "Access-Control-Allow-Origin": "*" },
-        },
+        { headers: CORS_HEADERS },
       );
     } else if (body.type === "ping" && body.id) {
       // Update duration
@@ -84,25 +82,15 @@ export async function POST(req: NextRequest) {
           },
         },
       );
-      return NextResponse.json(
-        { success: true },
-        {
-          headers: { "Access-Control-Allow-Origin": "*" },
-        },
-      );
+      return NextResponse.json({ success: true }, { headers: CORS_HEADERS });
     }
 
-    return NextResponse.json(
-      { success: true },
-      {
-        headers: { "Access-Control-Allow-Origin": "*" },
-      },
-    );
+    return NextResponse.json({ success: true }, { headers: CORS_HEADERS });
   } catch (error) {
     console.error("Tracking Error", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 },
+      { status: 500, headers: CORS_HEADERS },
     );
   }
 }
@@ -117,8 +105,11 @@ export async function GET(req: NextRequest) {
       .limit(1000)
       .toArray();
 
-    return NextResponse.json(activities);
+    return NextResponse.json(activities, { headers: CORS_HEADERS });
   } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to fetch" },
+      { status: 500, headers: CORS_HEADERS },
+    );
   }
 }

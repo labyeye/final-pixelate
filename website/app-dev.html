@@ -58,11 +58,7 @@
 
     <!-- Preconnects -->
 
-    <link
-      href="https://backend.pixelatenest.com"
-      rel="preconnect"
-      crossorigin
-    />
+    <link href="https://backend.pixelatenest.com" rel="preconnect" crossorigin />
 
     <!-- Styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -71,8 +67,9 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:wght@400;700;900&display=swap"
       rel="stylesheet"
     />
-    <link href="styles.css" rel="stylesheet" />
-    <link href="app-dev.css" rel="stylesheet" />
+    <link href="./styles.css" rel="stylesheet" />
+    <link href="./app-dev.css" rel="stylesheet" />
+    <link href="web-dev.css" rel="stylesheet" />
 
     <!-- Favicon -->
     <link
@@ -81,7 +78,7 @@
       type="image/x-icon"
     />
     <link
-      href="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/687bf25268ea6656fee08b5f_Trenox%20Webclip%20.svg"
+      href="https://www.pixelatenest.com/assets/Logo_Color.webp"
       rel="apple-touch-icon"
     />
 
@@ -138,6 +135,9 @@
     />
   </head>
   <body>
+    <div id="announcement-bar" class="announcement-bar">
+      <div class="announcement-content" id="announcement-content"></div>
+    </div>
     <div class="main-hero">
       <section class="nav-wrap">
         <div class="nav-bar-wrap">
@@ -202,7 +202,7 @@
                       <a
                         href="https://www.pixelatenest.com/"
                         aria-current="page"
-                        class="nav-link w-inline-block w--current"
+                        class="nav-link w-inline-block"
                         ><span class="nav-link-text">Home</span></a
                       >
                     </li>
@@ -223,7 +223,7 @@
                     <li class="nav-item has-dropdown">
                       <a
                         href="javascript:void(0)"
-                        class="nav-link dropdown-toggle w-inline-block"
+                        class="nav-link dropdown-toggle w-inline-block w--current"
                       >
                         <span class="nav-link-text">Services</span>
                         <i
@@ -238,13 +238,22 @@
                         >
                           Web Development
                         </a>
-                        <a href="app-dev" class="dropdown-item">
+                        <a
+                          href="https://www.pixelatenest.com/app-dev.html"
+                          class="dropdown-item"
+                        >
                           App Development
                         </a>
-                        <a href="software-dev" class="dropdown-item">
+                        <a
+                          href="https://www.pixelatenest.com/software-dev.html"
+                          class="dropdown-item"
+                        >
                           Software Development
                         </a>
-                        <a href="video-ed" class="dropdown-item">
+                        <a
+                          href="https://www.pixelatenest.com/video-ed.html"
+                          class="dropdown-item"
+                        >
                           Content Creation
                         </a>
                       </div>
@@ -413,137 +422,462 @@
         </div>
       </section>
     </div>
-    <section class="services-section section-animate">
-      <div class="services-top">
-        <h2>Our Expertise</h2>
-        <p class="p-text-03">
-          Comprehensive mobile solutions tailored to your unique needs.
+
+    <section class="offerings-section" aria-labelledby="offerings-headline">
+      <div class="offerings-container">
+        <span id="offerings-headline" class="offerings-headline"
+          >Types of App Development</span
+        >
+        <p class="offerings-sub">
+          We build mobile apps for startups and enterprises — native and
+          cross-platform solutions.
         </p>
-      </div>
-      <div class="services-grid">
-        <div class="expertise-card">
-          <div class="expertise-icon">
-            <i class="fab fa-apple fa-3x"></i>
+        <div class="offerings-grid">
+          <div class="offer-card">
+            <div>
+              <img
+                src="./assets/services/app/1.webp"
+                alt="Consumer Mobile Apps"
+              />
+              <div class="offer-title">Consumer Mobile Apps</div>
+              <div class="offer-desc">
+                High-quality apps for marketplaces, social, and consumer
+                services on iOS & Android.
+              </div>
+              <div class="offer-keywords">
+                Keywords: iOS, Android, React Native, Flutter, user-centric
+              </div>
+              <div class="offer-actions">
+                <a class="offer-button" href="contact.html">Get Quote</a>
+              </div>
+            </div>
           </div>
-          <h3>iOS Development</h3>
-          <p>
-            Native iOS apps built with Swift and SwiftUI for the ultimate
-            performance and user experience on iPhone and iPad.
-          </p>
-        </div>
-        <div class="expertise-card">
-          <div class="expertise-icon">
-            <i class="fab fa-android fa-3x"></i>
+          <div class="offer-card">
+            <div>
+              <img
+                src="./assets/services/app/2.webp"
+                alt="Cross-platform Apps"
+              />
+              <div class="offer-title">Cross-platform Apps</div>
+              <div class="offer-desc">
+                Fast development with Flutter or React Native, sharing code
+                across platforms.
+              </div>
+              <div class="offer-keywords">
+                Keywords: cross-platform, Flutter, React Native, performance
+              </div>
+              <div class="offer-actions">
+                <a class="offer-button" href="contact.html">Get Quote</a>
+              </div>
+            </div>
           </div>
-          <h3>Android Development</h3>
-          <p>
-            Robust and scalable Android applications using Kotlin and Jetpack
-            Compose to reach the widest audience.
-          </p>
-        </div>
-        <div class="expertise-card">
-          <div class="expertise-icon">
-            <i class="fas fa-layer-group fa-3x"></i>
+          <div class="offer-card">
+            <div>
+              <img
+                src="./assets/services/app/3.webp"
+                alt="Enterprise Mobile Apps"
+              />
+              <div class="offer-title">Enterprise Mobile Apps</div>
+              <div class="offer-desc">
+                Secure apps with SSO, offline sync, reporting and integrations
+                for business workflows.
+              </div>
+              <div class="offer-keywords">
+                Keywords: enterprise, SSO, offline, sync, integrations
+              </div>
+              <div class="offer-actions">
+                <a class="offer-button" href="contact.html">Get Quote</a>
+              </div>
+            </div>
           </div>
-          <h3>Cross-Platform</h3>
-          <p>
-            Efficient multi-platform apps using Flutter and React Native. Write
-            once, deploy everywhere without compromising quality.
-          </p>
-        </div>
-      </div>
-    </section>
-    <section class="tech-section section-animate">
-      <div class="tech-top">
-        <h2>Technologies We Use</h2>
-        <p class="p-text-03">
-          We leverage the latest tools and frameworks to build future-proof
-          applications.
-        </p>
-      </div>
-      <div class="tech-grid">
-        <div class="tech-item">
-          <img
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/flutter.svg"
-            alt="Flutter"
-          />
-          <span>Flutter</span>
-        </div>
-        <div class="tech-item">
-          <img
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg"
-            alt="React Native"
-          />
-          <span>React Native</span>
-        </div>
-        <div class="tech-item">
-          <img
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/swift.svg"
-            alt="Swift"
-          />
-          <span>Swift</span>
-        </div>
-        <div class="tech-item">
-          <img
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/kotlin.svg"
-            alt="Kotlin"
-          />
-          <span>Kotlin</span>
-        </div>
-        <div class="tech-item">
-          <img
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/firebase.svg"
-            alt="Firebase"
-          />
-          <span>Firebase</span>
         </div>
       </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="process-section section-animate">
-      <div class="process-top">
-        <h2>Our Process</h2>
-        <p class="p-text-03">
-          A proven workflow to deliver excellence on time and within budget.
-        </p>
-      </div>
-      <div class="process-grid">
-        <div class="process-step">
-          <div class="step-number">01</div>
-          <h3>Discovery</h3>
-          <p>
-            We dive deep into your requirements, market, and goals to build a
-            winning strategy.
-          </p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">02</div>
-          <h3>Design</h3>
-          <p>
-            Creating intuitive UI/UX designs that ensure seamless user journeys
-            and engagement.
-          </p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">03</div>
-          <h3>Development</h3>
-          <p>
-            Agile development with regular updates, ensuring transparency and
-            quality code.
-          </p>
-        </div>
-        <div class="process-step">
-          <div class="step-number">04</div>
-          <h3>Launch</h3>
-          <p>
-            Rigorous testing followed by a smooth deployment to the App Store
-            and Play Store.
-          </p>
-        </div>
-      </div>
+    <section class="hero">
+      <div id="portfolio-grid" class="portfolio-grid"></div>
+
+      <script>
+        const CACHE_KEY = "appdev_gallery_cache";
+        const CACHE_DURATION = 5 * 60 * 1000;
+
+        function getCachedData() {
+          try {
+            const cached = localStorage.getItem(CACHE_KEY);
+            if (!cached) return null;
+
+            const { data, timestamp } = JSON.parse(cached);
+            const now = Date.now();
+
+            if (now - timestamp < CACHE_DURATION) {
+              console.log("appdev: using cached data");
+              return data;
+            } else {
+              localStorage.removeItem(CACHE_KEY);
+              return null;
+            }
+          } catch (e) {
+            return null;
+          }
+        }
+
+        function setCachedData(data) {
+          try {
+            localStorage.setItem(
+              CACHE_KEY,
+              JSON.stringify({
+                data,
+                timestamp: Date.now(),
+              }),
+            );
+          } catch (e) {
+            console.warn("Failed to cache data:", e);
+          }
+        }
+
+        async function loadGallery() {
+          const grid = document.getElementById("portfolio-grid");
+
+          try {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get("clearCache") === "1")
+              localStorage.removeItem(CACHE_KEY);
+
+            const cachedData = getCachedData();
+            if (cachedData) {
+              renderGallery(cachedData, grid);
+              fetchAndRender(grid, true);
+              return;
+            }
+
+            await fetchAndRender(grid, false);
+          } catch (e) {
+            console.error(e);
+            grid.innerHTML =
+              '<p class="p-text-01 text-white-60">Failed to load projects. Please try again later.</p>';
+          }
+        }
+
+        async function fetchAndRender(grid, isBackground = false) {
+          try {
+            const res = await fetch("https://backend.pixelatenest.com/api/work-gallery", {
+              cache: "force-cache",
+            });
+
+            if (!res.ok) throw new Error("Failed to fetch gallery");
+
+            const items = await res.json();
+            setCachedData(items);
+
+            if (!isBackground) {
+              renderGallery(items, grid);
+            }
+          } catch (e) {
+            if (!isBackground) throw e;
+          }
+        }
+
+        function renderGallery(items, grid) {
+          grid.innerHTML = "";
+
+          const filtered = (items || []).filter(
+            (i) => i.showOn === "app-development",
+          );
+
+          if (filtered.length === 0) {
+            grid.innerHTML =
+              '<p class="p-text-01 text-white-60">No projects to show right now. Check back later.</p>';
+            return;
+          }
+
+          for (const it of filtered) {
+            const card = document.createElement("div");
+            card.className = "portfolio-card w-inline-block";
+
+            const imgWrap = document.createElement("div");
+            imgWrap.className = "portfolio-image-wrapper";
+
+            const img = document.createElement("img");
+            img.className = "portfolio-image";
+            img.alt = it.title || "Project";
+            img.src = it.thumbnailBase64 || "/assets/placeholder.png";
+            img.loading = "lazy";
+            imgWrap.appendChild(img);
+
+            const overlay = document.createElement("div");
+            overlay.className = "portfolio-overlay";
+
+            const h4 = document.createElement("h4");
+            h4.className = "portfolio-title";
+            h4.innerText = it.title || "Untitled";
+
+            const desc = document.createElement("p");
+            desc.className = "portfolio-desc";
+            desc.innerText = (
+              it.description ||
+              it.summary ||
+              it.excerpt ||
+              ""
+            ).trim();
+
+            const tagsDiv = document.createElement("div");
+            tagsDiv.className = "portfolio-tags";
+            (typeof it.tech === "string" ? it.tech : "")
+              .split(",")
+              .map((t) => t.trim())
+              .filter(Boolean)
+              .slice(0, 5)
+              .forEach((t) => {
+                const s = document.createElement("span");
+                s.className = "tag";
+                s.innerText = t;
+                tagsDiv.appendChild(s);
+              });
+
+            const stars = document.createElement("div");
+            stars.className = "stars";
+            const rating = Math.max(0, Math.min(5, Number(it.rating || 0)));
+            for (let si = 1; si <= 5; si++) {
+              const sp = document.createElement("span");
+              sp.className = "star" + (si <= rating ? " filled" : "");
+              sp.innerHTML = "&#9733;";
+              stars.appendChild(sp);
+            }
+
+            overlay.appendChild(h4);
+            overlay.appendChild(stars);
+            overlay.appendChild(tagsDiv);
+            overlay.appendChild(desc);
+
+            const visitBtn = document.createElement("button");
+            visitBtn.className = "visit-button";
+            visitBtn.innerText = it.link ? "Visit Website" : "Visit";
+            if (it.link) {
+              visitBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                try {
+                  window.open(it.link, "_blank", "noopener");
+                } catch (err) {
+                  window.location.href = it.link;
+                }
+              });
+            } else {
+              visitBtn.disabled = true;
+            }
+
+            const detailsBtn = document.createElement("button");
+            detailsBtn.className = "details-button";
+            detailsBtn.innerText = "View Details";
+            detailsBtn.addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              try {
+                localStorage.setItem("pn_portfolio_item", JSON.stringify(it));
+              } catch (err) {
+                console.warn("Failed to save portfolio item:", err);
+              }
+              window.location.href = "portfolio-details.html";
+            });
+
+            const buttonsContainer = document.createElement("div");
+            buttonsContainer.className = "portfolio-buttons-container";
+            buttonsContainer.appendChild(visitBtn);
+            buttonsContainer.appendChild(detailsBtn);
+            overlay.appendChild(buttonsContainer);
+
+            card.appendChild(imgWrap);
+            card.appendChild(overlay);
+            grid.appendChild(card);
+          }
+        }
+
+        loadGallery();
+      </script>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const sections = document.querySelectorAll(
+            "section:not(.nav-wrap), .portfolio-grid, .process-grid",
+          );
+          sections.forEach((section) => {
+            section.classList.add("section-animate");
+          });
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("in-view");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            {
+              root: null,
+              threshold: 0.2,
+              rootMargin: "0px",
+            },
+          );
+
+          sections.forEach((section) => {
+            observer.observe(section);
+          });
+
+          const gridItems = document.querySelectorAll(
+            ".portfolio-item, .process-step",
+          );
+          gridItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.08}s`;
+            item.classList.add("section-animate");
+            observer.observe(item);
+          });
+
+          const heroElements = document.querySelectorAll(
+            ".main-hero *:not(nav *)",
+          );
+          heroElements.forEach((element, index) => {
+            element.classList.add("animate-on-load");
+            element.style.animationDelay = `${0.1 + index * 0.05}s`;
+          });
+        });
+      </script>
     </section>
-    <section class="footer">
+    <!-- FAQ + Custom Quote CTA -->
+    <div class="pricing-faq-wrap">
+      <section class="faq-section" aria-labelledby="appdev-faq-headline">
+        <div class="faq-container">
+          <h2 id="appdev-faq-headline" class="faq-headline">
+            Your Questions, Answered
+          </h2>
+          <p class="faq-sub">
+            Answers to frequent queries about mobile app development, delivery,
+            and post-launch support.
+          </p>
+
+          <div class="faq-list">
+            <div class="faq-item" aria-expanded="false">
+              <button
+                class="faq-question"
+                aria-controls="af1"
+                aria-expanded="false"
+              >
+                <span>Can you build native iOS and Android apps?</span>
+                <span class="chev" aria-hidden="true">▾</span>
+              </button>
+              <div id="af1" class="faq-answer">
+                Yes — we build native apps and cross-platform apps using modern
+                frameworks based on your requirements.
+              </div>
+            </div>
+
+            <div class="faq-item" aria-expanded="false">
+              <button
+                class="faq-question"
+                aria-controls="af2"
+                aria-expanded="false"
+              >
+                <span>Do you provide app store submission support?</span>
+                <span class="chev" aria-hidden="true">▾</span>
+              </button>
+              <div id="af2" class="faq-answer">
+                We assist with app store packaging, metadata, and submission to
+                help you launch smoothly on both stores.
+              </div>
+            </div>
+
+            <div class="faq-item" aria-expanded="false">
+              <button
+                class="faq-question"
+                aria-controls="af3"
+                aria-expanded="false"
+              >
+                <span>How do you handle offline sync and data privacy?</span>
+                <span class="chev" aria-hidden="true">▾</span>
+              </button>
+              <div id="af3" class="faq-answer">
+                We design secure sync strategies and data encryption as per your
+                compliance needs, using tested patterns for reliability.
+              </div>
+            </div>
+
+            <div class="faq-item" aria-expanded="false">
+              <button
+                class="faq-question"
+                aria-controls="af4"
+                aria-expanded="false"
+              >
+                <span>What are your post-launch support options?</span>
+                <span class="chev" aria-hidden="true">▾</span>
+              </button>
+              <div id="af4" class="faq-answer">
+                We offer maintenance plans, monitoring and updates. We can also
+                provide a retainer for continuous improvements.
+              </div>
+            </div>
+
+            <div class="faq-item" aria-expanded="false">
+              <button
+                class="faq-question"
+                aria-controls="af5"
+                aria-expanded="false"
+              >
+                <span>How do I request a quote?</span>
+                <span class="chev" aria-hidden="true">▾</span>
+              </button>
+              <div id="af5" class="faq-answer">
+                Click Request Custom Quote below or use the contact form to
+                schedule a discovery call.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div
+      style="
+        text-align: center;
+        margin-top: 60px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 28px;
+      "
+    >
+      <h3 class="text-linear" style="margin-bottom: 15px">
+        Need Something Custom?
+      </h3>
+      <p
+        class="p-text-01 text-white-60"
+        style="
+          margin-bottom: 25px;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        "
+      >
+        Every project is unique. Get a personalised quote tailored to your
+        specific requirements.
+      </p>
+      <a
+        href="https://www.pixelatenest.com/contact.html"
+        class="button-02 w-inline-block"
+        style="
+          padding: 15px 40px;
+          display: inline-block;
+          color: white;
+          text-decoration: none;
+          background-color: var(--primary-900);
+          border-radius: 20px;
+        "
+        >Request Custom Quote
+        <i class="fas fa-arrow-right" style="margin-left: 10px"></i
+      ></a>
+    </div>
+
+    <footer class="footer">
       <div class="container">
         <div class="footer-wrap">
           <div class="footer-top">
@@ -674,24 +1008,14 @@
                   >
                     <div class="footer-link-text">Travel & Hospitality</div>
                   </a>
-                  <a
-                    href="https://www.pixelatenest.com/industry-healthcare"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Healthcare</div>
-                  </a>
+
                   <a
                     href="https://www.pixelatenest.com/industry-education"
                     class="footer-link w-inline-block"
                   >
                     <div class="footer-link-text">Education</div>
                   </a>
-                  <a
-                    href="https://www.pixelatenest.com/industry-finance"
-                    class="footer-link w-inline-block"
-                  >
-                    <div class="footer-link-text">Finance & Insurance</div>
-                  </a>
+
                   <a
                     href="https://www.pixelatenest.com/industry-logistics"
                     class="footer-link w-inline-block"
@@ -778,9 +1102,12 @@
                     rel="noopener noreferrer"
                     class="footer-link w-inline-block"
                   >
-                    <div class="footer-link-text">
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
                       <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                      LinkedIn
+                      <span>LinkedIn</span>
                     </div>
                   </a>
                   <a
@@ -789,9 +1116,12 @@
                     rel="noopener noreferrer"
                     class="footer-link w-inline-block"
                   >
-                    <div class="footer-link-text">
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
                       <i class="fab fa-instagram" aria-hidden="true"></i>
-                      Instagram
+                      <span>Instagram</span>
                     </div>
                   </a>
                   <a
@@ -800,48 +1130,14 @@
                     rel="noopener noreferrer"
                     class="footer-link w-inline-block"
                   >
-                    <div class="footer-link-text">
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
                       <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                      Facebook
+                      <span>Facebook</span>
                     </div>
                   </a>
-                  <div
-                    class="footer-social-icons"
-                    style="
-                      display: flex;
-                      gap: 12px;
-                      margin-top: 12px;
-                      align-items: center;
-                    "
-                  >
-                    <a
-                      href="https://www.linkedin.com/company/pixelate-nest/?viewAsMember=true"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="LinkedIn"
-                      style="color: inherit; font-size: 18px"
-                    >
-                      <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a
-                      href="https://www.instagram.com/pixelate.nest/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Instagram"
-                      style="color: inherit; font-size: 18px"
-                    >
-                      <i class="fab fa-instagram"></i>
-                    </a>
-                    <a
-                      href="https://www.facebook.com/profile.php?id=61586872964348"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Facebook"
-                      style="color: inherit; font-size: 18px"
-                    >
-                      <i class="fab fa-facebook-f"></i>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -881,9 +1177,59 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Scripts -->
+    </footer>
+    <script>
+      (function () {
+        function initFAQ() {
+          const items = document.querySelectorAll(".faq-item");
+          if (!items.length) return;
+          function closeItem(other) {
+            other.setAttribute("aria-expanded", "false");
+            const b = other.querySelector(".faq-question");
+            const a = other.querySelector(".faq-answer");
+            if (b) b.setAttribute("aria-expanded", "false");
+            if (a) {
+              a.style.maxHeight = "0px";
+              a.style.paddingTop = "0px";
+            }
+          }
+          items.forEach((it) => {
+            const btn = it.querySelector(".faq-question");
+            const answer = it.querySelector(".faq-answer");
+            if (answer) {
+              answer.style.overflow = "hidden";
+              answer.style.maxHeight = "0px";
+              answer.style.transition =
+                "max-height 0.28s ease, padding 0.22s ease";
+              answer.style.paddingTop = "0px";
+            }
+            btn.addEventListener("click", () => {
+              const expanded = it.getAttribute("aria-expanded") === "true";
+              items.forEach(closeItem);
+              const newState = (!expanded).toString();
+              it.setAttribute("aria-expanded", newState);
+              btn.setAttribute("aria-expanded", newState);
+              if (!expanded && answer) {
+                answer.style.paddingTop = "12px";
+                answer.style.maxHeight = answer.scrollHeight + 24 + "px";
+              } else if (answer) {
+                answer.style.maxHeight = "0px";
+                answer.style.paddingTop = "0px";
+              }
+            });
+            btn.addEventListener("keydown", (ev) => {
+              if (ev.key === "Enter" || ev.key === " ") {
+                ev.preventDefault();
+                btn.click();
+              }
+            });
+          });
+        }
+        if (document.readyState === "loading")
+          document.addEventListener("DOMContentLoaded", initFAQ);
+        else initFAQ();
+      })();
+    </script>
     <script
       src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6840859dc0e82803d10f5190"
       type="text/javascript"
@@ -895,7 +1241,6 @@
       type="text/javascript"
     ></script>
     <script>
-      // Intersection Observer for Animations
       document.addEventListener("DOMContentLoaded", function () {
         const sections = document.querySelectorAll(".section-animate");
         const observer = new IntersectionObserver(
@@ -914,5 +1259,6 @@
       });
     </script>
     <script src="js/activity-tracker.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

@@ -5,18 +5,29 @@ import { useAuth } from '@/hooks/use-auth'
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Textarea } from "@/components/ui/textarea";
+import { toast } from '@/hooks/use-toast'
 
 const formSchema = z.object({
   title: z.string().min(1),
   link: z.string().url().or(z.string().min(0)),
   tech: z.string().optional(),
+  description: z.string().optional(),
   rating: z.number().min(0).max(5).optional(),
   showOn: z.enum(["web-development","software-development","app-development","video-editing","photography","none"]),
+  brand: z.string().optional(),
   thumbnailBase64: z.string().optional(),
   webDevBgImageUrl: z.string().optional(),
   note: z.string().optional(),
@@ -29,7 +40,8 @@ export default function WorkGalleryPage() {
   const isAdmin = user?.role === 'admin';
   const [items, setItems] = useState<any[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
-  const form = useForm<FormValues>({ resolver: zodResolver(formSchema), defaultValues: { title: "", link: "", tech: "", rating: 0, showOn: "none", webDevBgImageUrl: "" } });
+  const [openModal, setOpenModal] = useState(false);
+  const form = useForm<FormValues>({ resolver: zodResolver(formSchema), defaultValues: { title: "", link: "", tech: "", description: "", rating: 0, showOn: "none", webDevBgImageUrl: "", brand: "" } });
 
   useEffect(() => {
     let mounted = true;
@@ -59,6 +71,14 @@ export default function WorkGalleryPage() {
   const onSubmit = async (values: FormValues) => {
     try {
       const payload = { ...values } as any;
+      // sanitize accidental literal "undefined" strings (happens if a field
+      // value was coerced incorrectly somewhere). Convert them to empty string
+      // so we don't persist the literal word "undefined" into the DB.
+      Object.keys(payload).forEach((k) => {
+        if (payload[k] === 'undefined') payload[k] = '';
+      });
+      // helpful debugging: show what we're about to send
+      console.debug('work-gallery: submitting payload', payload);
       if (editingId) {
         // update
         const res = await fetch(`/api/work-gallery/${editingId}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
@@ -67,12 +87,16 @@ export default function WorkGalleryPage() {
         setItems(prev => prev.map(i => (String(i._id ?? i.id) === String(editingId) ? updated : i)));
         setEditingId(null);
         form.reset();
+        toast({ title: 'Data updated', description: 'Gallery item updated successfully.' });
+        setOpenModal(false);
       } else {
         const res = await fetch('/api/work-gallery', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
         if (!res.ok) throw new Error('Failed to save');
         const created = await res.json();
         setItems(prev => [...prev, created]);
         form.reset();
+        toast({ title: 'Saved', description: 'Gallery item added.' });
+        setOpenModal(false);
       }
     } catch (e) {
       console.error('Failed to save gallery item', e);
@@ -115,12 +139,15 @@ export default function WorkGalleryPage() {
       title: it.title || '',
       link: it.link || '',
       tech: it.tech || '',
+      description: it.description ?? it.note ?? '',
       rating: Number(it.rating ?? 0),
       showOn: it.showOn || 'none',
+      brand: it.brand || '',
       thumbnailBase64: it.thumbnailBase64 || '',
       webDevBgImageUrl: it.webDevBgImageUrl || '',
       note: it.note || '',
     });
+    setOpenModal(true);
   };
 
   const cancelEdit = () => {
@@ -129,79 +156,96 @@ export default function WorkGalleryPage() {
   };
 
   return (
-    <div className="space-y-8 font-headline">
-      <header>
-        <h1 className="text-5xl font-black tracking-tighter">Work Gallery Management</h1>
-        <p className="text-muted-foreground text-lg">Upload project thumbnails and metadata. Choose where to show each item on the public website.</p>
-      </header>
+    <>
+      <div className="flex items-center justify-between">
+        <h2 className="text-xl font-semibold">Gallery Items</h2>
+        <div>
+          <Button onClick={() => { setEditingId(null); form.reset(); setOpenModal(true); }}>Add Gallery Item</Button>
+        </div>
+      </div>
 
-      <Card className="border-2 border-black">
-        <CardHeader>
-          <CardTitle>{editingId ? 'Edit Gallery Item' : 'Add Gallery Item'}</CardTitle>
-          <CardDescription>Thumbnail, title, link, tech tags and rating</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={form.handleSubmit((v) => onSubmit(v))} className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium">Title</label>
-                <Input {...form.register('title')} />
+      <Dialog open={openModal} onOpenChange={setOpenModal}>
+        <DialogContent className="max-w-3xl">
+          <DialogHeader>
+            <DialogTitle>{editingId ? 'Edit Gallery Item' : 'Add Gallery Item'}</DialogTitle>
+            <DialogDescription>Thumbnail, title, link, tech tags and rating</DialogDescription>
+          </DialogHeader>
+          <CardContent>
+            <form onSubmit={form.handleSubmit((v) => onSubmit(v))} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium">Title</label>
+                  <Input {...form.register('title')} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium">Project Link (optional)</label>
+                  <Input {...form.register('link')} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium">Tech / Tags (comma separated)</label>
+                  <Input {...form.register('tech')} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium">Rating (0-5)</label>
+                  <Input type="number" min={0} max={5} {...form.register('rating', { valueAsNumber: true })} />
+                </div>
               </div>
+
               <div>
-                <label className="block text-sm font-medium">Project Link (optional)</label>
-                <Input {...form.register('link')} />
+                <label className="block text-sm font-medium">Show on</label>
+                <select {...form.register('showOn')} className="w-full border rounded px-2 py-1">
+                  <option value="none">Do not display</option>
+                  <option value="web-development">Web Development</option>
+                  <option value="software-development">Software Development</option>
+                  <option value="app-development">App Development</option>
+                  <option value="video-editing">Video Editing</option>
+                  <option value="photography">Photography</option>
+                </select>
               </div>
+
+              {form.watch('showOn') === 'software-development' && (
+                <div>
+                  <label className="block text-sm font-medium">Brand (optional)</label>
+                  <Input {...form.register('brand')} placeholder="Brand name (e.g. Acme Inc)" />
+                  <p className="text-xs text-muted-foreground mt-1">Displayed on Software Development portfolio cards only.</p>
+                </div>
+              )}
+
               <div>
-                <label className="block text-sm font-medium">Tech / Tags (comma separated)</label>
-                <Input {...form.register('tech')} />
+                <label className="block text-sm font-medium">Thumbnail</label>
+                <input type="file" accept="image/*" onChange={handleFileChange} />
               </div>
+
+              {form.watch('showOn') === 'web-development' && (
+                <div>
+                  <label className="block text-sm font-medium">Web Dev Background Image URL</label>
+                  <Input 
+                    {...form.register('webDevBgImageUrl')} 
+                    placeholder="https://example.com/bg-image.jpg"
+                    className="font-mono text-sm"
+                  />
+                  <p className="text-xs text-muted-foreground mt-1">This image will be used as background for large showcase cards on the Web Development page.</p>
+                </div>
+              )}
+
               <div>
-                <label className="block text-sm font-medium">Rating (0-5)</label>
-                <Input type="number" min={0} max={5} {...form.register('rating', { valueAsNumber: true })} />
+                <label className="block text-sm font-medium">Note</label>
+                <Textarea {...form.register('note')} />
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium">Show on</label>
-              <select {...form.register('showOn')} className="w-full border rounded px-2 py-1">
-                <option value="none">Do not display</option>
-                <option value="web-development">Web Development</option>
-                <option value="software-development">Software Development</option>
-                <option value="app-development">App Development</option>
-                <option value="video-editing">Video Editing</option>
-                <option value="photography">Photography</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium">Thumbnail</label>
-              <input type="file" accept="image/*" onChange={handleFileChange} />
-            </div>
-
-            {form.watch('showOn') === 'web-development' && (
               <div>
-                <label className="block text-sm font-medium">Web Dev Background Image URL</label>
-                <Input 
-                  {...form.register('webDevBgImageUrl')} 
-                  placeholder="https://example.com/bg-image.jpg"
-                  className="font-mono text-sm"
-                />
-                <p className="text-xs text-muted-foreground mt-1">This image will be used as background for large showcase cards on the Web Development page.</p>
+                <label className="block text-sm font-medium">Description</label>
+                <Textarea {...form.register('description')} />
               </div>
-            )}
 
-            <div>
-              <label className="block text-sm font-medium">Note</label>
-              <Textarea {...form.register('note')} />
-            </div>
-
-            <div className="flex gap-2">
-              <Button type="submit">{editingId ? 'Update' : 'Save'}</Button>
-              <Button variant="ghost" onClick={() => editingId ? cancelEdit() : form.reset()}>{editingId ? 'Cancel' : 'Reset'}</Button>
-            </div>
-          </form>
-        </CardContent>
-      </Card>
+              <DialogFooter>
+                <Button type="submit">{editingId ? 'Update' : 'Save'}</Button>
+                <Button variant="ghost" onClick={() => { setOpenModal(false); form.reset(); }}>{editingId ? 'Cancel' : 'Reset'}</Button>
+              </DialogFooter>
+            </form>
+          </CardContent>
+        </DialogContent>
+      </Dialog>
 
       <div className="border-2 border-black">
         <Table>
@@ -209,6 +253,7 @@ export default function WorkGalleryPage() {
             <TableRow>
               <TableHead>Preview</TableHead>
               <TableHead>Title</TableHead>
+              <TableHead>Brand</TableHead>
               <TableHead>Tech</TableHead>
               <TableHead className="text-right">Rating</TableHead>
               <TableHead>Show On</TableHead>
@@ -226,6 +271,7 @@ export default function WorkGalleryPage() {
                   )}
                 </TableCell>
                 <TableCell className="font-bold">{it.title}</TableCell>
+                <TableCell>{it.brand || '-'}</TableCell>
                 <TableCell>{it.tech}</TableCell>
                 <TableCell className="text-right">{it.rating ?? '-'}</TableCell>
                 <TableCell>{it.showOn ?? 'none'}</TableCell>
@@ -241,6 +287,6 @@ export default function WorkGalleryPage() {
           </TableBody>
         </Table>
       </div>
-    </div>
+    </>
   );
 }

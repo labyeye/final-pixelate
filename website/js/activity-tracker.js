@@ -18,22 +18,35 @@
 
   async function trackPageView() {
     try {
+      const payload = {
+        type: "page_view",
+        userId: userId,
+        url: window.location.href,
+        referrer: document.referrer,
+        userAgent: navigator.userAgent,
+        startTime: new Date().toISOString(),
+      };
+      console.debug("activity-tracker: POST ->", API_URL, payload);
       const response = await fetch(API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          type: "page_view",
-          userId: userId,
-          url: window.location.href,
-          referrer: document.referrer,
-          userAgent: navigator.userAgent,
-          startTime: new Date().toISOString(),
-        }),
+        body: JSON.stringify(payload),
       });
-      const data = await response.json();
-      if (data.id) {
+      const text = await response.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        data = text;
+      }
+      console.debug("activity-tracker: response ->", response.status, data);
+      if (!response.ok) {
+        console.error("Tracking Error (server):", response.status, data);
+        return;
+      }
+      if (data && data.id) {
         activityId = data.id;
       }
     } catch (error) {
@@ -47,19 +60,25 @@
     const duration = Math.floor((Date.now() - startTime) / 1000);
 
     try {
-      await fetch(API_URL, {
+      const payload = {
+        type: "ping",
+        id: activityId,
+        userId: userId,
+        duration: duration,
+      };
+      console.debug("activity-tracker: ping ->", payload);
+      const resp = await fetch(API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         keepalive: true,
-        body: JSON.stringify({
-          type: "ping",
-          id: activityId,
-          userId: userId,
-          duration: duration,
-        }),
+        body: JSON.stringify(payload),
       });
+      if (!resp.ok) {
+        const txt = await resp.text().catch(() => "");
+        console.warn("activity-tracker: ping failed ->", resp.status, txt);
+      }
     } catch (error) {}
   }
 

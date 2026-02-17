@@ -38,7 +38,7 @@
     />
     <meta
       property="og:image"
-      content="https://www.pixelatenest.com/assets/logo-transparent.png"
+      content="https://www.pixelatenest.com/assets/Logo_Color.webp"
     />
     <meta
       property="og:url"
@@ -61,7 +61,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://www.pixelatenest.com/assets/logo-transparent.png"
+      content="https://www.pixelatenest.com/assets/Logo_Color.webp"
     />
     <meta name="twitter:site" content="@pixelatenest" />
     <meta name="twitter:creator" content="@pixelatenest" />
@@ -75,11 +75,7 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta content="Pixelate Nest" name="generator" />
 
-    <link
-      href="https://backend.pixelatenest.com"
-      rel="preconnect"
-      crossorigin
-    />
+    <link href="https://backend.pixelatenest.com" rel="preconnect" crossorigin />
     <link href="https://backend.pixelatenest.com" rel="dns-prefetch" />
     <script
       src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
@@ -94,7 +90,7 @@
           "@type": "Organization",
           "name": "Pixelate Nest",
           "sameAs": "https://www.pixelatenest.com/",
-          "logo": "https://www.pixelatenest.com/assets/logo-transparent.png"
+          "logo": "https://www.pixelatenest.com/assets/Logo_Color.webp"
         },
         "title": "Multiple Positions Available",
         "description": "Pixelate Nest is hiring talented professionals in web development, app development, video editing, UI/UX design, and digital marketing. Join our creative team and work on cutting-edge projects.",
@@ -145,7 +141,7 @@
       type="image/x-icon"
     />
     <link
-      href="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/687bf25268ea6656fee08b5f_Trenox%20Webclip%20.svg"
+      href="https://www.pixelatenest.com/assets/Logo_Color.webp"
       rel="apple-touch-icon"
     />
 
@@ -267,7 +263,7 @@
                         <a
                           href="https://www.pixelatenest.com/"
                           aria-current="page"
-                          class="nav-link w-inline-block w--current"
+                          class="nav-link w-inline-block"
                           ><span class="nav-link-text">Home</span></a
                         >
                       </li>
@@ -297,7 +293,10 @@
                           ></i>
                         </a>
                         <div class="dropdown-menu">
-                          <a href="webdev.html" class="dropdown-item">
+                          <a
+                            href="https://www.pixelatenest.com/webdev.html"
+                            class="dropdown-item"
+                          >
                             Web Development
                           </a>
                           <a href="app-dev.html" class="dropdown-item">
@@ -322,7 +321,7 @@
                       <li class="nav-item">
                         <a
                           href="https://www.pixelatenest.com/careers.html"
-                          class="nav-link w-inline-block"
+                          class="nav-link w-inline-block w--current"
                         >
                           <div class="nav-link-text">Careers</div>
                         </a>
@@ -405,7 +404,6 @@
               </div>
             </div>
           </div>
-
           <div id="application-modal" class="modal">
             <div class="modal-content">
               <button class="modal-close" onclick="closeApplicationModal()">
@@ -421,7 +419,7 @@
 
                 <div class="form-group">
                   <label for="applicant-name" class="required">Full Name</label>
-                  <input type="text" id="applicant-name" name="name" required />
+                  <input style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--primary-900);" type="text" id="applicant-name" name="name" required />
                 </div>
 
                 <div class="form-group">
@@ -429,6 +427,7 @@
                     >Email Address</label
                   >
                   <input
+                      style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--primary-900);"
                     type="email"
                     id="applicant-email"
                     name="email"
@@ -441,6 +440,7 @@
                     >Phone Number</label
                   >
                   <input
+                      style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--primary-900);"
                     type="tel"
                     id="applicant-phone"
                     name="phone"
@@ -453,6 +453,7 @@
                     >Resume/CV</label
                   >
                   <input
+                        style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--primary-900);"
                     type="file"
                     id="applicant-resume"
                     name="resume"
@@ -467,6 +468,7 @@
                     >Portfolio URL (Optional)</label
                   >
                   <input
+                    style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--primary-900);"
                     type="url"
                     id="applicant-portfolio"
                     name="portfolioUrl"
@@ -479,6 +481,7 @@
                     >LinkedIn Profile (Optional)</label
                   >
                   <input
+                    style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--primary-900);"
                     type="url"
                     id="applicant-linkedin"
                     name="linkedinUrl"
@@ -491,6 +494,7 @@
                     >Cover Letter</label
                   >
                   <textarea
+                    style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--primary-900);"
                     id="applicant-cover-letter"
                     name="coverLetter"
                     required
@@ -514,23 +518,70 @@
             </div>
           </div>
         </section>
-        <section class="careers-hero">
-          <h1 class="text-linear">Join Our Creative Team</h1>
-          <p style="color: var(--tertiary-900)">
-            At Pixelate Nest, we're building the future of digital experiences.
-            Join a team of passionate designers, developers, and creatives who
-            are making a real impact for brands around the world.
-          </p>
+        <section class="home-hero-v1">
+          <div class="container">
+            <div class="home-hero-v1-wrap">
+              <div class="hero-v1-content">
+                <div class="hero-v1-title-wrap">
+                  <div class="hero-trust-badge">
+                    <div class="trust-avatars">
+                      <img
+                        src="assets/homescreen/customer/customer1.webp"
+                        alt="Happy Customer"
+                        class="trust-avatar"
+                      />
+                      <img
+                        src="assets/homescreen/customer/customer2.webp"
+                        alt="Happy Customer"
+                        class="trust-avatar"
+                      />
+                      <img
+                        src="assets/homescreen/customer/customer3.webp"
+                        alt="Happy Customer"
+                        class="trust-avatar"
+                      />
+                      <img
+                        src="assets/homescreen/customer/customer4.webp"
+                        alt="Happy Customer"
+                        class="trust-avatar"
+                      />
+                    </div>
+                    <div class="trust-text">
+                      TRUSTED BY
+                      <span class="trust-number">20+</span> DELIGHTED CUSTOMERS
+                    </div>
+                  </div>
+
+                  <div
+                    data-w-id="e4d25ab4-5221-11f5-0316-673572cc0f50"
+                    class="heading-wrap hero-v1-heading"
+                  >
+                    <h1
+                      data-w-id="a92873da-c997-5cbc-a542-2425fbe84089"
+                      class="h1 hero-heading hero-main-title"
+                    >
+                      Need a Creative Partner to Bring Your
+                      <i style="font-weight: 100">skills </i> to Life
+                    </h1>
+                  </div>
+
+                  <div
+                    data-w-id="509f52f0-277a-a704-9a52-c8d9022fecf4"
+                    class="sub-heading-wrap"
+                  >
+                    <p class="hero-subheadline">
+                      We Design in India, Developing it worldwide. Your one stop
+                      solution for Video Editing, Web Development, App
+                      Development, and Software Development.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
-
-      <section
-        class="jobs-section"
-        style="
-          background-image: url(./assets/back-left.webp);
-          background-size: cover;
-        "
-      >
+      <section class="jobs-section" style="background: white">
         <div style="max-width: 100%; margin: 0 auto; padding: 0 24px">
           <h2 class="h2 text-linear">Open Positions</h2>
           <p style="color: var(--tertiary-900)">
@@ -559,103 +610,592 @@
           </div>
         </div>
       </section>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-wrap">
+          <div class="footer-top">
+            <div class="footer-top-left">
+              <div class="footer-logo-details">
+                <div class="footer-logo-wrap">
+                  <a
+                    href="https://www.pixelatenest.com/"
+                    class="footer-logo w-inline-block"
+                  >
+                    <img
+                      src="assets/Logo_Color_Name_large.webp"
+                      loading="lazy"
+                      alt="Pixelate Nest Logo"
+                      class="fit-cover"
+                    />
+                  </a>
+                </div>
+                <p class="p-text-03">
+                  AI-first creative technology partner for web, app, and video
+                  that delivers measurable growth.
+                </p>
+                <div style="margin-top: 20px">
+                  <p class="p-text-03" style="margin-bottom: 8px">
+                    <strong>Contact Us</strong>
+                  </p>
+                  <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
+                    <i class="fas fa-envelope" style="margin-right: 8px"></i
+                    >support@pixelatenest.com
+                  </p>
+                  <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
+                    <i class="fas fa-phone" style="margin-right: 8px"></i>+91
+                    84069 12345
+                  </p>
+                  <p class="p-text-03 text-white-60">
+                    <i
+                      class="fas fa-map-marker-alt"
+                      style="margin-right: 8px"
+                    ></i
+                    >Muzaffarpur, Bihar, India — Serving clients across India &
+                    globally
+                  </p>
+                </div>
+              </div>
+            </div>
 
-      <div class="footer-rating-wrap">
-        <span class="p-text-03 text-white-60">Rate Us:</span>
-        <div class="footer-stars" id="footerStars">
-          <svg
-            class="footer-star"
-            data-rating="1"
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-              fill="#FFD700"
-              stroke="#FFD700"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <svg
-            class="footer-star"
-            data-rating="2"
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-              fill="#FFD700"
-              stroke="#FFD700"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <svg
-            class="footer-star"
-            data-rating="3"
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-              fill="#FFD700"
-              stroke="#FFD700"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <svg
-            class="footer-star"
-            data-rating="4"
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-              fill="#FFD700"
-              stroke="#FFD700"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <svg
-            class="footer-star"
-            data-rating="5"
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-              fill="#FFD700"
-              stroke="#FFD700"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+            <div class="footer-right-link-wrap">
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Company</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/about.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">About Us</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/careers.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Careers</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/contact.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Contact Us</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/blogs.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Blog</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Services</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/video-ed.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Video Editing</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/webdev.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Web Development</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/app-dev.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">App Development</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/software-dev.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Software Development</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Industries We Serve</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/industry-ecommerce.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Ecommerce & Multivendor</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-realestate.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">
+                      Real Estate & Construction
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-travel.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Travel & Hospitality</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-education.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Education</div>
+                  </a>
+
+                  <a
+                    href="https://www.pixelatenest.com/industry-logistics.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">
+                      Transportation & Logistics
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/industry-manufacturing.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Manufacturing</div>
+                  </a>
+                  
+                  
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Resources</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/pricing.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Pricing</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/locations.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Locations</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/technologies.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Technologies</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Legal</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.pixelatenest.com/privacy-policy.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Privacy Policy</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/terms-of-service.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Terms of Service</div>
+                  </a>
+                  <a
+                    href="https://www.pixelatenest.com/cookie-policy.html"
+                    class="footer-link w-inline-block"
+                  >
+                    <div class="footer-link-text">Cookie Policy</div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer-link-wrap">
+                <div class="p-text-01">Follow Us</div>
+                <div class="footer-link-list">
+                  <a
+                    href="https://www.linkedin.com/company/pixelate-nest/?viewAsMember=true"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link w-inline-block"
+                  >
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
+                      <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                      <span>LinkedIn</span>
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/pixelate.nest/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link w-inline-block"
+                  >
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
+                      <i class="fab fa-instagram" aria-hidden="true"></i>
+                      <span>Instagram</span>
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61586872964348"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link w-inline-block"
+                  >
+                    <div
+                      class="footer-link-text"
+                      style="flex-direction: row; display: flex; gap: 10px"
+                    >
+                      <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                      <span>Facebook</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <div class="vertical-divider"></div>
+            <div class="footer-bottom-wrap">
+              <div class="p-text-03 text-white-60">
+                © 2026 Kalahanu Tech Studios LLP. All Rights Reserved. | Crafted
+                with
+                <i class="fas fa-heart" style="color: #e74c3c"></i>
+                in India
+              </div>
+              <div class="p-text-03 text-white-60">
+                <strong>Payments Accepted:</strong>
+                <div
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 15px;
+                    margin-left: 10px;
+                  "
+                >
+                  <span style="display: flex; align-items: center; gap: 5px">
+                    <i class="fas fa-money-bill-wave"></i> Cash
+                  </span>
+                  <span style="display: flex; align-items: center; gap: 5px">
+                    <i class="fas fa-university"></i> Bank
+                  </span>
+                  <span style="display: flex; align-items: center; gap: 5px">
+                    <i class="fas fa-mobile-alt"></i> UPI
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </footer>
     <script src="js/activity-tracker.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+      (function () {
+        const API_BASE = "https://backend.pixelatenest.com";
+        let jobsCache = [];
+
+        async function getJobs() {
+          try {
+            const res = await fetch(API_BASE + "/api/careers");
+            if (res.ok) {
+              const data = await res.json();
+              if (Array.isArray(data)) {
+                localStorage.setItem("pn_jobs", JSON.stringify(data));
+                return data;
+              }
+            }
+          } catch (e) {
+            // network error
+          }
+          try {
+            return JSON.parse(localStorage.getItem("pn_jobs") || "[]");
+          } catch (e) {
+            return [];
+          }
+        }
+
+        function renderJobs(jobs) {
+          const grid = document.getElementById("jobs-grid");
+          const noJobs = document.getElementById("no-jobs");
+          if (!grid) return;
+          grid.innerHTML = "";
+          if (!jobs || jobs.length === 0) {
+            if (noJobs) noJobs.style.display = "block";
+            return;
+          }
+          if (noJobs) noJobs.style.display = "none";
+
+          // helper: capitalize first character
+          const capitalizeFirst = (s) => {
+            if (!s && s !== 0) return "";
+            const str = String(s);
+            return str.charAt(0).toUpperCase() + str.slice(1);
+          };
+
+          // helper: format description into separate lines (split on newlines, bullets, dashes)
+          const formatDescriptionHtml = (raw) => {
+            const text = String(raw || "").trim();
+            if (!text) return "";
+            const parts = text
+              .split(/\r?\n|•|–|—|-/)
+              .map((s) => s.trim())
+              .filter(Boolean);
+            if (parts.length <= 1)
+              return `<div class="job-desc-line">${escapeHtml(capitalizeFirst(text))}</div>`;
+            return parts
+              .map(
+                (p) =>
+                  `<div class="job-desc-line">• ${escapeHtml(capitalizeFirst(p))}</div>`,
+              )
+              .join("");
+          };
+
+          const makeTagsHtml = (val) => {
+            if (!val) return "";
+            if (Array.isArray(val))
+              return val
+                .map(
+                  (v) =>
+                    `<span class="job-tag">${escapeHtml(String(v))}</span>`,
+                )
+                .join(" ");
+            // try splitting strings by common separators
+            const parts = String(val)
+              .split(/\r?\n|,|;|\|/)
+              .map((s) => s.trim())
+              .filter(Boolean);
+            return parts
+              .map((p) => `<span class="job-tag">${escapeHtml(p)}</span>`)
+              .join(" ");
+          };
+
+          jobs.forEach((job) => {
+            const item = document.createElement("div");
+            item.className = "job-card";
+            item.dataset.department = (
+              job.department ||
+              job.category ||
+              ""
+            ).toLowerCase();
+            const descHtml = formatDescriptionHtml(
+              job.description || job.excerpt || "",
+            );
+            const makeListHtml = (val) => {
+              if (!val) return "";
+              if (Array.isArray(val))
+                return `<ul class="job-bullets">${val.map((v) => `<li>${escapeHtml(capitalizeFirst(String(v)))}</li>`).join("")}</ul>`;
+              const parts = String(val)
+                .split(/\r?\n|•|–|—|-|,|;/)
+                .map((s) => s.trim())
+                .filter(Boolean);
+              return `<ul class="job-bullets">${parts.map((p) => `<li>${escapeHtml(capitalizeFirst(p))}</li>`).join("")}</ul>`;
+            };
+            const respHtml = makeListHtml(
+              job.responsibilities ||
+                job.responsibility ||
+                job.responsibilitiesList,
+            );
+            const reqHtml = makeListHtml(
+              job.requirements ||
+                job.skills ||
+                job.requirementList ||
+                job.qualifications,
+            );
+            const topTags = [];
+            if (job.department || job.category)
+              topTags.push(job.department || job.category);
+            if (job.location || job.remote !== undefined)
+              topTags.push(job.location || (job.remote ? "Remote" : "Onsite"));
+            if (job.employmentType) topTags.push(job.employmentType);
+            if (job.experience) topTags.push(`${job.experience}`);
+            if (job.duration) topTags.push(` ${job.duration}`);
+            if (job.status) topTags.push(job.status);
+            if (job.salaryType) topTags.push(job.salaryType);
+            if (job.salaryRange) topTags.push(job.salaryRange);
+            const topTagsHtml = topTags
+              .map(
+                (t) =>
+                  `<span class="job-tag">${escapeHtml(capitalizeFirst(String(t)))}</span>`,
+              )
+              .join(" ");
+            item.innerHTML = `
+              <div class="job-card-inner">
+                <div class="job-card-left">
+                  ${job.imageUrl ? `<div class="job-image-wrap"><img class="job-card-image" src="${escapeHtml(job.imageUrl)}" alt="${escapeHtml(capitalizeFirst(job.title || ""))}"/></div>` : ""}
+                  <h3 class="job-title">${escapeHtml(capitalizeFirst(job.title || "Untitled"))}</h3>
+                  ${topTagsHtml ? `<div class="job-tags job-tags-top">${topTagsHtml}</div>` : ""}
+                  <div class="job-description">${descHtml}</div>
+                  ${respHtml ? `<div style="font-size:24px; color:var(--secondary-900); margin-top:25px"><strong>Responsibilities</strong>${respHtml}</div>` : ""}
+                  ${reqHtml ? `<div style="font-size:24px; color:var(--secondary-900); margin-top:25px"><strong>Requirements</strong>${reqHtml}</div>` : ""}
+                </div>
+                <div class="job-card-right">
+                  <button class="apply-btn" data-id="${escapeHtml(String(job.id || job._id || ""))}">Apply</button>
+                </div>
+              </div>
+            `;
+            grid.appendChild(item);
+          });
+          grid.querySelectorAll(".apply-btn").forEach((btn) => {
+            btn.addEventListener("click", function () {
+              const id = this.getAttribute("data-id");
+              openApplicationModal(id);
+            });
+          });
+        }
+
+        function escapeHtml(text) {
+          if (!text) return "";
+          return String(text)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+        }
+
+        function applyFilter(filter) {
+          const nodes = Array.from(
+            document.querySelectorAll("#jobs-grid .job-card"),
+          );
+          nodes.forEach((n) => {
+            const dept = n.dataset.department || "";
+            if (filter === "all" || !filter) {
+              n.style.display = "";
+            } else if (dept.indexOf(filter) !== -1) {
+              n.style.display = "";
+            } else {
+              n.style.display = "none";
+            }
+          });
+        }
+
+        // modal helpers referenced by markup
+        window.openApplicationModal = function (jobId) {
+          const jobs = jobsCache || [];
+          const job = jobs.find(
+            (j) =>
+              String(j.id) === String(jobId) || String(j._id) === String(jobId),
+          );
+          const modalInfo =
+            document.getElementById("modal-job-info") ||
+            document.getElementById("modal-job-info");
+          if (job && modalInfo) {
+            modalInfo.innerHTML = `<h3>${escapeHtml(job.title || "")}</h3><p>${escapeHtml(job.location || "")} · ${escapeHtml(job.department || job.category || "")}</p>`;
+          } else if (modalInfo) {
+            modalInfo.innerHTML = `<h3>Apply</h3>`;
+          }
+          // ensure hidden jobId field exists in form
+          const form = document.getElementById("application-form");
+          if (form) {
+            let hid = document.getElementById("application-job-id");
+            if (!hid) {
+              hid = document.createElement("input");
+              hid.type = "hidden";
+              hid.name = "jobId";
+              hid.id = "application-job-id";
+              form.appendChild(hid);
+            }
+            hid.value = jobId || "";
+            document.getElementById("application-modal").style.display = "flex";
+            document.body.style.overflow = "hidden";
+          }
+        };
+
+        window.closeApplicationModal = function () {
+          const modal = document.getElementById("application-modal");
+          if (modal) modal.style.display = "none";
+          const form = document.getElementById("application-form");
+          if (form) form.reset();
+          document.body.style.overflow = "";
+        };
+
+        window.submitApplication = async function (ev) {
+          ev.preventDefault();
+          const form = document.getElementById("application-form");
+          if (!form) return;
+
+          // Build JSON payload (resume file isn't sent; filename included)
+          const jobIdField = document.getElementById("application-job-id");
+          const payload = {
+            jobId: jobIdField ? jobIdField.value : null,
+            name: document.getElementById("applicant-name")?.value || "",
+            email: document.getElementById("applicant-email")?.value || "",
+            phone: document.getElementById("applicant-phone")?.value || "",
+            portfolioUrl:
+              document.getElementById("applicant-portfolio")?.value || "",
+            linkedinUrl:
+              document.getElementById("applicant-linkedin")?.value || "",
+            coverLetter:
+              document.getElementById("applicant-cover-letter")?.value || "",
+            resumeName:
+              document.getElementById("applicant-resume")?.files?.[0]?.name ||
+              null,
+          };
+
+          try {
+            const url = `${API_BASE}/api/applications`;
+            const res = await fetch(url, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            });
+            if (res.ok) {
+              alert("Application submitted successfully.");
+              closeApplicationModal();
+              return;
+            }
+          } catch (e) {
+            console.warn("submitApplication network error", e);
+          }
+
+          // fallback: save to localStorage
+          try {
+            const apps = JSON.parse(
+              localStorage.getItem("pn_applications") || "[]",
+            );
+            apps.push({
+              jobId: payload.jobId || null,
+              payload,
+              createdAt: new Date().toISOString(),
+            });
+            localStorage.setItem("pn_applications", JSON.stringify(apps));
+            alert("Application saved locally (offline).");
+            closeApplicationModal();
+          } catch (e) {
+            alert("Could not submit application.");
+          }
+        };
+
+        // wire filters
+        document.addEventListener("DOMContentLoaded", async function () {
+          const buttons = document.querySelectorAll(".filter-btn");
+          buttons.forEach((b) => {
+            b.addEventListener("click", function () {
+              buttons.forEach((x) => x.classList.remove("active"));
+              this.classList.add("active");
+              const f = this.dataset.filter || "all";
+              applyFilter(f);
+            });
+          });
+
+          jobsCache = await getJobs();
+          renderJobs(jobsCache);
+        });
+      })();
+    </script>
   </body>
 </html>

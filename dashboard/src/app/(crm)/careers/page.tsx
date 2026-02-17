@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation';
 interface JobPosting {
   _id: string;
   title: string;
+  imageUrl?: string;
   department: string;
   location: string;
   type: string;
@@ -198,6 +199,9 @@ export default function CareersPage() {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
+                      {job.imageUrl ? (
+                        <img src={job.imageUrl} alt={job.title} className="w-12 h-12 rounded-md object-cover mr-2" />
+                      ) : null}
                       <CardTitle className="text-xl">{job.title}</CardTitle>
                       <span
                         className={`px-2 py-1 text-xs rounded-full ${
