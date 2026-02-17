@@ -82,15 +82,6 @@
     <priority>0.7</priority>
   </url>
   
-  <!-- Blog Post Template/Sample -->
-  <url>
-    <loc>https://www.pixelatenest.com/blog-post.html</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <!-- Contact -->
   <url>
     <loc>https://www.pixelatenest.com/contact.html</loc>
     <lastmod>2026-02-18</lastmod>
