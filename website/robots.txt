@@ -18,7 +18,6 @@ Disallow: /scripts/
 Disallow: /api/
 Disallow: /inner-pages/
 Disallow: /team-members/
-Disallow: /services/
 Disallow: /blog.htmls/
 
 # Allow JavaScript files (needed for site functionality)
