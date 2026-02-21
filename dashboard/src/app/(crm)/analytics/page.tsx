@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useRef } from 'react'
+import { useRef } from "react";
 import {
   Card,
   CardContent,
@@ -60,12 +60,12 @@ export default function AnalyticsPage() {
     (async () => {
       try {
         const [pRes, iRes, cRes, tRes, sRes, eRes] = await Promise.all([
-          fetch('/api/projects'),
-          fetch('/api/invoices'),
-          fetch('/api/clients'),
-          fetch('/api/team-members'),
-          fetch('/api/services'),
-          fetch('/api/expenses'),
+          fetch("/api/projects"),
+          fetch("/api/invoices"),
+          fetch("/api/clients"),
+          fetch("/api/team-members"),
+          fetch("/api/services"),
+          fetch("/api/expenses"),
         ]);
         const [pJson, iJson, cJson, tJson, sJson, eJson] = await Promise.all([
           pRes.json(),
@@ -95,7 +95,7 @@ export default function AnalyticsPage() {
   const totalInvoices = invoices.length;
   const totalRevenue = invoices.reduce(
     (s, inv) => s + Number(inv.amount || 0),
-    0
+    0,
   );
   // Collected should include partial payments: prefer paidAmount, fallback to full amount for PAID status
   const collected = invoices.reduce((s, inv) => {
@@ -105,18 +105,24 @@ export default function AnalyticsPage() {
   }, 0);
   const pending = Math.max(0, totalRevenue - collected);
 
-  const totalExpenses = expenses.reduce((s, ex) => s + Number(ex.amount || 0), 0);
-  const expensesByCategory = expenses.reduce((acc: Record<string, number>, ex) => {
-    const cat = ex.category || 'Uncategorized';
-    acc[cat] = (acc[cat] || 0) + Number(ex.amount || 0);
-    return acc;
-  }, {});
+  const totalExpenses = expenses.reduce(
+    (s, ex) => s + Number(ex.amount || 0),
+    0,
+  );
+  const expensesByCategory = expenses.reduce(
+    (acc: Record<string, number>, ex) => {
+      const cat = ex.category || "Uncategorized";
+      acc[cat] = (acc[cat] || 0) + Number(ex.amount || 0);
+      return acc;
+    },
+    {},
+  );
 
   const staffCount = team.length;
   const serviceCategories = servicesList.length;
   const assignedCount = projects.reduce(
     (s, p) => s + ((p.assignees || []).length || 0),
-    0
+    0,
   );
 
   // Earnings for developers/editors: sum of payouts in project assignees where assignee matches team member role
@@ -140,8 +146,6 @@ export default function AnalyticsPage() {
     }
     return earnings;
   }, [projects, team]);
-
-  // Monthly revenue and collected amounts for last 12 months
   const monthlyRevenue = useMemo(() => {
     const now = new Date();
     const months: { month: string; revenue: number; collected: number }[] = [];
@@ -160,8 +164,8 @@ export default function AnalyticsPage() {
       const created = inv.createdAt
         ? new Date(inv.createdAt)
         : inv.dueDate
-        ? new Date(inv.dueDate)
-        : null;
+          ? new Date(inv.dueDate)
+          : null;
       if (!created || Number.isNaN(created.getTime())) continue;
       const monthsAgo =
         (now.getFullYear() - created.getFullYear()) * 12 +
@@ -177,19 +181,22 @@ export default function AnalyticsPage() {
     }
     return months;
   }, [invoices]);
-
-  // Monthly expenses for last 12 months (red bar chart)
   const monthlyExpenses = useMemo(() => {
     const now = new Date();
     const months: { month: string; expense: number }[] = [];
     for (let i = 11; i >= 0; i--) {
       const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
-      months.push({ month: `${MONTH_NAMES[d.getMonth()]} ${d.getFullYear().toString().slice(-2)}`, expense: 0 });
+      months.push({
+        month: `${MONTH_NAMES[d.getMonth()]} ${d.getFullYear().toString().slice(-2)}`,
+        expense: 0,
+      });
     }
     for (const ex of expenses || []) {
       const created = ex.createdAt ? new Date(ex.createdAt) : null;
       if (!created || Number.isNaN(created.getTime())) continue;
-      const monthsAgo = (now.getFullYear() - created.getFullYear()) * 12 + (now.getMonth() - created.getMonth());
+      const monthsAgo =
+        (now.getFullYear() - created.getFullYear()) * 12 +
+        (now.getMonth() - created.getMonth());
       if (monthsAgo >= 0 && monthsAgo < 12) {
         const idx = 11 - monthsAgo;
         months[idx].expense += Number(ex.amount || 0);
@@ -228,15 +235,12 @@ export default function AnalyticsPage() {
       .sort(
         (a, b) =>
           new Date(b.createdAt || 0).getTime() -
-          new Date(a.createdAt || 0).getTime()
+          new Date(a.createdAt || 0).getTime(),
       )
       .slice(0, 8);
   }, [invoices]);
-
-  // Earnings by staff: totals and per-client breakdown based on project assignee payouts
   const earningsByStaff = useMemo(() => {
     const byId: Record<string, any> = {};
-    // initialize from team
     for (const m of team || []) {
       const id = String(m._id ?? m.id);
       byId[id] = {
@@ -264,7 +268,6 @@ export default function AnalyticsPage() {
         const mid = String(a.id ?? "unknown");
         const payout = Number(a.payout || 0);
         if (!byId[mid]) {
-          // create placeholder for unlisted member
           byId[mid] = {
             id: mid,
             name: String(mid),
@@ -290,8 +293,6 @@ export default function AnalyticsPage() {
     "#a0d3ff",
     "#d0a0ff",
   ];
-
-  // simple count-up hook using requestAnimationFrame
   const useCountUp = (value: number, duration = 800) => {
     const ref = useRef<number>(0);
     const [display, setDisplay] = useState<number>(0);
@@ -299,7 +300,10 @@ export default function AnalyticsPage() {
       let start: number | null = null;
       const from = 0;
       const to = Number(value || 0);
-      if (to === from) { setDisplay(to); return }
+      if (to === from) {
+        setDisplay(to);
+        return;
+      }
       const step = (ts: number) => {
         if (!start) start = ts;
         const elapsed = Math.min(duration, ts - start);
@@ -309,21 +313,21 @@ export default function AnalyticsPage() {
         if (elapsed < duration) {
           ref.current = requestAnimationFrame(step);
         }
-      }
+      };
       ref.current = requestAnimationFrame(step);
       return () => {
         if (ref.current) cancelAnimationFrame(ref.current as any);
-      }
+      };
     }, [value, duration]);
     return display;
-  }
+  };
 
-  const animatedTotalProjects = useCountUp(totalProjects, 900)
-  const animatedTotalInvoices = useCountUp(totalInvoices, 900)
-  const animatedTotalRevenue = useCountUp(totalRevenue, 1000)
-  const animatedCollected = useCountUp(collected, 1000)
-  const animatedPending = useCountUp(pending, 1000)
-  const animatedTotalExpenses = useCountUp(totalExpenses, 1000)
+  const animatedTotalProjects = useCountUp(totalProjects, 900);
+  const animatedTotalInvoices = useCountUp(totalInvoices, 900);
+  const animatedTotalRevenue = useCountUp(totalRevenue, 1000);
+  const animatedCollected = useCountUp(collected, 1000);
+  const animatedPending = useCountUp(pending, 1000);
+  const animatedTotalExpenses = useCountUp(totalExpenses, 1000);
 
   return (
     <div className="space-y-8 font-headline">
@@ -338,31 +342,15 @@ export default function AnalyticsPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card className="border-2 border-black">
           <CardHeader>
-            <CardTitle>Staff</CardTitle>
-            <CardDescription>Total team members</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="text-4xl font-black">{animatedTotalProjects === undefined ? staffCount : animatedTotalProjects}</div>
-          </CardContent>
-        </Card>
-
-        <Card className="border-2 border-black">
-          <CardHeader>
             <CardTitle>Service Categories</CardTitle>
             <CardDescription>Distinct services offered</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-4xl font-black">{animatedTotalInvoices === undefined ? serviceCategories : animatedTotalInvoices}</div>
-          </CardContent>
-        </Card>
-
-        <Card className="border-2 border-black">
-          <CardHeader>
-            <CardTitle>Assigned Roles</CardTitle>
-            <CardDescription>Total assignees across projects</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="text-4xl font-black">{animatedTotalInvoices === undefined ? assignedCount : animatedTotalInvoices}</div>
+            <div className="text-4xl font-black">
+              {animatedTotalInvoices === undefined
+                ? serviceCategories
+                : animatedTotalInvoices}
+            </div>
           </CardContent>
         </Card>
 
@@ -447,29 +435,53 @@ export default function AnalyticsPage() {
             <CardDescription>Sum of recorded expenses</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="text-4xl font-black">₹{Number(animatedTotalExpenses || 0).toLocaleString()}</div>
+            <div className="text-4xl font-black">
+              ₹{Number(animatedTotalExpenses || 0).toLocaleString()}
+            </div>
           </CardContent>
         </Card>
         <Card className="border-2 border-black lg:col-span-3">
           <CardHeader>
-            <CardTitle className="text-2xl font-black">Monthly Expenses (12 months)</CardTitle>
+            <CardTitle className="text-2xl font-black">
+              Monthly Expenses (12 months)
+            </CardTitle>
             <CardDescription>Shows expenses by month</CardDescription>
           </CardHeader>
           <CardContent>
-            <div style={{ height: 280 }}>
+            <div style={{ height: 320 }}>
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={monthlyExpenses} margin={{ top: 10, right: 20, left: 0, bottom: 5 }}>
+                <BarChart
+                  data={monthlyExpenses}
+                  margin={{ top: 10, right: 20, left: 0, bottom: 5 }}
+                >
                   <defs>
-                    <linearGradient id="gradExpense" x1="0" y1="0" x2="0" y2="1">
+                    <linearGradient
+                      id="gradExpense"
+                      x1="0"
+                      y1="0"
+                      x2="0"
+                      y2="1"
+                    >
                       <stop offset="0%" stopColor="#f87171" stopOpacity={0.9} />
-                      <stop offset="100%" stopColor="#fb7185" stopOpacity={0.3} />
+                      <stop
+                        offset="100%"
+                        stopColor="#fb7185"
+                        stopOpacity={0.3}
+                      />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
                   <XAxis dataKey="month" />
                   <YAxis tickFormatter={(v) => `₹${v / 1000}k`} />
-                  <Tooltip formatter={(v: any) => `₹${Number(v).toLocaleString()}`} />
-                  <Bar dataKey="expense" name="Expenses" fill="url(#gradExpense)" isAnimationActive />
+                  <Tooltip
+                    formatter={(v: any) => `₹${Number(v).toLocaleString()}`}
+                  />
+                  <Bar
+                    dataKey="expense"
+                    name="Expenses"
+                    fill="url(#gradExpense)"
+                    isAnimationActive
+                  />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -478,7 +490,9 @@ export default function AnalyticsPage() {
         <Card className="border-2 border-black">
           <CardHeader>
             <CardTitle>Expenses</CardTitle>
-            <CardDescription>Recent expenses recorded in the system</CardDescription>
+            <CardDescription>
+              Recent expenses recorded in the system
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <Table>
@@ -493,12 +507,20 @@ export default function AnalyticsPage() {
               </TableHeader>
               <TableBody>
                 {(expenses || []).map((ex) => (
-                  <TableRow key={ex._id ?? ex.id}> 
-                    <TableCell className="font-bold">{ex.title || 'N/A'}</TableCell>
-                    <TableCell>{ex.category || 'Uncategorized'}</TableCell>
-                    <TableCell className="text-right">₹{Number(ex.amount || 0).toLocaleString()}</TableCell>
-                    <TableCell className="text-right">{ex.createdAt ? new Date(ex.createdAt).toLocaleDateString() : '-'}</TableCell>
-                    <TableCell className="text-sm">{ex.note || '-'}</TableCell>
+                  <TableRow key={ex._id ?? ex.id}>
+                    <TableCell className="font-bold">
+                      {ex.title || "N/A"}
+                    </TableCell>
+                    <TableCell>{ex.category || "Uncategorized"}</TableCell>
+                    <TableCell className="text-right">
+                      ₹{Number(ex.amount || 0).toLocaleString()}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {ex.createdAt
+                        ? new Date(ex.createdAt).toLocaleDateString()
+                        : "-"}
+                    </TableCell>
+                    <TableCell className="text-sm">{ex.note || "-"}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -524,21 +546,59 @@ export default function AnalyticsPage() {
                   margin={{ top: 10, right: 20, left: 0, bottom: 5 }}
                 >
                   <defs>
-                    <linearGradient id="gradCollected" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#34d399" stopOpacity={0.95} />
-                      <stop offset="100%" stopColor="#10b981" stopOpacity={0.3} />
+                    <linearGradient
+                      id="gradCollected"
+                      x1="0"
+                      y1="0"
+                      x2="0"
+                      y2="1"
+                    >
+                      <stop
+                        offset="0%"
+                        stopColor="#34d399"
+                        stopOpacity={0.95}
+                      />
+                      <stop
+                        offset="100%"
+                        stopColor="#10b981"
+                        stopOpacity={0.3}
+                      />
                     </linearGradient>
-                    <linearGradient id="gradRevenue" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#6366f1" stopOpacity={0.95} />
-                      <stop offset="100%" stopColor="#4f46e5" stopOpacity={0.3} />
+                    <linearGradient
+                      id="gradRevenue"
+                      x1="0"
+                      y1="0"
+                      x2="0"
+                      y2="1"
+                    >
+                      <stop
+                        offset="0%"
+                        stopColor="#6366f1"
+                        stopOpacity={0.95}
+                      />
+                      <stop
+                        offset="100%"
+                        stopColor="#4f46e5"
+                        stopOpacity={0.3}
+                      />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
                   <XAxis dataKey="month" />
                   <YAxis tickFormatter={(v) => `₹${v / 1000}k`} />
-                  <Tooltip formatter={(v: any) => `₹${Number(v).toLocaleString()}`} />
-                  <Bar dataKey="collected" name="Collected" fill="url(#gradCollected)" />
-                  <Bar dataKey="revenue" name="Generated" fill="url(#gradRevenue)" />
+                  <Tooltip
+                    formatter={(v: any) => `₹${Number(v).toLocaleString()}`}
+                  />
+                  <Bar
+                    dataKey="collected"
+                    name="Collected"
+                    fill="url(#gradCollected)"
+                  />
+                  <Bar
+                    dataKey="revenue"
+                    name="Generated"
+                    fill="url(#gradRevenue)"
+                  />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -627,12 +687,11 @@ export default function AnalyticsPage() {
               <TableBody>
                 {recentPayments.map((inv) => (
                   <TableRow key={inv._id ?? inv.id}>
-                    
                     <TableCell>
                       {inv.clientName ||
                         inv.client ||
                         clients.find(
-                          (c) => String(c._id ?? c.id) === String(inv.clientId)
+                          (c) => String(c._id ?? c.id) === String(inv.clientId),
                         )?.name ||
                         "-"}
                     </TableCell>
@@ -645,8 +704,8 @@ export default function AnalyticsPage() {
                         inv.status === "PAID"
                           ? "text-success"
                           : inv.status === "OVERDUE"
-                          ? "text-destructive"
-                          : ""
+                            ? "text-destructive"
+                            : "",
                       )}
                     >
                       {inv.status}
@@ -720,7 +779,8 @@ export default function AnalyticsPage() {
                 {invoices.map((inv) => {
                   const paid =
                     Number(
-                      inv.paidAmount ?? (inv.status === "PAID" ? inv.amount : 0)
+                      inv.paidAmount ??
+                        (inv.status === "PAID" ? inv.amount : 0),
                     ) || 0;
                   const due = Math.max(0, Number(inv.amount || 0) - paid);
                   return (
@@ -733,7 +793,7 @@ export default function AnalyticsPage() {
                           inv.client ||
                           clients.find(
                             (c) =>
-                              String(c._id ?? c.id) === String(inv.clientId)
+                              String(c._id ?? c.id) === String(inv.clientId),
                           )?.name ||
                           "-"}
                       </TableCell>

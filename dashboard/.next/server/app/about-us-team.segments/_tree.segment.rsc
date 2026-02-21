@@ -1,3 +1,0 @@
-:HL["/_next/static/chunks/3ea43fff29dfc9bb.css","style"]
-:HL["https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap","style"]
-0:{"buildId":"DQi-FUeBUmDN9jNkNbTmq","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"(crm)","paramType":null,"paramKey":"(crm)","hasRuntimePrefetch":false,"slots":{"children":{"name":"about-us-team","paramType":null,"paramKey":"about-us-team","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

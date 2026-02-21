@@ -612,9 +612,6 @@ function Sidebar() {
     }
     const isAdmin = user?.role === "admin";
     const isStaff = user?.role === "staff";
-    // Determine allowed pages for staff
-    // If user.allowedPages is set (even if empty, meaning no access), use it.
-    // If undefined, fallback to defaultStaffAllowed.
     const userAllowedPages = user.allowedPages !== undefined ? user.allowedPages : __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$nav$2d$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["defaultStaffAllowed"];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("aside", {
         className: "hidden md:flex md:w-60 lg:w-72 flex-col fixed inset-y-0 z-10 border-r-2 border-black bg-background font-headline",
@@ -625,47 +622,50 @@ function Sidebar() {
                     href: "/dashboard",
                     className: "block group",
                     children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                            src: "./assets/images/logo-transparent.png",
+                            alt: "Kalahanu Tech Logo",
+                            className: "mx-auto mb-2 w-16 h-16"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/layout/sidebar.tsx",
+                            lineNumber: 34,
+                            columnNumber: 11
+                        }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                             className: "text-2xl font-black tracking-tighter group-hover:text-primary transition-colors",
                             children: "Kalahanu Tech"
                         }, void 0, false, {
                             fileName: "[project]/src/components/layout/sidebar.tsx",
-                            lineNumber: 38,
+                            lineNumber: 39,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "text-sm text-muted-foreground font-bold",
-                            children: "Studio CRM"
+                            children: "Studios CRM"
                         }, void 0, false, {
                             fileName: "[project]/src/components/layout/sidebar.tsx",
-                            lineNumber: 41,
+                            lineNumber: 42,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/layout/sidebar.tsx",
-                    lineNumber: 37,
+                    lineNumber: 33,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/layout/sidebar.tsx",
-                lineNumber: 36,
+                lineNumber: 32,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
                 className: "flex-1 p-4 space-y-6 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-muted-foreground/20",
                 "aria-label": "Primary navigation",
                 children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$nav$2d$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["navGroups"].map((group)=>{
-                    // Filter items based on permissions
                     const filteredItems = group.items.filter((item)=>{
                         if (isStaff) {
                             return userAllowedPages.includes(item.href);
                         }
-                        // For admin, show everything unless item is explicitly hidden (none currently)
-                        // But we respect adminOnly flag: if item.adminOnly is true, only admin can see.
-                        // Since we are admin here (isStaff is false), we see everything except if there's some other condition.
-                        // The original logic was: return !(item.adminOnly && !isAdmin);
-                        // Since isAdmin is true (or user is not staff), let's keep it robust.
                         return !(item.adminOnly && !isAdmin);
                     });
                     if (filteredItems.length === 0) return null;
@@ -677,7 +677,7 @@ function Sidebar() {
                                 children: group.title
                             }, void 0, false, {
                                 fileName: "[project]/src/components/layout/sidebar.tsx",
-                                lineNumber: 70,
+                                lineNumber: 61,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -690,31 +690,31 @@ function Sidebar() {
                                                 className: "w-4 h-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/layout/sidebar.tsx",
-                                                lineNumber: 85,
+                                                lineNumber: 76,
                                                 columnNumber: 21
                                             }, this),
                                             item.label
                                         ]
                                     }, item.href, true, {
                                         fileName: "[project]/src/components/layout/sidebar.tsx",
-                                        lineNumber: 75,
+                                        lineNumber: 66,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/layout/sidebar.tsx",
-                                lineNumber: 73,
+                                lineNumber: 64,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, group.title, true, {
                         fileName: "[project]/src/components/layout/sidebar.tsx",
-                        lineNumber: 69,
+                        lineNumber: 60,
                         columnNumber: 13
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "[project]/src/components/layout/sidebar.tsx",
-                lineNumber: 46,
+                lineNumber: 45,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -730,14 +730,14 @@ function Sidebar() {
                                     alt: user.name
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/layout/sidebar.tsx",
-                                    lineNumber: 100,
+                                    lineNumber: 91,
                                     columnNumber: 15
                                 }, this) : userAvatar ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarImage"], {
                                     src: userAvatar.imageUrl,
                                     alt: "User Avatar"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/layout/sidebar.tsx",
-                                    lineNumber: 102,
+                                    lineNumber: 93,
                                     columnNumber: 15
                                 }, this) : null,
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
@@ -745,13 +745,13 @@ function Sidebar() {
                                     children: user?.name?.charAt(0).toUpperCase() ?? "U"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/layout/sidebar.tsx",
-                                    lineNumber: 104,
+                                    lineNumber: 95,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/layout/sidebar.tsx",
-                            lineNumber: 98,
+                            lineNumber: 89,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -762,7 +762,7 @@ function Sidebar() {
                                     children: user.name
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/layout/sidebar.tsx",
-                                    lineNumber: 109,
+                                    lineNumber: 100,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -770,13 +770,13 @@ function Sidebar() {
                                     children: user.role
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/layout/sidebar.tsx",
-                                    lineNumber: 110,
+                                    lineNumber: 101,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/layout/sidebar.tsx",
-                            lineNumber: 108,
+                            lineNumber: 99,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -789,7 +789,7 @@ function Sidebar() {
                                     className: "w-4 h-4"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/layout/sidebar.tsx",
-                                    lineNumber: 120,
+                                    lineNumber: 111,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -797,30 +797,30 @@ function Sidebar() {
                                     children: "Logout"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/layout/sidebar.tsx",
-                                    lineNumber: 121,
+                                    lineNumber: 112,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/layout/sidebar.tsx",
-                            lineNumber: 114,
+                            lineNumber: 105,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/layout/sidebar.tsx",
-                    lineNumber: 97,
+                    lineNumber: 88,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/layout/sidebar.tsx",
-                lineNumber: 96,
+                lineNumber: 87,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/layout/sidebar.tsx",
-        lineNumber: 35,
+        lineNumber: 31,
         columnNumber: 5
     }, this);
 }

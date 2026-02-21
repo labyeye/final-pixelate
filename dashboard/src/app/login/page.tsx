@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { useAuth, AuthProvider } from '@/hooks/use-auth';
-
+import Image from 'next/image';
+import logo from '@/assets/images/logo-transparent.png';
 function LoginContent() {
   const router = useRouter();
   const { login } = useAuth();
@@ -39,6 +40,7 @@ function LoginContent() {
     <div className="flex min-h-screen items-center justify-center bg-background p-4 font-headline">
       <Card className="w-full max-w-md border-4 border-black">
         <CardHeader className="text-center">
+          <Image src={logo} alt="Pixelate Nest Logo" width={120} height={120} className="mx-auto mb-4" />
           <CardTitle className="text-5xl font-black tracking-tighter">PIXELATE NEST</CardTitle>
           <CardDescription className="text-lg font-bold text-muted-foreground">AGENCY CRM LOGIN</CardDescription>
         </CardHeader>

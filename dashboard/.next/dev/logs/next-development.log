@@ -1,15 +1,788 @@
-[00:00:01.419] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.648] Server  LOG      ✓ Ready in 1283ms
-[02:16:20.102] Server  DEBUG   [api/work-gallery] GET items count: 22 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[02:17:31.085] Server  DEBUG   [api/work-gallery] GET items count: 22 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[03:23:56.413] Server  DEBUG   [api/work-gallery] GET items count: 22 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[03:44:02.341] Server  DEBUG   [api/work-gallery] GET items count: 22 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[03:44:06.493] Server  DEBUG   [api/work-gallery] GET items count: 22 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[06:10:32.448] Server  DEBUG   [api/work-gallery] GET items count: 22 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[06:16:42.832] Server  DEBUG   [api/work-gallery] GET items count: 22 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[17:08:20.796] Server  DEBUG   [api/work-gallery] GET items count: 22 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[17:09:24.497] Server  DEBUG   [api/work-gallery] GET items count: 22 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[17:09:49.877] Server  DEBUG   [api/work-gallery] GET items count: 22 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[17:16:09.091] Server  DEBUG   [api/work-gallery] GET items count: 22 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[17:16:14.203] Server  DEBUG   [api/work-gallery] GET items count: 22 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[25:17:24.743] Server  DEBUG   [api/work-gallery] GET items count: 22 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
+[00:00:00.865] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:00.988] Server  LOG      ✓ Ready in 737ms
+[00:00:02.742] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:14.690] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:28.939] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:34.794] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:58.015] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:58.733] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:59.449] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:00.032] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:00.583] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:01.221] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:25.248] Server  LOG      ✓ Compiled in 212ms
+[00:03:25.526] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:36.985] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/assets/pixelate-nest-logo.png" "received" null
+[00:05:49.972] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.973] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.974] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.975] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.976] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.977] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.978] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.980] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.981] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.982] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.982] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.983] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.984] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.985] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.985] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.986] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.987] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.987] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.988] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.988] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.989] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.990] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.990] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.991] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.992] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.992] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.993] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:49.993] Server  ERROR    ⨯ ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:50.015] Server  LOG      ✓ Compiled in 64ms
+[00:05:50.124] Browser ERROR   ./src/app/login/page.tsx:11:1
+Module not found: Can't resolve '@/assets/logo.png'
+   9 | import { useAuth, AuthProvider } from '@/hooks/use-auth';
+  10 | import Image from 'next/image';
+> 11 | import logo from '@/assets/logo.png';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 | function LoginContent() {
+  13 |   const router = useRouter();
+  14 |   const { login } = useAuth();
+
+Import map: aliased to relative './src/assets/logo.png' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:06:01.711] Browser WARN    Image with src "/_next/static/media/Logo_Color_Name_Large.10db1d93.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:06:11.232] Server  LOG      ✓ Compiled in 234ms
+[00:06:21.228] Server  LOG      ✓ Compiled in 53ms
+[00:18:28.676] Server  LOG      ✓ Compiled in 57ms
+[00:18:34.055] Server  LOG      ✓ Compiled in 51ms
+[00:53:09.280] Server  LOG      ✓ Compiled in 64ms
+[01:23:00.913] Server  LOG      ✓ Compiled in 93ms
+[01:23:07.792] Server  LOG      ✓ Compiled in 56ms
+[01:23:21.301] Server  LOG      ✓ Compiled in 88ms
+[01:23:23.435] Server  LOG      ✓ Compiled in 66ms
+[01:23:28.949] Server  LOG      ✓ Compiled in 54ms
+[01:23:31.923] Server  LOG      ✓ Compiled in 51ms
+[01:23:51.340] Server  LOG      ✓ Compiled in 56ms
+[01:23:56.334] Server  LOG      ✓ Compiled in 52ms
+[01:25:00.333] Browser DEBUG   AddMemberDialog onSubmit values: {"address":"Kala Bhawan, Akharaghat Road\nAkharaghat Road","email":"laxmibothra@ktsllp.com","loginRole":"admin","name":"Laxmi Bothra","password":"Laxmi@1234","phone":"8873004000","role":"Founder"}
+[01:26:26.864] Server  LOG      ✓ Compiled in 57ms
+[01:26:36.307] Server  LOG      ✓ Compiled in 56ms
+[01:26:51.565] Server  LOG      ✓ Compiled in 66ms
+[01:26:55.423] Server  LOG      ✓ Compiled in 60ms
+[01:27:03.146] Server  LOG      ✓ Compiled in 52ms
+[01:27:09.002] Server  LOG      ✓ Compiled in 64ms
+[01:27:09.108] Browser ERROR   ./src/app/(crm)/analytics/page.tsx:441:40
+Parsing ecmascript source code failed
+  439 |           </CardHeader>
+  440 |           <CardContent>
+> 441 |             <div style={{ height: 100% }}>
+      |                                        ^
+  442 |               <ResponsiveContainer width="100%" height="100%">
+  443 |                 <BarChart data={monthlyExpenses} margin={{ top: 10, right: 20, left: 0, bottom: 5 }}>
+  444 |                   <defs>
+
+Expected '</', got '}'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(crm)/analytics/page.tsx [Client Component Browser]
+    ./src/app/(crm)/analytics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(crm)/analytics/page.tsx [Client Component SSR]
+    ./src/app/(crm)/analytics/page.tsx [Server Component]
+[01:27:20.709] Server  LOG      ✓ Compiled in 51ms
+[01:27:25.755] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:27:32.185] Server  LOG      ✓ Compiled in 58ms
+[01:27:36.383] Server  LOG      ✓ Compiled in 50ms
+[01:27:44.647] Server  LOG      ✓ Compiled in 68ms
+[03:16:24.623] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:17:57.951] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:17:57.951] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[03:20:11.236] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

@@ -24,10 +24,6 @@ export function Sidebar() {
 
   const isAdmin = user?.role === "admin";
   const isStaff = user?.role === "staff";
-
-  // Determine allowed pages for staff
-  // If user.allowedPages is set (even if empty, meaning no access), use it.
-  // If undefined, fallback to defaultStaffAllowed.
   const userAllowedPages =
     user.allowedPages !== undefined ? user.allowedPages : defaultStaffAllowed;
 
@@ -35,31 +31,26 @@ export function Sidebar() {
     <aside className="hidden md:flex md:w-60 lg:w-72 flex-col fixed inset-y-0 z-10 border-r-2 border-black bg-background font-headline">
       <div className="p-6 border-b-2 border-black bg-white/50 backdrop-blur-sm">
         <Link href="/dashboard" className="block group">
+          <img
+            src="./assets/images/logo-transparent.png"
+            alt="Kalahanu Tech Logo"
+            className="mx-auto mb-2 w-16 h-16"
+          />
           <h1 className="text-2xl font-black tracking-tighter group-hover:text-primary transition-colors">
             Kalahanu Tech
           </h1>
-          <p className="text-sm text-muted-foreground font-bold">Studio CRM</p>
+          <p className="text-sm text-muted-foreground font-bold">Studios CRM</p>
         </Link>
       </div>
-
-      {/* Navigation Area */}
       <nav
         className="flex-1 p-4 space-y-6 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-muted-foreground/20"
         aria-label="Primary navigation"
       >
-        {/* Quick Actions */}
-
         {navGroups.map((group) => {
-          // Filter items based on permissions
           const filteredItems = group.items.filter((item) => {
             if (isStaff) {
               return userAllowedPages.includes(item.href);
             }
-            // For admin, show everything unless item is explicitly hidden (none currently)
-            // But we respect adminOnly flag: if item.adminOnly is true, only admin can see.
-            // Since we are admin here (isStaff is false), we see everything except if there's some other condition.
-            // The original logic was: return !(item.adminOnly && !isAdmin);
-            // Since isAdmin is true (or user is not staff), let's keep it robust.
             return !(item.adminOnly && !isAdmin);
           });
 
