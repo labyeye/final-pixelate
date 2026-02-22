@@ -1343,7 +1343,6 @@ li {
   grid-column-gap: 24px;
   grid-row-gap: 24px;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(6, 1fr);
   flex-flow: column;
   display: grid;
   padding: 100px;
@@ -1385,6 +1384,7 @@ li {
   width: 100%;
   height: 100%;
   pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .faq-icon._01 {
@@ -1399,7 +1399,7 @@ li {
 }
 
 .faq-list.active .faq-icon:not(._01) {
-  opacity: 1;
+  opacity: 0;
 }
 
 .faq-icon-wrap {

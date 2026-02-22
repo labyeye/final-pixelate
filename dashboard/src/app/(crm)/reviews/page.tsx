@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { SuccessModal } from "@/components/ui/success-modal";
 
 interface Review {
   _id: string;
@@ -32,6 +33,11 @@ export default function ReviewsPage() {
   const [editingReview, setEditingReview] = useState<Review | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const showSuccess = (msg: string) => {
+    setSuccessMessage(msg);
+    setTimeout(() => setSuccessMessage(null), 2000);
+  };
 
   useEffect(() => {
     loadReviews();
@@ -70,6 +76,7 @@ export default function ReviewsPage() {
         r._id === review._id ? { ...r, approved: true } : r
       ));
 
+      showSuccess("Review approved!");
       toast({
         title: "Success",
         description: "Review approved successfully"
@@ -98,6 +105,7 @@ export default function ReviewsPage() {
         r._id === review._id ? { ...r, approved: false } : r
       ));
 
+      showSuccess("Review updated!");
       toast({
         title: "Success",
         description: "Review rejected"
@@ -144,6 +152,7 @@ export default function ReviewsPage() {
       setIsEditDialogOpen(false);
       setEditingReview(null);
 
+      showSuccess("Review saved!");
       toast({
         title: "Success",
         description: "Review updated successfully"
@@ -172,6 +181,7 @@ export default function ReviewsPage() {
 
       setReviews(prev => prev.filter(r => r._id !== review._id));
 
+      showSuccess("Review deleted!");
       toast({
         title: "Success",
         description: "Review deleted successfully"
@@ -223,6 +233,7 @@ export default function ReviewsPage() {
 
   return (
     <div className="p-8">
+      {successMessage && <SuccessModal message={successMessage} />}
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="text-3xl font-bold">Customer Reviews</h1>

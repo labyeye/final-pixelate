@@ -9,12 +9,18 @@ import { MoreVertical } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { SuccessModal } from "@/components/ui/success-modal";
 
 export default function UsersPage() {
   const { user } = useAuth();
   const [users, setUsers] = useState<User[]>([]);
   const [editingUser, setEditingUser] = useState<User | null>(null);
   const [isEditOpen, setIsEditOpen] = useState(false);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const showSuccess = (msg: string) => {
+    setSuccessMessage(msg);
+    setTimeout(() => setSuccessMessage(null), 2000);
+  };
 
   useEffect(() => {
     let mounted = true;
@@ -52,6 +58,7 @@ export default function UsersPage() {
       const res = await fetch(`/api/users/${id}`, { method: 'DELETE' });
       if (!res.ok) throw new Error(`Failed to delete user: ${res.status}`);
       setUsers(prev => prev.filter(x => (x._id ?? (x as any).id) !== id));
+      showSuccess("User deleted!");
     } catch (err) {
       console.error('Failed to delete user', err);
     }
@@ -64,6 +71,7 @@ export default function UsersPage() {
       const updated = await res.json();
       setUsers(prev => prev.map(u => ((u._id ?? (u as any).id) === id ? updated : u)));
       setIsEditOpen(false);
+      showSuccess("User updated!");
     } catch (err) {
       console.error('Failed to save user', err);
       throw err;
@@ -72,6 +80,7 @@ export default function UsersPage() {
 
   return (
     <div className="space-y-8 font-headline">
+      {successMessage && <SuccessModal message={successMessage} />}
       <header className="flex items-center justify-between gap-4">
         <div>
           <h1 className="text-5xl font-black tracking-tighter">LOGIN USERS</h1>

@@ -16,7 +16,40 @@ export async function PUT(request: Request, { params }: { params: { id: string }
   try {
     const { id } = await params as any;
     const body = await request.json();
-    const updated = await svc.updateById('clients', id, body);
+    const { loginEmail, loginPassword, ...clientData } = body;
+
+    // Fetch existing client to find linked userId
+    const existing = await svc.findById('clients', id);
+
+    // Build client update (store loginEmail on client doc for reference)
+    const clientUpdate: any = { ...clientData };
+    if (loginEmail) clientUpdate.loginEmail = loginEmail;
+
+    const updated = await svc.updateById('clients', id, clientUpdate);
+
+    // Handle user account updates
+    if (loginEmail || loginPassword) {
+      if (existing?.userId) {
+        // Update existing linked user
+        const userUpdate: any = {};
+        if (loginEmail) userUpdate.email = loginEmail;
+        if (loginPassword) userUpdate.password = loginPassword;
+        await svc.updateById('users', String(existing.userId), userUpdate);
+      } else if (loginEmail && loginPassword) {
+        // Create new linked user for existing client
+        const userPayload = {
+          name: clientData.name || existing?.name,
+          email: loginEmail,
+          password: loginPassword,
+          role: 'client',
+          clientId: id,
+        };
+        const createdUser = await svc.createUser(userPayload);
+        const userId = String(createdUser._id ?? createdUser.id);
+        await svc.updateById('clients', id, { userId, loginEmail });
+      }
+    }
+
     return NextResponse.json(updated);
   } catch (e: any) {
     return NextResponse.json({ error: e.message || String(e) }, { status: 500 });
@@ -26,6 +59,11 @@ export async function PUT(request: Request, { params }: { params: { id: string }
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
   try {
     const { id } = await params as any;
+    // Also delete the linked user account if any
+    const existing = await svc.findById('clients', id);
+    if (existing?.userId) {
+      try { await svc.deleteById('users', String(existing.userId)); } catch (e) { /* ignore */ }
+    }
     const ok = await svc.deleteById('clients', id);
     return NextResponse.json({ ok });
   } catch (e: any) {

@@ -31,6 +31,7 @@ export async function POST(request: Request) {
         name: u.name,
         role: u.role,
         allowedPages: u.allowedPages,
+        clientId: u.clientId,
       },
     });
   } catch (e: any) {

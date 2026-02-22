@@ -548,8 +548,8 @@ export default function InvoicingPage() {
     <div className="space-y-8 font-headline">
       <header className="flex items-center justify-between gap-4">
         <div>
-          <h1 className="text-5xl font-black tracking-tighter">INVOICING</h1>
-          <p className="text-muted-foreground text-lg">
+          <h1 className="text-3xl font-black tracking-tighter">INVOICING</h1>
+          <p className="text-muted-foreground text-sm">
             Manage and track all client invoices.
           </p>
         </div>
@@ -570,18 +570,18 @@ export default function InvoicingPage() {
         <Table>
           <TableHeader>
             <TableRow className="border-b-2 border-black">
-              <TableHead className="text-base font-bold">Invoice No</TableHead>
-              <TableHead className="text-base font-bold">Client</TableHead>
-              <TableHead className="text-base font-bold">
+              <TableHead className="text-sm font-bold">Invoice No</TableHead>
+              <TableHead className="text-sm font-bold">Client</TableHead>
+              <TableHead className="text-sm font-bold">
                 Project / Title
               </TableHead>
-              <TableHead className="text-base font-bold">Amount</TableHead>
-              <TableHead className="text-base font-bold">Paid</TableHead>
-              <TableHead className="text-base font-bold">Due Date</TableHead>
-              <TableHead className="text-right text-base font-bold">
+              <TableHead className="text-sm font-bold">Amount</TableHead>
+              <TableHead className="text-sm font-bold">Paid</TableHead>
+              <TableHead className="text-sm font-bold">Due Date</TableHead>
+              <TableHead className="text-right text-sm font-bold">
                 Status
               </TableHead>
-              <TableHead className="text-right text-base font-bold">
+              <TableHead className="text-right text-sm font-bold">
                 Actions
               </TableHead>
             </TableRow>
@@ -592,10 +592,10 @@ export default function InvoicingPage() {
                 key={invoice._id ?? invoice.id ?? invoice.invoiceNo}
                 className="border-b-2 border-black last:border-b-0"
               >
-                <TableCell className="font-bold text-base py-4">
+                <TableCell className="font-bold text-sm py-2">
                   {invoice.invoiceNo ?? invoice.id ?? invoice._id}
                 </TableCell>
-                <TableCell className="text-base py-4">
+                <TableCell className="text-sm py-2">
                   {invoice.clientName ||
                     invoice.client ||
                     clients.find(
@@ -603,24 +603,24 @@ export default function InvoicingPage() {
                     )?.name ||
                     "-"}
                 </TableCell>
-                <TableCell className="text-base py-4">
+                <TableCell className="text-sm py-2">
                   {invoice.title ?? invoice.projectTitle ?? "-"}
                 </TableCell>
-                <TableCell className="text-base py-4">
+                <TableCell className="text-sm py-2">
                   ₹{(invoice.amount ?? 0).toLocaleString()}
                 </TableCell>
-                <TableCell className="text-base py-4">
+                <TableCell className="text-sm py-2">
                   ₹{(invoice.paidAmount ?? 0).toLocaleString()}
                 </TableCell>
-                <TableCell className="text-base py-4">
+                <TableCell className="text-sm py-2">
                   {invoice.dueDate
                     ? new Date(invoice.dueDate).toLocaleDateString()
                     : ""}
                 </TableCell>
-                <TableCell className="text-right py-4">
+                <TableCell className="text-right py-2">
                   <span
                     className={cn(
-                      "text-xl font-black tracking-widest p-2",
+                      "text-xs font-black tracking-widest p-1",
                       invoice.status === "PAID" &&
                         "bg-success text-success-foreground",
                       invoice.status === "DUE" &&
@@ -632,7 +632,7 @@ export default function InvoicingPage() {
                     {invoice.status}
                   </span>
                 </TableCell>
-                <TableCell className="text-right py-4">
+                <TableCell className="text-right py-2">
                   <div className="flex items-center justify-end gap-2">
                     <EditInvoiceDialog
                       invoice={invoice}

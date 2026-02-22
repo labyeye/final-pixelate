@@ -19,7 +19,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription } from "@/components/ui/form";
 import type { Client } from "@/lib/data";
 import { Switch } from "@/components/ui/switch";
-import { ScrollArea } from "../ui/scroll-area";
 import React from "react";
 import { useEffect } from "react";
 import { Separator } from "../ui/separator";
@@ -34,6 +33,9 @@ const formSchema = z.object({
   gstCompanyName: z.string().optional(),
   gstNumber: z.string().optional(),
   gstAddress: z.string().optional(),
+  // Portal login credentials
+  loginEmail: z.string().email("Invalid login email.").optional().or(z.literal("")),
+  loginPassword: z.string().min(6, "Password must be at least 6 characters.").optional().or(z.literal("")),
 }).refine(data => {
     if (data.hasGst) {
         return !!data.gstCompanyName && !!data.gstNumber && !!data.gstAddress;
@@ -64,6 +66,8 @@ export function AddClientDialog({ isOpen, setIsOpen, onAddClient, onSave, initia
       phone: initialValues?.phone ?? "",
       address: initialValues?.address ?? "",
       hasGst: initialValues?.hasGst ?? false,
+      loginEmail: initialValues?.loginEmail ?? "",
+      loginPassword: "",
     },
   });
 
@@ -81,6 +85,8 @@ export function AddClientDialog({ isOpen, setIsOpen, onAddClient, onSave, initia
         gstCompanyName: initialValues.gstCompanyName ?? undefined,
         gstNumber: initialValues.gstNumber ?? undefined,
         gstAddress: initialValues.gstAddress ?? undefined,
+        loginEmail: initialValues.loginEmail ?? "",
+        loginPassword: "",
       });
     }
   }, [initialValues]);
@@ -107,15 +113,15 @@ export function AddClientDialog({ isOpen, setIsOpen, onAddClient, onSave, initia
       </DialogTrigger>
       <DialogContent className="max-w-3xl">
         <DialogHeader>
-          <DialogTitle className="font-headline text-3xl font-black tracking-tighter">New Client</DialogTitle>
+          <DialogTitle className="font-headline text-3xl font-black tracking-tighter">{initialValues ? 'Edit Client' : 'New Client'}</DialogTitle>
           <DialogDescription>
-            Fill in the details below to create a new client.
+            {initialValues ? 'Update client details and portal login credentials.' : 'Fill in the details below to create a new client.'}
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
-              <ScrollArea className="h-[60vh] pr-6">
-                <div className="space-y-6">
+              <div className="space-y-6 max-h-[65vh] overflow-y-auto pr-2">
+                    {/* Client Info */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <FormField control={form.control} name="name" render={({ field }) => (
                             <FormItem><FormLabel>Client Name</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage /></FormItem>
@@ -130,9 +136,28 @@ export function AddClientDialog({ isOpen, setIsOpen, onAddClient, onSave, initia
                            <FormItem className="md:col-span-2"><FormLabel>Client Address</FormLabel><FormControl><Textarea {...field} /></FormControl><FormMessage /></FormItem>
                         )} />
                     </div>
-                    
+
                     <Separator className="border-t-2 border-black" />
 
+                    {/* Portal Login Credentials */}
+                    <div className="space-y-3">
+                      <div>
+                        <h4 className="text-base font-bold">Portal Login Credentials</h4>
+                        <p className="text-sm text-muted-foreground">Set a login email and password so this client can access their portal.</p>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-2 border-black rounded-lg p-4">
+                        <FormField control={form.control} name="loginEmail" render={({ field }) => (
+                          <FormItem><FormLabel>Login Email</FormLabel><FormControl><Input type="email" placeholder="client@example.com" {...field} /></FormControl><FormMessage /></FormItem>
+                        )} />
+                        <FormField control={form.control} name="loginPassword" render={({ field }) => (
+                          <FormItem><FormLabel>{initialValues ? 'New Password (leave blank to keep existing)' : 'Password'}</FormLabel><FormControl><Input type="password" placeholder="Min. 6 characters" {...field} /></FormControl><FormMessage /></FormItem>
+                        )} />
+                      </div>
+                    </div>
+
+                    <Separator className="border-t-2 border-black" />
+
+                    {/* GST */}
                     <div className="space-y-4">
                         <FormField control={form.control} name="hasGst" render={({ field }) => (
                             <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
@@ -157,9 +182,8 @@ export function AddClientDialog({ isOpen, setIsOpen, onAddClient, onSave, initia
                             </div>
                         )}
                     </div>
-                </div>
-              </ScrollArea>
-        <DialogFooter className="pt-8">
+              </div>
+        <DialogFooter className="pt-4">
           <Button type="submit" size="lg" className="text-lg w-full">{initialValues ? 'Save Changes' : 'Create Client'}</Button>
               </DialogFooter>
             </form>

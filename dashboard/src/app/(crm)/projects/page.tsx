@@ -9,6 +9,7 @@ import type { Project } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from 'lucide-react';
 import { CardContent as _CardContent } from "@/components/ui/card";
+import { SuccessModal } from "@/components/ui/success-modal";
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -16,6 +17,11 @@ export default function ProjectsPage() {
   const [clients, setClients] = useState<any[]>([]);
   const [services, setServices] = useState<any[]>([]);
   const [teamMembers, setTeamMembers] = useState<any[]>([]);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const showSuccess = (msg: string) => {
+    setSuccessMessage(msg);
+    setTimeout(() => setSuccessMessage(null), 2000);
+  };
 
   useEffect(() => {
     let mounted = true;
@@ -54,6 +60,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="space-y-8 font-headline">
+      {successMessage && <SuccessModal message={successMessage} />}
       <header>
         <h1 className="text-5xl font-black tracking-tighter">PROJECTS</h1>
         <p className="text-muted-foreground text-lg">An overview of all active and completed projects.</p>
@@ -74,8 +81,10 @@ export default function ProjectsPage() {
                 if (editing) {
                   setProjects(prev => prev.map(pr => (pr._id ?? pr.id) === (editing._id ?? editing.id) ? p : pr));
                   setEditing(null);
+                  showSuccess("Project updated!");
                 } else {
                   setProjects(prev => [p, ...prev]);
+                  showSuccess("Project added!");
                 }
               }}
             />
@@ -148,6 +157,7 @@ export default function ProjectsPage() {
                       if (!res.ok) throw new Error('Failed to mark complete');
                       const updated = await res.json();
                       setProjects(prev => prev.map(p => (p._id ?? p.id) === id ? updated : p));
+                      showSuccess("Project completed!");
                       // fetch latest invoices and notify other pages (dashboard) to refresh data (invoices/revenue)
                       try {
                         const invoicesRes = await fetch('/api/invoices');
@@ -166,6 +176,7 @@ export default function ProjectsPage() {
                     const res = await fetch(`/api/projects/${id}`, { method: 'DELETE' });
                     if (!res.ok) throw new Error('Delete failed');
                     setProjects(prev => prev.filter(p => (p._id ?? p.id) !== id));
+                    showSuccess("Project deleted!");
                   } catch (err) { console.error(err); }
                 }}>Delete</Button>
             </CardFooter>

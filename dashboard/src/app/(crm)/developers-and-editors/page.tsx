@@ -22,6 +22,7 @@ import { MoreVertical } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { SuccessModal } from "@/components/ui/success-modal";
 
 export default function DevelopersAndEditorsPage() {
   const { user } = useAuth();
@@ -32,6 +33,11 @@ export default function DevelopersAndEditorsPage() {
   const [isUserDialogOpen, setIsUserDialogOpen] = useState(false);
   const [editingMember, setEditingMember] = useState<any | null>(null);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const showSuccess = (msg: string) => {
+    setSuccessMessage(msg);
+    setTimeout(() => setSuccessMessage(null), 2000);
+  };
 
   useEffect(() => {
     let mounted = true;
@@ -112,6 +118,7 @@ export default function DevelopersAndEditorsPage() {
       if (!res.ok) throw new Error(`Failed to create member: ${res.status}`);
       const added = await res.json();
       setUsers((prev) => [...prev, added]);
+      showSuccess("Member added!");
       return added;
     } catch (err) {
       console.error("Failed to add member", err);
@@ -127,6 +134,7 @@ export default function DevelopersAndEditorsPage() {
       const res = await fetch(`/api/users/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error(`Failed to delete user: ${res.status}`);
       setUsers((prev) => prev.filter((x) => (x._id ?? x.id) !== id));
+      showSuccess("Member deleted!");
     } catch (err) {
       console.error("Failed to delete user", err);
     }
@@ -148,6 +156,7 @@ export default function DevelopersAndEditorsPage() {
         prev.map((u) => ((u._id ?? u.id) === id ? updated : u)),
       );
       setIsEditDialogOpen(false);
+      showSuccess("Member updated!");
     } catch (err) {
       console.error("Failed to save user", err);
       throw err;
@@ -156,6 +165,7 @@ export default function DevelopersAndEditorsPage() {
 
   return (
     <div className="space-y-8 font-headline">
+      {successMessage && <SuccessModal message={successMessage} />}
       <header className="flex items-center justify-between gap-4">
         <div>
           <h1 className="text-5xl font-black tracking-tighter">

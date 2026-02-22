@@ -224,10 +224,10 @@
                               <a href="app-dev.html" class="dropdown-item">
                                 App Development
                               </a>
-                              <a href="software-dev.html" class="dropdown-item">
+                              <a href="https://www.pixelatenest.com/software-dev.html.html" class="dropdown-item">
                                 Software Development
                               </a>
-                              <a href="video-ed.html" class="dropdown-item">
+                              <a href="https://www.pixelatenest.com/video-ed.html.html" class="dropdown-item">
                                 Video Editing
                               </a>
                             </div>
@@ -388,7 +388,10 @@
                       </div>
 
                       <div class="hero-cta-wrap">
-                        <a href="contact.html" class="hero-cta-button">
+                        <a
+                          href="https://www.pixelatenest.com/contact.html"
+                          class="hero-cta-button"
+                        >
                           Contact Experts <span class="cta-arrow">→</span>
                         </a>
                       </div>
@@ -582,85 +585,6 @@
             </script>
             <script src="js/index.js"></script>
             <script src="js/activity-tracker.js"></script>
-
-            <script>
-              (function () {
-                if (
-                  localStorage.getItem("pn_prefetch_optout") === "1" ||
-                  document.cookie.indexOf("pn_prefetch_optout=1") !== -1
-                )
-                  return;
-                const pages = [
-                  "/about.html",
-                  "/webdev.html",
-                  "/app-dev.html",
-                  "/video-ed.html",
-                  "/photography.html",
-                  "/blogs.html",
-                  "/contact.html",
-                  "/pricing.html",
-                  "/careers.html",
-                  "/index.html",
-                ];
-                const domains = [
-                  "https://backend.pixelatenest.com",
-                  "https://fonts.googleapis.com",
-                  "https://fonts.gstatic.com",
-                  "https://cdn.prod.website-files.com",
-                  "https://cdnjs.cloudflare.com",
-                  "https://www.google-analytics.com",
-                  "https://www.googletagmanager.com",
-                ];
-                function addLink(rel, href, as, crossorigin) {
-                  try {
-                    const l = document.createElement("link");
-                    l.rel = rel;
-                    l.href = href;
-                    if (as) l.as = as;
-                    if (crossorigin) l.crossOrigin = "anonymous";
-                    document.head.appendChild(l);
-                  } catch (e) {}
-                }
-                function warm() {
-                  domains.forEach((d) => {
-                    addLink("preconnect", d, null, true);
-                    addLink("dns-prefetch", d);
-                  });
-                  pages.forEach((p) => addLink("prefetch", p, "document"));
-                  addLink("preload", "styles.css", "style");
-                  addLink(
-                    "preload",
-                    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
-                    "style",
-                    true,
-                  );
-                  try {
-                    fetch("/", {
-                      method: "GET",
-                      mode: "no-cors",
-                      cache: "no-cache",
-                    }).catch(() => {});
-                    fetch("https://backend.pixelatenest.com", {
-                      method: "GET",
-                      mode: "no-cors",
-                    }).catch(() => {});
-                  } catch (e) {}
-                }
-                if ("requestIdleCallback" in window)
-                  requestIdleCallback(warm, { timeout: 2000 });
-                else
-                  window.addEventListener("load", () => setTimeout(warm, 1000));
-                window.pixelateNestDisablePrefetch = function () {
-                  localStorage.setItem("pn_prefetch_optout", "1");
-                  document.cookie =
-                    "pn_prefetch_optout=1;path=/;max-age=" + 60 * 60 * 24 * 365;
-                };
-                window.pixelateNestEnablePrefetch = function () {
-                  localStorage.removeItem("pn_prefetch_optout");
-                  document.cookie = "pn_prefetch_optout=;path=/;max-age=0";
-                };
-              })();
-            </script>
           </div>
         </section>
       </div>
@@ -690,7 +614,11 @@
                   parent communication
                 </div>
                 <div class="offer-actions">
-                  <a class="offer-button" href="contact.html">Get Quote</a>
+                  <a
+                    class="offer-button"
+                    href="https://www.pixelatenest.com/contact.html"
+                    >Get Quote</a
+                  >
                 </div>
               </div>
             </div>
@@ -709,7 +637,11 @@
                   business management, CRM, operations, reporting, workflows
                 </div>
                 <div class="offer-actions">
-                  <a class="offer-button" href="contact.html">Get Quote</a>
+                  <a
+                    class="offer-button"
+                    href="https://www.pixelatenest.com/contact.html"
+                    >Get Quote</a
+                  >
                 </div>
               </div>
             </div>
@@ -728,7 +660,11 @@
                   invoicing, billing, payments, taxes, reconciliation
                 </div>
                 <div class="offer-actions">
-                  <a class="offer-button" href="contact.html">Get Quote</a>
+                  <a
+                    class="offer-button"
+                    href="https://www.pixelatenest.com/contact.html"
+                    >Get Quote</a
+                  >
                 </div>
               </div>
             </div>
@@ -747,7 +683,11 @@
                   inventory, POS, stock management, retail, barcode
                 </div>
                 <div class="offer-actions">
-                  <a class="offer-button" href="contact.html">Get Quote</a>
+                  <a
+                    class="offer-button"
+                    href="https://www.pixelatenest.com/contact.html"
+                    >Get Quote</a
+                  >
                 </div>
               </div>
             </div>
@@ -767,7 +707,11 @@
                   clinical
                 </div>
                 <div class="offer-actions">
-                  <a class="offer-button" href="contact.html">Get Quote</a>
+                  <a
+                    class="offer-button"
+                    href="https://www.pixelatenest.com/contact.html"
+                    >Get Quote</a
+                  >
                 </div>
               </div>
             </div>
@@ -786,7 +730,11 @@
                   HR, payroll, employee management, attendance, compliance
                 </div>
                 <div class="offer-actions">
-                  <a class="offer-button" href="contact.html">Get Quote</a>
+                  <a
+                    class="offer-button"
+                    href="https://www.pixelatenest.com/contact.html"
+                    >Get Quote</a
+                  >
                 </div>
               </div>
             </div>
@@ -924,8 +872,16 @@
             software solutions to help your business succeed.
           </p>
           <div class="cta-buttons">
-            <a class="cta-primary" href="pricing.html">Start a Project</a>
-            <a class="cta-secondary" href="contact.html">Schedule a Call</a>
+            <a
+              class="cta-primary"
+              href="https://www.pixelatenest.com/pricing.html"
+              >Start a Project</a
+            >
+            <a
+              class="cta-secondary"
+              href="https://www.pixelatenest.com/contact.html"
+              >Schedule a Call</a
+            >
           </div>
         </div>
       </section>
@@ -1108,19 +1064,19 @@
                   <div class="p-text-01">Resources</div>
                   <div class="footer-link-list">
                     <a
-                      href="https://www.pixelatenest.com/pricing"
+                      href="https://www.pixelatenest.com/pricing.html"
                       class="footer-link w-inline-block"
                     >
                       <div class="footer-link-text">Pricing</div>
                     </a>
                     <a
-                      href="https://www.pixelatenest.com/locations"
+                      href="https://www.pixelatenest.com/locations.html"
                       class="footer-link w-inline-block"
                     >
                       <div class="footer-link-text">Locations</div>
                     </a>
                     <a
-                      href="https://www.pixelatenest.com/technologies"
+                      href="https://www.pixelatenest.com/technologies.html"
                       class="footer-link w-inline-block"
                     >
                       <div class="footer-link-text">Technologies</div>

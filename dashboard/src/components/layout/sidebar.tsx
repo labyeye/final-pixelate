@@ -22,6 +22,11 @@ export function Sidebar() {
     );
   }
 
+  // Client role has their own portal — no sidebar
+  if (user.role === "client") {
+    return null;
+  }
+
   const isAdmin = user?.role === "admin";
   const isStaff = user?.role === "staff";
   const userAllowedPages =

@@ -418,10 +418,7 @@ export default function DashboardPage() {
             Real-time pulse of your agency.
           </p>
         </div>
-        <div className="flex gap-2">
-          <TaskCreationModal />
-          <PaymentReceiptModal clients={clients} invoices={invoices} />
-        </div>
+        
       </header>
 
       <Tabs defaultValue="overview">

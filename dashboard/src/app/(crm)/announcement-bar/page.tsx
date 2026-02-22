@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, Save, Eye, EyeOff } from "lucide-react";
+import { SuccessModal } from "@/components/ui/success-modal";
 
 export default function AnnouncementBarPage() {
   const [text, setText] = useState("");
@@ -21,6 +22,11 @@ export default function AnnouncementBarPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const { toast } = useToast();
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const showSuccess = (msg: string) => {
+    setSuccessMessage(msg);
+    setTimeout(() => setSuccessMessage(null), 2000);
+  };
 
   useEffect(() => {
     loadAnnouncement();
@@ -74,6 +80,7 @@ export default function AnnouncementBarPage() {
       });
 
       if (res.ok) {
+        showSuccess("Announcement saved!");
         toast({
           title: "Success",
           description: "Announcement updated successfully",
@@ -103,6 +110,7 @@ export default function AnnouncementBarPage() {
 
   return (
     <div className="container py-8">
+      {successMessage && <SuccessModal message={successMessage} />}
       <Card>
         <CardHeader>
           <CardTitle>Announcement Bar Settings</CardTitle>

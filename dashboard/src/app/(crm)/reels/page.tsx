@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
+import { SuccessModal } from "@/components/ui/success-modal";
 
 type Entry = { thumbnailBase64?: string; link?: string; title?: string }
 type FormValues = { brandName: string; brandLogoBase64?: string; entries: Entry[] }
@@ -13,6 +14,11 @@ type FormValues = { brandName: string; brandLogoBase64?: string; entries: Entry[
 export default function ReelsPage() {
   const [items, setItems] = useState<any[]>([])
   const [editingId, setEditingId] = useState<string | null>(null)
+  const [successMessage, setSuccessMessage] = useState<string | null>(null)
+  const showSuccess = (msg: string) => {
+    setSuccessMessage(msg)
+    setTimeout(() => setSuccessMessage(null), 2000)
+  }
   const { register, control, handleSubmit, reset, setValue, getValues } = useForm<FormValues>({ defaultValues: { brandName: '', brandLogoBase64: '', entries: [] } })
   const { fields, append, remove, replace } = useFieldArray({ control, name: 'entries' })
 
@@ -67,12 +73,14 @@ export default function ReelsPage() {
         setItems(prev => prev.map(i => (String(i._id ?? i.id) === String(editingId) ? updated : i)))
         setEditingId(null)
         reset()
+        showSuccess("Reel updated!")
       } else {
         const res = await fetch('/api/reels', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(v) })
         if (!res.ok) throw new Error('Save failed')
         const created = await res.json()
         setItems(prev => [created, ...prev])
         reset()
+        showSuccess("Reel added!")
       }
     } catch (e) {
       console.error('Failed to save reel', e)
@@ -90,11 +98,13 @@ export default function ReelsPage() {
       const res = await fetch(`/api/reels/${id}`, { method: 'DELETE' })
       if (!res.ok) throw new Error('Delete failed')
       setItems(prev => prev.filter(x => String(x._id ?? x.id) !== String(id)))
+      showSuccess("Reel deleted!")
     } catch (e) { console.error(e) }
   }
 
   return (
     <div className="space-y-8">
+      {successMessage && <SuccessModal message={successMessage} />}
       <header>
         <h1 className="text-4xl font-black">Reels Management</h1>
         <p className="text-muted-foreground">Upload a brand logo and multiple reel thumbnails with links. These will appear on the Video Editing page.</p>

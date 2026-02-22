@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Plus, Briefcase, Users, Eye, Edit, Trash2 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { SuccessModal } from "@/components/ui/success-modal";
 
 interface JobPosting {
   _id: string;
@@ -32,6 +33,11 @@ export default function CareersPage() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<'all' | 'active' | 'closed'>('all');
   const router = useRouter();
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const showSuccess = (msg: string) => {
+    setSuccessMessage(msg);
+    setTimeout(() => setSuccessMessage(null), 2000);
+  };
 
   useEffect(() => {
     fetchJobs();
@@ -66,7 +72,7 @@ export default function CareersPage() {
       }
       
       setJobs(jobs.filter(job => job._id !== id));
-      alert('Job posting deleted successfully');
+      showSuccess("Job posting deleted!");
     } catch (error) {
       console.error('Error deleting job:', error);
       alert(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
@@ -87,6 +93,7 @@ export default function CareersPage() {
 
   return (
     <div className="space-y-6">
+      {successMessage && <SuccessModal message={successMessage} />}
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>

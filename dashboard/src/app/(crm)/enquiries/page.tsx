@@ -3,9 +3,15 @@
 import { useEffect, useState } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
+import { SuccessModal } from "@/components/ui/success-modal";
 
 export default function EnquiriesPage() {
   const [items, setItems] = useState<any[]>([]);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const showSuccess = (msg: string) => {
+    setSuccessMessage(msg);
+    setTimeout(() => setSuccessMessage(null), 2000);
+  };
 
   const updateItem = async (id: string, patch: any) => {
     try {
@@ -17,6 +23,7 @@ export default function EnquiriesPage() {
       if (!res.ok) throw new Error('update failed')
       const updated = await res.json()
       setItems((prev) => prev.map((p) => (String(p._id || p.id) === String(id) ? updated : p)))
+      showSuccess("Status updated!")
     } catch (e) {
       console.error('Failed to update enquiry', e)
     }
@@ -31,6 +38,7 @@ export default function EnquiriesPage() {
       if (!res.ok) throw new Error('delete failed')
       // remove from state
       setItems((prev) => prev.filter((p) => String(p._id || p.id) !== String(id)))
+      showSuccess("Enquiry deleted!")
     } catch (e) {
       console.error('Failed to delete enquiry', e)
     }
@@ -53,6 +61,7 @@ export default function EnquiriesPage() {
 
   return (
     <div className="space-y-6">
+      {successMessage && <SuccessModal message={successMessage} />}
       <header>
         <h1 className="text-5xl font-black">Enquiries</h1>
         <p className="text-muted-foreground">All contact form submissions saved from the website.</p>

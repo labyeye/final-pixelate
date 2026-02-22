@@ -19,6 +19,7 @@ import {
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from '@/hooks/use-toast'
+import { SuccessModal } from "@/components/ui/success-modal";
 
 const formSchema = z.object({
   title: z.string().min(1),
@@ -41,6 +42,11 @@ export default function WorkGalleryPage() {
   const [items, setItems] = useState<any[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [openModal, setOpenModal] = useState(false);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const showSuccess = (msg: string) => {
+    setSuccessMessage(msg);
+    setTimeout(() => setSuccessMessage(null), 2000);
+  };
   const form = useForm<FormValues>({ resolver: zodResolver(formSchema), defaultValues: { title: "", link: "", tech: "", description: "", rating: 0, showOn: "none", webDevBgImageUrl: "", brand: "" } });
 
   useEffect(() => {
@@ -87,6 +93,7 @@ export default function WorkGalleryPage() {
         setItems(prev => prev.map(i => (String(i._id ?? i.id) === String(editingId) ? updated : i)));
         setEditingId(null);
         form.reset();
+        showSuccess("Gallery item updated!");
         toast({ title: 'Data updated', description: 'Gallery item updated successfully.' });
         setOpenModal(false);
       } else {
@@ -95,6 +102,7 @@ export default function WorkGalleryPage() {
         const created = await res.json();
         setItems(prev => [...prev, created]);
         form.reset();
+        showSuccess("Gallery item added!");
         toast({ title: 'Saved', description: 'Gallery item added.' });
         setOpenModal(false);
       }
@@ -157,6 +165,7 @@ export default function WorkGalleryPage() {
 
   return (
     <>
+      {successMessage && <SuccessModal message={successMessage} />}
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold">Gallery Items</h2>
         <div>

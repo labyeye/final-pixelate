@@ -69,15 +69,11 @@
       rel="stylesheet"
     />
     <link href="./styles.css" rel="stylesheet" type="text/css" />
-    <link href="about.css" rel="stylesheet" type="text/css" />
+    <link href="./about.css" rel="stylesheet" type="text/css" />
 
     <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
 
-    <link
-      href="https://backend.pixelatenest.com"
-      rel="preconnect"
-      crossorigin
-    />
+    <link href="https://backend.pixelatenest.com" rel="preconnect" crossorigin />
     <link href="https://backend.pixelatenest.com" rel="dns-prefetch" />
 
     <link
@@ -202,12 +198,9 @@
     <script>
       (async function loadAnnouncement() {
         try {
-          const res = await fetch(
-            "https://backend.pixelatenest.com/api/announcement",
-            {
-              cache: "no-store",
-            },
-          );
+          const res = await fetch("https://backend.pixelatenest.com/api/announcement", {
+            cache: "no-store",
+          });
           if (res.ok) {
             const data = await res.json();
             if (data.text && data.enabled) {
@@ -332,16 +325,19 @@
                           ></i>
                         </a>
                         <div class="dropdown-menu">
-                          <a href="https://www.pixelatenest.com/webdev.html" class="dropdown-item">
+                          <a
+                            href="https://www.pixelatenest.com/webdev.html"
+                            class="dropdown-item"
+                          >
                             Web Development
                           </a>
                           <a href="app-dev.html" class="dropdown-item">
                             App Development
                           </a>
-                          <a href="software-dev.html" class="dropdown-item">
+                          <a href="https://www.pixelatenest.com/software-dev.html.html" class="dropdown-item">
                             Software Development
                           </a>
-                          <a href="video-ed.html" class="dropdown-item">
+                          <a href="https://www.pixelatenest.com/video-ed.html.html" class="dropdown-item">
                             Content Creation
                           </a>
                         </div>
@@ -493,13 +489,18 @@
                     class="sub-heading-wrap"
                   >
                     <p class="hero-subheadline">
-                      Meet the Pixelate Nest team — passionate designers,
-                      developers, and video
+                      Meet the Pixelate Nest team, a passionate group of
+                      designers, developers, and video creators dedicated to
+                      building meaningful digital experiences and impactful
+                      brands.
                     </p>
                   </div>
 
                   <div class="hero-cta-wrap">
-                    <a href="contact.html" class="hero-cta-button">
+                    <a
+                      href="https://www.pixelatenest.com/contact.html"
+                      class="hero-cta-button"
+                    >
                       Contact Experts <span class="cta-arrow">→</span>
                     </a>
                   </div>
@@ -810,6 +811,40 @@
           </div>
         </div>
       </section>
+      <section>
+        <div style="text-align: center; margin-top: 24px; margin-bottom: 54px">
+          <h3 class="text-linear" style="margin-bottom: 12px">
+            Want to be Part of Our Team?
+          </h3>
+          <p
+            style="
+              max-width: 720px;
+              margin: 0 auto 16px;
+              color: var(--primary-900);
+            "
+          >
+            We are always on the lookout for talented individuals who are
+            passionate about creativity and technology. If you want to join a
+            dynamic team that values innovation and growth, check out our
+            careers page for current openings and opportunities to work with us.
+          </p>
+          <a
+            href="https://www.pixelatenest.com/careers.html"
+            class="button-02 w-inline-block"
+            style="
+              padding: 12px 30px;
+              background: #044bab;
+              color: #fff;
+              border-radius: 20px;
+              text-decoration: none;
+              display: inline-block;
+            "
+          >
+            Apply Now
+            <i class="fas fa-arrow-right" style="margin-left: 10px"></i>
+          </a>
+        </div>
+      </section>
       <section class="footer">
         <div class="container">
           <div class="footer-wrap">
@@ -949,14 +984,14 @@
                     >
                       <div class="footer-link-text">Travel & Hospitality</div>
                     </a>
-                    
+
                     <a
                       href="https://www.pixelatenest.com/industry-education.html"
                       class="footer-link w-inline-block"
                     >
                       <div class="footer-link-text">Education</div>
                     </a>
-                    
+
                     <a
                       href="https://www.pixelatenest.com/industry-logistics.html"
                       class="footer-link w-inline-block"
@@ -971,8 +1006,6 @@
                     >
                       <div class="footer-link-text">Manufacturing</div>
                     </a>
-                    
-                    
                   </div>
                 </div>
 
@@ -1034,12 +1067,12 @@
                       class="footer-link w-inline-block"
                     >
                       <div
-                      class="footer-link-text"
-                      style="flex-direction: row; display: flex; gap: 10px"
-                    >
-                      <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                      <span>LinkedIn</span>
-                    </div>
+                        class="footer-link-text"
+                        style="flex-direction: row; display: flex; gap: 10px"
+                      >
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        <span>LinkedIn</span>
+                      </div>
                     </a>
 
                     <a
@@ -1049,12 +1082,12 @@
                       class="footer-link w-inline-block"
                     >
                       <div
-                      class="footer-link-text"
-                      style="flex-direction: row; display: flex; gap: 10px"
-                    >
-                      <i class="fab fa-instagram" aria-hidden="true"></i>
-                      <span>Instagram</span>
-                    </div>
+                        class="footer-link-text"
+                        style="flex-direction: row; display: flex; gap: 10px"
+                      >
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                        <span>Instagram</span>
+                      </div>
                     </a>
                     <a
                       href="https://www.facebook.com/profile.php?id=61586872964348"
@@ -1063,12 +1096,12 @@
                       class="footer-link w-inline-block"
                     >
                       <div
-                      class="footer-link-text"
-                      style="flex-direction: row; display: flex; gap: 10px"
-                    >
-                      <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                      <span>Facebook</span>
-                    </div>
+                        class="footer-link-text"
+                        style="flex-direction: row; display: flex; gap: 10px"
+                      >
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        <span>Facebook</span>
+                      </div>
                     </a>
 
                     <div
@@ -1151,84 +1184,6 @@
       </section>
 
       <script src="js/index.js"></script>
-
-      <script>
-        (function () {
-          if (
-            localStorage.getItem("pn_prefetch_optout") === "1" ||
-            document.cookie.indexOf("pn_prefetch_optout=1") !== -1
-          )
-            return;
-          const pages = [
-            "/webdev.html",
-            "/app-dev.html",
-            "/software-dev.html",
-            "/video-ed.html",
-            "/photography.html",
-            "/blogs.html",
-            "/contact.html",
-            "/pricing.html",
-            "/careers.html",
-            "/index.html",
-          ];
-          const domains = [
-            "https://backend.pixelatenest.com",
-            "https://fonts.googleapis.com",
-            "https://fonts.gstatic.com",
-            "https://cdn.prod.website-files.com",
-            "https://cdnjs.cloudflare.com",
-            "https://www.google-analytics.com",
-            "https://www.googletagmanager.com",
-          ];
-          function addLink(rel, href, as, crossorigin) {
-            try {
-              const l = document.createElement("link");
-              l.rel = rel;
-              l.href = href;
-              if (as) l.as = as;
-              if (crossorigin) l.crossOrigin = "anonymous";
-              document.head.appendChild(l);
-            } catch (e) {}
-          }
-          function warm() {
-            domains.forEach((d) => {
-              addLink("preconnect", d, null, true);
-              addLink("dns-prefetch", d);
-            });
-            pages.forEach((p) => addLink("prefetch", p, "document"));
-            addLink("preload", "/styles.css", "style");
-            addLink(
-              "preload",
-              "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
-              "style",
-              true,
-            );
-            try {
-              fetch("/", {
-                method: "GET",
-                mode: "no-cors",
-                cache: "no-cache",
-              }).catch(() => {});
-              fetch("https://backend.pixelatenest.com", {
-                method: "GET",
-                mode: "no-cors",
-              }).catch(() => {});
-            } catch (e) {}
-          }
-          if ("requestIdleCallback" in window)
-            requestIdleCallback(warm, { timeout: 2000 });
-          else window.addEventListener("load", () => setTimeout(warm, 1000));
-          window.pixelateNestDisablePrefetch = function () {
-            localStorage.setItem("pn_prefetch_optout", "1");
-            document.cookie =
-              "pn_prefetch_optout=1;path=/;max-age=" + 60 * 60 * 24 * 365;
-          };
-          window.pixelateNestEnablePrefetch = function () {
-            localStorage.removeItem("pn_prefetch_optout");
-            document.cookie = "pn_prefetch_optout=;path=/;max-age=0";
-          };
-        })();
-      </script>
     </div>
     <script src="js/activity-tracker.js"></script>
   </body>

@@ -31,6 +31,7 @@ import {
 import { MoreVertical } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SuccessModal } from "@/components/ui/success-modal";
 
 const formSchema = z.object({
   name: z
@@ -41,6 +42,11 @@ const formSchema = z.object({
 export default function ServicesPage() {
   const { user } = useAuth();
   const [services, setServices] = useState<Service[]>([]);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const showSuccess = (msg: string) => {
+    setSuccessMessage(msg);
+    setTimeout(() => setSuccessMessage(null), 2000);
+  };
 
   useEffect(() => {
     let mounted = true;
@@ -94,6 +100,7 @@ export default function ServicesPage() {
       const newService = await res.json();
       setServices((prev) => [...prev, newService as Service]);
       form.reset();
+      showSuccess("Service added!");
     } catch (err) {
       console.error("Failed to add service", err);
     }
@@ -130,6 +137,7 @@ export default function ServicesPage() {
         ),
       );
       cancelEdit();
+      showSuccess("Service updated!");
     } catch (err) {
       console.error("Failed to save service", err);
     }
@@ -141,6 +149,7 @@ export default function ServicesPage() {
       const res = await fetch(`/api/services/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error(`Failed to delete service: ${res.status}`);
       setServices((prev) => prev.filter((x) => (x._id ?? x.id) !== id));
+      showSuccess("Service deleted!");
     } catch (err) {
       console.error("Failed to delete service", err);
     }
@@ -148,6 +157,7 @@ export default function ServicesPage() {
 
   return (
     <div className="space-y-8 font-headline">
+      {successMessage && <SuccessModal message={successMessage} />}
       <header>
         <h1 className="text-5xl font-black tracking-tighter">SERVICES</h1>
         <p className="text-muted-foreground text-lg">

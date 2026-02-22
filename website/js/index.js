@@ -61,9 +61,12 @@ fbq("track", "PageView");
 
 (async function loadAnnouncement() {
   try {
-    const res = await fetch("https://backend.pixelatenest.com/api/announcement", {
-      cache: "no-store",
-    });
+    const res = await fetch(
+      "https://backend.pixelatenest.com/api/announcement",
+      {
+        cache: "no-store",
+      },
+    );
     if (res.ok) {
       const data = await res.json();
       if (data.text && data.enabled) {
@@ -706,15 +709,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 (function () {
   const pages = [
-    "about.html",
-    "webdev.html",
-    "app-dev.html",
-    "software-dev.html",
-    "video-ed.html",
-    "blogs.html",
-    "contact.html",
-    "pricing.html",
-    "careers.html",
+    "https://www.pixelatenest.com/index.html",
+    "https://www.pixelatenest.com/about.html",
+    "https://www.pixelatenest.com/app-dev.html",
+    "https://www.pixelatenest.com/software-dev.html.html",
+    "https://www.pixelatenest.com/video-ed.html.html",
+    "https://www.pixelatenest.com/blogs.html.html",
+    "https://www.pixelatenest.com/contact.html",
+    "https://www.pixelatenest.com/blogs.html",
+    "https://www.pixelatenest.com/careers.html",
   ];
 
   const domains = [
@@ -986,6 +989,36 @@ document.addEventListener("DOMContentLoaded", () => {
     animateCards();
   }
 })();
+(function initFAQ() {
+  function setupFAQ() {
+    const faqLists = document.querySelectorAll(".faq-list");
+    if (!faqLists.length) return;
+
+    faqLists.forEach((item) => {
+      const questionWrap = item.querySelector(".faq-question-wrap");
+      if (!questionWrap) return;
+
+      questionWrap.addEventListener("click", function () {
+        const isActive = item.classList.contains("active");
+
+        // Close all open items
+        faqLists.forEach((el) => el.classList.remove("active"));
+
+        // Open clicked one if it wasn't already open
+        if (!isActive) {
+          item.classList.add("active");
+        }
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupFAQ);
+  } else {
+    setupFAQ();
+  }
+})();
+
 document.addEventListener("DOMContentLoaded", function () {
   const dropdownToggles = document.querySelectorAll(
     ".nav-item.has-dropdown > .dropdown-toggle",
@@ -1015,139 +1048,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
-/* FAQ accordion: accessible, keyboard-friendly toggle for both
-   - legacy `.faq-item` + `.faq-question` + `.faq-answer`
-   - current page `.faq-list` + `.faq-question-wrap` + `.faq-answer-wrap` */
-(function initFAQ() {
-  function setup() {
-    setupOld();
-    setupNew();
-  }
-
-  // existing faq-item structure (keeps backward compatibility)
-  function setupOld() {
-    const items = document.querySelectorAll('.faq-item');
-    if (!items.length) return;
-
-    items.forEach((item) => {
-      const btn = item.querySelector('.faq-question');
-      const panel = item.querySelector('.faq-answer');
-      if (!btn || !panel) return;
-
-      btn.setAttribute('role', 'button');
-      btn.setAttribute('aria-expanded', 'false');
-      btn.tabIndex = 0;
-
-      panel.setAttribute('aria-hidden', 'true');
-      panel.style.overflow = 'hidden';
-      panel.style.maxHeight = '0px';
-      panel.style.transition = 'max-height 0.36s ease';
-
-      btn.addEventListener('click', () => toggleOld(item, btn, panel));
-      btn.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleOld(item, btn, panel);
-        }
-      });
-    });
-  }
-
-  function toggleOld(item, btn, panel) {
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    if (expanded) closeOld(item, btn, panel);
-    else openOld(item, btn, panel, true);
-  }
-
-  function openOld(item, btn, panel, closeOthers = true) {
-    if (closeOthers) {
-      document.querySelectorAll('.faq-item .faq-question[aria-expanded="true"]').forEach((other) => {
-        if (other === btn) return;
-        const parent = other.closest('.faq-item');
-        const otherPanel = parent && parent.querySelector('.faq-answer');
-        if (otherPanel) closeOld(parent, other, otherPanel);
-      });
-    }
-
-    btn.setAttribute('aria-expanded', 'true');
-    panel.setAttribute('aria-hidden', 'false');
-    panel.style.maxHeight = panel.scrollHeight + 'px';
-  }
-
-  function closeOld(item, btn, panel) {
-    btn.setAttribute('aria-expanded', 'false');
-    panel.setAttribute('aria-hidden', 'true');
-    panel.style.maxHeight = '0px';
-  }
-
-  // new page structure: .faq-list / .faq-question-wrap / .faq-answer-wrap
-  function setupNew() {
-    const lists = document.querySelectorAll('.faq-list');
-    if (!lists.length) return;
-
-    lists.forEach((list, idx) => {
-      const questionWrap = list.querySelector('.faq-question-wrap');
-      const iconWrap = list.querySelector('.faq-icon-wrap');
-      const answerWrap = list.querySelector('.faq-answer-wrap');
-      const answer = answerWrap && answerWrap.querySelector('.faq-answer');
-      if (!questionWrap || !answerWrap || !answer) return;
-
-      // ensure answer has an id for aria-controls
-      if (!answer.id) answer.id = `faq-auto-${idx}`;
-
-      questionWrap.setAttribute('role', 'button');
-      questionWrap.setAttribute('aria-expanded', 'false');
-      questionWrap.setAttribute('aria-controls', answer.id);
-      questionWrap.tabIndex = 0;
-
-      answerWrap.setAttribute('aria-hidden', 'true');
-      answerWrap.style.overflow = 'hidden';
-      answerWrap.style.maxHeight = '0px';
-      answerWrap.style.transition = 'max-height 0.36s ease';
-
-      function toggle() {
-        const expanded = questionWrap.getAttribute('aria-expanded') === 'true';
-        if (expanded) close();
-        else open();
-      }
-
-      function open() {
-        // close other open items
-        document.querySelectorAll('.faq-list .faq-question-wrap[aria-expanded="true"]').forEach((other) => {
-          if (other === questionWrap) return;
-          const parent = other.closest('.faq-list');
-          const otherAnswerWrap = parent && parent.querySelector('.faq-answer-wrap');
-          if (otherAnswerWrap) {
-            other.setAttribute('aria-expanded', 'false');
-            otherAnswerWrap.setAttribute('aria-hidden', 'true');
-            otherAnswerWrap.style.maxHeight = '0px';
-          }
-        });
-
-        questionWrap.setAttribute('aria-expanded', 'true');
-        answerWrap.setAttribute('aria-hidden', 'false');
-        answerWrap.style.maxHeight = answerWrap.scrollHeight + 'px';
-      }
-
-      function close() {
-        questionWrap.setAttribute('aria-expanded', 'false');
-        answerWrap.setAttribute('aria-hidden', 'true');
-        answerWrap.style.maxHeight = '0px';
-      }
-
-      // click and keyboard
-      questionWrap.addEventListener('click', toggle);
-      if (iconWrap) iconWrap.addEventListener('click', (e) => { e.stopPropagation(); toggle(); });
-      questionWrap.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggle();
-        }
-      });
-    });
-  }
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup);
-  else setup();
-})();

@@ -28,7 +28,12 @@ function LoginContent() {
       if (user && (user.id || user._id)) sessionStorage.setItem('userId', String(user.id ?? user._id));
       // inform auth context
       login(user.id ?? user._id as any);
-      router.replace('/dashboard');
+      // Redirect based on role
+      if (user.role === 'client') {
+        router.replace('/client-portal');
+      } else {
+        router.replace('/dashboard');
+      }
     } catch (err: any) {
       alert(err?.message || String(err));
     } finally {

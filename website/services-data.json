@@ -8,7 +8,7 @@
       "tagline": "Building Modern, Scalable Web Solutions",
       "shortDescription": "Professional web development services using cutting-edge technologies to create fast, secure, and user-friendly websites.",
       "longDescription": "Our expert web development team specializes in creating custom websites, web applications, and digital platforms that drive business growth. From responsive design to complex backend systems, we deliver solutions that meet your unique requirements.",
-      "mainPage": "webdev.html",
+      "mainPage": "https://www.pixelatenest.com/pricing.html",
       "features": [
         "Custom Website Development",
         "Responsive Web Design",
@@ -99,7 +99,7 @@
       "tagline": "Professional Video Production & Post-Production",
       "shortDescription": "High-quality video editing services for corporate videos, promotional content, social media, and YouTube channels.",
       "longDescription": "Transform your raw footage into compelling visual stories with our professional video editing services. We handle everything from color grading to motion graphics, delivering broadcast-quality videos that engage your audience.",
-      "mainPage": "video-ed.html",
+      "mainPage": "https://www.pixelatenest.com/video-ed.html.html",
       "features": [
         "Corporate Video Editing",
         "Promotional Videos",
@@ -271,7 +271,7 @@
       "tagline": "Custom Enterprise Software Solutions",
       "shortDescription": "Tailored software solutions for businesses including CRM, ERP, and custom enterprise applications.",
       "longDescription": "Build powerful custom software that streamlines your business operations. From CRM systems to inventory management, we develop scalable enterprise solutions that integrate seamlessly with your existing infrastructure.",
-      "mainPage": "software-dev.html",
+      "mainPage": "https://www.pixelatenest.com/software-dev.html.html",
       "features": [
         "Custom Software Development",
         "Enterprise Resource Planning (ERP)",

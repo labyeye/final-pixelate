@@ -23,6 +23,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { SuccessModal } from "@/components/ui/success-modal";
 
 interface AboutTeamMember {
   _id?: string;
@@ -47,6 +48,11 @@ export default function AboutUsTeamPage() {
     null,
   );
   const { toast } = useToast();
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const showSuccess = (msg: string) => {
+    setSuccessMessage(msg);
+    setTimeout(() => setSuccessMessage(null), 2000);
+  };
 
   const emptyMember: AboutTeamMember = {
     name: "",
@@ -103,6 +109,7 @@ export default function AboutUsTeamPage() {
 
       if (!res.ok) throw new Error("Failed to save team member");
 
+      showSuccess(editingMember ? "Member updated!" : "Member added!");
       toast({
         title: "Success",
         description: `Team member ${editingMember ? "updated" : "added"} successfully`,
@@ -140,6 +147,7 @@ export default function AboutUsTeamPage() {
 
       if (!res.ok) throw new Error("Failed to delete team member");
 
+      showSuccess("Member deleted!");
       toast({
         title: "Success",
         description: "Team member deleted successfully",
@@ -165,6 +173,7 @@ export default function AboutUsTeamPage() {
 
   return (
     <div className="container mx-auto py-10">
+      {successMessage && <SuccessModal message={successMessage} />}
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle>About Us - Team Management</CardTitle>

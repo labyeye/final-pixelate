@@ -15,6 +15,11 @@ export interface Client {
   gstCompanyName?: string;
   gstNumber?: string;
   gstAddress?: string;
+  // Portal login credentials (optional – set when creating/editing client)
+  loginEmail?: string;
+  loginPassword?: string;
+  // Reference to the linked user document id
+  userId?: string;
 }
 
 export const clients: Client[] = [];
@@ -34,12 +39,14 @@ export interface User {
   _id?: string | any;
   name: string;
   email: string;
-  role: "admin" | "staff";
+  role: "admin" | "staff" | "client";
   password?: string;
   avatarUrl?: string;
   // optional avatar (data URL or external URL)
   avatar?: string;
   allowedPages?: string[];
+  // For client-role users: link back to their client document
+  clientId?: string;
 }
 
 export const users: User[] = [];
