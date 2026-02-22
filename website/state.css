@@ -3,6 +3,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -13,16 +14,19 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.05);
   }
@@ -39,6 +43,7 @@
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -109,27 +114,25 @@
 
 .city-header {
   text-align: center;
-  margin-bottom: 60px;
-  padding: 80px 20px 40px;
-  background: white;
+  margin-bottom: 0;
+  padding: 80px 40px 60px;
+  background: linear-gradient(160deg, #f0f4ff 0%, #ffffff 60%, #f8f0ff 100%);
+  border-bottom: 1px solid rgba(5, 75, 171, 0.08);
   animation: fadeInUp 0.8s ease-out;
 }
 
 .city-icon {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 30px;
-  background: linear-gradient(
-    135deg,
-    var(--primary-900) 0%,
-    var(--primary-900) 100%
-  );
-  border-radius: 20px;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 28px;
+  background: white;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-  box-shadow: 0 10px 40px var(--primary-900);
+  box-shadow: 0 8px 40px rgba(5, 75, 171, 0.18);
+  border: 4px solid rgba(5, 75, 171, 0.1);
   animation: pulse 2s infinite;
   transition: transform 0.3s ease;
 }
@@ -145,10 +148,10 @@
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 7vw, 5rem);
   color: var(--primary-900);
-  margin: 20px 0;
-  line-height: 1.2;
+  margin: 16px 0 8px;
+  line-height: 1.15;
   font-weight: 700;
   animation: fadeInUp 0.8s ease-out 0.2s both;
 }
@@ -156,44 +159,94 @@ h1 {
 .city-meta {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 24px;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 18px;
   animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
 .city-meta span {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  color: rgba(0, 0, 0, 0.65);
-  font-size: 1rem;
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease;
+  gap: 7px;
+  color: var(--tertiary-700);
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: rgba(5, 75, 171, 0.06);
+  padding: 6px 16px;
+  border-radius: 50px;
+  border: 1px solid rgba(5, 75, 171, 0.12);
+  transition: all 0.3s ease;
+}
+
+.city-meta span i {
+  color: var(--primary-900);
+  font-size: 0.85rem;
 }
 
 .city-meta span:hover {
+  background: rgba(5, 75, 171, 0.12);
   color: var(--primary-900);
   transform: translateY(-2px);
 }
 
 .city-content {
-  background: var(--primary-400);
-  border-radius: 16px;
-  padding: 60px 40px;
-  margin-bottom: 60px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+  background: white;
+  padding: 70px 100px;
+  margin-bottom: 0;
   animation: fadeInUp 1s ease-out 0.6s both;
+  border-bottom: 1px solid rgba(5, 75, 171, 0.06);
+}
+
+.city-content > div {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .city-content p {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: rgba(0, 0, 0, 0.85);
-  margin-bottom: 1.5rem;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 1.4rem;
+}
+
+.city-content h2 {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 600;
+  color: var(--primary-900);
+  margin: 2.2rem 0 0.9rem;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(5, 75, 171, 0.1);
+  line-height: 1.3;
+}
+
+.city-content ul {
+  margin: 0 0 1.4rem 0;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+}
+
+.city-content ul li {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.78);
+  line-height: 1.6;
+  padding: 8px 12px 8px 32px;
+  position: relative;
+  background: rgba(5, 75, 171, 0.04);
+  border-radius: 8px;
+  border-left: 3px solid var(--primary-900);
+}
+
+.city-content ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 10px;
+  color: var(--primary-900);
+  font-weight: 700;
+  font-size: 0.85rem;
 }
 
 .services-section {
@@ -252,18 +305,23 @@ h1 {
 .service-card:nth-child(1) {
   animation: fadeInUp 1s ease-out 0.7s both;
 }
+
 .service-card:nth-child(2) {
   animation: fadeInUp 1s ease-out 0.8s both;
 }
+
 .service-card:nth-child(3) {
   animation: fadeInUp 1s ease-out 0.9s both;
 }
+
 .service-card:nth-child(4) {
   animation: fadeInUp 1s ease-out 1s both;
 }
+
 .service-card:nth-child(5) {
   animation: fadeInUp 1s ease-out 1.1s both;
 }
+
 .service-card:nth-child(6) {
   animation: fadeInUp 1s ease-out 1.2s both;
 }
@@ -365,6 +423,133 @@ h1 {
   color: var(--primary-900);
 }
 
+/* ─── Rich Service Items (index.html style) ─────────────────────────── */
+.city-services-section {
+  position: relative;
+  width: 100%;
+  background: white;
+  padding: 40px 0;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.city-services-section .services-wrap {
+  padding: 0 100px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.heading-wrap {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-heading {
+  font-size: clamp(3.8rem, 9vw, 5rem);
+  font-weight: 500;
+  color: var(--primary-900);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.section-sub {
+  display: block;
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
+  color: var(--tertiary-700);
+  margin: 20px auto 0;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.service-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+  background: rgba(5, 75, 171, 0.08);
+  border-radius: 16px;
+  padding: 30px 20px 2.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid transparent;
+  overflow: hidden;
+}
+
+.service-item:hover {
+  background: rgba(5, 75, 171, 0.15);
+  transform: translateY(-5px);
+  border-color: rgba(5, 75, 171, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+.service-caption {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--primary-900);
+  line-height: 1.3;
+}
+
+.service-description {
+  font-size: 14px;
+  color: var(--tertiary-700);
+  line-height: 1.5;
+  opacity: 0.9;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+.service-item a {
+  color: var(--secondary-900);
+  text-decoration: none;
+  position: absolute;
+  left: 16px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.service-item a:hover {
+  color: var(--secondary-800);
+  text-decoration: none;
+}
+
+.service-item a i.fa-arrow-right {
+  font-size: 0.85em;
+  line-height: 1;
+}
+
+/* ─── Industries Section ─────────────────────────────────────────────── */
+.city-industries-section {
+  position: relative;
+  width: 100%;
+  background: white;
+  padding: 40px 0;
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+
 @media (max-width: 768px) {
   h1 {
     font-size: 2.5rem;
@@ -374,13 +559,20 @@ h1 {
     font-size: 2rem;
   }
 
+  .city-header {
+    padding: 60px 20px 40px;
+  }
+
   .city-content {
     padding: 40px 20px;
   }
 
+  .city-content ul {
+    grid-template-columns: 1fr;
+  }
+
   .city-meta {
-    flex-direction: column;
-    gap: 15px;
+    gap: 10px;
   }
 
   .services-section {
@@ -391,21 +583,25 @@ h1 {
     font-size: 1.75rem;
   }
 
+  .city-services-section {
+    padding: 40px 0;
+  }
+
+  .city-services-section .services-wrap {
+    padding: 0 20px;
+  }
+
+  .section-heading {
+    font-size: 1.75rem;
+  }
+
   .services-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
   }
 
-  .service-card {
-    padding: 30px 20px;
-  }
-
-  .service-card h3 {
-    font-size: 1.25rem;
-  }
-
-  .service-card p {
-    font-size: 0.95rem;
+  .city-industries-section .services-wrap {
+    padding: 0 20px;
   }
 
   .section-title {
@@ -423,11 +619,25 @@ h1 {
   }
 
   .city-icon {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
   }
 
-  .services-section h2 {
+  .city-header {
+    padding: 50px 16px 32px;
+  }
+
+  .city-content {
+    padding: 32px 16px;
+  }
+
+  .city-meta span {
+    font-size: 0.82rem;
+    padding: 5px 12px;
+  }
+
+  .services-section h2,
+  .section-heading {
     font-size: 1.5rem;
   }
 

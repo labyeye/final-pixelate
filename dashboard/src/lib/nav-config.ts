@@ -19,6 +19,7 @@ import {
   Image as ImageIcon,
   PlayCircle,
   Settings,
+  Mail,
 } from "lucide-react";
 
 export const defaultStaffAllowed = [
@@ -60,6 +61,12 @@ export const navGroups = [
         label: "Announcements",
         adminOnly: true,
         icon: Megaphone,
+      },
+      {
+        href: "/newsletter",
+        label: "Newsletter",
+        adminOnly: true,
+        icon: Mail,
       },
       {
         href: "/dashboard/reports",

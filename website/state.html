@@ -645,12 +645,45 @@
         </div>
 
         <div class="city-content">
-          <p id="city-description">City description goes here.</p>
+          <div id="city-description">City description goes here.</div>
         </div>
 
-        <section class="services-section">
-          <h2>Our Services in <span id="city-name-services">City</span></h2>
-          <div id="services-grid" class="services-grid"></div>
+        <section class="city-services-section">
+          <div class="services-wrap">
+            <div class="heading-wrap">
+              <span class="section-heading">
+                Our Services in <span id="city-name-industries">City</span>
+              </span>
+              <span class="section-sub"
+                >At Pixelate Nest, we don't just develop software we engineer
+                intelligent digital ecosystems that drive measurable business
+                growth. As India's premier AI-powered technology partner, we
+                deliver enterprise-grade web applications, native and
+                cross-platform mobile solutions, professional video production,
+                and data-driven digital marketing strategies.</span
+              >
+            </div>
+            <div id="services-grid" class="services-grid"></div>
+          </div>
+        </section>
+
+        <section class="city-industries-section">
+          <div class="services-wrap">
+            <div class="heading-wrap">
+              <h2 class="section-heading">
+                Industries We Serve in
+                <span id="city-name-industries">City</span>
+              </h2>
+              <span class="section-sub"
+                >At Pixelate Nest, we serve a wide range of industries by
+                building industry-specific digital solutions. Our experience
+                across diverse sectors helps us understand unique challenges and
+                deliver scalable, technology-driven solutions that support
+                long-term business growth.</span
+              >
+            </div>
+            <div id="industries-grid" class="services-grid"></div>
+          </div>
         </section>
       </div>
 
@@ -756,54 +789,143 @@
           document.getElementById("city-landmark").innerHTML =
             `<i class="fas fa-landmark"></i> ${city.landmark}`;
 
-          document.getElementById("city-description").textContent =
-            city.content;
-
-          function slugify(text) {
-            return String(text)
-              .toLowerCase()
-              .trim()
-              .replace(/[^a-z0-9\s-]/g, "")
-              .replace(/\s+/g, "-");
-          }
+          document.getElementById("city-description").innerHTML = city.content;
 
           document.getElementById("city-name-services").textContent = city.city;
+          document.getElementById("city-name-industries").textContent =
+            city.city;
 
           const servicesGrid = document.getElementById("services-grid");
           servicesGrid.innerHTML = "";
 
-          const serviceSlugMap = {
-            "Web Development": "web-development",
-            "Video Editing": "video-editing",
-            "App Development": "app-development",
-            "Software Development": "software-development",
-            "Digital Marketing": "digital-marketing",
-            "UI/UX Design": "ui-ux-design",
-            "Motion Graphics": "video-editing",
-            "E-commerce Solutions": "web-development",
-            "SEO Services": "digital-marketing",
-            "Graphic Design": "ui-ux-design",
-            "Tourism Marketing": "digital-marketing",
-            "E-learning Solutions": "software-development",
-          };
-
           city.services.forEach((service) => {
-            const serviceCard = document.createElement("a");
-            serviceCard.className = "service-card";
-
-            const slug = serviceSlugMap[service] || slugify(service);
-            const serviceHref = `detailed-services.html?service=${encodeURIComponent(
-              slug,
-            )}&city=${encodeURIComponent(city.city)}`;
-            serviceCard.setAttribute("href", serviceHref);
-            serviceCard.innerHTML = `
-                    <h3>${service}</h3>
-                    <p>Professional ${service.toLowerCase()} services in ${
-                      city.city
-                    }</p>
-                `;
-            servicesGrid.appendChild(serviceCard);
+            const el = document.createElement("div");
+            el.className = "service-item";
+            el.innerHTML = `
+              <img src="${service.image}" alt="${service.name} in ${city.city}" loading="lazy" />
+              <div class="service-caption">${service.name}</div>
+              <div class="service-description">${service.description}</div>
+              <a href="${service.link}" aria-label="Learn about ${service.name}">
+                <span style="text-decoration:none;color:var(--secondary-900)">Learn about ${service.name}</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            `;
+            servicesGrid.appendChild(el);
           });
+
+          const industriesGrid = document.getElementById("industries-grid");
+          industriesGrid.innerHTML = "";
+
+          // Map industry names to images, links, and descriptions
+          // Covers all 62 unique industry strings across all city pages
+          const industryAssets = [
+            {
+              // Retail & E-commerce / Diamond & Jewellery / Handicraft / Fashion / Wholesale
+              keywords: ["retail", "e-commerce", "ecommerce", "fashion", "diamond", "jewellery", "handicraft", "wholesale", "consumer brand", "consumer good", "consumer busi", "lifestyle brand", "local trade"],
+              image: "./assets/industries/ecommerce.webp",
+              link: "industry-ecommerce.html",
+              description: "At Pixelate Nest, we provide ecommerce website and app development services in {city}. We aim to help businesses sell online with confidence. Our ecommerce solutions include custom online stores, mobile-friendly ecommerce websites, payment gateway integration, order and inventory management, and scalable ecommerce platforms. These are designed to boost sales and enhance customer experience.",
+            },
+            {
+              // Education / Coaching / Academic / Training / Edtech / Universities
+              keywords: ["education", "coaching", "academic", "training", "edtech", "universit", "institution", "school", "college"],
+              image: "./assets/industries/education.webp",
+              link: "industry-education.html",
+              description: "At Pixelate Nest, we offer technology solutions for the education sector in {city} that support modern learning and administration. Our education software development services include school and college websites, learning management systems (LMS), student and teacher portals, and online education platforms. These are designed to improve communication, engagement, and the overall learning experience.",
+            },
+            {
+              // Manufacturing / Engineering / Automotive / Chemical / Plastics / Steel / Textile / Garment / Pharma & Life Sciences / Pharmaceuticals
+              keywords: ["manufactur", "engineering", "automotive", "chemical", "plastic", "steel", "textile", "garment", "pharma", "life science", "pharmaceutical"],
+              image: "./assets/industries/manufacture.webp",
+              link: "industry-manufacturing.html",
+              description: "At Pixelate Nest, we offer software solutions for the manufacturing industry in {city}. Our goal is to simplify production and business processes. Our manufacturing software development services include ERP systems, inventory management, production tracking, supply chain management, and business intelligence tools. These tools help manufacturers boost productivity and make decisions based on data.",
+            },
+            {
+              // Real Estate / Construction / Infrastructure / Property
+              keywords: ["real estate", "construction", "infrastructure", "property", "realty", "housing", "builder"],
+              image: "./assets/industries/realestate.webp",
+              link: "industry-realestate.html",
+              description: "At Pixelate Nest, we develop digital solutions for real estate businesses in {city} in order to assist organizations in managing real estate and generating leads. Real estate businesses can sell, rent, and manage properties more effectively with the help of our custom software solutions and real estate website development, which include CRM systems, lead management, booking tools, and websites for property listings.",
+            },
+            {
+              // Logistics / Transportation / Supply Chain / Maritime / Port
+              keywords: ["logistics", "transport", "supply chain", "maritime", "port", "fleet", "delivery", "shipping", "cargo", "freight"],
+              image: "./assets/industries/transport.webp",
+              link: "industry-logistics.html",
+              description: "At Pixelate Nest, we build custom software for transportation and logistics companies in {city} to improve efficiency. Our logistics software services include fleet management, vehicle tracking, route planning, delivery management, and real-time dashboards. These tools help logistics businesses keep an eye on operations and reduce costs.",
+            },
+            {
+              // Travel / Tourism / Hospitality / Hotels / Restaurants / Food / Tourism & Handicrafts
+              keywords: ["travel", "tourism", "hospitality", "hotel", "restaurant", "food busi", "food service", "resort", "tour"],
+              image: "./assets/industries/travel.webp",
+              link: "industry-travel.html",
+              description: "At Pixelate Nest, we provide website and app development for travel and hospitality businesses in {city} to make bookings and customer management easier. Our travel software solutions include travel booking websites, tour and package management systems, payment integrations, and hospitality management apps. These tools help businesses provide smooth and reliable customer experiences.",
+            },
+            {
+              // IT / Software / Technology / SaaS / Fintech / Finance / Media / Entertainment
+              keywords: ["it &", "software", "technology", "saas", "fintech", "finance", "financial", "media", "entertainment"],
+              image: "./assets/industries/ecommerce.webp",
+              link: "#",
+              description: "At Pixelate Nest, we partner with IT, software, and fintech companies in {city} to build scalable web platforms, SaaS products, CRM tools, client portals, and digital workflows that streamline operations and support business growth.",
+            },
+            {
+              // Healthcare / Clinics / Hospitals / Medical / Diagnostics / Medtech / Wellness / Pharmaceuticals
+              keywords: ["healthcare", "clinic", "hospital", "medical", "diagnostic", "medtech", "wellness", "health", "pharma", "pharmaceutical"],
+              image: "./assets/industries/education.webp",
+              link: "#",
+              description: "At Pixelate Nest, we build patient portals, clinic management systems, appointment booking tools, telemedicine platforms, and healthcare websites for medical businesses in {city} to improve accessibility and quality of care.",
+            },
+            {
+              // Government / Public Sector / Public Services
+              keywords: ["government", "public sector", "public service"],
+              image: "./assets/industries/realestate.webp",
+              link: "#",
+              description: "At Pixelate Nest, we develop digital platforms and citizen service portals for government and public sector organisations in {city}, helping streamline administration, improve transparency, and enhance public access to services.",
+            },
+            {
+              // Agriculture / Agribusiness / Tea & Agriculture / Retail & Agriculture
+              keywords: ["agriculture", "agri", "farm", "tea &", "crop", "dairy"],
+              image: "./assets/industries/manufacture.webp",
+              link: "#",
+              description: "At Pixelate Nest, we develop digital tools for the agriculture and agribusiness sector in {city}, including farm management systems, supply chain platforms, and e-commerce solutions for agricultural products to help farmers and businesses reach wider markets.",
+            },
+          ];
+
+          function getIndustryAsset(industryName, cityName) {
+            const lower = industryName.toLowerCase();
+            for (const asset of industryAssets) {
+              if (asset.keywords.some((k) => lower.includes(k))) {
+                return {
+                  image: asset.image,
+                  link: asset.link,
+                  description: asset.description.replace("{city}", cityName),
+                };
+              }
+            }
+            return {
+              image: "./assets/industries/ecommerce.webp",
+              link: "#",
+              description: `We deliver tailored digital solutions for the ${industryName} sector in ${cityName}, helping businesses grow with modern technology.`,
+            };
+          }
+
+          if (city.industries && city.industries.length) {
+            city.industries.forEach((industry) => {
+              const mapped = getIndustryAsset(industry, city.city);
+              const el = document.createElement("div");
+              el.className = "service-item";
+              el.innerHTML = `
+                <img src="${mapped.image}" alt="${industry} in ${city.city}" loading="lazy" />
+                <div class="service-caption">${industry}</div>
+                <div class="service-description">${mapped.description}</div>
+                <a href="${mapped.link}">
+                  <span style="text-decoration:none;color:var(--secondary-900)">Learn More</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              `;
+              industriesGrid.appendChild(el);
+            });
+          }
 
           const schema = {
             "@context": "https://schema.org",
@@ -842,8 +964,8 @@
                 "@type": "Offer",
                 itemOffered: {
                   "@type": "Service",
-                  name: service,
-                  description: `Professional ${service} services in ${city.city}`,
+                  name: service.name,
+                  description: service.description,
                 },
               })),
             },
@@ -901,8 +1023,7 @@
                       class="fas fa-map-marker-alt"
                       style="margin-right: 8px"
                     ></i
-                    >Muzaffarpur, Bihar, India — Serving clients across India &
-                    globally
+                    >Kala Bhawan Akharaghat Road, Muzaffarpur, Bihar, 842001
                   </p>
                 </div>
               </div>
