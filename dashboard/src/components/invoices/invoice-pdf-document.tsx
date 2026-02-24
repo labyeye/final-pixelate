@@ -5,309 +5,279 @@ import {
   Text,
   View,
   StyleSheet,
-  Font,
   Image,
 } from "@react-pdf/renderer";
 import logo from "../../assets/images/Logo_Color_Name_Large.png";
-
-// Create styles
-const styles = StyleSheet.create({
+const S = StyleSheet.create({
   page: {
-    padding: "15mm 20mm",
     fontFamily: "Helvetica",
-    color: "#333",
+    fontSize: 9,
+    color: "#111",
     backgroundColor: "#fff",
+    paddingTop: 18,
+    paddingBottom: 18,
+    paddingLeft: 22,
+    paddingRight: 22,
   },
-  container: {
-    width: "100%",
-    maxWidth: "210mm",
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    marginBottom: 20,
-  },
-  companySection: {
-    flexDirection: "row",
+  outerBorder: { border: "1.5pt solid #222" },
+  titleBar: {
+    borderBottom: "1.5pt solid #222",
+    paddingVertical: 5,
     alignItems: "center",
-    gap: 12,
   },
-  companyText: {
-    gap: 2,
+  titleText: {
+    fontSize: 13,
+    fontFamily: "Helvetica-Bold",
+    letterSpacing: 2,
+    color: "#111",
   },
-  companyName: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#044bab",
+  originalCopy: { fontSize: 7, color: "#666", marginTop: 1 },
+
+  // Header: company + meta
+  headerRow: { flexDirection: "row", borderBottom: "1pt solid #222" },
+  companyBlock: { flex: 1, padding: 8, borderRight: "1pt solid #222" },
+  logo: { width: 150, height: 50, objectFit: "contain", marginBottom: 4 },
+  companyLine: { fontSize: 8, color: "#333", marginBottom: 1 },
+  companyGst: {
+    fontSize: 8,
+    fontFamily: "Helvetica-Bold",
+    color: "#111",
+    marginTop: 3,
+    marginBottom: 1,
   },
-  companySubtitle: {
-    fontSize: 12,
-    color: "#666",
+  metaBlock: { width: 195, padding: 8 },
+  metaRow: { flexDirection: "row", marginBottom: 4, alignItems: "flex-start" },
+  metaLabel: {
+    width: 80,
+    fontSize: 8,
+    fontFamily: "Helvetica-Bold",
+    color: "#444",
   },
-  invoiceTitle: {
-    fontSize: 26,
-    fontWeight: "bold",
-    color: "#044bab",
-    textAlign: "right",
-    marginBottom: 8,
-  },
-  statusSection: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    marginBottom: 8,
-  },
+  metaValue: { flex: 1, fontSize: 8, color: "#111" },
   statusBadge: {
-    padding: "6 12",
-    borderRadius: 4,
-    fontWeight: "bold",
-    fontSize: 12,
-    color: "#fff",
-    marginBottom: 4,
+    paddingVertical: 2,
+    paddingHorizontal: 7,
+    alignSelf: "flex-start",
   },
-  amountInfo: {
-    fontSize: 11,
+
+  // Party
+  partyRow: { flexDirection: "row", borderBottom: "1pt solid #222" },
+  partyBlock: { flex: 1, padding: 8 },
+  partyBlockRight: { flex: 1, padding: 8, borderLeft: "1pt solid #222" },
+  partyLabel: {
+    fontSize: 7,
+    fontFamily: "Helvetica-Bold",
     color: "#666",
-    textAlign: "right",
-  },
-  infoSection: {
-    marginTop: 4,
-  },
-  infoRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    fontSize: 11,
-    color: "#666",
-    marginBottom: 2,
-  },
-  infoLabel: {
-    fontWeight: "bold",
-  },
-  fromToSection: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 30,
-    gap: 30,
-  },
-  section: {
-    flex: 1,
-  },
-  sectionTitle: {
-    fontSize: 11,
-    fontWeight: "bold",
-    color: "#044bab",
     textTransform: "uppercase",
-    marginBottom: 6,
+    marginBottom: 3,
+    letterSpacing: 0.5,
   },
-  companyDetails: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "#333",
+  partyName: {
+    fontSize: 10,
+    fontFamily: "Helvetica-Bold",
+    color: "#111",
     marginBottom: 2,
   },
-  companyLogo: {
-    width: 256,
-    height: 92,
-  },
-  detailsText: {
-    fontSize: 11,
-    color: "#666",
-    marginBottom: 2,
-  },
-  clientName: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "#333",
-    marginBottom: 4,
-  },
-  table: {
-    width: "100%",
-    marginBottom: 30,
-  },
+  partyLine: { fontSize: 8, color: "#333", marginBottom: 1 },
+
+  // Table
+  tableContainer: { borderBottom: "1pt solid #222" },
   tableHeader: {
     flexDirection: "row",
-    backgroundColor: "#044bab",
-    padding: "10 12",
-    color: "#fff",
+    backgroundColor: "#ececec",
+    borderBottom: "1pt solid #222",
+    paddingVertical: 5,
+    paddingHorizontal: 0,
   },
-  headerCell: {
-    flex: 1,
-    fontSize: 11,
-    fontWeight: "bold",
-  },
+  colSno: { width: 24, paddingHorizontal: 3, textAlign: "center" },
+  colDesc: { flex: 1, paddingHorizontal: 4 },
+  colHsn: { width: 52, paddingHorizontal: 3, textAlign: "center" },
+  colQty: { width: 30, paddingHorizontal: 3, textAlign: "center" },
+  colUnit: { width: 28, paddingHorizontal: 3, textAlign: "center" },
+  colRate: { width: 62, paddingHorizontal: 4, textAlign: "right" },
+  colDis: { width: 42, paddingHorizontal: 3, textAlign: "right" },
+  colAmt: { width: 70, paddingHorizontal: 4, textAlign: "right" },
+  thText: { fontSize: 7.5, fontFamily: "Helvetica-Bold", color: "#333" },
   tableRow: {
     flexDirection: "row",
-    padding: "10 12",
-    borderBottom: "1px solid #eee",
+    borderBottom: "0.5pt solid #ddd",
+    paddingVertical: 5,
+    minHeight: 22,
   },
-  cell: {
-    flex: 1,
-    fontSize: 12,
-    textAlign: "center",
-  },
-  cellNumber: {
-    flex: 0.5,
-    fontSize: 12,
-    textAlign: "center",
-  },
-  cellRight: {
-    flex: 1,
-    fontSize: 12,
-    textAlign: "right",
-  },
-  workDetails: {
-    marginBottom: 20,
-    padding: 12,
-    border: "1px solid #eee",
-    borderRadius: 6,
-  },
-  workDetailsTitle: {
-    fontSize: 12,
-    fontWeight: "bold",
-    color: "#044bab",
-    marginBottom: 8,
-  },
-  workDetailsContent: {
-    fontSize: 11,
-    color: "#333",
-    lineHeight: 1.4,
-  },
-  summarySection: {
+  tableRowAlt: { backgroundColor: "#fafafa" },
+  tdText: { fontSize: 8, color: "#111" },
+  tdDesc: { fontSize: 8, color: "#111" },
+  tdDescSub: { fontSize: 7, color: "#777", marginTop: 1 },
+  emptyRow: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    gap: 40,
-    marginBottom: 30,
+    borderBottom: "0.5pt solid #ddd",
+    height: 18,
   },
-  notesSection: {
-    flex: 1,
+
+  // Amount in words
+  amountWords: {
+    flexDirection: "row",
+    paddingVertical: 5,
+    paddingHorizontal: 8,
+    borderBottom: "1pt solid #222",
+    backgroundColor: "#f9f9f9",
   },
-  notesTitle: {
-    fontSize: 11,
-    fontWeight: "bold",
-    color: "#044bab",
+  amountWordsLabel: {
+    fontSize: 7.5,
+    fontFamily: "Helvetica-Bold",
+    color: "#444",
+    marginRight: 6,
+  },
+  amountWordsValue: { fontSize: 7.5, color: "#111", flex: 1 },
+
+  // Bottom
+  bottomSection: { flexDirection: "row", borderBottom: "1pt solid #222" },
+  bottomLeft: { flex: 1, borderRight: "1pt solid #222", padding: 8 },
+  sectionLabel: {
+    fontSize: 7.5,
+    fontFamily: "Helvetica-Bold",
+    color: "#444",
     textTransform: "uppercase",
-    marginBottom: 10,
+    marginBottom: 4,
+    letterSpacing: 0.5,
   },
-  notesContent: {
-    fontSize: 11,
-    color: "#666",
-    lineHeight: 1.5,
-  },
-  totalsBox: {
-    width: 280,
-    padding: 15,
-    border: "1px solid #eee",
-  },
+  bankLine: { fontSize: 8, color: "#111", marginBottom: 2 },
+  notesText: { fontSize: 7.5, color: "#666", lineHeight: 1.4 },
+  dividerH: { borderBottom: "0.5pt solid #ddd", marginVertical: 6 },
+  bottomRight: { width: 215, padding: 0 },
   totalRow: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 8,
+    paddingVertical: 4,
+    paddingHorizontal: 10,
+    borderBottom: "0.5pt solid #ddd",
   },
-  totalLabel: {
-    fontSize: 12,
-    color: "#666",
-  },
-  totalValue: {
-    fontSize: 12,
-    fontWeight: "bold",
-    color: "#333",
-  },
-  finalTotal: {
-    paddingTop: 12,
-    borderTop: "2px solid #044bab",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  finalTotalLabel: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "#044bab",
-  },
-  finalTotalValue: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#044bab",
-  },
-  footer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    gap: 20,
-    marginBottom: 20,
-    paddingTop: 20,
-    borderTop: "1px solid #eee",
-  },
-  footerSection: {
+  totalLabel: { flex: 1, fontSize: 8, color: "#555" },
+  totalValue: { width: 85, fontSize: 8, textAlign: "right", color: "#111" },
+  totalLabelBold: {
     flex: 1,
+    fontSize: 9,
+    fontFamily: "Helvetica-Bold",
+    color: "#111",
   },
-  footerTitle: {
-    fontSize: 11,
-    fontWeight: "bold",
-    color: "#044bab",
-    textTransform: "uppercase",
-    marginBottom: 8,
+  totalValueBold: {
+    width: 85,
+    fontSize: 9,
+    fontFamily: "Helvetica-Bold",
+    textAlign: "right",
   },
-  footerContent: {
-    fontSize: 11,
+  grandTotalRow: {
+    flexDirection: "row",
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    backgroundColor: "#111",
+  },
+  grandTotalLabel: {
+    flex: 1,
+    fontSize: 10,
+    fontFamily: "Helvetica-Bold",
+    color: "#fff",
+  },
+  grandTotalValue: {
+    width: 85,
+    fontSize: 10,
+    fontFamily: "Helvetica-Bold",
+    textAlign: "right",
+    color: "#fff",
+  },
+
+  // Tax table
+  taxSection: { borderBottom: "1pt solid #222" },
+  taxHeader: {
+    flexDirection: "row",
+    backgroundColor: "#ececec",
+    borderBottom: "0.5pt solid #222",
+    paddingVertical: 4,
+    paddingHorizontal: 4,
+  },
+  taxRow: {
+    flexDirection: "row",
+    borderBottom: "0.5pt solid #ddd",
+    paddingVertical: 4,
+    paddingHorizontal: 4,
+  },
+  taxTotalRow: {
+    flexDirection: "row",
+    paddingVertical: 4,
+    paddingHorizontal: 4,
+    backgroundColor: "#f0f0f0",
+  },
+  taxColW: { width: 90, fontSize: 7.5 },
+  taxColN: { flex: 1, fontSize: 7.5, textAlign: "right" },
+  taxColNH: {
+    flex: 1,
+    fontSize: 7.5,
+    fontFamily: "Helvetica-Bold",
+    textAlign: "right",
+  },
+
+  // Signature/declaration
+  footerSection: { flexDirection: "row", borderBottom: "1pt solid #222" },
+  declarationBlock: { flex: 1, padding: 8, borderRight: "1pt solid #222" },
+  signatureBlock: { width: 210, padding: 8, alignItems: "flex-end" },
+  declarationText: {
+    fontSize: 7.5,
     color: "#666",
     lineHeight: 1.5,
-  },
-  signatureSection: {
-    alignItems: "center",
+    marginTop: 4,
   },
   signatureLine: {
-    width: "100%",
-    height: 1,
-    backgroundColor: "#044bab",
-    opacity: 0.5,
-    marginBottom: 6,
+    width: 150,
+    borderTop: "1pt solid #222",
+    marginTop: 32,
+    marginBottom: 4,
   },
-  signatureName: {
-    fontSize: 12,
-    fontWeight: "bold",
-    color: "#333",
+  signatureFor: {
+    fontSize: 8,
+    fontFamily: "Helvetica-Bold",
+    color: "#111",
+    textAlign: "right",
   },
-  signatureTitle: {
-    fontSize: 11,
-    color: "#666",
-  },
-  terms: {
-    fontSize: 10,
-    color: "#666",
-    textAlign: "center",
-    paddingTop: 15,
-    borderTop: "1px solid #eee",
-  },
+  signatureTitle: { fontSize: 7.5, color: "#666", textAlign: "right" },
+
+  // Footer note
+  footerNote: { paddingVertical: 5, alignItems: "center" },
+  footerNoteText: { fontSize: 7.5, color: "#888" },
 });
 
-// Helper functions
-const formatCurrency = (amount: number) => {
-  return `Rs. ${amount.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-};
-const formatDate = (date: string | Date) => {
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+const fmt = (n: number) =>
+  `Rs. ${Number(n || 0).toLocaleString("en-IN", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}`;
+
+const fmtDate = (v: any) => {
+  if (!v) return "—";
   try {
-    const d = new Date(date);
-    return d.toLocaleDateString("en-IN", {
-      day: "numeric",
+    return new Date(v).toLocaleDateString("en-IN", {
+      day: "2-digit",
       month: "short",
       year: "numeric",
     });
-  } catch (e) {
-    return String(date || "");
+  } catch {
+    return String(v);
   }
 };
 
-const getItems = (invoice: any) => {
+const getItems = (invoice: any): any[] => {
   if (!invoice) return [];
   if (Array.isArray(invoice.items) && invoice.items.length)
     return invoice.items;
   if (Array.isArray(invoice.lineItems) && invoice.lineItems.length)
     return invoice.lineItems;
-  if (invoice.amount && !Array.isArray(invoice.items)) {
+  if (invoice.amount) {
     return [
       {
-        description: invoice.title || invoice.projectTitle || "Service",
+        description:
+          invoice.title || invoice.projectTitle || "Professional Services",
+        hsn: "",
         quantity: 1,
+        unit: "Nos",
         price: Number(invoice.amount),
         unitPrice: Number(invoice.amount),
         amount: Number(invoice.amount),
@@ -317,6 +287,74 @@ const getItems = (invoice: any) => {
   return [];
 };
 
+function numToWords(n: number): string {
+  const a = [
+    "",
+    "One",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine",
+    "Ten",
+    "Eleven",
+    "Twelve",
+    "Thirteen",
+    "Fourteen",
+    "Fifteen",
+    "Sixteen",
+    "Seventeen",
+    "Eighteen",
+    "Nineteen",
+  ];
+  const b = [
+    "",
+    "",
+    "Twenty",
+    "Thirty",
+    "Forty",
+    "Fifty",
+    "Sixty",
+    "Seventy",
+    "Eighty",
+    "Ninety",
+  ];
+  if (n === 0) return "Zero";
+  const w = (x: number): string => {
+    if (x < 20) return a[x] || "";
+    if (x < 100) return b[Math.floor(x / 10)] + (x % 10 ? " " + a[x % 10] : "");
+    if (x < 1000)
+      return (
+        a[Math.floor(x / 100)] + " Hundred" + (x % 100 ? " " + w(x % 100) : "")
+      );
+    if (x < 100000)
+      return (
+        w(Math.floor(x / 1000)) +
+        " Thousand" +
+        (x % 1000 ? " " + w(x % 1000) : "")
+      );
+    if (x < 10000000)
+      return (
+        w(Math.floor(x / 100000)) +
+        " Lakh" +
+        (x % 100000 ? " " + w(x % 100000) : "")
+      );
+    return (
+      w(Math.floor(x / 10000000)) +
+      " Crore" +
+      (x % 10000000 ? " " + w(x % 10000000) : "")
+    );
+  };
+  const paise = Math.round((n % 1) * 100);
+  let res = w(Math.floor(n)) + " Rupees";
+  if (paise > 0) res += " and " + w(paise) + " Paise";
+  return res + " Only";
+}
+
+// ─── Main Component ───────────────────────────────────────────────────────────
 export function InvoicePDFDocument({
   invoice,
   client,
@@ -325,244 +363,458 @@ export function InvoicePDFDocument({
   client?: any;
 }) {
   const items = getItems(invoice);
+
+  // ── Calculations ──
   const subtotal = items.reduce((s: number, it: any) => {
     const qty = Number(it?.quantity ?? it?.qty ?? 1);
-    const price = Number(it?.price ?? it?.unitPrice ?? it?.amount ?? 0);
-    return s + qty * price;
+    const rate = Number(it?.price ?? it?.unitPrice ?? it?.amount ?? 0);
+    return s + qty * rate;
   }, 0);
 
   const discount = Number(invoice?.discount ?? 0) || 0;
-  const tax = Number(invoice?.tax ?? 0) || 0;
-  const total = subtotal - discount + tax;
-  const paidAmount = Number(invoice?.paidAmount ?? invoice?.paid ?? 0) || 0;
+  const taxable = subtotal - discount;
+  const gstPct = Number(invoice?.gstPercent ?? invoice?.gst_percent ?? 0);
+  const taxAmt =
+    gstPct > 0 ? (taxable * gstPct) / 100 : Number(invoice?.tax ?? 0) || 0;
 
-  let status = "DUE";
-  let statusColor = "#044bab";
+  const isInterState = !!(
+    client?.state && client.state.trim().toLowerCase() !== "bihar"
+  );
+  const cgst = isInterState ? 0 : taxAmt / 2;
+  const sgst = isInterState ? 0 : taxAmt / 2;
+  const igst = isInterState ? taxAmt : 0;
+
+  const total = taxable + taxAmt;
+  const paidAmount = Number(invoice?.paidAmount ?? invoice?.paid ?? 0) || 0;
+  const balance = total - paidAmount;
 
   const isPaid =
-    invoice?.status === "PAID" || (paidAmount >= total - 1 && total > 0);
+    invoice?.status === "PAID" || (paidAmount >= total - 0.5 && total > 0);
+  const isPartial = !isPaid && paidAmount > 0;
+  const statusColor = isPaid ? "#16a34a" : isPartial ? "#d97706" : "#dc2626";
+  const statusLabel = isPaid ? "PAID" : isPartial ? "PARTIAL" : "UNPAID";
 
-  if (isPaid) {
-    status = "PAID";
-    statusColor = "#16a34a";
-  } else if (paidAmount > 0 && paidAmount < total) {
-    status = "PARTIAL";
-    statusColor = "#f59e0b";
-  }
-
+  // ── Client fields ──
   const clientName =
-    client?.name || invoice?.clientName || invoice?.client || "Client";
+    client?.name || invoice?.clientName || invoice?.client || "—";
   const clientAddress = client?.address || invoice?.clientAddress || "";
+  const clientCity = client?.city || invoice?.clientCity || "";
+  const clientState = client?.state || invoice?.clientState || "";
+  const clientPin = client?.pin || invoice?.clientPin || "";
+  const clientGst = client?.gst || invoice?.clientGst || client?.gstin || "";
   const clientEmail = client?.email || invoice?.clientEmail || "";
   const clientPhone = client?.phone || invoice?.clientPhone || "";
+  const fullAddress = [clientAddress, clientCity, clientState, clientPin]
+    .filter(Boolean)
+    .join(", ");
+
+  const invNo = invoice?.invoiceNo ?? invoice?.id ?? invoice?._id ?? "—";
+  const invDate = fmtDate(invoice?.createdAt ?? new Date());
+  const dueDate = invoice?.dueDate ? fmtDate(invoice.dueDate) : "On Receipt";
+
+  const MIN_ROWS = 6;
+  const emptyRowCount = Math.max(0, MIN_ROWS - items.length);
 
   return (
     <Document>
-      <Page size="A4" style={styles.page}>
-        <View style={styles.container}>
-          {/* Header */}
-          <View style={styles.header}>
-            <View style={styles.companySection}>
-              <View style={styles.companyText}>
-                <Image
-                  src={typeof logo === "string" ? logo : logo.src}
-                  style={styles.companyLogo}
-                />
-                <Text style={styles.companySubtitle}>
-                  Kalahanu Tech Studios
-                </Text>
-              </View>
-            </View>
-
-            <View>
-              <Text style={styles.invoiceTitle}>TAX INVOICE</Text>
-              <View style={styles.statusSection}>
-                {/* <View
-                  style={[styles.statusBadge, { backgroundColor: statusColor }]}
-                >
-                  <Text>{status}</Text>
-                </View> */}
-                <View style={styles.amountInfo}>
-                  <Text>Paid: {formatCurrency(paidAmount)}</Text>
-                  <Text>Total: {formatCurrency(total)}</Text>
-                </View>
-              </View>
-              <View style={styles.infoSection}>
-                <View style={styles.infoRow}>
-                  <Text style={styles.infoLabel}>Invoice #:</Text>
-                  <Text>
-                    {invoice?.invoiceNo ?? invoice?.id ?? invoice?._id}
-                  </Text>
-                </View>
-                <View style={styles.infoRow}>
-                  <Text style={styles.infoLabel}>Date:</Text>
-                  <Text>{formatDate(invoice?.createdAt ?? Date.now())}</Text>
-                </View>
-                <View style={styles.infoRow}>
-                  <Text style={styles.infoLabel}>Due:</Text>
-                  <Text>
-                    {invoice?.dueDate
-                      ? formatDate(invoice.dueDate)
-                      : "On receipt"}
-                  </Text>
-                </View>
-              </View>
-            </View>
+      <Page size="A4" style={S.page}>
+        <View style={S.outerBorder}>
+          {/* 1. Title */}
+          <View style={S.titleBar}>
+            <Text style={S.titleText}>TAX INVOICE</Text>
+            <Text style={S.originalCopy}>Original for Recipient</Text>
           </View>
 
-          {/* From and To Sections */}
-          <View style={styles.fromToSection}>
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>FROM</Text>
-              <Text style={styles.companyDetails}>
+          {/* 2. Company block + Invoice meta */}
+          <View style={S.headerRow}>
+            <View style={S.companyBlock}>
+              <Image
+                src={typeof logo === "string" ? logo : (logo as any).src}
+                style={S.logo}
+              />
+              <Text
+                style={[
+                  S.companyLine,
+                  { fontFamily: "Helvetica-Bold", fontSize: 9 },
+                ]}
+              >
                 Kalahanu Tech Studios LLP
               </Text>
-              <Text style={styles.detailsText}>GST: 10AADCK1491R2ZB</Text>
-              <Text style={styles.detailsText}>
-                Kala Bhawan, Akharaghat Road
+              <Text style={S.companyLine}>
+                Kala Bhawan, Akharaghat Road, Muzaffarpur, Bihar – 842001
               </Text>
-              <Text style={styles.detailsText}>
-                Muzaffarpur, Bihar - 842001
+              <Text style={S.companyLine}>
+                Email: support@pixelatenest.com | Phone: +91 84069 12345
+              </Text>
+              <Text style={S.companyLine}>Website: pixelatenest.com</Text>
+              <Text style={S.companyGst}>GSTIN: 10AADCK1491R2ZB</Text>
+              <Text style={S.companyLine}>
+                PAN: AADCK1491R | State: Bihar (Code: 10)
               </Text>
             </View>
 
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>BILL TO</Text>
-              <Text style={styles.clientName}>{clientName}</Text>
-              {clientAddress ? (
-                <Text style={styles.detailsText}>{clientAddress}</Text>
+            <View style={S.metaBlock}>
+              <View style={S.metaRow}>
+                <Text style={S.metaLabel}>Invoice No.</Text>
+                <Text style={S.metaValue}>: {invNo}</Text>
+              </View>
+              <View style={S.metaRow}>
+                <Text style={S.metaLabel}>Invoice Date</Text>
+                <Text style={S.metaValue}>: {invDate}</Text>
+              </View>
+              <View style={S.metaRow}>
+                <Text style={S.metaLabel}>Due Date</Text>
+                <Text style={S.metaValue}>: {dueDate}</Text>
+              </View>
+              {invoice?.poNumber ? (
+                <View style={S.metaRow}>
+                  <Text style={S.metaLabel}>PO / Ref No.</Text>
+                  <Text style={S.metaValue}>: {invoice.poNumber}</Text>
+                </View>
+              ) : null}
+              <View style={S.metaRow}>
+                <Text style={S.metaLabel}>Place of Supply</Text>
+                <Text style={S.metaValue}>: {clientState || "Bihar (10)"}</Text>
+              </View>
+              <View style={S.metaRow}>
+                <Text style={S.metaLabel}>Reverse Charge</Text>
+                <Text style={S.metaValue}>: No</Text>
+              </View>
+              <View style={[S.metaRow, { marginTop: 6 }]}>
+                <Text style={S.metaLabel}>Status</Text>
+                <View style={[S.statusBadge, { backgroundColor: statusColor }]}>
+                  <Text
+                    style={{
+                      fontSize: 8,
+                      fontFamily: "Helvetica-Bold",
+                      color: "#fff",
+                    }}
+                  >
+                    {statusLabel}
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+
+          {/* 3. Bill To / Ship To */}
+          <View style={S.partyRow}>
+            <View style={S.partyBlock}>
+              <Text style={S.partyLabel}>Bill To</Text>
+              <Text style={S.partyName}>{clientName}</Text>
+              {fullAddress ? (
+                <Text style={S.partyLine}>{fullAddress}</Text>
               ) : null}
               {clientEmail ? (
-                <Text style={styles.detailsText}>{clientEmail}</Text>
+                <Text style={S.partyLine}>Email: {clientEmail}</Text>
               ) : null}
               {clientPhone ? (
-                <Text style={styles.detailsText}>{clientPhone}</Text>
+                <Text style={S.partyLine}>Phone: {clientPhone}</Text>
+              ) : null}
+              {clientGst ? (
+                <Text style={[S.partyLine, { fontFamily: "Helvetica-Bold" }]}>
+                  GSTIN: {clientGst}
+                </Text>
+              ) : null}
+            </View>
+
+            <View style={S.partyBlockRight}>
+              <Text style={S.partyLabel}>Ship To / Deliver To</Text>
+              <Text style={S.partyName}>{clientName}</Text>
+              {fullAddress ? (
+                <Text style={S.partyLine}>{fullAddress}</Text>
               ) : null}
             </View>
           </View>
 
-          {/* Items Table */}
-          <View style={styles.table}>
-            <View style={styles.tableHeader}>
-              <Text
-                style={[styles.headerCell, { flex: 0.5, textAlign: "center" }]}
-              >
-                #
+          {/* 4. Items Table */}
+          <View style={S.tableContainer}>
+            {/* Header */}
+            <View style={S.tableHeader}>
+              <Text style={[S.thText, S.colSno]}>S.No</Text>
+              <Text style={[S.thText, S.colDesc]}>
+                Description of Services / Goods
               </Text>
-              <Text style={[styles.headerCell, { textAlign: "center" }]}>
-                Description
-              </Text>
-              <Text style={[styles.headerCell, { textAlign: "right" }]}>
-                Qty
-              </Text>
-              <Text style={[styles.headerCell, { textAlign: "right" }]}>
-                Unit Price
-              </Text>
-              <Text style={[styles.headerCell, { textAlign: "right" }]}>
-                Amount
-              </Text>
+              <Text style={[S.thText, S.colHsn]}>HSN/SAC</Text>
+              <Text style={[S.thText, S.colQty]}>Qty</Text>
+              <Text style={[S.thText, S.colUnit]}>Unit</Text>
+              <Text style={[S.thText, S.colRate]}>Rate (Rs.)</Text>
+              <Text style={[S.thText, S.colDis]}>Disc.</Text>
+              <Text style={[S.thText, S.colAmt]}>Amount (Rs.)</Text>
             </View>
 
-            {items.slice(0, 8).map((item: any, index: number) => {
+            {/* Data rows */}
+            {items.map((item: any, idx: number) => {
               const qty = Number(item?.quantity ?? item?.qty ?? 1);
-              const unitPrice = Number(
+              const rate = Number(
                 item?.price ?? item?.unitPrice ?? item?.amount ?? 0,
               );
-              const amount = qty * unitPrice;
-
+              const itemDisc = Number(item?.discount ?? 0);
+              const amt = qty * rate - itemDisc;
+              const hsn = item?.hsn ?? item?.sac ?? item?.hsnCode ?? "998314";
+              const unit = item?.unit ?? "Nos";
               return (
-                <View key={index} style={styles.tableRow}>
-                  <Text style={styles.cellNumber}>{index + 1}</Text>
-                  <Text style={styles.cell}>
-                    {item?.description || item?.name || "Service"}
+                <View
+                  key={idx}
+                  style={[S.tableRow, idx % 2 === 1 ? S.tableRowAlt : {}]}
+                >
+                  <Text style={[S.tdText, S.colSno]}>{idx + 1}</Text>
+                  <View style={S.colDesc}>
+                    <Text style={S.tdDesc}>
+                      {item?.description ||
+                        item?.name ||
+                        "Professional Service"}
+                    </Text>
+                    {item?.details ? (
+                      <Text style={S.tdDescSub}>{item.details}</Text>
+                    ) : null}
+                  </View>
+                  <Text style={[S.tdText, S.colHsn]}>{hsn}</Text>
+                  <Text style={[S.tdText, S.colQty]}>{qty}</Text>
+                  <Text style={[S.tdText, S.colUnit]}>{unit}</Text>
+                  <Text style={[S.tdText, S.colRate]}>{fmt(rate)}</Text>
+                  <Text style={[S.tdText, S.colDis]}>
+                    {itemDisc > 0 ? fmt(itemDisc) : "—"}
                   </Text>
-                  <Text style={styles.cellRight}>{qty}</Text>
-                  <Text style={styles.cellRight}>
-                    {formatCurrency(unitPrice)}
-                  </Text>
-                  <Text style={styles.cellRight}>{formatCurrency(amount)}</Text>
+                  <Text style={[S.tdText, S.colAmt]}>{fmt(amt)}</Text>
                 </View>
               );
             })}
+
+            {/* Empty filler rows */}
+            {Array.from({ length: emptyRowCount }).map((_, i) => (
+              <View key={`e${i}`} style={S.emptyRow}>
+                <Text style={[S.tdText, S.colSno]}> </Text>
+                <Text style={[S.tdText, S.colDesc]}> </Text>
+                <Text style={[S.tdText, S.colHsn]}> </Text>
+                <Text style={[S.tdText, S.colQty]}> </Text>
+                <Text style={[S.tdText, S.colUnit]}> </Text>
+                <Text style={[S.tdText, S.colRate]}> </Text>
+                <Text style={[S.tdText, S.colDis]}> </Text>
+                <Text style={[S.tdText, S.colAmt]}> </Text>
+              </View>
+            ))}
           </View>
 
-          {/* Summary Section */}
-          <View style={styles.summarySection}>
-            <View style={styles.notesSection}>
-              <Text style={styles.notesTitle}>NOTES</Text>
-              <Text style={styles.notesContent}>
+          {/* 5. Amount in Words */}
+          <View style={S.amountWords}>
+            <Text style={S.amountWordsLabel}>Amount in Words:</Text>
+            <Text style={S.amountWordsValue}>
+              {numToWords(Math.round(total))}
+            </Text>
+          </View>
+
+          {/* 6. Bank Details + Totals */}
+          <View style={S.bottomSection}>
+            <View style={S.bottomLeft}>
+              <Text style={S.sectionLabel}>Bank Details</Text>
+              <Text style={S.bankLine}>Bank Name : HDFC Bank Pvt. Ltd.</Text>
+              <Text style={S.bankLine}>Account No. : 50200012345678</Text>
+              <Text style={S.bankLine}>
+                Account Name : Kalahanu Tech Studios LLP
+              </Text>
+              <Text style={S.bankLine}>IFSC Code : HDFC0001234</Text>
+              <Text style={S.bankLine}>Branch : Muzaffarpur, Bihar</Text>
+              <Text style={S.bankLine}>Account Type : Current</Text>
+
+              <View style={S.dividerH} />
+
+              <Text style={S.sectionLabel}>Terms &amp; Notes</Text>
+              <Text style={S.notesText}>
                 {invoice?.notes ||
-                  "Payment due within 30 days of invoice date. Please include invoice number with payment."}
+                  "1. Payment is due within 30 days of invoice date.\n" +
+                    "2. Quote invoice number in all payment references.\n" +
+                    "3. Goods/services remain property of Pixelate Nest until paid in full.\n" +
+                    "4. Interest @ 18% p.a. charged on overdue amounts."}
               </Text>
             </View>
 
-            <View style={styles.totalsBox}>
-              <View style={styles.totalRow}>
-                <Text style={styles.totalLabel}>Subtotal</Text>
-                <Text style={styles.totalValue}>
-                  {formatCurrency(subtotal)}
-                </Text>
+            <View style={S.bottomRight}>
+              <View style={S.totalRow}>
+                <Text style={S.totalLabel}>Subtotal</Text>
+                <Text style={S.totalValue}>{fmt(subtotal)}</Text>
               </View>
-
               {discount > 0 && (
-                <View style={styles.totalRow}>
-                  <Text style={styles.totalLabel}>Discount</Text>
-                  <Text style={styles.totalValue}>
-                    - {formatCurrency(discount)}
-                  </Text>
+                <View style={S.totalRow}>
+                  <Text style={S.totalLabel}>(-) Discount</Text>
+                  <Text style={S.totalValue}>{fmt(discount)}</Text>
                 </View>
               )}
-
-              {tax > 0 && (
-                <View style={styles.totalRow}>
-                  <Text style={styles.totalLabel}>Tax</Text>
-                  <Text style={styles.totalValue}>{formatCurrency(tax)}</Text>
-                </View>
+              <View style={S.totalRow}>
+                <Text style={S.totalLabel}>Taxable Amount</Text>
+                <Text style={S.totalValue}>{fmt(taxable)}</Text>
+              </View>
+              {isInterState ? (
+                igst > 0 ? (
+                  <View style={S.totalRow}>
+                    <Text style={S.totalLabel}>
+                      IGST ({gstPct > 0 ? gstPct : "—"}%)
+                    </Text>
+                    <Text style={S.totalValue}>{fmt(igst)}</Text>
+                  </View>
+                ) : null
+              ) : (
+                <>
+                  {cgst > 0 && (
+                    <View style={S.totalRow}>
+                      <Text style={S.totalLabel}>
+                        CGST ({gstPct > 0 ? gstPct / 2 : "—"}%)
+                      </Text>
+                      <Text style={S.totalValue}>{fmt(cgst)}</Text>
+                    </View>
+                  )}
+                  {sgst > 0 && (
+                    <View style={S.totalRow}>
+                      <Text style={S.totalLabel}>
+                        SGST ({gstPct > 0 ? gstPct / 2 : "—"}%)
+                      </Text>
+                      <Text style={S.totalValue}>{fmt(sgst)}</Text>
+                    </View>
+                  )}
+                  {taxAmt > 0 && cgst === 0 && sgst === 0 && (
+                    <View style={S.totalRow}>
+                      <Text style={S.totalLabel}>Tax</Text>
+                      <Text style={S.totalValue}>{fmt(taxAmt)}</Text>
+                    </View>
+                  )}
+                </>
               )}
+              <View style={S.grandTotalRow}>
+                <Text style={S.grandTotalLabel}>GRAND TOTAL</Text>
+                <Text style={S.grandTotalValue}>{fmt(total)}</Text>
+              </View>
+              {paidAmount > 0 && (
+                <>
+                  <View style={S.totalRow}>
+                    <Text style={S.totalLabel}>(-) Amount Paid</Text>
+                    <Text style={S.totalValue}>{fmt(paidAmount)}</Text>
+                  </View>
+                  <View
+                    style={[
+                      S.totalRow,
+                      { backgroundColor: balance > 0 ? "#fff5f5" : "#f0fdf4" },
+                    ]}
+                  >
+                    <Text style={S.totalLabelBold}>Balance Due</Text>
+                    <Text
+                      style={[
+                        S.totalValueBold,
+                        { color: balance > 0 ? "#dc2626" : "#16a34a" },
+                      ]}
+                    >
+                      {fmt(Math.max(0, balance))}
+                    </Text>
+                  </View>
+                </>
+              )}
+            </View>
+          </View>
 
-              <View style={styles.finalTotal}>
-                <Text style={styles.finalTotalLabel}>Total</Text>
-                <Text style={styles.finalTotalValue}>
-                  {formatCurrency(total)}
+          {/* 7. GST Tax Breakdown */}
+          {taxAmt > 0 && (
+            <View style={S.taxSection}>
+              <View style={S.taxHeader}>
+                <Text style={[S.taxColW, { fontFamily: "Helvetica-Bold" }]}>
+                  HSN / SAC Code
                 </Text>
+                <Text style={S.taxColNH}>Taxable Value</Text>
+                {isInterState ? (
+                  <>
+                    <Text style={S.taxColNH}>IGST Rate</Text>
+                    <Text style={S.taxColNH}>IGST Amt</Text>
+                  </>
+                ) : (
+                  <>
+                    <Text style={S.taxColNH}>CGST Rate</Text>
+                    <Text style={S.taxColNH}>CGST Amt</Text>
+                    <Text style={S.taxColNH}>SGST Rate</Text>
+                    <Text style={S.taxColNH}>SGST Amt</Text>
+                  </>
+                )}
+                <Text style={S.taxColNH}>Total Tax</Text>
+              </View>
+              <View style={S.taxRow}>
+                <Text style={[S.taxColW, { fontSize: 7.5 }]}>998314</Text>
+                <Text style={S.taxColN}>{fmt(taxable)}</Text>
+                {isInterState ? (
+                  <>
+                    <Text style={S.taxColN}>
+                      {gstPct > 0 ? gstPct + "%" : "—"}
+                    </Text>
+                    <Text style={S.taxColN}>{fmt(igst)}</Text>
+                  </>
+                ) : (
+                  <>
+                    <Text style={S.taxColN}>
+                      {gstPct > 0 ? gstPct / 2 + "%" : "—"}
+                    </Text>
+                    <Text style={S.taxColN}>{fmt(cgst)}</Text>
+                    <Text style={S.taxColN}>
+                      {gstPct > 0 ? gstPct / 2 + "%" : "—"}
+                    </Text>
+                    <Text style={S.taxColN}>{fmt(sgst)}</Text>
+                  </>
+                )}
+                <Text style={S.taxColN}>{fmt(taxAmt)}</Text>
+              </View>
+              <View style={S.taxTotalRow}>
+                <Text
+                  style={[
+                    S.taxColW,
+                    { fontFamily: "Helvetica-Bold", fontSize: 7.5 },
+                  ]}
+                >
+                  Total
+                </Text>
+                <Text style={S.taxColNH}>{fmt(taxable)}</Text>
+                {isInterState ? (
+                  <>
+                    <Text style={S.taxColNH}> </Text>
+                    <Text style={S.taxColNH}>{fmt(igst)}</Text>
+                  </>
+                ) : (
+                  <>
+                    <Text style={S.taxColNH}> </Text>
+                    <Text style={S.taxColNH}>{fmt(cgst)}</Text>
+                    <Text style={S.taxColNH}> </Text>
+                    <Text style={S.taxColNH}>{fmt(sgst)}</Text>
+                  </>
+                )}
+                <Text style={S.taxColNH}>{fmt(taxAmt)}</Text>
               </View>
             </View>
-          </View>
+          )}
 
-          {/* Footer */}
-          <View style={styles.footer}>
-            <View style={styles.footerSection}>
-              <Text style={styles.footerTitle}>PAYMENT INFO</Text>
-              <Text style={styles.footerContent}>
-                Bank: HDFC BANK PVT LTD{"\n"}
-                A/C: 0000 1234 5678{"\n"}
-                Name: Kalahanu Tech Studios{"\n"}
-                IFSC: HDFC0001234
+          {/* 8. Declaration + Signature */}
+          <View style={S.footerSection}>
+            <View style={S.declarationBlock}>
+              <Text style={S.sectionLabel}>Declaration</Text>
+              <Text style={S.declarationText}>
+                We declare that this invoice shows the actual price of the
+                goods/services described and that all particulars are true and
+                correct.{"\n"}
+                All disputes are subject to Muzaffarpur jurisdiction only.
               </Text>
             </View>
-
-            <View style={[styles.footerSection, styles.signatureSection]}>
-              <View style={styles.signatureLine} />
-              <Text style={styles.signatureName}>Labh Chandra Bothra</Text>
-              <Text style={styles.signatureTitle}>Co-Founder</Text>
-            </View>
-
-            <View style={[styles.footerSection, { alignItems: "flex-end" }]}>
-              <Text style={styles.footerTitle}>CONTACT</Text>
-              <Text style={styles.footerContent}>
-                support@pixelatenest.com{"\n"}
-                +91 84069 12345{"\n"}
-                pixelatenest.com
+            <View style={S.signatureBlock}>
+              <Text style={{ fontSize: 8, color: "#555", textAlign: "right" }}>
+                For Kalahanu Tech Studios LLP
+              </Text>
+              <View style={S.signatureLine} />
+              <Text style={S.signatureFor}>Authorised Signatory</Text>
+              <Text style={S.signatureTitle}>
+                Labh Chandra Bothra, Co-Founder
               </Text>
             </View>
           </View>
 
-          {/* Terms */}
-          <Text style={styles.terms}>
-            This invoice is computer generated and does not require a signature.
-            All goods and services remain the property of Pixelate Nest until
-            paid in full.
-          </Text>
+          {/* 9. Footer note */}
+          <View style={S.footerNote}>
+            <Text style={S.footerNoteText}>
+              This is a computer-generated invoice and does not require a
+              physical signature.
+            </Text>
+          </View>
         </View>
       </Page>
     </Document>

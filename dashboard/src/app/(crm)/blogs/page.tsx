@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 type BlogPost = {
   id: number;
@@ -16,6 +17,7 @@ type BlogPost = {
 
 export default function BlogsAdminPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
+  const { toast } = useToast();
   const [title, setTitle] = useState<string>("");
   const [category, setCategory] = useState<string>("");
   const [excerpt, setExcerpt] = useState<string>("");
@@ -316,7 +318,7 @@ export default function BlogsAdminPage() {
                               navigator.clipboard?.writeText(
                                 JSON.stringify(sp),
                               );
-                              alert("Copied post JSON to clipboard");
+                              toast({ title: "Copied", description: "Post JSON copied to clipboard." });
                             }}
                           >
                             Copy JSON
@@ -324,7 +326,7 @@ export default function BlogsAdminPage() {
                           {isAdmin ? (
                             <Button
                               onClick={() => {
-                                if (confirm("Delete server post?"))
+                                if (window.confirm("Delete server post?"))
                                   fetch(
                                     "/api/blogs/" + ((sp as any)._id || sp.id),
                                     { method: "DELETE" },

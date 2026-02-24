@@ -120,8 +120,7 @@ export default function WorkGalleryPage() {
 
   const deleteItem = async (id: string) => {
     try {
-      if (!confirm('Delete this gallery item?')) return;
-      // Include JWT for admin-only deletion
+      if (!window.confirm('Delete this gallery item?')) return;
       const token = typeof window !== 'undefined' ? localStorage.getItem('auth_token') : '';
       const headers: Record<string, string> = {};
       if (token) headers['Authorization'] = `Bearer ${token}`;
@@ -129,14 +128,14 @@ export default function WorkGalleryPage() {
       const body = await res.json();
       if (!res.ok) {
         console.error('Delete failed:', res.status, body);
-        alert(`Delete failed: ${body.error || 'Unknown error'}`);
+        toast({ title: 'Delete Failed', description: body.error || 'Unknown error', variant: 'destructive' });
         return;
       }
       setItems(prev => prev.filter(x => String(x._id ?? x.id) !== String(id)));
-      alert('Item deleted successfully');
+      toast({ title: 'Deleted', description: 'Gallery item removed successfully.' });
     } catch (e) {
       console.error('Failed to delete', e);
-      alert(`Error: ${e instanceof Error ? e.message : 'Unknown error'}`);
+      toast({ title: 'Error', description: e instanceof Error ? e.message : 'Unknown error', variant: 'destructive' });
     }
   };
 

@@ -634,7 +634,7 @@ export default function QuotationsPage() {
                                   (quote as any)._id || (quote as any).id;
                                 if (
                                   id &&
-                                  confirm(
+                                  window.confirm(
                                     "Are you sure you want to delete this quotation?"
                                   )
                                 ) {

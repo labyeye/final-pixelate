@@ -1,6 +1,3 @@
-
-
-
 import React, { useState } from "react";
 import {
   Dialog,
@@ -15,7 +12,6 @@ import { useWhatsAppInvoice } from "@/hooks/use-whatsapp-invoice";
 
 const WA_GREEN = "#25D366";
 
-// ── Shared WhatsApp SVG icon ──────────────────────────────────────────────────
 function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
     <svg
@@ -37,7 +33,6 @@ function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-// ── Spinner ───────────────────────────────────────────────────────────────────
 function Spinner() {
   return (
     <svg
@@ -47,8 +42,11 @@ function Spinner() {
     >
       <circle
         className="opacity-25"
-        cx="12" cy="12" r="10"
-        stroke="currentColor" strokeWidth="4"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="4"
       />
       <path
         className="opacity-75"
@@ -59,15 +57,12 @@ function Spinner() {
   );
 }
 
-// ── Props ─────────────────────────────────────────────────────────────────────
 interface Props {
   invoice: any;
   client?: any;
-  /** Called after a successful opt-in toggle so the parent can refresh state */
   onClientUpdate?: (updatedClient: any) => void;
 }
 
-/** Strip non-digits and auto-prepend 91 for bare 10-digit Indian numbers */
 function resolvePhone(client: any, invoice: any): string | null {
   const raw =
     client?.phone ??
@@ -81,34 +76,130 @@ function resolvePhone(client: any, invoice: any): string | null {
   return digits;
 }
 
-// ── Main component ────────────────────────────────────────────────────────────
-export function WhatsAppInvoiceSendButton({ invoice, client, onClientUpdate }: Props) {
+export function WhatsAppOptInToggle({
+  client,
+  onClientUpdate,
+}: {
+  client?: any;
+  onClientUpdate?: (updated: any) => void;
+}) {
+  const [toggling, setToggling] = useState(false);
+  const optedIn = client?.whatsapp_opted_in === true;
+  const clientId = String(client?._id ?? client?.id ?? "");
+
+  if (!clientId) return null;
+
+  const toggle = async () => {
+    if (toggling) return;
+    setToggling(true);
+    try {
+      if (!optedIn) {
+        const res = await fetch("/api/whatsapp-optin", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ clientId, source: "manual_toggle" }),
+        });
+        if (!res.ok) throw new Error("Opt-in failed");
+      } else {
+        // Opt OUT
+        const res = await fetch("/api/whatsapp-optin", {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ clientId }),
+        });
+        if (!res.ok) throw new Error("Opt-out failed");
+      }
+      onClientUpdate?.(null); // trigger parent refresh
+    } catch (e) {
+      console.error("WhatsApp opt-in toggle failed", e);
+    } finally {
+      setToggling(false);
+    }
+  };
+
+  return (
+    <button
+      type="button"
+      title={
+        optedIn
+          ? "WhatsApp opted in — click to revoke"
+          : "Click to opt this client in to WhatsApp messages"
+      }
+      onClick={toggle}
+      disabled={toggling}
+      className={`h-8 w-8 flex items-center justify-center rounded border-2 text-xs font-bold transition-colors disabled:opacity-50 ${
+        optedIn
+          ? "border-[#25D366] bg-green-50 text-[#25D366]"
+          : "border-gray-300 bg-white text-gray-400 hover:border-[#25D366] hover:text-[#25D366]"
+      }`}
+    >
+      {toggling ? (
+        <svg
+          className="animate-spin w-3.5 h-3.5"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          />
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+          />
+        </svg>
+      ) : optedIn ? (
+        // checkmark
+        <svg viewBox="0 0 20 20" className="w-3.5 h-3.5" fill="currentColor">
+          <path
+            fillRule="evenodd"
+            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ) : (
+        // WhatsApp tiny icon when not opted in
+        <WhatsAppIcon className="w-3.5 h-3.5" />
+      )}
+    </button>
+  );
+}
+
+export function WhatsAppInvoiceSendButton({
+  invoice,
+  client,
+  onClientUpdate,
+}: Props) {
   const { send, sending, status, statusMessage, error, messageId } =
     useWhatsAppInvoice();
 
   const [resultModalOpen, setResultModalOpen] = useState(false);
 
   const isSuccess = status === "success";
-  const isError   = status === "error";
+  const isError = status === "error";
 
-  const clientName = client?.name ?? invoice?.clientName ?? invoice?.client ?? "Client";
-  const invNo      = invoice?.invoiceNo ?? invoice?.id ?? "—";
-  const phone      = resolvePhone(client, invoice);
+  const clientName =
+    client?.name ?? invoice?.clientName ?? invoice?.client ?? "Client";
+  const invNo = invoice?.invoiceNo ?? invoice?.id ?? "—";
+  const phone = resolvePhone(client, invoice);
 
-  // ── Opt-in / already-sent awareness ─────────────────────────────────────
-  const optedIn       = client?.whatsapp_opted_in === true;
-  const alreadySent   = invoice?.whatsapp_sent === true;
-  const clientId      = String(client?._id ?? client?.id ?? "");
-  const invoiceId     = String(invoice?._id ?? invoice?.id ?? "");
+  const optedIn = client?.whatsapp_opted_in === true;
+  const alreadySent = invoice?.whatsapp_sent === true;
+  const clientId = String(client?._id ?? client?.id ?? "");
+  const invoiceId = String(invoice?._id ?? invoice?.id ?? "");
 
-  // Determine why the button is disabled (priority order)
   const disabledReason: string | null = !phone
     ? "No WhatsApp number saved for this client"
     : alreadySent
-    ? `Invoice already sent on WhatsApp${invoice?.whatsapp_sent_at ? ` on ${new Date(invoice.whatsapp_sent_at).toLocaleDateString("en-IN")}` : ""}`
-    : !optedIn
-    ? "Client has not opted in to receive WhatsApp messages. Ask them to consent on next invoice creation."
-    : null;
+      ? `Invoice already sent on WhatsApp${invoice?.whatsapp_sent_at ? ` on ${new Date(invoice.whatsapp_sent_at).toLocaleDateString("en-IN")}` : ""}`
+      : !optedIn
+        ? "Client has not opted in to receive WhatsApp messages. Ask them to consent on next invoice creation."
+        : null;
 
   const isDisabled = sending || !!disabledReason;
 
@@ -120,7 +211,6 @@ export function WhatsAppInvoiceSendButton({ invoice, client, onClientUpdate }: P
       invoice,
       client,
       phone: phone!,
-      // Pass IDs so the API can enforce opt-in guard + idempotency
       ...(clientId ? { clientId } : {}),
       ...(invoiceId ? { invoiceId } : {}),
     } as any);
@@ -129,7 +219,6 @@ export function WhatsAppInvoiceSendButton({ invoice, client, onClientUpdate }: P
 
   return (
     <>
-      {/* ── The button ─────────────────────────────────────────────────── */}
       <Button
         size="sm"
         variant="outline"
@@ -138,26 +227,24 @@ export function WhatsAppInvoiceSendButton({ invoice, client, onClientUpdate }: P
             ? "text-[#25D366] bg-green-50 border-green-300"
             : "text-[#25D366] hover:bg-[#25D366] hover:text-white"
         }`}
-        title={
-          disabledReason ??
-          `Send invoice to ${phone} via WhatsApp`
-        }
+        title={disabledReason ?? `Send invoice to ${phone} via WhatsApp`}
         disabled={isDisabled}
         onClick={handleSend}
       >
         {sending ? (
           <Spinner />
         ) : alreadySent ? (
-          // Checkmark tick when already sent
           <svg viewBox="0 0 20 20" className="w-4 h-4" fill="currentColor">
-            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+            <path
+              fillRule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clipRule="evenodd"
+            />
           </svg>
         ) : (
           <WhatsAppIcon />
         )}
       </Button>
-
-      {/* ── Result modal (success or error) ────────────────────────────── */}
       <Dialog
         open={resultModalOpen}
         onOpenChange={(open) => {
@@ -237,9 +324,7 @@ export function WhatsAppInvoiceSendButton({ invoice, client, onClientUpdate }: P
                       ❌ Failed to send invoice <strong>#{invNo}</strong> to{" "}
                       <strong className="font-mono">+{phone}</strong>.
                     </p>
-                    {error && (
-                      <p className="font-medium">{error}</p>
-                    )}
+                    {error && <p className="font-medium">{error}</p>}
                     <p className="text-xs opacity-80">
                       Common causes: number not on WhatsApp, wrong country code,
                       template not approved, or expired access token.
@@ -290,11 +375,6 @@ export function WhatsAppInvoiceSendButton({ invoice, client, onClientUpdate }: P
     </>
   );
 }
-
-// ── Backwards-compatible alias ────────────────────────────────────────────────
-// The old dialog accepted open/onClose props. This shim lets any code that
-// still uses <SendWhatsAppInvoiceDialog open={x} onClose={y} …/> compile
-// without errors during migration.
 export function SendWhatsAppInvoiceDialog({
   invoice,
   client,

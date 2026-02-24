@@ -3444,6 +3444,11 @@ body {
   border-style: solid;
 }
 
+.hover\:border-\[\#25D366\]:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(37 211 102 / var(--tw-border-opacity, 1));
+}
+
 .hover\:border-black\/10:hover {
   border-color: #0000001a;
 }
@@ -3616,6 +3621,11 @@ body {
 
 .hover\:bg-success:hover {
   background-color: hsl(var(--success));
+}
+
+.hover\:text-\[\#25D366\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(37 211 102 / var(--tw-text-opacity, 1));
 }
 
 .hover\:text-accent-foreground:hover {

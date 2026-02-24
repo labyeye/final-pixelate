@@ -7,6 +7,7 @@ import { Plus, Briefcase, Users, Eye, Edit, Trash2 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { SuccessModal } from "@/components/ui/success-modal";
+import { useToast } from '@/hooks/use-toast';
 
 interface JobPosting {
   _id: string;
@@ -31,6 +32,7 @@ interface JobPosting {
 export default function CareersPage() {
   const [jobs, setJobs] = useState<JobPosting[]>([]);
   const [loading, setLoading] = useState(true);
+  const { toast } = useToast();
   const [filter, setFilter] = useState<'all' | 'active' | 'closed'>('all');
   const router = useRouter();
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -56,7 +58,7 @@ export default function CareersPage() {
   };
 
   const deleteJob = async (id: string) => {
-    if (!confirm('Are you sure you want to delete this job posting?')) return;
+    if (!window.confirm('Are you sure you want to delete this job posting?')) return;
 
     try {
       const token = typeof window !== 'undefined' ? localStorage.getItem('auth_token') : '';
@@ -67,15 +69,16 @@ export default function CareersPage() {
       const data = await response.json();
       
       if (!response.ok) {
-        alert(`Failed to delete: ${data.error || 'Unknown error'}`);
+        toast({ title: 'Delete Failed', description: data.error || 'Unknown error', variant: 'destructive' });
         return;
       }
       
       setJobs(jobs.filter(job => job._id !== id));
       showSuccess("Job posting deleted!");
+      toast({ title: 'Job Deleted', description: 'Job posting has been removed.' });
     } catch (error) {
       console.error('Error deleting job:', error);
-      alert(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      toast({ title: 'Error', description: error instanceof Error ? error.message : 'Unknown error', variant: 'destructive' });
     }
   };
 

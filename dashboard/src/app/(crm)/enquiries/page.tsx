@@ -31,7 +31,7 @@ export default function EnquiriesPage() {
 
   const deleteItem = async (id: string) => {
     try {
-      if (!confirm('Are you sure you want to delete this enquiry? This cannot be undone.')) return
+      if (!window.confirm('Are you sure you want to delete this enquiry? This cannot be undone.')) return
       const res = await fetch(`/api/enquiries?id=${encodeURIComponent(id)}`, {
         method: 'DELETE',
       })

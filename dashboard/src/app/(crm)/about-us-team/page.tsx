@@ -137,7 +137,7 @@ export default function AboutUsTeamPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this team member?")) return;
+    if (!window.confirm("Are you sure you want to delete this team member?")) return;
 
     try {
       setLoading(true);

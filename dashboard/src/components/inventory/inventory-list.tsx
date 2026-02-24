@@ -164,7 +164,7 @@ export default function InventoryList() {
                       className="h-8 w-8 p-0"
                       title="Delete"
                       onClick={async () => {
-                        if (!confirm("Delete this inventory item?")) return;
+                        if (!window.confirm("Delete this inventory item?")) return;
                         try {
                           const res = await fetch(
                             `/api/inventory/${it._id ?? it.id}`,

@@ -156,11 +156,7 @@ async function sendTextFallback(
     console.error("[WhatsApp] Fallback text network error:", err);
   }
 }
-
-// ── Main handler ──────────────────────────────────────────────────────────────
-
 export async function POST(req: NextRequest) {
-  // ── Internal secret guard (server-to-server calls only) ───────────────────
   const internalSecret = process.env.INTERNAL_API_SECRET;
   if (internalSecret) {
     const authHeader = req.headers.get("x-internal-secret");
@@ -168,8 +164,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
   }
-
-  // ── Parse body ─────────────────────────────────────────────────────────────
   let body: SendInvoiceBody;
   try {
     body = await req.json();
@@ -177,12 +171,17 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON body." }, { status: 400 });
   }
 
-  const { phone, clientName, invNo, amount, filename, mediaId, pdfUrl, clientId, invoiceId } = body;
-
-  // ── Opt-in guard ────────────────────────────────────────────────────────────
-  // CRITICAL: Never send a WhatsApp message without the client's opt-in.
-  // This is the primary cause of error 131049.
-  // If clientId is provided, we enforce the opt-in check from the DB.
+  const {
+    phone,
+    clientName,
+    invNo,
+    amount,
+    filename,
+    mediaId,
+    pdfUrl,
+    clientId,
+    invoiceId,
+  } = body;
   if (clientId) {
     try {
       const clientDoc = await svc.findById("clients", clientId);
@@ -206,14 +205,14 @@ export async function POST(req: NextRequest) {
           { status: 403 },
         );
       }
-      // Also check if client has opted out
       if (clientDoc.whatsapp_opted_in === false) {
         console.warn(
           `[WhatsApp] Blocked send to client ${clientId} — client has opted out.`,
         );
         return NextResponse.json(
           {
-            error: "Client has opted out of WhatsApp messages (replied STOP). Cannot send.",
+            error:
+              "Client has opted out of WhatsApp messages (replied STOP). Cannot send.",
             code: "OPT_OUT",
           },
           { status: 403 },
@@ -227,9 +226,6 @@ export async function POST(req: NextRequest) {
       );
     }
   }
-
-  // ── Idempotency guard — send each invoice ONLY ONCE ─────────────────────────
-  // Prevents duplicate WhatsApp messages if the button is clicked twice.
   if (invoiceId) {
     try {
       const invoiceDoc = await svc.findById("invoices", invoiceId);
@@ -249,11 +245,8 @@ export async function POST(req: NextRequest) {
       }
     } catch (dbErr: any) {
       console.error("[WhatsApp] DB error during idempotency check:", dbErr);
-      // Non-fatal — proceed with sending; worst case is a duplicate
     }
   }
-
-  // ── Validate required fields ───────────────────────────────────────────────
   const missingFields: string[] = [];
   if (!phone) missingFields.push("phone");
   if (!clientName) missingFields.push("clientName");
@@ -269,7 +262,6 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // ── Validate phone ─────────────────────────────────────────────────────────
   const digits = sanitisePhone(phone);
   if (!isValidPhone(digits)) {
     return NextResponse.json(
@@ -281,8 +273,6 @@ export async function POST(req: NextRequest) {
       { status: 400 },
     );
   }
-
-  // ── Validate pdfUrl ────────────────────────────────────────────────────────
   if (pdfUrl) {
     if (!pdfUrl.startsWith("https://")) {
       return NextResponse.json(
@@ -295,8 +285,6 @@ export async function POST(req: NextRequest) {
       );
     }
   }
-
-  // ── Env vars ───────────────────────────────────────────────────────────────
   const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
   const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
 
@@ -314,43 +302,18 @@ export async function POST(req: NextRequest) {
       { status: 500 },
     );
   }
-
-  // ── Guard: recipient must NOT be the sender ────────────────────────────────
-  // (WhatsApp blocks sending to your own business number)
-  // We can only check the ID, not the raw number, so this is a best-effort log.
   console.info(
     `[WhatsApp] Sending to: ${digits} (sender phoneNumberId: ${phoneNumberId})`,
   );
-
-  // ── Config ─────────────────────────────────────────────────────────────────
-  // FIX: default lang is "en_US" not "en". "en" causes error 132005.
-  // FIX: default API version is "v21.0" — v19.0 is deprecated for new accounts.
   const templateName = process.env.WHATSAPP_TEMPLATE_NAME ?? "invoicing";
   const templateLang = process.env.WHATSAPP_TEMPLATE_LANG ?? "en_US";
   const apiVersion = process.env.WHATSAPP_API_VERSION ?? "v21.0";
 
-  // ── Build document header parameter ───────────────────────────────────────
-  // FIX: WhatsApp Cloud API document parameter spec:
-  //   { type: "document", document: { id | link, filename } }
-  // NOTE: if using `link`, the URL must be:
-  //   - HTTPS
-  //   - Publicly accessible (test with curl -I <url> in a new terminal)
-  //   - No auth, no cookies, no JS-rendered redirects
-  //   - Content-Type: application/pdf
-  //   - File size < 100 MB
-  // STRONGLY PREFERRED: use mediaId (uploaded via /api/upload-whatsapp-media)
-  // because WhatsApp's servers fetch `link` URLs asynchronously and may fail
-  // silently if the URL is slow or behind a CDN with geo-restrictions.
-  // CRITICAL: WhatsApp Cloud API rejects filenames that contain "/" or "\" or other
-  // illegal characters. Invoice numbers like "KTS/2025-2026/00021" embed slashes
-  // which cause the document to silently fail to render on the recipient's device
-  // even though Meta returns a wamid (accepted for delivery).
-  // Always sanitise the filename before sending it in the API payload.
   function sanitiseFilename(raw: string): string {
     return raw
-      .replace(/[/\\:*?"<>|]/g, "-") // replace all illegal filename chars
-      .replace(/-{2,}/g, "-")         // collapse consecutive dashes
-      .replace(/^-|-$/g, "")          // trim leading/trailing dashes
+      .replace(/[/\\:*?"<>|]/g, "-")
+      .replace(/-{2,}/g, "-")
+      .replace(/^-|-$/g, "")
       .trim();
   }
 
@@ -374,20 +337,6 @@ export async function POST(req: NextRequest) {
         },
       };
 
-  // ── Build payload ──────────────────────────────────────────────────────────
-  // IMPORTANT: WhatsApp Cloud API supports TWO styles of body parameters:
-  //
-  //   Style A – Positional ({{1}}, {{2}}, …):
-  //     { type: "text", text: "value" }
-  //     No `parameter_name` field — order of the array matches {{1}}, {{2}}, …
-  //
-  //   Style B – Named ({{client_name}}, {{inv_no}}, …):
-  //     { type: "text", parameter_name: "client_name", text: "value" }
-  //     `parameter_name` MUST match the variable name in the approved template.
-  //
-  // Your template (as shown in Meta Business Suite) uses NAMED variables:
-  //   {{client_name}}, {{inv_no}}, {{amount}}
-  // So we MUST include `parameter_name`. Without it → error code 100.
   const payload = {
     messaging_product: "whatsapp",
     to: digits,
@@ -404,8 +353,8 @@ export async function POST(req: NextRequest) {
           type: "body",
           parameters: [
             { type: "text", parameter_name: "client_name", text: clientName },
-            { type: "text", parameter_name: "inv_no",      text: invNo },
-            { type: "text", parameter_name: "amount",      text: String(amount) },
+            { type: "text", parameter_name: "inv_no", text: invNo },
+            { type: "text", parameter_name: "amount", text: String(amount) },
           ],
         },
       ],
@@ -414,10 +363,7 @@ export async function POST(req: NextRequest) {
 
   const endpoint = `https://graph.facebook.com/${apiVersion}/${phoneNumberId}/messages`;
 
-  // Log full payload for debugging (token is NOT in payload — safe to log)
   console.info("[WhatsApp] Sending payload:", JSON.stringify(payload, null, 2));
-
-  // ── Call WhatsApp API ──────────────────────────────────────────────────────
   let waResponse: Response;
   try {
     waResponse = await fetch(endpoint, {
@@ -439,8 +385,6 @@ export async function POST(req: NextRequest) {
   }
 
   const waJson = await waResponse.json().catch(() => ({}));
-
-  // ── Handle API errors ──────────────────────────────────────────────────────
   if (!waResponse.ok) {
     const errDetail: WhatsAppErrorDetail = (waJson as any)?.error ?? {};
     const code = errDetail.code ?? waResponse.status;
@@ -454,10 +398,6 @@ export async function POST(req: NextRequest) {
       WA_ERROR_MAP[code as number] ??
       errDetail.message ??
       "WhatsApp API returned an error.";
-
-    // ── Text fallback on document-related failures ─────────────────────────
-    // If the error is document/media related (not auth/template/account),
-    // attempt a plain-text fallback so the customer still gets notified.
     const documentErrorCodes = [131016, 131026, 100];
     const isDocumentError =
       documentErrorCodes.includes(code as number) ||
@@ -483,7 +423,7 @@ export async function POST(req: NextRequest) {
           fallbackSent: true,
           detail: errDetail,
         },
-        { status: 207 }, // 207 Multi-Status: partial success
+        { status: 207 },
       );
     }
 
@@ -492,12 +432,6 @@ export async function POST(req: NextRequest) {
       { status: waResponse.status >= 500 ? 502 : 422 },
     );
   }
-
-  // ── Success ────────────────────────────────────────────────────────────────
-  // NOTE: A successful response means Meta ACCEPTED the message for delivery.
-  // It does NOT mean the recipient received it yet.
-  // Actual delivery is confirmed via the /api/whatsapp-webhook (sent → delivered → read).
-  // A "failed" webhook event means the recipient did NOT get the message.
   const messageId = (waJson as any)?.messages?.[0]?.id ?? null;
 
   console.info(
@@ -506,9 +440,6 @@ export async function POST(req: NextRequest) {
   console.info(
     "[WhatsApp] IMPORTANT: wamid ≠ delivered. Check webhook for sent/delivered/read/failed events.",
   );
-
-  // ── Mark invoice as sent (idempotency record) ─────────────────────────────
-  // This prevents the same invoice from being sent twice on WhatsApp.
   if (invoiceId) {
     try {
       await svc.updateById("invoices", invoiceId, {

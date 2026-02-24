@@ -238,7 +238,7 @@ export default function PaymentsPage() {
 
   const handleDeletePayment = async (invoice: any, index: number) => {
     if (
-      !confirm(
+      !window.confirm(
         "Are you sure you want to delete this payment entry? This action cannot be undone.",
       )
     ) {

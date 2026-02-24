@@ -9,6 +9,7 @@ import type { Project } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, CheckCheck, Pencil, Trash2, FolderOpen } from 'lucide-react';
 import { SuccessModal } from "@/components/ui/success-modal";
+import { useToast } from '@/hooks/use-toast';
 import {
   Table,
   TableBody,
@@ -29,6 +30,7 @@ export default function ProjectsPage() {
     setSuccessMessage(msg);
     setTimeout(() => setSuccessMessage(null), 2000);
   };
+  const { toast } = useToast();
 
   useEffect(() => {
     let mounted = true;
@@ -263,14 +265,18 @@ export default function ProjectsPage() {
                       className="h-8 w-8 p-0"
                       title="Delete"
                       onClick={async () => {
-                        if (!confirm('Delete this project?')) return;
+                        if (!window.confirm('Delete this project?')) return;
                         try {
                           const id = project._id ?? project.id;
                           const res = await fetch(`/api/projects/${id}`, { method: 'DELETE' });
                           if (!res.ok) throw new Error('Delete failed');
                           setProjects(prev => prev.filter(p => (p._id ?? p.id) !== id));
                           showSuccess("Project deleted!");
-                        } catch (err) { console.error(err); }
+                          toast({ title: 'Project Deleted', description: 'Project has been removed successfully.' });
+                        } catch (err) {
+                          console.error(err);
+                          toast({ title: 'Delete Failed', description: 'Could not delete project.', variant: 'destructive' });
+                        }
                       }}
                     >
                       <Trash2 className="h-3.5 w-3.5" />

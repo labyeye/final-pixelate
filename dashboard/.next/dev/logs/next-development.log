@@ -1,40 +1,31 @@
-[00:00:00.658] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:00.752] Server  LOG      ✓ Ready in 570ms
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:00.755] Browser ERROR   Failed to load team members {}
-[00:00:03.268] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:28.936] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:00:28.936] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:00:50.656] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:00:50.656] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:01:02.712] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:01:02.712] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:02:25.626] Server  LOG      ✓ Compiled in 112ms
-[00:02:31.489] Server  LOG      ✓ Compiled in 54ms
-[00:02:35.577] Server  LOG      ✓ Compiled in 142ms
-[00:09:14.331] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:09:14.331] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:15:07.138] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:15:07.138] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:15:09.181] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:00.612] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:00.703] Server  LOG      ✓ Ready in 522ms
+[00:00:04.706] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:49.594] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:05:49.594] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:14.490] Server  LOG      ✓ Compiled in 74ms
+[00:06:14.742] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:21.857] Server  LOG      ✓ Compiled in 54ms
+[00:06:24.258] Server  LOG      ✓ Compiled in 68ms
+[00:06:26.907] Server  LOG      ✓ Compiled in 65ms
+[00:06:28.540] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:28.540] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:39.625] Server  LOG      ✓ Compiled in 46ms
+[00:06:42.125] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:42.125] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:45.050] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:48.404] Server  LOG      ✓ Compiled in 85ms
+[00:06:52.522] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:52.522] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:59.794] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:59.795] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:07:17.760] Server  LOG      ✓ Compiled in 60ms
+[00:07:21.741] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:07:21.741] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:07:25.193] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:57.583] Server  INFO    [WhatsApp Opt-Out] Client 699dd33cbb1384a565425baa opted out. Reason: manual
+[00:20:58.332] Server  INFO    [WhatsApp Opt-In] Client 699dd33cbb1384a565425baa opted in via manual_toggle for invoice N/A
+[00:20:59.883] Server  INFO    [WhatsApp Opt-In] Client 699d6a34955af150826247a6 opted in via manual_toggle for invoice N/A
+[00:21:02.373] Server  INFO    [WhatsApp Media] Uploading: Invoice-Test-KTS-2025-2026-00021.pdf, size: 35.2 KB
+[00:21:03.089] Server  ERROR   [WhatsApp Media] Upload failed — HTTP 401, code: 190, fbtrace_id: ALf4oAlanKHZtW3F9Omjxja: "{\n  \"error\": {\n    \"message\": \"Authentication Error\",\n    \"code\": 190,\n    \"type\": \"OAuthException\",\n    \"fbtrace_id\": \"ALf4oAlanKHZtW3F9Omjxja\"\n  }\n}"
+[00:21:03.194] Browser ERROR   [useWhatsAppInvoice] {}

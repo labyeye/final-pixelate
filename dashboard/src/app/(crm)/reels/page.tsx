@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { SuccessModal } from "@/components/ui/success-modal";
+import { useToast } from '@/hooks/use-toast';
 
 type Entry = { thumbnailBase64?: string; link?: string; title?: string }
 type FormValues = { brandName: string; brandLogoBase64?: string; entries: Entry[] }
@@ -15,6 +16,7 @@ export default function ReelsPage() {
   const [items, setItems] = useState<any[]>([])
   const [editingId, setEditingId] = useState<string | null>(null)
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
+  const { toast } = useToast()
   const showSuccess = (msg: string) => {
     setSuccessMessage(msg)
     setTimeout(() => setSuccessMessage(null), 2000)
@@ -93,13 +95,17 @@ export default function ReelsPage() {
   }
 
   const deleteItem = async (id: string) => {
-    if (!confirm('Delete this reel?')) return
+    if (!window.confirm('Delete this reel?')) return
     try {
       const res = await fetch(`/api/reels/${id}`, { method: 'DELETE' })
       if (!res.ok) throw new Error('Delete failed')
       setItems(prev => prev.filter(x => String(x._id ?? x.id) !== String(id)))
       showSuccess("Reel deleted!")
-    } catch (e) { console.error(e) }
+      toast({ title: 'Reel Deleted', description: 'Reel has been removed.' })
+    } catch (e) {
+      console.error(e)
+      toast({ title: 'Delete Failed', description: 'Could not delete reel.', variant: 'destructive' })
+    }
   }
 
   return (

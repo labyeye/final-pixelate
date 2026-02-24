@@ -182,7 +182,7 @@ export default function OnboardingPage() {
       }
     } catch (e) {
       console.error("Failed to generate PDF", e);
-      alert("Failed to generate PDF");
+      toast({ title: "PDF Failed", description: "Failed to generate onboarding PDF.", variant: "destructive" });
     } finally {
       setLoading(false);
     }
@@ -212,11 +212,11 @@ export default function OnboardingPage() {
         setIsModalOpen(false);
       } else {
         const err = await res.json();
-        alert("Failed to save: " + (err.error || "Unknown"));
+        toast({ title: "Save Failed", description: "Failed to save: " + (err.error || "Unknown"), variant: "destructive" });
       }
     } catch (e) {
       console.error("Failed to save onboarding", e);
-      alert("Failed to save onboarding record");
+      toast({ title: "Save Failed", description: "Failed to save onboarding record. Please try again.", variant: "destructive" });
     } finally {
       setLoading(false);
     }

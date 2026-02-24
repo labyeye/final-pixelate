@@ -168,7 +168,7 @@ export default function ReviewsPage() {
   };
 
   const handleDelete = async (review: Review) => {
-    if (!confirm(`Are you sure you want to delete the review from ${review.name}?`)) {
+    if (!window.confirm(`Are you sure you want to delete the review from ${review.name}?`)) {
       return;
     }
 

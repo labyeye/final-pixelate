@@ -7,5 +7,7 @@
   "/api/services/route": "app/api/services/route.js",
   "/api/settings/client-sidebar/route": "app/api/settings/client-sidebar/route.js",
   "/api/team-members/route": "app/api/team-members/route.js",
-  "/api/users/route": "app/api/users/route.js"
+  "/api/upload-whatsapp-media/route": "app/api/upload-whatsapp-media/route.js",
+  "/api/users/route": "app/api/users/route.js",
+  "/api/whatsapp-optin/route": "app/api/whatsapp-optin/route.js"
 }

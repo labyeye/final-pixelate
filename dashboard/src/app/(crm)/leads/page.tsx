@@ -14,6 +14,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Trash } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 export default function LeadsPage() {
   const [leads, setLeads] = useState<Lead[]>([]);
@@ -25,6 +26,7 @@ export default function LeadsPage() {
     current: 0,
     total: 0,
   });
+  const { toast } = useToast();
 
   useEffect(() => {
     let mounted = true;
@@ -69,7 +71,7 @@ export default function LeadsPage() {
 
   // Delete all leads: try server endpoint DELETE /api/leads, fallback to deleting per id.
   async function deleteAllLeads() {
-    if (!confirm("Delete ALL leads? This cannot be undone.")) return;
+    if (!window.confirm("Delete ALL leads? This cannot be undone.")) return;
     const API_BASE =
       window.location.hostname === "localhost" ||
       window.location.hostname === "127.0.0.1"
@@ -85,7 +87,7 @@ export default function LeadsPage() {
       if (res.ok) {
         setLeads([]);
         localStorage.removeItem("leads_local");
-        alert("All leads deleted (server)");
+        toast({ title: "All Leads Deleted", description: "All leads deleted successfully (server)." });
         return;
       }
     } catch (e) {
@@ -106,18 +108,18 @@ export default function LeadsPage() {
       }
       setLeads([]);
       localStorage.removeItem("leads_local");
-      alert("All leads deleted (per-item)");
+      toast({ title: "All Leads Deleted", description: "All leads deleted (per-item)." });
     } catch (e) {
       console.error("Failed to delete leads", e);
-      alert("Failed to delete all leads");
+      toast({ title: "Delete Failed", description: "Failed to delete all leads.", variant: "destructive" });
     }
   }
 
   // Delete all leads assigned to a specific staff member.
   async function deleteLeadsForStaff(staffId: string | null) {
-    if (!staffId) return alert("Choose a staff member first");
+    if (!staffId) { toast({ title: "No Staff Selected", description: "Choose a staff member first.", variant: "destructive" }); return; }
     if (
-      !confirm(
+      !window.confirm(
         "Delete ALL leads assigned to this staff member? This cannot be undone.",
       )
     )
@@ -133,8 +135,10 @@ export default function LeadsPage() {
       const toDelete = allLeads.filter(
         (l) => String(l.assignedTo) === String(staffId),
       );
-      if (!toDelete.length)
-        return alert("No leads assigned to this staff member");
+      if (!toDelete.length) {
+        toast({ title: "No Leads Found", description: "No leads assigned to this staff member.", variant: "destructive" });
+        return;
+      }
       setIsDeletingAssigned(true);
       setDeleteProgress({ current: 0, total: toDelete.length });
       for (const l of toDelete) {
@@ -165,15 +169,10 @@ export default function LeadsPage() {
         const list = await fetchLeadsWithAuth();
         setLeads(list || []);
       } catch (er) {}
-      alert(
-        "Deletion of assigned leads completed (check server logs for failures)",
-      );
+      toast({ title: "Assigned Leads Deleted", description: "Deletion of assigned leads completed." });
     } catch (e) {
       console.error("deleteLeadsForStaff failed", e);
-      alert(
-        "Failed to delete assigned leads: " +
-          (e instanceof Error ? e.message : String(e)),
-      );
+      toast({ title: "Delete Failed", description: "Failed to delete assigned leads: " + (e instanceof Error ? e.message : String(e)), variant: "destructive" });
     } finally {
       setIsDeletingAssigned(false);
       setDeleteProgress({ current: 0, total: 0 });

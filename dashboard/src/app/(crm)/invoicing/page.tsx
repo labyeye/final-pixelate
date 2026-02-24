@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
+import { useToast } from "@/hooks/use-toast";
 import { AddInvoiceDialog } from "@/components/invoices/add-invoice-dialog";
 import EditInvoiceDialog from "@/components/invoices/edit-invoice-dialog";
 import RecordPaymentDialog from "@/components/invoices/record-payment-dialog";
@@ -19,7 +20,7 @@ import { pdf } from "@react-pdf/renderer";
 import { renderToString } from "react-dom/server";
 import { InvoicePDFDocument } from "@/components/invoices/invoice-pdf-document";
 import dynamic from "next/dynamic";
-import { WhatsAppInvoiceSendButton } from "@/components/invoices/send-whatsapp-invoice-dialog";
+import { WhatsAppInvoiceSendButton, WhatsAppOptInToggle } from "@/components/invoices/send-whatsapp-invoice-dialog";
 
 const PDFViewer = dynamic(
   () => import("@react-pdf/renderer").then((mod) => mod.PDFViewer),
@@ -88,6 +89,7 @@ export default function InvoicingPage() {
   const [previewInvoice, setPreviewInvoice] = useState<any | null>(null);
   const [previewLoading, setPreviewLoading] = useState(false);
   const [gmailSending, setGmailSending] = useState<Record<string, boolean>>({});
+  const { toast } = useToast();
 
   useEffect(() => {
     let mounted = true;
@@ -143,6 +145,17 @@ export default function InvoicingPage() {
       setInvoices(list as Invoice[]);
     } catch (err) {
       console.error(err);
+    }
+  };
+
+  const refreshClients = async () => {
+    try {
+      const res = await fetch("/api/clients");
+      if (!res.ok) return;
+      const data = await res.json();
+      setClients(data || []);
+    } catch (err) {
+      console.error("Failed to refresh clients", err);
     }
   };
 
@@ -447,7 +460,7 @@ export default function InvoicingPage() {
             }, 1000);
           };
         } else {
-          alert("Please allow popups to download the invoice, or try again.");
+          toast({ title: "Popups Blocked", description: "Please allow popups to download the invoice, or try again.", variant: "destructive" });
         }
       } catch (fallbackError) {
         console.error("Fallback also failed:", fallbackError);
@@ -461,7 +474,7 @@ export default function InvoicingPage() {
           `Paid: ₹${paidAmount.toLocaleString()}\n\n` +
           `Please contact support for a proper invoice.`;
 
-        alert(simpleText);
+        toast({ title: "PDF Generation Failed", description: "PDF could not be generated. Please contact support.", variant: "destructive" });
       }
     } finally {
       setPreviewLoading(false);
@@ -488,7 +501,7 @@ export default function InvoicingPage() {
       "Client";
 
     if (!clientEmail) {
-      alert("No email address found for this client. Please update the client record first.");
+      toast({ title: "No Email Found", description: "No email address found for this client. Please update the client record first.", variant: "destructive" });
       return;
     }
 
@@ -534,10 +547,10 @@ export default function InvoicingPage() {
         throw new Error(err.error || "Failed to send email");
       }
 
-      alert(`Invoice sent to ${clientEmail} successfully!`);
+      toast({ title: "Email Sent ✅", description: `Invoice sent to ${clientEmail} successfully!` });
     } catch (e: any) {
       console.error("Gmail invoice send failed:", e);
-      alert(`Failed to send invoice email: ${e.message || String(e)}`);
+      toast({ title: "Email Failed", description: e.message || String(e), variant: "destructive" });
     } finally {
       setGmailSending((prev) => {
         const next = { ...prev };
@@ -629,7 +642,7 @@ export default function InvoicingPage() {
       URL.revokeObjectURL(url);
     } catch (e) {
       console.error("Export CSV failed", e);
-      alert("Failed to export invoices");
+      toast({ title: "Export Failed", description: "Failed to export invoices. Please try again.", variant: "destructive" });
     }
   };
 
@@ -770,12 +783,21 @@ export default function InvoicingPage() {
                     </Button>
                     {!isClient && (
                       <>
+                        {/* WhatsApp opt-in toggle — small toggle so user can consent existing clients */}
+                        <WhatsAppOptInToggle
+                          client={clients.find(
+                            (c) => String(c.id ?? c._id) === String(invoice.clientId),
+                          )}
+                          onClientUpdate={refreshClients}
+                        />
+
                         {/* WhatsApp send button — self-contained, no modal state needed */}
                         <WhatsAppInvoiceSendButton
                           invoice={invoice}
                           client={clients.find(
                             (c) => String(c.id ?? c._id) === String(invoice.clientId),
                           )}
+                          onClientUpdate={refreshClients}
                         />
 
                         {/* Gmail icon button */}
@@ -806,16 +828,18 @@ export default function InvoicingPage() {
                         size="sm"
                         variant="destructive"
                         onClick={async () => {
-                          if (!confirm("Delete this invoice?")) return;
+                          if (!window.confirm("Delete this invoice? This cannot be undone.")) return;
                           try {
                             const res = await fetch(
                               `/api/invoices/${invoice._id ?? invoice.id}`,
                               { method: "DELETE" },
                             );
                             if (!res.ok) throw new Error("Delete failed");
+                            toast({ title: "Invoice Deleted", description: `Invoice ${invoice.invoiceNo ?? invoice.id} deleted.` });
                             await refresh();
                           } catch (err) {
                             console.error(err);
+                            toast({ title: "Delete Failed", description: "Could not delete invoice. Please try again.", variant: "destructive" });
                           }
                         }}
                       >

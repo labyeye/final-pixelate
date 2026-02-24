@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 import {
   Select,
   SelectContent,
@@ -17,6 +18,7 @@ export default function ProfilePage() {
   const [saving, setSaving] = useState(false);
   const [pwSaving, setPwSaving] = useState(false);
   const [newPassword, setNewPassword] = useState("");
+  const { toast } = useToast();
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
 
   useEffect(() => {
@@ -59,20 +61,20 @@ export default function ProfilePage() {
       if (res.ok) {
         const updated = await res.json();
         setProfile(updated);
-        alert("Profile updated");
+        toast({ title: "Profile Updated", description: "Your profile has been saved successfully." });
       } else {
         const err = await res.json();
-        alert("Failed: " + (err.error || res.status));
+        toast({ title: "Save Failed", description: "Failed: " + (err.error || res.status), variant: "destructive" });
       }
     } catch (e) {
       console.error(e);
-      alert("Save failed");
+      toast({ title: "Save Failed", description: "An unexpected error occurred.", variant: "destructive" });
     }
     setSaving(false);
   }
 
   async function changePassword() {
-    if (!newPassword) return alert("Enter new password");
+    if (!newPassword) { toast({ title: "Enter Password", description: "Please enter a new password.", variant: "destructive" }); return; }
     setPwSaving(true);
     try {
       const token = localStorage.getItem("auth_token") || "";
@@ -85,15 +87,15 @@ export default function ProfilePage() {
         body: JSON.stringify({ action: "change-password", newPassword }),
       });
       if (res.ok) {
-        alert("Password changed");
+        toast({ title: "Password Changed", description: "Your password has been updated successfully." });
         setNewPassword("");
       } else {
         const err = await res.json();
-        alert("Failed: " + (err.error || res.status));
+        toast({ title: "Failed", description: "Failed: " + (err.error || res.status), variant: "destructive" });
       }
     } catch (e) {
       console.error(e);
-      alert("Change failed");
+      toast({ title: "Change Failed", description: "An unexpected error occurred.", variant: "destructive" });
     }
     setPwSaving(false);
   }
