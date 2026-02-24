@@ -1,9 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server';
 import * as svc from '@/lib/services';
+import { ObjectId } from 'mongodb';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const tickets = await svc.getCollection('supportTickets').then((c:any)=>c.find().toArray());
+    const { searchParams } = new URL(request.url);
+    const clientId = searchParams.get('clientId');
+
+    const col = await svc.getCollection('supportTickets');
+    let filter: Record<string, any> = {};
+    if (clientId) {
+      try {
+        filter = { $or: [{ clientId: new ObjectId(clientId) }, { clientId }] };
+      } catch {
+        filter = { clientId };
+      }
+    }
+
+    const tickets = await col.find(filter).sort({ createdAt: -1 }).toArray();
     return NextResponse.json(tickets);
   } catch (error: any) {
     console.error('Error fetching support tickets:', error);

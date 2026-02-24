@@ -1,0 +1,250 @@
+/**
+ * /api/whatsapp-webhook
+ *
+ * Meta WhatsApp Cloud API Webhook endpoint.
+ *
+ * GET  – Hub verification challenge (Meta calls this once when you register
+ *         the webhook in the App Dashboard).
+ * POST – Incoming status updates and inbound message events.
+ *
+ * Setup in Meta App Dashboard:
+ *   1. Go to: App Dashboard → WhatsApp → Configuration → Webhook
+ *   2. Callback URL:  https://<your-domain>/api/whatsapp-webhook
+ *   3. Verify Token:  value of WHATSAPP_WEBHOOK_VERIFY_TOKEN in .env
+ *   4. Subscribe to fields: messages, message_status_updates
+ *
+ * FIXES APPLIED:
+ *  - Added HMAC-SHA256 signature verification (X-Hub-Signature-256 header).
+ *    Without this, ANYONE can POST fake "delivered" events to your webhook.
+ *    Set WHATSAPP_APP_SECRET in your env to your Meta App's "App Secret".
+ *  - "failed" delivery events are logged with full error context
+ *  - Returns 200 immediately (Meta retries if no 200 within 5 seconds)
+ *
+ * Environment variables required:
+ *   WHATSAPP_WEBHOOK_VERIFY_TOKEN  – arbitrary secret you choose and paste
+ *                                    into Meta's webhook config panel
+ *   WHATSAPP_APP_SECRET            – Meta App Secret (from App Dashboard → Basic Settings)
+ *                                    Used to verify X-Hub-Signature-256 header.
+ *
+ * Status events tracked:
+ *   sent       – Meta accepted and queued to carrier network
+ *   delivered  – message delivered to recipient device (confirmed)
+ *   read       – recipient opened the message
+ *   failed     – delivery FAILED — customer did NOT receive the message
+ *                Check error.code for the reason. Common codes:
+ *                  131030 = not a WhatsApp number
+ *                  131026 = undeliverable (blocked, unreachable)
+ *                  131047 = session/window issue
+ */
+
+import { NextRequest, NextResponse } from "next/server";
+import { createHmac, timingSafeEqual } from "crypto";
+
+// ── Types ─────────────────────────────────────────────────────────────────────
+
+interface WAStatusError {
+  code: number;
+  title: string;
+  message?: string;
+  error_data?: { details?: string };
+}
+
+interface WAStatus {
+  id: string;           // wamid
+  status: "sent" | "delivered" | "read" | "failed";
+  timestamp: string;
+  recipient_id: string;
+  conversation?: { id: string; origin?: { type: string } };
+  errors?: WAStatusError[];
+}
+
+interface WAInboundMessage {
+  from: string;
+  id: string;
+  timestamp: string;
+  type: string;
+  text?: { body: string };
+}
+
+interface WAContact {
+  profile: { name: string };
+  wa_id: string;
+}
+
+interface WAChange {
+  field: string;
+  value: {
+    messaging_product: string;
+    metadata: { display_phone_number: string; phone_number_id: string };
+    statuses?: WAStatus[];
+    messages?: WAInboundMessage[];
+    contacts?: WAContact[];
+    errors?: WAStatusError[];
+  };
+}
+
+interface WAWebhookBody {
+  object: string;
+  entry: Array<{
+    id: string;
+    changes: WAChange[];
+  }>;
+}
+
+// ── GET – Webhook Verification ────────────────────────────────────────────────
+
+export async function GET(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const mode      = searchParams.get("hub.mode");
+  const token     = searchParams.get("hub.verify_token");
+  const challenge = searchParams.get("hub.challenge");
+
+  const verifyToken = process.env.WHATSAPP_WEBHOOK_VERIFY_TOKEN;
+
+  if (!verifyToken) {
+    console.error("[WA Webhook] WHATSAPP_WEBHOOK_VERIFY_TOKEN is not set.");
+    return new NextResponse("Server misconfiguration", { status: 500 });
+  }
+
+  if (mode === "subscribe" && token === verifyToken) {
+    console.info("[WA Webhook] Verification successful.");
+    // Must return the challenge as plain text with 200
+    return new NextResponse(challenge, { status: 200 });
+  }
+
+  console.warn("[WA Webhook] Verification failed — token mismatch or wrong mode.");
+  return new NextResponse("Forbidden", { status: 403 });
+}
+
+// ── POST – Event Handler ──────────────────────────────────────────────────────
+
+export async function POST(req: NextRequest) {
+  // ── HMAC Signature Verification ───────────────────────────────────────────
+  // Meta signs every POST with X-Hub-Signature-256: sha256=<hex>
+  // Without this check, anyone can spoof delivery confirmations.
+  const appSecret = process.env.WHATSAPP_APP_SECRET;
+  if (appSecret) {
+    const sigHeader = req.headers.get("x-hub-signature-256");
+    if (!sigHeader) {
+      console.warn("[WA Webhook] Missing X-Hub-Signature-256 header.");
+      return new NextResponse("Forbidden", { status: 403 });
+    }
+
+    // Read raw body as text for HMAC (must match exactly what Meta signed)
+    const rawBody = await req.text();
+    const expectedSig =
+      "sha256=" +
+      createHmac("sha256", appSecret).update(rawBody, "utf8").digest("hex");
+
+    // Timing-safe comparison to prevent timing attacks
+    const sigBuffer = Buffer.from(sigHeader);
+    const expectedBuffer = Buffer.from(expectedSig);
+    const signaturesMatch =
+      sigBuffer.length === expectedBuffer.length &&
+      timingSafeEqual(sigBuffer, expectedBuffer);
+
+    if (!signaturesMatch) {
+      console.warn("[WA Webhook] Signature mismatch — possible spoofed request.");
+      return new NextResponse("Forbidden", { status: 403 });
+    }
+
+    // Parse body from already-read text
+    let body: WAWebhookBody;
+    try {
+      body = JSON.parse(rawBody);
+    } catch {
+      return new NextResponse("Bad Request", { status: 400 });
+    }
+    return processWebhookBody(body);
+  }
+
+  // No app secret configured — parse normally (less secure, fine for dev)
+  let body: WAWebhookBody;
+  try {
+    body = await req.json();
+  } catch {
+    return new NextResponse("Bad Request", { status: 400 });
+  }
+  return processWebhookBody(body);
+}
+
+function processWebhookBody(body: WAWebhookBody): NextResponse | Response {
+  // Meta always sends object: "whatsapp_business_account"
+  if (body.object !== "whatsapp_business_account") {
+    return new NextResponse("Not WhatsApp", { status: 400 });
+  }
+
+  for (const entry of body.entry ?? []) {
+    for (const change of entry.changes ?? []) {
+      if (change.field !== "messages") continue;
+
+      const val = change.value;
+
+      // ── Delivery / Read status updates ──────────────────────────────────
+      for (const status of val.statuses ?? []) {
+        handleStatusUpdate(status);
+      }
+
+      // ── Inbound messages (optional: auto-reply, logging) ────────────────
+      for (const msg of val.messages ?? []) {
+        handleInboundMessage(msg, val.contacts ?? []);
+      }
+    }
+  }
+
+  // Always return 200 OK immediately — Meta retries if it doesn't get 200
+  // within 5 seconds. Do NOT do slow DB operations synchronously here.
+  return new NextResponse("OK", { status: 200 });
+}
+
+// ── Handlers ──────────────────────────────────────────────────────────────────
+
+function handleStatusUpdate(status: WAStatus) {
+  const { id: wamid, status: state, recipient_id, timestamp, errors } = status;
+  const ts = new Date(Number(timestamp) * 1000).toISOString();
+
+  switch (state) {
+    case "sent":
+      console.info(`[WA Webhook] SENT      — wamid: ${wamid}, to: ${recipient_id}, at: ${ts}`);
+      break;
+
+    case "delivered":
+      console.info(`[WA Webhook] DELIVERED — wamid: ${wamid}, to: ${recipient_id}, at: ${ts}`);
+      // TODO: update your database — mark invoice as "WhatsApp delivered"
+      // e.g. await db.collection("invoices").updateOne(
+      //   { whatsappMsgId: wamid },
+      //   { $set: { whatsappStatus: "delivered", whatsappDeliveredAt: new Date(ts) } }
+      // );
+      break;
+
+    case "read":
+      console.info(`[WA Webhook] READ      — wamid: ${wamid}, to: ${recipient_id}, at: ${ts}`);
+      // TODO: update your database — mark invoice as "WhatsApp read"
+      break;
+
+    case "failed":
+      // This is the critical path for silent delivery failures.
+      // error.code tells you WHY it failed (see Meta docs for full list).
+      const errCode  = errors?.[0]?.code;
+      const errTitle = errors?.[0]?.title;
+      const errData  = errors?.[0]?.error_data?.details;
+      console.error(
+        `[WA Webhook] FAILED    — wamid: ${wamid}, to: ${recipient_id}, at: ${ts}\n` +
+        `  Error code:  ${errCode ?? "unknown"}\n` +
+        `  Error title: ${errTitle ?? "unknown"}\n` +
+        `  Details:     ${errData ?? "none"}`,
+      );
+      // TODO: update your database — mark invoice as "WhatsApp failed"
+      // TODO: optionally queue a retry or send an email fallback
+      break;
+  }
+}
+
+function handleInboundMessage(msg: WAInboundMessage, contacts: WAContact[]) {
+  const senderName = contacts.find((c) => c.wa_id === msg.from)?.profile?.name ?? "Unknown";
+  console.info(
+    `[WA Webhook] INBOUND — from: ${msg.from} (${senderName}), type: ${msg.type}, ` +
+    `text: ${msg.text?.body ?? "(non-text)"}`,
+  );
+  // TODO: handle inbound messages (reply, log to CRM, etc.)
+}

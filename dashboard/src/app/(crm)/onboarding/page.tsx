@@ -32,10 +32,15 @@ import {
 import { Plus, FileText, Download, User } from "lucide-react";
 import { format } from "date-fns";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function OnboardingPage() {
   const router = useRouter();
   const { toast } = useToast();
+  const { user } = useAuth();
+  const isClient = user?.role === "client";
+  const myClientId = (user as any)?.clientId ?? null;
+
   const [loading, setLoading] = useState(false);
   const [clients, setClients] = useState<any[]>([]);
   const [onboardings, setOnboardings] = useState<any[]>([]);
@@ -70,7 +75,10 @@ export default function OnboardingPage() {
 
   const fetchOnboardings = async () => {
     try {
-      const res = await fetch("/api/onboarding");
+      const url = isClient && myClientId
+        ? `/api/onboarding?clientId=${myClientId}`
+        : "/api/onboarding";
+      const res = await fetch(url);
       if (res.ok) {
         const data = await res.json();
         setOnboardings(data);
@@ -97,7 +105,8 @@ export default function OnboardingPage() {
     return () => {
       mounted = false;
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isClient, myClientId]);
 
   // when a client is selected, populate form fields
   useEffect(() => {
@@ -183,10 +192,15 @@ export default function OnboardingPage() {
     // Save first
     setLoading(true);
     try {
+      // Attach clientId for filtering
+      const payload = {
+        ...form,
+        clientId: selectedClientId || myClientId || undefined,
+      };
       const res = await fetch("/api/onboarding", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
       if (res.ok) {
         toast({ title: "Success", description: "Onboarding record saved." });
@@ -219,15 +233,17 @@ export default function OnboardingPage() {
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-2xl font-bold tracking-tight">
-            Onboarding History
+            {isClient ? "My Onboarding Documents" : "Onboarding History"}
           </h2>
           <p className="text-muted-foreground">
-            View and manage generated onboarding documents.
+            {isClient ? "View your onboarding documents." : "View and manage generated onboarding documents."}
           </p>
         </div>
+        {!isClient && (
         <Button onClick={() => handleOpenModal()}>
           <Plus className="mr-2 h-4 w-4" /> New Onboarding
         </Button>
+        )}
       </div>
 
       <div className="border rounded-md">

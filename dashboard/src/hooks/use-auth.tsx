@@ -17,7 +17,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 // Define public routes that don't require authentication
 const publicRoutes = ['/login'];
 
-// Routes accessible only to clients
+// Routes accessible only to clients (kept for reference, no longer enforced as exclusive)
 const clientRoutes = ['/client-portal'];
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
@@ -59,14 +59,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     if (!loading) {
         const isPublic = publicRoutes.includes(pathname);
-        const isClientRoute = clientRoutes.some(r => pathname.startsWith(r));
         if (!user && !isPublic) {
             router.push('/login');
-        } else if (user && user.role === 'client' && !isClientRoute) {
-            // Clients can only access the client portal
-            router.push('/client-portal');
-        } else if (user && user.role !== 'client' && isClientRoute) {
-            // Non-clients cannot access client portal
+        }
+        // Non-clients cannot access client portal
+        if (user && user.role !== 'client' && clientRoutes.some(r => pathname.startsWith(r))) {
             router.push('/dashboard');
         }
     }

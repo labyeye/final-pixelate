@@ -1,11 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
 import * as svc from '@/lib/services';
 import { generateQuotationId } from '@/lib/quotation-models';
+import { ObjectId } from 'mongodb';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
     const col = await svc.getCollection('quotations');
-    const quotations = await col.find({}).sort({ createdAt: -1 }).toArray();
+    const { searchParams } = new URL(request.url);
+    const clientIdParam = searchParams.get('clientId');
+
+    // Build filter: if clientId is provided, filter quotations for that client
+    let filter: Record<string, any> = {};
+    if (clientIdParam) {
+      // Try matching as ObjectId and as string
+      try {
+        filter = { $or: [{ clientId: new ObjectId(clientIdParam) }, { clientId: clientIdParam }] };
+      } catch {
+        filter = { clientId: clientIdParam };
+      }
+    }
+
+    const quotations = await col.find(filter).sort({ createdAt: -1 }).toArray();
     return NextResponse.json(quotations);
   } catch (error: any) {
     console.error('Error fetching quotations:', error);

@@ -1,9 +1,25 @@
-import { NextResponse } from "next/server";
-import { getOnboardings, createOnboarding } from "@/lib/services";
+import { NextRequest, NextResponse } from "next/server";
+import { getCollection } from "@/lib/services";
+import { createOnboarding } from "@/lib/services";
+import { ObjectId } from "mongodb";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const items = await getOnboardings();
+    const { searchParams } = new URL(request.url);
+    const clientIdParam = searchParams.get("clientId");
+
+    const col = await getCollection("onboardings");
+
+    let filter: Record<string, any> = {};
+    if (clientIdParam) {
+      try {
+        filter = { $or: [{ clientId: new ObjectId(clientIdParam) }, { clientId: clientIdParam }] };
+      } catch {
+        filter = { clientId: clientIdParam };
+      }
+    }
+
+    const items = await col.find(filter).sort({ createdAt: -1 }).toArray();
     return NextResponse.json(items);
   } catch (e: any) {
     return NextResponse.json(

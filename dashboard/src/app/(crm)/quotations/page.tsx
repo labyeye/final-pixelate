@@ -49,11 +49,18 @@ export default function QuotationsPage() {
   const { toast } = useToast();
   const { user } = useAuth();
 
+  const isClient = user?.role === "client";
+  const myClientId = (user as any)?.clientId ?? null;
+
   useEffect(() => {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch("/api/quotations");
+        // If the logged-in user is a client, only fetch their own quotations
+        const url = isClient && myClientId
+          ? `/api/quotations?clientId=${myClientId}`
+          : "/api/quotations";
+        const res = await fetch(url);
         if (!res.ok)
           throw new Error(`Failed to fetch quotations: ${res.status}`);
         const items = await res.json();
@@ -63,27 +70,29 @@ export default function QuotationsPage() {
       }
     })();
 
-    // also load clients once for display in the table
-    (async () => {
-      try {
-        const res = await fetch("/api/clients");
-        if (!res.ok) return;
-        const list = await res.json();
-        const map: Record<string, any> = {};
-        for (const c of list || []) {
-          if (c._id) map[String(c._id)] = c;
-          if (c.id) map[String(c.id)] = c;
+    // also load clients once for display in the table (admins only)
+    if (!isClient) {
+      (async () => {
+        try {
+          const res = await fetch("/api/clients");
+          if (!res.ok) return;
+          const list = await res.json();
+          const map: Record<string, any> = {};
+          for (const c of list || []) {
+            if (c._id) map[String(c._id)] = c;
+            if (c.id) map[String(c.id)] = c;
+          }
+          if (mounted) setClientsMap(map);
+        } catch (e) {
+          // ignore
         }
-        if (mounted) setClientsMap(map);
-      } catch (e) {
-        // ignore
-      }
-    })();
+      })();
+    }
 
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [isClient, myClientId]);
 
   // Persist a status change to the server and update local state
   const persistStatus = async (quote: Quotation, newStatus: string) => {
@@ -329,19 +338,20 @@ export default function QuotationsPage() {
         <div>
           <h1 className="text-5xl font-black tracking-tighter">QUOTATIONS</h1>
           <p className="text-muted-foreground text-lg">
-            Create, send, and track client quotations.
+            {isClient ? "View your quotations from us." : "Create, send, and track client quotations."}
           </p>
         </div>
-        <div className="flex gap-2">
-          <Button
-            size="lg"
-            className="text-lg bg-[#F36F21] hover:bg-[#d85e1a]"
-            onClick={() => router.push("/quotations/create")}
-          >
-            New Professional Quotation
-          </Button>
-          {/* Quick Quotation removed — professional flow only */}
-        </div>
+        {!isClient && (
+          <div className="flex gap-2">
+            <Button
+              size="lg"
+              className="text-lg bg-[#F36F21] hover:bg-[#d85e1a]"
+              onClick={() => router.push("/quotations/create")}
+            >
+              New Professional Quotation
+            </Button>
+          </div>
+        )}
       </header>
 
       <div className="border-2 border-black rounded-lg overflow-hidden">
@@ -529,6 +539,16 @@ export default function QuotationsPage() {
                     </TableCell>
 
                     <TableCell className="text-center py-4">
+                      {isClient ? (
+                        <span className={cn(
+                          "inline-block px-3 py-1 rounded-full text-xs font-semibold",
+                          quote.status === "APPROVED" && "bg-green-100 text-green-800",
+                          quote.status === "REJECTED" && "bg-red-100 text-red-800",
+                          (!quote.status || quote.status === "PENDING") && "bg-yellow-100 text-yellow-800"
+                        )}>
+                          {quote.status || "PENDING"}
+                        </span>
+                      ) : (
                       <Select
                         value={quote.status || "PENDING"}
                         onValueChange={(v) => {
@@ -566,6 +586,7 @@ export default function QuotationsPage() {
                           <SelectItem value="REJECTED">REJECTED</SelectItem>
                         </SelectContent>
                       </Select>
+                      )}
                     </TableCell>
 
                     <TableCell className="text-right py-4">
@@ -585,7 +606,7 @@ export default function QuotationsPage() {
                           View
                         </Button>
 
-                        {quote.status === "APPROVED" && (
+                        {!isClient && quote.status === "APPROVED" && (
                           <Button
                             size="sm"
                             className="bg-[#F36F21] hover:bg-[#d85e1a] h-8"
@@ -595,6 +616,7 @@ export default function QuotationsPage() {
                           </Button>
                         )}
 
+                        {!isClient && (
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
                             <Button
@@ -625,6 +647,7 @@ export default function QuotationsPage() {
                             </DropdownMenuItem>
                           </DropdownMenuContent>
                         </DropdownMenu>
+                        )}
                       </div>
                     </TableCell>
                   </TableRow>

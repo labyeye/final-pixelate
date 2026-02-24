@@ -11,6 +11,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { useAuth } from "@/hooks/use-auth";
 import { AddInvoiceDialog } from "@/components/invoices/add-invoice-dialog";
 import EditInvoiceDialog from "@/components/invoices/edit-invoice-dialog";
 import RecordPaymentDialog from "@/components/invoices/record-payment-dialog";
@@ -18,6 +19,7 @@ import { pdf } from "@react-pdf/renderer";
 import { renderToString } from "react-dom/server";
 import { InvoicePDFDocument } from "@/components/invoices/invoice-pdf-document";
 import dynamic from "next/dynamic";
+import { WhatsAppInvoiceSendButton } from "@/components/invoices/send-whatsapp-invoice-dialog";
 
 const PDFViewer = dynamic(
   () => import("@react-pdf/renderer").then((mod) => mod.PDFViewer),
@@ -74,6 +76,10 @@ const calculateInvoiceTotals = (invoice: any) => {
 };
 
 export default function InvoicingPage() {
+  const { user } = useAuth();
+  const isClient = user?.role === "client";
+  const myClientId = (user as any)?.clientId ?? null;
+
   const [invoices, setInvoices] = useState<Invoice[]>([]);
   const [clients, setClients] = useState<any[]>([]);
   const [services, setServices] = useState<any[]>([]);
@@ -81,12 +87,16 @@ export default function InvoicingPage() {
   const [downloading, setDownloading] = useState<Record<string, boolean>>({});
   const [previewInvoice, setPreviewInvoice] = useState<any | null>(null);
   const [previewLoading, setPreviewLoading] = useState(false);
+  const [gmailSending, setGmailSending] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch("/api/invoices");
+        const url = isClient && myClientId
+          ? `/api/invoices?clientId=${encodeURIComponent(myClientId)}`
+          : "/api/invoices";
+        const res = await fetch(url);
         if (!res.ok) throw new Error(`Failed to fetch invoices: ${res.status}`);
         const list = await res.json();
         if (mounted) setInvoices(list as Invoice[]);
@@ -118,11 +128,16 @@ export default function InvoicingPage() {
     return () => {
       mounted = false;
     };
-  }, []);
+  // Re-fetch whenever auth resolves so a client sees only their invoices
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isClient, myClientId]);
 
   const refresh = async () => {
     try {
-      const res = await fetch("/api/invoices");
+      const url = isClient && myClientId
+        ? `/api/invoices?clientId=${encodeURIComponent(myClientId)}`
+        : "/api/invoices";
+      const res = await fetch(url);
       if (!res.ok) throw new Error("Failed to fetch invoices");
       const list = await res.json();
       setInvoices(list as Invoice[]);
@@ -458,6 +473,80 @@ export default function InvoicingPage() {
       setPreviewInvoice(null);
     }
   };
+
+  const sendGmailInvoice = async (invoice: any) => {
+    const id = String(invoice._id ?? invoice.id ?? Date.now());
+    const clientObj = clients.find(
+      (c) => String(c.id ?? c._id) === String(invoice.clientId),
+    );
+    const clientEmail =
+      clientObj?.email || invoice?.clientEmail || invoice?.email || "";
+    const clientName =
+      invoice.clientName ||
+      invoice.client ||
+      clientObj?.name ||
+      "Client";
+
+    if (!clientEmail) {
+      alert("No email address found for this client. Please update the client record first.");
+      return;
+    }
+
+    try {
+      setGmailSending((prev) => ({ ...prev, [id]: true }));
+
+      // Generate PDF blob
+      const blob = await pdf(
+        <InvoicePDFDocument invoice={invoice} client={clientObj} />,
+      ).toBlob();
+
+      // Convert blob to base64
+      const arrayBuffer = await blob.arrayBuffer();
+      const uint8Array = new Uint8Array(arrayBuffer);
+      let binary = "";
+      uint8Array.forEach((byte) => { binary += String.fromCharCode(byte); });
+      const base64 = btoa(binary);
+
+      const sanitized = String(clientName || "invoice")
+        .replace(/[^a-z0-9\-\_ ]/gi, "")
+        .trim()
+        .replace(/\s+/g, "-")
+        .slice(0, 80);
+      const fileName = `Invoice-${sanitized}-${id}.pdf`;
+
+      const res = await fetch("/api/send-invoice-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          to: clientEmail,
+          invoiceNo: invoice.invoiceNo ?? invoice.id,
+          clientName,
+          pdfBase64: base64,
+          fileName,
+          amount: invoice.amount ?? 0,
+          dueDate: invoice.dueDate ?? null,
+          status: invoice.status ?? null,
+        }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || "Failed to send email");
+      }
+
+      alert(`Invoice sent to ${clientEmail} successfully!`);
+    } catch (e: any) {
+      console.error("Gmail invoice send failed:", e);
+      alert(`Failed to send invoice email: ${e.message || String(e)}`);
+    } finally {
+      setGmailSending((prev) => {
+        const next = { ...prev };
+        delete next[id];
+        return next;
+      });
+    }
+  };
+
   const exportCsv = async () => {
     try {
       const escape = (v: any) => `"${String(v ?? "").replace(/"/g, '""')}"`;
@@ -548,22 +637,28 @@ export default function InvoicingPage() {
     <div className="space-y-8 font-headline">
       <header className="flex items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-black tracking-tighter">INVOICING</h1>
+          <h1 className="text-3xl font-black tracking-tighter">
+            {isClient ? "MY INVOICES" : "INVOICING"}
+          </h1>
           <p className="text-muted-foreground text-sm">
-            Manage and track all client invoices.
+            {isClient
+              ? "All invoices raised for your account."
+              : "Manage and track all client invoices."}
           </p>
         </div>
-        <div className="flex items-center gap-2">
-          <Button size="sm" onClick={exportCsv}>
-            Export Excel
-          </Button>
-          <AddInvoiceDialog
-            clients={clients}
-            services={services}
-            projects={projects}
-            onCreated={refresh}
-          />
-        </div>
+        {!isClient && (
+          <div className="flex items-center gap-2">
+            <Button size="sm" onClick={exportCsv}>
+              Export Excel
+            </Button>
+            <AddInvoiceDialog
+              clients={clients}
+              services={services}
+              projects={projects}
+              onCreated={refresh}
+            />
+          </div>
+        )}
       </header>
 
       <div className="border-2 border-black">
@@ -634,13 +729,15 @@ export default function InvoicingPage() {
                 </TableCell>
                 <TableCell className="text-right py-2">
                   <div className="flex items-center justify-end gap-2">
-                    <EditInvoiceDialog
-                      invoice={invoice}
-                      clients={clients}
-                      services={services}
-                      projects={projects}
-                      onUpdated={refresh}
-                    />
+                    {!isClient && (
+                      <EditInvoiceDialog
+                        invoice={invoice}
+                        clients={clients}
+                        services={services}
+                        projects={projects}
+                        onUpdated={refresh}
+                      />
+                    )}
 
                     <Button
                       size="sm"
@@ -671,25 +768,60 @@ export default function InvoicingPage() {
                         ? "Downloading..."
                         : "Download"}
                     </Button>
-                    <Button
-                      size="sm"
-                      variant="destructive"
-                      onClick={async () => {
-                        if (!confirm("Delete this invoice?")) return;
-                        try {
-                          const res = await fetch(
-                            `/api/invoices/${invoice._id ?? invoice.id}`,
-                            { method: "DELETE" },
-                          );
-                          if (!res.ok) throw new Error("Delete failed");
-                          await refresh();
-                        } catch (err) {
-                          console.error(err);
-                        }
-                      }}
-                    >
-                      Delete
-                    </Button>
+                    {!isClient && (
+                      <>
+                        {/* WhatsApp send button — self-contained, no modal state needed */}
+                        <WhatsAppInvoiceSendButton
+                          invoice={invoice}
+                          client={clients.find(
+                            (c) => String(c.id ?? c._id) === String(invoice.clientId),
+                          )}
+                        />
+
+                        {/* Gmail icon button */}
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="h-8 w-8 p-0 border-[#EA4335] text-[#EA4335] hover:bg-[#EA4335] hover:text-white disabled:opacity-50"
+                          title="Send via Gmail"
+                          disabled={!!gmailSending[String(invoice._id ?? invoice.id ?? "")]}
+                          onClick={() => sendGmailInvoice(invoice)}
+                        >
+                          {gmailSending[String(invoice._id ?? invoice.id ?? "")] ? (
+                            <svg className="w-3.5 h-3.5 animate-spin" viewBox="0 0 24 24" fill="none">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                            </svg>
+                          ) : (
+                            /* Gmail M logo SVG */
+                            <svg viewBox="0 0 24 24" className="w-4 h-4" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.272H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.908 1.528-1.148C21.69 2.28 24 3.434 24 5.457z" fill="currentColor"/>
+                            </svg>
+                          )}
+                        </Button>
+                      </>
+                    )}
+                    {!isClient && (
+                      <Button
+                        size="sm"
+                        variant="destructive"
+                        onClick={async () => {
+                          if (!confirm("Delete this invoice?")) return;
+                          try {
+                            const res = await fetch(
+                              `/api/invoices/${invoice._id ?? invoice.id}`,
+                              { method: "DELETE" },
+                            );
+                            if (!res.ok) throw new Error("Delete failed");
+                            await refresh();
+                          } catch (err) {
+                            console.error(err);
+                          }
+                        }}
+                      >
+                        Delete
+                      </Button>
+                    )}
                   </div>
                 </TableCell>
               </TableRow>

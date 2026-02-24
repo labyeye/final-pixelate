@@ -818,12 +818,15 @@ async function POST(request) {
     try {
         const body = await request.json();
         const col = await __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]('expenses');
-        const res = await col.insertOne({
+        const doc = {
             ...body,
+            amount: Number(body.amount || 0),
+            date: body.date || new Date().toISOString().slice(0, 10),
             createdAt: new Date()
-        });
+        };
+        const res = await col.insertOne(doc);
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            ...body,
+            ...doc,
             _id: res.insertedId
         }, {
             status: 201

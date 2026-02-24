@@ -107,47 +107,52 @@ export default function InventoryModal({
           <Button onClick={() => setOpen(true)}>+ Add Inventory</Button>
         </DialogTrigger>
       )}
-      <DialogContent>
+      <DialogContent className="max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>
-            {editItem ? "Edit Inventory" : "Add Inventory"}
+          <DialogTitle className="text-xl font-black tracking-tight">
+            {editItem ? "Edit Inventory Item" : "Add Inventory Item"}
           </DialogTitle>
         </DialogHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormField
-              name="itemName"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Item Name</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <FormField
-              name="category"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Category</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <div className="grid grid-cols-2 gap-2">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+            {/* Row 1: Item Name + Category */}
+            <div className="grid grid-cols-2 gap-4">
+              <FormField
+                name="itemName"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-bold text-xs uppercase tracking-widest">Item Name</FormLabel>
+                    <FormControl>
+                      <Input className="border-2 border-black rounded-none" {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="category"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-bold text-xs uppercase tracking-widest">Category</FormLabel>
+                    <FormControl>
+                      <Input className="border-2 border-black rounded-none" {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            {/* Row 2: Quantity + Unit + Price */}
+            <div className="grid grid-cols-3 gap-4">
               <FormField
                 name="quantityAvailable"
                 control={form.control}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Quantity Available</FormLabel>
+                    <FormLabel className="font-bold text-xs uppercase tracking-widest">Quantity</FormLabel>
                     <FormControl>
-                      <Input type="number" {...field} />
+                      <Input type="number" className="border-2 border-black rounded-none" {...field} />
                     </FormControl>
                   </FormItem>
                 )}
@@ -157,68 +162,75 @@ export default function InventoryModal({
                 control={form.control}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Unit</FormLabel>
+                    <FormLabel className="font-bold text-xs uppercase tracking-widest">Unit</FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input className="border-2 border-black rounded-none" {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="price"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-bold text-xs uppercase tracking-widest">Price (₹)</FormLabel>
+                    <FormControl>
+                      <Input type="number" className="border-2 border-black rounded-none" {...field} />
                     </FormControl>
                   </FormItem>
                 )}
               />
             </div>
-            <FormField
-              name="price"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Price</FormLabel>
-                  <FormControl>
-                    <Input type="number" {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
 
-            <FormField
-              name="vendorName"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Vendor Name</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
+            {/* Row 3: Vendor Name + Vendor Contact */}
+            <div className="grid grid-cols-2 gap-4">
+              <FormField
+                name="vendorName"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-bold text-xs uppercase tracking-widest">Vendor Name</FormLabel>
+                    <FormControl>
+                      <Input className="border-2 border-black rounded-none" {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="vendorContact"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-bold text-xs uppercase tracking-widest">Vendor Contact <span className="text-muted-foreground font-normal">(optional)</span></FormLabel>
+                    <FormControl>
+                      <Input className="border-2 border-black rounded-none" {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </div>
 
-            <FormField
-              name="vendorContact"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Vendor Contact (optional)</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-
-            <div className="space-y-2">
-              <label className="flex items-center gap-2">
-                <input type="checkbox" {...form.register("isGst")} />
-                <span className="font-bold">Is GST Applicable?</span>
+            {/* GST Section */}
+            <div className="border-2 border-black p-4 space-y-3">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  className="h-4 w-4 accent-black"
+                  {...form.register("isGst")}
+                />
+                <span className="font-black text-sm uppercase tracking-widest">GST Applicable?</span>
               </label>
               {form.watch("isGst") && (
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-4 pt-1">
                   <FormField
                     name="vendorGstNumber"
                     control={form.control}
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Vendor GST Number</FormLabel>
+                        <FormLabel className="font-bold text-xs uppercase tracking-widest">GST Number</FormLabel>
                         <FormControl>
-                          <Input {...field} />
+                          <Input className="border-2 border-black rounded-none" {...field} />
                         </FormControl>
                       </FormItem>
                     )}
@@ -228,9 +240,9 @@ export default function InventoryModal({
                     control={form.control}
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>GST Percentage</FormLabel>
+                        <FormLabel className="font-bold text-xs uppercase tracking-widest">GST %</FormLabel>
                         <FormControl>
-                          <Input type="number" {...field} />
+                          <Input type="number" className="border-2 border-black rounded-none" {...field} />
                         </FormControl>
                       </FormItem>
                     )}
@@ -240,8 +252,8 @@ export default function InventoryModal({
             </div>
 
             <DialogFooter>
-              <Button type="submit" className="w-full">
-                Save
+              <Button type="submit" className="w-full h-11 text-base font-black tracking-widest rounded-none">
+                {editItem ? "Update Item" : "Add Item"}
               </Button>
             </DialogFooter>
           </form>

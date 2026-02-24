@@ -31,9 +31,14 @@ import {
 import { Plus, Download, User } from "lucide-react";
 import { format } from "date-fns";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function NdaApprovalPage() {
   const { toast } = useToast();
+  const { user } = useAuth();
+  const isClient = user?.role === "client";
+  const myClientId = (user as any)?.clientId ?? null;
+
   const [loading, setLoading] = useState(false);
   const [clients, setClients] = useState<any[]>([]);
   const [ndaApprovals, setNdaApprovals] = useState<any[]>([]);
@@ -60,7 +65,11 @@ export default function NdaApprovalPage() {
 
   const fetchNdaApprovals = async () => {
     try {
-      const res = await fetch("/api/nda-approvals");
+      // For client role, only fetch their own NDAs
+      const url = isClient && myClientId
+        ? `/api/nda-approvals?clientId=${myClientId}`
+        : "/api/nda-approvals";
+      const res = await fetch(url);
       if (res.ok) {
         const data = await res.json();
         // sort by created date descending if possible, or reverse
@@ -88,7 +97,8 @@ export default function NdaApprovalPage() {
     return () => {
       mounted = false;
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isClient, myClientId]);
 
   useEffect(() => {
     if (!selectedClientId) return;
@@ -161,10 +171,15 @@ export default function NdaApprovalPage() {
   const saveAndGenerate = async () => {
     setLoading(true);
     try {
+      // Attach clientId so we can filter per client later
+      const payload = {
+        ...form,
+        clientId: selectedClientId || myClientId || undefined,
+      };
       const res = await fetch("/api/nda-approvals", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("Failed to save");
 
@@ -193,15 +208,17 @@ export default function NdaApprovalPage() {
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-2xl font-bold tracking-tight">
-            NDA Approvals History
+            {isClient ? "My NDA Documents" : "NDA Approvals History"}
           </h2>
           <p className="text-muted-foreground">
-            Manage NDA documents and approvals.
+            {isClient ? "View your signed NDA agreements." : "Manage NDA documents and approvals."}
           </p>
         </div>
+        {!isClient && (
         <Button onClick={() => handleOpenModal()}>
           <Plus className="mr-2 h-4 w-4" /> New NDA
         </Button>
+        )}
       </div>
 
       <div className="border rounded-md">

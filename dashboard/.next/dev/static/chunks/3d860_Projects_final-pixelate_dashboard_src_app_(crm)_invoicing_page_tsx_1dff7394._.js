@@ -1,8 +1,8 @@
 (globalThis.TURBOPACK_CHUNK_LISTS || (globalThis.TURBOPACK_CHUNK_LISTS = [])).push({
     script: typeof document === "object" ? document.currentScript : undefined,
     chunks: [
-  "static/chunks/Desktop_Projects_final-pixelate_dashboard_707153c8._.js",
-  "static/chunks/Desktop_Projects_final-pixelate_dashboard_src_18a4b23c._.js",
+  "static/chunks/Desktop_Projects_final-pixelate_dashboard_480bbd12._.js",
+  "static/chunks/Desktop_Projects_final-pixelate_dashboard_src_eb8b1ffc._.js",
   "static/chunks/c729b_next_dist_49f74725._.js",
   "static/chunks/c729b_jspdf_dist_jspdf_es_min_d2db8976.js",
   "static/chunks/c729b_brotli_8c8e8b96._.js",

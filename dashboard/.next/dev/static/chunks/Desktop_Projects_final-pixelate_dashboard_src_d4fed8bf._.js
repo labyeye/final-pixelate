@@ -230,7 +230,7 @@ const AuthContext = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project
 const publicRoutes = [
     '/login'
 ];
-// Routes accessible only to clients
+// Routes accessible only to clients (kept for reference, no longer enforced as exclusive)
 const clientRoutes = [
     '/client-portal'
 ];
@@ -285,16 +285,13 @@ const AuthProvider = ({ children })=>{
         "AuthProvider.useEffect": ()=>{
             if (!loading) {
                 const isPublic = publicRoutes.includes(pathname);
-                const isClientRoute = clientRoutes.some({
-                    "AuthProvider.useEffect.isClientRoute": (r)=>pathname.startsWith(r)
-                }["AuthProvider.useEffect.isClientRoute"]);
                 if (!user && !isPublic) {
                     router.push('/login');
-                } else if (user && user.role === 'client' && !isClientRoute) {
-                    // Clients can only access the client portal
-                    router.push('/client-portal');
-                } else if (user && user.role !== 'client' && isClientRoute) {
-                    // Non-clients cannot access client portal
+                }
+                // Non-clients cannot access client portal
+                if (user && user.role !== 'client' && clientRoutes.some({
+                    "AuthProvider.useEffect": (r)=>pathname.startsWith(r)
+                }["AuthProvider.useEffect"])) {
                     router.push('/dashboard');
                 }
             }
@@ -369,7 +366,7 @@ const AuthProvider = ({ children })=>{
         children: children
     }, void 0, false, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/hooks/use-auth.tsx",
-        lineNumber: 126,
+        lineNumber: 123,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

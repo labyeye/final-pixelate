@@ -29,13 +29,15 @@ export async function GET(request: NextRequest) {
       case "expense":
         return await getExpenseStatement(startDate, endDate);
       case "staff":
-        return await getStaffReport(startDate, endDate);
+        return await getStaffReport(startDate, endDate, searchParams.get("staffMemberId"));
       case "client":
         return await getClientReport(startDate, endDate, clientId);
       case "task":
         return await getTaskReport(startDate, endDate);
       case "dues":
         return await getDuesReport(startDate, endDate);
+      case "project":
+        return await getProjectReport(startDate, endDate);
       default:
         return NextResponse.json(
           { error: "Invalid report type" },
@@ -259,11 +261,123 @@ async function getExpenseStatement(startDate: Date, endDate: Date) {
   });
 }
 
-async function getStaffReport(startDate: Date, endDate: Date) {
+async function getStaffReport(
+  startDate: Date,
+  endDate: Date,
+  staffMemberId?: string | null,
+) {
   const tasksCol = await svc.getCollection("tasks");
-  const tasks = await tasksCol
-    .find(getDateQuery("createdAt", startDate, endDate))
-    .toArray();
+  const dateQuery = getDateQuery("createdAt", startDate, endDate);
+
+  // If a specific staff member is selected, filter tasks by their ID or name
+  if (staffMemberId && staffMemberId !== "all") {
+    // Resolve their name from the team-members collection
+    let staffName: string | null = null;
+    try {
+      const member = await svc.findById("team-members", staffMemberId);
+      staffName = member?.name ?? null;
+    } catch (_) {}
+
+    const nameFilter = staffName
+      ? { $or: [{ assigneeId: staffMemberId }, { assigneeName: staffName }] }
+      : { assigneeId: staffMemberId };
+
+    const tasks = await tasksCol
+      .find({ $and: [dateQuery, nameFilter] })
+      .toArray();
+
+    let completed = 0;
+    let pending = 0;
+    tasks.forEach((task: any) => {
+      const s = (task.status || "pending").toLowerCase();
+      if (s === "done" || s === "completed") completed++;
+      else pending++;
+    });
+
+    // ── Earnings: projects where this staff member is assigned ──
+    const projectsCol = await svc.getCollection("projects");
+    const allProjects = await projectsCol.find({}).toArray();
+
+    const staffEarnings: any[] = [];
+    allProjects.forEach((p: any) => {
+      const assignees: any[] = Array.isArray(p.assignees) ? p.assignees : [];
+      const isAssigned = assignees.some((a: any) => {
+        if (typeof a === "string") {
+          return a === staffName || a === staffMemberId;
+        }
+        return (
+          a?.name === staffName ||
+          String(a?.id) === staffMemberId ||
+          String(a?._id) === staffMemberId
+        );
+      });
+      if (isAssigned) {
+        const totalAmount = Number(p.amount || 0);
+        const assigneeCount = assignees.length || 1;
+        const myShare = Math.round(totalAmount / assigneeCount);
+        staffEarnings.push({
+          projectId: p._id?.toString(),
+          projectTitle: p.title || "Untitled",
+          client: p.client || p.clientName || "—",
+          status: (p.status || "UNKNOWN").toUpperCase(),
+          totalAmount,
+          myShare,
+          progress: Number(p.progress || 0),
+          createdAt: p.createdAt,
+        });
+      }
+    });
+
+    // ── Payout history: salary expenses linked to this staff member ──
+    const expensesCol = await svc.getCollection("expenses");
+    const salaryExpenses = await expensesCol
+      .find({
+        $and: [
+          { category: { $regex: /^salary$/i } },
+          {
+            $or: [
+              { staffMemberId: staffMemberId },
+              ...(staffName ? [{ staffName: staffName }] : []),
+            ],
+          },
+        ],
+      })
+      .toArray();
+
+    const payouts = salaryExpenses.map((e: any) => ({
+      date: e.date || e.createdAt,
+      amount: Number(e.amount || 0),
+      paymentMethod: e.paymentMethod || "—",
+      linkedProjectId: e.linkedProjectId || "",
+      linkedProjectTitle: e.linkedProjectTitle || "—",
+      note: e.note || e.reference || "",
+      status: e.status || "paid",
+    })).sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+    const totalEarnings = staffEarnings.reduce((s, e) => s + e.myShare, 0);
+    const totalPayouts = payouts.reduce((s: number, p: any) => s + p.amount, 0);
+
+    return NextResponse.json({
+      title: `Staff Report — ${staffName || staffMemberId}`,
+      period: { from: startDate, to: endDate },
+      isSingleStaff: true,
+      staffName: staffName || staffMemberId,
+      summary: { total: tasks.length, completed, pending },
+      details: tasks.map((t: any) => ({
+        title: t.title,
+        status: t.status,
+        priority: t.priority,
+        createdAt: t.createdAt,
+      })),
+      earnings: staffEarnings,
+      earningsSummary: { totalProjects: staffEarnings.length, totalEarnings },
+      payouts,
+      payoutSummary: { totalPayouts, count: payouts.length },
+    });
+  }
+
+  // All staff summary
+  const tasks = await tasksCol.find(dateQuery).toArray();
 
   const stats: Record<string, any> = {};
   tasks.forEach((task: any) => {
@@ -280,6 +394,7 @@ async function getStaffReport(startDate: Date, endDate: Date) {
   return NextResponse.json({
     title: "Staff Performance Report",
     period: { from: startDate, to: endDate },
+    isSingleStaff: false,
     details: Object.values(stats),
   });
 }
@@ -439,6 +554,59 @@ async function getTaskReport(startDate: Date, endDate: Date) {
       priority: t.priority,
       assignee: t.assigneeName,
       createdAt: t.createdAt,
+    })),
+  });
+}
+
+async function getProjectReport(startDate: Date, endDate: Date) {
+  const projectsCol = await svc.getCollection("projects");
+  const projects = await projectsCol
+    .find(getDateQuery("createdAt", startDate, endDate))
+    .toArray();
+
+  // Status breakdown
+  const statusStats: Record<string, number> = {};
+  let totalAmount = 0;
+  let completedAmount = 0;
+  let totalProgress = 0;
+
+  projects.forEach((p: any) => {
+    const s = (p.status || "UNKNOWN").toUpperCase();
+    statusStats[s] = (statusStats[s] || 0) + 1;
+    totalAmount += Number(p.amount || 0);
+    if (s === "COMPLETED") completedAmount += Number(p.amount || 0);
+    totalProgress += Number(p.progress || 0);
+  });
+
+  const avgProgress =
+    projects.length > 0 ? Math.round(totalProgress / projects.length) : 0;
+
+  return NextResponse.json({
+    title: "Project Status Report",
+    period: { from: startDate, to: endDate },
+    summary: {
+      totalProjects: projects.length,
+      totalAmount,
+      completedAmount,
+      avgProgress,
+      byStatus: Object.entries(statusStats).map(([status, count]) => ({
+        status,
+        count,
+      })),
+    },
+    details: projects.map((p: any) => ({
+      title: p.title,
+      client: p.client || p.clientName || "—",
+      status: (p.status || "UNKNOWN").toUpperCase(),
+      progress: Number(p.progress || 0),
+      amount: Number(p.amount || 0),
+      assignees: Array.isArray(p.assignees)
+        ? p.assignees
+            .map((a: any) => (typeof a === "string" ? a : a?.name ?? "—"))
+            .join(", ")
+        : "—",
+      createdAt: p.createdAt,
+      description: p.description || "",
     })),
   });
 }

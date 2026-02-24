@@ -6,7 +6,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { useAuth } from "@/hooks/use-auth";
-import { navGroups, defaultStaffAllowed } from "@/lib/nav-config";
+import { navGroups, defaultStaffAllowed, clientNavItems, defaultClientAllowed } from "@/lib/nav-config";
+import { useEffect, useState } from "react";
 import { LifeBuoy } from "lucide-react";
 import { Button } from "../ui/button";
 
@@ -15,6 +16,18 @@ const userAvatar = PlaceHolderImages.find((p) => p.id === "user-avatar-1");
 export function Sidebar() {
   const pathname = usePathname();
   const { user, logout } = useAuth();
+  const [globalClientPages, setGlobalClientPages] = useState<string[]>(defaultClientAllowed);
+
+  useEffect(() => {
+    fetch("/api/settings/client-sidebar")
+      .then((r) => r.json())
+      .then((data) => {
+        if (Array.isArray(data.allowedClientPages)) {
+          setGlobalClientPages(data.allowedClientPages);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   if (!user) {
     return (
@@ -22,15 +35,16 @@ export function Sidebar() {
     );
   }
 
-  // Client role has their own portal — no sidebar
-  if (user.role === "client") {
-    return null;
-  }
-
+  const isClient = user.role === "client";
   const isAdmin = user?.role === "admin";
   const isStaff = user?.role === "staff";
   const userAllowedPages =
     user.allowedPages !== undefined ? user.allowedPages : defaultStaffAllowed;
+
+  // Visible client nav items based on global setting
+  const visibleClientNavItems = clientNavItems.filter((item) =>
+    globalClientPages.includes(item.href),
+  );
 
   return (
     <aside className="hidden md:flex md:w-60 lg:w-72 flex-col fixed inset-y-0 z-10 border-r-2 border-black bg-background font-headline">
@@ -51,41 +65,68 @@ export function Sidebar() {
         className="flex-1 p-4 space-y-6 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-muted-foreground/20"
         aria-label="Primary navigation"
       >
-        {navGroups.map((group) => {
-          const filteredItems = group.items.filter((item) => {
-            if (isStaff) {
-              return userAllowedPages.includes(item.href);
-            }
-            return !(item.adminOnly && !isAdmin);
-          });
-
-          if (filteredItems.length === 0) return null;
-
-          return (
-            <div key={group.title} className="space-y-2">
-              <h3 className="px-2 text-xs font-black text-muted-foreground uppercase tracking-widest">
-                {group.title}
-              </h3>
-              <div className="space-y-1">
-                {filteredItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={cn(
-                      "flex items-center gap-3 px-3 py-2 text-sm font-bold transition-all border-2 rounded-md hover:translate-x-1",
-                      pathname.startsWith(item.href)
-                        ? "bg-primary text-primary-foreground border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
-                        : "bg-transparent text-muted-foreground border-transparent hover:text-foreground hover:bg-muted hover:border-black/10",
-                    )}
-                  >
-                    <item.icon className="w-4 h-4" />
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
+        {isClient ? (
+          // ── Client nav ─────────────────────────────────────────────────
+          <div className="space-y-2">
+            <h3 className="px-2 text-xs font-black text-muted-foreground uppercase tracking-widest">
+              My Account
+            </h3>
+            <div className="space-y-1">
+              {visibleClientNavItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "flex items-center gap-3 px-3 py-2 text-sm font-bold transition-all border-2 rounded-md hover:translate-x-1",
+                    pathname.startsWith(item.href)
+                      ? "bg-primary text-primary-foreground border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                      : "bg-transparent text-muted-foreground border-transparent hover:text-foreground hover:bg-muted hover:border-black/10",
+                  )}
+                >
+                  <item.icon className="w-4 h-4" />
+                  {item.label}
+                </Link>
+              ))}
             </div>
-          );
-        })}
+          </div>
+        ) : (
+          // ── Admin / Staff nav ───────────────────────────────────────────
+          navGroups.map((group) => {
+            const filteredItems = group.items.filter((item) => {
+              if (isStaff) {
+                return userAllowedPages.includes(item.href);
+              }
+              return !(item.adminOnly && !isAdmin);
+            });
+
+            if (filteredItems.length === 0) return null;
+
+            return (
+              <div key={group.title} className="space-y-2">
+                <h3 className="px-2 text-xs font-black text-muted-foreground uppercase tracking-widest">
+                  {group.title}
+                </h3>
+                <div className="space-y-1">
+                  {filteredItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={cn(
+                        "flex items-center gap-3 px-3 py-2 text-sm font-bold transition-all border-2 rounded-md hover:translate-x-1",
+                        pathname.startsWith(item.href)
+                          ? "bg-primary text-primary-foreground border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                          : "bg-transparent text-muted-foreground border-transparent hover:text-foreground hover:bg-muted hover:border-black/10",
+                      )}
+                    >
+                      <item.icon className="w-4 h-4" />
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            );
+          })
+        )}
       </nav>
 
       {/* User Footer */}

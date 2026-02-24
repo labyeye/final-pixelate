@@ -40,6 +40,9 @@ export default function PaymentsPage() {
   const { user } = useAuth();
   const { toast } = useToast();
 
+  const isClient = user?.role === "client";
+  const myClientId = (user as any)?.clientId ?? null;
+
   const [clients, setClients] = useState<any[]>([]);
   const [selectedClient, setSelectedClient] = useState<string>("");
   const [invoices, setInvoices] = useState<any[]>([]);
@@ -86,11 +89,16 @@ export default function PaymentsPage() {
 
   // Fetch clients on mount
   useEffect(() => {
+    if (isClient) {
+      // Client users: auto-select their own account, no need to fetch all clients
+      if (myClientId) setSelectedClient(String(myClientId));
+      return;
+    }
     fetch("/api/clients")
       .then((res) => res.json())
       .then((data) => setClients(data))
       .catch(console.error);
-  }, []);
+  }, [isClient, myClientId]);
 
   // Fetch invoices when client changes
   useEffect(() => {
@@ -278,7 +286,7 @@ export default function PaymentsPage() {
     }).format(amount);
   };
 
-  if (user?.role !== "admin") {
+  if (user?.role !== "admin" && user?.role !== "client") {
     return (
       <div className="flex h-[50vh] items-center justify-center">
         <div className="text-center">
@@ -296,10 +304,10 @@ export default function PaymentsPage() {
       <div className="flex justify-between items-end border-b pb-6">
         <div>
           <h1 className="text-4xl font-black tracking-tight uppercase italic">
-            Receive Payments
+            {isClient ? "My Payments" : "Receive Payments"}
           </h1>
           <p className="text-muted-foreground font-medium">
-            Manage your incoming cash flow and reconcile client accounts
+            {isClient ? "Track your invoices and payment history" : "Manage your incoming cash flow and reconcile client accounts"}
           </p>
         </div>
       </div>
@@ -307,6 +315,7 @@ export default function PaymentsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Left Side: Client Selector & Stats */}
         <div className="lg:col-span-1 space-y-6">
+          {!isClient && (
           <Card className="border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <CardHeader className="bg-neutral-50 border-b-2 border-black">
               <CardTitle className="text-xs font-black uppercase tracking-widest text-neutral-500 flex items-center gap-2">
@@ -328,6 +337,7 @@ export default function PaymentsPage() {
               </Select>
             </CardContent>
           </Card>
+          )}
 
           {selectedClient && (
             <div className="space-y-4">
@@ -481,7 +491,7 @@ export default function PaymentsPage() {
                               </p>
                             </div>
                             <div className="flex flex-col gap-2 min-w-[120px]">
-                              {!isPaid && (
+                              {!isPaid && !isClient && (
                                 <Button
                                   size="sm"
                                   className="bg-black hover:bg-neutral-800 text-white font-black uppercase text-xs h-10 border-2 border-black"
@@ -599,6 +609,8 @@ export default function PaymentsPage() {
                                             )}
                                           </div>
                                           <div className="flex items-center gap-1 ml-2">
+                                            {!isClient && (
+                                            <>
                                             <button
                                               onClick={() =>
                                                 handleEditPayment(inv, idx)
@@ -617,6 +629,8 @@ export default function PaymentsPage() {
                                             >
                                               <Trash2 className="w-3.5 h-3.5 text-red-600" />
                                             </button>
+                                            </>
+                                            )}
                                           </div>
                                         </div>
                                       ),
