@@ -4,10 +4,8 @@
   "/api/inventory/route": "app/api/inventory/route.js",
   "/api/invoices/route": "app/api/invoices/route.js",
   "/api/projects/route": "app/api/projects/route.js",
-  "/api/send-invoice-whatsapp/route": "app/api/send-invoice-whatsapp/route.js",
   "/api/services/route": "app/api/services/route.js",
   "/api/settings/client-sidebar/route": "app/api/settings/client-sidebar/route.js",
   "/api/team-members/route": "app/api/team-members/route.js",
-  "/api/upload-whatsapp-media/route": "app/api/upload-whatsapp-media/route.js",
   "/api/users/route": "app/api/users/route.js"
 }

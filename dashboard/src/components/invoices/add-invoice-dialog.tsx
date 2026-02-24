@@ -24,6 +24,9 @@ import { InvoicePDF } from "./invoice-pdf";
 import jsPDF from "jspdf";
 import { renderToString } from "react-dom/server";
 
+// ── WhatsApp green colour ─────────────────────────────────────────────────────
+const WA_GREEN = "#25D366";
+
 export function AddInvoiceDialog({
   clients,
   services,
@@ -54,6 +57,12 @@ export function AddInvoiceDialog({
   };
 
   const [open, setOpen] = React.useState(false);
+
+  // ── WhatsApp opt-in state ─────────────────────────────────────────────────
+  const [waOptIn, setWaOptIn] = React.useState(false);
+  // Reset opt-in whenever dialog opens/closes
+  React.useEffect(() => { if (!open) setWaOptIn(false); }, [open]);
+
   const form = useForm<AddFormValues>({
     defaultValues: {
       clientId: "",
@@ -116,6 +125,10 @@ export function AddInvoiceDialog({
         description: isWebDev ? values.description || "" : undefined,
         status: "DUE",
         createdAt: new Date(),
+        // ── WhatsApp opt-in (recorded at invoice creation time) ───────────
+        whatsapp_opt_in: waOptIn,
+        whatsapp_opt_in_source: waOptIn ? "invoice_creation" : null,
+        whatsapp_opt_in_time: waOptIn ? new Date().toISOString() : null,
       };
       // attach inventory usage if present
       if (inventoryRows.length) {
@@ -151,6 +164,25 @@ export function AddInvoiceDialog({
       });
       if (!res.ok) throw new Error("Failed to create invoice");
       const created = await res.json();
+
+      // ── Save WhatsApp opt-in to client record ─────────────────────────────
+      // This must happen AFTER invoice creation so we have the invoiceNo.
+      if (waOptIn && values.clientId) {
+        try {
+          await fetch("/api/whatsapp-optin", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              clientId: values.clientId,
+              invoiceNo: created.invoiceNo ?? created.id ?? "",
+              source: "invoice_creation",
+            }),
+          });
+        } catch (e) {
+          console.error("[WhatsApp] Failed to save opt-in to client record:", e);
+          // Non-fatal — invoice was still created successfully
+        }
+      }
 
       // generate PDF and download (A4, full page, use embedded fonts when possible)
       const doc = new jsPDF({
@@ -737,9 +769,78 @@ export function AddInvoiceDialog({
               </div>
 
               <DialogFooter>
-                <Button type="submit" size="lg" className="w-full">
-                  Create & Download PDF
-                </Button>
+                <div className="w-full space-y-3">
+                  {/* ── WhatsApp Opt-In Consent ────────────────────────── */}
+                  {(() => {
+                    const selectedClientId = form.watch("clientId");
+                    const selectedClient = clients.find(
+                      (c) => String(c.id ?? c._id) === String(selectedClientId),
+                    );
+                    const hasPhone = !!(
+                      (selectedClient as any)?.phone ||
+                      (selectedClient as any)?.whatsapp
+                    );
+                    if (!selectedClientId) return null;
+                    return (
+                      <div
+                        style={{
+                          border: `1.5px solid ${waOptIn ? WA_GREEN : "#e2e8f0"}`,
+                          borderRadius: 10,
+                          padding: "12px 14px",
+                          background: waOptIn ? "#f0fdf4" : "#fafafa",
+                          transition: "all 0.2s",
+                        }}
+                      >
+                        <label
+                          className="flex items-start gap-3 cursor-pointer select-none"
+                          htmlFor="wa-optin-checkbox"
+                        >
+                          <input
+                            id="wa-optin-checkbox"
+                            type="checkbox"
+                            checked={waOptIn}
+                            onChange={(e) => setWaOptIn(e.target.checked)}
+                            style={{
+                              marginTop: 3,
+                              accentColor: WA_GREEN,
+                              width: 16,
+                              height: 16,
+                              flexShrink: 0,
+                            }}
+                          />
+                          <span>
+                            <span
+                              className="font-semibold text-sm"
+                              style={{ color: waOptIn ? "#15803d" : "#374151" }}
+                            >
+                              📲 Send this invoice to{" "}
+                              {selectedClient?.name ?? "client"} on WhatsApp
+                            </span>
+                            <span
+                              className="block text-xs mt-1"
+                              style={{ color: "#6b7280", lineHeight: 1.5 }}
+                            >
+                              By checking this box, you confirm that{" "}
+                              <strong>{selectedClient?.name ?? "the client"}</strong>{" "}
+                              has agreed to receive invoice and payment
+                              notifications from Pixelate Studio on WhatsApp.
+                              {!hasPhone && (
+                                <span className="block mt-1 text-amber-600 font-medium">
+                                  ⚠️ No WhatsApp number saved for this client.
+                                  Add their number in the client profile first.
+                                </span>
+                              )}
+                            </span>
+                          </span>
+                        </label>
+                      </div>
+                    );
+                  })()}
+
+                  <Button type="submit" size="lg" className="w-full">
+                    {waOptIn ? "Create Invoice & Send on WhatsApp ✓" : "Create & Download PDF"}
+                  </Button>
+                </div>
               </DialogFooter>
             </div>
           </form>

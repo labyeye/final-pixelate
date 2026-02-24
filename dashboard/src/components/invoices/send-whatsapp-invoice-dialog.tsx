@@ -1,20 +1,5 @@
-"use client";
 
-/**
- * WhatsAppInvoiceSendButton
- *
- * A single button that:
- *  1. On click → immediately shows a loading spinner, disables itself
- *  2. Reads the phone number from the client/invoice record (no manual input)
- *  3. Calls the full useWhatsAppInvoice send flow in the background
- *  4. On success → shows a success modal
- *  5. On error   → shows an error modal with the exact reason
- *
- * No phone-input modal. No manual steps. Fully automated.
- *
- * Usage (replaces the old SendWhatsAppInvoiceDialog):
- *   <WhatsAppInvoiceSendButton invoice={invoice} client={client} />
- */
+
 
 import React, { useState } from "react";
 import {
@@ -27,6 +12,8 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { useWhatsAppInvoice } from "@/hooks/use-whatsapp-invoice";
+
+const WA_GREEN = "#25D366";
 
 // ── Shared WhatsApp SVG icon ──────────────────────────────────────────────────
 function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -76,6 +63,8 @@ function Spinner() {
 interface Props {
   invoice: any;
   client?: any;
+  /** Called after a successful opt-in toggle so the parent can refresh state */
+  onClientUpdate?: (updatedClient: any) => void;
 }
 
 /** Strip non-digits and auto-prepend 91 for bare 10-digit Indian numbers */
@@ -93,7 +82,7 @@ function resolvePhone(client: any, invoice: any): string | null {
 }
 
 // ── Main component ────────────────────────────────────────────────────────────
-export function WhatsAppInvoiceSendButton({ invoice, client }: Props) {
+export function WhatsAppInvoiceSendButton({ invoice, client, onClientUpdate }: Props) {
   const { send, sending, status, statusMessage, error, messageId } =
     useWhatsAppInvoice();
 
@@ -106,18 +95,35 @@ export function WhatsAppInvoiceSendButton({ invoice, client }: Props) {
   const invNo      = invoice?.invoiceNo ?? invoice?.id ?? "—";
   const phone      = resolvePhone(client, invoice);
 
-  async function handleSend() {
-    if (sending) return;
+  // ── Opt-in / already-sent awareness ─────────────────────────────────────
+  const optedIn       = client?.whatsapp_opted_in === true;
+  const alreadySent   = invoice?.whatsapp_sent === true;
+  const clientId      = String(client?._id ?? client?.id ?? "");
+  const invoiceId     = String(invoice?._id ?? invoice?.id ?? "");
 
-    if (!phone) {
-      // No phone on record — show error modal immediately without API call
-      setResultModalOpen(true);
-      return;
-    }
+  // Determine why the button is disabled (priority order)
+  const disabledReason: string | null = !phone
+    ? "No WhatsApp number saved for this client"
+    : alreadySent
+    ? `Invoice already sent on WhatsApp${invoice?.whatsapp_sent_at ? ` on ${new Date(invoice.whatsapp_sent_at).toLocaleDateString("en-IN")}` : ""}`
+    : !optedIn
+    ? "Client has not opted in to receive WhatsApp messages. Ask them to consent on next invoice creation."
+    : null;
+
+  const isDisabled = sending || !!disabledReason;
+
+  async function handleSend() {
+    if (isDisabled) return;
 
     setResultModalOpen(false);
-    await send({ invoice, client, phone });
-    // Open result modal after send completes (success or error)
+    await send({
+      invoice,
+      client,
+      phone: phone!,
+      // Pass IDs so the API can enforce opt-in guard + idempotency
+      ...(clientId ? { clientId } : {}),
+      ...(invoiceId ? { invoiceId } : {}),
+    } as any);
     setResultModalOpen(true);
   }
 
@@ -127,12 +133,28 @@ export function WhatsAppInvoiceSendButton({ invoice, client }: Props) {
       <Button
         size="sm"
         variant="outline"
-        className="h-8 w-8 p-0 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white disabled:opacity-60 disabled:cursor-not-allowed"
-        title={phone ? `Send invoice to ${phone} via WhatsApp` : "No WhatsApp number on record"}
-        disabled={sending}
+        className={`h-8 w-8 p-0 border-[#25D366] disabled:opacity-60 disabled:cursor-not-allowed ${
+          alreadySent
+            ? "text-[#25D366] bg-green-50 border-green-300"
+            : "text-[#25D366] hover:bg-[#25D366] hover:text-white"
+        }`}
+        title={
+          disabledReason ??
+          `Send invoice to ${phone} via WhatsApp`
+        }
+        disabled={isDisabled}
         onClick={handleSend}
       >
-        {sending ? <Spinner /> : <WhatsAppIcon />}
+        {sending ? (
+          <Spinner />
+        ) : alreadySent ? (
+          // Checkmark tick when already sent
+          <svg viewBox="0 0 20 20" className="w-4 h-4" fill="currentColor">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+        ) : (
+          <WhatsAppIcon />
+        )}
       </Button>
 
       {/* ── Result modal (success or error) ────────────────────────────── */}
@@ -147,6 +169,8 @@ export function WhatsAppInvoiceSendButton({ invoice, client }: Props) {
             <DialogTitle className="flex items-center gap-2">
               {!phone ? (
                 <>⚠️ No WhatsApp Number</>
+              ) : !optedIn ? (
+                <>🔒 Opt-In Required</>
               ) : isSuccess ? (
                 <>
                   <span className="text-[#25D366]">
@@ -166,6 +190,22 @@ export function WhatsAppInvoiceSendButton({ invoice, client }: Props) {
                     <strong>{clientName}</strong>. Please update the client
                     record and try again.
                   </p>
+                )}
+
+                {phone && !optedIn && (
+                  <div className="rounded-md bg-amber-50 border border-amber-200 p-3 text-amber-800 text-sm space-y-1">
+                    <p className="font-semibold">📋 WhatsApp Opt-In Required</p>
+                    <p>
+                      <strong>{clientName}</strong> has not consented to receive
+                      WhatsApp messages from Pixelate Studio.
+                    </p>
+                    <p className="text-xs mt-2">
+                      To send invoices on WhatsApp, check the{" "}
+                      <em>"Send on WhatsApp"</em> checkbox the next time you
+                      create an invoice for this client. This records their
+                      consent and prevents error 131049.
+                    </p>
+                  </div>
                 )}
 
                 {isSuccess && (
@@ -218,13 +258,19 @@ export function WhatsAppInvoiceSendButton({ invoice, client }: Props) {
             >
               Close
             </Button>
-            {isError && phone && (
+            {isError && phone && optedIn && !alreadySent && (
               <Button
                 size="sm"
                 className="bg-[#25D366] hover:bg-[#1ebe5a] text-white"
                 onClick={async () => {
                   setResultModalOpen(false);
-                  await send({ invoice, client, phone });
+                  await send({
+                    invoice,
+                    client,
+                    phone: phone!,
+                    ...(clientId ? { clientId } : {}),
+                    ...(invoiceId ? { invoiceId } : {}),
+                  } as any);
                   setResultModalOpen(true);
                 }}
                 disabled={sending}

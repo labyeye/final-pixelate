@@ -31,6 +31,7 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
+import * as svc from "@/lib/services";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -55,6 +56,12 @@ interface SendInvoiceBody {
   mediaId?: string;
   /** Public HTTPS PDF URL (fallback if no mediaId). Must be directly accessible, no auth, no redirects. */
   pdfUrl?: string;
+  /**
+   * Optional: pass clientId + invoiceId to enable opt-in guard and
+   * idempotency check (prevents sending the same invoice twice).
+   */
+  clientId?: string;
+  invoiceId?: string;
 }
 
 interface WhatsAppErrorDetail {
@@ -170,7 +177,81 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON body." }, { status: 400 });
   }
 
-  const { phone, clientName, invNo, amount, filename, mediaId, pdfUrl } = body;
+  const { phone, clientName, invNo, amount, filename, mediaId, pdfUrl, clientId, invoiceId } = body;
+
+  // ── Opt-in guard ────────────────────────────────────────────────────────────
+  // CRITICAL: Never send a WhatsApp message without the client's opt-in.
+  // This is the primary cause of error 131049.
+  // If clientId is provided, we enforce the opt-in check from the DB.
+  if (clientId) {
+    try {
+      const clientDoc = await svc.findById("clients", clientId);
+      if (!clientDoc) {
+        return NextResponse.json(
+          { error: "Client not found.", code: "CLIENT_NOT_FOUND" },
+          { status: 404 },
+        );
+      }
+      if (clientDoc.whatsapp_opted_in !== true) {
+        console.warn(
+          `[WhatsApp] Blocked send to client ${clientId} — no opt-in on record.`,
+        );
+        return NextResponse.json(
+          {
+            error:
+              "Client has not opted in to receive WhatsApp messages. " +
+              "Ask the client to consent first (checkbox on invoice creation).",
+            code: "OPT_IN_REQUIRED",
+          },
+          { status: 403 },
+        );
+      }
+      // Also check if client has opted out
+      if (clientDoc.whatsapp_opted_in === false) {
+        console.warn(
+          `[WhatsApp] Blocked send to client ${clientId} — client has opted out.`,
+        );
+        return NextResponse.json(
+          {
+            error: "Client has opted out of WhatsApp messages (replied STOP). Cannot send.",
+            code: "OPT_OUT",
+          },
+          { status: 403 },
+        );
+      }
+    } catch (dbErr: any) {
+      console.error("[WhatsApp] DB error during opt-in check:", dbErr);
+      return NextResponse.json(
+        { error: "Could not verify opt-in status. Try again." },
+        { status: 500 },
+      );
+    }
+  }
+
+  // ── Idempotency guard — send each invoice ONLY ONCE ─────────────────────────
+  // Prevents duplicate WhatsApp messages if the button is clicked twice.
+  if (invoiceId) {
+    try {
+      const invoiceDoc = await svc.findById("invoices", invoiceId);
+      if (invoiceDoc?.whatsapp_sent === true) {
+        console.info(
+          `[WhatsApp] Invoice ${invoiceId} already sent. wamid: ${invoiceDoc.whatsapp_message_id}`,
+        );
+        return NextResponse.json(
+          {
+            error: "This invoice was already sent on WhatsApp.",
+            code: "ALREADY_SENT",
+            messageId: invoiceDoc.whatsapp_message_id,
+            sentAt: invoiceDoc.whatsapp_sent_at,
+          },
+          { status: 409 },
+        );
+      }
+    } catch (dbErr: any) {
+      console.error("[WhatsApp] DB error during idempotency check:", dbErr);
+      // Non-fatal — proceed with sending; worst case is a duplicate
+    }
+  }
 
   // ── Validate required fields ───────────────────────────────────────────────
   const missingFields: string[] = [];
@@ -425,6 +506,24 @@ export async function POST(req: NextRequest) {
   console.info(
     "[WhatsApp] IMPORTANT: wamid ≠ delivered. Check webhook for sent/delivered/read/failed events.",
   );
+
+  // ── Mark invoice as sent (idempotency record) ─────────────────────────────
+  // This prevents the same invoice from being sent twice on WhatsApp.
+  if (invoiceId) {
+    try {
+      await svc.updateById("invoices", invoiceId, {
+        whatsapp_sent: true,
+        whatsapp_sent_at: new Date().toISOString(),
+        whatsapp_message_id: messageId,
+        whatsapp_send_status: "sent",
+      });
+    } catch (dbErr: any) {
+      console.error(
+        "[WhatsApp] Failed to mark invoice as sent in DB (non-fatal):",
+        dbErr,
+      );
+    }
+  }
 
   return NextResponse.json({
     success: true,

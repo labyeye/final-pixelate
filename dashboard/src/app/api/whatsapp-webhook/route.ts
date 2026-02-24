@@ -39,6 +39,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { createHmac, timingSafeEqual } from "crypto";
+import { getCollection } from "@/lib/services";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -187,7 +188,10 @@ function processWebhookBody(body: WAWebhookBody): NextResponse | Response {
 
       // ── Inbound messages (optional: auto-reply, logging) ────────────────
       for (const msg of val.messages ?? []) {
-        handleInboundMessage(msg, val.contacts ?? []);
+        // Fire-and-forget — do NOT await (webhook must return 200 within 5s)
+        handleInboundMessage(msg, val.contacts ?? []).catch((e) =>
+          console.error("[WA Webhook] handleInboundMessage error:", e),
+        );
       }
     }
   }
@@ -210,16 +214,18 @@ function handleStatusUpdate(status: WAStatus) {
 
     case "delivered":
       console.info(`[WA Webhook] DELIVERED — wamid: ${wamid}, to: ${recipient_id}, at: ${ts}`);
-      // TODO: update your database — mark invoice as "WhatsApp delivered"
-      // e.g. await db.collection("invoices").updateOne(
-      //   { whatsappMsgId: wamid },
-      //   { $set: { whatsappStatus: "delivered", whatsappDeliveredAt: new Date(ts) } }
-      // );
+      // Update invoice delivery status in DB
+      updateInvoiceWhatsAppStatus(wamid, "delivered", { whatsapp_delivered_at: ts }).catch(
+        (e) => console.error("[WA Webhook] DB update failed for DELIVERED:", e),
+      );
       break;
 
     case "read":
       console.info(`[WA Webhook] READ      — wamid: ${wamid}, to: ${recipient_id}, at: ${ts}`);
-      // TODO: update your database — mark invoice as "WhatsApp read"
+      // Update invoice read status in DB
+      updateInvoiceWhatsAppStatus(wamid, "read", { whatsapp_read_at: ts }).catch(
+        (e) => console.error("[WA Webhook] DB update failed for READ:", e),
+      );
       break;
 
     case "failed":
@@ -234,17 +240,77 @@ function handleStatusUpdate(status: WAStatus) {
         `  Error title: ${errTitle ?? "unknown"}\n` +
         `  Details:     ${errData ?? "none"}`,
       );
-      // TODO: update your database — mark invoice as "WhatsApp failed"
-      // TODO: optionally queue a retry or send an email fallback
+      // Update invoice failed status in DB
+      updateInvoiceWhatsAppStatus(wamid, "failed", {
+        whatsapp_failed_at: ts,
+        whatsapp_fail_code: errCode,
+        whatsapp_fail_reason: errTitle ?? errData ?? "unknown",
+      }).catch((e) => console.error("[WA Webhook] DB update failed for FAILED:", e));
       break;
   }
 }
 
-function handleInboundMessage(msg: WAInboundMessage, contacts: WAContact[]) {
+/**
+ * Updates the invoice document matching a wamid with a new WhatsApp delivery status.
+ * Non-blocking — called with .catch() so webhook always returns 200.
+ */
+async function updateInvoiceWhatsAppStatus(
+  wamid: string,
+  status: string,
+  extraFields: Record<string, any> = {},
+) {
+  try {
+    const col = await getCollection("invoices");
+    await col.updateOne(
+      { whatsapp_message_id: wamid },
+      { $set: { whatsapp_send_status: status, ...extraFields } },
+    );
+  } catch (e) {
+    console.error("[WA Webhook] updateInvoiceWhatsAppStatus error:", e);
+  }
+}
+
+async function handleInboundMessage(msg: WAInboundMessage, contacts: WAContact[]) {
   const senderName = contacts.find((c) => c.wa_id === msg.from)?.profile?.name ?? "Unknown";
+  const messageText = (msg.text?.body ?? "").trim().toUpperCase();
+
   console.info(
     `[WA Webhook] INBOUND — from: ${msg.from} (${senderName}), type: ${msg.type}, ` +
     `text: ${msg.text?.body ?? "(non-text)"}`,
   );
-  // TODO: handle inbound messages (reply, log to CRM, etc.)
+
+  // ── STOP / opt-out handling ──────────────────────────────────────────────
+  // WhatsApp policy: if a user sends STOP (or common variants), you MUST
+  // stop sending them messages immediately. We set whatsapp_opted_in = false
+  // on their client record so the opt-in guard in send-invoice-whatsapp blocks future sends.
+  const OPT_OUT_KEYWORDS = ["STOP", "UNSUBSCRIBE", "CANCEL", "OPT OUT", "OPTOUT", "QUIT", "END"];
+  if (OPT_OUT_KEYWORDS.includes(messageText)) {
+    console.warn(
+      `[WA Webhook] OPT-OUT — ${msg.from} (${senderName}) sent "${msg.text?.body}". Revoking opt-in.`,
+    );
+    try {
+      const clientsCol = await getCollection("clients");
+      // Find the client by phone number (strip country code variants)
+      const phoneVariants = [msg.from, msg.from.replace(/^91/, "")];
+      await clientsCol.updateMany(
+        {
+          $or: [
+            { phone: { $in: phoneVariants } },
+            { whatsapp: { $in: phoneVariants } },
+            { phone: msg.from.slice(-10) },   // last 10 digits
+          ],
+        },
+        {
+          $set: {
+            whatsapp_opted_in: false,
+            whatsapp_opt_out_time: new Date().toISOString(),
+            whatsapp_opt_out_reason: `User replied: ${msg.text?.body}`,
+          },
+        },
+      );
+      console.info(`[WA Webhook] Opt-out saved for phone: ${msg.from}`);
+    } catch (e) {
+      console.error("[WA Webhook] Failed to save opt-out:", e);
+    }
+  }
 }

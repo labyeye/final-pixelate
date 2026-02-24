@@ -36,6 +36,17 @@ export interface WhatsAppInvoiceOptions {
    * Useful when the PDF is already hosted (e.g. Firebase Storage public URL).
    */
   publicPdfUrl?: string;
+  /**
+   * Optional: MongoDB _id of the client.
+   * When provided, the send API enforces the opt-in guard.
+   */
+  clientId?: string;
+  /**
+   * Optional: MongoDB _id (or invoiceNo) of the invoice.
+   * When provided, the send API enforces the idempotency guard
+   * (prevents sending the same invoice twice).
+   */
+  invoiceId?: string;
 }
 
 export interface WhatsAppInvoiceResult {
@@ -129,6 +140,8 @@ export function useWhatsAppInvoice(): WhatsAppInvoiceResult {
       client,
       phone,
       publicPdfUrl,
+      clientId,
+      invoiceId,
     }: WhatsAppInvoiceOptions) => {
       setError(null);
       setMessageId(null);
@@ -211,6 +224,9 @@ export function useWhatsAppInvoice(): WhatsAppInvoiceResult {
             filename: sanitiseFilename(`Invoice-${invNo}`) + ".pdf",
             ...(mediaId ? { mediaId } : {}),
             ...(pdfUrl ? { pdfUrl } : {}),
+            // Opt-in guard + idempotency — pass IDs to the API
+            ...(clientId ? { clientId } : {}),
+            ...(invoiceId ? { invoiceId } : {}),
           }),
         });
 
