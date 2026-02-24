@@ -1,0 +1,31 @@
+{
+  "sorted_middleware": [],
+  "middleware": {
+    "/": {
+      "files": [
+        "server/edge/chunks/Desktop_Projects_final-pixelate_dashboard_edge-wrapper_69657a52.js",
+        "server/edge/chunks/[root-of-the-server]__54bc44ef._.js",
+        "server/edge/chunks/turbopack-Desktop_Projects_final-pixelate_dashboard_edge-wrapper_281b6976.js"
+      ],
+      "name": "middleware",
+      "page": "/",
+      "matchers": [
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/api/public/:path*{(\\\\.json)}?",
+          "originalSource": "/api/public/:path*"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "3iSnyKnA-4bbbbTVQMXM2",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "YUxcpddiaAcivPHkZ2L2cO/cFBu6Nt6n3xYkPCY90O4=",
+        "__NEXT_PREVIEW_MODE_ID": "e8f9a8ad7a6f115b8eda4a2cad5921e0",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "f28d2f6cbf5691429186622920386b84c6f13a06447652fcd0daa05db7fd46fe",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c6cd9954665ba71d684b7d00a5a83b46e213aca0e79f6546587d9296f1a85d21"
+      }
+    }
+  },
+  "instrumentation": null,
+  "functions": {}
+}

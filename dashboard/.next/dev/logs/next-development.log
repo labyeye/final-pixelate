@@ -33,3 +33,5 @@
 [00:10:45.698] Server  INFO    [WhatsApp] IMPORTANT: wamid ≠ delivered. Check webhook for sent/delivered/read/failed events.
 [00:16:33.857] Server  LOG        Reload env: .env
 [00:16:39.014] Server  LOG        Reload env: .env
+[00:21:15.138] Server  LOG        Reload env: .env
+[00:21:27.829] Server  LOG        Reload env: .env

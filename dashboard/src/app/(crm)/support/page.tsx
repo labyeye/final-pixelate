@@ -987,7 +987,7 @@ export default function SupportPage() {
             <DialogTitle>Create New Support Ticket</DialogTitle>
           </DialogHeader>
           <div className="grid gap-4 py-4">
-            <div className="grid gap-2">
+clear            <div className="grid gap-2">
               <label className="text-sm font-medium">Title</label>
               <Input
                 placeholder="Brief description of the issue"
