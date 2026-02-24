@@ -511,6 +511,12 @@
       "namedRegex": "^/api/users(?:/)?$"
     },
     {
+      "page": "/api/whatsapp-optin",
+      "regex": "^/api/whatsapp\\-optin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/whatsapp\\-optin(?:/)?$"
+    },
+    {
       "page": "/api/whatsapp-webhook",
       "regex": "^/api/whatsapp\\-webhook(?:/)?$",
       "routeKeys": {},

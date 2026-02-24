@@ -102,6 +102,7 @@
   "/api/user-activity/route": "app/api/user-activity/route.js",
   "/api/users/[id]/route": "app/api/users/[id]/route.js",
   "/api/users/route": "app/api/users/route.js",
+  "/api/whatsapp-optin/route": "app/api/whatsapp-optin/route.js",
   "/api/whatsapp-webhook/route": "app/api/whatsapp-webhook/route.js",
   "/api/work-gallery/[id]/route": "app/api/work-gallery/[id]/route.js",
   "/api/work-gallery/route": "app/api/work-gallery/route.js",

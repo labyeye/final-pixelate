@@ -102,6 +102,7 @@
   "/api/user-activity/route": "/api/user-activity",
   "/api/users/[id]/route": "/api/users/[id]",
   "/api/users/route": "/api/users",
+  "/api/whatsapp-optin/route": "/api/whatsapp-optin",
   "/api/whatsapp-webhook/route": "/api/whatsapp-webhook",
   "/api/work-gallery/[id]/route": "/api/work-gallery/[id]",
   "/api/work-gallery/route": "/api/work-gallery",
