@@ -139,7 +139,7 @@ export default function InvoicingPage() {
       const url = isClient && myClientId
         ? `/api/invoices?clientId=${encodeURIComponent(myClientId)}`
         : "/api/invoices";
-      const res = await fetch(url);
+      const res = await fetch(url, { cache: "no-store" });
       if (!res.ok) throw new Error("Failed to fetch invoices");
       const list = await res.json();
       setInvoices(list as Invoice[]);
@@ -829,17 +829,27 @@ export default function InvoicingPage() {
                         variant="destructive"
                         onClick={async () => {
                           if (!window.confirm("Delete this invoice? This cannot be undone.")) return;
+                          const invoiceId = String(invoice._id ?? invoice.id ?? "");
                           try {
                             const res = await fetch(
-                              `/api/invoices/${invoice._id ?? invoice.id}`,
+                              `/api/invoices/${invoiceId}`,
                               { method: "DELETE" },
                             );
-                            if (!res.ok) throw new Error("Delete failed");
+                            if (!res.ok) {
+                              const errJson = await res.json().catch(() => ({}));
+                              throw new Error(errJson.error || "Delete failed");
+                            }
+                            // Optimistically remove from UI immediately
+                            setInvoices((prev) =>
+                              prev.filter(
+                                (inv) => String(inv._id ?? inv.id ?? "") !== invoiceId,
+                              ),
+                            );
                             toast({ title: "Invoice Deleted", description: `Invoice ${invoice.invoiceNo ?? invoice.id} deleted.` });
                             await refresh();
-                          } catch (err) {
+                          } catch (err: any) {
                             console.error(err);
-                            toast({ title: "Delete Failed", description: "Could not delete invoice. Please try again.", variant: "destructive" });
+                            toast({ title: "Delete Failed", description: err.message || "Could not delete invoice. Please try again.", variant: "destructive" });
                           }
                         }}
                       >
