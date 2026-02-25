@@ -31,6 +31,8 @@ Disallow: /api/
 # === SITEMAPS ===
 Sitemap: https://www.pixelatenest.com/sitemap-index.xml
 Sitemap: https://www.pixelatenest.com/sitemap-main.xml
+Sitemap: https://www.pixelatenest.com/sitemapstate.xml
+Sitemap: https://www.pixelatenest.com/sitemap-detailed-services.xml
 
 # === RATE-LIMIT HEAVY SEO BOTS (optional) ===
 User-agent: AhrefsBot

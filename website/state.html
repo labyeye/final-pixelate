@@ -20,7 +20,7 @@
     <meta
       property="og:url"
       id="og-url"
-      content="https://www.pixelatenest.com/locations.html"
+      content="https://www.pixelatenest.com/state.html"
     />
     <meta
       property="og:image"
@@ -67,8 +67,19 @@
     <link
       rel="canonical"
       id="page-canonical"
-      href="https://www.pixelatenest.com/location.html"
+      href="https://www.pixelatenest.com/state.html"
     />
+    <script>
+      (function () {
+        var city = new URLSearchParams(window.location.search).get("city");
+        if (city) {
+          var url = "https://www.pixelatenest.com/state.html?city=" + encodeURIComponent(city);
+          document.getElementById("page-canonical").setAttribute("href", url);
+          var ogUrl = document.getElementById("og-url");
+          if (ogUrl) ogUrl.setAttribute("content", url);
+        }
+      })();
+    </script>
     <script type="application/ld+json" id="schema-markup">
       {}
     </script>
@@ -489,7 +500,10 @@
                   </div>
 
                   <div class="hero-cta-wrap">
-                    <a href="https://www.pixelatenest.com/contact.html" class="hero-cta-button">
+                    <a
+                      href="https://www.pixelatenest.com/contact.html"
+                      class="hero-cta-button"
+                    >
                       Contact Experts <span class="cta-arrow">→</span>
                     </a>
                   </div>
@@ -697,7 +711,9 @@
           Contact Pixelate Nest today for a free consultation and discover how
           our creative digital solutions can help your business grow.
         </p>
-        <a href="https://www.pixelatenest.com/contact.html" class="cta-button">Get Free Quote</a>
+        <a href="https://www.pixelatenest.com/contact.html" class="cta-button"
+          >Get Free Quote</a
+        >
       </div>
 
       <script>

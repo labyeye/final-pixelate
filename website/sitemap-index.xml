@@ -24,4 +24,8 @@
     <loc>https://www.pixelatenest.com/sitemapstate.xml</loc>
     <lastmod>2026-02-26</lastmod>
   </sitemap>
+  <sitemap>
+    <loc>https://www.pixelatenest.com/sitemap-detailed-services.xml</loc>
+    <lastmod>2026-02-26</lastmod>
+  </sitemap>
 </sitemapindex>

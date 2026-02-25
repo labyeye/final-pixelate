@@ -22,6 +22,18 @@
       id="page-canonical"
       href="https://www.pixelatenest.com/detailed-services.html"
     />
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var service = params.get("service");
+        var city = params.get("city");
+        if (service) {
+          var canonical = "https://www.pixelatenest.com/detailed-services.html?service=" + encodeURIComponent(service);
+          if (city) canonical += "&city=" + encodeURIComponent(city);
+          document.getElementById("page-canonical").setAttribute("href", canonical);
+        }
+      })();
+    </script>
 
     <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
     <link href="./styles.css" rel="stylesheet" crossorigin />
@@ -958,12 +970,12 @@
     ></script>
     <script src="./js/index.js"></script>
     <script>
+      const _dsParams = new URLSearchParams(window.location.search);
+      const _dsServiceSlug = _dsParams.get("service");
+
       async function loadServiceData() {
         try {
-          const params = new URLSearchParams(window.location.search);
-          const serviceSlug = params.get("service");
-
-          if (!serviceSlug) {
+          if (!_dsServiceSlug) {
             showError();
             return;
           }
@@ -974,7 +986,7 @@
           }
 
           const data = await response.json();
-          const service = data.services.find((s) => s.slug === serviceSlug);
+          const service = data.services.find((s) => s.slug === _dsServiceSlug);
 
           if (!service) {
             showError();
@@ -996,14 +1008,10 @@
           .getElementById("page-description")
           .setAttribute("content", service.longDescription);
         
-        // Build canonical URL with service and city parameters
-        const params = new URLSearchParams(window.location.search);
-        const serviceSlug = params.get("service");
-        const city = params.get("city");
-        let canonicalUrl = `https://www.pixelatenest.com/detailed-services.html?service=${serviceSlug}`;
-        if (city) {
-          canonicalUrl += `&city=${encodeURIComponent(city)}`;
-        }
+        // Canonical points to the service+city specific URL so each combination is indexable
+        var canonicalUrl = "https://www.pixelatenest.com/detailed-services.html?service=" + encodeURIComponent(_dsServiceSlug);
+        var cityParam = _dsParams.get("city");
+        if (cityParam) canonicalUrl += "&city=" + encodeURIComponent(cityParam);
         document
           .getElementById("page-canonical")
           .setAttribute("href", canonicalUrl);
