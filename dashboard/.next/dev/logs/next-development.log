@@ -1,31 +1,77 @@
-[00:00:00.612] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:00.703] Server  LOG      ✓ Ready in 522ms
-[00:00:04.706] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:49.594] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:05:49.594] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:14.490] Server  LOG      ✓ Compiled in 74ms
-[00:06:14.742] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:21.857] Server  LOG      ✓ Compiled in 54ms
-[00:06:24.258] Server  LOG      ✓ Compiled in 68ms
-[00:06:26.907] Server  LOG      ✓ Compiled in 65ms
-[00:06:28.540] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:28.540] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:39.625] Server  LOG      ✓ Compiled in 46ms
-[00:06:42.125] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:42.125] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:45.050] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:48.404] Server  LOG      ✓ Compiled in 85ms
-[00:06:52.522] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:52.522] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:59.794] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:59.795] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:07:17.760] Server  LOG      ✓ Compiled in 60ms
-[00:07:21.741] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:07:21.741] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:07:25.193] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:20:57.583] Server  INFO    [WhatsApp Opt-Out] Client 699dd33cbb1384a565425baa opted out. Reason: manual
-[00:20:58.332] Server  INFO    [WhatsApp Opt-In] Client 699dd33cbb1384a565425baa opted in via manual_toggle for invoice N/A
-[00:20:59.883] Server  INFO    [WhatsApp Opt-In] Client 699d6a34955af150826247a6 opted in via manual_toggle for invoice N/A
-[00:21:02.373] Server  INFO    [WhatsApp Media] Uploading: Invoice-Test-KTS-2025-2026-00021.pdf, size: 35.2 KB
-[00:21:03.089] Server  ERROR   [WhatsApp Media] Upload failed — HTTP 401, code: 190, fbtrace_id: ALf4oAlanKHZtW3F9Omjxja: "{\n  \"error\": {\n    \"message\": \"Authentication Error\",\n    \"code\": 190,\n    \"type\": \"OAuthException\",\n    \"fbtrace_id\": \"ALf4oAlanKHZtW3F9Omjxja\"\n  }\n}"
-[00:21:03.194] Browser ERROR   [useWhatsAppInvoice] {}
+[00:00:01.633] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.734] Server  LOG      ✓ Ready in 1495ms
+[00:00:42.432] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:41.836] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-00021
+[00:01:41.960] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-00021
+[00:05:20.017] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:05:20.051] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:05:20.154] Browser ERROR   Error loading quotation: {}
+[00:05:20.154] Browser ERROR   Error loading quotation: {}
+[00:05:31.516] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:05:31.563] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:05:31.685] Browser ERROR   Error loading quotation: {}
+[00:05:31.686] Browser ERROR   Error loading quotation: {}
+[00:05:43.403] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:05:43.436] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:05:43.539] Browser ERROR   Error loading quotation: {}
+[00:05:43.539] Browser ERROR   Error loading quotation: {}
+[00:06:20.839] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:21.909] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:06:21.986] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:06:22.089] Browser ERROR   Error loading quotation: {}
+[00:06:22.089] Browser ERROR   Error loading quotation: {}
+[00:15:41.977] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:11.536] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:47.975] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:04.332] Server  LOG      ✓ Compiled in 80ms
+[00:19:22.586] Server  LOG      ✓ Compiled in 62ms
+[00:20:55.754] Server  LOG      ✓ Compiled in 72ms
+[00:21:11.818] Server  LOG      ✓ Compiled in 74ms
+[00:21:14.877] Server  LOG      ✓ Compiled in 59ms
+[00:21:27.815] Server  LOG      ✓ Compiled in 55ms
+[00:21:33.894] Server  LOG      ✓ Compiled in 50ms
+[00:21:38.333] Server  LOG      ✓ Compiled in 67ms
+[00:21:48.346] Server  LOG      ✓ Compiled in 68ms
+[00:22:09.653] Server  LOG      ✓ Compiled in 85ms
+[00:22:44.129] Server  LOG      ✓ Compiled in 60ms
+[00:23:09.252] Server  LOG      ✓ Compiled in 69ms
+[00:23:28.866] Server  LOG      ✓ Compiled in 67ms
+[00:23:48.985] Server  LOG      ✓ Compiled in 52ms
+[02:27:37.876] Server  LOG      ✓ Compiled in 240ms
+[02:28:02.891] Server  LOG      ✓ Compiled in 138ms
+[02:29:20.659] Server  LOG      ✓ Compiled in 202ms
+[02:29:20.805] Server  LOG      ✓ Compiled in 0ms
+[02:29:20.962] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:29:40.673] Server  LOG      ✓ Compiled in 103ms
+[02:35:33.815] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:36:07.839] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:36:08.558] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:36:15.497] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:36:16.627] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:36:16.771] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. /projects
+[02:36:17.112] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. /projects
+[02:36:17.112] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. /projects
+[02:36:17.891] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:36:21.269] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. /projects
+[02:36:21.390] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. /projects
+[02:36:21.530] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. /projects
+[02:36:32.233] Server  LOG      ✓ Compiled in 86ms
+[02:36:36.281] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:38:19.865] Server  LOG      ✓ Compiled in 76ms
+[02:38:25.190] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:38:26.473] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:39:49.790] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:40:22.124] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:40:25.254] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:40:31.756] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:40:32.724] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:43:52.352] Server  LOG      ✓ Compiled in 220ms
+[02:44:04.656] Server  LOG      ✓ Compiled in 110ms
+[02:44:37.929] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[02:44:37.929] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[02:47:06.361] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-00021
+[02:47:06.361] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-00021
+[04:53:10.035] Server  LOG      ✓ Compiled in 162ms
+[04:53:10.086] Server  LOG      ✓ Compiled in 0ms
+[04:53:10.310] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:53:27.027] Server  LOG      ✓ Compiled in 21ms

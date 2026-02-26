@@ -96,7 +96,7 @@ export default function QuotationViewPage() {
         <Button
           onClick={handlePrint}
           size="lg"
-          className="shadow-lg bg-[#F36F21] hover:bg-[#d85e1a]"
+          className="shadow-lg bg-[#044bab] hover:bg-[#d85e1a]"
         >
           <Download className="mr-2 h-4 w-4" />
           Download PDF
@@ -104,7 +104,7 @@ export default function QuotationViewPage() {
       </div>
       <div className="print-area min-h-screen bg-white">
         <div className="max-w-[210mm] mx-auto">
-          <div className="relative bg-[#F36F21] w-full px-12 py-6 print:fixed print:top-0 print:left-0 print:right-0 print:z-50">
+          <div className="relative bg-[#044bab] w-full px-12 py-6 print:fixed print:top-0 print:left-0 print:right-0 print:z-50">
             <div className="absolute top-0 left-0 right-0 h-1 bg-white opacity-30"></div>
 
             <div className="max-w-full">
@@ -144,12 +144,12 @@ export default function QuotationViewPage() {
               </div>
             </div>
           </div>
-          <section className="h-screen flex flex-col items-center justify-center p-12 relative bg-gradient-to-br from-orange-50 via-white to-orange-50 print:pt-32">
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#F36F21] via-orange-400 to-[#F36F21]"></div>
-            <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#F36F21] via-orange-400 to-[#F36F21]"></div>
+          <section className="h-screen flex flex-col items-center justify-center p-12 relative bg-[#ffffff] print:pt-32">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#044bab] to-[#044bab]"></div>
+            <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#044bab] to-[#044bab]"></div>
 
             <div className="text-center space-y-8 max-w-2xl">
-              <div className="inline-block bg-[#F36F21] text-white px-6 py-2 rounded-full text-sm font-semibold tracking-wide">
+              <div className="inline-block bg-[#044bab] text-white px-6 py-2 rounded-full text-sm font-semibold tracking-wide">
                 {quotation.quoteId}
               </div>
 
@@ -164,9 +164,9 @@ export default function QuotationViewPage() {
               )}
 
               <div className="flex items-center justify-center gap-4 py-4">
-                <div className="w-20 h-1 bg-[#F36F21]"></div>
-                <div className="w-3 h-3 bg-[#F36F21] rounded-full"></div>
-                <div className="w-20 h-1 bg-[#F36F21]"></div>
+                <div className="w-20 h-1 bg-[#044bab]"></div>
+                <div className="w-3 h-3 bg-[#044bab] rounded-full"></div>
+                <div className="w-20 h-1 bg-[#044bab]"></div>
               </div>
 
               <div className="space-y-2">
@@ -186,7 +186,7 @@ export default function QuotationViewPage() {
               {/* About Us - Permanent */}
               <div className="mb-6">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="w-1 h-8 bg-[#F36F21] mr-3"></span>
+                  <span className="w-1 h-8 bg-[#044bab] mr-3"></span>
                   About Pixelate Nest
                 </h2>
                 <div className="space-y-4 text-gray-700 leading-relaxed text-base">
@@ -213,7 +213,7 @@ export default function QuotationViewPage() {
 
               <div className="mb-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="bg-gradient-to-br from-orange-50 to-white p-6 rounded-lg border-l-4 border-orange-400">
+                  <div className="bg-[#FFFFFF] p-6 rounded-lg border-l-4 border-[#044BAB]">
                     <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
                       <span className="text-2xl mr-2">🎯</span>
                       Mission
@@ -224,7 +224,7 @@ export default function QuotationViewPage() {
                     </p>
                   </div>
 
-                  <div className="bg-gradient-to-br from-orange-50 to-white p-6 rounded-lg border-l-4 border-orange-400">
+                  <div className="bg-[#FFFFFF] p-6 rounded-lg border-l-4 border-[#044BAB]">
                     <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
                       <span className="text-2xl mr-2">👁️</span>
                       Vision
@@ -235,7 +235,7 @@ export default function QuotationViewPage() {
                     </p>
                   </div>
 
-                  <div className="bg-gradient-to-br from-orange-50 to-white p-6 rounded-lg border-l-4 border-orange-400">
+                  <div className="bg-[#FFFFFF] p-6 rounded-lg border-l-4 border-[#044BAB]">
                     <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
                       <span className="text-2xl mr-2">🚀</span>
                       Goal
@@ -252,10 +252,10 @@ export default function QuotationViewPage() {
           <div className="min-h-screen px-12 print:pt-20">
             <section className="mb-6">
               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <span className="w-1 h-8 bg-[#F36F21] mr-3"></span>
+                <span className="w-1 h-8 bg-[#044bab] mr-3"></span>
                 Client Information
               </h3>
-              <div className="bg-gradient-to-r from-orange-50 to-white p-6 rounded-lg border-l-4 border-[#F36F21]">
+              <div className="bg[#FFFFFF] p-6 rounded-lg border-l-4 border-[#044bab]">
                 <div className="grid grid-cols-3 gap-6">
                   <div>
                     <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">
@@ -299,7 +299,7 @@ export default function QuotationViewPage() {
             {quotation.objective && (
               <section className="mb-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="w-1 h-6 bg-[#F36F21] mr-3"></span>
+                  <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
                   Project Objective
                 </h3>
                 <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">
@@ -311,7 +311,7 @@ export default function QuotationViewPage() {
             {quotation.purpose && (
               <section className="mb-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="w-1 h-6 bg-[#F36F21] mr-3"></span>
+                  <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
                   Purpose
                 </h3>
                 <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">
@@ -323,13 +323,13 @@ export default function QuotationViewPage() {
             {quotation.scope && quotation.scope.length > 0 && (
               <section className="mb-8 page-break-after">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="w-1 h-6 bg-[#F36F21] mr-3"></span>
+                  <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
                   Scope of Work
                 </h3>
                 <ul className="space-y-2">
                   {quotation.scope.map((item, idx) => (
                     <li key={idx} className="flex items-start">
-                      <span className="text-[#F36F21] mr-2">•</span>
+                      <span className="text-[#044bab] mr-2">•</span>
                       <span className="text-gray-700">{item}</span>
                     </li>
                   ))}
@@ -340,13 +340,13 @@ export default function QuotationViewPage() {
             {quotation.deliverables && quotation.deliverables.length > 0 && (
               <section className="mb-8 page-break-before print:pt-36">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="w-1 h-6 bg-[#F36F21] mr-3"></span>
+                  <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
                   Deliverables
                 </h3>
                 <ul className="space-y-2">
                   {quotation.deliverables.map((item, idx) => (
                     <li key={idx} className="flex items-start">
-                      <span className="text-[#F36F21] mr-2">✓</span>
+                      <span className="text-[#044bab] mr-2">✓</span>
                       <span className="text-gray-700">{item}</span>
                     </li>
                   ))}
@@ -357,7 +357,7 @@ export default function QuotationViewPage() {
             {quotation.services && quotation.services.length > 0 && (
               <section className="mb-8 page-break-before">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="w-1 h-6 bg-[#F36F21] mr-3"></span>
+                  <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
                   Services Breakdown
                 </h3>
                 <div className="overflow-hidden border border-gray-200 rounded-lg">
@@ -407,7 +407,7 @@ export default function QuotationViewPage() {
                         >
                           Grand Total
                         </td>
-                        <td className="px-4 py-3 text-right text-lg font-bold text-[#F36F21]">
+                        <td className="px-4 py-3 text-right text-lg font-bold text-[#044bab]">
                           ₹
                           {quotation.services
                             .reduce(
@@ -426,7 +426,7 @@ export default function QuotationViewPage() {
             {quotation.timeline && quotation.timeline.length > 0 && (
               <section className="mb-8 page-break-after">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="w-1 h-6 bg-[#F36F21] mr-3"></span>
+                  <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
                   Project Timeline
                 </h3>
                 <div className="overflow-hidden border border-gray-200 rounded-lg">
@@ -467,7 +467,7 @@ export default function QuotationViewPage() {
             {quotation.modules && quotation.modules.length > 0 && (
               <section className="mb-8 print:pt-36">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="w-1 h-6 bg-[#F36F21] mr-3"></span>
+                  <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
                   Modules & Features
                 </h3>
                 <div className="space-y-3">
@@ -501,7 +501,7 @@ export default function QuotationViewPage() {
 
             <section className="mb-8 page-break-before">
               <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <span className="w-1 h-6 bg-[#F36F21] mr-3"></span>
+                <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
                 Terms & Conditions
               </h3>
               <div className="bg-gray-50 p-5 rounded-lg">
@@ -528,7 +528,7 @@ export default function QuotationViewPage() {
                     Authorized Signatory
                   </p>
                   <p className="text-xs text-gray-600 mt-1">
-                    {settings?.name || "Pixelate Nest"}
+                    {settings?.name || "Kalahanu Tech Studios LLP"}
                   </p>
                 </div>
                 <div className="border-t-2 border-gray-300 pt-4">

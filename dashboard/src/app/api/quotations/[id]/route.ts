@@ -2,9 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import * as svc from '@/lib/services';
 import { verifyToken } from '@/lib/auth';
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const id = params.id;
+    const { id } = await params;
     const quote = await svc.findById('quotations', id);
     if (!quote) return NextResponse.json({ error: 'Not found' }, { status: 404 });
     return NextResponse.json(quote);
@@ -14,9 +14,9 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
   }
 }
 
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const id = params.id;
+    const { id } = await params;
     const body = await request.json();
     const updated = await svc.updateById('quotations', id, { ...body, updatedAt: new Date() });
     return NextResponse.json(updated);

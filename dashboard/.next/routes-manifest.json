@@ -85,6 +85,14 @@
       "namedRegex": "^/api/invoices/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/journey/[id]",
+      "regex": "^/api/journey/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/journey/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/leads/[id]",
       "regex": "^/api/leads/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -335,6 +343,12 @@
       "regex": "^/api/invoices/renumber(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/invoices/renumber(?:/)?$"
+    },
+    {
+      "page": "/api/journey",
+      "regex": "^/api/journey(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/journey(?:/)?$"
     },
     {
       "page": "/api/leads",
@@ -617,6 +631,12 @@
       "regex": "^/invoicing(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/invoicing(?:/)?$"
+    },
+    {
+      "page": "/journey",
+      "regex": "^/journey(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/journey(?:/)?$"
     },
     {
       "page": "/leads",

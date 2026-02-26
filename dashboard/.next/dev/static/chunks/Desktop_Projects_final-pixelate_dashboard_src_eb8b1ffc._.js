@@ -7577,7 +7577,9 @@ function InvoicingPage() {
     const refresh = async ()=>{
         try {
             const url = isClient && myClientId ? `/api/invoices?clientId=${encodeURIComponent(myClientId)}` : "/api/invoices";
-            const res = await fetch(url);
+            const res = await fetch(url, {
+                cache: "no-store"
+            });
             if (!res.ok) throw new Error("Failed to fetch invoices");
             const list = await res.json();
             setInvoices(list);
@@ -8399,11 +8401,17 @@ function InvoicingPage() {
                                                         variant: "destructive",
                                                         onClick: async ()=>{
                                                             if (!window.confirm("Delete this invoice? This cannot be undone.")) return;
+                                                            const invoiceId = String(invoice._id ?? invoice.id ?? "");
                                                             try {
-                                                                const res = await fetch(`/api/invoices/${invoice._id ?? invoice.id}`, {
+                                                                const res = await fetch(`/api/invoices/${invoiceId}`, {
                                                                     method: "DELETE"
                                                                 });
-                                                                if (!res.ok) throw new Error("Delete failed");
+                                                                if (!res.ok) {
+                                                                    const errJson = await res.json().catch(()=>({}));
+                                                                    throw new Error(errJson.error || "Delete failed");
+                                                                }
+                                                                // Optimistically remove from UI immediately
+                                                                setInvoices((prev)=>prev.filter((inv)=>String(inv._id ?? inv.id ?? "") !== invoiceId));
                                                                 toast({
                                                                     title: "Invoice Deleted",
                                                                     description: `Invoice ${invoice.invoiceNo ?? invoice.id} deleted.`
@@ -8413,7 +8421,7 @@ function InvoicingPage() {
                                                                 console.error(err);
                                                                 toast({
                                                                     title: "Delete Failed",
-                                                                    description: "Could not delete invoice. Please try again.",
+                                                                    description: err.message || "Could not delete invoice. Please try again.",
                                                                     variant: "destructive"
                                                                 });
                                                             }
@@ -8470,12 +8478,12 @@ function InvoicingPage() {
                                 children: "Invoice Preview"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 865,
+                                lineNumber: 875,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                            lineNumber: 864,
+                            lineNumber: 874,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8491,29 +8499,29 @@ function InvoicingPage() {
                                         client: clients.find((c)=>String(c.id ?? c._id) === String(previewInvoice.clientId))
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 875,
+                                        lineNumber: 885,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                    lineNumber: 870,
+                                    lineNumber: 880,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 869,
+                                lineNumber: 879,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "p-4",
                                 children: "No preview available"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 886,
+                                lineNumber: 896,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                            lineNumber: 867,
+                            lineNumber: 877,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -8526,7 +8534,7 @@ function InvoicingPage() {
                                         children: "Close"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 891,
+                                        lineNumber: 901,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -8536,29 +8544,29 @@ function InvoicingPage() {
                                         children: previewLoading ? "Preparing..." : "Download PDF"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 894,
+                                        lineNumber: 904,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 890,
+                                lineNumber: 900,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                            lineNumber: 889,
+                            lineNumber: 899,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                    lineNumber: 863,
+                    lineNumber: 873,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                lineNumber: 857,
+                lineNumber: 867,
                 columnNumber: 7
             }, this)
         ]

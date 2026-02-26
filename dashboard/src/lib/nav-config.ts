@@ -21,8 +21,9 @@ import {
   Settings,
   Mail,
   CreditCard,
-  Landmark,
   Wallet,
+  BookOpen,
+  Headphones,
 } from "lucide-react";
 
 export const defaultStaffAllowed = [
@@ -36,9 +37,13 @@ export const defaultStaffAllowed = [
   "/quotations/create",
 ];
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Staff navigation — organised by department for future RBAC support
+// ─────────────────────────────────────────────────────────────────────────────
 export const navGroups = [
+  // ── 1. MANAGEMENT ──────────────────────────────────────────────────────────
   {
-    title: "Overview",
+    title: "Management",
     items: [
       {
         href: "/dashboard",
@@ -53,25 +58,6 @@ export const navGroups = [
         icon: BarChartIcon,
       },
       {
-        href: "/user-activity",
-        label: "User Activity",
-        adminOnly: true,
-        icon: Activity,
-      },
-      { href: "/profile", label: "Profile", adminOnly: false, icon: Users },
-      {
-        href: "/announcement-bar",
-        label: "Announcements",
-        adminOnly: true,
-        icon: Megaphone,
-      },
-      {
-        href: "/newsletter",
-        label: "Newsletter",
-        adminOnly: true,
-        icon: Mail,
-      },
-      {
         href: "/dashboard/reports",
         label: "Reports",
         adminOnly: true,
@@ -83,17 +69,91 @@ export const navGroups = [
         adminOnly: true,
         icon: Settings,
       },
+      {
+        href: "/user-activity",
+        label: "User Activity",
+        adminOnly: true,
+        icon: Activity,
+      },
     ],
   },
+
+  // ── 2. MARKETING ───────────────────────────────────────────────────────────
   {
-    title: "Sales & CRM",
+    title: "Marketing",
     items: [
-      { href: "/leads", label: "Leads", adminOnly: false, icon: KanbanSquare },
+      {
+        href: "/leads",
+        label: "Leads",
+        adminOnly: false,
+        icon: KanbanSquare,
+      },
       {
         href: "/enquiries",
         label: "Enquiries",
         adminOnly: false,
         icon: LifeBuoy,
+      },
+      {
+        href: "/reviews",
+        label: "Reviews",
+        adminOnly: false,
+        icon: Star,
+      },
+      {
+        href: "/newsletter",
+        label: "Newsletter",
+        adminOnly: true,
+        icon: Mail,
+      },
+      {
+        href: "/announcement-bar",
+        label: "Announcements",
+        adminOnly: true,
+        icon: Megaphone,
+      },
+      {
+        href: "/blogs",
+        label: "Blogs",
+        adminOnly: true,
+        icon: FileText,
+      },
+      {
+        href: "/work-gallery",
+        label: "Work Gallery",
+        adminOnly: true,
+        icon: ImageIcon,
+      },
+      {
+        href: "/photo-galleries",
+        label: "Photos",
+        adminOnly: true,
+        icon: ImageIcon,
+      },
+      {
+        href: "/reels",
+        label: "Reels",
+        adminOnly: true,
+        icon: PlayCircle,
+      },
+    ],
+  },
+
+  // ── 3. SALES ───────────────────────────────────────────────────────────────
+  {
+    title: "Sales",
+    items: [
+      {
+        href: "/clients",
+        label: "Clients",
+        adminOnly: false,
+        icon: Users,
+      },
+      {
+        href: "/quotations",
+        label: "Quotations",
+        adminOnly: false,
+        icon: FileText,
       },
       {
         href: "/onboarding",
@@ -107,36 +167,67 @@ export const navGroups = [
         adminOnly: false,
         icon: Lock,
       },
-      { href: "/clients", label: "Clients", adminOnly: false, icon: Users },
-      { href: "/reviews", label: "Reviews", adminOnly: false, icon: Star },
+    ],
+  },
+
+  // ── 4. OPERATIONS ──────────────────────────────────────────────────────────
+  {
+    title: "Operations",
+    items: [
       {
-        href: "/quotations",
-        label: "Quotations",
+        href: "/projects",
+        label: "Projects",
         adminOnly: false,
-        icon: FileText,
+        icon: Briefcase,
       },
+      {
+        href: "/tasks",
+        label: "Tasks",
+        adminOnly: false,
+        icon: SquareCheck,
+      },
+      {
+        href: "/journey",
+        label: "Journey",
+        adminOnly: false,
+        icon: BookOpen,
+      },
+      {
+        href: "/services",
+        label: "Services",
+        adminOnly: true,
+        icon: Code,
+      },
+      {
+        href: "/inventory",
+        label: "Inventory",
+        adminOnly: false,
+        icon: BoxIcon,
+      },
+    ],
+  },
+
+  // ── 5. FINANCE ─────────────────────────────────────────────────────────────
+  {
+    title: "Finance",
+    items: [
       {
         href: "/invoicing",
         label: "Invoicing",
         adminOnly: true,
         icon: Receipt,
       },
-    ],
-  },
-  {
-    title: "Finance",
-    items: [
-      {
-        href: "/expenses",
-        label: "Expenses",
-        adminOnly: true,
-        icon: Wallet,
-      },
       {
         href: "/dashboard/payments",
         label: "Payments",
         adminOnly: true,
         icon: DollarIcon,
+      },
+      {
+        href: "/expenses",
+        label: "Expenses",
+        adminOnly: true,
+        icon: Wallet,
       },
       {
         href: "/emi",
@@ -146,46 +237,10 @@ export const navGroups = [
       },
     ],
   },
+
+  // ── 6. HR & SUPPORT ────────────────────────────────────────────────────────
   {
-    title: "Operations",
-    items: [
-      { href: "/tasks", label: "Tasks", adminOnly: false, icon: SquareCheck },
-      {
-        href: "/projects",
-        label: "Projects",
-        adminOnly: false,
-        icon: Briefcase,
-      },
-      {
-        href: "/inventory",
-        label: "Inventory",
-        adminOnly: false,
-        icon: BoxIcon,
-      },
-      { href: "/services", label: "Services", adminOnly: true, icon: Code },
-    ],
-  },
-  {
-    title: "Content",
-    items: [
-      {
-        href: "/work-gallery",
-        label: "Work Gallery",
-        adminOnly: true,
-        icon: ImageIcon,
-      },
-      {
-        href: "/photo-galleries",
-        label: "Photos",
-        adminOnly: true,
-        icon: ImageIcon,
-      },
-      { href: "/reels", label: "Reels", adminOnly: true, icon: PlayCircle },
-      { href: "/blogs", label: "Blogs", adminOnly: true, icon: FileText },
-    ],
-  },
-  {
-    title: "Team & Support",
+    title: "HR & Support",
     items: [
       {
         href: "/about-us-team",
@@ -193,72 +248,87 @@ export const navGroups = [
         adminOnly: true,
         icon: Users,
       },
-      { href: "/careers", label: "Careers", adminOnly: true, icon: UserPlus },
+      {
+        href: "/careers",
+        label: "Careers",
+        adminOnly: true,
+        icon: UserPlus,
+      },
       {
         href: "/developers-and-editors",
         label: "Developers",
         adminOnly: true,
-        icon: Users,
+        icon: Code,
       },
-      { href: "/support", label: "Support", adminOnly: false, icon: LifeBuoy },
+      {
+        href: "/support",
+        label: "Support",
+        adminOnly: false,
+        icon: Headphones,
+      },
     ],
   },
 ];
 
 /**
  * All possible navigation items that can be shown to a client in their portal.
- * These mirror the full admin navGroups — admin can toggle any of these on/off
- * globally from Settings → Client Portal.
+ * These mirror the department-based navGroups — admin can toggle any of these
+ * on/off globally from Settings → Client Portal.
  */
 export const clientPortalGroups = [
   {
-    title: "Overview",
+    title: "Management",
     items: [
-      { href: "/dashboard",         label: "Dashboard",    icon: LayoutDashboard },
-      { href: "/analytics",         label: "Analytics",    icon: BarChartIcon },
-      { href: "/profile",           label: "Profile",      icon: Users },
+      { href: "/dashboard",          label: "Dashboard",    icon: LayoutDashboard },
+      { href: "/analytics",          label: "Analytics",    icon: BarChartIcon },
     ],
   },
   {
-    title: "Sales & CRM",
+    title: "Marketing",
     items: [
-      { href: "/leads",             label: "Leads",        icon: KanbanSquare },
-      { href: "/enquiries",         label: "Enquiries",    icon: LifeBuoy },
-      { href: "/onboarding",        label: "Onboarding",   icon: UserPlus },
-      { href: "/nda-approval",      label: "NDA Approval", icon: Lock },
-      { href: "/clients",           label: "Clients",      icon: Users },
-      { href: "/reviews",           label: "Reviews",      icon: Star },
-      { href: "/quotations",        label: "Quotations",   icon: FileText },
-      { href: "/invoicing",         label: "Invoicing",    icon: Receipt },
-      { href: "/dashboard/payments",label: "Payments",     icon: DollarIcon },
+      { href: "/leads",              label: "Leads",        icon: KanbanSquare },
+      { href: "/enquiries",          label: "Enquiries",    icon: LifeBuoy },
+      { href: "/reviews",            label: "Reviews",      icon: Star },
+      { href: "/work-gallery",       label: "Work Gallery", icon: ImageIcon },
+      { href: "/photo-galleries",    label: "Photos",       icon: ImageIcon },
+      { href: "/reels",              label: "Reels",        icon: PlayCircle },
+      { href: "/blogs",              label: "Blogs",        icon: FileText },
+    ],
+  },
+  {
+    title: "Sales",
+    items: [
+      { href: "/clients",            label: "Clients",      icon: Users },
+      { href: "/quotations",         label: "Quotations",   icon: FileText },
+      { href: "/onboarding",         label: "Onboarding",   icon: UserPlus },
+      { href: "/nda-approval",       label: "NDA Approval", icon: Lock },
     ],
   },
   {
     title: "Operations",
     items: [
-      { href: "/tasks",             label: "Tasks",        icon: SquareCheck },
-      { href: "/projects",          label: "Projects",     icon: Briefcase },
-      { href: "/inventory",         label: "Inventory",    icon: BoxIcon },
-      { href: "/expenses",          label: "Expenses",     icon: DollarIcon },
-      { href: "/services",          label: "Services",     icon: Code },
+      { href: "/projects",           label: "Projects",     icon: Briefcase },
+      { href: "/tasks",              label: "Tasks",        icon: SquareCheck },
+      { href: "/journey",            label: "Journey",      icon: BookOpen },
+      { href: "/services",           label: "Services",     icon: Code },
+      { href: "/inventory",          label: "Inventory",    icon: BoxIcon },
     ],
   },
   {
-    title: "Content",
+    title: "Finance",
     items: [
-      { href: "/work-gallery",      label: "Work Gallery", icon: ImageIcon },
-      { href: "/photo-galleries",   label: "Photos",       icon: ImageIcon },
-      { href: "/reels",             label: "Reels",        icon: PlayCircle },
-      { href: "/blogs",             label: "Blogs",        icon: FileText },
+      { href: "/invoicing",          label: "Invoicing",    icon: Receipt },
+      { href: "/dashboard/payments", label: "Payments",     icon: DollarIcon },
+      { href: "/expenses",           label: "Expenses",     icon: Wallet },
     ],
   },
   {
-    title: "Team & Support",
+    title: "HR & Support",
     items: [
-      { href: "/about-us-team",     label: "About Us Team",icon: Users },
-      { href: "/careers",           label: "Careers",      icon: UserPlus },
-      { href: "/developers-and-editors", label: "Developers", icon: Users },
-      { href: "/support",           label: "Support",      icon: LifeBuoy },
+      { href: "/about-us-team",      label: "About Us Team",icon: Users },
+      { href: "/careers",            label: "Careers",      icon: UserPlus },
+      { href: "/developers-and-editors", label: "Developers", icon: Code },
+      { href: "/support",            label: "Support",      icon: Headphones },
     ],
   },
 ];
