@@ -24,6 +24,7 @@ import {
   Wallet,
   BookOpen,
   Headphones,
+  Trash2,
 } from "lucide-react";
 
 export const defaultStaffAllowed = [
@@ -216,6 +217,12 @@ export const navGroups = [
         label: "Invoicing",
         adminOnly: true,
         icon: Receipt,
+      },
+      {
+        href: "/trash",
+        label: "Trash",
+        adminOnly: true,
+        icon: Trash2,
       },
       {
         href: "/dashboard/payments",

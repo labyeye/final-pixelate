@@ -76,14 +76,169 @@ export async function updateInventory(id: string, update: any) {
 }
 
 export async function deleteInventory(id: string) {
-  const col = await getCollection("inventory");
+  return softDeleteById("inventory", id);
+}
+
+/**
+ * Soft-delete: snapshots the full document into the `_trash` collection and
+ * removes it from the original collection. Works for any collection.
+ *
+ * Trash document shape:
+ * {
+ *   _originalId: string,          // stringified _id of original doc
+ *   originalCollection: string,   // e.g. "leads", "clients"
+ *   collectionLabel: string,      // human-readable label
+ *   document: object,             // full original document
+ *   deletedAt: Date,
+ * }
+ */
+export async function softDeleteById(
+  collectionName: string,
+  id: string,
+  collectionLabel?: string,
+): Promise<boolean> {
+  const col = await getCollection(collectionName);
+  const trash = await getCollection("_trash");
+
   const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
+
+  // Locate the document first
+  let doc: any = null;
+  let filter: any = null;
+
   if (hex24) {
-    const res = await col.deleteOne({ _id: new ObjectId(id) });
-    return res.deletedCount === 1;
+    try {
+      doc = await col.findOne({ _id: new ObjectId(id) });
+      if (doc) filter = { _id: new ObjectId(id) };
+    } catch (_) {}
   }
-  const res = await col.deleteOne({ id });
+  if (!doc) {
+    // Try custom id field
+    doc = await col.findOne({ id });
+    if (doc) filter = { id };
+  }
+  if (!doc && collectionName === "invoices") {
+    doc = await col.findOne({ invoiceNo: id });
+    if (doc) filter = { invoiceNo: id };
+  }
+  if (!doc || !filter) return false;
+
+  // For invoices: restore inventory quantities
+  if (collectionName === "invoices") {
+    if (Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
+      try {
+        const items = doc.inventoryItems.map((r: any) => ({
+          inventoryId: r.inventoryId,
+          quantity: Number(r.quantity || 0),
+        }));
+        await adjustInventoryQuantities(items, "increment");
+      } catch (e) {
+        console.error("Failed to restore inventory on soft-delete", e);
+      }
+    }
+  }
+
+  const LABELS: Record<string, string> = {
+    invoices: "Invoice",
+    leads: "Lead",
+    clients: "Client",
+    quotations: "Quotation",
+    projects: "Project",
+    tasks: "Task",
+    expenses: "Expense",
+    emi: "EMI",
+    inventory: "Inventory",
+    services: "Service",
+    blogs: "Blog",
+    reels: "Reel",
+    photoGalleries: "Photo Gallery",
+    workGallery: "Work Gallery",
+    enquiries: "Enquiry",
+    supportTickets: "Support Ticket",
+    journey_events: "Journey Event",
+    teamMembers: "Team Member",
+    careers: "Career",
+  };
+
+  // Snapshot into _trash
+  await trash.insertOne({
+    _originalId: String(doc._id),
+    originalCollection: collectionName,
+    collectionLabel: collectionLabel ?? LABELS[collectionName] ?? collectionName,
+    document: doc,
+    deletedAt: new Date(),
+  });
+
+  // Remove from original collection
+  const res = await col.deleteOne(filter);
   return res.deletedCount === 1;
+}
+
+/**
+ * Restore a trashed document back to its original collection.
+ * Re-decrements inventory if it was an invoice.
+ */
+export async function restoreFromTrash(trashId: string): Promise<boolean> {
+  const trash = await getCollection("_trash");
+
+  let trashDoc: any = null;
+  try {
+    trashDoc = await trash.findOne({ _id: new ObjectId(trashId) });
+  } catch (_) {}
+  if (!trashDoc) {
+    trashDoc = await trash.findOne({ _originalId: trashId });
+  }
+  if (!trashDoc) return false;
+
+  const originalCol = await getCollection(trashDoc.originalCollection);
+  const doc = { ...trashDoc.document };
+
+  // Restore _id as ObjectId if it was one
+  if (trashDoc._originalId && /^[a-fA-F0-9]{24}$/.test(trashDoc._originalId)) {
+    doc._id = new ObjectId(trashDoc._originalId);
+  }
+
+  // Re-decrement inventory if invoice
+  if (trashDoc.originalCollection === "invoices") {
+    if (Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
+      try {
+        const items = doc.inventoryItems.map((r: any) => ({
+          inventoryId: r.inventoryId,
+          quantity: Number(r.quantity || 0),
+        }));
+        await adjustInventoryQuantities(items, "decrement");
+      } catch (e) {
+        console.error("Failed to re-decrement inventory on restore", e);
+      }
+    }
+  }
+
+  try {
+    await originalCol.insertOne(doc);
+  } catch (e: any) {
+    // If duplicate _id, try without _id so Mongo assigns a new one
+    if (e?.code === 11000) {
+      delete doc._id;
+      await originalCol.insertOne(doc);
+    } else {
+      throw e;
+    }
+  }
+
+  await trash.deleteOne({ _id: trashDoc._id });
+  return true;
+}
+
+/** Permanently destroy a trashed document — no recovery possible. */
+export async function permanentlyDestroyTrashItem(trashId: string): Promise<boolean> {
+  const trash = await getCollection("_trash");
+  let res;
+  try {
+    res = await trash.deleteOne({ _id: new ObjectId(trashId) });
+  } catch (_) {
+    res = await trash.deleteOne({ _originalId: trashId });
+  }
+  return (res?.deletedCount ?? 0) === 1;
 }
 
 // Helper to adjust stock quantities. `items` is array of { inventoryId, quantity }
@@ -222,62 +377,7 @@ export async function updateById(
 }
 
 export async function deleteById(collectionName: string, id: string) {
-  const col = await getCollection(collectionName);
-  const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
-  if (hex24) {
-    try {
-      // If deleting an invoice by ObjectId, restore inventory quantities first
-      if (collectionName === "invoices") {
-        const doc = await col.findOne({ _id: new ObjectId(id) });
-        if (
-          doc &&
-          Array.isArray(doc.inventoryItems) &&
-          doc.inventoryItems.length
-        ) {
-          try {
-            const items = doc.inventoryItems.map((r: any) => ({
-              inventoryId: r.inventoryId,
-              quantity: Number(r.quantity || 0),
-            }));
-            await adjustInventoryQuantities(items, "increment");
-          } catch (e) {
-            console.error("Failed to restore inventory on invoice delete", e);
-          }
-        }
-      }
-      const res = await col.deleteOne({ _id: new ObjectId(id) });
-      return res.deletedCount === 1;
-    } catch (e) {
-      console.error("Error deleting document", e);
-      return false;
-    }
-  }
-  // For invoices, also try by invoiceNo
-  if (collectionName === "invoices") {
-    const byInvoiceNo = await col.findOne({ invoiceNo: id });
-    if (byInvoiceNo) {
-      // restore inventory quantities if invoice had inventory usage
-      try {
-        if (
-          Array.isArray(byInvoiceNo.inventoryItems) &&
-          byInvoiceNo.inventoryItems.length
-        ) {
-          const items = byInvoiceNo.inventoryItems.map((r: any) => ({
-            inventoryId: r.inventoryId,
-            quantity: Number(r.quantity || 0),
-          }));
-          await adjustInventoryQuantities(items, "increment");
-        }
-      } catch (e) {
-        console.error("Failed to restore inventory on invoice delete", e);
-      }
-      const res = await col.deleteOne({ _id: byInvoiceNo._id });
-      return res.deletedCount === 1;
-    }
-  }
-  // Fall back to custom `id` field
-  const res = await col.deleteOne({ id: id });
-  return res.deletedCount === 1;
+  return softDeleteById(collectionName, id);
 }
 
 // Invoices

@@ -1,77 +1,176 @@
-[00:00:01.633] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.734] Server  LOG      ✓ Ready in 1495ms
-[00:00:42.432] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:41.836] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-00021
-[00:01:41.960] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-00021
-[00:05:20.017] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:05:20.051] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:05:20.154] Browser ERROR   Error loading quotation: {}
-[00:05:20.154] Browser ERROR   Error loading quotation: {}
-[00:05:31.516] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:05:31.563] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:05:31.685] Browser ERROR   Error loading quotation: {}
-[00:05:31.686] Browser ERROR   Error loading quotation: {}
-[00:05:43.403] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:05:43.436] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:05:43.539] Browser ERROR   Error loading quotation: {}
-[00:05:43.539] Browser ERROR   Error loading quotation: {}
-[00:06:20.839] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:21.909] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:06:21.986] Server  WARN    Error: Route "/api/quotations/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:06:22.089] Browser ERROR   Error loading quotation: {}
-[00:06:22.089] Browser ERROR   Error loading quotation: {}
-[00:15:41.977] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:18:11.536] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:18:47.975] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:19:04.332] Server  LOG      ✓ Compiled in 80ms
-[00:19:22.586] Server  LOG      ✓ Compiled in 62ms
-[00:20:55.754] Server  LOG      ✓ Compiled in 72ms
-[00:21:11.818] Server  LOG      ✓ Compiled in 74ms
-[00:21:14.877] Server  LOG      ✓ Compiled in 59ms
-[00:21:27.815] Server  LOG      ✓ Compiled in 55ms
-[00:21:33.894] Server  LOG      ✓ Compiled in 50ms
-[00:21:38.333] Server  LOG      ✓ Compiled in 67ms
-[00:21:48.346] Server  LOG      ✓ Compiled in 68ms
-[00:22:09.653] Server  LOG      ✓ Compiled in 85ms
-[00:22:44.129] Server  LOG      ✓ Compiled in 60ms
-[00:23:09.252] Server  LOG      ✓ Compiled in 69ms
-[00:23:28.866] Server  LOG      ✓ Compiled in 67ms
-[00:23:48.985] Server  LOG      ✓ Compiled in 52ms
-[02:27:37.876] Server  LOG      ✓ Compiled in 240ms
-[02:28:02.891] Server  LOG      ✓ Compiled in 138ms
-[02:29:20.659] Server  LOG      ✓ Compiled in 202ms
-[02:29:20.805] Server  LOG      ✓ Compiled in 0ms
-[02:29:20.962] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:29:40.673] Server  LOG      ✓ Compiled in 103ms
-[02:35:33.815] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:36:07.839] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:36:08.558] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:36:15.497] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:36:16.627] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:36:16.771] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. /projects
-[02:36:17.112] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. /projects
-[02:36:17.112] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. /projects
-[02:36:17.891] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:36:21.269] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. /projects
-[02:36:21.390] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. /projects
-[02:36:21.530] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. /projects
-[02:36:32.233] Server  LOG      ✓ Compiled in 86ms
-[02:36:36.281] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:38:19.865] Server  LOG      ✓ Compiled in 76ms
-[02:38:25.190] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:38:26.473] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:39:49.790] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:40:22.124] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:40:25.254] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:40:31.756] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:40:32.724] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:43:52.352] Server  LOG      ✓ Compiled in 220ms
-[02:44:04.656] Server  LOG      ✓ Compiled in 110ms
-[02:44:37.929] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[02:44:37.929] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[02:47:06.361] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-00021
-[02:47:06.361] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-00021
-[04:53:10.035] Server  LOG      ✓ Compiled in 162ms
-[04:53:10.086] Server  LOG      ✓ Compiled in 0ms
-[04:53:10.310] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[04:53:27.027] Server  LOG      ✓ Compiled in 21ms
+[00:00:00.879] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:00.976] Server  LOG      ✓ Ready in 747ms
+[00:00:09.188] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:20.674] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-00021
+[00:00:20.811] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-00021
+[00:01:15.937] Server  LOG      ✓ Compiled in 62ms
+[00:01:22.792] Server  LOG      ✓ Compiled in 72ms
+[00:01:30.300] Server  LOG      ✓ Compiled in 68ms
+[00:01:31.997] Server  LOG      ✓ Compiled in 57ms
+[00:02:10.041] Server  LOG      ✓ Compiled in 71ms
+[00:06:44.027] Server  LOG      ✓ Compiled in 58ms
+[00:07:02.785] Server  LOG      ✓ Compiled in 62ms
+[00:09:18.578] Server  LOG      ✓ Compiled in 89ms
+[00:09:19.284] Browser ERROR   ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx:251:21
+Parsing ecmascript source code failed
+  249 |               </div>
+  250 |             </div>
+> 251 |           </section>
+      |                     ^
+> 252 |           <div className="min-h-screen px-12 print:pt-20">
+      | ^^^^^^^^^^^
+  253 |             <section className="mb-6">
+  254 |               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+  255 |                 <span className="w-1 h-8 bg-[#044bab] mr-3"></span>
+
+Expected '</', got 'jsx text (
+          )'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Client Component Browser]
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Client Component SSR]
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Server Component]
+[00:09:33.518] Server  LOG      ✓ Compiled in 78ms
+[00:09:34.285] Browser ERROR   ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx:589:9
+Parsing ecmascript source code failed
+  587 |           </div>
+  588 |         </div>
+> 589 |       </div>
+      |         ^^^
+  590 |       <style jsx global>{`
+  591 |         @media print {
+  592 |           * {
+
+Expected '>', got 'div'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Client Component Browser]
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Client Component SSR]
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Server Component]
+[00:10:44.175] Server  LOG      ✓ Compiled in 78ms
+[00:10:44.284] Browser ERROR   ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx:643:9
+Parsing ecmascript source code failed
+  641 |           </footer>
+  642 |         </div>
+> 643 |       </div>
+      |         ^^^
+  644 |       <style jsx global>{`
+  645 |         @media print {
+  646 |           * {
+
+Expected '>', got 'div'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Client Component Browser]
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Client Component SSR]
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Server Component]
+[00:10:57.285] Browser ERROR   ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx:643:9
+Parsing ecmascript source code failed
+  641 |           </footer>
+  642 |         </div>
+> 643 |       </div>
+      |         ^^^
+  644 |       <style jsx global>{`
+  645 |         @media print {
+  646 |           * {
+
+Expected '>', got 'div'
+
+Import traces:
+  Client Component Browser:
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Client Component Browser]
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Client Component SSR]
+    ./Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/[id]/view/page.tsx [Server Component]
+[00:14:35.222] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:06.686] Server  LOG      ✓ Compiled in 81ms
+[00:20:23.042] Server  LOG      ✓ Compiled in 91ms
+[00:20:55.720] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:21:58.251] Server  LOG      ✓ Compiled in 66ms
+[00:22:42.136] Server  LOG      ✓ Compiled in 60ms
+[00:25:05.987] Server  LOG      ✓ Compiled in 65ms
+[00:25:29.934] Server  LOG      ✓ Compiled in 63ms
+[00:26:20.161] Server  LOG      ✓ Compiled in 69ms
+[00:26:56.519] Server  LOG      ✓ Compiled in 75ms
+[00:27:29.414] Server  LOG      ✓ Compiled in 78ms
+[00:28:03.250] Server  LOG      ✓ Compiled in 76ms
+[00:28:25.539] Server  LOG      ✓ Compiled in 62ms
+[00:28:26.703] Server  LOG      ✓ Compiled in 81ms
+[00:29:10.254] Server  LOG      ✓ Compiled in 57ms
+[03:09:26.179] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:09:31.177] Server  LOG      ✓ Compiled in 263ms
+[03:10:18.852] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-00021
+[03:10:18.852] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-00021
+[03:12:21.809] Server  LOG      ✓ Compiled in 115ms
+[03:14:26.330] Server  LOG      ✓ Compiled in 99ms
+[03:16:57.236] Server  LOG      ✓ Compiled in 71ms
+[03:17:23.230] Server  LOG      ✓ Compiled in 80ms
+[03:17:24.818] Server  LOG      ✓ Compiled in 58ms
+[03:56:07.396] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:00:27.791] Server  LOG      ✓ Compiled in 141ms
+[04:00:27.889] Browser ERROR   uncaughtError: ReferenceError: logo is not defined
+[04:00:32.681] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[04:00:32.863] Server  LOG      ✓ Compiled in 71ms
+[04:00:33.103] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:01:00.357] Browser ERROR   uncaughtError: ReferenceError: logo is not defined
+[04:01:23.009] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[04:01:23.120] Server  LOG      ✓ Compiled in 98ms
+[04:01:23.268] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:01:36.566] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:03:03.401] Server  LOG      ✓ Compiled in 125ms
+[04:03:25.619] Server  LOG      ✓ Compiled in 79ms
+[04:03:44.864] Server  LOG      ✓ Compiled in 79ms
+[04:03:48.561] Server  LOG      ✓ Compiled in 65ms
+[04:03:51.740] Server  LOG      ✓ Compiled in 70ms
+[04:03:57.013] Server  LOG      ✓ Compiled in 69ms
+[04:04:00.817] Server  LOG      ✓ Compiled in 70ms
+[04:04:06.778] Server  LOG      ✓ Compiled in 63ms
+[04:04:14.743] Server  LOG      ✓ Compiled in 69ms
+[04:04:18.650] Server  LOG      ✓ Compiled in 67ms
+[04:04:21.341] Server  LOG      ✓ Compiled in 77ms
+[04:04:22.958] Server  LOG      ✓ Compiled in 60ms
+[04:04:32.986] Server  LOG      ✓ Compiled in 70ms
+[04:04:34.547] Server  LOG      ✓ Compiled in 60ms
+[04:04:37.552] Server  LOG      ✓ Compiled in 66ms
+[04:04:41.031] Server  LOG      ✓ Compiled in 63ms
+[04:04:48.380] Server  LOG      ✓ Compiled in 80ms
+[04:04:52.685] Server  LOG      ✓ Compiled in 54ms
+[04:04:59.533] Server  LOG      ✓ Compiled in 74ms
+[04:05:03.714] Server  LOG      ✓ Compiled in 55ms
+[04:05:07.065] Server  LOG      ✓ Compiled in 65ms
+[04:05:12.830] Server  LOG      ✓ Compiled in 56ms
+[04:05:16.298] Server  LOG      ✓ Compiled in 64ms
+[04:05:20.433] Server  LOG      ✓ Compiled in 62ms
+[04:05:24.603] Server  LOG      ✓ Compiled in 62ms
+[04:05:32.824] Server  LOG      ✓ Compiled in 52ms
+[04:05:36.525] Server  LOG      ✓ Compiled in 68ms
+[04:05:39.363] Server  LOG      ✓ Compiled in 78ms
+[04:05:43.682] Server  LOG      ✓ Compiled in 58ms
+[04:05:47.554] Server  LOG      ✓ Compiled in 59ms
+[04:05:50.203] Server  LOG      ✓ Compiled in 63ms
+[04:05:53.812] Server  LOG      ✓ Compiled in 68ms
+[04:23:52.295] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[04:23:52.295] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[04:28:34.784] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:30:11.416] Server  LOG      ✓ Compiled in 164ms
+[04:32:25.663] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:32:49.566] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[04:32:49.566] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[04:33:35.792] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-00021
+[04:33:35.792] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-00021
+[04:35:30.988] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:39:11.847] Server  LOG      ✓ Compiled in 124ms

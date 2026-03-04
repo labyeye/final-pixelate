@@ -247,8 +247,14 @@ __turbopack_context__.s([
     ()=>getTeamMembers,
     "getUsers",
     ()=>getUsers,
+    "permanentlyDestroyTrashItem",
+    ()=>permanentlyDestroyTrashItem,
     "renumberInvoices",
     ()=>renumberInvoices,
+    "restoreFromTrash",
+    ()=>restoreFromTrash,
+    "softDeleteById",
+    ()=>softDeleteById,
     "updateById",
     ()=>updateById,
     "updateInventory",
@@ -350,18 +356,155 @@ async function updateInventory(id, update) {
     });
 }
 async function deleteInventory(id) {
-    const col = await getCollection("inventory");
+    return softDeleteById("inventory", id);
+}
+async function softDeleteById(collectionName, id, collectionLabel) {
+    const col = await getCollection(collectionName);
+    const trash = await getCollection("_trash");
     const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
+    // Locate the document first
+    let doc = null;
+    let filter = null;
     if (hex24) {
-        const res = await col.deleteOne({
-            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
-        });
-        return res.deletedCount === 1;
+        try {
+            doc = await col.findOne({
+                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
+            });
+            if (doc) filter = {
+                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
+            };
+        } catch (_) {}
     }
-    const res = await col.deleteOne({
-        id
+    if (!doc) {
+        // Try custom id field
+        doc = await col.findOne({
+            id
+        });
+        if (doc) filter = {
+            id
+        };
+    }
+    if (!doc && collectionName === "invoices") {
+        doc = await col.findOne({
+            invoiceNo: id
+        });
+        if (doc) filter = {
+            invoiceNo: id
+        };
+    }
+    if (!doc || !filter) return false;
+    // For invoices: restore inventory quantities
+    if (collectionName === "invoices") {
+        if (Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
+            try {
+                const items = doc.inventoryItems.map((r)=>({
+                        inventoryId: r.inventoryId,
+                        quantity: Number(r.quantity || 0)
+                    }));
+                await adjustInventoryQuantities(items, "increment");
+            } catch (e) {
+                console.error("Failed to restore inventory on soft-delete", e);
+            }
+        }
+    }
+    const LABELS = {
+        invoices: "Invoice",
+        leads: "Lead",
+        clients: "Client",
+        quotations: "Quotation",
+        projects: "Project",
+        tasks: "Task",
+        expenses: "Expense",
+        emi: "EMI",
+        inventory: "Inventory",
+        services: "Service",
+        blogs: "Blog",
+        reels: "Reel",
+        photoGalleries: "Photo Gallery",
+        workGallery: "Work Gallery",
+        enquiries: "Enquiry",
+        supportTickets: "Support Ticket",
+        journey_events: "Journey Event",
+        teamMembers: "Team Member",
+        careers: "Career"
+    };
+    // Snapshot into _trash
+    await trash.insertOne({
+        _originalId: String(doc._id),
+        originalCollection: collectionName,
+        collectionLabel: collectionLabel ?? LABELS[collectionName] ?? collectionName,
+        document: doc,
+        deletedAt: new Date()
     });
+    // Remove from original collection
+    const res = await col.deleteOne(filter);
     return res.deletedCount === 1;
+}
+async function restoreFromTrash(trashId) {
+    const trash = await getCollection("_trash");
+    let trashDoc = null;
+    try {
+        trashDoc = await trash.findOne({
+            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](trashId)
+        });
+    } catch (_) {}
+    if (!trashDoc) {
+        trashDoc = await trash.findOne({
+            _originalId: trashId
+        });
+    }
+    if (!trashDoc) return false;
+    const originalCol = await getCollection(trashDoc.originalCollection);
+    const doc = {
+        ...trashDoc.document
+    };
+    // Restore _id as ObjectId if it was one
+    if (trashDoc._originalId && /^[a-fA-F0-9]{24}$/.test(trashDoc._originalId)) {
+        doc._id = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](trashDoc._originalId);
+    }
+    // Re-decrement inventory if invoice
+    if (trashDoc.originalCollection === "invoices") {
+        if (Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
+            try {
+                const items = doc.inventoryItems.map((r)=>({
+                        inventoryId: r.inventoryId,
+                        quantity: Number(r.quantity || 0)
+                    }));
+                await adjustInventoryQuantities(items, "decrement");
+            } catch (e) {
+                console.error("Failed to re-decrement inventory on restore", e);
+            }
+        }
+    }
+    try {
+        await originalCol.insertOne(doc);
+    } catch (e) {
+        // If duplicate _id, try without _id so Mongo assigns a new one
+        if (e?.code === 11000) {
+            delete doc._id;
+            await originalCol.insertOne(doc);
+        } else {
+            throw e;
+        }
+    }
+    await trash.deleteOne({
+        _id: trashDoc._id
+    });
+    return true;
+}
+async function permanentlyDestroyTrashItem(trashId) {
+    const trash = await getCollection("_trash");
+    let res;
+    try {
+        res = await trash.deleteOne({
+            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](trashId)
+        });
+    } catch (_) {
+        res = await trash.deleteOne({
+            _originalId: trashId
+        });
+    }
+    return (res?.deletedCount ?? 0) === 1;
 }
 // Helper to adjust stock quantities. `items` is array of { inventoryId, quantity }
 async function adjustInventoryQuantities(items, direction) {
@@ -523,65 +666,7 @@ async function updateById(collectionName, id, update) {
     return findById(collectionName, id);
 }
 async function deleteById(collectionName, id) {
-    const col = await getCollection(collectionName);
-    const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
-    if (hex24) {
-        try {
-            // If deleting an invoice by ObjectId, restore inventory quantities first
-            if (collectionName === "invoices") {
-                const doc = await col.findOne({
-                    _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
-                });
-                if (doc && Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
-                    try {
-                        const items = doc.inventoryItems.map((r)=>({
-                                inventoryId: r.inventoryId,
-                                quantity: Number(r.quantity || 0)
-                            }));
-                        await adjustInventoryQuantities(items, "increment");
-                    } catch (e) {
-                        console.error("Failed to restore inventory on invoice delete", e);
-                    }
-                }
-            }
-            const res = await col.deleteOne({
-                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
-            });
-            return res.deletedCount === 1;
-        } catch (e) {
-            console.error("Error deleting document", e);
-            return false;
-        }
-    }
-    // For invoices, also try by invoiceNo
-    if (collectionName === "invoices") {
-        const byInvoiceNo = await col.findOne({
-            invoiceNo: id
-        });
-        if (byInvoiceNo) {
-            // restore inventory quantities if invoice had inventory usage
-            try {
-                if (Array.isArray(byInvoiceNo.inventoryItems) && byInvoiceNo.inventoryItems.length) {
-                    const items = byInvoiceNo.inventoryItems.map((r)=>({
-                            inventoryId: r.inventoryId,
-                            quantity: Number(r.quantity || 0)
-                        }));
-                    await adjustInventoryQuantities(items, "increment");
-                }
-            } catch (e) {
-                console.error("Failed to restore inventory on invoice delete", e);
-            }
-            const res = await col.deleteOne({
-                _id: byInvoiceNo._id
-            });
-            return res.deletedCount === 1;
-        }
-    }
-    // Fall back to custom `id` field
-    const res = await col.deleteOne({
-        id: id
-    });
-    return res.deletedCount === 1;
+    return softDeleteById(collectionName, id);
 }
 async function getInvoices() {
     const col = await getCollection("invoices");
@@ -836,6 +921,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/services.ts [app-route] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$quotation$2d$models$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/quotation-models.ts [app-route] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/mongodb [external] (mongodb, cjs)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$mongodb$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/mongodb.ts [app-route] (ecmascript)");
+;
 ;
 ;
 ;
@@ -910,6 +997,76 @@ async function POST(request) {
         const created = await col.findOne({
             _id: result.insertedId
         });
+        // ── Auto-create a Journey event when quotation is not a draft ──────────
+        if (newQuotation.clientId && newQuotation.status !== 'DRAFT') {
+            try {
+                const db = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$mongodb$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getDb"])();
+                // Resolve client name
+                let clientName = newQuotation.clientName ?? '';
+                if (!clientName) {
+                    let clientDoc = null;
+                    try {
+                        clientDoc = await db.collection('clients').findOne({
+                            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](String(newQuotation.clientId))
+                        });
+                    } catch  {}
+                    if (!clientDoc) clientDoc = await db.collection('clients').findOne({
+                        _id: newQuotation.clientId
+                    });
+                    clientName = clientDoc?.name ?? clientDoc?.businessName ?? '';
+                }
+                // Compute grand total from services
+                const grandTotal = (newQuotation.services ?? []).reduce((sum, s)=>sum + (s.price ?? 0) * (s.qty ?? 1), 0);
+                const journeyStatus = newQuotation.status === 'SENT' ? 'Sent' : newQuotation.status === 'APPROVED' ? 'Approved' : newQuotation.status === 'REJECTED' ? 'Rejected' : newQuotation.status === 'CONVERTED' ? 'Completed' : 'Pending';
+                // Build a rich description from the quotation model
+                const descParts = [];
+                descParts.push(`📄 Quote ID: ${newQuotation.quoteId}`);
+                if (newQuotation.subtitle) descParts.push(`📝 ${newQuotation.subtitle}`);
+                if (newQuotation.objective) descParts.push(`🎯 Objective: ${newQuotation.objective}`);
+                if ((newQuotation.scope ?? []).length > 0) descParts.push(`🔧 Scope: ${newQuotation.scope.join(', ')}`);
+                if ((newQuotation.services ?? []).length > 0) {
+                    const svcLines = newQuotation.services.map((s)=>`${s.serviceName} × ${s.qty} @ ₹${(s.price ?? 0).toLocaleString('en-IN')}`);
+                    descParts.push(`💼 Services:\n${svcLines.map((l)=>`  • ${l}`).join('\n')}`);
+                    descParts.push(`💰 Grand Total: ₹${grandTotal.toLocaleString('en-IN')}`);
+                }
+                if ((newQuotation.timeline ?? []).length > 0) {
+                    const tLines = newQuotation.timeline.map((t)=>`${t.phase} – ${t.duration}`);
+                    descParts.push(`🗓 Timeline:\n${tLines.map((l)=>`  • ${l}`).join('\n')}`);
+                }
+                if ((newQuotation.modules ?? []).length > 0) descParts.push(`🧩 Modules: ${newQuotation.modules.map((m)=>m.moduleName).join(', ')}`);
+                if ((newQuotation.deliverables ?? []).length > 0) descParts.push(`📦 Deliverables: ${newQuotation.deliverables.join(', ')}`);
+                if (newQuotation.paymentTerms) descParts.push(`💳 Payment Terms: ${newQuotation.paymentTerms}`);
+                if (newQuotation.notes) descParts.push(`📌 Notes: ${newQuotation.notes}`);
+                await db.collection('journey_events').insertOne({
+                    clientId: String(newQuotation.clientId),
+                    clientName,
+                    projectId: null,
+                    projectName: newQuotation.title ?? null,
+                    type: 'quotation',
+                    title: `Quotation Sent – ${newQuotation.title || newQuotation.quoteId}`,
+                    description: descParts.join('\n\n'),
+                    performedBy: 'System',
+                    status: journeyStatus,
+                    fileUrl: null,
+                    linkUrl: `/quotations/${result.insertedId}/view`,
+                    occurredAt: new Date(),
+                    metadata: {
+                        quotationId: String(result.insertedId),
+                        quoteId: newQuotation.quoteId,
+                        grandTotal,
+                        servicesCount: (newQuotation.services ?? []).length,
+                        modulesCount: (newQuotation.modules ?? []).length,
+                        scopeCount: (newQuotation.scope ?? []).length,
+                        timelinePhases: (newQuotation.timeline ?? []).length,
+                        status: newQuotation.status
+                    },
+                    createdAt: new Date()
+                });
+            } catch (journeyErr) {
+                console.error('Failed to auto-create journey event:', journeyErr);
+            }
+        }
+        // ──────────────────────────────────────────────────────────────────────
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(created, {
             status: 201
         });

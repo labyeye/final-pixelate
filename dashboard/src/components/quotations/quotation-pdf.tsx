@@ -170,7 +170,7 @@ export function QuotationPDF({
         {/* Company Header */}
         <div style={{ textAlign: "center", marginBottom: "40px", paddingTop: "20px" }}>
           <div style={{ fontSize: "42px", fontWeight: "800", color: "#F36F21", marginBottom: "10px" }}>
-            {settings?.companyName || "Pixelate Nest"}
+            {settings?.name || "Pixelate Nest"}
           </div>
           <div style={{ fontSize: "18px", color: "#ccc" }}>
             Creative Software & Digital Solutions
@@ -178,7 +178,7 @@ export function QuotationPDF({
         </div>
 
         {/* About Section */}
-        {settings?.about && (
+        {settings?.aboutUs && (
           <div style={{ marginBottom: "35px" }}>
             <div
               style={{
@@ -193,7 +193,7 @@ export function QuotationPDF({
               About Us
             </div>
             <div style={{ fontSize: "16px", lineHeight: "1.8", color: "#ddd" }}>
-              {settings.about}
+              {settings.aboutUs}
             </div>
           </div>
         )}
@@ -399,7 +399,7 @@ export function QuotationPDF({
 
         {/* Scope */}
         {(quote as any).scope && (quote as any).scope.length > 0 && (
-          <div style={{ marginBottom: "30px", pageBreakInside: "avoid" }}>
+          <div style={{ marginBottom: "30px" }}>
             <div
               style={{
                 fontSize: "22px",
@@ -408,6 +408,7 @@ export function QuotationPDF({
                 marginBottom: "15px",
                 borderLeft: "4px solid #F36F21",
                 paddingLeft: "12px",
+                pageBreakAfter: "avoid",
               }}
             >
               Scope of Work
@@ -424,7 +425,7 @@ export function QuotationPDF({
 
         {/* Deliverables */}
         {(quote as any).deliverables && (quote as any).deliverables.length > 0 && (
-          <div style={{ marginBottom: "30px", pageBreakInside: "avoid" }}>
+          <div style={{ marginBottom: "30px" }}>
             <div
               style={{
                 fontSize: "22px",
@@ -433,6 +434,7 @@ export function QuotationPDF({
                 marginBottom: "15px",
                 borderLeft: "4px solid #F36F21",
                 paddingLeft: "12px",
+                pageBreakAfter: "avoid",
               }}
             >
               Deliverables
@@ -449,7 +451,7 @@ export function QuotationPDF({
 
         {/* Timeline */}
         {(quote as any).timeline && (quote as any).timeline.length > 0 && (
-          <div style={{ marginBottom: "35px", pageBreakInside: "avoid" }}>
+          <div style={{ marginBottom: "35px" }}>
             <div
               style={{
                 fontSize: "22px",
@@ -458,13 +460,14 @@ export function QuotationPDF({
                 marginBottom: "15px",
                 borderLeft: "4px solid #F36F21",
                 paddingLeft: "12px",
+                pageBreakAfter: "avoid",
               }}
             >
               Timeline
             </div>
-            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px", pageBreakInside: "auto" }}>
               <thead>
-                <tr style={{ background: "#F36F21", color: "#fff" }}>
+                <tr style={{ background: "#F36F21", color: "#fff", pageBreakInside: "avoid", pageBreakAfter: "avoid" }}>
                   <th style={{ padding: "12px", textAlign: "left", border: "1px solid #ddd" }}>Phase</th>
                   <th style={{ padding: "12px", textAlign: "left", border: "1px solid #ddd" }}>Duration</th>
                   <th style={{ padding: "12px", textAlign: "left", border: "1px solid #ddd" }}>Description</th>
@@ -472,7 +475,7 @@ export function QuotationPDF({
               </thead>
               <tbody>
                 {(quote as any).timeline.map((item: any, idx: number) => (
-                  <tr key={idx} style={{ background: idx % 2 === 0 ? "#fff" : "#f8f9fa" }}>
+                  <tr key={idx} style={{ background: idx % 2 === 0 ? "#fff" : "#f8f9fa", pageBreakInside: "avoid" }}>
                     <td style={{ padding: "10px", border: "1px solid #ddd" }}>{item.phase}</td>
                     <td style={{ padding: "10px", border: "1px solid #ddd" }}>{item.duration}</td>
                     <td style={{ padding: "10px", border: "1px solid #ddd" }}>{item.description}</td>
@@ -485,7 +488,7 @@ export function QuotationPDF({
 
         {/* Services Table */}
         {quote.services && quote.services.length > 0 && (
-          <div style={{ marginBottom: "35px", pageBreakInside: "avoid" }}>
+          <div style={{ marginBottom: "35px" }}>
             <div
               style={{
                 fontSize: "22px",
@@ -494,13 +497,14 @@ export function QuotationPDF({
                 marginBottom: "15px",
                 borderLeft: "4px solid #F36F21",
                 paddingLeft: "12px",
+                pageBreakAfter: "avoid",
               }}
             >
               Services
             </div>
-            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px", pageBreakInside: "auto" }}>
               <thead>
-                <tr style={{ background: "#F36F21", color: "#fff" }}>
+                <tr style={{ background: "#F36F21", color: "#fff", pageBreakInside: "avoid", pageBreakAfter: "avoid" }}>
                   <th style={{ padding: "12px", textAlign: "left", border: "1px solid #ddd" }}>Service</th>
                   <th style={{ padding: "12px", textAlign: "left", border: "1px solid #ddd" }}>Start Date</th>
                   <th style={{ padding: "12px", textAlign: "left", border: "1px solid #ddd" }}>End Date</th>
@@ -510,7 +514,7 @@ export function QuotationPDF({
               </thead>
               <tbody>
                 {quote.services.map((service, idx: number) => (
-                  <tr key={idx} style={{ background: idx % 2 === 0 ? "#fff" : "#f8f9fa" }}>
+                  <tr key={idx} style={{ background: idx % 2 === 0 ? "#fff" : "#f8f9fa", pageBreakInside: "avoid" }}>
                     <td style={{ padding: "10px", border: "1px solid #ddd" }}>{service.name || "-"}</td>
                     <td style={{ padding: "10px", border: "1px solid #ddd" }}>
                       {service.startDate ? formatDate(service.startDate) : "-"}
@@ -535,7 +539,7 @@ export function QuotationPDF({
             marginBottom: "35px",
             display: "flex",
             justifyContent: "flex-end",
-            pageBreakInside: "avoid",
+            pageBreakBefore: "auto",
           }}
         >
           <div style={{ width: "300px", background: "#f8f9fa", padding: "20px", borderRadius: "8px" }}>
@@ -583,7 +587,7 @@ export function QuotationPDF({
 
         {/* Modules */}
         {(quote as any).modules && (quote as any).modules.length > 0 && (
-          <div style={{ marginBottom: "35px", pageBreakInside: "avoid" }}>
+          <div style={{ marginBottom: "35px" }}>
             <div
               style={{
                 fontSize: "22px",
@@ -592,6 +596,7 @@ export function QuotationPDF({
                 marginBottom: "15px",
                 borderLeft: "4px solid #F36F21",
                 paddingLeft: "12px",
+                pageBreakAfter: "avoid",
               }}
             >
               Modules
@@ -605,6 +610,7 @@ export function QuotationPDF({
                     padding: "15px",
                     borderRadius: "8px",
                     borderLeft: "3px solid #F36F21",
+                    pageBreakInside: "avoid",
                   }}
                 >
                   <div style={{ fontSize: "16px", fontWeight: "700", color: "#111", marginBottom: "8px" }}>
@@ -641,8 +647,41 @@ export function QuotationPDF({
           </div>
         )}
 
+        {/* Additional Information */}
+        {((quote as any).paymentTerms || (quote as any).notes) && (
+          <div style={{ marginTop: "40px" }}>
+            <div
+              style={{
+                fontSize: "22px",
+                fontWeight: "700",
+                color: "#111",
+                marginBottom: "15px",
+                borderLeft: "4px solid #F36F21",
+                paddingLeft: "12px",
+                pageBreakAfter: "avoid",
+              }}
+            >
+              Additional Information
+            </div>
+            <div style={{ background: "#f8f9fa", padding: "20px", borderRadius: "8px", fontSize: "14px", lineHeight: "1.7", color: "#555" }}>
+              {(quote as any).paymentTerms && (
+                <div style={{ marginBottom: "12px" }}>
+                  <div style={{ fontWeight: "700", color: "#111", marginBottom: "4px", fontSize: "13px", textTransform: "uppercase", letterSpacing: "0.05em" }}>Payment Terms</div>
+                  <div style={{ whiteSpace: "pre-wrap" }}>{(quote as any).paymentTerms}</div>
+                </div>
+              )}
+              {(quote as any).notes && (
+                <div>
+                  <div style={{ fontWeight: "700", color: "#111", marginBottom: "4px", fontSize: "13px", textTransform: "uppercase", letterSpacing: "0.05em" }}>Notes</div>
+                  <div style={{ whiteSpace: "pre-wrap" }}>{(quote as any).notes}</div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         {/* Terms & Conditions */}
-        <div style={{ marginTop: "40px", pageBreakInside: "avoid" }}>
+        <div style={{ marginTop: "40px" }}>
           <div
             style={{
               fontSize: "22px",
@@ -651,36 +690,36 @@ export function QuotationPDF({
               marginBottom: "15px",
               borderLeft: "4px solid #F36F21",
               paddingLeft: "12px",
+              pageBreakAfter: "avoid",
             }}
           >
             Terms & Conditions
           </div>
-          <div style={{ fontSize: "14px", lineHeight: "1.7", color: "#555" }}>
-            {(quote as any).paymentTerms && (
-              <div style={{ marginBottom: "10px" }}>
-                <strong>Payment Terms:</strong> {(quote as any).paymentTerms}
-              </div>
-            )}
-            {(quote as any).customTerms && (quote as any).customTerms.length > 0 && (
-              <div style={{ marginTop: "15px" }}>
-                {(quote as any).customTerms.map((term: any, idx: number) => (
-                  <div key={idx} style={{ marginBottom: "8px" }}>
-                    <strong style={{ color: "#F36F21" }}>•</strong> {term}
-                  </div>
-                ))}
-              </div>
-            )}
-            {(!(quote as any).paymentTerms && (!(quote as any).customTerms || (quote as any).customTerms.length === 0)) && (
-              <div>
-                {settings?.termsAndConditions ||
-                  "Payment due within 30 days. This quotation is valid for 15 days from the date of issue. All work is subject to our standard terms of service."}
-              </div>
+          <div style={{ background: "#f8f9fa", padding: "20px", borderRadius: "8px", fontSize: "14px", lineHeight: "1.7", color: "#555" }}>
+            {settings?.terms && settings.terms.length > 0 ? (
+              settings.terms.map((term: string, idx: number) => (
+                <div key={idx} style={{ marginBottom: "8px" }}>
+                  <strong style={{ color: "#F36F21" }}>{idx + 1}.</strong> {term}
+                </div>
+              ))
+            ) : (
+              [
+                "Payment terms: 50% advance, 50% on completion",
+                "Project timeline is subject to timely feedback and approvals",
+                "Revisions beyond agreed scope will be charged separately",
+                "All deliverables remain property of Pixelate Nest until full payment",
+                "Client must provide necessary content and assets on time",
+              ].map((term, idx) => (
+                <div key={idx} style={{ marginBottom: "8px" }}>
+                  <strong style={{ color: "#F36F21" }}>{idx + 1}.</strong> {term}
+                </div>
+              ))
             )}
           </div>
         </div>
 
         {/* Signature */}
-        <div style={{ marginTop: "50px", display: "flex", justifyContent: "space-between" }}>
+        <div style={{ marginTop: "50px", display: "flex", justifyContent: "space-between", pageBreakInside: "avoid" }}>
           <div style={{ textAlign: "center" }}>
             <div style={{ borderTop: "2px solid #111", width: "200px", paddingTop: "10px", marginTop: "60px" }}>
               <div style={{ fontWeight: "700", fontSize: "15px" }}>Client Signature</div>
@@ -696,7 +735,7 @@ export function QuotationPDF({
             <div style={{ borderTop: "2px solid #111", width: "200px", paddingTop: "10px" }}>
               <div style={{ fontWeight: "700", fontSize: "15px" }}>Authorized Signature</div>
               <div style={{ fontSize: "13px", color: "#666", marginTop: "5px" }}>
-                {settings?.companyName || "Pixelate Nest"}
+                {settings?.name || "Pixelate Nest"}
               </div>
             </div>
           </div>
@@ -713,7 +752,7 @@ export function QuotationPDF({
             color: "#999",
           }}
         >
-          <div>{settings?.companyName || "Pixelate Nest"} | Creative Software & Digital Solutions</div>
+          <div>{settings?.name || "Pixelate Nest"} | Creative Software & Digital Solutions</div>
           <div style={{ marginTop: "5px" }}>
             {settings?.email || "info@pixelatenest.com"} | {settings?.phone || "+91 XXXXXXXXXX"}
           </div>

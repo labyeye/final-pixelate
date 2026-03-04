@@ -7522,6 +7522,7 @@ function InvoicingPage() {
     const [previewInvoice, setPreviewInvoice] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [previewLoading, setPreviewLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [gmailSending, setGmailSending] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({});
+    const [deletingInvoices, setDeletingInvoices] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(new Set());
     const { toast } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useToast"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "InvoicingPage.useEffect": ()=>{
@@ -7597,6 +7598,40 @@ function InvoicingPage() {
             console.error("Failed to refresh clients", err);
         }
     };
+    const handleDeleteInvoice = async (invoiceId, invoiceNo)=>{
+        // Guard: already deleting this invoice
+        if (deletingInvoices.has(invoiceId)) return;
+        if (!window.confirm("Delete this invoice? This cannot be undone.")) return;
+        setDeletingInvoices((prev)=>new Set(prev).add(invoiceId));
+        try {
+            const res = await fetch(`/api/invoices/${invoiceId}`, {
+                method: "DELETE"
+            });
+            if (!res.ok) {
+                const errJson = await res.json().catch(()=>({}));
+                throw new Error(errJson.error || "Delete failed");
+            }
+            // Update local state directly — no optimistic pre-removal race
+            setInvoices((prev)=>prev.filter((inv)=>String(inv._id ?? inv.id ?? "") !== invoiceId));
+            toast({
+                title: "Invoice Deleted",
+                description: `Invoice ${invoiceNo} deleted.`
+            });
+        } catch (err) {
+            console.error(err);
+            toast({
+                title: "Delete Failed",
+                description: err.message || "Could not delete invoice. Please try again.",
+                variant: "destructive"
+            });
+        } finally{
+            setDeletingInvoices((prev)=>{
+                const next = new Set(prev);
+                next.delete(invoiceId);
+                return next;
+            });
+        }
+    };
     const sanitizeFileName = (s)=>String(s || "invoice").replace(/[^a-z0-9\-\_ ]/gi, "").trim().replace(/\s+/g, "-").slice(0, 120);
     const generatePdfAndSave = async (invoice)=>{
         const id = String(invoice._id ?? invoice.id ?? Date.now());
@@ -7617,7 +7652,7 @@ function InvoicingPage() {
                 client: client
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                lineNumber: 192,
+                lineNumber: 226,
                 columnNumber: 9
             }, this)).toBlob();
             const url = URL.createObjectURL(blob);
@@ -7864,12 +7899,12 @@ function InvoicingPage() {
                             client: clients.find((c)=>String(c.id ?? c._id) === String(invoice.clientId))
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                            lineNumber: 440,
+                            lineNumber: 474,
                             columnNumber: 19
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                        lineNumber: 439,
+                        lineNumber: 473,
                         columnNumber: 17
                     }, this))}
             </body>
@@ -7938,7 +7973,7 @@ function InvoicingPage() {
                 client: clientObj
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                lineNumber: 513,
+                lineNumber: 547,
                 columnNumber: 9
             }, this)).toBlob();
             // Convert blob to base64
@@ -8072,7 +8107,7 @@ function InvoicingPage() {
                                 children: isClient ? "MY INVOICES" : "INVOICING"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 653,
+                                lineNumber: 687,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -8080,13 +8115,13 @@ function InvoicingPage() {
                                 children: isClient ? "All invoices raised for your account." : "Manage and track all client invoices."
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 656,
+                                lineNumber: 690,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                        lineNumber: 652,
+                        lineNumber: 686,
                         columnNumber: 9
                     }, this),
                     !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8098,7 +8133,7 @@ function InvoicingPage() {
                                 children: "Export Excel"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 664,
+                                lineNumber: 698,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$invoices$2f$add$2d$invoice$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AddInvoiceDialog"], {
@@ -8108,19 +8143,19 @@ function InvoicingPage() {
                                 onCreated: refresh
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 667,
+                                lineNumber: 701,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                        lineNumber: 663,
+                        lineNumber: 697,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                lineNumber: 651,
+                lineNumber: 685,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8136,7 +8171,7 @@ function InvoicingPage() {
                                         children: "Invoice No"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 681,
+                                        lineNumber: 715,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -8144,7 +8179,7 @@ function InvoicingPage() {
                                         children: "Client"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 682,
+                                        lineNumber: 716,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -8152,7 +8187,7 @@ function InvoicingPage() {
                                         children: "Project / Title"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 683,
+                                        lineNumber: 717,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -8160,7 +8195,7 @@ function InvoicingPage() {
                                         children: "Amount"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 686,
+                                        lineNumber: 720,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -8168,7 +8203,7 @@ function InvoicingPage() {
                                         children: "Paid"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 687,
+                                        lineNumber: 721,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -8176,7 +8211,7 @@ function InvoicingPage() {
                                         children: "Due Date"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 688,
+                                        lineNumber: 722,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -8184,7 +8219,7 @@ function InvoicingPage() {
                                         children: "Status"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 689,
+                                        lineNumber: 723,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -8192,18 +8227,18 @@ function InvoicingPage() {
                                         children: "Actions"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 692,
+                                        lineNumber: 726,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 680,
+                                lineNumber: 714,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                            lineNumber: 679,
+                            lineNumber: 713,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -8215,7 +8250,7 @@ function InvoicingPage() {
                                             children: invoice.invoiceNo ?? invoice.id ?? invoice._id
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 703,
+                                            lineNumber: 737,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -8223,7 +8258,7 @@ function InvoicingPage() {
                                             children: invoice.clientName || invoice.client || clients.find((c)=>String(c.id ?? c._id) === String(invoice.clientId))?.name || "-"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 706,
+                                            lineNumber: 740,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -8231,7 +8266,7 @@ function InvoicingPage() {
                                             children: invoice.title ?? invoice.projectTitle ?? "-"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 714,
+                                            lineNumber: 748,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -8242,7 +8277,7 @@ function InvoicingPage() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 717,
+                                            lineNumber: 751,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -8253,7 +8288,7 @@ function InvoicingPage() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 720,
+                                            lineNumber: 754,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -8261,7 +8296,7 @@ function InvoicingPage() {
                                             children: invoice.dueDate ? new Date(invoice.dueDate).toLocaleDateString() : ""
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 723,
+                                            lineNumber: 757,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -8271,12 +8306,12 @@ function InvoicingPage() {
                                                 children: invoice.status
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                lineNumber: 729,
+                                                lineNumber: 763,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 728,
+                                            lineNumber: 762,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -8292,7 +8327,7 @@ function InvoicingPage() {
                                                         onUpdated: refresh
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                        lineNumber: 746,
+                                                        lineNumber: 780,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -8302,7 +8337,7 @@ function InvoicingPage() {
                                                         children: "Preview"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                        lineNumber: 755,
+                                                        lineNumber: 789,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -8312,7 +8347,7 @@ function InvoicingPage() {
                                                         children: downloading[String(invoice.invoiceNo ?? invoice._id ?? invoice.id ?? "")] ? "Downloading..." : "Download"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                        lineNumber: 762,
+                                                        lineNumber: 796,
                                                         columnNumber: 21
                                                     }, this),
                                                     !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -8322,7 +8357,7 @@ function InvoicingPage() {
                                                                 onClientUpdate: refreshClients
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                lineNumber: 787,
+                                                                lineNumber: 821,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$invoices$2f$send$2d$whatsapp$2d$invoice$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["WhatsAppInvoiceSendButton"], {
@@ -8331,7 +8366,7 @@ function InvoicingPage() {
                                                                 onClientUpdate: refreshClients
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                lineNumber: 795,
+                                                                lineNumber: 829,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -8355,7 +8390,7 @@ function InvoicingPage() {
                                                                             strokeWidth: "4"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                            lineNumber: 814,
+                                                                            lineNumber: 848,
                                                                             columnNumber: 31
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -8364,13 +8399,13 @@ function InvoicingPage() {
                                                                             d: "M4 12a8 8 0 018-8v8z"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                            lineNumber: 815,
+                                                                            lineNumber: 849,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                    lineNumber: 813,
+                                                                    lineNumber: 847,
                                                                     columnNumber: 29
                                                                 }, this) : /* Gmail M logo SVG */ /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                                                     viewBox: "0 0 24 24",
@@ -8381,17 +8416,17 @@ function InvoicingPage() {
                                                                         fill: "currentColor"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                        lineNumber: 820,
+                                                                        lineNumber: 854,
                                                                         columnNumber: 31
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                    lineNumber: 819,
+                                                                    lineNumber: 853,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                lineNumber: 804,
+                                                                lineNumber: 838,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
@@ -8399,70 +8434,45 @@ function InvoicingPage() {
                                                     !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                                         size: "sm",
                                                         variant: "destructive",
-                                                        onClick: async ()=>{
-                                                            if (!window.confirm("Delete this invoice? This cannot be undone.")) return;
-                                                            const invoiceId = String(invoice._id ?? invoice.id ?? "");
-                                                            try {
-                                                                const res = await fetch(`/api/invoices/${invoiceId}`, {
-                                                                    method: "DELETE"
-                                                                });
-                                                                if (!res.ok) {
-                                                                    const errJson = await res.json().catch(()=>({}));
-                                                                    throw new Error(errJson.error || "Delete failed");
-                                                                }
-                                                                // Optimistically remove from UI immediately
-                                                                setInvoices((prev)=>prev.filter((inv)=>String(inv._id ?? inv.id ?? "") !== invoiceId));
-                                                                toast({
-                                                                    title: "Invoice Deleted",
-                                                                    description: `Invoice ${invoice.invoiceNo ?? invoice.id} deleted.`
-                                                                });
-                                                                await refresh();
-                                                            } catch (err) {
-                                                                console.error(err);
-                                                                toast({
-                                                                    title: "Delete Failed",
-                                                                    description: err.message || "Could not delete invoice. Please try again.",
-                                                                    variant: "destructive"
-                                                                });
-                                                            }
-                                                        },
-                                                        children: "Delete"
+                                                        disabled: deletingInvoices.has(String(invoice._id ?? invoice.id ?? "")),
+                                                        onClick: ()=>handleDeleteInvoice(String(invoice._id ?? invoice.id ?? ""), String(invoice.invoiceNo ?? invoice.id ?? "")),
+                                                        children: deletingInvoices.has(String(invoice._id ?? invoice.id ?? "")) ? "Deleting..." : "Delete"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                        lineNumber: 827,
+                                                        lineNumber: 861,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                lineNumber: 744,
+                                                lineNumber: 778,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 743,
+                                            lineNumber: 777,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, invoice._id ?? invoice.id ?? invoice.invoiceNo, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                    lineNumber: 699,
+                                    lineNumber: 733,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                            lineNumber: 697,
+                            lineNumber: 731,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                    lineNumber: 678,
+                    lineNumber: 712,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                lineNumber: 677,
+                lineNumber: 711,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -8478,12 +8488,12 @@ function InvoicingPage() {
                                 children: "Invoice Preview"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 875,
+                                lineNumber: 893,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                            lineNumber: 874,
+                            lineNumber: 892,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8499,29 +8509,29 @@ function InvoicingPage() {
                                         client: clients.find((c)=>String(c.id ?? c._id) === String(previewInvoice.clientId))
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 885,
+                                        lineNumber: 903,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                    lineNumber: 880,
+                                    lineNumber: 898,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 879,
+                                lineNumber: 897,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "p-4",
                                 children: "No preview available"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 896,
+                                lineNumber: 914,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                            lineNumber: 877,
+                            lineNumber: 895,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -8534,7 +8544,7 @@ function InvoicingPage() {
                                         children: "Close"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 901,
+                                        lineNumber: 919,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -8544,39 +8554,39 @@ function InvoicingPage() {
                                         children: previewLoading ? "Preparing..." : "Download PDF"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 904,
+                                        lineNumber: 922,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 900,
+                                lineNumber: 918,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                            lineNumber: 899,
+                            lineNumber: 917,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                    lineNumber: 873,
+                    lineNumber: 891,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                lineNumber: 867,
+                lineNumber: 885,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-        lineNumber: 650,
+        lineNumber: 684,
         columnNumber: 5
     }, this);
 }
-_s(InvoicingPage, "s4GARgMB8HJddvaJmj0zbUYY9Yk=", false, function() {
+_s(InvoicingPage, "SF11BSptc856c5+XBf6lRYK7Byo=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$auth$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"],
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useToast"]

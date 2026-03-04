@@ -76,14 +76,9 @@ export async function DELETE(
 ) {
   try {
     const { id } = params;
-    const col = await svc.getCollection("supportTickets");
 
-    const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
-    const result = hex24
-      ? await col.deleteOne({ _id: new ObjectId(id) })
-      : await col.deleteOne({ id });
-
-    if (result.deletedCount === 0) {
+    const ok = await svc.softDeleteById('supportTickets', id);
+    if (!ok) {
       return NextResponse.json({ error: "Ticket not found" }, { status: 404 });
     }
 

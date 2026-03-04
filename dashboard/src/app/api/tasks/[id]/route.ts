@@ -50,10 +50,9 @@ export async function DELETE(
 ) {
   try {
     const { id } = params;
-    const db = await getDb();
-
-    await db.collection("tasks").deleteOne({ _id: new ObjectId(id) });
-
+    const { softDeleteById } = await import('@/lib/services');
+    const ok = await softDeleteById('tasks', id);
+    if (!ok) return NextResponse.json({ error: 'Task not found' }, { status: 404 });
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Failed to delete task", error);

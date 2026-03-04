@@ -189,6 +189,14 @@
       "namedRegex": "^/api/team\\-members/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/trash/[id]",
+      "regex": "^/api/trash/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/trash/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/users/[id]",
       "regex": "^/api/users/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -351,6 +359,12 @@
       "namedRegex": "^/api/journey(?:/)?$"
     },
     {
+      "page": "/api/journey/backfill",
+      "regex": "^/api/journey/backfill(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/journey/backfill(?:/)?$"
+    },
+    {
       "page": "/api/leads",
       "regex": "^/api/leads(?:/)?$",
       "routeKeys": {},
@@ -499,6 +513,12 @@
       "regex": "^/api/team\\-members(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/team\\-members(?:/)?$"
+    },
+    {
+      "page": "/api/trash",
+      "regex": "^/api/trash(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/trash(?:/)?$"
     },
     {
       "page": "/api/upload",
@@ -727,6 +747,12 @@
       "regex": "^/timeline(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/timeline(?:/)?$"
+    },
+    {
+      "page": "/trash",
+      "regex": "^/trash(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/trash(?:/)?$"
     },
     {
       "page": "/user-activity",

@@ -453,7 +453,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$briefcase$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Briefcase$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/briefcase.js [app-ssr] (ecmascript) <export default as Briefcase>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/loader-circle.js [app-ssr] (ecmascript) <export default as Loader2>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/map-pin.js [app-ssr] (ecmascript) <export default as MapPin>");
-'use client';
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-ssr] (ecmascript) <export default as ChevronDown>");
+"use client";
 ;
 ;
 ;
@@ -467,78 +468,78 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 // ─── Constants ────────────────────────────────────────────────────────────────
 const EVENT_TYPE_CONFIG = {
     meeting: {
-        label: 'Meeting',
+        label: "Meeting",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2d$days$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CalendarDays$3e$__["CalendarDays"],
-        color: 'text-blue-700',
-        bg: 'bg-blue-50',
-        border: 'border-blue-200'
+        color: "text-blue-700",
+        bg: "bg-blue-50",
+        border: "border-blue-200"
     },
     quotation: {
-        label: 'Quotation',
+        label: "Quotation",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"],
-        color: 'text-amber-700',
-        bg: 'bg-amber-50',
-        border: 'border-amber-200'
+        color: "text-amber-700",
+        bg: "bg-amber-50",
+        border: "border-amber-200"
     },
     nda: {
-        label: 'NDA',
+        label: "NDA",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Shield$3e$__["Shield"],
-        color: 'text-purple-700',
-        bg: 'bg-purple-50',
-        border: 'border-purple-200'
+        color: "text-purple-700",
+        bg: "bg-purple-50",
+        border: "border-purple-200"
     },
     onboarding: {
-        label: 'Onboarding',
+        label: "Onboarding",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__UserCheck$3e$__["UserCheck"],
-        color: 'text-green-700',
-        bg: 'bg-green-50',
-        border: 'border-green-200'
+        color: "text-green-700",
+        bg: "bg-green-50",
+        border: "border-green-200"
     },
     project_update: {
-        label: 'Project Update',
+        label: "Project Update",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$briefcase$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Briefcase$3e$__["Briefcase"],
-        color: 'text-indigo-700',
-        bg: 'bg-indigo-50',
-        border: 'border-indigo-200'
+        color: "text-indigo-700",
+        bg: "bg-indigo-50",
+        border: "border-indigo-200"
     },
     payment: {
-        label: 'Payment',
+        label: "Payment",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$wallet$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Wallet$3e$__["Wallet"],
-        color: 'text-emerald-700',
-        bg: 'bg-emerald-50',
-        border: 'border-emerald-200'
+        color: "text-emerald-700",
+        bg: "bg-emerald-50",
+        border: "border-emerald-200"
     },
     note: {
-        label: 'Note',
+        label: "Note",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$square$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageSquare$3e$__["MessageSquare"],
-        color: 'text-gray-700',
-        bg: 'bg-gray-50',
-        border: 'border-gray-200'
+        color: "text-gray-700",
+        bg: "bg-gray-50",
+        border: "border-gray-200"
     }
 };
 const STATUS_VARIANT = {
-    Sent: 'bg-blue-100 text-blue-800 border-blue-200',
-    Approved: 'bg-green-100 text-green-800 border-green-200',
-    Completed: 'bg-emerald-100 text-emerald-800 border-emerald-200',
-    Pending: 'bg-yellow-100 text-yellow-800 border-yellow-200',
-    Rejected: 'bg-red-100 text-red-800 border-red-200',
-    Paid: 'bg-teal-100 text-teal-800 border-teal-200',
-    Signed: 'bg-purple-100 text-purple-800 border-purple-200'
+    Sent: "bg-blue-100 text-blue-800 border-blue-200",
+    Approved: "bg-green-100 text-green-800 border-green-200",
+    Completed: "bg-emerald-100 text-emerald-800 border-emerald-200",
+    Pending: "bg-yellow-100 text-yellow-800 border-yellow-200",
+    Rejected: "bg-red-100 text-red-800 border-red-200",
+    Paid: "bg-teal-100 text-teal-800 border-teal-200",
+    Signed: "bg-purple-100 text-purple-800 border-purple-200"
 };
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 function formatTime(date) {
-    return date.toLocaleTimeString('en-IN', {
-        hour: '2-digit',
-        minute: '2-digit',
+    return date.toLocaleTimeString("en-IN", {
+        hour: "2-digit",
+        minute: "2-digit",
         hour12: true
     });
 }
 function formatFullDate(date) {
-    return date.toLocaleDateString('en-IN', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
+    return date.toLocaleDateString("en-IN", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
     });
 }
 function getDateLabel(date) {
@@ -546,18 +547,18 @@ function getDateLabel(date) {
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     const yesterday = new Date(today.getTime() - 86400000);
     const eventDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-    if (eventDay.getTime() === today.getTime()) return 'Today';
-    if (eventDay.getTime() === yesterday.getTime()) return 'Yesterday';
+    if (eventDay.getTime() === today.getTime()) return "Today";
+    if (eventDay.getTime() === yesterday.getTime()) return "Yesterday";
     const diffDays = Math.floor((today.getTime() - eventDay.getTime()) / 86400000);
     if (diffDays < 7) {
-        return date.toLocaleDateString('en-IN', {
-            weekday: 'long'
+        return date.toLocaleDateString("en-IN", {
+            weekday: "long"
         });
     }
-    return date.toLocaleDateString('en-IN', {
-        day: '2-digit',
-        month: 'short',
-        year: 'numeric'
+    return date.toLocaleDateString("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
     });
 }
 function groupByDate(events) {
@@ -583,31 +584,31 @@ function groupByDate(events) {
     return groups;
 }
 const EMPTY_FORM = {
-    type: 'note',
-    title: '',
-    description: '',
-    performedBy: '',
-    status: '',
-    projectName: '',
-    fileUrl: '',
-    linkUrl: '',
+    type: "note",
+    title: "",
+    description: "",
+    performedBy: "",
+    status: "",
+    projectName: "",
+    fileUrl: "",
+    linkUrl: "",
     occurredAt: new Date().toISOString().slice(0, 16)
 };
 function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
     const [form, setForm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(EMPTY_FORM);
     const [saving, setSaving] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
+    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const set = (k, v)=>setForm((f)=>({
                 ...f,
                 [k]: v
             }));
     const handleSubmit = async ()=>{
         if (!form.title.trim()) {
-            setError('Title is required.');
+            setError("Title is required.");
             return;
         }
         setSaving(true);
-        setError('');
+        setError("");
         try {
             const payload = {
                 clientId,
@@ -615,27 +616,27 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                 type: form.type,
                 title: form.title.trim(),
                 description: form.description.trim() || undefined,
-                performedBy: form.performedBy.trim() || 'Admin',
+                performedBy: form.performedBy.trim() || "Admin",
                 status: form.status || undefined,
                 projectName: form.projectName.trim() || undefined,
                 fileUrl: form.fileUrl.trim() || undefined,
                 linkUrl: form.linkUrl.trim() || undefined,
                 occurredAt: form.occurredAt ? new Date(form.occurredAt).toISOString() : new Date().toISOString()
             };
-            const res = await fetch('/api/journey', {
-                method: 'POST',
+            const res = await fetch("/api/journey", {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json'
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify(payload)
             });
-            if (!res.ok) throw new Error('Failed to save event');
+            if (!res.ok) throw new Error("Failed to save event");
             const created = await res.json();
             onAdded(created);
             setForm(EMPTY_FORM);
             onClose();
         } catch (e) {
-            setError(e.message || 'Something went wrong');
+            setError(e.message || "Something went wrong");
         } finally{
             setSaving(false);
         }
@@ -652,12 +653,12 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                         children: "Add Journey Event"
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 263,
+                        lineNumber: 298,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                    lineNumber: 262,
+                    lineNumber: 297,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -674,23 +675,23 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                             children: "Event Type *"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                            lineNumber: 270,
+                                            lineNumber: 307,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
                                             value: form.type,
-                                            onValueChange: (v)=>set('type', v),
+                                            onValueChange: (v)=>set("type", v),
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectTrigger"], {
                                                     className: "border-2 border-black font-bold",
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                        lineNumber: 273,
+                                                        lineNumber: 313,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                    lineNumber: 272,
+                                                    lineNumber: 312,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -700,24 +701,24 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                                             children: EVENT_TYPE_CONFIG[t].label
                                                         }, t, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                            lineNumber: 277,
-                                                            columnNumber: 21
+                                                            lineNumber: 318,
+                                                            columnNumber: 23
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                    lineNumber: 275,
+                                                    lineNumber: 315,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                            lineNumber: 271,
+                                            lineNumber: 308,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                    lineNumber: 269,
+                                    lineNumber: 306,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -728,12 +729,12 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                             children: "Status Badge"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                            lineNumber: 285,
+                                            lineNumber: 327,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
                                             value: form.status,
-                                            onValueChange: (v)=>set('status', v),
+                                            onValueChange: (v)=>set("status", v),
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectTrigger"], {
                                                     className: "border-2 border-black font-bold",
@@ -741,12 +742,12 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                                         placeholder: "None"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                        lineNumber: 288,
+                                                        lineNumber: 333,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                    lineNumber: 287,
+                                                    lineNumber: 332,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -757,7 +758,7 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                                             children: "None"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                            lineNumber: 291,
+                                                            lineNumber: 336,
                                                             columnNumber: 19
                                                         }, this),
                                                         Object.keys(STATUS_VARIANT).map((s)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -766,31 +767,31 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                                                 children: s
                                                             }, s, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                                lineNumber: 293,
+                                                                lineNumber: 340,
                                                                 columnNumber: 21
                                                             }, this))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                    lineNumber: 290,
+                                                    lineNumber: 335,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                            lineNumber: 286,
+                                            lineNumber: 328,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                    lineNumber: 284,
+                                    lineNumber: 326,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                            lineNumber: 268,
+                            lineNumber: 305,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -801,23 +802,23 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                     children: "Title *"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                    lineNumber: 304,
+                                    lineNumber: 351,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                     className: "border-2 border-black font-bold",
                                     placeholder: "e.g. Client Meeting, Quotation Sent…",
                                     value: form.title,
-                                    onChange: (e)=>set('title', e.target.value)
+                                    onChange: (e)=>set("title", e.target.value)
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                    lineNumber: 305,
+                                    lineNumber: 352,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                            lineNumber: 303,
+                            lineNumber: 350,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -828,7 +829,7 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                     children: "Description"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                    lineNumber: 315,
+                                    lineNumber: 362,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -836,16 +837,16 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                     rows: 3,
                                     placeholder: "Short description of what happened…",
                                     value: form.description,
-                                    onChange: (e)=>set('description', e.target.value)
+                                    onChange: (e)=>set("description", e.target.value)
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                    lineNumber: 316,
+                                    lineNumber: 363,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                            lineNumber: 314,
+                            lineNumber: 361,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -859,23 +860,23 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                             children: "Performed By"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                            lineNumber: 328,
+                                            lineNumber: 375,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                             className: "border-2 border-black font-bold",
                                             placeholder: "Name or role",
                                             value: form.performedBy,
-                                            onChange: (e)=>set('performedBy', e.target.value)
+                                            onChange: (e)=>set("performedBy", e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                            lineNumber: 329,
+                                            lineNumber: 376,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                    lineNumber: 327,
+                                    lineNumber: 374,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -886,29 +887,29 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                             children: "Date & Time"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                            lineNumber: 337,
+                                            lineNumber: 384,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                             type: "datetime-local",
                                             className: "border-2 border-black font-bold",
                                             value: form.occurredAt,
-                                            onChange: (e)=>set('occurredAt', e.target.value)
+                                            onChange: (e)=>set("occurredAt", e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                            lineNumber: 338,
+                                            lineNumber: 385,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                    lineNumber: 336,
+                                    lineNumber: 383,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                            lineNumber: 326,
+                            lineNumber: 373,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -919,23 +920,23 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                     children: "Project (optional)"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                    lineNumber: 349,
+                                    lineNumber: 396,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                     className: "border-2 border-black font-bold",
                                     placeholder: "Project name",
                                     value: form.projectName,
-                                    onChange: (e)=>set('projectName', e.target.value)
+                                    onChange: (e)=>set("projectName", e.target.value)
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                    lineNumber: 350,
+                                    lineNumber: 397,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                            lineNumber: 348,
+                            lineNumber: 395,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -949,23 +950,23 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                             children: "File URL (PDF etc.)"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                            lineNumber: 361,
+                                            lineNumber: 408,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                             className: "border-2 border-black font-bold",
                                             placeholder: "https://…",
                                             value: form.fileUrl,
-                                            onChange: (e)=>set('fileUrl', e.target.value)
+                                            onChange: (e)=>set("fileUrl", e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                            lineNumber: 362,
+                                            lineNumber: 409,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                    lineNumber: 360,
+                                    lineNumber: 407,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -976,29 +977,29 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                             children: "Reference Link"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                            lineNumber: 370,
+                                            lineNumber: 417,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
                                             className: "border-2 border-black font-bold",
                                             placeholder: "https://…",
                                             value: form.linkUrl,
-                                            onChange: (e)=>set('linkUrl', e.target.value)
+                                            onChange: (e)=>set("linkUrl", e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                            lineNumber: 371,
+                                            lineNumber: 418,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                    lineNumber: 369,
+                                    lineNumber: 416,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                            lineNumber: 359,
+                            lineNumber: 406,
                             columnNumber: 11
                         }, this),
                         error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1006,13 +1007,13 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                             children: error
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                            lineNumber: 381,
+                            lineNumber: 428,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                    lineNumber: 266,
+                    lineNumber: 303,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -1025,7 +1026,7 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                             children: "Cancel"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                            lineNumber: 388,
+                            lineNumber: 435,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1037,31 +1038,31 @@ function AddEventDialog({ open, onClose, clientId, clientName, onAdded }) {
                                     className: "w-4 h-4 animate-spin mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                    lineNumber: 396,
+                                    lineNumber: 447,
                                     columnNumber: 23
                                 }, this) : null,
                                 "Save Event"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                            lineNumber: 391,
+                            lineNumber: 442,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                    lineNumber: 387,
+                    lineNumber: 434,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-            lineNumber: 261,
+            lineNumber: 296,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-        lineNumber: 260,
+        lineNumber: 295,
         columnNumber: 5
     }, this);
 }
@@ -1070,192 +1071,241 @@ function JourneyCard({ event }) {
     const config = EVENT_TYPE_CONFIG[event.type] ?? EVENT_TYPE_CONFIG.note;
     const Icon = config.icon;
     const date = new Date(event.occurredAt);
+    const [expanded, setExpanded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const hasDetails = !!event.description || !!event.fileUrl || !!event.linkUrl || !!event.projectName;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "flex gap-3 group",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex-shrink-0 mt-1",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('w-9 h-9 rounded-xl border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]', config.bg),
+                    className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("w-9 h-9 rounded-xl border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]", config.bg),
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Icon, {
-                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('w-4 h-4', config.color)
+                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("w-4 h-4", config.color)
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 422,
+                        lineNumber: 477,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                    lineNumber: 416,
+                    lineNumber: 471,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                lineNumber: 415,
+                lineNumber: 470,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('flex-1 rounded-xl border-2 border-black bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] p-4 transition-shadow group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'),
+                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("flex-1 rounded-xl border-2 border-black bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-shadow group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"),
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex flex-wrap items-start justify-between gap-2 mb-1",
+                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("flex items-center justify-between gap-2 px-4 py-3", expanded && "border-b-2 border-dashed border-gray-200"),
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex flex-wrap items-center gap-2",
+                                className: "flex flex-wrap items-center gap-2 min-w-0",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('text-xs font-black uppercase tracking-widest px-2 py-0.5 rounded-md border', config.bg, config.border, config.color),
+                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("text-xs font-black uppercase tracking-widest px-2 py-0.5 rounded-md border flex-shrink-0", config.bg, config.border, config.color),
                                         children: config.label
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                        lineNumber: 435,
+                                        lineNumber: 496,
                                         columnNumber: 13
                                     }, this),
                                     event.status && event.status.trim() && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('text-xs font-black px-2 py-0.5 rounded-full border', STATUS_VARIANT[event.status] ?? 'bg-gray-100 text-gray-700 border-gray-200'),
+                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("text-xs font-black px-2 py-0.5 rounded-full border flex-shrink-0", STATUS_VARIANT[event.status] ?? "bg-gray-100 text-gray-700 border-gray-200"),
                                         children: event.status
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                        lineNumber: 446,
+                                        lineNumber: 507,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                        className: "font-black text-sm tracking-tight truncate",
+                                        children: event.title
+                                    }, void 0, false, {
+                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
+                                        lineNumber: 517,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
+                                lineNumber: 495,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center gap-2 flex-shrink-0",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-xs font-bold text-muted-foreground whitespace-nowrap",
+                                        children: formatTime(date)
+                                    }, void 0, false, {
+                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
+                                        lineNumber: 524,
+                                        columnNumber: 13
+                                    }, this),
+                                    hasDetails && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>setExpanded((v)=>!v),
+                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("w-6 h-6 rounded-md border-2 border-black flex items-center justify-center transition-all shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-px hover:translate-y-px", expanded ? config.bg : "bg-gray-50 hover:bg-gray-100"),
+                                        "aria-label": expanded ? "Collapse" : "Expand details",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
+                                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("w-3.5 h-3.5 transition-transform duration-200", config.color, expanded && "rotate-180")
+                                        }, void 0, false, {
+                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
+                                            lineNumber: 536,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
+                                        lineNumber: 528,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                lineNumber: 434,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-xs font-bold text-muted-foreground whitespace-nowrap",
-                                children: formatTime(date)
-                            }, void 0, false, {
-                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                lineNumber: 456,
+                                lineNumber: 523,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 433,
+                        lineNumber: 488,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                        className: "font-black text-base tracking-tight mt-1",
-                        children: event.title
-                    }, void 0, false, {
-                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 462,
-                        columnNumber: 9
-                    }, this),
-                    event.projectName && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-xs font-bold text-indigo-600 mt-0.5 flex items-center gap-1",
+                    expanded && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "px-4 pb-4 pt-3 space-y-3",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$briefcase$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Briefcase$3e$__["Briefcase"], {
-                                className: "w-3 h-3"
+                            event.projectName && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-xs font-bold text-indigo-600 flex items-center gap-1",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$briefcase$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Briefcase$3e$__["Briefcase"], {
+                                        className: "w-3 h-3"
+                                    }, void 0, false, {
+                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
+                                        lineNumber: 554,
+                                        columnNumber: 17
+                                    }, this),
+                                    event.projectName
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
+                                lineNumber: 553,
+                                columnNumber: 15
+                            }, this),
+                            event.description && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "text-sm text-muted-foreground font-medium space-y-1",
+                                children: event.description.split('\n\n').map((block, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: block.split('\n').map((line, j)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: line.startsWith('  •') ? 'ml-3 leading-relaxed' : 'leading-relaxed',
+                                                children: line
+                                            }, j, false, {
+                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
+                                                lineNumber: 565,
+                                                columnNumber: 23
+                                            }, this))
+                                    }, i, false, {
+                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
+                                        lineNumber: 563,
+                                        columnNumber: 19
+                                    }, this))
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                lineNumber: 467,
-                                columnNumber: 13
+                                lineNumber: 561,
+                                columnNumber: 15
                             }, this),
-                            event.projectName
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 466,
-                        columnNumber: 11
-                    }, this),
-                    event.description && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-sm text-muted-foreground mt-2 leading-relaxed font-medium",
-                        children: event.description
-                    }, void 0, false, {
-                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 474,
-                        columnNumber: 11
-                    }, this),
-                    (event.fileUrl || event.linkUrl) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex flex-wrap gap-2 mt-3",
-                        children: [
-                            event.fileUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                href: event.fileUrl,
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                                className: "inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-lg border-2 border-black bg-orange-50 text-orange-700 hover:bg-orange-100 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]",
+                            (event.fileUrl || event.linkUrl) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-wrap gap-2",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$paperclip$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Paperclip$3e$__["Paperclip"], {
-                                        className: "w-3 h-3"
-                                    }, void 0, false, {
+                                    event.fileUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                        href: event.fileUrl,
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                        className: "inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-lg border-2 border-black bg-orange-50 text-orange-700 hover:bg-orange-100 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$paperclip$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Paperclip$3e$__["Paperclip"], {
+                                                className: "w-3 h-3"
+                                            }, void 0, false, {
+                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
+                                                lineNumber: 587,
+                                                columnNumber: 21
+                                            }, this),
+                                            "File / PDF"
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                        lineNumber: 489,
-                                        columnNumber: 17
+                                        lineNumber: 581,
+                                        columnNumber: 19
                                     }, this),
-                                    "File / PDF"
+                                    event.linkUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                        href: event.linkUrl,
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                        className: "inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-lg border-2 border-black bg-sky-50 text-sky-700 hover:bg-sky-100 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$link$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Link2$3e$__["Link2"], {
+                                                className: "w-3 h-3"
+                                            }, void 0, false, {
+                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
+                                                lineNumber: 598,
+                                                columnNumber: 21
+                                            }, this),
+                                            "Reference Link"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
+                                        lineNumber: 592,
+                                        columnNumber: 19
+                                    }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                lineNumber: 483,
+                                lineNumber: 579,
                                 columnNumber: 15
                             }, this),
-                            event.linkUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                href: event.linkUrl,
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                                className: "inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-lg border-2 border-black bg-sky-50 text-sky-700 hover:bg-sky-100 transition-colors shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$link$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Link2$3e$__["Link2"], {
-                                        className: "w-3 h-3"
-                                    }, void 0, false, {
-                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                        lineNumber: 500,
-                                        columnNumber: 17
-                                    }, this),
-                                    "Reference Link"
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                lineNumber: 494,
-                                columnNumber: 15
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 481,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center gap-1.5 mt-3 pt-2 border-t border-dashed border-gray-200",
-                        children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "w-5 h-5 rounded-full bg-primary/10 border border-black flex items-center justify-center text-[10px] font-black text-primary",
-                                children: (event.performedBy ?? 'S').charAt(0).toUpperCase()
-                            }, void 0, false, {
+                                className: "flex items-center gap-1.5 pt-2 border-t border-dashed border-gray-200",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "w-5 h-5 rounded-full bg-primary/10 border border-black flex items-center justify-center text-[10px] font-black text-primary",
+                                        children: (event.performedBy ?? "S").charAt(0).toUpperCase()
+                                    }, void 0, false, {
+                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
+                                        lineNumber: 607,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-xs font-bold text-muted-foreground",
+                                        children: event.performedBy ?? "System"
+                                    }, void 0, false, {
+                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
+                                        lineNumber: 610,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                lineNumber: 509,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-xs font-bold text-muted-foreground",
-                                children: event.performedBy ?? 'System'
-                            }, void 0, false, {
-                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                lineNumber: 512,
-                                columnNumber: 11
+                                lineNumber: 606,
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 508,
-                        columnNumber: 9
+                        lineNumber: 550,
+                        columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                lineNumber: 427,
+                lineNumber: 482,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-        lineNumber: 413,
+        lineNumber: 468,
         columnNumber: 5
     }, this);
 }
@@ -1268,7 +1318,7 @@ function DateSeparator({ label, date }) {
                 className: "flex-1 h-px bg-border"
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                lineNumber: 524,
+                lineNumber: 626,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1278,7 +1328,7 @@ function DateSeparator({ label, date }) {
                         className: "w-3 h-3 text-muted-foreground"
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 526,
+                        lineNumber: 628,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1286,34 +1336,34 @@ function DateSeparator({ label, date }) {
                         children: label
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 527,
+                        lineNumber: 629,
                         columnNumber: 9
                     }, this),
-                    label !== 'Today' && label !== 'Yesterday' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                    label !== "Today" && label !== "Yesterday" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         className: "text-[10px] text-muted-foreground font-bold ml-1",
                         children: formatFullDate(date)
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 529,
+                        lineNumber: 631,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                lineNumber: 525,
+                lineNumber: 627,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex-1 h-px bg-border"
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                lineNumber: 534,
+                lineNumber: 636,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-        lineNumber: 523,
+        lineNumber: 625,
         columnNumber: 5
     }, this);
 }
@@ -1328,56 +1378,56 @@ function EmptyFeed({ clientSelected }) {
                     className: "w-10 h-10 text-muted-foreground"
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                    lineNumber: 545,
+                    lineNumber: 647,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                lineNumber: 544,
+                lineNumber: 646,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "font-black text-xl tracking-tight",
-                        children: clientSelected ? 'No events yet' : 'Select a client'
+                        children: clientSelected ? "No events yet" : "Select a client"
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 548,
+                        lineNumber: 650,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "text-muted-foreground font-medium mt-1 text-sm",
-                        children: clientSelected ? 'Add the first event to start this client\'s journey.' : 'Choose a client above to view their journey history.'
+                        children: clientSelected ? "Add the first event to start this client's journey." : "Choose a client above to view their journey history."
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 551,
+                        lineNumber: 653,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                lineNumber: 547,
+                lineNumber: 649,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-        lineNumber: 543,
+        lineNumber: 645,
         columnNumber: 5
     }, this);
 }
 function JourneyPage() {
     const [clients, setClients] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [selectedClientId, setSelectedClientId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
-    const [selectedClientName, setSelectedClientName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
+    const [selectedClientId, setSelectedClientId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [selectedClientName, setSelectedClientName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [events, setEvents] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [addOpen, setAddOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const feedEndRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     // Load clients
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        fetch('/api/clients').then((r)=>r.json()).then((data)=>{
+        fetch("/api/clients").then((r)=>r.json()).then((data)=>{
             setClients(data.map((c)=>({
                     id: String(c._id ?? c.id),
                     name: c.name
@@ -1399,7 +1449,7 @@ function JourneyPage() {
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         if (events.length > 0) {
             feedEndRef.current?.scrollIntoView({
-                behavior: 'smooth'
+                behavior: "smooth"
             });
         }
     }, [
@@ -1408,7 +1458,7 @@ function JourneyPage() {
     const handleClientChange = (id)=>{
         const client = clients.find((c)=>c.id === id);
         setSelectedClientId(id);
-        setSelectedClientName(client?.name ?? '');
+        setSelectedClientName(client?.name ?? "");
     };
     const handleEventAdded = (event)=>{
         setEvents((prev)=>{
@@ -1440,12 +1490,12 @@ function JourneyPage() {
                                                     className: "w-4 h-4 text-primary-foreground"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                    lineNumber: 634,
+                                                    lineNumber: 737,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                lineNumber: 633,
+                                                lineNumber: 736,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -1453,13 +1503,13 @@ function JourneyPage() {
                                                 children: "Journey"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                lineNumber: 636,
+                                                lineNumber: 739,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                        lineNumber: 632,
+                                        lineNumber: 735,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1467,13 +1517,13 @@ function JourneyPage() {
                                         children: "Complete chronological history of every client interaction."
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                        lineNumber: 638,
+                                        lineNumber: 741,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                lineNumber: 631,
+                                lineNumber: 734,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1489,12 +1539,12 @@ function JourneyPage() {
                                                     placeholder: "Select a client…"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                    lineNumber: 648,
+                                                    lineNumber: 751,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                lineNumber: 647,
+                                                lineNumber: 750,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1504,18 +1554,18 @@ function JourneyPage() {
                                                         children: c.name
                                                     }, c.id, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                        lineNumber: 652,
+                                                        lineNumber: 755,
                                                         columnNumber: 19
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                lineNumber: 650,
+                                                lineNumber: 753,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                        lineNumber: 646,
+                                        lineNumber: 749,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1527,26 +1577,26 @@ function JourneyPage() {
                                                 className: "w-4 h-4 mr-2"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                lineNumber: 665,
+                                                lineNumber: 768,
                                                 columnNumber: 15
                                             }, this),
                                             "Add Event"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                        lineNumber: 660,
+                                        lineNumber: 763,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                lineNumber: 644,
+                                lineNumber: 747,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 629,
+                        lineNumber: 732,
                         columnNumber: 9
                     }, this),
                     selectedClientId && events.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1557,13 +1607,13 @@ function JourneyPage() {
                             const cfg = EVENT_TYPE_CONFIG[t];
                             const Icon = cfg.icon;
                             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])('flex items-center gap-1.5 px-3 py-1 rounded-full border-2 border-black text-xs font-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]', cfg.bg, cfg.color),
+                                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("flex items-center gap-1.5 px-3 py-1 rounded-full border-2 border-black text-xs font-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]", cfg.bg, cfg.color),
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Icon, {
                                         className: "w-3 h-3"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                        lineNumber: 688,
+                                        lineNumber: 791,
                                         columnNumber: 19
                                     }, this),
                                     cfg.label,
@@ -1572,19 +1622,19 @@ function JourneyPage() {
                                 ]
                             }, t, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                lineNumber: 680,
+                                lineNumber: 783,
                                 columnNumber: 17
                             }, this);
                         })
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 673,
+                        lineNumber: 776,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                lineNumber: 628,
+                lineNumber: 731,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1598,7 +1648,7 @@ function JourneyPage() {
                                 className: "w-10 h-10 animate-spin text-primary"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                lineNumber: 702,
+                                lineNumber: 805,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1606,19 +1656,19 @@ function JourneyPage() {
                                 children: "Loading journey…"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                lineNumber: 703,
+                                lineNumber: 806,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 701,
+                        lineNumber: 804,
                         columnNumber: 13
                     }, this) : groups.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(EmptyFeed, {
                         clientSelected: !!selectedClientId
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 706,
+                        lineNumber: 811,
                         columnNumber: 13
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "space-y-2",
@@ -1631,7 +1681,7 @@ function JourneyPage() {
                                             date: group.date
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                            lineNumber: 711,
+                                            lineNumber: 819,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1640,18 +1690,18 @@ function JourneyPage() {
                                                     event: ev
                                                 }, String(ev._id ?? ev.occurredAt), false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                                    lineNumber: 714,
+                                                    lineNumber: 822,
                                                     columnNumber: 23
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                            lineNumber: 712,
+                                            lineNumber: 820,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, group.label + group.date.toISOString(), true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                    lineNumber: 710,
+                                    lineNumber: 815,
                                     columnNumber: 17
                                 }, this)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1659,23 +1709,23 @@ function JourneyPage() {
                                 className: "h-8"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                                lineNumber: 720,
+                                lineNumber: 831,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                        lineNumber: 708,
+                        lineNumber: 813,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                    lineNumber: 699,
+                    lineNumber: 802,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                lineNumber: 698,
+                lineNumber: 801,
                 columnNumber: 7
             }, this),
             addOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(AddEventDialog, {
@@ -1686,13 +1736,13 @@ function JourneyPage() {
                 onAdded: handleEventAdded
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-                lineNumber: 728,
+                lineNumber: 839,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/journey/page.tsx",
-        lineNumber: 626,
+        lineNumber: 729,
         columnNumber: 5
     }, this);
 }

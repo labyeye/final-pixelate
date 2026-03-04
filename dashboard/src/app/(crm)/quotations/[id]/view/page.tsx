@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Printer, Download, Edit } from "lucide-react";
 import type { Quotation, AgencySettings, Client } from "@/lib/quotation-models";
 import { calculateQuotationTotals } from "@/lib/quotation-models";
-
+import logo from "@/assets/sign.png";
 export default function QuotationViewPage() {
   const params = useParams();
   const router = useRouter();
@@ -104,7 +104,7 @@ export default function QuotationViewPage() {
       </div>
       <div className="print-area min-h-screen bg-white">
         <div className="max-w-[210mm] mx-auto">
-          <div className="relative bg-[#044bab] w-full px-12 py-6 print:fixed print:top-0 print:left-0 print:right-0 print:z-50">
+          {/* <div className="relative bg-[#044bab] w-full px-12 py-6 print:fixed print:top-0 print:left-0 print:right-0 print:z-50">
             <div className="absolute top-0 left-0 right-0 h-1 bg-white opacity-30"></div>
 
             <div className="max-w-full">
@@ -143,8 +143,8 @@ export default function QuotationViewPage() {
                 </div>
               </div>
             </div>
-          </div>
-          <section className="h-screen flex flex-col items-center justify-center p-12 relative bg-[#ffffff] print:pt-32">
+          </div> */}
+          <section className="h-screen flex flex-col items-center justify-center p-12 relative bg-[#ffffff]">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#044bab] to-[#044bab]"></div>
             <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#044bab] to-[#044bab]"></div>
 
@@ -181,81 +181,82 @@ export default function QuotationViewPage() {
               <p className="text-lg text-gray-600">{formattedDate}</p>
             </div>
           </section>
-          <section className="min-h-screen print:pt-10">
-            <div className="px-12 pt-10">
-              {/* About Us - Permanent */}
-              <div className="mb-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="w-1 h-8 bg-[#044bab] mr-3"></span>
-                  About Pixelate Nest
-                </h2>
-                <div className="space-y-4 text-gray-700 leading-relaxed text-base">
-                  <p>
-                    {settings?.aboutUs ||
-                      "Pixelate Nest is a leading creative digital agency specializing in innovative software solutions, cutting-edge web and app development, stunning photography, and professional video editing services. We help businesses transform their digital presence and achieve measurable growth through technology-driven solutions."}
-                  </p>
-                  <p className="text-sm">
-                    With a team of experienced developers, designers, and
-                    creative professionals, we deliver end-to-end solutions
-                    tailored to each client's unique needs. Our expertise spans
-                    custom software development, e-commerce platforms, mobile
-                    applications, brand photography, corporate video production,
-                    and digital marketing content creation.
-                  </p>
-                  <p className="text-sm">
-                    We pride ourselves on our commitment to quality, timely
-                    delivery, and exceptional client service. Every project is
-                    executed with precision, creativity, and a focus on
-                    delivering tangible business results.
+          {/* PAGE 2: About Us */}
+          <div className="print-page px-12 pt-24 pb-20">
+            {/* About Us - Permanent */}
+            <div className="mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                <span className="w-1 h-8 bg-[#044bab] mr-3"></span>
+                About Pixelate Nest
+              </h2>
+              <div className="space-y-4 text-gray-700 leading-relaxed text-base">
+                <p>
+                  {settings?.aboutUs ||
+                    "Pixelate Nest is a leading creative digital agency specializing in innovative software solutions, cutting-edge web and app development, stunning photography, and professional video editing services. We help businesses transform their digital presence and achieve measurable growth through technology-driven solutions."}
+                </p>
+                <p className="text-sm">
+                  With a team of experienced developers, designers, and creative
+                  professionals, we deliver end-to-end solutions tailored to
+                  each client's unique needs. Our expertise spans custom
+                  software development, e-commerce platforms, mobile
+                  applications, brand photography, corporate video production,
+                  and digital marketing content creation.
+                </p>
+                <p className="text-sm">
+                  We pride ourselves on our commitment to quality, timely
+                  delivery, and exceptional client service. Every project is
+                  executed with precision, creativity, and a focus on delivering
+                  tangible business results.
+                </p>
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-[#FFFFFF] p-6 rounded-lg border-l-4 border-[#044BAB]">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                    <span className="text-2xl mr-2">🎯</span>
+                    Mission
+                  </h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    {settings?.mission ||
+                      "To deliver exceptional digital solutions that exceed client expectations."}
                   </p>
                 </div>
-              </div>
 
-              <div className="mb-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="bg-[#FFFFFF] p-6 rounded-lg border-l-4 border-[#044BAB]">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
-                      <span className="text-2xl mr-2">🎯</span>
-                      Mission
-                    </h3>
-                    <p className="text-gray-700 text-sm leading-relaxed">
-                      {settings?.mission ||
-                        "To deliver exceptional digital solutions that exceed client expectations."}
-                    </p>
-                  </div>
+                <div className="bg-[#FFFFFF] p-6 rounded-lg border-l-4 border-[#044BAB]">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                    <span className="text-2xl mr-2">👁️</span>
+                    Vision
+                  </h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    {settings?.vision ||
+                      "To be the leading creative digital agency transforming businesses globally."}
+                  </p>
+                </div>
 
-                  <div className="bg-[#FFFFFF] p-6 rounded-lg border-l-4 border-[#044BAB]">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
-                      <span className="text-2xl mr-2">👁️</span>
-                      Vision
-                    </h3>
-                    <p className="text-gray-700 text-sm leading-relaxed">
-                      {settings?.vision ||
-                        "To be the leading creative digital agency transforming businesses globally."}
-                    </p>
-                  </div>
-
-                  <div className="bg-[#FFFFFF] p-6 rounded-lg border-l-4 border-[#044BAB]">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
-                      <span className="text-2xl mr-2">🚀</span>
-                      Goal
-                    </h3>
-                    <p className="text-gray-700 text-sm leading-relaxed">
-                      {settings?.goal ||
-                        "To empower 1000+ businesses with cutting-edge digital solutions."}
-                    </p>
-                  </div>
+                <div className="bg-[#FFFFFF] p-6 rounded-lg border-l-4 border-[#044BAB]">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                    <span className="text-2xl mr-2">🚀</span>
+                    Goal
+                  </h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    {settings?.goal ||
+                      "To empower 1000+ businesses with cutting-edge digital solutions."}
+                  </p>
                 </div>
               </div>
             </div>
-          </section>
-          <div className="min-h-screen px-12 print:pt-20">
-            <section className="mb-6">
+          </div>
+
+          {/* P3: Client Information */}
+          <div className="print-page px-12 pt-24 pb-20">
+            <section className="mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
                 <span className="w-1 h-8 bg-[#044bab] mr-3"></span>
                 Client Information
               </h3>
-              <div className="bg[#FFFFFF] p-6 rounded-lg border-l-4 border-[#044bab]">
+              <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-[#044bab]">
                 <div className="grid grid-cols-3 gap-6">
                   <div>
                     <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">
@@ -265,7 +266,6 @@ export default function QuotationViewPage() {
                       {client?.name || "N/A"}
                     </p>
                   </div>
-
                   <div>
                     <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">
                       Email
@@ -275,15 +275,15 @@ export default function QuotationViewPage() {
                     </p>
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">
+                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-1 ml-20">
                       Phone
                     </p>
-                    <p className="font-semibold text-gray-900">
+                    <p className="font-semibold text-gray-900 ml-20">
                       {client?.phone || "N/A"}
                     </p>
                   </div>
                   {client?.address && (
-                    <div className="col-span-2">
+                    <div className="col-span-3">
                       <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">
                         Address
                       </p>
@@ -319,9 +319,12 @@ export default function QuotationViewPage() {
                 </p>
               </section>
             )}
+          </div>
 
-            {quotation.scope && quotation.scope.length > 0 && (
-              <section className="mb-8 page-break-after">
+          {/* P4: Scope of Work */}
+          {quotation.scope && quotation.scope.length > 0 && (
+            <div className="print-page px-12 pt-24 pb-20">
+              <section className="mb-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
                   <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
                   Scope of Work
@@ -329,16 +332,19 @@ export default function QuotationViewPage() {
                 <ul className="space-y-2">
                   {quotation.scope.map((item, idx) => (
                     <li key={idx} className="flex items-start">
-                      <span className="text-[#044bab] mr-2">•</span>
+                      <span className="text-[#044bab] mr-2 font-bold">•</span>
                       <span className="text-gray-700">{item}</span>
                     </li>
                   ))}
                 </ul>
               </section>
-            )}
+            </div>
+          )}
 
+          {/* P5: Deliverables + Services Breakdown */}
+          <div className="print-page px-12 pt-24 pb-20">
             {quotation.deliverables && quotation.deliverables.length > 0 && (
-              <section className="mb-8 page-break-before print:pt-36">
+              <section className="mb-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
                   <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
                   Deliverables
@@ -355,7 +361,7 @@ export default function QuotationViewPage() {
             )}
 
             {quotation.services && quotation.services.length > 0 && (
-              <section className="mb-8 page-break-before">
+              <section className="mb-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
                   <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
                   Services Breakdown
@@ -412,7 +418,7 @@ export default function QuotationViewPage() {
                           {quotation.services
                             .reduce(
                               (sum, item) => sum + item.price * item.qty,
-                              0
+                              0,
                             )
                             .toLocaleString()}
                         </td>
@@ -422,9 +428,12 @@ export default function QuotationViewPage() {
                 </div>
               </section>
             )}
+          </div>
 
+          {/* P6: Project Timeline */}
+          <div className="print-page px-12 pt-24 pb-20">
             {quotation.timeline && quotation.timeline.length > 0 && (
-              <section className="mb-8 page-break-after">
+              <section className="mb-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
                   <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
                   Project Timeline
@@ -446,7 +455,7 @@ export default function QuotationViewPage() {
                     </thead>
                     <tbody className="divide-y divide-gray-200">
                       {quotation.timeline.map((item, idx) => (
-                        <tr key={idx} className="hover:bg-gray-50">
+                        <tr key={idx}>
                           <td className="px-4 py-3 text-sm text-gray-900">
                             {item.phase}
                           </td>
@@ -463,9 +472,12 @@ export default function QuotationViewPage() {
                 </div>
               </section>
             )}
+          </div>
 
-            {quotation.modules && quotation.modules.length > 0 && (
-              <section className="mb-8 print:pt-36">
+          {/* P7: Modules & Features */}
+          {quotation.modules && quotation.modules.length > 0 && (
+            <div className="print-page px-12 pt-16 pb-20">
+              <section className="mb-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
                   <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
                   Modules & Features
@@ -485,8 +497,8 @@ export default function QuotationViewPage() {
                             mod.status === "Completed"
                               ? "bg-green-100 text-green-800"
                               : mod.status === "Ongoing"
-                              ? "bg-blue-100 text-blue-800"
-                              : "bg-gray-100 text-gray-800"
+                                ? "bg-blue-100 text-blue-800"
+                                : "bg-gray-100 text-gray-800"
                           }`}
                         >
                           {mod.status}
@@ -497,81 +509,94 @@ export default function QuotationViewPage() {
                   ))}
                 </div>
               </section>
-            )}
+            </div>
+          )}
 
-            <section className="mb-8 page-break-before">
-              <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
-                Terms & Conditions
-              </h3>
-              <div className="bg-gray-50 p-5 rounded-lg">
-                <ol className="space-y-2 list-decimal list-inside">
-                  {(quotation.customTerms && quotation.customTerms.length > 0
-                    ? quotation.customTerms
-                    : settings?.terms || []
-                  ).map((term, idx) => (
-                    <li
-                      key={idx}
-                      className="text-sm text-gray-700 leading-relaxed"
-                    >
-                      {term}
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            </section>
+          {/* P8: Additional Info + Terms + Signatory + Footer — all inline on last page */}
+          <div
+            className="print-page px-12 pt-16 flex flex-col"
+            style={{ minHeight: "100vh" }}
+          >
+            <div className="flex-1">
+              {(quotation.notes || quotation.paymentTerms) && (
+                <section className="mb-8">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <span className="w-1 h-6 bg-[#044bab] mr-3"></span>
+                    Additional Information
+                  </h3>
+                  <div className="bg-gray-50 p-5 rounded-lg space-y-6">
+                    {quotation.paymentTerms && (
+                      <div>
+                        <p className="text-xs text-gray-500 uppercase tracking-wide mb-2 font-semibold">
+                          Payment Terms
+                        </p>
+                        <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
+                          {quotation.paymentTerms}
+                        </p>
+                      </div>
+                    )}
+                    {quotation.notes && (
+                      <div>
+                        <p className="text-xs text-gray-500 uppercase tracking-wide mb-2 font-semibold">
+                          Notes
+                        </p>
+                        <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
+                          {quotation.notes}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </section>
+              )}
+            </div>
 
-            <section className="mb-8 mt-40">
+            {/* Signatory — inline at bottom of last page only, never fixed */}
+            <section className="mt-auto pt-6 border-t-2 border-gray-200 mb-4">
               <div className="grid grid-cols-2 gap-8">
-                <div className="border-t-2 border-gray-300 pt-4">
-                  <p className="text-sm font-semibold text-gray-900">
-                    Authorized Signatory
-                  </p>
-                  <p className="text-xs text-gray-600 mt-1">
-                    {settings?.name || "Kalahanu Tech Studios LLP"}
-                  </p>
+                <div>
+                  <div className="h-0 mb-30"></div>
+                  <div className="border-gray-400 pt-2">
+                    <img src={logo.src} alt="Signature" className="h-16 mb-2" />
+                    <p className="text-sm font-semibold text-gray-900">
+                      Authorized Signatory
+                    </p>
+                    <p className="text-xs text-gray-600 mt-1">
+                      {settings?.name || "Kalahanu Tech Studios LLP"}
+                    </p>
+                  </div>
                 </div>
-                <div className="border-t-2 border-gray-300 pt-4">
-                  <p className="text-sm font-semibold text-gray-900">
-                    Client Signature
-                  </p>
-                  <p className="text-xs text-gray-600 mt-1">
-                    {client?.name || "Client"}
-                  </p>
+                <div>
+                  <div className="h-12 mb-7"></div>
+                  <div className="border-gray-400 pt-2">
+                    <p className="text-sm font-semibold text-gray-900">
+                      Client Signature
+                    </p>
+                    <p className="text-xs text-gray-600 mt-1">
+                      {client?.name || "Client"}
+                    </p>
+                  </div>
                 </div>
               </div>
             </section>
 
-            <footer className="p-4 pt-3 border-t-2 border-gray-200 text-center text-xs text-gray-500 print:fixed print:bottom-0 print:left-0 print:right-0 print:bg-white">
-              <div className="max-w-4xl mx-auto space-y-2">
+            {/* Footer — inline at very bottom of last page only */}
+            <footer className="pt-3 pb-4 border-t border-gray-200 text-center text-xs text-gray-500">
+              <div className="space-y-1">
                 <p>
                   {settings?.footerText ||
                     "© 2026 Kalahanu Tech Studios LLP. All Rights Reserved."}
                 </p>
-
-                <div className="flex items-center justify-center gap-6 mt-1 text-xs">
-                  <div className="flex items-center gap-2">
-                    <span className="text-gray-700 font-small">
-                      +91 84069 12345
-                    </span>
-                  </div>
-
-                  <div className="w-px h-5 bg-gray-300"></div>
-
-                  <div className="flex items-center gap-2">
-                    <span className="text-gray-700 font-small">
-                      support@pixelatenest.com
-                    </span>
-                  </div>
+                <div className="flex items-center justify-center gap-6">
+                  <span className="text-gray-700">+91 84069 12345</span>
+                  <div className="w-px h-4 bg-gray-300"></div>
+                  <span className="text-gray-700">
+                    support@pixelatenest.com
+                  </span>
                 </div>
-
-                <p className="mt-1">
-                  {settings?.website || "www.pixelatenest.com"}
-                </p>
+                <p>{settings?.website || "www.pixelatenest.com"}</p>
               </div>
             </footer>
           </div>
-          <div className="print:pb-32"></div>
         </div>
       </div>
       <style jsx global>{`
@@ -583,8 +608,23 @@ export default function QuotationViewPage() {
           }
 
           body {
-            margin: 0;
-            padding: 0;
+            margin: 0 !important;
+            padding: 0 !important;
+          }
+
+          /* Hide CRM layout — navbar, sidebar, any wrapper outside print-area */
+
+          header,
+          nav,
+          aside,
+          [class*="sidebar"],
+          [class*="navbar"],
+          [class*="layout"] > *:not(.print-root) {
+            display: none !important;
+          }
+
+          .print-root {
+            display: block !important;
           }
 
           .print-area {
@@ -593,31 +633,15 @@ export default function QuotationViewPage() {
             max-width: none;
           }
 
-           {
-          : always;
-            margin-top: 0;
-            padding-top: 140px;
-          }
-
-          .page-break-after {
-            page-break-after: always;
+          .print-page {
+            page-break-before: always;
+            page-break-inside: avoid;
+            box-sizing: border-box;
           }
 
           @page {
             size: A4;
             margin: 0;
-          }
-
-          .print\\:fixed {
-            position: fixed !important;
-          }
-
-          .print\\:top-0 {
-            top: 0 !important;
-          }
-
-          .print\\:pt-32 {
-            padding-top: 140px !important;
           }
         }
       `}</style>

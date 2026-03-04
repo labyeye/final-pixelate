@@ -473,7 +473,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                     color: "#F36F21",
                                     marginBottom: "10px"
                                 },
-                                children: settings?.companyName || "Pixelate Nest"
+                                children: settings?.name || "Pixelate Nest"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
                                 lineNumber: 172,
@@ -496,7 +496,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                         lineNumber: 171,
                         columnNumber: 9
                     }, this),
-                    settings?.about && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    settings?.aboutUs && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         style: {
                             marginBottom: "35px"
                         },
@@ -522,7 +522,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                     lineHeight: "1.8",
                                     color: "#ddd"
                                 },
-                                children: settings.about
+                                children: settings.aboutUs
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
                                 lineNumber: 195,
@@ -1112,8 +1112,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                     }, this),
                     quote.scope && quote.scope.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         style: {
-                            marginBottom: "30px",
-                            pageBreakInside: "avoid"
+                            marginBottom: "30px"
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1123,7 +1122,8 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                     color: "#111",
                                     marginBottom: "15px",
                                     borderLeft: "4px solid #F36F21",
-                                    paddingLeft: "12px"
+                                    paddingLeft: "12px",
+                                    pageBreakAfter: "avoid"
                                 },
                                 children: "Scope of Work"
                             }, void 0, false, {
@@ -1148,7 +1148,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                 children: "•"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                lineNumber: 418,
+                                                lineNumber: 419,
                                                 columnNumber: 19
                                             }, this),
                                             " ",
@@ -1156,12 +1156,12 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                         ]
                                     }, idx, true, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                        lineNumber: 417,
+                                        lineNumber: 418,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 415,
+                                lineNumber: 416,
                                 columnNumber: 13
                             }, this)
                         ]
@@ -1172,8 +1172,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                     }, this),
                     quote.deliverables && quote.deliverables.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         style: {
-                            marginBottom: "30px",
-                            pageBreakInside: "avoid"
+                            marginBottom: "30px"
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1183,12 +1182,13 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                     color: "#111",
                                     marginBottom: "15px",
                                     borderLeft: "4px solid #F36F21",
-                                    paddingLeft: "12px"
+                                    paddingLeft: "12px",
+                                    pageBreakAfter: "avoid"
                                 },
                                 children: "Deliverables"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 428,
+                                lineNumber: 429,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1208,7 +1208,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                 children: "•"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                lineNumber: 443,
+                                                lineNumber: 445,
                                                 columnNumber: 19
                                             }, this),
                                             " ",
@@ -1216,24 +1216,23 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                         ]
                                     }, idx, true, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                        lineNumber: 442,
+                                        lineNumber: 444,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 440,
+                                lineNumber: 442,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                        lineNumber: 427,
+                        lineNumber: 428,
                         columnNumber: 11
                     }, this),
                     quote.timeline && quote.timeline.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         style: {
-                            marginBottom: "35px",
-                            pageBreakInside: "avoid"
+                            marginBottom: "35px"
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1243,26 +1242,30 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                     color: "#111",
                                     marginBottom: "15px",
                                     borderLeft: "4px solid #F36F21",
-                                    paddingLeft: "12px"
+                                    paddingLeft: "12px",
+                                    pageBreakAfter: "avoid"
                                 },
                                 children: "Timeline"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 453,
+                                lineNumber: 455,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
                                 style: {
                                     width: "100%",
                                     borderCollapse: "collapse",
-                                    fontSize: "14px"
+                                    fontSize: "14px",
+                                    pageBreakInside: "auto"
                                 },
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                             style: {
                                                 background: "#F36F21",
-                                                color: "#fff"
+                                                color: "#fff",
+                                                pageBreakInside: "avoid",
+                                                pageBreakAfter: "avoid"
                                             },
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1274,7 +1277,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                     children: "Phase"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                    lineNumber: 468,
+                                                    lineNumber: 471,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1286,7 +1289,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                     children: "Duration"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                    lineNumber: 469,
+                                                    lineNumber: 472,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1298,24 +1301,25 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                     children: "Description"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                    lineNumber: 470,
+                                                    lineNumber: 473,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                            lineNumber: 467,
+                                            lineNumber: 470,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                        lineNumber: 466,
+                                        lineNumber: 469,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
                                         children: quote.timeline.map((item, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                                 style: {
-                                                    background: idx % 2 === 0 ? "#fff" : "#f8f9fa"
+                                                    background: idx % 2 === 0 ? "#fff" : "#f8f9fa",
+                                                    pageBreakInside: "avoid"
                                                 },
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1326,7 +1330,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                         children: item.phase
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                        lineNumber: 476,
+                                                        lineNumber: 479,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1337,7 +1341,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                         children: item.duration
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                        lineNumber: 477,
+                                                        lineNumber: 480,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1348,36 +1352,35 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                         children: item.description
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                        lineNumber: 478,
+                                                        lineNumber: 481,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, idx, true, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                lineNumber: 475,
+                                                lineNumber: 478,
                                                 columnNumber: 19
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                        lineNumber: 473,
+                                        lineNumber: 476,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 465,
+                                lineNumber: 468,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                        lineNumber: 452,
+                        lineNumber: 454,
                         columnNumber: 11
                     }, this),
                     quote.services && quote.services.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         style: {
-                            marginBottom: "35px",
-                            pageBreakInside: "avoid"
+                            marginBottom: "35px"
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1387,26 +1390,30 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                     color: "#111",
                                     marginBottom: "15px",
                                     borderLeft: "4px solid #F36F21",
-                                    paddingLeft: "12px"
+                                    paddingLeft: "12px",
+                                    pageBreakAfter: "avoid"
                                 },
                                 children: "Services"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 489,
+                                lineNumber: 492,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
                                 style: {
                                     width: "100%",
                                     borderCollapse: "collapse",
-                                    fontSize: "14px"
+                                    fontSize: "14px",
+                                    pageBreakInside: "auto"
                                 },
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                             style: {
                                                 background: "#F36F21",
-                                                color: "#fff"
+                                                color: "#fff",
+                                                pageBreakInside: "avoid",
+                                                pageBreakAfter: "avoid"
                                             },
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1418,7 +1425,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                     children: "Service"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                    lineNumber: 504,
+                                                    lineNumber: 508,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1430,7 +1437,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                     children: "Start Date"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                    lineNumber: 505,
+                                                    lineNumber: 509,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1442,7 +1449,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                     children: "End Date"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                    lineNumber: 506,
+                                                    lineNumber: 510,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1454,7 +1461,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                     children: "Deliverables"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                    lineNumber: 507,
+                                                    lineNumber: 511,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1466,24 +1473,25 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                     children: "Amount"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                    lineNumber: 508,
+                                                    lineNumber: 512,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                            lineNumber: 503,
+                                            lineNumber: 507,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                        lineNumber: 502,
+                                        lineNumber: 506,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
                                         children: quote.services.map((service, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                                 style: {
-                                                    background: idx % 2 === 0 ? "#fff" : "#f8f9fa"
+                                                    background: idx % 2 === 0 ? "#fff" : "#f8f9fa",
+                                                    pageBreakInside: "avoid"
                                                 },
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1494,7 +1502,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                         children: service.name || "-"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                        lineNumber: 514,
+                                                        lineNumber: 518,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1505,7 +1513,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                         children: service.startDate ? formatDate(service.startDate) : "-"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                        lineNumber: 515,
+                                                        lineNumber: 519,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1516,7 +1524,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                         children: service.endDate ? formatDate(service.endDate) : "-"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                        lineNumber: 518,
+                                                        lineNumber: 522,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1527,7 +1535,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                         children: service.deliverables || "-"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                        lineNumber: 521,
+                                                        lineNumber: 525,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1540,30 +1548,30 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                         children: formatCurrency(Number(service.amount || 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                        lineNumber: 522,
+                                                        lineNumber: 526,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, idx, true, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                lineNumber: 513,
+                                                lineNumber: 517,
                                                 columnNumber: 19
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                        lineNumber: 511,
+                                        lineNumber: 515,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 501,
+                                lineNumber: 505,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                        lineNumber: 488,
+                        lineNumber: 491,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1571,7 +1579,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                             marginBottom: "35px",
                             display: "flex",
                             justifyContent: "flex-end",
-                            pageBreakInside: "avoid"
+                            pageBreakBefore: "auto"
                         },
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             style: {
@@ -1596,20 +1604,20 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                             children: "Subtotal"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                            lineNumber: 550,
+                                            lineNumber: 554,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: formatCurrency(subtotal)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                            lineNumber: 551,
+                                            lineNumber: 555,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                    lineNumber: 542,
+                                    lineNumber: 546,
                                     columnNumber: 13
                                 }, this),
                                 discount > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1628,7 +1636,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                             children: "Discount"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                            lineNumber: 563,
+                                            lineNumber: 567,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1638,13 +1646,13 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                            lineNumber: 564,
+                                            lineNumber: 568,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                    lineNumber: 554,
+                                    lineNumber: 558,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1662,37 +1670,36 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                             children: "Total"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                            lineNumber: 578,
+                                            lineNumber: 582,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: formatCurrency(total)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                            lineNumber: 579,
+                                            lineNumber: 583,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                    lineNumber: 567,
+                                    lineNumber: 571,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                            lineNumber: 541,
+                            lineNumber: 545,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                        lineNumber: 533,
+                        lineNumber: 537,
                         columnNumber: 9
                     }, this),
                     quote.modules && quote.modules.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         style: {
-                            marginBottom: "35px",
-                            pageBreakInside: "avoid"
+                            marginBottom: "35px"
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1702,12 +1709,13 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                     color: "#111",
                                     marginBottom: "15px",
                                     borderLeft: "4px solid #F36F21",
-                                    paddingLeft: "12px"
+                                    paddingLeft: "12px",
+                                    pageBreakAfter: "avoid"
                                 },
                                 children: "Modules"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 587,
+                                lineNumber: 591,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1721,7 +1729,8 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                             background: "#f8f9fa",
                                             padding: "15px",
                                             borderRadius: "8px",
-                                            borderLeft: "3px solid #F36F21"
+                                            borderLeft: "3px solid #F36F21",
+                                            pageBreakInside: "avoid"
                                         },
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1734,7 +1743,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                 children: module.name || `Module ${idx + 1}`
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                lineNumber: 610,
+                                                lineNumber: 616,
                                                 columnNumber: 19
                                             }, this),
                                             module.description && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1746,7 +1755,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                 children: module.description
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                lineNumber: 614,
+                                                lineNumber: 620,
                                                 columnNumber: 21
                                             }, this),
                                             module.status && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1762,30 +1771,29 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                 children: module.status
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                lineNumber: 619,
+                                                lineNumber: 625,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, idx, true, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                        lineNumber: 601,
+                                        lineNumber: 606,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 599,
+                                lineNumber: 604,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                        lineNumber: 586,
+                        lineNumber: 590,
                         columnNumber: 11
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    (quote.paymentTerms || quote.notes) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         style: {
-                            marginTop: "40px",
-                            pageBreakInside: "avoid"
+                            marginTop: "40px"
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1795,16 +1803,20 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                     color: "#111",
                                     marginBottom: "15px",
                                     borderLeft: "4px solid #F36F21",
-                                    paddingLeft: "12px"
+                                    paddingLeft: "12px",
+                                    pageBreakAfter: "avoid"
                                 },
-                                children: "Terms & Conditions"
+                                children: "Additional Information"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 646,
-                                columnNumber: 11
+                                lineNumber: 653,
+                                columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 style: {
+                                    background: "#f8f9fa",
+                                    padding: "20px",
+                                    borderRadius: "8px",
                                     fontSize: "14px",
                                     lineHeight: "1.7",
                                     color: "#555"
@@ -1812,80 +1824,189 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                 children: [
                                     quote.paymentTerms && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         style: {
-                                            marginBottom: "10px"
+                                            marginBottom: "12px"
                                         },
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "Payment Terms:"
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                style: {
+                                                    fontWeight: "700",
+                                                    color: "#111",
+                                                    marginBottom: "4px",
+                                                    fontSize: "13px",
+                                                    textTransform: "uppercase",
+                                                    letterSpacing: "0.05em"
+                                                },
+                                                children: "Payment Terms"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                lineNumber: 661,
-                                                columnNumber: 17
+                                                lineNumber: 669,
+                                                columnNumber: 19
                                             }, this),
-                                            " ",
-                                            quote.paymentTerms
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                style: {
+                                                    whiteSpace: "pre-wrap"
+                                                },
+                                                children: quote.paymentTerms
+                                            }, void 0, false, {
+                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
+                                                lineNumber: 670,
+                                                columnNumber: 19
+                                            }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                        lineNumber: 660,
-                                        columnNumber: 15
+                                        lineNumber: 668,
+                                        columnNumber: 17
                                     }, this),
-                                    quote.customTerms && quote.customTerms.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        style: {
-                                            marginTop: "15px"
-                                        },
-                                        children: quote.customTerms.map((term, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    quote.notes && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 style: {
-                                                    marginBottom: "8px"
+                                                    fontWeight: "700",
+                                                    color: "#111",
+                                                    marginBottom: "4px",
+                                                    fontSize: "13px",
+                                                    textTransform: "uppercase",
+                                                    letterSpacing: "0.05em"
                                                 },
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                        style: {
-                                                            color: "#F36F21"
-                                                        },
-                                                        children: "•"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                        lineNumber: 668,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    " ",
-                                                    term
-                                                ]
-                                            }, idx, true, {
+                                                children: "Notes"
+                                            }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                lineNumber: 667,
+                                                lineNumber: 675,
                                                 columnNumber: 19
-                                            }, this))
-                                    }, void 0, false, {
-                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                        lineNumber: 665,
-                                        columnNumber: 15
-                                    }, this),
-                                    !quote.paymentTerms && (!quote.customTerms || quote.customTerms.length === 0) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        children: settings?.termsAndConditions || "Payment due within 30 days. This quotation is valid for 15 days from the date of issue. All work is subject to our standard terms of service."
-                                    }, void 0, false, {
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                style: {
+                                                    whiteSpace: "pre-wrap"
+                                                },
+                                                children: quote.notes
+                                            }, void 0, false, {
+                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
+                                                lineNumber: 676,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
                                         lineNumber: 674,
-                                        columnNumber: 15
+                                        columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 658,
+                                lineNumber: 666,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
+                        lineNumber: 652,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            marginTop: "40px"
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    fontSize: "22px",
+                                    fontWeight: "700",
+                                    color: "#111",
+                                    marginBottom: "15px",
+                                    borderLeft: "4px solid #F36F21",
+                                    paddingLeft: "12px",
+                                    pageBreakAfter: "avoid"
+                                },
+                                children: "Terms & Conditions"
+                            }, void 0, false, {
+                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
+                                lineNumber: 685,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    background: "#f8f9fa",
+                                    padding: "20px",
+                                    borderRadius: "8px",
+                                    fontSize: "14px",
+                                    lineHeight: "1.7",
+                                    color: "#555"
+                                },
+                                children: settings?.terms && settings.terms.length > 0 ? settings.terms.map((term, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            marginBottom: "8px"
+                                        },
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                style: {
+                                                    color: "#F36F21"
+                                                },
+                                                children: [
+                                                    idx + 1,
+                                                    "."
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
+                                                lineNumber: 702,
+                                                columnNumber: 19
+                                            }, this),
+                                            " ",
+                                            term
+                                        ]
+                                    }, idx, true, {
+                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
+                                        lineNumber: 701,
+                                        columnNumber: 17
+                                    }, this)) : [
+                                    "Payment terms: 50% advance, 50% on completion",
+                                    "Project timeline is subject to timely feedback and approvals",
+                                    "Revisions beyond agreed scope will be charged separately",
+                                    "All deliverables remain property of Pixelate Nest until full payment",
+                                    "Client must provide necessary content and assets on time"
+                                ].map((term, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            marginBottom: "8px"
+                                        },
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                style: {
+                                                    color: "#F36F21"
+                                                },
+                                                children: [
+                                                    idx + 1,
+                                                    "."
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
+                                                lineNumber: 714,
+                                                columnNumber: 19
+                                            }, this),
+                                            " ",
+                                            term
+                                        ]
+                                    }, idx, true, {
+                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
+                                        lineNumber: 713,
+                                        columnNumber: 17
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
+                                lineNumber: 698,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                        lineNumber: 645,
+                        lineNumber: 684,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         style: {
                             marginTop: "50px",
                             display: "flex",
-                            justifyContent: "space-between"
+                            justifyContent: "space-between",
+                            pageBreakInside: "avoid"
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1908,7 +2029,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                             children: "Client Signature"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                            lineNumber: 686,
+                                            lineNumber: 725,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1920,18 +2041,18 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                             children: "Date: __________"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                            lineNumber: 687,
+                                            lineNumber: 726,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                    lineNumber: 685,
+                                    lineNumber: 724,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 684,
+                                lineNumber: 723,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1949,7 +2070,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                        lineNumber: 691,
+                                        lineNumber: 730,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1967,7 +2088,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                 children: "Authorized Signature"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                lineNumber: 697,
+                                                lineNumber: 736,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1976,28 +2097,28 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                                     color: "#666",
                                                     marginTop: "5px"
                                                 },
-                                                children: settings?.companyName || "Pixelate Nest"
+                                                children: settings?.name || "Pixelate Nest"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                                lineNumber: 698,
+                                                lineNumber: 737,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                        lineNumber: 696,
+                                        lineNumber: 735,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 690,
+                                lineNumber: 729,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                        lineNumber: 683,
+                        lineNumber: 722,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2012,12 +2133,12 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: [
-                                    settings?.companyName || "Pixelate Nest",
+                                    settings?.name || "Pixelate Nest",
                                     " | Creative Software & Digital Solutions"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 716,
+                                lineNumber: 755,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2031,7 +2152,7 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 717,
+                                lineNumber: 756,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2041,13 +2162,13 @@ function QuotationPDF({ quote, client: initialClient, displayId }) {
                                 children: settings?.address || "Kala Bhawan, Akharaghat Road, Muzaffarpur, Bihar"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                                lineNumber: 720,
+                                lineNumber: 759,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/quotations/quotation-pdf.tsx",
-                        lineNumber: 706,
+                        lineNumber: 745,
                         columnNumber: 9
                     }, this)
                 ]
@@ -2769,10 +2890,15 @@ function QuotationsPage() {
                     font-style: normal;
                     font-display: swap;
                   }
+                  * { box-sizing: border-box; }
+                  table { border-collapse: collapse; width: 100%; }
+                  tr { page-break-inside: avoid; break-inside: avoid; }
+                  thead { display: table-header-group; }
+                  tfoot { display: table-footer-group; }
                 </style>
               `;
                             // fill the entire A4 page (210mm x 297mm)
-                            styledHtml = `${fontDataFace}${fontLinkTag}<div style="width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;">${pdfBody}</div>`;
+                            styledHtml = `${fontDataFace}${fontLinkTag}<div style="width:794px;margin:0;padding:0;box-sizing:border-box;">${pdfBody}</div>`;
                         } else {
                             const localFontFace = `
                 <style>
@@ -2790,12 +2916,17 @@ function QuotationsPage() {
                     font-style: normal;
                     font-display: swap;
                   }
+                  * { box-sizing: border-box; }
+                  table { border-collapse: collapse; width: 100%; }
+                  tr { page-break-inside: avoid; break-inside: avoid; }
+                  thead { display: table-header-group; }
+                  tfoot { display: table-footer-group; }
                 </style>
               `;
-                            styledHtml = `${localFontFace}${fontLinkTag}<div style="width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans Local','Noto Sans',${family ? family : "sans-serif"};">${pdfBody}</div>`;
+                            styledHtml = `${localFontFace}${fontLinkTag}<div style="width:794px;margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans Local','Noto Sans',${family ? family : "sans-serif"};">${pdfBody}</div>`;
                         }
                     } catch (e) {
-                        styledHtml = `${fontLinkTag}<div style="width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans',${family ? family : "sans-serif"};">${pdfBody}</div>`;
+                        styledHtml = `${fontLinkTag}<div style="width:794px;margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans',${family ? family : "sans-serif"};">${pdfBody}</div>`;
                     }
                     // Replace rupee glyphs with ASCII 'Rs.' to avoid missing glyphs in PDFs
                     const finalHtml = styledHtml.replace(/₹/g, "Rs.");
@@ -2803,6 +2934,8 @@ function QuotationsPage() {
                     // units are consistent with the jsPDF instance (we created with mm).
                     const pageWidth = doc.internal.pageSize.getWidth();
                     const pageHeight = doc.internal.pageSize.getHeight();
+                    // windowWidth must match the actual rendered width of the component (210mm = ~794px at 96dpi)
+                    // autoPaging: 'text' lets jsPDF slice the canvas at page boundaries without cutting content
                     doc.html(finalHtml, {
                         callback: function(doc) {
                             doc.save(`Quotation-${quote.id}.pdf`);
@@ -2810,7 +2943,14 @@ function QuotationsPage() {
                         x: 0,
                         y: 0,
                         width: pageWidth,
-                        windowWidth: 1200
+                        windowWidth: 794,
+                        autoPaging: "text",
+                        margin: [
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
                     });
                 } catch (e) {
                     // if font loading fails, fall back to rendering without explicit font
@@ -2819,7 +2959,7 @@ function QuotationsPage() {
                         client: client
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                        lineNumber: 309,
+                        lineNumber: 323,
                         columnNumber: 13
                     }, this));
                     const finalPdfContent = String(pdfContent).replace(/₹/g, "Rs.");
@@ -2831,7 +2971,14 @@ function QuotationsPage() {
                         x: 0,
                         y: 0,
                         width: pageWidth,
-                        windowWidth: 1200
+                        windowWidth: 794,
+                        autoPaging: "text",
+                        margin: [
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
                     });
                 }
             } catch (e) {
@@ -2860,7 +3007,7 @@ function QuotationsPage() {
                                 children: "QUOTATIONS"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                lineNumber: 339,
+                                lineNumber: 355,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2868,13 +3015,13 @@ function QuotationsPage() {
                                 children: isClient ? "View your quotations from us." : "Create, send, and track client quotations."
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                lineNumber: 340,
+                                lineNumber: 356,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                        lineNumber: 338,
+                        lineNumber: 354,
                         columnNumber: 9
                     }, this),
                     !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2886,18 +3033,18 @@ function QuotationsPage() {
                             children: "New Professional Quotation"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                            lineNumber: 346,
+                            lineNumber: 362,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                        lineNumber: 345,
+                        lineNumber: 361,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                lineNumber: 337,
+                lineNumber: 353,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2913,7 +3060,7 @@ function QuotationsPage() {
                                         children: "Quote ID / Title"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                        lineNumber: 361,
+                                        lineNumber: 377,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -2921,7 +3068,7 @@ function QuotationsPage() {
                                         children: "Client"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                        lineNumber: 364,
+                                        lineNumber: 380,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -2929,7 +3076,7 @@ function QuotationsPage() {
                                         children: "Date"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                        lineNumber: 365,
+                                        lineNumber: 381,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -2937,7 +3084,7 @@ function QuotationsPage() {
                                         children: "Services"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                        lineNumber: 366,
+                                        lineNumber: 382,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -2945,7 +3092,7 @@ function QuotationsPage() {
                                         children: "Modules"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                        lineNumber: 367,
+                                        lineNumber: 383,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -2953,7 +3100,7 @@ function QuotationsPage() {
                                         children: "Total Amount"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                        lineNumber: 368,
+                                        lineNumber: 384,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -2961,7 +3108,7 @@ function QuotationsPage() {
                                         children: "Status"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                        lineNumber: 371,
+                                        lineNumber: 387,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -2969,18 +3116,18 @@ function QuotationsPage() {
                                         children: "Actions"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                        lineNumber: 374,
+                                        lineNumber: 390,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                lineNumber: 360,
+                                lineNumber: 376,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                            lineNumber: 359,
+                            lineNumber: 375,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -2991,12 +3138,12 @@ function QuotationsPage() {
                                     children: "No quotations found. Create your first quotation to get started."
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                    lineNumber: 382,
+                                    lineNumber: 398,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                lineNumber: 381,
+                                lineNumber: 397,
                                 columnNumber: 15
                             }, this) : quotations.map((quote, idx)=>{
                                 // Calculate total from services if available.
@@ -3021,7 +3168,7 @@ function QuotationsPage() {
                                                     children: quote.quoteId || quote.id || `PN-${String(idx + 1).padStart(5, "0")}`
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 430,
+                                                    lineNumber: 446,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3029,7 +3176,7 @@ function QuotationsPage() {
                                                     children: quote.title || "Untitled Project"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 435,
+                                                    lineNumber: 451,
                                                     columnNumber: 23
                                                 }, this),
                                                 quote.subtitle && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3037,13 +3184,13 @@ function QuotationsPage() {
                                                     children: quote.subtitle
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 439,
+                                                    lineNumber: 455,
                                                     columnNumber: 25
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 429,
+                                            lineNumber: 445,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -3054,7 +3201,7 @@ function QuotationsPage() {
                                                     children: quote.clientId && clientsMap[String(quote.clientId)]?.businessName || quote.clientId && clientsMap[String(quote.clientId)]?.name || quote.clientName || "Client"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 446,
+                                                    lineNumber: 462,
                                                     columnNumber: 23
                                                 }, this),
                                                 quote.clientId && clientsMap[String(quote.clientId)]?.email && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3062,13 +3209,13 @@ function QuotationsPage() {
                                                     children: clientsMap[String(quote.clientId)].email
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                    lineNumber: 456,
+                                                    lineNumber: 472,
                                                     columnNumber: 27
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 445,
+                                            lineNumber: 461,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -3082,12 +3229,12 @@ function QuotationsPage() {
                                                 }) : "N/A"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                lineNumber: 463,
+                                                lineNumber: 479,
                                                 columnNumber: 23
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 462,
+                                            lineNumber: 478,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -3101,14 +3248,14 @@ function QuotationsPage() {
                                                             children: s.serviceName || s.name || "Service"
                                                         }, `${String(s._id ?? s.id ?? s.serviceName ?? "service")}-${sidx}`, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 483,
+                                                            lineNumber: 499,
                                                             columnNumber: 31
                                                         }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-xs text-gray-500",
                                                         children: "No services"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                        lineNumber: 494,
+                                                        lineNumber: 510,
                                                         columnNumber: 27
                                                     }, this),
                                                     quote.services && quote.services.length > 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -3121,18 +3268,18 @@ function QuotationsPage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                        lineNumber: 499,
+                                                        lineNumber: 515,
                                                         columnNumber: 27
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                lineNumber: 478,
+                                                lineNumber: 494,
                                                 columnNumber: 23
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 477,
+                                            lineNumber: 493,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -3146,14 +3293,14 @@ function QuotationsPage() {
                                                             children: m.moduleName || "Module"
                                                         }, `${String(m._id ?? m.id ?? m.moduleName ?? "module")}-${midx}`, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 513,
+                                                            lineNumber: 529,
                                                             columnNumber: 31
                                                         }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-xs text-gray-500",
                                                         children: "No modules"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                        lineNumber: 524,
+                                                        lineNumber: 540,
                                                         columnNumber: 27
                                                     }, this),
                                                     quote.modules && quote.modules.length > 2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -3165,18 +3312,18 @@ function QuotationsPage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                        lineNumber: 530,
+                                                        lineNumber: 546,
                                                         columnNumber: 29
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                lineNumber: 507,
+                                                lineNumber: 523,
                                                 columnNumber: 23
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 506,
+                                            lineNumber: 522,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -3184,7 +3331,7 @@ function QuotationsPage() {
                                             children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$currency$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatCurrency"])(totalAmount)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 537,
+                                            lineNumber: 553,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -3194,7 +3341,7 @@ function QuotationsPage() {
                                                 children: quote.status || "PENDING"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                lineNumber: 543,
+                                                lineNumber: 559,
                                                 columnNumber: 25
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
                                                 value: quote.status || "PENDING",
@@ -3213,12 +3360,12 @@ function QuotationsPage() {
                                                         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("h-9 px-3 font-semibold text-xs w-[110px]", quote.status === "APPROVED" && "bg-green-100 text-green-800 border-green-300", quote.status === "REJECTED" && "bg-red-100 text-red-800 border-red-300", (!quote.status || quote.status === "PENDING") && "bg-yellow-100 text-yellow-800 border-yellow-300"),
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                            lineNumber: 581,
+                                                            lineNumber: 597,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                        lineNumber: 570,
+                                                        lineNumber: 586,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -3228,7 +3375,7 @@ function QuotationsPage() {
                                                                 children: "PENDING"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                                lineNumber: 584,
+                                                                lineNumber: 600,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -3236,7 +3383,7 @@ function QuotationsPage() {
                                                                 children: "APPROVED"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                                lineNumber: 585,
+                                                                lineNumber: 601,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -3244,24 +3391,24 @@ function QuotationsPage() {
                                                                 children: "REJECTED"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                                lineNumber: 586,
+                                                                lineNumber: 602,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                        lineNumber: 583,
+                                                        lineNumber: 599,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                lineNumber: 552,
+                                                lineNumber: 568,
                                                 columnNumber: 23
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 541,
+                                            lineNumber: 557,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -3277,7 +3424,7 @@ function QuotationsPage() {
                                                         children: "View"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                        lineNumber: 594,
+                                                        lineNumber: 610,
                                                         columnNumber: 25
                                                     }, this),
                                                     !isClient && quote.status === "APPROVED" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3287,7 +3434,7 @@ function QuotationsPage() {
                                                         children: "Create Project"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                        lineNumber: 610,
+                                                        lineNumber: 626,
                                                         columnNumber: 27
                                                     }, this),
                                                     !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenu"], {
@@ -3302,17 +3449,17 @@ function QuotationsPage() {
                                                                         className: "h-4 w-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                                        lineNumber: 627,
+                                                                        lineNumber: 643,
                                                                         columnNumber: 31
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                                    lineNumber: 622,
+                                                                    lineNumber: 638,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                                lineNumber: 621,
+                                                                lineNumber: 637,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -3328,58 +3475,58 @@ function QuotationsPage() {
                                                                     children: "Delete"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                                    lineNumber: 631,
+                                                                    lineNumber: 647,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                                lineNumber: 630,
+                                                                lineNumber: 646,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                        lineNumber: 620,
+                                                        lineNumber: 636,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                                lineNumber: 593,
+                                                lineNumber: 609,
                                                 columnNumber: 23
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                            lineNumber: 592,
+                                            lineNumber: 608,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, quote._id ?? quote.id ?? idx, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                                    lineNumber: 425,
+                                    lineNumber: 441,
                                     columnNumber: 19
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                            lineNumber: 379,
+                            lineNumber: 395,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                    lineNumber: 358,
+                    lineNumber: 374,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-                lineNumber: 357,
+                lineNumber: 373,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/quotations/page.tsx",
-        lineNumber: 336,
+        lineNumber: 352,
         columnNumber: 5
     }, this);
 }

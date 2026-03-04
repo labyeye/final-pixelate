@@ -247,8 +247,14 @@ __turbopack_context__.s([
     ()=>getTeamMembers,
     "getUsers",
     ()=>getUsers,
+    "permanentlyDestroyTrashItem",
+    ()=>permanentlyDestroyTrashItem,
     "renumberInvoices",
     ()=>renumberInvoices,
+    "restoreFromTrash",
+    ()=>restoreFromTrash,
+    "softDeleteById",
+    ()=>softDeleteById,
     "updateById",
     ()=>updateById,
     "updateInventory",
@@ -350,18 +356,155 @@ async function updateInventory(id, update) {
     });
 }
 async function deleteInventory(id) {
-    const col = await getCollection("inventory");
+    return softDeleteById("inventory", id);
+}
+async function softDeleteById(collectionName, id, collectionLabel) {
+    const col = await getCollection(collectionName);
+    const trash = await getCollection("_trash");
     const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
+    // Locate the document first
+    let doc = null;
+    let filter = null;
     if (hex24) {
-        const res = await col.deleteOne({
-            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
-        });
-        return res.deletedCount === 1;
+        try {
+            doc = await col.findOne({
+                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
+            });
+            if (doc) filter = {
+                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
+            };
+        } catch (_) {}
     }
-    const res = await col.deleteOne({
-        id
+    if (!doc) {
+        // Try custom id field
+        doc = await col.findOne({
+            id
+        });
+        if (doc) filter = {
+            id
+        };
+    }
+    if (!doc && collectionName === "invoices") {
+        doc = await col.findOne({
+            invoiceNo: id
+        });
+        if (doc) filter = {
+            invoiceNo: id
+        };
+    }
+    if (!doc || !filter) return false;
+    // For invoices: restore inventory quantities
+    if (collectionName === "invoices") {
+        if (Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
+            try {
+                const items = doc.inventoryItems.map((r)=>({
+                        inventoryId: r.inventoryId,
+                        quantity: Number(r.quantity || 0)
+                    }));
+                await adjustInventoryQuantities(items, "increment");
+            } catch (e) {
+                console.error("Failed to restore inventory on soft-delete", e);
+            }
+        }
+    }
+    const LABELS = {
+        invoices: "Invoice",
+        leads: "Lead",
+        clients: "Client",
+        quotations: "Quotation",
+        projects: "Project",
+        tasks: "Task",
+        expenses: "Expense",
+        emi: "EMI",
+        inventory: "Inventory",
+        services: "Service",
+        blogs: "Blog",
+        reels: "Reel",
+        photoGalleries: "Photo Gallery",
+        workGallery: "Work Gallery",
+        enquiries: "Enquiry",
+        supportTickets: "Support Ticket",
+        journey_events: "Journey Event",
+        teamMembers: "Team Member",
+        careers: "Career"
+    };
+    // Snapshot into _trash
+    await trash.insertOne({
+        _originalId: String(doc._id),
+        originalCollection: collectionName,
+        collectionLabel: collectionLabel ?? LABELS[collectionName] ?? collectionName,
+        document: doc,
+        deletedAt: new Date()
     });
+    // Remove from original collection
+    const res = await col.deleteOne(filter);
     return res.deletedCount === 1;
+}
+async function restoreFromTrash(trashId) {
+    const trash = await getCollection("_trash");
+    let trashDoc = null;
+    try {
+        trashDoc = await trash.findOne({
+            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](trashId)
+        });
+    } catch (_) {}
+    if (!trashDoc) {
+        trashDoc = await trash.findOne({
+            _originalId: trashId
+        });
+    }
+    if (!trashDoc) return false;
+    const originalCol = await getCollection(trashDoc.originalCollection);
+    const doc = {
+        ...trashDoc.document
+    };
+    // Restore _id as ObjectId if it was one
+    if (trashDoc._originalId && /^[a-fA-F0-9]{24}$/.test(trashDoc._originalId)) {
+        doc._id = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](trashDoc._originalId);
+    }
+    // Re-decrement inventory if invoice
+    if (trashDoc.originalCollection === "invoices") {
+        if (Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
+            try {
+                const items = doc.inventoryItems.map((r)=>({
+                        inventoryId: r.inventoryId,
+                        quantity: Number(r.quantity || 0)
+                    }));
+                await adjustInventoryQuantities(items, "decrement");
+            } catch (e) {
+                console.error("Failed to re-decrement inventory on restore", e);
+            }
+        }
+    }
+    try {
+        await originalCol.insertOne(doc);
+    } catch (e) {
+        // If duplicate _id, try without _id so Mongo assigns a new one
+        if (e?.code === 11000) {
+            delete doc._id;
+            await originalCol.insertOne(doc);
+        } else {
+            throw e;
+        }
+    }
+    await trash.deleteOne({
+        _id: trashDoc._id
+    });
+    return true;
+}
+async function permanentlyDestroyTrashItem(trashId) {
+    const trash = await getCollection("_trash");
+    let res;
+    try {
+        res = await trash.deleteOne({
+            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](trashId)
+        });
+    } catch (_) {
+        res = await trash.deleteOne({
+            _originalId: trashId
+        });
+    }
+    return (res?.deletedCount ?? 0) === 1;
 }
 // Helper to adjust stock quantities. `items` is array of { inventoryId, quantity }
 async function adjustInventoryQuantities(items, direction) {
@@ -523,65 +666,7 @@ async function updateById(collectionName, id, update) {
     return findById(collectionName, id);
 }
 async function deleteById(collectionName, id) {
-    const col = await getCollection(collectionName);
-    const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
-    if (hex24) {
-        try {
-            // If deleting an invoice by ObjectId, restore inventory quantities first
-            if (collectionName === "invoices") {
-                const doc = await col.findOne({
-                    _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
-                });
-                if (doc && Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
-                    try {
-                        const items = doc.inventoryItems.map((r)=>({
-                                inventoryId: r.inventoryId,
-                                quantity: Number(r.quantity || 0)
-                            }));
-                        await adjustInventoryQuantities(items, "increment");
-                    } catch (e) {
-                        console.error("Failed to restore inventory on invoice delete", e);
-                    }
-                }
-            }
-            const res = await col.deleteOne({
-                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
-            });
-            return res.deletedCount === 1;
-        } catch (e) {
-            console.error("Error deleting document", e);
-            return false;
-        }
-    }
-    // For invoices, also try by invoiceNo
-    if (collectionName === "invoices") {
-        const byInvoiceNo = await col.findOne({
-            invoiceNo: id
-        });
-        if (byInvoiceNo) {
-            // restore inventory quantities if invoice had inventory usage
-            try {
-                if (Array.isArray(byInvoiceNo.inventoryItems) && byInvoiceNo.inventoryItems.length) {
-                    const items = byInvoiceNo.inventoryItems.map((r)=>({
-                            inventoryId: r.inventoryId,
-                            quantity: Number(r.quantity || 0)
-                        }));
-                    await adjustInventoryQuantities(items, "increment");
-                }
-            } catch (e) {
-                console.error("Failed to restore inventory on invoice delete", e);
-            }
-            const res = await col.deleteOne({
-                _id: byInvoiceNo._id
-            });
-            return res.deletedCount === 1;
-        }
-    }
-    // Fall back to custom `id` field
-    const res = await col.deleteOne({
-        id: id
-    });
-    return res.deletedCount === 1;
+    return softDeleteById(collectionName, id);
 }
 async function getInvoices() {
     const col = await getCollection("invoices");
@@ -827,6 +912,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$wallet$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Wallet$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/wallet.js [app-route] (ecmascript) <export default as Wallet>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$book$2d$open$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__BookOpen$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/book-open.js [app-route] (ecmascript) <export default as BookOpen>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$headphones$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Headphones$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/headphones.js [app-route] (ecmascript) <export default as Headphones>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/trash-2.js [app-route] (ecmascript) <export default as Trash2>");
 ;
 const defaultStaffAllowed = [
     "/dashboard",
@@ -1010,6 +1096,12 @@ const navGroups = [
                 label: "Invoicing",
                 adminOnly: true,
                 icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$receipt$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Receipt$3e$__["Receipt"]
+            },
+            {
+                href: "/trash",
+                label: "Trash",
+                adminOnly: true,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"]
             },
             {
                 href: "/dashboard/payments",

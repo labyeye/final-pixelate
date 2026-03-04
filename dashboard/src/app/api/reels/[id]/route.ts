@@ -39,9 +39,8 @@ export async function PUT(request: Request, { params }: { params: { id: string }
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
   try {
     const { id } = await params as any
-    const col = await svc.getCollection('reels')
-    const { acknowledged, deletedCount } = await col.deleteOne({ _id: new ObjectId(id) })
-    if (!acknowledged || deletedCount === 0) return NextResponse.json({ error: 'delete failed' }, { status: 500, headers: CORS })
+    const ok = await svc.softDeleteById('reels', id)
+    if (!ok) return NextResponse.json({ error: 'delete failed' }, { status: 500, headers: CORS })
     return NextResponse.json({ success: true }, { headers: CORS })
   } catch (e: any) {
     return NextResponse.json({ error: e.message || String(e) }, { status: 500, headers: CORS })

@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import * as svc from '@/lib/services';
 import { generateQuotationId } from '@/lib/quotation-models';
+import { getDb } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
+import { createQuotationJourneyEvent } from '@/lib/journey-helpers';
 
 export async function GET(request: NextRequest) {
   try {
@@ -55,8 +57,20 @@ export async function POST(request: NextRequest) {
     };
     
     const result = await col.insertOne(newQuotation);
+    // Re-fetch from DB so the journey event uses the exact persisted document
     const created = await col.findOne({ _id: result.insertedId });
-    
+
+    // ── Auto-create Journey event for every non-DRAFT quotation ───────────
+    if (created && created.clientId && created.status !== 'DRAFT') {
+      try {
+        const db = await getDb();
+        await createQuotationJourneyEvent(db, String(result.insertedId), created);
+      } catch (journeyErr) {
+        console.error('Failed to auto-create journey event:', journeyErr);
+      }
+    }
+    // ─────────────────────────────────────────────────────────────────────
+
     return NextResponse.json(created, { status: 201 });
   } catch (error: any) {
     console.error('Error creating quotation:', error);

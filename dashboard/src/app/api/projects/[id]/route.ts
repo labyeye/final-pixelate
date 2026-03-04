@@ -38,14 +38,8 @@ export async function PUT(request: Request, { params }: { params: { id: string }
 
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
   try {
-    const ok = await svc.deleteById('projects', params.id);
+    const ok = await svc.softDeleteById('projects', params.id);
     if (!ok) return NextResponse.json({ error: 'Not found' }, { status: 404 });
-    try {
-      const col = await svc.getCollection('invoices');
-      await col.deleteMany({ projectId: String(params.id) });
-    } catch (e) {
-      console.error('Failed to delete linked invoices', e);
-    }
     return NextResponse.json({ success: true });
   } catch (e: any) {
     return NextResponse.json({ error: e.message || String(e) }, { status: 500 });

@@ -89,6 +89,7 @@ export default function InvoicingPage() {
   const [previewInvoice, setPreviewInvoice] = useState<any | null>(null);
   const [previewLoading, setPreviewLoading] = useState(false);
   const [gmailSending, setGmailSending] = useState<Record<string, boolean>>({});
+  const [deletingInvoices, setDeletingInvoices] = useState<Set<string>>(new Set());
   const { toast } = useToast();
 
   useEffect(() => {
@@ -156,6 +157,39 @@ export default function InvoicingPage() {
       setClients(data || []);
     } catch (err) {
       console.error("Failed to refresh clients", err);
+    }
+  };
+
+  const handleDeleteInvoice = async (invoiceId: string, invoiceNo: string) => {
+    // Guard: already deleting this invoice
+    if (deletingInvoices.has(invoiceId)) return;
+    if (!window.confirm("Delete this invoice? This cannot be undone.")) return;
+
+    setDeletingInvoices((prev) => new Set(prev).add(invoiceId));
+    try {
+      const res = await fetch(`/api/invoices/${invoiceId}`, { method: "DELETE" });
+      if (!res.ok) {
+        const errJson = await res.json().catch(() => ({}));
+        throw new Error(errJson.error || "Delete failed");
+      }
+      // Update local state directly — no optimistic pre-removal race
+      setInvoices((prev) =>
+        prev.filter((inv) => String(inv._id ?? inv.id ?? "") !== invoiceId),
+      );
+      toast({ title: "Invoice Deleted", description: `Invoice ${invoiceNo} deleted.` });
+    } catch (err: any) {
+      console.error(err);
+      toast({
+        title: "Delete Failed",
+        description: err.message || "Could not delete invoice. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setDeletingInvoices((prev) => {
+        const next = new Set(prev);
+        next.delete(invoiceId);
+        return next;
+      });
     }
   };
 
@@ -827,33 +861,17 @@ export default function InvoicingPage() {
                       <Button
                         size="sm"
                         variant="destructive"
-                        onClick={async () => {
-                          if (!window.confirm("Delete this invoice? This cannot be undone.")) return;
-                          const invoiceId = String(invoice._id ?? invoice.id ?? "");
-                          try {
-                            const res = await fetch(
-                              `/api/invoices/${invoiceId}`,
-                              { method: "DELETE" },
-                            );
-                            if (!res.ok) {
-                              const errJson = await res.json().catch(() => ({}));
-                              throw new Error(errJson.error || "Delete failed");
-                            }
-                            // Optimistically remove from UI immediately
-                            setInvoices((prev) =>
-                              prev.filter(
-                                (inv) => String(inv._id ?? inv.id ?? "") !== invoiceId,
-                              ),
-                            );
-                            toast({ title: "Invoice Deleted", description: `Invoice ${invoice.invoiceNo ?? invoice.id} deleted.` });
-                            await refresh();
-                          } catch (err: any) {
-                            console.error(err);
-                            toast({ title: "Delete Failed", description: err.message || "Could not delete invoice. Please try again.", variant: "destructive" });
-                          }
-                        }}
+                        disabled={deletingInvoices.has(String(invoice._id ?? invoice.id ?? ""))}
+                        onClick={() =>
+                          handleDeleteInvoice(
+                            String(invoice._id ?? invoice.id ?? ""),
+                            String(invoice.invoiceNo ?? invoice.id ?? ""),
+                          )
+                        }
                       >
-                        Delete
+                        {deletingInvoices.has(String(invoice._id ?? invoice.id ?? ""))
+                          ? "Deleting..."
+                          : "Delete"}
                       </Button>
                     )}
                   </div>

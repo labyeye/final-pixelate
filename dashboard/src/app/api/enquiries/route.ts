@@ -61,9 +61,8 @@ export async function DELETE(request: Request) {
     const url = new URL(request.url)
     const id = url.searchParams.get('id')
     if (!id) return NextResponse.json({ error: 'missing id' }, { status: 400, headers: CORS })
-    const col = await svc.getCollection('enquiries')
-    const { acknowledged, deletedCount } = await col.deleteOne({ _id: new ObjectId(id) })
-    if (!acknowledged || deletedCount === 0) return NextResponse.json({ error: 'delete failed' }, { status: 500, headers: CORS })
+    const ok = await svc.softDeleteById('enquiries', id)
+    if (!ok) return NextResponse.json({ error: 'delete failed' }, { status: 500, headers: CORS })
     return NextResponse.json({ success: true }, { headers: CORS })
   } catch (e: any) {
     return NextResponse.json({ error: e.message || String(e) }, { status: 500, headers: CORS })

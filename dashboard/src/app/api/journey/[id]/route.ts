@@ -39,14 +39,9 @@ export async function DELETE(
 ) {
   try {
     const { id } = params;
-    const db = await getDb();
-    const hex24 = /^[a-fA-F0-9]{24}$/.test(id);
-    const filter = hex24 ? { _id: new ObjectId(id) } : { id };
-
-    const result = await db.collection('journey_events').deleteOne(filter);
-    if (result.deletedCount === 0) {
-      return NextResponse.json({ error: 'Event not found' }, { status: 404 });
-    }
+    const { softDeleteById } = await import('@/lib/services');
+    const ok = await softDeleteById('journey_events', id);
+    if (!ok) return NextResponse.json({ error: 'Event not found' }, { status: 404 });
     return NextResponse.json({ success: true });
   } catch (e: any) {
     return NextResponse.json({ error: e.message || String(e) }, { status: 500 });

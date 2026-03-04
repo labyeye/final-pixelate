@@ -253,10 +253,15 @@ export default function QuotationsPage() {
                     font-style: normal;
                     font-display: swap;
                   }
+                  * { box-sizing: border-box; }
+                  table { border-collapse: collapse; width: 100%; }
+                  tr { page-break-inside: avoid; break-inside: avoid; }
+                  thead { display: table-header-group; }
+                  tfoot { display: table-footer-group; }
                 </style>
               `;
               // fill the entire A4 page (210mm x 297mm)
-              styledHtml = `${fontDataFace}${fontLinkTag}<div style="width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;">${pdfBody}</div>`;
+              styledHtml = `${fontDataFace}${fontLinkTag}<div style="width:794px;margin:0;padding:0;box-sizing:border-box;">${pdfBody}</div>`;
             } else {
               const localFontFace = `
                 <style>
@@ -274,14 +279,19 @@ export default function QuotationsPage() {
                     font-style: normal;
                     font-display: swap;
                   }
+                  * { box-sizing: border-box; }
+                  table { border-collapse: collapse; width: 100%; }
+                  tr { page-break-inside: avoid; break-inside: avoid; }
+                  thead { display: table-header-group; }
+                  tfoot { display: table-footer-group; }
                 </style>
               `;
-              styledHtml = `${localFontFace}${fontLinkTag}<div style="width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans Local','Noto Sans',${
+              styledHtml = `${localFontFace}${fontLinkTag}<div style="width:794px;margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans Local','Noto Sans',${
                 family ? family : "sans-serif"
               };">${pdfBody}</div>`;
             }
           } catch (e) {
-            styledHtml = `${fontLinkTag}<div style="width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans',${
+            styledHtml = `${fontLinkTag}<div style="width:794px;margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans',${
               family ? family : "sans-serif"
             };">${pdfBody}</div>`;
           }
@@ -294,6 +304,8 @@ export default function QuotationsPage() {
           const pageWidth = doc.internal.pageSize.getWidth();
           const pageHeight = doc.internal.pageSize.getHeight();
 
+          // windowWidth must match the actual rendered width of the component (210mm = ~794px at 96dpi)
+          // autoPaging: 'text' lets jsPDF slice the canvas at page boundaries without cutting content
           doc.html(finalHtml, {
             callback: function (doc) {
               doc.save(`Quotation-${quote.id}.pdf`);
@@ -301,7 +313,9 @@ export default function QuotationsPage() {
             x: 0,
             y: 0,
             width: pageWidth,
-            windowWidth: 1200,
+            windowWidth: 794,
+            autoPaging: "text",
+            margin: [0, 0, 0, 0],
           });
         } catch (e) {
           // if font loading fails, fall back to rendering without explicit font
@@ -317,7 +331,9 @@ export default function QuotationsPage() {
             x: 0,
             y: 0,
             width: pageWidth,
-            windowWidth: 1200,
+            windowWidth: 794,
+            autoPaging: "text",
+            margin: [0, 0, 0, 0],
           });
         }
       } catch (e) {
