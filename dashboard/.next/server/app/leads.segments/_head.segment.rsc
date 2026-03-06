@@ -3,6 +3,6 @@
 4:I[17936,["/_next/static/chunks/f82e6abf47d7698d.js","/_next/static/chunks/11262e834f6ffe1b.js"],"MetadataBoundary"]
 5:"$Sreact.suspense"
 7:I[74206,["/_next/static/chunks/f82e6abf47d7698d.js","/_next/static/chunks/11262e834f6ffe1b.js"],"IconMark"]
-0:{"buildId":"hcjqj9dmUHAO7yKS9oYz4","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],null]}],"loading":null,"isPartial":false}
+0:{"buildId":"paUBJxOs1d_Nn3gmi0pY9","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],null]}],"loading":null,"isPartial":false}
 3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 6:[["$","title","0",{"children":"Pixelate Nest CRM"}],["$","meta","1",{"name":"description","content":"A Neo-Brutalist CRM for creative agencies"}],["$","link","2",{"rel":"icon","href":"/favicon.ico"}],["$","link","3",{"rel":"apple-touch-icon","href":"/favicon.ico"}],["$","$L7","4",{}]]

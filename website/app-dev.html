@@ -58,7 +58,11 @@
 
     <!-- Preconnects -->
 
-    <link href="https://backend.pixelatenest.com" rel="preconnect" crossorigin />
+    <link
+      href="https://backend.pixelatenest.com"
+      rel="preconnect"
+      crossorigin
+    />
 
     <!-- Styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -202,13 +206,13 @@
                       <a
                         href="https://www.pixelatenest.com/"
                         aria-current="page"
-                        class="nav-link w-inline-block"
+                        class="nav-link w-inline-block w--current"
                         ><span class="nav-link-text">Home</span></a
                       >
                     </li>
                     <li class="nav-item">
                       <a
-                        href="https://www.pixelatenest.com/about"
+                        href="https://www.pixelatenest.com/about.html"
                         class="nav-link w-inline-block"
                         ><span class="nav-link-text">About</span></a
                       >
@@ -223,7 +227,7 @@
                     <li class="nav-item has-dropdown">
                       <a
                         href="javascript:void(0)"
-                        class="nav-link dropdown-toggle w-inline-block w--current"
+                        class="nav-link dropdown-toggle w-inline-block"
                       >
                         <span class="nav-link-text">Services</span>
                         <i
@@ -233,25 +237,22 @@
                       </a>
                       <div class="dropdown-menu">
                         <a
-                          href="https://www.pixelatenest.com/webdev"
+                          href="https://www.pixelatenest.com/webdev.html"
                           class="dropdown-item"
                         >
                           Web Development
                         </a>
-                        <a
-                          href="https://www.pixelatenest.com/app-dev.html"
-                          class="dropdown-item"
-                        >
+                        <a href="app-dev.html" class="dropdown-item">
                           App Development
                         </a>
                         <a
-                          href="https://www.pixelatenest.com/software-dev.html"
+                          href="https://www.pixelatenest.com/software-dev.html.html"
                           class="dropdown-item"
                         >
                           Software Development
                         </a>
                         <a
-                          href="https://www.pixelatenest.com/video-ed.html"
+                          href="https://www.pixelatenest.com/video-ed.html.html"
                           class="dropdown-item"
                         >
                           Content Creation
@@ -268,7 +269,7 @@
                     </li>
                     <li class="nav-item">
                       <a
-                        href="https://www.pixelatenest.com/careers"
+                        href="https://www.pixelatenest.com/careers.html"
                         class="nav-link w-inline-block"
                       >
                         <div class="nav-link-text">Careers</div>
@@ -284,7 +285,7 @@
                     </li>
                     <li class="nav-item">
                       <a
-                        href="https://www.pixelatenest.com/contact"
+                        href="https://www.pixelatenest.com/contact.html"
                         class="nav-link w-inline-block"
                       >
                         <div class="nav-link-text">Contact</div>
@@ -412,7 +413,10 @@
                 </div>
 
                 <div class="hero-cta-wrap">
-                  <a href="https://www.pixelatenest.com/contact.html" class="hero-cta-button">
+                  <a
+                    href="https://www.pixelatenest.com/contact.html"
+                    class="hero-cta-button"
+                  >
                     Contact Experts <span class="cta-arrow">→</span>
                   </a>
                 </div>
@@ -448,7 +452,11 @@
                 Keywords: iOS, Android, React Native, Flutter, user-centric
               </div>
               <div class="offer-actions">
-                <a class="offer-button" href="https://www.pixelatenest.com/contact.html">Get Quote</a>
+                <a
+                  class="offer-button"
+                  href="https://www.pixelatenest.com/contact.html"
+                  >Get Quote</a
+                >
               </div>
             </div>
           </div>
@@ -467,7 +475,11 @@
                 Keywords: cross-platform, Flutter, React Native, performance
               </div>
               <div class="offer-actions">
-                <a class="offer-button" href="https://www.pixelatenest.com/contact.html">Get Quote</a>
+                <a
+                  class="offer-button"
+                  href="https://www.pixelatenest.com/contact.html"
+                  >Get Quote</a
+                >
               </div>
             </div>
           </div>
@@ -486,7 +498,11 @@
                 Keywords: enterprise, SSO, offline, sync, integrations
               </div>
               <div class="offer-actions">
-                <a class="offer-button" href="https://www.pixelatenest.com/contact.html">Get Quote</a>
+                <a
+                  class="offer-button"
+                  href="https://www.pixelatenest.com/contact.html"
+                  >Get Quote</a
+                >
               </div>
             </div>
           </div>
@@ -560,9 +576,12 @@
 
         async function fetchAndRender(grid, isBackground = false) {
           try {
-            const res = await fetch("https://backend.pixelatenest.com/api/work-gallery", {
-              cache: "force-cache",
-            });
+            const res = await fetch(
+              "https://backend.pixelatenest.com/api/work-gallery",
+              {
+                cache: "force-cache",
+              },
+            );
 
             if (!res.ok) throw new Error("Failed to fetch gallery");
 
@@ -928,19 +947,19 @@
                 <div class="p-text-01">Company</div>
                 <div class="footer-link-list">
                   <a
-                    href="https://www.pixelatenest.com/about"
+                    href="https://www.pixelatenest.com/about.html"
                     class="footer-link w-inline-block"
                   >
                     <div class="footer-link-text">About Us</div>
                   </a>
                   <a
-                    href="https://www.pixelatenest.com/careers"
+                    href="https://www.pixelatenest.com/careers.html"
                     class="footer-link w-inline-block"
                   >
                     <div class="footer-link-text">Careers</div>
                   </a>
                   <a
-                    href="https://www.pixelatenest.com/contact"
+                    href="https://www.pixelatenest.com/contact.html"
                     class="footer-link w-inline-block"
                   >
                     <div class="footer-link-text">Contact Us</div>
@@ -958,13 +977,13 @@
                 <div class="p-text-01">Services</div>
                 <div class="footer-link-list">
                   <a
-                    href="https://www.pixelatenest.com/video-ed"
+                    href="https://www.pixelatenest.com/video-ed.html"
                     class="footer-link w-inline-block"
                   >
                     <div class="footer-link-text">Video Editing</div>
                   </a>
                   <a
-                    href="https://www.pixelatenest.com/webdev"
+                    href="https://www.pixelatenest.com/webdev.html"
                     class="footer-link w-inline-block"
                   >
                     <div class="footer-link-text">Web Development</div>
@@ -1035,7 +1054,6 @@
                   >
                     <div class="footer-link-text">Utilities & On Demand</div>
                   </a>
-                  
                 </div>
               </div>
 

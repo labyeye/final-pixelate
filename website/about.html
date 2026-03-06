@@ -73,7 +73,11 @@
 
     <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
 
-    <link href="https://backend.pixelatenest.com" rel="preconnect" crossorigin />
+    <link
+      href="https://backend.pixelatenest.com"
+      rel="preconnect"
+      crossorigin
+    />
     <link href="https://backend.pixelatenest.com" rel="dns-prefetch" />
 
     <link
@@ -198,9 +202,12 @@
     <script>
       (async function loadAnnouncement() {
         try {
-          const res = await fetch("https://backend.pixelatenest.com/api/announcement", {
-            cache: "no-store",
-          });
+          const res = await fetch(
+            "https://backend.pixelatenest.com/api/announcement",
+            {
+              cache: "no-store",
+            },
+          );
           if (res.ok) {
             const data = await res.json();
             if (data.text && data.enabled) {
@@ -226,12 +233,7 @@
     </script>
 
     <div class="page-wrapper">
-      <div
-        style="
-          background-image: url(./assets/back.webp);
-          background-size: cover;
-        "
-      >
+      <div class="main-hero">
         <section class="nav-wrap">
           <div class="nav-bar-wrap">
             <div
@@ -334,10 +336,16 @@
                           <a href="app-dev.html" class="dropdown-item">
                             App Development
                           </a>
-                          <a href="https://www.pixelatenest.com/software-dev.html.html" class="dropdown-item">
+                          <a
+                            href="https://www.pixelatenest.com/software-dev.html.html"
+                            class="dropdown-item"
+                          >
                             Software Development
                           </a>
-                          <a href="https://www.pixelatenest.com/video-ed.html.html" class="dropdown-item">
+                          <a
+                            href="https://www.pixelatenest.com/video-ed.html.html"
+                            class="dropdown-item"
+                          >
                             Content Creation
                           </a>
                         </div>
