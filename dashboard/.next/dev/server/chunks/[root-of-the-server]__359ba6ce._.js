@@ -359,37 +359,50 @@ async function deleteInventory(id) {
     return softDeleteById("inventory", id);
 }
 async function softDeleteById(collectionName, id, collectionLabel) {
+    const normalizedId = String(id ?? "").trim();
+    if (!normalizedId || normalizedId === "undefined" || normalizedId === "null") {
+        return false;
+    }
     const col = await getCollection(collectionName);
     const trash = await getCollection("_trash");
-    const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
+    const hex24 = /^[a-fA-F0-9]{24}$/.test(normalizedId);
     // Locate the document first
     let doc = null;
     let filter = null;
     if (hex24) {
         try {
             doc = await col.findOne({
-                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
+                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](normalizedId)
             });
             if (doc) filter = {
-                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
+                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](normalizedId)
             };
         } catch (_) {}
     }
     if (!doc) {
-        // Try custom id field
+        // Some collections may store _id as a string
         doc = await col.findOne({
-            id
+            _id: normalizedId
         });
         if (doc) filter = {
-            id
+            _id: normalizedId
+        };
+    }
+    if (!doc) {
+        // Try custom id field
+        doc = await col.findOne({
+            id: normalizedId
+        });
+        if (doc) filter = {
+            id: normalizedId
         };
     }
     if (!doc && collectionName === "invoices") {
         doc = await col.findOne({
-            invoiceNo: id
+            invoiceNo: normalizedId
         });
         if (doc) filter = {
-            invoiceNo: id
+            invoiceNo: normalizedId
         };
     }
     if (!doc || !filter) return false;
@@ -441,16 +454,22 @@ async function softDeleteById(collectionName, id, collectionLabel) {
     return res.deletedCount === 1;
 }
 async function restoreFromTrash(trashId) {
+    const normalizedId = String(trashId ?? "").trim();
+    if (!normalizedId || normalizedId === "undefined" || normalizedId === "null") {
+        return false;
+    }
     const trash = await getCollection("_trash");
     let trashDoc = null;
-    try {
-        trashDoc = await trash.findOne({
-            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](trashId)
-        });
-    } catch (_) {}
+    if (/^[a-fA-F0-9]{24}$/.test(normalizedId)) {
+        try {
+            trashDoc = await trash.findOne({
+                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](normalizedId)
+            });
+        } catch (_) {}
+    }
     if (!trashDoc) {
         trashDoc = await trash.findOne({
-            _originalId: trashId
+            _id: normalizedId
         });
     }
     if (!trashDoc) return false;
@@ -493,15 +512,25 @@ async function restoreFromTrash(trashId) {
     return true;
 }
 async function permanentlyDestroyTrashItem(trashId) {
+    const normalizedId = String(trashId ?? "").trim();
+    if (!normalizedId || normalizedId === "undefined" || normalizedId === "null") {
+        return false;
+    }
     const trash = await getCollection("_trash");
     let res;
-    try {
+    if (/^[a-fA-F0-9]{24}$/.test(normalizedId)) {
+        try {
+            res = await trash.deleteOne({
+                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](normalizedId)
+            });
+        } catch (_) {
+            res = await trash.deleteOne({
+                _id: normalizedId
+            });
+        }
+    } else {
         res = await trash.deleteOne({
-            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](trashId)
-        });
-    } catch (_) {
-        res = await trash.deleteOne({
-            _originalId: trashId
+            _id: normalizedId
         });
     }
     return (res?.deletedCount ?? 0) === 1;

@@ -508,6 +508,7 @@
   font-size: 14px;
   color: #475569;
   margin-bottom: 12px;
+  text-align: justify;
 }
 .offer-keywords {
   display: flex;

@@ -70,6 +70,7 @@
   "/api/me/route": "/api/me",
   "/api/nda-approvals/route": "/api/nda-approvals",
   "/api/newsletter/route": "/api/newsletter",
+  "/api/onboarding/[id]/route": "/api/onboarding/[id]",
   "/api/onboarding/route": "/api/onboarding",
   "/api/payments/[id]/route": "/api/payments/[id]",
   "/api/payments/route": "/api/payments",

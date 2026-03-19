@@ -70,6 +70,7 @@
   "/api/me/route": "app/api/me/route.js",
   "/api/nda-approvals/route": "app/api/nda-approvals/route.js",
   "/api/newsletter/route": "app/api/newsletter/route.js",
+  "/api/onboarding/[id]/route": "app/api/onboarding/[id]/route.js",
   "/api/onboarding/route": "app/api/onboarding/route.js",
   "/api/payments/[id]/route": "app/api/payments/[id]/route.js",
   "/api/payments/route": "app/api/payments/route.js",
