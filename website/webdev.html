@@ -641,65 +641,11 @@
       <div id="portfolio-grid" class="portfolio-grid"></div>
 
       <script>
-        const CACHE_KEY = "webdev_gallery_cache";
-        const CACHE_DURATION = 5 * 60 * 1000;
-
-        function getCachedData() {
-          try {
-            const cached = localStorage.getItem(CACHE_KEY);
-            if (!cached) return null;
-
-            const { data, timestamp } = JSON.parse(cached);
-            const now = Date.now();
-
-            if (now - timestamp < CACHE_DURATION) {
-              console.log("Using cached data");
-              return data;
-            } else {
-              localStorage.removeItem(CACHE_KEY);
-              return null;
-            }
-          } catch (e) {
-            return null;
-          }
-        }
-
-        function setCachedData(data) {
-          try {
-            localStorage.setItem(
-              CACHE_KEY,
-              JSON.stringify({
-                data,
-                timestamp: Date.now(),
-              }),
-            );
-          } catch (e) {
-            console.warn("Failed to cache data:", e);
-          }
-        }
-
         async function loadGallery() {
           const grid = document.getElementById("portfolio-grid");
 
           try {
-            // allow developers to force-clear cache by adding ?clearCache=1 to the URL
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get("clearCache") === "1")
-              localStorage.removeItem(CACHE_KEY);
-
-            const cachedData = getCachedData();
-            if (cachedData) {
-              console.debug(
-                "webdev: using cached gallery data",
-                cachedData && cachedData.length ? cachedData[0] : null,
-              );
-              renderGallery(cachedData, grid);
-
-              fetchAndRender(grid, true);
-              return;
-            }
-
-            await fetchAndRender(grid, false);
+            await fetchAndRender(grid);
           } catch (e) {
             console.error(e);
             grid.innerHTML =
@@ -707,12 +653,12 @@
           }
         }
 
-        async function fetchAndRender(grid, isBackground = false) {
+        async function fetchAndRender(grid) {
           try {
             const res = await fetch(
               "https://backend.pixelatenest.com/api/work-gallery",
               {
-                cache: "force-cache",
+                cache: "no-store",
               },
             );
 
@@ -724,13 +670,9 @@
               Array.isArray(items) ? `items=${items.length}` : items,
             );
 
-            setCachedData(items);
-
-            if (!isBackground) {
-              renderGallery(items, grid);
-            }
+            renderGallery(items, grid);
           } catch (e) {
-            if (!isBackground) throw e;
+            throw e;
           }
         }
 
