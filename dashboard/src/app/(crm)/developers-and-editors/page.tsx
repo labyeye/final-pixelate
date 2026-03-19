@@ -260,21 +260,23 @@ export default function DevelopersAndEditorsPage() {
                     )}
                   </div>
                 </TableCell>
-                <TableCell className="font-bold text-base py-4">
+                <TableCell className="font-bold text-base py-4 text-md">
                   {member.name}
                 </TableCell>
-                <TableCell className="text-base py-4">{member.email}</TableCell>
-                <TableCell className="text-base py-4">
+                <TableCell className="text-base py-4 text-md">{member.email}</TableCell>
+                <TableCell className="text-base py-4 text-md">
                   {member.role ?? "staff"}
                 </TableCell>
-                <TableCell className="text-base py-4">
+                <TableCell className="text-base py-4 text-md">
                   {member.jobRole ?? ""}
                 </TableCell>
-                <TableCell className="text-base py-4">{member.phone}</TableCell>
-                <TableCell className="text-base py-4">
+                <TableCell className="text-base py-4 text-md">
+                  {member.phone}
+                </TableCell>
+                <TableCell className="text-base py-4 text-md">
                   {member.address}
                 </TableCell>
-                <TableCell className="text-base py-4">
+                <TableCell className="text-base py-4 text-md">
                   {member.createdAt
                     ? new Date(member.createdAt).toLocaleString()
                     : ""}

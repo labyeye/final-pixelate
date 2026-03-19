@@ -97,10 +97,15 @@ export async function softDeleteById(
   id: string,
   collectionLabel?: string,
 ): Promise<boolean> {
+  const normalizedId = String(id ?? "").trim();
+  if (!normalizedId || normalizedId === "undefined" || normalizedId === "null") {
+    return false;
+  }
+
   const col = await getCollection(collectionName);
   const trash = await getCollection("_trash");
 
-  const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
+  const hex24 = /^[a-fA-F0-9]{24}$/.test(normalizedId);
 
   // Locate the document first
   let doc: any = null;
@@ -108,18 +113,23 @@ export async function softDeleteById(
 
   if (hex24) {
     try {
-      doc = await col.findOne({ _id: new ObjectId(id) });
-      if (doc) filter = { _id: new ObjectId(id) };
+      doc = await col.findOne({ _id: new ObjectId(normalizedId) });
+      if (doc) filter = { _id: new ObjectId(normalizedId) };
     } catch (_) {}
   }
   if (!doc) {
+    // Some collections may store _id as a string
+    doc = await col.findOne({ _id: normalizedId } as any);
+    if (doc) filter = { _id: normalizedId };
+  }
+  if (!doc) {
     // Try custom id field
-    doc = await col.findOne({ id });
-    if (doc) filter = { id };
+    doc = await col.findOne({ id: normalizedId });
+    if (doc) filter = { id: normalizedId };
   }
   if (!doc && collectionName === "invoices") {
-    doc = await col.findOne({ invoiceNo: id });
-    if (doc) filter = { invoiceNo: id };
+    doc = await col.findOne({ invoiceNo: normalizedId });
+    if (doc) filter = { invoiceNo: normalizedId };
   }
   if (!doc || !filter) return false;
 
@@ -179,14 +189,21 @@ export async function softDeleteById(
  * Re-decrements inventory if it was an invoice.
  */
 export async function restoreFromTrash(trashId: string): Promise<boolean> {
+  const normalizedId = String(trashId ?? "").trim();
+  if (!normalizedId || normalizedId === "undefined" || normalizedId === "null") {
+    return false;
+  }
+
   const trash = await getCollection("_trash");
 
   let trashDoc: any = null;
-  try {
-    trashDoc = await trash.findOne({ _id: new ObjectId(trashId) });
-  } catch (_) {}
+  if (/^[a-fA-F0-9]{24}$/.test(normalizedId)) {
+    try {
+      trashDoc = await trash.findOne({ _id: new ObjectId(normalizedId) });
+    } catch (_) {}
+  }
   if (!trashDoc) {
-    trashDoc = await trash.findOne({ _originalId: trashId });
+    trashDoc = await trash.findOne({ _id: normalizedId } as any);
   }
   if (!trashDoc) return false;
 
@@ -231,12 +248,21 @@ export async function restoreFromTrash(trashId: string): Promise<boolean> {
 
 /** Permanently destroy a trashed document — no recovery possible. */
 export async function permanentlyDestroyTrashItem(trashId: string): Promise<boolean> {
+  const normalizedId = String(trashId ?? "").trim();
+  if (!normalizedId || normalizedId === "undefined" || normalizedId === "null") {
+    return false;
+  }
+
   const trash = await getCollection("_trash");
   let res;
-  try {
-    res = await trash.deleteOne({ _id: new ObjectId(trashId) });
-  } catch (_) {
-    res = await trash.deleteOne({ _originalId: trashId });
+  if (/^[a-fA-F0-9]{24}$/.test(normalizedId)) {
+    try {
+      res = await trash.deleteOne({ _id: new ObjectId(normalizedId) });
+    } catch (_) {
+      res = await trash.deleteOne({ _id: normalizedId } as any);
+    }
+  } else {
+    res = await trash.deleteOne({ _id: normalizedId } as any);
   }
   return (res?.deletedCount ?? 0) === 1;
 }

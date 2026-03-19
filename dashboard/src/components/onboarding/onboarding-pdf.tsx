@@ -1,119 +1,940 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import {
+  Document,
+  Page,
+  StyleSheet,
+  Text,
+  View,
+} from "@react-pdf/renderer";
+
+// ─── Brand colours ───────────────────────────────────────────────────────────
+const DARK = "#263f49";
+const CREAM = "#f5f0e8";
+const CREAM_LIGHT = "#faf7f2";
+const ACCENT = "#3a5f6e";
+const RULE = "#d6cfc3";
+const MUTED = "#6b7280";
+const WHITE = "#ffffff";
+const TEXT = "#1c2b31";
+
+// ─── Shared helpers ───────────────────────────────────────────────────────────
+const displayValue = (value?: string | number | null): string => {
+  if (value === null || value === undefined) return "—";
+  const text = String(value).trim();
+  return text.length > 0 ? text : "—";
+};
+
+const normalizeList = (value: unknown): string[] => {
+  if (Array.isArray(value)) {
+    return value.map((item) => String(item ?? "").trim()).filter(Boolean);
+  }
+  if (typeof value === "string") {
+    return value.split("\n").map((s) => s.trim()).filter(Boolean);
+  }
+  return [];
+};
+
+const formatDate = (value?: string | Date | number | null): string => {
+  if (!value) return "—";
+  const date = value instanceof Date ? value : new Date(value as string);
+  if (Number.isNaN(date.getTime())) return "—";
+  return date.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+};
+
+// ─── Styles ───────────────────────────────────────────────────────────────────
+const styles = StyleSheet.create({
+  // ── Pages ──
+  page: {
+    paddingTop: 44,
+    paddingBottom: 52,
+    paddingHorizontal: 44,
+    fontSize: 10,
+    color: TEXT,
+    fontFamily: "Helvetica",
+    lineHeight: 1.55,
+    backgroundColor: WHITE,
+  },
+  coverPage: {
+    paddingHorizontal: 0,
+    paddingVertical: 0,
+    backgroundColor: DARK,
+  },
+
+  // ── Cover internals ──
+  coverTop: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 56,
+    paddingTop: 72,
+    paddingBottom: 40,
+  },
+  coverAgencyLabel: {
+    fontSize: 11,
+    color: CREAM,
+    letterSpacing: 3,
+    textTransform: "uppercase",
+    marginBottom: 10,
+    opacity: 0.75,
+  },
+  coverAgencyName: {
+    fontSize: 34,
+    fontFamily: "Helvetica-Bold",
+    color: WHITE,
+    letterSpacing: 1,
+    marginBottom: 4,
+  },
+  coverDividerLine: {
+    width: 60,
+    height: 2,
+    backgroundColor: CREAM,
+    marginVertical: 20,
+    opacity: 0.5,
+  },
+  coverDocTitle: {
+    fontSize: 14,
+    color: CREAM,
+    letterSpacing: 2,
+    textTransform: "uppercase",
+    marginBottom: 48,
+    opacity: 0.85,
+  },
+  coverInfoBox: {
+    backgroundColor: "rgba(255,255,255,0.06)",
+    borderRadius: 6,
+    borderLeft: `3 solid ${CREAM}`,
+    paddingVertical: 20,
+    paddingHorizontal: 24,
+    width: "100%",
+    marginBottom: 32,
+  },
+  coverInfoRow: {
+    flexDirection: "row",
+    marginBottom: 8,
+  },
+  coverInfoLabel: {
+    width: 110,
+    fontSize: 9,
+    color: CREAM,
+    opacity: 0.65,
+    letterSpacing: 0.5,
+    textTransform: "uppercase",
+  },
+  coverInfoValue: {
+    flex: 1,
+    fontSize: 11,
+    color: WHITE,
+    fontFamily: "Helvetica-Bold",
+  },
+  coverBottom: {
+    height: 52,
+    backgroundColor: "rgba(0,0,0,0.25)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  coverBottomText: {
+    fontSize: 9,
+    color: CREAM,
+    opacity: 0.55,
+    letterSpacing: 1.5,
+  },
+
+  // ── Page header / footer ──
+  pageHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 28,
+    paddingBottom: 10,
+    borderBottom: `1.5 solid ${DARK}`,
+  },
+  pageHeaderAgency: {
+    fontSize: 11,
+    fontFamily: "Helvetica-Bold",
+    color: DARK,
+    letterSpacing: 0.5,
+  },
+  pageHeaderSection: {
+    fontSize: 9,
+    color: MUTED,
+    letterSpacing: 1,
+    textTransform: "uppercase",
+  },
+  pageFooter: {
+    position: "absolute",
+    bottom: 22,
+    left: 44,
+    right: 44,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingTop: 8,
+    borderTop: `0.75 solid ${RULE}`,
+  },
+  pageFooterText: {
+    fontSize: 8,
+    color: MUTED,
+  },
+
+  // ── Section heading ──
+  sectionHeading: {
+    fontSize: 15,
+    fontFamily: "Helvetica-Bold",
+    color: DARK,
+    marginBottom: 14,
+    paddingBottom: 6,
+    borderBottom: `1 solid ${RULE}`,
+  },
+  subHeading: {
+    fontSize: 10,
+    fontFamily: "Helvetica-Bold",
+    color: DARK,
+    marginBottom: 8,
+    marginTop: 10,
+  },
+
+  // ── Cards ──
+  card: {
+    backgroundColor: CREAM_LIGHT,
+    borderRadius: 5,
+    borderLeft: `3 solid ${DARK}`,
+    padding: 14,
+    marginBottom: 16,
+  },
+  cardGhost: {
+    borderRadius: 5,
+    border: `0.75 solid ${RULE}`,
+    padding: 14,
+    marginBottom: 16,
+  },
+  cardDark: {
+    backgroundColor: DARK,
+    borderRadius: 5,
+    padding: 16,
+    marginBottom: 16,
+  },
+
+  // ── Field rows ──
+  fieldRow: {
+    flexDirection: "row",
+    marginBottom: 7,
+    alignItems: "flex-start",
+  },
+  fieldLabel: {
+    width: 130,
+    fontSize: 9,
+    color: MUTED,
+    textTransform: "uppercase",
+    letterSpacing: 0.4,
+    paddingTop: 1,
+  },
+  fieldValue: {
+    flex: 1,
+    fontSize: 10,
+    color: TEXT,
+  },
+
+  // ── Layout helpers ──
+  row: {
+    flexDirection: "row",
+    gap: 14,
+  },
+  col: {
+    flex: 1,
+  },
+
+  // ── Bullet list ──
+  bulletRow: {
+    flexDirection: "row",
+    marginBottom: 5,
+    alignItems: "flex-start",
+  },
+  bulletDot: {
+    width: 5,
+    height: 5,
+    borderRadius: 3,
+    backgroundColor: DARK,
+    marginTop: 4,
+    marginRight: 8,
+  },
+  bulletText: {
+    flex: 1,
+    fontSize: 10,
+  },
+
+  // ── Deliverable checklist ──
+  deliverableRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 8,
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    borderRadius: 4,
+    backgroundColor: CREAM_LIGHT,
+    border: `0.5 solid ${RULE}`,
+  },
+  deliverableCheck: {
+    width: 14,
+    height: 14,
+    borderRadius: 3,
+    border: `1 solid ${DARK}`,
+    marginRight: 10,
+    backgroundColor: WHITE,
+  },
+  deliverableCheckFilled: {
+    width: 14,
+    height: 14,
+    borderRadius: 3,
+    backgroundColor: DARK,
+    marginRight: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  deliverableLabel: {
+    flex: 1,
+    fontSize: 10,
+    fontFamily: "Helvetica-Bold",
+    color: TEXT,
+  },
+  deliverableDesc: {
+    fontSize: 9,
+    color: MUTED,
+  },
+
+  // ── Timeline ──
+  timelineItem: {
+    flexDirection: "row",
+    marginBottom: 12,
+  },
+  timelineLeft: {
+    width: 14,
+    alignItems: "center",
+    marginRight: 12,
+  },
+  timelineDot: {
+    width: 9,
+    height: 9,
+    borderRadius: 5,
+    backgroundColor: DARK,
+    marginTop: 2,
+  },
+  timelineLine: {
+    flex: 1,
+    width: 1.5,
+    backgroundColor: RULE,
+    marginTop: 4,
+  },
+  timelineContent: {
+    flex: 1,
+  },
+  timelineLabel: {
+    fontSize: 9,
+    color: MUTED,
+    textTransform: "uppercase",
+    letterSpacing: 0.5,
+  },
+  timelineValue: {
+    fontSize: 10,
+    color: TEXT,
+    fontFamily: "Helvetica-Bold",
+  },
+
+  // ── Payment milestone ──
+  milestoneRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    marginBottom: 6,
+    borderRadius: 4,
+    border: `0.75 solid ${RULE}`,
+  },
+  milestoneBadge: {
+    fontSize: 8,
+    color: WHITE,
+    backgroundColor: DARK,
+    paddingHorizontal: 7,
+    paddingVertical: 3,
+    borderRadius: 3,
+    marginRight: 10,
+    textTransform: "uppercase",
+    letterSpacing: 0.5,
+  },
+  milestoneDesc: {
+    flex: 1,
+    fontSize: 10,
+    color: TEXT,
+  },
+  milestoneAmt: {
+    fontSize: 10,
+    fontFamily: "Helvetica-Bold",
+    color: DARK,
+  },
+
+  // ── Terms block ──
+  termHeading: {
+    fontSize: 10,
+    fontFamily: "Helvetica-Bold",
+    color: DARK,
+    marginBottom: 4,
+  },
+  termText: {
+    fontSize: 9.5,
+    color: TEXT,
+    marginBottom: 12,
+    lineHeight: 1.6,
+  },
+
+  // ── Signature ──
+  signatureBox: {
+    borderTop: `1 solid ${DARK}`,
+    paddingTop: 8,
+    marginTop: 36,
+    width: "45%",
+  },
+  signatureLabel: {
+    fontSize: 9,
+    color: MUTED,
+    textTransform: "uppercase",
+    letterSpacing: 0.5,
+  },
+  signatureName: {
+    fontSize: 10,
+    color: TEXT,
+    marginTop: 4,
+  },
+  signatureDate: {
+    fontSize: 9,
+    color: MUTED,
+    marginTop: 2,
+  },
+
+  // ── Misc ──
+  briefText: {
+    fontSize: 10,
+    color: TEXT,
+    lineHeight: 1.7,
+  },
+  pillBadge: {
+    fontSize: 9,
+    color: WHITE,
+    backgroundColor: ACCENT,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 3,
+    marginRight: 6,
+    marginBottom: 5,
+  },
+  infoChip: {
+    fontSize: 8,
+    color: DARK,
+    backgroundColor: CREAM,
+    paddingHorizontal: 7,
+    paddingVertical: 3,
+    borderRadius: 3,
+    marginRight: 6,
+    marginBottom: 5,
+    border: `0.5 solid ${RULE}`,
+  },
+});
+
+// ─── Reusable Primitives ───────────────────────────────────────────────────────
+
+function PageHeader({ section, pageNum }: { section: string; pageNum: string }) {
+  return (
+    <View style={styles.pageHeader} fixed>
+      <Text style={styles.pageHeaderAgency}>Pixelate Nest</Text>
+      <Text style={styles.pageHeaderSection}>{section}</Text>
+    </View>
+  );
+}
+
+function PageFooter({ data }: { data: any }) {
+  return (
+    <View style={styles.pageFooter} fixed>
+      <Text style={styles.pageFooterText}>
+        Client Onboarding Document · {displayValue(data?.clientName)} · {displayValue(data?.projectTitle)}
+      </Text>
+      <Text style={styles.pageFooterText}>
+        Confidential — Pixelate Nest
+      </Text>
+    </View>
+  );
+}
+
+function Field({ label, value }: { label: string; value?: string | number | null }) {
+  return (
+    <View style={styles.fieldRow}>
+      <Text style={styles.fieldLabel}>{label}</Text>
+      <Text style={styles.fieldValue}>{displayValue(value)}</Text>
+    </View>
+  );
+}
+
+function BulletItem({ text }: { text: string }) {
+  return (
+    <View style={styles.bulletRow}>
+      <View style={styles.bulletDot} />
+      <Text style={styles.bulletText}>{text}</Text>
+    </View>
+  );
+}
+
+function SectionHeading({ title }: { title: string }) {
+  return <Text style={styles.sectionHeading}>{title}</Text>;
+}
+
+// ─── PDF Document ─────────────────────────────────────────────────────────────
 
 export function OnboardingPDF({ data }: { data: any }) {
-  const formatDate = (d?: string | Date | number) => {
-    if (!d) return "—";
-    const dt = d instanceof Date ? d : new Date(d);
-    if (isNaN(dt.getTime())) return "—";
-    return dt.toLocaleDateString("en-GB", {
-      day: "2-digit",
-      month: "long",
-      year: "numeric",
-    });
-  };
+  const deliverablePhases = [
+    {
+      phase: "01",
+      label: "Discovery",
+      desc: data?.deliveryDiscovery || "Requirement gathering, stakeholder interviews, scope finalization",
+    },
+    {
+      phase: "02",
+      label: "Wireframes",
+      desc: data?.deliveryWireframes || "Low-fidelity layouts and information architecture",
+    },
+    {
+      phase: "03",
+      label: "Design",
+      desc: data?.deliveryDesign || "High-fidelity UI designs, style guide, asset creation",
+    },
+    {
+      phase: "04",
+      label: "Development",
+      desc: data?.deliveryDevelopment || "Front-end & back-end implementation per approved designs",
+    },
+    {
+      phase: "05",
+      label: "Testing",
+      desc: data?.deliveryTesting || "QA, browser/device testing, bug fixes, performance checks",
+    },
+    {
+      phase: "06",
+      label: "Deployment",
+      desc: data?.deliveryDeployment || "Production deployment, go-live support, post-launch monitoring",
+    },
+  ];
+
+  const paymentMilestones = normalizeList(data?.paymentMilestones);
+  const milestones = normalizeList(data?.milestones);
+  const techStack = normalizeList(data?.techStack);
+  const outOfScope = normalizeList(data?.outOfScope);
+  const scopeOfWork = normalizeList(data?.scopeOfWork);
+
+  const onboardingDate = formatDate(data?.date || new Date());
 
   return (
-    <div
-      style={{
-        fontFamily: "'Noto Sans Local', 'Noto Sans', Inter, Roboto, sans-serif",
-        width: "210mm",
-        color: "#111",
-        background: "#fff",
-        fontSize: "13px",
-        lineHeight: "1.5",
-        boxSizing: "border-box",
-      }}
+    <Document
+      title={`Client Onboarding — ${displayValue(data?.clientName)} — ${displayValue(data?.projectTitle)}`}
+      author="Pixelate Nest"
+      creator="Pixelate Nest CRM"
+      subject="Client Onboarding Document"
     >
-      {/* Cover */}
-      <div
-        style={{
-          width: "210mm",
-          height: "297mm",
-          padding: "36mm 20mm",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          background: "linear-gradient(135deg,#f7fbff 0%,#eef6ff 100%)",
-          pageBreakAfter: "always",
-        }}
-      >
-        <h1 style={{ fontSize: "44px", margin: 0, color: "#0b3a91" }}>Client Onboarding</h1>
-        <div style={{ marginTop: 18, fontSize: 18, color: "#333" }}>{data?.projectTitle || "New Project"}</div>
-        <div style={{ marginTop: 28, fontSize: 16, color: "#666" }}>{formatDate(data?.date || new Date())}</div>
-      </div>
+      {/* ═══════════════════════════════════════════════════════════════
+          PAGE 1 — COVER
+      ═══════════════════════════════════════════════════════════════ */}
+      <Page size="A4" style={[styles.page, styles.coverPage]}>
+        <View style={styles.coverTop}>
+          {/* Agency branding */}
+          <Text style={styles.coverAgencyLabel}>Client Onboarding Document</Text>
+          <Text style={styles.coverAgencyName}>Pixelate Nest</Text>
+          <View style={styles.coverDividerLine} />
+          <Text style={styles.coverDocTitle}>
+            {displayValue(data?.projectTitle || "New Project")}
+          </Text>
 
-      {/* Client Details */}
-      <div style={{ width: "210mm", padding: "20mm", pageBreakAfter: "always" }}>
-        <div style={{ marginBottom: 12, fontSize: 20, fontWeight: 700, color: "#0b3a91" }}>Client Details</div>
-        <div style={{ background: "#f6f7fb", padding: 16, borderRadius: 8 }}>
-          <div style={{ marginBottom: 8 }}><strong>Name:</strong> {data.clientName || "—"}</div>
-          <div style={{ marginBottom: 8 }}><strong>Company:</strong> {data.company || "—"}</div>
-          <div style={{ marginBottom: 8 }}><strong>Email:</strong> {data.email || "—"}</div>
-          <div style={{ marginBottom: 8 }}><strong>Phone:</strong> {data.phone || "—"}</div>
-          <div style={{ marginBottom: 8 }}><strong>Address:</strong> {data.address || "—"}</div>
-        </div>
+          {/* Info box */}
+          <View style={styles.coverInfoBox}>
+            <View style={styles.coverInfoRow}>
+              <Text style={styles.coverInfoLabel}>Client</Text>
+              <Text style={styles.coverInfoValue}>{displayValue(data?.clientName)}</Text>
+            </View>
+            <View style={styles.coverInfoRow}>
+              <Text style={styles.coverInfoLabel}>Company</Text>
+              <Text style={styles.coverInfoValue}>{displayValue(data?.company)}</Text>
+            </View>
+            <View style={styles.coverInfoRow}>
+              <Text style={styles.coverInfoLabel}>Project ID</Text>
+              <Text style={styles.coverInfoValue}>{displayValue(data?.projectId || "—")}</Text>
+            </View>
+            <View style={styles.coverInfoRow}>
+              <Text style={styles.coverInfoLabel}>Client ID</Text>
+              <Text style={styles.coverInfoValue}>{displayValue(data?.clientDisplayId || "—")}</Text>
+            </View>
+            <View style={styles.coverInfoRow}>
+              <Text style={styles.coverInfoLabel}>Onboarding Date</Text>
+              <Text style={styles.coverInfoValue}>{onboardingDate}</Text>
+            </View>
+          </View>
 
-        <div style={{ marginTop: 20, marginBottom: 12, fontSize: 20, fontWeight: 700, color: "#0b3a91" }}>Project Snapshot</div>
-        <div style={{ background: "#fff", padding: 16, borderRadius: 8, border: "1px solid #eee" }}>
-          <div style={{ marginBottom: 8 }}><strong>Project Type:</strong> {data.projectType || "—"}</div>
-          <div style={{ marginBottom: 8 }}><strong>Website / App Type:</strong> {data.productType || "—"}</div>
-          <div style={{ marginBottom: 8 }}><strong>Pages / Modules:</strong> {data.pages || "—"}</div>
-          <div style={{ marginBottom: 8 }}><strong>Estimated Budget:</strong> {data.budget || "—"}</div>
-          <div style={{ marginBottom: 8 }}><strong>Start Date:</strong> {formatDate(data.startDate)}</div>
-          <div style={{ marginBottom: 8 }}><strong>Target Delivery:</strong> {formatDate(data.deadline)}</div>
-        </div>
-      </div>
+          {/* Tagline */}
+          <Text style={{ fontSize: 9, color: CREAM, opacity: 0.45, textAlign: "center", marginTop: 8 }}>
+            This document is confidential and prepared exclusively for the above-named client.
+          </Text>
+        </View>
 
-      {/* Requirements / Brief */}
-      <div style={{ width: "210mm", padding: "20mm" }}>
-        <div style={{ marginBottom: 12, fontSize: 20, fontWeight: 700, color: "#0b3a91" }}>Project Brief / Requirements</div>
-        <div style={{ background: "#f6f7fb", padding: 16, borderRadius: 8, minHeight: 120 }}>
-          <div style={{ whiteSpace: "pre-wrap", fontSize: 14, color: "#222" }}>{data.brief || "—"}</div>
-        </div>
+        <View style={styles.coverBottom}>
+          <Text style={styles.coverBottomText}>
+            www.pixelatenest.com  ·  hello@pixelatenest.com
+          </Text>
+        </View>
+      </Page>
 
-        <div style={{ marginTop: 20, display: "flex", gap: 20 }}>
-          <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 8 }}>Primary Contact</div>
-            <div style={{ background: "#fff", padding: 12, borderRadius: 8, border: "1px solid #eee" }}>
-              <div style={{ marginBottom: 6 }}><strong>{data.contactName || "—"}</strong></div>
-              <div style={{ marginBottom: 4 }}>{data.contactEmail || "—"}</div>
-              <div>{data.contactPhone || "—"}</div>
-            </div>
-          </div>
+      {/* ═══════════════════════════════════════════════════════════════
+          PAGE 2 — CLIENT DETAILS
+      ═══════════════════════════════════════════════════════════════ */}
+      <Page size="A4" style={styles.page}>
+        <PageHeader section="Client Details" pageNum="2" />
 
-          <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 8 }}>Deliverables (High level)</div>
-            <div style={{ background: "#fff", padding: 12, borderRadius: 8, border: "1px solid #eee" }}>
-              <ul style={{ margin: 0, paddingLeft: 18 }}>
-                {(data.deliverables || []).length > 0 ? (
-                  (data.deliverables || []).map((d: string, i: number) => <li key={i}>{d}</li>)
-                ) : (
-                  <li>—</li>
-                )}
-              </ul>
-            </div>
-          </div>
-        </div>
+        <SectionHeading title="Client Information" />
+        <View style={styles.card}>
+          <Field label="Full Name" value={data?.clientName} />
+          <Field label="Company" value={data?.company} />
+          <Field label="Email Address" value={data?.email} />
+          <Field label="Phone Number" value={data?.phone} />
+          <Field label="Address" value={data?.address} />
+        </View>
 
-        <div style={{ marginTop: 28 }}>
-          <div style={{ fontSize: 14, color: "#666" }}>Notes</div>
-          <div style={{ marginTop: 8, background: "#fff", padding: 12, borderRadius: 8, border: "1px solid #eee" }}>
-            <div style={{ whiteSpace: "pre-wrap" }}>{data.notes || "—"}</div>
-          </div>
-        </div>
+        <SectionHeading title="Primary Contact Person" />
+        <View style={styles.cardGhost}>
+          <Field label="Contact Name" value={data?.contactName} />
+          <Field label="Contact Email" value={data?.contactEmail} />
+          <Field label="Contact Phone" value={data?.contactPhone} />
+        </View>
 
-        <div style={{ marginTop: 28 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <div style={{ fontSize: 13, color: "#777" }}>Generated by Pixelate Nest</div>
-            <div style={{ textAlign: "right" }}>
-              <div style={{ fontSize: 14, fontWeight: 700 }}>{data.clientName || "Client"}</div>
-              <div style={{ fontSize: 12, color: "#777", marginTop: 8 }}>Signature: ________________________</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        <PageFooter data={data} />
+      </Page>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          PAGE 3 — PROJECT OVERVIEW
+      ═══════════════════════════════════════════════════════════════ */}
+      <Page size="A4" style={styles.page}>
+        <PageHeader section="Project Overview" pageNum="3" />
+
+        <SectionHeading title="Project Overview" />
+
+        <View style={styles.row}>
+          <View style={styles.col}>
+            <View style={styles.card}>
+              <Field label="Project Title" value={data?.projectTitle} />
+              <Field label="Project Type" value={data?.projectType} />
+              <Field label="Product Type" value={data?.productType} />
+            </View>
+          </View>
+          <View style={styles.col}>
+            <View style={styles.cardGhost}>
+              <Field label="Pages / Modules" value={data?.pages} />
+              <Field label="Start Date" value={formatDate(data?.startDate)} />
+              <Field label="Target Delivery" value={formatDate(data?.deadline)} />
+            </View>
+          </View>
+        </View>
+
+        <Text style={styles.subHeading}>Project Brief &amp; Requirements</Text>
+        <View style={styles.cardGhost}>
+          <Text style={styles.briefText}>
+            {displayValue(data?.brief)}
+          </Text>
+        </View>
+
+        {data?.notes ? (
+          <>
+            <Text style={styles.subHeading}>Additional Notes</Text>
+            <View style={styles.cardGhost}>
+              <Text style={styles.briefText}>{displayValue(data?.notes)}</Text>
+            </View>
+          </>
+        ) : null}
+
+        <PageFooter data={data} />
+      </Page>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          PAGE 4 — PROJECT SCOPE
+      ═══════════════════════════════════════════════════════════════ */}
+      <Page size="A4" style={styles.page}>
+        <PageHeader section="Project Scope" pageNum="4" />
+
+        <SectionHeading title="Project Scope" />
+
+        <View style={styles.row}>
+          <View style={styles.col}>
+            <Text style={styles.subHeading}>Scope of Work</Text>
+            <View style={styles.card}>
+              {scopeOfWork.length > 0
+                ? scopeOfWork.map((item, i) => (
+                    <BulletItem key={i} text={item} />
+                  ))
+                : <Text style={styles.briefText}>{displayValue(null)}</Text>
+              }
+            </View>
+          </View>
+          <View style={styles.col}>
+            <Text style={styles.subHeading}>Out of Scope</Text>
+            <View style={styles.cardGhost}>
+              {outOfScope.length > 0
+                ? outOfScope.map((item, i) => (
+                    <BulletItem key={i} text={item} />
+                  ))
+                : <Text style={styles.briefText}>{displayValue(null)}</Text>
+              }
+            </View>
+          </View>
+        </View>
+
+        <Text style={styles.subHeading}>Technology Stack</Text>
+        <View style={[styles.cardGhost, { flexDirection: "row", flexWrap: "wrap" }]}>
+          {techStack.length > 0
+            ? techStack.map((t, i) => (
+                <Text key={i} style={styles.pillBadge}>{t}</Text>
+              ))
+            : <Text style={styles.briefText}>—</Text>
+          }
+        </View>
+
+        <Text style={styles.subHeading}>Pages / Modules</Text>
+        <View style={styles.card}>
+          <Text style={styles.briefText}>{displayValue(data?.pages)}</Text>
+        </View>
+
+        <PageFooter data={data} />
+      </Page>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          PAGE 5 — PROJECT TIMELINE
+      ═══════════════════════════════════════════════════════════════ */}
+      <Page size="A4" style={styles.page}>
+        <PageHeader section="Project Timeline" pageNum="5" />
+
+        <SectionHeading title="Project Timeline" />
+
+        {/* Key dates */}
+        <View style={styles.row}>
+          <View style={[styles.col, styles.card]}>
+            <Text style={styles.subHeading}>Start Date</Text>
+            <Text style={{ fontSize: 16, fontFamily: "Helvetica-Bold", color: DARK }}>
+              {formatDate(data?.startDate)}
+            </Text>
+          </View>
+          <View style={[styles.col, styles.card]}>
+            <Text style={styles.subHeading}>Target Delivery</Text>
+            <Text style={{ fontSize: 16, fontFamily: "Helvetica-Bold", color: DARK }}>
+              {formatDate(data?.deadline)}
+            </Text>
+          </View>
+        </View>
+
+        {/* Milestones */}
+        {milestones.length > 0 && (
+          <>
+            <Text style={styles.subHeading}>Project Milestones</Text>
+            <View style={styles.cardGhost}>
+              {milestones.map((m, i) => (
+                <View key={i} style={styles.timelineItem}>
+                  <View style={styles.timelineLeft}>
+                    <View style={styles.timelineDot} />
+                    {i < milestones.length - 1 && <View style={styles.timelineLine} />}
+                  </View>
+                  <View style={styles.timelineContent}>
+                    <Text style={styles.timelineValue}>{m}</Text>
+                  </View>
+                </View>
+              ))}
+            </View>
+          </>
+        )}
+
+        <PageFooter data={data} />
+      </Page>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          PAGE 6 — FINANCIAL DETAILS
+      ═══════════════════════════════════════════════════════════════ */}
+      <Page size="A4" style={styles.page}>
+        <PageHeader section="Financial Details" pageNum="6" />
+
+        <SectionHeading title="Financial Details" />
+
+        <View style={styles.row}>
+          <View style={[styles.col, styles.cardDark]}>
+            <Text style={{ fontSize: 9, color: CREAM, opacity: 0.6, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6 }}>
+              Estimated Budget
+            </Text>
+            <Text style={{ fontSize: 22, fontFamily: "Helvetica-Bold", color: WHITE }}>
+              {displayValue(data?.budget)}
+            </Text>
+          </View>
+          <View style={[styles.col, styles.card]}>
+            <Text style={{ fontSize: 9, color: MUTED, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6 }}>
+              Payment Method
+            </Text>
+            <Text style={{ fontSize: 13, fontFamily: "Helvetica-Bold", color: DARK }}>
+              {displayValue(data?.paymentMethod)}
+            </Text>
+          </View>
+        </View>
+
+        {paymentMilestones.length > 0 && (
+          <>
+            <Text style={styles.subHeading}>Payment Milestones</Text>
+            {paymentMilestones.map((m, i) => (
+              <View key={i} style={styles.milestoneRow}>
+                <Text style={styles.milestoneBadge}>{String(i + 1).padStart(2, "0")}</Text>
+                <Text style={styles.milestoneDesc}>{m}</Text>
+              </View>
+            ))}
+          </>
+        )}
+
+        <PageFooter data={data} />
+      </Page>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          PAGE 7 — DELIVERABLES
+      ═══════════════════════════════════════════════════════════════ */}
+      <Page size="A4" style={styles.page}>
+        <PageHeader section="Deliverables" pageNum="7" />
+
+        <SectionHeading title="Deliverables" />
+        <Text style={{ fontSize: 9.5, color: MUTED, marginBottom: 16 }}>
+          The following deliverables are included in the project scope and will be provided upon completion of each respective phase.
+        </Text>
+
+        {deliverablePhases.map((d) => (
+          <View key={d.phase} style={styles.deliverableRow}>
+            <View style={styles.deliverableCheckFilled}>
+              <Text style={{ fontSize: 7, color: WHITE, textAlign: "center" }}>✓</Text>
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={styles.deliverableLabel}>Phase {d.phase} — {d.label}</Text>
+              <Text style={styles.deliverableDesc}>{d.desc}</Text>
+            </View>
+          </View>
+        ))}
+
+        <PageFooter data={data} />
+      </Page>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          PAGE 8 — TERMS & CONDITIONS
+      ═══════════════════════════════════════════════════════════════ */}
+      <Page size="A4" style={styles.page}>
+        <PageHeader section="Terms & Conditions" pageNum="8" />
+
+        <SectionHeading title="Terms &amp; Conditions" />
+
+        <Text style={styles.termHeading}>1. Revision Policy</Text>
+        <Text style={styles.termText}>
+          {data?.termsRevision ||
+            "Each deliverable phase includes up to two (2) rounds of revisions based on the agreed brief. Revisions requested beyond this allowance, or changes to the original scope, will be quoted separately and must be approved in writing before work begins. Minor text or image swaps do not count as revision rounds."}
+        </Text>
+
+        <Text style={styles.termHeading}>2. Scope Change Policy</Text>
+        <Text style={styles.termText}>
+          {data?.termsScope ||
+            "Any additions to the project scope after sign-off will be documented via a Change Request (CR). Each CR will include an updated timeline and cost estimate. Work on scope additions will not commence until a revised agreement is signed by both parties. Pixelate Nest reserves the right to adjust delivery timelines accordingly."}
+        </Text>
+
+        <Text style={styles.termHeading}>3. Payment Policy</Text>
+        <Text style={styles.termText}>
+          {data?.termsPayment ||
+            "Payments are due as per the milestones outlined in the Financial Details section. Invoices are payable within 7 days of issuance. A delay in payment beyond 14 days may result in a pause of project work. Pixelate Nest retains ownership of all work and intellectual property until payment is received in full. No refunds are applicable on completed milestones."}
+        </Text>
+
+        <Text style={styles.termHeading}>4. Client Responsibilities</Text>
+        <Text style={styles.termText}>
+          {data?.termsClientResp ||
+            "The client agrees to: (a) provide all required content, assets, and access credentials within 5 business days of request; (b) review and provide consolidated feedback within 5 business days of each deliverable submission; (c) ensure a single designated point of contact for all project communications; (d) not share confidential project documents with third parties without prior written consent from Pixelate Nest. Delays in client-side responsibilities may impact the project delivery timeline and Pixelate Nest shall not be held liable for such delays."}
+        </Text>
+
+        <PageFooter data={data} />
+      </Page>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          PAGE 9 — APPROVAL & SIGNATURES
+      ═══════════════════════════════════════════════════════════════ */}
+      <Page size="A4" style={styles.page}>
+        <PageHeader section="Approval & Signatures" pageNum="9" />
+
+        <SectionHeading title="Document Approval" />
+
+        <Text style={{ fontSize: 10, color: MUTED, marginBottom: 24, lineHeight: 1.7 }}>
+          By signing below, both parties confirm that they have read, understood, and agreed to the terms and conditions outlined in this onboarding document. This document constitutes a formal agreement between the client and Pixelate Nest for the project described herein.
+        </Text>
+
+        {/* Summary strip */}
+        <View style={[styles.cardDark, { marginBottom: 28 }]}>
+          <View style={styles.row}>
+            <View style={styles.col}>
+              <Text style={{ fontSize: 8, color: CREAM, opacity: 0.6, textTransform: "uppercase", letterSpacing: 0.7, marginBottom: 4 }}>Project</Text>
+              <Text style={{ fontSize: 11, color: WHITE, fontFamily: "Helvetica-Bold" }}>{displayValue(data?.projectTitle)}</Text>
+            </View>
+            <View style={styles.col}>
+              <Text style={{ fontSize: 8, color: CREAM, opacity: 0.6, textTransform: "uppercase", letterSpacing: 0.7, marginBottom: 4 }}>Client</Text>
+              <Text style={{ fontSize: 11, color: WHITE, fontFamily: "Helvetica-Bold" }}>{displayValue(data?.clientName)}</Text>
+            </View>
+            <View style={styles.col}>
+              <Text style={{ fontSize: 8, color: CREAM, opacity: 0.6, textTransform: "uppercase", letterSpacing: 0.7, marginBottom: 4 }}>Date</Text>
+              <Text style={{ fontSize: 11, color: WHITE, fontFamily: "Helvetica-Bold" }}>{onboardingDate}</Text>
+            </View>
+          </View>
+        </View>
+
+        {/* Signature blocks */}
+        <View style={[styles.row, { marginTop: 8 }]}>
+          {/* Client */}
+          <View style={styles.col}>
+            <Text style={styles.subHeading}>Client Signature</Text>
+            <Text style={{ fontSize: 9, color: MUTED, marginBottom: 40 }}>
+              I hereby confirm my agreement to the terms set out in this document.
+            </Text>
+            <View style={styles.signatureBox}>
+              <Text style={styles.signatureLabel}>Signature</Text>
+            </View>
+            <View style={[styles.signatureBox, { marginTop: 14 }]}>
+              <Text style={styles.signatureLabel}>Printed Name</Text>
+              <Text style={styles.signatureName}>{displayValue(data?.clientName)}</Text>
+            </View>
+            <View style={[styles.signatureBox, { marginTop: 14 }]}>
+              <Text style={styles.signatureLabel}>Date</Text>
+              <Text style={styles.signatureDate}>____________________</Text>
+            </View>
+          </View>
+
+          {/* Vertical divider */}
+          <View style={{ width: 1, backgroundColor: RULE, marginHorizontal: 16 }} />
+
+          {/* Agency */}
+          <View style={styles.col}>
+            <Text style={styles.subHeading}>Pixelate Nest — Agency Signature</Text>
+            <Text style={{ fontSize: 9, color: MUTED, marginBottom: 40 }}>
+              On behalf of Pixelate Nest, we confirm our commitment to delivering the project as described.
+            </Text>
+            <View style={styles.signatureBox}>
+              <Text style={styles.signatureLabel}>Signature</Text>
+            </View>
+            <View style={[styles.signatureBox, { marginTop: 14 }]}>
+              <Text style={styles.signatureLabel}>Authorised Signatory</Text>
+              <Text style={styles.signatureName}>Pixelate Nest</Text>
+            </View>
+            <View style={[styles.signatureBox, { marginTop: 14 }]}>
+              <Text style={styles.signatureLabel}>Date</Text>
+              <Text style={styles.signatureDate}>____________________</Text>
+            </View>
+          </View>
+        </View>
+
+        <PageFooter data={data} />
+      </Page>
+    </Document>
   );
 }

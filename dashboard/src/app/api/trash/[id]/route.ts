@@ -1,15 +1,31 @@
 import { NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 
+type RouteContext = { params: Promise<{ id: string }> };
+
+async function getRouteId(context: RouteContext) {
+  const { id } = await context.params;
+  const normalized = String(id ?? "").trim();
+  if (!normalized || normalized === "undefined" || normalized === "null") {
+    return null;
+  }
+  return normalized;
+}
+
 /**
  * PATCH /api/trash/[id] — restore a trashed item back to its original collection
  */
 export async function PATCH(
   _request: Request,
-  { params }: { params: { id: string } },
+  context: RouteContext,
 ) {
   try {
-    const ok = await svc.restoreFromTrash(params.id);
+    const id = await getRouteId(context);
+    if (!id) {
+      return NextResponse.json({ error: "Invalid trash item id" }, { status: 400 });
+    }
+
+    const ok = await svc.restoreFromTrash(id);
     if (!ok)
       return NextResponse.json(
         { error: "Item not found in trash" },
@@ -26,10 +42,15 @@ export async function PATCH(
  */
 export async function DELETE(
   _request: Request,
-  { params }: { params: { id: string } },
+  context: RouteContext,
 ) {
   try {
-    const ok = await svc.permanentlyDestroyTrashItem(params.id);
+    const id = await getRouteId(context);
+    if (!id) {
+      return NextResponse.json({ error: "Invalid trash item id" }, { status: 400 });
+    }
+
+    const ok = await svc.permanentlyDestroyTrashItem(id);
     if (!ok)
       return NextResponse.json(
         { error: "Item not found in trash" },
