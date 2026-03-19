@@ -565,7 +565,7 @@
   background: linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
 }
 .offerings-container {
-  max-width: 1100px;
+  max-width: 95%;
   margin: 0 auto;
   text-align: center;
 }
@@ -616,6 +616,7 @@
 .offer-desc {
   color: rgba(0, 0, 0, 0.72);
   font-size: 0.95rem;
+  text-align: justify;
 }
 
 .offer-keywords {
