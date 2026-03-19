@@ -64,13 +64,13 @@
 
 @media (min-width: 768px) {
   .portfolio-grid {
-    grid-template-columns: repeat(4, 1fr); /* medium / laptop: 4 cards */
+    grid-template-columns: repeat(3, 1fr); 
   }
 }
 
 @media (min-width: 1200px) {
   .portfolio-grid {
-    grid-template-columns: repeat(5, 1fr); /* large: 5 cards */
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 .portfolio-card {
