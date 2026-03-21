@@ -20,11 +20,26 @@ import {
 } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 
+const getHsnCodeForService = (serviceName?: string) => {
+  const normalized = String(serviceName || "").trim().toLowerCase();
+  if (
+    normalized.includes("video") ||
+    normalized.includes("editing") ||
+    normalized.includes("photo") ||
+    normalized.includes("shoot") ||
+    normalized.includes("production")
+  ) {
+    return "999612" as const;
+  }
+  return "998314" as const;
+};
+
 type FormValues = {
   clientId: string;
   projectTitle: string;
   title: string;
   amount: number;
+  hsnCode: "998314" | "999612";
   dueDate: string;
   serviceId: string;
   status: string;
@@ -62,6 +77,7 @@ export function EditInvoiceDialog({
       projectTitle: "",
       title: "",
       amount: 0,
+      hsnCode: "998314",
       dueDate: "",
       serviceId: "",
       status: "",
@@ -86,6 +102,12 @@ export function EditInvoiceDialog({
     (selectedService?.name || "").toLowerCase() === "web development";
 
   React.useEffect(() => {
+    if (!selectedServiceId) return;
+    const mappedHsn = getHsnCodeForService(selectedService?.name);
+    form.setValue("hsnCode", mappedHsn, { shouldDirty: true });
+  }, [selectedServiceId, selectedService?.name, form]);
+
+  React.useEffect(() => {
     if (open && invoice) {
       form.reset({
         clientId: String(
@@ -95,6 +117,10 @@ export function EditInvoiceDialog({
         projectTitle: invoice.projectTitle ?? invoice.title ?? "",
         title: invoice.title ?? invoice.projectTitle ?? "",
         amount: invoice.amount ?? 0,
+        hsnCode:
+          String(invoice.hsnCode || "998314") === "999612"
+            ? "999612"
+            : "998314",
         dueDate: invoice.dueDate
           ? new Date(invoice.dueDate).toISOString().slice(0, 10)
           : "",
@@ -157,14 +183,26 @@ export function EditInvoiceDialog({
 
   const handleSave = async (values: any) => {
     try {
+      const selectedClient: any = clients.find(
+        (c) => String(c.id ?? c._id) === String(values.clientId),
+      );
+      const baseAmount = Number(values.amount || 0);
       const body: any = {
         clientId: values.clientId || null,
-        clientName:
-          clients.find((c) => String(c.id ?? c._id) === String(values.clientId))
-            ?.name || "",
+        clientName: selectedClient?.name || "",
+        clientAddress: selectedClient?.address || "",
+        clientCity: selectedClient?.city || "",
+        clientState: selectedClient?.state || "",
+        clientPin: selectedClient?.pin || "",
+        clientGst:
+          selectedClient?.gst || selectedClient?.gstin || selectedClient?.gstNumber || "",
         projectTitle: values.projectTitle || values.title || "",
         title: values.title || values.projectTitle || "Invoice",
-        amount: Number(values.amount || 0),
+        amount: baseAmount,
+        hsnCode: values.hsnCode || "998314",
+        applyGst: true,
+        gstPercent: 18,
+        tax: (baseAmount * 18) / 100,
         dueDate: values.dueDate || "",
         serviceId: values.serviceId || null,
         // new fields
@@ -292,6 +330,7 @@ export function EditInvoiceDialog({
                   </FormItem>
                 )}
               />
+
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -325,6 +364,22 @@ export function EditInvoiceDialog({
                             {s.name}
                           </option>
                         ))}
+                      </select>
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                name="hsnCode"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>HSN Code</FormLabel>
+                    <FormControl>
+                      <select {...field} className="w-full border p-2">
+                        <option value="998314">998314</option>
+                        <option value="999612">999612</option>
                       </select>
                     </FormControl>
                   </FormItem>

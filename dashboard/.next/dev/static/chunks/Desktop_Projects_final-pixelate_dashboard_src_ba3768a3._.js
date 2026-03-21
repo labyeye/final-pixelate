@@ -12,14 +12,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 // ─── Brand colours ───────────────────────────────────────────────────────────
-const DARK = "#263f49";
-const CREAM = "#f5f0e8";
-const CREAM_LIGHT = "#faf7f2";
-const ACCENT = "#3a5f6e";
-const RULE = "#d6cfc3";
-const MUTED = "#6b7280";
+const DARK = "#0449A9";
+const CREAM = "#FA7319";
+const CREAM_LIGHT = "#F4F7FC";
+const ACCENT = "#5A88C4";
+const RULE = "#D9E3F5";
+const MUTED = "#666667";
 const WHITE = "#ffffff";
-const TEXT = "#1c2b31";
+const TEXT = "#000000";
 // ─── Shared helpers ───────────────────────────────────────────────────────────
 const displayValue = (value)=>{
     if (value === null || value === undefined) return "—";
@@ -74,7 +74,7 @@ const styles = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projec
     },
     coverAgencyLabel: {
         fontSize: 11,
-        color: CREAM,
+        color: WHITE,
         letterSpacing: 3,
         textTransform: "uppercase",
         marginBottom: 10,
@@ -90,13 +90,13 @@ const styles = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projec
     coverDividerLine: {
         width: 60,
         height: 2,
-        backgroundColor: CREAM,
+        backgroundColor: WHITE,
         marginVertical: 20,
         opacity: 0.5
     },
     coverDocTitle: {
         fontSize: 14,
-        color: CREAM,
+        color: WHITE,
         letterSpacing: 2,
         textTransform: "uppercase",
         marginBottom: 48,
@@ -105,7 +105,7 @@ const styles = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projec
     coverInfoBox: {
         backgroundColor: "rgba(255,255,255,0.06)",
         borderRadius: 6,
-        borderLeft: `3 solid ${CREAM}`,
+        borderLeft: `3 solid ${WHITE}`,
         paddingVertical: 20,
         paddingHorizontal: 24,
         width: "100%",
@@ -118,7 +118,7 @@ const styles = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projec
     coverInfoLabel: {
         width: 110,
         fontSize: 9,
-        color: CREAM,
+        color: WHITE,
         opacity: 0.65,
         letterSpacing: 0.5,
         textTransform: "uppercase"
@@ -137,7 +137,7 @@ const styles = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projec
     },
     coverBottomText: {
         fontSize: 9,
-        color: CREAM,
+        color: WHITE,
         opacity: 0.55,
         letterSpacing: 1.5
     },
@@ -802,7 +802,7 @@ function OnboardingPDF({ data }) {
                         style: styles.coverBottom,
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Text"], {
                             style: styles.coverBottomText,
-                            children: "www.pixelatenest.com  ·  hello@pixelatenest.com"
+                            children: "www.pixelatenest.com  ·  support@pixelatenest.com"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/onboarding/onboarding-pdf.tsx",
                             lineNumber: 586,

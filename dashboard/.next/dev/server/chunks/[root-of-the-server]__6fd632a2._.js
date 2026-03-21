@@ -712,22 +712,13 @@ async function renumberInvoices(financialYear) {
     };
     let counter = 1;
     for (const inv of invoices){
-        // determine fy for this invoice
-        const invDate = inv.createdAt ? new Date(inv.createdAt) : new Date();
-        const fy = financialYear || function getFY(d) {
-            const y = d.getFullYear();
-            const m = d.getMonth() + 1;
-            if (m >= 4) return `${y}-${y + 1}`;
-            return `${y - 1}-${y}`;
-        }(invDate);
-        const padded = String(counter).padStart(5, "0");
-        const invoiceNo = `KTS/${fy}/${padded}`;
+        const padded = String(counter).padStart(4, "0");
+        const invoiceNo = `KTS-${padded}`;
         await col.updateOne({
             _id: inv._id
         }, {
             $set: {
-                invoiceNo,
-                financialYear: fy
+                invoiceNo
             }
         });
         counter++;
@@ -738,21 +729,13 @@ async function renumberInvoices(financialYear) {
 }
 async function createInvoice(invoice) {
     const col = await getCollection("invoices");
-    // generate invoice id and invoiceNo using KTS/<financialYear>/<padded>
+    // generate invoiceNo in KTS-0001 format
     try {
-        const now = new Date();
-        const fy = invoice.financialYear || function getFY(d) {
-            const y = d.getFullYear();
-            const m = d.getMonth() + 1;
-            // FY starts from April
-            if (m >= 4) return `${y}-${y + 1}`;
-            return `${y - 1}-${y}`;
-        }(now);
-        // find existing max number for this FY
-        const regex = new RegExp(`^KTS/${fy.replace(/[-\\/]/g, "\\$&")}/(\\d+)$`);
+        // find existing max number in KTS-0001 format
+        const regex = /^KTS-(\d+)$/;
         const docs = await col.find({
             invoiceNo: {
-                $regex: `^KTS/${fy.replace(/[-\\/]/g, "\\$&")}/`
+                $regex: "^KTS-"
             }
         }).project({
             invoiceNo: 1
@@ -760,28 +743,26 @@ async function createInvoice(invoice) {
         let maxNum = 0;
         for (const d of docs){
             const s = String(d.invoiceNo || "");
-            const m = s.match(/\/(\d+)$/);
+            const m = s.match(regex);
             if (m) {
                 const n = parseInt(m[1], 10);
                 if (!isNaN(n) && n > maxNum) maxNum = n;
             }
         }
         const nextNum = maxNum + 1;
-        const padded = String(nextNum).padStart(5, "0");
-        const invoiceNo = `KTS/${fy}/${padded}`;
+        const padded = String(nextNum).padStart(4, "0");
+        const invoiceNo = `KTS-${padded}`;
         const id = `PN-${padded}`;
         const res = await col.insertOne({
             ...invoice,
             id,
             invoiceNo,
-            financialYear: fy,
             createdAt: new Date()
         });
         const created = {
             ...invoice,
             id,
             invoiceNo,
-            financialYear: fy,
             _id: res.insertedId
         };
         // If invoice contains inventory usage, decrement stock

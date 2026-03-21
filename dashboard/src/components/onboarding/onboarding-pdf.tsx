@@ -5,17 +5,21 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
 } from "@react-pdf/renderer";
-
+import logo from "../../assets/images/Logo_White_Name_Large.png";
+import sign from "../../assets/sign.png"
+const signsrc = typeof sign === "string" ? sign : sign.src;
+const logoSrc = typeof logo === "string" ? logo : logo.src;
 // ─── Brand colours ───────────────────────────────────────────────────────────
-const DARK = "#263f49";
-const CREAM = "#f5f0e8";
-const CREAM_LIGHT = "#faf7f2";
-const ACCENT = "#3a5f6e";
-const RULE = "#d6cfc3";
-const MUTED = "#6b7280";
+const DARK = "#0449A9";
+const CREAM = "#FA7319";
+const CREAM_LIGHT = "#F4F7FC";
+const ACCENT = "#5A88C4";
+const RULE = "#D9E3F5";
+const MUTED = "#666667";
 const WHITE = "#ffffff";
-const TEXT = "#1c2b31";
+const TEXT = "#000000";
 
 // ─── Shared helpers ───────────────────────────────────────────────────────────
 const displayValue = (value?: string | number | null): string => {
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
   },
   coverAgencyLabel: {
     fontSize: 11,
-    color: CREAM,
+    color: WHITE,
     letterSpacing: 3,
     textTransform: "uppercase",
     marginBottom: 10,
@@ -91,13 +95,13 @@ const styles = StyleSheet.create({
   coverDividerLine: {
     width: 60,
     height: 2,
-    backgroundColor: CREAM,
+    backgroundColor: WHITE,
     marginVertical: 20,
     opacity: 0.5,
   },
   coverDocTitle: {
     fontSize: 14,
-    color: CREAM,
+    color: WHITE,
     letterSpacing: 2,
     textTransform: "uppercase",
     marginBottom: 48,
@@ -106,7 +110,7 @@ const styles = StyleSheet.create({
   coverInfoBox: {
     backgroundColor: "rgba(255,255,255,0.06)",
     borderRadius: 6,
-    borderLeft: `3 solid ${CREAM}`,
+    borderLeft: `3 solid ${WHITE}`,
     paddingVertical: 20,
     paddingHorizontal: 24,
     width: "100%",
@@ -119,7 +123,7 @@ const styles = StyleSheet.create({
   coverInfoLabel: {
     width: 110,
     fontSize: 9,
-    color: CREAM,
+    color: WHITE,
     opacity: 0.65,
     letterSpacing: 0.5,
     textTransform: "uppercase",
@@ -138,7 +142,7 @@ const styles = StyleSheet.create({
   },
   coverBottomText: {
     fontSize: 9,
-    color: CREAM,
+    color: WHITE,
     opacity: 0.55,
     letterSpacing: 1.5,
   },
@@ -269,9 +273,9 @@ const styles = StyleSheet.create({
   // ── Deliverable checklist ──
   deliverableRow: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
     marginBottom: 8,
-    paddingVertical: 6,
+    paddingVertical: 8,
     paddingHorizontal: 10,
     borderRadius: 4,
     backgroundColor: CREAM_LIGHT,
@@ -291,18 +295,42 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     backgroundColor: DARK,
     marginRight: 10,
+    marginTop: 2,
     justifyContent: "center",
     alignItems: "center",
   },
-  deliverableLabel: {
+  deliverableTextWrap: {
     flex: 1,
+    flexDirection: "column",
+  },
+  deliverableLabel: {
     fontSize: 10,
     fontFamily: "Helvetica-Bold",
     color: TEXT,
+    marginBottom: 2,
+    lineHeight: 1.35,
   },
   deliverableDesc: {
     fontSize: 9,
     color: MUTED,
+    lineHeight: 1.35,
+  },
+
+  paymentMethodsWrap: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginTop: 2,
+  },
+  paymentMethodChip: {
+    fontSize: 9,
+    color: DARK,
+    backgroundColor: CREAM_LIGHT,
+    border: `0.75 solid ${RULE}`,
+    borderRadius: 3,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    marginRight: 6,
+    marginBottom: 6,
   },
 
   // ── Timeline ──
@@ -454,10 +482,12 @@ function PageHeader({ section, pageNum }: { section: string; pageNum: string }) 
 }
 
 function PageFooter({ data }: { data: any }) {
+  const footerClientName = data?.clientName ?? data?.client ?? data?.company;
+  const footerProjectTitle = data?.projectTitle ?? data?.title;
   return (
     <View style={styles.pageFooter} fixed>
       <Text style={styles.pageFooterText}>
-        Client Onboarding Document · {displayValue(data?.clientName)} · {displayValue(data?.projectTitle)}
+        Client Onboarding Document · {displayValue(footerClientName)} · {displayValue(footerProjectTitle)}
       </Text>
       <Text style={styles.pageFooterText}>
         Confidential — Pixelate Nest
@@ -491,6 +521,68 @@ function SectionHeading({ title }: { title: string }) {
 // ─── PDF Document ─────────────────────────────────────────────────────────────
 
 export function OnboardingPDF({ data }: { data: any }) {
+  const clientName = data?.clientName ?? data?.client ?? data?.company;
+  const company = data?.company ?? data?.businessName;
+  const projectTitle = data?.projectTitle ?? data?.title;
+  const projectType = data?.projectType ?? data?.purpose ?? data?.objective;
+  const productType = data?.productType ?? (Array.isArray(data?.modules) && data.modules.length > 0 ? "Custom" : "Website");
+  const pagesValue =
+    data?.pages ??
+    (Array.isArray(data?.modules) && data.modules.length > 0
+      ? data.modules
+          .map((module: any) => module?.moduleName || module?.name)
+          .filter(Boolean)
+          .join(", ")
+      : "");
+  const startDateValue = data?.startDate ?? data?.date;
+  const deadlineValue = data?.deadline ?? data?.deliveryDate;
+  const briefValue = data?.brief ?? data?.objective ?? data?.purpose;
+
+  const parseTechStack = (value: unknown): string[] => {
+    if (Array.isArray(value)) {
+      return value.map((item) => String(item ?? "").trim()).filter(Boolean);
+    }
+    if (typeof value === "string") {
+      return value
+        .split(/[\n,]/)
+        .map((item) => item.trim())
+        .filter(Boolean);
+    }
+    return [];
+  };
+
+  const deriveBudget = (source: any): string | number | null => {
+    if (source?.budget !== undefined && source?.budget !== null && String(source?.budget).trim() !== "") {
+      return source.budget;
+    }
+    if (source?.amount !== undefined && source?.amount !== null && String(source?.amount).trim() !== "") {
+      return source.amount;
+    }
+
+    const servicesTotal = Array.isArray(source?.services)
+      ? source.services.reduce((sum: number, item: any) => {
+          const value = Number(
+            item?.total ??
+              item?.amount ??
+              (Number(item?.qty || 0) * Number(item?.price || 0)),
+          );
+          return sum + (Number.isFinite(value) ? value : 0);
+        }, 0)
+      : 0;
+    const lineItemsTotal = Array.isArray(source?.lineItems)
+      ? source.lineItems.reduce((sum: number, item: any) => {
+          const value = Number(
+            item?.total ??
+              (Number(item?.qty || 0) * Number(item?.unitPrice || 0)),
+          );
+          return sum + (Number.isFinite(value) ? value : 0);
+        }, 0)
+      : 0;
+
+    const total = servicesTotal + lineItemsTotal;
+    return total > 0 ? total : null;
+  };
+
   const deliverablePhases = [
     {
       phase: "01",
@@ -524,17 +616,50 @@ export function OnboardingPDF({ data }: { data: any }) {
     },
   ];
 
-  const paymentMilestones = normalizeList(data?.paymentMilestones);
-  const milestones = normalizeList(data?.milestones);
-  const techStack = normalizeList(data?.techStack);
-  const outOfScope = normalizeList(data?.outOfScope);
-  const scopeOfWork = normalizeList(data?.scopeOfWork);
+  const scopeOfWork = normalizeList(data?.scopeOfWork ?? data?.scope);
+  const outOfScope = normalizeList(data?.outOfScope ?? data?.exclusions);
+  const techStackFromModel = parseTechStack(data?.techStack);
+  const derivedTechStack = [
+    ...(Array.isArray(data?.services)
+      ? data.services.map((service: any) => service?.serviceName || service?.name).filter(Boolean)
+      : []),
+    ...(Array.isArray(data?.modules)
+      ? data.modules.map((module: any) => module?.moduleName || module?.name).filter(Boolean)
+      : []),
+  ];
+  const techStack = techStackFromModel.length > 0 ? techStackFromModel : derivedTechStack;
+
+  const milestones = normalizeList(
+    data?.milestones ??
+      (Array.isArray(data?.timeline)
+        ? data.timeline
+            .map((step: any) => {
+              const phase = String(step?.phase ?? "").trim();
+              const description = String(step?.description ?? step?.duration ?? "").trim();
+              if (phase && description) return `${phase}: ${description}`;
+              return phase || description;
+            })
+            .filter(Boolean)
+            .join("\n")
+        : ""),
+  );
+
+  const paymentMilestones = normalizeList(
+    data?.paymentMilestones ?? data?.paymentTerms,
+  );
+
+  const budgetValue = deriveBudget(data);
 
   const onboardingDate = formatDate(data?.date || new Date());
+  const agencySignatureDate = new Date().toLocaleDateString("en-IN", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
 
   return (
     <Document
-      title={`Client Onboarding — ${displayValue(data?.clientName)} — ${displayValue(data?.projectTitle)}`}
+      title={`Client Onboarding — ${displayValue(clientName)} — ${displayValue(projectTitle)}`}
       author="Pixelate Nest"
       creator="Pixelate Nest CRM"
       subject="Client Onboarding Document"
@@ -544,31 +669,22 @@ export function OnboardingPDF({ data }: { data: any }) {
       ═══════════════════════════════════════════════════════════════ */}
       <Page size="A4" style={[styles.page, styles.coverPage]}>
         <View style={styles.coverTop}>
-          {/* Agency branding */}
+          <Image src={logoSrc} style={{ width: 400, marginBottom: 120 }} />
           <Text style={styles.coverAgencyLabel}>Client Onboarding Document</Text>
-          <Text style={styles.coverAgencyName}>Pixelate Nest</Text>
           <View style={styles.coverDividerLine} />
           <Text style={styles.coverDocTitle}>
-            {displayValue(data?.projectTitle || "New Project")}
+            {displayValue(projectTitle || "New Project")}
           </Text>
 
           {/* Info box */}
           <View style={styles.coverInfoBox}>
             <View style={styles.coverInfoRow}>
               <Text style={styles.coverInfoLabel}>Client</Text>
-              <Text style={styles.coverInfoValue}>{displayValue(data?.clientName)}</Text>
+              <Text style={styles.coverInfoValue}>{displayValue(clientName)}</Text>
             </View>
             <View style={styles.coverInfoRow}>
               <Text style={styles.coverInfoLabel}>Company</Text>
-              <Text style={styles.coverInfoValue}>{displayValue(data?.company)}</Text>
-            </View>
-            <View style={styles.coverInfoRow}>
-              <Text style={styles.coverInfoLabel}>Project ID</Text>
-              <Text style={styles.coverInfoValue}>{displayValue(data?.projectId || "—")}</Text>
-            </View>
-            <View style={styles.coverInfoRow}>
-              <Text style={styles.coverInfoLabel}>Client ID</Text>
-              <Text style={styles.coverInfoValue}>{displayValue(data?.clientDisplayId || "—")}</Text>
+              <Text style={styles.coverInfoValue}>{displayValue(company)}</Text>
             </View>
             <View style={styles.coverInfoRow}>
               <Text style={styles.coverInfoLabel}>Onboarding Date</Text>
@@ -577,14 +693,14 @@ export function OnboardingPDF({ data }: { data: any }) {
           </View>
 
           {/* Tagline */}
-          <Text style={{ fontSize: 9, color: CREAM, opacity: 0.45, textAlign: "center", marginTop: 8 }}>
+          <Text style={{ fontSize: 9, color: WHITE, textAlign: "center", marginTop: 8 }}>
             This document is confidential and prepared exclusively for the above-named client.
           </Text>
         </View>
 
         <View style={styles.coverBottom}>
           <Text style={styles.coverBottomText}>
-            www.pixelatenest.com  ·  hello@pixelatenest.com
+            www.pixelatenest.com  ·  support@pixelatenest.com
           </Text>
         </View>
       </Page>
@@ -597,8 +713,8 @@ export function OnboardingPDF({ data }: { data: any }) {
 
         <SectionHeading title="Client Information" />
         <View style={styles.card}>
-          <Field label="Full Name" value={data?.clientName} />
-          <Field label="Company" value={data?.company} />
+          <Field label="Full Name" value={clientName} />
+          <Field label="Company" value={company} />
           <Field label="Email Address" value={data?.email} />
           <Field label="Phone Number" value={data?.phone} />
           <Field label="Address" value={data?.address} />
@@ -625,16 +741,16 @@ export function OnboardingPDF({ data }: { data: any }) {
         <View style={styles.row}>
           <View style={styles.col}>
             <View style={styles.card}>
-              <Field label="Project Title" value={data?.projectTitle} />
-              <Field label="Project Type" value={data?.projectType} />
-              <Field label="Product Type" value={data?.productType} />
+              <Field label="Project Title" value={projectTitle} />
+              <Field label="Project Type" value={projectType} />
+              <Field label="Product Type" value={productType} />
             </View>
           </View>
           <View style={styles.col}>
             <View style={styles.cardGhost}>
-              <Field label="Pages / Modules" value={data?.pages} />
-              <Field label="Start Date" value={formatDate(data?.startDate)} />
-              <Field label="Target Delivery" value={formatDate(data?.deadline)} />
+              <Field label="Pages / Modules" value={pagesValue} />
+              <Field label="Start Date" value={formatDate(startDateValue)} />
+              <Field label="Target Delivery" value={formatDate(deadlineValue)} />
             </View>
           </View>
         </View>
@@ -642,7 +758,7 @@ export function OnboardingPDF({ data }: { data: any }) {
         <Text style={styles.subHeading}>Project Brief &amp; Requirements</Text>
         <View style={styles.cardGhost}>
           <Text style={styles.briefText}>
-            {displayValue(data?.brief)}
+            {displayValue(briefValue)}
           </Text>
         </View>
 
@@ -703,7 +819,7 @@ export function OnboardingPDF({ data }: { data: any }) {
 
         <Text style={styles.subHeading}>Pages / Modules</Text>
         <View style={styles.card}>
-          <Text style={styles.briefText}>{displayValue(data?.pages)}</Text>
+          <Text style={styles.briefText}>{displayValue(pagesValue)}</Text>
         </View>
 
         <PageFooter data={data} />
@@ -766,20 +882,22 @@ export function OnboardingPDF({ data }: { data: any }) {
 
         <View style={styles.row}>
           <View style={[styles.col, styles.cardDark]}>
-            <Text style={{ fontSize: 9, color: CREAM, opacity: 0.6, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6 }}>
+            <Text style={{ fontSize: 9, color: WHITE, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6 }}>
               Estimated Budget
             </Text>
             <Text style={{ fontSize: 22, fontFamily: "Helvetica-Bold", color: WHITE }}>
-              {displayValue(data?.budget)}
+              ₹ {displayValue(budgetValue)}
             </Text>
           </View>
           <View style={[styles.col, styles.card]}>
             <Text style={{ fontSize: 9, color: MUTED, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6 }}>
-              Payment Method
+              Payment Methods
             </Text>
-            <Text style={{ fontSize: 13, fontFamily: "Helvetica-Bold", color: DARK }}>
-              {displayValue(data?.paymentMethod)}
-            </Text>
+            <View style={styles.paymentMethodsWrap}>
+              <Text style={styles.paymentMethodChip}>UPI</Text>
+              <Text style={styles.paymentMethodChip}>Cash</Text>
+              <Text style={styles.paymentMethodChip}>Bank Transfer</Text>
+            </View>
           </View>
         </View>
 
@@ -814,7 +932,7 @@ export function OnboardingPDF({ data }: { data: any }) {
             <View style={styles.deliverableCheckFilled}>
               <Text style={{ fontSize: 7, color: WHITE, textAlign: "center" }}>✓</Text>
             </View>
-            <View style={{ flex: 1 }}>
+            <View style={styles.deliverableTextWrap}>
               <Text style={styles.deliverableLabel}>Phase {d.phase} — {d.label}</Text>
               <Text style={styles.deliverableDesc}>{d.desc}</Text>
             </View>
@@ -875,15 +993,15 @@ export function OnboardingPDF({ data }: { data: any }) {
         <View style={[styles.cardDark, { marginBottom: 28 }]}>
           <View style={styles.row}>
             <View style={styles.col}>
-              <Text style={{ fontSize: 8, color: CREAM, opacity: 0.6, textTransform: "uppercase", letterSpacing: 0.7, marginBottom: 4 }}>Project</Text>
+              <Text style={{ fontSize: 8, color: WHITE, textTransform: "uppercase", letterSpacing: 0.7, marginBottom: 4 }}>Project</Text>
               <Text style={{ fontSize: 11, color: WHITE, fontFamily: "Helvetica-Bold" }}>{displayValue(data?.projectTitle)}</Text>
             </View>
             <View style={styles.col}>
-              <Text style={{ fontSize: 8, color: CREAM, opacity: 0.6, textTransform: "uppercase", letterSpacing: 0.7, marginBottom: 4 }}>Client</Text>
+              <Text style={{ fontSize: 8, color: WHITE, textTransform: "uppercase", letterSpacing: 0.7, marginBottom: 4 }}>Client</Text>
               <Text style={{ fontSize: 11, color: WHITE, fontFamily: "Helvetica-Bold" }}>{displayValue(data?.clientName)}</Text>
             </View>
             <View style={styles.col}>
-              <Text style={{ fontSize: 8, color: CREAM, opacity: 0.6, textTransform: "uppercase", letterSpacing: 0.7, marginBottom: 4 }}>Date</Text>
+              <Text style={{ fontSize: 8, color: WHITE, textTransform: "uppercase", letterSpacing: 0.7, marginBottom: 4 }}>Date</Text>
               <Text style={{ fontSize: 11, color: WHITE, fontFamily: "Helvetica-Bold" }}>{onboardingDate}</Text>
             </View>
           </View>
@@ -919,6 +1037,8 @@ export function OnboardingPDF({ data }: { data: any }) {
             <Text style={{ fontSize: 9, color: MUTED, marginBottom: 40 }}>
               On behalf of Pixelate Nest, we confirm our commitment to delivering the project as described.
             </Text>
+            <Image src={signsrc} style={{ width: 120 ,marginBottom:-20}} />
+
             <View style={styles.signatureBox}>
               <Text style={styles.signatureLabel}>Signature</Text>
             </View>
@@ -928,7 +1048,7 @@ export function OnboardingPDF({ data }: { data: any }) {
             </View>
             <View style={[styles.signatureBox, { marginTop: 14 }]}>
               <Text style={styles.signatureLabel}>Date</Text>
-              <Text style={styles.signatureDate}>____________________</Text>
+              <Text style={styles.signatureDate}>{agencySignatureDate}</Text>
             </View>
           </View>
         </View>

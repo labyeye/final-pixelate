@@ -29,6 +29,9 @@ const formSchema = z.object({
   email: z.string().email("Invalid email address."),
   phone: z.string().min(10, "Invalid phone number."),
   address: z.string().min(5, "Address is required."),
+  city: z.string().min(2, "City is required."),
+  state: z.string().min(2, "State is required."),
+  pin: z.string().min(6, "PIN must be at least 6 digits."),
   hasGst: z.boolean().default(false),
   gstCompanyName: z.string().optional(),
   gstNumber: z.string().optional(),
@@ -65,6 +68,9 @@ export function AddClientDialog({ isOpen, setIsOpen, onAddClient, onSave, initia
       email: initialValues?.email ?? "",
       phone: initialValues?.phone ?? "",
       address: initialValues?.address ?? "",
+      city: (initialValues as any)?.city ?? "",
+      state: (initialValues as any)?.state ?? "",
+      pin: (initialValues as any)?.pin ?? "",
       hasGst: initialValues?.hasGst ?? false,
       loginEmail: initialValues?.loginEmail ?? "",
       loginPassword: "",
@@ -81,6 +87,9 @@ export function AddClientDialog({ isOpen, setIsOpen, onAddClient, onSave, initia
         email: initialValues.email ?? "",
         phone: initialValues.phone ?? "",
         address: initialValues.address ?? "",
+        city: (initialValues as any).city ?? "",
+        state: (initialValues as any).state ?? "",
+        pin: (initialValues as any).pin ?? "",
         hasGst: initialValues.hasGst ?? false,
         gstCompanyName: initialValues.gstCompanyName ?? undefined,
         gstNumber: initialValues.gstNumber ?? undefined,
@@ -131,6 +140,15 @@ export function AddClientDialog({ isOpen, setIsOpen, onAddClient, onSave, initia
                         )} />
                         <FormField control={form.control} name="phone" render={({ field }) => (
                             <FormItem><FormLabel>Client Phone</FormLabel><FormControl><Input type="tel" {...field} /></FormControl><FormMessage /></FormItem>
+                        )} />
+                        <FormField control={form.control} name="city" render={({ field }) => (
+                          <FormItem><FormLabel>City</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage /></FormItem>
+                        )} />
+                        <FormField control={form.control} name="state" render={({ field }) => (
+                          <FormItem><FormLabel>State</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage /></FormItem>
+                        )} />
+                        <FormField control={form.control} name="pin" render={({ field }) => (
+                          <FormItem><FormLabel>PIN Code</FormLabel><FormControl><Input inputMode="numeric" {...field} /></FormControl><FormMessage /></FormItem>
                         )} />
                         <FormField control={form.control} name="address" render={({ field }) => (
                            <FormItem className="md:col-span-2"><FormLabel>Client Address</FormLabel><FormControl><Textarea {...field} /></FormControl><FormMessage /></FormItem>

@@ -98,6 +98,24 @@ export type Quotation = {
   paymentTerms?: string;
   customTerms?: string[];
 
+  // Optional onboarding-compatible fields
+  projectId?: string;
+  clientDisplayId?: string;
+  projectTitle?: string;
+  projectType?: string;
+  productType?: string;
+  pages?: string;
+  budget?: string | number;
+  startDate?: Date | string;
+  deadline?: Date | string;
+  brief?: string;
+  scopeOfWork?: string[] | string;
+  outOfScope?: string[] | string;
+  techStack?: string[] | string;
+  milestones?: string[] | string;
+  paymentMilestones?: string[] | string;
+  paymentMethod?: string;
+
   // Metadata
   status: "DRAFT" | "PENDING" | "APPROVED" | "REJECTED" | "CONVERTED";
   authorId?: string | number;

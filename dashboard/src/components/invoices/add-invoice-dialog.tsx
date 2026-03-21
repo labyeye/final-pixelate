@@ -27,6 +27,20 @@ import { renderToString } from "react-dom/server";
 // ── WhatsApp green colour ─────────────────────────────────────────────────────
 const WA_GREEN = "#25D366";
 
+const getHsnCodeForService = (serviceName?: string) => {
+  const normalized = String(serviceName || "").trim().toLowerCase();
+  if (
+    normalized.includes("video") ||
+    normalized.includes("editing") ||
+    normalized.includes("photo") ||
+    normalized.includes("shoot") ||
+    normalized.includes("production")
+  ) {
+    return "999612" as const;
+  }
+  return "998314" as const;
+};
+
 export function AddInvoiceDialog({
   clients,
   services,
@@ -44,6 +58,7 @@ export function AddInvoiceDialog({
     projectTitle: string;
     title: string;
     amount: number;
+    hsnCode: "998314" | "999612";
     dueDate: string;
     assignedStaff: string[];
     workDate: string;
@@ -70,6 +85,7 @@ export function AddInvoiceDialog({
       projectTitle: "",
       title: "",
       amount: 0,
+      hsnCode: "998314",
       dueDate: "",
       assignedStaff: [],
       workDate: "",
@@ -90,18 +106,36 @@ export function AddInvoiceDialog({
   const isWebDev =
     (selectedService?.name || "").toLowerCase() === "web development";
 
+  useEffect(() => {
+    if (!selectedServiceId) return;
+    const mappedHsn = getHsnCodeForService(selectedService?.name);
+    form.setValue("hsnCode", mappedHsn, { shouldDirty: true });
+  }, [selectedServiceId, selectedService?.name, form]);
+
   const handleSave = async (values: any) => {
     try {
+      const selectedClient: any = clients.find(
+        (c) => String(c.id ?? c._id) === String(values.clientId),
+      );
+      const baseAmount = Number(values.amount || 0);
       const invoice: any = {
         clientId: values.clientId || null,
-        clientName:
-          clients.find((c) => String(c.id ?? c._id) === String(values.clientId))
-            ?.name || "",
+        clientName: selectedClient?.name || "",
+        clientAddress: selectedClient?.address || "",
+        clientCity: selectedClient?.city || "",
+        clientState: selectedClient?.state || "",
+        clientPin: selectedClient?.pin || "",
+        clientGst:
+          selectedClient?.gst || selectedClient?.gstin || selectedClient?.gstNumber || "",
         serviceId: values.serviceId || null,
         projectTitle: values.projectTitle || values.title || "",
         title: values.title || values.projectTitle || "Invoice",
-        amount: Number(values.amount || 0),
+        amount: baseAmount,
+        hsnCode: values.hsnCode || "998314",
         dueDate: values.dueDate || "",
+        applyGst: true,
+        gstPercent: 18,
+        tax: (baseAmount * 18) / 100,
         // new fields
         assignedStaff: Array.isArray(values.assignedStaff)
           ? values.assignedStaff
@@ -200,7 +234,7 @@ export function AddInvoiceDialog({
         }
 
         const pdfBody = renderToString(
-          <InvoicePDF invoice={{ ...created, ...invoice }} />,
+          <InvoicePDF invoice={{ ...created, ...invoice }} client={selectedClient} />,
         );
         const notoHref =
           "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
@@ -263,7 +297,7 @@ export function AddInvoiceDialog({
       } catch (e) {
         // fallback simple render
         const pdfContent = renderToString(
-          <InvoicePDF invoice={{ ...created, ...invoice }} />,
+          <InvoicePDF invoice={{ ...created, ...invoice }} client={selectedClient} />,
         );
         const finalPdfContent = String(pdfContent).replace(/₹/g, "Rs.");
         const pageWidth = doc.internal.pageSize.getWidth();
@@ -409,6 +443,7 @@ export function AddInvoiceDialog({
                   </FormItem>
                 )}
               />
+
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <FormField
@@ -441,6 +476,22 @@ export function AddInvoiceDialog({
                             {s.name}
                           </option>
                         ))}
+                      </select>
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                name="hsnCode"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>HSN Code</FormLabel>
+                    <FormControl>
+                      <select {...field} className="w-full border p-2">
+                        <option value="998314">998314</option>
+                        <option value="999612">999612</option>
                       </select>
                     </FormControl>
                   </FormItem>

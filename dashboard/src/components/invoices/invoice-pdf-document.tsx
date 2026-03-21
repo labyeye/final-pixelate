@@ -8,6 +8,8 @@ import {
   Image,
 } from "@react-pdf/renderer";
 import logo from "../../assets/images/Logo_Color_Name_Large.png";
+import sign from "../../assets/images/sign.png";
+const signsrc = typeof sign === "string" ? sign : sign.src;
 const S = StyleSheet.create({
   page: {
     fontFamily: "Helvetica",
@@ -58,6 +60,13 @@ const S = StyleSheet.create({
     paddingVertical: 2,
     paddingHorizontal: 7,
     alignSelf: "flex-start",
+  },
+  signatureImage: {
+    width: 120,
+    height: 40,
+    objectFit: "contain",
+    marginTop: 4,
+    marginBottom: -20,
   },
 
   // Party
@@ -167,22 +176,16 @@ const S = StyleSheet.create({
   },
   grandTotalRow: {
     flexDirection: "row",
-    paddingVertical: 6,
+    paddingVertical: 4,
     paddingHorizontal: 10,
-    backgroundColor: "#111",
+    borderBottom: "0.5pt solid #ddd",
   },
-  grandTotalLabel: {
-    flex: 1,
-    fontSize: 10,
-    fontFamily: "Helvetica-Bold",
-    color: "#fff",
-  },
+  grandTotalLabel: { flex: 1, fontSize: 8, color: "#555" },
   grandTotalValue: {
     width: 85,
-    fontSize: 10,
-    fontFamily: "Helvetica-Bold",
+    fontSize: 8,
     textAlign: "right",
-    color: "#fff",
+    color: "#111",
   },
 
   // Tax table
@@ -217,13 +220,17 @@ const S = StyleSheet.create({
 
   // Signature/declaration
   footerSection: { flexDirection: "row", borderBottom: "1pt solid #222" },
-  declarationBlock: { flex: 1, padding: 8, borderRight: "1pt solid #222" },
+  declarationBlock: {
+    width: 333.25,
+    padding: 8,
+    borderRight: "1pt solid #222",
+  },
   signatureBlock: { width: 210, padding: 8, alignItems: "flex-end" },
   declarationText: {
-    fontSize: 7.5,
+    fontSize: 7,
     color: "#666",
-    lineHeight: 1.5,
-    marginTop: 4,
+    lineHeight: 1.2,
+    marginTop: 2,
   },
   signatureLine: {
     width: 150,
@@ -275,7 +282,7 @@ const getItems = (invoice: any): any[] => {
       {
         description:
           invoice.title || invoice.projectTitle || "Professional Services",
-        hsn: "",
+        hsn: String(invoice?.hsnCode || "998314"),
         quantity: 1,
         unit: "Nos",
         price: Number(invoice.amount),
@@ -363,6 +370,8 @@ export function InvoicePDFDocument({
   client?: any;
 }) {
   const items = getItems(invoice);
+  const selectedHsnCode =
+    String(invoice?.hsnCode || "998314") === "999612" ? "999612" : "998314";
 
   // ── Calculations ──
   const subtotal = items.reduce((s: number, it: any) => {
@@ -372,14 +381,17 @@ export function InvoicePDFDocument({
   }, 0);
 
   const discount = Number(invoice?.discount ?? 0) || 0;
-  const taxable = subtotal - discount;
-  const gstPct = Number(invoice?.gstPercent ?? invoice?.gst_percent ?? 0);
-  const taxAmt =
-    gstPct > 0 ? (taxable * gstPct) / 100 : Number(invoice?.tax ?? 0) || 0;
+  const taxable = Math.max(0, subtotal - discount);
+  const gstPct = 18;
+  const taxAmt = (taxable * gstPct) / 100;
 
-  const isInterState = !!(
-    client?.state && client.state.trim().toLowerCase() !== "bihar"
-  );
+  const normalizedClientState = String(
+    client?.state ?? invoice?.clientState ?? "",
+  )
+    .trim()
+    .toLowerCase();
+  const isBihar = normalizedClientState.includes("bihar");
+  const isInterState = normalizedClientState ? !isBihar : false;
   const cgst = isInterState ? 0 : taxAmt / 2;
   const sgst = isInterState ? 0 : taxAmt / 2;
   const igst = isInterState ? taxAmt : 0;
@@ -401,7 +413,13 @@ export function InvoicePDFDocument({
   const clientCity = client?.city || invoice?.clientCity || "";
   const clientState = client?.state || invoice?.clientState || "";
   const clientPin = client?.pin || invoice?.clientPin || "";
-  const clientGst = client?.gst || invoice?.clientGst || client?.gstin || "";
+  const clientGst =
+    client?.gst ||
+    client?.gstNumber ||
+    client?.gstin ||
+    invoice?.clientGst ||
+    invoice?.gstNumber ||
+    "";
   const clientEmail = client?.email || invoice?.clientEmail || "";
   const clientPhone = client?.phone || invoice?.clientPhone || "";
   const fullAddress = [clientAddress, clientCity, clientState, clientPin]
@@ -447,9 +465,9 @@ export function InvoicePDFDocument({
                 Email: support@pixelatenest.com | Phone: +91 84069 12345
               </Text>
               <Text style={S.companyLine}>Website: pixelatenest.com</Text>
-              <Text style={S.companyGst}>GSTIN: 10AADCK1491R2ZB</Text>
+              <Text style={S.companyGst}>GSTIN: 10ABFFK0650E1Z2</Text>
               <Text style={S.companyLine}>
-                PAN: AADCK1491R | State: Bihar (Code: 10)
+                PAN: ABFFK0650E | State: Bihar (Code: 10)
               </Text>
             </View>
 
@@ -551,7 +569,8 @@ export function InvoicePDFDocument({
               );
               const itemDisc = Number(item?.discount ?? 0);
               const amt = qty * rate - itemDisc;
-              const hsn = item?.hsn ?? item?.sac ?? item?.hsnCode ?? "998314";
+              const hsn =
+                item?.hsn ?? item?.sac ?? item?.hsnCode ?? selectedHsnCode;
               const unit = item?.unit ?? "Nos";
               return (
                 <View
@@ -609,12 +628,14 @@ export function InvoicePDFDocument({
             <View style={S.bottomLeft}>
               <Text style={S.sectionLabel}>Bank Details</Text>
               <Text style={S.bankLine}>Bank Name : HDFC Bank Pvt. Ltd.</Text>
-              <Text style={S.bankLine}>Account No. : 50200012345678</Text>
+              <Text style={S.bankLine}>Account No. : 50200119083987</Text>
               <Text style={S.bankLine}>
-                Account Name : Kalahanu Tech Studios LLP
+                Account Name : KALAHANU TECH STUDIOS LLP
               </Text>
-              <Text style={S.bankLine}>IFSC Code : HDFC0001234</Text>
-              <Text style={S.bankLine}>Branch : Muzaffarpur, Bihar</Text>
+              <Text style={S.bankLine}>IFSC Code : HDFC0000344</Text>
+              <Text style={S.bankLine}>
+                Branch : Saraiyaganj, Muzaffarpur, Bihar
+              </Text>
               <Text style={S.bankLine}>Account Type : Current</Text>
 
               <View style={S.dividerH} />
@@ -647,9 +668,7 @@ export function InvoicePDFDocument({
               {isInterState ? (
                 igst > 0 ? (
                   <View style={S.totalRow}>
-                    <Text style={S.totalLabel}>
-                      IGST ({gstPct > 0 ? gstPct : "—"}%)
-                    </Text>
+                    <Text style={S.totalLabel}>IGST (18%)</Text>
                     <Text style={S.totalValue}>{fmt(igst)}</Text>
                   </View>
                 ) : null
@@ -657,17 +676,13 @@ export function InvoicePDFDocument({
                 <>
                   {cgst > 0 && (
                     <View style={S.totalRow}>
-                      <Text style={S.totalLabel}>
-                        CGST ({gstPct > 0 ? gstPct / 2 : "—"}%)
-                      </Text>
+                      <Text style={S.totalLabel}>CGST (9%)</Text>
                       <Text style={S.totalValue}>{fmt(cgst)}</Text>
                     </View>
                   )}
                   {sgst > 0 && (
                     <View style={S.totalRow}>
-                      <Text style={S.totalLabel}>
-                        SGST ({gstPct > 0 ? gstPct / 2 : "—"}%)
-                      </Text>
+                      <Text style={S.totalLabel}>SGST (9%)</Text>
                       <Text style={S.totalValue}>{fmt(sgst)}</Text>
                     </View>
                   )}
@@ -680,7 +695,7 @@ export function InvoicePDFDocument({
                 </>
               )}
               <View style={S.grandTotalRow}>
-                <Text style={S.grandTotalLabel}>GRAND TOTAL</Text>
+                <Text style={S.grandTotalLabel}>Grand Total</Text>
                 <Text style={S.grandTotalValue}>{fmt(total)}</Text>
               </View>
               {paidAmount > 0 && (
@@ -734,24 +749,18 @@ export function InvoicePDFDocument({
                 <Text style={S.taxColNH}>Total Tax</Text>
               </View>
               <View style={S.taxRow}>
-                <Text style={[S.taxColW, { fontSize: 7.5 }]}>998314</Text>
+                <Text style={[S.taxColW, { fontSize: 7.5 }]}>{selectedHsnCode}</Text>
                 <Text style={S.taxColN}>{fmt(taxable)}</Text>
                 {isInterState ? (
                   <>
-                    <Text style={S.taxColN}>
-                      {gstPct > 0 ? gstPct + "%" : "—"}
-                    </Text>
+                    <Text style={S.taxColN}>18%</Text>
                     <Text style={S.taxColN}>{fmt(igst)}</Text>
                   </>
                 ) : (
                   <>
-                    <Text style={S.taxColN}>
-                      {gstPct > 0 ? gstPct / 2 + "%" : "—"}
-                    </Text>
+                    <Text style={S.taxColN}>9%</Text>
                     <Text style={S.taxColN}>{fmt(cgst)}</Text>
-                    <Text style={S.taxColN}>
-                      {gstPct > 0 ? gstPct / 2 + "%" : "—"}
-                    </Text>
+                    <Text style={S.taxColN}>9%</Text>
                     <Text style={S.taxColN}>{fmt(sgst)}</Text>
                   </>
                 )}
@@ -800,6 +809,7 @@ export function InvoicePDFDocument({
               <Text style={{ fontSize: 8, color: "#555", textAlign: "right" }}>
                 For Kalahanu Tech Studios LLP
               </Text>
+              <Image src={signsrc} style={S.signatureImage} />
               <View style={S.signatureLine} />
               <Text style={S.signatureFor}>Authorised Signatory</Text>
               <Text style={S.signatureTitle}>

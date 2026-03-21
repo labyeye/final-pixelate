@@ -69,7 +69,7 @@ const calculateInvoiceTotals = (invoice: any) => {
     0,
   );
   const discount = Number(invoice?.discount ?? 0);
-  const tax = Number(invoice?.tax ?? 0);
+  const tax = (Math.max(0, subtotal - discount) * 18) / 100;
   const total = subtotal - discount + tax;
   const paidAmount = Number(invoice?.paidAmount ?? invoice?.paid ?? 0);
 

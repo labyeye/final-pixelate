@@ -73,8 +73,19 @@ export function InvoicePDF({
     return s + qty * price;
   }, 0);
   const discount = Number(invoice?.discount ?? 0) || 0;
-  const tax = Number(invoice?.tax ?? 0) || 0;
-  const total = subtotal - discount + tax;
+  const taxable = Math.max(0, subtotal - discount);
+  const tax = (taxable * 18) / 100;
+  const normalizedClientState = String(
+    client?.state ?? (invoice as any)?.clientState ?? "",
+  )
+    .trim()
+    .toLowerCase();
+  const isBihar = normalizedClientState.includes("bihar");
+  const isInterState = normalizedClientState ? !isBihar : false;
+  const cgst = isInterState ? 0 : tax / 2;
+  const sgst = isInterState ? 0 : tax / 2;
+  const igst = isInterState ? tax : 0;
+  const total = taxable + tax;
 
   const paidAmount = Number(invoice?.paidAmount ?? invoice?.paid ?? 0) || 0;
   let status = "DUE";
@@ -94,6 +105,13 @@ export function InvoicePDF({
 
   const effectiveClientName =
     client?.name || invoice?.clientName || invoice?.client || "Client";
+  const clientGst =
+    (client as any)?.gst ||
+    (client as any)?.gstNumber ||
+    (client as any)?.gstin ||
+    (invoice as any)?.clientGst ||
+    (invoice as any)?.gstNumber ||
+    "";
 
   return (
     <div
@@ -282,7 +300,7 @@ export function InvoicePDF({
             Kalahanu Tech Studios LLP
           </div>
           <div style={{ fontSize: 11, color: "#666", marginTop: 3 }}>
-            GST: 10AADCK1491R2ZB
+            GST: 10ABFFK0650E1Z2
           </div>
           <div style={{ fontSize: 11, color: "#666", marginTop: 3 }}>
             Kala Bhawan, Akharaghat Road
@@ -323,6 +341,11 @@ export function InvoicePDF({
           <div style={{ fontSize: 11, color: "#666" }}>
             {client?.phone || invoice?.clientPhone || ""}
           </div>
+          {clientGst ? (
+            <div style={{ fontSize: 11, color: "#666", marginTop: 3 }}>
+              GSTIN: {clientGst}
+            </div>
+          ) : null}
         </div>
       </div>
 
@@ -532,7 +555,37 @@ export function InvoicePDF({
             </div>
           )}
 
-          {tax > 0 && (
+          {isInterState && igst > 0 && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: 8,
+              }}
+            >
+              <span style={{ fontSize: 12, color: "#666" }}>IGST (18%)</span>
+              <span style={{ fontSize: 12, fontWeight: 600, color: "#333" }}>
+                {formatCurrency(igst)}
+              </span>
+            </div>
+          )}
+
+          {!isInterState && cgst > 0 && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: 8,
+              }}
+            >
+              <span style={{ fontSize: 12, color: "#666" }}>CGST (9%)</span>
+              <span style={{ fontSize: 12, fontWeight: 600, color: "#333" }}>
+                {formatCurrency(cgst)}
+              </span>
+            </div>
+          )}
+
+          {!isInterState && sgst > 0 && (
             <div
               style={{
                 display: "flex",
@@ -540,9 +593,9 @@ export function InvoicePDF({
                 marginBottom: 12,
               }}
             >
-              <span style={{ fontSize: 12, color: "#666" }}>Tax</span>
+              <span style={{ fontSize: 12, color: "#666" }}>SGST (9%)</span>
               <span style={{ fontSize: 12, fontWeight: 600, color: "#333" }}>
-                {formatCurrency(tax)}
+                {formatCurrency(sgst)}
               </span>
             </div>
           )}
@@ -605,7 +658,7 @@ export function InvoicePDF({
             <div>Bank: HDFC BANK PVT LTD</div>
             <div>A/C: 0000 1234 5678</div>
             <div>Name: Kalahanu Tech Studios</div>
-            <div>IFSC: HDFC0001234</div>
+            <div>IFSC: HDFC0000344</div>
           </div>
         </div>
 
