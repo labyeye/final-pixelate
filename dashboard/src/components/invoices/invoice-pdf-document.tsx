@@ -400,13 +400,6 @@ export function InvoicePDFDocument({
   const paidAmount = Number(invoice?.paidAmount ?? invoice?.paid ?? 0) || 0;
   const balance = total - paidAmount;
 
-  const isPaid =
-    invoice?.status === "PAID" || (paidAmount >= total - 0.5 && total > 0);
-  const isPartial = !isPaid && paidAmount > 0;
-  const statusColor = isPaid ? "#16a34a" : isPartial ? "#d97706" : "#dc2626";
-  const statusLabel = isPaid ? "PAID" : isPartial ? "PARTIAL" : "UNPAID";
-
-  // ── Client fields ──
   const clientName =
     client?.name || invoice?.clientName || invoice?.client || "—";
   const clientAddress = client?.address || invoice?.clientAddress || "";
@@ -491,31 +484,11 @@ export function InvoicePDFDocument({
                 </View>
               ) : null}
               <View style={S.metaRow}>
-                <Text style={S.metaLabel}>Place of Supply</Text>
+                <Text style={S.metaLabel}>Place of Service</Text>
                 <Text style={S.metaValue}>: {clientState || "Bihar (10)"}</Text>
-              </View>
-              <View style={S.metaRow}>
-                <Text style={S.metaLabel}>Reverse Charge</Text>
-                <Text style={S.metaValue}>: No</Text>
-              </View>
-              <View style={[S.metaRow, { marginTop: 6 }]}>
-                <Text style={S.metaLabel}>Status</Text>
-                <View style={[S.statusBadge, { backgroundColor: statusColor }]}>
-                  <Text
-                    style={{
-                      fontSize: 8,
-                      fontFamily: "Helvetica-Bold",
-                      color: "#fff",
-                    }}
-                  >
-                    {statusLabel}
-                  </Text>
-                </View>
               </View>
             </View>
           </View>
-
-          {/* 3. Bill To / Ship To */}
           <View style={S.partyRow}>
             <View style={S.partyBlock}>
               <Text style={S.partyLabel}>Bill To</Text>
