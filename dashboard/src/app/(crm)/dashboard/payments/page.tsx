@@ -79,7 +79,10 @@ export default function PaymentsPage() {
   // Calculate client summary
   const clientSummary = invoices.reduce(
     (acc, inv) => {
-      acc.billed += Number(inv.amount || 0);
+      const baseAmount = Number(inv.amount || 0);
+      const taxAmount = Number(inv.tax || 0);
+      const totalAmount = baseAmount + taxAmount; // Include 18% tax in billed amount
+      acc.billed += totalAmount;
       acc.received += Number(inv.paidAmount || 0);
       return acc;
     },
@@ -412,7 +415,9 @@ export default function PaymentsPage() {
               ) : (
                 <div className="space-y-4">
                   {invoices.map((inv) => {
-                    const total = Number(inv.amount || 0);
+                    const baseAmount = Number(inv.amount || 0);
+                    const taxAmount = Number(inv.tax || 0);
+                    const total = baseAmount + taxAmount; // Total includes 18% tax
                     const paid = Number(inv.paidAmount || 0);
                     const balance = total - paid;
                     const status = (inv.status || "PENDING").toUpperCase();

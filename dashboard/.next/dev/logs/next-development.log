@@ -1,3 +1,24 @@
-[00:00:00.925] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.000] Server  LOG      ✓ Ready in 763ms
-[00:00:04.200] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:00.600] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:00.661] Server  LOG      ✓ Ready in 472ms
+[00:00:04.120] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:25.453] Server  LOG      ✓ Compiled in 41ms
+[00:01:30.201] Server  LOG      ✓ Compiled in 27ms
+[00:01:49.189] Server  LOG      ✓ Compiled in 27ms
+[00:01:54.009] Server  LOG      ✓ Compiled in 25ms
+[00:16:48.201] Server  LOG     PAYMENT_DEBUG: Incoming request {}
+[00:16:48.421] Server  LOG     PAYMENT_DEBUG: Success {}
+[00:17:59.712] Server  LOG      ✓ Compiled in 40ms
+[00:18:12.655] Server  LOG      ✓ Compiled in 28ms
+[00:18:19.445] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:31.286] Server  LOG      ✓ Compiled in 44ms
+[00:19:32.269] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:40.119] Server  WARN    Error: Route "/api/projects/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:19:40.224] Browser ERROR   {}
+[00:19:51.604] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:38.981] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:53.122] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:31:41.041] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:33:02.888] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:33:19.221] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:33:48.504] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:34:59.313] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

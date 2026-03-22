@@ -73,6 +73,20 @@ export default function ProjectsPage() {
     CANCELLED: "bg-red-100 text-red-800 border border-red-300",
   };
 
+  const getClientName = (clientId: string | any, project?: any): string => {
+    // First check if project has clientName from server enrichment
+    if (project?.clientName) return project.clientName;
+    
+    if (!clientId) return "—";
+    const clientIdStr = String(clientId);
+    // Search in clients array as fallback
+    const found = clients.find(c => {
+      const cId = String(c._id || c.id || "");
+      return cId === clientIdStr;
+    });
+    return found?.name || "—";
+  };
+
   return (
     <div className="space-y-8 font-headline">
       {successMessage && <SuccessModal message={successMessage} />}
@@ -155,11 +169,7 @@ export default function ProjectsPage() {
 
                 {/* Client */}
                 <TableCell className="text-sm py-3 font-medium">
-                  {(() => {
-                    const clientId = project.client;
-                    const client = clients.find(c => (c._id ? String(c._id) : String(c.id)) === clientId);
-                    return client ? client.name : (project.client || "—");
-                  })()}
+                  {getClientName(project.client, project)}
                 </TableCell>
 
                 {/* Status */}

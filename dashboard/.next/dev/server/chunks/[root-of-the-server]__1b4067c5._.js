@@ -900,8 +900,51 @@ async function GET() {
     try {
         const col = await __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]('projects');
         const items = await col.find().toArray();
-        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(items);
+        // Fetch clients and team members for enrichment
+        const clientCol = await __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]('clients');
+        const usersCol = await __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]('users');
+        const clients = await clientCol.find().toArray();
+        const teamMembers = await usersCol.find({
+            jobRole: {
+                $exists: true
+            }
+        }).toArray();
+        // Enrich projects with client names and assignee names
+        const enrichedItems = items.map((project)=>{
+            let enriched = {
+                ...project
+            };
+            // Enrich client name
+            if (project.clientId || project.client) {
+                const clientId = project.clientId || project.client;
+                const clientIdStr = String(clientId);
+                const clientDoc = clients.find((c)=>{
+                    const cId = String(c._id || c.id || '');
+                    return cId === clientIdStr;
+                });
+                if (clientDoc) {
+                    enriched.clientName = clientDoc.name;
+                }
+            }
+            // Enrich assignee names
+            if (Array.isArray(project.assignees) && project.assignees.length > 0) {
+                enriched.assignees = project.assignees.map((assignee)=>{
+                    const assigneeId = String(assignee.id ?? assignee);
+                    const teamMember = teamMembers.find((t)=>{
+                        const tId = String(t._id || t.id || '');
+                        return tId === assigneeId;
+                    });
+                    return {
+                        ...assignee,
+                        name: teamMember?.name || assignee.name || '—'
+                    };
+                });
+            }
+            return enriched;
+        });
+        return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(enrichedItems);
     } catch (e) {
+        console.error('GET /api/projects error:', e);
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             error: e.message || String(e)
         }, {
