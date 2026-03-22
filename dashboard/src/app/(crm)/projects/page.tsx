@@ -155,7 +155,11 @@ export default function ProjectsPage() {
 
                 {/* Client */}
                 <TableCell className="text-sm py-3 font-medium">
-                  {project.client || "—"}
+                  {(() => {
+                    const clientId = project.client;
+                    const client = clients.find(c => (c._id ? String(c._id) : String(c.id)) === clientId);
+                    return client ? client.name : (project.client || "—");
+                  })()}
                 </TableCell>
 
                 {/* Status */}

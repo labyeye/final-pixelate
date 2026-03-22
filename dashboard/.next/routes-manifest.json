@@ -173,6 +173,14 @@
       "namedRegex": "^/api/services/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/social-media-posts/[id]",
+      "regex": "^/api/social\\-media\\-posts/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/social\\-media\\-posts/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/support-tickets/[id]",
       "regex": "^/api/support\\-tickets/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -505,6 +513,12 @@
       "namedRegex": "^/api/settings/sidebar(?:/)?$"
     },
     {
+      "page": "/api/social-media-posts",
+      "regex": "^/api/social\\-media\\-posts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/social\\-media\\-posts(?:/)?$"
+    },
+    {
       "page": "/api/support-tickets",
       "regex": "^/api/support\\-tickets(?:/)?$",
       "routeKeys": {},
@@ -737,6 +751,24 @@
       "regex": "^/services(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/services(?:/)?$"
+    },
+    {
+      "page": "/social-media-planner",
+      "regex": "^/social\\-media\\-planner(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/social\\-media\\-planner(?:/)?$"
+    },
+    {
+      "page": "/social-media-planner/calendar",
+      "regex": "^/social\\-media\\-planner/calendar(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/social\\-media\\-planner/calendar(?:/)?$"
+    },
+    {
+      "page": "/social-media-planner/planner",
+      "regex": "^/social\\-media\\-planner/planner(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/social\\-media\\-planner/planner(?:/)?$"
     },
     {
       "page": "/support",

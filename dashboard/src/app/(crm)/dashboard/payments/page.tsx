@@ -120,7 +120,9 @@ export default function PaymentsPage() {
   const handlePayClick = (invoice: any) => {
     setActiveInvoice(invoice);
     const remaining = (invoice.amount || 0) - (invoice.paidAmount || 0);
-    setPaymentAmount(remaining > 0 ? remaining.toString() : "0");
+    // Include 18% GST in the payment amount
+    const amountWithTax = remaining > 0 ? remaining * 1.18 : 0;
+    setPaymentAmount(amountWithTax > 0 ? amountWithTax.toString() : "0");
   };
 
   const submitPayment = async () => {
@@ -672,7 +674,7 @@ export default function PaymentsPage() {
             <CardContent className="space-y-5 pt-6 pb-8 px-8">
               <div className="space-y-2">
                 <Label className="font-black uppercase text-[10px] tracking-widest text-neutral-500">
-                  Amount Received (INR)
+                  Amount Received (INR) + 18% GST
                 </Label>
                 <div className="relative">
                   <DollarSign className="absolute left-4 top-3 h-6 w-6 text-neutral-400" />
@@ -683,16 +685,36 @@ export default function PaymentsPage() {
                     onChange={(e) => setPaymentAmount(e.target.value)}
                   />
                 </div>
-                <div className="flex justify-between items-center bg-red-50 p-2 border-2 border-red-100 rounded">
-                  <span className="text-[10px] font-black uppercase text-red-600 tracking-wider flex items-center gap-1">
-                    <AlertCircle className="w-3 h-3" /> Remaining Balance
-                  </span>
-                  <span className="text-sm font-black text-red-700">
-                    {formatCurrency(
-                      (activeInvoice.amount || 0) -
-                        (activeInvoice.paidAmount || 0),
-                    )}
-                  </span>
+                <div className="bg-blue-50 p-3 border-2 border-blue-200 rounded space-y-1">
+                  <div className="flex justify-between items-center text-xs font-black">
+                    <span className="text-blue-600">Bill Amount:</span>
+                    <span className="text-blue-700">
+                      {formatCurrency(
+                        (activeInvoice.amount || 0) -
+                          (activeInvoice.paidAmount || 0),
+                      )}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center text-xs font-black">
+                    <span className="text-blue-600">GST (18%):</span>
+                    <span className="text-blue-700">
+                      {formatCurrency(
+                        ((activeInvoice.amount || 0) -
+                          (activeInvoice.paidAmount || 0)) *
+                          0.18,
+                      )}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center text-xs font-black border-t border-blue-200 pt-1 mt-1">
+                    <span className="text-blue-700 uppercase tracking-wider">Total to Receive:</span>
+                    <span className="text-blue-900 text-sm">
+                      {formatCurrency(
+                        ((activeInvoice.amount || 0) -
+                          (activeInvoice.paidAmount || 0)) *
+                          1.18,
+                      )}
+                    </span>
+                  </div>
                 </div>
               </div>
 
