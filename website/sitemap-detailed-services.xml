@@ -5,31 +5,17 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
-    <loc>https://www.pixelatenest.com/detailed-services.html?service=web-development</loc>
-    <lastmod>2026-02-26</lastmod>
+    <loc>https://www.pixelatenest.com/detailed-services.html</loc>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <url>
-    <loc>https://www.pixelatenest.com/detailed-services.html?service=video-editing</loc>
-    <lastmod>2026-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.pixelatenest.com/detailed-services.html?service=app-development</loc>
-    <lastmod>2026-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.pixelatenest.com/detailed-services.html?service=software-development</loc>
-    <lastmod>2026-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <!-- Note: Dynamic service pages with query parameters are crawled but may not be indexed.
+       To improve indexing:
+       1. Ensure each service variation has unique, valuable content
+       2. Add proper canonical tags to prevent duplicate content issues
+       3. Consider creating separate static pages for each service type
+       4. Use hreflang tags if serving content in multiple languages -->
 
 </urlset>

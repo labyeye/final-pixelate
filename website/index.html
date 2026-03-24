@@ -2520,6 +2520,12 @@
                               </div>
                             </a>
                             <a
+                              href="https://www.pixelatenest.com/refund-policy.html"
+                              class="footer-link w-inline-block"
+                            >
+                              <div class="footer-link-text">Refund Policy</div>
+                            </a>
+                            <a
                               href="https://www.pixelatenest.com/cookie-policy.html"
                               class="footer-link w-inline-block"
                             >
@@ -2657,21 +2663,52 @@
         </div>
       </section>
     </div>
-    <div id="landing-contact-modal" class="landing-contact-modal" aria-hidden="true">
+    <div
+      id="landing-contact-modal"
+      class="landing-contact-modal"
+      aria-hidden="true"
+    >
       <div class="landing-contact-backdrop" data-close-modal="true"></div>
-      <div class="landing-contact-dialog" role="dialog" aria-modal="true" aria-labelledby="landing-contact-title">
-        <button type="button" class="landing-contact-close" id="landing-contact-close" aria-label="Close contact form">
+      <div
+        class="landing-contact-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="landing-contact-title"
+      >
+        <button
+          type="button"
+          class="landing-contact-close"
+          id="landing-contact-close"
+          aria-label="Close contact form"
+        >
           ×
         </button>
         <h3 id="landing-contact-title">Let’s Discuss Your Project</h3>
-        <p class="landing-contact-subtitle">Quick details share kar dijiye, team aapse jaldi connect karegi.</p>
+        <p class="landing-contact-subtitle">
+          Quick details share kar dijiye, team aapse jaldi connect karegi.
+        </p>
 
         <form id="landing-contact-form" class="landing-contact-form" novalidate>
           <div class="landing-contact-grid">
             <input type="text" name="name" placeholder="Your Name" required />
-            <input type="email" name="Email-Address" placeholder="Email Address" required />
-            <input type="tel" name="Phone" placeholder="Phone Number" required />
-            <input type="text" name="Enter-your-subject" placeholder="Subject" required />
+            <input
+              type="email"
+              name="Email-Address"
+              placeholder="Email Address"
+              required
+            />
+            <input
+              type="tel"
+              name="Phone"
+              placeholder="Phone Number"
+              required
+            />
+            <input
+              type="text"
+              name="Enter-your-subject"
+              placeholder="Subject"
+              required
+            />
             <select name="field" required>
               <option value="" disabled selected>Select Project Type</option>
               <option value="Website Development">Website Development</option>
@@ -2689,14 +2726,23 @@
               <option value="1L+">1L+</option>
             </select>
           </div>
-          <textarea name="Message" rows="4" placeholder="Tell us about your requirement" required></textarea>
+          <textarea
+            name="Message"
+            rows="4"
+            placeholder="Tell us about your requirement"
+            required
+          ></textarea>
           <input type="hidden" name="selected-plan" value="" />
 
           <div class="landing-contact-actions">
             <input type="submit" value="Submit" />
           </div>
 
-          <p class="landing-contact-success" id="landing-contact-success" hidden>
+          <p
+            class="landing-contact-success"
+            id="landing-contact-success"
+            hidden
+          >
             Thanks! Your enquiry has been submitted successfully.
           </p>
           <p class="landing-contact-error" id="landing-contact-error" hidden>
@@ -2863,7 +2909,10 @@
 
         closeBtn.addEventListener("click", closeModal);
         modal.addEventListener("click", function (event) {
-          if (event.target && event.target.getAttribute("data-close-modal") === "true") {
+          if (
+            event.target &&
+            event.target.getAttribute("data-close-modal") === "true"
+          ) {
             closeModal();
           }
         });
@@ -2935,9 +2984,9 @@
         });
       })();
     </script>
-<script src="js/activity-tracker.js"></script>
+    <script src="js/activity-tracker.js"></script>
     <script src="js/pixy-chatbot.js" async></script>
     <script src="js/index.js"></script>
-      <script src="js/quick-contact-buttons.js"></script>
+    <script src="js/quick-contact-buttons.js"></script>
   </body>
 </html>
