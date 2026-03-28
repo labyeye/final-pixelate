@@ -21,12 +21,51 @@ export default function LeadsPage() {
   const [team, setTeam] = useState<any[]>([]);
   const [staffFilter, setStaffFilter] = useState<string>("");
   const [statusFilter, setStatusFilter] = useState<string>("");
+  const [isSyncing, setIsSyncing] = useState(false);
   const [isDeletingAssigned, setIsDeletingAssigned] = useState(false);
   const [deleteProgress, setDeleteProgress] = useState({
     current: 0,
     total: 0,
   });
   const { toast } = useToast();
+
+  async function syncIndiaMART() {
+    if (
+      !window.confirm("Sync all leads from IndiaMART? This may take a moment.")
+    )
+      return;
+
+    setIsSyncing(true);
+    try {
+      const res = await fetch("/api/indiamart-webhook?action=sync_now");
+      const data = await res.json();
+
+      if (res.ok) {
+        toast({
+          title: "IndiaMART Sync Complete",
+          description: `Synced ${data.synced} new leads (skipped ${data.skipped || 0} duplicates)`,
+        });
+        // Refresh leads list
+        const list = await fetchLeadsWithAuth();
+        setLeads(list || []);
+      } else {
+        toast({
+          title: "Sync Failed",
+          description: data.error || "Failed to sync from IndiaMART",
+          variant: "destructive",
+        });
+      }
+    } catch (e) {
+      console.error("Sync error:", e);
+      toast({
+        title: "Sync Error",
+        description: "Network error during sync",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSyncing(false);
+    }
+  }
 
   useEffect(() => {
     let mounted = true;
@@ -72,11 +111,7 @@ export default function LeadsPage() {
   // Delete all leads: try server endpoint DELETE /api/leads, fallback to deleting per id.
   async function deleteAllLeads() {
     if (!window.confirm("Delete ALL leads? This cannot be undone.")) return;
-    const API_BASE =
-      window.location.hostname === "localhost" ||
-      window.location.hostname === "127.0.0.1"
-        ? "https://backend.pixelatenest.com"
-        : "";
+    const API_BASE = "http://localhost:3500";
     const token = localStorage.getItem("auth_token") || "";
     try {
       // Attempt bulk delete endpoint first (may not exist)
@@ -87,7 +122,10 @@ export default function LeadsPage() {
       if (res.ok) {
         setLeads([]);
         localStorage.removeItem("leads_local");
-        toast({ title: "All Leads Deleted", description: "All leads deleted successfully (server)." });
+        toast({
+          title: "All Leads Deleted",
+          description: "All leads deleted successfully (server).",
+        });
         return;
       }
     } catch (e) {
@@ -108,16 +146,30 @@ export default function LeadsPage() {
       }
       setLeads([]);
       localStorage.removeItem("leads_local");
-      toast({ title: "All Leads Deleted", description: "All leads deleted (per-item)." });
+      toast({
+        title: "All Leads Deleted",
+        description: "All leads deleted (per-item).",
+      });
     } catch (e) {
       console.error("Failed to delete leads", e);
-      toast({ title: "Delete Failed", description: "Failed to delete all leads.", variant: "destructive" });
+      toast({
+        title: "Delete Failed",
+        description: "Failed to delete all leads.",
+        variant: "destructive",
+      });
     }
   }
 
   // Delete all leads assigned to a specific staff member.
   async function deleteLeadsForStaff(staffId: string | null) {
-    if (!staffId) { toast({ title: "No Staff Selected", description: "Choose a staff member first.", variant: "destructive" }); return; }
+    if (!staffId) {
+      toast({
+        title: "No Staff Selected",
+        description: "Choose a staff member first.",
+        variant: "destructive",
+      });
+      return;
+    }
     if (
       !window.confirm(
         "Delete ALL leads assigned to this staff member? This cannot be undone.",
@@ -136,7 +188,11 @@ export default function LeadsPage() {
         (l) => String(l.assignedTo) === String(staffId),
       );
       if (!toDelete.length) {
-        toast({ title: "No Leads Found", description: "No leads assigned to this staff member.", variant: "destructive" });
+        toast({
+          title: "No Leads Found",
+          description: "No leads assigned to this staff member.",
+          variant: "destructive",
+        });
         return;
       }
       setIsDeletingAssigned(true);
@@ -169,10 +225,19 @@ export default function LeadsPage() {
         const list = await fetchLeadsWithAuth();
         setLeads(list || []);
       } catch (er) {}
-      toast({ title: "Assigned Leads Deleted", description: "Deletion of assigned leads completed." });
+      toast({
+        title: "Assigned Leads Deleted",
+        description: "Deletion of assigned leads completed.",
+      });
     } catch (e) {
       console.error("deleteLeadsForStaff failed", e);
-      toast({ title: "Delete Failed", description: "Failed to delete assigned leads: " + (e instanceof Error ? e.message : String(e)), variant: "destructive" });
+      toast({
+        title: "Delete Failed",
+        description:
+          "Failed to delete assigned leads: " +
+          (e instanceof Error ? e.message : String(e)),
+        variant: "destructive",
+      });
     } finally {
       setIsDeletingAssigned(false);
       setDeleteProgress({ current: 0, total: 0 });
@@ -330,6 +395,14 @@ export default function LeadsPage() {
           ))}
         </select>
         <Button
+          variant="default"
+          onClick={syncIndiaMART}
+          disabled={isSyncing}
+          className="bg-green-600 hover:bg-green-700"
+        >
+          {isSyncing ? "Syncing..." : "🔄 Sync IndiaMART"}
+        </Button>
+        <Button
           variant="destructive"
           onClick={() => deleteLeadsForStaff(staffFilter)}
           disabled={!staffFilter || isDeletingAssigned}
@@ -347,12 +420,14 @@ export default function LeadsPage() {
         <TableHeader>
           <TableRow>
             <TableHead>Name</TableHead>
-            <TableHead>Category</TableHead>
+            <TableHead>Subject</TableHead>
             <TableHead>Phone</TableHead>
             <TableHead>Email</TableHead>
+            <TableHead>Project Type</TableHead>
+            <TableHead>Budget</TableHead>
+            <TableHead>Source</TableHead>
             <TableHead>Assigned</TableHead>
             <TableHead>Status</TableHead>
-            <TableHead>Status Reason</TableHead>
             <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -377,10 +452,19 @@ export default function LeadsPage() {
             .map((lead) => (
               <TableRow key={String(lead._id || lead.id)}>
                 <TableCell>{lead.name}</TableCell>
-                <TableCell>{(lead as any).category || "-"}</TableCell>
-                <TableCell>{lead.phone}</TableCell>
-                <TableCell>{lead.email}</TableCell>
-                <TableCell>
+                <TableCell className="text-sm">{lead.subject || "-"}</TableCell>
+                <TableCell>{lead.phone || "-"}</TableCell>
+                <TableCell>{lead.email || "-"}</TableCell>
+                <TableCell className="text-sm">
+                  {lead.projectType || "-"}
+                </TableCell>
+                <TableCell className="text-sm">{lead.budget || "-"}</TableCell>
+                <TableCell className="text-xs">
+                  <span className="px-2 py-1 rounded-full bg-blue-50 text-blue-700">
+                    {lead.source || "Unknown"}
+                  </span>
+                </TableCell>
+                <TableCell className="text-sm">
                   {lead.assignedToName || lead.assignedTo || "-"}
                 </TableCell>
                 <TableCell>
@@ -392,7 +476,7 @@ export default function LeadsPage() {
                         e.target.value as any,
                       )
                     }
-                    className="px-2 py-1 rounded-md bg-background border"
+                    className="px-2 py-1 rounded-md bg-background border text-sm"
                   >
                     {leadStatuses.map((s) => (
                       <option key={s} value={s}>
@@ -401,10 +485,9 @@ export default function LeadsPage() {
                     ))}
                   </select>
                 </TableCell>
-                <TableCell>{(lead as any).statusReason || "-"}</TableCell>
                 <TableCell>
                   {lead.doNotDelete ? (
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-xs text-muted-foreground mb-2">
                       Not deletable
                     </div>
                   ) : null}
@@ -413,7 +496,7 @@ export default function LeadsPage() {
                     size="sm"
                     onClick={() => deleteLead(lead._id || lead.id)}
                   >
-                    <Trash />
+                    <Trash className="w-4 h-4" />
                   </Button>
                 </TableCell>
               </TableRow>

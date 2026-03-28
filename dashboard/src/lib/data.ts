@@ -89,6 +89,17 @@ export interface Lead {
   email?: string;
   assignedTo?: string | any; // team member id
   assignedToName?: string;
+  // Fields from IndiaMART/Contact Form
+  subject?: string;
+  message?: string;
+  projectType?: string;
+  budget?: string | number | null;
+  selectedPlan?: string | null;
+  source?: string; // "Website Form", "IndiaMART", etc.
+  indiamrtSynced?: boolean;
+  indiamrtResponse?: any;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
 }
 
 export const leads: Lead[] = [];

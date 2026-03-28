@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import * as svc from "@/lib/services";
+import { getDb } from "@/lib/mongodb";
+import { createOnboardingJourneyEvent, parseJourneyOccurredAt } from "@/lib/journey-helpers";
 
 type RouteContext = { params: Promise<{ id: string }> };
 
@@ -42,6 +44,58 @@ export async function PUT(request: Request, context: RouteContext) {
       ...body,
       updatedAt: new Date(),
     });
+
+    if (updated?.clientId) {
+      try {
+        const db = await getDb();
+        const onboardingId = String(updated._id ?? updated.id ?? id);
+        const existing = await db.collection("journey_events").findOne({
+          "metadata.onboardingId": onboardingId,
+        });
+
+        if (existing?._id) {
+          await db.collection("journey_events").updateOne(
+            { _id: existing._id },
+            {
+              $set: {
+                clientId: String(updated.clientId),
+                clientName:
+                  updated.clientName ??
+                  updated.company ??
+                  existing.clientName ??
+                  "",
+                projectId: updated.projectId ? String(updated.projectId) : null,
+                projectName:
+                  updated.projectTitle ??
+                  updated.projectType ??
+                  updated.productType ??
+                  existing.projectName ??
+                  null,
+                title: `Onboarding Completed${updated.projectTitle ? ` – ${updated.projectTitle}` : ""}`,
+                status: "Completed",
+                occurredAt: parseJourneyOccurredAt(updated.date, parseJourneyOccurredAt(existing.occurredAt)),
+                updatedAt: new Date(),
+                metadata: {
+                  ...(existing.metadata ?? {}),
+                  onboardingId,
+                  projectTitle: updated.projectTitle ?? null,
+                  projectType: updated.projectType ?? null,
+                  productType: updated.productType ?? null,
+                },
+              },
+            },
+          );
+        } else {
+          await createOnboardingJourneyEvent(
+            db,
+            onboardingId,
+            updated as Record<string, any>,
+          );
+        }
+      } catch (journeyErr) {
+        console.error("Failed to sync onboarding update to journey:", journeyErr);
+      }
+    }
 
     return NextResponse.json(updated);
   } catch (e: any) {

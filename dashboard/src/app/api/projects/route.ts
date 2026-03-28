@@ -2,6 +2,8 @@
 import { NextResponse } from 'next/server';
 import * as svc from '@/lib/services';
 import { ObjectId } from 'mongodb';
+import { getDb } from '@/lib/mongodb';
+import { createProjectJourneyEvent } from '@/lib/journey-helpers';
 
 export async function GET() {
 	try {
@@ -60,14 +62,31 @@ export async function POST(request: Request) {
 	try {
 		const body = await request.json();
 		const col = await svc.getCollection('projects');
-		const res = await col.insertOne({ ...body, createdAt: new Date() });
+		const toInsert = { ...body, createdAt: new Date() };
+		const res = await col.insertOne(toInsert);
+		const created = { ...toInsert, _id: res.insertedId };
 		// create an invoice record so dashboard revenue reflects this project
 		try {
 			await svc.createInvoice({ projectId: String(res.insertedId), title: body.title, amount: body.amount, createdAt: new Date() });
 		} catch (e) {
 			console.error('Failed to create linked invoice', e);
 		}
-		return NextResponse.json({ ...body, _id: res.insertedId }, { status: 201 });
+
+		try {
+			const db = await getDb();
+			const projectId = String(res.insertedId);
+			const existing = await db.collection('journey_events').findOne({
+				'metadata.projectId': projectId,
+				type: 'project_update',
+			});
+			if (!existing) {
+				await createProjectJourneyEvent(db, projectId, created as Record<string, any>, 'created');
+			}
+		} catch (journeyErr) {
+			console.error('Failed to auto-create journey event for project:', journeyErr);
+		}
+
+		return NextResponse.json(created, { status: 201 });
 	} catch (e: any) {
 		return NextResponse.json({ error: e.message || String(e) }, { status: 500 });
 	}

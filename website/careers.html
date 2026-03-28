@@ -1246,22 +1246,50 @@
               )
               .join(" ");
             item.innerHTML = `
-              <div class="job-card-inner">
+              <div class="job-card-header">
                 <div class="job-card-left">
                   ${job.imageUrl ? `<div class="job-image-wrap"><img class="job-card-image" src="${escapeHtml(job.imageUrl)}" alt="${escapeHtml(capitalizeFirst(job.title || ""))}"/></div>` : ""}
                   <h3 class="job-title">${escapeHtml(capitalizeFirst(job.title || "Untitled"))}</h3>
                   ${topTagsHtml ? `<div class="job-tags job-tags-top">${topTagsHtml}</div>` : ""}
                   <div class="job-description">${descHtml}</div>
-                  ${respHtml ? `<div style="font-size:24px; color:var(--secondary-900); margin-top:25px"><strong>Responsibilities</strong>${respHtml}</div>` : ""}
-                  ${reqHtml ? `<div style="font-size:24px; color:var(--secondary-900); margin-top:25px"><strong>Requirements</strong>${reqHtml}</div>` : ""}
                 </div>
                 <div class="job-card-right">
+                  <button class="job-expand-btn" aria-label="Expand job details" aria-expanded="false">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="job-card-details" style="display: none;">
+                ${respHtml ? `<div class="job-section"><h4>Responsibilities</h4>${respHtml}</div>` : ""}
+                ${reqHtml ? `<div class="job-section"><h4>Requirements</h4>${reqHtml}</div>` : ""}
+                <div class="job-card-footer">
                   <button class="apply-btn" data-id="${escapeHtml(String(job.id || job._id || ""))}">Apply</button>
                 </div>
               </div>
             `;
             grid.appendChild(item);
           });
+          
+          // Expand/collapse handler
+          grid.querySelectorAll(".job-expand-btn").forEach((btn) => {
+            btn.addEventListener("click", function (e) {
+              e.stopPropagation();
+              const card = this.closest(".job-card");
+              const details = card.querySelector(".job-card-details");
+              const isExpanded = details.style.display !== "none";
+              
+              if (isExpanded) {
+                details.style.display = "none";
+                this.setAttribute("aria-expanded", "false");
+                this.classList.remove("expanded");
+              } else {
+                details.style.display = "block";
+                this.setAttribute("aria-expanded", "true");
+                this.classList.add("expanded");
+              }
+            });
+          });
+          
           grid.querySelectorAll(".apply-btn").forEach((btn) => {
             btn.addEventListener("click", function () {
               const id = this.getAttribute("data-id");

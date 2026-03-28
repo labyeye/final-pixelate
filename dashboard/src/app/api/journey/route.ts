@@ -19,9 +19,22 @@ export async function GET(request: Request) {
     }
 
     const db = await getDb();
+    const filter: Record<string, any> = (() => {
+      try {
+        return {
+          $or: [
+            { clientId },
+            { clientId: new ObjectId(clientId) },
+          ],
+        };
+      } catch {
+        return { clientId };
+      }
+    })();
+
     const events = await db
       .collection('journey_events')
-      .find({ clientId })
+      .find(filter)
       .sort({ occurredAt: 1 })
       .toArray();
 
