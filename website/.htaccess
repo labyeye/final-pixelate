@@ -8,6 +8,11 @@ RewriteRule ^(.*)$ https://www.pixelatenest.com/$1 [L,R=301]
 
 RewriteRule ^index\.html$ / [R=301,L]
 
+# Redirect legacy query-based service URLs to static service paths.
+RewriteCond %{REQUEST_URI} ^/detailed-services\.html$ [NC]
+RewriteCond %{QUERY_STRING} (^|&)service=([a-z0-9-]+)(&|$) [NC]
+RewriteRule ^detailed-services\.html$ /detailed-services/%2/? [R=301,L]
+
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
 RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
 

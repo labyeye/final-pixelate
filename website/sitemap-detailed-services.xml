@@ -10,12 +10,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Note: Dynamic service pages with query parameters are crawled but may not be indexed.
-       To improve indexing:
-       1. Ensure each service variation has unique, valuable content
-       2. Add proper canonical tags to prevent duplicate content issues
-       3. Consider creating separate static pages for each service type
-       4. Use hreflang tags if serving content in multiple languages -->
-
 </urlset>

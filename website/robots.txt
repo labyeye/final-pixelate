@@ -14,6 +14,8 @@ Allow: /*.js$
 Disallow: /server/
 Disallow: /.vscode/
 Disallow: /api/
+Disallow: /*?city=
+Disallow: /*?service=
 
 # === ALL OTHER BOTS ===
 User-agent: *
@@ -27,12 +29,16 @@ Allow: /*.js$
 Disallow: /server/
 Disallow: /.vscode/
 Disallow: /api/
+Disallow: /*?city=
+Disallow: /*?service=
 
 # === SITEMAPS ===
 Sitemap: https://www.pixelatenest.com/sitemap-index.xml
 Sitemap: https://www.pixelatenest.com/sitemap-main.xml
 Sitemap: https://www.pixelatenest.com/sitemapstate.xml
 Sitemap: https://www.pixelatenest.com/sitemap-detailed-services.xml
+Sitemap: https://www.pixelatenest.com/sitemap-school-crm-bihar.xml
+Sitemap: https://www.pixelatenest.com/sitemap-factory-management-bihar.xml
 
 # === RATE-LIMIT HEAVY SEO BOTS (optional) ===
 User-agent: AhrefsBot

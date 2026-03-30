@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://www.pixelatenest.com/sitemap-main.xml</loc>
@@ -32,4 +32,9 @@
     <loc>https://www.pixelatenest.com/sitemap-school-crm-bihar.xml</loc>
     <lastmod>2026-03-31</lastmod>
   </sitemap>
+  <sitemap>
+    <loc>https://www.pixelatenest.com/sitemap-factory-management-bihar.xml</loc>
+    <lastmod>2026-03-31</lastmod>
+  </sitemap>
 </sitemapindex>
+

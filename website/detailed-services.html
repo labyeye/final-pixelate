@@ -22,18 +22,6 @@
       id="page-canonical"
       href="https://www.pixelatenest.com/detailed-services.html"
     />
-    <script>
-      (function () {
-        var params = new URLSearchParams(window.location.search);
-        var service = params.get("service");
-        var city = params.get("city");
-        if (service) {
-          var canonical = "https://www.pixelatenest.com/detailed-services.html?service=" + encodeURIComponent(service);
-          if (city) canonical += "&city=" + encodeURIComponent(city);
-          document.getElementById("page-canonical").setAttribute("href", canonical);
-        }
-      })();
-    </script>
 
     <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
     <link href="./styles.css" rel="stylesheet" crossorigin />
@@ -478,7 +466,7 @@
                         >
                           Web Development
                         </a>
-                        <a href="app-dev.html" class="dropdown-item">
+                        <a href="https://www.pixelatenest.com/app-dev.html" class="dropdown-item">
                           App Development
                         </a>
                         <a href="https://www.pixelatenest.com/software-dev.html" class="dropdown-item">
@@ -977,7 +965,12 @@
     <script src="./js/index.js"></script>
     <script>
       const _dsParams = new URLSearchParams(window.location.search);
-      const _dsServiceSlug = _dsParams.get("service");
+      const _dsPathMatch = window.location.pathname.match(
+        /\/detailed-services\/([^/?#]+)\/?$/i,
+      );
+      const _dsServiceSlug = _dsPathMatch
+        ? decodeURIComponent(_dsPathMatch[1])
+        : _dsParams.get("service");
 
       async function loadServiceData() {
         try {
@@ -1014,14 +1007,6 @@
           .getElementById("page-description")
           .setAttribute("content", service.longDescription);
         
-        // Canonical points to the service+city specific URL so each combination is indexable
-        var canonicalUrl = "https://www.pixelatenest.com/detailed-services.html?service=" + encodeURIComponent(_dsServiceSlug);
-        var cityParam = _dsParams.get("city");
-        if (cityParam) canonicalUrl += "&city=" + encodeURIComponent(cityParam);
-        document
-          .getElementById("page-canonical")
-          .setAttribute("href", canonicalUrl);
-
         // Update breadcrumb
         document.getElementById("breadcrumb-service").textContent =
           service.name;
