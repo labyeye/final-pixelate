@@ -443,6 +443,7 @@
           mode: "Online / Offline",
           image: "./assets/product-software/school-manage.png",
           accent: "#ff8a65",
+          url: "./products/school-management-system.html",
         },
         {
           title: "Counter Billing Software",
@@ -450,6 +451,7 @@
           mode: "Offline / Online",
           image: "./assets/product-software/counter-billing.png",
           accent: "#26c6da",
+          url: "./products/counter-billing-software.html",
         },
         {
           title: "FMCG Retail and Wholesale Software",
@@ -457,6 +459,7 @@
           mode: "Offline / Online",
           image: "./assets/product-software/fmcg-manage.png",
           accent: "#ff5f8f",
+          url: "./products/fmcg-retail-and-wholesale-software.html",
         },
         {
           title: "Library Management Software",
@@ -464,6 +467,7 @@
           mode: "Offline / Online",
           image: "./assets/product-software/library-manage.png",
           accent: "#ec4899",
+          url: "./products/library-management-software.html",
         },
         {
           title: "Transport Management Software",
@@ -471,6 +475,7 @@
           mode: "Offline / Online",
           image: "./assets/product-software/transport-manage.png",
           accent: "#ff7043",
+          url: "./products/transport-management-software.html",
         },
         {
           title: "Lead Generation Software",
@@ -478,6 +483,7 @@
           mode: "Offline / Online",
           image: "./assets/product-software/lead-manage.png",
           accent: "#ff7043",
+          url: "./products/lead-generation-software.html",
         },
       ];
 
@@ -494,6 +500,10 @@
       }
 
       products.forEach((product) => {
+        const cardLink = document.createElement("a");
+        cardLink.href = product.url || "#";
+        cardLink.className = "product-card-link";
+
         const card = document.createElement("article");
         card.className = "product-card";
         card.style.setProperty("--accent", product.accent);
