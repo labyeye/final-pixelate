@@ -1047,4 +1047,55 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach((item) => {
+    const question = item.querySelector(".faq-question");
+    question.addEventListener("click", () => {
+      const currentlyActive = document.querySelector(".faq-item.active");
+      if (currentlyActive && currentlyActive !== item) {
+        currentlyActive.classList.remove("active");
+      }
+      item.classList.toggle("active");
+    });
+  });
+
+  const statNumbers = document.querySelectorAll(".stat-number");
+  const statSection = document.querySelector(".hero-stats-row");
+
+  const animateStat = (element) => {
+    const target = +element.getAttribute("data-target");
+    const duration = 1500;
+    const stepTime = 20;
+    const steps = duration / stepTime;
+    const increment = target / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        element.textContent = Math.round(target);
+        clearInterval(timer);
+      } else {
+        element.textContent = Math.round(current);
+      }
+    }, stepTime);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          statNumbers.forEach(animateStat);
+          observer.unobserve(statSection);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  if (statSection) {
+    observer.observe(statSection);
+  }
 });

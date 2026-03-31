@@ -1,0 +1,232 @@
+.h2 {
+  color: var(--tertiary-900);
+  margin-bottom: 12px;
+}
+.product-hero {
+  padding: 48px 0;
+  text-align: center;
+}
+.product-hero h1 {
+  font-size: 34px;
+  margin: 0 0 8px;
+}
+.product-hero p {
+  color: var(--tertiary-900);
+  margin: 0 0 18px;
+}
+.product-hero .hero-cta-button {
+  display: inline-block;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.product-content {
+  padding: 36px 0;
+  text-align: center;
+}
+.product-overview {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 28px;
+  align-items: start;
+}
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+}
+.product-card p {
+  color: var(--tertiary-900);
+  text-align: justify;
+}
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+.product-meta {
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 8px;
+}
+.product-bullets {
+  margin-top: 12px;
+}
+.product-bullets li {
+  margin: 8px 0;
+  color: var(--tertiary-900);
+}
+.product-benefits {
+  margin-top: 48px;
+}
+.product-benefits p {
+  color: var(--tertiary-900);
+}
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+.benefit-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+}
+.benefit-item h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--tertiary-900);
+}
+.faq-section {
+  margin-top: 48px;
+  padding-bottom: 48px;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 24px auto 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+details.faq-item {
+  background: #fff;
+  border: 1px solid rgba(16, 24, 40, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.04);
+  transition: box-shadow 0.2s ease;
+}
+
+details.faq-item:hover {
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+}
+
+details.faq-item summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 22px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #101828;
+  background: transparent;
+}
+
+details.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+details.faq-item summary::after {
+  content: "+";
+  font-size: 22px;
+  line-height: 1;
+  color: var(--primary-900);
+  transition: transform 0.2s ease;
+  font-weight: 400;
+}
+
+details.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-answer {
+  padding: 0 22px;
+  color: var(--tertiary-900);
+  line-height: 1.6;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.28s ease,
+    padding 0.22s ease;
+}
+
+details.faq-item[open] .faq-answer {
+  padding: 4px 22px 18px;
+  max-height: 800px;
+}
+
+@media (max-width: 900px) {
+  .product-overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cities-section {
+  margin-top: 48px;
+  text-align: center;
+}
+
+.cities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.city-card {
+  display: block;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.city-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(16, 24, 40, 0.1);
+}
+
+.city-image {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  display: block;
+}
+
+.city-name {
+  padding: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--tertiary-900);
+}
+
+.cta-section {
+  margin-top: 48px;
+  padding: 48px 0;
+}
+.cta-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(16, 24, 40, 0.08);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.cta-card h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.cta-card p {
+  color: var(--tertiary-900);
+  margin-bottom: 24px;
+}
+.cta-card .hero-cta-button {
+  background: var(--primary-900);
+  padding: 14px 28px;
+  border-radius: 50px;
+}
