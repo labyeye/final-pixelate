@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -364,7 +364,52 @@
         }
       }
     </style>
-  </head>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.pixelatenest.com/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Our Services - Web Development, Video Editing, App & Software Development\r\n      | Pixelate Nest",
+            "item": "https://www.pixelatenest.com/detailed-services.html"
+          }
+        ]
+      }
+    </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Our Services - Web Development, Video Editing, App & Software Development\r\n      | Pixelate Nest",
+  "description": "We couldn't find the service you're looking for.",
+  "url": "https://www.pixelatenest.com/detailed-services.html",
+  "provider": {
+    "@type": "Organization",
+    "name": "Pixelate Nest (Kalahanu Tech Studios LLP)",
+    "url": "https://www.pixelatenest.com",
+    "telephone": "+91-84069-12345",
+    "email": "support@pixelatenest.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Kala Bhawan, Akharaghat Road",
+      "addressLocality": "Muzaffarpur",
+      "addressRegion": "Bihar",
+      "postalCode": "842001",
+      "addressCountry": "IN"
+    }
+  },
+  "serviceType": "Our Services - Web Development, Video Editing, App & Software Development\r\n      | Pixelate Nest"
+}
+</script>
+</head>
   <body>
     <div class="page-wrapper">
       <section class="nav-wrap">
@@ -466,13 +511,22 @@
                         >
                           Web Development
                         </a>
-                        <a href="https://www.pixelatenest.com/app-dev.html" class="dropdown-item">
+                        <a
+                          href="https://www.pixelatenest.com/app-dev.html"
+                          class="dropdown-item"
+                        >
                           App Development
                         </a>
-                        <a href="https://www.pixelatenest.com/software-dev.html" class="dropdown-item">
+                        <a
+                          href="https://www.pixelatenest.com/software-dev.html"
+                          class="dropdown-item"
+                        >
                           Software Development
                         </a>
-                        <a href="https://www.pixelatenest.com/video-ed.html" class="dropdown-item">
+                        <a
+                          href="https://www.pixelatenest.com/video-ed.html"
+                          class="dropdown-item"
+                        >
                           Video Editing
                         </a>
                       </div>
@@ -650,7 +704,11 @@
               <p class="pricing-note">
                 Contact us for custom quotes based on your requirements
               </p>
-              <a href="https://www.pixelatenest.com/contact.html" class="cta-button">Get in Touch</a>
+              <a
+                href="https://www.pixelatenest.com/contact.html"
+                class="cta-button"
+                >Get in Touch</a
+              >
             </div>
           </div>
         </div>
@@ -690,14 +748,14 @@
                   </p>
                   <p class="p-text-03 text-white-60" style="margin-bottom: 5px">
                     <i class="fas fa-phone" style="margin-right: 8px"></i>+91
-                    84069 12345
+                    +91-84069-12345
                   </p>
                   <p class="p-text-03 text-white-60">
                     <i
                       class="fas fa-map-marker-alt"
                       style="margin-right: 8px"
                     ></i
-                    >Kala Bhawan Akharaghat Road, Muzaffarpur, Bihar, 842001
+                    >Kala Bhawan, Akharaghat Road, Muzaffarpur, Bihar, 842001
                   </p>
                 </div>
               </div>
@@ -1006,7 +1064,7 @@
         document
           .getElementById("page-description")
           .setAttribute("content", service.longDescription);
-        
+
         // Update breadcrumb
         document.getElementById("breadcrumb-service").textContent =
           service.name;
@@ -1071,6 +1129,8 @@
       // Load data when page is ready
       document.addEventListener("DOMContentLoaded", loadServiceData);
     </script>
-      <script src="js/quick-contact-buttons.js"></script>
+    <script src="js/quick-contact-buttons.js"></script>
   </body>
 </html>
+
+
