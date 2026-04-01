@@ -384,11 +384,11 @@
         ]
       }
     </script>
-  <script type="application/ld+json">
+  <script type="application/ld+json" id="service-schema">
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Our Services - Web Development, Video Editing, App & Software Development\r\n      | Pixelate Nest",
+  "name": "Our Services - Web Development, Video Editing, App & Software Development | Pixelate Nest",
   "description": "We couldn't find the service you're looking for.",
   "url": "https://www.pixelatenest.com/detailed-services.html",
   "provider": {
@@ -406,7 +406,7 @@
       "addressCountry": "IN"
     }
   },
-  "serviceType": "Our Services - Web Development, Video Editing, App & Software Development\r\n      | Pixelate Nest"
+  "serviceType": "Our Services - Web Development, Video Editing, App & Software Development"
 }
 </script>
 </head>
@@ -1074,6 +1074,44 @@
         document.getElementById("hero-title").textContent = service.name;
         document.getElementById("hero-description").textContent =
           service.tagline;
+
+        // Update canonical to a stable service path if available (helps indexing)
+        try {
+          const canonicalEl = document.getElementById("page-canonical");
+          const staticPath = `https://www.pixelatenest.com/detailed-services/${service.slug}/`;
+          canonicalEl.setAttribute("href", staticPath);
+          // Also update service JSON-LD to reference the canonical URL
+          const schemaEl = document.getElementById("service-schema");
+          if (schemaEl) {
+            const schemaObj = {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              name: service.name,
+              description: service.longDescription || service.description || service.tagline || '',
+              url: staticPath,
+              provider: {
+                "@type": "Organization",
+                name: "Pixelate Nest (Kalahanu Tech Studios LLP)",
+                url: "https://www.pixelatenest.com",
+                telephone: "+91-84069-12345",
+                email: "support@pixelatenest.com",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "Kala Bhawan, Akharaghat Road",
+                  addressLocality: "Muzaffarpur",
+                  addressRegion: "Bihar",
+                  postalCode: "842001",
+                  addressCountry: "IN"
+                }
+              },
+              serviceType: service.name
+            };
+            schemaEl.textContent = JSON.stringify(schemaObj, null, 2);
+          }
+        } catch (e) {
+          // non-fatal
+          console.warn('Could not update canonical/schema for service:', e);
+        }
 
         // Populate features
         const featuresGrid = document.getElementById("features-grid");

@@ -14,8 +14,6 @@ Allow: /*.js$
 Disallow: /server/
 Disallow: /.vscode/
 Disallow: /api/
-Disallow: /*?city=
-Disallow: /*?service=
 
 # === ALL OTHER BOTS ===
 User-agent: *
@@ -29,8 +27,6 @@ Allow: /*.js$
 Disallow: /server/
 Disallow: /.vscode/
 Disallow: /api/
-Disallow: /*?city=
-Disallow: /*?service=
 
 # === SITEMAPS ===
 Sitemap: https://www.pixelatenest.com/sitemap-index.xml
