@@ -147,6 +147,7 @@
   font-weight: 600;
   color: var(--tertiary-900);
   letter-spacing: -0.02em;
+  text-decoration: none;
 }
 
 .product-category {
