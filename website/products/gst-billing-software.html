@@ -1,0 +1,998 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>GST Billing Software | Pixelate Nest</title>
+    <meta
+      name="description"
+      content="GST Billing Software - invoice generation, tax management, e-filing, inventory, and financial reports."
+    />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../assets/product-common.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.pixelatenest.com/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Products",
+            "item": "https://www.pixelatenest.com/products.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "GST Billing Software | Pixelate Nest",
+            "item": "https://www.pixelatenest.com/products/gst-billing-software.html"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="main-hero">
+        <!-- navbar (copied from index) -->
+        <section class="nav-wrap">
+          <div class="nav-bar-wrap">
+            <div
+              data-animation="default"
+              data-collapse="medium"
+              data-duration="400"
+              data-easing="ease"
+              data-easing2="ease"
+              role="banner"
+              class="navbar w-nav"
+            >
+              <div class="navbar-wrapper">
+                <div class="navbar-left">
+                  <a
+                    href="https://www.pixelatenest.com/"
+                    aria-current="page"
+                    class="navbar-brand w-nav-brand w--current"
+                  >
+                    <img
+                      src="../assets/Logo_Color_Name_Large.webp"
+                      alt="Pixelate Nest"
+                      class="logo-desktop"
+                    />
+                    <img
+                      src="../assets/Logo_Color.webp"
+                      alt="Pixelate Nest"
+                      class="logo-mobile"
+                    />
+                  </a>
+                </div>
+                <div class="navbar-center">
+                  <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
+                    <div class="mobile-menu-header">
+                      <button class="mobile-menu-close" aria-label="Close menu">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M18 6L6 18"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M6 6L18 18"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <ul role="list" class="nav-menu w-list-unstyled">
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/"
+                          aria-current="page"
+                          class="nav-link w-inline-block w--current"
+                          ><span class="nav-link-text">Home</span></a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/about.html"
+                          class="nav-link w-inline-block"
+                          ><span class="nav-link-text">About</span></a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/pricing.html"
+                          class="nav-link w-inline-block"
+                          ><span class="nav-link-text">Pricing</span></a
+                        >
+                      </li>
+                      <li class="nav-item has-dropdown">
+                        <a
+                          href="javascript:void(0)"
+                          class="nav-link dropdown-toggle w-inline-block"
+                        >
+                          <span class="nav-link-text">Services</span>
+                          <i
+                            class="fas fa-chevron-down dropdown-arrow"
+                            aria-hidden="true"
+                          ></i>
+                        </a>
+                        <div class="dropdown-menu">
+                          <a
+                            href="https://www.pixelatenest.com/webdev.html"
+                            class="dropdown-item"
+                          >
+                            Web Development
+                          </a>
+                          <a
+                            href="https://www.pixelatenest.com/app-dev.html"
+                            class="dropdown-item"
+                          >
+                            App Development
+                          </a>
+                          <a
+                            href="https://www.pixelatenest.com/software-dev.html"
+                            class="dropdown-item"
+                          >
+                            Software Development
+                          </a>
+                          <a
+                            href="https://www.pixelatenest.com/video-ed.html"
+                            class="dropdown-item"
+                          >
+                            Content Creation
+                          </a>
+                        </div>
+                      </li>
+
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/product.html"
+                          class="nav-link w-inline-block"
+                          ><span class="nav-link-text">Products</span></a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/blogs.html"
+                          class="nav-link w-inline-block"
+                          ><span class="nav-link-text">Blogs</span></a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/careers.html"
+                          class="nav-link w-inline-block"
+                        >
+                          <div class="nav-link-text">Careers</div>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/technologies.html"
+                          class="nav-link w-inline-block"
+                        >
+                          <div class="nav-link-text">Technologies</div>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="https://www.pixelatenest.com/contact.html"
+                          class="nav-link w-inline-block"
+                        >
+                          <div class="nav-link-text">Contact</div>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="navbar-right">
+                  <div
+                    class="menu-button w-nav-button"
+                    aria-label="menu"
+                    role="button"
+                    tabindex="0"
+                    aria-controls="w-nav-overlay-0"
+                    aria-haspopup="menu"
+                    aria-expanded="false"
+                  >
+                    <div
+                      data-is-ix2-target="1"
+                      class="hamburger-menu"
+                      data-w-id="87959840-dee1-9d4c-adfe-a49c217b8a08"
+                      data-animation-type="lottie"
+                      data-loop="0"
+                      data-direction="1"
+                      data-autoplay="0"
+                      data-renderer="svg"
+                      data-default-duration="0"
+                      data-duration="2.3333333333333335"
+                      data-ix2-initial-state="0"
+                    >
+                      <svg
+                        class="hamburger-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3 12H21"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M3 6H21"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M3 18H21"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- hero -->
+        <section class="home-hero-v1">
+          <div class="container">
+            <div class="home-hero-v1-wrap">
+              <div class="hero-v1-content">
+                <div class="hero-v1-title-wrap">
+                  <div class="hero-trust-badge">
+                    <div class="trust-avatars">
+                      <img
+                        src="../assets/homescreen/customer/customer1.webp"
+                        alt="Happy Customer"
+                        class="trust-avatar"
+                      />
+                      <img
+                        src="../assets/homescreen/customer/customer2.webp"
+                        alt="Happy Customer"
+                        class="trust-avatar"
+                      />
+                      <img
+                        src="../assets/homescreen/customer/customer3.webp"
+                        alt="Happy Customer"
+                        class="trust-avatar"
+                      />
+                      <img
+                        src="../assets/homescreen/customer/customer4.webp"
+                        alt="Happy Customer"
+                        class="trust-avatar"
+                      />
+                    </div>
+                    <div class="trust-text">
+                      TRUSTED BY
+                      <span class="trust-number">20+</span> DELIGHTED CUSTOMERS
+                    </div>
+                  </div>
+
+                  <div class="heading-wrap hero-v1-heading">
+                    <h1 class="h1 hero-heading hero-main-title">
+                      GST Billing
+                      <i style="font-weight: 100">(Online / Offline) </i>
+                      Software
+                    </h1>
+                  </div>
+
+                  <div class="sub-heading-wrap">
+                    <p class="hero-subheadline">
+                      Streamline Invoice Generation, Tax Management, E-Filing,
+                      Inventory Tracking, and Financial Reports with Our
+                      Comprehensive GST Billing Software
+                    </p>
+                  </div>
+
+                  <div class="hero-cta-wrap">
+                    <a
+                      href="https://www.pixelatenest.com/contact.html"
+                      class="hero-cta-button"
+                    >
+                      Book Demo <span class="cta-arrow">→</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-stats-row">
+              <div class="hero-stat-item" data-stat-index="0">
+                <div class="stat-number-wrap">
+                  <span class="stat-number" data-target="50">0</span>
+                  <span class="stat-suffix">+</span>
+                </div>
+                <div class="stat-label">Businesses Registered</div>
+              </div>
+
+              <div class="stat-divider"></div>
+
+              <div class="hero-stat-item" data-stat-index="1">
+                <div class="stat-number-wrap">
+                  <span class="stat-number" data-target="10000">0</span>
+                  <span class="stat-suffix">+</span>
+                </div>
+                <div class="stat-label">Invoices Generated</div>
+              </div>
+
+              <div class="stat-divider"></div>
+
+              <div class="hero-stat-item" data-stat-index="2">
+                <div class="stat-number-wrap">
+                  <span class="stat-number" data-target="100">0</span>
+                  <span class="stat-suffix">%</span>
+                </div>
+                <div class="stat-label">Customizable Modules</div>
+              </div>
+
+              <div class="stat-divider"></div>
+
+              <div class="hero-stat-item" data-stat-index="3">
+                <div class="stat-number-wrap">
+                  <span class="stat-number" data-target="24">0</span>
+                  <span class="stat-suffix">/7</span>
+                </div>
+                <div class="stat-label">Support Availability</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <main class="container product-content">
+        <div class="product-overview">
+          <div>
+            <div class="product-card">
+              <div class="product-meta">
+                Category: Accounting & Tax Management
+              </div>
+              <p>
+                GST Billing Software is an all-in-one solution that is sure to
+                revolutionize the way businesses handle taxation and invoicing
+                in the modern, fast-paced digital world. Our GST Billing
+                Software was designed to be user-friendly and efficient, and its
+                main goal is to help businesses automate tedious and repetitive
+                billing tasks, reduce the chances of human error, and save time
+                and energy for the accounts team and business management. All
+                the operations, from invoice creation to tax computation, GST
+                return filing, and financial reporting, are simplified by
+                bringing them all under one umbrella. The automated tax
+                calculation module is perhaps the most outstanding feature of
+                our GST Billing Software. This software allows businesses to
+                generate GST-compliant invoices instantly, applying the correct
+                CGST, SGST, and IGST rates automatically based on the
+                transaction type and location. This feature is helpful in
+                maintaining complete tax compliance and avoiding penalties.
+                Moreover, as soon as an invoice is raised, an SMS and email
+                notification is sent to the customer along with a digital copy
+                of the bill. The inventory and stock management process is also
+                made very easy with the help of this system. This, in turn,
+                means that business owners are able to track stock levels,
+                manage purchase orders, and reconcile accounts within just a few
+                mouse clicks. In addition, the software provides the ability for
+                different people, including the business owner, accountants,
+                sales staff, and auditors, to access different types of
+                information depending on the role they play in the organisation.
+                Our software is not just limited to basic billing functions. It
+                provides insightful information through various forms of
+                analytics and reports. The administrators can view information
+                like sales data, tax liabilities, purchase summaries, and profit
+                and loss statements through various forms of visual
+                representations. These can be useful in making informed
+                decisions, which can help in taking the business a step further
+                in terms of financial growth and compliance. Our software can be
+                utilized for different-sized businesses, whether small traders
+                or large enterprises. It is easy to use, meaning minimal
+                training is required for staff members to get familiar with it.
+                It can be accessed anywhere, anytime, meaning there will be no
+                break in work flow. By opting for our GST Billing Software, you
+                are opting for a smarter, compliant, and more efficient future
+                for your business.
+              </p>
+            </div>
+          </div>
+          <aside>
+            <div class="product-card">
+              <img
+                src="../assets/product-software/gst-bill-manage.png"
+                alt="GST Billing Software"
+                class="product-image"
+              />
+              <div style="margin-top: 12px">
+                <strong>Mode:</strong> Online / Offline
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="product-benefits">
+          <h2 class="h2 text-center">
+            How is our software beneficial for your business?
+          </h2>
+          <div class="benefits-grid">
+            <div class="benefit-item">
+              <h3 class="h3">Automate GST Invoice Generation</h3>
+              <p>
+                Generate GST-compliant invoices instantly with auto-calculated
+                CGST, SGST, and IGST, eliminating manual tax computation and
+                reducing errors.
+              </p>
+            </div>
+            <div class="benefit-item">
+              <h3 class="h3">Customer & Vendor Portal</h3>
+              <p>
+                Customers and vendors can log in to their portals to view
+                invoices, track payment history, and download GST-compliant
+                billing statements anytime.
+              </p>
+            </div>
+            <div class="benefit-item">
+              <h3 class="h3">Simplify Data Storage & Management</h3>
+              <p>
+                With our software, you can run it on your personal business
+                server, ensuring complete data security and full control over
+                your financial records.
+              </p>
+            </div>
+            <div class="benefit-item">
+              <h3 class="h3">SMS & Email Alert System</h3>
+              <p>
+                Automatically notify customers about invoice generation, payment
+                due dates, and receipt confirmations via SMS and email in real
+                time.
+              </p>
+            </div>
+            <div class="benefit-item">
+              <h3 class="h3">Saves Time</h3>
+              <p>
+                The software automates invoice creation, tax filing, inventory
+                updates, and financial report generation, saving valuable
+                accounting time every day.
+              </p>
+            </div>
+            <div class="benefit-item">
+              <h3 class="h3">Access From Anywhere</h3>
+              <p>
+                You can access our software from anywhere at any time, providing
+                the flexibility to manage billing and tax compliance on the go.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cities-section">
+          <h2 class="h2 text-center">Available in Your City</h2>
+          <div class="cities-grid">
+            <a
+              href="../gst-billing-bihar/gst-billing-muzaffarpur.html"
+              class="city-card"
+            >
+              <img
+                src="../assets/cities/location.png"
+                alt="Muzaffarpur"
+                class="city-image"
+              />
+              <div class="city-name">Muzaffarpur</div>
+              <div class="city-key">GST Billing Software in Muzaffarpur</div>
+            </a>
+            <a
+              href="../gst-billing-bihar/gst-billing-patna.html"
+              class="city-card"
+            >
+              <img
+                src="../assets/cities/location.png"
+                alt="Patna"
+                class="city-image"
+              />
+              <div class="city-name">Patna</div>
+              <div class="city-key">GST Billing Software in Patna</div>
+            </a>
+            <a
+              href="../gst-billing-bihar/gst-billing-gaya.html"
+              class="city-card"
+            >
+              <img
+                src="../assets/cities/location.png"
+                alt="Gaya"
+                class="city-image"
+              />
+              <div class="city-name">Gaya</div>
+              <div class="city-key">GST Billing Software in Gaya</div>
+            </a>
+            <a
+              href="../gst-billing-bihar/gst-billing-darbhanga.html"
+              class="city-card"
+            >
+              <img
+                src="../assets/cities/location.png"
+                alt="Darbhanga"
+                class="city-image"
+              />
+              <div class="city-name">Darbhanga</div>
+              <div class="city-key">GST Billing Software in Darbhanga</div>
+            </a>
+            <a
+              href="../gst-billing-bihar/gst-billing-bhagalpur.html"
+              class="city-card"
+            >
+              <img
+                src="../assets/cities/location.png"
+                alt="Bhagalpur"
+                class="city-image"
+              />
+              <div class="city-name">Bhagalpur</div>
+              <div class="city-key">GST Billing Software in Bhagalpur</div>
+            </a>
+            <a
+              href="../gst-billing-bihar/gst-billing-purnia.html"
+              class="city-card"
+            >
+              <img
+                src="../assets/cities/location.png"
+                alt="Purnia"
+                class="city-image"
+              />
+              <div class="city-name">Purnia</div>
+              <div class="city-key">GST Billing Software in Purnia</div>
+            </a>
+            <a
+              href="../gst-billing-bihar/gst-billing-munger.html"
+              class="city-card"
+            >
+              <img
+                src="../assets/cities/location.png"
+                alt="Munger"
+                class="city-image"
+              />
+              <div class="city-name">Munger</div>
+              <div class="city-key">GST Billing Software in Munger</div>
+            </a>
+            <a
+              href="../gst-billing-bihar/gst-billing-chapra.html"
+              class="city-card"
+            >
+              <img
+                src="../assets/cities/location.png"
+                alt="Chapra"
+                class="city-image"
+              />
+              <div class="city-name">Chapra</div>
+              <div class="city-key">GST Billing Software in Chapra</div>
+            </a>
+            <a
+              href="../gst-billing-bihar/gst-billing-saharsa.html"
+              class="city-card"
+            >
+              <img
+                src="../assets/cities/location.png"
+                alt="Saharsa"
+                class="city-image"
+              />
+              <div class="city-name">Saharsa</div>
+              <div class="city-key">GST Billing Software in Saharsa</div>
+            </a>
+            <a
+              href="../gst-billing-bihar/gst-billing-katihar.html"
+              class="city-card"
+            >
+              <img
+                src="../assets/cities/location.png"
+                alt="Katihar"
+                class="city-image"
+              />
+              <div class="city-name">Katihar</div>
+              <div class="city-key">GST Billing Software in Katihar</div>
+            </a>
+          </div>
+        </div>
+
+        <div class="faq-section">
+          <h2 class="h2 text-center">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>What is GST billing software?</summary>
+              <div class="faq-answer">
+                <p>
+                  GST billing software is a tool that helps businesses automate
+                  invoice creation, tax calculation, GST return filing,
+                  inventory management, and financial reporting in compliance
+                  with Indian GST regulations.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>
+                How does it help in automating billing and tax tasks?
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  It automates tasks like GST-compliant invoice generation,
+                  automatic CGST/SGST/IGST calculation, payment reminders via
+                  SMS and email, stock management, and GSTR return preparation,
+                  which saves time and reduces manual effort.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Is the business and financial data secure?</summary>
+              <div class="faq-answer">
+                <p>
+                  Yes, our software allows you to run it on your personal
+                  business server, ensuring that all your invoices, tax records,
+                  and financial data are secure and completely under your
+                  control.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Can we access the software from anywhere?</summary>
+              <div class="faq-answer">
+                <p>
+                  Yes, our software is accessible from anywhere at any time,
+                  providing you with the flexibility to manage billing and GST
+                  compliance from any device, on the go.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>What kind of support do you offer?</summary>
+              <div class="faq-answer">
+                <p>
+                  We offer 24/7 support to assist you with any issues or queries
+                  you may have regarding the software.
+                </p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Where can I get this software?</summary>
+              <div class="faq-answer">
+                <p>
+                  You can get this software from Pixelate Nest. Contact us at
+                  +91-84069-12345 or email us at support@pixelatenest.com to get
+                  a high-performing GST billing solution for your business.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="cta-section">
+          <div class="cta-card">
+            <h2 class="h2">Transform Your Business Billing Today</h2>
+            <p>
+              Launch a scalable GST Billing Solution with Pixelate Nest and give
+              your team one complete operating system.
+            </p>
+            <a href="../contact.html" class="hero-cta-button">Book Demo</a>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-wrap">
+            <div class="footer-top">
+              <div class="footer-top-left">
+                <div class="footer-logo-details">
+                  <div class="footer-logo-wrap">
+                    <a
+                      href="https://www.pixelatenest.com/"
+                      class="footer-logo w-inline-block"
+                    >
+                      <img
+                        src="../assets/Logo_Color_Name_Large.webp"
+                        loading="lazy"
+                        alt="Pixelate Nest Logo"
+                        class="fit-cover"
+                      />
+                    </a>
+                  </div>
+                  <p class="p-text-03">
+                    AI-first creative technology partner for web, app, and video
+                    that delivers measurable growth.
+                  </p>
+                  <div style="margin-top: 20px">
+                    <p class="p-text-03" style="margin-bottom: 8px">
+                      <strong>Contact Us</strong>
+                    </p>
+                    <p
+                      class="p-text-03 text-white-60"
+                      style="margin-bottom: 5px"
+                    >
+                      <i class="fas fa-envelope" style="margin-right: 8px"></i
+                      >support@pixelatenest.com
+                    </p>
+                    <p
+                      class="p-text-03 text-white-60"
+                      style="margin-bottom: 5px"
+                    >
+                      <i class="fas fa-phone" style="margin-right: 8px"></i>+91
+                      +91-84069-12345
+                    </p>
+                    <p class="p-text-03 text-white-60">
+                      <i
+                        class="fas fa-map-marker-alt"
+                        style="margin-right: 8px"
+                      ></i
+                      >Muzaffarpur, Bihar, India — Serving clients across India
+                      & globally
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="footer-right-link-wrap">
+                <div class="footer-link-wrap">
+                  <div class="p-text-01">Company</div>
+                  <div class="footer-link-list">
+                    <a
+                      href="https://www.pixelatenest.com/about.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">About Us</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/careers.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Careers</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/contact.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Contact Us</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/blogs.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Blog</div></a
+                    >
+                  </div>
+                </div>
+
+                <div class="footer-link-wrap">
+                  <div class="p-text-01">Services</div>
+                  <div class="footer-link-list">
+                    <a
+                      href="https://www.pixelatenest.com/video-ed.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Video Editing</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/webdev.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Web Development</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/app-dev.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">App Development</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/software-dev.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">
+                        Software Development
+                      </div></a
+                    >
+                  </div>
+                </div>
+
+                <div class="footer-link-wrap">
+                  <div class="p-text-01">Industries We Serve</div>
+                  <div class="footer-link-list">
+                    <a
+                      href="https://www.pixelatenest.com/industry-ecommerce.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">
+                        Ecommerce & Multivendor
+                      </div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/industry-realestate.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">
+                        Real Estate & Construction
+                      </div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/industry-travel.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">
+                        Travel & Hospitality
+                      </div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/industry-education.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Education</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/industry-logistics.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">
+                        Transportation & Logistics
+                      </div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/industry-manufacturing.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Manufacturing</div></a
+                    >
+                  </div>
+                </div>
+
+                <div class="footer-link-wrap">
+                  <div class="p-text-01">Resources</div>
+                  <div class="footer-link-list">
+                    <a
+                      href="https://www.pixelatenest.com/pricing.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Pricing</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/locations.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Locations</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/technologies.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Technologies</div></a
+                    >
+                  </div>
+                </div>
+
+                <div class="footer-link-wrap">
+                  <div class="p-text-01">Legal</div>
+                  <div class="footer-link-list">
+                    <a
+                      href="https://www.pixelatenest.com/privacy-policy.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Privacy Policy</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/terms-of-service.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Terms of Service</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/refund-policy.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <div class="footer-link-text">Refund Policy</div>
+                    </a>
+                    <a
+                      href="https://www.pixelatenest.com/cookie-policy.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Cookie Policy</div></a
+                    >
+                  </div>
+                </div>
+
+                <div class="footer-link-wrap">
+                  <div class="p-text-01">Follow Us</div>
+                  <div class="footer-link-list">
+                    <a
+                      href="https://www.linkedin.com/company/pixelate-nest/?viewAsMember=true"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="footer-link w-inline-block"
+                    >
+                      <div
+                        class="footer-link-text"
+                        style="flex-direction: row; display: flex; gap: 10px"
+                      >
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i
+                        ><span>LinkedIn</span>
+                      </div>
+                    </a>
+                    <a
+                      href="https://www.instagram.com/pixelate.nest/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="footer-link w-inline-block"
+                    >
+                      <div
+                        class="footer-link-text"
+                        style="flex-direction: row; display: flex; gap: 10px"
+                      >
+                        <i class="fab fa-instagram" aria-hidden="true"></i
+                        ><span>Instagram</span>
+                      </div>
+                    </a>
+                    <a
+                      href="https://www.facebook.com/profile.php?id=61586872964348"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="footer-link w-inline-block"
+                    >
+                      <div
+                        class="footer-link-text"
+                        style="flex-direction: row; display: flex; gap: 10px"
+                      >
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i
+                        ><span>Facebook</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-bottom">
+              <div class="vertical-divider"></div>
+              <div class="footer-bottom-wrap">
+                <div class="p-text-03 text-white-60">
+                  © 2026 Kalahanu Tech Studios LLP. All Rights Reserved. |
+                  Crafted with
+                  <i class="fas fa-heart" style="color: #e74c3c"></i> in India
+                </div>
+                <div class="p-text-03 text-white-60">
+                  <strong>Payments Accepted:</strong>
+                  <div
+                    style="
+                      display: inline-flex;
+                      align-items: center;
+                      gap: 15px;
+                      margin-left: 10px;
+                    "
+                  >
+                    <span style="display: flex; align-items: center; gap: 5px"
+                      ><i class="fas fa-money-bill-wave"></i> Cash</span
+                    >
+                    <span style="display: flex; align-items: center; gap: 5px"
+                      ><i class="fas fa-university"></i> Bank</span
+                    >
+                    <span style="display: flex; align-items: center; gap: 5px"
+                      ><i class="fas fa-mobile-alt"></i> UPI</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

@@ -1099,3 +1099,56 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(statSection);
   }
 });
+
+(function initStickyNavbar() {
+  function init() {
+    const navWrap = document.querySelector(".nav-wrap");
+    if (!navWrap) return;
+    const navbar = navWrap.querySelector(".navbar");
+    if (!navbar) return;
+
+    let placeholder = null;
+    const THRESHOLD = 40;
+
+    function createPlaceholder() {
+      if (placeholder) return;
+      placeholder = document.createElement("div");
+      placeholder.className = "nav-placeholder";
+      placeholder.style.height = `${navbar.offsetHeight}px`;
+      navWrap.parentNode.insertBefore(placeholder, navWrap.nextSibling);
+    }
+
+    function removePlaceholder() {
+      if (!placeholder) return;
+      placeholder.parentNode.removeChild(placeholder);
+      placeholder = null;
+    }
+
+    function onScroll() {
+      const y = window.pageYOffset || document.documentElement.scrollTop;
+      if (y > THRESHOLD) {
+        if (!navbar.classList.contains("sticky")) {
+          navbar.classList.add("sticky");
+          createPlaceholder();
+        }
+      } else {
+        if (navbar.classList.contains("sticky")) {
+          navbar.classList.remove("sticky");
+          removePlaceholder();
+        }
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", () => {
+      if (placeholder) placeholder.style.height = `${navbar.offsetHeight}px`;
+    });
+    onScroll();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();

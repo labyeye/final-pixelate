@@ -11,6 +11,15 @@ Allow: /assets/
 Allow: /*.css$
 Allow: /*.js$
 
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
 Disallow: /server/
 Disallow: /.vscode/
 Disallow: /api/

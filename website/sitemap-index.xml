@@ -2,39 +2,43 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://www.pixelatenest.com/sitemap-main.xml</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.pixelatenest.com/sitemap-web-development.xml</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.pixelatenest.com/sitemap-app-development.xml</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.pixelatenest.com/sitemap-software-development.xml</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.pixelatenest.com/sitemap-video-editing.xml</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.pixelatenest.com/sitemapstate.xml</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.pixelatenest.com/sitemap-detailed-services.xml</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.pixelatenest.com/sitemap-school-crm-bihar.xml</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-03</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.pixelatenest.com/sitemap-factory-management-bihar.xml</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-03</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.pixelatenest.com/sitemap-counter-billing-bihar.xml</loc>
+    <lastmod>2026-04-03</lastmod>
   </sitemap>
 </sitemapindex>
 

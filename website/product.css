@@ -129,6 +129,7 @@
   font-weight: 800;
   font-size: 24px;
   letter-spacing: 0.03em;
+  text-decoration: none;
 }
 
 .product-badge {
@@ -208,4 +209,25 @@
   .products-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Remove default underline from product cards and keep a subtle focus ring */
+.product-card-link {
+  text-decoration: none;
+  color: var(--tertiary-900);
+  display: block;
+
+}
+
+.product-card-link:hover,
+.product-card-link:focus,
+.product-card-link:active {
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(4, 75, 171, 0.08);
+}
+
+.product-card-link h2 {
+  text-decoration: none;
+  color: inherit;
 }
