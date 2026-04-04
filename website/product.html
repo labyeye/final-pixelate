@@ -6,9 +6,40 @@
     <title>Business Software Products | Pixelate Nest</title>
     <meta
       name="description"
-      content="Explore Pixelate Nest business software products for billing, inventory, healthcare, transport, retail, and more."
+      content="Discover 8 premium business software solutions: School Management, Counter Billing, FMCG Retail, Library, Transport, Lead Generation, Hotel, and GST Billing software. Offline & online options."
     />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.pixelatenest.com/product.html" />
+    <meta
+      property="og:title"
+      content="Business Software Products | Pixelate Nest"
+    />
+    <meta
+      property="og:description"
+      content="Discover 8 premium business software solutions: School Management, Counter Billing, FMCG Retail, Library, Transport, Lead Generation, Hotel, and GST Billing software."
+    />
+    <meta
+      property="og:image"
+      content="https://www.pixelatenest.com/assets/Logo_Color_Name_Large.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://www.pixelatenest.com/product.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Business Software Products | Pixelate Nest"
+    />
+    <meta
+      name="twitter:description"
+      content="8 premium business software solutions for billing, inventory, education, healthcare, transport, retail & more."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.pixelatenest.com/assets/Logo_Color_Name_Large.webp"
+    />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="product.css" />
     <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
@@ -26,30 +57,30 @@
       referrerpolicy="no-referrer"
     />
     <link
-      href="/assets/PixelateNest_icons.ico"
+      href="./assets/PixelateNest_icons.ico"
       rel="shortcut icon"
       type="image/x-icon"
     />
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.pixelatenest.com/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Business Software Products | Pixelate Nest",
-      "item": "https://www.pixelatenest.com/product.html"
-    }
-  ]
-}
-</script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.pixelatenest.com/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Business Software Products | Pixelate Nest",
+            "item": "https://www.pixelatenest.com/product.html"
+          }
+        ]
+      }
+    </script>
     <script id="pixelate-seo-schema" type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -101,7 +132,7 @@
         ]
       }
     </script>
-</head>
+  </head>
   <body>
     <div id="announcement-bar" class="announcement-bar">
       <div class="announcement-content" id="announcement-content"></div>
@@ -130,11 +161,15 @@
                       src="./assets/Logo_Color_Name_Large.webp"
                       alt="Pixelate Nest"
                       class="logo-desktop"
+                      width="200"
+                      height="60"
                     />
                     <img
                       src="./assets/Logo_Color.webp"
                       alt="Pixelate Nest"
                       class="logo-mobile"
+                      width="50"
+                      height="50"
                     />
                   </a>
                 </div>
@@ -206,7 +241,10 @@
                           >
                             Web Development
                           </a>
-                          <a href="https://www.pixelatenest.com/app-dev.html" class="dropdown-item">
+                          <a
+                            href="https://www.pixelatenest.com/app-dev.html"
+                            class="dropdown-item"
+                          >
                             App Development
                           </a>
                           <a
@@ -337,21 +375,33 @@
                         src="assets/homescreen/customer/customer1.webp"
                         alt="Happy Customer"
                         class="trust-avatar"
+                        width="48"
+                        height="48"
+                        loading="lazy"
                       />
                       <img
                         src="assets/homescreen/customer/customer2.webp"
                         alt="Happy Customer"
                         class="trust-avatar"
+                        width="48"
+                        height="48"
+                        loading="lazy"
                       />
                       <img
                         src="assets/homescreen/customer/customer3.webp"
                         alt="Happy Customer"
                         class="trust-avatar"
+                        width="48"
+                        height="48"
+                        loading="lazy"
                       />
                       <img
                         src="assets/homescreen/customer/customer4.webp"
                         alt="Happy Customer"
                         class="trust-avatar"
+                        width="48"
+                        height="48"
+                        loading="lazy"
                       />
                     </div>
                     <div class="trust-text">
@@ -363,14 +413,15 @@
                   <div class="heading-wrap hero-v1-heading">
                     <h1 class="h1 hero-heading hero-main-title">
                       Business
-                      <i style="font-weight: 100">Software </i> Products
+                      <span class="software-light">Software</span> Products
                     </h1>
                   </div>
 
                   <div class="sub-heading-wrap">
                     <p class="hero-subheadline">
                       Explore our software lineup for billing, inventory,
-                      accounting, healthcare, transport, retail, and wholesale businesses.
+                      accounting, healthcare, transport, retail, and wholesale
+                      businesses.
                     </p>
                   </div>
 
@@ -430,7 +481,11 @@
       </div>
 
       <main class="products-main">
-        <section class="products-grid" id="productsGrid" aria-label="Products list"></section>
+        <section
+          class="products-grid"
+          id="productsGrid"
+          aria-label="Products list"
+        ></section>
       </main>
 
       <section class="footer">
@@ -449,6 +504,8 @@
                         loading="lazy"
                         alt="Pixelate Nest Logo"
                         class="fit-cover"
+                        width="180"
+                        height="54"
                       />
                     </a>
                   </div>
@@ -463,30 +520,80 @@
                 <div class="footer-link-wrap">
                   <div class="p-text-01">Company</div>
                   <div class="footer-link-list">
-                    <a href="https://www.pixelatenest.com/about.html" class="footer-link w-inline-block"><div class="footer-link-text">About Us</div></a>
-                    <a href="https://www.pixelatenest.com/careers.html" class="footer-link w-inline-block"><div class="footer-link-text">Careers</div></a>
-                    <a href="https://www.pixelatenest.com/contact.html" class="footer-link w-inline-block"><div class="footer-link-text">Contact Us</div></a>
-                    <a href="https://www.pixelatenest.com/blogs.html" class="footer-link w-inline-block"><div class="footer-link-text">Blog</div></a>
+                    <a
+                      href="https://www.pixelatenest.com/about.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">About Us</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/careers.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Careers</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/contact.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Contact Us</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/blogs.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Blog</div></a
+                    >
                   </div>
                 </div>
 
                 <div class="footer-link-wrap">
                   <div class="p-text-01">Services</div>
                   <div class="footer-link-list">
-                    <a href="https://www.pixelatenest.com/video-ed.html" class="footer-link w-inline-block"><div class="footer-link-text">Video Editing</div></a>
-                    <a href="https://www.pixelatenest.com/webdev.html" class="footer-link w-inline-block"><div class="footer-link-text">Web Development</div></a>
-                    <a href="https://www.pixelatenest.com/app-dev.html" class="footer-link w-inline-block"><div class="footer-link-text">App Development</div></a>
-                    <a href="https://www.pixelatenest.com/software-dev.html" class="footer-link w-inline-block"><div class="footer-link-text">Software Development</div></a>
+                    <a
+                      href="https://www.pixelatenest.com/video-ed.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Video Editing</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/webdev.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Web Development</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/app-dev.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">App Development</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/software-dev.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">
+                        Software Development
+                      </div></a
+                    >
                   </div>
                 </div>
 
                 <div class="footer-link-wrap">
                   <div class="p-text-01">Legal</div>
                   <div class="footer-link-list">
-                    <a href="https://www.pixelatenest.com/privacy-policy.html" class="footer-link w-inline-block"><div class="footer-link-text">Privacy Policy</div></a>
-                    <a href="https://www.pixelatenest.com/terms-of-service.html" class="footer-link w-inline-block"><div class="footer-link-text">Terms of Service</div></a>
-                    <a href="https://www.pixelatenest.com/refund-policy.html" class="footer-link w-inline-block"><div class="footer-link-text">Refund Policy</div></a>
-                    <a href="https://www.pixelatenest.com/cookie-policy.html" class="footer-link w-inline-block"><div class="footer-link-text">Cookie Policy</div></a>
+                    <a
+                      href="https://www.pixelatenest.com/privacy-policy.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Privacy Policy</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/terms-of-service.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Terms of Service</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/refund-policy.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Refund Policy</div></a
+                    >
+                    <a
+                      href="https://www.pixelatenest.com/cookie-policy.html"
+                      class="footer-link w-inline-block"
+                      ><div class="footer-link-text">Cookie Policy</div></a
+                    >
                   </div>
                 </div>
               </div>
@@ -564,7 +671,7 @@
           accent: "#ff7043",
           url: "./products/hotel-management-software.html",
         },
-         {
+        {
           title: "GST Billing Software",
           category: "Finance Operations",
           mode: "Offline / Online",
@@ -595,9 +702,10 @@
         card.className = "product-card";
         card.style.setProperty("--accent", product.accent);
 
-        const hasImage = typeof product.image === "string" && product.image.trim() !== "";
+        const hasImage =
+          typeof product.image === "string" && product.image.trim() !== "";
         const coverContent = hasImage
-          ? `<img src="${product.image}" alt="${product.title}" class="product-cover-image" loading="lazy" />`
+          ? `<img src="${product.image}" alt="${product.title}" class="product-cover-image" loading="lazy" width="300" height="200" />`
           : `<span class="product-initials">${initials(product.title)}</span>
              <span class="product-badge">Software</span>`;
 
@@ -612,6 +720,24 @@
           <p class="product-mode">(${product.mode})</p>
         `;
 
+        // Add Product schema markup
+        const schema = {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: product.title,
+          description: product.category,
+          image: product.image,
+          url: product.url,
+          operatingSystem: ["Online", "Offline"],
+          applicationCategory: "BusinessApplication",
+          publisher: {
+            "@type": "Organization",
+            name: "Pixelate Nest (Kalahanu Tech Studios LLP)",
+            url: "https://www.pixelatenest.com",
+          },
+        };
+        card.setAttribute("data-schema", JSON.stringify(schema));
+
         cardLink.appendChild(card);
         grid.appendChild(cardLink);
       });
@@ -621,13 +747,13 @@
       type="text/javascript"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
+      defer
     ></script>
     <script
       src="https://cdn.prod.website-files.com/6840859dc0e82803d10f5190/js/webflow.schunk.40f517e78f82ea08.js"
       type="text/javascript"
+      defer
     ></script>
-    <script src="js/index.js"></script>
+    <script src="js/index.js" defer></script>
   </body>
 </html>
-
-

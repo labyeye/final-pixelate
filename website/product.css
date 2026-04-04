@@ -186,13 +186,24 @@
 
   .product-cover-frame {
     min-height: 206px;
-    padding: 12px;
+    padding: 0px;
   }
 
   .product-cover {
     transform: perspective(640px) rotateY(-11deg);
     width: 112px;
     height: 142px;
+  }
+
+  .product-cover.image-cover {
+    width: 80%;
+    height: 50%;
+    transform: none;
+  }
+
+  .product-cover.image-cover .product-cover-image {
+    object-fit: contain;
+    background: #fff;
   }
 
   .product-card h2 {
@@ -207,7 +218,7 @@
 
 @media (max-width: 460px) {
   .products-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
