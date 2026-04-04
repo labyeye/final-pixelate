@@ -88,11 +88,7 @@
       media="print"
       onload="this.media = 'all'"
     />
-    <link
-      href="https://backend.pixelatenest.com"
-      rel="preconnect"
-      crossorigin
-    />
+    <link href="https://backend.pixelatenest.com" rel="preconnect" crossorigin />
     <link href="https://backend.pixelatenest.com" rel="dns-prefetch" />
     <script
       src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
@@ -788,56 +784,56 @@
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/1.webp"
-                      alt="Brand Logo 1"
+                      alt="Ok Motors"
                       class="brand-logo-img"
                     />
                   </div>
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/2.webp"
-                      alt="Brand Logo 2"
+                      alt="Abeer Motion Picture"
                       class="brand-logo-img"
                     />
                   </div>
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/3.webp"
-                      alt="Brand Logo 3"
+                      alt="Flaunt By Nishi"
                       class="brand-logo-img"
                     />
                   </div>
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/4.webp"
-                      alt="Brand Logo 4"
+                      alt="Skylyf Machinery"
                       class="brand-logo-img"
                     />
                   </div>
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/5.webp"
-                      alt="Brand Logo 5"
+                      alt="Thryv"
                       class="brand-logo-img"
                     />
                   </div>
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/6.webp"
-                      alt="Brand Logo 6"
+                      alt="Alfa Motor World"
                       class="brand-logo-img"
                     />
                   </div>
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/7.webp"
-                      alt="Brand Logo 7"
+                      alt="Bike Builders"
                       class="brand-logo-img"
                     />
                   </div>
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/8.webp"
-                      alt="Brand Logo 8"
+                      alt="Surat Glass Beads"
                       class="brand-logo-img"
                     />
                   </div>
@@ -845,56 +841,56 @@
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/1.webp"
-                      alt="Brand Logo 1"
+                      alt="Ok Motors"
                       class="brand-logo-img"
                     />
                   </div>
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/2.webp"
-                      alt="Brand Logo 2"
+                      alt="Abeer Motion Picture"
                       class="brand-logo-img"
                     />
                   </div>
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/3.webp"
-                      alt="Brand Logo 3"
+                      alt="Flaunt By Nishi"
                       class="brand-logo-img"
                     />
                   </div>
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/4.webp"
-                      alt="Brand Logo 4"
+                      alt="Skylyf Machinery"
                       class="brand-logo-img"
                     />
                   </div>
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/5.webp"
-                      alt="Brand Logo 5"
+                      alt="Thryv"
                       class="brand-logo-img"
                     />
                   </div>
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/6.webp"
-                      alt="Brand Logo 6"
+                      alt="Alfa Motor World"
                       class="brand-logo-img"
                     />
                   </div>
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/7.webp"
-                      alt="Brand Logo 7"
+                      alt="Bike Builders"
                       class="brand-logo-img"
                     />
                   </div>
                   <div class="brand-logo-slide">
                     <img
                       src="https://pixelatenest.com/assets/brands/8.webp"
-                      alt="Brand Logo 8"
+                      alt="Surat Glass Beads"
                       class="brand-logo-img"
                     />
                   </div>
@@ -1168,17 +1164,17 @@
       <section class="portfolio-works">
         <div class="container">
           <div class="heading-wrap">
-              <h2
-                style="
-                  margin-bottom: 30px;
-                  font-size: clamp(2rem, 6vw, 5rem);
-                  color: var(--primary-900);
-                  line-height: 1.2;
-                "
-              >
-                Portfolio Works
-              </h2>
-            </div>
+            <h2
+              style="
+                margin-bottom: 30px;
+                font-size: clamp(2rem, 6vw, 5rem);
+                color: var(--primary-900);
+                line-height: 1.2;
+              "
+            >
+              Portfolio Works
+            </h2>
+          </div>
           <div class="filter-tags">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="web-dev">Web Dev</button>
@@ -1188,7 +1184,13 @@
             </button>
           </div>
 
-          <div class="masonry-grid" id="home-masonry-grid"></div>
+          <div class="masonry-grid" id="home-masonry-grid">
+            <div id="portfolioLoader" class="portfolio-loader">
+              <div class="loader">
+                <img src="./assets/Logo_Color.webp" class="logo" />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -3150,7 +3152,13 @@
 
         // Optional: Show a loading message while fetching
         gridContainer.innerHTML =
-          '<p style="text-align:center; grid-column: 1 / -1;">Fetching amazing projects...</p>';
+          '<div class="portfolio-loader" role="status" aria-live="polite" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 0;grid-column:1 / -1;">' +
+          '<svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><g transform="translate(22 22)">' +
+          '<circle r="18" stroke="#e6e6e6" stroke-width="4" fill="none"></circle>' +
+          '<circle r="18" stroke="#044bab" stroke-width="4" fill="none" stroke-dasharray="60 120" stroke-linecap="round">' +
+          '<animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.9s" repeatCount="indefinite"/></circle>' +
+          "</g></svg>" +
+          '<div class="loader-text" style="font-weight:600;font-size:16px;color:#111;margin-top:12px;">Loading Works...</div></div>';
 
         try {
           // 2. Fetch all HTML files simultaneously
@@ -3241,13 +3249,17 @@
 
         // Show a temporary loading message
         grid.innerHTML =
-          '<p style="text-align:center; grid-column: 1 / -1; padding: 40px 0;">Fetching amazing projects...</p>';
+          '<div class="portfolio-loader" role="status" aria-live="polite" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 0;grid-column:1 / -1;">' +
+          '<svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><g transform="translate(22 22)">' +
+          '<circle r="18" stroke="#e6e6e6" stroke-width="4" fill="none"></circle>' +
+          '<circle r="18" stroke="#044bab" stroke-width="4" fill="none" stroke-dasharray="60 120" stroke-linecap="round">' +
+          '<animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.9s" repeatCount="indefinite"/></circle>' +
+          "</g></svg>" +
+          '<div class="loader-text" style="font-weight:600;font-size:16px;color:#111;margin-top:12px;">Loading Works...</div></div>';
 
         try {
           // 1. Fetch data directly from your backend API
-          const res = await fetch(
-            "https://backend.pixelatenest.com/api/work-gallery",
-          );
+          const res = await fetch("https://backend.pixelatenest.com/api/work-gallery");
 
           if (!res.ok) throw new Error("Failed to fetch gallery");
 
@@ -3338,6 +3350,28 @@
             '<p style="text-align:center; grid-column: 1 / -1; color: red;">Failed to load portfolio items. Please check console.</p>';
         }
       });
+    </script>
+    <script>
+      const loader = document.getElementById("portfolioLoader");
+      const grid = document.getElementById("home-masonry-grid");
+
+      async function loadPortfolio() {
+        // simulate API
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        // remove loader
+        loader.remove();
+
+        // add items
+        for (let i = 0; i < 6; i++) {
+          const div = document.createElement("div");
+          div.className = "portfolio-item";
+          div.innerHTML = `<div style="height:150px;background:#eee;border-radius:10px;"></div>`;
+          grid.appendChild(div);
+        }
+      }
+
+      loadPortfolio();
     </script>
   </body>
 </html>
