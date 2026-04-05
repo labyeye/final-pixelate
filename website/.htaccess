@@ -47,6 +47,13 @@ RewriteRule ^checkout$ /contact [R=301,L]
 
 RewriteRule ^api/(.*)$ - [R=410,L]
 
+# === DOORWAY PAGE CONSOLIDATION (301 Redirects) ===
+# Redirect city-specific doorway pages to canonical product pages
+RewriteRule ^factory-management-bihar/factory-management-(.+)$ /product [R=301,L]
+RewriteRule ^counter-billing-bihar/counter-billing-(.+)$ /product [R=301,L]
+RewriteRule ^school-crm-bihar/school-crm-(.+)$ /product [R=301,L]
+RewriteRule ^school-crm-muzaffarpur$ /product [R=301,L]
+
 RewriteCond %{THE_REQUEST} //
 RewriteRule ^.*$ /$0 [R=301,L,NE]
 

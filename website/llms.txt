@@ -1,0 +1,80 @@
+# Pixelate Nest
+
+> Pixelate Nest (Kalahanu Tech Studios LLP) is a creative digital agency based in Muzaffarpur, Bihar, India offering web development, mobile app development, software development, video editing, and digital marketing services.
+
+## Company Information
+
+- **Legal Name**: Kalahanu Tech Studios LLP
+- **Brand Name**: Pixelate Nest
+- **Founded**: 2024
+- **Location**: Kala Bhawan, Akharaghat Road, Muzaffarpur, Bihar 842001, India
+- **Phone**: +91-84069-12345
+- **Email**: support@pixelatenest.com
+- **Website**: https://www.pixelatenest.com
+
+## Services
+
+### Web Development
+Custom website design, responsive web development, e-commerce platforms, CMS development, WordPress, Shopify, and progressive web apps.
+URL: https://www.pixelatenest.com/webdev
+
+### Mobile App Development
+iOS and Android app development using Flutter, React Native, Swift, and Kotlin. Cross-platform and native solutions.
+URL: https://www.pixelatenest.com/app-dev
+
+### Software Development
+Enterprise software, SaaS platforms, CRM systems, ERP solutions, factory management, school management, billing systems, and cloud applications.
+URL: https://www.pixelatenest.com/software-dev
+
+### Video Editing & Content Creation
+Professional video editing, motion graphics, color grading, sound design, YouTube content, social media videos, and corporate video production.
+URL: https://www.pixelatenest.com/video-ed
+
+### Digital Marketing
+SEO optimization, social media marketing, content marketing, paid advertising, and brand strategy.
+
+## Products
+
+- **Counter Billing Software**: POS and billing solution for retail businesses
+- **Factory Management Software**: Production planning, inventory, quality control for manufacturing
+- **School CRM/Management System**: Student enrollment, attendance, fees, and academic management
+- **Hotel Management Software**: Room booking, guest management, billing
+- **Lead Generation Software**: CRM and sales pipeline management
+- **Library Management Software**: Book catalog, lending, and member management
+- **Transport Management Software**: Fleet and logistics tracking
+- **GST Billing Software**: Indian tax-compliant invoicing
+
+Products URL: https://www.pixelatenest.com/product
+
+## Industries Served
+
+E-commerce, Education, Healthcare, Real Estate, Travel & Hospitality, Logistics, Manufacturing, Utilities & Energy
+
+## Technology Stack
+
+**Frontend**: React, Angular, Vue.js, Next.js, TypeScript
+**Backend**: Node.js, Python Django, FastAPI, PHP Laravel, Express.js
+**Mobile**: Flutter, React Native, Swift, Kotlin
+**Cloud**: AWS, Azure, Google Cloud, Docker, Kubernetes
+**Databases**: MongoDB, MySQL, PostgreSQL, Redis, Firebase
+**Video**: Adobe Premiere Pro, After Effects, DaVinci Resolve, Final Cut Pro
+**Design**: Figma, Adobe XD, Photoshop, Illustrator
+
+## Key Pages
+
+- Home: https://www.pixelatenest.com/
+- About: https://www.pixelatenest.com/about
+- Pricing: https://www.pixelatenest.com/pricing
+- Contact: https://www.pixelatenest.com/contact
+- Blog: https://www.pixelatenest.com/blogs
+- Careers: https://www.pixelatenest.com/careers
+- Technologies: https://www.pixelatenest.com/technologies
+- Privacy Policy: https://www.pixelatenest.com/privacy-policy
+- Terms of Service: https://www.pixelatenest.com/terms-of-service
+
+## Social Media
+
+- Instagram: https://www.instagram.com/pixelatenest
+- Facebook: https://www.facebook.com/profile.php?id=61587634310440
+- LinkedIn: https://www.linkedin.com/company/pixelatenest
+- Twitter/X: https://twitter.com/pixelatenest

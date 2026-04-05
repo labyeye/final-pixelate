@@ -1,6 +1,6 @@
 # Pixelate Nest - Robots.txt
 # https://www.pixelatenest.com/robots.txt
-# Last Updated: February 22, 2026
+# Last Updated: April 6, 2026
 
 # === GOOGLEBOT (explicit for SEO audits & rendering) ===
 User-agent: Googlebot
@@ -24,6 +24,31 @@ Disallow: /server/
 Disallow: /.vscode/
 Disallow: /api/
 
+# === AI CRAWLERS (explicitly allowed) ===
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
 # === ALL OTHER BOTS ===
 User-agent: *
 Allow: /
@@ -44,6 +69,7 @@ Sitemap: https://www.pixelatenest.com/sitemapstate.xml
 Sitemap: https://www.pixelatenest.com/sitemap-detailed-services.xml
 Sitemap: https://www.pixelatenest.com/sitemap-school-crm-bihar.xml
 Sitemap: https://www.pixelatenest.com/sitemap-factory-management-bihar.xml
+Sitemap: https://www.pixelatenest.com/sitemap-counter-billing-bihar.xml
 
 # === RATE-LIMIT HEAVY SEO BOTS (optional) ===
 User-agent: AhrefsBot
