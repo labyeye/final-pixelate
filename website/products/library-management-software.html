@@ -55,6 +55,8 @@
       integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+      media="print"
+      onload="this.media = 'all'"
     />
     <script type="application/ld+json">
       {
@@ -862,37 +864,44 @@
                   <i class="fas fa-heart" style="color: #e74c3c"></i> in India
                 </div>
                 <div class="p-text-03 text-white-60">
-                  <strong>Payments Accepted:</strong>
-                  <div
-                    style="
-                      display: flex;
-                      gap: 10px;
-                      margin-top: 8px;
-                      align-items: center;
-                    "
-                  >
-                    <img
-                      src="https://www.pixelatenest.com/assets/payments/visa.svg"
-                      alt="Visa"
-                      height="20"
-                    />
-                    <img
-                      src="https://www.pixelatenest.com/assets/payments/mastercard.svg"
-                      alt="Mastercard"
-                      height="20"
-                    />
-                    <img
-                      src="https://www.pixelatenest.com/assets/payments/upi.svg"
-                      alt="UPI"
-                      height="20"
-                    />
-                    <img
-                      src="https://www.pixelatenest.com/assets/payments/paytm.svg"
-                      alt="Paytm"
-                      height="20"
-                    />
-                  </div>
-                </div>
+                          <strong>Payments Accepted:</strong>
+                          <div
+                            style="
+                              display: inline-flex;
+                              align-items: center;
+                              gap: 15px;
+                              margin-left: 10px;
+                            "
+                          >
+                            <span
+                              style="
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+                              "
+                            >
+                              <i class="fas fa-money-bill-wave"></i> Cash
+                            </span>
+                            <span
+                              style="
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+                              "
+                            >
+                              <i class="fas fa-university"></i> Bank
+                            </span>
+                            <span
+                              style="
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+                              "
+                            >
+                              <i class="fas fa-mobile-alt"></i> UPI
+                            </span>
+                          </div>
+                        </div>
               </div>
             </div>
           </div>
