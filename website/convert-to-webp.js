@@ -1,4 +1,4 @@
-const sharp = require('sharp');
+﻿const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
@@ -27,9 +27,9 @@ async function processDirectory(directory) {
           await sharp(fullPath)
             .webp({ quality: 70, alphaQuality: 90, effort: 6 })
             .toFile(outputPath);
-          console.log(`Converted: ${fullPath} -> ${outputPath}`);
+          
         } catch (error) {
-          console.error(`Error converting ${fullPath}:`, error.message);
+          
         }
       }
       // Re-compress existing WebP files for better optimization
@@ -49,25 +49,22 @@ async function processDirectory(directory) {
             fs.unlinkSync(fullPath);
             fs.renameSync(tempPath, fullPath);
             const savedKB = ((originalSize - newSize) / 1024).toFixed(2);
-            console.log(`Re-compressed: ${fullPath} (Saved: ${savedKB} KB)`);
           } else {
             // Delete temp file if no improvement
             fs.unlinkSync(tempPath);
-            console.log(`Skipped: ${fullPath} (Already optimized)`);
           }
         } catch (error) {
-          console.error(`Error re-compressing ${fullPath}:`, error.message);
+          
         }
       }
     }
   }
 }
 
-console.log(`Starting WebP conversion in: ${targetDir}...`);
+
 if (fs.existsSync(targetDir)) {
-  processDirectory(targetDir)
-    .then(() => console.log('✅ Conversion complete!'))
-    .catch((err) => console.error('❌ Conversion failed:', err));
+  processDirectory(targetDir);
 } else {
-  console.error(`❌ Directory not found: ${targetDir}`);
+  
 }
+

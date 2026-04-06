@@ -774,7 +774,7 @@
             const now = Date.now();
 
             if (now - timestamp < CACHE_DURATION) {
-              console.log("appdev: using cached data");
+              
               return data;
             } else {
               localStorage.removeItem(CACHE_KEY);
@@ -795,7 +795,7 @@
               }),
             );
           } catch (e) {
-            console.warn("Failed to cache data:", e);
+            
           }
         }
 
@@ -816,7 +816,7 @@
 
             await fetchAndRender(grid, false);
           } catch (e) {
-            console.error(e);
+            
             grid.innerHTML =
               '<p class="p-text-01 text-white-60">Failed to load projects. Please try again later.</p>';
           }
@@ -942,7 +942,7 @@
               try {
                 localStorage.setItem("pn_portfolio_item", JSON.stringify(it));
               } catch (err) {
-                console.warn("Failed to save portfolio item:", err);
+                
               }
               window.location.href = "portfolio-details.html";
             });
@@ -1529,4 +1529,5 @@
     <script src="js/quick-contact-buttons.js"></script>
   </body>
 </html>
+
 

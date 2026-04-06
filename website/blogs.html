@@ -144,7 +144,7 @@
             }
           }
         } catch (e) {
-          console.log("Could not load announcement:", e);
+          
           const bar = document.getElementById("announcement-bar");
           if (bar) bar.style.display = "none";
         }
@@ -901,7 +901,7 @@
           try {
             await render();
           } catch (e) {
-            console.error("render blogs", e);
+            
           }
 
           const modalHtml = `
@@ -1047,4 +1047,5 @@
     <script src="js/quick-contact-buttons.js"></script>
   </body>
 </html>
+
 

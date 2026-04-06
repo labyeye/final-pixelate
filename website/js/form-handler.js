@@ -1,4 +1,4 @@
-
+﻿
 window.addEventListener("DOMContentLoaded", () => {
   const selectedPlan = localStorage.getItem("selectedPlan");
   if (selectedPlan) {
@@ -62,7 +62,7 @@ async function handleFormSubmit(event) {
     document.querySelector(".form-success-message").style.display = "block";
     form.reset();
   } catch (error) {
-    console.error("Error:", error);
+    
     document.querySelector(".form-error-message").style.display = "block";
   } finally {
     submitButton.value = "Submit";
@@ -73,3 +73,4 @@ async function handleFormSubmit(event) {
 
   document.querySelector(".form-error-message").style.display = "block";
 }
+

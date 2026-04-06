@@ -210,11 +210,7 @@
             galleries = json;
           }
         } else {
-          console.warn(
-            "Deployed API returned",
-            res.status,
-            "– falling back to local sample",
-          );
+          
           const local = await fetch("./photo-galleries-sample.json");
           galleries = local.ok ? await local.json() : [];
         }
@@ -272,7 +268,7 @@
           grid.appendChild(card);
         });
       } catch (err) {
-        console.error("Failed to load photos", err);
+        
       }
     }
 
@@ -312,4 +308,5 @@
 </body>
 
 </html>
+
 

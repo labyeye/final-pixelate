@@ -311,7 +311,7 @@
             }
           }
         } catch (e) {
-          console.log("Could not load announcement:", e);
+          
           const bar = document.getElementById("announcement-bar");
           if (bar) bar.style.display = "none";
         }
@@ -913,12 +913,7 @@
               }
               container.innerHTML = "";
               members.forEach((member) => {
-                console.log(
-                  "Processing member:",
-                  member.name,
-                  "Social links:",
-                  member.socialLinks,
-                );
+                
                 const socialLinks = [];
 
                 if (
@@ -1013,7 +1008,7 @@
                 });
               }, 100);
             } catch (error) {
-              console.error("Error loading team members:", error);
+              
               const container = document.getElementById("team-container");
               container.innerHTML =
                 '<div class="text-center" style="grid-column: 1 / -1; padding: 40px 0;"><p class="p-text-02 text-white-70">Unable to load team members. Please try again later.</p></div>';
@@ -1462,3 +1457,4 @@
     <script src="js/quick-contact-buttons.js"></script>
   </body>
 </html>
+

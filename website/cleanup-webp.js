@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
 const targetDir = path.join(__dirname, 'assets');
@@ -27,25 +27,24 @@ async function cleanupDirectory(directory) {
           // Remove original WebP
           if (fs.existsSync(originalPath)) {
             fs.unlinkSync(originalPath);
-            console.log(`Deleted: ${originalPath}`);
+            
           }
           
           // Rename temp file to original name
           fs.renameSync(fullPath, originalPath);
-          console.log(`Renamed: ${fullPath} -> ${originalPath}`);
+          
         } catch (error) {
-          console.error(`Error cleaning up ${fullPath}:`, error.message);
+          
         }
       }
     }
   }
 }
 
-console.log(`Starting cleanup in: ${targetDir}...`);
+
 if (fs.existsSync(targetDir)) {
-  cleanupDirectory(targetDir)
-    .then(() => console.log('✅ Cleanup complete!'))
-    .catch((err) => console.error('❌ Cleanup failed:', err));
+  cleanupDirectory(targetDir);
 } else {
-  console.error(`❌ Directory not found: ${targetDir}`);
+  
 }
+

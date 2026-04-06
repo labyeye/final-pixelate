@@ -925,7 +925,7 @@
           try {
             await fetchAndRender(grid);
           } catch (e) {
-            console.error(e);
+            
             grid.innerHTML =
               '<p class="p-text-01 text-white-60">Failed to load projects. Please try again later.</p>';
           }
@@ -943,10 +943,6 @@
             if (!res.ok) throw new Error("Failed to fetch gallery");
 
             const items = await res.json();
-            console.debug(
-              "webdev: fetched /api/work-gallery =>",
-              Array.isArray(items) ? `items=${items.length}` : items,
-            );
 
             renderGallery(items, grid);
           } catch (e) {
@@ -1062,7 +1058,7 @@
                 // save the item for the details page to read
                 localStorage.setItem("pn_portfolio_item", JSON.stringify(it));
               } catch (err) {
-                console.warn("Failed to save portfolio item:", err);
+                
               }
               // open the details page (same folder)
               window.location.href = "portfolio-details.html";
@@ -1793,5 +1789,6 @@
     <script src="js/quick-contact-buttons.js"></script>
   </body>
 </html>
+
 
 
