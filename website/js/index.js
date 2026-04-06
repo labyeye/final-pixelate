@@ -83,8 +83,6 @@ fbq("track", "PageView");
       }
     }
   } catch (e) {
-    console.log("Could not load announcement:", e);
-
     const bar = document.getElementById("announcement-bar");
     if (bar) bar.style.display = "none";
   }
@@ -273,7 +271,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   } catch (e) {
-    console.error("Alt-helper error", e);
   }
 })();
 
@@ -299,7 +296,6 @@ document.addEventListener("DOMContentLoaded", () => {
         startAutoScroll();
       }
     } catch (error) {
-      console.error("Error loading testimonials:", error);
       showErrorMessage();
     }
   }
@@ -672,7 +668,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const result = await response.json();
-      console.log("Review submitted successfully:", result);
 
       showMessage(
         "Thank you for your review! It will be published after our team approves it.",
@@ -686,7 +681,6 @@ document.addEventListener("DOMContentLoaded", () => {
         closeReviewModal();
       }, 3000);
     } catch (error) {
-      console.error("Error submitting review:", error);
       showMessage(
         error.message || "Failed to submit review. Please try again later.",
         "error",
@@ -783,19 +777,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const navMenu = document.querySelector(".nav-menu-wrapper");
     const closeButton = document.querySelector(".mobile-menu-close");
 
-    console.log("Mobile Nav Init:", {
-      navbar,
-      menuButton,
-      navMenu,
-      closeButton,
-    });
-
     if (!navbar || !menuButton) {
-      console.warn("Navbar elements not found", { navbar, menuButton });
       return;
     }
-
-    console.log("Menu button found, adding event listeners");
 
     function closeMenu() {
       navbar.classList.add("w--closing");

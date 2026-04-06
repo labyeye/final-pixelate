@@ -26,7 +26,6 @@
         userAgent: navigator.userAgent,
         startTime: new Date().toISOString(),
       };
-      console.debug("activity-tracker: POST ->", API_URL, payload);
       const response = await fetch(API_URL, {
         method: "POST",
         headers: {
@@ -41,16 +40,13 @@
       } catch (e) {
         data = text;
       }
-      console.debug("activity-tracker: response ->", response.status, data);
       if (!response.ok) {
-        console.error("Tracking Error (server):", response.status, data);
         return;
       }
       if (data && data.id) {
         activityId = data.id;
       }
     } catch (error) {
-      console.error("Tracking Error:", error);
     }
   }
 
@@ -66,7 +62,6 @@
         userId: userId,
         duration: duration,
       };
-      console.debug("activity-tracker: ping ->", payload);
       const resp = await fetch(API_URL, {
         method: "POST",
         headers: {
@@ -77,7 +72,6 @@
       });
       if (!resp.ok) {
         const txt = await resp.text().catch(() => "");
-        console.warn("activity-tracker: ping failed ->", resp.status, txt);
       }
     } catch (error) {}
   }

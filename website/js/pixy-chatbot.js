@@ -1425,17 +1425,13 @@
         addBotMessage("📞 +91-84069 12345");
       }
     } catch (error) {
-      console.error("Error submitting lead:", error);
-
       try {
         const backupLeads = JSON.parse(
           localStorage.getItem("pixy_backup_leads") || "[]",
         );
         backupLeads.push(leadData);
         localStorage.setItem("pixy_backup_leads", JSON.stringify(backupLeads));
-        console.log("Lead saved to localStorage backup");
       } catch (storageError) {
-        console.error("Could not save to localStorage:", storageError);
       }
 
       addBotMessage("⚠️ Connection issue detected!");

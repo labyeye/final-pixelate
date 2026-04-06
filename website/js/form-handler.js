@@ -56,7 +56,6 @@ async function handleFormSubmit(event) {
       });
     } catch (e) {
       
-      console.warn("Dashboard email send failed", e);
     }
 
     
