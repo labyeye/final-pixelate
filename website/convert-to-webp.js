@@ -25,7 +25,7 @@ async function processDirectory(directory) {
         
         try {
           await sharp(fullPath)
-            .webp({ quality: 80, alphaQuality: 100 })
+            .webp({ quality: 70, alphaQuality: 90, effort: 6 })
             .toFile(outputPath);
           console.log(`Converted: ${fullPath} -> ${outputPath}`);
         } catch (error) {
@@ -36,14 +36,25 @@ async function processDirectory(directory) {
       else if (ext === '.webp') {
         try {
           const tempPath = fullPath + '.tmp.webp';
+          const originalSize = fs.statSync(fullPath).size;
+          
           await sharp(fullPath)
-            .webp({ quality: 75, alphaQuality: 100, nearLossless: true })
+            .webp({ quality: 65, alphaQuality: 85, effort: 6, nearLossless: false })
             .toFile(tempPath);
           
-          // Replace original with optimized version
-          fs.unlinkSync(fullPath);
-          fs.renameSync(tempPath, fullPath);
-          console.log(`Re-compressed: ${fullPath}`);
+          const newSize = fs.statSync(tempPath).size;
+          
+          // Replace original only if new file is smaller
+          if (newSize < originalSize) {
+            fs.unlinkSync(fullPath);
+            fs.renameSync(tempPath, fullPath);
+            const savedKB = ((originalSize - newSize) / 1024).toFixed(2);
+            console.log(`Re-compressed: ${fullPath} (Saved: ${savedKB} KB)`);
+          } else {
+            // Delete temp file if no improvement
+            fs.unlinkSync(tempPath);
+            console.log(`Skipped: ${fullPath} (Already optimized)`);
+          }
         } catch (error) {
           console.error(`Error re-compressing ${fullPath}:`, error.message);
         }

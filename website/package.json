@@ -4,14 +4,20 @@
   "description": "",
   "main": "convert-to-webp.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "purge": "node purge.js",
+    "build": "npm run purge"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "path": "^0.12.7",
     "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "glob": "^13.0.6",
+    "purgecss": "^8.0.0"
   }
 }
