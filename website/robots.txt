@@ -63,13 +63,13 @@ Disallow: /.vscode/
 Disallow: /api/
 
 # === SITEMAPS ===
-Sitemap: https://www.pixelatenest.com/sitemap-index.xml
-Sitemap: https://www.pixelatenest.com/sitemap-main.xml
-Sitemap: https://www.pixelatenest.com/sitemapstate.xml
-Sitemap: https://www.pixelatenest.com/sitemap-detailed-services.xml
-Sitemap: https://www.pixelatenest.com/sitemap-school-crm-bihar.xml
-Sitemap: https://www.pixelatenest.com/sitemap-factory-management-bihar.xml
-Sitemap: https://www.pixelatenest.com/sitemap-counter-billing-bihar.xml
+Sitemap: https://www.pixelatenest.com/sitemaps/sitemap-index.xml
+Sitemap: https://www.pixelatenest.com/sitemaps/sitemap-main.xml
+Sitemap: https://www.pixelatenest.com/sitemaps/sitemapstate.xml
+Sitemap: https://www.pixelatenest.com/sitemaps/sitemap-detailed-services.xml
+Sitemap: https://www.pixelatenest.com/sitemaps/sitemap-school-crm-bihar.xml
+Sitemap: https://www.pixelatenest.com/sitemaps/sitemap-factory-management-bihar.xml
+Sitemap: https://www.pixelatenest.com/sitemaps/sitemap-counter-billing-bihar.xml
 
 # === RATE-LIMIT HEAVY SEO BOTS (optional) ===
 User-agent: AhrefsBot

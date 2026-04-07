@@ -2,65 +2,97 @@
 RewriteEngine On
 RewriteBase /
 
+# Force HTTPS + www
 RewriteCond %{HTTP_HOST} !^www\.pixelatenest\.com$ [NC,OR]
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://www.pixelatenest.com/$1 [L,R=301]
 
 RewriteRule ^index\.html$ / [R=301,L]
 
-# Redirect legacy query-based service URLs to static service paths.
-RewriteCond %{REQUEST_URI} ^/detailed-services\.html$ [NC]
-RewriteCond %{QUERY_STRING} (^|&)service=([a-z0-9-]+)(&|$) [NC]
-RewriteRule ^detailed-services\.html$ /detailed-services/%2/? [R=301,L]
-
+# Strip .html extension (301 redirect)
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
 RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
 
-RewriteRule ^videoediting\.html$ /video-ed [R=301,L]
-RewriteRule ^video-editing\.html$ /video-ed [R=301,L]
-RewriteRule ^video-ed\.html$ /video-ed [R=301,L]
+# === LEGACY REDIRECTS ===
+RewriteRule ^videoediting$ /services/video-editing [R=301,L]
+RewriteRule ^video-editing$ /services/video-editing [R=301,L]
+RewriteRule ^video-ed$ /services/video-editing [R=301,L]
+RewriteRule ^appdev$ /services/app-development [R=301,L]
+RewriteRule ^app-dev$ /services/app-development [R=301,L]
+RewriteRule ^webdev$ /services/web-development [R=301,L]
+RewriteRule ^software-dev$ /services/software-development [R=301,L]
+RewriteRule ^hosting-maintenance$ /services/hosting-maintenance [R=301,L]
+RewriteRule ^detailed-services-digital$ /services/digital-marketing [R=301,L]
+RewriteRule ^detailed-services-uiux$ /services/uiux-branding [R=301,L]
+RewriteRule ^detailed-services$ /services [R=301,L]
 
-RewriteRule ^appdev\.html$ /app-dev [R=301,L]
-RewriteRule ^app-development\.html$ /app-dev [R=301,L]
+# Legacy query-based service URLs
+RewriteCond %{REQUEST_URI} ^/detailed-services$ [NC]
+RewriteCond %{QUERY_STRING} (^|&)service=([a-z0-9-]+)(&|$) [NC]
+RewriteRule ^detailed-services$ /services/detailed/%2/? [R=301,L]
 
-RewriteRule ^blog\.html$ /blogs [R=301,L]
-RewriteRule ^blog\.htmls/(.*)$ /blogs [R=301,L]
+# Redirect old page URLs to new locations
+RewriteRule ^about$ /pages/about [R=301,L]
+RewriteRule ^contact$ /pages/contact [R=301,L]
+RewriteRule ^careers$ /pages/careers [R=301,L]
+RewriteRule ^pricing$ /pages/pricing [R=301,L]
+RewriteRule ^technologies$ /pages/technologies [R=301,L]
+RewriteRule ^team-leadership$ /pages/team-leadership [R=301,L]
+RewriteRule ^photography$ /pages/photography [R=301,L]
+RewriteRule ^locations$ /pages/locations [R=301,L]
+RewriteRule ^state$ /pages/state [R=301,L]
+RewriteRule ^portfolio-details$ /pages/portfolio-details [R=301,L]
+RewriteRule ^product$ /pages/product [R=301,L]
 
-RewriteRule ^works\.html$ /pricing [R=301,L]
+# Redirect old blog URLs
+RewriteRule ^blog$ /blog/ [R=301,L]
+RewriteRule ^blogs$ /blog/ [R=301,L]
+RewriteRule ^blog-post$ /blog/post [R=301,L]
 
-RewriteRule ^services\.html$ /webdev [R=301,L]
-RewriteRule ^services/works\.html$ /pricing [R=301,L]
-RewriteRule ^services/contact\.html$ /contact [R=301,L]
-RewriteRule ^services/blog\.html$ /blogs [R=301,L]
-RewriteRule ^services/(.*)$ /webdev [R=301,L]
+# Redirect old industry URLs
+RewriteRule ^industry-ecommerce$ /industries/ecommerce [R=301,L]
+RewriteRule ^industry-education$ /industries/education [R=301,L]
+RewriteRule ^industry-logistics$ /industries/logistics [R=301,L]
+RewriteRule ^industry-manufacturing$ /industries/manufacturing [R=301,L]
+RewriteRule ^industry-realestate$ /industries/real-estate [R=301,L]
+RewriteRule ^industry-travel$ /industries/travel [R=301,L]
+RewriteRule ^industry-utilities$ /industries/utilities [R=301,L]
 
-RewriteRule ^features\.html$ /about [R=301,L]
+# Redirect old legal URLs
+RewriteRule ^cookie-policy$ /legal/cookie-policy [R=301,L]
+RewriteRule ^privacy-policy$ /legal/privacy-policy [R=301,L]
+RewriteRule ^refund-policy$ /legal/refund-policy [R=301,L]
+RewriteRule ^terms-of-service$ /legal/terms-of-service [R=301,L]
 
-RewriteRule ^team-members/(.*)$ /about [R=301,L]
-
-RewriteRule ^inner-pages/career$ /careers [R=301,L]
+# Other legacy redirects
+RewriteRule ^works$ /pages/pricing [R=301,L]
+RewriteRule ^features$ /pages/about [R=301,L]
+RewriteRule ^team-members/(.*)$ /pages/about [R=301,L]
+RewriteRule ^inner-pages/career$ /pages/careers [R=301,L]
 RewriteRule ^inner-pages/(.*)$ / [R=301,L]
-
-RewriteRule ^services\.html/branding$ /webdev [R=301,L]
-
-RewriteRule ^checkout$ /contact [R=301,L]
-
+RewriteRule ^checkout$ /pages/contact [R=301,L]
 RewriteRule ^api/(.*)$ - [R=410,L]
 
-# === DOORWAY PAGE CONSOLIDATION (301 Redirects) ===
-# Redirect city-specific doorway pages to canonical product pages
-RewriteRule ^factory-management-bihar/factory-management-(.+)$ /product [R=301,L]
-RewriteRule ^counter-billing-bihar/counter-billing-(.+)$ /product [R=301,L]
-RewriteRule ^school-crm-bihar/school-crm-(.+)$ /product [R=301,L]
-RewriteRule ^school-crm-muzaffarpur$ /product [R=301,L]
+# Doorway page consolidation
+RewriteRule ^factory-management-bihar/(.+)$ /pages/product [R=301,L]
+RewriteRule ^counter-billing-bihar/(.+)$ /pages/product [R=301,L]
+RewriteRule ^school-crm-bihar/(.+)$ /pages/product [R=301,L]
+RewriteRule ^school-crm-muzaffarpur$ /pages/product [R=301,L]
 
+# Fix double slashes
 RewriteCond %{THE_REQUEST} //
 RewriteRule ^.*$ /$0 [R=301,L,NE]
 
+# Extensionless URL handling — try appending .html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Directory index fallback
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.+?)/?$ $1/index.html [L]
 
 </IfModule>
 
