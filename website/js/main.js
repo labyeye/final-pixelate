@@ -705,7 +705,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const pages = [
     "https://www.pixelatenest.com/index.html",
     "https://www.pixelatenest.com/about.html",
-    "https://www.pixelatenest.com/app-dev.html",
+    "https://www.pixelatenest.com/services/app-development.html",
     "https://www.pixelatenest.com/software-dev.html",
     "https://www.pixelatenest.com/video-ed.html",
     "https://www.pixelatenest.com/blogs.html",
