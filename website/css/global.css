@@ -516,7 +516,7 @@ li {
 }
 
 .main-hero {
-  background-image: url("./assets/back.webp");
+  background-image: url("../assets/images/back.webp");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
