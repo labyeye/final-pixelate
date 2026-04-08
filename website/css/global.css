@@ -733,7 +733,7 @@ li {
 }
 
 .footer {
-  background-image: url("./assets/back-bottom.webp");
+  background-image: url("../assets/images/back.webp");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3320,7 +3320,6 @@ li {
 }
 
 @media (max-width: 991px) {
-
   .tech-stack-top {
     margin-bottom: 40px;
   }
@@ -3357,7 +3356,6 @@ li {
 }
 
 @media (max-width: 768px) {
-
   .icon-gradient {
     font-size: 22px;
   }
@@ -3489,7 +3487,6 @@ li {
 }
 
 @media (max-width: 480px) {
-
   .icon-gradient {
     font-size: 20px;
   }
@@ -4072,7 +4069,6 @@ iframe {
 }
 
 @media (max-width: 640px) {
-
   .service-description {
     font-size: 0.95rem;
     line-height: 1.6;
