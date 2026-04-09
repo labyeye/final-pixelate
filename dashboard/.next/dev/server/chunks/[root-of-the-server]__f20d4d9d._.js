@@ -928,11 +928,31 @@ function generateQuotationId(lastId) {
  * inserts one `journey_events` record.  Called after a quotation is saved
  * so the event always reflects the real persisted data.
  */ __turbopack_context__.s([
+    "createOnboardingJourneyEvent",
+    ()=>createOnboardingJourneyEvent,
+    "createProjectJourneyEvent",
+    ()=>createProjectJourneyEvent,
     "createQuotationJourneyEvent",
-    ()=>createQuotationJourneyEvent
+    ()=>createQuotationJourneyEvent,
+    "parseJourneyOccurredAt",
+    ()=>parseJourneyOccurredAt
 ]);
 var __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/mongodb [external] (mongodb, cjs)");
 ;
+function parseJourneyOccurredAt(value, fallback = new Date()) {
+    if (!value) return fallback;
+    if (value instanceof Date) {
+        return Number.isNaN(value.getTime()) ? fallback : value;
+    }
+    const raw = String(value).trim();
+    if (!raw) return fallback;
+    if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) {
+        const localDate = new Date(`${raw}T00:00:00`);
+        return Number.isNaN(localDate.getTime()) ? fallback : localDate;
+    }
+    const parsed = new Date(raw);
+    return Number.isNaN(parsed.getTime()) ? fallback : parsed;
+}
 async function createQuotationJourneyEvent(db, quotationId, quotationDoc) {
     // ── 1. Fetch client by the quotation's clientId ─────────────────────────
     const rawClientId = quotationDoc.clientId;
@@ -1010,6 +1030,117 @@ async function createQuotationJourneyEvent(db, quotationId, quotationDoc) {
             scopeCount: scope.length,
             timelinePhases: timeline.length,
             quotationStatus: quotationDoc.status
+        },
+        createdAt: new Date()
+    });
+}
+async function createOnboardingJourneyEvent(db, onboardingId, onboardingDoc) {
+    const rawClientId = onboardingDoc.clientId;
+    if (!rawClientId) {
+        return;
+    }
+    let clientDoc = null;
+    try {
+        clientDoc = await db.collection('clients').findOne({
+            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](String(rawClientId))
+        });
+    } catch  {
+        clientDoc = await db.collection('clients').findOne({
+            _id: rawClientId
+        });
+    }
+    const clientName = onboardingDoc.clientName ?? onboardingDoc.company ?? clientDoc?.name ?? clientDoc?.businessName ?? '';
+    const projectTitle = onboardingDoc.projectTitle ?? onboardingDoc.projectType ?? onboardingDoc.productType ?? null;
+    const descriptionParts = [];
+    if (onboardingDoc.projectType) {
+        descriptionParts.push(`🧩 Project Type: ${onboardingDoc.projectType}`);
+    }
+    if (onboardingDoc.productType) {
+        descriptionParts.push(`🛠 Product Type: ${onboardingDoc.productType}`);
+    }
+    if (onboardingDoc.budget) {
+        descriptionParts.push(`💰 Budget: ${onboardingDoc.budget}`);
+    }
+    if (onboardingDoc.startDate) {
+        descriptionParts.push(`🚀 Start Date: ${onboardingDoc.startDate}`);
+    }
+    if (onboardingDoc.deadline) {
+        descriptionParts.push(`📅 Deadline: ${onboardingDoc.deadline}`);
+    }
+    if (onboardingDoc.brief) {
+        descriptionParts.push(`📝 Brief: ${onboardingDoc.brief}`);
+    }
+    await db.collection('journey_events').insertOne({
+        clientId: String(rawClientId),
+        clientName,
+        projectId: onboardingDoc.projectId ? String(onboardingDoc.projectId) : null,
+        projectName: projectTitle,
+        type: 'onboarding',
+        title: `Onboarding Completed${projectTitle ? ` – ${projectTitle}` : ''}`,
+        description: descriptionParts.join('\n\n') || 'Client onboarding record created.',
+        performedBy: 'System',
+        status: 'Completed',
+        fileUrl: null,
+        linkUrl: `/onboarding`,
+        occurredAt: parseJourneyOccurredAt(onboardingDoc.date),
+        metadata: {
+            onboardingId,
+            projectTitle: onboardingDoc.projectTitle ?? null,
+            projectType: onboardingDoc.projectType ?? null,
+            productType: onboardingDoc.productType ?? null
+        },
+        createdAt: new Date()
+    });
+}
+async function createProjectJourneyEvent(db, projectId, projectDoc, mode = 'created') {
+    const rawClientId = projectDoc.clientId ?? projectDoc.client;
+    if (!rawClientId) {
+        return;
+    }
+    let clientDoc = null;
+    try {
+        clientDoc = await db.collection('clients').findOne({
+            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](String(rawClientId))
+        });
+    } catch  {
+        clientDoc = await db.collection('clients').findOne({
+            _id: rawClientId
+        });
+    }
+    const clientName = projectDoc.clientName ?? clientDoc?.name ?? clientDoc?.businessName ?? '';
+    const title = projectDoc.title ?? 'Project Created';
+    const services = Array.isArray(projectDoc.services) ? projectDoc.services : [];
+    const serviceNames = services.map((s)=>s?.name).filter((name)=>typeof name === 'string' && name.trim().length > 0);
+    const descriptionParts = [
+        `📁 Project: ${title}`
+    ];
+    if (projectDoc.amount != null) {
+        descriptionParts.push(`💰 Amount: ₹${Number(projectDoc.amount || 0).toLocaleString('en-IN')}`);
+    }
+    if (projectDoc.deliveryDate) {
+        descriptionParts.push(`📅 Delivery Date: ${projectDoc.deliveryDate}`);
+    }
+    if (serviceNames.length > 0) {
+        descriptionParts.push(`🧩 Services: ${serviceNames.join(', ')}`);
+    }
+    await db.collection('journey_events').insertOne({
+        clientId: String(rawClientId),
+        clientName,
+        projectId,
+        projectName: title,
+        type: 'project_update',
+        title: `${mode === 'updated' ? 'Project Updated' : 'Project Created'} – ${title}`,
+        description: descriptionParts.join('\n\n'),
+        performedBy: 'System',
+        status: 'Completed',
+        fileUrl: null,
+        linkUrl: `/projects`,
+        occurredAt: parseJourneyOccurredAt(mode === 'updated' ? projectDoc.updatedAt : projectDoc.createdAt),
+        metadata: {
+            projectId,
+            eventMode: mode,
+            amount: projectDoc.amount ?? null,
+            servicesCount: services.length
         },
         createdAt: new Date()
     });

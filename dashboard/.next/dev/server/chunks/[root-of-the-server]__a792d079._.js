@@ -359,37 +359,50 @@ async function deleteInventory(id) {
     return softDeleteById("inventory", id);
 }
 async function softDeleteById(collectionName, id, collectionLabel) {
+    const normalizedId = String(id ?? "").trim();
+    if (!normalizedId || normalizedId === "undefined" || normalizedId === "null") {
+        return false;
+    }
     const col = await getCollection(collectionName);
     const trash = await getCollection("_trash");
-    const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
+    const hex24 = /^[a-fA-F0-9]{24}$/.test(normalizedId);
     // Locate the document first
     let doc = null;
     let filter = null;
     if (hex24) {
         try {
             doc = await col.findOne({
-                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
+                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](normalizedId)
             });
             if (doc) filter = {
-                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
+                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](normalizedId)
             };
         } catch (_) {}
     }
     if (!doc) {
-        // Try custom id field
+        // Some collections may store _id as a string
         doc = await col.findOne({
-            id
+            _id: normalizedId
         });
         if (doc) filter = {
-            id
+            _id: normalizedId
+        };
+    }
+    if (!doc) {
+        // Try custom id field
+        doc = await col.findOne({
+            id: normalizedId
+        });
+        if (doc) filter = {
+            id: normalizedId
         };
     }
     if (!doc && collectionName === "invoices") {
         doc = await col.findOne({
-            invoiceNo: id
+            invoiceNo: normalizedId
         });
         if (doc) filter = {
-            invoiceNo: id
+            invoiceNo: normalizedId
         };
     }
     if (!doc || !filter) return false;
@@ -441,16 +454,22 @@ async function softDeleteById(collectionName, id, collectionLabel) {
     return res.deletedCount === 1;
 }
 async function restoreFromTrash(trashId) {
+    const normalizedId = String(trashId ?? "").trim();
+    if (!normalizedId || normalizedId === "undefined" || normalizedId === "null") {
+        return false;
+    }
     const trash = await getCollection("_trash");
     let trashDoc = null;
-    try {
-        trashDoc = await trash.findOne({
-            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](trashId)
-        });
-    } catch (_) {}
+    if (/^[a-fA-F0-9]{24}$/.test(normalizedId)) {
+        try {
+            trashDoc = await trash.findOne({
+                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](normalizedId)
+            });
+        } catch (_) {}
+    }
     if (!trashDoc) {
         trashDoc = await trash.findOne({
-            _originalId: trashId
+            _id: normalizedId
         });
     }
     if (!trashDoc) return false;
@@ -493,15 +512,25 @@ async function restoreFromTrash(trashId) {
     return true;
 }
 async function permanentlyDestroyTrashItem(trashId) {
+    const normalizedId = String(trashId ?? "").trim();
+    if (!normalizedId || normalizedId === "undefined" || normalizedId === "null") {
+        return false;
+    }
     const trash = await getCollection("_trash");
     let res;
-    try {
+    if (/^[a-fA-F0-9]{24}$/.test(normalizedId)) {
+        try {
+            res = await trash.deleteOne({
+                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](normalizedId)
+            });
+        } catch (_) {
+            res = await trash.deleteOne({
+                _id: normalizedId
+            });
+        }
+    } else {
         res = await trash.deleteOne({
-            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](trashId)
-        });
-    } catch (_) {
-        res = await trash.deleteOne({
-            _originalId: trashId
+            _id: normalizedId
         });
     }
     return (res?.deletedCount ?? 0) === 1;
@@ -683,22 +712,13 @@ async function renumberInvoices(financialYear) {
     };
     let counter = 1;
     for (const inv of invoices){
-        // determine fy for this invoice
-        const invDate = inv.createdAt ? new Date(inv.createdAt) : new Date();
-        const fy = financialYear || function getFY(d) {
-            const y = d.getFullYear();
-            const m = d.getMonth() + 1;
-            if (m >= 4) return `${y}-${y + 1}`;
-            return `${y - 1}-${y}`;
-        }(invDate);
-        const padded = String(counter).padStart(5, "0");
-        const invoiceNo = `KTS/${fy}/${padded}`;
+        const padded = String(counter).padStart(4, "0");
+        const invoiceNo = `KTS-${padded}`;
         await col.updateOne({
             _id: inv._id
         }, {
             $set: {
-                invoiceNo,
-                financialYear: fy
+                invoiceNo
             }
         });
         counter++;
@@ -709,21 +729,13 @@ async function renumberInvoices(financialYear) {
 }
 async function createInvoice(invoice) {
     const col = await getCollection("invoices");
-    // generate invoice id and invoiceNo using KTS/<financialYear>/<padded>
+    // generate invoiceNo in KTS-0001 format
     try {
-        const now = new Date();
-        const fy = invoice.financialYear || function getFY(d) {
-            const y = d.getFullYear();
-            const m = d.getMonth() + 1;
-            // FY starts from April
-            if (m >= 4) return `${y}-${y + 1}`;
-            return `${y - 1}-${y}`;
-        }(now);
-        // find existing max number for this FY
-        const regex = new RegExp(`^KTS/${fy.replace(/[-\\/]/g, "\\$&")}/(\\d+)$`);
+        // find existing max number in KTS-0001 format
+        const regex = /^KTS-(\d+)$/;
         const docs = await col.find({
             invoiceNo: {
-                $regex: `^KTS/${fy.replace(/[-\\/]/g, "\\$&")}/`
+                $regex: "^KTS-"
             }
         }).project({
             invoiceNo: 1
@@ -731,28 +743,26 @@ async function createInvoice(invoice) {
         let maxNum = 0;
         for (const d of docs){
             const s = String(d.invoiceNo || "");
-            const m = s.match(/\/(\d+)$/);
+            const m = s.match(regex);
             if (m) {
                 const n = parseInt(m[1], 10);
                 if (!isNaN(n) && n > maxNum) maxNum = n;
             }
         }
         const nextNum = maxNum + 1;
-        const padded = String(nextNum).padStart(5, "0");
-        const invoiceNo = `KTS/${fy}/${padded}`;
+        const padded = String(nextNum).padStart(4, "0");
+        const invoiceNo = `KTS-${padded}`;
         const id = `PN-${padded}`;
         const res = await col.insertOne({
             ...invoice,
             id,
             invoiceNo,
-            financialYear: fy,
             createdAt: new Date()
         });
         const created = {
             ...invoice,
             id,
             invoiceNo,
-            financialYear: fy,
             _id: res.insertedId
         };
         // If invoice contains inventory usage, decrement stock

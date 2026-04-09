@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   CONTENT_TYPES,
   POST_STATUSES,
@@ -10,6 +12,7 @@ import {
   isSameDate,
   toDateTime,
 } from "@/lib/social-media-planner";
+import { ClientPicker } from "@/components/social-media/client-picker";
 
 type ViewMode = "daily" | "weekly" | "monthly";
 
@@ -23,6 +26,7 @@ const statusBg: Record<string, string> = {
 };
 
 export default function SocialMediaCalendarPage() {
+  const [selectedClientId, setSelectedClientId] = useState<string>("");
   const [posts, setPosts] = useState<SocialMediaPost[]>([]);
   const [viewMode, setViewMode] = useState<ViewMode>("monthly");
   const [cursorDate, setCursorDate] = useState<Date>(new Date());
@@ -33,29 +37,35 @@ export default function SocialMediaCalendarPage() {
   const [statusFilter, setStatusFilter] = useState("");
   const [contentTypeFilter, setContentTypeFilter] = useState("");
 
-  const load = async () => {
-    const res = await fetch("/api/social-media-posts", { cache: "no-store" });
-    if (!res.ok) throw new Error("Failed to load social posts");
-    const data = await res.json();
-    setPosts(Array.isArray(data) ? data : []);
+  const loadPosts = async (clientId: string) => {
+    if (!clientId) {
+      setPosts([]);
+      return;
+    }
+    try {
+      const url = new URL("/api/social-media-posts", window.location.origin);
+      url.searchParams.set("clientId", clientId);
+      const res = await fetch(url.toString(), { cache: "no-store" });
+      if (!res.ok) throw new Error("Failed to load social posts");
+      const data = await res.json();
+      setPosts(Array.isArray(data) ? data : []);
+    } catch (e) {
+      console.error(e);
+      setPosts([]);
+    }
   };
 
   useEffect(() => {
-    (async () => {
-      try {
-        await load();
-      } catch (e) {
-        console.error(e);
-      }
-    })();
-  }, []);
+    loadPosts(selectedClientId);
+  }, [selectedClientId]);
 
   const filtered = useMemo(() => {
     return posts.filter((item) => {
       if (platformFilter && item.platform !== platformFilter) return false;
       if (staffFilter && item.assignedTo !== staffFilter) return false;
       if (statusFilter && item.status !== statusFilter) return false;
-      if (contentTypeFilter && item.contentType !== contentTypeFilter) return false;
+      if (contentTypeFilter && item.contentType !== contentTypeFilter)
+        return false;
       return true;
     });
   }, [posts, platformFilter, staffFilter, statusFilter, contentTypeFilter]);
@@ -87,15 +97,20 @@ export default function SocialMediaCalendarPage() {
         const dt = toDateTime(item.scheduledDate, item.scheduledTime);
         return dt ? isSameDate(dt, new Date()) : false;
       })
-      .sort((a, b) => String(a.scheduledTime).localeCompare(String(b.scheduledTime)));
+      .sort((a, b) =>
+        String(a.scheduledTime).localeCompare(String(b.scheduledTime)),
+      );
   }, [filtered]);
 
   const upcoming = useMemo(() => {
     const now = new Date();
     return filtered
-      .map((item) => ({ item, dt: toDateTime(item.scheduledDate, item.scheduledTime) }))
+      .map((item) => ({
+        item,
+        dt: toDateTime(item.scheduledDate, item.scheduledTime),
+      }))
       .filter((x) => x.dt && (x.dt as Date) >= now)
-      .sort((a, b) => +((a.dt as Date)) - +((b.dt as Date)))
+      .sort((a, b) => +(a.dt as Date) - +(b.dt as Date))
       .slice(0, 8)
       .map((x) => x.item);
   }, [filtered]);
@@ -106,7 +121,10 @@ export default function SocialMediaCalendarPage() {
       .filter((item) => {
         const dt = toDateTime(item.scheduledDate, item.scheduledTime);
         if (!dt) return item.status === "Missed";
-        return item.status === "Missed" || ((item.status === "Scheduled" || item.status === "Ready") && dt < now);
+        return (
+          item.status === "Missed" ||
+          ((item.status === "Scheduled" || item.status === "Ready") && dt < now)
+        );
       })
       .slice(0, 8);
   }, [filtered]);
@@ -121,7 +139,7 @@ export default function SocialMediaCalendarPage() {
       alert("Failed to reschedule post");
       return;
     }
-    await load();
+    await loadPosts(selectedClientId);
   };
 
   const onDragStart = (event: React.DragEvent, id: string) => {
@@ -167,50 +185,111 @@ export default function SocialMediaCalendarPage() {
   }, [selectedDate]);
 
   const dayPosts = useMemo(() => {
-    return selectedPosts.sort((a, b) => String(a.scheduledTime).localeCompare(String(b.scheduledTime)));
+    return selectedPosts.sort((a, b) =>
+      String(a.scheduledTime).localeCompare(String(b.scheduledTime)),
+    );
   }, [selectedPosts]);
 
   return (
     <div className="space-y-6 font-headline">
       <header className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-4xl font-black tracking-tighter">CONTENT CALENDAR</h1>
-          <p className="text-muted-foreground">Daily, weekly and monthly social posting schedule.</p>
+          <h1 className="text-4xl font-black tracking-tighter">
+            CONTENT CALENDAR
+          </h1>
+          <p className="text-muted-foreground">
+            Daily, weekly and monthly social posting schedule.
+          </p>
         </div>
         <div className="flex items-center gap-2">
-          <Link href="/social-media-planner" className="px-3 py-2 border rounded-md text-sm font-semibold">Dashboard</Link>
-          <Link href="/social-media-planner/planner" className="px-3 py-2 border rounded-md text-sm font-semibold">Planner</Link>
+          <Link
+            href="/social-media-planner"
+            className="px-3 py-2 border rounded-md text-sm font-semibold"
+          >
+            Dashboard
+          </Link>
+          <Link
+            href="/social-media-planner/planner"
+            className="px-3 py-2 border rounded-md text-sm font-semibold"
+          >
+            Planner
+          </Link>
+          <Link
+            href="/social-media-planner/analytics"
+            className="px-3 py-2 border rounded-md text-sm font-semibold"
+          >
+            Analytics
+          </Link>
         </div>
       </header>
 
       <section className="border-2 border-black rounded-lg p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-2">
-        <select className="border rounded-md p-2" value={platformFilter} onChange={(e) => setPlatformFilter(e.target.value)}>
+        <select
+          className="border rounded-md p-2"
+          value={platformFilter}
+          onChange={(e) => setPlatformFilter(e.target.value)}
+        >
           <option value="">All Platforms</option>
-          {SOCIAL_PLATFORMS.map((platform) => <option key={platform} value={platform}>{platform}</option>)}
+          {SOCIAL_PLATFORMS.map((platform) => (
+            <option key={platform} value={platform}>
+              {platform}
+            </option>
+          ))}
         </select>
-        <select className="border rounded-md p-2" value={staffFilter} onChange={(e) => setStaffFilter(e.target.value)}>
+        <select
+          className="border rounded-md p-2"
+          value={staffFilter}
+          onChange={(e) => setStaffFilter(e.target.value)}
+        >
           <option value="">All Staff</option>
-          {staffOptions.map((name) => <option key={name} value={name}>{name}</option>)}
+          {staffOptions.map((name) => (
+            <option key={name} value={name}>
+              {name}
+            </option>
+          ))}
         </select>
-        <select className="border rounded-md p-2" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
+        <select
+          className="border rounded-md p-2"
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value)}
+        >
           <option value="">All Status</option>
-          {POST_STATUSES.map((status) => <option key={status} value={status}>{status}</option>)}
+          {POST_STATUSES.map((status) => (
+            <option key={status} value={status}>
+              {status}
+            </option>
+          ))}
         </select>
-        <select className="border rounded-md p-2" value={contentTypeFilter} onChange={(e) => setContentTypeFilter(e.target.value)}>
+        <select
+          className="border rounded-md p-2"
+          value={contentTypeFilter}
+          onChange={(e) => setContentTypeFilter(e.target.value)}
+        >
           <option value="">All Content Types</option>
-          {CONTENT_TYPES.map((contentType) => <option key={contentType} value={contentType}>{contentType}</option>)}
+          {CONTENT_TYPES.map((contentType) => (
+            <option key={contentType} value={contentType}>
+              {contentType}
+            </option>
+          ))}
         </select>
-        <select className="border rounded-md p-2" value={viewMode} onChange={(e) => setViewMode(e.target.value as ViewMode)}>
+        <select
+          className="border rounded-md p-2"
+          value={viewMode}
+          onChange={(e) => setViewMode(e.target.value as ViewMode)}
+        >
           <option value="daily">Daily View</option>
           <option value="weekly">Weekly View</option>
           <option value="monthly">Monthly View</option>
         </select>
-        <button className="border rounded-md p-2 text-sm" onClick={() => {
-          setPlatformFilter("");
-          setStaffFilter("");
-          setStatusFilter("");
-          setContentTypeFilter("");
-        }}>
+        <button
+          className="border rounded-md p-2 text-sm"
+          onClick={() => {
+            setPlatformFilter("");
+            setStaffFilter("");
+            setStatusFilter("");
+            setContentTypeFilter("");
+          }}
+        >
           Clear Filters
         </button>
       </section>
@@ -218,14 +297,34 @@ export default function SocialMediaCalendarPage() {
       {viewMode === "monthly" && (
         <section className="border-2 border-black rounded-lg overflow-hidden">
           <div className="p-3 border-b-2 border-black flex items-center justify-between">
-            <button className="border rounded px-2 py-1" onClick={() => moveMonth(-1)}>Prev</button>
-            <div className="font-black text-lg">{cursorDate.toLocaleDateString("en-IN", { month: "long", year: "numeric" })}</div>
-            <button className="border rounded px-2 py-1" onClick={() => moveMonth(1)}>Next</button>
+            <button
+              className="border rounded px-2 py-1"
+              onClick={() => moveMonth(-1)}
+            >
+              Prev
+            </button>
+            <div className="font-black text-lg">
+              {cursorDate.toLocaleDateString("en-IN", {
+                month: "long",
+                year: "numeric",
+              })}
+            </div>
+            <button
+              className="border rounded px-2 py-1"
+              onClick={() => moveMonth(1)}
+            >
+              Next
+            </button>
           </div>
 
           <div className="grid grid-cols-7 border-b">
             {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
-              <div key={d} className="p-2 text-xs font-semibold border-r last:border-r-0">{d}</div>
+              <div
+                key={d}
+                className="p-2 text-xs font-semibold border-r last:border-r-0"
+              >
+                {d}
+              </div>
             ))}
           </div>
 
@@ -244,20 +343,28 @@ export default function SocialMediaCalendarPage() {
                   onDrop={(e) => onDropDay(e, key)}
                   className={`min-h-28 border-r border-b p-1 cursor-pointer ${isCurrentMonth ? "bg-white" : "bg-slate-50 text-muted-foreground"} ${isToday ? "ring-1 ring-blue-500" : ""}`}
                 >
-                  <div className="text-xs font-semibold mb-1">{date.getDate()}</div>
+                  <div className="text-xs font-semibold mb-1">
+                    {date.getDate()}
+                  </div>
                   <div className="space-y-1">
                     {dayItems.slice(0, 3).map((item) => (
                       <div
                         key={String(item._id || item.id)}
                         draggable
-                        onDragStart={(e) => onDragStart(e, String(item._id || item.id || ""))}
+                        onDragStart={(e) =>
+                          onDragStart(e, String(item._id || item.id || ""))
+                        }
                         className={`text-[10px] px-1 py-0.5 rounded truncate ${statusBg[item.status] || "bg-gray-100"}`}
                         title={`${item.title} · ${item.platform}`}
                       >
                         {item.scheduledTime} {item.title}
                       </div>
                     ))}
-                    {dayItems.length > 3 && <div className="text-[10px] text-muted-foreground">+{dayItems.length - 3} more</div>}
+                    {dayItems.length > 3 && (
+                      <div className="text-[10px] text-muted-foreground">
+                        +{dayItems.length - 3} more
+                      </div>
+                    )}
                   </div>
                 </div>
               );
@@ -268,17 +375,37 @@ export default function SocialMediaCalendarPage() {
 
       <section className="border rounded-lg p-3">
         <h3 className="font-black mb-2">
-          Selected Date Posts ({selectedDate.toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })})
+          Selected Date Posts (
+          {selectedDate.toLocaleDateString("en-IN", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+          })}
+          )
         </h3>
         <div className="space-y-2">
-          {!selectedPosts.length && <p className="text-sm text-muted-foreground">No posts scheduled on selected date.</p>}
+          {!selectedPosts.length && (
+            <p className="text-sm text-muted-foreground">
+              No posts scheduled on selected date.
+            </p>
+          )}
           {selectedPosts
             .slice()
-            .sort((a, b) => String(a.scheduledTime).localeCompare(String(b.scheduledTime)))
+            .sort((a, b) =>
+              String(a.scheduledTime).localeCompare(String(b.scheduledTime)),
+            )
             .map((item) => (
-              <div key={`sel-${String(item._id || item.id)}`} className="border rounded p-2">
-                <div className="font-semibold text-sm">{item.scheduledTime} · {item.title}</div>
-                <div className="text-xs text-muted-foreground">{item.platform} · {item.assignedTo || "Unassigned"} · {item.status}</div>
+              <div
+                key={`sel-${String(item._id || item.id)}`}
+                className="border rounded p-2"
+              >
+                <div className="font-semibold text-sm">
+                  {item.scheduledTime} · {item.title}
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  {item.platform} · {item.assignedTo || "Unassigned"} ·{" "}
+                  {item.status}
+                </div>
               </div>
             ))}
         </div>
@@ -287,9 +414,41 @@ export default function SocialMediaCalendarPage() {
       {viewMode === "weekly" && (
         <section className="border-2 border-black rounded-lg overflow-hidden">
           <div className="p-3 border-b-2 border-black flex items-center justify-between">
-            <button className="border rounded px-2 py-1" onClick={() => setSelectedDate(new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() - 7))}>Prev Week</button>
-            <div className="font-black text-lg">Week of {weekDays[0].toLocaleDateString("en-IN", { day: "2-digit", month: "short" })}</div>
-            <button className="border rounded px-2 py-1" onClick={() => setSelectedDate(new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + 7))}>Next Week</button>
+            <button
+              className="border rounded px-2 py-1"
+              onClick={() =>
+                setSelectedDate(
+                  new Date(
+                    selectedDate.getFullYear(),
+                    selectedDate.getMonth(),
+                    selectedDate.getDate() - 7,
+                  ),
+                )
+              }
+            >
+              Prev Week
+            </button>
+            <div className="font-black text-lg">
+              Week of{" "}
+              {weekDays[0].toLocaleDateString("en-IN", {
+                day: "2-digit",
+                month: "short",
+              })}
+            </div>
+            <button
+              className="border rounded px-2 py-1"
+              onClick={() =>
+                setSelectedDate(
+                  new Date(
+                    selectedDate.getFullYear(),
+                    selectedDate.getMonth(),
+                    selectedDate.getDate() + 7,
+                  ),
+                )
+              }
+            >
+              Next Week
+            </button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-7 gap-2 p-2">
             {weekDays.map((date) => {
@@ -297,13 +456,28 @@ export default function SocialMediaCalendarPage() {
               const dayItems = postsByDate.get(key) || [];
               return (
                 <div key={key} className="border rounded p-2 min-h-32">
-                  <div className="text-xs font-semibold mb-1">{date.toLocaleDateString("en-IN", { weekday: "short", day: "2-digit", month: "short" })}</div>
+                  <div className="text-xs font-semibold mb-1">
+                    {date.toLocaleDateString("en-IN", {
+                      weekday: "short",
+                      day: "2-digit",
+                      month: "short",
+                    })}
+                  </div>
                   <div className="space-y-1">
-                    {dayItems.length ? dayItems.map((item) => (
-                      <div key={String(item._id || item.id)} className={`text-[11px] px-1 py-0.5 rounded ${statusBg[item.status] || "bg-gray-100"}`}>
-                        {item.scheduledTime} {item.title}
+                    {dayItems.length ? (
+                      dayItems.map((item) => (
+                        <div
+                          key={String(item._id || item.id)}
+                          className={`text-[11px] px-1 py-0.5 rounded ${statusBg[item.status] || "bg-gray-100"}`}
+                        >
+                          {item.scheduledTime} {item.title}
+                        </div>
+                      ))
+                    ) : (
+                      <div className="text-xs text-muted-foreground">
+                        No posts
                       </div>
-                    )) : <div className="text-xs text-muted-foreground">No posts</div>}
+                    )}
                   </div>
                 </div>
               );
@@ -315,18 +489,62 @@ export default function SocialMediaCalendarPage() {
       {viewMode === "daily" && (
         <section className="border-2 border-black rounded-lg overflow-hidden">
           <div className="p-3 border-b-2 border-black flex items-center justify-between">
-            <button className="border rounded px-2 py-1" onClick={() => setSelectedDate(new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() - 1))}>Prev Day</button>
-            <div className="font-black text-lg">{selectedDate.toLocaleDateString("en-IN", { weekday: "long", day: "2-digit", month: "short", year: "numeric" })}</div>
-            <button className="border rounded px-2 py-1" onClick={() => setSelectedDate(new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + 1))}>Next Day</button>
+            <button
+              className="border rounded px-2 py-1"
+              onClick={() =>
+                setSelectedDate(
+                  new Date(
+                    selectedDate.getFullYear(),
+                    selectedDate.getMonth(),
+                    selectedDate.getDate() - 1,
+                  ),
+                )
+              }
+            >
+              Prev Day
+            </button>
+            <div className="font-black text-lg">
+              {selectedDate.toLocaleDateString("en-IN", {
+                weekday: "long",
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              })}
+            </div>
+            <button
+              className="border rounded px-2 py-1"
+              onClick={() =>
+                setSelectedDate(
+                  new Date(
+                    selectedDate.getFullYear(),
+                    selectedDate.getMonth(),
+                    selectedDate.getDate() + 1,
+                  ),
+                )
+              }
+            >
+              Next Day
+            </button>
           </div>
           <div className="p-3 space-y-2">
-            {dayPosts.length ? dayPosts.map((item) => (
-              <div key={String(item._id || item.id)} className={`border rounded p-2 ${statusBg[item.status] || "bg-gray-50"}`}>
-                <div className="font-semibold">{item.title}</div>
-                <div className="text-xs text-muted-foreground">{item.platform} · {item.contentType} · {item.scheduledTime}</div>
-                <div className="text-xs mt-1">{item.caption}</div>
+            {dayPosts.length ? (
+              dayPosts.map((item) => (
+                <div
+                  key={String(item._id || item.id)}
+                  className={`border rounded p-2 ${statusBg[item.status] || "bg-gray-50"}`}
+                >
+                  <div className="font-semibold">{item.title}</div>
+                  <div className="text-xs text-muted-foreground">
+                    {item.platform} · {item.contentType} · {item.scheduledTime}
+                  </div>
+                  <div className="text-xs mt-1">{item.caption}</div>
+                </div>
+              ))
+            ) : (
+              <div className="text-sm text-muted-foreground">
+                No posts scheduled for this day.
               </div>
-            )) : <div className="text-sm text-muted-foreground">No posts scheduled for this day.</div>}
+            )}
           </div>
         </section>
       )}
@@ -335,11 +553,22 @@ export default function SocialMediaCalendarPage() {
         <section className="border rounded-lg p-3">
           <h3 className="font-black mb-2">Today’s Queue</h3>
           <div className="space-y-2">
-            {!todayQueue.length && <p className="text-sm text-muted-foreground">No posts for today.</p>}
+            {!todayQueue.length && (
+              <p className="text-sm text-muted-foreground">
+                No posts for today.
+              </p>
+            )}
             {todayQueue.map((item) => (
-              <div key={String(item._id || item.id)} className="border rounded p-2">
-                <div className="font-semibold text-sm">{item.scheduledTime} · {item.title}</div>
-                <div className="text-xs text-muted-foreground">{item.platform} · {item.assignedTo || "Unassigned"}</div>
+              <div
+                key={String(item._id || item.id)}
+                className="border rounded p-2"
+              >
+                <div className="font-semibold text-sm">
+                  {item.scheduledTime} · {item.title}
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  {item.platform} · {item.assignedTo || "Unassigned"}
+                </div>
               </div>
             ))}
           </div>
@@ -349,18 +578,32 @@ export default function SocialMediaCalendarPage() {
           <h3 className="font-black mb-2">Upcoming & Missed</h3>
           <div className="space-y-2 max-h-60 overflow-auto">
             {upcoming.map((item) => (
-              <div key={`up-${String(item._id || item.id)}`} className="border rounded p-2">
+              <div
+                key={`up-${String(item._id || item.id)}`}
+                className="border rounded p-2"
+              >
                 <div className="text-sm font-semibold">{item.title}</div>
-                <div className="text-xs text-muted-foreground">Upcoming · {item.scheduledDate} {item.scheduledTime}</div>
+                <div className="text-xs text-muted-foreground">
+                  Upcoming · {item.scheduledDate} {item.scheduledTime}
+                </div>
               </div>
             ))}
             {missed.map((item) => (
-              <div key={`ms-${String(item._id || item.id)}`} className="border rounded p-2 bg-red-50">
+              <div
+                key={`ms-${String(item._id || item.id)}`}
+                className="border rounded p-2 bg-red-50"
+              >
                 <div className="text-sm font-semibold">{item.title}</div>
-                <div className="text-xs text-red-700">Missed · {item.scheduledDate} {item.scheduledTime}</div>
+                <div className="text-xs text-red-700">
+                  Missed · {item.scheduledDate} {item.scheduledTime}
+                </div>
               </div>
             ))}
-            {!upcoming.length && !missed.length && <p className="text-sm text-muted-foreground">No upcoming or missed posts.</p>}
+            {!upcoming.length && !missed.length && (
+              <p className="text-sm text-muted-foreground">
+                No upcoming or missed posts.
+              </p>
+            )}
           </div>
         </section>
       </div>

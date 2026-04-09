@@ -32,6 +32,7 @@
   "/(crm)/reels/page": "/reels",
   "/(crm)/reviews/page": "/reviews",
   "/(crm)/services/page": "/services",
+  "/(crm)/social-media-planner/analytics/page": "/social-media-planner/analytics",
   "/(crm)/social-media-planner/calendar/page": "/social-media-planner/calendar",
   "/(crm)/social-media-planner/page": "/social-media-planner",
   "/(crm)/social-media-planner/planner/page": "/social-media-planner/planner",

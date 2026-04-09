@@ -759,6 +759,12 @@
       "namedRegex": "^/social\\-media\\-planner(?:/)?$"
     },
     {
+      "page": "/social-media-planner/analytics",
+      "regex": "^/social\\-media\\-planner/analytics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/social\\-media\\-planner/analytics(?:/)?$"
+    },
+    {
       "page": "/social-media-planner/calendar",
       "regex": "^/social\\-media\\-planner/calendar(?:/)?$",
       "routeKeys": {},

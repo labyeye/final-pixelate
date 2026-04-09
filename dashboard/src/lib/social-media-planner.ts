@@ -37,6 +37,7 @@ export type PostStatus = (typeof POST_STATUSES)[number];
 export type SocialMediaPost = {
   _id?: string;
   id?: string;
+  clientId?: string;
   title: string;
   platform: SocialPlatform;
   contentType: ContentType;
@@ -47,9 +48,15 @@ export type SocialMediaPost = {
   scheduledTime: string;
   assignedTo: string;
   status: PostStatus;
+  approvalStatus?: "Pending" | "Approved" | "Rejected";
   notes?: string;
   postedLink?: string;
   createdBy?: string;
+  views?: number;
+  likes?: number;
+  comments?: number;
+  shares?: number;
+  followers_gained?: number;
   createdAt?: string | Date;
   updatedAt?: string | Date;
 };
