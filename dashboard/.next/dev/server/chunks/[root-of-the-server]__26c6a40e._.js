@@ -913,6 +913,7 @@ async function GET(request) {
     try {
         // Expect an Authorization header with a Bearer token. Admins see all leads.
         // Staff role users will only receive leads where assignedTo === their id.
+        // Client role users will only receive leads where clientId === their clientId.
         const auth = request.headers.get('authorization') || '';
         const token = auth.replace('Bearer ', '');
         const decoded = token ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["verifyToken"])(token) : null;
@@ -926,6 +927,13 @@ async function GET(request) {
         let items;
         if (decoded.role === 'admin') {
             items = await col.find().sort({
+                createdAt: -1
+            }).toArray();
+        } else if (decoded.role === 'client') {
+            // For clients, return only leads where clientId matches their clientId
+            items = await col.find({
+                clientId: decoded.clientId
+            }).sort({
                 createdAt: -1
             }).toArray();
         } else {

@@ -16,6 +16,7 @@ export async function GET(request: Request) {
   try {
     // Expect an Authorization header with a Bearer token. Admins see all leads.
     // Staff role users will only receive leads where assignedTo === their id.
+    // Client role users will only receive leads where clientId === their clientId.
     const auth = request.headers.get('authorization') || ''
     const token = auth.replace('Bearer ', '')
     const decoded: any = token ? verifyToken(token) : null
@@ -25,6 +26,9 @@ export async function GET(request: Request) {
     let items: any[]
     if (decoded.role === 'admin') {
       items = await col.find().sort({ createdAt: -1 }).toArray()
+    } else if (decoded.role === 'client') {
+      // For clients, return only leads where clientId matches their clientId
+      items = await col.find({ clientId: decoded.clientId }).sort({ createdAt: -1 }).toArray()
     } else {
       // for staff, return only leads assigned to this user (_id stored as string in assignedTo)
       items = await col.find({ assignedTo: decoded.id }).sort({ createdAt: -1 }).toArray()

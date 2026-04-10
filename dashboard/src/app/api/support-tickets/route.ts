@@ -1,15 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server';
 import * as svc from '@/lib/services';
 import { ObjectId } from 'mongodb';
+import { verifyToken } from '@/lib/auth';
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const clientId = searchParams.get('clientId');
 
+    // Check auth header for token
+    const auth = request.headers.get('authorization') || ''
+    const token = auth.replace('Bearer ', '')
+    const decoded: any = token ? verifyToken(token) : null
+
     const col = await svc.getCollection('supportTickets');
     let filter: Record<string, any> = {};
-    if (clientId) {
+
+    // If client role, only show their tickets
+    if (decoded?.role === 'client') {
+      filter = { clientId: decoded.clientId }
+    } else if (clientId) {
       try {
         filter = { $or: [{ clientId: new ObjectId(clientId) }, { clientId }] };
       } catch {
@@ -27,6 +37,12 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const auth = request.headers.get('authorization') || ''
+    const token = auth.replace('Bearer ', '')
+    if (!verifyToken(token)) {
+      return NextResponse.json({ error: 'unauthorized' }, { status: 401 })
+    }
+
     const ticketData = await request.json();
     const col = await svc.getCollection('supportTickets');
     const res = await col.insertOne({ ...ticketData, createdAt: new Date() });

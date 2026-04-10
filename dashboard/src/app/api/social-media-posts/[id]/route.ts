@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import * as svc from "@/lib/services";
+import { verifyToken } from "@/lib/auth";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET,PUT,DELETE,OPTIONS",
+  "Access-Control-Allow-Methods": "GET,PUT,PATCH,DELETE,OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
@@ -61,6 +62,76 @@ export async function PUT(request: Request, { params }: RouteContext) {
 
     const updated = await col.findOne({ _id: new ObjectId(id) });
     return NextResponse.json(updated, { headers: CORS });
+  } catch (e: any) {
+    return NextResponse.json(
+      { error: e.message || String(e) },
+      { status: 500, headers: CORS },
+    );
+  }
+}
+
+export async function PATCH(request: Request, { params }: RouteContext) {
+  try {
+    const { id } = await params;
+    const auth = request.headers.get("authorization") || "";
+    const token = auth.replace("Bearer ", "");
+    const decoded: any = token ? verifyToken(token) : null;
+
+    if (!decoded || decoded.role !== "client") {
+      return NextResponse.json(
+        { error: "Unauthorized - Only clients can approve/reject posts" },
+        { status: 401, headers: CORS },
+      );
+    }
+
+    const body = await request.json();
+    const col = await svc.getCollection("socialMediaPosts");
+
+    // Find the post and verify it belongs to the client
+    const post = await col.findOne({ _id: new ObjectId(id) });
+
+    if (!post) {
+      return NextResponse.json(
+        { error: "Post not found" },
+        { status: 404, headers: CORS },
+      );
+    }
+
+    // Verify this post belongs to the client's company
+    if (post.clientId !== decoded.clientId) {
+      return NextResponse.json(
+        { error: "Unauthorized - This post does not belong to you" },
+        { status: 403, headers: CORS },
+      );
+    }
+
+    // Only allow approval status and rejection reason updates
+    const updateData: any = {
+      updatedAt: new Date(),
+    };
+
+    if (body.approvalStatus) {
+      updateData.approvalStatus = body.approvalStatus;
+    }
+
+    if (body.rejectionReason && body.approvalStatus === "Rejected") {
+      updateData.rejectionReason = body.rejectionReason;
+    }
+
+    const result = await col.updateOne(
+      { _id: new ObjectId(id) },
+      { $set: updateData },
+    );
+
+    if (result.modifiedCount === 0) {
+      return NextResponse.json(
+        { error: "Failed to update post" },
+        { status: 400, headers: CORS },
+      );
+    }
+
+    const updatedPost = await col.findOne({ _id: new ObjectId(id) });
+    return NextResponse.json(updatedPost, { headers: CORS });
   } catch (e: any) {
     return NextResponse.json(
       { error: e.message || String(e) },

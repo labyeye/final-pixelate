@@ -26,6 +26,8 @@ import {
   BookOpen,
   Headphones,
   Trash2,
+  Zap,
+  Rocket,
 } from "lucide-react";
 
 export const defaultStaffAllowed = [
@@ -361,4 +363,17 @@ export const defaultClientAllowed = [
   "/invoicing",
   "/projects",
   "/support",
+];
+
+/**
+ * Client-specific navigation items (new /client routes)
+ * These pages are read-only for clients and filter data by their clientId
+ */
+export const clientSpecificNavItems = [
+  { href: "/client/planner",      label: "Planner",      icon: CalendarDays },
+  { href: "/client/calendar",     label: "Calendar",     icon: CalendarDays },
+  { href: "/client/analytics",    label: "Analytics",    icon: BarChartIcon },
+  { href: "/client/development",  label: "Development",  icon: Rocket },
+  { href: "/client/support",      label: "Support",      icon: Headphones },
+  { href: "/client/leads",        label: "Leads",        icon: Zap },
 ];

@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { useAuth } from "@/hooks/use-auth";
-import { navGroups, defaultStaffAllowed, clientNavItems, defaultClientAllowed } from "@/lib/nav-config";
+import { navGroups, defaultStaffAllowed, clientNavItems, defaultClientAllowed, clientSpecificNavItems } from "@/lib/nav-config";
 import { useEffect, useState } from "react";
 import { LifeBuoy } from "lucide-react";
 import { Button } from "../ui/button";
@@ -67,28 +67,53 @@ export function Sidebar() {
       >
         {isClient ? (
           // ── Client nav ─────────────────────────────────────────────────
-          <div className="space-y-2">
-            <h3 className="px-2 text-xs font-black text-muted-foreground uppercase tracking-widest">
-              My Account
-            </h3>
-            <div className="space-y-1">
-              {visibleClientNavItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "flex items-center gap-3 px-3 py-2 text-sm font-bold transition-all border-2 rounded-md hover:translate-x-1",
-                    pathname.startsWith(item.href)
-                      ? "bg-primary text-primary-foreground border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
-                      : "bg-transparent text-muted-foreground border-transparent hover:text-foreground hover:bg-muted hover:border-black/10",
-                  )}
-                >
-                  <item.icon className="w-4 h-4" />
-                  {item.label}
-                </Link>
-              ))}
+          <>
+            <div className="space-y-2">
+              <h3 className="px-2 text-xs font-black text-muted-foreground uppercase tracking-widest">
+                Dashboard
+              </h3>
+              <div className="space-y-1">
+                {visibleClientNavItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "flex items-center gap-3 px-3 py-2 text-sm font-bold transition-all border-2 rounded-md hover:translate-x-1",
+                      pathname.startsWith(item.href)
+                        ? "bg-primary text-primary-foreground border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                        : "bg-transparent text-muted-foreground border-transparent hover:text-foreground hover:bg-muted hover:border-black/10",
+                    )}
+                  >
+                    <item.icon className="w-4 h-4" />
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
+
+            <div className="space-y-2">
+              <h3 className="px-2 text-xs font-black text-muted-foreground uppercase tracking-widest">
+                Client Portal
+              </h3>
+              <div className="space-y-1">
+                {clientSpecificNavItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "flex items-center gap-3 px-3 py-2 text-sm font-bold transition-all border-2 rounded-md hover:translate-x-1",
+                      pathname.startsWith(item.href)
+                        ? "bg-primary text-primary-foreground border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                        : "bg-transparent text-muted-foreground border-transparent hover:text-foreground hover:bg-muted hover:border-black/10",
+                    )}
+                  >
+                    <item.icon className="w-4 h-4" />
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </>
         ) : (
           // ── Admin / Staff nav ───────────────────────────────────────────
           navGroups.map((group) => {
