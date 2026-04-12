@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
@@ -20,7 +21,7 @@
     <meta
       property="og:url"
       id="og-url"
-      content="https://www.pixelatenest.com/pages/state.html"
+      content="https://www.pixelatenest.com/locations/state.html"
     />
     <meta
       property="og:image"
@@ -68,14 +69,14 @@
     <link
       rel="canonical"
       id="page-canonical"
-      href="https://www.pixelatenest.com/pages/state.html"
+      href="https://www.pixelatenest.com/locations/state.html"
     />
     <script>
       (function () {
         var city = new URLSearchParams(window.location.search).get("city");
         if (city) {
           var url =
-            "https://www.pixelatenest.com/pages/state.html?city=" +
+            "https://www.pixelatenest.com/locations/state.html?city=" +
             encodeURIComponent(city);
           var ogUrl = document.getElementById("og-url");
           if (ogUrl) ogUrl.setAttribute("content", url);
@@ -100,7 +101,7 @@
             "@type": "ListItem",
             "position": 2,
             "name": "Pixelate Nest - Creative Services",
-            "item": "https://www.pixelatenest.com/pages/state.html"
+            "item": "https://www.pixelatenest.com/locations/state.html"
           }
         ]
       }
@@ -428,7 +429,7 @@
                       <li class="nav-item">
                         <a
                           href="https://www.pixelatenest.com/pages/technologies.html"
-                          class="nav-link w-inline-block w--current"
+                          class="nav-link w-inline-block"
                         >
                           <div class="nav-link-text">Technologies</div>
                         </a>
@@ -568,7 +569,7 @@
                       href="https://www.pixelatenest.com/pages/contact.html"
                       class="hero-cta-button"
                     >
-                      Contact Experts <span class="cta-arrow">?</span>
+                      Contact Experts <span class="cta-arrow">→</span>
                     </a>
                   </div>
                 </div>
@@ -834,7 +835,7 @@
             .getElementById("page-canonical")
             .setAttribute(
               "href",
-              `https://www.pixelatenest.com/pages/state.html?city=${city.city}`,
+              `https://www.pixelatenest.com/locations/state.html?city=${city.city}`,
             );
 
           document
@@ -847,7 +848,7 @@
             .getElementById("og-url")
             .setAttribute(
               "content",
-              `https://www.pixelatenest.com/pages/state.html?city=${city.city}`,
+              `https://www.pixelatenest.com/locations/state.html?city=${city.city}`,
             );
 
           document
@@ -1120,7 +1121,7 @@
             name: "Pixelate Nest",
             description:
               city.metaDescription || "Pixelate Nest - Creative Digital Agency",
-            url: `https://www.pixelatenest.com/pages/state.html?city=${city.city}`,
+            url: `https://www.pixelatenest.com/locations/state.html?city=${city.city}`,
             telephone: "+91-84069-12345",
             email: "support@pixelatenest.com",
             address: {
@@ -1470,5 +1471,3 @@
     <script src="../js/quick-contact-buttons.js"></script>
   </body>
 </html>
-
-
