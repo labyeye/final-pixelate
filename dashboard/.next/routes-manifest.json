@@ -603,6 +603,42 @@
       "namedRegex": "^/careers/add(?:/)?$"
     },
     {
+      "page": "/client/analytics",
+      "regex": "^/client/analytics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/client/analytics(?:/)?$"
+    },
+    {
+      "page": "/client/calendar",
+      "regex": "^/client/calendar(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/client/calendar(?:/)?$"
+    },
+    {
+      "page": "/client/development",
+      "regex": "^/client/development(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/client/development(?:/)?$"
+    },
+    {
+      "page": "/client/leads",
+      "regex": "^/client/leads(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/client/leads(?:/)?$"
+    },
+    {
+      "page": "/client/planner",
+      "regex": "^/client/planner(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/client/planner(?:/)?$"
+    },
+    {
+      "page": "/client/support",
+      "regex": "^/client/support(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/client/support(?:/)?$"
+    },
+    {
       "page": "/client-portal",
       "regex": "^/client\\-portal(?:/)?$",
       "routeKeys": {},
@@ -709,6 +745,12 @@
       "regex": "^/onboarding(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/onboarding(?:/)?$"
+    },
+    {
+      "page": "/photo-galleries",
+      "regex": "^/photo\\-galleries(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/photo\\-galleries(?:/)?$"
     },
     {
       "page": "/profile",

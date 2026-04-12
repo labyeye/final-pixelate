@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/client/layout,_N_T_/(crm)/client/analytics/layout,_N_T_/(crm)/client/analytics/page,_N_T_/client/analytics"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/client/analytics/__PAGE__",
+    "/!KGNybSk/client/analytics",
+    "/!KGNybSk/client",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

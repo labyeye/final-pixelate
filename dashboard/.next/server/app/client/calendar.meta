@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/client/layout,_N_T_/(crm)/client/calendar/layout,_N_T_/(crm)/client/calendar/page,_N_T_/client/calendar"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/client/calendar/__PAGE__",
+    "/!KGNybSk/client/calendar",
+    "/!KGNybSk/client",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

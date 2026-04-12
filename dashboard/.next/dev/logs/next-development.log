@@ -1,50 +1,5 @@
-[00:00:01.014] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.100] Server  LOG      ✓ Ready in 852ms
-[00:00:10.227] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:23.804] Server  LOG      ✓ Compiled in 34ms
-[00:02:02.388] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:33.975] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:52.815] Browser ERROR   Failed to load posts {}
-[00:02:52.815] Browser ERROR   Failed to load posts {}
-[00:02:56.199] Browser ERROR   Failed to load analytics {}
-[00:02:56.199] Browser ERROR   Failed to load analytics {}
-[00:02:59.013] Browser ERROR   Failed to load analytics {}
-[00:02:59.013] Browser ERROR   Failed to load analytics {}
-[00:03:35.892] Browser ERROR   Failed to load posts {}
-[00:03:35.892] Browser ERROR   Failed to load posts {}
-[00:03:38.536] Browser ERROR   Failed to load posts {}
-[00:08:49.529] Browser ERROR   Failed to load analytics {}
-[00:08:49.529] Browser ERROR   Failed to load analytics {}
-[00:08:50.954] Browser ERROR   Failed to load analytics {}
-[00:09:38.875] Server  LOG      ✓ Compiled in 117ms
-[00:10:02.237] Server  LOG      ✓ Compiled in 59ms
-[00:10:26.673] Server  LOG      ✓ Compiled in 78ms
-[00:10:28.887] Server  LOG      ✓ Compiled in 29ms
-[00:10:32.598] Server  LOG      ✓ Compiled in 99ms
-[00:11:03.302] Browser ERROR   Failed to load posts {}
-[00:11:03.302] Browser ERROR   Failed to load posts {}
-[00:11:14.659] Browser ERROR   Failed to load posts {}
-[00:12:51.449] Server  LOG      ✓ Compiled in 38ms
-[00:13:04.187] Server  LOG      ✓ Compiled in 26ms
-[00:36:55.340] Server  LOG      ✓ Compiled in 62ms
-[00:37:07.545] Server  LOG      ✓ Compiled in 34ms
-[00:37:10.404] Server  LOG      ✓ Compiled in 69ms
-[00:37:12.091] Server  LOG      ✓ Compiled in 29ms
-[00:49:36.571] Browser ERROR   Failed to load analytics {}
-[00:49:36.571] Browser ERROR   Failed to load analytics {}
-[00:49:39.831] Browser ERROR   Failed to load analytics {}
-[13:27:14.751] Server  LOG      ✓ Compiled in 104ms
-[13:33:14.393] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[13:39:43.358] Server  DEBUG   [api/work-gallery] GET items count: 25 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[13:40:04.549] Server  DEBUG   [api/work-gallery] GET items count: 25 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[14:00:47.848] Server  DEBUG   [api/work-gallery] GET items count: 25 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[14:00:56.400] Server  DEBUG   [api/work-gallery] GET items count: 25 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[14:01:00.145] Server  DEBUG   [api/work-gallery] GET items count: 25 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[14:01:03.434] Server  DEBUG   [api/work-gallery] GET items count: 25 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[14:01:07.567] Server  DEBUG   [api/work-gallery] GET items count: 25 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[14:01:11.526] Server  DEBUG   [api/work-gallery] GET items count: 25 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[14:01:12.961] Server  DEBUG   [api/work-gallery] GET items count: 25 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[14:01:16.627] Server  DEBUG   [api/work-gallery] GET items count: 25 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[14:01:24.236] Server  DEBUG   [api/work-gallery] GET items count: 25 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[14:01:25.616] Server  DEBUG   [api/work-gallery] GET items count: 25 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
-[14:01:36.909] Server  DEBUG   [api/work-gallery] GET items count: 25 "sample description:" "Flaunt by Nishi is a growing e-commerce website in Gujarat offering stylish, high-quality fashion products for modern shoppers. Designed for a smooth and secure shopping experience." "sample note:" ""
+[00:00:01.666] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.745] Server  LOG      ✓ Ready in 1499ms
+[00:00:06.061] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:33.248] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:11:33.248] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
