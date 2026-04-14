@@ -80,6 +80,12 @@ export const navGroups = [
         adminOnly: true,
         icon: Activity,
       },
+      {
+        href: "/erp-console",
+        label: "ERP Console",
+        adminOnly: true,
+        icon: Zap,
+      },
     ],
   },
 

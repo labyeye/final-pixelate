@@ -56,6 +56,7 @@ export async function POST(request: Request) {
 
     const toInsert = {
       clientId: body?.clientId || "",
+      socialAccountId: body?.socialAccountId || "",
       title: body?.title || "",
       platform: body?.platform || "Instagram",
       contentType: body?.contentType || "Image Post",

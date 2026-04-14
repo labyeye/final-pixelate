@@ -12,6 +12,7 @@ import {
 } from "@/lib/social-media-planner";
 import { ClientPicker } from "@/components/social-media/client-picker";
 import { UpdateMetricsModal } from "@/components/social-media/update-metrics-modal";
+import { PostAccountDisplay } from "@/components/social-media/post-account-display";
 
 export default function AnalyticsPage() {
   const { user } = useAuth();
@@ -307,6 +308,7 @@ export default function AnalyticsPage() {
                     <tr>
                       <th className="px-4 py-2 text-left font-bold">Title</th>
                       <th className="px-4 py-2 text-center font-bold">Platform</th>
+                      <th className="px-4 py-2 text-center font-bold">Account</th>
                       <th className="px-4 py-2 text-center font-bold">Date</th>
                       <th className="px-4 py-2 text-right font-bold">Views</th>
                       <th className="px-4 py-2 text-right font-bold">Likes</th>
@@ -323,6 +325,9 @@ export default function AnalyticsPage() {
                         <tr key={post._id || post.id} className={idx % 2 === 0 ? "bg-gray-50" : "bg-white"}>
                           <td className="px-4 py-3 font-semibold text-gray-900">{post.title}</td>
                           <td className="px-4 py-3 text-center text-sm">{post.platform}</td>
+                          <td className="px-4 py-3 text-center text-sm">
+                            <PostAccountDisplay accountId={post.socialAccountId} />
+                          </td>
                           <td className="px-4 py-3 text-center text-sm text-gray-600">{post.scheduledDate}</td>
                           <td className="px-4 py-3 text-right">
                             {isEditing ? (

@@ -13,6 +13,7 @@ import {
   toDateTime,
 } from "@/lib/social-media-planner";
 import { ClientPicker } from "@/components/social-media/client-picker";
+import { PostAccountDisplay } from "@/components/social-media/post-account-display";
 
 type ViewMode = "daily" | "weekly" | "monthly";
 
@@ -403,7 +404,7 @@ export default function SocialMediaCalendarPage() {
                   {item.scheduledTime} · {item.title}
                 </div>
                 <div className="text-xs text-muted-foreground">
-                  {item.platform} · {item.assignedTo || "Unassigned"} ·{" "}
+                  {item.platform} · <PostAccountDisplay accountId={item.socialAccountId} /> · {item.assignedTo || "Unassigned"} ·{" "}
                   {item.status}
                 </div>
               </div>
@@ -535,7 +536,7 @@ export default function SocialMediaCalendarPage() {
                 >
                   <div className="font-semibold">{item.title}</div>
                   <div className="text-xs text-muted-foreground">
-                    {item.platform} · {item.contentType} · {item.scheduledTime}
+                    {item.platform} · <PostAccountDisplay accountId={item.socialAccountId} /> · {item.contentType} · {item.scheduledTime}
                   </div>
                   <div className="text-xs mt-1">{item.caption}</div>
                 </div>
@@ -567,7 +568,7 @@ export default function SocialMediaCalendarPage() {
                   {item.scheduledTime} · {item.title}
                 </div>
                 <div className="text-xs text-muted-foreground">
-                  {item.platform} · {item.assignedTo || "Unassigned"}
+                  {item.platform} · <PostAccountDisplay accountId={item.socialAccountId} /> · {item.assignedTo || "Unassigned"}
                 </div>
               </div>
             ))}

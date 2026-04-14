@@ -122,6 +122,32 @@ const AuthProvider = ({ children })=>{
         return true;
     };
     const logout = ()=>{
+        // Log logout event BEFORE clearing state (so we can capture user name)
+        try {
+            if (user) {
+                (async ()=>{
+                    try {
+                        await fetch('/api/erp-events', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                type: 'logout',
+                                userId: user.id || user._id,
+                                email: user.email,
+                                adminName: user.name,
+                                details: {
+                                    message: 'User logged out'
+                                }
+                            })
+                        });
+                    } catch (e) {
+                    // ignore
+                    }
+                })();
+            }
+        } catch (e) {}
         // Clear in-memory state and any persisted auth/session data
         setUser(null);
         try {
@@ -161,7 +187,7 @@ const AuthProvider = ({ children })=>{
         children: children
     }, void 0, false, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/hooks/use-auth.tsx",
-        lineNumber: 123,
+        lineNumber: 145,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -331,6 +357,12 @@ const navGroups = [
                 label: "User Activity",
                 adminOnly: true,
                 icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$activity$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Activity$3e$__["Activity"]
+            },
+            {
+                href: "/erp-console",
+                label: "ERP Console",
+                adminOnly: true,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$zap$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Zap$3e$__["Zap"]
             }
         ]
     },
@@ -856,7 +888,7 @@ function Sidebar() {
                     className: "block group",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                            src: "./assets/images/logo-transparent.png",
+                            src: "../assets/images/logo-transparent.png",
                             alt: "Kalahanu Tech Logo",
                             className: "mx-auto mb-2 w-16 h-16"
                         }, void 0, false, {

@@ -345,6 +345,12 @@
       "namedRegex": "^/api/enquiries(?:/)?$"
     },
     {
+      "page": "/api/erp-events",
+      "regex": "^/api/erp\\-events(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/erp\\-events(?:/)?$"
+    },
+    {
       "page": "/api/expenses",
       "regex": "^/api/expenses(?:/)?$",
       "routeKeys": {},
@@ -511,6 +517,12 @@
       "regex": "^/api/settings/sidebar(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/settings/sidebar(?:/)?$"
+    },
+    {
+      "page": "/api/social-media-accounts",
+      "regex": "^/api/social\\-media\\-accounts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/social\\-media\\-accounts(?:/)?$"
     },
     {
       "page": "/api/social-media-posts",
@@ -691,6 +703,12 @@
       "regex": "^/enquiries(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/enquiries(?:/)?$"
+    },
+    {
+      "page": "/erp-console",
+      "regex": "^/erp\\-console(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/erp\\-console(?:/)?$"
     },
     {
       "page": "/expenses",

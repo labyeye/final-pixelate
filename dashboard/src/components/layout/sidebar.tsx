@@ -51,7 +51,7 @@ export function Sidebar() {
       <div className="p-6 border-b-2 border-black bg-white/50 backdrop-blur-sm">
         <Link href="/dashboard" className="block group">
           <img
-            src="./assets/images/logo-transparent.png"
+            src="../assets/images/logo-transparent.png"
             alt="Kalahanu Tech Logo"
             className="mx-auto mb-2 w-16 h-16"
           />

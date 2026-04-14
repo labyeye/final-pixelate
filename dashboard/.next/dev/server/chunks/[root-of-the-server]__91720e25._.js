@@ -906,7 +906,15 @@ async function GET() {
                 name: u.name,
                 email: u.email,
                 role: u.role,
-                allowedPages: u.allowedPages || []
+                // Backwards compatible: older users may have `allowedPages` as string[]
+                // Newer format supports `pagePermissions` (object) with CRUD flags.
+                allowedPages: u.allowedPages || [],
+                pagePermissions: u.pagePermissions || (u.allowedPages || []).reduce((acc, href)=>{
+                    acc[href] = {
+                        view: true
+                    };
+                    return acc;
+                }, {})
             }));
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(staff);
     } catch (error) {
@@ -920,27 +928,68 @@ async function GET() {
 }
 async function POST(request) {
     try {
-        const { userId, allowedPages } = await request.json();
-        if (!userId || !Array.isArray(allowedPages)) {
+        const body = await request.json();
+        const { userId, allowedPages, pagePermissions } = body;
+        if (!userId) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-                error: "Invalid userId or allowedPages"
+                error: "Missing userId"
             }, {
                 status: 400
             });
         }
+        // Derive allowedPages from pagePermissions if provided, otherwise accept allowedPages array
+        let finalAllowedPages = [];
+        if (pagePermissions && typeof pagePermissions === "object") {
+            finalAllowedPages = Object.keys(pagePermissions).filter((href)=>{
+                const perms = pagePermissions[href] || {};
+                return !!(perms.view || perms.add || perms.edit || perms.delete);
+            });
+        } else if (Array.isArray(allowedPages)) {
+            finalAllowedPages = allowedPages;
+        } else {
+            finalAllowedPages = [];
+        }
         const col = await __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]("users");
-        // Update the user's allowedPages
+        // Update the user's allowedPages and pagePermissions (pagePermissions optional)
+        const update = {
+            allowedPages: finalAllowedPages
+        };
+        if (pagePermissions && typeof pagePermissions === "object") update.pagePermissions = pagePermissions;
         await col.updateOne({
             _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](userId)
         }, {
-            $set: {
-                allowedPages: allowedPages
-            }
+            $set: update
         });
+        // Log a permission change event for audit - include target staff member name
+        try {
+            const { getDb } = await __turbopack_context__.A("[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/mongodb.ts [app-route] (ecmascript, async loader)");
+            const db = await getDb();
+            // Get the target staff member's name
+            const targetUser = await db.collection("users").findOne({
+                _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](userId)
+            });
+            const targetName = targetUser?.name || targetUser?.email || userId;
+            // Get the admin who made the change (from request headers or session if available)
+            // For now, we'll extract from body if provided, otherwise use "admin"
+            const adminName = body.adminName || "Admin";
+            await db.collection("erp_events").insertOne({
+                type: "permission_change",
+                userId,
+                targetName,
+                adminName,
+                details: {
+                    pagePermissions
+                },
+                createdAt: new Date()
+            });
+        } catch (e) {
+            console.error("Failed to log permission change", e);
+        }
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             success: true,
             userId,
-            allowedPages
+            allowedPages: finalAllowedPages,
+            pagePermissions
         });
     } catch (error) {
         console.error("Error updating staff settings:", error);

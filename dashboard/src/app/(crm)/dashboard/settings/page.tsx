@@ -28,13 +28,14 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Save, Users, UserCheck } from "lucide-react";
+import { Loader2, Save, Users, UserCheck, ChevronRight, ChevronDown } from "lucide-react";
 
 interface ManagedUser {
   id: string;
   name: string;
   email: string;
   allowedPages: string[];
+  pagePermissions?: Record<string, { add?: boolean; view?: boolean; edit?: boolean; delete?: boolean }>;
 }
 
 /* ─────────────────────────────────────────────────────────────────── */
@@ -42,9 +43,12 @@ interface ManagedUser {
 /* ─────────────────────────────────────────────────────────────────── */
 function StaffPermissions() {
   const { toast } = useToast();
+  const { user: currentUser } = useAuth();
   const [staffUsers, setStaffUsers] = useState<ManagedUser[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState<string | null>(null);
+  // track expanded pages per staff: map userId -> Set of hrefs
+  const [openPages, setOpenPages] = useState<Record<string, Set<string>>>({});
 
   useEffect(() => {
     (async () => {
@@ -53,11 +57,15 @@ function StaffPermissions() {
         if (!res.ok) throw new Error("Failed to fetch staff");
         const data = await res.json();
         setStaffUsers(
-          data.map((u: any) => ({
-            ...u,
-            allowedPages:
-              u.allowedPages?.length ? u.allowedPages : defaultStaffAllowed,
-          })),
+          data.map((u: any) => {
+            const allowed = u.allowedPages?.length ? u.allowedPages : defaultStaffAllowed;
+            // If API provides pagePermissions use it, otherwise derive view-only permissions from allowedPages
+            const pagePermissions = u.pagePermissions || allowed.reduce((acc: any, href: string) => {
+              acc[href] = { view: true };
+              return acc;
+            }, {});
+            return { ...u, allowedPages: allowed, pagePermissions };
+          }),
         );
       } catch {
         toast({ title: "Error", description: "Failed to load staff.", variant: "destructive" });
@@ -67,27 +75,43 @@ function StaffPermissions() {
     })();
   }, []);
 
-  const toggle = (userId: string, href: string) =>
+  const togglePermission = (userId: string, href: string, perm: keyof NonNullable<ManagedUser['pagePermissions']>) =>
     setStaffUsers((prev) =>
       prev.map((u) => {
         if (u.id !== userId) return u;
-        const has = u.allowedPages.includes(href);
-        return {
-          ...u,
-          allowedPages: has
-            ? u.allowedPages.filter((p) => p !== href)
-            : [...u.allowedPages, href],
-        };
+        const perms = { ...(u.pagePermissions || {}) } as Record<string, any>;
+        perms[href] = perms[href] || { add: false, view: false, edit: false, delete: false };
+        perms[href][perm] = !perms[href][perm];
+
+        // Update allowedPages: include href if any permission true, remove otherwise
+        const anyTrue = Object.values(perms[href]).some(Boolean);
+        const allowedPages = anyTrue ? Array.from(new Set([...(u.allowedPages || []), href])) : (u.allowedPages || []).filter((p) => p !== href);
+
+        return { ...u, pagePermissions: perms, allowedPages };
       }),
     );
 
   const save = async (staff: ManagedUser) => {
     setSaving(staff.id);
     try {
+      // derive allowedPages from pagePermissions (pages with any true)
+      const pagePerms = staff.pagePermissions || {};
+      const derivedAllowed = Object.keys(pagePerms).filter((href) => {
+        const p = pagePerms[href] || {};
+        return !!(p.view || p.add || p.edit || p.delete);
+      });
+
+      const adminName = currentUser?.name || currentUser?.email || "Admin";
+
       const res = await fetch("/api/settings/sidebar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId: staff.id, allowedPages: staff.allowedPages }),
+        body: JSON.stringify({ 
+          userId: staff.id, 
+          allowedPages: derivedAllowed, 
+          pagePermissions: pagePerms,
+          adminName 
+        }),
       });
       if (!res.ok) throw new Error("Failed to save");
       toast({ title: "Saved", description: `Permissions updated for ${staff.name}` });
@@ -97,6 +121,34 @@ function StaffPermissions() {
       setSaving(null);
     }
   };
+
+  // Set a specific permission to a boolean value (used by Checkbox onCheckedChange)
+  const setPermission = (userId: string, href: string, perm: keyof NonNullable<ManagedUser['pagePermissions']>, value: boolean) =>
+    setStaffUsers((prev) =>
+      prev.map((u) => {
+        if (u.id !== userId) return u;
+        const perms = { ...(u.pagePermissions || {}) } as Record<string, any>;
+        perms[href] = perms[href] || { add: false, view: false, edit: false, delete: false };
+        perms[href][perm] = value;
+
+        // Update allowedPages: include href if any permission true, remove otherwise
+        const anyTrue = Object.values(perms[href]).some(Boolean);
+        const allowedPages = anyTrue ? Array.from(new Set([...(u.allowedPages || []), href])) : (u.allowedPages || []).filter((p) => p !== href);
+
+        return { ...u, pagePermissions: perms, allowedPages };
+      }),
+    );
+
+  const isPageOpen = (userId: string, href: string) => !!(openPages[userId] && openPages[userId].has(href));
+  const togglePageOpen = (userId: string, href: string) =>
+    setOpenPages((prev) => {
+      const copy: Record<string, Set<string>> = { ...prev };
+      const setForUser = new Set(copy[userId] ? Array.from(copy[userId]) : []);
+      if (setForUser.has(href)) setForUser.delete(href);
+      else setForUser.add(href);
+      copy[userId] = setForUser;
+      return copy;
+    });
 
   if (loading) {
     return (
@@ -132,36 +184,74 @@ function StaffPermissions() {
                 <p className="text-xs text-muted-foreground font-normal">{staff.email}</p>
               </div>
               <Badge variant="outline" className="ml-2 border-black font-bold text-xs">
-                {staff.allowedPages.length} pages
+                {Object.keys(staff.pagePermissions || {}).filter(h => {
+                  const p = staff.pagePermissions?.[h] || {};
+                  return !!(p.view || p.add || p.edit || p.delete);
+                }).length} pages
               </Badge>
             </div>
           </AccordionTrigger>
           <AccordionContent className="px-4 pb-4 pt-2 border-t-2 border-black bg-muted/20">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 pt-4">
               {navGroups.map((group) => {
-                const nonAdminItems = group.items.filter((i) => !i.adminOnly);
-                if (nonAdminItems.length === 0) return null;
+                // Show all sidebar items here (include adminOnly items so admins
+                // can toggle visibility for staff). Previously we filtered out
+                // admin-only pages which hid some sidebar entries from this panel.
+                const itemsToShow = group.items;
+                if (itemsToShow.length === 0) return null;
                 return (
                   <div key={group.title} className="space-y-3">
                     <h4 className="text-xs font-black text-muted-foreground uppercase tracking-widest">
                       {group.title}
                     </h4>
                     <div className="space-y-2">
-                      {nonAdminItems.map((item) => {
-                        const checked = staff.allowedPages.includes(item.href);
-                        const id = `staff-${staff.id}-${item.href}`;
+                      {itemsToShow.map((item) => {
+                        const perms = staff.pagePermissions?.[item.href] || { add: false, view: false, edit: false, delete: false };
+                        const idBase = `staff-${staff.id}-${item.href}`;
+                        const open = isPageOpen(staff.id, item.href);
                         return (
-                          <div key={item.href} className="flex items-center gap-2">
-                            <Checkbox
-                              id={id}
-                              checked={checked}
-                              onCheckedChange={() => toggle(staff.id, item.href)}
-                              className="border-2 border-black"
-                            />
-                            <Label htmlFor={id} className="text-sm font-semibold cursor-pointer flex items-center gap-1.5">
-                              <item.icon className="w-3.5 h-3.5 text-muted-foreground" />
-                              {item.label}
-                            </Label>
+                          <div key={item.href} className="border-b border-transparent last:border-b-0">
+                            <div className="flex items-center justify-between py-2">
+                              <div className="flex items-center gap-2">
+                                <Label className="text-sm font-semibold flex items-center gap-1.5">
+                                  <item.icon className="w-3.5 h-3.5 text-muted-foreground" />
+                                  {item.label}
+                                </Label>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => togglePageOpen(staff.id, item.href)}
+                                aria-expanded={open}
+                                className="p-1 rounded hover:bg-muted/30"
+                              >
+                                {open ? (
+                                  <ChevronDown className="w-4 h-4" />
+                                ) : (
+                                  <ChevronRight className="w-4 h-4" />
+                                )}
+                              </button>
+                            </div>
+
+                            {open && (
+                              <div className="flex items-center gap-3 pl-8 pb-2">
+                                <div className="flex items-center gap-1">
+                                  <Checkbox id={`${idBase}-view`} checked={!!perms.view} onCheckedChange={(v) => setPermission(staff.id, item.href, "view", !!v)} className="border-2 border-black" />
+                                  <span className="text-xs font-semibold">View</span>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <Checkbox id={`${idBase}-add`} checked={!!perms.add} onCheckedChange={(v) => setPermission(staff.id, item.href, "add", !!v)} className="border-2 border-black" />
+                                  <span className="text-xs font-semibold">Add</span>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <Checkbox id={`${idBase}-edit`} checked={!!perms.edit} onCheckedChange={(v) => setPermission(staff.id, item.href, "edit", !!v)} className="border-2 border-black" />
+                                  <span className="text-xs font-semibold">Edit</span>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <Checkbox id={`${idBase}-delete`} checked={!!perms.delete} onCheckedChange={(v) => setPermission(staff.id, item.href, "delete", !!v)} className="border-2 border-black" />
+                                  <span className="text-xs font-semibold">Delete</span>
+                                </div>
+                              </div>
+                            )}
                           </div>
                         );
                       })}

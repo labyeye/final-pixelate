@@ -1,4 +1,5 @@
 var R=require("../../../../chunks/[turbopack]_runtime.js")("server/app/api/settings/sidebar/route.js")
+R.c("server/chunks/Desktop_Projects_final-pixelate_dashboard_src_lib_mongodb_ts_2a042f3d._.js")
 R.c("server/chunks/c729b_2af8f38c._.js")
 R.c("server/chunks/[root-of-the-server]__91720e25._.js")
 R.c("server/chunks/09130_dashboard__next-internal_server_app_api_settings_sidebar_route_actions_aa7edf70.js")

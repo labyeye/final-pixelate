@@ -16,7 +16,13 @@ export async function GET() {
         name: u.name,
         email: u.email,
         role: u.role,
+        // Backwards compatible: older users may have `allowedPages` as string[]
+        // Newer format supports `pagePermissions` (object) with CRUD flags.
         allowedPages: u.allowedPages || [], // Default to empty if not set
+        pagePermissions: u.pagePermissions || (u.allowedPages || []).reduce((acc: any, href: string) => {
+          acc[href] = { view: true };
+          return acc;
+        }, {}),
       }));
 
     return NextResponse.json(staff);
@@ -34,23 +40,62 @@ export async function GET() {
  */
 export async function POST(request: NextRequest) {
   try {
-    const { userId, allowedPages } = await request.json();
+    const body = await request.json();
+    const { userId, allowedPages, pagePermissions } = body;
 
-    if (!userId || !Array.isArray(allowedPages)) {
-      return NextResponse.json(
-        { error: "Invalid userId or allowedPages" },
-        { status: 400 },
-      );
+    if (!userId) {
+      return NextResponse.json({ error: "Missing userId" }, { status: 400 });
+    }
+
+    // Derive allowedPages from pagePermissions if provided, otherwise accept allowedPages array
+    let finalAllowedPages: string[] = [];
+    if (pagePermissions && typeof pagePermissions === "object") {
+      finalAllowedPages = Object.keys(pagePermissions).filter((href) => {
+        const perms = pagePermissions[href] || {};
+        return !!(perms.view || perms.add || perms.edit || perms.delete);
+      });
+    } else if (Array.isArray(allowedPages)) {
+      finalAllowedPages = allowedPages;
+    } else {
+      finalAllowedPages = [];
     }
 
     const col = await svc.getCollection("users");
-    // Update the user's allowedPages
+    // Update the user's allowedPages and pagePermissions (pagePermissions optional)
+    const update: any = { allowedPages: finalAllowedPages };
+    if (pagePermissions && typeof pagePermissions === "object") update.pagePermissions = pagePermissions;
+
     await col.updateOne(
       { _id: new ObjectId(userId) },
-      { $set: { allowedPages: allowedPages } },
+      { $set: update },
     );
 
-    return NextResponse.json({ success: true, userId, allowedPages });
+    // Log a permission change event for audit - include target staff member name
+    try {
+      const { getDb } = await import("@/lib/mongodb");
+      const db = await getDb();
+      
+      // Get the target staff member's name
+      const targetUser = await db.collection("users").findOne({ _id: new ObjectId(userId) });
+      const targetName = targetUser?.name || targetUser?.email || userId;
+      
+      // Get the admin who made the change (from request headers or session if available)
+      // For now, we'll extract from body if provided, otherwise use "admin"
+      const adminName = body.adminName || "Admin";
+      
+      await db.collection("erp_events").insertOne({
+        type: "permission_change",
+        userId,
+        targetName,
+        adminName,
+        details: { pagePermissions },
+        createdAt: new Date(),
+      });
+    } catch (e) {
+      console.error("Failed to log permission change", e);
+    }
+
+    return NextResponse.json({ success: true, userId, allowedPages: finalAllowedPages, pagePermissions });
   } catch (error: any) {
     console.error("Error updating staff settings:", error);
     return NextResponse.json(

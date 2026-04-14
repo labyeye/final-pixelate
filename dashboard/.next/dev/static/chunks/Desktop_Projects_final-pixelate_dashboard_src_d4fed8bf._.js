@@ -327,6 +327,32 @@ const AuthProvider = ({ children })=>{
         return true;
     };
     const logout = ()=>{
+        // Log logout event BEFORE clearing state (so we can capture user name)
+        try {
+            if (user) {
+                (async ()=>{
+                    try {
+                        await fetch('/api/erp-events', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                type: 'logout',
+                                userId: user.id || user._id,
+                                email: user.email,
+                                adminName: user.name,
+                                details: {
+                                    message: 'User logged out'
+                                }
+                            })
+                        });
+                    } catch (e) {
+                    // ignore
+                    }
+                })();
+            }
+        } catch (e) {}
         // Clear in-memory state and any persisted auth/session data
         setUser(null);
         try {
@@ -366,7 +392,7 @@ const AuthProvider = ({ children })=>{
         children: children
     }, void 0, false, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/hooks/use-auth.tsx",
-        lineNumber: 123,
+        lineNumber: 145,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

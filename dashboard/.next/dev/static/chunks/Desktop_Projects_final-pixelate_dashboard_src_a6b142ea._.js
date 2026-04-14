@@ -116,6 +116,10 @@ __turbopack_context__.s([
     ()=>POST_STATUSES,
     "SOCIAL_PLATFORMS",
     ()=>SOCIAL_PLATFORMS,
+    "fetchSocialAccount",
+    ()=>fetchSocialAccount,
+    "formatAccountDisplay",
+    ()=>formatAccountDisplay,
     "isSameDate",
     ()=>isSameDate,
     "toDateTime",
@@ -157,6 +161,24 @@ const toDateTime = (scheduledDate, scheduledTime)=>{
     return Number.isNaN(date.getTime()) ? null : date;
 };
 const isSameDate = (a, b)=>a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+const fetchSocialAccount = async (accountId)=>{
+    try {
+        const res = await fetch(`/api/social-media-accounts?id=${accountId}`, {
+            cache: "no-store"
+        });
+        if (res.ok) {
+            const data = await res.json();
+            return Array.isArray(data) ? data[0] || null : data;
+        }
+    } catch (e) {
+        console.error("Failed to fetch social account:", e);
+    }
+    return null;
+};
+const formatAccountDisplay = (account)=>{
+    if (!account) return "(No Account)";
+    return `@${account.handle}`;
+};
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }

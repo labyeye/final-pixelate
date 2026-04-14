@@ -14,6 +14,7 @@ import {
 } from "@/lib/social-media-planner";
 import { ClientPicker } from "@/components/social-media/client-picker";
 import { AddPostModal } from "@/components/social-media/add-post-modal";
+import { PostAccountDisplay } from "@/components/social-media/post-account-display";
 
 const statusBadge: Record<string, string> = {
   Draft: "bg-gray-100 text-gray-700",
@@ -300,6 +301,7 @@ export default function SocialMediaPlannerPage() {
                   <tr>
                     <th className="text-left p-2 border-b">Title</th>
                     <th className="text-left p-2 border-b">Platform</th>
+                    <th className="text-left p-2 border-b">Account</th>
                     <th className="text-left p-2 border-b">Content</th>
                     <th className="text-left p-2 border-b">Schedule</th>
                     <th className="text-left p-2 border-b">Assigned</th>
@@ -325,6 +327,9 @@ export default function SocialMediaPlannerPage() {
                           <div className="text-xs text-muted-foreground line-clamp-2">{item.caption}</div>
                         </td>
                         <td className="p-2 border-b align-top">{item.platform}</td>
+                        <td className="p-2 border-b align-top">
+                          <PostAccountDisplay accountId={item.socialAccountId} />
+                        </td>
                         <td className="p-2 border-b align-top">{item.contentType}</td>
                         <td className="p-2 border-b align-top">{item.scheduledDate} {item.scheduledTime}</td>
                         <td className="p-2 border-b align-top">{item.assignedTo || "Unassigned"}</td>
@@ -347,7 +352,7 @@ export default function SocialMediaPlannerPage() {
                   })}
                   {!filtered.length && posts.length > 0 && (
                     <tr>
-                      <td colSpan={7} className="p-6 text-center text-muted-foreground">No posts found for selected filters.</td>
+                      <td colSpan={8} className="p-6 text-center text-muted-foreground">No posts found for selected filters.</td>
                     </tr>
                   )}
                 </tbody>

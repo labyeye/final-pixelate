@@ -10,6 +10,7 @@ import {
   SOCIAL_PLATFORMS,
   type SocialMediaPost,
 } from "@/lib/social-media-planner";
+import { AccountSelector } from "./account-selector";
 
 interface AddPostModalProps {
   isOpen: boolean;
@@ -22,6 +23,7 @@ interface AddPostModalProps {
 
 const initialForm: SocialMediaPost = {
   clientId: "",
+  socialAccountId: "",
   title: "",
   platform: "Instagram",
   contentType: "Image Post",
@@ -61,6 +63,11 @@ export function AddPostModal({
   const handleSave = async (saveAction: "draft" | "schedule") => {
     if (!form.title || !form.platform || !form.scheduledDate || !form.scheduledTime) {
       alert("Please fill title, platform, scheduled date and time.");
+      return;
+    }
+
+    if (!form.socialAccountId) {
+      alert("Please select or create a social account.");
       return;
     }
 
@@ -156,6 +163,19 @@ export function AddPostModal({
                 ))}
               </select>
             </div>
+          </div>
+
+          {/* Row 1.5: Social Account */}
+          <div>
+            <label className="block text-sm font-semibold mb-1">Social Account *</label>
+            <AccountSelector
+              clientId={clientId}
+              platform={form.platform}
+              value={form.socialAccountId || ""}
+              onChange={(accountId, handle) => {
+                handleChange("socialAccountId", accountId);
+              }}
+            />
           </div>
 
           {/* Row 2: Date, Time, Assigned Staff */}

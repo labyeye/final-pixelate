@@ -7,6 +7,7 @@ export type User = {
   password?: string;
   createdAt?: string | Date;
   allowedPages?: string[];
+  pagePermissions?: Record<string, { add?: boolean; view?: boolean; edit?: boolean; delete?: boolean }>;
 };
 
 export default {};
