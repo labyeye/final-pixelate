@@ -6,7 +6,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { useAuth } from "@/hooks/use-auth";
-import { navGroups, defaultStaffAllowed, clientNavItems, defaultClientAllowed, clientSpecificNavItems } from "@/lib/nav-config";
+import {
+  navGroups,
+  defaultStaffAllowed,
+  clientNavItems,
+  defaultClientAllowed,
+  clientSpecificNavItems,
+} from "@/lib/nav-config";
 import { useEffect, useState } from "react";
 import { LifeBuoy } from "lucide-react";
 import { Button } from "../ui/button";
@@ -16,7 +22,8 @@ const userAvatar = PlaceHolderImages.find((p) => p.id === "user-avatar-1");
 export function Sidebar() {
   const pathname = usePathname();
   const { user, logout } = useAuth();
-  const [globalClientPages, setGlobalClientPages] = useState<string[]>(defaultClientAllowed);
+  const [globalClientPages, setGlobalClientPages] =
+    useState<string[]>(defaultClientAllowed);
 
   useEffect(() => {
     fetch("/api/settings/client-sidebar")
@@ -138,7 +145,8 @@ export function Sidebar() {
                       href={item.href}
                       className={cn(
                         "flex items-center gap-3 px-3 py-2 text-sm font-bold transition-all border-2 rounded-md hover:translate-x-1",
-                        pathname === item.href || pathname.startsWith(item.href + "/")
+                        pathname === item.href ||
+                          pathname.startsWith(item.href + "/")
                           ? "bg-primary text-primary-foreground border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                           : "bg-transparent text-muted-foreground border-transparent hover:text-foreground hover:bg-muted hover:border-black/10",
                       )}

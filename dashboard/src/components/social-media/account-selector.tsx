@@ -160,7 +160,7 @@ export function AccountSelector({
       <Input
         ref={inputRef}
         type="text"
-        placeholder="Enter Instagram handle (e.g. @brandname)"
+        placeholder={`Enter ${platform} handle (e.g. @brandname)`}
         value={input || selectedHandle}
         onChange={handleInputChange}
         onFocus={() => {

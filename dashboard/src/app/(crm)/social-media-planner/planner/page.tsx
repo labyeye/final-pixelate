@@ -15,6 +15,7 @@ import {
 import { ClientPicker } from "@/components/social-media/client-picker";
 import { AddPostModal } from "@/components/social-media/add-post-modal";
 import { PostAccountDisplay } from "@/components/social-media/post-account-display";
+import { SocialAccountsTable } from "@/components/social-media/social-accounts-table";
 
 const statusBadge: Record<string, string> = {
   Draft: "bg-gray-100 text-gray-700",
@@ -79,8 +80,12 @@ export default function SocialMediaPlannerPage() {
   }, [selectedClientId]);
 
   const staffOptions = useMemo(() => {
-    const fromTeam = team.map((m) => String(m?.name || "").trim()).filter(Boolean);
-    const fromPosts = posts.map((p) => String(p.assignedTo || "").trim()).filter(Boolean);
+    const fromTeam = team
+      .map((m) => String(m?.name || "").trim())
+      .filter(Boolean);
+    const fromPosts = posts
+      .map((p) => String(p.assignedTo || "").trim())
+      .filter(Boolean);
     return Array.from(new Set([...fromTeam, ...fromPosts]));
   }, [team, posts]);
 
@@ -92,12 +97,22 @@ export default function SocialMediaPlannerPage() {
       if (platformFilter && item.platform !== platformFilter) return false;
       if (statusFilter && item.status !== statusFilter) return false;
       if (staffFilter && item.assignedTo !== staffFilter) return false;
-      if (contentTypeFilter && item.contentType !== contentTypeFilter) return false;
+      if (contentTypeFilter && item.contentType !== contentTypeFilter)
+        return false;
       if (dateFrom && item.scheduledDate < dateFrom) return false;
       if (dateTo && item.scheduledDate > dateTo) return false;
       return true;
     });
-  }, [posts, search, platformFilter, statusFilter, staffFilter, contentTypeFilter, dateFrom, dateTo]);
+  }, [
+    posts,
+    search,
+    platformFilter,
+    statusFilter,
+    staffFilter,
+    contentTypeFilter,
+    dateFrom,
+    dateTo,
+  ]);
 
   const savePost = async (post: SocialMediaPost) => {
     try {
@@ -118,7 +133,9 @@ export default function SocialMediaPlannerPage() {
 
   const deletePost = async (id: string) => {
     if (!window.confirm("Delete this post plan?")) return;
-    const res = await fetch(`/api/social-media-posts/${id}`, { method: "DELETE" });
+    const res = await fetch(`/api/social-media-posts/${id}`, {
+      method: "DELETE",
+    });
     if (!res.ok) {
       alert("Failed to delete post");
       return;
@@ -166,15 +183,25 @@ export default function SocialMediaPlannerPage() {
   };
 
   const reschedulePost = async (item: SocialMediaPost) => {
-    const nextDate = window.prompt("Reschedule Date (YYYY-MM-DD)", item.scheduledDate || "");
+    const nextDate = window.prompt(
+      "Reschedule Date (YYYY-MM-DD)",
+      item.scheduledDate || "",
+    );
     if (!nextDate) return;
-    const nextTime = window.prompt("Reschedule Time (HH:MM)", item.scheduledTime || "09:00");
+    const nextTime = window.prompt(
+      "Reschedule Time (HH:MM)",
+      item.scheduledTime || "09:00",
+    );
     if (!nextTime) return;
 
     const res = await fetch(`/api/social-media-posts/${item._id || item.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ scheduledDate: nextDate, scheduledTime: nextTime, status: "Scheduled" }),
+      body: JSON.stringify({
+        scheduledDate: nextDate,
+        scheduledTime: nextTime,
+        status: "Scheduled",
+      }),
     });
     if (!res.ok) {
       alert("Failed to reschedule");
@@ -188,21 +215,38 @@ export default function SocialMediaPlannerPage() {
       {/* Header */}
       <header className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-4xl font-black tracking-tighter">CONTENT PLANNER / SCHEDULER</h1>
-          <p className="text-muted-foreground">Plan, schedule and track social media posts by platform and staff.</p>
+          <h1 className="text-4xl font-black tracking-tighter">
+            CONTENT PLANNER / SCHEDULER
+          </h1>
+          <p className="text-muted-foreground">
+            Plan, schedule and track social media posts by platform and staff.
+          </p>
         </div>
         <div className="flex items-center gap-2">
-          <Link href="/social-media-planner" className="px-3 py-2 border rounded-md text-sm font-semibold">Dashboard</Link>
-          <Link href="/social-media-planner/calendar" className="px-3 py-2 border rounded-md text-sm font-semibold">Calendar</Link>
-          <Link href="/social-media-planner/analytics" className="px-3 py-2 border rounded-md text-sm font-semibold">Analytics</Link>
+          <Link
+            href="/social-media-planner"
+            className="px-3 py-2 border rounded-md text-sm font-semibold"
+          >
+            Dashboard
+          </Link>
+          <Link
+            href="/social-media-planner/calendar"
+            className="px-3 py-2 border rounded-md text-sm font-semibold"
+          >
+            Calendar
+          </Link>
+          <Link
+            href="/social-media-planner/analytics"
+            className="px-3 py-2 border rounded-md text-sm font-semibold"
+          >
+            Analytics
+          </Link>
         </div>
       </header>
 
       {/* Client Picker */}
       <section className="border-2 border-black rounded-lg p-4">
-        <ClientPicker
-          onClientSelected={setSelectedClientId}
-        />
+        <ClientPicker onClientSelected={setSelectedClientId} />
       </section>
 
       {/* No Client Selected - Empty State */}
@@ -212,12 +256,11 @@ export default function SocialMediaPlannerPage() {
             ⚠️ Please select a client to view and manage content
           </div>
           <p className="text-sm text-yellow-700 mt-2">
-            Select a client from the dropdown above to start planning and scheduling posts.
+            Select a client from the dropdown above to start planning and
+            scheduling posts.
           </p>
         </section>
       )}
-
-      {/* Add Button - Only visible when client is selected */}
       {selectedClientId && (
         <section className="flex justify-end">
           <Button onClick={() => setIsModalOpen(true)} className="gap-2">
@@ -225,75 +268,114 @@ export default function SocialMediaPlannerPage() {
           </Button>
         </section>
       )}
-
-      {/* Add Post Modal */}
-      <AddPostModal
-        isOpen={isModalOpen}
-        clientId={selectedClientId}
-        onClose={() => setIsModalOpen(false)}
-        onSave={savePost}
-        staffOptions={staffOptions}
-        createdBy={user?.name}
-      />
-
-      {/* Filters Section - Only visible when client is selected */}
       {selectedClientId && (
         <section className="border-2 border-black rounded-lg p-4 space-y-3">
           <h2 className="text-xl font-black">Filters</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 gap-3">
-            <Input placeholder="Search by title/caption" value={search} onChange={(e) => setSearch(e.target.value)} />
+            <Input
+              placeholder="Search by title/caption"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
 
-            <select className="border rounded-md p-2" value={platformFilter} onChange={(e) => setPlatformFilter(e.target.value)}>
+            <select
+              className="border rounded-md p-2"
+              value={platformFilter}
+              onChange={(e) => setPlatformFilter(e.target.value)}
+            >
               <option value="">All Platforms</option>
-              {SOCIAL_PLATFORMS.map((platform) => <option key={platform} value={platform}>{platform}</option>)}
+              {SOCIAL_PLATFORMS.map((platform) => (
+                <option key={platform} value={platform}>
+                  {platform}
+                </option>
+              ))}
             </select>
 
-            <select className="border rounded-md p-2" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
+            <select
+              className="border rounded-md p-2"
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
+            >
               <option value="">All Status</option>
-              {POST_STATUSES.map((status) => <option key={status} value={status}>{status}</option>)}
+              {POST_STATUSES.map((status) => (
+                <option key={status} value={status}>
+                  {status}
+                </option>
+              ))}
             </select>
 
-            <select className="border rounded-md p-2" value={staffFilter} onChange={(e) => setStaffFilter(e.target.value)}>
+            <select
+              className="border rounded-md p-2"
+              value={staffFilter}
+              onChange={(e) => setStaffFilter(e.target.value)}
+            >
               <option value="">All Staff</option>
-              {staffOptions.map((name) => <option key={name} value={name}>{name}</option>)}
+              {staffOptions.map((name) => (
+                <option key={name} value={name}>
+                  {name}
+                </option>
+              ))}
             </select>
 
-            <select className="border rounded-md p-2" value={contentTypeFilter} onChange={(e) => setContentTypeFilter(e.target.value)}>
+            <select
+              className="border rounded-md p-2"
+              value={contentTypeFilter}
+              onChange={(e) => setContentTypeFilter(e.target.value)}
+            >
               <option value="">All Content Types</option>
-              {CONTENT_TYPES.map((contentType) => <option key={contentType} value={contentType}>{contentType}</option>)}
+              {CONTENT_TYPES.map((contentType) => (
+                <option key={contentType} value={contentType}>
+                  {contentType}
+                </option>
+              ))}
             </select>
 
-            <Input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} />
-            <Input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} />
+            <Input
+              type="date"
+              value={dateFrom}
+              onChange={(e) => setDateFrom(e.target.value)}
+            />
+            <Input
+              type="date"
+              value={dateTo}
+              onChange={(e) => setDateTo(e.target.value)}
+            />
 
-            <Button variant="outline" onClick={() => {
-              setSearch("");
-              setPlatformFilter("");
-              setStatusFilter("");
-              setStaffFilter("");
-              setContentTypeFilter("");
-              setDateFrom("");
-              setDateTo("");
-            }}>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setSearch("");
+                setPlatformFilter("");
+                setStatusFilter("");
+                setStaffFilter("");
+                setContentTypeFilter("");
+                setDateFrom("");
+                setDateTo("");
+              }}
+            >
               Clear Filters
             </Button>
           </div>
         </section>
       )}
-
-      {/* Posts Table - Only visible when client is selected */}
       {selectedClientId && (
         <section className="border-2 border-black rounded-lg overflow-hidden">
           <div className="p-4 border-b-2 border-black flex items-center justify-between">
             <h2 className="text-xl font-black">Planned Posts</h2>
-            <div className="text-sm text-muted-foreground">{filtered.length} records</div>
+            <div className="text-sm text-muted-foreground">
+              {filtered.length} records
+            </div>
           </div>
 
           <div className="overflow-auto">
             {posts.length === 0 ? (
               <div className="p-6 text-center text-muted-foreground bg-gray-50">
-                <p className="text-lg font-semibold">No posts planned for this client</p>
-                <p className="text-sm mt-1">Click "➕ Add Plan" to create your first post</p>
+                <p className="text-lg font-semibold">
+                  No posts planned for this client
+                </p>
+                <p className="text-sm mt-1">
+                  Click "➕ Add Plan" to create your first post
+                </p>
               </div>
             ) : (
               <table className="w-full text-sm">
@@ -312,7 +394,10 @@ export default function SocialMediaPlannerPage() {
                 <tbody>
                   {filtered.map((item) => {
                     const itemId = String(item._id || item.id || "");
-                    const dt = toDateTime(item.scheduledDate, item.scheduledTime);
+                    const dt = toDateTime(
+                      item.scheduledDate,
+                      item.scheduledTime,
+                    );
                     const isOverdue =
                       !!dt &&
                       dt < new Date() &&
@@ -324,27 +409,71 @@ export default function SocialMediaPlannerPage() {
                       <tr key={itemId} className={isOverdue ? "bg-red-50" : ""}>
                         <td className="p-2 border-b align-top">
                           <div className="font-semibold">{item.title}</div>
-                          <div className="text-xs text-muted-foreground line-clamp-2">{item.caption}</div>
+                          <div className="text-xs text-muted-foreground line-clamp-2">
+                            {item.caption}
+                          </div>
                         </td>
-                        <td className="p-2 border-b align-top">{item.platform}</td>
                         <td className="p-2 border-b align-top">
-                          <PostAccountDisplay accountId={item.socialAccountId} />
+                          {item.platform}
                         </td>
-                        <td className="p-2 border-b align-top">{item.contentType}</td>
-                        <td className="p-2 border-b align-top">{item.scheduledDate} {item.scheduledTime}</td>
-                        <td className="p-2 border-b align-top">{item.assignedTo || "Unassigned"}</td>
                         <td className="p-2 border-b align-top">
-                          <span className={`px-2 py-1 rounded text-xs ${statusBadge[item.status] || "bg-gray-100"}`}>
+                          <PostAccountDisplay
+                            accountId={item.socialAccountId}
+                          />
+                        </td>
+                        <td className="p-2 border-b align-top">
+                          {item.contentType}
+                        </td>
+                        <td className="p-2 border-b align-top">
+                          {item.scheduledDate} {item.scheduledTime}
+                        </td>
+                        <td className="p-2 border-b align-top">
+                          {item.assignedTo || "Unassigned"}
+                        </td>
+                        <td className="p-2 border-b align-top">
+                          <span
+                            className={`px-2 py-1 rounded text-xs ${statusBadge[item.status] || "bg-gray-100"}`}
+                          >
                             {item.status}
                           </span>
                         </td>
                         <td className="p-2 border-b align-top">
                           <div className="flex flex-wrap gap-1">
-                            <Button size="sm" variant="outline" onClick={() => duplicatePost(item)}>Duplicate</Button>
-                            <Button size="sm" variant="outline" onClick={() => reschedulePost(item)}>Reschedule</Button>
-                            <Button size="sm" variant="outline" onClick={() => updateStatus(itemId, "Posted")}>Mark Posted</Button>
-                            <Button size="sm" variant="outline" onClick={() => updateStatus(itemId, "Missed")}>Mark Missed</Button>
-                            <Button size="sm" variant="destructive" onClick={() => deletePost(itemId)}>Delete</Button>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => duplicatePost(item)}
+                            >
+                              Duplicate
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => reschedulePost(item)}
+                            >
+                              Reschedule
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => updateStatus(itemId, "Posted")}
+                            >
+                              Mark Posted
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => updateStatus(itemId, "Missed")}
+                            >
+                              Mark Missed
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="destructive"
+                              onClick={() => deletePost(itemId)}
+                            >
+                              Delete
+                            </Button>
                           </div>
                         </td>
                       </tr>
@@ -352,7 +481,12 @@ export default function SocialMediaPlannerPage() {
                   })}
                   {!filtered.length && posts.length > 0 && (
                     <tr>
-                      <td colSpan={8} className="p-6 text-center text-muted-foreground">No posts found for selected filters.</td>
+                      <td
+                        colSpan={8}
+                        className="p-6 text-center text-muted-foreground"
+                      >
+                        No posts found for selected filters.
+                      </td>
                     </tr>
                   )}
                 </tbody>
@@ -361,6 +495,27 @@ export default function SocialMediaPlannerPage() {
           </div>
         </section>
       )}
+
+      {/* Social Media Accounts Section */}
+      {selectedClientId && (
+        <section className="border-2 border-black rounded-lg p-4">
+          <SocialAccountsTable clientId={selectedClientId} />
+        </section>
+      )}
+
+      {/* Add Post Modal */}
+      <AddPostModal
+        isOpen={isModalOpen}
+        clientId={selectedClientId}
+        onClose={() => setIsModalOpen(false)}
+        onSave={savePost}
+        staffOptions={staffOptions}
+        createdBy={user?.name}
+      />
+
+      {/* Filters Section - Only visible when client is selected */}
+
+      {/* Posts Table - Only visible when client is selected */}
     </div>
   );
 }

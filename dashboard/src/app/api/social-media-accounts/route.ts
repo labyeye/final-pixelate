@@ -67,9 +67,23 @@ export async function POST(request: Request) {
     const handle = normalizeHandle(body?.handle || "");
     const displayName = body?.displayName || handle;
 
-    if (!clientId || !platform || !handle) {
+    if (!clientId || !platform) {
       return NextResponse.json(
-        { error: "clientId, platform, and handle are required" },
+        { error: "clientId and platform are required" },
+        { status: 400, headers: CORS }
+      );
+    }
+
+    if (!handle) {
+      return NextResponse.json(
+        { error: "Username/Handle is required and must be at least 1 character after normalization" },
+        { status: 400, headers: CORS }
+      );
+    }
+
+    if (handle.length > 500) {
+      return NextResponse.json(
+        { error: "Username/Handle must be less than 500 characters" },
         { status: 400, headers: CORS }
       );
     }

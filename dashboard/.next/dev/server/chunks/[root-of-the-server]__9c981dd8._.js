@@ -954,9 +954,25 @@ async function POST(request) {
         const platform = body?.platform || "";
         const handle = normalizeHandle(body?.handle || "");
         const displayName = body?.displayName || handle;
-        if (!clientId || !platform || !handle) {
+        if (!clientId || !platform) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-                error: "clientId, platform, and handle are required"
+                error: "clientId and platform are required"
+            }, {
+                status: 400,
+                headers: CORS
+            });
+        }
+        if (!handle) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: "Username/Handle is required and must be at least 1 character after normalization"
+            }, {
+                status: 400,
+                headers: CORS
+            });
+        }
+        if (handle.length > 500) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: "Username/Handle must be less than 500 characters"
             }, {
                 status: 400,
                 headers: CORS
