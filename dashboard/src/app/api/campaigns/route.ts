@@ -36,15 +36,28 @@ export async function GET(request: NextRequest) {
       .find({})
       .toArray();
 
-    // Calculate insights
-    const insights = campaigns.reduce(
+    console.log(`[Campaign Insights] Total messages in webhook: ${messages.length}`);
+    
+    // Group messages by delivery status
+    const messagesByStatus = {
+      sent: messages.filter((m: any) => m.deliveryStatus === "sent" || (m.status === "sent" && !m.deliveryStatus)).length,
+      delivered: messages.filter((m: any) => m.deliveryStatus === "delivered" || m.status === "delivered").length,
+      read: messages.filter((m: any) => m.deliveryStatus === "read" || m.status === "read").length,
+      failed: messages.filter((m: any) => m.deliveryStatus === "failed" || m.status === "failed").length,
+    };
+    
+    console.log(`[Campaign Insights] Messages by status:`, messagesByStatus);
+    console.log(`[Campaign Insights] Sample messages:`, messages.slice(0, 3));
+
+    // Calculate insights - SUM from campaigns collection
+    const campaignInsights = campaigns.reduce(
       (acc: any, campaign: any) => ({
-        totalInitiated: acc.totalInitiated + campaign.totalContacts,
-        totalSent: acc.totalSent + campaign.sent,
-        totalDelivered: acc.totalDelivered + campaign.delivered,
-        totalRead: acc.totalRead + campaign.read,
-        totalReplied: acc.totalReplied + campaign.replied,
-        totalFailed: acc.totalFailed + campaign.failed,
+        totalInitiated: acc.totalInitiated + (campaign.totalContacts || 0),
+        totalSent: acc.totalSent + (campaign.sent || 0),
+        totalDelivered: acc.totalDelivered + (campaign.delivered || 0),
+        totalRead: acc.totalRead + (campaign.read || 0),
+        totalReplied: acc.totalReplied + (campaign.replied || 0),
+        totalFailed: acc.totalFailed + (campaign.failed || 0),
       }),
       {
         totalInitiated: 0,
@@ -57,64 +70,38 @@ export async function GET(request: NextRequest) {
     );
 
     // =============== REAL DELIVERY STATUS FROM WEBHOOK ===============
-    // Count actual delivery status from whatsapp_messages collection
-    // This is the source of truth - what the webhook says actually happened
-    const deliveredCount = messages.filter(
-      (m) => m.deliveryStatus === "delivered" || m.status === "delivered"
-    ).length;
-    
-    const failedCount = messages.filter(
-      (m) => m.deliveryStatus === "failed" || m.status === "failed"
-    ).length;
-    
-    const sentCount = messages.filter(
-      (m) => m.messageType === "sent"
-    ).length;
-    
-    const receivedCount = messages.filter(
-      (m) => m.messageType === "received"
-    ).length;
-
-    // Count messages still pending (sent but not delivered yet)
-    const pendingCount = messages.filter(
-      (m) => m.messageType === "sent" && m.deliveryStatus !== "delivered" && m.deliveryStatus !== "failed"
-    ).length;
+    // This is the ACTUAL truth from Meta's webhook - what REALLY happened
+    const deliveredCount = messagesByStatus.delivered;
+    const failedCount = messagesByStatus.failed;
+    const sentCount = messagesByStatus.sent + messagesByStatus.delivered + messagesByStatus.read + messagesByStatus.failed;
+    const readCount = messagesByStatus.read;
+    const pendingCount = messagesByStatus.sent;
 
     // =============== MESSAGE CATEGORIES FOR PRICING ===============
-    const byCategory: Record<string, number> = {
-      marketing: 0,
-      "marketing-lite": 0,
-      utility: 0,
-      authentication: 0,
-      "authentication-international": 0,
-      "ai-provider": 0,
-      service: 0,
-      "customer-service": 0,
-      "entry-point": 0,
-    };
+    const byCategory: Record<string, number> = {};
 
     messages.forEach((msg: any) => {
       const category = msg.category || msg.templateName?.toLowerCase() || "marketing";
-      if (category in byCategory) {
-        byCategory[category]++;
-      }
+      byCategory[category] = (byCategory[category] || 0) + 1;
     });
 
     // =============== DELIVERY STATUS BREAKDOWN ===============
-    // Count by actual webhook status - this shows what REALLY happened
+    const deliveredMessages = messages.filter(
+      (m: any) => m.deliveryStatus === "delivered" || m.status === "delivered"
+    );
+
     const failedMessages = messages.filter(
-      (m) => m.deliveryStatus === "failed" || m.status === "failed"
+      (m: any) => m.deliveryStatus === "failed" || m.status === "failed"
     );
 
     // Group failures by reason for diagnostics
     const failureReasons: Record<string, number> = {};
     failedMessages.forEach((msg: any) => {
-      const reason = msg.failureReason || msg.error_reason || "Unknown";
+      const reason = msg.failureReason || msg.error_reason || msg.errorCode || "Unknown";
       failureReasons[reason] = (failureReasons[reason] || 0) + 1;
     });
 
     // =============== PRICING CALCULATION ===============
-    // Only count DELIVERED messages for charges (not just sent)
     const chargesPerCategory: Record<string, number> = {
       marketing: 0.25,
       "marketing-lite": 0.15,
@@ -127,61 +114,67 @@ export async function GET(request: NextRequest) {
       "entry-point": 0.001,
     };
 
-    // Calculate charges ONLY for delivered messages
     let estimatedCharges = 0;
     const deliveredByCategory: Record<string, number> = {};
 
-    messages.forEach((msg: any) => {
-      // Only charge for delivered messages
-      if (msg.deliveryStatus === "delivered" || msg.status === "delivered") {
-        const category = msg.category || msg.templateName?.toLowerCase() || "marketing";
-        deliveredByCategory[category] = (deliveredByCategory[category] || 0) + 1;
-        estimatedCharges += chargesPerCategory[category] || 0.25;
-      }
+    deliveredMessages.forEach((msg: any) => {
+      const category = msg.category || msg.templateName?.toLowerCase() || "marketing";
+      deliveredByCategory[category] = (deliveredByCategory[category] || 0) + 1;
+      estimatedCharges += chargesPerCategory[category] || 0.25;
     });
+
+    const insights = {
+      // Webhook data is the SOURCE OF TRUTH
+      totalInitiated: sentCount + pendingCount,
+      totalSent: sentCount,
+      totalDelivered: deliveredCount,
+      totalRead: readCount,
+      totalReplied: readCount, // Approximation - Meta doesn't clearly distinguish replies
+      totalFailed: failedCount,
+      
+      // Category breakdown
+      byCategory,
+      deliveredByCategory,
+      
+      // Delivery status breakdown from webhook - REAL DATA
+      deliveryStatus: {
+        delivered: deliveredCount,
+        failed: failedCount,
+        pending: pendingCount,
+        read: readCount,
+      },
+      
+      // Failure diagnostics
+      failureReasons,
+      
+      // Estimated charges (only for delivered)
+      estimatedCharges: parseFloat(estimatedCharges.toFixed(2)),
+      
+      // Additional metrics for insights
+      metrics: {
+        deliveryRate: sentCount > 0 
+          ? ((deliveredCount / sentCount) * 100).toFixed(1) 
+          : "0",
+        failureRate: sentCount > 0 
+          ? ((failedCount / sentCount) * 100).toFixed(1) 
+          : "0",
+        pendingRate: sentCount > 0 
+          ? ((pendingCount / sentCount) * 100).toFixed(1) 
+          : "0",
+      },
+    };
 
     return NextResponse.json({
       success: true,
       campaigns,
-      insights: {
-        ...insights,
-        // Override with real webhook data
-        totalDelivered: deliveredCount,
-        totalFailed: failedCount,
-        totalSent: sentCount,
-        totalReplied: receivedCount,
-        
-        // Category breakdown
-        byCategory,
-        deliveredByCategory,
-        
-        // Delivery status breakdown from webhook
-        deliveryStatus: {
-          delivered: deliveredCount,
-          failed: failedCount,
-          pending: pendingCount,
-          sent: sentCount,
-        },
-        
-        // Failure diagnostics
-        failureReasons,
-        
-        // Estimated charges (only for delivered)
-        estimatedCharges: parseFloat(estimatedCharges.toFixed(2)),
-        
-        // Additional metrics for insights
-        metrics: {
-          deliveryRate: sentCount > 0 
-            ? ((deliveredCount / sentCount) * 100).toFixed(1) 
-            : "0",
-          failureRate: sentCount > 0 
-            ? ((failedCount / sentCount) * 100).toFixed(1) 
-            : "0",
-          pendingRate: sentCount > 0 
-            ? ((pendingCount / sentCount) * 100).toFixed(1) 
-            : "0",
-        },
-      },
+      insights,
+      debug: {
+        messagesByStatus,
+        totalMessages: messages.length,
+        deliveredMessages: deliveredCount,
+        failedMessages: failedCount,
+        sentMessages: sentCount,
+      }
     });
   } catch (error: any) {
     console.error("Failed to fetch campaigns:", error);
