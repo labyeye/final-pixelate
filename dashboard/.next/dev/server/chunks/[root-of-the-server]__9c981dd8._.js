@@ -927,9 +927,18 @@ async function GET(request) {
         const { searchParams } = new URL(request.url);
         const clientId = searchParams.get("clientId");
         const platform = searchParams.get("platform");
+        const id = searchParams.get("id");
         const query = {};
         if (clientId) query.clientId = clientId;
         if (platform) query.platform = platform;
+        if (id) {
+            try {
+                query._id = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id);
+            } catch (e) {
+                // If id is not a valid ObjectId, just search by id field
+                query.id = id;
+            }
+        }
         const accounts = await col.find(query).sort({
             platform: 1,
             handle: 1

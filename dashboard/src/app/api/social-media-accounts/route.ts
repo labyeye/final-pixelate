@@ -27,6 +27,7 @@ function normalizeHandle(handle: string): string {
  * Query params:
  * - clientId: filter by client
  * - platform: filter by platform
+ * - id: filter by account ID (returns array with single item if found)
  */
 export async function GET(request: NextRequest) {
   try {
@@ -34,10 +35,19 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const clientId = searchParams.get("clientId");
     const platform = searchParams.get("platform");
+    const id = searchParams.get("id");
 
     const query: any = {};
     if (clientId) query.clientId = clientId;
     if (platform) query.platform = platform;
+    if (id) {
+      try {
+        query._id = new ObjectId(id);
+      } catch (e) {
+        // If id is not a valid ObjectId, just search by id field
+        query.id = id;
+      }
+    }
 
     const accounts = await col
       .find(query)
