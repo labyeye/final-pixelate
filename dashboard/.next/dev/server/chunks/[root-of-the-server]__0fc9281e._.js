@@ -897,6 +897,8 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/server.js [app-route] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/services.ts [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/auth.ts [app-route] (ecmascript)");
+;
 ;
 ;
 const CORS = {
@@ -904,6 +906,29 @@ const CORS = {
     "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, Authorization"
 };
+// Helper function to log events to ERP console
+async function logErpEvent(type, target, details, userId, email) {
+    try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/api/erp-events`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                type,
+                target,
+                details,
+                userId,
+                email
+            })
+        });
+        if (!response.ok) {
+            console.warn("Failed to log ERP event:", await response.text());
+        }
+    } catch (err) {
+        console.error("Error logging ERP event:", err);
+    }
+}
 async function OPTIONS() {
     return new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"](null, {
         headers: CORS
@@ -950,11 +975,27 @@ async function GET(request) {
 }
 async function POST(request) {
     try {
+        // Extract user info from Authorization header or request body
         const body = await request.json();
+        let userId = body?.userId || null;
+        let email = body?.email || null;
+        // Try to extract from JWT token if not provided in body
+        if (!userId || !email) {
+            const auth = request.headers.get("authorization") || "";
+            const token = auth.replace("Bearer ", "");
+            if (token) {
+                const decoded = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["verifyToken"])(token);
+                if (decoded) {
+                    userId = decoded.id || decoded.userId || null;
+                    email = decoded.email || null;
+                }
+            }
+        }
         const col = await __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]("socialMediaPosts");
         const toInsert = {
             clientId: body?.clientId || "",
             socialAccountId: body?.socialAccountId || "",
+            socialAccountIds: body?.socialAccountIds || [],
             title: body?.title || "",
             platform: body?.platform || "Instagram",
             contentType: body?.contentType || "Image Post",
@@ -978,6 +1019,17 @@ async function POST(request) {
             updatedAt: new Date()
         };
         const res = await col.insertOne(toInsert);
+        // Log the post creation event to ERP console
+        await logErpEvent("post_created", `post_${res.insertedId}`, {
+            postId: res.insertedId.toString(),
+            postTitle: toInsert.title,
+            platform: toInsert.platform,
+            socialAccountIds: toInsert.socialAccountIds,
+            socialAccountId: toInsert.socialAccountId,
+            clientId: toInsert.clientId,
+            scheduledDate: toInsert.scheduledDate,
+            status: toInsert.status
+        }, userId, email);
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             ...toInsert,
             _id: res.insertedId
@@ -1006,22 +1058,107 @@ async function PUT(request) {
                 headers: CORS
             });
         }
+        // Extract user info from Authorization header or request body
+        let userId = body?.userId || null;
+        let email = body?.email || null;
+        // Try to extract from JWT token if not provided in body
+        if (!userId || !email) {
+            const auth = request.headers.get("authorization") || "";
+            const token = auth.replace("Bearer ", "");
+            if (token) {
+                const decoded = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["verifyToken"])(token);
+                if (decoded) {
+                    userId = decoded.id || decoded.userId || null;
+                    email = decoded.email || null;
+                }
+            }
+        }
         const col = await __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]("socialMediaPosts");
         const { ObjectId } = await __turbopack_context__.A("[externals]/mongodb [external] (mongodb, cjs, async loader)");
+        // Get the post before update to track changes
+        const postBefore = await col.findOne({
+            _id: new ObjectId(id)
+        });
         const updateData = {
             updatedAt: new Date()
         };
+        // Collect changed fields for logging
+        const changedFields = [];
+        const changeDetails = {};
         // Update metrics fields
-        if (body.views !== undefined) updateData.views = Math.max(0, body.views);
-        if (body.likes !== undefined) updateData.likes = Math.max(0, body.likes);
-        if (body.comments !== undefined) updateData.comments = Math.max(0, body.comments);
-        if (body.shares !== undefined) updateData.shares = Math.max(0, body.shares);
-        if (body.followers_gained !== undefined) updateData.followers_gained = Math.max(0, body.followers_gained);
+        if (body.views !== undefined && postBefore?.views !== body.views) {
+            updateData.views = Math.max(0, body.views);
+            changedFields.push("views");
+            changeDetails.views = {
+                before: postBefore?.views,
+                after: body.views
+            };
+        }
+        if (body.likes !== undefined && postBefore?.likes !== body.likes) {
+            updateData.likes = Math.max(0, body.likes);
+            changedFields.push("likes");
+            changeDetails.likes = {
+                before: postBefore?.likes,
+                after: body.likes
+            };
+        }
+        if (body.comments !== undefined && postBefore?.comments !== body.comments) {
+            updateData.comments = Math.max(0, body.comments);
+            changedFields.push("comments");
+            changeDetails.comments = {
+                before: postBefore?.comments,
+                after: body.comments
+            };
+        }
+        if (body.shares !== undefined && postBefore?.shares !== body.shares) {
+            updateData.shares = Math.max(0, body.shares);
+            changedFields.push("shares");
+            changeDetails.shares = {
+                before: postBefore?.shares,
+                after: body.shares
+            };
+        }
+        if (body.followers_gained !== undefined && postBefore?.followers_gained !== body.followers_gained) {
+            updateData.followers_gained = Math.max(0, body.followers_gained);
+            changedFields.push("followers_gained");
+            changeDetails.followers_gained = {
+                before: postBefore?.followers_gained,
+                after: body.followers_gained
+            };
+        }
         // Update other fields if provided
-        if (body.status !== undefined) updateData.status = body.status;
-        if (body.scheduledDate !== undefined) updateData.scheduledDate = body.scheduledDate;
-        if (body.scheduledTime !== undefined) updateData.scheduledTime = body.scheduledTime;
-        if (body.postedLink !== undefined) updateData.postedLink = body.postedLink;
+        if (body.status !== undefined && postBefore?.status !== body.status) {
+            updateData.status = body.status;
+            changedFields.push("status");
+            changeDetails.status = {
+                before: postBefore?.status,
+                after: body.status
+            };
+        }
+        if (body.scheduledDate !== undefined && postBefore?.scheduledDate !== body.scheduledDate) {
+            updateData.scheduledDate = body.scheduledDate;
+            changedFields.push("scheduledDate");
+            changeDetails.scheduledDate = {
+                before: postBefore?.scheduledDate,
+                after: body.scheduledDate
+            };
+        }
+        if (body.scheduledTime !== undefined && postBefore?.scheduledTime !== body.scheduledTime) {
+            updateData.scheduledTime = body.scheduledTime;
+            changedFields.push("scheduledTime");
+            changeDetails.scheduledTime = {
+                before: postBefore?.scheduledTime,
+                after: body.scheduledTime
+            };
+        }
+        if (body.postedLink !== undefined && postBefore?.postedLink !== body.postedLink) {
+            updateData.postedLink = body.postedLink;
+            changedFields.push("postedLink");
+            changeDetails.postedLink = {
+                before: postBefore?.postedLink,
+                after: body.postedLink
+            };
+        }
         const result = await col.updateOne({
             _id: new ObjectId(id)
         }, {
@@ -1034,6 +1171,17 @@ async function PUT(request) {
                 status: 404,
                 headers: CORS
             });
+        }
+        // Log the post update event to ERP console (only if changes were made)
+        if (changedFields.length > 0) {
+            await logErpEvent("post_updated", `post_${id}`, {
+                postId: id,
+                postTitle: postBefore?.title,
+                platform: postBefore?.platform,
+                changedFields,
+                changes: changeDetails,
+                clientId: postBefore?.clientId
+            }, userId, email);
         }
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             success: true

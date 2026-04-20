@@ -429,7 +429,7 @@ function SocialMediaCalendarPage() {
                                 children: "CONTENT CALENDAR"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 198,
+                                lineNumber: 199,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -437,13 +437,13 @@ function SocialMediaCalendarPage() {
                                 children: "Daily, weekly and monthly social posting schedule."
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 201,
+                                lineNumber: 202,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 197,
+                        lineNumber: 198,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -455,7 +455,7 @@ function SocialMediaCalendarPage() {
                                 children: "Dashboard"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 206,
+                                lineNumber: 207,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -464,7 +464,7 @@ function SocialMediaCalendarPage() {
                                 children: "Planner"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 212,
+                                lineNumber: 213,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -473,19 +473,19 @@ function SocialMediaCalendarPage() {
                                 children: "Analytics"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 218,
+                                lineNumber: 219,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 205,
+                        lineNumber: 206,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                lineNumber: 196,
+                lineNumber: 197,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -501,7 +501,7 @@ function SocialMediaCalendarPage() {
                                 children: "All Platforms"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 233,
+                                lineNumber: 234,
                                 columnNumber: 11
                             }, this),
                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$social$2d$media$2d$planner$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SOCIAL_PLATFORMS"].map((platform)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -509,13 +509,13 @@ function SocialMediaCalendarPage() {
                                     children: platform
                                 }, platform, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                    lineNumber: 235,
+                                    lineNumber: 236,
                                     columnNumber: 13
                                 }, this))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 228,
+                        lineNumber: 229,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -528,7 +528,7 @@ function SocialMediaCalendarPage() {
                                 children: "All Staff"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 245,
+                                lineNumber: 246,
                                 columnNumber: 11
                             }, this),
                             staffOptions.map((name)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -536,13 +536,13 @@ function SocialMediaCalendarPage() {
                                     children: name
                                 }, name, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                    lineNumber: 247,
+                                    lineNumber: 248,
                                     columnNumber: 13
                                 }, this))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 240,
+                        lineNumber: 241,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -555,7 +555,7 @@ function SocialMediaCalendarPage() {
                                 children: "All Status"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 257,
+                                lineNumber: 258,
                                 columnNumber: 11
                             }, this),
                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$social$2d$media$2d$planner$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["POST_STATUSES"].map((status)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -563,13 +563,13 @@ function SocialMediaCalendarPage() {
                                     children: status
                                 }, status, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                    lineNumber: 259,
+                                    lineNumber: 260,
                                     columnNumber: 13
                                 }, this))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 252,
+                        lineNumber: 253,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -582,7 +582,7 @@ function SocialMediaCalendarPage() {
                                 children: "All Content Types"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 269,
+                                lineNumber: 270,
                                 columnNumber: 11
                             }, this),
                             __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$social$2d$media$2d$planner$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CONTENT_TYPES"].map((contentType)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -590,13 +590,13 @@ function SocialMediaCalendarPage() {
                                     children: contentType
                                 }, contentType, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                    lineNumber: 271,
+                                    lineNumber: 272,
                                     columnNumber: 13
                                 }, this))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 264,
+                        lineNumber: 265,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -609,7 +609,7 @@ function SocialMediaCalendarPage() {
                                 children: "Daily View"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 281,
+                                lineNumber: 282,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -617,7 +617,7 @@ function SocialMediaCalendarPage() {
                                 children: "Weekly View"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 282,
+                                lineNumber: 283,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -625,13 +625,13 @@ function SocialMediaCalendarPage() {
                                 children: "Monthly View"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 283,
+                                lineNumber: 284,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 276,
+                        lineNumber: 277,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -645,13 +645,13 @@ function SocialMediaCalendarPage() {
                         children: "Clear Filters"
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 285,
+                        lineNumber: 286,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                lineNumber: 227,
+                lineNumber: 228,
                 columnNumber: 7
             }, this),
             viewMode === "monthly" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -666,7 +666,7 @@ function SocialMediaCalendarPage() {
                                 children: "Prev"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 301,
+                                lineNumber: 302,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -677,7 +677,7 @@ function SocialMediaCalendarPage() {
                                 })
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 307,
+                                lineNumber: 308,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -686,13 +686,13 @@ function SocialMediaCalendarPage() {
                                 children: "Next"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 313,
+                                lineNumber: 314,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 300,
+                        lineNumber: 301,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -710,12 +710,12 @@ function SocialMediaCalendarPage() {
                                 children: d
                             }, d, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 323,
+                                lineNumber: 324,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 321,
+                        lineNumber: 322,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -736,7 +736,7 @@ function SocialMediaCalendarPage() {
                                         children: date.getDate()
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                        lineNumber: 347,
+                                        lineNumber: 348,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -754,7 +754,7 @@ function SocialMediaCalendarPage() {
                                                     ]
                                                 }, String(item._id || item.id), true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                                    lineNumber: 352,
+                                                    lineNumber: 353,
                                                     columnNumber: 23
                                                 }, this)),
                                             dayItems.length > 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -766,31 +766,31 @@ function SocialMediaCalendarPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                                lineNumber: 365,
+                                                lineNumber: 366,
                                                 columnNumber: 23
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                        lineNumber: 350,
+                                        lineNumber: 351,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, key, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 340,
+                                lineNumber: 341,
                                 columnNumber: 17
                             }, this);
                         })
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 332,
+                        lineNumber: 333,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                lineNumber: 299,
+                lineNumber: 300,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -809,7 +809,7 @@ function SocialMediaCalendarPage() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 378,
+                        lineNumber: 379,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -820,7 +820,7 @@ function SocialMediaCalendarPage() {
                                 children: "No posts scheduled on selected date."
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 389,
+                                lineNumber: 390,
                                 columnNumber: 13
                             }, this),
                             selectedPosts.slice().sort((a, b)=>String(a.scheduledTime).localeCompare(String(b.scheduledTime))).map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -835,7 +835,7 @@ function SocialMediaCalendarPage() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                            lineNumber: 403,
+                                            lineNumber: 404,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -847,7 +847,7 @@ function SocialMediaCalendarPage() {
                                                     accountId: item.socialAccountId
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                                    lineNumber: 407,
+                                                    lineNumber: 408,
                                                     columnNumber: 37
                                                 }, this),
                                                 " · ",
@@ -858,25 +858,25 @@ function SocialMediaCalendarPage() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                            lineNumber: 406,
+                                            lineNumber: 407,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, `sel-${String(item._id || item.id)}`, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                    lineNumber: 399,
+                                    lineNumber: 400,
                                     columnNumber: 15
                                 }, this))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 387,
+                        lineNumber: 388,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                lineNumber: 377,
+                lineNumber: 378,
                 columnNumber: 7
             }, this),
             viewMode === "weekly" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -891,7 +891,7 @@ function SocialMediaCalendarPage() {
                                 children: "Prev Week"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 418,
+                                lineNumber: 419,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -906,7 +906,7 @@ function SocialMediaCalendarPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 432,
+                                lineNumber: 433,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -915,13 +915,13 @@ function SocialMediaCalendarPage() {
                                 children: "Next Week"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 439,
+                                lineNumber: 440,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 417,
+                        lineNumber: 418,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -941,7 +941,7 @@ function SocialMediaCalendarPage() {
                                         })
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                        lineNumber: 460,
+                                        lineNumber: 461,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -955,37 +955,37 @@ function SocialMediaCalendarPage() {
                                                 ]
                                             }, String(item._id || item.id), true, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                                lineNumber: 470,
+                                                lineNumber: 471,
                                                 columnNumber: 25
                                             }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "text-xs text-muted-foreground",
                                             children: "No posts"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                            lineNumber: 478,
+                                            lineNumber: 479,
                                             columnNumber: 23
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                        lineNumber: 467,
+                                        lineNumber: 468,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, key, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 459,
+                                lineNumber: 460,
                                 columnNumber: 17
                             }, this);
                         })
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 454,
+                        lineNumber: 455,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                lineNumber: 416,
+                lineNumber: 417,
                 columnNumber: 9
             }, this),
             viewMode === "daily" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1000,7 +1000,7 @@ function SocialMediaCalendarPage() {
                                 children: "Prev Day"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 493,
+                                lineNumber: 494,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1013,7 +1013,7 @@ function SocialMediaCalendarPage() {
                                 })
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 507,
+                                lineNumber: 508,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1022,13 +1022,13 @@ function SocialMediaCalendarPage() {
                                 children: "Next Day"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 515,
+                                lineNumber: 516,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 492,
+                        lineNumber: 493,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1041,7 +1041,7 @@ function SocialMediaCalendarPage() {
                                         children: item.title
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                        lineNumber: 537,
+                                        lineNumber: 538,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1053,7 +1053,7 @@ function SocialMediaCalendarPage() {
                                                 accountId: item.socialAccountId
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                                lineNumber: 539,
+                                                lineNumber: 540,
                                                 columnNumber: 39
                                             }, this),
                                             " · ",
@@ -1063,7 +1063,7 @@ function SocialMediaCalendarPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                        lineNumber: 538,
+                                        lineNumber: 539,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1071,31 +1071,31 @@ function SocialMediaCalendarPage() {
                                         children: item.caption
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                        lineNumber: 541,
+                                        lineNumber: 542,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, String(item._id || item.id), true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 533,
+                                lineNumber: 534,
                                 columnNumber: 17
                             }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "text-sm text-muted-foreground",
                             children: "No posts scheduled for this day."
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                            lineNumber: 545,
+                            lineNumber: 546,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 530,
+                        lineNumber: 531,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                lineNumber: 491,
+                lineNumber: 492,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1109,7 +1109,7 @@ function SocialMediaCalendarPage() {
                                 children: "Today’s Queue"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 555,
+                                lineNumber: 556,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1120,7 +1120,7 @@ function SocialMediaCalendarPage() {
                                         children: "No posts for today."
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                        lineNumber: 558,
+                                        lineNumber: 559,
                                         columnNumber: 15
                                     }, this),
                                     todayQueue.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1135,7 +1135,7 @@ function SocialMediaCalendarPage() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                                    lineNumber: 567,
+                                                    lineNumber: 568,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1147,7 +1147,7 @@ function SocialMediaCalendarPage() {
                                                             accountId: item.socialAccountId
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                                            lineNumber: 571,
+                                                            lineNumber: 572,
                                                             columnNumber: 37
                                                         }, this),
                                                         " · ",
@@ -1155,25 +1155,25 @@ function SocialMediaCalendarPage() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                                    lineNumber: 570,
+                                                    lineNumber: 571,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, String(item._id || item.id), true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                            lineNumber: 563,
+                                            lineNumber: 564,
                                             columnNumber: 15
                                         }, this))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 556,
+                                lineNumber: 557,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 554,
+                        lineNumber: 555,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1184,7 +1184,7 @@ function SocialMediaCalendarPage() {
                                 children: "Upcoming & Missed"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 579,
+                                lineNumber: 580,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1198,7 +1198,7 @@ function SocialMediaCalendarPage() {
                                                     children: item.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                                    lineNumber: 586,
+                                                    lineNumber: 587,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1211,13 +1211,13 @@ function SocialMediaCalendarPage() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                                    lineNumber: 587,
+                                                    lineNumber: 588,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, `up-${String(item._id || item.id)}`, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                            lineNumber: 582,
+                                            lineNumber: 583,
                                             columnNumber: 15
                                         }, this)),
                                     missed.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1228,7 +1228,7 @@ function SocialMediaCalendarPage() {
                                                     children: item.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                                    lineNumber: 597,
+                                                    lineNumber: 598,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1241,13 +1241,13 @@ function SocialMediaCalendarPage() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                                    lineNumber: 598,
+                                                    lineNumber: 599,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, `ms-${String(item._id || item.id)}`, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                            lineNumber: 593,
+                                            lineNumber: 594,
                                             columnNumber: 15
                                         }, this)),
                                     !upcoming.length && !missed.length && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1255,31 +1255,31 @@ function SocialMediaCalendarPage() {
                                         children: "No upcoming or missed posts."
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                        lineNumber: 604,
+                                        lineNumber: 605,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                                lineNumber: 580,
+                                lineNumber: 581,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                        lineNumber: 578,
+                        lineNumber: 579,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-                lineNumber: 553,
+                lineNumber: 554,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/social-media-planner/calendar/page.tsx",
-        lineNumber: 195,
+        lineNumber: 196,
         columnNumber: 5
     }, this);
 }

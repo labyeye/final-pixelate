@@ -41,6 +41,9 @@ export default function ErpConsolePage() {
     data_update: "bg-cyan-600 text-white",
     error: "bg-red-600 text-white",
     event: "bg-blue-600 text-white",
+    post_created: "bg-emerald-600 text-white",
+    post_updated: "bg-blue-500 text-white",
+    post_deleted: "bg-rose-600 text-white",
   };
 
   return (
@@ -48,7 +51,7 @@ export default function ErpConsolePage() {
       <div className="flex items-center justify-between mb-4">
         <div>
           <h2 className="text-3xl font-mono font-bold">erp-console</h2>
-          <p className="text-sm text-slate-600 font-mono">Live audit trail — shows logins, permission changes and data events.</p>
+          <p className="text-sm text-slate-600 font-mono">Live audit trail — tracks logins, permissions, social media posts (create/edit/delete), and system events.</p>
         </div>
         <Zap className="w-6 h-6 text-slate-600" />
       </div>
@@ -66,7 +69,7 @@ export default function ErpConsolePage() {
             {events.map((ev) => {
               const t = new Date(ev.createdAt).toLocaleString();
               const typeClass = typeColors[ev.type] || typeColors.event;
-              const adminName = ev.adminName || "Unknown Admin";
+              const adminName = ev.email?.split("@")[0] || ev.adminName || "Unknown Admin";
               const targetName = ev.targetName || "Unknown";
               
               // Build detailed "who did what" message
@@ -92,6 +95,34 @@ export default function ErpConsolePage() {
                 details = pagesList.length > 0 
                   ? `Pages changed:\n${pagesList.join("\n")}`
                   : "No permissions changed";
+              } else if (ev.type === "post_created") {
+                const postTitle = ev.details?.postTitle || "Untitled";
+                const platform = ev.details?.platform || "Unknown Platform";
+                const accountCount = (ev.details?.socialAccountIds?.length || 0) + (ev.details?.socialAccountId ? 1 : 0);
+                actionMsg = `${adminName} created post "${postTitle}"`;
+                details = `Platform: ${platform}\nAccounts: ${accountCount}\nStatus: ${ev.details?.status || "Draft"}`;
+                if (ev.details?.scheduledDate) {
+                  details += `\nScheduled: ${ev.details.scheduledDate}`;
+                }
+              } else if (ev.type === "post_updated") {
+                const postTitle = ev.details?.postTitle || "Untitled";
+                const changedFields = ev.details?.changedFields?.join(", ") || "unknown fields";
+                actionMsg = `${adminName} updated post "${postTitle}"`;
+                details = `Changed: ${changedFields}`;
+                if (ev.details?.changes) {
+                  const changesList = Object.entries(ev.details.changes).map(([field, change]: [string, any]) => {
+                    if (typeof change === 'object' && change.before !== undefined && change.after !== undefined) {
+                      return `  ${field}: ${change.before} → ${change.after}`;
+                    }
+                    return `  ${field}: ${change}`;
+                  });
+                  details += `\n${changesList.join("\n")}`;
+                }
+              } else if (ev.type === "post_deleted") {
+                const postTitle = ev.details?.postTitle || "Untitled";
+                const platform = ev.details?.platform || "Unknown Platform";
+                actionMsg = `${adminName} deleted post "${postTitle}"`;
+                details = `Platform: ${platform}\nStatus: ${ev.details?.status || "Unknown"}`;
               } else if (ev.type === "data_update") {
                 const target = ev.target || ev.details?.target || "data";
                 actionMsg = `${adminName} updated ${target}`;

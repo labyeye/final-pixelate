@@ -153,7 +153,10 @@ function ErpConsolePage() {
         permission_change: "bg-amber-600 text-white",
         data_update: "bg-cyan-600 text-white",
         error: "bg-red-600 text-white",
-        event: "bg-blue-600 text-white"
+        event: "bg-blue-600 text-white",
+        post_created: "bg-emerald-600 text-white",
+        post_updated: "bg-blue-500 text-white",
+        post_deleted: "bg-rose-600 text-white"
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "p-6 min-h-screen bg-white text-slate-900",
@@ -168,34 +171,34 @@ function ErpConsolePage() {
                                 children: "erp-console"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                                lineNumber: 50,
+                                lineNumber: 53,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-sm text-slate-600 font-mono",
-                                children: "Live audit trail — shows logins, permission changes and data events."
+                                children: "Live audit trail — tracks logins, permissions, social media posts (create/edit/delete), and system events."
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                                lineNumber: 51,
+                                lineNumber: 54,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                        lineNumber: 49,
+                        lineNumber: 52,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$zap$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Zap$3e$__["Zap"], {
                         className: "w-6 h-6 text-slate-600"
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                        lineNumber: 53,
+                        lineNumber: 56,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                lineNumber: 48,
+                lineNumber: 51,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -208,7 +211,7 @@ function ErpConsolePage() {
                                 children: "Recent Events"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                                lineNumber: 58,
+                                lineNumber: 61,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
@@ -216,13 +219,13 @@ function ErpConsolePage() {
                                 children: "Raw event stream (newest first)"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                                lineNumber: 59,
+                                lineNumber: 62,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                        lineNumber: 57,
+                        lineNumber: 60,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -235,7 +238,7 @@ function ErpConsolePage() {
                                     children: "Loading..."
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                                    lineNumber: 63,
+                                    lineNumber: 66,
                                     columnNumber: 25
                                 }, this),
                                 !loading && events.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -243,13 +246,13 @@ function ErpConsolePage() {
                                     children: "No events yet."
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                                    lineNumber: 64,
+                                    lineNumber: 67,
                                     columnNumber: 49
                                 }, this),
                                 events.map((ev)=>{
                                     const t = new Date(ev.createdAt).toLocaleString();
                                     const typeClass = typeColors[ev.type] || typeColors.event;
-                                    const adminName = ev.adminName || "Unknown Admin";
+                                    const adminName = ev.email?.split("@")[0] || ev.adminName || "Unknown Admin";
                                     const targetName = ev.targetName || "Unknown";
                                     // Build detailed "who did what" message
                                     let actionMsg = "";
@@ -266,6 +269,34 @@ function ErpConsolePage() {
                                             return `${page}: ${permissions || "none"}`;
                                         });
                                         details = pagesList.length > 0 ? `Pages changed:\n${pagesList.join("\n")}` : "No permissions changed";
+                                    } else if (ev.type === "post_created") {
+                                        const postTitle = ev.details?.postTitle || "Untitled";
+                                        const platform = ev.details?.platform || "Unknown Platform";
+                                        const accountCount = (ev.details?.socialAccountIds?.length || 0) + (ev.details?.socialAccountId ? 1 : 0);
+                                        actionMsg = `${adminName} created post "${postTitle}"`;
+                                        details = `Platform: ${platform}\nAccounts: ${accountCount}\nStatus: ${ev.details?.status || "Draft"}`;
+                                        if (ev.details?.scheduledDate) {
+                                            details += `\nScheduled: ${ev.details.scheduledDate}`;
+                                        }
+                                    } else if (ev.type === "post_updated") {
+                                        const postTitle = ev.details?.postTitle || "Untitled";
+                                        const changedFields = ev.details?.changedFields?.join(", ") || "unknown fields";
+                                        actionMsg = `${adminName} updated post "${postTitle}"`;
+                                        details = `Changed: ${changedFields}`;
+                                        if (ev.details?.changes) {
+                                            const changesList = Object.entries(ev.details.changes).map(([field, change])=>{
+                                                if (typeof change === 'object' && change.before !== undefined && change.after !== undefined) {
+                                                    return `  ${field}: ${change.before} → ${change.after}`;
+                                                }
+                                                return `  ${field}: ${change}`;
+                                            });
+                                            details += `\n${changesList.join("\n")}`;
+                                        }
+                                    } else if (ev.type === "post_deleted") {
+                                        const postTitle = ev.details?.postTitle || "Untitled";
+                                        const platform = ev.details?.platform || "Unknown Platform";
+                                        actionMsg = `${adminName} deleted post "${postTitle}"`;
+                                        details = `Platform: ${platform}\nStatus: ${ev.details?.status || "Unknown"}`;
                                     } else if (ev.type === "data_update") {
                                         const target = ev.target || ev.details?.target || "data";
                                         actionMsg = `${adminName} updated ${target}`;
@@ -288,7 +319,7 @@ function ErpConsolePage() {
                                                         children: t
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                                                        lineNumber: 110,
+                                                        lineNumber: 141,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -296,7 +327,7 @@ function ErpConsolePage() {
                                                         children: ev.type
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                                                        lineNumber: 111,
+                                                        lineNumber: 142,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -304,13 +335,13 @@ function ErpConsolePage() {
                                                         children: actionMsg
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                                                        lineNumber: 112,
+                                                        lineNumber: 143,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                                                lineNumber: 109,
+                                                lineNumber: 140,
                                                 columnNumber: 19
                                             }, this),
                                             details && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -318,37 +349,37 @@ function ErpConsolePage() {
                                                 children: details
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                                                lineNumber: 115,
+                                                lineNumber: 146,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, ev._id ?? ev.id, true, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                                        lineNumber: 108,
+                                        lineNumber: 139,
                                         columnNumber: 17
                                     }, this);
                                 })
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                            lineNumber: 62,
+                            lineNumber: 65,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                        lineNumber: 61,
+                        lineNumber: 64,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-                lineNumber: 56,
+                lineNumber: 59,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/erp-console/page.tsx",
-        lineNumber: 47,
+        lineNumber: 50,
         columnNumber: 5
     }, this);
 }

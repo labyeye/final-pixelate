@@ -628,6 +628,7 @@ var _s = __turbopack_context__.k.signature();
 const initialForm = {
     clientId: "",
     socialAccountId: "",
+    socialAccountIds: [],
     title: "",
     platform: "Instagram",
     contentType: "Image Post",
@@ -720,7 +721,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                             children: "Add New Social Post"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 116,
+                            lineNumber: 117,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -730,13 +731,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                             children: "×"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 117,
+                            lineNumber: 118,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                    lineNumber: 115,
+                    lineNumber: 116,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -752,7 +753,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Post Title *"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 131,
+                                            lineNumber: 132,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -761,13 +762,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             onChange: (e)=>handleChange("title", e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 132,
+                                            lineNumber: 133,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 130,
+                                    lineNumber: 131,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -777,7 +778,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Platform *"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 139,
+                                            lineNumber: 140,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -789,18 +790,18 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                     children: platform
                                                 }, platform, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                                    lineNumber: 146,
+                                                    lineNumber: 147,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 140,
+                                            lineNumber: 141,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 138,
+                                    lineNumber: 139,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -810,7 +811,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Content Type *"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 153,
+                                            lineNumber: 154,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -822,24 +823,24 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                     children: contentType
                                                 }, contentType, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                                    lineNumber: 160,
+                                                    lineNumber: 161,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 154,
+                                            lineNumber: 155,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 152,
+                                    lineNumber: 153,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 129,
+                            lineNumber: 130,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -849,7 +850,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     children: "Social Account *"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 170,
+                                    lineNumber: 171,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$social$2d$media$2f$account$2d$selector$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AccountSelector"], {
@@ -861,13 +862,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 171,
+                                    lineNumber: 172,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 169,
+                            lineNumber: 170,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -880,7 +881,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Schedule Date *"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 184,
+                                            lineNumber: 185,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -889,13 +890,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             onChange: (e)=>handleChange("scheduledDate", e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 185,
+                                            lineNumber: 186,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 183,
+                                    lineNumber: 184,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -905,7 +906,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Schedule Time *"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 192,
+                                            lineNumber: 193,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -914,13 +915,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             onChange: (e)=>handleChange("scheduledTime", e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 193,
+                                            lineNumber: 194,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 191,
+                                    lineNumber: 192,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -930,7 +931,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Assigned Staff"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 200,
+                                            lineNumber: 201,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -943,7 +944,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                     children: "-- Unassigned --"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                                    lineNumber: 206,
+                                                    lineNumber: 207,
                                                     columnNumber: 17
                                                 }, this),
                                                 staffOptions.map((name)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -951,25 +952,25 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                         children: name
                                                     }, name, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                                        lineNumber: 208,
+                                                        lineNumber: 209,
                                                         columnNumber: 19
                                                     }, this))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 201,
+                                            lineNumber: 202,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 199,
+                                    lineNumber: 200,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 182,
+                            lineNumber: 183,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -981,7 +982,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                         children: "Approval Status"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                        lineNumber: 219,
+                                        lineNumber: 220,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -994,7 +995,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                 children: "Pending"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                                lineNumber: 225,
+                                                lineNumber: 226,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1002,7 +1003,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                 children: "Approved"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                                lineNumber: 226,
+                                                lineNumber: 227,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1010,24 +1011,24 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                                 children: "Rejected"
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                                lineNumber: 227,
+                                                lineNumber: 228,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                        lineNumber: 220,
+                                        lineNumber: 221,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                lineNumber: 218,
+                                lineNumber: 219,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 217,
+                            lineNumber: 218,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1037,7 +1038,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     children: "Caption"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 234,
+                                    lineNumber: 235,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1047,13 +1048,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     className: "h-24"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 235,
+                                    lineNumber: 236,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 233,
+                            lineNumber: 234,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1066,7 +1067,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Hashtags"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 246,
+                                            lineNumber: 247,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1075,13 +1076,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             onChange: (e)=>handleChange("hashtags", e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 247,
+                                            lineNumber: 248,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 245,
+                                    lineNumber: 246,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1091,7 +1092,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             children: "Media URL or Path"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 254,
+                                            lineNumber: 255,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1100,19 +1101,19 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                             onChange: (e)=>handleChange("mediaFile", e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                            lineNumber: 255,
+                                            lineNumber: 256,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 253,
+                                    lineNumber: 254,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 244,
+                            lineNumber: 245,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1122,7 +1123,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     children: "Upload Media File"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 265,
+                                    lineNumber: 266,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1135,13 +1136,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 266,
+                                    lineNumber: 267,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 264,
+                            lineNumber: 265,
                             columnNumber: 11
                         }, this),
                         form.mediaFile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1152,7 +1153,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     children: "Media Preview"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 280,
+                                    lineNumber: 281,
                                     columnNumber: 15
                                 }, this),
                                 String(form.mediaFile).startsWith("data:image") ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -1161,7 +1162,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     className: "h-32 w-32 object-cover rounded"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 282,
+                                    lineNumber: 283,
                                     columnNumber: 17
                                 }, this) : String(form.mediaFile).startsWith("data:video") ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("video", {
                                     src: form.mediaFile,
@@ -1169,7 +1170,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     controls: true
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 288,
+                                    lineNumber: 289,
                                     columnNumber: 17
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                     className: "text-sm underline text-blue-600",
@@ -1179,13 +1180,13 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     children: "View Attachment"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 290,
+                                    lineNumber: 291,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 279,
+                            lineNumber: 280,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1195,7 +1196,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     children: "Notes"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 304,
+                                    lineNumber: 305,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1205,19 +1206,19 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                                     className: "h-20"
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                                    lineNumber: 305,
+                                    lineNumber: 306,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 303,
+                            lineNumber: 304,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                    lineNumber: 127,
+                    lineNumber: 128,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1230,7 +1231,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                             children: "Cancel"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 316,
+                            lineNumber: 317,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1240,7 +1241,7 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                             children: saving ? "Saving..." : "Save as Draft"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 323,
+                            lineNumber: 324,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1249,24 +1250,24 @@ function AddPostModal({ isOpen, clientId, onClose, onSave, staffOptions, created
                             children: saving ? "Scheduling..." : "Schedule Post"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                            lineNumber: 330,
+                            lineNumber: 331,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-                    lineNumber: 315,
+                    lineNumber: 316,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-            lineNumber: 113,
+            lineNumber: 114,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/social-media/add-post-modal.tsx",
-        lineNumber: 112,
+        lineNumber: 113,
         columnNumber: 5
     }, this);
 }

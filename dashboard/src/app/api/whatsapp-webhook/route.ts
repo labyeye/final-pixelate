@@ -279,6 +279,27 @@ async function handleInboundMessage(msg: WAInboundMessage, contacts: WAContact[]
     `text: ${msg.text?.body ?? "(non-text)"}`,
   );
 
+  // Store incoming message in database for inbox view
+  try {
+    const db = await getDb();
+    const incomingMsg = {
+      phone: msg.from,
+      contactName: senderName,
+      messageType: "received" as const,
+      message: msg.text?.body ?? "(non-text message)",
+      status: "received",
+      messageId: msg.id,
+      timestamp: new Date(Number(msg.timestamp) * 1000),
+      metadata: msg.type,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    await db.collection("whatsapp_messages").insertOne(incomingMsg as any);
+    console.info(`[WA Webhook] ✅ Stored incoming message from ${msg.from} (${senderName}) in inbox`);
+  } catch (e) {
+    console.error("[WA Webhook] Failed to store incoming message:", e);
+  }
+
   // ── STOP / opt-out handling ──────────────────────────────────────────────
   // WhatsApp policy: if a user sends STOP (or common variants), you MUST
   // stop sending them messages immediately. We set whatsapp_opted_in = false

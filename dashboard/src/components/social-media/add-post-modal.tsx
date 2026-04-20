@@ -10,7 +10,7 @@ import {
   SOCIAL_PLATFORMS,
   type SocialMediaPost,
 } from "@/lib/social-media-planner";
-import { AccountSelector } from "./account-selector";
+import { MultiAccountSelector } from "./multi-account-selector";
 
 interface AddPostModalProps {
   isOpen: boolean;
@@ -19,11 +19,13 @@ interface AddPostModalProps {
   onSave: (post: SocialMediaPost) => Promise<void>;
   staffOptions: string[];
   createdBy?: string;
+  editingPost?: SocialMediaPost | null;
 }
 
 const initialForm: SocialMediaPost = {
   clientId: "",
   socialAccountId: "",
+  socialAccountIds: [],
   title: "",
   platform: "Instagram",
   contentType: "Image Post",
@@ -45,19 +47,80 @@ export function AddPostModal({
   onSave,
   staffOptions,
   createdBy,
+  editingPost,
 }: AddPostModalProps) {
   const [form, setForm] = useState<SocialMediaPost>(initialForm);
   const [saving, setSaving] = useState(false);
   const [action, setAction] = useState<"draft" | "schedule">("draft");
+  const [isMultipleMode, setIsMultipleMode] = useState(true);
+  const [singleModeAccounts, setSingleModeAccounts] = useState<any[]>([]);
+  const isEditing = !!editingPost;
 
   useEffect(() => {
     if (isOpen) {
-      setForm({ ...initialForm, clientId });
+      if (editingPost) {
+        // Edit mode: populate with existing post data
+        setForm(editingPost);
+        // Determine if it's multi or single mode based on existing data
+        setIsMultipleMode((editingPost.socialAccountIds?.length ?? 0) > 1 || (editingPost.socialAccountIds?.length ?? 0) === 0);
+      } else {
+        // Add mode: reset to initial form
+        setForm({ ...initialForm, clientId });
+        setIsMultipleMode(true); // Default to multiple mode for new posts
+      }
     }
-  }, [isOpen, clientId]);
+  }, [isOpen, clientId, editingPost]);
+
+  // Load accounts for single mode
+  useEffect(() => {
+    if (!isMultipleMode || !clientId || !form.platform) return;
+    
+    const loadAccounts = async () => {
+      try {
+        const url = new URL("/api/social-media-accounts", window.location.origin);
+        url.searchParams.set("clientId", clientId);
+        url.searchParams.set("platform", form.platform);
+        const res = await fetch(url.toString(), { cache: "no-store" });
+        if (res.ok) {
+          const data = await res.json();
+          setSingleModeAccounts(Array.isArray(data) ? data : []);
+        }
+      } catch (e) {
+        console.error("Failed to load accounts:", e);
+      }
+    };
+
+    loadAccounts();
+  }, [isMultipleMode, clientId, form.platform]);
 
   const handleChange = (key: keyof SocialMediaPost, value: string) => {
     setForm((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const handleAccountsChange = (accountIds: string[]) => {
+    setForm((prev) => ({ 
+      ...prev, 
+      socialAccountIds: accountIds,
+      socialAccountId: accountIds[0] || "", // Keep first ID for backward compatibility
+    }));
+  };
+
+  const handleSingleAccountChange = (accountId: string) => {
+    setForm((prev) => ({
+      ...prev,
+      socialAccountId: accountId,
+      socialAccountIds: accountId ? [accountId] : [],
+    }));
+  };
+
+  const toggleMode = () => {
+    setIsMultipleMode(!isMultipleMode);
+    // Clear selections when toggling
+    setForm((prev) => ({
+      ...prev,
+      socialAccountId: "",
+      socialAccountIds: [],
+    }));
   };
 
   const handleSave = async (saveAction: "draft" | "schedule") => {
@@ -66,8 +129,13 @@ export function AddPostModal({
       return;
     }
 
-    if (!form.socialAccountId) {
-      alert("Please select or create a social account.");
+    // Check if at least one account is selected (works for both single and multiple mode)
+    const hasAccount = isMultipleMode 
+      ? (form.socialAccountIds && form.socialAccountIds.length > 0)
+      : form.socialAccountId;
+    
+    if (!hasAccount) {
+      alert("Please select at least one social account.");
       return;
     }
 
@@ -88,9 +156,10 @@ export function AddPostModal({
       await onSave(payload);
       setForm(initialForm);
       onClose();
-    } catch (e) {
-      console.error(e);
-      alert("Failed to save post");
+    } catch (e: any) {
+      console.error("Save error:", e);
+      const errorMsg = e?.message || "Failed to save post";
+      alert(errorMsg);
     } finally {
       setSaving(false);
     }
@@ -113,7 +182,9 @@ export function AddPostModal({
       <div className="bg-white rounded-lg shadow-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="sticky top-0 bg-white border-b p-4 flex items-center justify-between">
-          <h2 className="text-xl font-bold">Add New Social Post</h2>
+          <h2 className="text-xl font-bold">
+            {isEditing ? "Edit Social Post" : "Add New Social Post"}
+          </h2>
           <button
             onClick={onClose}
             className="text-2xl leading-none hover:opacity-70"
@@ -165,17 +236,51 @@ export function AddPostModal({
             </div>
           </div>
 
-          {/* Row 1.5: Social Account */}
+          {/* Row 1.5: Social Accounts with Toggle */}
           <div>
-            <label className="block text-sm font-semibold mb-1">Social Account *</label>
-            <AccountSelector
-              clientId={clientId}
-              platform={form.platform}
-              value={form.socialAccountId || ""}
-              onChange={(accountId, handle) => {
-                handleChange("socialAccountId", accountId);
-              }}
-            />
+            <div className="flex items-center justify-between mb-2">
+              <label className="block text-sm font-semibold">Social Accounts *</label>
+              <div className="flex items-center gap-2">
+                <span className={`text-xs font-medium ${isMultipleMode ? "text-gray-400" : "text-gray-700"}`}>Single</span>
+                <button
+                  onClick={toggleMode}
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                    isMultipleMode ? "bg-blue-600" : "bg-gray-300"
+                  }`}
+                  type="button"
+                >
+                  <span
+                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                      isMultipleMode ? "translate-x-6" : "translate-x-1"
+                    }`}
+                  />
+                </button>
+                <span className={`text-xs font-medium ${isMultipleMode ? "text-gray-700" : "text-gray-400"}`}>Multiple</span>
+              </div>
+            </div>
+
+            {isMultipleMode ? (
+              <MultiAccountSelector
+                clientId={clientId}
+                platform={form.platform}
+                value={form.socialAccountIds || []}
+                onChange={(accountIds) => handleAccountsChange(accountIds)}
+              />
+            ) : (
+              // Single account selector
+              <select
+                value={form.socialAccountId || ""}
+                onChange={(e) => handleSingleAccountChange(e.target.value)}
+                className="border rounded-md p-2 w-full bg-white"
+              >
+                <option value="">Select an account...</option>
+                {singleModeAccounts.map((account) => (
+                  <option key={account._id || account.id} value={account._id || account.id}>
+                    {account.displayName || account.handle}
+                  </option>
+                ))}
+              </select>
+            )}
           </div>
 
           {/* Row 2: Date, Time, Assigned Staff */}
@@ -320,19 +425,30 @@ export function AddPostModal({
           >
             Cancel
           </Button>
-          <Button
-            variant="outline"
-            onClick={() => handleSave("draft")}
-            disabled={saving}
-          >
-            {saving ? "Saving..." : "Save as Draft"}
-          </Button>
-          <Button
-            onClick={() => handleSave("schedule")}
-            disabled={saving}
-          >
-            {saving ? "Scheduling..." : "Schedule Post"}
-          </Button>
+          {isEditing ? (
+            <Button
+              onClick={() => handleSave("schedule")}
+              disabled={saving}
+            >
+              {saving ? "Saving..." : "Save Changes"}
+            </Button>
+          ) : (
+            <>
+              <Button
+                variant="outline"
+                onClick={() => handleSave("draft")}
+                disabled={saving}
+              >
+                {saving ? "Saving..." : "Save as Draft"}
+              </Button>
+              <Button
+                onClick={() => handleSave("schedule")}
+                disabled={saving}
+              >
+                {saving ? "Scheduling..." : "Schedule Post"}
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </div>

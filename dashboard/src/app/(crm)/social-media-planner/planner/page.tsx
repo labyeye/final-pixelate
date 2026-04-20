@@ -15,6 +15,7 @@ import {
 import { ClientPicker } from "@/components/social-media/client-picker";
 import { AddPostModal } from "@/components/social-media/add-post-modal";
 import { PostAccountDisplay } from "@/components/social-media/post-account-display";
+import { MultiAccountDisplay } from "@/components/social-media/multi-account-display";
 import { SocialAccountsTable } from "@/components/social-media/social-accounts-table";
 
 const statusBadge: Record<string, string> = {
@@ -32,6 +33,7 @@ export default function SocialMediaPlannerPage() {
   const [posts, setPosts] = useState<SocialMediaPost[]>([]);
   const [team, setTeam] = useState<any[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingPost, setEditingPost] = useState<SocialMediaPost | null>(null);
 
   const [search, setSearch] = useState("");
   const [platformFilter, setPlatformFilter] = useState("");
@@ -41,7 +43,7 @@ export default function SocialMediaPlannerPage() {
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
 
-  // Load posts filtered by selected client
+  // Load posts filtered by selected client and assigned user
   const loadPosts = async (clientId: string) => {
     if (!clientId) {
       setPosts([]);
@@ -50,6 +52,12 @@ export default function SocialMediaPlannerPage() {
     try {
       const url = new URL("/api/social-media-posts", window.location.origin);
       url.searchParams.set("clientId", clientId);
+      
+      // If user is not an admin, filter by their name to show only assigned posts
+      if (user && user.role !== "admin" && user.name) {
+        url.searchParams.set("assignedTo", user.name);
+      }
+      
       const res = await fetch(url.toString(), { cache: "no-store" });
       if (!res.ok) throw new Error("Failed to fetch social posts");
       const data = await res.json();
@@ -77,7 +85,7 @@ export default function SocialMediaPlannerPage() {
   // Reload posts when client changes
   useEffect(() => {
     loadPosts(selectedClientId);
-  }, [selectedClientId]);
+  }, [selectedClientId, user]);
 
   const staffOptions = useMemo(() => {
     const fromTeam = team
@@ -116,17 +124,29 @@ export default function SocialMediaPlannerPage() {
 
   const savePost = async (post: SocialMediaPost) => {
     try {
-      const res = await fetch("/api/social-media-posts", {
-        method: "POST",
+      // If post has an ID, it's an update (PUT), otherwise it's a create (POST)
+      const isUpdate = !!(post._id || post.id);
+      const method = isUpdate ? "PUT" : "POST";
+      const url = isUpdate 
+        ? `/api/social-media-posts/${post._id || post.id}` 
+        : "/api/social-media-posts";
+
+      const res = await fetch(url, {
+        method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(post),
       });
+      
+      const responseData = await res.json();
+      
       if (!res.ok) {
-        throw new Error("Failed to create post");
+        const errorMsg = responseData?.error || (isUpdate ? "Failed to update post" : "Failed to create post");
+        throw new Error(errorMsg);
       }
+      
       await loadPosts(selectedClientId);
     } catch (e) {
-      console.error(e);
+      console.error("savePost error:", e);
       throw e;
     }
   };
@@ -208,6 +228,11 @@ export default function SocialMediaPlannerPage() {
       return;
     }
     await loadPosts(selectedClientId);
+  };
+
+  const editPost = (item: SocialMediaPost) => {
+    setEditingPost(item);
+    setIsModalOpen(true);
   };
 
   return (
@@ -417,9 +442,11 @@ export default function SocialMediaPlannerPage() {
                           {item.platform}
                         </td>
                         <td className="p-2 border-b align-top">
-                          <PostAccountDisplay
-                            accountId={item.socialAccountId}
-                          />
+                          {(item.socialAccountIds && item.socialAccountIds.length > 0) ? (
+                            <MultiAccountDisplay accountIds={item.socialAccountIds} />
+                          ) : (
+                            <PostAccountDisplay accountId={item.socialAccountId} />
+                          )}
                         </td>
                         <td className="p-2 border-b align-top">
                           {item.contentType}
@@ -439,6 +466,13 @@ export default function SocialMediaPlannerPage() {
                         </td>
                         <td className="p-2 border-b align-top">
                           <div className="flex flex-wrap gap-1">
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => editPost(item)}
+                            >
+                              Edit
+                            </Button>
                             <Button
                               size="sm"
                               variant="outline"
@@ -503,14 +537,18 @@ export default function SocialMediaPlannerPage() {
         </section>
       )}
 
-      {/* Add Post Modal */}
+      {/* Add/Edit Post Modal */}
       <AddPostModal
         isOpen={isModalOpen}
         clientId={selectedClientId}
-        onClose={() => setIsModalOpen(false)}
+        onClose={() => {
+          setIsModalOpen(false);
+          setEditingPost(null);
+        }}
         onSave={savePost}
         staffOptions={staffOptions}
         createdBy={user?.name}
+        editingPost={editingPost}
       />
 
       {/* Filters Section - Only visible when client is selected */}

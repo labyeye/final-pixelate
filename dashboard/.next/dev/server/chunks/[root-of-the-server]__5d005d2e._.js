@@ -928,6 +928,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/trash-2.js [app-route] (ecmascript) <export default as Trash2>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$zap$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Zap$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/zap.js [app-route] (ecmascript) <export default as Zap>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$rocket$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Rocket$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/rocket.js [app-route] (ecmascript) <export default as Rocket>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$circle$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageCircle$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/message-circle.js [app-route] (ecmascript) <export default as MessageCircle>");
 ;
 const defaultStaffAllowed = [
     "/dashboard",
@@ -935,6 +936,9 @@ const defaultStaffAllowed = [
     "/blogs",
     "/work-gallery",
     "/social-media-planner",
+    "/dashboard/bulk-messaging",
+    "/dashboard/campaigns",
+    "/dashboard/whatsapp-inbox",
     "/enquiries",
     "/reviews",
     "/quotations",
@@ -1046,6 +1050,29 @@ const navGroups = [
                 label: "Social Media Planner",
                 adminOnly: false,
                 icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2d$days$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__CalendarDays$3e$__["CalendarDays"]
+            }
+        ]
+    },
+    {
+        title: "WhatsApp Marketing",
+        items: [
+            {
+                href: "/dashboard/bulk-messaging",
+                label: "Bulk Messaging",
+                adminOnly: false,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$circle$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageCircle$3e$__["MessageCircle"]
+            },
+            {
+                href: "/dashboard/whatsapp-inbox",
+                label: "WhatsApp Inbox",
+                adminOnly: false,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$mail$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Mail$3e$__["Mail"]
+            },
+            {
+                href: "/dashboard/campaigns",
+                label: "Campaign Insights",
+                adminOnly: false,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chart$2d$no$2d$axes$2d$column$2d$increasing$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__BarChart$3e$__["BarChart"]
             }
         ]
     },

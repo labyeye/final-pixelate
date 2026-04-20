@@ -37,6 +37,14 @@
       "namedRegex": "^/api/blogs/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/campaigns/[id]",
+      "regex": "^/api/campaigns/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/campaigns/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/careers/[id]",
       "regex": "^/api/careers/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -321,6 +329,12 @@
       "namedRegex": "^/api/blogs(?:/)?$"
     },
     {
+      "page": "/api/campaigns",
+      "regex": "^/api/campaigns(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/campaigns(?:/)?$"
+    },
+    {
       "page": "/api/careers",
       "regex": "^/api/careers(?:/)?$",
       "routeKeys": {},
@@ -579,6 +593,24 @@
       "namedRegex": "^/api/users(?:/)?$"
     },
     {
+      "page": "/api/whatsapp/bulk-send",
+      "regex": "^/api/whatsapp/bulk\\-send(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/whatsapp/bulk\\-send(?:/)?$"
+    },
+    {
+      "page": "/api/whatsapp/messages",
+      "regex": "^/api/whatsapp/messages(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/whatsapp/messages(?:/)?$"
+    },
+    {
+      "page": "/api/whatsapp/webhook-sync",
+      "regex": "^/api/whatsapp/webhook\\-sync(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/whatsapp/webhook\\-sync(?:/)?$"
+    },
+    {
       "page": "/api/whatsapp-optin",
       "regex": "^/api/whatsapp\\-optin(?:/)?$",
       "routeKeys": {},
@@ -669,6 +701,18 @@
       "namedRegex": "^/dashboard(?:/)?$"
     },
     {
+      "page": "/dashboard/bulk-messaging",
+      "regex": "^/dashboard/bulk\\-messaging(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/bulk\\-messaging(?:/)?$"
+    },
+    {
+      "page": "/dashboard/campaigns",
+      "regex": "^/dashboard/campaigns(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/campaigns(?:/)?$"
+    },
+    {
       "page": "/dashboard/payments",
       "regex": "^/dashboard/payments(?:/)?$",
       "routeKeys": {},
@@ -685,6 +729,12 @@
       "regex": "^/dashboard/settings(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/dashboard/settings(?:/)?$"
+    },
+    {
+      "page": "/dashboard/whatsapp-inbox",
+      "regex": "^/dashboard/whatsapp\\-inbox(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/whatsapp\\-inbox(?:/)?$"
     },
     {
       "page": "/developers-and-editors",

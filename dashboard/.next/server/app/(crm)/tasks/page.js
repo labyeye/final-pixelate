@@ -2,7 +2,7 @@ var R=require("../../../chunks/ssr/[turbopack]_runtime.js")("server/app/(crm)/ta
 R.c("server/chunks/ssr/[root-of-the-server]__0fc63fbf._.js")
 R.c("server/chunks/ssr/c729b_next_dist_33596478._.js")
 R.c("server/chunks/ssr/Desktop_Projects_final-pixelate_dashboard_1d28eb8d._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__776dd4c7._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__bdd4831c._.js")
 R.c("server/chunks/ssr/c729b_next_dist_20281486._.js")
 R.c("server/chunks/ssr/c729b_168ccd9f._.js")
 R.c("server/chunks/ssr/c729b_next_dist_client_components_builtin_global-error_6dde89dd.js")

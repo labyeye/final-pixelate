@@ -53,7 +53,8 @@ export type SocialMediaPost = {
   _id?: string;
   id?: string;
   clientId?: string;
-  socialAccountId?: string; // link to SocialAccount
+  socialAccountId?: string; // deprecated: use socialAccountIds instead
+  socialAccountIds?: string[]; // multiple account IDs for collaboration
   title: string;
   platform: SocialPlatform;
   contentType: ContentType;

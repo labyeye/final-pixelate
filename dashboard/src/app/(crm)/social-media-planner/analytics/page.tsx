@@ -13,6 +13,7 @@ import {
 import { ClientPicker } from "@/components/social-media/client-picker";
 import { UpdateMetricsModal } from "@/components/social-media/update-metrics-modal";
 import { PostAccountDisplay } from "@/components/social-media/post-account-display";
+import { MultiAccountDisplay } from "@/components/social-media/multi-account-display";
 
 export default function AnalyticsPage() {
   const { user } = useAuth();
@@ -52,6 +53,12 @@ export default function AnalyticsPage() {
     try {
       const url = new URL("/api/social-media-posts", window.location.origin);
       url.searchParams.set("clientId", clientId);
+      
+      // If user is not an admin, filter by their name to show only assigned posts
+      if (user && user.role !== "admin" && user.name) {
+        url.searchParams.set("assignedTo", user.name);
+      }
+      
       if (dateFrom) url.searchParams.set("fromDate", dateFrom);
       if (dateTo) url.searchParams.set("toDate", dateTo);
       const res = await fetch(url.toString(), { cache: "no-store" });
@@ -81,7 +88,7 @@ export default function AnalyticsPage() {
   // Reload posts when client or date range changes
   useEffect(() => {
     loadPosts(selectedClientId);
-  }, [selectedClientId, dateFrom, dateTo]);
+  }, [selectedClientId, dateFrom, dateTo, user]);
 
   const selectedClient = useMemo(
     () => clients.find((c) => (c._id || c.id) === selectedClientId),
@@ -326,11 +333,15 @@ export default function AnalyticsPage() {
                           <td className="px-4 py-3 font-semibold text-gray-900">{post.title}</td>
                           <td className="px-4 py-3 text-center text-sm">{post.platform}</td>
                           <td className="px-4 py-3 text-center text-sm">
-                            <PostAccountDisplay accountId={post.socialAccountId} />
+                            {(post.socialAccountIds && post.socialAccountIds.length > 0) ? (
+                              <MultiAccountDisplay accountIds={post.socialAccountIds} />
+                            ) : (
+                              <PostAccountDisplay accountId={post.socialAccountId} />
+                            )}
                           </td>
                           <td className="px-4 py-3 text-center text-sm text-gray-600">{post.scheduledDate}</td>
                           <td className="px-4 py-3 text-right">
-                            {isEditing ? (
+                            {inlineEditingPostId === (post._id || post.id) ? (
                               <input
                                 type="number"
                                 min="0"
