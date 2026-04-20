@@ -382,7 +382,7 @@ export function AddPostModal({
           {/* Media Preview */}
           {form.mediaFile && (
             <div className="border rounded p-3 bg-gray-50">
-              <div className="text-xs font-semibold text-muted-foreground mb-2">Media Preview</div>
+              <div className="text-xs font-semibold text-muted-foreground mb-2">Media</div>
               {String(form.mediaFile).startsWith("data:image") ? (
                 <img
                   src={form.mediaFile}
@@ -393,12 +393,12 @@ export function AddPostModal({
                 <video src={form.mediaFile} className="h-40 rounded" controls />
               ) : (
                 <a
-                  className="text-sm underline text-blue-600"
                   href={form.mediaFile}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm"
                 >
-                  View Attachment
+                  🔗 Link
                 </a>
               )}
             </div>

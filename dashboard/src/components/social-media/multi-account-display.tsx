@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { SocialAccount } from "@/lib/social-media-planner";
+import { SocialAccount, getPlatformIcon } from "@/lib/social-media-planner";
 
 interface MultiAccountDisplayProps {
   accountIds?: string[];
@@ -63,13 +63,16 @@ export function MultiAccountDisplay({
       {accounts.map((account) => (
         <span
           key={account._id || account.id}
-          className="inline-block bg-blue-50 border border-blue-200 rounded px-2 py-1 text-xs font-medium"
+          className="inline-flex items-center gap-1 bg-blue-50 border border-blue-200 rounded px-2 py-1 text-xs font-medium"
         >
-          @{account.handle}
-          {account.displayName &&
-            account.displayName !== account.handle && (
-              <span className="text-gray-600 ml-1">({account.displayName})</span>
-            )}
+          <span>{getPlatformIcon(account.platform)}</span>
+          <span>
+            @{account.handle}
+            {account.displayName &&
+              account.displayName !== account.handle && (
+                <span className="text-gray-600 ml-1">({account.displayName})</span>
+              )}
+          </span>
         </span>
       ))}
     </div>

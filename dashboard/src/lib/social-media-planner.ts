@@ -5,6 +5,7 @@ export const SOCIAL_PLATFORMS = [
   "X / Twitter",
   "YouTube Shorts",
   "WhatsApp Channel",
+  "Google My Business",
 ] as const;
 
 export const CONTENT_TYPES = [
@@ -115,4 +116,20 @@ export const fetchSocialAccount = async (accountId: string): Promise<SocialAccou
 export const formatAccountDisplay = (account?: SocialAccount | null): string => {
   if (!account) return "(No Account)";
   return `@${account.handle}`;
+};
+
+/**
+ * Get platform icon/emoji
+ */
+export const getPlatformIcon = (platform: SocialPlatform): string => {
+  const icons: Record<SocialPlatform, string> = {
+    Instagram: "📷",
+    Facebook: "👤",
+    LinkedIn: "💼",
+    "X / Twitter": "𝕏",
+    "YouTube Shorts": "🎬",
+    "WhatsApp Channel": "💬",
+    "Google My Business": "🏢",
+  };
+  return icons[platform] || "📱";
 };

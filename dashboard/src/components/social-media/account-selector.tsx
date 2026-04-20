@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
-import { SocialAccount, SocialPlatform } from "@/lib/social-media-planner";
+import { SocialAccount, SocialPlatform, getPlatformIcon } from "@/lib/social-media-planner";
 
 interface AccountSelectorProps {
   clientId: string;
@@ -194,6 +194,7 @@ export function AccountSelector({
                   <span className="text-sm">{account.displayName}</span>
                 ) : (
                   <div className="flex items-center gap-2">
+                    <span>{getPlatformIcon(account.platform)}</span>
                     <span className="text-sm font-medium">@{account.handle}</span>
                     {account.displayName && (
                       <span className="text-xs text-gray-500">

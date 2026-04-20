@@ -17,6 +17,7 @@ import { AddPostModal } from "@/components/social-media/add-post-modal";
 import { PostAccountDisplay } from "@/components/social-media/post-account-display";
 import { MultiAccountDisplay } from "@/components/social-media/multi-account-display";
 import { SocialAccountsTable } from "@/components/social-media/social-accounts-table";
+import { ViewPlanModal } from "@/components/social-media/view-plan-modal";
 
 const statusBadge: Record<string, string> = {
   Draft: "bg-gray-100 text-gray-700",
@@ -34,6 +35,8 @@ export default function SocialMediaPlannerPage() {
   const [team, setTeam] = useState<any[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingPost, setEditingPost] = useState<SocialMediaPost | null>(null);
+  const [viewingPlan, setViewingPlan] = useState<SocialMediaPost | null>(null);
+  const [isViewPlanModalOpen, setIsViewPlanModalOpen] = useState(false);
 
   const [search, setSearch] = useState("");
   const [platformFilter, setPlatformFilter] = useState("");
@@ -233,6 +236,11 @@ export default function SocialMediaPlannerPage() {
   const editPost = (item: SocialMediaPost) => {
     setEditingPost(item);
     setIsModalOpen(true);
+  };
+
+  const openViewPlan = (item: SocialMediaPost) => {
+    setViewingPlan(item);
+    setIsViewPlanModalOpen(true);
   };
 
   return (
@@ -441,12 +449,14 @@ export default function SocialMediaPlannerPage() {
                         <td className="p-2 border-b align-top">
                           {item.platform}
                         </td>
-                        <td className="p-2 border-b align-top">
-                          {(item.socialAccountIds && item.socialAccountIds.length > 0) ? (
-                            <MultiAccountDisplay accountIds={item.socialAccountIds} />
-                          ) : (
-                            <PostAccountDisplay accountId={item.socialAccountId} />
-                          )}
+                        <td className="p-2 border-b align-top max-w-xs">
+                          <div className="truncate" title={(item.socialAccountIds && item.socialAccountIds.length > 0) ? item.socialAccountIds.join(", ") : (item.socialAccountId || "")}>
+                            {(item.socialAccountIds && item.socialAccountIds.length > 0) ? (
+                              <MultiAccountDisplay accountIds={item.socialAccountIds} />
+                            ) : (
+                              <PostAccountDisplay accountId={item.socialAccountId} />
+                            )}
+                          </div>
                         </td>
                         <td className="p-2 border-b align-top">
                           {item.contentType}
@@ -466,6 +476,14 @@ export default function SocialMediaPlannerPage() {
                         </td>
                         <td className="p-2 border-b align-top">
                           <div className="flex flex-wrap gap-1">
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => openViewPlan(item)}
+                              title="View full plan details"
+                            >
+                              View
+                            </Button>
                             <Button
                               size="sm"
                               variant="outline"
@@ -549,6 +567,16 @@ export default function SocialMediaPlannerPage() {
         staffOptions={staffOptions}
         createdBy={user?.name}
         editingPost={editingPost}
+      />
+
+      {/* View Plan Modal */}
+      <ViewPlanModal
+        isOpen={isViewPlanModalOpen}
+        plan={viewingPlan}
+        onClose={() => {
+          setIsViewPlanModalOpen(false);
+          setViewingPlan(null);
+        }}
       />
 
       {/* Filters Section - Only visible when client is selected */}
