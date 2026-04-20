@@ -11,6 +11,26 @@ export async function PUT(
     const body = await req.json();
     const db = await getDb();
 
+    // Get the current user ID from the request
+    const userId = req.nextUrl.searchParams.get("userId");
+
+    // First, fetch the task to verify ownership
+    const task = await db
+      .collection("tasks")
+      .findOne({ _id: new ObjectId(id) });
+
+    if (!task) {
+      return NextResponse.json({ error: "Task not found" }, { status: 404 });
+    }
+
+    // Verify that the user making the request is the one assigned to this task
+    if (userId && String(task.assigneeId) !== String(userId)) {
+      return NextResponse.json(
+        { error: "You can only update your own tasks" },
+        { status: 403 },
+      );
+    }
+
     // Remove immutable fields or prepare update object
     const updateData = {
       ...body,
@@ -28,9 +48,6 @@ export async function PUT(
       );
 
     if (!result) {
-      // mongo v5/6 diff, specifically findOneAndUpdate might return value directly or inside 'value', assuming native driver
-      // If using recent driver, result might be the document or result.value
-      // let's assume result might be null if not found
       return NextResponse.json({ error: "Task not found" }, { status: 404 });
     }
 

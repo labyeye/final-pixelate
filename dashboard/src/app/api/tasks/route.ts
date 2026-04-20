@@ -6,9 +6,16 @@ import { Task } from "@/lib/task-models";
 export async function GET(req: NextRequest) {
   try {
     const db = await getDb();
+    
+    // Get the current user ID from query parameters (passed by client)
+    const userId = req.nextUrl.searchParams.get("userId");
+    
+    // Build query: only show tasks assigned to the current user
+    const query = userId ? { assigneeId: userId } : {};
+    
     const tasks = await db
       .collection("tasks")
-      .find({})
+      .find(query)
       .sort({ createdAt: -1 })
       .toArray();
 
