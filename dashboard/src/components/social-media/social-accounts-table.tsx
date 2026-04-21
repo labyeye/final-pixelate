@@ -21,8 +21,8 @@ import {
   SOCIAL_PLATFORMS,
   type SocialAccount,
   type SocialPlatform,
-  getPlatformIcon,
 } from "@/lib/social-media-planner";
+import { PlatformLogo } from "./platform-logo";
 import { Trash2, Plus } from "lucide-react";
 
 interface SocialAccountsTableProps {
@@ -132,20 +132,6 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
     }
   };
 
-  // Get platform color
-  const getPlatformColor = (platform: SocialPlatform) => {
-    const colors: Record<SocialPlatform, string> = {
-      Instagram: "bg-pink-100 text-pink-800",
-      Facebook: "bg-blue-100 text-blue-800",
-      LinkedIn: "bg-indigo-100 text-indigo-800",
-      "X / Twitter": "bg-slate-100 text-slate-800",
-      "YouTube Shorts": "bg-red-100 text-red-800",
-      "WhatsApp Channel": "bg-green-100 text-green-800",
-      "Google My Business": "bg-amber-100 text-amber-800",
-    };
-    return colors[platform] || "bg-gray-100 text-gray-800";
-  };
-
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
@@ -251,12 +237,7 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
                   className="border-b hover:bg-gray-50"
                 >
                   <td className="px-4 py-3">
-                    <span
-                      className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${getPlatformColor(account.platform as SocialPlatform)}`}
-                    >
-                      <span>{getPlatformIcon(account.platform as SocialPlatform)}</span>
-                      <span>{account.platform}</span>
-                    </span>
+                    <PlatformLogo platform={account.platform as SocialPlatform} size="md" showLabel />
                   </td>
                   <td className="px-4 py-3 font-mono">@{account.handle}</td>
                   <td className="px-4 py-3 text-gray-600">

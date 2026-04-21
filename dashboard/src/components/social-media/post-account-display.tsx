@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { SocialAccount, getPlatformIcon } from "@/lib/social-media-planner";
+import { SocialAccount } from "@/lib/social-media-planner";
+import { PlatformLogo } from "./platform-logo";
 
 interface PostAccountDisplayProps {
   accountId?: string;
@@ -54,14 +55,14 @@ export function PostAccountDisplay({
   }
 
   return (
-    <span className={`font-medium inline-flex items-center gap-1 ${className}`}>
-      <span>{getPlatformIcon(account.platform)}</span>
+    <div className={`font-medium inline-flex items-center gap-2 ${className}`}>
+      <PlatformLogo platform={account.platform} size="sm" />
       <span>
         @{account.handle}
         {account.displayName && account.displayName !== account.handle && (
           <span className="text-xs text-gray-600 ml-1">({account.displayName})</span>
         )}
       </span>
-    </span>
+    </div>
   );
 }

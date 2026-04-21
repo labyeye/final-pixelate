@@ -31,6 +31,13 @@ const getHsnCodeForService = (serviceName?: string) => {
   ) {
     return "999612" as const;
   }
+  if (
+    normalized.includes("hosting") ||
+    normalized.includes("maintenance") ||
+    normalized.includes("service")
+  ) {
+    return "998315" as const;
+  }
   return "998314" as const;
 };
 
@@ -39,7 +46,7 @@ type FormValues = {
   projectTitle: string;
   title: string;
   amount: number;
-  hsnCode: "998314" | "999612";
+  hsnCode: "998314" | "999612" | "998315";
   dueDate: string;
   serviceId: string;
   status: string;

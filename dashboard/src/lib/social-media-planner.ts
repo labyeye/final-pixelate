@@ -69,6 +69,7 @@ export type SocialMediaPost = {
   approvalStatus?: "Pending" | "Approved" | "Rejected";
   notes?: string;
   postedLink?: string;
+  postedLinks?: Record<string, string>;
   createdBy?: string;
   views?: number;
   likes?: number;
@@ -119,17 +120,17 @@ export const formatAccountDisplay = (account?: SocialAccount | null): string => 
 };
 
 /**
- * Get platform icon/emoji
+ * Get platform icon label fallback
  */
 export const getPlatformIcon = (platform: SocialPlatform): string => {
   const icons: Record<SocialPlatform, string> = {
-    Instagram: "📷",
-    Facebook: "👤",
-    LinkedIn: "💼",
-    "X / Twitter": "𝕏",
-    "YouTube Shorts": "🎬",
-    "WhatsApp Channel": "💬",
-    "Google My Business": "🏢",
+    Instagram: "IG",
+    Facebook: "FB",
+    LinkedIn: "IN",
+    "X / Twitter": "X",
+    "YouTube Shorts": "YT",
+    "WhatsApp Channel": "WA",
+    "Google My Business": "G",
   };
-  return icons[platform] || "📱";
+  return icons[platform] || "SM";
 };

@@ -18,6 +18,7 @@ import { PostAccountDisplay } from "@/components/social-media/post-account-displ
 import { MultiAccountDisplay } from "@/components/social-media/multi-account-display";
 import { SocialAccountsTable } from "@/components/social-media/social-accounts-table";
 import { ViewPlanModal } from "@/components/social-media/view-plan-modal";
+import { PostLinksModal } from "@/components/social-media/post-links-modal";
 
 const statusBadge: Record<string, string> = {
   Draft: "bg-gray-100 text-gray-700",
@@ -37,6 +38,8 @@ export default function SocialMediaPlannerPage() {
   const [editingPost, setEditingPost] = useState<SocialMediaPost | null>(null);
   const [viewingPlan, setViewingPlan] = useState<SocialMediaPost | null>(null);
   const [isViewPlanModalOpen, setIsViewPlanModalOpen] = useState(false);
+  const [isPostLinksModalOpen, setIsPostLinksModalOpen] = useState(false);
+  const [postForLinks, setPostForLinks] = useState<SocialMediaPost | null>(null);
 
   const [search, setSearch] = useState("");
   const [platformFilter, setPlatformFilter] = useState("");
@@ -187,12 +190,37 @@ export default function SocialMediaPlannerPage() {
     await loadPosts(selectedClientId);
   };
 
-  const updateStatus = async (id: string, status: string) => {
-    const body: any = { status };
-    if (status === "Posted") {
-      const link = window.prompt("Paste posted link (optional):", "") || "";
-      body.postedLink = link;
+  const updateStatus = async (id: string, status: string, post?: SocialMediaPost) => {
+    if (status === "Posted" && post) {
+      // If multiple accounts, open modal to ask for links
+      const accountIds = post.socialAccountIds && post.socialAccountIds.length > 0 
+        ? post.socialAccountIds 
+        : (post.socialAccountId ? [post.socialAccountId] : []);
+      
+      if (accountIds.length > 1) {
+        setPostForLinks(post);
+        setIsPostLinksModalOpen(true);
+        return;
+      } else if (accountIds.length === 1) {
+        // Single account - use simple prompt
+        const accountId = accountIds[0];
+        const link = window.prompt("Paste posted link (optional):", "") || "";
+        const postedLinks = link && accountId ? { [accountId]: link } : {};
+        const res = await fetch(`/api/social-media-posts/${id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status, postedLink: link, postedLinks }),
+        });
+        if (!res.ok) {
+          alert("Failed to update status");
+          return;
+        }
+        await loadPosts(selectedClientId);
+        return;
+      }
     }
+
+    const body: any = { status };
     const res = await fetch(`/api/social-media-posts/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -202,6 +230,36 @@ export default function SocialMediaPlannerPage() {
       alert("Failed to update status");
       return;
     }
+    await loadPosts(selectedClientId);
+  };
+
+  const handleSavePostedLinks = async (links: Record<string, string>) => {
+    if (!postForLinks) return;
+    const postId = String(postForLinks._id || postForLinks.id || "");
+    if (!postId) return;
+
+    const nonEmptyLinks = Object.fromEntries(
+      Object.entries(links).filter(([, link]) => String(link || "").trim().length > 0),
+    );
+    const firstLink = Object.values(nonEmptyLinks)[0] || "";
+
+    const res = await fetch(`/api/social-media-posts/${postId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        status: "Posted",
+        postedLink: firstLink,
+        postedLinks: nonEmptyLinks,
+      }),
+    });
+
+    if (!res.ok) {
+      alert("Failed to update status");
+      return;
+    }
+
+    setIsPostLinksModalOpen(false);
+    setPostForLinks(null);
     await loadPosts(selectedClientId);
   };
 
@@ -508,7 +566,7 @@ export default function SocialMediaPlannerPage() {
                             <Button
                               size="sm"
                               variant="outline"
-                              onClick={() => updateStatus(itemId, "Posted")}
+                              onClick={() => updateStatus(itemId, "Posted", item)}
                             >
                               Mark Posted
                             </Button>
@@ -577,6 +635,23 @@ export default function SocialMediaPlannerPage() {
           setIsViewPlanModalOpen(false);
           setViewingPlan(null);
         }}
+      />
+
+      <PostLinksModal
+        isOpen={isPostLinksModalOpen}
+        post={postForLinks}
+        accountIds={
+          postForLinks?.socialAccountIds?.length
+            ? postForLinks.socialAccountIds
+            : postForLinks?.socialAccountId
+              ? [postForLinks.socialAccountId]
+              : []
+        }
+        onClose={() => {
+          setIsPostLinksModalOpen(false);
+          setPostForLinks(null);
+        }}
+        onSave={handleSavePostedLinks}
       />
 
       {/* Filters Section - Only visible when client is selected */}

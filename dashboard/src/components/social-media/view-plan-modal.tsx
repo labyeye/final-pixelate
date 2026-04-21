@@ -168,8 +168,25 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
             </div>
           )}
 
-          {/* Posted Link */}
-          {plan.postedLink && (
+          {/* Posted Links */}
+          {(plan.postedLinks && Object.keys(plan.postedLinks).length > 0) ? (
+            <div className="border rounded-lg p-3 space-y-2">
+              <label className="text-xs font-bold text-gray-500">POSTED LINKS</label>
+              <div className="space-y-2">
+                {Object.entries(plan.postedLinks).map(([accountId, link]) => (
+                  <a
+                    key={accountId}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-fit items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold"
+                  >
+                    🔗 View Post ({accountId.slice(-6)})
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : plan.postedLink ? (
             <div className="border rounded-lg p-3 space-y-2">
               <label className="text-xs font-bold text-gray-500">POSTED LINK</label>
               <a
@@ -181,7 +198,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
                 🔗 View Posted Post
               </a>
             </div>
-          )}
+          ) : null}
 
           {/* Notes */}
           {plan.notes && (
