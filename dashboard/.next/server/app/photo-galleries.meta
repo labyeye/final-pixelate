@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/photo-galleries/layout,_N_T_/(crm)/photo-galleries/page,_N_T_/photo-galleries"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/photo-galleries/__PAGE__",
+    "/!KGNybSk/photo-galleries",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

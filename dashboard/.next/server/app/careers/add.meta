@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/careers/layout,_N_T_/(crm)/careers/add/layout,_N_T_/(crm)/careers/add/page,_N_T_/careers/add"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/careers/add/__PAGE__",
+    "/!KGNybSk/careers/add",
+    "/!KGNybSk/careers",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

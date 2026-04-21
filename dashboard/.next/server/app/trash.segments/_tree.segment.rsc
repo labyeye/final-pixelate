@@ -1,0 +1,3 @@
+:HL["/_next/static/chunks/259ec1f3ee676d96.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap","style"]
+0:{"buildId":"nsBpXFd0AsVPGZ0DF00MJ","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"(crm)","paramType":null,"paramKey":"(crm)","hasRuntimePrefetch":false,"slots":{"children":{"name":"trash","paramType":null,"paramKey":"trash","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

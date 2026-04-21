@@ -564,7 +564,6 @@ export function AddMemberDialog({
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
             <DialogFooter>
               <Button type="submit" size="lg" className="text-lg w-full mt-4">
                 Create Team Member

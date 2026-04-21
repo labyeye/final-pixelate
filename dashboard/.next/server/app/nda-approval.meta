@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/nda-approval/layout,_N_T_/(crm)/nda-approval/page,_N_T_/nda-approval"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/nda-approval/__PAGE__",
+    "/!KGNybSk/nda-approval",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

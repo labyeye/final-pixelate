@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(crm)/layout,_N_T_/(crm)/dashboard/layout,_N_T_/(crm)/dashboard/whatsapp-inbox/layout,_N_T_/(crm)/dashboard/whatsapp-inbox/page,_N_T_/dashboard/whatsapp-inbox"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGNybSk/dashboard/whatsapp-inbox/__PAGE__",
+    "/!KGNybSk/dashboard/whatsapp-inbox",
+    "/!KGNybSk/dashboard",
+    "/!KGNybSk",
+    "/_index",
+    "/_head"
+  ]
+}

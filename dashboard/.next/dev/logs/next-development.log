@@ -1,15 +1,3 @@
-[00:00:00.974] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.054] Server  LOG      ✓ Ready in 781ms
-[00:00:04.907] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:20.212] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:00:20.212] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:01:56.983] Server  LOG      ✓ Compiled in 55ms
-[00:02:18.950] Server  LOG      ✓ Compiled in 40ms
-[00:21:57.135] Server  LOG      ✓ Compiled in 38ms
-[00:22:04.540] Server  LOG      ✓ Compiled in 67ms
-[00:22:17.842] Server  LOG      ✓ Compiled in 26ms
-[00:22:24.055] Server  LOG      ✓ Compiled in 44ms
-[00:22:42.295] Server  LOG      ✓ Compiled in 43ms
-[00:23:14.177] Server  LOG      ✓ Compiled in 119ms
-[00:23:34.868] Server  LOG      ✓ Compiled in 31ms
-[00:27:29.135] Server  LOG      ✓ Compiled in 97ms
+[00:00:00.673] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:00.754] Server  LOG      ✓ Ready in 569ms
+[00:00:02.632] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
