@@ -354,7 +354,7 @@ export async function POST(req: NextRequest) {
           parameters: [
             { type: "text", parameter_name: "client_name", text: clientName },
             { type: "text", parameter_name: "inv_no", text: invNo },
-            { type: "text", parameter_name: "amount", text: String(amount) },
+            { type: "text", parameter_name: "amount", text: `${String(amount)} incl GST` },
           ],
         },
       ],

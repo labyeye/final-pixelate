@@ -59,6 +59,13 @@ const formSchema = z.object({
   secondaryPhone: z.string().optional(),
   secondaryEmail: z.string().email().optional().or(z.literal("")),
   salary: z.coerce.number().optional(),
+  // Payment Account fields
+  paymentAccountType: z.union([z.literal("UPI"), z.literal("Bank"), z.literal("None")]).optional(),
+  upiId: z.string().optional(),
+  bankAccountHolderName: z.string().optional(),
+  bankAccountNumber: z.string().optional(),
+  bankIfscCode: z.string().optional(),
+  bankName: z.string().optional(),
 });
 
 type AddMemberDialogProps = {
@@ -116,6 +123,13 @@ export function AddMemberDialog({
       secondaryPhone: values.secondaryPhone,
       secondaryEmail: values.secondaryEmail,
       salary: values.salary,
+      // Payment Account fields
+      paymentAccountType: values.paymentAccountType,
+      upiId: values.upiId,
+      bankAccountHolderName: values.bankAccountHolderName,
+      bankAccountNumber: values.bankAccountNumber,
+      bankIfscCode: values.bankIfscCode,
+      bankName: values.bankName,
     };
 
     if (initialValues && (initialValues._id || initialValues.id)) {
@@ -217,6 +231,13 @@ export function AddMemberDialog({
         secondaryPhone: initialValues.secondaryPhone ?? undefined,
         secondaryEmail: initialValues.secondaryEmail ?? undefined,
         salary: initialValues.salary ?? undefined,
+        // Payment Account fields
+        paymentAccountType: (initialValues as any).paymentAccountType ?? undefined,
+        upiId: (initialValues as any).upiId ?? undefined,
+        bankAccountHolderName: (initialValues as any).bankAccountHolderName ?? undefined,
+        bankAccountNumber: (initialValues as any).bankAccountNumber ?? undefined,
+        bankIfscCode: (initialValues as any).bankIfscCode ?? undefined,
+        bankName: (initialValues as any).bankName ?? undefined,
       });
     }
   }, [initialValues]);
@@ -435,6 +456,115 @@ export function AddMemberDialog({
                 )}
               />
             </div>
+
+            {/* Payment Account Section */}
+            <div className="border-t pt-6 mt-6">
+              <h3 className="text-lg font-semibold mb-4">Payment Account Details (Optional)</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <FormField
+                  control={form.control}
+                  name="paymentAccountType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Payment Account Type</FormLabel>
+                      <Select
+                        value={field.value ?? "None"}
+                        onValueChange={field.onChange}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select payment type" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="None">None</SelectItem>
+                          <SelectItem value="UPI">UPI</SelectItem>
+                          <SelectItem value="Bank">Bank Account</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* UPI Fields */}
+                {form.watch("paymentAccountType") === "UPI" && (
+                  <FormField
+                    control={form.control}
+                    name="upiId"
+                    render={({ field }) => (
+                      <FormItem className="md:col-span-2">
+                        <FormLabel>UPI ID</FormLabel>
+                        <FormControl>
+                          <Input placeholder="user@upi" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                )}
+
+                {/* Bank Account Fields */}
+                {form.watch("paymentAccountType") === "Bank" && (
+                  <>
+                    <FormField
+                      control={form.control}
+                      name="bankAccountHolderName"
+                      render={({ field }) => (
+                        <FormItem className="md:col-span-1">
+                          <FormLabel>Account Holder Name</FormLabel>
+                          <FormControl>
+                            <Input {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="bankAccountNumber"
+                      render={({ field }) => (
+                        <FormItem className="md:col-span-1">
+                          <FormLabel>Account Number</FormLabel>
+                          <FormControl>
+                            <Input placeholder="1234567890" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="bankIfscCode"
+                      render={({ field }) => (
+                        <FormItem className="md:col-span-1">
+                          <FormLabel>IFSC Code</FormLabel>
+                          <FormControl>
+                            <Input placeholder="SBIN0001234" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="bankName"
+                      render={({ field }) => (
+                        <FormItem className="md:col-span-3">
+                          <FormLabel>Bank Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="State Bank of India" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </>
+                )}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
             <DialogFooter>
               <Button type="submit" size="lg" className="text-lg w-full mt-4">
                 Create Team Member

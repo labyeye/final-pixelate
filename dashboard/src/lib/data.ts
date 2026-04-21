@@ -47,6 +47,8 @@ export interface User {
   avatarUrl?: string;
   // optional avatar (data URL or external URL)
   avatar?: string;
+  // profile picture URL (stored after upload)
+  profilePicture?: string;
   allowedPages?: string[];
   // For client-role users: link back to their client document
   clientId?: string;

@@ -1,3 +1,0 @@
-:HL["/_next/static/chunks/edf48e9892d416ed.css","style"]
-:HL["https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap","style"]
-0:{"buildId":"PKqJYNq3va26ZijJ8_uXY","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"(crm)","paramType":null,"paramKey":"(crm)","hasRuntimePrefetch":false,"slots":{"children":{"name":"timeline","paramType":null,"paramKey":"timeline","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
