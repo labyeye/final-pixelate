@@ -120,6 +120,8 @@ __turbopack_context__.s([
     ()=>fetchSocialAccount,
     "formatAccountDisplay",
     ()=>formatAccountDisplay,
+    "getPlatformIcon",
+    ()=>getPlatformIcon,
     "isSameDate",
     ()=>isSameDate,
     "toDateTime",
@@ -131,7 +133,8 @@ const SOCIAL_PLATFORMS = [
     "LinkedIn",
     "X / Twitter",
     "YouTube Shorts",
-    "WhatsApp Channel"
+    "WhatsApp Channel",
+    "Google My Business"
 ];
 const CONTENT_TYPES = [
     "Image Post",
@@ -178,6 +181,18 @@ const fetchSocialAccount = async (accountId)=>{
 const formatAccountDisplay = (account)=>{
     if (!account) return "(No Account)";
     return `@${account.handle}`;
+};
+const getPlatformIcon = (platform)=>{
+    const icons = {
+        Instagram: "IG",
+        Facebook: "FB",
+        LinkedIn: "IN",
+        "X / Twitter": "X",
+        "YouTube Shorts": "YT",
+        "WhatsApp Channel": "WA",
+        "Google My Business": "G"
+    };
+    return icons[platform] || "SM";
 };
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);

@@ -11,6 +11,8 @@ import {
   type SocialMediaPost,
 } from "@/lib/social-media-planner";
 import { MultiAccountSelector } from "./multi-account-selector";
+import { PlatformIcon } from "./platform-icon";
+import { PlatformSelector } from "./platform-selector";
 
 interface AddPostModalProps {
   isOpen: boolean;
@@ -206,20 +208,11 @@ export function AddPostModal({
                 onChange={(e) => handleChange("title", e.target.value)}
               />
             </div>
-            <div>
-              <label className="block text-sm font-semibold mb-1">Platform *</label>
-              <select
-                value={form.platform}
-                onChange={(e) => handleChange("platform", e.target.value)}
-                className="border rounded-md p-2 w-full"
-              >
-                {SOCIAL_PLATFORMS.map((platform) => (
-                  <option key={platform} value={platform}>
-                    {platform}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <PlatformSelector
+              value={form.platform}
+              onChange={(val) => handleChange("platform", val)}
+              label="Platform"
+            />
             <div>
               <label className="block text-sm font-semibold mb-1">Content Type *</label>
               <select

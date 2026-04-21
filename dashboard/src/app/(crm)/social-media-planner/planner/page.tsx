@@ -18,6 +18,7 @@ import { PostAccountDisplay } from "@/components/social-media/post-account-displ
 import { MultiAccountDisplay } from "@/components/social-media/multi-account-display";
 import { SocialAccountsTable } from "@/components/social-media/social-accounts-table";
 import { ViewPlanModal } from "@/components/social-media/view-plan-modal";
+import { PlatformIcon } from "@/components/social-media/platform-icon";
 import { PostLinksModal } from "@/components/social-media/post-links-modal";
 
 const statusBadge: Record<string, string> = {

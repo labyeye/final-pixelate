@@ -24,6 +24,7 @@ import {
 } from "@/lib/social-media-planner";
 import { PlatformLogo } from "./platform-logo";
 import { Trash2, Plus } from "lucide-react";
+import { PlatformIcon } from "./platform-icon";
 
 interface SocialAccountsTableProps {
   clientId: string;
@@ -168,7 +169,10 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
                   <SelectContent>
                     {SOCIAL_PLATFORMS.map((platform) => (
                       <SelectItem key={platform} value={platform}>
-                        {platform}
+                        <div className="flex items-center gap-2">
+                          <PlatformIcon platform={platform} size="sm" />
+                          <span>{platform}</span>
+                        </div>
                       </SelectItem>
                     ))}
                   </SelectContent>
