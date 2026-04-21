@@ -2,6 +2,20 @@ import { getDb } from "@/lib/mongodb";
 import { hashPassword } from "@/lib/auth";
 import { ObjectId } from "mongodb";
 
+// Utility: Get financial year in format YYYY-YYYY (e.g., 2025-2026)
+// Financial year runs from April to March
+export function getFinancialYear(date: Date = new Date()): string {
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1; // 1-12
+  if (month >= 4) {
+    // April onwards: current year to next year
+    return `${year}-${year + 1}`;
+  } else {
+    // January to March: previous year to current year
+    return `${year - 1}-${year}`;
+  }
+}
+
 // Basic CRUD wrappers for main collections. These return plain JS objects.
 
 export async function getCollection(name: string) {
@@ -412,16 +426,18 @@ export async function getInvoices() {
   return col.find().toArray();
 }
 
-// Renumber invoices: set invoiceNo to KTS-0001 style in createdAt order
+// Renumber invoices: set invoiceNo to KTS/2025-2026/0001 style in createdAt order
 export async function renumberInvoices(financialYear?: string) {
   const col = await getCollection("invoices");
   // fetch invoices sorted by createdAt asc
   const invoices = await col.find({}).sort({ createdAt: 1 }).toArray();
   if (!invoices || !invoices.length) return { updated: 0 };
+  
   let counter = 1;
   for (const inv of invoices) {
+    const fy = financialYear || getFinancialYear(inv.createdAt || new Date());
     const padded = String(counter).padStart(4, "0");
-    const invoiceNo = `KTS-${padded}`;
+    const invoiceNo = `KTS/${fy}/${padded}`;
     await col.updateOne(
       { _id: inv._id },
       { $set: { invoiceNo } },
@@ -433,12 +449,13 @@ export async function renumberInvoices(financialYear?: string) {
 
 export async function createInvoice(invoice: any) {
   const col = await getCollection("invoices");
-  // generate invoiceNo in KTS-0001 format
+  // generate invoiceNo in KTS/2025-2026/0001 format
   try {
-    // find existing max number in KTS-0001 format
-    const regex = /^KTS-(\d+)$/;
+    const fy = getFinancialYear(new Date());
+    // find existing max number for this financial year in KTS/YYYY-YYYY/#### format
+    const regex = new RegExp(`^KTS/${fy}/(\\d+)$`);
     const docs = await col
-      .find({ invoiceNo: { $regex: "^KTS-" } })
+      .find({ invoiceNo: { $regex: `^KTS/${fy}/` } })
       .project({ invoiceNo: 1 })
       .toArray();
     let maxNum = 0;
@@ -452,7 +469,7 @@ export async function createInvoice(invoice: any) {
     }
     const nextNum = maxNum + 1;
     const padded = String(nextNum).padStart(4, "0");
-    const invoiceNo = `KTS-${padded}`;
+    const invoiceNo = `KTS/${fy}/${padded}`;
     const id = `PN-${padded}`;
     const res = await col.insertOne({
       ...invoice,
