@@ -53,7 +53,6 @@ const KNOWN_PAGES = [
   "/industry-ecommerce.html",
   "/industry-education.html",
   "/industry-finance.html",
-  "/industry-healthcare.html",
   "/industry-logistics.html",
   "/industry-manufacturing.html",
   "/industry-realestate.html",
@@ -98,9 +97,9 @@ export default function UserActivityPage() {
   const avgDuration =
     data.length > 0
       ? (
-          data.reduce((acc, curr) => acc + (curr.duration || 0), 0) /
-          data.length
-        ).toFixed(1)
+        data.reduce((acc, curr) => acc + (curr.duration || 0), 0) /
+        data.length
+      ).toFixed(1)
       : 0;
 
   // Process Charts
