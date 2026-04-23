@@ -10,8 +10,8 @@ RewriteRule ^(.*)$ https://www.pixelatenest.com/$1 [L,R=301]
 RewriteRule ^index\.html$ / [R=301,L]
 
 # Strip .html extension (301 redirect)
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
-RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.+)\.html\ HTTP
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
 
 # === LEGACY REDIRECTS ===
 RewriteRule ^videoediting$ /services/video-editing [R=301,L]
@@ -25,6 +25,7 @@ RewriteRule ^hosting-maintenance$ /services/hosting-maintenance [R=301,L]
 RewriteRule ^detailed-services-digital$ /services/digital-marketing [R=301,L]
 RewriteRule ^detailed-services-uiux$ /services/uiux-branding [R=301,L]
 RewriteRule ^detailed-services$ /services [R=301,L]
+RewriteRule ^detailed-services/(.*)$ /services/detailed/$1 [R=301,L]
 
 # Legacy query-based service URLs
 RewriteCond %{REQUEST_URI} ^/detailed-services$ [NC]
@@ -40,14 +41,15 @@ RewriteRule ^technologies$ /pages/technologies [R=301,L]
 RewriteRule ^team-leadership$ /pages/team-leadership [R=301,L]
 RewriteRule ^photography$ /pages/photography [R=301,L]
 RewriteRule ^locations$ /pages/locations [R=301,L]
-RewriteRule ^state$ /pages/state [R=301,L]
+RewriteRule ^location$ /pages/locations [R=301,L]
+RewriteRule ^state$ /pages/locations [R=301,L]
 RewriteRule ^portfolio-details$ /pages/portfolio-details [R=301,L]
 RewriteRule ^product$ /pages/product [R=301,L]
 
 # Redirect old blog URLs
 RewriteRule ^blog$ /blog/ [R=301,L]
 RewriteRule ^blogs$ /blog/ [R=301,L]
-RewriteRule ^blog-post$ /blog/post [R=301,L]
+RewriteRule ^blog-post$ /blog/ [R=301,L]
 
 # Redirect old industry URLs
 RewriteRule ^industry-ecommerce$ /industries/ecommerce [R=301,L]
@@ -57,6 +59,12 @@ RewriteRule ^industry-manufacturing$ /industries/manufacturing [R=301,L]
 RewriteRule ^industry-realestate$ /industries/real-estate [R=301,L]
 RewriteRule ^industry-travel$ /industries/travel [R=301,L]
 RewriteRule ^industry-utilities$ /industries/utilities [R=301,L]
+RewriteRule ^industry-healthcare$ /industries/ [R=301,L]
+RewriteRule ^industry-finance$ /industries/ [R=301,L]
+RewriteRule ^industry-media$ /industries/ [R=301,L]
+
+# Search and other cleanup
+RewriteRule ^search$ / [R=301,L]
 
 # Redirect old legal URLs
 RewriteRule ^cookie-policy$ /legal/cookie-policy [R=301,L]
@@ -73,11 +81,14 @@ RewriteRule ^inner-pages/(.*)$ / [R=301,L]
 RewriteRule ^checkout$ /pages/contact [R=301,L]
 RewriteRule ^api/(.*)$ - [R=410,L]
 
-# Doorway page consolidation
-RewriteRule ^factory-management-bihar/(.+)$ /pages/product [R=301,L]
-RewriteRule ^counter-billing-bihar/(.+)$ /pages/product [R=301,L]
-RewriteRule ^school-crm-bihar/(.+)$ /pages/product [R=301,L]
-RewriteRule ^school-crm-muzaffarpur$ /pages/product [R=301,L]
+# Doorway page consolidation/redirection
+RewriteRule ^factory-management-bihar$ /pages/product [R=301,L]
+RewriteRule ^factory-management-bihar/(.+)$ /locations/factory-management-bihar/$1 [R=301,L]
+RewriteRule ^counter-billing-bihar$ /products/counter-billing-software [R=301,L]
+RewriteRule ^counter-billing-bihar/(.+)$ /locations/counter-billing-bihar/$1 [R=301,L]
+RewriteRule ^school-crm-bihar$ /products/school-management-system [R=301,L]
+RewriteRule ^school-crm-bihar/(.+)$ /locations/school-crm-bihar/$1 [R=301,L]
+RewriteRule ^school-crm-muzaffarpur$ /locations/school-crm-bihar/school-crm-muzaffarpur [R=301,L]
 
 # Fix double slashes
 RewriteCond %{THE_REQUEST} //
