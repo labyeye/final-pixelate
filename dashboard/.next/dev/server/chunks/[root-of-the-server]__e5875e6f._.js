@@ -231,6 +231,8 @@ __turbopack_context__.s([
     ()=>getClients,
     "getCollection",
     ()=>getCollection,
+    "getFinancialYear",
+    ()=>getFinancialYear,
     "getInventory",
     ()=>getInventory,
     "getInvoices",
@@ -266,6 +268,17 @@ var __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$_
 ;
 ;
 ;
+function getFinancialYear(date = new Date()) {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1; // 1-12
+    if (month >= 4) {
+        // April onwards: current year to next year
+        return `${year}-${year + 1}`;
+    } else {
+        // January to March: previous year to current year
+        return `${year - 1}-${year}`;
+    }
+}
 async function getCollection(name) {
     const db = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$mongodb$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getDb"])();
     return db.collection(name);
@@ -712,8 +725,9 @@ async function renumberInvoices(financialYear) {
     };
     let counter = 1;
     for (const inv of invoices){
+        const fy = financialYear || getFinancialYear(inv.createdAt || new Date());
         const padded = String(counter).padStart(4, "0");
-        const invoiceNo = `KTS-${padded}`;
+        const invoiceNo = `KTS/${fy}/${padded}`;
         await col.updateOne({
             _id: inv._id
         }, {
@@ -729,13 +743,14 @@ async function renumberInvoices(financialYear) {
 }
 async function createInvoice(invoice) {
     const col = await getCollection("invoices");
-    // generate invoiceNo in KTS-0001 format
+    // generate invoiceNo in KTS/2025-2026/0001 format
     try {
-        // find existing max number in KTS-0001 format
-        const regex = /^KTS-(\d+)$/;
+        const fy = getFinancialYear(new Date());
+        // find existing max number for this financial year in KTS/YYYY-YYYY/#### format
+        const regex = new RegExp(`^KTS/${fy}/(\\d+)$`);
         const docs = await col.find({
             invoiceNo: {
-                $regex: "^KTS-"
+                $regex: `^KTS/${fy}/`
             }
         }).project({
             invoiceNo: 1
@@ -751,7 +766,7 @@ async function createInvoice(invoice) {
         }
         const nextNum = maxNum + 1;
         const padded = String(nextNum).padStart(4, "0");
-        const invoiceNo = `KTS-${padded}`;
+        const invoiceNo = `KTS/${fy}/${padded}`;
         const id = `PN-${padded}`;
         const res = await col.insertOne({
             ...invoice,
@@ -890,6 +905,8 @@ __turbopack_context__.s([
     ()=>clientNavItems,
     "clientPortalGroups",
     ()=>clientPortalGroups,
+    "clientSpecificNavItems",
+    ()=>clientSpecificNavItems,
     "defaultClientAllowed",
     ()=>defaultClientAllowed,
     "defaultStaffAllowed",
@@ -924,6 +941,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$book$2d$open$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__BookOpen$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/book-open.js [app-route] (ecmascript) <export default as BookOpen>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$headphones$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Headphones$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/headphones.js [app-route] (ecmascript) <export default as Headphones>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/trash-2.js [app-route] (ecmascript) <export default as Trash2>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$zap$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Zap$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/zap.js [app-route] (ecmascript) <export default as Zap>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$rocket$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Rocket$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/rocket.js [app-route] (ecmascript) <export default as Rocket>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$circle$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageCircle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/message-circle.js [app-route] (ecmascript) <export default as MessageCircle>");
 ;
 const defaultStaffAllowed = [
     "/dashboard",
@@ -931,6 +951,9 @@ const defaultStaffAllowed = [
     "/blogs",
     "/work-gallery",
     "/social-media-planner",
+    "/dashboard/bulk-messaging",
+    "/dashboard/campaigns",
+    "/dashboard/whatsapp-inbox",
     "/enquiries",
     "/reviews",
     "/quotations",
@@ -970,6 +993,12 @@ const navGroups = [
                 label: "User Activity",
                 adminOnly: true,
                 icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$activity$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Activity$3e$__["Activity"]
+            },
+            {
+                href: "/erp-console",
+                label: "ERP Console",
+                adminOnly: true,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$zap$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Zap$3e$__["Zap"]
             }
         ]
     },
@@ -1036,6 +1065,29 @@ const navGroups = [
                 label: "Social Media Planner",
                 adminOnly: false,
                 icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2d$days$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__CalendarDays$3e$__["CalendarDays"]
+            }
+        ]
+    },
+    {
+        title: "WhatsApp Marketing",
+        items: [
+            {
+                href: "/dashboard/bulk-messaging",
+                label: "Bulk Messaging",
+                adminOnly: false,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$circle$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageCircle$3e$__["MessageCircle"]
+            },
+            {
+                href: "/dashboard/whatsapp-inbox",
+                label: "WhatsApp Inbox",
+                adminOnly: false,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$mail$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Mail$3e$__["Mail"]
+            },
+            {
+                href: "/dashboard/campaigns",
+                label: "Campaign Insights",
+                adminOnly: false,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chart$2d$no$2d$axes$2d$column$2d$increasing$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__BarChart$3e$__["BarChart"]
             }
         ]
     },
@@ -1334,6 +1386,38 @@ const defaultClientAllowed = [
     "/invoicing",
     "/projects",
     "/support"
+];
+const clientSpecificNavItems = [
+    {
+        href: "/client/planner",
+        label: "Planner",
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2d$days$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__CalendarDays$3e$__["CalendarDays"]
+    },
+    {
+        href: "/client/calendar",
+        label: "Calendar",
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2d$days$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__CalendarDays$3e$__["CalendarDays"]
+    },
+    {
+        href: "/client/analytics",
+        label: "Analytics",
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chart$2d$no$2d$axes$2d$column$2d$increasing$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__BarChart$3e$__["BarChart"]
+    },
+    {
+        href: "/client/development",
+        label: "Development",
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$rocket$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Rocket$3e$__["Rocket"]
+    },
+    {
+        href: "/client/support",
+        label: "Support",
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$headphones$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Headphones$3e$__["Headphones"]
+    },
+    {
+        href: "/client/leads",
+        label: "Leads",
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$zap$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__Zap$3e$__["Zap"]
+    }
 ];
 }),
 "[project]/src/app/api/settings/client-sidebar/route.ts [app-route] (ecmascript)", ((__turbopack_context__) => {
