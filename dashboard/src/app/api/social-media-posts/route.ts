@@ -14,7 +14,7 @@ async function logErpEvent(
   target: string,
   details: any,
   userId?: string | null,
-  email?: string | null
+  email?: string | null,
 ) {
   try {
     const response = await fetch(
@@ -23,7 +23,7 @@ async function logErpEvent(
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type, target, details, userId, email }),
-      }
+      },
     );
     if (!response.ok) {
       console.warn("Failed to log ERP event:", await response.text());
@@ -141,7 +141,7 @@ export async function POST(request: Request) {
         status: toInsert.status,
       },
       userId,
-      email
+      email,
     );
 
     return NextResponse.json(
@@ -200,30 +200,63 @@ export async function PUT(request: Request) {
     const changeDetails: any = {};
 
     // Update metrics fields
-    if (body.views !== undefined && postBefore?.views !== body.views) {
-      updateData.views = Math.max(0, body.views);
-      changedFields.push("views");
-      changeDetails.views = { before: postBefore?.views, after: body.views };
-    }
-    if (body.likes !== undefined && postBefore?.likes !== body.likes) {
-      updateData.likes = Math.max(0, body.likes);
-      changedFields.push("likes");
-      changeDetails.likes = { before: postBefore?.likes, after: body.likes };
-    }
-    if (body.comments !== undefined && postBefore?.comments !== body.comments) {
-      updateData.comments = Math.max(0, body.comments);
-      changedFields.push("comments");
-      changeDetails.comments = { before: postBefore?.comments, after: body.comments };
-    }
-    if (body.shares !== undefined && postBefore?.shares !== body.shares) {
-      updateData.shares = Math.max(0, body.shares);
-      changedFields.push("shares");
-      changeDetails.shares = { before: postBefore?.shares, after: body.shares };
-    }
-    if (body.followers_gained !== undefined && postBefore?.followers_gained !== body.followers_gained) {
-      updateData.followers_gained = Math.max(0, body.followers_gained);
-      changedFields.push("followers_gained");
-      changeDetails.followers_gained = { before: postBefore?.followers_gained, after: body.followers_gained };
+    if (body.accountId) {
+      // Per-account metrics update
+      const accountMetricsKey = `accountMetrics.${body.accountId}`;
+      updateData[accountMetricsKey] = {
+        views: Math.max(0, body.views || 0),
+        likes: Math.max(0, body.likes || 0),
+        comments: Math.max(0, body.comments || 0),
+        shares: Math.max(0, body.shares || 0),
+        followers_gained: Math.max(0, body.followers_gained || 0),
+      };
+      changedFields.push("accountMetrics");
+      changeDetails.accountMetrics = {
+        accountId: body.accountId,
+        metrics: updateData[accountMetricsKey],
+      };
+    } else {
+      // Post-level metrics update (backward compat / no-account posts)
+      if (body.views !== undefined && postBefore?.views !== body.views) {
+        updateData.views = Math.max(0, body.views);
+        changedFields.push("views");
+        changeDetails.views = { before: postBefore?.views, after: body.views };
+      }
+      if (body.likes !== undefined && postBefore?.likes !== body.likes) {
+        updateData.likes = Math.max(0, body.likes);
+        changedFields.push("likes");
+        changeDetails.likes = { before: postBefore?.likes, after: body.likes };
+      }
+      if (
+        body.comments !== undefined &&
+        postBefore?.comments !== body.comments
+      ) {
+        updateData.comments = Math.max(0, body.comments);
+        changedFields.push("comments");
+        changeDetails.comments = {
+          before: postBefore?.comments,
+          after: body.comments,
+        };
+      }
+      if (body.shares !== undefined && postBefore?.shares !== body.shares) {
+        updateData.shares = Math.max(0, body.shares);
+        changedFields.push("shares");
+        changeDetails.shares = {
+          before: postBefore?.shares,
+          after: body.shares,
+        };
+      }
+      if (
+        body.followers_gained !== undefined &&
+        postBefore?.followers_gained !== body.followers_gained
+      ) {
+        updateData.followers_gained = Math.max(0, body.followers_gained);
+        changedFields.push("followers_gained");
+        changeDetails.followers_gained = {
+          before: postBefore?.followers_gained,
+          after: body.followers_gained,
+        };
+      }
     }
 
     // Update other fields if provided
@@ -232,20 +265,38 @@ export async function PUT(request: Request) {
       changedFields.push("status");
       changeDetails.status = { before: postBefore?.status, after: body.status };
     }
-    if (body.scheduledDate !== undefined && postBefore?.scheduledDate !== body.scheduledDate) {
+    if (
+      body.scheduledDate !== undefined &&
+      postBefore?.scheduledDate !== body.scheduledDate
+    ) {
       updateData.scheduledDate = body.scheduledDate;
       changedFields.push("scheduledDate");
-      changeDetails.scheduledDate = { before: postBefore?.scheduledDate, after: body.scheduledDate };
+      changeDetails.scheduledDate = {
+        before: postBefore?.scheduledDate,
+        after: body.scheduledDate,
+      };
     }
-    if (body.scheduledTime !== undefined && postBefore?.scheduledTime !== body.scheduledTime) {
+    if (
+      body.scheduledTime !== undefined &&
+      postBefore?.scheduledTime !== body.scheduledTime
+    ) {
       updateData.scheduledTime = body.scheduledTime;
       changedFields.push("scheduledTime");
-      changeDetails.scheduledTime = { before: postBefore?.scheduledTime, after: body.scheduledTime };
+      changeDetails.scheduledTime = {
+        before: postBefore?.scheduledTime,
+        after: body.scheduledTime,
+      };
     }
-    if (body.postedLink !== undefined && postBefore?.postedLink !== body.postedLink) {
+    if (
+      body.postedLink !== undefined &&
+      postBefore?.postedLink !== body.postedLink
+    ) {
       updateData.postedLink = body.postedLink;
       changedFields.push("postedLink");
-      changeDetails.postedLink = { before: postBefore?.postedLink, after: body.postedLink };
+      changeDetails.postedLink = {
+        before: postBefore?.postedLink,
+        after: body.postedLink,
+      };
     }
 
     const result = await col.updateOne(
@@ -274,7 +325,7 @@ export async function PUT(request: Request) {
           clientId: postBefore?.clientId,
         },
         userId,
-        email
+        email,
       );
     }
 

@@ -13,30 +13,58 @@ import {
 import { ClientPicker } from "@/components/social-media/client-picker";
 import { UpdateMetricsModal } from "@/components/social-media/update-metrics-modal";
 import { PostAccountDisplay } from "@/components/social-media/post-account-display";
-import { MultiAccountDisplay } from "@/components/social-media/multi-account-display";
+
+type AccountMetrics = {
+  views: number;
+  likes: number;
+  comments: number;
+  shares: number;
+  followers_gained: number;
+};
+
+const NO_ACCOUNT = "__no_account__";
+
+function getAccountMetrics(post: SocialMediaPost, accountId: string): AccountMetrics {
+  if (accountId === NO_ACCOUNT) {
+    return {
+      views: post.views || 0,
+      likes: post.likes || 0,
+      comments: post.comments || 0,
+      shares: post.shares || 0,
+      followers_gained: post.followers_gained || 0,
+    };
+  }
+  return (
+    post.accountMetrics?.[accountId] || {
+      views: 0,
+      likes: 0,
+      comments: 0,
+      shares: 0,
+      followers_gained: 0,
+    }
+  );
+}
 
 export default function AnalyticsPage() {
   const { user } = useAuth();
   const [selectedClientId, setSelectedClientId] = useState<string>("");
   const [posts, setPosts] = useState<SocialMediaPost[]>([]);
   const [clients, setClients] = useState<any[]>([]);
-  
+
   const [search, setSearch] = useState("");
   const [platformFilter, setPlatformFilter] = useState("");
   const [contentTypeFilter, setContentTypeFilter] = useState("");
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
-  
+
   const [isMetricsModalOpen, setIsMetricsModalOpen] = useState(false);
   const [selectedPostForMetrics, setSelectedPostForMetrics] = useState<SocialMediaPost | null>(null);
-  const [inlineEditingPostId, setInlineEditingPostId] = useState<string | null>(null);
-  const [inlineMetrics, setInlineMetrics] = useState<{
-    views: number;
-    likes: number;
-    comments: number;
-    shares: number;
-    followers_gained: number;
-  }>({
+
+  const [inlineEditingKey, setInlineEditingKey] = useState<{
+    postId: string;
+    accountId: string;
+  } | null>(null);
+  const [inlineMetrics, setInlineMetrics] = useState<AccountMetrics>({
     views: 0,
     likes: 0,
     comments: 0,
@@ -44,7 +72,6 @@ export default function AnalyticsPage() {
     followers_gained: 0,
   });
 
-  // Load posts for selected client
   const loadPosts = async (clientId: string) => {
     if (!clientId) {
       setPosts([]);
@@ -53,12 +80,9 @@ export default function AnalyticsPage() {
     try {
       const url = new URL("/api/social-media-posts", window.location.origin);
       url.searchParams.set("clientId", clientId);
-      
-      // If user is not an admin, filter by their name to show only assigned posts
       if (user && user.role !== "admin" && user.name) {
         url.searchParams.set("assignedTo", user.name);
       }
-      
       if (dateFrom) url.searchParams.set("fromDate", dateFrom);
       if (dateTo) url.searchParams.set("toDate", dateTo);
       const res = await fetch(url.toString(), { cache: "no-store" });
@@ -71,7 +95,6 @@ export default function AnalyticsPage() {
     }
   };
 
-  // Load clients for client name display
   useEffect(() => {
     (async () => {
       try {
@@ -85,7 +108,6 @@ export default function AnalyticsPage() {
     })();
   }, []);
 
-  // Reload posts when client or date range changes
   useEffect(() => {
     loadPosts(selectedClientId);
   }, [selectedClientId, dateFrom, dateTo, user]);
@@ -95,21 +117,6 @@ export default function AnalyticsPage() {
     [clients, selectedClientId],
   );
 
-  // Calculate summary statistics
-  const summary = useMemo(() => {
-    if (!posts.length) {
-      return { totalViews: 0, totalLikes: 0, totalComments: 0, totalFollowersGained: 0, totalShares: 0 };
-    }
-    return {
-      totalViews: posts.reduce((sum, p) => sum + (p.views || 0), 0),
-      totalLikes: posts.reduce((sum, p) => sum + (p.likes || 0), 0),
-      totalComments: posts.reduce((sum, p) => sum + (p.comments || 0), 0),
-      totalShares: posts.reduce((sum, p) => sum + (p.shares || 0), 0),
-      totalFollowersGained: posts.reduce((sum, p) => sum + (p.followers_gained || 0), 0),
-    };
-  }, [posts]);
-
-  // Filter posts based on search and filters
   const filteredPosts = useMemo(() => {
     return posts.filter((post) => {
       const matchesSearch = post.title.toLowerCase().includes(search.toLowerCase());
@@ -119,47 +126,99 @@ export default function AnalyticsPage() {
     });
   }, [posts, search, platformFilter, contentTypeFilter]);
 
-  const handleUpdateMetrics = (post: SocialMediaPost) => {
-    setSelectedPostForMetrics(post);
-    setIsMetricsModalOpen(true);
-  };
-
-  const handleStartInlineEdit = (post: SocialMediaPost) => {
-    setInlineEditingPostId((post._id || post.id) as string);
-    setInlineMetrics({
-      views: post.views || 0,
-      likes: post.likes || 0,
-      comments: post.comments || 0,
-      shares: post.shares || 0,
-      followers_gained: post.followers_gained || 0,
+  // Expand each post into one row per account
+  const flatRows = useMemo(() => {
+    return filteredPosts.flatMap((post) => {
+      const accountIds =
+        post.socialAccountIds && post.socialAccountIds.length > 0
+          ? post.socialAccountIds
+          : post.socialAccountId
+            ? [post.socialAccountId]
+            : [NO_ACCOUNT];
+      return accountIds.map((accountId, idx) => ({
+        post,
+        accountId,
+        isFirst: idx === 0,
+        totalAccounts: accountIds.length,
+      }));
     });
+  }, [filteredPosts]);
+
+  // Summary: aggregate per-account metrics where available, else post-level
+  const summary = useMemo(() => {
+    return posts.reduce(
+      (acc, p) => {
+        const accountIds =
+          p.socialAccountIds && p.socialAccountIds.length > 0
+            ? p.socialAccountIds
+            : p.socialAccountId
+              ? [p.socialAccountId]
+              : null;
+
+        if (accountIds && p.accountMetrics) {
+          let hasAny = false;
+          for (const id of accountIds) {
+            const m = p.accountMetrics[id];
+            if (m) {
+              hasAny = true;
+              acc.totalViews += m.views || 0;
+              acc.totalLikes += m.likes || 0;
+              acc.totalComments += m.comments || 0;
+              acc.totalShares += m.shares || 0;
+              acc.totalFollowersGained += m.followers_gained || 0;
+            }
+          }
+          if (!hasAny) {
+            acc.totalViews += p.views || 0;
+            acc.totalLikes += p.likes || 0;
+            acc.totalComments += p.comments || 0;
+            acc.totalShares += p.shares || 0;
+            acc.totalFollowersGained += p.followers_gained || 0;
+          }
+        } else {
+          acc.totalViews += p.views || 0;
+          acc.totalLikes += p.likes || 0;
+          acc.totalComments += p.comments || 0;
+          acc.totalShares += p.shares || 0;
+          acc.totalFollowersGained += p.followers_gained || 0;
+        }
+        return acc;
+      },
+      { totalViews: 0, totalLikes: 0, totalComments: 0, totalShares: 0, totalFollowersGained: 0 },
+    );
+  }, [posts]);
+
+  const handleStartInlineEdit = (post: SocialMediaPost, accountId: string) => {
+    setInlineEditingKey({ postId: (post._id || post.id) as string, accountId });
+    setInlineMetrics(getAccountMetrics(post, accountId));
   };
 
   const handleCancelInlineEdit = () => {
-    setInlineEditingPostId(null);
+    setInlineEditingKey(null);
   };
 
   const handleSaveInlineMetrics = async () => {
-    if (!inlineEditingPostId) return;
+    if (!inlineEditingKey) return;
     try {
+      const body: any = { id: inlineEditingKey.postId, ...inlineMetrics };
+      if (inlineEditingKey.accountId !== NO_ACCOUNT) {
+        body.accountId = inlineEditingKey.accountId;
+      }
       const res = await fetch("/api/social-media-posts", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id: inlineEditingPostId,
-          ...inlineMetrics,
-        }),
+        body: JSON.stringify(body),
       });
       if (!res.ok) throw new Error("Failed to update metrics");
       await loadPosts(selectedClientId);
-      setInlineEditingPostId(null);
+      setInlineEditingKey(null);
     } catch (error) {
       console.error("Error saving metrics:", error);
       alert("Failed to save metrics. Please try again.");
     }
   };
 
-  const handleSaveMetrics = async (metrics: any) => {
+  const handleSaveMetrics = async (metrics: AccountMetrics) => {
     if (!selectedPostForMetrics) return;
     try {
       const res = await fetch("/api/social-media-posts", {
@@ -199,7 +258,6 @@ export default function AnalyticsPage() {
         <ClientPicker onClientSelected={setSelectedClientId} />
       </section>
 
-      {/* Empty State - No Client Selected */}
       {!selectedClientId && (
         <section className="border-2 border-yellow-400 bg-yellow-50 rounded-lg p-6">
           <div className="text-lg font-semibold text-yellow-900">
@@ -208,10 +266,8 @@ export default function AnalyticsPage() {
         </section>
       )}
 
-      {/* Analytics Content - Only show when client selected */}
       {selectedClientId && (
         <>
-          {/* Client Name Display */}
           <div className="text-lg font-semibold text-gray-700">
             Analytics for: <span className="text-black">{selectedClient?.name || "Selected Client"}</span>
           </div>
@@ -261,9 +317,7 @@ export default function AnalyticsPage() {
                 >
                   <option value="">All Platforms</option>
                   {SOCIAL_PLATFORMS.map((p) => (
-                    <option key={p} value={p}>
-                      {p}
-                    </option>
+                    <option key={p} value={p}>{p}</option>
                   ))}
                 </select>
               </div>
@@ -276,34 +330,24 @@ export default function AnalyticsPage() {
                 >
                   <option value="">All Types</option>
                   {CONTENT_TYPES.map((ct) => (
-                    <option key={ct} value={ct}>
-                      {ct}
-                    </option>
+                    <option key={ct} value={ct}>{ct}</option>
                   ))}
                 </select>
               </div>
               <div>
                 <label className="block text-sm font-semibold mb-2">From Date</label>
-                <Input
-                  type="date"
-                  value={dateFrom}
-                  onChange={(e) => setDateFrom(e.target.value)}
-                />
+                <Input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} />
               </div>
               <div>
                 <label className="block text-sm font-semibold mb-2">To Date</label>
-                <Input
-                  type="date"
-                  value={dateTo}
-                  onChange={(e) => setDateTo(e.target.value)}
-                />
+                <Input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} />
               </div>
             </div>
           </section>
 
           {/* Analytics Table */}
           <section className="border-2 border-black rounded-lg overflow-hidden">
-            {filteredPosts.length === 0 ? (
+            {flatRows.length === 0 ? (
               <div className="p-6 text-center text-gray-600">
                 <p className="text-lg">📊 No analytics data available for this client</p>
                 <p className="text-sm text-gray-500 mt-2">Posts will appear here once created and metrics are updated.</p>
@@ -326,85 +370,143 @@ export default function AnalyticsPage() {
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredPosts.map((post, idx) => {
-                      const isEditing = inlineEditingPostId === (post._id || post.id);
+                    {flatRows.map(({ post, accountId, isFirst, totalAccounts }, rowIdx) => {
+                      const postId = (post._id || post.id) as string;
+                      const isEditing =
+                        inlineEditingKey?.postId === postId &&
+                        inlineEditingKey?.accountId === accountId;
+                      const metrics = getAccountMetrics(post, accountId);
+
+                      // Alternate row background; group first rows get a top border
+                      const bgClass = rowIdx % 2 === 0 ? "bg-gray-50" : "bg-white";
+                      const borderClass = isFirst && rowIdx !== 0 ? "border-t-2 border-gray-300" : "";
+
                       return (
-                        <tr key={post._id || post.id} className={idx % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-                          <td className="px-4 py-3 font-semibold text-gray-900">{post.title}</td>
-                          <td className="px-4 py-3 text-center text-sm">{post.platform}</td>
-                          <td className="px-4 py-3 text-center text-sm">
-                            {(post.socialAccountIds && post.socialAccountIds.length > 0) ? (
-                              <MultiAccountDisplay accountIds={post.socialAccountIds} />
-                            ) : (
-                              <PostAccountDisplay accountId={post.socialAccountId} />
+                        <tr
+                          key={`${postId}-${accountId}`}
+                          className={`${bgClass} ${borderClass}`}
+                        >
+                          {/* Title — show only on first account row of each post */}
+                          <td className="px-4 py-3 font-semibold text-gray-900 max-w-[180px]">
+                            {isFirst ? post.title : (
+                              <span className="text-gray-400 text-xs italic">↳ {post.title}</span>
                             )}
                           </td>
-                          <td className="px-4 py-3 text-center text-sm text-gray-600">{post.scheduledDate}</td>
+                          <td className="px-4 py-3 text-center text-sm">
+                            {isFirst ? post.platform : ""}
+                          </td>
+                          <td className="px-4 py-3 text-center text-sm">
+                            {accountId === NO_ACCOUNT ? (
+                              <span className="text-gray-400 text-xs">No account</span>
+                            ) : (
+                              <PostAccountDisplay accountId={accountId} />
+                            )}
+                          </td>
+                          <td className="px-4 py-3 text-center text-sm text-gray-600">
+                            {isFirst ? post.scheduledDate : ""}
+                          </td>
+
+                          {/* Views */}
                           <td className="px-4 py-3 text-right">
-                            {inlineEditingPostId === (post._id || post.id) ? (
+                            {isEditing ? (
                               <input
                                 type="number"
                                 min="0"
                                 value={inlineMetrics.views}
-                                onChange={(e) => setInlineMetrics({ ...inlineMetrics, views: Math.max(0, parseInt(e.target.value) || 0) })}
-                                className="w-full px-2 py-1 border rounded text-right font-semibold"
+                                onChange={(e) =>
+                                  setInlineMetrics((prev) => ({
+                                    ...prev,
+                                    views: Math.max(0, parseInt(e.target.value) || 0),
+                                  }))
+                                }
+                                className="w-20 px-2 py-1 border rounded text-right font-semibold"
                               />
                             ) : (
-                              <span className="font-semibold">{(post.views || 0).toLocaleString()}</span>
+                              <span className="font-semibold">{metrics.views.toLocaleString()}</span>
                             )}
                           </td>
+
+                          {/* Likes */}
                           <td className="px-4 py-3 text-right">
                             {isEditing ? (
                               <input
                                 type="number"
                                 min="0"
                                 value={inlineMetrics.likes}
-                                onChange={(e) => setInlineMetrics({ ...inlineMetrics, likes: Math.max(0, parseInt(e.target.value) || 0) })}
-                                className="w-full px-2 py-1 border rounded text-right font-semibold"
+                                onChange={(e) =>
+                                  setInlineMetrics((prev) => ({
+                                    ...prev,
+                                    likes: Math.max(0, parseInt(e.target.value) || 0),
+                                  }))
+                                }
+                                className="w-20 px-2 py-1 border rounded text-right font-semibold"
                               />
                             ) : (
-                              <span className="font-semibold">{(post.likes || 0).toLocaleString()}</span>
+                              <span className="font-semibold">{metrics.likes.toLocaleString()}</span>
                             )}
                           </td>
+
+                          {/* Comments */}
                           <td className="px-4 py-3 text-right">
                             {isEditing ? (
                               <input
                                 type="number"
                                 min="0"
                                 value={inlineMetrics.comments}
-                                onChange={(e) => setInlineMetrics({ ...inlineMetrics, comments: Math.max(0, parseInt(e.target.value) || 0) })}
-                                className="w-full px-2 py-1 border rounded text-right font-semibold"
+                                onChange={(e) =>
+                                  setInlineMetrics((prev) => ({
+                                    ...prev,
+                                    comments: Math.max(0, parseInt(e.target.value) || 0),
+                                  }))
+                                }
+                                className="w-20 px-2 py-1 border rounded text-right font-semibold"
                               />
                             ) : (
-                              <span className="font-semibold">{(post.comments || 0).toLocaleString()}</span>
+                              <span className="font-semibold">{metrics.comments.toLocaleString()}</span>
                             )}
                           </td>
+
+                          {/* Shares */}
                           <td className="px-4 py-3 text-right">
                             {isEditing ? (
                               <input
                                 type="number"
                                 min="0"
                                 value={inlineMetrics.shares}
-                                onChange={(e) => setInlineMetrics({ ...inlineMetrics, shares: Math.max(0, parseInt(e.target.value) || 0) })}
-                                className="w-full px-2 py-1 border rounded text-right font-semibold"
+                                onChange={(e) =>
+                                  setInlineMetrics((prev) => ({
+                                    ...prev,
+                                    shares: Math.max(0, parseInt(e.target.value) || 0),
+                                  }))
+                                }
+                                className="w-20 px-2 py-1 border rounded text-right font-semibold"
                               />
                             ) : (
-                              <span className="font-semibold">{(post.shares || 0).toLocaleString()}</span>
+                              <span className="font-semibold">{metrics.shares.toLocaleString()}</span>
                             )}
                           </td>
+
+                          {/* Followers */}
                           <td className="px-4 py-3 text-right">
                             {isEditing ? (
                               <input
                                 type="number"
                                 min="0"
                                 value={inlineMetrics.followers_gained}
-                                onChange={(e) => setInlineMetrics({ ...inlineMetrics, followers_gained: Math.max(0, parseInt(e.target.value) || 0) })}
-                                className="w-full px-2 py-1 border rounded text-right font-semibold"
+                                onChange={(e) =>
+                                  setInlineMetrics((prev) => ({
+                                    ...prev,
+                                    followers_gained: Math.max(0, parseInt(e.target.value) || 0),
+                                  }))
+                                }
+                                className="w-20 px-2 py-1 border rounded text-right font-semibold"
                               />
                             ) : (
-                              <span className="font-semibold">{(post.followers_gained || 0).toLocaleString()}</span>
+                              <span className="font-semibold">{metrics.followers_gained.toLocaleString()}</span>
                             )}
                           </td>
+
+                          {/* Actions */}
                           <td className="px-4 py-3 text-center">
                             {isEditing ? (
                               <div className="flex gap-2 justify-center">
@@ -428,7 +530,7 @@ export default function AnalyticsPage() {
                               <Button
                                 size="sm"
                                 className="text-xs"
-                                onClick={() => handleStartInlineEdit(post)}
+                                onClick={() => handleStartInlineEdit(post, accountId)}
                               >
                                 Edit Metrics
                               </Button>
@@ -445,7 +547,7 @@ export default function AnalyticsPage() {
         </>
       )}
 
-      {/* Update Metrics Modal */}
+      {/* Update Metrics Modal (kept for potential future use) */}
       {selectedPostForMetrics && (
         <UpdateMetricsModal
           isOpen={isMetricsModalOpen}

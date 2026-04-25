@@ -76,6 +76,13 @@ export type SocialMediaPost = {
   comments?: number;
   shares?: number;
   followers_gained?: number;
+  accountMetrics?: Record<string, {
+    views: number;
+    likes: number;
+    comments: number;
+    shares: number;
+    followers_gained: number;
+  }>;
   createdAt?: string | Date;
   updatedAt?: string | Date;
 };
