@@ -700,8 +700,6 @@ export default function InvoicingPage() {
             </Button>
             <AddInvoiceDialog
               clients={clients}
-              services={services}
-              projects={projects}
               onCreated={refresh}
             />
           </div>

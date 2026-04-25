@@ -2026,27 +2026,42 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-// ── WhatsApp green colour ─────────────────────────────────────────────────────
 const WA_GREEN = "#25D366";
-const getHsnCodeForService = (serviceName)=>{
-    const normalized = String(serviceName || "").trim().toLowerCase();
-    if (normalized.includes("video") || normalized.includes("editing") || normalized.includes("photo") || normalized.includes("shoot") || normalized.includes("production")) {
-        return "999612";
+const HSN_OPTIONS = [
+    {
+        value: "998314",
+        label: "998314 – IT/Creative Services"
+    },
+    {
+        value: "999612",
+        label: "999612 – Photography/Video"
+    },
+    {
+        value: "998315",
+        label: "998315 – Hosting/Maintenance"
     }
-    if (normalized.includes("hosting") || normalized.includes("maintenance") || normalized.includes("service")) {
-        return "998315";
-    }
-    return "998314";
-};
-function AddInvoiceDialog({ clients, services, projects, onCreated }) {
+];
+const emptyLineItem = ()=>({
+        description: "",
+        hsnCode: "998314",
+        quantity: 1,
+        rate: 0
+    });
+function AddInvoiceDialog({ clients, onCreated }) {
     _s();
     const [open, setOpen] = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useState(false);
-    // ── WhatsApp opt-in state ─────────────────────────────────────────────────
     const [waOptIn, setWaOptIn] = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useState(false);
-    // Reset opt-in whenever dialog opens/closes
+    const [lineItems, setLineItems] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([
+        emptyLineItem()
+    ]);
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useEffect({
         "AddInvoiceDialog.useEffect": ()=>{
-            if (!open) setWaOptIn(false);
+            if (!open) {
+                setWaOptIn(false);
+                setLineItems([
+                    emptyLineItem()
+                ]);
+            }
         }
     }["AddInvoiceDialog.useEffect"], [
         open
@@ -2054,43 +2069,40 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
     const form = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useForm"])({
         defaultValues: {
             clientId: "",
-            serviceId: "",
             projectTitle: "",
             title: "",
-            amount: 0,
-            hsnCode: "998314",
             dueDate: "",
-            assignedStaff: [],
-            workDate: "",
-            workTime: "",
             venueName: "",
             venueAddress: "",
             includeVenueName: false,
-            includeVenueAddress: false,
-            equipmentAssigned: [],
-            description: ""
+            includeVenueAddress: false
         }
     });
-    const selectedServiceId = form.watch("serviceId");
-    const selectedService = services.find((s)=>String(s.id ?? s._id) === String(selectedServiceId));
-    const isWebDev = (selectedService?.name || "").toLowerCase() === "web development";
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "AddInvoiceDialog.useEffect": ()=>{
-            if (!selectedServiceId) return;
-            const mappedHsn = getHsnCodeForService(selectedService?.name);
-            form.setValue("hsnCode", mappedHsn, {
-                shouldDirty: true
-            });
-        }
-    }["AddInvoiceDialog.useEffect"], [
-        selectedServiceId,
-        selectedService?.name,
-        form
-    ]);
+    const addLineItem = ()=>setLineItems((r)=>[
+                ...r,
+                emptyLineItem()
+            ]);
+    const removeLineItem = (idx)=>setLineItems((r)=>r.filter((_, i)=>i !== idx));
+    const updateLineItem = (idx, patch)=>setLineItems((r)=>r.map((row, i)=>i === idx ? {
+                    ...row,
+                    ...patch
+                } : row));
+    const subtotal = lineItems.reduce((s, r)=>s + Number(r.rate || 0) * Number(r.quantity || 0), 0);
+    const tax = subtotal * 18 / 100;
+    const total = subtotal + tax;
     const handleSave = async (values)=>{
         try {
             const selectedClient = clients.find((c)=>String(c.id ?? c._id) === String(values.clientId));
-            const baseAmount = Number(values.amount || 0);
+            const apiLineItems = lineItems.map((r)=>({
+                    description: r.description || "Professional Services",
+                    hsnCode: r.hsnCode || "998314",
+                    quantity: Number(r.quantity || 1),
+                    price: Number(r.rate || 0),
+                    unit: "Nos",
+                    discount: 0,
+                    amount: Number(r.rate || 0) * Number(r.quantity || 1)
+                }));
+            const primaryHsn = lineItems[0]?.hsnCode || "998314";
             const invoice = {
                 clientId: values.clientId || null,
                 clientName: selectedClient?.name || "",
@@ -2099,42 +2111,21 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                 clientState: selectedClient?.state || "",
                 clientPin: selectedClient?.pin || "",
                 clientGst: selectedClient?.gst || selectedClient?.gstin || selectedClient?.gstNumber || "",
-                serviceId: values.serviceId || null,
                 projectTitle: values.projectTitle || values.title || "",
                 title: values.title || values.projectTitle || "Invoice",
-                amount: baseAmount,
-                hsnCode: values.hsnCode || "998314",
+                lineItems: apiLineItems,
+                amount: subtotal,
+                hsnCode: primaryHsn,
                 dueDate: values.dueDate || "",
                 applyGst: true,
                 gstPercent: 18,
-                tax: baseAmount * 18 / 100,
-                // new fields
-                assignedStaff: Array.isArray(values.assignedStaff) ? values.assignedStaff : values.assignedStaff ? String(values.assignedStaff).split(",").map((s)=>s.trim()).filter(Boolean) : [],
-                workDate: values.workDate || "",
-                workTime: values.workTime || "",
-                equipmentAssigned: Array.isArray(values.equipmentAssigned) ? values.equipmentAssigned : values.equipmentAssigned ? String(values.equipmentAssigned).split(",").map((s)=>s.trim()).filter(Boolean) : [],
-                description: isWebDev ? values.description || "" : undefined,
+                tax,
                 status: "DUE",
                 createdAt: new Date(),
-                // ── WhatsApp opt-in (recorded at invoice creation time) ───────────
                 whatsapp_opt_in: waOptIn,
                 whatsapp_opt_in_source: waOptIn ? "invoice_creation" : null,
                 whatsapp_opt_in_time: waOptIn ? new Date().toISOString() : null
             };
-            // attach inventory usage if present
-            if (inventoryRows.length) {
-                invoice.inventoryItems = inventoryRows.map((r)=>({
-                        inventoryId: r.inventoryId,
-                        quantity: r.quantity,
-                        sellingPrice: r.sellingPrice,
-                        gstPercentage: r.gstPercentage
-                    }));
-                // calculate totals from inventory rows
-                const itemsTotal = inventoryRows.reduce((s, r)=>s + Number(r.sellingPrice || 0) * Number(r.quantity || 0), 0);
-                const gstTotal = inventoryRows.reduce((s, r)=>s + Number(r.sellingPrice || 0) * Number(r.quantity || 0) * (Number(r.gstPercentage || 0) / 100), 0);
-                invoice.amount = Number(invoice.amount || 0) + itemsTotal + gstTotal;
-            }
-            // Include venue fields only when toggles are enabled
             if (values.includeVenueName) invoice.venueName = values.venueName || "";
             if (values.includeVenueAddress) invoice.venueAddress = values.venueAddress || "";
             const res = await fetch("/api/invoices", {
@@ -2146,8 +2137,6 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
             });
             if (!res.ok) throw new Error("Failed to create invoice");
             const created = await res.json();
-            // ── Save WhatsApp opt-in to client record ─────────────────────────────
-            // This must happen AFTER invoice creation so we have the invoiceNo.
             if (waOptIn && values.clientId) {
                 try {
                     await fetch("/api/whatsapp-optin", {
@@ -2162,11 +2151,10 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                         })
                     });
                 } catch (e) {
-                    console.error("[WhatsApp] Failed to save opt-in to client record:", e);
-                // Non-fatal — invoice was still created successfully
+                    console.error("[WhatsApp] Failed to save opt-in:", e);
                 }
             }
-            // generate PDF and download (A4, full page, use embedded fonts when possible)
+            // generate PDF and download
             const doc = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$jspdf$2f$dist$2f$jspdf$2e$es$2e$min$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]({
                 unit: "mm",
                 format: "a4",
@@ -2188,11 +2176,10 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                     client: selectedClient
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                    lineNumber: 244,
+                    lineNumber: 188,
                     columnNumber: 11
                 }, this));
                 const notoHref = "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
-                // attempt to inline local font as base64 for robust PDF rendering
                 let styledHtml;
                 try {
                     const fres = await fetch("/fonts/NotoSans-Regular.ttf");
@@ -2208,24 +2195,19 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                         const fontDataFace = `\n<style>\n@font-face { font-family: 'Noto Sans Local'; src: url('data:font/truetype;base64,${base64}') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }\n</style>\n`;
                         styledHtml = `${fontDataFace}<link href="${notoHref}" rel="stylesheet">` + `<div style="width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;">${pdfBody}</div>`;
                     } else {
-                        const localFontFace = `\n<style>\n@font-face { font-family: 'Noto Sans Local'; src: url('/fonts/NotoSans-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }\n@font-face { font-family: 'Noto Sans Local'; src: url('/fonts/NotoSans-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }\n</style>\n`;
-                        styledHtml = `${localFontFace}<link href="${notoHref}" rel="stylesheet"><div style="width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans Local','Noto Sans',${family ? family : "sans-serif"}">${pdfBody}</div>`;
+                        styledHtml = `<link href="${notoHref}" rel="stylesheet"><div style="width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;">${pdfBody}</div>`;
                     }
                 } catch (e) {
-                    styledHtml = `<link href="${notoHref}" rel="stylesheet"><div style="width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans',${family ? family : "sans-serif"}">${pdfBody}</div>`;
+                    styledHtml = `<link href="${notoHref}" rel="stylesheet"><div style="width:100%;height:100%;margin:0;padding:0;box-sizing:border-box;">${pdfBody}</div>`;
                 }
                 const finalHtml = styledHtml.replace(/₹/g, "Rs.");
                 const pageWidth = doc.internal.pageSize.getWidth();
-                const pageHeight = doc.internal.pageSize.getHeight();
                 doc.html(finalHtml, {
-                    callback: function(doc) {
-                        // Build filename: InvoiceID_ClientName.pdf (sanitize client name)
+                    callback: (doc)=>{
                         const invoiceId = created.id ?? created.invoiceNo ?? created._id;
-                        const clientNameRaw = created.clientName || invoice.clientName || "";
                         const sanitize = (s)=>s.replace(/[\\/:*?"<>|\s]+/g, "_").replace(/^_+|_+$/g, "");
-                        const clientSafe = sanitize(String(clientNameRaw || "Client"));
-                        const filename = `${invoiceId}_${clientSafe}.pdf`;
-                        doc.save(filename);
+                        const clientSafe = sanitize(String(created.clientName || selectedClient?.name || "Client"));
+                        doc.save(`${invoiceId}_${clientSafe}.pdf`);
                     },
                     x: 0,
                     y: 0,
@@ -2233,7 +2215,6 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                     windowWidth: 1200
                 });
             } catch (e) {
-                // fallback simple render
                 const pdfContent = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2d$dom$2f$server$2e$browser$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["renderToString"])(/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$invoices$2f$invoice$2d$pdf$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["InvoicePDF"], {
                     invoice: {
                         ...created,
@@ -2242,19 +2223,14 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                     client: selectedClient
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                    lineNumber: 307,
+                    lineNumber: 239,
                     columnNumber: 11
                 }, this));
-                const finalPdfContent = String(pdfContent).replace(/₹/g, "Rs.");
                 const pageWidth = doc.internal.pageSize.getWidth();
-                doc.html(finalPdfContent, {
-                    callback: function(doc) {
+                doc.html(pdfContent.replace(/₹/g, "Rs."), {
+                    callback: (doc)=>{
                         const invoiceId = created.id ?? created.invoiceNo ?? created._id;
-                        const clientNameRaw = created.clientName || invoice.clientName || "";
-                        const sanitize = (s)=>s.replace(/[\\/:*?"<>|\s]+/g, "_").replace(/^_+|_+$/g, "");
-                        const clientSafe = sanitize(String(clientNameRaw || "Client"));
-                        const filename = `${invoiceId}_${clientSafe}.pdf`;
-                        doc.save(filename);
+                        doc.save(`${invoiceId}_Invoice.pdf`);
                     },
                     x: 0,
                     y: 0,
@@ -2269,55 +2245,8 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
             console.error(e);
         }
     };
-    const [inventory, setInventory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [inventoryRows, setInventoryRows] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [teamMembers, setTeamMembers] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "AddInvoiceDialog.useEffect": ()=>{
-            let mounted = true;
-            ({
-                "AddInvoiceDialog.useEffect": async ()=>{
-                    try {
-                        const res = await fetch("/api/inventory");
-                        const data = await res.json();
-                        if (mounted) setInventory(Array.isArray(data) ? data : []);
-                    } catch (e) {
-                        console.error("Failed to load inventory", e);
-                    }
-                }
-            })["AddInvoiceDialog.useEffect"]();
-            ({
-                "AddInvoiceDialog.useEffect": async ()=>{
-                    try {
-                        const res = await fetch("/api/team-members");
-                        const data = await res.json();
-                        if (mounted) setTeamMembers(Array.isArray(data) ? data : []);
-                    } catch (e) {
-                        console.error("Failed to load team members", e);
-                    }
-                }
-            })["AddInvoiceDialog.useEffect"]();
-            return ({
-                "AddInvoiceDialog.useEffect": ()=>{
-                    mounted = false;
-                }
-            })["AddInvoiceDialog.useEffect"];
-        }
-    }["AddInvoiceDialog.useEffect"], []);
-    const addInventoryRow = ()=>setInventoryRows((r)=>[
-                ...r,
-                {
-                    inventoryId: "",
-                    quantity: 1,
-                    sellingPrice: 0,
-                    gstPercentage: 0
-                }
-            ]);
-    const updateInventoryRow = (idx, patch)=>setInventoryRows((r)=>r.map((row, i)=>i === idx ? {
-                    ...row,
-                    ...patch
-                } : row));
-    const removeInventoryRow = (idx)=>setInventoryRows((r)=>r.filter((_, i)=>i !== idx));
+    const includeVenueName = form.watch("includeVenueName");
+    const includeVenueAddress = form.watch("includeVenueAddress");
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
         open: open,
         onOpenChange: setOpen,
@@ -2330,35 +2259,35 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                     children: "New Invoice"
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                    lineNumber: 381,
+                    lineNumber: 265,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                lineNumber: 380,
+                lineNumber: 264,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
-                className: "max-w-5xl max-h-[80vh] overflow-auto",
+                className: "max-w-5xl max-h-[85vh] overflow-auto",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogHeader"], {
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTitle"], {
                             children: "Create Invoice"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                            lineNumber: 387,
+                            lineNumber: 271,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                        lineNumber: 386,
+                        lineNumber: 270,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Form"], {
                         ...form,
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                             onSubmit: form.handleSubmit(handleSave),
-                            className: "space-y-4",
+                            className: "space-y-6",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "grid grid-cols-1 md:grid-cols-2 gap-4",
@@ -2372,20 +2301,20 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                                                             children: "Client"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 397,
+                                                            lineNumber: 282,
                                                             columnNumber: 21
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                                                 ...field,
-                                                                className: "w-full border p-2",
+                                                                className: "w-full border rounded p-2",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                                         value: "",
                                                                         children: "Select client"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 400,
+                                                                        lineNumber: 285,
                                                                         columnNumber: 25
                                                                     }, void 0),
                                                                     clients.map((c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2393,29 +2322,29 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                                                                             children: c.name
                                                                         }, String(c.id ?? c._id), false, {
                                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                            lineNumber: 402,
+                                                                            lineNumber: 287,
                                                                             columnNumber: 27
                                                                         }, void 0))
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 399,
+                                                                lineNumber: 284,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 398,
+                                                            lineNumber: 283,
                                                             columnNumber: 21
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 396,
+                                                    lineNumber: 281,
                                                     columnNumber: 19
                                                 }, void 0)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 392,
+                                            lineNumber: 277,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
@@ -2427,7 +2356,7 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                                                             children: "Project Title"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 420,
+                                                            lineNumber: 302,
                                                             columnNumber: 21
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
@@ -2435,23 +2364,23 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                                                                 ...field
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 422,
+                                                                lineNumber: 304,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 421,
+                                                            lineNumber: 303,
                                                             columnNumber: 21
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 419,
+                                                    lineNumber: 301,
                                                     columnNumber: 19
                                                 }, void 0)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 415,
+                                            lineNumber: 297,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
@@ -2463,7 +2392,7 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                                                             children: "Invoice Title"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 433,
+                                                            lineNumber: 315,
                                                             columnNumber: 21
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
@@ -2471,71 +2400,25 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                                                                 ...field
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 435,
+                                                                lineNumber: 317,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 434,
+                                                            lineNumber: 316,
                                                             columnNumber: 21
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 432,
+                                                    lineNumber: 314,
                                                     columnNumber: 19
                                                 }, void 0)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 428,
+                                            lineNumber: 310,
                                             columnNumber: 15
                                         }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "amount",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "Amount (₹)"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 446,
-                                                            columnNumber: 21
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                type: "number",
-                                                                ...field
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 448,
-                                                                columnNumber: 23
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 447,
-                                                            columnNumber: 21
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 445,
-                                                    columnNumber: 19
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 441,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                    lineNumber: 391,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "grid grid-cols-1 md:grid-cols-2 gap-4",
-                                    children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
                                             name: "dueDate",
                                             control: form.control,
@@ -2545,7 +2428,7 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                                                             children: "Due Date"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 461,
+                                                            lineNumber: 328,
                                                             columnNumber: 21
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
@@ -2554,451 +2437,314 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                                                                 ...field
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 463,
+                                                                lineNumber: 330,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 462,
+                                                            lineNumber: 329,
                                                             columnNumber: 21
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 460,
+                                                    lineNumber: 327,
                                                     columnNumber: 19
                                                 }, void 0)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 456,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "serviceId",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "Service"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 474,
-                                                            columnNumber: 21
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                                                ...field,
-                                                                className: "w-full border p-2",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                        value: "",
-                                                                        children: "Select service"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 477,
-                                                                        columnNumber: 25
-                                                                    }, void 0),
-                                                                    services.map((s)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                            value: String(s.id ?? s._id),
-                                                                            children: s.name
-                                                                        }, String(s.id ?? s._id), false, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                            lineNumber: 479,
-                                                                            columnNumber: 27
-                                                                        }, void 0))
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 476,
-                                                                columnNumber: 23
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 475,
-                                                            columnNumber: 21
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 473,
-                                                    columnNumber: 19
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 469,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "hsnCode",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "HSN Code"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 497,
-                                                            columnNumber: 21
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                                                ...field,
-                                                                className: "w-full border p-2",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                        value: "998314",
-                                                                        children: "998314"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 500,
-                                                                        columnNumber: 25
-                                                                    }, void 0),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                        value: "999612",
-                                                                        children: "999612"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 501,
-                                                                        columnNumber: 25
-                                                                    }, void 0),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                        value: "998315",
-                                                                        children: "998315"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 502,
-                                                                        columnNumber: 25
-                                                                    }, void 0)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 499,
-                                                                columnNumber: 23
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 498,
-                                                            columnNumber: 21
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 496,
-                                                    columnNumber: 19
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 492,
+                                            lineNumber: 323,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                    lineNumber: 455,
+                                    lineNumber: 276,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center justify-between mb-3",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "font-semibold text-base",
+                                                    children: "Services / Line Items"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                    lineNumber: 340,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                    type: "button",
+                                                    variant: "outline",
+                                                    size: "sm",
+                                                    onClick: addLineItem,
+                                                    children: "+ Add Row"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                    lineNumber: 341,
+                                                    columnNumber: 17
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                            lineNumber: 339,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "grid grid-cols-[2fr_1fr_80px_100px_100px_40px] gap-2 text-xs font-semibold text-muted-foreground border-b pb-1 mb-1 px-1",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    children: "Description"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                    lineNumber: 348,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    children: "HSN Code"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                    lineNumber: 349,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    children: "Qty"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                    lineNumber: 350,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-right",
+                                                    children: "Rate (₹)"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                    lineNumber: 351,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-right",
+                                                    children: "Amount (₹)"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                    lineNumber: 352,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {}, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                    lineNumber: 353,
+                                                    columnNumber: 17
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                            lineNumber: 347,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "space-y-2",
+                                            children: lineItems.map((row, idx)=>{
+                                                const amt = Number(row.rate || 0) * Number(row.quantity || 0);
+                                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "grid grid-cols-[2fr_1fr_80px_100px_100px_40px] gap-2 items-center",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                            placeholder: "Service description",
+                                                            value: row.description,
+                                                            onChange: (e)=>updateLineItem(idx, {
+                                                                    description: e.target.value
+                                                                })
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                            lineNumber: 364,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                                            className: "border rounded p-2 text-sm",
+                                                            value: row.hsnCode,
+                                                            onChange: (e)=>updateLineItem(idx, {
+                                                                    hsnCode: e.target.value
+                                                                }),
+                                                            children: HSN_OPTIONS.map((o)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                    value: o.value,
+                                                                    children: o.value
+                                                                }, o.value, false, {
+                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                                    lineNumber: 375,
+                                                                    columnNumber: 27
+                                                                }, this))
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                            lineNumber: 369,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                            type: "number",
+                                                            min: 1,
+                                                            value: row.quantity,
+                                                            onChange: (e)=>updateLineItem(idx, {
+                                                                    quantity: Number(e.target.value)
+                                                                })
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                            lineNumber: 378,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                            type: "number",
+                                                            min: 0,
+                                                            value: row.rate,
+                                                            onChange: (e)=>updateLineItem(idx, {
+                                                                    rate: Number(e.target.value)
+                                                                }),
+                                                            className: "text-right"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                            lineNumber: 386,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "text-right text-sm font-medium pr-1 self-center",
+                                                            children: amt.toLocaleString("en-IN")
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                            lineNumber: 395,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                            type: "button",
+                                                            variant: "ghost",
+                                                            size: "sm",
+                                                            className: "text-red-500 hover:text-red-700 px-2",
+                                                            disabled: lineItems.length === 1,
+                                                            onClick: ()=>removeLineItem(idx),
+                                                            children: "✕"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                            lineNumber: 398,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, idx, true, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                    lineNumber: 360,
+                                                    columnNumber: 21
+                                                }, this);
+                                            })
+                                        }, void 0, false, {
+                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                            lineNumber: 356,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "mt-4 flex flex-col items-end gap-1 text-sm border-t pt-3",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex gap-8",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-muted-foreground",
+                                                            children: "Subtotal"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                            lineNumber: 416,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "w-28 text-right font-medium",
+                                                            children: [
+                                                                "₹",
+                                                                subtotal.toLocaleString("en-IN", {
+                                                                    minimumFractionDigits: 2
+                                                                })
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                            lineNumber: 417,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                    lineNumber: 415,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex gap-8",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-muted-foreground",
+                                                            children: "GST (18%)"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                            lineNumber: 422,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "w-28 text-right font-medium",
+                                                            children: [
+                                                                "₹",
+                                                                tax.toLocaleString("en-IN", {
+                                                                    minimumFractionDigits: 2
+                                                                })
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                            lineNumber: 423,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                    lineNumber: 421,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex gap-8 text-base font-semibold border-t pt-1 mt-1",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            children: "Total"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                            lineNumber: 428,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "w-28 text-right",
+                                                            children: [
+                                                                "₹",
+                                                                total.toLocaleString("en-IN", {
+                                                                    minimumFractionDigits: 2
+                                                                })
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                            lineNumber: 429,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                    lineNumber: 427,
+                                                    columnNumber: 17
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                            lineNumber: 414,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                    lineNumber: 338,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "grid grid-cols-1 md:grid-cols-2 gap-4",
                                     children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "assignedStaff",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "Assigned Staff"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 516,
-                                                            columnNumber: 21
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "border rounded p-2 max-h-40 overflow-auto",
-                                                                children: [
-                                                                    teamMembers.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "text-sm text-muted-foreground",
-                                                                        children: "No team members"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 520,
-                                                                        columnNumber: 27
-                                                                    }, void 0),
-                                                                    teamMembers.map((m)=>{
-                                                                        const id = String(m._id ?? m.id);
-                                                                        const selected = Array.isArray(field.value) && field.value.includes(id);
-                                                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                            className: "flex items-center justify-between p-1",
-                                                                            children: [
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                    children: m.name
-                                                                                }, void 0, false, {
-                                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                    lineNumber: 534,
-                                                                                    columnNumber: 31
-                                                                                }, void 0),
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                                        className: "inline-flex items-center space-x-2",
-                                                                                        children: [
-                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                                                type: "checkbox",
-                                                                                                checked: selected,
-                                                                                                onChange: (e)=>{
-                                                                                                    const vals = Array.isArray(field.value) ? [
-                                                                                                        ...field.value
-                                                                                                    ] : [];
-                                                                                                    if (e.target.checked) {
-                                                                                                        if (!vals.includes(id)) vals.push(id);
-                                                                                                    } else {
-                                                                                                        const idx = vals.indexOf(id);
-                                                                                                        if (idx >= 0) vals.splice(idx, 1);
-                                                                                                    }
-                                                                                                    field.onChange(vals);
-                                                                                                }
-                                                                                            }, void 0, false, {
-                                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                                lineNumber: 537,
-                                                                                                columnNumber: 35
-                                                                                            }, void 0),
-                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                                className: "text-sm",
-                                                                                                children: "Select"
-                                                                                            }, void 0, false, {
-                                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                                lineNumber: 553,
-                                                                                                columnNumber: 35
-                                                                                            }, void 0)
-                                                                                        ]
-                                                                                    }, void 0, true, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                        lineNumber: 536,
-                                                                                        columnNumber: 33
-                                                                                    }, void 0)
-                                                                                }, void 0, false, {
-                                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                    lineNumber: 535,
-                                                                                    columnNumber: 31
-                                                                                }, void 0)
-                                                                            ]
-                                                                        }, id, true, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                            lineNumber: 530,
-                                                                            columnNumber: 29
-                                                                        }, void 0);
-                                                                    })
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 518,
-                                                                columnNumber: 23
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 517,
-                                                            columnNumber: 21
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 515,
-                                                    columnNumber: 19
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 511,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "workDate",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "Date of Work"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 570,
-                                                            columnNumber: 21
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                type: "date",
-                                                                ...field
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 572,
-                                                                columnNumber: 23
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 571,
-                                                            columnNumber: 21
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 569,
-                                                    columnNumber: 19
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 565,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "workTime",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "Time of Work"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 583,
-                                                            columnNumber: 21
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                type: "time",
-                                                                ...field
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 585,
-                                                                columnNumber: 23
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 584,
-                                                            columnNumber: 21
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 582,
-                                                    columnNumber: 19
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 578,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "equipmentAssigned",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "Equipment Assigned"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 596,
-                                                            columnNumber: 21
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "border rounded p-2 max-h-40 overflow-auto",
-                                                                children: [
-                                                                    inventory.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "text-sm text-muted-foreground",
-                                                                        children: "No inventory"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 600,
-                                                                        columnNumber: 27
-                                                                    }, void 0),
-                                                                    inventory.map((it)=>{
-                                                                        const id = String(it._id ?? it.id);
-                                                                        const selected = Array.isArray(field.value) && field.value.includes(id);
-                                                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                            className: "flex items-center justify-between p-1",
-                                                                            children: [
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                    children: [
-                                                                                        it.itemName,
-                                                                                        " (",
-                                                                                        it.quantityAvailable,
-                                                                                        " ",
-                                                                                        it.unit,
-                                                                                        ")"
-                                                                                    ]
-                                                                                }, void 0, true, {
-                                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                    lineNumber: 614,
-                                                                                    columnNumber: 31
-                                                                                }, void 0),
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                                        className: "inline-flex items-center space-x-2",
-                                                                                        children: [
-                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                                                type: "checkbox",
-                                                                                                checked: selected,
-                                                                                                onChange: (e)=>{
-                                                                                                    const vals = Array.isArray(field.value) ? [
-                                                                                                        ...field.value
-                                                                                                    ] : [];
-                                                                                                    if (e.target.checked) {
-                                                                                                        if (!vals.includes(id)) vals.push(id);
-                                                                                                    } else {
-                                                                                                        const idx = vals.indexOf(id);
-                                                                                                        if (idx >= 0) vals.splice(idx, 1);
-                                                                                                    }
-                                                                                                    field.onChange(vals);
-                                                                                                }
-                                                                                            }, void 0, false, {
-                                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                                lineNumber: 619,
-                                                                                                columnNumber: 35
-                                                                                            }, void 0),
-                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                                className: "text-sm",
-                                                                                                children: "Select"
-                                                                                            }, void 0, false, {
-                                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                                lineNumber: 635,
-                                                                                                columnNumber: 35
-                                                                                            }, void 0)
-                                                                                        ]
-                                                                                    }, void 0, true, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                        lineNumber: 618,
-                                                                                        columnNumber: 33
-                                                                                    }, void 0)
-                                                                                }, void 0, false, {
-                                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                    lineNumber: 617,
-                                                                                    columnNumber: 31
-                                                                                }, void 0)
-                                                                            ]
-                                                                        }, id, true, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                            lineNumber: 610,
-                                                                            columnNumber: 29
-                                                                        }, void 0);
-                                                                    })
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 598,
-                                                                columnNumber: 23
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 597,
-                                                            columnNumber: 21
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 595,
-                                                    columnNumber: 19
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 591,
-                                            columnNumber: 15
-                                        }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "flex flex-col gap-2",
                                             children: [
@@ -3007,7 +2753,7 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                                                     control: form.control,
                                                     render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                className: "inline-flex items-center space-x-2",
+                                                                className: "inline-flex items-center space-x-2 cursor-pointer",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                                         type: "checkbox",
@@ -3015,76 +2761,77 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                                                                         onChange: (e)=>field.onChange(e.target.checked)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 654,
+                                                                        lineNumber: 445,
                                                                         columnNumber: 25
                                                                     }, void 0),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "font-medium",
+                                                                        className: "font-medium text-sm",
                                                                         children: "Include Venue Name"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 661,
+                                                                        lineNumber: 450,
                                                                         columnNumber: 25
                                                                     }, void 0)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 653,
+                                                                lineNumber: 444,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 652,
+                                                            lineNumber: 443,
                                                             columnNumber: 21
                                                         }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 648,
+                                                    lineNumber: 439,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
                                                     name: "venueName",
                                                     control: form.control,
                                                     render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                                    children: "Venue Name"
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                    ...field,
+                                                                    disabled: !includeVenueName,
+                                                                    placeholder: "Venue name"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 671,
-                                                                    columnNumber: 23
-                                                                }, void 0),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                        ...field,
-                                                                        disabled: !form.getValues().includeVenueName
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 673,
-                                                                        columnNumber: 25
-                                                                    }, void 0)
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 672,
-                                                                    columnNumber: 23
+                                                                    lineNumber: 461,
+                                                                    columnNumber: 25
                                                                 }, void 0)
-                                                            ]
-                                                        }, void 0, true, {
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                                lineNumber: 460,
+                                                                columnNumber: 23
+                                                            }, void 0)
+                                                        }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 670,
+                                                            lineNumber: 459,
                                                             columnNumber: 21
                                                         }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 666,
+                                                    lineNumber: 455,
                                                     columnNumber: 17
-                                                }, this),
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                            lineNumber: 438,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex flex-col gap-2",
+                                            children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
                                                     name: "includeVenueAddress",
                                                     control: form.control,
                                                     render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                className: "inline-flex items-center space-x-2",
+                                                                className: "inline-flex items-center space-x-2 cursor-pointer",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                                         type: "checkbox",
@@ -3092,453 +2839,225 @@ function AddInvoiceDialog({ clients, services, projects, onCreated }) {
                                                                         onChange: (e)=>field.onChange(e.target.checked)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 688,
+                                                                        lineNumber: 475,
                                                                         columnNumber: 25
                                                                     }, void 0),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "font-medium",
+                                                                        className: "font-medium text-sm",
                                                                         children: "Include Venue Address"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 695,
+                                                                        lineNumber: 480,
                                                                         columnNumber: 25
                                                                     }, void 0)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 687,
+                                                                lineNumber: 474,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 686,
+                                                            lineNumber: 473,
                                                             columnNumber: 21
                                                         }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 682,
+                                                    lineNumber: 469,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
                                                     name: "venueAddress",
                                                     control: form.control,
                                                     render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                                    children: "Venue Address"
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                    ...field,
+                                                                    disabled: !includeVenueAddress,
+                                                                    placeholder: "Venue address"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 707,
-                                                                    columnNumber: 23
-                                                                }, void 0),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                        ...field,
-                                                                        disabled: !form.getValues().includeVenueAddress
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 709,
-                                                                        columnNumber: 25
-                                                                    }, void 0)
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 708,
-                                                                    columnNumber: 23
+                                                                    lineNumber: 491,
+                                                                    columnNumber: 25
                                                                 }, void 0)
-                                                            ]
-                                                        }, void 0, true, {
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                                lineNumber: 490,
+                                                                columnNumber: 23
+                                                            }, void 0)
+                                                        }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 706,
+                                                            lineNumber: 489,
                                                             columnNumber: 21
                                                         }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 702,
+                                                    lineNumber: 485,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 647,
-                                            columnNumber: 15
-                                        }, this),
-                                        isWebDev && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "description",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    className: "md:col-span-2",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "Description (Web Development)"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 725,
-                                                            columnNumber: 23
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
-                                                                ...field,
-                                                                className: "w-full border p-2 h-24"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 727,
-                                                                columnNumber: 25
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 726,
-                                                            columnNumber: 23
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 724,
-                                                    columnNumber: 21
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 720,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "md:col-span-2",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "flex items-center justify-between mb-2",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                            className: "font-bold",
-                                                            children: "Inventory Items"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 739,
-                                                            columnNumber: 19
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                                type: "button",
-                                                                onClick: addInventoryRow,
-                                                                children: "Add Item"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 741,
-                                                                columnNumber: 21
-                                                            }, this)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 740,
-                                                            columnNumber: 19
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 738,
-                                                    columnNumber: 17
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "space-y-2",
-                                                    children: inventoryRows.map((row, idx)=>{
-                                                        const selected = inventory.find((i)=>String(i._id ?? i.id) === String(row.inventoryId));
-                                                        const maxQty = selected ? Number(selected.quantityAvailable || 0) : 0;
-                                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "flex gap-2 items-center border p-2",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                                                    className: "p-2 border flex-1",
-                                                                    value: row.inventoryId,
-                                                                    onChange: (e)=>{
-                                                                        const id = e.target.value;
-                                                                        const sel = inventory.find((i)=>String(i._id ?? i.id) === id);
-                                                                        updateInventoryRow(idx, {
-                                                                            inventoryId: id,
-                                                                            sellingPrice: sel?.sellingPrice ?? 0,
-                                                                            gstPercentage: sel?.gstPercentage ?? 0,
-                                                                            quantity: 1
-                                                                        });
-                                                                    },
-                                                                    children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                            value: "",
-                                                                            children: "Select item"
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                            lineNumber: 775,
-                                                                            columnNumber: 27
-                                                                        }, this),
-                                                                        inventory.map((it)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                                value: String(it._id ?? it.id),
-                                                                                children: [
-                                                                                    it.itemName,
-                                                                                    " (",
-                                                                                    it.quantityAvailable,
-                                                                                    " ",
-                                                                                    it.unit,
-                                                                                    ")"
-                                                                                ]
-                                                                            }, String(it._id ?? it.id), true, {
-                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                lineNumber: 777,
-                                                                                columnNumber: 29
-                                                                            }, this))
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 759,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                    type: "number",
-                                                                    className: "w-20 p-2 border",
-                                                                    min: 1,
-                                                                    value: row.quantity,
-                                                                    onChange: (e)=>updateInventoryRow(idx, {
-                                                                            quantity: Number(e.target.value)
-                                                                        })
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 785,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "w-40",
-                                                                    children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                            children: [
-                                                                                "Price: ₹",
-                                                                                Number(row.sellingPrice || 0).toLocaleString()
-                                                                            ]
-                                                                        }, void 0, true, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                            lineNumber: 797,
-                                                                            columnNumber: 27
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                            children: [
-                                                                                "GST: ",
-                                                                                Number(row.gstPercentage || 0),
-                                                                                "%"
-                                                                            ]
-                                                                        }, void 0, true, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                            lineNumber: 801,
-                                                                            columnNumber: 27
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                            children: [
-                                                                                "Total: ₹",
-                                                                                (Number(row.sellingPrice || 0) * Number(row.quantity || 0)).toLocaleString()
-                                                                            ]
-                                                                        }, void 0, true, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                            lineNumber: 802,
-                                                                            columnNumber: 27
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 796,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                                        type: "button",
-                                                                        variant: "destructive",
-                                                                        onClick: ()=>removeInventoryRow(idx),
-                                                                        children: "Remove"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 811,
-                                                                        columnNumber: 27
-                                                                    }, this)
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 810,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                selected && Number(row.quantity || 0) > maxQty && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "text-sm text-red-600",
-                                                                    children: "Insufficient stock"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                    lineNumber: 820,
-                                                                    columnNumber: 27
-                                                                }, this)
-                                                            ]
-                                                        }, idx, true, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 755,
-                                                            columnNumber: 23
-                                                        }, this);
-                                                    })
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                    lineNumber: 746,
-                                                    columnNumber: 17
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 737,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "w-full space-y-3",
-                                                children: [
-                                                    (()=>{
-                                                        const selectedClientId = form.watch("clientId");
-                                                        const selectedClient = clients.find((c)=>String(c.id ?? c._id) === String(selectedClientId));
-                                                        const hasPhone = !!(selectedClient?.phone || selectedClient?.whatsapp);
-                                                        if (!selectedClientId) return null;
-                                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            style: {
-                                                                border: `1.5px solid ${waOptIn ? WA_GREEN : "#e2e8f0"}`,
-                                                                borderRadius: 10,
-                                                                padding: "12px 14px",
-                                                                background: waOptIn ? "#f0fdf4" : "#fafafa",
-                                                                transition: "all 0.2s"
-                                                            },
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                className: "flex items-start gap-3 cursor-pointer select-none",
-                                                                htmlFor: "wa-optin-checkbox",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                        id: "wa-optin-checkbox",
-                                                                        type: "checkbox",
-                                                                        checked: waOptIn,
-                                                                        onChange: (e)=>setWaOptIn(e.target.checked),
-                                                                        style: {
-                                                                            marginTop: 3,
-                                                                            accentColor: WA_GREEN,
-                                                                            width: 16,
-                                                                            height: 16,
-                                                                            flexShrink: 0
-                                                                        }
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 857,
-                                                                        columnNumber: 27
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                className: "font-semibold text-sm",
-                                                                                style: {
-                                                                                    color: waOptIn ? "#15803d" : "#374151"
-                                                                                },
-                                                                                children: [
-                                                                                    "📲 Send this invoice to",
-                                                                                    " ",
-                                                                                    selectedClient?.name ?? "client",
-                                                                                    " on WhatsApp"
-                                                                                ]
-                                                                            }, void 0, true, {
-                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                lineNumber: 871,
-                                                                                columnNumber: 29
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                className: "block text-xs mt-1",
-                                                                                style: {
-                                                                                    color: "#6b7280",
-                                                                                    lineHeight: 1.5
-                                                                                },
-                                                                                children: [
-                                                                                    "By checking this box, you confirm that",
-                                                                                    " ",
-                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                                                        children: selectedClient?.name ?? "the client"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                        lineNumber: 883,
-                                                                                        columnNumber: 31
-                                                                                    }, this),
-                                                                                    " ",
-                                                                                    "has agreed to receive invoice and payment notifications from Pixelate Studio on WhatsApp.",
-                                                                                    !hasPhone && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                        className: "block mt-1 text-amber-600 font-medium",
-                                                                                        children: "⚠️ No WhatsApp number saved for this client. Add their number in the client profile first."
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                        lineNumber: 887,
-                                                                                        columnNumber: 33
-                                                                                    }, this)
-                                                                                ]
-                                                                            }, void 0, true, {
-                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                                lineNumber: 878,
-                                                                                columnNumber: 29
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                        lineNumber: 870,
-                                                                        columnNumber: 27
-                                                                    }, this)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                                lineNumber: 853,
-                                                                columnNumber: 25
-                                                            }, this)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                            lineNumber: 844,
-                                                            columnNumber: 23
-                                                        }, this);
-                                                    })(),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                        type: "submit",
-                                                        size: "lg",
-                                                        className: "w-full",
-                                                        children: waOptIn ? "Create Invoice & Send on WhatsApp ✓" : "Create & Download PDF"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                        lineNumber: 899,
-                                                        columnNumber: 19
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                                lineNumber: 831,
-                                                columnNumber: 17
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                            lineNumber: 830,
+                                            lineNumber: 468,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                                    lineNumber: 510,
+                                    lineNumber: 437,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "w-full space-y-3",
+                                        children: [
+                                            (()=>{
+                                                const selectedClientId = form.watch("clientId");
+                                                const selectedClient = clients.find((c)=>String(c.id ?? c._id) === String(selectedClientId));
+                                                const hasPhone = !!(selectedClient?.phone || selectedClient?.whatsapp);
+                                                if (!selectedClientId) return null;
+                                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    style: {
+                                                        border: `1.5px solid ${waOptIn ? WA_GREEN : "#e2e8f0"}`,
+                                                        borderRadius: 10,
+                                                        padding: "12px 14px",
+                                                        background: waOptIn ? "#f0fdf4" : "#fafafa",
+                                                        transition: "all 0.2s"
+                                                    },
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        className: "flex items-start gap-3 cursor-pointer select-none",
+                                                        htmlFor: "wa-optin-checkbox",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                id: "wa-optin-checkbox",
+                                                                type: "checkbox",
+                                                                checked: waOptIn,
+                                                                onChange: (e)=>setWaOptIn(e.target.checked),
+                                                                style: {
+                                                                    marginTop: 3,
+                                                                    accentColor: WA_GREEN,
+                                                                    width: 16,
+                                                                    height: 16,
+                                                                    flexShrink: 0
+                                                                }
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                                lineNumber: 526,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "font-semibold text-sm",
+                                                                        style: {
+                                                                            color: waOptIn ? "#15803d" : "#374151"
+                                                                        },
+                                                                        children: [
+                                                                            "📲 Send this invoice to ",
+                                                                            selectedClient?.name ?? "client",
+                                                                            " on WhatsApp"
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                                        lineNumber: 540,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "block text-xs mt-1",
+                                                                        style: {
+                                                                            color: "#6b7280",
+                                                                            lineHeight: 1.5
+                                                                        },
+                                                                        children: [
+                                                                            "By checking this box, you confirm that",
+                                                                            " ",
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                                                children: selectedClient?.name ?? "the client"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                                                lineNumber: 551,
+                                                                                columnNumber: 29
+                                                                            }, this),
+                                                                            " ",
+                                                                            "has agreed to receive invoice and payment notifications from Pixelate Studio on WhatsApp.",
+                                                                            !hasPhone && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "block mt-1 text-amber-600 font-medium",
+                                                                                children: "⚠️ No WhatsApp number saved for this client. Add their number in the client profile first."
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                                                lineNumber: 554,
+                                                                                columnNumber: 31
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                                        lineNumber: 546,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                                lineNumber: 539,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                        lineNumber: 522,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                    lineNumber: 513,
+                                                    columnNumber: 21
+                                                }, this);
+                                            })(),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                type: "submit",
+                                                size: "lg",
+                                                className: "w-full",
+                                                children: waOptIn ? "Create Invoice & Send on WhatsApp ✓" : "Create & Download PDF"
+                                            }, void 0, false, {
+                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                                lineNumber: 565,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                        lineNumber: 501,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
+                                    lineNumber: 500,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                            lineNumber: 390,
+                            lineNumber: 274,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                        lineNumber: 389,
+                        lineNumber: 273,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-                lineNumber: 385,
+                lineNumber: 269,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/add-invoice-dialog.tsx",
-        lineNumber: 379,
+        lineNumber: 263,
         columnNumber: 5
     }, this);
 }
-_s(AddInvoiceDialog, "wnMxbjfiUA+m//HeFNN6dKQ9znc=", false, function() {
+_s(AddInvoiceDialog, "KpDBuw+uR5k/5BxrFFxW9OfeM9w=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useForm"]
     ];
@@ -3575,131 +3094,116 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const getHsnCodeForService = (serviceName)=>{
-    const normalized = String(serviceName || "").trim().toLowerCase();
-    if (normalized.includes("video") || normalized.includes("editing") || normalized.includes("photo") || normalized.includes("shoot") || normalized.includes("production")) {
-        return "999612";
+const HSN_OPTIONS = [
+    {
+        value: "998314",
+        label: "998314 – IT/Creative Services"
+    },
+    {
+        value: "999612",
+        label: "999612 – Photography/Video"
+    },
+    {
+        value: "998315",
+        label: "998315 – Hosting/Maintenance"
     }
-    if (normalized.includes("hosting") || normalized.includes("maintenance") || normalized.includes("service")) {
-        return "998315";
-    }
-    return "998314";
-};
+];
+const emptyLineItem = ()=>({
+        description: "",
+        hsnCode: "998314",
+        quantity: 1,
+        rate: 0
+    });
 function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) {
     _s();
     const [open, setOpen] = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useState(false);
-    const [teamMembers, setTeamMembers] = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useState([]);
-    const [inventory, setInventory] = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useState([]);
+    const [lineItems, setLineItems] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([
+        emptyLineItem()
+    ]);
     const form = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useForm"])({
         defaultValues: {
             clientId: "",
             projectTitle: "",
             title: "",
-            amount: 0,
-            hsnCode: "998314",
             dueDate: "",
-            serviceId: "",
             status: "",
             invoiceNo: "",
-            assignedStaff: [],
-            equipmentAssigned: [],
-            workDate: "",
-            workTime: "",
             venueName: "",
             venueAddress: "",
             includeVenueName: false,
-            includeVenueAddress: false,
-            description: ""
+            includeVenueAddress: false
         }
     });
-    const selectedServiceId = form.watch("serviceId");
-    const selectedService = services.find((s)=>String(s.id ?? s._id) === String(selectedServiceId));
-    const isWebDev = (selectedService?.name || "").toLowerCase() === "web development";
-    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useEffect({
-        "EditInvoiceDialog.useEffect": ()=>{
-            if (!selectedServiceId) return;
-            const mappedHsn = getHsnCodeForService(selectedService?.name);
-            form.setValue("hsnCode", mappedHsn, {
-                shouldDirty: true
-            });
-        }
-    }["EditInvoiceDialog.useEffect"], [
-        selectedServiceId,
-        selectedService?.name,
-        form
-    ]);
     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useEffect({
         "EditInvoiceDialog.useEffect": ()=>{
             if (open && invoice) {
                 form.reset({
                     clientId: String(invoice.clientId ?? invoice.client ?? invoice.clientName ?? ""),
-                    invoiceNo: invoice.invoiceNo ?? invoice.invoiceNo ?? "",
+                    invoiceNo: invoice.invoiceNo ?? "",
                     projectTitle: invoice.projectTitle ?? invoice.title ?? "",
                     title: invoice.title ?? invoice.projectTitle ?? "",
-                    amount: invoice.amount ?? 0,
-                    hsnCode: String(invoice.hsnCode || "998314") === "999612" ? "999612" : "998314",
                     dueDate: invoice.dueDate ? new Date(invoice.dueDate).toISOString().slice(0, 10) : "",
-                    serviceId: String(invoice.serviceId ?? ""),
                     status: invoice.status ?? "DUE",
-                    // new fields
-                    assignedStaff: Array.isArray(invoice.assignedStaff) ? invoice.assignedStaff : invoice.assignedStaff ? String(invoice.assignedStaff).split(",").map({
-                        "EditInvoiceDialog.useEffect": (s)=>s.trim()
-                    }["EditInvoiceDialog.useEffect"]).filter(Boolean) : [],
-                    workDate: invoice.workDate ? new Date(invoice.workDate).toISOString().slice(0, 10) : "",
-                    workTime: invoice.workTime ?? "",
                     venueName: invoice.venueName ?? "",
                     venueAddress: invoice.venueAddress ?? "",
                     includeVenueName: Boolean(invoice.venueName),
-                    includeVenueAddress: Boolean(invoice.venueAddress),
-                    equipmentAssigned: Array.isArray(invoice.equipmentAssigned) ? invoice.equipmentAssigned : invoice.equipmentAssigned ? String(invoice.equipmentAssigned).split(",").map({
-                        "EditInvoiceDialog.useEffect": (s)=>s.trim()
-                    }["EditInvoiceDialog.useEffect"]).filter(Boolean) : [],
-                    description: invoice.description ?? ""
+                    includeVenueAddress: Boolean(invoice.venueAddress)
                 });
+                // Load line items from invoice
+                if (Array.isArray(invoice.lineItems) && invoice.lineItems.length) {
+                    setLineItems(invoice.lineItems.map({
+                        "EditInvoiceDialog.useEffect": (it)=>({
+                                description: it.description ?? "",
+                                hsnCode: it.hsnCode ?? it.hsn ?? "998314",
+                                quantity: Number(it.quantity ?? 1),
+                                rate: Number(it.price ?? it.rate ?? it.amount ?? 0)
+                            })
+                    }["EditInvoiceDialog.useEffect"]));
+                } else if (invoice.amount) {
+                    setLineItems([
+                        {
+                            description: invoice.title || invoice.projectTitle || "Professional Services",
+                            hsnCode: invoice.hsnCode ?? "998314",
+                            quantity: 1,
+                            rate: Number(invoice.amount || 0)
+                        }
+                    ]);
+                } else {
+                    setLineItems([
+                        emptyLineItem()
+                    ]);
+                }
             }
         }
     }["EditInvoiceDialog.useEffect"], [
         open,
         invoice
     ]);
-    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].useEffect({
-        "EditInvoiceDialog.useEffect": ()=>{
-            let mounted = true;
-            ({
-                "EditInvoiceDialog.useEffect": async ()=>{
-                    try {
-                        const res = await fetch("/api/team-members");
-                        const data = await res.json();
-                        if (mounted) setTeamMembers(Array.isArray(data) ? data : []);
-                    } catch (e) {
-                        console.error("Failed to load team members", e);
-                    }
-                }
-            })["EditInvoiceDialog.useEffect"]();
-            ({
-                "EditInvoiceDialog.useEffect": async ()=>{
-                    try {
-                        const res = await fetch("/api/inventory");
-                        const data = await res.json();
-                        if (mounted) setInventory(Array.isArray(data) ? data : []);
-                    } catch (e) {
-                        console.error("Failed to load inventory", e);
-                    }
-                }
-            })["EditInvoiceDialog.useEffect"]();
-            return ({
-                "EditInvoiceDialog.useEffect": ()=>{
-                    mounted = false;
-                }
-            })["EditInvoiceDialog.useEffect"];
-        }
-    }["EditInvoiceDialog.useEffect"], [
-        open
-    ]);
+    const addLineItem = ()=>setLineItems((r)=>[
+                ...r,
+                emptyLineItem()
+            ]);
+    const removeLineItem = (idx)=>setLineItems((r)=>r.filter((_, i)=>i !== idx));
+    const updateLineItem = (idx, patch)=>setLineItems((r)=>r.map((row, i)=>i === idx ? {
+                    ...row,
+                    ...patch
+                } : row));
+    const subtotal = lineItems.reduce((s, r)=>s + Number(r.rate || 0) * Number(r.quantity || 0), 0);
+    const tax = subtotal * 18 / 100;
+    const total = subtotal + tax;
     const handleSave = async (values)=>{
         try {
             const selectedClient = clients.find((c)=>String(c.id ?? c._id) === String(values.clientId));
-            const baseAmount = Number(values.amount || 0);
+            const apiLineItems = lineItems.map((r)=>({
+                    description: r.description || "Professional Services",
+                    hsnCode: r.hsnCode || "998314",
+                    quantity: Number(r.quantity || 1),
+                    price: Number(r.rate || 0),
+                    unit: "Nos",
+                    discount: 0,
+                    amount: Number(r.rate || 0) * Number(r.quantity || 1)
+                }));
+            const primaryHsn = lineItems[0]?.hsnCode || "998314";
             const body = {
                 clientId: values.clientId || null,
                 clientName: selectedClient?.name || "",
@@ -3710,22 +3214,15 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                 clientGst: selectedClient?.gst || selectedClient?.gstin || selectedClient?.gstNumber || "",
                 projectTitle: values.projectTitle || values.title || "",
                 title: values.title || values.projectTitle || "Invoice",
-                amount: baseAmount,
-                hsnCode: values.hsnCode || "998314",
+                lineItems: apiLineItems,
+                amount: subtotal,
+                hsnCode: primaryHsn,
                 applyGst: true,
                 gstPercent: 18,
-                tax: baseAmount * 18 / 100,
+                tax,
                 dueDate: values.dueDate || "",
-                serviceId: values.serviceId || null,
-                // new fields
-                assignedStaff: Array.isArray(values.assignedStaff) ? values.assignedStaff : values.assignedStaff ? String(values.assignedStaff).split(",").map((s)=>s.trim()).filter(Boolean) : [],
-                workDate: values.workDate || "",
-                workTime: values.workTime || "",
-                equipmentAssigned: Array.isArray(values.equipmentAssigned) ? values.equipmentAssigned : values.equipmentAssigned ? String(values.equipmentAssigned).split(",").map((s)=>s.trim()).filter(Boolean) : [],
-                description: values.description || undefined,
                 status: values.status || "DUE"
             };
-            // include venue fields only if the toggles are enabled
             if (values.includeVenueName) body.venueName = values.venueName || "";
             if (values.includeVenueAddress) body.venueAddress = values.venueAddress || "";
             const res = await fetch(`/api/invoices/${invoice._id ?? invoice.id}`, {
@@ -3742,6 +3239,8 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
             console.error("Failed to save invoice", e);
         }
     };
+    const includeVenueName = form.watch("includeVenueName");
+    const includeVenueAddress = form.watch("includeVenueAddress");
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
         open: open,
         onOpenChange: setOpen,
@@ -3753,35 +3252,35 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                     children: "Edit"
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                    lineNumber: 258,
+                    lineNumber: 208,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                lineNumber: 257,
+                lineNumber: 207,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
-                className: "max-w-5xl max-h-[80vh] overflow-auto",
+                className: "max-w-5xl max-h-[85vh] overflow-auto",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogHeader"], {
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTitle"], {
                             children: "Edit Invoice"
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                            lineNumber: 262,
+                            lineNumber: 212,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                        lineNumber: 261,
+                        lineNumber: 211,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Form"], {
                         ...form,
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                             onSubmit: form.handleSubmit(handleSave),
-                            className: "space-y-4",
+                            className: "space-y-6",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "grid grid-cols-1 md:grid-cols-2 gap-4",
@@ -3795,7 +3294,7 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                                                             children: "Invoice No"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 272,
+                                                            lineNumber: 223,
                                                             columnNumber: 21
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
@@ -3804,23 +3303,23 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                                                                 readOnly: true
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 274,
+                                                                lineNumber: 225,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 273,
+                                                            lineNumber: 224,
                                                             columnNumber: 21
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 271,
+                                                    lineNumber: 222,
                                                     columnNumber: 19
                                                 }, void 0)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                            lineNumber: 267,
+                                            lineNumber: 218,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
@@ -3832,20 +3331,20 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                                                             children: "Client"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 284,
+                                                            lineNumber: 236,
                                                             columnNumber: 21
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                                                 ...field,
-                                                                className: "w-full border p-2",
+                                                                className: "w-full border rounded p-2",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                                         value: "",
                                                                         children: "Select client"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                        lineNumber: 287,
+                                                                        lineNumber: 239,
                                                                         columnNumber: 25
                                                                     }, void 0),
                                                                     clients.map((c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3853,29 +3352,29 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                                                                             children: c.name
                                                                         }, String(c.id ?? c._id), false, {
                                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                            lineNumber: 289,
+                                                                            lineNumber: 241,
                                                                             columnNumber: 27
                                                                         }, void 0))
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 286,
+                                                                lineNumber: 238,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 285,
+                                                            lineNumber: 237,
                                                             columnNumber: 21
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 283,
+                                                    lineNumber: 235,
                                                     columnNumber: 19
                                                 }, void 0)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                            lineNumber: 279,
+                                            lineNumber: 231,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
@@ -3887,7 +3386,7 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                                                             children: "Project Title"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 307,
+                                                            lineNumber: 256,
                                                             columnNumber: 21
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
@@ -3895,23 +3394,23 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                                                                 ...field
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 309,
+                                                                lineNumber: 258,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 308,
+                                                            lineNumber: 257,
                                                             columnNumber: 21
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 306,
+                                                    lineNumber: 255,
                                                     columnNumber: 19
                                                 }, void 0)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                            lineNumber: 302,
+                                            lineNumber: 251,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
@@ -3923,7 +3422,7 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                                                             children: "Invoice Title"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 320,
+                                                            lineNumber: 269,
                                                             columnNumber: 21
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
@@ -3931,71 +3430,25 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                                                                 ...field
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 322,
+                                                                lineNumber: 271,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 321,
+                                                            lineNumber: 270,
                                                             columnNumber: 21
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 319,
+                                                    lineNumber: 268,
                                                     columnNumber: 19
                                                 }, void 0)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                            lineNumber: 315,
+                                            lineNumber: 264,
                                             columnNumber: 15
                                         }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "amount",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "Amount (₹)"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 333,
-                                                            columnNumber: 21
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                type: "number",
-                                                                ...field
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 335,
-                                                                columnNumber: 23
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 334,
-                                                            columnNumber: 21
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 332,
-                                                    columnNumber: 19
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                            lineNumber: 328,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                    lineNumber: 266,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "grid grid-cols-1 md:grid-cols-2 gap-4",
-                                    children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
                                             name: "dueDate",
                                             control: form.control,
@@ -4005,7 +3458,7 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                                                             children: "Due Date"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 349,
+                                                            lineNumber: 282,
                                                             columnNumber: 21
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
@@ -4014,451 +3467,377 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                                                                 ...field
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 351,
+                                                                lineNumber: 284,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 350,
+                                                            lineNumber: 283,
                                                             columnNumber: 21
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 348,
+                                                    lineNumber: 281,
                                                     columnNumber: 19
                                                 }, void 0)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                            lineNumber: 344,
+                                            lineNumber: 277,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "serviceId",
+                                            name: "status",
                                             control: form.control,
                                             render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "Service"
+                                                            children: "Status"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 362,
+                                                            lineNumber: 295,
                                                             columnNumber: 21
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                                                 ...field,
-                                                                className: "w-full border p-2",
+                                                                className: "w-full border rounded p-2",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                        value: "",
-                                                                        children: "Select service"
+                                                                        value: "DUE",
+                                                                        children: "DUE"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                        lineNumber: 365,
-                                                                        columnNumber: 25
-                                                                    }, void 0),
-                                                                    services.map((s)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                            value: String(s.id ?? s._id),
-                                                                            children: s.name
-                                                                        }, String(s.id ?? s._id), false, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                            lineNumber: 367,
-                                                                            columnNumber: 27
-                                                                        }, void 0))
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 364,
-                                                                columnNumber: 23
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 363,
-                                                            columnNumber: 21
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 361,
-                                                    columnNumber: 19
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                            lineNumber: 357,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "hsnCode",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "HSN Code"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 385,
-                                                            columnNumber: 21
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                                                ...field,
-                                                                className: "w-full border p-2",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                        value: "998314",
-                                                                        children: "998314"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                        lineNumber: 388,
+                                                                        lineNumber: 298,
                                                                         columnNumber: 25
                                                                     }, void 0),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                        value: "999612",
-                                                                        children: "999612"
+                                                                        value: "PARTIAL",
+                                                                        children: "PARTIAL"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                        lineNumber: 389,
+                                                                        lineNumber: 299,
                                                                         columnNumber: 25
                                                                     }, void 0),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                        value: "998315",
-                                                                        children: "998315"
+                                                                        value: "PAID",
+                                                                        children: "PAID"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                        lineNumber: 390,
+                                                                        lineNumber: 300,
                                                                         columnNumber: 25
                                                                     }, void 0)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 387,
+                                                                lineNumber: 297,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 386,
+                                                            lineNumber: 296,
                                                             columnNumber: 21
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 384,
+                                                    lineNumber: 294,
                                                     columnNumber: 19
                                                 }, void 0)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                            lineNumber: 380,
+                                            lineNumber: 290,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                    lineNumber: 343,
+                                    lineNumber: 217,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center justify-between mb-3",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "font-semibold text-base",
+                                                    children: "Services / Line Items"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                    lineNumber: 311,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                    type: "button",
+                                                    variant: "outline",
+                                                    size: "sm",
+                                                    onClick: addLineItem,
+                                                    children: "+ Add Row"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                    lineNumber: 312,
+                                                    columnNumber: 17
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                            lineNumber: 310,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "grid grid-cols-[2fr_1fr_80px_100px_100px_40px] gap-2 text-xs font-semibold text-muted-foreground border-b pb-1 mb-1 px-1",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    children: "Description"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                    lineNumber: 319,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    children: "HSN Code"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                    lineNumber: 320,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    children: "Qty"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                    lineNumber: 321,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-right",
+                                                    children: "Rate (₹)"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                    lineNumber: 322,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-right",
+                                                    children: "Amount (₹)"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                    lineNumber: 323,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {}, void 0, false, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                    lineNumber: 324,
+                                                    columnNumber: 17
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                            lineNumber: 318,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "space-y-2",
+                                            children: lineItems.map((row, idx)=>{
+                                                const amt = Number(row.rate || 0) * Number(row.quantity || 0);
+                                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "grid grid-cols-[2fr_1fr_80px_100px_100px_40px] gap-2 items-center",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                            placeholder: "Service description",
+                                                            value: row.description,
+                                                            onChange: (e)=>updateLineItem(idx, {
+                                                                    description: e.target.value
+                                                                })
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                            lineNumber: 335,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                                            className: "border rounded p-2 text-sm",
+                                                            value: row.hsnCode,
+                                                            onChange: (e)=>updateLineItem(idx, {
+                                                                    hsnCode: e.target.value
+                                                                }),
+                                                            children: HSN_OPTIONS.map((o)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                    value: o.value,
+                                                                    children: o.value
+                                                                }, o.value, false, {
+                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                                    lineNumber: 346,
+                                                                    columnNumber: 27
+                                                                }, this))
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                            lineNumber: 340,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                            type: "number",
+                                                            min: 1,
+                                                            value: row.quantity,
+                                                            onChange: (e)=>updateLineItem(idx, {
+                                                                    quantity: Number(e.target.value)
+                                                                })
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                            lineNumber: 349,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                            type: "number",
+                                                            min: 0,
+                                                            value: row.rate,
+                                                            onChange: (e)=>updateLineItem(idx, {
+                                                                    rate: Number(e.target.value)
+                                                                }),
+                                                            className: "text-right"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                            lineNumber: 357,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "text-right text-sm font-medium pr-1 self-center",
+                                                            children: amt.toLocaleString("en-IN")
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                            lineNumber: 366,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                            type: "button",
+                                                            variant: "ghost",
+                                                            size: "sm",
+                                                            className: "text-red-500 hover:text-red-700 px-2",
+                                                            disabled: lineItems.length === 1,
+                                                            onClick: ()=>removeLineItem(idx),
+                                                            children: "✕"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                            lineNumber: 369,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, idx, true, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                    lineNumber: 331,
+                                                    columnNumber: 21
+                                                }, this);
+                                            })
+                                        }, void 0, false, {
+                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                            lineNumber: 327,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "mt-4 flex flex-col items-end gap-1 text-sm border-t pt-3",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex gap-8",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-muted-foreground",
+                                                            children: "Subtotal"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                            lineNumber: 387,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "w-28 text-right font-medium",
+                                                            children: [
+                                                                "₹",
+                                                                subtotal.toLocaleString("en-IN", {
+                                                                    minimumFractionDigits: 2
+                                                                })
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                            lineNumber: 388,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                    lineNumber: 386,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex gap-8",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "text-muted-foreground",
+                                                            children: "GST (18%)"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                            lineNumber: 393,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "w-28 text-right font-medium",
+                                                            children: [
+                                                                "₹",
+                                                                tax.toLocaleString("en-IN", {
+                                                                    minimumFractionDigits: 2
+                                                                })
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                            lineNumber: 394,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                    lineNumber: 392,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex gap-8 text-base font-semibold border-t pt-1 mt-1",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            children: "Total"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                            lineNumber: 399,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "w-28 text-right",
+                                                            children: [
+                                                                "₹",
+                                                                total.toLocaleString("en-IN", {
+                                                                    minimumFractionDigits: 2
+                                                                })
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                            lineNumber: 400,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                    lineNumber: 398,
+                                                    columnNumber: 17
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                            lineNumber: 385,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                    lineNumber: 309,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "grid grid-cols-1 md:grid-cols-2 gap-4",
                                     children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "assignedStaff",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "Assigned Staff"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 404,
-                                                            columnNumber: 21
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "border rounded p-2 max-h-40 overflow-auto",
-                                                                children: [
-                                                                    teamMembers.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "text-sm text-muted-foreground",
-                                                                        children: "No team members"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                        lineNumber: 408,
-                                                                        columnNumber: 27
-                                                                    }, void 0),
-                                                                    teamMembers.map((m)=>{
-                                                                        const id = String(m._id ?? m.id);
-                                                                        const selected = Array.isArray(field.value) && field.value.includes(id);
-                                                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                            className: "flex items-center justify-between p-1",
-                                                                            children: [
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                    children: m.name
-                                                                                }, void 0, false, {
-                                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                                    lineNumber: 422,
-                                                                                    columnNumber: 31
-                                                                                }, void 0),
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                                        className: "inline-flex items-center space-x-2",
-                                                                                        children: [
-                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                                                type: "checkbox",
-                                                                                                checked: selected,
-                                                                                                onChange: (e)=>{
-                                                                                                    const vals = Array.isArray(field.value) ? [
-                                                                                                        ...field.value
-                                                                                                    ] : [];
-                                                                                                    if (e.target.checked) {
-                                                                                                        if (!vals.includes(id)) vals.push(id);
-                                                                                                    } else {
-                                                                                                        const idx = vals.indexOf(id);
-                                                                                                        if (idx >= 0) vals.splice(idx, 1);
-                                                                                                    }
-                                                                                                    field.onChange(vals);
-                                                                                                }
-                                                                                            }, void 0, false, {
-                                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                                                lineNumber: 425,
-                                                                                                columnNumber: 35
-                                                                                            }, void 0),
-                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                                className: "text-sm",
-                                                                                                children: "Select"
-                                                                                            }, void 0, false, {
-                                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                                                lineNumber: 441,
-                                                                                                columnNumber: 35
-                                                                                            }, void 0)
-                                                                                        ]
-                                                                                    }, void 0, true, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                                        lineNumber: 424,
-                                                                                        columnNumber: 33
-                                                                                    }, void 0)
-                                                                                }, void 0, false, {
-                                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                                    lineNumber: 423,
-                                                                                    columnNumber: 31
-                                                                                }, void 0)
-                                                                            ]
-                                                                        }, id, true, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                            lineNumber: 418,
-                                                                            columnNumber: 29
-                                                                        }, void 0);
-                                                                    })
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 406,
-                                                                columnNumber: 23
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 405,
-                                                            columnNumber: 21
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 403,
-                                                    columnNumber: 19
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                            lineNumber: 399,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "workDate",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "Date of Work"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 458,
-                                                            columnNumber: 21
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                type: "date",
-                                                                ...field
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 460,
-                                                                columnNumber: 23
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 459,
-                                                            columnNumber: 21
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 457,
-                                                    columnNumber: 19
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                            lineNumber: 453,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "workTime",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "Time of Work"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 471,
-                                                            columnNumber: 21
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                type: "time",
-                                                                ...field
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 473,
-                                                                columnNumber: 23
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 472,
-                                                            columnNumber: 21
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 470,
-                                                    columnNumber: 19
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                            lineNumber: 466,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "equipmentAssigned",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "Equipment Assigned"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 484,
-                                                            columnNumber: 21
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "border rounded p-2 max-h-40 overflow-auto",
-                                                                children: [
-                                                                    inventory.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "text-sm text-muted-foreground",
-                                                                        children: "No inventory"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                        lineNumber: 488,
-                                                                        columnNumber: 27
-                                                                    }, void 0),
-                                                                    inventory.map((it)=>{
-                                                                        const id = String(it._id ?? it.id);
-                                                                        const selected = Array.isArray(field.value) && field.value.includes(id);
-                                                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                            className: "flex items-center justify-between p-1",
-                                                                            children: [
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                    children: [
-                                                                                        it.itemName,
-                                                                                        " (",
-                                                                                        it.quantityAvailable,
-                                                                                        " ",
-                                                                                        it.unit,
-                                                                                        ")"
-                                                                                    ]
-                                                                                }, void 0, true, {
-                                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                                    lineNumber: 502,
-                                                                                    columnNumber: 31
-                                                                                }, void 0),
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                                        className: "inline-flex items-center space-x-2",
-                                                                                        children: [
-                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                                                type: "checkbox",
-                                                                                                checked: selected,
-                                                                                                onChange: (e)=>{
-                                                                                                    const vals = Array.isArray(field.value) ? [
-                                                                                                        ...field.value
-                                                                                                    ] : [];
-                                                                                                    if (e.target.checked) {
-                                                                                                        if (!vals.includes(id)) vals.push(id);
-                                                                                                    } else {
-                                                                                                        const idx = vals.indexOf(id);
-                                                                                                        if (idx >= 0) vals.splice(idx, 1);
-                                                                                                    }
-                                                                                                    field.onChange(vals);
-                                                                                                }
-                                                                                            }, void 0, false, {
-                                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                                                lineNumber: 507,
-                                                                                                columnNumber: 35
-                                                                                            }, void 0),
-                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                                className: "text-sm",
-                                                                                                children: "Select"
-                                                                                            }, void 0, false, {
-                                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                                                lineNumber: 523,
-                                                                                                columnNumber: 35
-                                                                                            }, void 0)
-                                                                                        ]
-                                                                                    }, void 0, true, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                                        lineNumber: 506,
-                                                                                        columnNumber: 33
-                                                                                    }, void 0)
-                                                                                }, void 0, false, {
-                                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                                    lineNumber: 505,
-                                                                                    columnNumber: 31
-                                                                                }, void 0)
-                                                                            ]
-                                                                        }, id, true, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                            lineNumber: 498,
-                                                                            columnNumber: 29
-                                                                        }, void 0);
-                                                                    })
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 486,
-                                                                columnNumber: 23
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 485,
-                                                            columnNumber: 21
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 483,
-                                                    columnNumber: 19
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                            lineNumber: 479,
-                                            columnNumber: 15
-                                        }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "flex flex-col gap-2",
                                             children: [
@@ -4467,7 +3846,7 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                                                     control: form.control,
                                                     render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                className: "inline-flex items-center space-x-2",
+                                                                className: "inline-flex items-center space-x-2 cursor-pointer",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                                         type: "checkbox",
@@ -4475,76 +3854,77 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                                                                         onChange: (e)=>field.onChange(e.target.checked)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                        lineNumber: 542,
+                                                                        lineNumber: 416,
                                                                         columnNumber: 25
                                                                     }, void 0),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "font-medium",
+                                                                        className: "font-medium text-sm",
                                                                         children: "Include Venue Name"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                        lineNumber: 549,
+                                                                        lineNumber: 421,
                                                                         columnNumber: 25
                                                                     }, void 0)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 541,
+                                                                lineNumber: 415,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 540,
+                                                            lineNumber: 414,
                                                             columnNumber: 21
                                                         }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 536,
+                                                    lineNumber: 410,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
                                                     name: "venueName",
                                                     control: form.control,
                                                     render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                                    children: "Venue Name"
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                    ...field,
+                                                                    disabled: !includeVenueName,
+                                                                    placeholder: "Venue name"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                    lineNumber: 559,
-                                                                    columnNumber: 23
-                                                                }, void 0),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                        ...field,
-                                                                        disabled: !form.getValues().includeVenueName
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                        lineNumber: 561,
-                                                                        columnNumber: 25
-                                                                    }, void 0)
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                    lineNumber: 560,
-                                                                    columnNumber: 23
+                                                                    lineNumber: 432,
+                                                                    columnNumber: 25
                                                                 }, void 0)
-                                                            ]
-                                                        }, void 0, true, {
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                                lineNumber: 431,
+                                                                columnNumber: 23
+                                                            }, void 0)
+                                                        }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 558,
+                                                            lineNumber: 430,
                                                             columnNumber: 21
                                                         }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 554,
+                                                    lineNumber: 426,
                                                     columnNumber: 17
-                                                }, this),
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                            lineNumber: 409,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex flex-col gap-2",
+                                            children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
                                                     name: "includeVenueAddress",
                                                     control: form.control,
                                                     render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                className: "inline-flex items-center space-x-2",
+                                                                className: "inline-flex items-center space-x-2 cursor-pointer",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                                         type: "checkbox",
@@ -4552,118 +3932,72 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                                                                         onChange: (e)=>field.onChange(e.target.checked)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                        lineNumber: 576,
+                                                                        lineNumber: 446,
                                                                         columnNumber: 25
                                                                     }, void 0),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "font-medium",
+                                                                        className: "font-medium text-sm",
                                                                         children: "Include Venue Address"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                        lineNumber: 583,
+                                                                        lineNumber: 451,
                                                                         columnNumber: 25
                                                                     }, void 0)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 575,
+                                                                lineNumber: 445,
                                                                 columnNumber: 23
                                                             }, void 0)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 574,
+                                                            lineNumber: 444,
                                                             columnNumber: 21
                                                         }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 570,
+                                                    lineNumber: 440,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
                                                     name: "venueAddress",
                                                     control: form.control,
                                                     render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                                    children: "Venue Address"
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                                    ...field,
+                                                                    disabled: !includeVenueAddress,
+                                                                    placeholder: "Venue address"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                    lineNumber: 595,
-                                                                    columnNumber: 23
-                                                                }, void 0),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                        ...field,
-                                                                        disabled: !form.getValues().includeVenueAddress
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                        lineNumber: 597,
-                                                                        columnNumber: 25
-                                                                    }, void 0)
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                    lineNumber: 596,
-                                                                    columnNumber: 23
+                                                                    lineNumber: 462,
+                                                                    columnNumber: 25
                                                                 }, void 0)
-                                                            ]
-                                                        }, void 0, true, {
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
+                                                                lineNumber: 461,
+                                                                columnNumber: 23
+                                                            }, void 0)
+                                                        }, void 0, false, {
                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 594,
+                                                            lineNumber: 460,
                                                             columnNumber: 21
                                                         }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 590,
+                                                    lineNumber: 456,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                            lineNumber: 535,
+                                            lineNumber: 439,
                                             columnNumber: 15
-                                        }, this),
-                                        isWebDev && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
-                                            name: "description",
-                                            control: form.control,
-                                            render: ({ field })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormItem"], {
-                                                    className: "md:col-span-2",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormLabel"], {
-                                                            children: "Description (Web Development)"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 613,
-                                                            columnNumber: 23
-                                                        }, void 0),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
-                                                                ...field,
-                                                                className: "w-full border p-2 h-24"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                                lineNumber: 615,
-                                                                columnNumber: 25
-                                                            }, void 0)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                            lineNumber: 614,
-                                                            columnNumber: 23
-                                                        }, void 0)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                                    lineNumber: 612,
-                                                    columnNumber: 21
-                                                }, void 0)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                            lineNumber: 608,
-                                            columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                    lineNumber: 398,
+                                    lineNumber: 408,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -4671,42 +4005,42 @@ function EditInvoiceDialog({ invoice, clients, services, projects, onUpdated }) 
                                         type: "submit",
                                         size: "lg",
                                         className: "w-full",
-                                        children: "Save"
+                                        children: "Save Invoice"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                        lineNumber: 627,
+                                        lineNumber: 471,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                                    lineNumber: 626,
+                                    lineNumber: 470,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                            lineNumber: 265,
+                            lineNumber: 215,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                        lineNumber: 264,
+                        lineNumber: 214,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-                lineNumber: 260,
+                lineNumber: 210,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/invoices/edit-invoice-dialog.tsx",
-        lineNumber: 256,
+        lineNumber: 206,
         columnNumber: 5
     }, this);
 }
-_s(EditInvoiceDialog, "3l9T31c9L7YwieQXHHWvBYKt6Wg=", false, function() {
+_s(EditInvoiceDialog, "aw6qD+AhF3povZYv3XS62TrIOkg=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useForm"]
     ];
@@ -8363,8 +7697,6 @@ function InvoicingPage() {
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$invoices$2f$add$2d$invoice$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AddInvoiceDialog"], {
                                 clients: clients,
-                                services: services,
-                                projects: projects,
                                 onCreated: refresh
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
@@ -8396,7 +7728,7 @@ function InvoicingPage() {
                                         children: "Invoice No"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 715,
+                                        lineNumber: 713,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -8404,7 +7736,7 @@ function InvoicingPage() {
                                         children: "Client"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 716,
+                                        lineNumber: 714,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -8412,7 +7744,7 @@ function InvoicingPage() {
                                         children: "Project / Title"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 717,
+                                        lineNumber: 715,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -8420,7 +7752,7 @@ function InvoicingPage() {
                                         children: "Amount"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 720,
+                                        lineNumber: 718,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -8428,7 +7760,7 @@ function InvoicingPage() {
                                         children: "Paid"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 721,
+                                        lineNumber: 719,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -8436,7 +7768,7 @@ function InvoicingPage() {
                                         children: "Due Date"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 722,
+                                        lineNumber: 720,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -8444,7 +7776,7 @@ function InvoicingPage() {
                                         children: "Status"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 723,
+                                        lineNumber: 721,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -8452,18 +7784,18 @@ function InvoicingPage() {
                                         children: "Actions"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 726,
+                                        lineNumber: 724,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 714,
+                                lineNumber: 712,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                            lineNumber: 713,
+                            lineNumber: 711,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -8475,7 +7807,7 @@ function InvoicingPage() {
                                             children: invoice.invoiceNo ?? invoice.id ?? invoice._id
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 737,
+                                            lineNumber: 735,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -8483,7 +7815,7 @@ function InvoicingPage() {
                                             children: invoice.clientName || invoice.client || clients.find((c)=>String(c.id ?? c._id) === String(invoice.clientId))?.name || "-"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 740,
+                                            lineNumber: 738,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -8491,7 +7823,7 @@ function InvoicingPage() {
                                             children: invoice.title ?? invoice.projectTitle ?? "-"
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 748,
+                                            lineNumber: 746,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -8502,7 +7834,7 @@ function InvoicingPage() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 751,
+                                            lineNumber: 749,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -8513,7 +7845,7 @@ function InvoicingPage() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 754,
+                                            lineNumber: 752,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -8521,7 +7853,7 @@ function InvoicingPage() {
                                             children: invoice.dueDate ? new Date(invoice.dueDate).toLocaleDateString() : ""
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 757,
+                                            lineNumber: 755,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -8531,12 +7863,12 @@ function InvoicingPage() {
                                                 children: invoice.status
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                lineNumber: 763,
+                                                lineNumber: 761,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 762,
+                                            lineNumber: 760,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -8552,7 +7884,7 @@ function InvoicingPage() {
                                                         onUpdated: refresh
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                        lineNumber: 780,
+                                                        lineNumber: 778,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -8562,7 +7894,7 @@ function InvoicingPage() {
                                                         children: "Preview"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                        lineNumber: 789,
+                                                        lineNumber: 787,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -8572,7 +7904,7 @@ function InvoicingPage() {
                                                         children: downloading[String(invoice.invoiceNo ?? invoice._id ?? invoice.id ?? "")] ? "Downloading..." : "Download"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                        lineNumber: 796,
+                                                        lineNumber: 794,
                                                         columnNumber: 21
                                                     }, this),
                                                     !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -8582,7 +7914,7 @@ function InvoicingPage() {
                                                                 onClientUpdate: refreshClients
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                lineNumber: 821,
+                                                                lineNumber: 819,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$invoices$2f$send$2d$whatsapp$2d$invoice$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["WhatsAppInvoiceSendButton"], {
@@ -8591,7 +7923,7 @@ function InvoicingPage() {
                                                                 onClientUpdate: refreshClients
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                lineNumber: 829,
+                                                                lineNumber: 827,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -8615,7 +7947,7 @@ function InvoicingPage() {
                                                                             strokeWidth: "4"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                            lineNumber: 848,
+                                                                            lineNumber: 846,
                                                                             columnNumber: 31
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -8624,13 +7956,13 @@ function InvoicingPage() {
                                                                             d: "M4 12a8 8 0 018-8v8z"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                            lineNumber: 849,
+                                                                            lineNumber: 847,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                    lineNumber: 847,
+                                                                    lineNumber: 845,
                                                                     columnNumber: 29
                                                                 }, this) : /* Gmail M logo SVG */ /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                                                     viewBox: "0 0 24 24",
@@ -8641,17 +7973,17 @@ function InvoicingPage() {
                                                                         fill: "currentColor"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                        lineNumber: 854,
+                                                                        lineNumber: 852,
                                                                         columnNumber: 31
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                    lineNumber: 853,
+                                                                    lineNumber: 851,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                                lineNumber: 838,
+                                                                lineNumber: 836,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
@@ -8664,40 +7996,40 @@ function InvoicingPage() {
                                                         children: deletingInvoices.has(String(invoice._id ?? invoice.id ?? "")) ? "Deleting..." : "Delete"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                        lineNumber: 861,
+                                                        lineNumber: 859,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                                lineNumber: 778,
+                                                lineNumber: 776,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                            lineNumber: 777,
+                                            lineNumber: 775,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, invoice._id ?? invoice.id ?? invoice.invoiceNo, true, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                    lineNumber: 733,
+                                    lineNumber: 731,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                            lineNumber: 731,
+                            lineNumber: 729,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                    lineNumber: 712,
+                    lineNumber: 710,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                lineNumber: 711,
+                lineNumber: 709,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
@@ -8713,12 +8045,12 @@ function InvoicingPage() {
                                 children: "Invoice Preview"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 893,
+                                lineNumber: 891,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                            lineNumber: 892,
+                            lineNumber: 890,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8734,29 +8066,29 @@ function InvoicingPage() {
                                         client: clients.find((c)=>String(c.id ?? c._id) === String(previewInvoice.clientId))
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 903,
+                                        lineNumber: 901,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                    lineNumber: 898,
+                                    lineNumber: 896,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 897,
+                                lineNumber: 895,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "p-4",
                                 children: "No preview available"
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 914,
+                                lineNumber: 912,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                            lineNumber: 895,
+                            lineNumber: 893,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogFooter"], {
@@ -8769,7 +8101,7 @@ function InvoicingPage() {
                                         children: "Close"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 919,
+                                        lineNumber: 917,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -8779,29 +8111,29 @@ function InvoicingPage() {
                                         children: previewLoading ? "Preparing..." : "Download PDF"
                                     }, void 0, false, {
                                         fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                        lineNumber: 922,
+                                        lineNumber: 920,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                                lineNumber: 918,
+                                lineNumber: 916,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                            lineNumber: 917,
+                            lineNumber: 915,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                    lineNumber: 891,
+                    lineNumber: 889,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/invoicing/page.tsx",
-                lineNumber: 885,
+                lineNumber: 883,
                 columnNumber: 7
             }, this)
         ]

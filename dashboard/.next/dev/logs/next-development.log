@@ -1,17 +1,28 @@
-[00:00:01.054] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.300] Server  LOG      ✓ Ready in 998ms
-[00:00:03.656] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:08.528] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-0002
-[00:00:08.686] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-0002
-[00:00:12.824] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:00:12.824] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:00:12.825] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:00:12.825] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:00:00.945] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.023] Server  LOG      ✓ Ready in 766ms
+[00:00:27.045] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:45.463] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:53.286] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:31.339] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:02:31.340] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:30.819] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:30.819] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:33.046] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:33.046] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:44:32.365] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:44:32.365] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:45:21.397] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:45:21.398] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:46:53.133] Browser DEBUG   #1 0ms Starting document clone with size 1512x1123 scrolled to 0,0
+[00:46:57.059] Browser DEBUG   #1 186ms Document cloned, element located at -100000,0 with size 1200x1122.515625 using computed rendering
+[00:46:57.059] Browser DEBUG   #1 186ms Starting DOM parsing
+[00:46:57.059] Browser DEBUG   #1 189ms Added image http://localhost:9002/_next/static/media/logo-transparent.2aba66e8.png
+[00:46:57.059] Browser DEBUG   #1 199ms Added image http://localhost:9002/_next/static/media/sign.d135599b.png
+[00:46:57.059] Browser DEBUG   #1 200ms Starting renderer for element at -100000,0 with size 1200x1123
+[00:46:57.059] Browser DEBUG   #1 200ms Canvas renderer initialized (1200x1123) with scale 0.17500129629629627
+[00:46:57.059] Browser DEBUG   #1 3852ms Finished rendering
+[00:47:01.487] Server  INFO    [WhatsApp Opt-In] Client 69ed2ada25fc304b083eef01 opted in via manual_toggle for invoice N/A
+[00:47:03.595] Server  INFO    [WhatsApp Media] Uploading: Invoice-Test-KTS-2026-2027-0004.pdf, size: 50.9 KB
+[00:47:04.134] Server  ERROR   [WhatsApp Media] Upload failed — HTTP 401, code: 190, fbtrace_id: AbT5cCTjIqB3qBYbKSC0nRk: "{\n  \"error\": {\n    \"message\": \"Authentication Error\",\n    \"code\": 190,\n    \"type\": \"OAuthException\",\n    \"fbtrace_id\": \"AbT5cCTjIqB3qBYbKSC0nRk\"\n  }\n}"
+[00:47:04.238] Browser ERROR   [useWhatsAppInvoice] {}
+[00:52:13.233] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

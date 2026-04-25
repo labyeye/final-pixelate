@@ -231,6 +231,8 @@ __turbopack_context__.s([
     ()=>getClients,
     "getCollection",
     ()=>getCollection,
+    "getFinancialYear",
+    ()=>getFinancialYear,
     "getInventory",
     ()=>getInventory,
     "getInvoices",
@@ -266,6 +268,17 @@ var __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$_
 ;
 ;
 ;
+function getFinancialYear(date = new Date()) {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1; // 1-12
+    if (month >= 4) {
+        // April onwards: current year to next year
+        return `${year}-${year + 1}`;
+    } else {
+        // January to March: previous year to current year
+        return `${year - 1}-${year}`;
+    }
+}
 async function getCollection(name) {
     const db = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$mongodb$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getDb"])();
     return db.collection(name);
@@ -712,8 +725,9 @@ async function renumberInvoices(financialYear) {
     };
     let counter = 1;
     for (const inv of invoices){
+        const fy = financialYear || getFinancialYear(inv.createdAt || new Date());
         const padded = String(counter).padStart(4, "0");
-        const invoiceNo = `KTS-${padded}`;
+        const invoiceNo = `KTS/${fy}/${padded}`;
         await col.updateOne({
             _id: inv._id
         }, {
@@ -729,13 +743,14 @@ async function renumberInvoices(financialYear) {
 }
 async function createInvoice(invoice) {
     const col = await getCollection("invoices");
-    // generate invoiceNo in KTS-0001 format
+    // generate invoiceNo in KTS/2025-2026/0001 format
     try {
-        // find existing max number in KTS-0001 format
-        const regex = /^KTS-(\d+)$/;
+        const fy = getFinancialYear(new Date());
+        // find existing max number for this financial year in KTS/YYYY-YYYY/#### format
+        const regex = new RegExp(`^KTS/${fy}/(\\d+)$`);
         const docs = await col.find({
             invoiceNo: {
-                $regex: "^KTS-"
+                $regex: `^KTS/${fy}/`
             }
         }).project({
             invoiceNo: 1
@@ -751,7 +766,7 @@ async function createInvoice(invoice) {
         }
         const nextNum = maxNum + 1;
         const padded = String(nextNum).padStart(4, "0");
-        const invoiceNo = `KTS-${padded}`;
+        const invoiceNo = `KTS/${fy}/${padded}`;
         const id = `PN-${padded}`;
         const res = await col.insertOne({
             ...invoice,
@@ -1086,45 +1101,63 @@ async function PUT(request) {
         const changedFields = [];
         const changeDetails = {};
         // Update metrics fields
-        if (body.views !== undefined && postBefore?.views !== body.views) {
-            updateData.views = Math.max(0, body.views);
-            changedFields.push("views");
-            changeDetails.views = {
-                before: postBefore?.views,
-                after: body.views
+        if (body.accountId) {
+            // Per-account metrics update
+            const accountMetricsKey = `accountMetrics.${body.accountId}`;
+            updateData[accountMetricsKey] = {
+                views: Math.max(0, body.views || 0),
+                likes: Math.max(0, body.likes || 0),
+                comments: Math.max(0, body.comments || 0),
+                shares: Math.max(0, body.shares || 0),
+                followers_gained: Math.max(0, body.followers_gained || 0)
             };
-        }
-        if (body.likes !== undefined && postBefore?.likes !== body.likes) {
-            updateData.likes = Math.max(0, body.likes);
-            changedFields.push("likes");
-            changeDetails.likes = {
-                before: postBefore?.likes,
-                after: body.likes
+            changedFields.push("accountMetrics");
+            changeDetails.accountMetrics = {
+                accountId: body.accountId,
+                metrics: updateData[accountMetricsKey]
             };
-        }
-        if (body.comments !== undefined && postBefore?.comments !== body.comments) {
-            updateData.comments = Math.max(0, body.comments);
-            changedFields.push("comments");
-            changeDetails.comments = {
-                before: postBefore?.comments,
-                after: body.comments
-            };
-        }
-        if (body.shares !== undefined && postBefore?.shares !== body.shares) {
-            updateData.shares = Math.max(0, body.shares);
-            changedFields.push("shares");
-            changeDetails.shares = {
-                before: postBefore?.shares,
-                after: body.shares
-            };
-        }
-        if (body.followers_gained !== undefined && postBefore?.followers_gained !== body.followers_gained) {
-            updateData.followers_gained = Math.max(0, body.followers_gained);
-            changedFields.push("followers_gained");
-            changeDetails.followers_gained = {
-                before: postBefore?.followers_gained,
-                after: body.followers_gained
-            };
+        } else {
+            // Post-level metrics update (backward compat / no-account posts)
+            if (body.views !== undefined && postBefore?.views !== body.views) {
+                updateData.views = Math.max(0, body.views);
+                changedFields.push("views");
+                changeDetails.views = {
+                    before: postBefore?.views,
+                    after: body.views
+                };
+            }
+            if (body.likes !== undefined && postBefore?.likes !== body.likes) {
+                updateData.likes = Math.max(0, body.likes);
+                changedFields.push("likes");
+                changeDetails.likes = {
+                    before: postBefore?.likes,
+                    after: body.likes
+                };
+            }
+            if (body.comments !== undefined && postBefore?.comments !== body.comments) {
+                updateData.comments = Math.max(0, body.comments);
+                changedFields.push("comments");
+                changeDetails.comments = {
+                    before: postBefore?.comments,
+                    after: body.comments
+                };
+            }
+            if (body.shares !== undefined && postBefore?.shares !== body.shares) {
+                updateData.shares = Math.max(0, body.shares);
+                changedFields.push("shares");
+                changeDetails.shares = {
+                    before: postBefore?.shares,
+                    after: body.shares
+                };
+            }
+            if (body.followers_gained !== undefined && postBefore?.followers_gained !== body.followers_gained) {
+                updateData.followers_gained = Math.max(0, body.followers_gained);
+                changedFields.push("followers_gained");
+                changeDetails.followers_gained = {
+                    before: postBefore?.followers_gained,
+                    after: body.followers_gained
+                };
+            }
         }
         // Update other fields if provided
         if (body.status !== undefined && postBefore?.status !== body.status) {
