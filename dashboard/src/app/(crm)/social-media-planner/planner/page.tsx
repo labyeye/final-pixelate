@@ -14,8 +14,6 @@ import {
 } from "@/lib/social-media-planner";
 import { ClientPicker } from "@/components/social-media/client-picker";
 import { AddPostModal } from "@/components/social-media/add-post-modal";
-import { PostAccountDisplay } from "@/components/social-media/post-account-display";
-import { MultiAccountDisplay } from "@/components/social-media/multi-account-display";
 import { SocialAccountsTable } from "@/components/social-media/social-accounts-table";
 import { ViewPlanModal } from "@/components/social-media/view-plan-modal";
 import { PlatformIcon } from "@/components/social-media/platform-icon";
@@ -40,7 +38,9 @@ export default function SocialMediaPlannerPage() {
   const [viewingPlan, setViewingPlan] = useState<SocialMediaPost | null>(null);
   const [isViewPlanModalOpen, setIsViewPlanModalOpen] = useState(false);
   const [isPostLinksModalOpen, setIsPostLinksModalOpen] = useState(false);
-  const [postForLinks, setPostForLinks] = useState<SocialMediaPost | null>(null);
+  const [postForLinks, setPostForLinks] = useState<SocialMediaPost | null>(
+    null,
+  );
 
   const [search, setSearch] = useState("");
   const [platformFilter, setPlatformFilter] = useState("");
@@ -59,12 +59,12 @@ export default function SocialMediaPlannerPage() {
     try {
       const url = new URL("/api/social-media-posts", window.location.origin);
       url.searchParams.set("clientId", clientId);
-      
+
       // If user is not an admin, filter by their name to show only assigned posts
       if (user && user.role !== "admin" && user.name) {
         url.searchParams.set("assignedTo", user.name);
       }
-      
+
       const res = await fetch(url.toString(), { cache: "no-store" });
       if (!res.ok) throw new Error("Failed to fetch social posts");
       const data = await res.json();
@@ -134,8 +134,8 @@ export default function SocialMediaPlannerPage() {
       // If post has an ID, it's an update (PUT), otherwise it's a create (POST)
       const isUpdate = !!(post._id || post.id);
       const method = isUpdate ? "PUT" : "POST";
-      const url = isUpdate 
-        ? `/api/social-media-posts/${post._id || post.id}` 
+      const url = isUpdate
+        ? `/api/social-media-posts/${post._id || post.id}`
         : "/api/social-media-posts";
 
       const res = await fetch(url, {
@@ -143,14 +143,16 @@ export default function SocialMediaPlannerPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(post),
       });
-      
+
       const responseData = await res.json();
-      
+
       if (!res.ok) {
-        const errorMsg = responseData?.error || (isUpdate ? "Failed to update post" : "Failed to create post");
+        const errorMsg =
+          responseData?.error ||
+          (isUpdate ? "Failed to update post" : "Failed to create post");
         throw new Error(errorMsg);
       }
-      
+
       await loadPosts(selectedClientId);
     } catch (e) {
       console.error("savePost error:", e);
@@ -191,13 +193,20 @@ export default function SocialMediaPlannerPage() {
     await loadPosts(selectedClientId);
   };
 
-  const updateStatus = async (id: string, status: string, post?: SocialMediaPost) => {
+  const updateStatus = async (
+    id: string,
+    status: string,
+    post?: SocialMediaPost,
+  ) => {
     if (status === "Posted" && post) {
       // If multiple accounts, open modal to ask for links
-      const accountIds = post.socialAccountIds && post.socialAccountIds.length > 0 
-        ? post.socialAccountIds 
-        : (post.socialAccountId ? [post.socialAccountId] : []);
-      
+      const accountIds =
+        post.socialAccountIds && post.socialAccountIds.length > 0
+          ? post.socialAccountIds
+          : post.socialAccountId
+            ? [post.socialAccountId]
+            : [];
+
       if (accountIds.length > 1) {
         setPostForLinks(post);
         setIsPostLinksModalOpen(true);
@@ -240,7 +249,9 @@ export default function SocialMediaPlannerPage() {
     if (!postId) return;
 
     const nonEmptyLinks = Object.fromEntries(
-      Object.entries(links).filter(([, link]) => String(link || "").trim().length > 0),
+      Object.entries(links).filter(
+        ([, link]) => String(link || "").trim().length > 0,
+      ),
     );
     const firstLink = Object.values(nonEmptyLinks)[0] || "";
 
@@ -475,7 +486,6 @@ export default function SocialMediaPlannerPage() {
                   <tr>
                     <th className="text-left p-2 border-b">Title</th>
                     <th className="text-left p-2 border-b">Platform</th>
-                    <th className="text-left p-2 border-b">Account</th>
                     <th className="text-left p-2 border-b">Content</th>
                     <th className="text-left p-2 border-b">Schedule</th>
                     <th className="text-left p-2 border-b">Assigned</th>
@@ -506,15 +516,9 @@ export default function SocialMediaPlannerPage() {
                           </div>
                         </td>
                         <td className="p-2 border-b align-top">
-                          {item.platform}
-                        </td>
-                        <td className="p-2 border-b align-top max-w-xs">
-                          <div className="truncate" title={(item.socialAccountIds && item.socialAccountIds.length > 0) ? item.socialAccountIds.join(", ") : (item.socialAccountId || "")}>
-                            {(item.socialAccountIds && item.socialAccountIds.length > 0) ? (
-                              <MultiAccountDisplay accountIds={item.socialAccountIds} />
-                            ) : (
-                              <PostAccountDisplay accountId={item.socialAccountId} />
-                            )}
+                          <div className="flex items-center gap-1.5">
+                            <PlatformIcon platform={item.platform} size="sm" />
+                            <span>{item.platform}</span>
                           </div>
                         </td>
                         <td className="p-2 border-b align-top">
@@ -567,7 +571,9 @@ export default function SocialMediaPlannerPage() {
                             <Button
                               size="sm"
                               variant="outline"
-                              onClick={() => updateStatus(itemId, "Posted", item)}
+                              onClick={() =>
+                                updateStatus(itemId, "Posted", item)
+                              }
                             >
                               Mark Posted
                             </Button>

@@ -1,15 +1,13 @@
 "use client";
 
-import React from "react";
-import {
-  Instagram,
-  Facebook,
-  Linkedin,
-  Twitter,
-  Youtube,
-  MessageCircle,
-  MapPin,
-} from "lucide-react";
+import Image from "next/image";
+// eslint-disable-next-line @typescript-eslint/no-deprecated
+import { Twitter, MessageCircle } from "lucide-react";
+import instagramIcon from "@/assets/images/social/Instagram_icon.png";
+import facebookIcon from "@/assets/images/social/facebook-logo-icon-fb-app-transparent-background-premium-social-media-design-for-digital-download-free-png.webp";
+import linkedinIcon from "@/assets/images/social/linkedin-logo-linkedin-icon-transparent-free-png.webp";
+import youtubeIcon from "@/assets/images/social/white-square-bordered-youtube-logo-on-transparent-background-free-png.webp";
+import gmbIcon from "@/assets/images/social/google-my-business-logo.svg";
 
 interface PlatformIconProps {
   platform: string;
@@ -17,49 +15,32 @@ interface PlatformIconProps {
   className?: string;
 }
 
-/**
- * Platform icon component using Lucide icons
- * Maps social platform names to proper brand icons
- */
 export function PlatformIcon({ platform, size = "md", className = "" }: PlatformIconProps) {
-  const sizeMap = {
-    sm: 16,
-    md: 18,
-    lg: 20,
-  };
+  const sizeMap = { sm: 16, md: 20, lg: 26 };
+  const px = sizeMap[size];
 
-  const iconSize = sizeMap[size];
-
-  const iconProps = {
-    size: iconSize,
-    className: `${className} flex-shrink-0`,
-    strokeWidth: 2.5,
-  };
+  const imgClass = `flex-shrink-0 ${className}`;
 
   switch (platform) {
     case "Instagram":
-      return <Instagram {...iconProps} />;
+      return <Image src={instagramIcon} alt="Instagram" width={px} height={px} className={imgClass} />;
     case "Facebook":
-      return <Facebook {...iconProps} />;
+      return <Image src={facebookIcon} alt="Facebook" width={px} height={px} className={imgClass} />;
     case "LinkedIn":
-      return <Linkedin {...iconProps} />;
-    case "X / Twitter":
-      return <Twitter {...iconProps} />;
+      return <Image src={linkedinIcon} alt="LinkedIn" width={px} height={px} className={imgClass} />;
     case "YouTube Shorts":
-      return <Youtube {...iconProps} />;
-    case "WhatsApp Channel":
-      return <MessageCircle {...iconProps} />;
+      return <Image src={youtubeIcon} alt="YouTube Shorts" width={px} height={px} className={imgClass} />;
     case "Google My Business":
-      return <MapPin {...iconProps} />;
+      return <Image src={gmbIcon} alt="Google My Business" width={px} height={px} className={imgClass} />;
+    case "X / Twitter":
+      return <Twitter size={px} className={`${className} flex-shrink-0`} strokeWidth={2.5} />;
+    case "WhatsApp Channel":
+      return <MessageCircle size={px} className={`${className} flex-shrink-0`} strokeWidth={2.5} />;
     default:
-      return <MapPin {...iconProps} />;
+      return null;
   }
 }
 
-/**
- * Platform selector option component with icon
- * Used in select dropdowns
- */
 export function PlatformOption({ platform }: { platform: string }) {
   return (
     <div className="flex items-center gap-2">
