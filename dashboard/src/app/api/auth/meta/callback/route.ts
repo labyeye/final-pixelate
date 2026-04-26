@@ -104,7 +104,7 @@ export async function GET(request: NextRequest) {
           
           handle.includes(pageId) ||
           
-          (pageLink && pageLink.includes(handle.replace(/^https?:\/\/[^/]+\
+          (pageLink && pageLink.includes(handle.replace(/^https?:\/\/[^\/]+\//, "")));
 
         if (matches) {
           await col.updateOne(
