@@ -35,7 +35,10 @@
       content="https://www.pixelatenest.com/assets/blog-og-image.webp"
       property="og:image"
     />
-    <meta property="og:url" content="https://www.pixelatenest.com/blog/index.html" />
+    <meta
+      property="og:url"
+      content="https://www.pixelatenest.com/blog/index.html"
+    />
     <meta
       content="Digital Marketing & Development Blog | Pixelate Nest"
       property="twitter:title"
@@ -114,6 +117,7 @@
       <img
         height="1"
         width="1"
+        alt=""
         src="https://www.facebook.com/tr?id=1529543734863040&ev=PageView
     &noscript=1"
       />
@@ -144,7 +148,6 @@
             }
           }
         } catch (e) {
-          
           const bar = document.getElementById("announcement-bar");
           if (bar) bar.style.display = "none";
         }
@@ -546,8 +549,8 @@
                         class="fas fa-map-marker-alt"
                         style="margin-right: 8px"
                       ></i
-                      >Muzaffarpur, Bihar, India â€” Serving clients across India
-                      & globally
+                      >Muzaffarpur, Bihar, India â€” Serving clients across
+                      India & globally
                     </p>
                   </div>
                 </div>
@@ -900,9 +903,7 @@
 
           try {
             await render();
-          } catch (e) {
-            
-          }
+          } catch (e) {}
 
           const modalHtml = `
           <div id="post-modal" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:9999;padding:20px">
@@ -1047,5 +1048,3 @@
     <script src="../js/quick-contact-buttons.js"></script>
   </body>
 </html>
-
-
