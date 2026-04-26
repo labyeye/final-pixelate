@@ -35,7 +35,7 @@ const S = StyleSheet.create({
   },
   originalCopy: { fontSize: 7, color: "#666", marginTop: 1 },
 
-  // Header: company + meta
+  
   headerRow: { flexDirection: "row", borderBottom: "1pt solid #222" },
   companyBlock: { flex: 1, padding: 8, borderRight: "1pt solid #222" },
   logo: { width: 150, height: 50, objectFit: "contain", marginBottom: 4 },
@@ -69,7 +69,7 @@ const S = StyleSheet.create({
     marginBottom: -20,
   },
 
-  // Party
+  
   partyRow: { flexDirection: "row", borderBottom: "1pt solid #222" },
   partyBlock: { flex: 1, padding: 8 },
   partyBlockRight: { flex: 1, padding: 8, borderLeft: "1pt solid #222" },
@@ -89,7 +89,7 @@ const S = StyleSheet.create({
   },
   partyLine: { fontSize: 8, color: "#333", marginBottom: 1 },
 
-  // Table
+  
   tableContainer: { borderBottom: "1pt solid #222" },
   tableHeader: {
     flexDirection: "row",
@@ -123,7 +123,7 @@ const S = StyleSheet.create({
     height: 18,
   },
 
-  // Amount in words
+  
   amountWords: {
     flexDirection: "row",
     paddingVertical: 5,
@@ -139,7 +139,7 @@ const S = StyleSheet.create({
   },
   amountWordsValue: { fontSize: 7.5, color: "#111", flex: 1 },
 
-  // Bottom
+  
   bottomSection: { flexDirection: "row", borderBottom: "1pt solid #222" },
   bottomLeft: { flex: 1, borderRight: "1pt solid #222", padding: 8 },
   sectionLabel: {
@@ -188,7 +188,7 @@ const S = StyleSheet.create({
     color: "#111",
   },
 
-  // Tax table
+  
   taxSection: { borderBottom: "1pt solid #222" },
   taxHeader: {
     flexDirection: "row",
@@ -218,7 +218,7 @@ const S = StyleSheet.create({
     textAlign: "right",
   },
 
-  // Signature/declaration
+  
   footerSection: { flexDirection: "row", borderBottom: "1pt solid #222" },
   declarationBlock: {
     width: 333.25,
@@ -246,12 +246,12 @@ const S = StyleSheet.create({
   },
   signatureTitle: { fontSize: 7.5, color: "#666", textAlign: "right" },
 
-  // Footer note
+  
   footerNote: { paddingVertical: 5, alignItems: "center" },
   footerNoteText: { fontSize: 7.5, color: "#888" },
 });
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
+
 const fmt = (n: number) =>
   `Rs. ${Number(n || 0).toLocaleString("en-IN", {
     minimumFractionDigits: 2,
@@ -361,7 +361,7 @@ function numToWords(n: number): string {
   return res + " Only";
 }
 
-// ─── Main Component ───────────────────────────────────────────────────────────
+
 export function InvoicePDFDocument({
   invoice,
   client,
@@ -373,7 +373,7 @@ export function InvoicePDFDocument({
   const selectedHsnCode =
     String(invoice?.hsnCode || "998314") === "999612" ? "999612" : "998314";
 
-  // ── Calculations ──
+  
   const subtotal = items.reduce((s: number, it: any) => {
     const qty = Number(it?.quantity ?? it?.qty ?? 1);
     const rate = Number(it?.price ?? it?.unitPrice ?? it?.amount ?? 0);
@@ -430,13 +430,13 @@ export function InvoicePDFDocument({
     <Document>
       <Page size="A4" style={S.page}>
         <View style={S.outerBorder}>
-          {/* 1. Title */}
+          {}
           <View style={S.titleBar}>
             <Text style={S.titleText}>TAX INVOICE</Text>
             <Text style={S.originalCopy}>Original for Recipient</Text>
           </View>
 
-          {/* 2. Company block + Invoice meta */}
+          {}
           <View style={S.headerRow}>
             <View style={S.companyBlock}>
               <Image
@@ -518,9 +518,9 @@ export function InvoicePDFDocument({
             </View>
           </View>
 
-          {/* 4. Items Table */}
+          {}
           <View style={S.tableContainer}>
-            {/* Header */}
+            {}
             <View style={S.tableHeader}>
               <Text style={[S.thText, S.colSno]}>S.No</Text>
               <Text style={[S.thText, S.colDesc]}>
@@ -534,7 +534,7 @@ export function InvoicePDFDocument({
               <Text style={[S.thText, S.colAmt]}>Amount (Rs.)</Text>
             </View>
 
-            {/* Data rows */}
+            {}
             {items.map((item: any, idx: number) => {
               const qty = Number(item?.quantity ?? item?.qty ?? 1);
               const rate = Number(
@@ -573,7 +573,7 @@ export function InvoicePDFDocument({
               );
             })}
 
-            {/* Empty filler rows */}
+            {}
             {Array.from({ length: emptyRowCount }).map((_, i) => (
               <View key={`e${i}`} style={S.emptyRow}>
                 <Text style={[S.tdText, S.colSno]}> </Text>
@@ -588,7 +588,7 @@ export function InvoicePDFDocument({
             ))}
           </View>
 
-          {/* 5. Amount in Words */}
+          {}
           <View style={S.amountWords}>
             <Text style={S.amountWordsLabel}>Amount in Words:</Text>
             <Text style={S.amountWordsValue}>
@@ -596,7 +596,7 @@ export function InvoicePDFDocument({
             </Text>
           </View>
 
-          {/* 6. Bank Details + Totals */}
+          {}
           <View style={S.bottomSection}>
             <View style={S.bottomLeft}>
               <Text style={S.sectionLabel}>Bank Details</Text>
@@ -698,7 +698,7 @@ export function InvoicePDFDocument({
             </View>
           </View>
 
-          {/* 7. GST Tax Breakdown */}
+          {}
           {taxAmt > 0 && (
             <View style={S.taxSection}>
               <View style={S.taxHeader}>
@@ -767,7 +767,7 @@ export function InvoicePDFDocument({
             </View>
           )}
 
-          {/* 8. Declaration + Signature */}
+          {}
           <View style={S.footerSection}>
             <View style={S.declarationBlock}>
               <Text style={S.sectionLabel}>Declaration</Text>
@@ -791,7 +791,7 @@ export function InvoicePDFDocument({
             </View>
           </View>
 
-          {/* 9. Footer note */}
+          {}
           <View style={S.footerNote}>
             <Text style={S.footerNoteText}>
               This is a computer-generated invoice and does not require a

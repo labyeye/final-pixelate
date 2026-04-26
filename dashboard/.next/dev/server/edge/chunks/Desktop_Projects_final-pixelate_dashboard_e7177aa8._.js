@@ -16,7 +16,7 @@ async function getEdgeInstrumentationModule() {
 }
 let instrumentationModulePromise = null;
 async function registerInstrumentation() {
-    // Ensure registerInstrumentation is not called in production build
+    
     if (process.env.NEXT_PHASE === 'phase-production-build') return;
     if (!instrumentationModulePromise) {
         instrumentationModulePromise = getEdgeInstrumentationModule();
@@ -37,7 +37,7 @@ async function edgeInstrumentationOnRequestError(...args) {
         var _instrumentation_onRequestError;
         await (instrumentation == null ? void 0 : (_instrumentation_onRequestError = instrumentation.onRequestError) == null ? void 0 : _instrumentation_onRequestError.call(instrumentation, ...args));
     } catch (err) {
-        // Log the soft error and continue, since the original error has already been thrown
+        
         console.error('Error in instrumentation.onRequestError:', err);
     }
 }
@@ -49,7 +49,7 @@ function ensureInstrumentationRegistered() {
     return registerInstrumentationPromise;
 }
 function getUnsupportedModuleErrorMessage(module) {
-    // warning: if you change these messages, you must adjust how dev-overlay's middleware detects modules not found
+    
     return `The edge runtime does not support Node.js '${module}' module.
 Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime`;
 }
@@ -88,16 +88,16 @@ function __import_unsupported(moduleName) {
     });
 }
 function enhanceGlobals() {
-    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    if ("TURBOPACK compile-time falsy", 0) 
     ;
-    // The condition is true when the "process" module is provided
-    if (process !== /*TURBOPACK member replacement*/ __turbopack_context__.g.process) {
-        // prefer local process but global.process has correct "env"
-        process.env = /*TURBOPACK member replacement*/ __turbopack_context__.g.process.env;
-        /*TURBOPACK member replacement*/ __turbopack_context__.g.process = process;
+    
+    if (process !==  __turbopack_context__.g.process) {
+        
+        process.env =  __turbopack_context__.g.process.env;
+         __turbopack_context__.g.process = process;
     }
-    // to allow building code that import but does not use node.js modules,
-    // webpack will expect this function to exist in global scope
+    
+    
     try {
         Object.defineProperty(globalThis, '__import_unsupported', {
             value: __import_unsupported,
@@ -105,10 +105,10 @@ function enhanceGlobals() {
             configurable: false
         });
     } catch  {}
-    // Eagerly fire instrumentation hook to make the startup faster.
+    
     void ensureInstrumentationRegistered();
 }
-enhanceGlobals(); //# sourceMappingURL=globals.js.map
+enhanceGlobals(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/error.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -146,7 +146,7 @@ class RemovedUAError extends Error {
   Read more: https://nextjs.org/docs/messages/middleware-parse-user-agent
   `);
     }
-} //# sourceMappingURL=error.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/lib/constants.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -338,50 +338,50 @@ const SERVER_RUNTIME = {
     nodejs: 'nodejs'
 };
 const WEB_SOCKET_MAX_RECONNECTIONS = 12;
-/**
- * The names of the webpack layers. These layers are the primitives for the
- * webpack chunks.
- */ const WEBPACK_LAYERS_NAMES = {
-    /**
-   * The layer for the shared code between the client and server bundles.
-   */ shared: 'shared',
-    /**
-   * The layer for server-only runtime and picking up `react-server` export conditions.
-   * Including app router RSC pages and app router custom routes and metadata routes.
-   */ reactServerComponents: 'rsc',
-    /**
-   * Server Side Rendering layer for app (ssr).
-   */ serverSideRendering: 'ssr',
-    /**
-   * The browser client bundle layer for actions.
-   */ actionBrowser: 'action-browser',
-    /**
-   * The Node.js bundle layer for the API routes.
-   */ apiNode: 'api-node',
-    /**
-   * The Edge Lite bundle layer for the API routes.
-   */ apiEdge: 'api-edge',
-    /**
-   * The layer for the middleware code.
-   */ middleware: 'middleware',
-    /**
-   * The layer for the instrumentation hooks.
-   */ instrument: 'instrument',
-    /**
-   * The layer for assets on the edge.
-   */ edgeAsset: 'edge-asset',
-    /**
-   * The browser client bundle layer for App directory.
-   */ appPagesBrowser: 'app-pages-browser',
-    /**
-   * The browser client bundle layer for Pages directory.
-   */ pagesDirBrowser: 'pages-dir-browser',
-    /**
-   * The Edge Lite bundle layer for Pages directory.
-   */ pagesDirEdge: 'pages-dir-edge',
-    /**
-   * The Node.js bundle layer for Pages directory.
-   */ pagesDirNode: 'pages-dir-node'
+
+
+
+ const WEBPACK_LAYERS_NAMES = {
+    
+
+ shared: 'shared',
+    
+
+
+ reactServerComponents: 'rsc',
+    
+
+ serverSideRendering: 'ssr',
+    
+
+ actionBrowser: 'action-browser',
+    
+
+ apiNode: 'api-node',
+    
+
+ apiEdge: 'api-edge',
+    
+
+ middleware: 'middleware',
+    
+
+ instrument: 'instrument',
+    
+
+ edgeAsset: 'edge-asset',
+    
+
+ appPagesBrowser: 'app-pages-browser',
+    
+
+ pagesDirBrowser: 'pages-dir-browser',
+    
+
+ pagesDirEdge: 'pages-dir-edge',
+    
+
+ pagesDirNode: 'pages-dir-node'
 };
 const WEBPACK_LAYERS = {
     ...WEBPACK_LAYERS_NAMES,
@@ -397,7 +397,7 @@ const WEBPACK_LAYERS = {
             WEBPACK_LAYERS_NAMES.middleware
         ],
         neutralTarget: [
-            // pages api
+            
             WEBPACK_LAYERS_NAMES.apiNode,
             WEBPACK_LAYERS_NAMES.apiEdge
         ],
@@ -415,7 +415,7 @@ const WEBPACK_LAYERS = {
             WEBPACK_LAYERS_NAMES.middleware
         ],
         appPages: [
-            // app router pages and layouts
+            
             WEBPACK_LAYERS_NAMES.reactServerComponents,
             WEBPACK_LAYERS_NAMES.serverSideRendering,
             WEBPACK_LAYERS_NAMES.appPagesBrowser,
@@ -430,7 +430,7 @@ const WEBPACK_RESOURCE_QUERIES = {
     metadataImageMeta: '__next_metadata_image_meta__'
 };
 ;
- //# sourceMappingURL=constants.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/utils.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -489,7 +489,7 @@ function splitCookiesString(cookiesString) {
         while(skipWhitespace()){
             ch = cookiesString.charAt(pos);
             if (ch === ',') {
-                // ',' is a cookie separator if we have later first '=', not ';' or ','
+                
                 lastComma = pos;
                 pos += 1;
                 skipWhitespace();
@@ -497,17 +497,17 @@ function splitCookiesString(cookiesString) {
                 while(pos < cookiesString.length && notSpecialChar()){
                     pos += 1;
                 }
-                // currently special character
+                
                 if (pos < cookiesString.length && cookiesString.charAt(pos) === '=') {
-                    // we found cookies separator
+                    
                     cookiesSeparatorFound = true;
-                    // pos is inside the next cookie, so back up and return it.
+                    
                     pos = nextStart;
                     cookiesStrings.push(cookiesString.substring(start, lastComma));
                     start = pos;
                 } else {
-                    // in param ',' or param separator ';',
-                    // we continue from that comma
+                    
+                    
                     pos = lastComma + 1;
                 }
             } else {
@@ -526,9 +526,9 @@ function toNodeOutgoingHttpHeaders(headers) {
     if (headers) {
         for (const [key, value] of headers.entries()){
             if (key.toLowerCase() === 'set-cookie') {
-                // We may have gotten a comma joined string of cookies, or multiple
-                // set-cookie headers. We need to merge them into one header array
-                // to represent all the cookies.
+                
+                
+                
                 cookies.push(...splitCookiesString(value));
                 nodeHeaders[key] = cookies.length === 1 ? cookies[0] : cookies;
             } else {
@@ -562,7 +562,7 @@ function normalizeNextQueryParam(key) {
         }
     }
     return null;
-} //# sourceMappingURL=utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/spec-extension/fetch-event.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -589,25 +589,25 @@ class FetchEvent {
             promises: []
         };
     }
-    // TODO: is this dead code? NextFetchEvent never lets this get called
+    
     respondWith(response) {
         if (!this[responseSymbol]) {
             this[responseSymbol] = Promise.resolve(response);
         }
     }
-    // TODO: is this dead code? passThroughSymbol is unused
+    
     passThroughOnException() {
         this[passThroughSymbol] = true;
     }
     waitUntil(promise) {
         if (this[waitUntilSymbol].kind === 'external') {
-            // if we received an external waitUntil, we delegate to it
-            // TODO(after): this will make us not go through `getServerError(error, 'edge-server')` in `sandbox`
+            
+            
             const waitUntil = this[waitUntilSymbol].function;
             return waitUntil(promise);
         } else {
-            // if we didn't receive an external waitUntil, we make it work on our own
-            // (and expect the caller to do something with the promises)
+            
+            
             this[waitUntilSymbol].promises.push(promise);
         }
     }
@@ -621,11 +621,11 @@ class NextFetchEvent extends FetchEvent {
         super(params.request, (_params_context = params.context) == null ? void 0 : _params_context.waitUntil);
         this.sourcePage = params.page;
     }
-    /**
-   * @deprecated The `request` is now the first parameter and the API is now async.
-   *
-   * Read more: https://nextjs.org/docs/messages/middleware-new-signature
-   */ get request() {
+    
+
+
+
+ get request() {
         throw Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$error$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["PageSignatureError"]({
             page: this.sourcePage
         }), "__NEXT_ERROR_CODE", {
@@ -634,11 +634,11 @@ class NextFetchEvent extends FetchEvent {
             configurable: true
         });
     }
-    /**
-   * @deprecated Using `respondWith` is no longer needed.
-   *
-   * Read more: https://nextjs.org/docs/messages/middleware-new-signature
-   */ respondWith() {
+    
+
+
+
+ respondWith() {
         throw Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$error$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["PageSignatureError"]({
             page: this.sourcePage
         }), "__NEXT_ERROR_CODE", {
@@ -647,7 +647,7 @@ class NextFetchEvent extends FetchEvent {
             configurable: true
         });
     }
-} //# sourceMappingURL=fetch-event.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/i18n/detect-domain-locale.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -662,39 +662,39 @@ function detectDomainLocale(domainItems, hostname, detectedLocale) {
         detectedLocale = detectedLocale.toLowerCase();
     }
     for (const item of domainItems){
-        // remove port if present
+        
         const domainHostname = item.domain?.split(':', 1)[0].toLowerCase();
         if (hostname === domainHostname || detectedLocale === item.defaultLocale.toLowerCase() || item.locales?.some((locale)=>locale.toLowerCase() === detectedLocale)) {
             return item;
         }
     }
-} //# sourceMappingURL=detect-domain-locale.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/remove-trailing-slash.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Removes the trailing slash for a given route or page path. Preserves the
- * root page. Examples:
- *   - `/foo/bar/` -> `/foo/bar`
- *   - `/foo/bar` -> `/foo/bar`
- *   - `/` -> `/`
- */ __turbopack_context__.s([
+
+
+
+
+
+
+ __turbopack_context__.s([
     "removeTrailingSlash",
     ()=>removeTrailingSlash
 ]);
 function removeTrailingSlash(route) {
     return route.replace(/\/$/, '') || '/';
-} //# sourceMappingURL=remove-trailing-slash.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/parse-path.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Given a path this function will find the pathname, query and hash and return
- * them. This is useful to parse full paths on the client side.
- * @param path A path to parse e.g. /foo/bar?id=1#hash
- */ __turbopack_context__.s([
+
+
+
+
+ __turbopack_context__.s([
     "parsePath",
     ()=>parsePath
 ]);
@@ -714,7 +714,7 @@ function parsePath(path) {
         query: '',
         hash: ''
     };
-} //# sourceMappingURL=parse-path.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/add-path-prefix.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -731,7 +731,7 @@ function addPathPrefix(path, prefix) {
     }
     const { pathname, query, hash } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$parse$2d$path$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["parsePath"])(path);
     return `${prefix}${pathname}${query}${hash}`;
-} //# sourceMappingURL=add-path-prefix.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/add-path-suffix.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -748,7 +748,7 @@ function addPathSuffix(path, suffix) {
     }
     const { pathname, query, hash } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$parse$2d$path$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["parsePath"])(path);
     return `${pathname}${suffix}${query}${hash}`;
-} //# sourceMappingURL=add-path-suffix.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/path-has-prefix.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -765,7 +765,7 @@ function pathHasPrefix(path, prefix) {
     }
     const { pathname } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$parse$2d$path$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["parsePath"])(path);
     return pathname === prefix || pathname.startsWith(prefix + '/');
-} //# sourceMappingURL=path-has-prefix.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/add-locale.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -779,19 +779,19 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 function addLocale(path, locale, defaultLocale, ignorePrefix) {
-    // If no locale was given or the locale is the default locale, we don't need
-    // to prefix the path.
+    
+    
     if (!locale || locale === defaultLocale) return path;
     const lower = path.toLowerCase();
-    // If the path is an API path or the path already has the locale prefix, we
-    // don't need to prefix the path.
+    
+    
     if (!ignorePrefix) {
         if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$path$2d$has$2d$prefix$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["pathHasPrefix"])(lower, '/api')) return path;
         if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$path$2d$has$2d$prefix$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["pathHasPrefix"])(lower, `/${locale.toLowerCase()}`)) return path;
     }
-    // Add the locale prefix to the path.
+    
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$add$2d$path$2d$prefix$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["addPathPrefix"])(path, `/${locale}`);
-} //# sourceMappingURL=add-locale.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/format-next-pathname-info.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -818,23 +818,23 @@ function formatNextPathnameInfo(info) {
     }
     pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$add$2d$path$2d$prefix$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["addPathPrefix"])(pathname, info.basePath);
     return !info.buildId && info.trailingSlash ? !pathname.endsWith('/') ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$add$2d$path$2d$suffix$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["addPathSuffix"])(pathname, '/') : pathname : (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$remove$2d$trailing$2d$slash$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["removeTrailingSlash"])(pathname);
-} //# sourceMappingURL=format-next-pathname-info.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/get-hostname.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Takes an object with a hostname property (like a parsed URL) and some
- * headers that may contain Host and returns the preferred hostname.
- * @param parsed An object containing a hostname property.
- * @param headers A dictionary with headers containing a `host`.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "getHostname",
     ()=>getHostname
 ]);
 function getHostname(parsed, headers) {
-    // Get the hostname from the headers if it exists, otherwise use the parsed
-    // hostname.
+    
+    
     let hostname;
     if (headers?.host && !Array.isArray(headers.host)) {
         hostname = headers.host.toString().split(':', 1)[0];
@@ -842,57 +842,57 @@ function getHostname(parsed, headers) {
         hostname = parsed.hostname;
     } else return;
     return hostname.toLowerCase();
-} //# sourceMappingURL=get-hostname.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/i18n/normalize-locale-path.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * A cache of lowercased locales for each list of locales. This is stored as a
- * WeakMap so if the locales are garbage collected, the cache entry will be
- * removed as well.
- */ __turbopack_context__.s([
+
+
+
+
+ __turbopack_context__.s([
     "normalizeLocalePath",
     ()=>normalizeLocalePath
 ]);
 const cache = new WeakMap();
 function normalizeLocalePath(pathname, locales) {
-    // If locales is undefined, return the pathname as is.
+    
     if (!locales) return {
         pathname
     };
-    // Get the cached lowercased locales or create a new cache entry.
+    
     let lowercasedLocales = cache.get(locales);
     if (!lowercasedLocales) {
         lowercasedLocales = locales.map((locale)=>locale.toLowerCase());
         cache.set(locales, lowercasedLocales);
     }
     let detectedLocale;
-    // The first segment will be empty, because it has a leading `/`. If
-    // there is no further segment, there is no locale (or it's the default).
+    
+    
     const segments = pathname.split('/', 2);
-    // If there's no second segment (ie, the pathname is just `/`), there's no
-    // locale.
+    
+    
     if (!segments[1]) return {
         pathname
     };
-    // The second segment will contain the locale part if any.
+    
     const segment = segments[1].toLowerCase();
-    // See if the segment matches one of the locales. If it doesn't, there is
-    // no locale (or it's the default).
+    
+    
     const index = lowercasedLocales.indexOf(segment);
     if (index < 0) return {
         pathname
     };
-    // Return the case-sensitive locale.
+    
     detectedLocale = locales[index];
-    // Remove the `/${locale}` part of the pathname.
+    
     pathname = pathname.slice(detectedLocale.length + 1) || '/';
     return {
         pathname,
         detectedLocale
     };
-} //# sourceMappingURL=normalize-locale-path.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/remove-path-prefix.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -904,31 +904,31 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$path$2d$has$2d$prefix$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/path-has-prefix.js [middleware-edge] (ecmascript)");
 ;
 function removePathPrefix(path, prefix) {
-    // If the path doesn't start with the prefix we can return it as is. This
-    // protects us from situations where the prefix is a substring of the path
-    // prefix such as:
-    //
-    // For prefix: /blog
-    //
-    //   /blog -> true
-    //   /blog/ -> true
-    //   /blog/1 -> true
-    //   /blogging -> false
-    //   /blogging/ -> false
-    //   /blogging/1 -> false
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     if (!(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$path$2d$has$2d$prefix$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["pathHasPrefix"])(path, prefix)) {
         return path;
     }
-    // Remove the prefix from the path via slicing.
+    
     const withoutPrefix = path.slice(prefix.length);
-    // If the path without the prefix starts with a `/` we can return it as is.
+    
     if (withoutPrefix.startsWith('/')) {
         return withoutPrefix;
     }
-    // If the path without the prefix doesn't start with a `/` we need to add it
-    // back to the path to make sure it's a valid path.
+    
+    
     return `/${withoutPrefix}`;
-} //# sourceMappingURL=remove-path-prefix.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/get-next-pathname-info.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -955,18 +955,18 @@ function getNextPathnameInfo(pathname, options) {
     }
     let pathnameNoDataPrefix = info.pathname;
     if (info.pathname.startsWith('/_next/data/') && info.pathname.endsWith('.json')) {
-        const paths = info.pathname.replace(/^\/_next\/data\//, '').replace(/\.json$/, '').split('/');
+        const paths = info.pathname.replace(/^\/_next\/data\
         const buildId = paths[0];
         info.buildId = buildId;
         pathnameNoDataPrefix = paths[1] !== 'index' ? `/${paths.slice(1).join('/')}` : '/';
-        // update pathname with normalized if enabled although
-        // we use normalized to populate locale info still
+        
+        
         if (options.parseData === true) {
             info.pathname = pathnameNoDataPrefix;
         }
     }
-    // If provided, use the locale route normalizer to detect the locale instead
-    // of the function below.
+    
+    
     if (i18n) {
         let result = options.i18nProvider ? options.i18nProvider.analyze(info.pathname) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$i18n$2f$normalize$2d$locale$2d$path$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["normalizeLocalePath"])(info.pathname, i18n.locales);
         info.locale = result.detectedLocale;
@@ -979,7 +979,7 @@ function getNextPathnameInfo(pathname, options) {
         }
     }
     return info;
-} //# sourceMappingURL=get-next-pathname-info.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/next-url.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -1174,7 +1174,7 @@ class NextURL {
     clone() {
         return new NextURL(String(this), this[Internal].options);
     }
-} //# sourceMappingURL=next-url.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/@edge-runtime/cookies/index.js [middleware-edge] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1201,7 +1201,7 @@ var __copyProps = (to, from, except, desc)=>{
 var __toCommonJS = (mod)=>__copyProps(__defProp({}, "__esModule", {
         value: true
     }), mod);
-// src/index.ts
+
 var src_exports = {};
 __export(src_exports, {
     RequestCookies: ()=>RequestCookies,
@@ -1211,7 +1211,7 @@ __export(src_exports, {
     stringifyCookie: ()=>stringifyCookie
 });
 module.exports = __toCommonJS(src_exports);
-// src/serialize.ts
+
 function stringifyCookie(c) {
     var _a;
     const attrs = [
@@ -1229,7 +1229,7 @@ function stringifyCookie(c) {
     return attrs.length === 0 ? stringified : `${stringified}; ${attrs.join("; ")}`;
 }
 function parseCookie(cookie) {
-    const map = /* @__PURE__ */ new Map();
+    const map =  new Map();
     for (const pair of cookie.split(/; */)){
         if (!pair) continue;
         const splitAt = pair.indexOf("=");
@@ -1362,10 +1362,10 @@ function splitCookiesString(cookiesString) {
     }
     return cookiesStrings;
 }
-// src/request-cookies.ts
+
 var RequestCookies = class {
     constructor(requestHeaders){
-        /** @internal */ this._parsed = /* @__PURE__ */ new Map();
+         this._parsed =  new Map();
         this._headers = requestHeaders;
         const header = requestHeaders.get("cookie");
         if (header) {
@@ -1381,9 +1381,9 @@ var RequestCookies = class {
     [Symbol.iterator]() {
         return this._parsed[Symbol.iterator]();
     }
-    /**
-   * The amount of cookies received from the client
-   */ get size() {
+    
+
+ get size() {
         return this._parsed.size;
     }
     get(...args) {
@@ -1415,23 +1415,23 @@ var RequestCookies = class {
         this._headers.set("cookie", Array.from(map).map(([_, value2])=>stringifyCookie(value2)).join("; "));
         return this;
     }
-    /**
-   * Delete the cookies matching the passed name or names in the request.
-   */ delete(names) {
+    
+
+ delete(names) {
         const map = this._parsed;
         const result = !Array.isArray(names) ? map.delete(names) : names.map((name)=>map.delete(name));
         this._headers.set("cookie", Array.from(map).map(([_, value])=>stringifyCookie(value)).join("; "));
         return result;
     }
-    /**
-   * Delete all the cookies in the cookies in the request.
-   */ clear() {
+    
+
+ clear() {
         this.delete(Array.from(this._parsed.keys()));
         return this;
     }
-    /**
-   * Format the cookies in the request as a string for logging
-   */ [Symbol.for("edge-runtime.inspect.custom")]() {
+    
+
+ [Symbol.for("edge-runtime.inspect.custom")]() {
         return `RequestCookies ${JSON.stringify(Object.fromEntries(this._parsed))}`;
     }
     toString() {
@@ -1440,10 +1440,10 @@ var RequestCookies = class {
         ].map((v)=>`${v.name}=${encodeURIComponent(v.value)}`).join("; ");
     }
 };
-// src/response-cookies.ts
+
 var ResponseCookies = class {
     constructor(responseHeaders){
-        /** @internal */ this._parsed = /* @__PURE__ */ new Map();
+         this._parsed =  new Map();
         var _a, _b, _c;
         this._headers = responseHeaders;
         const setCookie = (_c = (_b = (_a = responseHeaders.getSetCookie) == null ? void 0 : _a.call(responseHeaders)) != null ? _b : responseHeaders.get("set-cookie")) != null ? _c : [];
@@ -1453,15 +1453,15 @@ var ResponseCookies = class {
             if (parsed) this._parsed.set(parsed.name, parsed);
         }
     }
-    /**
-   * {@link https://wicg.github.io/cookie-store/#CookieStore-get CookieStore#get} without the Promise.
-   */ get(...args) {
+    
+
+ get(...args) {
         const key = typeof args[0] === "string" ? args[0] : args[0].name;
         return this._parsed.get(key);
     }
-    /**
-   * {@link https://wicg.github.io/cookie-store/#CookieStore-getAll CookieStore#getAll} without the Promise.
-   */ getAll(...args) {
+    
+
+ getAll(...args) {
         var _a;
         const all = Array.from(this._parsed.values());
         if (!args.length) {
@@ -1473,9 +1473,9 @@ var ResponseCookies = class {
     has(name) {
         return this._parsed.has(name);
     }
-    /**
-   * {@link https://wicg.github.io/cookie-store/#CookieStore-set CookieStore#set} without the Promise.
-   */ set(...args) {
+    
+
+ set(...args) {
         const [name, value, cookie] = args.length === 1 ? [
             args[0].name,
             args[0].value,
@@ -1490,9 +1490,9 @@ var ResponseCookies = class {
         replace(map, this._headers);
         return this;
     }
-    /**
-   * {@link https://wicg.github.io/cookie-store/#CookieStore-delete CookieStore#delete} without the Promise.
-   */ delete(...args) {
+    
+
+ delete(...args) {
         const [name, options] = typeof args[0] === "string" ? [
             args[0]
         ] : [
@@ -1503,7 +1503,7 @@ var ResponseCookies = class {
             ...options,
             name,
             value: "",
-            expires: /* @__PURE__ */ new Date(0)
+            expires:  new Date(0)
         });
     }
     [Symbol.for("edge-runtime.inspect.custom")]() {
@@ -1537,7 +1537,7 @@ function normalizeCookie(cookie = {
     }
     return cookie;
 }
-// Annotate the CommonJS export names for ESM import in node:
+
 0 && (module.exports = {
     RequestCookies,
     ResponseCookies,
@@ -1550,7 +1550,7 @@ function normalizeCookie(cookie = {
 "use strict";
 
 __turbopack_context__.s([]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f40$edge$2d$runtime$2f$cookies$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/@edge-runtime/cookies/index.js [middleware-edge] (ecmascript)"); //# sourceMappingURL=cookies.js.map
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f40$edge$2d$runtime$2f$cookies$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/@edge-runtime/cookies/index.js [middleware-edge] (ecmascript)"); 
 ;
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/spec-extension/request.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
@@ -1576,11 +1576,11 @@ class NextRequest extends Request {
     constructor(input, init = {}){
         const url = typeof input !== 'string' && 'url' in input ? input.url : String(input);
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["validateURL"])(url);
-        // node Request instance requires duplex option when a body
-        // is present or it errors, we don't handle this for
-        // Request being passed in since it would have already
-        // errored if this wasn't configured
-        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        
+        
+        
+        
+        if ("TURBOPACK compile-time falsy", 0) 
         ;
         if (input instanceof Request) super(input, init);
         else super(url, init);
@@ -1599,7 +1599,7 @@ class NextRequest extends Request {
             cookies: this.cookies,
             nextUrl: this.nextUrl,
             url: this.url,
-            // rest of props come from Request
+            
             bodyUsed: this.bodyUsed,
             cache: this.cache,
             credentials: this.credentials,
@@ -1621,24 +1621,24 @@ class NextRequest extends Request {
     get nextUrl() {
         return this[INTERNALS].nextUrl;
     }
-    /**
-   * @deprecated
-   * `page` has been deprecated in favour of `URLPattern`.
-   * Read more: https://nextjs.org/docs/messages/middleware-request-page
-   */ get page() {
+    
+
+
+
+ get page() {
         throw new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$error$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["RemovedPageError"]();
     }
-    /**
-   * @deprecated
-   * `ua` has been removed in favour of \`userAgent\` function.
-   * Read more: https://nextjs.org/docs/messages/middleware-parse-user-agent
-   */ get ua() {
+    
+
+
+
+ get ua() {
         throw new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$error$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["RemovedUAError"]();
     }
     get url() {
         return this[INTERNALS].url;
     }
-} //# sourceMappingURL=request.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/spec-extension/adapters/reflect.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -1664,7 +1664,7 @@ class ReflectAdapter {
     static deleteProperty(target, prop) {
         return Reflect.deleteProperty(target, prop);
     }
-} //# sourceMappingURL=reflect.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/spec-extension/response.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -1747,7 +1747,7 @@ class NextResponse extends Response {
         return {
             cookies: this.cookies,
             url: this.url,
-            // rest of props come from Response
+            
             body: this.body,
             bodyUsed: this.bodyUsed,
             headers: Object.fromEntries(this.headers),
@@ -1801,14 +1801,14 @@ class NextResponse extends Response {
             headers
         });
     }
-} //# sourceMappingURL=response.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/relativize-url.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * The result of parsing a URL relative to a base URL.
- */ __turbopack_context__.s([
+
+
+ __turbopack_context__.s([
     "getRelativeURL",
     ()=>getRelativeURL,
     "parseRelativeURL",
@@ -1817,7 +1817,7 @@ class NextResponse extends Response {
 function parseRelativeURL(url, base) {
     const baseURL = typeof base === 'string' ? new URL(base) : base;
     const relative = new URL(url, base);
-    // The URL is relative if the origin is the same as the base URL.
+    
     const isRelative = relative.origin === baseURL.origin;
     return {
         url: isRelative ? relative.toString().slice(baseURL.origin.length) : relative.toString(),
@@ -1827,7 +1827,7 @@ function parseRelativeURL(url, base) {
 function getRelativeURL(url, base) {
     const relative = parseRelativeURL(url, base);
     return relative.url;
-} //# sourceMappingURL=relativize-url.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/app-router-headers.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -1896,7 +1896,7 @@ const NEXT_REWRITTEN_QUERY_HEADER = 'x-nextjs-rewritten-query';
 const NEXT_IS_PRERENDER_HEADER = 'x-nextjs-prerender';
 const NEXT_ACTION_NOT_FOUND_HEADER = 'x-nextjs-action-not-found';
 const NEXT_REQUEST_ID_HEADER = 'x-nextjs-request-id';
-const NEXT_HTML_REQUEST_ID_HEADER = 'x-nextjs-html-request-id'; //# sourceMappingURL=app-router-headers.js.map
+const NEXT_HTML_REQUEST_ID_HEADER = 'x-nextjs-html-request-id'; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/internal-utils.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -1922,21 +1922,21 @@ function stripInternalSearchParams(url) {
     const instance = isStringUrl ? new URL(url) : url;
     instance.searchParams.delete(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NEXT_RSC_UNION_QUERY"]);
     return isStringUrl ? instance.toString() : instance;
-} //# sourceMappingURL=internal-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/page-path/ensure-leading-slash.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * For a given page path, this function ensures that there is a leading slash.
- * If there is not a leading slash, one is added, otherwise it is noop.
- */ __turbopack_context__.s([
+
+
+
+ __turbopack_context__.s([
     "ensureLeadingSlash",
     ()=>ensureLeadingSlash
 ]);
 function ensureLeadingSlash(path) {
     return path.startsWith('/') ? path : `/${path}`;
-} //# sourceMappingURL=ensure-leading-slash.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/segment.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -1963,7 +1963,7 @@ function getSegmentValue(segment) {
     return Array.isArray(segment) ? segment[1] : segment;
 }
 function isGroupSegment(segment) {
-    // Use array[0] for performant purpose
+    
     return segment[0] === '(' && segment.endsWith(')');
 }
 function isParallelRouteSegment(segment) {
@@ -1981,19 +1981,19 @@ function computeSelectedLayoutSegment(segments, parallelRouteKey) {
     if (!segments || segments.length === 0) {
         return null;
     }
-    // For 'children', use first segment; for other parallel routes, use last segment
+    
     const rawSegment = parallelRouteKey === 'children' ? segments[0] : segments[segments.length - 1];
-    // If the default slot is showing, return null since it's not technically "selected" (it's a fallback)
-    // Returning an internal value like `__DEFAULT__` would be confusing
+    
+    
     return rawSegment === DEFAULT_SEGMENT_KEY ? null : rawSegment;
 }
 function getSelectedLayoutSegmentPath(tree, parallelRouteKey, first = true, segmentPath = []) {
     let node;
     if (first) {
-        // Use the provided parallel route key on the first parallel route
+        
         node = tree[1][parallelRouteKey];
     } else {
-        // After first parallel route prefer children, if there's no children pick the first parallel route.
+        
         const parallelRoutes = tree[1];
         node = parallelRoutes.children ?? Object.values(parallelRoutes)[0];
     }
@@ -2007,7 +2007,7 @@ function getSelectedLayoutSegmentPath(tree, parallelRouteKey, first = true, segm
     return getSelectedLayoutSegmentPath(node, parallelRouteKey, false, segmentPath);
 }
 const PAGE_SEGMENT_KEY = '__PAGE__';
-const DEFAULT_SEGMENT_KEY = '__DEFAULT__'; //# sourceMappingURL=segment.js.map
+const DEFAULT_SEGMENT_KEY = '__DEFAULT__'; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/app-paths.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -2024,19 +2024,19 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 function normalizeAppPath(route) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$page$2d$path$2f$ensure$2d$leading$2d$slash$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ensureLeadingSlash"])(route.split('/').reduce((pathname, segment, index, segments)=>{
-        // Empty segments are ignored.
+        
         if (!segment) {
             return pathname;
         }
-        // Groups are ignored.
+        
         if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["isGroupSegment"])(segment)) {
             return pathname;
         }
-        // Parallel segments are ignored.
+        
         if (segment[0] === '@') {
             return pathname;
         }
-        // The last segment (if it's a leaf) should be ignored.
+        
         if ((segment === 'page' || segment === 'route') && index === segments.length - 1) {
             return pathname;
         }
@@ -2045,7 +2045,7 @@ function normalizeAppPath(route) {
 }
 function normalizeRscURL(url) {
     return url.replace(/\.rsc($|\?)/, '$1');
-} //# sourceMappingURL=app-paths.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/spec-extension/adapters/headers.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -2068,25 +2068,25 @@ class ReadonlyHeadersError extends Error {
 }
 class HeadersAdapter extends Headers {
     constructor(headers){
-        // We've already overridden the methods that would be called, so we're just
-        // calling the super constructor to ensure that the instanceof check works.
+        
+        
         super();
         this.headers = new Proxy(headers, {
             get (target, prop, receiver) {
-                // Because this is just an object, we expect that all "get" operations
-                // are for properties. If it's a "get" for a symbol, we'll just return
-                // the symbol.
+                
+                
+                
                 if (typeof prop === 'symbol') {
                     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ReflectAdapter"].get(target, prop, receiver);
                 }
                 const lowercased = prop.toLowerCase();
-                // Let's find the original casing of the key. This assumes that there is
-                // no mixed case keys (e.g. "Content-Type" and "content-type") in the
-                // headers object.
+                
+                
+                
                 const original = Object.keys(headers).find((o)=>o.toLowerCase() === lowercased);
-                // If the original casing doesn't exist, return undefined.
+                
                 if (typeof original === 'undefined') return;
-                // If the original casing exists, return the value.
+                
                 return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ReflectAdapter"].get(target, original, receiver);
             },
             set (target, prop, value, receiver) {
@@ -2094,43 +2094,43 @@ class HeadersAdapter extends Headers {
                     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ReflectAdapter"].set(target, prop, value, receiver);
                 }
                 const lowercased = prop.toLowerCase();
-                // Let's find the original casing of the key. This assumes that there is
-                // no mixed case keys (e.g. "Content-Type" and "content-type") in the
-                // headers object.
+                
+                
+                
                 const original = Object.keys(headers).find((o)=>o.toLowerCase() === lowercased);
-                // If the original casing doesn't exist, use the prop as the key.
+                
                 return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ReflectAdapter"].set(target, original ?? prop, value, receiver);
             },
             has (target, prop) {
                 if (typeof prop === 'symbol') return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ReflectAdapter"].has(target, prop);
                 const lowercased = prop.toLowerCase();
-                // Let's find the original casing of the key. This assumes that there is
-                // no mixed case keys (e.g. "Content-Type" and "content-type") in the
-                // headers object.
+                
+                
+                
                 const original = Object.keys(headers).find((o)=>o.toLowerCase() === lowercased);
-                // If the original casing doesn't exist, return false.
+                
                 if (typeof original === 'undefined') return false;
-                // If the original casing exists, return true.
+                
                 return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ReflectAdapter"].has(target, original);
             },
             deleteProperty (target, prop) {
                 if (typeof prop === 'symbol') return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ReflectAdapter"].deleteProperty(target, prop);
                 const lowercased = prop.toLowerCase();
-                // Let's find the original casing of the key. This assumes that there is
-                // no mixed case keys (e.g. "Content-Type" and "content-type") in the
-                // headers object.
+                
+                
+                
                 const original = Object.keys(headers).find((o)=>o.toLowerCase() === lowercased);
-                // If the original casing doesn't exist, return true.
+                
                 if (typeof original === 'undefined') return true;
-                // If the original casing exists, delete the property.
+                
                 return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ReflectAdapter"].deleteProperty(target, original);
             }
         });
     }
-    /**
-   * Seals a Headers instance to prevent modification by throwing an error when
-   * any mutating method is called.
-   */ static seal(headers) {
+    
+
+
+ static seal(headers) {
         return new Proxy(headers, {
             get (target, prop, receiver) {
                 switch(prop){
@@ -2144,22 +2144,22 @@ class HeadersAdapter extends Headers {
             }
         });
     }
-    /**
-   * Merges a header value into a string. This stores multiple values as an
-   * array, so we need to merge them into a string.
-   *
-   * @param value a header value
-   * @returns a merged header value (a string)
-   */ merge(value) {
+    
+
+
+
+
+
+ merge(value) {
         if (Array.isArray(value)) return value.join(', ');
         return value;
     }
-    /**
-   * Creates a Headers instance from a plain object or a Headers instance.
-   *
-   * @param headers a plain object or a Headers instance
-   * @returns a headers instance
-   */ static from(headers) {
+    
+
+
+
+
+ static from(headers) {
         if (headers instanceof Headers) return headers;
         return new HeadersAdapter(headers);
     }
@@ -2198,8 +2198,8 @@ class HeadersAdapter extends Headers {
     *entries() {
         for (const key of Object.keys(this.headers)){
             const name = key.toLowerCase();
-            // We assert here that this is a string because we got it from the
-            // Object.keys() call above.
+            
+            
             const value = this.get(name);
             yield [
                 name,
@@ -2215,8 +2215,8 @@ class HeadersAdapter extends Headers {
     }
     *values() {
         for (const key of Object.keys(this.headers)){
-            // We assert here that this is a string because we got it from the
-            // Object.keys() call above.
+            
+            
             const value = this.get(key);
             yield value;
         }
@@ -2224,7 +2224,7 @@ class HeadersAdapter extends Headers {
     [Symbol.iterator]() {
         return this.entries();
     }
-} //# sourceMappingURL=headers.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/async-local-storage.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -2247,7 +2247,7 @@ class FakeAsyncLocalStorage {
         throw sharedAsyncLocalStorageNotAvailableError;
     }
     getStore() {
-        // This fake implementation of AsyncLocalStorage always returns `undefined`.
+        
         return undefined;
     }
     run() {
@@ -2283,7 +2283,7 @@ function createSnapshot() {
     return function(fn, ...args) {
         return fn(...args);
     };
-} //# sourceMappingURL=async-local-storage.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/work-async-storage-instance.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -2294,17 +2294,17 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$async$2d$local$2d$storage$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/async-local-storage.js [middleware-edge] (ecmascript)");
 ;
-const workAsyncStorageInstance = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$async$2d$local$2d$storage$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["createAsyncLocalStorage"])(); //# sourceMappingURL=work-async-storage-instance.js.map
+const workAsyncStorageInstance = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$async$2d$local$2d$storage$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["createAsyncLocalStorage"])(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/work-async-storage.external.js [middleware-edge] (ecmascript) <locals>", ((__turbopack_context__) => {
 "use strict";
 
-// Share the instance module in the next-shared layer
+
 __turbopack_context__.s([]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$work$2d$async$2d$storage$2d$instance$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/work-async-storage-instance.js [middleware-edge] (ecmascript)");
 ;
 ;
- //# sourceMappingURL=work-async-storage.external.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/work-async-storage-instance.js [middleware-edge] (ecmascript) <export workAsyncStorageInstance as workAsyncStorage>", ((__turbopack_context__) => {
 "use strict";
@@ -2382,16 +2382,16 @@ function appendMutableCookies(headers, mutableCookies) {
     if (modifiedCookieValues.length === 0) {
         return false;
     }
-    // Return a new response that extends the response with
-    // the modified cookies as fallbacks. `res` cookies
-    // will still take precedence.
+    
+    
+    
     const resCookies = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f40$edge$2d$runtime$2f$cookies$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ResponseCookies"](headers);
     const returnedCookies = resCookies.getAll();
-    // Set the modified cookies as fallbacks.
+    
     for (const cookie of modifiedCookieValues){
         resCookies.set(cookie);
     }
-    // Set the original cookies as the final values.
+    
     for (const cookie of returnedCookies){
         resCookies.set(cookie);
     }
@@ -2406,7 +2406,7 @@ class MutableRequestCookiesAdapter {
         let modifiedValues = [];
         const modifiedCookies = new Set();
         const updateResponseCookies = ()=>{
-            // TODO-APP: change method of getting workStore
+            
             const workStore = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$work$2d$async$2d$storage$2d$instance$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__$3c$export__workAsyncStorageInstance__as__workAsyncStorage$3e$__["workAsyncStorage"].getStore();
             if (workStore) {
                 workStore.pathWasRevalidated = true;
@@ -2426,11 +2426,11 @@ class MutableRequestCookiesAdapter {
         const wrappedCookies = new Proxy(responseCookies, {
             get (target, prop, receiver) {
                 switch(prop){
-                    // A special symbol to get the modified cookie values
+                    
                     case SYMBOL_MODIFY_COOKIE_VALUES:
                         return modifiedValues;
-                    // TODO: Throw error if trying to set a cookie after the response
-                    // headers have been set.
+                    
+                    
                     case 'delete':
                         return function(...args) {
                             modifiedCookies.add(typeof args[0] === 'string' ? args[0] : args[0].name);
@@ -2485,15 +2485,15 @@ function createCookiesWithMutableAccessCheck(requestStore) {
 function areCookiesMutableInCurrentPhase(requestStore) {
     return requestStore.phase === 'action';
 }
-/** Ensure that cookies() starts throwing on mutation
- * if we changed phases and can no longer mutate.
- *
- * This can happen when going:
- *   'render' -> 'after'
- *   'action' -> 'render'
- * */ function ensureCookiesAreStillMutable(requestStore, _callingExpression) {
+
+
+
+
+
+
+ function ensureCookiesAreStillMutable(requestStore, _callingExpression) {
     if (!areCookiesMutableInCurrentPhase(requestStore)) {
-        // TODO: maybe we can give a more precise error message based on callingExpression?
+        
         throw new ReadonlyRequestCookiesError();
     }
 }
@@ -2503,17 +2503,17 @@ function responseCookiesToRequestCookies(responseCookies) {
         requestCookies.set(cookie);
     }
     return requestCookies;
-} //# sourceMappingURL=request-cookies.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/lib/trace/constants.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Contains predefined constants for the trace span name in next/server.
- *
- * Currently, next/server/tracer is internal implementation only for tracking
- * next.js's implementation only with known span names defined here.
- **/ // eslint typescript has a bug with TS enums
+
+
+
+
+
+ 
 __turbopack_context__.s([
     "AppRenderSpan",
     ()=>AppRenderSpan,
@@ -2544,7 +2544,7 @@ __turbopack_context__.s([
     "StartServerSpan",
     ()=>StartServerSpan
 ]);
-var BaseServerSpan = /*#__PURE__*/ function(BaseServerSpan) {
+var BaseServerSpan =  function(BaseServerSpan) {
     BaseServerSpan["handleRequest"] = "BaseServer.handleRequest";
     BaseServerSpan["run"] = "BaseServer.run";
     BaseServerSpan["pipe"] = "BaseServer.pipe";
@@ -2559,12 +2559,12 @@ var BaseServerSpan = /*#__PURE__*/ function(BaseServerSpan) {
     BaseServerSpan["render404"] = "BaseServer.render404";
     return BaseServerSpan;
 }(BaseServerSpan || {});
-var LoadComponentsSpan = /*#__PURE__*/ function(LoadComponentsSpan) {
+var LoadComponentsSpan =  function(LoadComponentsSpan) {
     LoadComponentsSpan["loadDefaultErrorComponents"] = "LoadComponents.loadDefaultErrorComponents";
     LoadComponentsSpan["loadComponents"] = "LoadComponents.loadComponents";
     return LoadComponentsSpan;
 }(LoadComponentsSpan || {});
-var NextServerSpan = /*#__PURE__*/ function(NextServerSpan) {
+var NextServerSpan =  function(NextServerSpan) {
     NextServerSpan["getRequestHandler"] = "NextServer.getRequestHandler";
     NextServerSpan["getRequestHandlerWithMetadata"] = "NextServer.getRequestHandlerWithMetadata";
     NextServerSpan["getServer"] = "NextServer.getServer";
@@ -2572,7 +2572,7 @@ var NextServerSpan = /*#__PURE__*/ function(NextServerSpan) {
     NextServerSpan["createServer"] = "createServer.createServer";
     return NextServerSpan;
 }(NextServerSpan || {});
-var NextNodeServerSpan = /*#__PURE__*/ function(NextNodeServerSpan) {
+var NextNodeServerSpan =  function(NextNodeServerSpan) {
     NextNodeServerSpan["compression"] = "NextNodeServer.compression";
     NextNodeServerSpan["getBuildId"] = "NextNodeServer.getBuildId";
     NextNodeServerSpan["createComponentTree"] = "NextNodeServer.createComponentTree";
@@ -2599,18 +2599,18 @@ var NextNodeServerSpan = /*#__PURE__*/ function(NextNodeServerSpan) {
     NextNodeServerSpan["renderErrorToHTML"] = "NextNodeServer.renderErrorToHTML";
     NextNodeServerSpan["render404"] = "NextNodeServer.render404";
     NextNodeServerSpan["startResponse"] = "NextNodeServer.startResponse";
-    // nested inner span, does not require parent scope name
+    
     NextNodeServerSpan["route"] = "route";
     NextNodeServerSpan["onProxyReq"] = "onProxyReq";
     NextNodeServerSpan["apiResolver"] = "apiResolver";
     NextNodeServerSpan["internalFetch"] = "internalFetch";
     return NextNodeServerSpan;
 }(NextNodeServerSpan || {});
-var StartServerSpan = /*#__PURE__*/ function(StartServerSpan) {
+var StartServerSpan =  function(StartServerSpan) {
     StartServerSpan["startServer"] = "startServer.startServer";
     return StartServerSpan;
 }(StartServerSpan || {});
-var RenderSpan = /*#__PURE__*/ function(RenderSpan) {
+var RenderSpan =  function(RenderSpan) {
     RenderSpan["getServerSideProps"] = "Render.getServerSideProps";
     RenderSpan["getStaticProps"] = "Render.getStaticProps";
     RenderSpan["renderToString"] = "Render.renderToString";
@@ -2618,31 +2618,31 @@ var RenderSpan = /*#__PURE__*/ function(RenderSpan) {
     RenderSpan["createBodyResult"] = "Render.createBodyResult";
     return RenderSpan;
 }(RenderSpan || {});
-var AppRenderSpan = /*#__PURE__*/ function(AppRenderSpan) {
+var AppRenderSpan =  function(AppRenderSpan) {
     AppRenderSpan["renderToString"] = "AppRender.renderToString";
     AppRenderSpan["renderToReadableStream"] = "AppRender.renderToReadableStream";
     AppRenderSpan["getBodyResult"] = "AppRender.getBodyResult";
     AppRenderSpan["fetch"] = "AppRender.fetch";
     return AppRenderSpan;
 }(AppRenderSpan || {});
-var RouterSpan = /*#__PURE__*/ function(RouterSpan) {
+var RouterSpan =  function(RouterSpan) {
     RouterSpan["executeRoute"] = "Router.executeRoute";
     return RouterSpan;
 }(RouterSpan || {});
-var NodeSpan = /*#__PURE__*/ function(NodeSpan) {
+var NodeSpan =  function(NodeSpan) {
     NodeSpan["runHandler"] = "Node.runHandler";
     return NodeSpan;
 }(NodeSpan || {});
-var AppRouteRouteHandlersSpan = /*#__PURE__*/ function(AppRouteRouteHandlersSpan) {
+var AppRouteRouteHandlersSpan =  function(AppRouteRouteHandlersSpan) {
     AppRouteRouteHandlersSpan["runHandler"] = "AppRouteRouteHandlers.runHandler";
     return AppRouteRouteHandlersSpan;
 }(AppRouteRouteHandlersSpan || {});
-var ResolveMetadataSpan = /*#__PURE__*/ function(ResolveMetadataSpan) {
+var ResolveMetadataSpan =  function(ResolveMetadataSpan) {
     ResolveMetadataSpan["generateMetadata"] = "ResolveMetadata.generateMetadata";
     ResolveMetadataSpan["generateViewport"] = "ResolveMetadata.generateViewport";
     return ResolveMetadataSpan;
 }(ResolveMetadataSpan || {});
-var MiddlewareSpan = /*#__PURE__*/ function(MiddlewareSpan) {
+var MiddlewareSpan =  function(MiddlewareSpan) {
     MiddlewareSpan["execute"] = "Middleware.execute";
     return MiddlewareSpan;
 }(MiddlewareSpan || {});
@@ -2670,63 +2670,63 @@ const LogSpanAllowList = new Set([
     "NextNodeServer.clientComponentLoading"
 ]);
 ;
- //# sourceMappingURL=constants.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/is-thenable.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Check to see if a value is Thenable.
- *
- * @param promise the maybe-thenable value
- * @returns true if the value is thenable
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "isThenable",
     ()=>isThenable
 ]);
 function isThenable(promise) {
     return promise !== null && typeof promise === 'object' && 'then' in promise && typeof promise.then === 'function';
-} //# sourceMappingURL=is-thenable.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/context/context.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ /** Get a key to uniquely identify a context value */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  __turbopack_context__.s([
     "ROOT_CONTEXT",
     ()=>ROOT_CONTEXT,
     "createContextKey",
     ()=>createContextKey
 ]);
 function createContextKey(description) {
-    // The specification states that for the same input, multiple calls should
-    // return different keys. Due to the nature of the JS dependency management
-    // system, this creates problems where multiple versions of some package
-    // could hold different keys for the same property.
-    //
-    // Therefore, we use Symbol.for which returns the same key for the same input.
+    
+    
+    
+    
+    
+    
     return Symbol.for(description);
 }
 var BaseContext = function() {
-    /**
-     * Construct a new context which inherits values from an optional parent context.
-     *
-     * @param parentContext a context from which to inherit values
-     */ function BaseContext(parentContext) {
-        // for minification
+    
+
+
+
+ function BaseContext(parentContext) {
+        
         var self = this;
         self._currentContext = parentContext ? new Map(parentContext) : new Map();
         self.getValue = function(key) {
@@ -2745,26 +2745,26 @@ var BaseContext = function() {
     }
     return BaseContext;
 }();
-var ROOT_CONTEXT = new BaseContext(); //# sourceMappingURL=context.js.map
+var ROOT_CONTEXT = new BaseContext(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/context/NoopContextManager.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "NoopContextManager",
     ()=>NoopContextManager
 ]);
@@ -2824,81 +2824,81 @@ var NoopContextManager = function() {
     return NoopContextManager;
 }();
 ;
- //# sourceMappingURL=NoopContextManager.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/platform/browser/globalThis.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ // Updates to this file should also be replicated to @opentelemetry/core too.
-/**
- * - globalThis (New standard)
- * - self (Will return the current window instance for supported browsers)
- * - window (fallback for older browser implementations)
- * - global (NodeJS implementation)
- * - <object> (When all else fails)
- */ /** only globals that common to node and browsers are allowed */ // eslint-disable-next-line node/no-unsupported-features/es-builtins, no-undef
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+  
 __turbopack_context__.s([
     "_globalThis",
     ()=>_globalThis
 ]);
-var _globalThis = typeof globalThis === 'object' ? globalThis : typeof self === 'object' ? self : ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : ("TURBOPACK compile-time truthy", 1) ? /*TURBOPACK member replacement*/ __turbopack_context__.g : "TURBOPACK unreachable"; //# sourceMappingURL=globalThis.js.map
+var _globalThis = typeof globalThis === 'object' ? globalThis : typeof self === 'object' ? self : ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : ("TURBOPACK compile-time truthy", 1) ?  __turbopack_context__.g : "TURBOPACK unreachable"; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/version.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ // this is autogenerated file, see scripts/version-update.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 __turbopack_context__.s([
     "VERSION",
     ()=>VERSION
 ]);
-var VERSION = '1.9.0'; //# sourceMappingURL=version.js.map
+var VERSION = '1.9.0'; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/internal/semver.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "_makeCompatibilityCheck",
     ()=>_makeCompatibilityCheck,
     "isCompatible",
@@ -2914,7 +2914,7 @@ function _makeCompatibilityCheck(ownVersion) {
     var rejectedVersions = new Set();
     var myVersionMatch = ownVersion.match(re);
     if (!myVersionMatch) {
-        // we cannot guarantee compatibility so we always return noop
+        
         return function() {
             return false;
         };
@@ -2925,7 +2925,7 @@ function _makeCompatibilityCheck(ownVersion) {
         patch: +myVersionMatch[3],
         prerelease: myVersionMatch[4]
     };
-    // if ownVersion has a prerelease tag, versions must match exactly
+    
     if (ownVersionParsed.prerelease != null) {
         return function isExactmatch(globalVersion) {
             return globalVersion === ownVersion;
@@ -2948,8 +2948,8 @@ function _makeCompatibilityCheck(ownVersion) {
         }
         var globalVersionMatch = globalVersion.match(re);
         if (!globalVersionMatch) {
-            // cannot parse other version
-            // we cannot guarantee compatibility so we always noop
+            
+            
             return _reject(globalVersion);
         }
         var globalVersionParsed = {
@@ -2958,11 +2958,11 @@ function _makeCompatibilityCheck(ownVersion) {
             patch: +globalVersionMatch[3],
             prerelease: globalVersionMatch[4]
         };
-        // if globalVersion has a prerelease tag, versions must match exactly
+        
         if (globalVersionParsed.prerelease != null) {
             return _reject(globalVersion);
         }
-        // major versions must match
+        
         if (ownVersionParsed.major !== globalVersionParsed.major) {
             return _reject(globalVersion);
         }
@@ -2978,26 +2978,26 @@ function _makeCompatibilityCheck(ownVersion) {
         return _reject(globalVersion);
     };
 }
-var isCompatible = _makeCompatibilityCheck(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$version$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["VERSION"]); //# sourceMappingURL=semver.js.map
+var isCompatible = _makeCompatibilityCheck(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$version$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["VERSION"]); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/internal/global-utils.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "getGlobal",
     ()=>getGlobal,
     "registerGlobal",
@@ -3023,13 +3023,13 @@ function registerGlobal(type, instance, diag, allowOverride) {
         version: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$version$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["VERSION"]
     };
     if (!allowOverride && api[type]) {
-        // already registered an API of this type
+        
         var err = new Error("@opentelemetry/api: Attempted duplicate registration of API: " + type);
         diag.error(err.stack || err.message);
         return false;
     }
     if (api.version !== __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$version$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["VERSION"]) {
-        // All registered APIs must be of the same version exactly
+        
         var err = new Error("@opentelemetry/api: Registration of version v" + api.version + " for " + type + " does not match previously registered API v" + __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$version$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["VERSION"]);
         diag.error(err.stack || err.message);
         return false;
@@ -3052,26 +3052,26 @@ function unregisterGlobal(type, diag) {
     if (api) {
         delete api[type];
     }
-} //# sourceMappingURL=global-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/diag/ComponentLogger.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "DiagComponentLogger",
     ()=>DiagComponentLogger
 ]);
@@ -3105,15 +3105,15 @@ var __spreadArray = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK comp
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 ;
-/**
- * Component Logger which is meant to be used as part of any component which
- * will add automatically additional namespace in front of the log message.
- * It will then forward all message to global diag logger
- * @example
- * const cLogger = diag.createComponentLogger({ namespace: '@opentelemetry/instrumentation-http' });
- * cLogger.debug('test');
- * // @opentelemetry/instrumentation-http test
- */ var DiagComponentLogger = function() {
+
+
+
+
+
+
+
+
+ var DiagComponentLogger = function() {
     function DiagComponentLogger(props) {
         this._namespace = props.namespace || 'DiagComponentLogger';
     }
@@ -3157,71 +3157,71 @@ var __spreadArray = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK comp
 ;
 function logProxy(funcName, namespace, args) {
     var logger = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getGlobal"])('diag');
-    // shortcut if logger not set
+    
     if (!logger) {
         return;
     }
     args.unshift(namespace);
     return logger[funcName].apply(logger, __spreadArray([], __read(args), false));
-} //# sourceMappingURL=ComponentLogger.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/diag/types.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ /**
- * Defines the available internal logging levels for the diagnostic logger, the numeric values
- * of the levels are defined to match the original values from the initial LogLevel to avoid
- * compatibility/migration issues for any implementation that assume the numeric ordering.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ __turbopack_context__.s([
     "DiagLogLevel",
     ()=>DiagLogLevel
 ]);
 var DiagLogLevel;
 (function(DiagLogLevel) {
-    /** Diagnostic Logging level setting to disable all logging (except and forced logs) */ DiagLogLevel[DiagLogLevel["NONE"] = 0] = "NONE";
-    /** Identifies an error scenario */ DiagLogLevel[DiagLogLevel["ERROR"] = 30] = "ERROR";
-    /** Identifies a warning scenario */ DiagLogLevel[DiagLogLevel["WARN"] = 50] = "WARN";
-    /** General informational log message */ DiagLogLevel[DiagLogLevel["INFO"] = 60] = "INFO";
-    /** General debug log message */ DiagLogLevel[DiagLogLevel["DEBUG"] = 70] = "DEBUG";
-    /**
-     * Detailed trace level logging should only be used for development, should only be set
-     * in a development environment.
-     */ DiagLogLevel[DiagLogLevel["VERBOSE"] = 80] = "VERBOSE";
-    /** Used to set the logging level to include all logging */ DiagLogLevel[DiagLogLevel["ALL"] = 9999] = "ALL";
-})(DiagLogLevel || (DiagLogLevel = {})); //# sourceMappingURL=types.js.map
+     DiagLogLevel[DiagLogLevel["NONE"] = 0] = "NONE";
+     DiagLogLevel[DiagLogLevel["ERROR"] = 30] = "ERROR";
+     DiagLogLevel[DiagLogLevel["WARN"] = 50] = "WARN";
+     DiagLogLevel[DiagLogLevel["INFO"] = 60] = "INFO";
+     DiagLogLevel[DiagLogLevel["DEBUG"] = 70] = "DEBUG";
+    
+
+
+ DiagLogLevel[DiagLogLevel["VERBOSE"] = 80] = "VERBOSE";
+     DiagLogLevel[DiagLogLevel["ALL"] = 9999] = "ALL";
+})(DiagLogLevel || (DiagLogLevel = {})); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/diag/internal/logLevelLogger.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "createLogLevelDiagLogger",
     ()=>createLogLevelDiagLogger
 ]);
@@ -3233,7 +3233,7 @@ function createLogLevelDiagLogger(maxLevel, logger) {
     } else if (maxLevel > __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagLogLevel"].ALL) {
         maxLevel = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagLogLevel"].ALL;
     }
-    // In case the logger is null or undefined
+    
     logger = logger || {};
     function _filterFunc(funcName, theLevel) {
         var theFunc = logger[funcName];
@@ -3249,26 +3249,26 @@ function createLogLevelDiagLogger(maxLevel, logger) {
         debug: _filterFunc('debug', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagLogLevel"].DEBUG),
         verbose: _filterFunc('verbose', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagLogLevel"].VERBOSE)
     };
-} //# sourceMappingURL=logLevelLogger.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/diag.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "DiagAPI",
     ()=>DiagAPI
 ]);
@@ -3309,14 +3309,14 @@ var __spreadArray = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK comp
 ;
 ;
 var API_NAME = 'diag';
-/**
- * Singleton object which represents the entry point to the OpenTelemetry internal
- * diagnostic API
- */ var DiagAPI = function() {
-    /**
-     * Private internal constructor
-     * @private
-     */ function DiagAPI() {
+
+
+
+ var DiagAPI = function() {
+    
+
+
+ function DiagAPI() {
         function _logProxy(funcName) {
             return function() {
                 var args = [];
@@ -3324,14 +3324,14 @@ var API_NAME = 'diag';
                     args[_i] = arguments[_i];
                 }
                 var logger = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getGlobal"])('diag');
-                // shortcut if logger not set
+                
                 if (!logger) return;
                 return logger[funcName].apply(logger, __spreadArray([], __read(args), false));
             };
         }
-        // Using self local variable for minification purposes as 'this' cannot be minified
+        
         var self = this;
-        // DiagAPI specific functions
+        
         var setLogger = function(logger, optionsOrLogLevel) {
             var _a, _b, _c;
             if (optionsOrLogLevel === void 0) {
@@ -3340,9 +3340,9 @@ var API_NAME = 'diag';
                 };
             }
             if (logger === self) {
-                // There isn't much we can do here.
-                // Logging to the console might break the user application.
-                // Try to log to self. If a logger was previously registered it will receive the log.
+                
+                
+                
                 var err = new Error('Cannot use diag as the logger for itself. Please use a DiagLogger implementation like ConsoleDiagLogger or a custom implementation');
                 self.error((_a = err.stack) !== null && _a !== void 0 ? _a : err.message);
                 return false;
@@ -3354,7 +3354,7 @@ var API_NAME = 'diag';
             }
             var oldLogger = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getGlobal"])('diag');
             var newLogger = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$internal$2f$logLevelLogger$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["createLogLevelDiagLogger"])((_b = optionsOrLogLevel.logLevel) !== null && _b !== void 0 ? _b : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagLogLevel"].INFO, logger);
-            // There already is an logger registered. We'll let it know before overwriting it.
+            
             if (oldLogger && !optionsOrLogLevel.suppressOverrideMessage) {
                 var stack = (_c = new Error().stack) !== null && _c !== void 0 ? _c : '<failed to generate stacktrace>';
                 oldLogger.warn("Current logger will be overwritten from " + stack);
@@ -3375,7 +3375,7 @@ var API_NAME = 'diag';
         self.warn = _logProxy('warn');
         self.error = _logProxy('error');
     }
-    /** Get the singleton instance of the DiagAPI API */ DiagAPI.instance = function() {
+     DiagAPI.instance = function() {
         if (!this._instance) {
             this._instance = new DiagAPI();
         }
@@ -3384,26 +3384,26 @@ var API_NAME = 'diag';
     return DiagAPI;
 }();
 ;
- //# sourceMappingURL=diag.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/context.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "ContextAPI",
     ()=>ContextAPI
 ]);
@@ -3443,36 +3443,36 @@ var __spreadArray = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK comp
 ;
 var API_NAME = 'context';
 var NOOP_CONTEXT_MANAGER = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$NoopContextManager$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NoopContextManager"]();
-/**
- * Singleton object which represents the entry point to the OpenTelemetry Context API
- */ var ContextAPI = function() {
-    /** Empty private constructor prevents end users from constructing a new instance of the API */ function ContextAPI() {}
-    /** Get the singleton instance of the Context API */ ContextAPI.getInstance = function() {
+
+
+ var ContextAPI = function() {
+     function ContextAPI() {}
+     ContextAPI.getInstance = function() {
         if (!this._instance) {
             this._instance = new ContextAPI();
         }
         return this._instance;
     };
-    /**
-     * Set the current context manager.
-     *
-     * @returns true if the context manager was successfully registered, else false
-     */ ContextAPI.prototype.setGlobalContextManager = function(contextManager) {
+    
+
+
+
+ ContextAPI.prototype.setGlobalContextManager = function(contextManager) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["registerGlobal"])(API_NAME, contextManager, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
     };
-    /**
-     * Get the currently active context
-     */ ContextAPI.prototype.active = function() {
+    
+
+ ContextAPI.prototype.active = function() {
         return this._getContextManager().active();
     };
-    /**
-     * Execute a function with an active context
-     *
-     * @param context context to be active during function execution
-     * @param fn function to execute in a context
-     * @param thisArg optional receiver to be used for calling fn
-     * @param args optional arguments forwarded to fn
-     */ ContextAPI.prototype.with = function(context, fn, thisArg) {
+    
+
+
+
+
+
+
+ ContextAPI.prototype.with = function(context, fn, thisArg) {
         var _a;
         var args = [];
         for(var _i = 3; _i < arguments.length; _i++){
@@ -3484,98 +3484,98 @@ var NOOP_CONTEXT_MANAGER = new __TURBOPACK__imported__module__$5b$project$5d2f$D
             thisArg
         ], __read(args), false));
     };
-    /**
-     * Bind a context to a target function or event emitter
-     *
-     * @param context context to bind to the event emitter or function. Defaults to the currently active context
-     * @param target function or event emitter to bind
-     */ ContextAPI.prototype.bind = function(context, target) {
+    
+
+
+
+
+ ContextAPI.prototype.bind = function(context, target) {
         return this._getContextManager().bind(context, target);
     };
     ContextAPI.prototype._getContextManager = function() {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getGlobal"])(API_NAME) || NOOP_CONTEXT_MANAGER;
     };
-    /** Disable and remove the global context manager */ ContextAPI.prototype.disable = function() {
+     ContextAPI.prototype.disable = function() {
         this._getContextManager().disable();
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["unregisterGlobal"])(API_NAME, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
     };
     return ContextAPI;
 }();
 ;
- //# sourceMappingURL=context.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/context-api.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ // Split module-level variable definition into separate files to allow
-// tree-shaking on each api instance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 __turbopack_context__.s([
     "context",
     ()=>context
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/context.js [middleware-edge] (ecmascript)");
 ;
-var context = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ContextAPI"].getInstance(); //# sourceMappingURL=context-api.js.map
+var context = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ContextAPI"].getInstance(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/diag-api.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ // Split module-level variable definition into separate files to allow
-// tree-shaking on each api instance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 __turbopack_context__.s([
     "diag",
     ()=>diag
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/diag.js [middleware-edge] (ecmascript)");
 ;
-var diag = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagAPI"].instance(); //# sourceMappingURL=diag-api.js.map
+var diag = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagAPI"].instance(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/metrics/NoopMeter.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "NOOP_COUNTER_METRIC",
     ()=>NOOP_COUNTER_METRIC,
     "NOOP_GAUGE_METRIC",
@@ -3635,52 +3635,52 @@ var __extends = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK compile-
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 }();
-/**
- * NoopMeter is a noop implementation of the {@link Meter} interface. It reuses
- * constant NoopMetrics for all of its methods.
- */ var NoopMeter = function() {
+
+
+
+ var NoopMeter = function() {
     function NoopMeter() {}
-    /**
-     * @see {@link Meter.createGauge}
-     */ NoopMeter.prototype.createGauge = function(_name, _options) {
+    
+
+ NoopMeter.prototype.createGauge = function(_name, _options) {
         return NOOP_GAUGE_METRIC;
     };
-    /**
-     * @see {@link Meter.createHistogram}
-     */ NoopMeter.prototype.createHistogram = function(_name, _options) {
+    
+
+ NoopMeter.prototype.createHistogram = function(_name, _options) {
         return NOOP_HISTOGRAM_METRIC;
     };
-    /**
-     * @see {@link Meter.createCounter}
-     */ NoopMeter.prototype.createCounter = function(_name, _options) {
+    
+
+ NoopMeter.prototype.createCounter = function(_name, _options) {
         return NOOP_COUNTER_METRIC;
     };
-    /**
-     * @see {@link Meter.createUpDownCounter}
-     */ NoopMeter.prototype.createUpDownCounter = function(_name, _options) {
+    
+
+ NoopMeter.prototype.createUpDownCounter = function(_name, _options) {
         return NOOP_UP_DOWN_COUNTER_METRIC;
     };
-    /**
-     * @see {@link Meter.createObservableGauge}
-     */ NoopMeter.prototype.createObservableGauge = function(_name, _options) {
+    
+
+ NoopMeter.prototype.createObservableGauge = function(_name, _options) {
         return NOOP_OBSERVABLE_GAUGE_METRIC;
     };
-    /**
-     * @see {@link Meter.createObservableCounter}
-     */ NoopMeter.prototype.createObservableCounter = function(_name, _options) {
+    
+
+ NoopMeter.prototype.createObservableCounter = function(_name, _options) {
         return NOOP_OBSERVABLE_COUNTER_METRIC;
     };
-    /**
-     * @see {@link Meter.createObservableUpDownCounter}
-     */ NoopMeter.prototype.createObservableUpDownCounter = function(_name, _options) {
+    
+
+ NoopMeter.prototype.createObservableUpDownCounter = function(_name, _options) {
         return NOOP_OBSERVABLE_UP_DOWN_COUNTER_METRIC;
     };
-    /**
-     * @see {@link Meter.addBatchObservableCallback}
-     */ NoopMeter.prototype.addBatchObservableCallback = function(_callback, _observables) {};
-    /**
-     * @see {@link Meter.removeBatchObservableCallback}
-     */ NoopMeter.prototype.removeBatchObservableCallback = function(_callback) {};
+    
+
+ NoopMeter.prototype.addBatchObservableCallback = function(_callback, _observables) {};
+    
+
+ NoopMeter.prototype.removeBatchObservableCallback = function(_callback) {};
     return NoopMeter;
 }();
 ;
@@ -3766,26 +3766,26 @@ var NOOP_OBSERVABLE_GAUGE_METRIC = new NoopObservableGaugeMetric();
 var NOOP_OBSERVABLE_UP_DOWN_COUNTER_METRIC = new NoopObservableUpDownCounterMetric();
 function createNoopMeter() {
     return NOOP_METER;
-} //# sourceMappingURL=NoopMeter.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/metrics/NoopMeterProvider.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "NOOP_METER_PROVIDER",
     ()=>NOOP_METER_PROVIDER,
     "NoopMeterProvider",
@@ -3793,10 +3793,10 @@ function createNoopMeter() {
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$metrics$2f$NoopMeter$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/metrics/NoopMeter.js [middleware-edge] (ecmascript)");
 ;
-/**
- * An implementation of the {@link MeterProvider} which returns an impotent Meter
- * for all calls to `getMeter`
- */ var NoopMeterProvider = function() {
+
+
+
+ var NoopMeterProvider = function() {
     function NoopMeterProvider() {}
     NoopMeterProvider.prototype.getMeter = function(_name, _version, _options) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$metrics$2f$NoopMeter$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NOOP_METER"];
@@ -3804,26 +3804,26 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
     return NoopMeterProvider;
 }();
 ;
-var NOOP_METER_PROVIDER = new NoopMeterProvider(); //# sourceMappingURL=NoopMeterProvider.js.map
+var NOOP_METER_PROVIDER = new NoopMeterProvider(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/metrics.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "MetricsAPI",
     ()=>MetricsAPI
 ]);
@@ -3834,94 +3834,94 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 var API_NAME = 'metrics';
-/**
- * Singleton object which represents the entry point to the OpenTelemetry Metrics API
- */ var MetricsAPI = function() {
-    /** Empty private constructor prevents end users from constructing a new instance of the API */ function MetricsAPI() {}
-    /** Get the singleton instance of the Metrics API */ MetricsAPI.getInstance = function() {
+
+
+ var MetricsAPI = function() {
+     function MetricsAPI() {}
+     MetricsAPI.getInstance = function() {
         if (!this._instance) {
             this._instance = new MetricsAPI();
         }
         return this._instance;
     };
-    /**
-     * Set the current global meter provider.
-     * Returns true if the meter provider was successfully registered, else false.
-     */ MetricsAPI.prototype.setGlobalMeterProvider = function(provider) {
+    
+
+
+ MetricsAPI.prototype.setGlobalMeterProvider = function(provider) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["registerGlobal"])(API_NAME, provider, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
     };
-    /**
-     * Returns the global meter provider.
-     */ MetricsAPI.prototype.getMeterProvider = function() {
+    
+
+ MetricsAPI.prototype.getMeterProvider = function() {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getGlobal"])(API_NAME) || __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$metrics$2f$NoopMeterProvider$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NOOP_METER_PROVIDER"];
     };
-    /**
-     * Returns a meter from the global meter provider.
-     */ MetricsAPI.prototype.getMeter = function(name, version, options) {
+    
+
+ MetricsAPI.prototype.getMeter = function(name, version, options) {
         return this.getMeterProvider().getMeter(name, version, options);
     };
-    /** Remove the global meter provider */ MetricsAPI.prototype.disable = function() {
+     MetricsAPI.prototype.disable = function() {
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["unregisterGlobal"])(API_NAME, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
     };
     return MetricsAPI;
 }();
 ;
- //# sourceMappingURL=metrics.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/metrics-api.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ // Split module-level variable definition into separate files to allow
-// tree-shaking on each api instance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 __turbopack_context__.s([
     "metrics",
     ()=>metrics
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$metrics$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/metrics.js [middleware-edge] (ecmascript)");
 ;
-var metrics = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$metrics$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["MetricsAPI"].getInstance(); //# sourceMappingURL=metrics-api.js.map
+var metrics = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$metrics$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["MetricsAPI"].getInstance(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/propagation/NoopTextMapPropagator.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ /**
- * No-op implementations of {@link TextMapPropagator}.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ __turbopack_context__.s([
     "NoopTextMapPropagator",
     ()=>NoopTextMapPropagator
 ]);
 var NoopTextMapPropagator = function() {
     function NoopTextMapPropagator() {}
-    /** Noop inject function does nothing */ NoopTextMapPropagator.prototype.inject = function(_context, _carrier) {};
-    /** Noop extract function does nothing and returns the input context */ NoopTextMapPropagator.prototype.extract = function(context, _carrier) {
+     NoopTextMapPropagator.prototype.inject = function(_context, _carrier) {};
+     NoopTextMapPropagator.prototype.extract = function(context, _carrier) {
         return context;
     };
     NoopTextMapPropagator.prototype.fields = function() {
@@ -3930,26 +3930,26 @@ var NoopTextMapPropagator = function() {
     return NoopTextMapPropagator;
 }();
 ;
- //# sourceMappingURL=NoopTextMapPropagator.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/propagation/TextMapPropagator.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "defaultTextMapGetter",
     ()=>defaultTextMapGetter,
     "defaultTextMapSetter",
@@ -3976,26 +3976,26 @@ var defaultTextMapSetter = {
         }
         carrier[key] = value;
     }
-}; //# sourceMappingURL=TextMapPropagator.js.map
+}; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/baggage/context-helpers.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "deleteBaggage",
     ()=>deleteBaggage,
     "getActiveBaggage",
@@ -4009,9 +4009,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/context/context.js [middleware-edge] (ecmascript)");
 ;
 ;
-/**
- * Baggage key
- */ var BAGGAGE_KEY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["createContextKey"])('OpenTelemetry Baggage Key');
+
+
+ var BAGGAGE_KEY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["createContextKey"])('OpenTelemetry Baggage Key');
 function getBaggage(context) {
     return context.getValue(BAGGAGE_KEY) || undefined;
 }
@@ -4023,26 +4023,26 @@ function setBaggage(context, baggage) {
 }
 function deleteBaggage(context) {
     return context.deleteValue(BAGGAGE_KEY);
-} //# sourceMappingURL=context-helpers.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/baggage/internal/baggage-impl.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "BaggageImpl",
     ()=>BaggageImpl
 ]);
@@ -4140,51 +4140,51 @@ var BaggageImpl = function() {
     return BaggageImpl;
 }();
 ;
- //# sourceMappingURL=baggage-impl.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/baggage/internal/symbol.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ /**
- * Symbol used to make BaggageEntryMetadata an opaque type
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ __turbopack_context__.s([
     "baggageEntryMetadataSymbol",
     ()=>baggageEntryMetadataSymbol
 ]);
-var baggageEntryMetadataSymbol = Symbol('BaggageEntryMetadata'); //# sourceMappingURL=symbol.js.map
+var baggageEntryMetadataSymbol = Symbol('BaggageEntryMetadata'); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/baggage/utils.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "baggageEntryMetadataFromString",
     ()=>baggageEntryMetadataFromString,
     "createBaggage",
@@ -4214,26 +4214,26 @@ function baggageEntryMetadataFromString(str) {
             return str;
         }
     };
-} //# sourceMappingURL=utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/propagation.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "PropagationAPI",
     ()=>PropagationAPI
 ]);
@@ -4251,59 +4251,59 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 var API_NAME = 'propagation';
 var NOOP_TEXT_MAP_PROPAGATOR = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$propagation$2f$NoopTextMapPropagator$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NoopTextMapPropagator"]();
-/**
- * Singleton object which represents the entry point to the OpenTelemetry Propagation API
- */ var PropagationAPI = function() {
-    /** Empty private constructor prevents end users from constructing a new instance of the API */ function PropagationAPI() {
+
+
+ var PropagationAPI = function() {
+     function PropagationAPI() {
         this.createBaggage = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$baggage$2f$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["createBaggage"];
         this.getBaggage = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$baggage$2f$context$2d$helpers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getBaggage"];
         this.getActiveBaggage = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$baggage$2f$context$2d$helpers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getActiveBaggage"];
         this.setBaggage = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$baggage$2f$context$2d$helpers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["setBaggage"];
         this.deleteBaggage = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$baggage$2f$context$2d$helpers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["deleteBaggage"];
     }
-    /** Get the singleton instance of the Propagator API */ PropagationAPI.getInstance = function() {
+     PropagationAPI.getInstance = function() {
         if (!this._instance) {
             this._instance = new PropagationAPI();
         }
         return this._instance;
     };
-    /**
-     * Set the current propagator.
-     *
-     * @returns true if the propagator was successfully registered, else false
-     */ PropagationAPI.prototype.setGlobalPropagator = function(propagator) {
+    
+
+
+
+ PropagationAPI.prototype.setGlobalPropagator = function(propagator) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["registerGlobal"])(API_NAME, propagator, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
     };
-    /**
-     * Inject context into a carrier to be propagated inter-process
-     *
-     * @param context Context carrying tracing data to inject
-     * @param carrier carrier to inject context into
-     * @param setter Function used to set values on the carrier
-     */ PropagationAPI.prototype.inject = function(context, carrier, setter) {
+    
+
+
+
+
+
+ PropagationAPI.prototype.inject = function(context, carrier, setter) {
         if (setter === void 0) {
             setter = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$propagation$2f$TextMapPropagator$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["defaultTextMapSetter"];
         }
         return this._getGlobalPropagator().inject(context, carrier, setter);
     };
-    /**
-     * Extract context from a carrier
-     *
-     * @param context Context which the newly created context will inherit from
-     * @param carrier Carrier to extract context from
-     * @param getter Function used to extract keys from a carrier
-     */ PropagationAPI.prototype.extract = function(context, carrier, getter) {
+    
+
+
+
+
+
+ PropagationAPI.prototype.extract = function(context, carrier, getter) {
         if (getter === void 0) {
             getter = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$propagation$2f$TextMapPropagator$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["defaultTextMapGetter"];
         }
         return this._getGlobalPropagator().extract(context, carrier, getter);
     };
-    /**
-     * Return a list of all fields which may be used by the propagator.
-     */ PropagationAPI.prototype.fields = function() {
+    
+
+ PropagationAPI.prototype.fields = function() {
         return this._getGlobalPropagator().fields();
     };
-    /** Remove the global propagator */ PropagationAPI.prototype.disable = function() {
+     PropagationAPI.prototype.disable = function() {
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["unregisterGlobal"])(API_NAME, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
     };
     PropagationAPI.prototype._getGlobalPropagator = function() {
@@ -4312,80 +4312,80 @@ var NOOP_TEXT_MAP_PROPAGATOR = new __TURBOPACK__imported__module__$5b$project$5d
     return PropagationAPI;
 }();
 ;
- //# sourceMappingURL=propagation.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/propagation-api.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ // Split module-level variable definition into separate files to allow
-// tree-shaking on each api instance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 __turbopack_context__.s([
     "propagation",
     ()=>propagation
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$propagation$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/propagation.js [middleware-edge] (ecmascript)");
 ;
-var propagation = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$propagation$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["PropagationAPI"].getInstance(); //# sourceMappingURL=propagation-api.js.map
+var propagation = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$propagation$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["PropagationAPI"].getInstance(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/trace_flags.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "TraceFlags",
     ()=>TraceFlags
 ]);
 var TraceFlags;
 (function(TraceFlags) {
-    /** Represents no flag set. */ TraceFlags[TraceFlags["NONE"] = 0] = "NONE";
-    /** Bit to represent whether trace is sampled in trace flags. */ TraceFlags[TraceFlags["SAMPLED"] = 1] = "SAMPLED";
-})(TraceFlags || (TraceFlags = {})); //# sourceMappingURL=trace_flags.js.map
+     TraceFlags[TraceFlags["NONE"] = 0] = "NONE";
+     TraceFlags[TraceFlags["SAMPLED"] = 1] = "SAMPLED";
+})(TraceFlags || (TraceFlags = {})); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/invalid-span-constants.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "INVALID_SPANID",
     ()=>INVALID_SPANID,
     "INVALID_SPAN_CONTEXT",
@@ -4401,55 +4401,55 @@ var INVALID_SPAN_CONTEXT = {
     traceId: INVALID_TRACEID,
     spanId: INVALID_SPANID,
     traceFlags: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$trace_flags$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["TraceFlags"].NONE
-}; //# sourceMappingURL=invalid-span-constants.js.map
+}; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/NonRecordingSpan.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "NonRecordingSpan",
     ()=>NonRecordingSpan
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$invalid$2d$span$2d$constants$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/invalid-span-constants.js [middleware-edge] (ecmascript)");
 ;
-/**
- * The NonRecordingSpan is the default {@link Span} that is used when no Span
- * implementation is available. All operations are no-op including context
- * propagation.
- */ var NonRecordingSpan = function() {
+
+
+
+
+ var NonRecordingSpan = function() {
     function NonRecordingSpan(_spanContext) {
         if (_spanContext === void 0) {
             _spanContext = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$invalid$2d$span$2d$constants$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["INVALID_SPAN_CONTEXT"];
         }
         this._spanContext = _spanContext;
     }
-    // Returns a SpanContext.
+    
     NonRecordingSpan.prototype.spanContext = function() {
         return this._spanContext;
     };
-    // By default does nothing
+    
     NonRecordingSpan.prototype.setAttribute = function(_key, _value) {
         return this;
     };
-    // By default does nothing
+    
     NonRecordingSpan.prototype.setAttributes = function(_attributes) {
         return this;
     };
-    // By default does nothing
+    
     NonRecordingSpan.prototype.addEvent = function(_name, _attributes) {
         return this;
     };
@@ -4459,45 +4459,45 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
     NonRecordingSpan.prototype.addLinks = function(_links) {
         return this;
     };
-    // By default does nothing
+    
     NonRecordingSpan.prototype.setStatus = function(_status) {
         return this;
     };
-    // By default does nothing
+    
     NonRecordingSpan.prototype.updateName = function(_name) {
         return this;
     };
-    // By default does nothing
+    
     NonRecordingSpan.prototype.end = function(_endTime) {};
-    // isRecording always returns false for NonRecordingSpan.
+    
     NonRecordingSpan.prototype.isRecording = function() {
         return false;
     };
-    // By default does nothing
+    
     NonRecordingSpan.prototype.recordException = function(_exception, _time) {};
     return NonRecordingSpan;
 }();
 ;
- //# sourceMappingURL=NonRecordingSpan.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/context-utils.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "deleteSpan",
     ()=>deleteSpan,
     "getActiveSpan",
@@ -4517,9 +4517,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-/**
- * span key
- */ var SPAN_KEY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["createContextKey"])('OpenTelemetry Context Key SPAN');
+
+
+ var SPAN_KEY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["createContextKey"])('OpenTelemetry Context Key SPAN');
 function getSpan(context) {
     return context.getValue(SPAN_KEY) || undefined;
 }
@@ -4538,26 +4538,26 @@ function setSpanContext(context, spanContext) {
 function getSpanContext(context) {
     var _a;
     return (_a = getSpan(context)) === null || _a === void 0 ? void 0 : _a.spanContext();
-} //# sourceMappingURL=context-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/spancontext-utils.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "isSpanContextValid",
     ()=>isSpanContextValid,
     "isValidSpanId",
@@ -4584,26 +4584,26 @@ function isSpanContextValid(spanContext) {
 }
 function wrapSpanContext(spanContext) {
     return new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NonRecordingSpan$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NonRecordingSpan"](spanContext);
-} //# sourceMappingURL=spancontext-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "NoopTracer",
     ()=>NoopTracer
 ]);
@@ -4616,11 +4616,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 var contextApi = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ContextAPI"].getInstance();
-/**
- * No-op implementations of {@link Tracer}.
- */ var NoopTracer = function() {
+
+
+ var NoopTracer = function() {
     function NoopTracer() {}
-    // startSpan starts a noop span.
+    
     NoopTracer.prototype.startSpan = function(name, options, context) {
         if (context === void 0) {
             context = contextApi.active();
@@ -4662,35 +4662,35 @@ var contextApi = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proj
 ;
 function isSpanContext(spanContext) {
     return typeof spanContext === 'object' && typeof spanContext['spanId'] === 'string' && typeof spanContext['traceId'] === 'string' && typeof spanContext['traceFlags'] === 'number';
-} //# sourceMappingURL=NoopTracer.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/ProxyTracer.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "ProxyTracer",
     ()=>ProxyTracer
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracer$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js [middleware-edge] (ecmascript)");
 ;
 var NOOP_TRACER = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracer$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NoopTracer"]();
-/**
- * Proxy tracer provided by the proxy tracer provider
- */ var ProxyTracer = function() {
+
+
+ var ProxyTracer = function() {
     function ProxyTracer(_provider, name, version, options) {
         this._provider = _provider;
         this.name = name;
@@ -4704,10 +4704,10 @@ var NOOP_TRACER = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f
         var tracer = this._getTracer();
         return Reflect.apply(tracer.startActiveSpan, tracer, arguments);
     };
-    /**
-     * Try to get a tracer from the proxy tracer provider.
-     * If the proxy tracer provider has no delegate, return a noop tracer.
-     */ ProxyTracer.prototype._getTracer = function() {
+    
+
+
+ ProxyTracer.prototype._getTracer = function() {
         if (this._delegate) {
             return this._delegate;
         }
@@ -4721,37 +4721,37 @@ var NOOP_TRACER = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f
     return ProxyTracer;
 }();
 ;
- //# sourceMappingURL=ProxyTracer.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/NoopTracerProvider.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "NoopTracerProvider",
     ()=>NoopTracerProvider
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracer$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js [middleware-edge] (ecmascript)");
 ;
-/**
- * An implementation of the {@link TracerProvider} which returns an impotent
- * Tracer for all calls to `getTracer`.
- *
- * All operations are no-op.
- */ var NoopTracerProvider = function() {
+
+
+
+
+
+ var NoopTracerProvider = function() {
     function NoopTracerProvider() {}
     NoopTracerProvider.prototype.getTracer = function(_name, _version, _options) {
         return new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracer$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NoopTracer"]();
@@ -4759,26 +4759,26 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
     return NoopTracerProvider;
 }();
 ;
- //# sourceMappingURL=NoopTracerProvider.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/ProxyTracerProvider.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "ProxyTracerProvider",
     ()=>ProxyTracerProvider
 ]);
@@ -4787,18 +4787,18 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 var NOOP_TRACER_PROVIDER = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracerProvider$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NoopTracerProvider"]();
-/**
- * Tracer provider which provides {@link ProxyTracer}s.
- *
- * Before a delegate is set, tracers provided are NoOp.
- *   When a delegate is set, traces are provided from the delegate.
- *   When a delegate is set after tracers have already been provided,
- *   all tracers already provided will use the provided delegate implementation.
- */ var ProxyTracerProvider = function() {
+
+
+
+
+
+
+
+ var ProxyTracerProvider = function() {
     function ProxyTracerProvider() {}
-    /**
-     * Get a {@link ProxyTracer}
-     */ ProxyTracerProvider.prototype.getTracer = function(name, version, options) {
+    
+
+ ProxyTracerProvider.prototype.getTracer = function(name, version, options) {
         var _a;
         return (_a = this.getDelegateTracer(name, version, options)) !== null && _a !== void 0 ? _a : new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$ProxyTracer$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ProxyTracer"](this, name, version, options);
     };
@@ -4806,9 +4806,9 @@ var NOOP_TRACER_PROVIDER = new __TURBOPACK__imported__module__$5b$project$5d2f$D
         var _a;
         return (_a = this._delegate) !== null && _a !== void 0 ? _a : NOOP_TRACER_PROVIDER;
     };
-    /**
-     * Set the delegate tracer provider
-     */ ProxyTracerProvider.prototype.setDelegate = function(delegate) {
+    
+
+ ProxyTracerProvider.prototype.setDelegate = function(delegate) {
         this._delegate = delegate;
     };
     ProxyTracerProvider.prototype.getDelegateTracer = function(name, version, options) {
@@ -4818,26 +4818,26 @@ var NOOP_TRACER_PROVIDER = new __TURBOPACK__imported__module__$5b$project$5d2f$D
     return ProxyTracerProvider;
 }();
 ;
- //# sourceMappingURL=ProxyTracerProvider.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/trace.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "TraceAPI",
     ()=>TraceAPI
 ]);
@@ -4852,10 +4852,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 var API_NAME = 'trace';
-/**
- * Singleton object which represents the entry point to the OpenTelemetry Tracing API
- */ var TraceAPI = function() {
-    /** Empty private constructor prevents end users from constructing a new instance of the API */ function TraceAPI() {
+
+
+ var TraceAPI = function() {
+     function TraceAPI() {
         this._proxyTracerProvider = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$ProxyTracerProvider$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ProxyTracerProvider"]();
         this.wrapSpanContext = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$spancontext$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["wrapSpanContext"];
         this.isSpanContextValid = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$spancontext$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["isSpanContextValid"];
@@ -4866,92 +4866,92 @@ var API_NAME = 'trace';
         this.setSpan = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$context$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["setSpan"];
         this.setSpanContext = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$context$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["setSpanContext"];
     }
-    /** Get the singleton instance of the Trace API */ TraceAPI.getInstance = function() {
+     TraceAPI.getInstance = function() {
         if (!this._instance) {
             this._instance = new TraceAPI();
         }
         return this._instance;
     };
-    /**
-     * Set the current global tracer.
-     *
-     * @returns true if the tracer provider was successfully registered, else false
-     */ TraceAPI.prototype.setGlobalTracerProvider = function(provider) {
+    
+
+
+
+ TraceAPI.prototype.setGlobalTracerProvider = function(provider) {
         var success = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["registerGlobal"])(API_NAME, this._proxyTracerProvider, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
         if (success) {
             this._proxyTracerProvider.setDelegate(provider);
         }
         return success;
     };
-    /**
-     * Returns the global tracer provider.
-     */ TraceAPI.prototype.getTracerProvider = function() {
+    
+
+ TraceAPI.prototype.getTracerProvider = function() {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getGlobal"])(API_NAME) || this._proxyTracerProvider;
     };
-    /**
-     * Returns a tracer from the global tracer provider.
-     */ TraceAPI.prototype.getTracer = function(name, version) {
+    
+
+ TraceAPI.prototype.getTracer = function(name, version) {
         return this.getTracerProvider().getTracer(name, version);
     };
-    /** Remove the global tracer provider */ TraceAPI.prototype.disable = function() {
+     TraceAPI.prototype.disable = function() {
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["unregisterGlobal"])(API_NAME, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
         this._proxyTracerProvider = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$ProxyTracerProvider$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ProxyTracerProvider"]();
     };
     return TraceAPI;
 }();
 ;
- //# sourceMappingURL=trace.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace-api.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ // Split module-level variable definition into separate files to allow
-// tree-shaking on each api instance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 __turbopack_context__.s([
     "trace",
     ()=>trace
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$trace$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/trace.js [middleware-edge] (ecmascript)");
 ;
-var trace = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$trace$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["TraceAPI"].getInstance(); //# sourceMappingURL=trace-api.js.map
+var trace = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$trace$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["TraceAPI"].getInstance(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/index.js [middleware-edge] (ecmascript) <locals>", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "default",
     ()=>__TURBOPACK__default__export__
 ]);
-// Split module-level variable definition into separate files to allow
-// tree-shaking on each api instance.
+
+
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2d$api$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/context-api.js [middleware-edge] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2d$api$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/diag-api.js [middleware-edge] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$metrics$2d$api$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/metrics-api.js [middleware-edge] (ecmascript)");
@@ -4986,26 +4986,26 @@ const __TURBOPACK__default__export__ = {
     propagation: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$propagation$2d$api$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["propagation"],
     trace: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2d$api$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["trace"]
 };
- //# sourceMappingURL=index.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/diag/consoleLogger.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "DiagConsoleLogger",
     ()=>DiagConsoleLogger
 ]);
@@ -5031,11 +5031,11 @@ var consoleMap = [
         c: 'trace'
     }
 ];
-/**
- * A simple Immutable Console based diagnostic logger which will output any messages to the Console.
- * If you want to limit the amount of logging to a specific level or lower use the
- * {@link createLogLevelDiagLogger}
- */ var DiagConsoleLogger = function() {
+
+
+
+
+ var DiagConsoleLogger = function() {
     function DiagConsoleLogger() {
         function _consoleFunc(funcName) {
             return function() {
@@ -5044,15 +5044,15 @@ var consoleMap = [
                     args[_i] = arguments[_i];
                 }
                 if (console) {
-                    // Some environments only expose the console when the F12 developer console is open
-                    // eslint-disable-next-line no-console
+                    
+                    
                     var theFunc = console[funcName];
                     if (typeof theFunc !== 'function') {
-                        // Not all environments support all functions
-                        // eslint-disable-next-line no-console
+                        
+                        
                         theFunc = console.log;
                     }
-                    // One last final check
+                    
                     if (typeof theFunc === 'function') {
                         return theFunc.apply(console, args);
                     }
@@ -5066,26 +5066,26 @@ var consoleMap = [
     return DiagConsoleLogger;
 }();
 ;
- //# sourceMappingURL=consoleLogger.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/metrics/Metric.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ /** The Type of value. It describes how the data is reported. */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  __turbopack_context__.s([
     "ValueType",
     ()=>ValueType
 ]);
@@ -5093,134 +5093,134 @@ var ValueType;
 (function(ValueType) {
     ValueType[ValueType["INT"] = 0] = "INT";
     ValueType[ValueType["DOUBLE"] = 1] = "DOUBLE";
-})(ValueType || (ValueType = {})); //# sourceMappingURL=Metric.js.map
+})(ValueType || (ValueType = {})); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/SamplingResult.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ /**
- * @deprecated use the one declared in @opentelemetry/sdk-trace-base instead.
- * A sampling decision that determines how a {@link Span} will be recorded
- * and collected.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ __turbopack_context__.s([
     "SamplingDecision",
     ()=>SamplingDecision
 ]);
 var SamplingDecision;
 (function(SamplingDecision) {
-    /**
-     * `Span.isRecording() === false`, span will not be recorded and all events
-     * and attributes will be dropped.
-     */ SamplingDecision[SamplingDecision["NOT_RECORD"] = 0] = "NOT_RECORD";
-    /**
-     * `Span.isRecording() === true`, but `Sampled` flag in {@link TraceFlags}
-     * MUST NOT be set.
-     */ SamplingDecision[SamplingDecision["RECORD"] = 1] = "RECORD";
-    /**
-     * `Span.isRecording() === true` AND `Sampled` flag in {@link TraceFlags}
-     * MUST be set.
-     */ SamplingDecision[SamplingDecision["RECORD_AND_SAMPLED"] = 2] = "RECORD_AND_SAMPLED";
-})(SamplingDecision || (SamplingDecision = {})); //# sourceMappingURL=SamplingResult.js.map
+    
+
+
+ SamplingDecision[SamplingDecision["NOT_RECORD"] = 0] = "NOT_RECORD";
+    
+
+
+ SamplingDecision[SamplingDecision["RECORD"] = 1] = "RECORD";
+    
+
+
+ SamplingDecision[SamplingDecision["RECORD_AND_SAMPLED"] = 2] = "RECORD_AND_SAMPLED";
+})(SamplingDecision || (SamplingDecision = {})); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/span_kind.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "SpanKind",
     ()=>SpanKind
 ]);
 var SpanKind;
 (function(SpanKind) {
-    /** Default value. Indicates that the span is used internally. */ SpanKind[SpanKind["INTERNAL"] = 0] = "INTERNAL";
-    /**
-     * Indicates that the span covers server-side handling of an RPC or other
-     * remote request.
-     */ SpanKind[SpanKind["SERVER"] = 1] = "SERVER";
-    /**
-     * Indicates that the span covers the client-side wrapper around an RPC or
-     * other remote request.
-     */ SpanKind[SpanKind["CLIENT"] = 2] = "CLIENT";
-    /**
-     * Indicates that the span describes producer sending a message to a
-     * broker. Unlike client and server, there is no direct critical path latency
-     * relationship between producer and consumer spans.
-     */ SpanKind[SpanKind["PRODUCER"] = 3] = "PRODUCER";
-    /**
-     * Indicates that the span describes consumer receiving a message from a
-     * broker. Unlike client and server, there is no direct critical path latency
-     * relationship between producer and consumer spans.
-     */ SpanKind[SpanKind["CONSUMER"] = 4] = "CONSUMER";
-})(SpanKind || (SpanKind = {})); //# sourceMappingURL=span_kind.js.map
+     SpanKind[SpanKind["INTERNAL"] = 0] = "INTERNAL";
+    
+
+
+ SpanKind[SpanKind["SERVER"] = 1] = "SERVER";
+    
+
+
+ SpanKind[SpanKind["CLIENT"] = 2] = "CLIENT";
+    
+
+
+
+ SpanKind[SpanKind["PRODUCER"] = 3] = "PRODUCER";
+    
+
+
+
+ SpanKind[SpanKind["CONSUMER"] = 4] = "CONSUMER";
+})(SpanKind || (SpanKind = {})); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/status.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * An enumeration of status codes.
- */ __turbopack_context__.s([
+
+
+ __turbopack_context__.s([
     "SpanStatusCode",
     ()=>SpanStatusCode
 ]);
 var SpanStatusCode;
 (function(SpanStatusCode) {
-    /**
-     * The default status.
-     */ SpanStatusCode[SpanStatusCode["UNSET"] = 0] = "UNSET";
-    /**
-     * The operation has been validated by an Application developer or
-     * Operator to have completed successfully.
-     */ SpanStatusCode[SpanStatusCode["OK"] = 1] = "OK";
-    /**
-     * The operation contains an error.
-     */ SpanStatusCode[SpanStatusCode["ERROR"] = 2] = "ERROR";
-})(SpanStatusCode || (SpanStatusCode = {})); //# sourceMappingURL=status.js.map
+    
+
+ SpanStatusCode[SpanStatusCode["UNSET"] = 0] = "UNSET";
+    
+
+
+ SpanStatusCode[SpanStatusCode["OK"] = 1] = "OK";
+    
+
+ SpanStatusCode[SpanStatusCode["ERROR"] = 2] = "ERROR";
+})(SpanStatusCode || (SpanStatusCode = {})); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-validators.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "validateKey",
     ()=>validateKey,
     "validateValue",
@@ -5237,26 +5237,26 @@ function validateKey(key) {
 }
 function validateValue(value) {
     return VALID_VALUE_BASE_REGEX.test(value) && !INVALID_VALUE_COMMA_EQUAL_REGEX.test(value);
-} //# sourceMappingURL=tracestate-validators.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-impl.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "TraceStateImpl",
     ()=>TraceStateImpl
 ]);
@@ -5266,22 +5266,22 @@ var MAX_TRACE_STATE_ITEMS = 32;
 var MAX_TRACE_STATE_LEN = 512;
 var LIST_MEMBERS_SEPARATOR = ',';
 var LIST_MEMBER_KEY_VALUE_SPLITTER = '=';
-/**
- * TraceState must be a class and not a simple object type because of the spec
- * requirement (https://www.w3.org/TR/trace-context/#tracestate-field).
- *
- * Here is the list of allowed mutations:
- * - New key-value pair should be added into the beginning of the list
- * - The value of any key can be updated. Modified keys MUST be moved to the
- * beginning of the list.
- */ var TraceStateImpl = function() {
+
+
+
+
+
+
+
+
+ var TraceStateImpl = function() {
     function TraceStateImpl(rawTraceState) {
         this._internalState = new Map();
         if (rawTraceState) this._parse(rawTraceState);
     }
     TraceStateImpl.prototype.set = function(key, value) {
-        // TODO: Benchmark the different approaches(map vs list) and
-        // use the faster one.
+        
+        
         var traceState = this._clone();
         if (traceState._internalState.has(key)) {
             traceState._internalState.delete(key);
@@ -5306,9 +5306,9 @@ var LIST_MEMBER_KEY_VALUE_SPLITTER = '=';
     };
     TraceStateImpl.prototype._parse = function(rawTraceState) {
         if (rawTraceState.length > MAX_TRACE_STATE_LEN) return;
-        this._internalState = rawTraceState.split(LIST_MEMBERS_SEPARATOR).reverse() // Store in reverse so new keys (.set(...)) will be placed at the beginning
+        this._internalState = rawTraceState.split(LIST_MEMBERS_SEPARATOR).reverse() 
         .reduce(function(agg, part) {
-            var listMember = part.trim(); // Optional Whitespace (OWS) handling
+            var listMember = part.trim(); 
             var i = listMember.indexOf(LIST_MEMBER_KEY_VALUE_SPLITTER);
             if (i !== -1) {
                 var key = listMember.slice(0, i);
@@ -5316,14 +5316,14 @@ var LIST_MEMBER_KEY_VALUE_SPLITTER = '=';
                 if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$internal$2f$tracestate$2d$validators$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["validateKey"])(key) && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$internal$2f$tracestate$2d$validators$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["validateValue"])(value)) {
                     agg.set(key, value);
                 } else {
-                // TODO: Consider to add warning log
+                
                 }
             }
             return agg;
         }, new Map());
-        // Because of the reverse() requirement, trunc must be done after map is created
+        
         if (this._internalState.size > MAX_TRACE_STATE_ITEMS) {
-            this._internalState = new Map(Array.from(this._internalState.entries()).reverse() // Use reverse same as original tracestate parse chain
+            this._internalState = new Map(Array.from(this._internalState.entries()).reverse() 
             .slice(0, MAX_TRACE_STATE_ITEMS));
         }
     };
@@ -5338,26 +5338,26 @@ var LIST_MEMBER_KEY_VALUE_SPLITTER = '=';
     return TraceStateImpl;
 }();
 ;
- //# sourceMappingURL=tracestate-impl.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/internal/utils.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "createTraceState",
     ()=>createTraceState
 ]);
@@ -5365,7 +5365,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 function createTraceState(rawTraceState) {
     return new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$internal$2f$tracestate$2d$impl$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["TraceStateImpl"](rawTraceState);
-} //# sourceMappingURL=utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/index.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -5472,16 +5472,16 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 const NEXT_OTEL_PERFORMANCE_PREFIX = process.env.NEXT_OTEL_PERFORMANCE_PREFIX;
 let api;
-// we want to allow users to use their own version of @opentelemetry/api if they
-// want to, so we try to require it first, and if it fails we fall back to the
-// version that is bundled with Next.js
-// this is because @opentelemetry/api has to be synced with the version of
-// @opentelemetry/tracing that is used, and we don't want to force users to use
-// the version that is bundled with Next.js.
-// the API is ~stable, so this should be fine
+
+
+
+
+
+
+
 if ("TURBOPACK compile-time truthy", 1) {
     api = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/index.js [middleware-edge] (ecmascript)");
-} else //TURBOPACK unreachable
+} else 
 ;
 const { context, propagation, trace, SpanStatusCode, SpanKind, ROOT_CONTEXT } = api;
 class BubbledError extends Error {
@@ -5508,7 +5508,7 @@ const closeSpanWithError = (span, error)=>{
     }
     span.end();
 };
-/** we use this map to propagate attributes from nested spans to the top span */ const rootSpanAttributesStore = new Map();
+ const rootSpanAttributesStore = new Map();
 const rootSpanIdKey = api.createContextKey('next.rootSpanId');
 let lastSpanId = 0;
 const getSpanId = ()=>lastSpanId++;
@@ -5521,11 +5521,11 @@ const clientTraceDataSetter = {
     }
 };
 class NextTracerImpl {
-    /**
-   * Returns an instance to the trace with configured name.
-   * Since wrap / trace can be defined in any place prior to actual trace subscriber initialization,
-   * This should be lazily evaluated.
-   */ getTracerInstance() {
+    
+
+
+
+ getTracerInstance() {
         return trace.getTracer('next.js', '0.0.1');
     }
     getContext() {
@@ -5543,7 +5543,7 @@ class NextTracerImpl {
     withPropagatedContext(carrier, fn, getter) {
         const activeContext = context.active();
         if (trace.getSpanContext(activeContext)) {
-            // Active span is already set, too late to propagate.
+            
             return fn();
         }
         const remoteContext = propagation.extract(activeContext, carrier, getter);
@@ -5551,7 +5551,7 @@ class NextTracerImpl {
     }
     trace(...args) {
         const [type, fnOrOptions, fnOrEmpty] = args;
-        // coerce options form overload
+        
         const { fn, options } = typeof fnOrOptions === 'function' ? {
             fn: fnOrOptions,
             options: {}
@@ -5565,15 +5565,15 @@ class NextTracerImpl {
         if (!__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$trace$2f$constants$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextVanillaSpanAllowlist"].has(type) && process.env.NEXT_OTEL_VERBOSE !== '1' || options.hideSpan) {
             return fn();
         }
-        // Trying to get active scoped span to assign parent. If option specifies parent span manually, will try to use it.
+        
         let spanContext = this.getSpanContext((options == null ? void 0 : options.parentSpan) ?? this.getActiveScopeSpan());
         if (!spanContext) {
             spanContext = (context == null ? void 0 : context.active()) ?? ROOT_CONTEXT;
         }
-        // Check if there's already a root span in the store for this trace
-        // We are intentionally not checking whether there is an active context
-        // from outside of nextjs to ensure that we can provide the same level
-        // of telemetry when using a custom server
+        
+        
+        
+        
         const existingRootSpanId = spanContext.getValue(rootSpanIdKey);
         const isRootSpan = typeof existingRootSpanId !== 'number' || !rootSpanAttributesStore.has(existingRootSpanId);
         const spanId = getSpanId();
@@ -5615,11 +5615,11 @@ class NextTracerImpl {
                 try {
                     const result = fn(span);
                     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$is$2d$thenable$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["isThenable"])(result)) {
-                        // If there's error make sure it throws
+                        
                         return result.then((res)=>{
                             span.end();
-                            // Need to pass down the promise result,
-                            // it could be react stream response with error { error, stream }
+                            
+                            
                             return res;
                         }).catch((err)=>{
                             closeSpanWithError(span, err);
@@ -5694,7 +5694,7 @@ const getTracer = (()=>{
     return ()=>tracer;
 })();
 ;
- //# sourceMappingURL=tracer.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/cookie/index.js [middleware-edge] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
@@ -5704,12 +5704,12 @@ const getTracer = (()=>{
     var e = {};
     (()=>{
         var r = e;
-        /*!
- * cookie
- * Copyright(c) 2012-2014 Roman Shtylman
- * Copyright(c) 2015 Douglas Christopher Wilson
- * MIT Licensed
- */ r.parse = parse;
+        
+
+
+
+
+ r.parse = parse;
         r.serialize = serialize;
         var i = decodeURIComponent;
         var t = encodeURIComponent;
@@ -5859,7 +5859,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 function wrapApiHandler(page, handler) {
     return (...args)=>{
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$trace$2f$tracer$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getTracer"])().setRootSpanAttribute('next.route', page);
-        // Call API route method
+        
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$trace$2f$tracer$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getTracer"])().trace(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$trace$2f$constants$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NodeSpan"].runHandler, {
             spanName: `executing api route (pages) ${page}`
         }, ()=>handler(...args));
@@ -5914,9 +5914,9 @@ function clearPreviewData(res, options = {}) {
             previous
         ] : Array.isArray(previous) ? previous : [],
         serialize(COOKIE_NAME_PRERENDER_BYPASS, '', {
-            // To delete a cookie, set `expires` to a date in the past:
-            // https://tools.ietf.org/html/rfc6265#section-4.1.1
-            // `Max-Age: 0` is not valid, thus ignored, and the cookie is persisted.
+            
+            
+            
             expires: new Date(0),
             httpOnly: true,
             sameSite: ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : 'lax',
@@ -5927,9 +5927,9 @@ function clearPreviewData(res, options = {}) {
             } : undefined
         }),
         serialize(COOKIE_NAME_PRERENDER_DATA, '', {
-            // To delete a cookie, set `expires` to a date in the past:
-            // https://tools.ietf.org/html/rfc6265#section-4.1.1
-            // `Max-Age: 0` is not valid, thus ignored, and the cookie is persisted.
+            
+            
+            
             expires: new Date(0),
             httpOnly: true,
             sameSite: ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : 'lax',
@@ -5970,7 +5970,7 @@ function setLazyProp({ req }, prop, getter) {
         ...opts,
         get: ()=>{
             const value = getter();
-            // we set the property on the object to avoid recalculating it
+            
             Object.defineProperty(req, prop, {
                 ...optsReset,
                 value
@@ -5984,7 +5984,7 @@ function setLazyProp({ req }, prop, getter) {
             });
         }
     });
-} //# sourceMappingURL=index.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/async-storage/draft-mode-provider.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -5998,11 +5998,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 class DraftModeProvider {
     constructor(previewProps, req, cookies, mutableCookies){
         var _cookies_get;
-        // The logic for draftMode() is very similar to tryGetPreviewData()
-        // but Draft Mode does not have any data associated with it.
+        
+        
         const isOnDemandRevalidate = previewProps && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$api$2d$utils$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["checkIsOnDemandRevalidate"])(req, previewProps).isOnDemandRevalidate;
         const cookieValue = (_cookies_get = cookies.get(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$api$2d$utils$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["COOKIE_NAME_PRERENDER_BYPASS"])) == null ? void 0 : _cookies_get.value;
-        this._isEnabled = Boolean(!isOnDemandRevalidate && cookieValue && previewProps && (cookieValue === previewProps.previewModeId || // In dev mode, the cookie can be actual hash value preview id but the preview props can still be `development-id`.
+        this._isEnabled = Boolean(!isOnDemandRevalidate && cookieValue && previewProps && (cookieValue === previewProps.previewModeId || 
         ("TURBOPACK compile-time value", "development") !== 'production' && previewProps.previewModeId === 'development-id'));
         this._previewModeId = previewProps == null ? void 0 : previewProps.previewModeId;
         this._mutableCookies = mutableCookies;
@@ -6029,9 +6029,9 @@ class DraftModeProvider {
         this._isEnabled = true;
     }
     disable() {
-        // To delete a cookie, set `expires` to a date in the past:
-        // https://tools.ietf.org/html/rfc6265#section-4.1.1
-        // `Max-Age: 0` is not valid, thus ignored, and the cookie is persisted.
+        
+        
+        
         this._mutableCookies.set({
             name: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$api$2d$utils$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["COOKIE_NAME_PRERENDER_BYPASS"],
             value: '',
@@ -6043,7 +6043,7 @@ class DraftModeProvider {
         });
         this._isEnabled = false;
     }
-} //# sourceMappingURL=draft-mode-provider.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/async-storage/request-store.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -6080,11 +6080,11 @@ function getMutableCookies(headers, onUpdateCookies) {
     const cookies = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f40$edge$2d$runtime$2f$cookies$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["RequestCookies"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$headers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["HeadersAdapter"].from(headers));
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$request$2d$cookies$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["MutableRequestCookiesAdapter"].wrap(cookies, onUpdateCookies);
 }
-/**
- * If middleware set cookies in this request (indicated by `x-middleware-set-cookie`),
- * then merge those into the existing cookie object, so that when `cookies()` is accessed
- * it's able to read the newly set cookies.
- */ function mergeMiddlewareCookies(req, existingCookies) {
+
+
+
+
+ function mergeMiddlewareCookies(req, existingCookies) {
     if ('x-middleware-set-cookie' in req.headers && typeof req.headers['x-middleware-set-cookie'] === 'string') {
         const setCookieValue = req.headers['x-middleware-set-cookie'];
         const responseHeaders = new Headers();
@@ -6092,7 +6092,7 @@ function getMutableCookies(headers, onUpdateCookies) {
             responseHeaders.append('set-cookie', cookie);
         }
         const responseCookies = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f40$edge$2d$runtime$2f$cookies$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ResponseCookies"](responseHeaders);
-        // Transfer cookies from ResponseCookies to RequestCookies
+        
         for (const cookie of responseCookies.getAll()){
             existingCookies.set(cookie);
         }
@@ -6115,9 +6115,9 @@ function createRequestStoreImpl(phase, req, res, url, rootParams, implicitTags, 
         type: 'request',
         phase,
         implicitTags,
-        // Rather than just using the whole `url` here, we pull the parts we want
-        // to ensure we don't use parts of the URL that we shouldn't. This also
-        // lets us avoid requiring an empty string for `search` in the type.
+        
+        
+        
         url: {
             pathname: url.pathname,
             search: url.search ?? ''
@@ -6125,20 +6125,20 @@ function createRequestStoreImpl(phase, req, res, url, rootParams, implicitTags, 
         rootParams,
         get headers () {
             if (!cache.headers) {
-                // Seal the headers object that'll freeze out any methods that could
-                // mutate the underlying data.
+                
+                
                 cache.headers = getHeaders(req.headers);
             }
             return cache.headers;
         },
         get cookies () {
             if (!cache.cookies) {
-                // if middleware is setting cookie(s), then include those in
-                // the initial cached cookies so they can be read in render
+                
+                
                 const requestCookies = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f40$edge$2d$runtime$2f$cookies$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["RequestCookies"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$headers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["HeadersAdapter"].from(req.headers));
                 mergeMiddlewareCookies(req, requestCookies);
-                // Seal the cookies object that'll freeze out any methods that could
-                // mutate the underlying data.
+                
+                
                 cache.cookies = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$request$2d$cookies$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["RequestCookiesAdapter"].seal(requestCookies);
             }
             return cache.cookies;
@@ -6174,9 +6174,9 @@ function createRequestStoreImpl(phase, req, res, url, rootParams, implicitTags, 
     };
 }
 function synchronizeMutableCookies(store) {
-    // TODO: does this need to update headers as well?
+    
     store.cookies = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$request$2d$cookies$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["RequestCookiesAdapter"].seal((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$request$2d$cookies$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["responseCookiesToRequestCookies"])(store.mutableCookies));
-} //# sourceMappingURL=request-store.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/work-unit-async-storage-instance.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -6187,7 +6187,7 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$async$2d$local$2d$storage$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/async-local-storage.js [middleware-edge] (ecmascript)");
 ;
-const workUnitAsyncStorageInstance = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$async$2d$local$2d$storage$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["createAsyncLocalStorage"])(); //# sourceMappingURL=work-unit-async-storage-instance.js.map
+const workUnitAsyncStorageInstance = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$async$2d$local$2d$storage$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["createAsyncLocalStorage"])(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/invariant-error.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -6201,12 +6201,12 @@ class InvariantError extends Error {
         super(`Invariant: ${message.endsWith('.') ? message : message + '.'} This is a bug in Next.js.`, options);
         this.name = 'InvariantError';
     }
-} //# sourceMappingURL=invariant-error.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/work-unit-async-storage.external.js [middleware-edge] (ecmascript) <locals>", ((__turbopack_context__) => {
 "use strict";
 
-// Share the instance module in the next-shared layer
+
 __turbopack_context__.s([
     "getCacheSignal",
     ()=>getCacheSignal,
@@ -6257,16 +6257,16 @@ function getPrerenderResumeDataCache(workUnitStore) {
         case 'prerender-ppr':
             return workUnitStore.prerenderResumeDataCache;
         case 'prerender-client':
-            // TODO eliminate fetch caching in client scope and stop exposing this data
-            // cache during SSR.
+            
+            
             return workUnitStore.prerenderResumeDataCache;
         case 'request':
             {
-                // In dev, we might fill caches even during a dynamic request.
+                
                 if (workUnitStore.prerenderResumeDataCache) {
                     return workUnitStore.prerenderResumeDataCache;
                 }
-            // fallthrough
+            
             }
         case 'prerender-legacy':
         case 'cache':
@@ -6284,14 +6284,14 @@ function getRenderResumeDataCache(workUnitStore) {
         case 'prerender-runtime':
         case 'prerender-client':
             if (workUnitStore.renderResumeDataCache) {
-                // If we are in a prerender, we might have a render resume data cache
-                // that is used to read from prefilled caches.
+                
+                
                 return workUnitStore.renderResumeDataCache;
             }
-        // fallthrough
+        
         case 'prerender-ppr':
-            // Otherwise we return the mutable resume data cache here as an immutable
-            // version of the cache as it can also be used for reading.
+            
+            
             return workUnitStore.prerenderResumeDataCache ?? null;
         case 'cache':
         case 'private-cache':
@@ -6392,11 +6392,11 @@ function getCacheSignal(workUnitStore) {
             return workUnitStore.cacheSignal;
         case 'request':
             {
-                // In dev, we might fill caches even during a dynamic request.
+                
                 if (workUnitStore.cacheSignal) {
                     return workUnitStore.cacheSignal;
                 }
-            // fallthrough
+            
             }
         case 'prerender-ppr':
         case 'prerender-legacy':
@@ -6424,7 +6424,7 @@ function getRuntimeStagePromise(workUnitStore) {
         default:
             return workUnitStore;
     }
-} //# sourceMappingURL=work-unit-async-storage.external.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/work-unit-async-storage-instance.js [middleware-edge] (ecmascript) <export workUnitAsyncStorageInstance as workUnitAsyncStorage>", ((__turbopack_context__) => {
 "use strict";
@@ -6964,10 +6964,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/lib/lru-cache.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Node in the doubly-linked list used for LRU tracking.
- * Each node represents a cache entry with bidirectional pointers.
- */ __turbopack_context__.s([
+
+
+
+ __turbopack_context__.s([
     "LRUCache",
     ()=>LRUCache
 ]);
@@ -6980,10 +6980,10 @@ class LRUNode {
         this.size = size;
     }
 }
-/**
- * Sentinel node used for head/tail boundaries.
- * These nodes don't contain actual cache data but simplify list operations.
- */ class SentinelNode {
+
+
+
+ class SentinelNode {
     constructor(){
         this.prev = null;
         this.next = null;
@@ -6995,59 +6995,59 @@ class LRUCache {
         this.totalSize = 0;
         this.maxSize = maxSize;
         this.calculateSize = calculateSize;
-        // Create sentinel nodes to simplify doubly-linked list operations
-        // HEAD <-> TAIL (empty list)
+        
+        
         this.head = new SentinelNode();
         this.tail = new SentinelNode();
         this.head.next = this.tail;
         this.tail.prev = this.head;
     }
-    /**
-   * Adds a node immediately after the head (marks as most recently used).
-   * Used when inserting new items or when an item is accessed.
-   * PRECONDITION: node must be disconnected (prev/next should be null)
-   */ addToHead(node) {
+    
+
+
+
+ addToHead(node) {
         node.prev = this.head;
         node.next = this.head.next;
-        // head.next is always non-null (points to tail or another node)
+        
         this.head.next.prev = node;
         this.head.next = node;
     }
-    /**
-   * Removes a node from its current position in the doubly-linked list.
-   * Updates the prev/next pointers of adjacent nodes to maintain list integrity.
-   * PRECONDITION: node must be connected (prev/next are non-null)
-   */ removeNode(node) {
-        // Connected nodes always have non-null prev/next
+    
+
+
+
+ removeNode(node) {
+        
         node.prev.next = node.next;
         node.next.prev = node.prev;
     }
-    /**
-   * Moves an existing node to the head position (marks as most recently used).
-   * This is the core LRU operation - accessed items become most recent.
-   */ moveToHead(node) {
+    
+
+
+ moveToHead(node) {
         this.removeNode(node);
         this.addToHead(node);
     }
-    /**
-   * Removes and returns the least recently used node (the one before tail).
-   * This is called during eviction when the cache exceeds capacity.
-   * PRECONDITION: cache is not empty (ensured by caller)
-   */ removeTail() {
+    
+
+
+
+ removeTail() {
         const lastNode = this.tail.prev;
-        // tail.prev is always non-null and always LRUNode when cache is not empty
+        
         this.removeNode(lastNode);
         return lastNode;
     }
-    /**
-   * Sets a key-value pair in the cache.
-   * If the key exists, updates the value and moves to head.
-   * If new, adds at head and evicts from tail if necessary.
-   *
-   * Time Complexity:
-   * - O(1) for uniform item sizes
-   * - O(k) where k is the number of items evicted (can be O(N) for variable sizes)
-   */ set(key, value) {
+    
+
+
+
+
+
+
+
+ set(key, value) {
         const size = (this.calculateSize == null ? void 0 : this.calculateSize.call(this, value)) ?? 1;
         if (size > this.maxSize) {
             console.warn('Single item size exceeds maxSize');
@@ -7055,52 +7055,52 @@ class LRUCache {
         }
         const existing = this.cache.get(key);
         if (existing) {
-            // Update existing node: adjust size and move to head (most recent)
+            
             existing.data = value;
             this.totalSize = this.totalSize - existing.size + size;
             existing.size = size;
             this.moveToHead(existing);
         } else {
-            // Add new node at head (most recent position)
+            
             const newNode = new LRUNode(key, value, size);
             this.cache.set(key, newNode);
             this.addToHead(newNode);
             this.totalSize += size;
         }
-        // Evict least recently used items until under capacity
+        
         while(this.totalSize > this.maxSize && this.cache.size > 0){
             const tail = this.removeTail();
             this.cache.delete(tail.key);
             this.totalSize -= tail.size;
         }
     }
-    /**
-   * Checks if a key exists in the cache.
-   * This is a pure query operation - does NOT update LRU order.
-   *
-   * Time Complexity: O(1)
-   */ has(key) {
+    
+
+
+
+
+ has(key) {
         return this.cache.has(key);
     }
-    /**
-   * Retrieves a value by key and marks it as most recently used.
-   * Moving to head maintains the LRU property for future evictions.
-   *
-   * Time Complexity: O(1)
-   */ get(key) {
+    
+
+
+
+
+ get(key) {
         const node = this.cache.get(key);
         if (!node) return undefined;
-        // Mark as most recently used by moving to head
+        
         this.moveToHead(node);
         return node.data;
     }
-    /**
-   * Returns an iterator over the cache entries. The order is outputted in the
-   * order of most recently used to least recently used.
-   */ *[Symbol.iterator]() {
+    
+
+
+ *[Symbol.iterator]() {
         let current = this.head.next;
         while(current && current !== this.tail){
-            // Between head and tail, current is always LRUNode
+            
             const node = current;
             yield [
                 node.key,
@@ -7109,36 +7109,36 @@ class LRUCache {
             current = current.next;
         }
     }
-    /**
-   * Removes a specific key from the cache.
-   * Updates both the hash map and doubly-linked list.
-   *
-   * Time Complexity: O(1)
-   */ remove(key) {
+    
+
+
+
+
+ remove(key) {
         const node = this.cache.get(key);
         if (!node) return;
         this.removeNode(node);
         this.cache.delete(key);
         this.totalSize -= node.size;
     }
-    /**
-   * Returns the number of items in the cache.
-   */ get size() {
+    
+
+ get size() {
         return this.cache.size;
     }
-    /**
-   * Returns the current total size of all cached items.
-   * This uses the custom size calculation if provided.
-   */ get currentSize() {
+    
+
+
+ get currentSize() {
         return this.totalSize;
     }
-} //# sourceMappingURL=lru-cache.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/lib/incremental-cache/tags-manifest.external.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// We share the tags manifest between the "use cache" handlers and the previous
-// file-system cache.
+
+
 __turbopack_context__.s([
     "areTagsExpired",
     ()=>areTagsExpired,
@@ -7154,8 +7154,8 @@ const areTagsExpired = (tags, timestamp)=>{
         const expiredAt = entry == null ? void 0 : entry.expired;
         if (typeof expiredAt === 'number') {
             const now = Date.now();
-            // For immediate expiration (expiredAt <= now) and tag was invalidated after entry was created
-            // OR for future expiration that has now passed (expiredAt > timestamp && expiredAt <= now)
+            
+            
             const isImmediatelyExpired = expiredAt <= now && expiredAt > timestamp;
             if (isImmediatelyExpired) {
                 return true;
@@ -7173,31 +7173,31 @@ const areTagsStale = (tags, timestamp)=>{
         }
     }
     return false;
-}; //# sourceMappingURL=tags-manifest.external.js.map
+}; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/lib/cache-handlers/default.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * This is the default "use cache" handler it defaults to an in-memory store.
- * In-memory caches are fragile and should not use stale-while-revalidate
- * semantics on the caches because it's not worth warming up an entry that's
- * likely going to get evicted before we get to use it anyway. However, we also
- * don't want to reuse a stale entry for too long so stale entries should be
- * considered expired/missing in such cache handlers.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "createDefaultCacheHandler",
     ()=>createDefaultCacheHandler
 ]);
-var __TURBOPACK__imported__module__$5b$externals$5d2f$node$3a$buffer__$5b$external$5d$__$28$node$3a$buffer$2c$__cjs$29$__ = /*#__PURE__*/ __turbopack_context__.i("[externals]/node:buffer [external] (node:buffer, cjs)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$node$3a$buffer__$5b$external$5d$__$28$node$3a$buffer$2c$__cjs$29$__ =  __turbopack_context__.i("[externals]/node:buffer [external] (node:buffer, cjs)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$lru$2d$cache$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/lib/lru-cache.js [middleware-edge] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$incremental$2d$cache$2f$tags$2d$manifest$2e$external$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/lib/incremental-cache/tags-manifest.external.js [middleware-edge] (ecmascript)");
 ;
 ;
 function createDefaultCacheHandler(maxSize) {
-    // If the max size is 0, return a cache handler that doesn't cache anything,
-    // this avoids an unnecessary LRUCache instance and potential memory
-    // allocation.
+    
+    
+    
     if (maxSize === 0) {
         return {
             get: ()=>Promise.resolve(undefined),
@@ -7224,9 +7224,9 @@ function createDefaultCacheHandler(maxSize) {
             }
             const entry = privateEntry.entry;
             if (performance.timeOrigin + performance.now() > entry.timestamp + entry.revalidate * 1000) {
-                // In-memory caches should expire after revalidate time because it is
-                // unlikely that a new entry will be able to be used before it is dropped
-                // from the cache.
+                
+                
+                
                 debug == null ? void 0 : debug('get', cacheKey, 'expired');
                 return undefined;
             }
@@ -7277,7 +7277,7 @@ function createDefaultCacheHandler(maxSize) {
                 });
                 debug == null ? void 0 : debug('set', cacheKey, 'done');
             } catch (err) {
-                // TODO: store partial buffer with error after we retry 3 times
+                
                 debug == null ? void 0 : debug('set', cacheKey, 'failed', err);
             } finally{
                 resolvePending();
@@ -7285,13 +7285,13 @@ function createDefaultCacheHandler(maxSize) {
             }
         },
         async refreshTags () {
-        // Nothing to do for an in-memory cache handler.
+        
         },
         async getExpiration (tags) {
             const expirations = tags.map((tag)=>{
                 const entry = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$incremental$2d$cache$2f$tags$2d$manifest$2e$external$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["tagsManifest"].get(tag);
                 if (!entry) return 0;
-                // Return the most recent timestamp (either expired or stale)
+                
                 return entry.expired || 0;
             });
             const expiration = Math.max(...expirations, 0);
@@ -7308,22 +7308,22 @@ function createDefaultCacheHandler(maxSize) {
                 timestamp: now
             });
             for (const tag of tags){
-                // TODO: update file-system-cache?
+                
                 const existingEntry = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$incremental$2d$cache$2f$tags$2d$manifest$2e$external$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["tagsManifest"].get(tag) || {};
                 if (durations) {
-                    // Use provided durations directly
+                    
                     const updates = {
                         ...existingEntry
                     };
-                    // mark as stale immediately
+                    
                     updates.stale = now;
                     if (durations.expire !== undefined) {
-                        updates.expired = now + durations.expire * 1000 // Convert seconds to ms
+                        updates.expired = now + durations.expire * 1000 
                         ;
                     }
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$incremental$2d$cache$2f$tags$2d$manifest$2e$external$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["tagsManifest"].set(tag, updates);
                 } else {
-                    // Update expired field for immediate expiration (default behavior when no durations provided)
+                    
                     __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$incremental$2d$cache$2f$tags$2d$manifest$2e$external$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["tagsManifest"].set(tag, {
                         ...existingEntry,
                         expired: now
@@ -7332,7 +7332,7 @@ function createDefaultCacheHandler(maxSize) {
             }
         }
     };
-} //# sourceMappingURL=default.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/use-cache/handlers.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7357,20 +7357,20 @@ const debug = process.env.NEXT_PRIVATE_DEBUG_CACHE ? (message, ...args)=>{
 const handlersSymbol = Symbol.for('@next/cache-handlers');
 const handlersMapSymbol = Symbol.for('@next/cache-handlers-map');
 const handlersSetSymbol = Symbol.for('@next/cache-handlers-set');
-/**
- * The reference to the cache handlers. We store the cache handlers on the
- * global object so that we can access the same instance across different
- * boundaries (such as different copies of the same module).
- */ const reference = globalThis;
+
+
+
+
+ const reference = globalThis;
 function initializeCacheHandlers(cacheMaxMemorySize) {
-    // If the cache handlers have already been initialized, don't do it again.
+    
     if (reference[handlersMapSymbol]) {
         debug == null ? void 0 : debug('cache handlers already initialized');
         return false;
     }
     debug == null ? void 0 : debug('initializing cache handlers');
     reference[handlersMapSymbol] = new Map();
-    // Initialize the cache from the symbol contents first.
+    
     if (reference[handlersSymbol]) {
         let fallback;
         if (reference[handlersSymbol].DefaultCache) {
@@ -7395,12 +7395,12 @@ function initializeCacheHandlers(cacheMaxMemorySize) {
         debug == null ? void 0 : debug('setting "remote" cache handler from default');
         reference[handlersMapSymbol].set('remote', handler);
     }
-    // Create a set of the cache handlers.
+    
     reference[handlersSetSymbol] = new Set(reference[handlersMapSymbol].values());
     return true;
 }
 function getCacheHandler(kind) {
-    // This should never be called before initializeCacheHandlers.
+    
     if (!reference[handlersMapSymbol]) {
         throw Object.defineProperty(new Error('Cache handlers not initialized'), "__NEXT_ERROR_CODE", {
             value: "E649",
@@ -7423,7 +7423,7 @@ function getCacheHandlerEntries() {
     return reference[handlersMapSymbol].entries();
 }
 function setCacheHandler(kind, cacheHandler) {
-    // This should never be called before initializeCacheHandlers.
+    
     if (!reference[handlersMapSymbol] || !reference[handlersSetSymbol]) {
         throw Object.defineProperty(new Error('Cache handlers not initialized'), "__NEXT_ERROR_CODE", {
             value: "E649",
@@ -7434,7 +7434,7 @@ function setCacheHandler(kind, cacheHandler) {
     debug == null ? void 0 : debug('setting cache handler for "%s"', kind);
     reference[handlersMapSymbol].set(kind, cacheHandler);
     reference[handlersSetSymbol].add(cacheHandler);
-} //# sourceMappingURL=handlers.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/revalidation-utils.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7451,13 +7451,13 @@ async function withExecuteRevalidates(store, callback) {
     if (!store) {
         return callback();
     }
-    // If we executed any revalidates during the request, then we don't want to execute them again.
-    // save the state so we can check if anything changed after we're done running callbacks.
+    
+    
     const savedRevalidationState = cloneRevalidationState(store);
     try {
         return await callback();
     } finally{
-        // Check if we have any new revalidates, and if so, wait until they are all resolved.
+        
         const newRevalidates = diffRevalidationState(savedRevalidationState, cloneRevalidationState(store));
         await executeRevalidates(store, newRevalidates);
     }
@@ -7496,11 +7496,11 @@ async function revalidateTags(tagsWithProfile, incrementalCache, workStore) {
     }
     const handlers = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$use$2d$cache$2f$handlers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getCacheHandlers"])();
     const promises = [];
-    // Group tags by profile for batch processing
+    
     const tagsByProfile = new Map();
     for (const item of tagsWithProfile){
         const profile = item.profile;
-        // Find existing profile by comparing values
+        
         let existingKey = undefined;
         for (const [key] of tagsByProfile){
             if (typeof key === 'string' && typeof profile === 'string' && key === profile) {
@@ -7522,18 +7522,18 @@ async function revalidateTags(tagsWithProfile, incrementalCache, workStore) {
         }
         tagsByProfile.get(profileKey).push(item.tag);
     }
-    // Process each profile group
+    
     for (const [profile, tagsForProfile] of tagsByProfile){
-        // Look up the cache profile from workStore if available
+        
         let durations;
         if (profile) {
             let cacheLife;
             if (typeof profile === 'object') {
-                // Profile is already a cacheLife configuration object
+                
                 cacheLife = profile;
             } else if (typeof profile === 'string') {
                 var _workStore_cacheLifeProfiles;
-                // Profile is a string key, look it up in workStore
+                
                 cacheLife = workStore == null ? void 0 : (_workStore_cacheLifeProfiles = workStore.cacheLifeProfiles) == null ? void 0 : _workStore_cacheLifeProfiles[profile];
                 if (!cacheLife) {
                     throw Object.defineProperty(new Error(`Invalid profile provided "${profile}" must be configured under cacheLife in next.config or be "max"`), "__NEXT_ERROR_CODE", {
@@ -7549,8 +7549,8 @@ async function revalidateTags(tagsWithProfile, incrementalCache, workStore) {
                 };
             }
         }
-        // If profile is not found and not 'max', durations will be undefined
-        // which will trigger immediate expiration in the cache handler
+        
+        
         for (const handler of handlers || []){
             if (profile) {
                 promises.push(handler.updateTags == null ? void 0 : handler.updateTags.call(handler, tagsForProfile, durations));
@@ -7573,7 +7573,7 @@ async function executeRevalidates(workStore, state) {
         ...Object.values(pendingRevalidates),
         ...pendingRevalidateWrites
     ]);
-} //# sourceMappingURL=revalidation-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/after-task-async-storage-instance.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7584,17 +7584,17 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$async$2d$local$2d$storage$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/async-local-storage.js [middleware-edge] (ecmascript)");
 ;
-const afterTaskAsyncStorageInstance = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$async$2d$local$2d$storage$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["createAsyncLocalStorage"])(); //# sourceMappingURL=after-task-async-storage-instance.js.map
+const afterTaskAsyncStorageInstance = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$async$2d$local$2d$storage$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["createAsyncLocalStorage"])(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/after-task-async-storage.external.js [middleware-edge] (ecmascript) <locals>", ((__turbopack_context__) => {
 "use strict";
 
-// Share the instance module in the next-shared layer
+
 __turbopack_context__.s([]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$after$2d$task$2d$async$2d$storage$2d$instance$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/after-task-async-storage-instance.js [middleware-edge] (ecmascript)");
 ;
 ;
- //# sourceMappingURL=after-task-async-storage.external.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/after-task-async-storage-instance.js [middleware-edge] (ecmascript) <export afterTaskAsyncStorageInstance as afterTaskAsyncStorage>", ((__turbopack_context__) => {
 "use strict";
@@ -7647,7 +7647,7 @@ class AfterContext {
             }
             this.waitUntil(task.catch((error)=>this.reportTaskError('promise', error)));
         } else if (typeof task === 'function') {
-            // TODO(after): implement tracing
+            
             this.addCallback(task);
         } else {
             throw Object.defineProperty(new Error('`after()`: Argument must be a promise or a function'), "__NEXT_ERROR_CODE", {
@@ -7658,7 +7658,7 @@ class AfterContext {
         }
     }
     addCallback(callback) {
-        // if something is wrong, throw synchronously, bubbling up to the `after` callsite.
+        
         if (!this.waitUntil) {
             errorWaitUntilNotAvailable();
         }
@@ -7667,24 +7667,24 @@ class AfterContext {
             this.workUnitStores.add(workUnitStore);
         }
         const afterTaskStore = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$after$2d$task$2d$async$2d$storage$2d$instance$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__$3c$export__afterTaskAsyncStorageInstance__as__afterTaskAsyncStorage$3e$__["afterTaskAsyncStorage"].getStore();
-        // This is used for checking if request APIs can be called inside `after`.
-        // Note that we need to check the phase in which the *topmost* `after` was called (which should be "action"),
-        // not the current phase (which might be "after" if we're in a nested after).
-        // Otherwise, we might allow `after(() => headers())`, but not `after(() => after(() => headers()))`.
-        const rootTaskSpawnPhase = afterTaskStore ? afterTaskStore.rootTaskSpawnPhase // nested after
-         : workUnitStore == null ? void 0 : workUnitStore.phase // topmost after
+        
+        
+        
+        
+        const rootTaskSpawnPhase = afterTaskStore ? afterTaskStore.rootTaskSpawnPhase 
+         : workUnitStore == null ? void 0 : workUnitStore.phase 
         ;
-        // this should only happen once.
+        
         if (!this.runCallbacksOnClosePromise) {
             this.runCallbacksOnClosePromise = this.runCallbacksOnClose();
             this.waitUntil(this.runCallbacksOnClosePromise);
         }
-        // Bind the callback to the current execution context (i.e. preserve all currently available ALS-es).
-        // We do this because we want all of these to be equivalent in every regard except timing:
-        //   after(() => x())
-        //   after(x())
-        //   await x()
-        const wrappedCallback = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$async$2d$local$2d$storage$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["bindSnapshot"])(// See: https://github.com/facebook/react/pull/34911
+        
+        
+        
+        
+        
+        const wrappedCallback = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$async$2d$local$2d$storage$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["bindSnapshot"])(
         async ()=>{
             try {
                 await __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$after$2d$task$2d$async$2d$storage$2d$instance$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__$3c$export__afterTaskAsyncStorageInstance__as__afterTaskAsyncStorage$3e$__["afterTaskAsyncStorage"].run({
@@ -7719,11 +7719,11 @@ class AfterContext {
         });
     }
     reportTaskError(taskKind, error) {
-        // TODO(after): this is fine for now, but will need better intergration with our error reporting.
-        // TODO(after): should we log this if we have a onTaskError callback?
+        
+        
         console.error(taskKind === 'promise' ? `A promise passed to \`after()\` rejected:` : `An error occurred in a function passed to \`after()\`:`, error);
         if (this.onTaskError) {
-            // this is very defensive, but we really don't want anything to blow up in an error handler
+            
             try {
                 this.onTaskError == null ? void 0 : this.onTaskError.call(this, error);
             } catch (handlerError) {
@@ -7744,16 +7744,16 @@ function errorWaitUntilNotAvailable() {
         enumerable: false,
         configurable: true
     });
-} //# sourceMappingURL=after-context.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/lib/lazy-result.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Calls the given async function only when the returned promise-like object is
- * awaited. Afterwards, it provides the resolved value synchronously as `value`
- * property.
- */ __turbopack_context__.s([
+
+
+
+
+ __turbopack_context__.s([
     "createLazyResult",
     ()=>createLazyResult,
     "isResolvedLazyResult",
@@ -7769,9 +7769,9 @@ function createLazyResult(fn) {
             pendingResult.then((value)=>{
                 result.value = value;
             }).catch(()=>{
-            // The externally awaited result will be rejected via `onrejected`. We
-            // don't need to handle it here. But we do want to avoid an unhandled
-            // rejection.
+            
+            
+            
             });
             return pendingResult.then(onfulfilled, onrejected);
         }
@@ -7780,7 +7780,7 @@ function createLazyResult(fn) {
 }
 function isResolvedLazyResult(result) {
     return result.hasOwnProperty('value');
-} //# sourceMappingURL=lazy-result.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/async-storage/work-store.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7800,33 +7800,33 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 function createWorkStore({ page, renderOpts, isPrefetchRequest, buildId, previouslyRevalidatedTags, nonce }) {
-    /**
-   * Rules of Static & Dynamic HTML:
-   *
-   *    1.) We must generate static HTML unless the caller explicitly opts
-   *        in to dynamic HTML support.
-   *
-   *    2.) If dynamic HTML support is requested, we must honor that request
-   *        or throw an error. It is the sole responsibility of the caller to
-   *        ensure they aren't e.g. requesting dynamic HTML for a static page.
-   *
-   *    3.) If the request is in draft mode, we must generate dynamic HTML.
-   *
-   *    4.) If the request is a server action, we must generate dynamic HTML.
-   *
-   * These rules help ensure that other existing features like request caching,
-   * coalescing, and ISR continue working as intended.
-   */ const isStaticGeneration = !renderOpts.shouldWaitOnAllReady && !renderOpts.supportsDynamicResponse && !renderOpts.isDraftMode && !renderOpts.isPossibleServerAction;
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ const isStaticGeneration = !renderOpts.shouldWaitOnAllReady && !renderOpts.supportsDynamicResponse && !renderOpts.isDraftMode && !renderOpts.isPossibleServerAction;
     const isDevelopment = renderOpts.dev ?? false;
-    const shouldTrackFetchMetrics = isDevelopment || // The only times we want to track fetch metrics outside of development is
-    // when we are performing a static generation and we either are in debug
-    // mode, or tracking fetch metrics was specifically opted into.
+    const shouldTrackFetchMetrics = isDevelopment || 
+    
+    
     isStaticGeneration && (!!process.env.NEXT_DEBUG_BUILD || process.env.NEXT_SSG_FETCH_METRICS === '1');
     const store = {
         isStaticGeneration,
         page,
         route: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$app$2d$paths$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["normalizeAppPath"])(page),
-        incrementalCache: // so that it can access the fs cache without mocks
+        incrementalCache: 
         renderOpts.incrementalCache || globalThis.__incrementalCache,
         cacheLifeProfiles: renderOpts.cacheLifeProfiles,
         isBuildTimePrerendering: renderOpts.nextExport,
@@ -7847,7 +7847,7 @@ function createWorkStore({ page, renderOpts, isPrefetchRequest, buildId, previou
         runInCleanSnapshot: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$async$2d$local$2d$storage$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["createSnapshot"])(),
         shouldTrackFetchMetrics
     };
-    // TODO: remove this when we resolve accessing the store outside the execution context
+    
     renderOpts.store = store;
     return store;
 }
@@ -7859,10 +7859,10 @@ function createAfterContext(renderOpts) {
         onTaskError: onAfterTaskError
     });
 }
-/**
- * Creates a map with lazy results that refresh tags for the respective cache
- * kind when they're awaited for the first time.
- */ function createRefreshTagsByCacheKind() {
+
+
+
+ function createRefreshTagsByCacheKind() {
     const refreshTagsByCacheKind = new Map();
     const cacheHandlers = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$use$2d$cache$2f$handlers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getCacheHandlerEntries"])();
     if (cacheHandlers) {
@@ -7873,14 +7873,14 @@ function createAfterContext(renderOpts) {
         }
     }
     return refreshTagsByCacheKind;
-} //# sourceMappingURL=work-store.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/web-on-close.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/** Monitor when the consumer finishes reading the response body.
-that's as close as we can get to `res.on('close')` using web APIs.
-*/ __turbopack_context__.s([
+
+
+ __turbopack_context__.s([
     "CloseController",
     ()=>CloseController,
     "trackBodyConsumed",
@@ -7895,20 +7895,20 @@ function trackBodyConsumed(body, onEnd) {
             yield encoder.encode(body);
             onEnd();
         };
-        // @ts-expect-error BodyInit typings doesn't seem to include AsyncIterables even though it's supported in practice
+        
         return generator();
     } else {
         return trackStreamConsumed(body, onEnd);
     }
 }
 function trackStreamConsumed(stream, onEnd) {
-    // NOTE: This function must handle `stream` being aborted or cancelled,
-    // so it can't just be this:
-    //
-    //   return stream.pipeThrough(new TransformStream({ flush() { onEnd() } }))
-    //
-    // because that doesn't handle cancellations.
-    // (and cancellation handling via `Transformer.cancel` is only available in node >20)
+    
+    
+    
+    
+    
+    
+    
     const dest = new TransformStream();
     const runOnEnd = ()=>onEnd();
     stream.pipeTo(dest.writable).then(runOnEnd, runOnEnd);
@@ -7944,16 +7944,16 @@ class CloseController {
         this.listeners = 0;
         this.isClosed = false;
     }
-} //# sourceMappingURL=web-on-close.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/get-edge-preview-props.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * In edge runtime, these props directly accessed from environment variables.
- *   - local: env vars will be injected through edge-runtime as runtime env vars
- *   - deployment: env vars will be replaced by edge build pipeline
- */ __turbopack_context__.s([
+
+
+
+
+ __turbopack_context__.s([
     "getEdgePreviewProps",
     ()=>getEdgePreviewProps
 ]);
@@ -7963,7 +7963,7 @@ function getEdgePreviewProps() {
         previewModeSigningKey: process.env.__NEXT_PREVIEW_MODE_SIGNING_KEY || '',
         previewModeEncryptionKey: process.env.__NEXT_PREVIEW_MODE_ENCRYPTION_KEY || ''
     };
-} //# sourceMappingURL=get-edge-preview-props.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/after/builtin-request-context.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7988,7 +7988,7 @@ function createLocalRequestContext() {
         get: ()=>storage.getStore(),
         run: (value, callback)=>storage.run(value, callback)
     };
-} //# sourceMappingURL=builtin-request-context.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/lib/implicit-tags.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -8007,14 +8007,14 @@ const getDerivedTags = (pathname)=>{
     const derivedTags = [
         `/layout`
     ];
-    // we automatically add the current path segments as tags
-    // for revalidatePath handling
+    
+    
     if (pathname.startsWith('/')) {
         const pathnameParts = pathname.split('/');
         for(let i = 1; i < pathnameParts.length + 1; i++){
             let curPathname = pathnameParts.slice(0, i).join('/');
             if (curPathname) {
-                // all derived tags other than the page are layout tags
+                
                 if (!curPathname.endsWith('/page') && !curPathname.endsWith('/route')) {
                     curPathname = `${curPathname}${!curPathname.endsWith('/') ? '/' : ''}layout`;
                 }
@@ -8024,10 +8024,10 @@ const getDerivedTags = (pathname)=>{
     }
     return derivedTags;
 };
-/**
- * Creates a map with lazy results that fetch the expiration value for the given
- * tags and respective cache kind when they're awaited for the first time.
- */ function createTagsExpirationsByCacheKind(tags) {
+
+
+
+ function createTagsExpirationsByCacheKind(tags) {
     const expirationsByCacheKind = new Map();
     const cacheHandlers = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$use$2d$cache$2f$handlers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getCacheHandlerEntries"])();
     if (cacheHandlers) {
@@ -8041,14 +8041,14 @@ const getDerivedTags = (pathname)=>{
 }
 async function getImplicitTags(page, url, fallbackRouteParams) {
     const tags = new Set();
-    // Add the derived tags from the page.
+    
     const derivedTags = getDerivedTags(page);
     for (let tag of derivedTags){
         tag = `${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$constants$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NEXT_CACHE_IMPLICIT_TAG_ID"]}${tag}`;
         tags.add(tag);
     }
-    // Add the tags from the pathname. If the route has unknown params, we don't
-    // want to add the pathname as a tag, as it will be invalid.
+    
+    
     if (url.pathname && (!fallbackRouteParams || fallbackRouteParams.size === 0)) {
         const tag = `${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$constants$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NEXT_CACHE_IMPLICIT_TAG_ID"]}${url.pathname}`;
         tags.add(tag);
@@ -8064,7 +8064,7 @@ async function getImplicitTags(page, url, fallbackRouteParams) {
         tags: tagsArray,
         expirationsByCacheKind: createTagsExpirationsByCacheKind(tagsArray)
     };
-} //# sourceMappingURL=implicit-tags.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/experimental/testmode/context.js [middleware-edge] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -8122,12 +8122,12 @@ function getTestReqInfo(req, reader) {
         return extractTestInfoFromRequest(req, reader);
     }
     return undefined;
-} //# sourceMappingURL=context.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/experimental/testmode/fetch.js [middleware-edge] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$externals$5d2f$node$3a$buffer__$5b$external$5d$__$28$node$3a$buffer$2c$__cjs$29$__ = /*#__PURE__*/ __turbopack_context__.i("[externals]/node:buffer [external] (node:buffer, cjs)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$node$3a$buffer__$5b$external$5d$__$28$node$3a$buffer$2c$__cjs$29$__ =  __turbopack_context__.i("[externals]/node:buffer [external] (node:buffer, cjs)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -8165,18 +8165,18 @@ const reader = {
 };
 function getTestStack() {
     let stack = (new Error().stack ?? '').split('\n');
-    // Skip the first line and find first non-empty line.
+    
     for(let i = 1; i < stack.length; i++){
         if (stack[i].length > 0) {
             stack = stack.slice(i);
             break;
         }
     }
-    // Filter out franmework lines.
+    
     stack = stack.filter((f)=>!f.includes('/next/dist/'));
-    // At most 5 lines.
+    
     stack = stack.slice(0, 5);
-    // Cleanup some internal info and trim.
+    
     stack = stack.map((s)=>s.replace('webpack-internal:///(rsc)/', '').trim());
     return stack.join('    ');
 }
@@ -8216,7 +8216,7 @@ function buildResponse(proxyResponse) {
 async function handleFetch(originalFetch, request) {
     const testInfo = (0, _context.getTestReqInfo)(request, reader);
     if (!testInfo) {
-        // Passthrough non-test requests.
+        
         return originalFetch(request);
     }
     const { testData, proxyPort } = testInfo;
@@ -8225,7 +8225,7 @@ async function handleFetch(originalFetch, request) {
         method: 'POST',
         body: JSON.stringify(proxyRequest),
         next: {
-            // @ts-ignore
+            
             internal: true
         }
     });
@@ -8255,19 +8255,19 @@ async function handleFetch(originalFetch, request) {
     }
 }
 function interceptFetch(originalFetch) {
-    /*TURBOPACK member replacement*/ __turbopack_context__.g.fetch = function testFetch(input, init) {
+     __turbopack_context__.g.fetch = function testFetch(input, init) {
         var _init_next;
-        // Passthrough internal requests.
-        // @ts-ignore
+        
+        
         if (init == null ? void 0 : (_init_next = init.next) == null ? void 0 : _init_next.internal) {
             return originalFetch(input, init);
         }
         return handleFetch(originalFetch, new Request(input, init));
     };
     return ()=>{
-        /*TURBOPACK member replacement*/ __turbopack_context__.g.fetch = originalFetch;
+         __turbopack_context__.g.fetch = originalFetch;
     };
-} //# sourceMappingURL=fetch.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/experimental/testmode/server-edge.js [middleware-edge] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -8296,11 +8296,11 @@ _export(exports, {
 const _context = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/experimental/testmode/context.js [middleware-edge] (ecmascript)");
 const _fetch = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/experimental/testmode/fetch.js [middleware-edge] (ecmascript)");
 function interceptTestApis() {
-    return (0, _fetch.interceptFetch)(/*TURBOPACK member replacement*/ __turbopack_context__.g.fetch);
+    return (0, _fetch.interceptFetch)( __turbopack_context__.g.fetch);
 }
 function wrapRequestHandler(handler) {
     return (req, fn)=>(0, _context.withRequest)(req, _fetch.reader, ()=>handler(req, fn));
-} //# sourceMappingURL=server-edge.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/adapter.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -8412,15 +8412,15 @@ async function adapter(params) {
     var _getBuiltinRequestContext;
     ensureTestApisIntercepted();
     await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$globals$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ensureInstrumentationRegistered"])();
-    // TODO-APP: use explicit marker for this
+    
     const isEdgeRendering = typeof globalThis.__BUILD_MANIFEST !== 'undefined';
     params.request.url = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$app$2d$paths$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["normalizeRscURL"])(params.request.url);
     const requestURL = params.bypassNextUrl ? new URL(params.request.url) : new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$next$2d$url$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextURL"](params.request.url, {
         headers: params.request.headers,
         nextConfig: params.request.nextConfig
     });
-    // Iterator uses an index to keep track of the current iteration. Because of deleting and appending below we can't just use the iterator.
-    // Instead we use the keys before iteration.
+    
+    
     const keys = [
         ...requestURL.searchParams.keys()
     ];
@@ -8435,7 +8435,7 @@ async function adapter(params) {
             requestURL.searchParams.delete(key);
         }
     }
-    // Ensure users only see page requests, never data requests.
+    
     let buildId = process.env.__NEXT_BUILD_ID || '';
     if ('buildId' in requestURL) {
         buildId = requestURL.buildId || '';
@@ -8448,7 +8448,7 @@ async function adapter(params) {
         requestURL.pathname = '/';
     }
     const flightHeaders = new Map();
-    // Headers should only be stripped for middleware
+    
     if (!isEdgeRendering) {
         for (const header of __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["FLIGHT_HEADERS"]){
             const value = requestHeaders.get(header);
@@ -8462,7 +8462,7 @@ async function adapter(params) {
     const rscHash = normalizeURL.searchParams.get(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NEXT_RSC_UNION_QUERY"]);
     const request = new NextRequestHint({
         page: params.page,
-        // Strip internal query parameters off the request.
+        
         input: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$internal$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["stripInternalSearchParams"])(normalizeURL).toString(),
         init: {
             body: params.request.body,
@@ -8472,18 +8472,18 @@ async function adapter(params) {
             signal: params.request.signal
         }
     });
-    /**
-   * This allows to identify the request as a data request. The user doesn't
-   * need to know about this property neither use it. We add it for testing
-   * purposes.
-   */ if (isNextDataRequest) {
+    
+
+
+
+ if (isNextDataRequest) {
         Object.defineProperty(request, '__isData', {
             enumerable: false,
             value: true
         });
     }
-    if (// leverage the shared instance if not we need
-    // to create a fresh cache instance each time
+    if (
+    
     !globalThis.__incrementalCacheShared && params.IncrementalCache) {
         ;
         globalThis.__incrementalCache = new params.IncrementalCache({
@@ -8503,8 +8503,8 @@ async function adapter(params) {
             }
         });
     }
-    // if we're in an edge runtime sandbox, we should use the waitUntil
-    // that we receive from the enclosing NextServer
+    
+    
     const outerWaitUntil = params.request.waitUntil ?? ((_getBuiltinRequestContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$after$2f$builtin$2d$request$2d$context$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getBuiltinRequestContext"])()) == null ? void 0 : _getBuiltinRequestContext.waitUntil);
     const event = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$fetch$2d$event$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextFetchEvent"]({
         request,
@@ -8516,12 +8516,12 @@ async function adapter(params) {
     let response;
     let cookiesFromResponse;
     response = await propagator(request, ()=>{
-        // we only care to make async storage available for middleware
+        
         const isMiddleware = params.page === '/middleware' || params.page === '/src/middleware' || params.page === '/proxy' || params.page === '/src/proxy';
         if (isMiddleware) {
-            // if we're in an edge function, we only get a subset of `nextConfig` (no `experimental`),
-            // so we have to inject it via DefinePlugin.
-            // in `next start` this will be passed normally (see `NextNodeServer.runMiddleware`).
+            
+            
+            
             const waitUntil = event.waitUntil.bind(event);
             const closeController = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$web$2d$on$2d$close$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["CloseController"]();
             return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$trace$2f$tracer$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getTracer"])().trace(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$trace$2f$constants$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["MiddlewareSpan"].execute, {
@@ -8537,7 +8537,7 @@ async function adapter(params) {
                         cookiesFromResponse = cookies;
                     };
                     const previewProps = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$get$2d$edge$2d$preview$2d$props$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getEdgePreviewProps"])();
-                    const page = '/' // Fake Work
+                    const page = '/' 
                     ;
                     const fallbackRouteParams = null;
                     const implicitTags = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$implicit$2d$tags$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getImplicitTags"])(page, request.nextUrl, fallbackRouteParams);
@@ -8562,10 +8562,10 @@ async function adapter(params) {
                     });
                     return await __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$work$2d$async$2d$storage$2d$instance$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__$3c$export__workAsyncStorageInstance__as__workAsyncStorage$3e$__["workAsyncStorage"].run(workStore, ()=>__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$work$2d$unit$2d$async$2d$storage$2d$instance$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__$3c$export__workUnitAsyncStorageInstance__as__workUnitAsyncStorage$3e$__["workUnitAsyncStorage"].run(requestStore, params.handler, request, event));
                 } finally{
-                    // middleware cannot stream, so we can consider the response closed
-                    // as soon as the handler returns.
-                    // we can delay running it until a bit later --
-                    // if it's needed, we'll have a `waitUntil` lock anyway.
+                    
+                    
+                    
+                    
                     setTimeout(()=>{
                         closeController.dispatchClose();
                     }, 0);
@@ -8574,7 +8574,7 @@ async function adapter(params) {
         }
         return params.handler(request, event);
     });
-    // check if response is a Response object
+    
     if (response && !(response instanceof Response)) {
         throw Object.defineProperty(new TypeError('Expected an instance of Response to be returned'), "__NEXT_ERROR_CODE", {
             value: "E567",
@@ -8585,12 +8585,12 @@ async function adapter(params) {
     if (response && cookiesFromResponse) {
         response.headers.set('set-cookie', cookiesFromResponse);
     }
-    /**
-   * For rewrites we must always include the locale in the final pathname
-   * so we re-create the NextURL forcing it to include it when the it is
-   * an internal rewrite. Also we make sure the outgoing rewrite URL is
-   * a data URL if the request was a data request.
-   */ const rewrite = response == null ? void 0 : response.headers.get('x-middleware-rewrite');
+    
+
+
+
+
+ const rewrite = response == null ? void 0 : response.headers.get('x-middleware-rewrite');
     if (response && rewrite && (isRSCRequest || !isEdgeRendering)) {
         var _params_request_nextConfig_experimental_clientParamParsingOrigins, _params_request_nextConfig_experimental, _params_request_nextConfig;
         const destination = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$next$2d$url$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextURL"](rewrite, {
@@ -8604,24 +8604,24 @@ async function adapter(params) {
                 response.headers.set('x-middleware-rewrite', String(destination));
             }
         }
-        /**
-     * When the request is a data request we must show if there was a rewrite
-     * with an internal header so the client knows which component to load
-     * from the data request.
-     */ const { url: relativeDestination, isRelative } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$relativize$2d$url$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["parseRelativeURL"])(destination.toString(), requestURL.toString());
-        if (!isEdgeRendering && isNextDataRequest && // if the rewrite is external and external rewrite
-        // resolving config is enabled don't add this header
-        // so the upstream app can set it instead
-        !(("TURBOPACK compile-time value", false) && relativeDestination.match(/http(s)?:\/\//))) {
+        
+
+
+
+ const { url: relativeDestination, isRelative } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$relativize$2d$url$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["parseRelativeURL"])(destination.toString(), requestURL.toString());
+        if (!isEdgeRendering && isNextDataRequest && 
+        
+        
+        !(("TURBOPACK compile-time value", false) && relativeDestination.match(/http(s)?:\/\
             response.headers.set('x-nextjs-rewrite', relativeDestination);
         }
-        // Check to see if this is a non-relative rewrite. If it is, we need
-        // to check to see if it's an allowed origin to receive the rewritten
-        // headers.
+        
+        
+        
         const isAllowedOrigin = !isRelative ? (_params_request_nextConfig = params.request.nextConfig) == null ? void 0 : (_params_request_nextConfig_experimental = _params_request_nextConfig.experimental) == null ? void 0 : (_params_request_nextConfig_experimental_clientParamParsingOrigins = _params_request_nextConfig_experimental.clientParamParsingOrigins) == null ? void 0 : _params_request_nextConfig_experimental_clientParamParsingOrigins.some((origin)=>new RegExp(origin).test(destination.origin)) : false;
-        // If this is an RSC request, and the pathname or search has changed, and
-        // this isn't an external rewrite, we need to set the rewritten pathname and
-        // query headers.
+        
+        
+        
         if (isRSCRequest && (isRelative || isAllowedOrigin)) {
             if (requestURL.pathname !== destination.pathname) {
                 response.headers.set(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NEXT_REWRITTEN_PATH_HEADER"], destination.pathname);
@@ -8631,54 +8631,54 @@ async function adapter(params) {
             }
         }
     }
-    /**
-   * Always forward the `_rsc` search parameter to the rewritten URL for RSC requests,
-   * unless it's already present. This is necessary to ensure that RSC hash validation
-   * works correctly after a rewrite. For internal rewrites, the server can validate the
-   * RSC hash using the original URL, so forwarding the `_rsc` parameter is less critical.
-   * However, for external rewrites (where the request is proxied to another Next.js server),
-   * the external server does not have access to the original URL or its search parameters.
-   * In these cases, forwarding the `_rsc` parameter is essential so that the external server
-   * can perform the correct RSC hash validation.
-   */ if (response && rewrite && isRSCRequest && rscHash) {
+    
+
+
+
+
+
+
+
+
+ if (response && rewrite && isRSCRequest && rscHash) {
         const rewriteURL = new URL(rewrite);
         if (!rewriteURL.searchParams.has(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NEXT_RSC_UNION_QUERY"])) {
             rewriteURL.searchParams.set(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NEXT_RSC_UNION_QUERY"], rscHash);
             response.headers.set('x-middleware-rewrite', rewriteURL.toString());
         }
     }
-    /**
-   * For redirects we will not include the locale in case when it is the
-   * default and we must also make sure the outgoing URL is a data one if
-   * the incoming request was a data request.
-   */ const redirect = response == null ? void 0 : response.headers.get('Location');
+    
+
+
+
+ const redirect = response == null ? void 0 : response.headers.get('Location');
     if (response && redirect && !isEdgeRendering) {
         const redirectURL = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$next$2d$url$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextURL"](redirect, {
             forceLocale: false,
             headers: params.request.headers,
             nextConfig: params.request.nextConfig
         });
-        /**
-     * Responses created from redirects have immutable headers so we have
-     * to clone the response to be able to modify it.
-     */ response = new Response(response.body, response);
+        
+
+
+ response = new Response(response.body, response);
         if ("TURBOPACK compile-time truthy", 1) {
             if (redirectURL.host === requestURL.host) {
                 redirectURL.buildId = buildId || redirectURL.buildId;
                 response.headers.set('Location', redirectURL.toString());
             }
         }
-        /**
-     * When the request is a data request we can't use the location header as
-     * it may end up with CORS error. Instead we map to an internal header so
-     * the client knows the destination.
-     */ if (isNextDataRequest) {
+        
+
+
+
+ if (isNextDataRequest) {
             response.headers.delete('Location');
             response.headers.set('x-nextjs-redirect', (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$relativize$2d$url$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getRelativeURL"])(redirectURL.toString(), requestURL.toString()));
         }
     }
     const finalResponse = response ? response : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["NextResponse"].next();
-    // Flight headers are not overridable / removable so they are applied at the end.
+    
     const middlewareOverrideHeaders = finalResponse.headers.get('x-middleware-override-headers');
     const overwrittenHeaders = [];
     if (middlewareOverrideHeaders) {
@@ -8695,15 +8695,15 @@ async function adapter(params) {
         waitUntil: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$fetch$2d$event$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["getWaitUntilPromiseFromEvent"])(event) ?? Promise.resolve(),
         fetchMetrics: request.fetchMetrics
     };
-} //# sourceMappingURL=adapter.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/spec-extension/image-response.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @deprecated ImageResponse moved from "next/server" to "next/og" since Next.js 14, please import from "next/og" instead.
- * Migration with codemods: https://nextjs.org/docs/app/building-your-application/upgrading/codemods#next-og-import
- */ __turbopack_context__.s([
+
+
+
+ __turbopack_context__.s([
     "ImageResponse",
     ()=>ImageResponse
 ]);
@@ -8713,7 +8713,7 @@ function ImageResponse() {
         enumerable: false,
         configurable: true
     });
-} //# sourceMappingURL=image-response.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/ua-parser-js/ua-parser.js [middleware-edge] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
@@ -9109,7 +9109,7 @@ function ImageResponse() {
                             f
                         ],
                         [
-                            /\bgsa\/([\w\.]+) .*safari\//i
+                            /\bgsa\/([\w\.]+) .*safari\
                         ],
                         [
                             f,
@@ -9531,7 +9531,7 @@ function ImageResponse() {
                             ]
                         ],
                         [
-                            /\b(milestone|droid(?:[2-4x]| (?:bionic|x2|pro|razr))?:?( 4g)?)\b[\w ]+build\//i,
+                            /\b(milestone|droid(?:[2-4x]| (?:bionic|x2|pro|razr))?:?( 4g)?)\b[\w ]+build\
                             /\bmot(?:orola)?[- ](\w*)/i,
                             /((?:moto[\w\(\) ]+|xt\d{3,4}|nexus 6)(?= bui|\)))/i
                         ],
@@ -9547,7 +9547,7 @@ function ImageResponse() {
                             ]
                         ],
                         [
-                            /\b(mz60\d|xoom[2 ]{0,2}) build\//i
+                            /\b(mz60\d|xoom[2 ]{0,2}) build\
                         ],
                         [
                             c,
@@ -9702,7 +9702,7 @@ function ImageResponse() {
                         [
                             /(alexa)webm/i,
                             /(kf[a-z]{2}wi|aeo[c-r]{2})( bui|\))/i,
-                            /(kf[a-z]+)( bui|\)).+silk\//i
+                            /(kf[a-z]+)( bui|\)).+silk\
                         ],
                         [
                             c,
@@ -9716,7 +9716,7 @@ function ImageResponse() {
                             ]
                         ],
                         [
-                            /((?:sd|kf)[0349hijorstuw]+)( bui|\)).+silk\//i
+                            /((?:sd|kf)[0349hijorstuw]+)( bui|\)).+silk\
                         ],
                         [
                             [
@@ -11060,7 +11060,7 @@ function userAgentFromString(input) {
 }
 function userAgent({ headers }) {
     return userAgentFromString(headers.get('user-agent') || undefined);
-} //# sourceMappingURL=user-agent.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/spec-extension/url-pattern.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11071,7 +11071,7 @@ __turbopack_context__.s([
 ]);
 const GlobalURLPattern = typeof URLPattern === 'undefined' ? undefined : URLPattern;
 ;
- //# sourceMappingURL=url-pattern.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/after/after.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11086,7 +11086,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 function after(task) {
     const workStore = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$work$2d$async$2d$storage$2d$instance$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__$3c$export__workAsyncStorageInstance__as__workAsyncStorage$3e$__["workAsyncStorage"].getStore();
     if (!workStore) {
-        // TODO(after): the linked docs page talks about *dynamic* APIs, which after soon won't be anymore
+        
         throw Object.defineProperty(new Error('`after` was called outside a request scope. Read more: https://nextjs.org/docs/messages/next-dynamic-api-wrong-context'), "__NEXT_ERROR_CODE", {
             value: "E468",
             enumerable: false,
@@ -11095,27 +11095,27 @@ function after(task) {
     }
     const { afterContext } = workStore;
     return afterContext.after(task);
-} //# sourceMappingURL=after.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/after/index.js [middleware-edge] (ecmascript) <locals>", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$after$2f$after$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/after/after.js [middleware-edge] (ecmascript)"); //# sourceMappingURL=index.js.map
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$after$2f$after$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/after/after.js [middleware-edge] (ecmascript)"); 
 ;
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/cjs/react.react-server.development.js [middleware-edge] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * @license React
- * react.react-server.development.js
- *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ "production" !== ("TURBOPACK compile-time value", "development") && function() {
+
+
+
+
+
+
+
+
+ "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function noop() {}
     function getIteratorFn(maybeIterable) {
         if (null === maybeIterable || "object" !== typeof maybeIterable) return null;
@@ -11647,7 +11647,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/react.react-server.js [middleware-edge] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+if ("TURBOPACK compile-time falsy", 0) 
 ;
 else {
     module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/cjs/react.react-server.development.js [middleware-edge] (ecmascript)");
@@ -11673,7 +11673,7 @@ function isDynamicServerError(err) {
         return false;
     }
     return err.digest === DYNAMIC_ERROR_CODE;
-} //# sourceMappingURL=hooks-server-context.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/static-generation-bailout.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11695,7 +11695,7 @@ function isStaticGenBailoutError(error) {
         return false;
     }
     return error.code === NEXT_STATIC_GEN_BAILOUT;
-} //# sourceMappingURL=static-generation-bailout.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/dynamic-rendering-utils.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11744,9 +11744,9 @@ function makeHangingPromise(signal, route, expression) {
                 });
             }
         });
-        // We are fine if no one actually awaits this promise. We shouldn't consider this an unhandled rejection so
-        // we attach a noop catch handler here to suppress this warning. If you actually await somewhere or construct
-        // your own promise out of it you'll need to ensure you handle the error when it rejects.
+        
+        
+        
         hangingPromise.catch(ignoreReject);
         return hangingPromise;
     }
@@ -11754,18 +11754,18 @@ function makeHangingPromise(signal, route, expression) {
 function ignoreReject() {}
 function makeDevtoolsIOAwarePromise(underlying, requestStore, stage) {
     if (requestStore.stagedRendering) {
-        // We resolve each stage in a timeout, so React DevTools will pick this up as IO.
+        
         return requestStore.stagedRendering.delayUntilStage(stage, undefined, underlying);
     }
-    // in React DevTools if we resolve in a setTimeout we will observe
-    // the promise resolution as something that can suspend a boundary or root.
+    
+    
     return new Promise((resolve)=>{
-        // Must use setTimeout to be considered IO React DevTools. setImmediate will not work.
+        
         setTimeout(()=>{
             resolve(underlying);
         }, 0);
     });
-} //# sourceMappingURL=dynamic-rendering-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/lib/framework/boundary-constants.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11783,17 +11783,17 @@ __turbopack_context__.s([
 const METADATA_BOUNDARY_NAME = '__next_metadata_boundary__';
 const VIEWPORT_BOUNDARY_NAME = '__next_viewport_boundary__';
 const OUTLET_BOUNDARY_NAME = '__next_outlet_boundary__';
-const ROOT_LAYOUT_BOUNDARY_NAME = '__next_root_layout_boundary__'; //# sourceMappingURL=boundary-constants.js.map
+const ROOT_LAYOUT_BOUNDARY_NAME = '__next_root_layout_boundary__'; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/lib/scheduler.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Schedules a function to be called on the next tick after the other promises
- * have been resolved.
- *
- * @param cb the function to schedule
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "atLeastOneTask",
     ()=>atLeastOneTask,
     "scheduleImmediate",
@@ -11804,23 +11804,23 @@ const ROOT_LAYOUT_BOUNDARY_NAME = '__next_root_layout_boundary__'; //# sourceMap
     ()=>waitAtLeastOneReactRenderTask
 ]);
 const scheduleOnNextTick = (cb)=>{
-    // We use Promise.resolve().then() here so that the operation is scheduled at
-    // the end of the promise job queue, we then add it to the next process tick
-    // to ensure it's evaluated afterwards.
-    //
-    // This was inspired by the implementation of the DataLoader interface: https://github.com/graphql/dataloader/blob/d336bd15282664e0be4b4a657cb796f09bafbc6b/src/index.js#L213-L255
-    //
+    
+    
+    
+    
+    
+    
     Promise.resolve().then(()=>{
         if ("TURBOPACK compile-time truthy", 1) {
             setTimeout(cb, 0);
-        } else //TURBOPACK unreachable
+        } else 
         ;
     });
 };
 const scheduleImmediate = (cb)=>{
     if ("TURBOPACK compile-time truthy", 1) {
         setTimeout(cb, 0);
-    } else //TURBOPACK unreachable
+    } else 
     ;
 };
 function atLeastOneTask() {
@@ -11829,14 +11829,14 @@ function atLeastOneTask() {
 function waitAtLeastOneReactRenderTask() {
     if ("TURBOPACK compile-time truthy", 1) {
         return new Promise((r)=>setTimeout(r, 0));
-    } else //TURBOPACK unreachable
+    } else 
     ;
-} //# sourceMappingURL=scheduler.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/lazy-dynamic/bailout-to-csr.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// This has to be a shared module which is shared between client component error boundary and dynamic component
+
 __turbopack_context__.s([
     "BailoutToCSRError",
     ()=>BailoutToCSRError,
@@ -11854,7 +11854,7 @@ function isBailoutToCSRError(err) {
         return false;
     }
     return err.digest === BAILOUT_TO_CSR;
-} //# sourceMappingURL=bailout-to-csr.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/promise-with-resolvers.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11864,7 +11864,7 @@ __turbopack_context__.s([
     ()=>createPromiseWithResolvers
 ]);
 function createPromiseWithResolvers() {
-    // Shim of Stage 4 Promise.withResolvers proposal
+    
     let resolve;
     let reject;
     const promise = new Promise((res, rej)=>{
@@ -11876,7 +11876,7 @@ function createPromiseWithResolvers() {
         reject: reject,
         promise
     };
-} //# sourceMappingURL=promise-with-resolvers.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/staged-rendering.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11891,7 +11891,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$promise$2d$with$2d$resolvers$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/promise-with-resolvers.js [middleware-edge] (ecmascript)");
 ;
 ;
-var RenderStage = /*#__PURE__*/ function(RenderStage) {
+var RenderStage =  function(RenderStage) {
     RenderStage[RenderStage["Static"] = 1] = "Static";
     RenderStage[RenderStage["Runtime"] = 2] = "Runtime";
     RenderStage[RenderStage["Dynamic"] = 3] = "Dynamic";
@@ -11907,12 +11907,12 @@ class StagedRenderingController {
             abortSignal.addEventListener('abort', ()=>{
                 const { reason } = abortSignal;
                 if (this.currentStage < 2) {
-                    this.runtimeStagePromise.promise.catch(ignoreReject) // avoid unhandled rejections
+                    this.runtimeStagePromise.promise.catch(ignoreReject) 
                     ;
                     this.runtimeStagePromise.reject(reason);
                 }
                 if (this.currentStage < 3) {
-                    this.dynamicStagePromise.promise.catch(ignoreReject) // avoid unhandled rejections
+                    this.dynamicStagePromise.promise.catch(ignoreReject) 
                     ;
                     this.dynamicStagePromise.reject(reason);
                 }
@@ -11922,14 +11922,14 @@ class StagedRenderingController {
         }
     }
     advanceStage(stage) {
-        // If we're already at the target stage or beyond, do nothing.
-        // (this can happen e.g. if sync IO advanced us to the dynamic stage)
+        
+        
         if (this.currentStage >= stage) {
             return;
         }
         this.currentStage = stage;
-        // Note that we might be going directly from Static to Dynamic,
-        // so we need to resolve the runtime stage as well.
+        
+        
         if (stage >= 2) {
             this.runtimeStagePromise.resolve();
         }
@@ -11964,9 +11964,9 @@ class StagedRenderingController {
     delayUntilStage(stage, displayName, resolvedValue) {
         const ioTriggerPromise = this.getStagePromise(stage);
         const promise = makeDevtoolsIOPromiseFromIOTrigger(ioTriggerPromise, displayName, resolvedValue);
-        // Analogously to `makeHangingPromise`, we might reject this promise if the signal is invoked.
-        // (e.g. in the case where we don't want want the render to proceed to the dynamic stage and abort it).
-        // We shouldn't consider this an unhandled rejection, so we attach a noop catch handler here to suppress this warning.
+        
+        
+        
         if (this.abortSignal) {
             promise.catch(ignoreReject);
         }
@@ -11974,49 +11974,49 @@ class StagedRenderingController {
     }
 }
 function ignoreReject() {}
-// TODO(restart-on-cache-miss): the layering of `delayUntilStage`,
-// `makeDevtoolsIOPromiseFromIOTrigger` and and `makeDevtoolsIOAwarePromise`
-// is confusing, we should clean it up.
+
+
+
 function makeDevtoolsIOPromiseFromIOTrigger(ioTrigger, displayName, resolvedValue) {
-    // If we create a `new Promise` and give it a displayName
-    // (with no userspace code above us in the stack)
-    // React Devtools will use it as the IO cause when determining "suspended by".
-    // In particular, it should shadow any inner IO that resolved/rejected the promise
-    // (in case of staged rendering, this will be the `setTimeout` that triggers the relevant stage)
+    
+    
+    
+    
+    
     const promise = new Promise((resolve, reject)=>{
         ioTrigger.then(resolve.bind(null, resolvedValue), reject);
     });
     if (displayName !== undefined) {
-        // @ts-expect-error
+        
         promise.displayName = displayName;
     }
     return promise;
-} //# sourceMappingURL=staged-rendering.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/dynamic-rendering.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * The functions provided by this module are used to communicate certain properties
- * about the currently running code so that Next.js can make decisions on how to handle
- * the current execution in different rendering modes such as pre-rendering, resuming, and SSR.
- *
- * Today Next.js treats all code as potentially static. Certain APIs may only make sense when dynamically rendering.
- * Traditionally this meant deopting the entire render to dynamic however with PPR we can now deopt parts
- * of a React tree as dynamic while still keeping other parts static. There are really two different kinds of
- * Dynamic indications.
- *
- * The first is simply an intention to be dynamic. unstable_noStore is an example of this where
- * the currently executing code simply declares that the current scope is dynamic but if you use it
- * inside unstable_cache it can still be cached. This type of indication can be removed if we ever
- * make the default dynamic to begin with because the only way you would ever be static is inside
- * a cache scope which this indication does not affect.
- *
- * The second is an indication that a dynamic data source was read. This is a stronger form of dynamic
- * because it means that it is inappropriate to cache this at all. using a dynamic data source inside
- * unstable_cache should error. If you want to use some dynamic data inside unstable_cache you should
- * read that data outside the cache and pass it in as an argument to the cached function.
- */ // Once postpone is in stable we should switch to importing the postpone export directly
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 __turbopack_context__.s([
     "Postpone",
     ()=>Postpone,
@@ -12121,13 +12121,13 @@ function markCurrentScopeAsDynamic(store, workUnitStore, expression) {
         switch(workUnitStore.type){
             case 'cache':
             case 'unstable-cache':
-                // Inside cache scopes, marking a scope as dynamic has no effect,
-                // because the outer cache scope creates a cache boundary. This is
-                // subtly different from reading a dynamic data source, which is
-                // forbidden inside a cache scope.
+                
+                
+                
+                
                 return;
             case 'private-cache':
-                // A private cache scope is already dynamic by definition.
+                
                 return;
             case 'prerender-legacy':
             case 'prerender-ppr':
@@ -12137,9 +12137,9 @@ function markCurrentScopeAsDynamic(store, workUnitStore, expression) {
                 workUnitStore;
         }
     }
-    // If we're forcing dynamic rendering or we're forcing static rendering, we
-    // don't need to do anything here because the entire page is already dynamic
-    // or it's static and it should not throw or postpone here.
+    
+    
+    
     if (store.forceDynamic || store.forceStatic) return;
     if (store.dynamicShouldError) {
         throw Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$static$2d$generation$2d$bailout$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["StaticGenBailoutError"](`Route ${store.route} with \`dynamic = "error"\` couldn't be rendered statically because it used \`${expression}\`. See more info here: https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic#dynamic-rendering`), "__NEXT_ERROR_CODE", {
@@ -12154,8 +12154,8 @@ function markCurrentScopeAsDynamic(store, workUnitStore, expression) {
                 return postponeWithTracking(store.route, expression, workUnitStore.dynamicTracking);
             case 'prerender-legacy':
                 workUnitStore.revalidate = 0;
-                // We aren't prerendering, but we are generating a static page. We need
-                // to bail out of static generation.
+                
+                
                 const err = Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$hooks$2d$server$2d$context$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DynamicServerError"](`Route ${store.route} couldn't be rendered statically because it used ${expression}. See more info here: https://nextjs.org/docs/messages/dynamic-server-error`), "__NEXT_ERROR_CODE", {
                     value: "E550",
                     enumerable: false,
@@ -12175,7 +12175,7 @@ function markCurrentScopeAsDynamic(store, workUnitStore, expression) {
     }
 }
 function throwToInterruptStaticGeneration(expression, store, prerenderStore) {
-    // We aren't prerendering but we are generating a static page. We need to bail out of static generation
+    
     const err = Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$hooks$2d$server$2d$context$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["DynamicServerError"](`Route ${store.route} couldn't be rendered statically because it used \`${expression}\`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error`), "__NEXT_ERROR_CODE", {
         value: "E558",
         enumerable: false,
@@ -12190,13 +12190,13 @@ function trackDynamicDataInDynamicRender(workUnitStore) {
     switch(workUnitStore.type){
         case 'cache':
         case 'unstable-cache':
-            // Inside cache scopes, marking a scope as dynamic has no effect,
-            // because the outer cache scope creates a cache boundary. This is
-            // subtly different from reading a dynamic data source, which is
-            // forbidden inside a cache scope.
+            
+            
+            
+            
             return;
         case 'private-cache':
-            // A private cache scope is already dynamic by definition.
+            
             return;
         case 'prerender':
         case 'prerender-runtime':
@@ -12220,8 +12220,8 @@ function abortOnSynchronousDynamicDataAccess(route, expression, prerenderStore) 
     const dynamicTracking = prerenderStore.dynamicTracking;
     if (dynamicTracking) {
         dynamicTracking.dynamicAccesses.push({
-            // When we aren't debugging, we don't need to create another error for the
-            // stack trace.
+            
+            
             stack: dynamicTracking.isDebugDynamicAccesses ? new Error().stack : undefined,
             expression
         });
@@ -12230,10 +12230,10 @@ function abortOnSynchronousDynamicDataAccess(route, expression, prerenderStore) 
 function abortOnSynchronousPlatformIOAccess(route, expression, errorWithStack, prerenderStore) {
     const dynamicTracking = prerenderStore.dynamicTracking;
     abortOnSynchronousDynamicDataAccess(route, expression, prerenderStore);
-    // It is important that we set this tracking value after aborting. Aborts are executed
-    // synchronously except for the case where you abort during render itself. By setting this
-    // value late we can use it to determine if any of the aborted tasks are the task that
-    // called the sync IO expression in the first place.
+    
+    
+    
+    
     if (dynamicTracking) {
         if (dynamicTracking.syncDynamicErrorWithStack === null) {
             dynamicTracking.syncDynamicErrorWithStack = errorWithStack;
@@ -12241,27 +12241,27 @@ function abortOnSynchronousPlatformIOAccess(route, expression, errorWithStack, p
     }
 }
 function trackSynchronousPlatformIOAccessInDev(requestStore) {
-    // We don't actually have a controller to abort but we do the semantic equivalent by
-    // advancing the request store out of the prerender stage
+    
+    
     if (requestStore.stagedRendering) {
-        // TODO: error for sync IO in the runtime stage
-        // (which is not currently covered by the validation render in `spawnDynamicValidationInDev`)
+        
+        
         requestStore.stagedRendering.advanceStage(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$staged$2d$rendering$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["RenderStage"].Dynamic);
     }
 }
 function abortAndThrowOnSynchronousRequestDataAccess(route, expression, errorWithStack, prerenderStore) {
     const prerenderSignal = prerenderStore.controller.signal;
     if (prerenderSignal.aborted === false) {
-        // TODO it would be better to move this aborted check into the callsite so we can avoid making
-        // the error object when it isn't relevant to the aborting of the prerender however
-        // since we need the throw semantics regardless of whether we abort it is easier to land
-        // this way. See how this was handled with `abortOnSynchronousPlatformIOAccess` for a closer
-        // to ideal implementation
+        
+        
+        
+        
+        
         abortOnSynchronousDynamicDataAccess(route, expression, prerenderStore);
-        // It is important that we set this tracking value after aborting. Aborts are executed
-        // synchronously except for the case where you abort during render itself. By setting this
-        // value late we can use it to determine if any of the aborted tasks are the task that
-        // called the sync IO expression in the first place.
+        
+        
+        
+        
         const dynamicTracking = prerenderStore.dynamicTracking;
         if (dynamicTracking) {
             if (dynamicTracking.syncDynamicErrorWithStack === null) {
@@ -12280,8 +12280,8 @@ function postponeWithTracking(route, expression, dynamicTracking) {
     assertPostpone();
     if (dynamicTracking) {
         dynamicTracking.dynamicAccesses.push({
-            // When we aren't debugging, we don't need to create another error for the
-            // stack trace.
+            
+            
             stack: dynamicTracking.isDebugDynamicAccesses ? new Error().stack : undefined,
             expression
         });
@@ -12324,27 +12324,27 @@ function accessedDynamicData(dynamicAccesses) {
     return dynamicAccesses.length > 0;
 }
 function consumeDynamicAccess(serverDynamic, clientDynamic) {
-    // We mutate because we only call this once we are no longer writing
-    // to the dynamicTrackingState and it's more efficient than creating a new
-    // array.
+    
+    
+    
     serverDynamic.dynamicAccesses.push(...clientDynamic.dynamicAccesses);
     return serverDynamic.dynamicAccesses;
 }
 function formatDynamicAPIAccesses(dynamicAccesses) {
     return dynamicAccesses.filter((access)=>typeof access.stack === 'string' && access.stack.length > 0).map(({ expression, stack })=>{
-        stack = stack.split('\n') // Remove the "Error: " prefix from the first line of the stack trace as
-        // well as the first 4 lines of the stack trace which is the distance
-        // from the user code and the `new Error().stack` call.
+        stack = stack.split('\n') 
+        
+        
         .slice(4).filter((line)=>{
-            // Exclude Next.js internals from the stack trace.
+            
             if (line.includes('node_modules/next/')) {
                 return false;
             }
-            // Exclude anonymous functions from the stack trace.
+            
             if (line.includes(' (<anonymous>)')) {
                 return false;
             }
-            // Exclude Node.js internals from the stack trace.
+            
             if (line.includes(' (node:')) {
                 return false;
             }
@@ -12377,25 +12377,25 @@ function createHangingInputAbortSignal(workUnitStore) {
         case 'prerender-runtime':
             const controller = new AbortController();
             if (workUnitStore.cacheSignal) {
-                // If we have a cacheSignal it means we're in a prospective render. If
-                // the input we're waiting on is coming from another cache, we do want
-                // to wait for it so that we can resolve this cache entry too.
+                
+                
+                
                 workUnitStore.cacheSignal.inputReady().then(()=>{
                     controller.abort();
                 });
             } else {
-                // Otherwise we're in the final render and we should already have all
-                // our caches filled.
-                // If the prerender uses stages, we have wait until the runtime stage,
-                // at which point all runtime inputs will be resolved.
-                // (otherwise, a runtime prerender might consider `cookies()` hanging
-                //  even though they'd resolve in the next task.)
-                //
-                // We might still be waiting on some microtasks so we
-                // wait one tick before giving up. When we give up, we still want to
-                // render the content of this cache as deeply as we can so that we can
-                // suspend as deeply as possible in the tree or not at all if we don't
-                // end up waiting for the input.
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 const runtimeStagePromise = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$work$2d$unit$2d$async$2d$storage$2e$external$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__$3c$locals$3e$__["getRuntimeStagePromise"])(workUnitStore);
                 if (runtimeStagePromise) {
                     runtimeStagePromise.then(()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$scheduler$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["scheduleOnNextTick"])(()=>controller.abort()));
@@ -12435,9 +12435,9 @@ function useDynamicRouteParams(expression) {
                 {
                     const fallbackParams = workUnitStore.fallbackRouteParams;
                     if (fallbackParams && fallbackParams.size > 0) {
-                        // We are in a prerender with cacheComponents semantics. We are going to
-                        // hang here and never resolve. This will cause the currently
-                        // rendering component to effectively be a dynamic hole.
+                        
+                        
+                        
                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$react$2e$react$2d$server$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["default"].use((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$dynamic$2d$rendering$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["makeHangingPromise"])(workUnitStore.renderSignal, workStore.route, expression));
                     }
                     break;
@@ -12476,7 +12476,7 @@ function useDynamicSearchParams(expression) {
     const workStore = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$work$2d$async$2d$storage$2d$instance$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__$3c$export__workAsyncStorageInstance__as__workAsyncStorage$3e$__["workAsyncStorage"].getStore();
     const workUnitStore = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$work$2d$unit$2d$async$2d$storage$2d$instance$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__$3c$export__workUnitAsyncStorageInstance__as__workUnitAsyncStorage$3e$__["workUnitAsyncStorage"].getStore();
     if (!workStore) {
-        // We assume pages router context and just return
+        
         return;
     }
     if (!workUnitStore) {
@@ -12522,27 +12522,27 @@ function useDynamicSearchParams(expression) {
     }
 }
 const hasSuspenseRegex = /\n\s+at Suspense \(<anonymous>\)/;
-// Common implicit body tags that React will treat as body when placed directly in html
+
 const bodyAndImplicitTags = 'body|div|main|section|article|aside|header|footer|nav|form|p|span|h1|h2|h3|h4|h5|h6';
-// Detects when RootLayoutBoundary (our framework marker component) appears
-// after Suspense in the component stack, indicating the root layout is wrapped
-// within a Suspense boundary. Ensures no body/html/implicit-body components are in between.
-//
-// Example matches:
-//   at Suspense (<anonymous>)
-//   at __next_root_layout_boundary__ (<anonymous>)
-//
-// Or with other components in between (but not body/html/implicit-body):
-//   at Suspense (<anonymous>)
-//   at SomeComponent (<anonymous>)
-//   at __next_root_layout_boundary__ (<anonymous>)
+
+
+
+
+
+
+
+
+
+
+
+
 const hasSuspenseBeforeRootLayoutWithoutBodyOrImplicitBodyRegex = new RegExp(`\\n\\s+at Suspense \\(<anonymous>\\)(?:(?!\\n\\s+at (?:${bodyAndImplicitTags}) \\(<anonymous>\\))[\\s\\S])*?\\n\\s+at ${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["ROOT_LAYOUT_BOUNDARY_NAME"]} \\([^\\n]*\\)`);
 const hasMetadataRegex = new RegExp(`\\n\\s+at ${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["METADATA_BOUNDARY_NAME"]}[\\n\\s]`);
 const hasViewportRegex = new RegExp(`\\n\\s+at ${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["VIEWPORT_BOUNDARY_NAME"]}[\\n\\s]`);
 const hasOutletRegex = new RegExp(`\\n\\s+at ${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["OUTLET_BOUNDARY_NAME"]}[\\n\\s]`);
 function trackAllowedDynamicAccess(workStore, componentStack, dynamicValidation, clientDynamic) {
     if (hasOutletRegex.test(componentStack)) {
-        // We don't need to track that this is dynamic. It is only so when something else is also dynamic.
+        
         return;
     } else if (hasMetadataRegex.test(componentStack)) {
         dynamicValidation.hasDynamicMetadata = true;
@@ -12551,19 +12551,19 @@ function trackAllowedDynamicAccess(workStore, componentStack, dynamicValidation,
         dynamicValidation.hasDynamicViewport = true;
         return;
     } else if (hasSuspenseBeforeRootLayoutWithoutBodyOrImplicitBodyRegex.test(componentStack)) {
-        // For Suspense within body, the prelude wouldn't be empty so it wouldn't violate the empty static shells rule.
-        // But if you have Suspense above body, the prelude is empty but we allow that because having Suspense
-        // is an explicit signal from the user that they acknowledge the empty shell and want dynamic rendering.
+        
+        
+        
         dynamicValidation.hasAllowedDynamic = true;
         dynamicValidation.hasSuspenseAboveBody = true;
         return;
     } else if (hasSuspenseRegex.test(componentStack)) {
-        // this error had a Suspense boundary above it so we don't need to report it as a source
-        // of disallowed
+        
+        
         dynamicValidation.hasAllowedDynamic = true;
         return;
     } else if (clientDynamic.syncDynamicErrorWithStack) {
-        // This task was the task that called the sync error.
+        
         dynamicValidation.dynamicErrors.push(clientDynamic.syncDynamicErrorWithStack);
         return;
     } else {
@@ -12573,10 +12573,10 @@ function trackAllowedDynamicAccess(workStore, componentStack, dynamicValidation,
         return;
     }
 }
-/**
- * In dev mode, we prefer using the owner stack, otherwise the provided
- * component stack is used.
- */ function createErrorWithComponentOrOwnerStack(message, componentStack) {
+
+
+
+ function createErrorWithComponentOrOwnerStack(message, componentStack) {
     const ownerStack = ("TURBOPACK compile-time value", "development") !== 'production' && __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$react$2e$react$2d$server$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["default"].captureOwnerStack ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$react$2e$react$2d$server$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["default"].captureOwnerStack() : null;
     const error = Object.defineProperty(new Error(message), "__NEXT_ERROR_CODE", {
         value: "E394",
@@ -12586,7 +12586,7 @@ function trackAllowedDynamicAccess(workStore, componentStack, dynamicValidation,
     error.stack = error.name + ': ' + message + (ownerStack ?? componentStack);
     return error;
 }
-var PreludeState = /*#__PURE__*/ function(PreludeState) {
+var PreludeState =  function(PreludeState) {
     PreludeState[PreludeState["Full"] = 0] = "Full";
     PreludeState[PreludeState["Empty"] = 1] = "Empty";
     PreludeState[PreludeState["Errored"] = 2] = "Errored";
@@ -12611,14 +12611,14 @@ function throwIfDisallowedDynamic(workStore, prelude, dynamicValidation, serverD
     }
     if (prelude !== 0) {
         if (dynamicValidation.hasSuspenseAboveBody) {
-            // This route has opted into allowing fully dynamic rendering
-            // by including a Suspense boundary above the body. In this case
-            // a lack of a shell is not considered disallowed so we simply return
+            
+            
+            
             return;
         }
-        // We didn't have any sync bailouts but there may be user code which
-        // blocked the root. We would have captured these during the prerender
-        // and can log them here and then terminate the build/validating render
+        
+        
+        
         const dynamicErrors = dynamicValidation.dynamicErrors;
         if (dynamicErrors.length > 0) {
             for(let i = 0; i < dynamicErrors.length; i++){
@@ -12626,18 +12626,18 @@ function throwIfDisallowedDynamic(workStore, prelude, dynamicValidation, serverD
             }
             throw new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$static$2d$generation$2d$bailout$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["StaticGenBailoutError"]();
         }
-        // If we got this far then the only other thing that could be blocking
-        // the root is dynamic Viewport. If this is dynamic then
-        // you need to opt into that by adding a Suspense boundary above the body
-        // to indicate your are ok with fully dynamic rendering.
+        
+        
+        
+        
         if (dynamicValidation.hasDynamicViewport) {
             console.error(`Route "${workStore.route}" has a \`generateViewport\` that depends on Request data (\`cookies()\`, etc...) or uncached external data (\`fetch(...)\`, etc...) without explicitly allowing fully dynamic rendering. See more info here: https://nextjs.org/docs/messages/next-prerender-dynamic-viewport`);
             throw new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$static$2d$generation$2d$bailout$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["StaticGenBailoutError"]();
         }
         if (prelude === 1) {
-            // If we ever get this far then we messed up the tracking of invalid dynamic.
-            // We still adhere to the constraint that you must produce a shell but invite the
-            // user to report this as a bug in Next.js.
+            
+            
+            
             console.error(`Route "${workStore.route}" did not produce a static shell and Next.js was unable to determine a reason. This is a bug in Next.js.`);
             throw new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$static$2d$generation$2d$bailout$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["StaticGenBailoutError"]();
         }
@@ -12653,7 +12653,7 @@ function delayUntilRuntimeStage(prerenderStore, result) {
         return prerenderStore.runtimeStagePromise.then(()=>result);
     }
     return result;
-} //# sourceMappingURL=dynamic-rendering.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/request/utils.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -12691,7 +12691,7 @@ function throwForSearchParamsAccessInUseCache(workStore, constructorOpt) {
 function isRequestAPICallableInsideAfter() {
     const afterTaskStore = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$after$2d$task$2d$async$2d$storage$2d$instance$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__$3c$export__afterTaskAsyncStorageInstance__as__afterTaskAsyncStorage$3e$__["afterTaskAsyncStorage"].getStore();
     return (afterTaskStore == null ? void 0 : afterTaskStore.rootTaskSpawnPhase) === 'action';
-} //# sourceMappingURL=utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/request/connection.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -12729,8 +12729,8 @@ function connection() {
             });
         }
         if (workStore.forceStatic) {
-            // When using forceStatic, we override all other logic and always just
-            // return a resolving promise without tracking.
+            
+            
             return Promise.resolve(undefined);
         }
         if (workStore.dynamicShouldError) {
@@ -12755,9 +12755,9 @@ function connection() {
                     }
                 case 'private-cache':
                     {
-                        // It might not be intuitive to throw for private caches as well, but
-                        // we don't consider runtime prefetches as "actual requests" (in the
-                        // navigation sense), despite allowing them to read cookies.
+                        
+                        
+                        
                         const error = Object.defineProperty(new Error(`Route ${workStore.route} used \`connection()\` inside "use cache: private". The \`connection()\` function is used to indicate the subsequent code must only run when there is an actual navigation request, but caches must be able to be produced before a navigation request, so this function is not allowed in this scope. See more info here: https://nextjs.org/docs/messages/next-request-in-use-cache`), "__NEXT_ERROR_CODE", {
                             value: "E837",
                             enumerable: false,
@@ -12776,42 +12776,42 @@ function connection() {
                 case 'prerender':
                 case 'prerender-client':
                 case 'prerender-runtime':
-                    // We return a promise that never resolves to allow the prerender to
-                    // stall at this point.
+                    
+                    
                     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$dynamic$2d$rendering$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["makeHangingPromise"])(workUnitStore.renderSignal, workStore.route, '`connection()`');
                 case 'prerender-ppr':
-                    // We use React's postpone API to interrupt rendering here to create a
-                    // dynamic hole
+                    
+                    
                     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$dynamic$2d$rendering$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["postponeWithTracking"])(workStore.route, 'connection', workUnitStore.dynamicTracking);
                 case 'prerender-legacy':
-                    // We throw an error here to interrupt prerendering to mark the route
-                    // as dynamic
+                    
+                    
                     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$dynamic$2d$rendering$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["throwToInterruptStaticGeneration"])('connection', workStore, workUnitStore);
                 case 'request':
                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$dynamic$2d$rendering$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["trackDynamicDataInDynamicRender"])(workUnitStore);
                     if ("TURBOPACK compile-time truthy", 1) {
-                        // Semantically we only need the dev tracking when running in `next dev`
-                        // but since you would never use next dev with production NODE_ENV we use this
-                        // as a proxy so we can statically exclude this code from production builds.
+                        
+                        
+                        
                         if (workUnitStore.asyncApiPromises) {
                             return workUnitStore.asyncApiPromises.connection;
                         }
                         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$dynamic$2d$rendering$2d$utils$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["makeDevtoolsIOAwarePromise"])(undefined, workUnitStore, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$staged$2d$rendering$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["RenderStage"].Dynamic);
-                    } else //TURBOPACK unreachable
+                    } else 
                     ;
                 default:
                     workUnitStore;
             }
         }
     }
-    // If we end up here, there was no work store or work unit store present.
+    
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$work$2d$unit$2d$async$2d$storage$2e$external$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__$3c$locals$3e$__["throwForMissingRequestStore"])(callingExpression);
-} //# sourceMappingURL=connection.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/exports/index.js [middleware-edge] (ecmascript) <locals>", ((__turbopack_context__) => {
 "use strict";
 
-// Alias index file of next/server for edge runtime for tree-shaking purpose
+
 __turbopack_context__.s([]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$image$2d$response$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/spec-extension/image-response.js [middleware-edge] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$request$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/spec-extension/request.js [middleware-edge] (ecmascript)");
@@ -12819,7 +12819,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$user$2d$agent$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/spec-extension/user-agent.js [middleware-edge] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$url$2d$pattern$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/spec-extension/url-pattern.js [middleware-edge] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$after$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/after/index.js [middleware-edge] (ecmascript) <locals>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2f$connection$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/request/connection.js [middleware-edge] (ecmascript)"); //# sourceMappingURL=index.js.map
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2f$connection$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/request/connection.js [middleware-edge] (ecmascript)"); 
 ;
 ;
 ;
@@ -12832,7 +12832,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "use strict";
 
 __turbopack_context__.s([]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$exports$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/exports/index.js [middleware-edge] (ecmascript) <locals>"); //# sourceMappingURL=server.js.map
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$exports$2f$index$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/exports/index.js [middleware-edge] (ecmascript) <locals>"); 
 ;
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/exports/index.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
@@ -12909,7 +12909,7 @@ function getAccessFallbackErrorTypeByStatus(status) {
         default:
             return;
     }
-} //# sourceMappingURL=http-access-fallback.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/redirect-status-code.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -12918,12 +12918,12 @@ __turbopack_context__.s([
     "RedirectStatusCode",
     ()=>RedirectStatusCode
 ]);
-var RedirectStatusCode = /*#__PURE__*/ function(RedirectStatusCode) {
+var RedirectStatusCode =  function(RedirectStatusCode) {
     RedirectStatusCode[RedirectStatusCode["SeeOther"] = 303] = "SeeOther";
     RedirectStatusCode[RedirectStatusCode["TemporaryRedirect"] = 307] = "TemporaryRedirect";
     RedirectStatusCode[RedirectStatusCode["PermanentRedirect"] = 308] = "PermanentRedirect";
     return RedirectStatusCode;
-}({}); //# sourceMappingURL=redirect-status-code.js.map
+}({}); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/redirect-error.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -12939,7 +12939,7 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$status$2d$code$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/redirect-status-code.js [middleware-edge] (ecmascript)");
 ;
 const REDIRECT_ERROR_CODE = 'NEXT_REDIRECT';
-var RedirectType = /*#__PURE__*/ function(RedirectType) {
+var RedirectType =  function(RedirectType) {
     RedirectType["push"] = "push";
     RedirectType["replace"] = "replace";
     return RedirectType;
@@ -12954,7 +12954,7 @@ function isRedirectError(error) {
     const status = digest.at(-2);
     const statusCode = Number(status);
     return errorCode === REDIRECT_ERROR_CODE && (type === 'replace' || type === 'push') && typeof destination === 'string' && !isNaN(statusCode) && statusCode in __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$status$2d$code$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["RedirectStatusCode"];
-} //# sourceMappingURL=redirect-error.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/is-next-router-error.js [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -12969,7 +12969,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 function isNextRouterError(error) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$error$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["isRedirectError"])(error) || (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["isHTTPAccessFallbackError"])(error);
-} //# sourceMappingURL=is-next-router-error.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/build/templates/middleware.js { INNER_MIDDLEWARE_MODULE => \"[project]/Desktop/Projects/final-pixelate/dashboard/src/middleware.ts [middleware-edge] (ecmascript)\" } [middleware-edge] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -12980,7 +12980,7 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$globals$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/globals.js [middleware-edge] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$adapter$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/adapter.js [middleware-edge] (ecmascript)");
-// Import the userland code.
+
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$middleware$2e$ts__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/middleware.ts [middleware-edge] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$is$2d$next$2d$router$2d$error$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/is-next-router-error.js [middleware-edge] (ecmascript)");
 ;
@@ -12997,24 +12997,24 @@ const handler = (("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" :
 class ProxyMissingExportError extends Error {
     constructor(message){
         super(message);
-        // Stack isn't useful here, remove it considering it spams logs during development.
+        
         this.stack = '';
     }
 }
-// TODO: This spams logs during development. Find a better way to handle this.
-// Removing this will spam "fn is not a function" logs which is worse.
+
+
 if (typeof handler !== 'function') {
     throw new ProxyMissingExportError(`The ${("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : 'Middleware'} file "${page}" must export a function named \`${("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : 'middleware'}\` or a default function.`);
 }
-// Proxy will only sent out the FetchEvent to next server,
-// so load instrumentation module here and track the error inside proxy module.
+
+
 function errorHandledHandler(fn) {
     return async (...args)=>{
         try {
             return await fn(...args);
         } catch (err) {
-            // In development, error the navigation API usage in runtime,
-            // since it's not allowed to be used in proxy as it's outside of react component tree.
+            
+            
             if ("TURBOPACK compile-time truthy", 1) {
                 if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$is$2d$next$2d$router$2d$error$2e$js__$5b$middleware$2d$edge$5d$__$28$ecmascript$29$__["isNextRouterError"])(err)) {
                     err.message = `Next.js navigation API is not allowed to be used in ${("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : 'Middleware'}.`;
@@ -13044,7 +13044,7 @@ function nHandler(opts) {
         page,
         handler: errorHandledHandler(handler)
     });
-} //# sourceMappingURL=middleware.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/edge-wrapper.js { MODULE => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/build/templates/middleware.js { INNER_MIDDLEWARE_MODULE => \\\"[project]/Desktop/Projects/final-pixelate/dashboard/src/middleware.ts [middleware-edge] (ecmascript)\\\" } [middleware-edge] (ecmascript)\" } [middleware-edge] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
@@ -13064,4 +13064,3 @@ self._ENTRIES["middleware_middleware"] = new Proxy(modProm, {
 }),
 ]);
 
-//# sourceMappingURL=Desktop_Projects_final-pixelate_dashboard_e7177aa8._.js.map

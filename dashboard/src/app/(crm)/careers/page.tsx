@@ -97,7 +97,7 @@ export default function CareersPage() {
   return (
     <div className="space-y-6">
       {successMessage && <SuccessModal message={successMessage} />}
-      {/* Header */}
+      {}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold">Careers Management</h1>
@@ -113,7 +113,7 @@ export default function CareersPage() {
         </Link>
       </div>
 
-      {/* Stats Cards */}
+      {}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <CardHeader className="pb-3">
@@ -160,7 +160,7 @@ export default function CareersPage() {
         </Card>
       </div>
 
-      {/* Filter Tabs */}
+      {}
       <div className="flex gap-2">
         <Button
           variant={filter === 'all' ? 'default' : 'outline'}
@@ -182,7 +182,7 @@ export default function CareersPage() {
         </Button>
       </div>
 
-      {/* Job Listings */}
+      {}
       {loading ? (
         <div className="text-center py-12">Loading...</div>
       ) : filteredJobs.length === 0 ? (

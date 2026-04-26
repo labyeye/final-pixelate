@@ -204,7 +204,7 @@ export default function CreateQuotationPage() {
     })();
   }, [editId, setValue, toast]);
 
-  // Auto-calculate line item totals
+  
   const watchLineItems = watch("lineItems");
   useEffect(() => {
     watchLineItems.forEach((item, idx) => {
@@ -215,7 +215,7 @@ export default function CreateQuotationPage() {
     });
   }, [watchLineItems, setValue]);
 
-  // Auto-calculate service totals
+  
   const watchServices = watch("services");
   useEffect(() => {
     watchServices.forEach((item, idx) => {
@@ -297,7 +297,7 @@ export default function CreateQuotationPage() {
       </header>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {/* Proposal Details */}
+        {}
         <Card className="border-2 border-black">
           <CardHeader>
             <CardTitle>Proposal Details</CardTitle>
@@ -354,7 +354,7 @@ export default function CreateQuotationPage() {
           </CardContent>
         </Card>
 
-        {/* Project Section */}
+        {}
         <Card className="border-2 border-black">
           <CardHeader>
             <CardTitle>Project Information</CardTitle>
@@ -390,7 +390,7 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
           </CardContent>
         </Card>
 
-        {/* Scope */}
+        {}
         <Card className="border-2 border-black">
           <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Scope of Work</CardTitle>
@@ -426,7 +426,7 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
           </CardContent>
         </Card>
 
-        {/* Deliverables */}
+        {}
         <Card className="border-2 border-black">
           <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Deliverables</CardTitle>
@@ -462,7 +462,7 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
           </CardContent>
         </Card>
 
-        {/* Timeline */}
+        {}
         <Card className="border-2 border-black">
           <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Project Timeline</CardTitle>
@@ -511,7 +511,7 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
           </CardContent>
         </Card>
 
-        {/* Services */}
+        {}
         <Card className="border-2 border-black">
           <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Services Breakdown</CardTitle>
@@ -576,7 +576,7 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
           </CardContent>
         </Card>
 
-        {/* Line Items */}
+        {}
         <Card className="border-2 border-black">
           <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Pricing Breakdown</CardTitle>
@@ -654,7 +654,7 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
           </CardContent>
         </Card>
 
-        {/* Modules */}
+        {}
         <Card className="border-2 border-black">
           <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Modules & Features</CardTitle>
@@ -716,7 +716,7 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
           </CardContent>
         </Card>
 
-        {/* Additional Notes */}
+        {}
         <Card className="border-2 border-black">
           <CardHeader>
             <CardTitle>Additional Information</CardTitle>
@@ -741,7 +741,7 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
           </CardContent>
         </Card>
 
-        {/* Submit */}
+        {}
         <div className="flex gap-4 justify-end">
           <Button type="button" variant="outline" onClick={() => router.back()}>
             Cancel

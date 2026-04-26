@@ -341,7 +341,7 @@ export default function ReviewsPage() {
         </Table>
       </div>
 
-      {/* Edit Dialog */}
+      {}
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>

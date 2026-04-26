@@ -331,6 +331,18 @@
       "namedRegex": "^/api/auth/login(?:/)?$"
     },
     {
+      "page": "/api/auth/meta/callback",
+      "regex": "^/api/auth/meta/callback(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/meta/callback(?:/)?$"
+    },
+    {
+      "page": "/api/auth/meta/connect",
+      "regex": "^/api/auth/meta/connect(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/meta/connect(?:/)?$"
+    },
+    {
       "page": "/api/blogs",
       "regex": "^/api/blogs(?:/)?$",
       "routeKeys": {},
@@ -545,6 +557,12 @@
       "regex": "^/api/social\\-media\\-accounts(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/social\\-media\\-accounts(?:/)?$"
+    },
+    {
+      "page": "/api/social-media-metrics/sync",
+      "regex": "^/api/social\\-media\\-metrics/sync(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/social\\-media\\-metrics/sync(?:/)?$"
     },
     {
       "page": "/api/social-media-posts",

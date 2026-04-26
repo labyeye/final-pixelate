@@ -28,7 +28,7 @@ interface TrendsSectionProps {
 }
 
 export function TrendsSection({ invoices, clients }: TrendsSectionProps) {
-  // Process data for the last 6 months
+  
   const chartData = useMemo(() => {
     const months: {
       date: Date;
@@ -39,7 +39,7 @@ export function TrendsSection({ invoices, clients }: TrendsSectionProps) {
     }[] = [];
     const now = new Date();
 
-    // Generate last 6 months keys
+    
     for (let i = 5; i >= 0; i--) {
       const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
       months.push({
@@ -54,7 +54,7 @@ export function TrendsSection({ invoices, clients }: TrendsSectionProps) {
       });
     }
 
-    // Calculate Invoicing Trend (Revenue)
+    
     invoices.forEach((inv) => {
       if (!inv.createdAt) return;
       const d = new Date(inv.createdAt);
@@ -71,9 +71,9 @@ export function TrendsSection({ invoices, clients }: TrendsSectionProps) {
       }
     });
 
-    // Calculate Client Trend (New Clients)
+    
     clients.forEach((client) => {
-      // Assuming clients have createdAt, if not fallback to now or ignore
+      
       if (!client.createdAt) return;
       const d = new Date(client.createdAt);
       if (isNaN(d.getTime())) return;
@@ -94,7 +94,7 @@ export function TrendsSection({ invoices, clients }: TrendsSectionProps) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
-      {/* Invoicing Trend Chart */}
+      {}
       <Card className="border-2 border-black">
         <CardHeader>
           <CardTitle className="text-2xl font-black tracking-tighter">
@@ -167,7 +167,7 @@ export function TrendsSection({ invoices, clients }: TrendsSectionProps) {
         </CardContent>
       </Card>
 
-      {/* Client Trend Chart */}
+      {}
       <Card className="border-2 border-black">
         <CardHeader>
           <CardTitle className="text-2xl font-black tracking-tighter">

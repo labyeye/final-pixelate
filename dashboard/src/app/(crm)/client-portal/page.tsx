@@ -29,7 +29,7 @@ export default function ClientPortalPage() {
         const allProjects = projRes.ok ? await projRes.json() : [];
         const allInvoices = invRes.ok ? await invRes.json() : [];
 
-        // Filter by clientId linked to this user
+        
         const cid = user.clientId;
         const myProjects = allProjects.filter(
           (p: any) => cid && String(p.clientId) === String(cid)
@@ -66,7 +66,7 @@ export default function ClientPortalPage() {
 
   return (
     <div className="min-h-screen bg-background font-headline">
-      {/* Top Bar */}
+      {}
       <header className="border-b-2 border-black bg-white/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -94,7 +94,7 @@ export default function ClientPortalPage() {
       </header>
 
       <main className="max-w-5xl mx-auto px-6 py-10 space-y-10">
-        {/* Welcome */}
+        {}
         <section>
           <h2 className="text-4xl font-black tracking-tighter">Welcome, {user.name?.split(" ")[0]}!</h2>
           <p className="text-muted-foreground mt-1">Here's an overview of your projects and invoices.</p>

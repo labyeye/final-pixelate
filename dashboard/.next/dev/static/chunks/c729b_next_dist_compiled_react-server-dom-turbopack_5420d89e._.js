@@ -2,15 +2,15 @@
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-server-dom-turbopack/cjs/react-server-dom-turbopack-client.browser.development.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * @license React
- * react-server-dom-turbopack-client.browser.development.js
- *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+
+
+
+
+
+
+
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 "use strict";
 "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function resolveClientReference(bundlerConfig, metadata) {
@@ -55,7 +55,7 @@
         ];
     }
     function requireAsyncModule(id) {
-        var promise = /*TURBOPACK member replacement*/ __turbopack_context__.r(id);
+        var promise =  __turbopack_context__.r(id);
         if ("function" !== typeof promise.then || "fulfilled" === promise.status) return null;
         promise.then(function(value) {
             promise.status = "fulfilled";
@@ -69,7 +69,7 @@
     function ignoreReject() {}
     function preloadModule(metadata) {
         for(var chunks = metadata[1], promises = [], i = 0; i < chunks.length; i++){
-            var thenable = /*TURBOPACK member replacement*/ __turbopack_context__.L(chunks[i]);
+            var thenable =  __turbopack_context__.L(chunks[i]);
             loadedChunks.has(thenable) || promises.push(thenable);
             if (!instrumentedChunks.has(thenable)) {
                 var resolve = loadedChunks.add.bind(loadedChunks, thenable);
@@ -82,7 +82,7 @@
         }) : 0 < promises.length ? Promise.all(promises) : null;
     }
     function requireModule(metadata) {
-        var moduleExports = /*TURBOPACK member replacement*/ __turbopack_context__.r(metadata[0]);
+        var moduleExports =  __turbopack_context__.r(metadata[0]);
         if (4 === metadata.length && "function" === typeof moduleExports.then) if ("fulfilled" === moduleExports.status) moduleExports = moduleExports.value;
         else throw moduleExports.reason;
         if ("*" === metadata[2]) return moduleExports;
@@ -2794,9 +2794,9 @@
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-server-dom-turbopack/client.browser.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 'use strict';
-if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+if ("TURBOPACK compile-time falsy", 0) 
 ;
 else {
     module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-server-dom-turbopack/cjs/react-server-dom-turbopack-client.browser.development.js [app-client] (ecmascript)");
@@ -2809,4 +2809,3 @@ module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixel
 }),
 ]);
 
-//# sourceMappingURL=c729b_next_dist_compiled_react-server-dom-turbopack_5420d89e._.js.map

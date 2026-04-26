@@ -5,15 +5,15 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const clientId = searchParams.get("clientId");
-    const status = searchParams.get("status"); // e.g., 'pending', 'paid'
+    const status = searchParams.get("status"); 
 
-    // Construct query
+    
     const query: any = {};
     if (clientId) query.clientId = clientId;
     if (status) query.status = status.toUpperCase();
 
-    // svc.getInvoices() returns all by default if no args, but we need filtered find.
-    // Let's use getCollection directly for filtering.
+    
+    
     const col = await svc.getCollection("invoices");
     const invoices = await col.find(query).sort({ createdAt: -1 }).toArray();
 
@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const invoiceData = await request.json();
-    // Use service helper so we get a friendly `id` like PN-00001
+    
     const created = await svc.createInvoice(invoiceData);
     return NextResponse.json(created, { status: 201 });
   } catch (error: any) {

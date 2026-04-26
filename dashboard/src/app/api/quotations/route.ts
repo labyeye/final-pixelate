@@ -11,10 +11,10 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const clientIdParam = searchParams.get('clientId');
 
-    // Build filter: if clientId is provided, filter quotations for that client
+    
     let filter: Record<string, any> = {};
     if (clientIdParam) {
-      // Try matching as ObjectId and as string
+      
       try {
         filter = { $or: [{ clientId: new ObjectId(clientIdParam) }, { clientId: clientIdParam }] };
       } catch {
@@ -35,13 +35,13 @@ export async function POST(request: NextRequest) {
     const quotationData = await request.json();
     const col = await svc.getCollection('quotations');
     
-    // Generate next quotation ID if not provided
+    
     if (!quotationData.quoteId) {
       const lastQuote = await col.findOne({}, { sort: { createdAt: -1 } });
       quotationData.quoteId = generateQuotationId(lastQuote?.quoteId);
     }
     
-    // Set defaults
+    
     const newQuotation = {
       ...quotationData,
       status: quotationData.status || 'DRAFT',
@@ -57,10 +57,10 @@ export async function POST(request: NextRequest) {
     };
     
     const result = await col.insertOne(newQuotation);
-    // Re-fetch from DB so the journey event uses the exact persisted document
+    
     const created = await col.findOne({ _id: result.insertedId });
 
-    // ── Auto-create Journey event for every non-DRAFT quotation ───────────
+    
     if (created && created.clientId && created.status !== 'DRAFT') {
       try {
         const db = await getDb();
@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
         console.error('Failed to auto-create journey event:', journeyErr);
       }
     }
-    // ─────────────────────────────────────────────────────────────────────
+    
 
     return NextResponse.json(created, { status: 201 });
   } catch (error: any) {

@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import getDb from "@/lib/mongodb";
 
-/**
- * Fetch messages from WhatsApp webhook backend
- * and sync them to our database
- */
+
+
+
+
 export async function POST(request: NextRequest) {
   try {
     const db = await getDb();
@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
 
     console.log("Syncing WhatsApp messages from webhook...");
 
-    // Fetch from backend webhook with authorization
+    
     const webhookUrl = "https://backend.pixelatenest.com/api/whatsapp-webhook";
     const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
 
@@ -44,15 +44,15 @@ export async function POST(request: NextRequest) {
     let syncedCount = 0;
     let messages = webhookData.messages || webhookData.data || [];
 
-    // Ensure messages is an array
+    
     if (!Array.isArray(messages)) {
       messages = [messages];
     }
 
-    // Sync each message
+    
     for (const msg of messages) {
       try {
-        // Check if message already exists
+        
         const existing = await db
           .collection("whatsapp_messages")
           .findOne({ messageId: msg.id || msg.messageId });
@@ -64,22 +64,22 @@ export async function POST(request: NextRequest) {
             messageType: msg.type === "incoming" ? "received" : "sent",
             message: msg.body || msg.message || msg.text || "",
             templateName: msg.templateName,
-            // Status from webhook - this is the REAL delivery status
-            // "sent" = queued to carrier
-            // "delivered" = confirmed delivery to device
-            // "read" = message opened
-            // "failed" = delivery failed
-            // "received" = inbound message
+            
+            
+            
+            
+            
+            
             status: msg.status || (msg.type === "incoming" ? "received" : "sent"),
             messageId: msg.id || msg.messageId,
             timestamp: new Date(msg.timestamp || msg.createdAt || Date.now()),
             repliedAt: msg.repliedAt ? new Date(msg.repliedAt) : null,
-            // Track actual delivery status
+            
             deliveryStatus: msg.status || (msg.type === "incoming" ? "received" : "sent"),
-            // Error info if delivery failed
+            
             failureReason: msg.error_data?.details || msg.error_reason || null,
             failureCode: msg.error_code || null,
-            // Message category for pricing
+            
             category: msg.templateName?.toLowerCase() || "marketing",
             metadata: msg.metadata,
             createdAt: new Date(),
@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
           syncedCount++;
           console.log(`✅ Synced message from ${document.contactName} - Status: ${document.deliveryStatus}`);
         } else {
-          // Update existing message with new status from webhook
+          
           await db.collection("whatsapp_messages").updateOne(
             { messageId: msg.id || msg.messageId },
             {
@@ -107,7 +107,7 @@ export async function POST(request: NextRequest) {
         }
       } catch (msgError: any) {
         console.error("Failed to sync individual message:", msgError);
-        // Continue with next message
+        
       }
     }
 
@@ -129,9 +129,9 @@ export async function POST(request: NextRequest) {
   }
 }
 
-/**
- * GET endpoint to check webhook status
- */
+
+
+
 export async function GET(request: NextRequest) {
   try {
     const webhookUrl = "https://backend.pixelatenest.com/api/whatsapp-webhook";

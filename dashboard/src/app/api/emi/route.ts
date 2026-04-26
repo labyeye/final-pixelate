@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
     const totalMonths = Number(body.totalMonths || 0);
     const startDate = body.startDate || new Date().toISOString().slice(0, 10);
 
-    // Auto-generate EMI schedule
+    
     const schedule = [];
     const start = new Date(startDate);
     for (let i = 0; i < totalMonths; i++) {
@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
         month: i + 1,
         dueDate: dueDate.toISOString().slice(0, 10),
         amount: emiAmount,
-        status: 'pending', // pending | paid | overdue
+        status: 'pending', 
         paidOn: null,
         note: '',
       });
@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
       note: body.note || '',
       schedule,
       paidMonths: 0,
-      status: 'active', // active | completed | foreclosed
+      status: 'active', 
       createdAt: new Date(),
       updatedAt: new Date(),
     };

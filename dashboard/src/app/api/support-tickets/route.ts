@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const clientId = searchParams.get('clientId');
 
-    // Check auth header for token
+    
     const auth = request.headers.get('authorization') || ''
     const token = auth.replace('Bearer ', '')
     const decoded: any = token ? verifyToken(token) : null
@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
     const col = await svc.getCollection('supportTickets');
     let filter: Record<string, any> = {};
 
-    // If client role, only show their tickets
+    
     if (decoded?.role === 'client') {
       filter = { clientId: decoded.clientId }
     } else if (clientId) {

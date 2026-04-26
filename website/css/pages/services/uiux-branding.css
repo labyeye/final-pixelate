@@ -1,4 +1,4 @@
-/* UI/UX & Branding page styles - based on digital-marketing.css and pricing styles */
+
 .services-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -30,7 +30,7 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
-/* Reuse pricing card styles (kept concise) */
+
 .pricing-cards-section {
   position: relative;
   overflow: hidden;
@@ -141,7 +141,7 @@
   }
 }
 
-/* FAQ small tweaks */
+
 .faq-list details {
   background: #fff;
   border: 1px solid #eef4fb;

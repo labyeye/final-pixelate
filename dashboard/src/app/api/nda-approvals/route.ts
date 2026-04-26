@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
 
     let filter: Record<string, any> = {};
     if (clientIdParam) {
-      // Filter by clientId (stored as string or ObjectId) or fall back to clientName match
+      
       try {
         filter = { $or: [{ clientId: new ObjectId(clientIdParam) }, { clientId: clientIdParam }] };
       } catch {

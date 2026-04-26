@@ -17,7 +17,7 @@ interface SocialAccount {
 interface MultiAccountSelectorProps {
   clientId: string;
   platform: string;
-  value: string[]; // array of account IDs
+  value: string[]; 
   onChange: (accountIds: string[], handles: string[]) => void;
 }
 
@@ -78,7 +78,7 @@ export function MultiAccountSelector({
 
   return (
     <div className="relative w-full">
-      {/* Selected Accounts */}
+      {}
       <div className="border rounded-md p-2 mb-2 bg-gray-50 min-h-[36px] flex flex-wrap gap-2 items-center">
         {selectedAccounts.length === 0 ? (
           <span className="text-sm text-gray-400">
@@ -105,7 +105,7 @@ export function MultiAccountSelector({
         )}
       </div>
 
-      {/* Dropdown Button */}
+      {}
       <div className="relative">
         <Button
           onClick={() => setShowDropdown(!showDropdown)}
@@ -118,7 +118,7 @@ export function MultiAccountSelector({
             : `+ Add Account (${availableAccounts.length} available)`}
         </Button>
 
-        {/* Dropdown Menu */}
+        {}
         {showDropdown && availableAccounts.length > 0 && (
           <div className="absolute z-10 top-full left-0 right-0 mt-1 bg-white border rounded-md shadow-lg max-h-[200px] overflow-y-auto">
             {availableAccounts.map((acc) => (
@@ -138,7 +138,7 @@ export function MultiAccountSelector({
         )}
       </div>
 
-      {/* Info Text */}
+      {}
       {selectedAccounts.length > 0 && (
         <p className="text-xs text-green-600 mt-2">
           ✓ This post will be shared to {selectedAccounts.length} account(s)

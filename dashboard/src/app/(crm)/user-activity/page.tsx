@@ -33,8 +33,8 @@ interface UserActivity {
   _id: string;
   userId: string;
   url: string;
-  startTime: string; // ISO string
-  duration: number; // seconds
+  startTime: string; 
+  duration: number; 
   userAgent: string;
   referrer: string;
 }
@@ -73,7 +73,7 @@ export default function UserActivityPage() {
 
   useEffect(() => {
     fetchData();
-    const interval = setInterval(fetchData, 10000); // Poll every 10s
+    const interval = setInterval(fetchData, 10000); 
     return () => clearInterval(interval);
   }, []);
 
@@ -91,7 +91,7 @@ export default function UserActivityPage() {
     }
   };
 
-  // Metrics
+  
   const totalVisits = data.length;
   const uniqueUsers = new Set(data.map((d) => d.userId)).size;
   const avgDuration =
@@ -102,8 +102,8 @@ export default function UserActivityPage() {
       ).toFixed(1)
       : 0;
 
-  // Process Charts
-  // 1. Visits over time (last 24h, grouped by hour)
+  
+  
   const visitsByHour = data.reduce(
     (acc, curr) => {
       const date = new Date(curr.startTime);
@@ -119,17 +119,17 @@ export default function UserActivityPage() {
     value,
   }));
 
-  // 2. Top Pages
+  
   const pagesCount = data.reduce(
     (acc, curr) => {
-      // Simplify URL to path
+      
       let path = curr.url;
       try {
         const urlObj = new URL(curr.url);
         path = urlObj.pathname;
         if (path === "/index.html") path = "/";
       } catch (e) {
-        // fallback if url is relative or invalid, though api ensures it's stored
+        
       }
 
       acc[path] = (acc[path] || 0) + 1;
@@ -143,9 +143,9 @@ export default function UserActivityPage() {
     .slice(0, 5)
     .map(([name, value]) => ({ name, value }));
 
-  // 3. Page Performance (All Pages)
+  
   const pagePerformance = KNOWN_PAGES.map((page) => {
-    // Find all visits for this page
+    
     const visits = data.filter((d) => {
       try {
         let p = new URL(d.url).pathname;
@@ -339,7 +339,7 @@ export default function UserActivityPage() {
         </Card>
       </div>
 
-      {/* All Pages Performance Section */}
+      {}
       <Card className="shadow-sm border-slate-200">
         <CardHeader>
           <CardTitle>Page Performance</CardTitle>

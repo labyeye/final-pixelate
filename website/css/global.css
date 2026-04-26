@@ -678,7 +678,7 @@ li {
   padding-top: 32px;
 }
 
-/* Sticky navbar: fixed at top with white background when user scrolls */
+
 .navbar.sticky {
   position: fixed;
   top: 0;
@@ -696,7 +696,7 @@ li {
     box-shadow 0.2s ease;
 }
 
-/* Placeholder element to preserve layout when navbar becomes fixed */
+
 .nav-placeholder {
   display: block;
   width: 100%;
@@ -704,7 +704,7 @@ li {
   pointer-events: none;
 }
 
-/* Keep inner navbar wrapper centered when navbar becomes sticky */
+
 .navbar.sticky .navbar-wrapper {
   max-width: 1266px;
   margin-left: auto;
@@ -916,7 +916,7 @@ li {
   justify-content: center;
 }
 
-/* Portfolio loading placeholder shown while items are being fetched */
+
 .portfolio-loader {
   display: flex !important;
   align-items: center;
@@ -4682,7 +4682,7 @@ iframe {
     margin-right: 3px;
   }
 }
-/* --- Portfolio Works Section Styles --- */
+
 .portfolio-works {
   padding: 60px 0;
   background-color: #ffffff;
@@ -4763,7 +4763,7 @@ iframe {
   font-size: 1em;
   color: #7f8c8d;
   line-height: 1.6;
-} /* ===== LOADER ===== */
+} 
 
 .loader {
   position: relative;

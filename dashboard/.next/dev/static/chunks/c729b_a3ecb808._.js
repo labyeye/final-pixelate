@@ -81,33 +81,33 @@ function assign(target, ...searchParamsList) {
         }
     }
     return target;
-} //# sourceMappingURL=querystring.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/format-url.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-// Format function modified from nodejs
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -135,7 +135,7 @@ _export(exports, {
     }
 });
 const _interop_require_wildcard = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [app-client] (ecmascript)");
-const _querystring = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/querystring.js [app-client] (ecmascript)"));
+const _querystring =  _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/querystring.js [app-client] (ecmascript)"));
 const slashedProtocols = /https?|ftp|gopher|file/;
 function formatUrl(urlObj) {
     let { auth, hostname } = urlObj;
@@ -195,7 +195,7 @@ function formatWithValidation(url) {
         }
     }
     return formatUrl(url);
-} //# sourceMappingURL=format-url.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/use-merged-ref.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -213,13 +213,13 @@ const _react = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelat
 function useMergedRef(refA, refB) {
     const cleanupA = (0, _react.useRef)(null);
     const cleanupB = (0, _react.useRef)(null);
-    // NOTE: In theory, we could skip the wrapping if only one of the refs is non-null.
-    // (this happens often if the user doesn't pass a ref to Link/Form/Image)
-    // But this can cause us to leak a cleanup-ref into user code (previously via `<Link legacyBehavior>`),
-    // and the user might pass that ref into ref-merging library that doesn't support cleanup refs
-    // (because it hasn't been updated for React 19)
-    // which can then cause things to blow up, because a cleanup-returning ref gets called with `null`.
-    // So in practice, it's safer to be defensive and always wrap the ref, even on React 19.
+    
+    
+    
+    
+    
+    
+    
     return (0, _react.useCallback)((current)=>{
         if (current === null) {
             const cleanupFnA = cleanupA.current;
@@ -266,12 +266,12 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=use-merged-ref.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -373,8 +373,8 @@ function execOnce(fn) {
         return result;
     };
 }
-// Scheme: https://tools.ietf.org/html/rfc3986#section-3.1
-// Absolute URL: https://tools.ietf.org/html/rfc3986#section-4.3
+
+
 const ABSOLUTE_URL_REGEX = /^[a-zA-Z][a-zA-Z\d+\-.]*?:/;
 const isAbsoluteUrl = (url)=>ABSOLUTE_URL_REGEX.test(url);
 function getLocationOrigin() {
@@ -395,8 +395,8 @@ function isResSent(res) {
 function normalizeRepeatedSlashes(url) {
     const urlParts = url.split('?');
     const urlNoQuery = urlParts[0];
-    return urlNoQuery // first we replace any non-encoded backslashes with forward
-    // then normalize repeated forward slashes
+    return urlNoQuery 
+    
     .replace(/\\/g, '/').replace(/\/\/+/g, '/') + (urlParts[1] ? `?${urlParts.slice(1).join('?')}` : '');
 }
 async function loadGetInitialProps(App, ctx) {
@@ -410,11 +410,11 @@ async function loadGetInitialProps(App, ctx) {
             });
         }
     }
-    // when called from _app `ctx` is nested in `ctx`
+    
     const res = ctx.res || ctx.ctx && ctx.ctx.res;
     if (!App.getInitialProps) {
         if (ctx.ctx && ctx.Component) {
-            // @ts-ignore pageProps default
+            
             return {
                 pageProps: await loadGetInitialProps(ctx.Component, ctx.ctx)
             };
@@ -476,7 +476,7 @@ function stringifyError(error) {
         message: error.message,
         stack: error.stack
     });
-} //# sourceMappingURL=utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/is-local-url.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -493,22 +493,22 @@ Object.defineProperty(exports, "isLocalURL", {
 const _utils = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils.js [app-client] (ecmascript)");
 const _hasbasepath = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/has-base-path.js [app-client] (ecmascript)");
 function isLocalURL(url) {
-    // prevent a hydration mismatch on href for url with anchor refs
+    
     if (!(0, _utils.isAbsoluteUrl)(url)) return true;
     try {
-        // absolute urls can be local if they are on the same origin
+        
         const locationOrigin = (0, _utils.getLocationOrigin)();
         const resolved = new URL(url, locationOrigin);
         return resolved.origin === locationOrigin && (0, _hasbasepath.hasBasePath)(resolved.pathname);
     } catch (_) {
         return false;
     }
-} //# sourceMappingURL=is-local-url.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils/error-once.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -528,12 +528,12 @@ if ("TURBOPACK compile-time truthy", 1) {
         }
         errors.add(msg);
     };
-} //# sourceMappingURL=error-once.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 'use client';
 "use strict";
 Object.defineProperty(exports, "__esModule", {
@@ -550,16 +550,16 @@ function _export(target, all) {
     });
 }
 _export(exports, {
-    /**
- * A React component that extends the HTML `<a>` element to provide
- * [prefetching](https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#2-prefetching)
- * and client-side navigation. This is the primary way to navigate between routes in Next.js.
- *
- * @remarks
- * - Prefetching is only enabled in production.
- *
- * @see https://nextjs.org/docs/app/api-reference/components/link
- */ default: function() {
+    
+
+
+
+
+
+
+
+
+ default: function() {
         return LinkComponent;
     },
     useLinkStatus: function() {
@@ -568,7 +568,7 @@ _export(exports, {
 });
 const _interop_require_wildcard = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [app-client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)");
-const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)"));
+const _react =  _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)"));
 const _formaturl = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/format-url.js [app-client] (ecmascript)");
 const _approutercontextsharedruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js [app-client] (ecmascript)");
 const _usemergedref = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/use-merged-ref.js [app-client] (ecmascript)");
@@ -582,26 +582,26 @@ const _erroronce = __turbopack_context__.r("[project]/Desktop/Projects/final-pix
 function isModifiedEvent(event) {
     const eventTarget = event.currentTarget;
     const target = eventTarget.getAttribute('target');
-    return target && target !== '_self' || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || // triggers resource download
+    return target && target !== '_self' || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || 
     event.nativeEvent && event.nativeEvent.which === 2;
 }
 function linkClicked(e, href, as, linkInstanceRef, replace, scroll, onNavigate) {
     if (typeof window !== 'undefined') {
         const { nodeName } = e.currentTarget;
-        // anchors inside an svg have a lowercase nodeName
+        
         const isAnchorNodeName = nodeName.toUpperCase() === 'A';
         if (isAnchorNodeName && isModifiedEvent(e) || e.currentTarget.hasAttribute('download')) {
-            // ignore click for browser’s default behavior
+            
             return;
         }
         if (!(0, _islocalurl.isLocalURL)(href)) {
             if (replace) {
-                // browser default behavior does not replace the history state
-                // so we need to do it manually
+                
+                
                 e.preventDefault();
                 location.replace(href);
             }
-            // ignore click for browser’s default behavior
+            
             return;
         }
         e.preventDefault();
@@ -635,7 +635,7 @@ function LinkComponent(props) {
     const { href: hrefProp, as: asProp, children: childrenProp, prefetch: prefetchProp = null, passHref, replace, shallow, scroll, onClick, onMouseEnter: onMouseEnterProp, onTouchStart: onTouchStartProp, legacyBehavior = false, onNavigate, ref: forwardedRef, unstable_dynamicOnHover, ...restProps } = props;
     children = childrenProp;
     if (legacyBehavior && (typeof children === 'string' || typeof children === 'number')) {
-        children = /*#__PURE__*/ (0, _jsxruntime.jsx)("a", {
+        children =  (0, _jsxruntime.jsx)("a", {
             children: children
         });
     }
@@ -650,7 +650,7 @@ function LinkComponent(props) {
                 configurable: true
             });
         }
-        // TypeScript trick for type-guarding:
+        
         const requiredPropsGuard = {
             href: true
         };
@@ -665,11 +665,11 @@ function LinkComponent(props) {
                     });
                 }
             } else {
-                // TypeScript trick for type-guarding:
+                
                 const _ = key;
             }
         });
-        // TypeScript trick for type-guarding:
+        
         const optionalPropsGuard = {
             as: true,
             replace: true,
@@ -720,7 +720,7 @@ function LinkComponent(props) {
                     });
                 }
             } else {
-                // TypeScript trick for type-guarding:
+                
                 const _ = key;
             }
         });
@@ -760,7 +760,7 @@ function LinkComponent(props) {
         hrefProp,
         asProp
     ]);
-    // This will return the first child, if multiple are provided it will throw an error
+    
     let child;
     if (legacyBehavior) {
         if (children?.$$typeof === Symbol.for('react.lazy')) {
@@ -793,7 +793,7 @@ function LinkComponent(props) {
                     configurable: true
                 });
             }
-        } else //TURBOPACK unreachable
+        } else 
         ;
     } else {
         if ("TURBOPACK compile-time truthy", 1) {
@@ -807,10 +807,10 @@ function LinkComponent(props) {
         }
     }
     const childRef = legacyBehavior ? child && typeof child === 'object' && child.ref : forwardedRef;
-    // Use a callback ref to attach an IntersectionObserver to the anchor tag on
-    // mount. In the future we will also use this to keep track of all the
-    // currently mounted <Link> instances, e.g. so we can re-prefetch them after
-    // a revalidation or refresh.
+    
+    
+    
+    
     const observeLinkVisibilityOnMount = _react.default.useCallback({
         "LinkComponent.useCallback[observeLinkVisibilityOnMount]": (element)=>{
             if (router !== null) {
@@ -873,7 +873,7 @@ function LinkComponent(props) {
             if ("TURBOPACK compile-time truthy", 1) {
                 return;
             }
-            //TURBOPACK unreachable
+            
             ;
             const upgradeToDynamicPrefetch = undefined;
         },
@@ -894,7 +894,7 @@ function LinkComponent(props) {
             (0, _links.onNavigationIntent)(e.currentTarget, upgradeToDynamicPrefetch);
         }
     };
-    // If the url is absolute, we can bypass the logic to prepend the basePath.
+    
     if ((0, _utils.isAbsoluteUrl)(as)) {
         childProps.href = as;
     } else if (!legacyBehavior || passHref || child.type === 'a' && !('href' in child.props)) {
@@ -905,28 +905,28 @@ function LinkComponent(props) {
         if ("TURBOPACK compile-time truthy", 1) {
             (0, _erroronce.errorOnce)('`legacyBehavior` is deprecated and will be removed in a future ' + 'release. A codemod is available to upgrade your components:\n\n' + 'npx @next/codemod@latest new-link .\n\n' + 'Learn more: https://nextjs.org/docs/app/building-your-application/upgrading/codemods#remove-a-tags-from-link-components');
         }
-        link = /*#__PURE__*/ _react.default.cloneElement(child, childProps);
+        link =  _react.default.cloneElement(child, childProps);
     } else {
-        link = /*#__PURE__*/ (0, _jsxruntime.jsx)("a", {
+        link =  (0, _jsxruntime.jsx)("a", {
             ...restProps,
             ...childProps,
             children: children
         });
     }
-    return /*#__PURE__*/ (0, _jsxruntime.jsx)(LinkStatusContext.Provider, {
+    return  (0, _jsxruntime.jsx)(LinkStatusContext.Provider, {
         value: linkStatus,
         children: link
     });
 }
-const LinkStatusContext = /*#__PURE__*/ (0, _react.createContext)(_links.IDLE_LINK_STATUS);
+const LinkStatusContext =  (0, _react.createContext)(_links.IDLE_LINK_STATUS);
 const useLinkStatus = ()=>{
     return (0, _react.useContext)(LinkStatusContext);
 };
 function getFetchStrategyFromPrefetchProp(prefetchProp) {
-    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    if ("TURBOPACK compile-time falsy", 0) 
     ;
     else {
-        return prefetchProp === null || prefetchProp === 'auto' ? _types.FetchStrategy.PPR : // (although invalid values should've been filtered out by prop validation in dev)
+        return prefetchProp === null || prefetchProp === 'auto' ? _types.FetchStrategy.PPR : 
         _types.FetchStrategy.Full;
     }
 }
@@ -936,12 +936,12 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=link.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-avatar/node_modules/@radix-ui/react-context/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// src/create-context.tsx
+
 __turbopack_context__.s([
     "createContext",
     ()=>createContext2,
@@ -960,7 +960,7 @@ function createContext2(rootComponentName, defaultContext) {
         const value = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"]({
             "createContext2.Provider.useMemo[value]": ()=>context
         }["createContext2.Provider.useMemo[value]"], Object.values(context));
-        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Context.Provider, {
+        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Context.Provider, {
             value,
             children
         });
@@ -993,7 +993,7 @@ function createContextScope(scopeName, createContextScopeDeps = []) {
             const value = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"]({
                 "createContextScope.createContext3.Provider.useMemo[value]": ()=>context
             }["createContextScope.createContext3.Provider.useMemo[value]"], Object.values(context));
-            return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Context.Provider, {
+            return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Context.Provider, {
                 value,
                 children
             });
@@ -1066,12 +1066,12 @@ function composeContextScopes(...scopes) {
     return createScope;
 }
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// src/slot.tsx
+
 __turbopack_context__.s([
     "Root",
     ()=>Slot,
@@ -1098,9 +1098,9 @@ function isPromiseLike(value) {
 function isLazyComponent(element) {
     return element != null && typeof element === "object" && "$$typeof" in element && element.$$typeof === REACT_LAZY_TYPE && "_payload" in element && isPromiseLike(element._payload);
 }
-// @__NO_SIDE_EFFECTS__
+
 function createSlot(ownerName) {
-    const SlotClone = /* @__PURE__ */ createSlotClone(ownerName);
+    const SlotClone =  createSlotClone(ownerName);
     const Slot2 = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.forwardRef((props, forwardedRef)=>{
         let { children, ...slotProps } = props;
         if (isLazyComponent(children) && typeof use === "function") {
@@ -1118,13 +1118,13 @@ function createSlot(ownerName) {
                     return child;
                 }
             });
-            return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+            return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
                 ...slotProps,
                 ref: forwardedRef,
                 children: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.isValidElement(newElement) ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.cloneElement(newElement, void 0, newChildren) : null
             });
         }
-        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
             ...slotProps,
             ref: forwardedRef,
             children
@@ -1133,8 +1133,8 @@ function createSlot(ownerName) {
     Slot2.displayName = `${ownerName}.Slot`;
     return Slot2;
 }
-var Slot = /* @__PURE__ */ createSlot("Slot");
-// @__NO_SIDE_EFFECTS__
+var Slot =  createSlot("Slot");
+
 function createSlotClone(ownerName) {
     const SlotClone = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.forwardRef((props, forwardedRef)=>{
         let { children, ...slotProps } = props;
@@ -1155,10 +1155,10 @@ function createSlotClone(ownerName) {
     return SlotClone;
 }
 var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-// @__NO_SIDE_EFFECTS__
+
 function createSlottable(ownerName) {
     const Slottable2 = ({ children })=>{
-        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
             children
         });
     };
@@ -1166,7 +1166,7 @@ function createSlottable(ownerName) {
     Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
     return Slottable2;
 }
-var Slottable = /* @__PURE__ */ createSlottable("Slottable");
+var Slottable =  createSlottable("Slottable");
 function isSlottable(child) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.isValidElement(child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER;
 }
@@ -1219,12 +1219,12 @@ function getElementRef(element) {
     return element.props.ref || element.ref;
 }
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-avatar/node_modules/@radix-ui/react-primitive/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// src/primitive.tsx
+
 __turbopack_context__.s([
     "Primitive",
     ()=>Primitive,
@@ -1268,7 +1268,7 @@ var Primitive = NODES.reduce((primitive, node)=>{
         if (typeof window !== "undefined") {
             window[Symbol.for("radix-ui")] = true;
         }
-        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Comp, {
+        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Comp, {
             ...primitiveProps,
             ref: forwardedRef
         });
@@ -1284,20 +1284,20 @@ function dispatchDiscreteCustomEvent(target, event) {
 }
 var Root = Primitive;
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * @license React
- * use-sync-external-store-shim.development.js
- *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+
+
+
+
+
+
+
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 "use strict";
 "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function is(x, y) {
@@ -1371,9 +1371,9 @@ var Root = Primitive;
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/use-sync-external-store/shim/index.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 'use strict';
-if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+if ("TURBOPACK compile-time falsy", 0) 
 ;
 else {
     module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js [app-client] (ecmascript)");
@@ -1382,7 +1382,7 @@ else {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-is-hydrated/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// src/use-is-hydrated.tsx
+
 __turbopack_context__.s([
     "useIsHydrated",
     ()=>useIsHydrated
@@ -1400,7 +1400,7 @@ function subscribe() {
     return ()=>{};
 }
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-avatar/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -1421,7 +1421,7 @@ __turbopack_context__.s([
     "createAvatarScope",
     ()=>createAvatarScope
 ]);
-// src/avatar.tsx
+
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$avatar$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$context$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-avatar/node_modules/@radix-ui/react-context/dist/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$use$2d$callback$2d$ref$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-callback-ref/dist/index.mjs [app-client] (ecmascript)");
@@ -1443,11 +1443,11 @@ var [AvatarProvider, useAvatarContext] = createAvatarContext(AVATAR_NAME);
 var Avatar = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeAvatar, ...avatarProps } = props;
     const [imageLoadingStatus, setImageLoadingStatus] = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"]("idle");
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(AvatarProvider, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(AvatarProvider, {
         scope: __scopeAvatar,
         imageLoadingStatus,
         onImageLoadingStatusChange: setImageLoadingStatus,
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$avatar$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].span, {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$avatar$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].span, {
             ...avatarProps,
             ref: forwardedRef
         })
@@ -1475,7 +1475,7 @@ var AvatarImage = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Pro
         imageLoadingStatus,
         handleLoadingStatusChange
     ]);
-    return imageLoadingStatus === "loaded" ? /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$avatar$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].img, {
+    return imageLoadingStatus === "loaded" ?  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$avatar$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].img, {
         ...imageProps,
         ref: forwardedRef,
         src
@@ -1501,7 +1501,7 @@ var AvatarFallback = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$
     }["AvatarFallback.useEffect"], [
         delayMs
     ]);
-    return canRender && context.imageLoadingStatus !== "loaded" ? /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$avatar$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].span, {
+    return canRender && context.imageLoadingStatus !== "loaded" ?  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$avatar$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].span, {
         ...fallbackProps,
         ref: forwardedRef
     }) : null;
@@ -1578,17 +1578,17 @@ var Root = Avatar;
 var Image = AvatarImage;
 var Fallback = AvatarFallback;
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/layout-dashboard.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -1644,7 +1644,7 @@ const __iconNode = [
 ];
 const LayoutDashboard = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("LayoutDashboard", __iconNode);
 ;
- //# sourceMappingURL=layout-dashboard.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/layout-dashboard.js [app-client] (ecmascript) <export default as LayoutDashboard>", ((__turbopack_context__) => {
 "use strict";
@@ -1658,12 +1658,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chart-no-axes-column-increasing.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -1705,7 +1705,7 @@ const __iconNode = [
 ];
 const ChartNoAxesColumnIncreasing = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("ChartNoAxesColumnIncreasing", __iconNode);
 ;
- //# sourceMappingURL=chart-no-axes-column-increasing.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chart-no-axes-column-increasing.js [app-client] (ecmascript) <export default as BarChart>", ((__turbopack_context__) => {
 "use strict";
@@ -1719,12 +1719,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/activity.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -1743,7 +1743,7 @@ const __iconNode = [
 ];
 const Activity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Activity", __iconNode);
 ;
- //# sourceMappingURL=activity.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/activity.js [app-client] (ecmascript) <export default as Activity>", ((__turbopack_context__) => {
 "use strict";
@@ -1757,12 +1757,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/users.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -1804,7 +1804,7 @@ const __iconNode = [
 ];
 const Users = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Users", __iconNode);
 ;
- //# sourceMappingURL=users.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/users.js [app-client] (ecmascript) <export default as Users>", ((__turbopack_context__) => {
 "use strict";
@@ -1818,12 +1818,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/megaphone.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -1849,7 +1849,7 @@ const __iconNode = [
 ];
 const Megaphone = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Megaphone", __iconNode);
 ;
- //# sourceMappingURL=megaphone.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/megaphone.js [app-client] (ecmascript) <export default as Megaphone>", ((__turbopack_context__) => {
 "use strict";
@@ -1863,12 +1863,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/square-kanban.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -1912,7 +1912,7 @@ const __iconNode = [
 ];
 const SquareKanban = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("SquareKanban", __iconNode);
 ;
- //# sourceMappingURL=square-kanban.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/square-kanban.js [app-client] (ecmascript) <export default as KanbanSquare>", ((__turbopack_context__) => {
 "use strict";
@@ -1926,12 +1926,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/life-buoy.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -1989,7 +1989,7 @@ const __iconNode = [
 ];
 const LifeBuoy = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("LifeBuoy", __iconNode);
 ;
- //# sourceMappingURL=life-buoy.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/life-buoy.js [app-client] (ecmascript) <export default as LifeBuoy>", ((__turbopack_context__) => {
 "use strict";
@@ -2003,12 +2003,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/user-plus.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2056,7 +2056,7 @@ const __iconNode = [
 ];
 const UserPlus = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("UserPlus", __iconNode);
 ;
- //# sourceMappingURL=user-plus.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/user-plus.js [app-client] (ecmascript) <export default as UserPlus>", ((__turbopack_context__) => {
 "use strict";
@@ -2070,12 +2070,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/lock.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2106,7 +2106,7 @@ const __iconNode = [
 ];
 const Lock = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Lock", __iconNode);
 ;
- //# sourceMappingURL=lock.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/lock.js [app-client] (ecmascript) <export default as Lock>", ((__turbopack_context__) => {
 "use strict";
@@ -2120,12 +2120,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/star.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2144,7 +2144,7 @@ const __iconNode = [
 ];
 const Star = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Star", __iconNode);
 ;
- //# sourceMappingURL=star.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/star.js [app-client] (ecmascript) <export default as Star>", ((__turbopack_context__) => {
 "use strict";
@@ -2158,12 +2158,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/file-text.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2210,7 +2210,7 @@ const __iconNode = [
 ];
 const FileText = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("FileText", __iconNode);
 ;
- //# sourceMappingURL=file-text.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/file-text.js [app-client] (ecmascript) <export default as FileText>", ((__turbopack_context__) => {
 "use strict";
@@ -2224,12 +2224,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/receipt.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2262,7 +2262,7 @@ const __iconNode = [
 ];
 const Receipt = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Receipt", __iconNode);
 ;
- //# sourceMappingURL=receipt.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/receipt.js [app-client] (ecmascript) <export default as Receipt>", ((__turbopack_context__) => {
 "use strict";
@@ -2276,12 +2276,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/square-check.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2311,7 +2311,7 @@ const __iconNode = [
 ];
 const SquareCheck = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("SquareCheck", __iconNode);
 ;
- //# sourceMappingURL=square-check.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/square-check.js [app-client] (ecmascript) <export default as SquareCheck>", ((__turbopack_context__) => {
 "use strict";
@@ -2325,12 +2325,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/briefcase.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2360,7 +2360,7 @@ const __iconNode = [
 ];
 const Briefcase = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Briefcase", __iconNode);
 ;
- //# sourceMappingURL=briefcase.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/briefcase.js [app-client] (ecmascript) <export default as Briefcase>", ((__turbopack_context__) => {
 "use strict";
@@ -2374,12 +2374,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/box.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2412,7 +2412,7 @@ const __iconNode = [
 ];
 const Box = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Box", __iconNode);
 ;
- //# sourceMappingURL=box.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/box.js [app-client] (ecmascript) <export default as BoxIcon>", ((__turbopack_context__) => {
 "use strict";
@@ -2426,12 +2426,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/dollar-sign.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2460,7 +2460,7 @@ const __iconNode = [
 ];
 const DollarSign = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("DollarSign", __iconNode);
 ;
- //# sourceMappingURL=dollar-sign.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/dollar-sign.js [app-client] (ecmascript) <export default as DollarSign>", ((__turbopack_context__) => {
 "use strict";
@@ -2474,12 +2474,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/code.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2505,7 +2505,7 @@ const __iconNode = [
 ];
 const Code = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Code", __iconNode);
 ;
- //# sourceMappingURL=code.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/code.js [app-client] (ecmascript) <export default as Code>", ((__turbopack_context__) => {
 "use strict";
@@ -2519,12 +2519,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/image.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2564,7 +2564,7 @@ const __iconNode = [
 ];
 const Image = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Image", __iconNode);
 ;
- //# sourceMappingURL=image.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/image.js [app-client] (ecmascript) <export default as Image>", ((__turbopack_context__) => {
 "use strict";
@@ -2578,12 +2578,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/circle-play.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2611,7 +2611,7 @@ const __iconNode = [
 ];
 const CirclePlay = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("CirclePlay", __iconNode);
 ;
- //# sourceMappingURL=circle-play.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/circle-play.js [app-client] (ecmascript) <export default as PlayCircle>", ((__turbopack_context__) => {
 "use strict";
@@ -2625,12 +2625,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/calendar-days.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2716,7 +2716,7 @@ const __iconNode = [
 ];
 const CalendarDays = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("CalendarDays", __iconNode);
 ;
- //# sourceMappingURL=calendar-days.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/calendar-days.js [app-client] (ecmascript) <export default as CalendarDays>", ((__turbopack_context__) => {
 "use strict";
@@ -2730,12 +2730,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/settings.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2763,7 +2763,7 @@ const __iconNode = [
 ];
 const Settings = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Settings", __iconNode);
 ;
- //# sourceMappingURL=settings.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/settings.js [app-client] (ecmascript) <export default as Settings>", ((__turbopack_context__) => {
 "use strict";
@@ -2777,12 +2777,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/mail.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2812,7 +2812,7 @@ const __iconNode = [
 ];
 const Mail = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Mail", __iconNode);
 ;
- //# sourceMappingURL=mail.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/mail.js [app-client] (ecmascript) <export default as Mail>", ((__turbopack_context__) => {
 "use strict";
@@ -2826,12 +2826,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/credit-card.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2864,7 +2864,7 @@ const __iconNode = [
 ];
 const CreditCard = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("CreditCard", __iconNode);
 ;
- //# sourceMappingURL=credit-card.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/credit-card.js [app-client] (ecmascript) <export default as CreditCard>", ((__turbopack_context__) => {
 "use strict";
@@ -2878,12 +2878,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/wallet.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2909,7 +2909,7 @@ const __iconNode = [
 ];
 const Wallet = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Wallet", __iconNode);
 ;
- //# sourceMappingURL=wallet.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/wallet.js [app-client] (ecmascript) <export default as Wallet>", ((__turbopack_context__) => {
 "use strict";
@@ -2923,12 +2923,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/book-open.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2954,7 +2954,7 @@ const __iconNode = [
 ];
 const BookOpen = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("BookOpen", __iconNode);
 ;
- //# sourceMappingURL=book-open.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/book-open.js [app-client] (ecmascript) <export default as BookOpen>", ((__turbopack_context__) => {
 "use strict";
@@ -2968,12 +2968,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/headphones.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2992,7 +2992,7 @@ const __iconNode = [
 ];
 const Headphones = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Headphones", __iconNode);
 ;
- //# sourceMappingURL=headphones.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/headphones.js [app-client] (ecmascript) <export default as Headphones>", ((__turbopack_context__) => {
 "use strict";
@@ -3006,12 +3006,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/trash-2.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -3064,7 +3064,7 @@ const __iconNode = [
 ];
 const Trash2 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Trash2", __iconNode);
 ;
- //# sourceMappingURL=trash-2.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/trash-2.js [app-client] (ecmascript) <export default as Trash2>", ((__turbopack_context__) => {
 "use strict";
@@ -3078,7 +3078,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-id/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// packages/react/id/src/id.tsx
+
 __turbopack_context__.s([
     "useId",
     ()=>useId
@@ -3103,7 +3103,7 @@ function useId(deterministicId) {
     return deterministicId || (id ? `radix-${id}` : "");
 }
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-focus-scope/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -3114,7 +3114,7 @@ __turbopack_context__.s([
     "Root",
     ()=>Root
 ]);
-// src/focus-scope.tsx
+
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-compose-refs/dist/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-primitive/dist/index.mjs [app-client] (ecmascript)");
@@ -3286,7 +3286,7 @@ var FocusScope = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proj
         trapped,
         focusScope.paused
     ]);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
         tabIndex: -1,
         ...scopeProps,
         ref: composedRefs,
@@ -3385,7 +3385,7 @@ function removeLinks(items) {
 }
 var Root = FocusScope;
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-focus-guards/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -3398,7 +3398,7 @@ __turbopack_context__.s([
     "useFocusGuards",
     ()=>useFocusGuards
 ]);
-// src/focus-guards.tsx
+
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 "use client";
 ;
@@ -3438,25 +3438,25 @@ function createFocusGuard() {
     return element;
 }
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/tslib/tslib.es6.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/******************************************************************************
-Copyright (c) Microsoft Corporation.
 
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
 
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */ /* global Reflect, Promise, SuppressedError, Symbol, Iterator */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+  __turbopack_context__.s([
     "__addDisposableResource",
     ()=>__addDisposableResource,
     "__assign",
@@ -3670,7 +3670,7 @@ function __generator(thisArg, body) {
     return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() {
         return this;
     }), g;
-    //TURBOPACK unreachable
+    
     ;
     function verb(n) {
         return function(v) {
@@ -3829,7 +3829,7 @@ function __asyncGenerator(thisArg, _arguments, generator) {
     return i = Object.create((typeof AsyncIterator === "function" ? AsyncIterator : Object).prototype), verb("next"), verb("throw"), verb("return", awaitReturn), i[Symbol.asyncIterator] = function() {
         return this;
     }, i;
-    //TURBOPACK unreachable
+    
     ;
     function awaitReturn(f) {
         return function(v) {
@@ -3878,7 +3878,7 @@ function __asyncDelegator(o) {
     }), verb("return"), i[Symbol.iterator] = function() {
         return this;
     }, i;
-    //TURBOPACK unreachable
+    
     ;
     function verb(n, f) {
         i[n] = o[n] ? function(v) {
@@ -3895,7 +3895,7 @@ function __asyncValues(o) {
     return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
         return this;
     }, i);
-    //TURBOPACK unreachable
+    
     ;
     function verb(n) {
         i[n] = o[n] && function(v) {
@@ -4033,7 +4033,7 @@ function __disposeResources(env) {
     return next();
 }
 function __rewriteRelativeImportExtension(path, preserveJsx) {
-    if (typeof path === "string" && /^\.\.?\//.test(path)) {
+    if (typeof path === "string" && /^\.\.?\
         return path.replace(/\.(tsx)$|((?:\.d)?)((?:\.[^./]+?)?)\.([cm]?)ts$/i, function(m, tsx, d, ext, cm) {
             return tsx ? preserveJsx ? ".jsx" : ".js" : d && (!ext || !cm) ? m : d + ext + "." + cm.toLowerCase() + "js";
         });
@@ -4096,19 +4096,19 @@ var removedBarSizeVariable = '--removed-body-scroll-bar-size';
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/use-callback-ref/dist/es2015/assignRef.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Assigns a value for a given ref, no matter of the ref format
- * @param {RefObject} ref - a callback function or ref object
- * @param value - a new value
- *
- * @see https://github.com/theKashey/use-callback-ref#assignref
- * @example
- * const refObject = useRef();
- * const refFn = (ref) => {....}
- *
- * assignRef(refObject, "refValue");
- * assignRef(refFn, "refValue");
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "assignRef",
     ()=>assignRef
 ]);
@@ -4134,11 +4134,11 @@ function useCallbackRef(initialValue, callback) {
     var ref = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
         "useCallbackRef.useState": function() {
             return {
-                // value
+                
                 value: initialValue,
-                // last callback
+                
                 callback: callback,
-                // "memoized" public interface
+                
                 facade: {
                     get current () {
                         return ref.value;
@@ -4154,7 +4154,7 @@ function useCallbackRef(initialValue, callback) {
             };
         }
     }["useCallbackRef.useState"])[0];
-    // update callback
+    
     ref.callback = callback;
     return ref.facade;
 }
@@ -4184,7 +4184,7 @@ function useMergeRefs(refs, defaultValue) {
             }["useMergeRefs.useCallbackRef[callbackRef]"]);
         }
     }["useMergeRefs.useCallbackRef[callbackRef]"]);
-    // handle refs changes - added or removed
+    
     useIsomorphicLayoutEffect({
         "useMergeRefs.useIsomorphicLayoutEffect": function() {
             var oldValue = currentValues.get(callbackRef);
@@ -4351,9 +4351,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var nothing = function() {
     return;
 };
-/**
- * Removes scrollbar from the page and contain the scroll within the Lock
- */ var RemoveScroll = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](function(props, parentRef) {
+
+
+ var RemoveScroll = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](function(props, parentRef) {
     var ref = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](null);
     var _a = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"]({
         onScrollCapture: nothing,
@@ -4483,9 +4483,9 @@ function makeStyleTag() {
     return tag;
 }
 function injectStyles(tag, css) {
-    // @ts-ignore
+    
     if (tag.styleSheet) {
-        // @ts-ignore
+        
         tag.styleSheet.cssText = css;
     } else {
         tag.appendChild(document.createTextNode(css));
@@ -4646,9 +4646,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 var Style = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$style$2d$singleton$2f$dist$2f$es2015$2f$component$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["styleSingleton"])();
 var lockAttribute = 'data-scroll-locked';
-// important tip - once we measure scrollBar width and remove them
-// we could not repeat this operation
-// thus we are using style-singleton - only the first "yet correct" style will be applied.
+
+
+
 var getStyles = function(_a, allowRelative, gapMode, important) {
     var left = _a.left, top = _a.top, right = _a.right, gap = _a.gap;
     if (gapMode === void 0) {
@@ -4684,11 +4684,11 @@ var useLockAttribute = function() {
 var RemoveScrollBar = function(_a) {
     var noRelative = _a.noRelative, noImportant = _a.noImportant, _b = _a.gapMode, gapMode = _b === void 0 ? 'margin' : _b;
     useLockAttribute();
-    /*
-     gap will be measured on every component mount
-     however it will be used only by the "first" invocation
-     due to singleton nature of <Style
-     */ var gap = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"]({
+    
+
+
+
+ var gap = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"]({
         "RemoveScrollBar.useMemo[gap]": function() {
             return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$remove$2d$scroll$2d$bar$2f$dist$2f$es2015$2f$utils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getGapWidth"])(gapMode);
         }
@@ -4728,9 +4728,9 @@ if (typeof window !== 'undefined') {
                 return true;
             }
         });
-        // @ts-ignore
+        
         window.addEventListener('test', options, options);
-        // @ts-ignore
+        
         window.removeEventListener('test', options, options);
     } catch (err) {
         passiveSupported = false;
@@ -4750,7 +4750,7 @@ __turbopack_context__.s([
     ()=>locationCouldBeScrolled
 ]);
 var alwaysContainsScroll = function(node) {
-    // textarea will always _contain_ scroll inside self. It only can be hidden
+    
     return node.tagName === 'TEXTAREA';
 };
 var elementCanBeScrolled = function(node, overflow) {
@@ -4758,8 +4758,8 @@ var elementCanBeScrolled = function(node, overflow) {
         return false;
     }
     var styles = window.getComputedStyle(node);
-    return(// not-not-scrollable
-    styles[overflow] !== 'hidden' && // contains scroll inside self
+    return(
+    styles[overflow] !== 'hidden' && 
     !(styles.overflowY === styles.overflowX && !alwaysContainsScroll(node) && styles[overflow] === 'visible'));
 };
 var elementCouldBeVScrolled = function(node) {
@@ -4772,7 +4772,7 @@ var locationCouldBeScrolled = function(axis, node) {
     var ownerDocument = node.ownerDocument;
     var current = node;
     do {
-        // Skip over shadow root
+        
         if (typeof ShadowRoot !== 'undefined' && current instanceof ShadowRoot) {
             current = current.host;
         }
@@ -4810,16 +4810,16 @@ var getScrollVariables = function(axis, node) {
     return axis === 'v' ? getVScrollVariables(node) : getHScrollVariables(node);
 };
 var getDirectionFactor = function(axis, direction) {
-    /**
-     * If the element's direction is rtl (right-to-left), then scrollLeft is 0 when the scrollbar is at its rightmost position,
-     * and then increasingly negative as you scroll towards the end of the content.
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollLeft
-     */ return axis === 'h' && direction === 'rtl' ? -1 : 1;
+    
+
+
+
+ return axis === 'h' && direction === 'rtl' ? -1 : 1;
 };
 var handleScroll = function(axis, endTarget, event, sourceDelta, noOverscroll) {
     var directionFactor = getDirectionFactor(axis, window.getComputedStyle(endTarget).direction);
     var delta = directionFactor * sourceDelta;
-    // find scrollable target
+    
     var target = event.target;
     var targetInLock = endTarget.contains(target);
     var shouldCancelScroll = false;
@@ -4839,12 +4839,12 @@ var handleScroll = function(axis, endTarget, event, sourceDelta, noOverscroll) {
             }
         }
         var parent_1 = target.parentNode;
-        // we will "bubble" from ShadowDom in case we are, or just to the parent in normal case
-        // this is the same logic used in focus-lock
+        
+        
         target = parent_1 && parent_1.nodeType === Node.DOCUMENT_FRAGMENT_NODE ? parent_1.host : parent_1;
-    }while (// portaled content
+    }while (
     !targetInLock && target !== document.body || targetInLock && (endTarget.contains(target) || endTarget === target))
-    // handle epsilon around 0 (non standard zoom levels)
+    
     if (isDeltaPositive && (noOverscroll && Math.abs(availableScroll) < 1 || !noOverscroll && delta > availableScroll)) {
         shouldCancelScroll = true;
     } else if (!isDeltaPositive && (noOverscroll && Math.abs(availableScrollTop) < 1 || !noOverscroll && -delta > availableScrollTop)) {
@@ -4963,11 +4963,11 @@ function RemoveScrollSideCar(props) {
             var currentAxis;
             var target = event.target;
             var moveDirection = Math.abs(deltaX) > Math.abs(deltaY) ? 'h' : 'v';
-            // allow horizontal touch move on Range inputs. They will not cause any scroll
+            
             if ('touches' in event && moveDirection === 'h' && target.type === 'range') {
                 return false;
             }
-            // allow drag selection (iOS); check if selection's anchorNode is the same as target or contains target
+            
             var selection = window.getSelection();
             var anchorNode = selection && selection.anchorNode;
             var isTouchingSelection = anchorNode ? anchorNode === target || anchorNode.contains(target) : false;
@@ -4983,7 +4983,7 @@ function RemoveScrollSideCar(props) {
             } else {
                 currentAxis = moveDirection === 'v' ? 'h' : 'v';
                 canBeScrolledInMainDirection = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$remove$2d$scroll$2f$dist$2f$es2015$2f$handleScroll$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["locationCouldBeScrolled"])(moveDirection, target);
-            // other axis might be not scrollable
+            
             }
             if (!canBeScrolledInMainDirection) {
                 return false;
@@ -5002,7 +5002,7 @@ function RemoveScrollSideCar(props) {
         "RemoveScrollSideCar.useCallback[shouldPrevent]": function(_event) {
             var event = _event;
             if (!lockStack.length || lockStack[lockStack.length - 1] !== Style) {
-                // not the last active
+                
                 return;
             }
             var delta = 'deltaY' in event ? getDeltaXY(event) : getTouchXY(event);
@@ -5011,14 +5011,14 @@ function RemoveScrollSideCar(props) {
                     return e.name === event.type && (e.target === event.target || event.target === e.shadowParent) && deltaCompare(e.delta, delta);
                 }
             }["RemoveScrollSideCar.useCallback[shouldPrevent]"])[0];
-            // self event, and should be canceled
+            
             if (sourceEvent && sourceEvent.should) {
                 if (event.cancelable) {
                     event.preventDefault();
                 }
                 return;
             }
-            // outside or shard event
+            
             if (!sourceEvent) {
                 var shardNodes = (lastProps.current.shards || []).map(extractRef).filter(Boolean).filter({
                     "RemoveScrollSideCar.useCallback[shouldPrevent].shardNodes": function(node) {
@@ -5206,14 +5206,14 @@ var correctTargets = function(parent, targets) {
         return Boolean(x);
     });
 };
-/**
- * Marks everything except given node(or nodes) as aria-hidden
- * @param {Element | Element[]} originalTarget - elements to keep on the page
- * @param [parentNode] - top element, defaults to document.body
- * @param {String} [markerName] - a special attribute to mark every node
- * @param {String} [controlAttribute] - html Attribute to control
- * @return {Undo} undo command
- */ var applyAttributeToOthers = function(originalTarget, parentNode, markerName, controlAttribute) {
+
+
+
+
+
+
+
+ var applyAttributeToOthers = function(originalTarget, parentNode, markerName, controlAttribute) {
     var targets = correctTargets(parentNode, Array.isArray(originalTarget) ? originalTarget : [
         originalTarget
     ]);
@@ -5284,7 +5284,7 @@ var correctTargets = function(parent, targets) {
         });
         lockCount--;
         if (!lockCount) {
-            // clear
+            
             counterMap = new WeakMap();
             counterMap = new WeakMap();
             uncontrolledNodes = new WeakMap();
@@ -5305,8 +5305,8 @@ var hideOthers = function(originalTarget, parentNode, markerName) {
             return null;
         };
     }
-    // we should not hide aria-live elements - https://github.com/theKashey/aria-hidden/issues/10
-    // and script elements, as they have no impact on accessibility.
+    
+    
     targets.push.apply(targets, Array.from(activeParentNode.querySelectorAll('[aria-live], script')));
     return applyAttributeToOthers(targets, activeParentNode, markerName, 'aria-hidden');
 };
@@ -5335,7 +5335,7 @@ var suppressOthers = function(originalTarget, parentNode, markerName) {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// src/slot.tsx
+
 __turbopack_context__.s([
     "Root",
     ()=>Slot,
@@ -5354,9 +5354,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-// @__NO_SIDE_EFFECTS__
+
 function createSlot(ownerName) {
-    const SlotClone = /* @__PURE__ */ createSlotClone(ownerName);
+    const SlotClone =  createSlotClone(ownerName);
     const Slot2 = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
         const { children, ...slotProps } = props;
         const childrenArray = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Children"].toArray(children);
@@ -5371,13 +5371,13 @@ function createSlot(ownerName) {
                     return child;
                 }
             });
-            return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+            return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
                 ...slotProps,
                 ref: forwardedRef,
                 children: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isValidElement"](newElement) ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cloneElement"](newElement, void 0, newChildren) : null
             });
         }
-        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
             ...slotProps,
             ref: forwardedRef,
             children
@@ -5386,8 +5386,8 @@ function createSlot(ownerName) {
     Slot2.displayName = `${ownerName}.Slot`;
     return Slot2;
 }
-var Slot = /* @__PURE__ */ createSlot("Slot");
-// @__NO_SIDE_EFFECTS__
+var Slot =  createSlot("Slot");
+
 function createSlotClone(ownerName) {
     const SlotClone = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
         const { children, ...slotProps } = props;
@@ -5405,10 +5405,10 @@ function createSlotClone(ownerName) {
     return SlotClone;
 }
 var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-// @__NO_SIDE_EFFECTS__
+
 function createSlottable(ownerName) {
     const Slottable2 = ({ children })=>{
-        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
             children
         });
     };
@@ -5416,7 +5416,7 @@ function createSlottable(ownerName) {
     Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
     return Slottable2;
 }
-var Slottable = /* @__PURE__ */ createSlottable("Slottable");
+var Slottable =  createSlottable("Slottable");
 function isSlottable(child) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isValidElement"](child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER;
 }
@@ -5469,7 +5469,7 @@ function getElementRef(element) {
     return element.props.ref || element.ref;
 }
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-dialog/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -5512,7 +5512,7 @@ __turbopack_context__.s([
     "createDialogScope",
     ()=>createDialogScope
 ]);
-// src/dialog.tsx
+
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/primitive/dist/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-compose-refs/dist/index.mjs [app-client] (ecmascript)");
@@ -5559,7 +5559,7 @@ var Dialog = (props)=>{
         onChange: onOpenChange,
         caller: DIALOG_NAME
     });
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DialogProvider, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DialogProvider, {
         scope: __scopeDialog,
         triggerRef,
         contentRef,
@@ -5585,7 +5585,7 @@ var DialogTrigger = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$P
     const { __scopeDialog, ...triggerProps } = props;
     const context = useDialogContext(TRIGGER_NAME, __scopeDialog);
     const composedTriggerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useComposedRefs"])(forwardedRef, context.triggerRef);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].button, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].button, {
         type: "button",
         "aria-haspopup": "dialog",
         "aria-expanded": context.open,
@@ -5604,12 +5604,12 @@ var [PortalProvider, usePortalContext] = createDialogContext(PORTAL_NAME, {
 var DialogPortal = (props)=>{
     const { __scopeDialog, forceMount, children, container } = props;
     const context = useDialogContext(PORTAL_NAME, __scopeDialog);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PortalProvider, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PortalProvider, {
         scope: __scopeDialog,
         forceMount,
-        children: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Children"].map(children, (child)=>/* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$presence$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Presence"], {
+        children: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Children"].map(children, (child)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$presence$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Presence"], {
                 present: forceMount || context.open,
-                children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$portal$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Portal"], {
+                children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$portal$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Portal"], {
                     asChild: true,
                     container,
                     children: child
@@ -5623,9 +5623,9 @@ var DialogOverlay = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$P
     const portalContext = usePortalContext(OVERLAY_NAME, props.__scopeDialog);
     const { forceMount = portalContext.forceMount, ...overlayProps } = props;
     const context = useDialogContext(OVERLAY_NAME, props.__scopeDialog);
-    return context.modal ? /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$presence$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Presence"], {
+    return context.modal ?  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$presence$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Presence"], {
         present: forceMount || context.open,
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DialogOverlayImpl, {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DialogOverlayImpl, {
             ...overlayProps,
             ref: forwardedRef
         })
@@ -5636,15 +5636,15 @@ var Slot = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projec
 var DialogOverlayImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeDialog, ...overlayProps } = props;
     const context = useDialogContext(OVERLAY_NAME, __scopeDialog);
-    return(// Make sure `Content` is scrollable even when it doesn't live inside `RemoveScroll`
-    // ie. when `Overlay` and `Content` are siblings
-    /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$remove$2d$scroll$2f$dist$2f$es2015$2f$Combination$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RemoveScroll$3e$__["RemoveScroll"], {
+    return(
+    
+     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$remove$2d$scroll$2f$dist$2f$es2015$2f$Combination$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RemoveScroll$3e$__["RemoveScroll"], {
         as: Slot,
         allowPinchZoom: true,
         shards: [
             context.contentRef
         ],
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
             "data-state": getState(context.open),
             ...overlayProps,
             ref: forwardedRef,
@@ -5660,12 +5660,12 @@ var DialogContent = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$P
     const portalContext = usePortalContext(CONTENT_NAME, props.__scopeDialog);
     const { forceMount = portalContext.forceMount, ...contentProps } = props;
     const context = useDialogContext(CONTENT_NAME, props.__scopeDialog);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$presence$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Presence"], {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$presence$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Presence"], {
         present: forceMount || context.open,
-        children: context.modal ? /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DialogContentModal, {
+        children: context.modal ?  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DialogContentModal, {
             ...contentProps,
             ref: forwardedRef
-        }) : /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DialogContentNonModal, {
+        }) :  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DialogContentNonModal, {
             ...contentProps,
             ref: forwardedRef
         })
@@ -5682,7 +5682,7 @@ var DialogContentModal = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop
             if (content) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$aria$2d$hidden$2f$dist$2f$es2015$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["hideOthers"])(content);
         }
     }["DialogContentModal.useEffect"], []);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DialogContentImpl, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DialogContentImpl, {
         ...props,
         ref: composedRefs,
         trapFocus: context.open,
@@ -5704,7 +5704,7 @@ var DialogContentNonModal = __TURBOPACK__imported__module__$5b$project$5d2f$Desk
     const context = useDialogContext(CONTENT_NAME, props.__scopeDialog);
     const hasInteractedOutsideRef = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](false);
     const hasPointerDownOutsideRef = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](false);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DialogContentImpl, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DialogContentImpl, {
         ...props,
         ref: forwardedRef,
         trapFocus: false,
@@ -5741,15 +5741,15 @@ var DialogContentImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$
     const contentRef = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](null);
     const composedRefs = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useComposedRefs"])(forwardedRef, contentRef);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$focus$2d$guards$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useFocusGuards"])();
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
-            /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$focus$2d$scope$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FocusScope"], {
+             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$focus$2d$scope$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FocusScope"], {
                 asChild: true,
                 loop: true,
                 trapped: trapFocus,
                 onMountAutoFocus: onOpenAutoFocus,
                 onUnmountAutoFocus: onCloseAutoFocus,
-                children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dismissable$2d$layer$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DismissableLayer"], {
+                children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dismissable$2d$layer$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DismissableLayer"], {
                     role: "dialog",
                     id: context.contentId,
                     "aria-describedby": context.descriptionId,
@@ -5760,12 +5760,12 @@ var DialogContentImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$
                     onDismiss: ()=>context.onOpenChange(false)
                 })
             }),
-            /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                 children: [
-                    /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(TitleWarning, {
+                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(TitleWarning, {
                         titleId: context.titleId
                     }),
-                    /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DescriptionWarning, {
+                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DescriptionWarning, {
                         contentRef,
                         descriptionId: context.descriptionId
                     })
@@ -5778,7 +5778,7 @@ var TITLE_NAME = "DialogTitle";
 var DialogTitle = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeDialog, ...titleProps } = props;
     const context = useDialogContext(TITLE_NAME, __scopeDialog);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].h2, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].h2, {
         id: context.titleId,
         ...titleProps,
         ref: forwardedRef
@@ -5789,7 +5789,7 @@ var DESCRIPTION_NAME = "DialogDescription";
 var DialogDescription = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeDialog, ...descriptionProps } = props;
     const context = useDialogContext(DESCRIPTION_NAME, __scopeDialog);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].p, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].p, {
         id: context.descriptionId,
         ...descriptionProps,
         ref: forwardedRef
@@ -5800,7 +5800,7 @@ var CLOSE_NAME = "DialogClose";
 var DialogClose = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeDialog, ...closeProps } = props;
     const context = useDialogContext(CLOSE_NAME, __scopeDialog);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].button, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].button, {
         type: "button",
         ...closeProps,
         ref: forwardedRef,
@@ -5865,17 +5865,17 @@ var Title = DialogTitle;
 var Description = DialogDescription;
 var Close = DialogClose;
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/menu.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -5917,7 +5917,7 @@ const __iconNode = [
 ];
 const Menu = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Menu", __iconNode);
 ;
- //# sourceMappingURL=menu.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/menu.js [app-client] (ecmascript) <export default as Menu>", ((__turbopack_context__) => {
 "use strict";
@@ -5931,12 +5931,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/columns-2.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -5966,7 +5966,7 @@ const __iconNode = [
 ];
 const Columns2 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Columns2", __iconNode);
 ;
- //# sourceMappingURL=columns-2.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/columns-2.js [app-client] (ecmascript) <export default as Columns>", ((__turbopack_context__) => {
 "use strict";
@@ -5979,4 +5979,3 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 }),
 ]);
 
-//# sourceMappingURL=c729b_a3ecb808._.js.map

@@ -56,27 +56,27 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/mongodb [external] (mongodb, cjs)");
 ;
-/**
- * Dynamic MongoDB helper
- *
- * - Reads connection info from env: MONGODB_URI (required) and optional MONGODB_DB
- * - Lazily connects and caches the client across module reloads (works in dev/Next.js)
- * - Exposes getMongoClient(), getDb(dbName?), and closeMongoClient()
- */ const uri = process.env.MONGODB_URI || process.env.MONGO_URI || "";
+
+
+
+
+
+
+ const uri = process.env.MONGODB_URI || process.env.MONGO_URI || "";
 const defaultDbFromEnv = process.env.MONGODB_DB || process.env.MONGO_DB;
 if (!uri) {
-    // don't throw at import time in some environments, but surface a clear error when used
-    // Consumers should handle the missing URL or provide it via env.
-    // eslint-disable-next-line no-console
+    
+    
+    
     console.warn("MONGODB_URI is not set. MongoDB operations will fail until it's provided.");
 }
 let client = global._mongoClient;
 let clientPromise = global._mongoClientPromise;
 function parseDbNameFromUri(connectionString) {
     if (!connectionString) return undefined;
-    // strip query string
+    
     const withoutQuery = connectionString.split("?")[0];
-    // find last slash
+    
     const lastSlash = withoutQuery.lastIndexOf("/");
     if (lastSlash === -1) return undefined;
     const db = withoutQuery.substring(lastSlash + 1);
@@ -89,15 +89,15 @@ function ensureClientInitialized() {
         }
         client = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["MongoClient"](uri);
         clientPromise = client.connect();
-        // Cache on global to survive hot reloads in development
+        
         try {
             global._mongoClient = client;
             global._mongoClientPromise = clientPromise;
         } catch (e) {
-        // ignore non-writable global in some runtimes
+        
         }
     }
-    // clientPromise must be set here
+    
     return clientPromise;
 }
 async function getMongoClient() {
@@ -105,7 +105,7 @@ async function getMongoClient() {
 }
 async function getDb(dbName) {
     const conn = await ensureClientInitialized();
-    // priority: explicit arg -> MONGODB_DB env -> DB parsed from URI -> default 'admin'
+    
     const dbFromUri = parseDbNameFromUri(uri);
     const name = dbName || defaultDbFromEnv || dbFromUri || "admin";
     return conn.db(name);
@@ -121,7 +121,7 @@ async function closeMongoClient() {
             global._mongoClient = undefined;
             global._mongoClientPromise = undefined;
         } catch (e) {
-        // ignore
+        
         }
     }
 }
@@ -146,9 +146,9 @@ async function GET(request) {
         const campaigns = await db.collection("campaigns").find({}).sort({
             createdAt: -1
         }).toArray();
-        // Fetch whatsapp messages to get REAL delivery status from webhook
+        
         const messages = await db.collection("whatsapp_messages").find({}).toArray();
-        // Calculate insights
+        
         const insights = campaigns.reduce((acc, campaign)=>({
                 totalInitiated: acc.totalInitiated + campaign.totalContacts,
                 totalSent: acc.totalSent + campaign.sent,
@@ -164,16 +164,16 @@ async function GET(request) {
             totalReplied: 0,
             totalFailed: 0
         });
-        // =============== REAL DELIVERY STATUS FROM WEBHOOK ===============
-        // Count actual delivery status from whatsapp_messages collection
-        // This is the source of truth - what the webhook says actually happened
+        
+        
+        
         const deliveredCount = messages.filter((m)=>m.deliveryStatus === "delivered" || m.status === "delivered").length;
         const failedCount = messages.filter((m)=>m.deliveryStatus === "failed" || m.status === "failed").length;
         const sentCount = messages.filter((m)=>m.messageType === "sent").length;
         const receivedCount = messages.filter((m)=>m.messageType === "received").length;
-        // Count messages still pending (sent but not delivered yet)
+        
         const pendingCount = messages.filter((m)=>m.messageType === "sent" && m.deliveryStatus !== "delivered" && m.deliveryStatus !== "failed").length;
-        // =============== MESSAGE CATEGORIES FOR PRICING ===============
+        
         const byCategory = {
             marketing: 0,
             "marketing-lite": 0,
@@ -191,17 +191,17 @@ async function GET(request) {
                 byCategory[category]++;
             }
         });
-        // =============== DELIVERY STATUS BREAKDOWN ===============
-        // Count by actual webhook status - this shows what REALLY happened
+        
+        
         const failedMessages = messages.filter((m)=>m.deliveryStatus === "failed" || m.status === "failed");
-        // Group failures by reason for diagnostics
+        
         const failureReasons = {};
         failedMessages.forEach((msg)=>{
             const reason = msg.failureReason || msg.error_reason || "Unknown";
             failureReasons[reason] = (failureReasons[reason] || 0) + 1;
         });
-        // =============== PRICING CALCULATION ===============
-        // Only count DELIVERED messages for charges (not just sent)
+        
+        
         const chargesPerCategory = {
             marketing: 0.25,
             "marketing-lite": 0.15,
@@ -213,11 +213,11 @@ async function GET(request) {
             "customer-service": 0.12,
             "entry-point": 0.001
         };
-        // Calculate charges ONLY for delivered messages
+        
         let estimatedCharges = 0;
         const deliveredByCategory = {};
         messages.forEach((msg)=>{
-            // Only charge for delivered messages
+            
             if (msg.deliveryStatus === "delivered" || msg.status === "delivered") {
                 const category = msg.category || msg.templateName?.toLowerCase() || "marketing";
                 deliveredByCategory[category] = (deliveredByCategory[category] || 0) + 1;
@@ -229,26 +229,26 @@ async function GET(request) {
             campaigns,
             insights: {
                 ...insights,
-                // Override with real webhook data
+                
                 totalDelivered: deliveredCount,
                 totalFailed: failedCount,
                 totalSent: sentCount,
                 totalReplied: receivedCount,
-                // Category breakdown
+                
                 byCategory,
                 deliveredByCategory,
-                // Delivery status breakdown from webhook
+                
                 deliveryStatus: {
                     delivered: deliveredCount,
                     failed: failedCount,
                     pending: pendingCount,
                     sent: sentCount
                 },
-                // Failure diagnostics
+                
                 failureReasons,
-                // Estimated charges (only for delivered)
+                
                 estimatedCharges: parseFloat(estimatedCharges.toFixed(2)),
-                // Additional metrics for insights
+                
                 metrics: {
                     deliveryRate: sentCount > 0 ? (deliveredCount / sentCount * 100).toFixed(1) : "0",
                     failureRate: sentCount > 0 ? (failedCount / sentCount * 100).toFixed(1) : "0",
@@ -307,4 +307,3 @@ async function POST(request) {
 }),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__7eb8c5fd._.js.map

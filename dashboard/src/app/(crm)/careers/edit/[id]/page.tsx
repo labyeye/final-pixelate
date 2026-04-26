@@ -140,7 +140,7 @@ export default function EditJobPage() {
             <CardTitle>Job Details</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            {/* Basic Information */}
+            {}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="title">Job Title *</Label>
@@ -256,7 +256,7 @@ export default function EditJobPage() {
               </div>
             </div>
 
-            {/* Salary Information */}
+            {}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="salaryType">Salary Type *</Label>
@@ -291,7 +291,7 @@ export default function EditJobPage() {
               </div>
             </div>
 
-            {/* Description */}
+            {}
             <div className="space-y-2">
               <Label htmlFor="description">Job Description *</Label>
               <Textarea
@@ -304,7 +304,7 @@ export default function EditJobPage() {
               />
             </div>
 
-            {/* Requirements */}
+            {}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <Label>Requirements</Label>
@@ -341,7 +341,7 @@ export default function EditJobPage() {
               </div>
             </div>
 
-            {/* Responsibilities */}
+            {}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <Label>Responsibilities</Label>
@@ -380,7 +380,7 @@ export default function EditJobPage() {
               </div>
             </div>
 
-            {/* Tags/Skills */}
+            {}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <Label>Skills/Tags</Label>
@@ -417,7 +417,7 @@ export default function EditJobPage() {
               </div>
             </div>
 
-            {/* Submit Button */}
+            {}
             <div className="flex gap-4 pt-4">
               <Button type="submit" disabled={loading}>
                 {loading ? 'Updating...' : 'Update Job Posting'}

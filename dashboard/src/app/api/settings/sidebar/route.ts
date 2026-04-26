@@ -2,13 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { ObjectId } from "mongodb";
 
-/**
- * GET /api/settings/sidebar - Fetch staff users and their allowed pages
- */
+
+
+
 export async function GET() {
   try {
     const users = await svc.getUsers();
-    // Filter for staff only
+    
     const staff = users
       .filter((u: any) => u.role === "staff")
       .map((u: any) => ({
@@ -16,9 +16,9 @@ export async function GET() {
         name: u.name,
         email: u.email,
         role: u.role,
-        // Backwards compatible: older users may have `allowedPages` as string[]
-        // Newer format supports `pagePermissions` (object) with CRUD flags.
-        allowedPages: u.allowedPages || [], // Default to empty if not set
+        
+        
+        allowedPages: u.allowedPages || [], 
         pagePermissions: u.pagePermissions || (u.allowedPages || []).reduce((acc: any, href: string) => {
           acc[href] = { view: true };
           return acc;
@@ -35,9 +35,9 @@ export async function GET() {
   }
 }
 
-/**
- * POST /api/settings/sidebar - Update allowed pages for a user
- */
+
+
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Missing userId" }, { status: 400 });
     }
 
-    // Derive allowedPages from pagePermissions if provided, otherwise accept allowedPages array
+    
     let finalAllowedPages: string[] = [];
     if (pagePermissions && typeof pagePermissions === "object") {
       finalAllowedPages = Object.keys(pagePermissions).filter((href) => {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
 
     const col = await svc.getCollection("users");
-    // Update the user's allowedPages and pagePermissions (pagePermissions optional)
+    
     const update: any = { allowedPages: finalAllowedPages };
     if (pagePermissions && typeof pagePermissions === "object") update.pagePermissions = pagePermissions;
 
@@ -70,17 +70,17 @@ export async function POST(request: NextRequest) {
       { $set: update },
     );
 
-    // Log a permission change event for audit - include target staff member name
+    
     try {
       const { getDb } = await import("@/lib/mongodb");
       const db = await getDb();
       
-      // Get the target staff member's name
+      
       const targetUser = await db.collection("users").findOne({ _id: new ObjectId(userId) });
       const targetName = targetUser?.name || targetUser?.email || userId;
       
-      // Get the admin who made the change (from request headers or session if available)
-      // For now, we'll extract from body if provided, otherwise use "admin"
+      
+      
       const adminName = body.adminName || "Admin";
       
       await db.collection("erp_events").insertOne({

@@ -4,4 +4,3 @@ module.exports = [
 }),
 ];
 
-//# sourceMappingURL=09130_dashboard__next-internal_server_app_api_invoices_trash_route_actions_d7b90cb6.js.map

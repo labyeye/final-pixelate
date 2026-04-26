@@ -11,10 +11,10 @@ export async function PUT(
     const body = await req.json();
     const db = await getDb();
 
-    // Get the current user ID from the request
+    
     const userId = req.nextUrl.searchParams.get("userId");
 
-    // First, fetch the task to verify ownership
+    
     const task = await db
       .collection("tasks")
       .findOne({ _id: new ObjectId(id) });
@@ -23,7 +23,7 @@ export async function PUT(
       return NextResponse.json({ error: "Task not found" }, { status: 404 });
     }
 
-    // Verify that the user making the request is the one assigned to this task
+    
     if (userId && String(task.assigneeId) !== String(userId)) {
       return NextResponse.json(
         { error: "You can only update your own tasks" },
@@ -31,7 +31,7 @@ export async function PUT(
       );
     }
 
-    // Remove immutable fields or prepare update object
+    
     const updateData = {
       ...body,
       updatedAt: new Date(),

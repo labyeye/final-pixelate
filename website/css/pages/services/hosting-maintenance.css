@@ -1,10 +1,10 @@
-/* ============================================================
-   hosting-maintenance.css
-   Content-specific styles ONLY — Navbar, Hero & Footer
-   styles come from styles.css (global).
-   ============================================================ */
 
-/* ---------- Keyframe Animations ---------- */
+
+
+
+
+
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -87,7 +87,7 @@
     }
 }
 
-/* ---------- Scroll-reveal utility ---------- */
+
 .reveal {
     opacity: 0;
     transform: translateY(28px);
@@ -118,7 +118,7 @@
     transform: translateX(0);
 }
 
-/* Stagger delays */
+
 .delay-1 {
     transition-delay: 0.1s;
 }
@@ -139,9 +139,9 @@
     transition-delay: 0.5s;
 }
 
-/* ============================================================
-   WHAT WE MANAGE — intro strip
-   ============================================================ */
+
+
+
 .hm-intro-section {
     padding: 90px 24px 60px;
     max-width: 1200px;
@@ -182,16 +182,16 @@
     line-height: 1.75;
 }
 
-/* ============================================================
-   SERVICE DETAIL CARDS
-   ============================================================ */
+
+
+
 .hm-services-section {
     padding: 20px 24px 80px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* grid rows alternate layout */
+
 .hm-service-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -303,9 +303,9 @@
     font-weight: 500;
 }
 
-/* ============================================================
-   PLATFORMS SECTION
-   ============================================================ */
+
+
+
 .hm-platforms-section {
     padding: 80px 24px;
     max-width: 1200px;
@@ -377,9 +377,9 @@
     line-height: 1.5;
 }
 
-/* ============================================================
-   PRICING SECTION
-   ============================================================ */
+
+
+
 .hm-pricing-section {
     padding: 90px 24px;
     max-width: 1200px;
@@ -550,9 +550,9 @@
     color: rgba(255, 255, 255, .4);
 }
 
-/* ============================================================
-   FAQ SECTION
-   ============================================================ */
+
+
+
 .hm-faq-section {
     padding: 80px 24px 100px;
     max-width: 860px;
@@ -631,9 +631,9 @@
     transition: max-height .3s ease, padding .25s ease;
 }
 
-/* ============================================================
-   CTA STRIP (bottom)
-   ============================================================ */
+
+
+
 .hm-cta-strip {
     margin: 0 24px 80px;
     max-width: 1200px;
@@ -690,9 +690,9 @@
     transform: scale(1.03);
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
+
+
+
 @media (max-width: 900px) {
     .hm-service-row {
         grid-template-columns: 1fr;

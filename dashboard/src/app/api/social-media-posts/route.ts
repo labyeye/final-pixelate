@@ -8,7 +8,7 @@ const CORS = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
-// Helper function to log events to ERP console
+
 async function logErpEvent(
   type: string,
   target: string,
@@ -77,12 +77,12 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: Request) {
   try {
-    // Extract user info from Authorization header or request body
+    
     const body = await request.json();
     let userId: string | null = body?.userId || null;
     let email: string | null = body?.email || null;
 
-    // Try to extract from JWT token if not provided in body
+    
     if (!userId || !email) {
       const auth = request.headers.get("authorization") || "";
       const token = auth.replace("Bearer ", "");
@@ -100,7 +100,7 @@ export async function POST(request: Request) {
     const toInsert = {
       clientId: body?.clientId || "",
       socialAccountId: body?.socialAccountId || "",
-      socialAccountIds: body?.socialAccountIds || [], // Support multi-account
+      socialAccountIds: body?.socialAccountIds || [], 
       title: body?.title || "",
       platform: body?.platform || "Instagram",
       contentType: body?.contentType || "Image Post",
@@ -126,7 +126,7 @@ export async function POST(request: Request) {
 
     const res = await col.insertOne(toInsert);
 
-    // Log the post creation event to ERP console
+    
     await logErpEvent(
       "post_created",
       `post_${res.insertedId}`,
@@ -168,11 +168,11 @@ export async function PUT(request: Request) {
       );
     }
 
-    // Extract user info from Authorization header or request body
+    
     let userId: string | null = body?.userId || null;
     let email: string | null = body?.email || null;
 
-    // Try to extract from JWT token if not provided in body
+    
     if (!userId || !email) {
       const auth = request.headers.get("authorization") || "";
       const token = auth.replace("Bearer ", "");
@@ -188,20 +188,20 @@ export async function PUT(request: Request) {
     const col = await svc.getCollection("socialMediaPosts");
     const { ObjectId } = await import("mongodb");
 
-    // Get the post before update to track changes
+    
     const postBefore = await col.findOne({ _id: new ObjectId(id) });
 
     const updateData: any = {
       updatedAt: new Date(),
     };
 
-    // Collect changed fields for logging
+    
     const changedFields: string[] = [];
     const changeDetails: any = {};
 
-    // Update metrics fields
+    
     if (body.accountId) {
-      // Per-account metrics update
+      
       const accountMetricsKey = `accountMetrics.${body.accountId}`;
       updateData[accountMetricsKey] = {
         views: Math.max(0, body.views || 0),
@@ -216,7 +216,7 @@ export async function PUT(request: Request) {
         metrics: updateData[accountMetricsKey],
       };
     } else {
-      // Post-level metrics update (backward compat / no-account posts)
+      
       if (body.views !== undefined && postBefore?.views !== body.views) {
         updateData.views = Math.max(0, body.views);
         changedFields.push("views");
@@ -259,7 +259,7 @@ export async function PUT(request: Request) {
       }
     }
 
-    // Update other fields if provided
+    
     if (body.status !== undefined && postBefore?.status !== body.status) {
       updateData.status = body.status;
       changedFields.push("status");
@@ -311,7 +311,7 @@ export async function PUT(request: Request) {
       );
     }
 
-    // Log the post update event to ERP console (only if changes were made)
+    
     if (changedFields.length > 0) {
       await logErpEvent(
         "post_updated",

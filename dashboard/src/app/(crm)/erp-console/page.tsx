@@ -72,7 +72,7 @@ export default function ErpConsolePage() {
               const adminName = ev.email?.split("@")[0] || ev.adminName || "Unknown Admin";
               const targetName = ev.targetName || "Unknown";
               
-              // Build detailed "who did what" message
+              
               let actionMsg = "";
               let details = "";
               

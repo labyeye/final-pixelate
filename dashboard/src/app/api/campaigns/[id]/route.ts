@@ -14,7 +14,7 @@ export async function DELETE(
 
     let query: any = {};
 
-    // Try both ObjectId and string ID
+    
     if (ObjectId.isValid(campaignId)) {
       query._id = new ObjectId(campaignId);
     } else {

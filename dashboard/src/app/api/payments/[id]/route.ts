@@ -2,10 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { getCollection } from "@/lib/services";
 import { ObjectId } from "mongodb";
 
-/**
- * DELETE /api/payments/[id]
- * Delete a specific payment from an invoice's payment history
- */
+
+
+
+
 export async function DELETE(
   req: NextRequest,
   { params }: { params: { id: string } },
@@ -24,13 +24,13 @@ export async function DELETE(
 
     const invoicesCol = await getCollection("invoices");
 
-    // Find the invoice
+    
     let invoice = await invoicesCol.findOne({ _id: invoiceId } as any);
     if (!invoice) {
       try {
         invoice = await invoicesCol.findOne({ _id: new ObjectId(invoiceId) });
       } catch (e) {
-        // ignore
+        
       }
     }
 
@@ -48,20 +48,20 @@ export async function DELETE(
       );
     }
 
-    // Get the payment amount to subtract from paidAmount
+    
     const deletedPayment = paymentHistory[idx];
     const deletedAmount = Number(deletedPayment.amount || 0);
 
-    // Remove the payment from history
+    
     paymentHistory.splice(idx, 1);
 
-    // Recalculate paidAmount
+    
     const newPaidAmount = paymentHistory.reduce(
       (sum: number, p: any) => sum + Number(p.amount || 0),
       0,
     );
 
-    // Determine new status
+    
     const totalAmount = Number(invoice.amount || 0);
     let newStatus = "PENDING";
     if (newPaidAmount >= totalAmount) {
@@ -70,7 +70,7 @@ export async function DELETE(
       newStatus = "PARTIAL";
     }
 
-    // Update the invoice
+    
     await invoicesCol.updateOne(
       { _id: invoice._id },
       {
@@ -97,10 +97,10 @@ export async function DELETE(
   }
 }
 
-/**
- * PATCH /api/payments/[id]
- * Update a specific payment in an invoice's payment history
- */
+
+
+
+
 export async function PATCH(
   req: NextRequest,
   { params }: { params: { id: string } },
@@ -117,13 +117,13 @@ export async function PATCH(
 
     const invoicesCol = await getCollection("invoices");
 
-    // Find the invoice
+    
     let invoice = await invoicesCol.findOne({ _id: invoiceId } as any);
     if (!invoice) {
       try {
         invoice = await invoicesCol.findOne({ _id: new ObjectId(invoiceId) });
       } catch (e) {
-        // ignore
+        
       }
     }
 
@@ -141,7 +141,7 @@ export async function PATCH(
       );
     }
 
-    // Update the payment entry
+    
     paymentHistory[idx] = {
       amount: Number(amount),
       date: date || paymentHistory[idx].date,
@@ -149,13 +149,13 @@ export async function PATCH(
       remarks: remarks || paymentHistory[idx].remarks || "",
     };
 
-    // Recalculate paidAmount
+    
     const newPaidAmount = paymentHistory.reduce(
       (sum: number, p: any) => sum + Number(p.amount || 0),
       0,
     );
 
-    // Determine new status
+    
     const totalAmount = Number(invoice.amount || 0);
     let newStatus = "PENDING";
     if (newPaidAmount >= totalAmount) {
@@ -164,7 +164,7 @@ export async function PATCH(
       newStatus = "PARTIAL";
     }
 
-    // Update the invoice
+    
     await invoicesCol.updateOne(
       { _id: invoice._id },
       {

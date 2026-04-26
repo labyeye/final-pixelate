@@ -87,10 +87,10 @@ export function WhatsAppInbox() {
         `✅ Synced ${data.synced} new messages from webhook (${data.totalProcessed} total processed)`
       );
 
-      // Refresh conversations after sync
+      
       await fetchConversations();
 
-      // Auto-clear success message after 5 seconds
+      
       setTimeout(() => setSyncMessage(""), 5000);
     } catch (err: any) {
       setSyncMessage(`❌ Sync failed: ${err.message}`);
@@ -137,7 +137,7 @@ export function WhatsAppInbox() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {}
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-3xl font-bold text-gray-900">WhatsApp Inbox</h2>
@@ -177,7 +177,7 @@ export function WhatsAppInbox() {
       )}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Conversations List */}
+        {}
         <div className="lg:col-span-1">
           <Card>
             <CardHeader>
@@ -187,7 +187,7 @@ export function WhatsAppInbox() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              {/* Search */}
+              {}
               <div className="relative">
                 <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                 <Input
@@ -198,7 +198,7 @@ export function WhatsAppInbox() {
                 />
               </div>
 
-              {/* Conversation List */}
+              {}
               <div className="space-y-2 max-h-[600px] overflow-y-auto">
                 {filteredConversations.length === 0 ? (
                   <p className="text-sm text-gray-500 text-center py-8">
@@ -245,7 +245,7 @@ export function WhatsAppInbox() {
           </Card>
         </div>
 
-        {/* Message Thread */}
+        {}
         <div className="lg:col-span-2">
           <Card>
             <CardHeader>
@@ -313,7 +313,7 @@ export function WhatsAppInbox() {
         </div>
       </div>
 
-      {/* Statistics */}
+      {}
       {conversations.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <Card>

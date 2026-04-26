@@ -105,7 +105,7 @@ export default function ClientsPage() {
     }
   };
 
-  // Edit dialog state
+  
   const [editingClient, setEditingClient] = useState<Client | null>(null);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
 
@@ -131,7 +131,7 @@ export default function ClientsPage() {
       initialValues={editingClient ?? undefined}
       onSave={handleSaveClient}
     >
-      {/* trigger is controlled by row actions */}
+      {}
       <div />
     </AddClientDialog>
       </header>

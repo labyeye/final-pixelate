@@ -10,17 +10,17 @@ export async function GET() {
 		const col = await svc.getCollection('projects');
 		const items = await col.find().toArray();
 		
-		// Fetch clients and team members for enrichment
+		
 		const clientCol = await svc.getCollection('clients');
 		const usersCol = await svc.getCollection('users');
 		const clients = await clientCol.find().toArray();
 		const teamMembers = await usersCol.find({ jobRole: { $exists: true } }).toArray();
 		
-		// Enrich projects with client names and assignee names
+		
 		const enrichedItems = items.map((project) => {
 			let enriched = { ...project };
 			
-			// Enrich client name
+			
 			if (project.clientId || project.client) {
 				const clientId = project.clientId || project.client;
 				const clientIdStr = String(clientId);
@@ -33,7 +33,7 @@ export async function GET() {
 				}
 			}
 			
-			// Enrich assignee names
+			
 			if (Array.isArray(project.assignees) && project.assignees.length > 0) {
 				enriched.assignees = project.assignees.map((assignee: any) => {
 					const assigneeId = String(assignee.id ?? assignee);
@@ -65,7 +65,7 @@ export async function POST(request: Request) {
 		const toInsert = { ...body, createdAt: new Date() };
 		const res = await col.insertOne(toInsert);
 		const created = { ...toInsert, _id: res.insertedId };
-		// create an invoice record so dashboard revenue reflects this project
+		
 		try {
 			await svc.createInvoice({ projectId: String(res.insertedId), title: body.title, amount: body.amount, createdAt: new Date() });
 		} catch (e) {

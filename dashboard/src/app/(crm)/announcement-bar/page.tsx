@@ -119,7 +119,7 @@ export default function AnnouncementBarPage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* Preview */}
+          {}
           <div className="space-y-2">
             <Label>Preview</Label>
             <div className="relative overflow-hidden rounded-lg">
@@ -142,7 +142,7 @@ export default function AnnouncementBarPage() {
             </div>
           </div>
 
-          {/* Enable/Disable Switch */}
+          {}
           <div className="flex items-center justify-between space-x-2">
             <div className="space-y-0.5">
               <Label htmlFor="enabled">Show Announcement Bar</Label>
@@ -164,7 +164,7 @@ export default function AnnouncementBarPage() {
             </div>
           </div>
 
-          {/* Text Input */}
+          {}
           <div className="space-y-2">
             <Label htmlFor="announcement-text">
               Announcement Text
@@ -186,7 +186,7 @@ export default function AnnouncementBarPage() {
             </p>
           </div>
 
-          {/* Save Button */}
+          {}
           <div className="flex justify-end gap-4">
             <Button
               variant="outline"

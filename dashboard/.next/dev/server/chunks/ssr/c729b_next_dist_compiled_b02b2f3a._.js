@@ -2,15 +2,15 @@ module.exports = [
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/cjs/react.development.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * @license React
- * react.development.js
- *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ "production" !== ("TURBOPACK compile-time value", "development") && function() {
+
+
+
+
+
+
+
+
+ "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function defineDeprecationWarning(methodName, info) {
         Object.defineProperty(Component.prototype, methodName, {
             get: function() {
@@ -482,7 +482,7 @@ module.exports = [
     var unknownOwnerDebugStack = deprecatedAPIs.react_stack_bottom_frame.bind(deprecatedAPIs, UnknownOwner)();
     var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
     var didWarnAboutMaps = !1, userProvidedKeyEscapeRegex = /\/+/g, reportGlobalError = "function" === typeof reportError ? reportError : function(error) {
-        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        if ("TURBOPACK compile-time falsy", 0) 
         {
             var event;
         } else if ("object" === typeof process && "function" === typeof process.emit) {
@@ -820,7 +820,7 @@ module.exports = [
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+if ("TURBOPACK compile-time falsy", 0) 
 ;
 else {
     module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/cjs/react.development.js [app-ssr] (ecmascript)");
@@ -829,15 +829,15 @@ else {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * @license React
- * react-dom.development.js
- *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ "production" !== ("TURBOPACK compile-time value", "development") && function() {
+
+
+
+
+
+
+
+
+ "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function noop() {}
     function testStringCoercion(value) {
         return "" + value;
@@ -1006,29 +1006,29 @@ else {
 "use strict";
 
 function checkDCE() {
-    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function') {
+     if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function') {
         return;
     }
     if ("TURBOPACK compile-time truthy", 1) {
-        // This branch is unreachable because this function is only called
-        // in production, but the condition is true only in development.
-        // Therefore if the branch is still here, dead code elimination wasn't
-        // properly applied.
-        // Don't change the message. React DevTools relies on it. Also make sure
-        // this message doesn't occur elsewhere in this function, or it will cause
-        // a false positive.
+        
+        
+        
+        
+        
+        
+        
         throw new Error('^_^');
     }
     try {
-        // Verify that the code above has been dead code eliminated (DCE'd).
+        
         __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
     } catch (err) {
-        // DevTools shouldn't crash React, no matter what.
-        // We should still report in case we break this code.
+        
+        
         console.error(err);
     }
 }
-if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+if ("TURBOPACK compile-time falsy", 0) 
 ;
 else {
     module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js [app-ssr] (ecmascript)");
@@ -1037,38 +1037,38 @@ else {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-dom/cjs/react-dom-server-legacy.node.development.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * @license React
- * react-dom-server-legacy.node.development.js
- *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ /*
 
 
- JS Implementation of MurmurHash3 (r136) (as of May 20, 2011)
 
- Copyright (c) 2011 Gary Court
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
 
- The above copyright notice and this permission notice shall be included in
- all copies or substantial portions of the Software.
 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- SOFTWARE.
-*/ "production" !== ("TURBOPACK compile-time value", "development") && function() {
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function styleReplacer(match, prefix, s, suffix) {
         return "" + prefix + ("s" === s ? "\\73 " : "\\53 ") + suffix;
     }
@@ -9833,7 +9833,7 @@ else {
                 "function" === typeof instance.componentWillUpdate && !0 !== instance.componentWillUpdate.__suppressDeprecationWarning ? foundWillUpdateName = "componentWillUpdate" : "function" === typeof instance.UNSAFE_componentWillUpdate && (foundWillUpdateName = "UNSAFE_componentWillUpdate");
                 if (null !== foundWillMountName || null !== foundWillReceivePropsName || null !== foundWillUpdateName) {
                     var _componentName = getComponentNameFromType(type) || "Component", newApiName = "function" === typeof type.getDerivedStateFromProps ? "getDerivedStateFromProps()" : "getSnapshotBeforeUpdate()";
-                    didWarnAboutLegacyLifecyclesAndDerivedState.has(_componentName) || (didWarnAboutLegacyLifecyclesAndDerivedState.add(_componentName), console.error("Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n%s uses %s but also contains the following legacy lifecycles:%s%s%s\n\nThe above lifecycles should be removed. Learn more about this warning here:\nhttps://react.dev/link/unsafe-component-lifecycles", _componentName, newApiName, null !== foundWillMountName ? "\n  " + foundWillMountName : "", null !== foundWillReceivePropsName ? "\n  " + foundWillReceivePropsName : "", null !== foundWillUpdateName ? "\n  " + foundWillUpdateName : ""));
+                    didWarnAboutLegacyLifecyclesAndDerivedState.has(_componentName) || (didWarnAboutLegacyLifecyclesAndDerivedState.add(_componentName), console.error("Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n%s uses %s but also contains the following legacy lifecycles:%s%s%s\n\nThe above lifecycles should be removed. Learn more about this warning here:\nhttps:
                 }
             }
             var name = getComponentNameFromType(type) || "Component";

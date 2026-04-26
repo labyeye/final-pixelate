@@ -87,13 +87,13 @@
   justify-content: center;
   gap: 12px;
   text-align: center;
-  min-height: 550px; /* increased so tags/description don't get cut */
+  min-height: 550px; 
   border: 1px solid rgba(4, 75, 171, 0.06);
   overflow: hidden;
 }
 .portfolio-card {
   position: relative;
-  padding-bottom: 190px; /* reserve space for the fixed button */
+  padding-bottom: 190px; 
 }
 
 .portfolio-card:hover {
@@ -309,7 +309,7 @@
   position: relative !important;
   transform: none !important;
   background: transparent !important;
-  padding: 12px 0 40px 0 !important; /* reserve inner bottom space so description isn't overlapped by button */
+  padding: 12px 0 40px 0 !important; 
   color: var(--white) !important;
 }
 
@@ -342,7 +342,7 @@
   transform: scale(1.04) rotate(-0.6deg);
 }
 
-/* FAQ Section styles */
+
 .faq-section {
   padding: 48px 20px;
   background: white;
@@ -402,7 +402,7 @@
   transform: rotate(180deg);
 }
 .faq-answer {
-  padding: 0 18px; /* no bottom padding when collapsed */
+  padding: 0 18px; 
   color: rgba(0, 0, 0, 0.75);
   line-height: 1.6;
   max-height: 0;
@@ -412,7 +412,7 @@
     padding 0.22s ease;
 }
 .faq-item[aria-expanded="true"] .faq-answer {
-  max-height: 800px; /* generous max to allow content */
+  max-height: 800px; 
   padding: 12px 18px 18px 18px;
 }
 .faq-item[aria-expanded="false"] .faq-answer {
@@ -436,7 +436,7 @@
   }
 }
 
-/* CTA Section */
+
 .cta-section {
   padding: 40px 20px;
   background: white;
@@ -494,7 +494,7 @@
   }
 }
 
-/* Offerings (types of software development) */
+
 .offerings-section {
   padding: 48px 20px;
   background: linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
@@ -604,7 +604,7 @@
   text-align: center;
 }
 
-/* Portfolio Card Buttons - Responsive */
+
 .portfolio-buttons-container {
   display: flex;
   gap: 8px;

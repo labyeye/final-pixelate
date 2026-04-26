@@ -20,11 +20,11 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     const body = await request.json();
     const updated = await svc.updateById('projects', id, { ...body, updatedAt: new Date() });
     try {
-      // update any invoice linked to this projectId
+      
       const col = await svc.getCollection('invoices');
       await col.updateMany({ projectId: String(id) }, { $set: { title: body.title, amount: body.amount, updatedAt: new Date() } });
 
-      // If project marked complete, create an invoice if none exists
+      
       if (body.status === 'COMPLETED' || (updated && updated.status === 'COMPLETED')) {
         const existing = await col.findOne({ projectId: String(id) });
         if (!existing) {

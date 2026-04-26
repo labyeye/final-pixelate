@@ -65,7 +65,7 @@ export default function OnboardingPage() {
     notes: "",
     projectTitle: "",
     date: new Date().toISOString(),
-    // New fields
+    
     projectId: "",
     clientDisplayId: "",
     scopeOfWork: "",
@@ -131,7 +131,7 @@ export default function OnboardingPage() {
     notes: item?.notes ?? "",
     projectTitle: item?.projectTitle ?? "",
     date: toDateInputValue(item?.date) || toDateInputValue(new Date()),
-    // New fields
+    
     projectId: item?.projectId ?? "",
     clientDisplayId: item?.clientDisplayId ?? "",
     scopeOfWork: Array.isArray(item?.scopeOfWork) ? item.scopeOfWork.join("\n") : (item?.scopeOfWork ?? ""),
@@ -186,10 +186,10 @@ export default function OnboardingPage() {
     return () => {
       mounted = false;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [isClient, myClientId]);
 
-  // when a client is selected, populate form fields
+  
   useEffect(() => {
     if (!selectedClientId) return;
     const c = clients.find(
@@ -661,7 +661,7 @@ export default function OnboardingPage() {
               />
             </div>
 
-            {/* ── Scope ── */}
+            {}
             <div className="md:col-span-2 border-t pt-4 mt-2">
               <h3 className="font-semibold mb-4">Project Scope</h3>
             </div>
@@ -692,7 +692,7 @@ export default function OnboardingPage() {
               />
             </div>
 
-            {/* ── Timeline ── */}
+            {}
             <div className="md:col-span-2 border-t pt-4 mt-2">
               <h3 className="font-semibold mb-4">Timeline &amp; Milestones</h3>
             </div>
@@ -706,7 +706,7 @@ export default function OnboardingPage() {
               />
             </div>
 
-            {/* ── Financial ── */}
+            {}
             <div className="md:col-span-2 border-t pt-4 mt-2">
               <h3 className="font-semibold mb-4">Financial Details</h3>
             </div>
@@ -728,7 +728,7 @@ export default function OnboardingPage() {
               />
             </div>
 
-            {/* ── Deliverable phase descriptions ── */}
+            {}
             <div className="md:col-span-2 border-t pt-4 mt-2">
               <h3 className="font-semibold mb-1">Deliverable Phase Descriptions</h3>
               <p className="text-xs text-muted-foreground mb-4">Leave blank to use default descriptions in the PDF.</p>
@@ -758,7 +758,7 @@ export default function OnboardingPage() {
               <Textarea rows={2} value={form.deliveryDeployment} onChange={(e: any) => update("deliveryDeployment", e.target.value)} />
             </div>
 
-            {/* ── Terms ── */}
+            {}
             <div className="md:col-span-2 border-t pt-4 mt-2">
               <h3 className="font-semibold mb-1">Terms &amp; Conditions</h3>
               <p className="text-xs text-muted-foreground mb-4">Leave blank to use Pixelate Nest default terms in the PDF.</p>

@@ -124,8 +124,8 @@ function execOnce(fn) {
         return result;
     };
 }
-// Scheme: https://tools.ietf.org/html/rfc3986#section-3.1
-// Absolute URL: https://tools.ietf.org/html/rfc3986#section-4.3
+
+
 const ABSOLUTE_URL_REGEX = /^[a-zA-Z][a-zA-Z\d+\-.]*?:/;
 const isAbsoluteUrl = (url)=>ABSOLUTE_URL_REGEX.test(url);
 function getLocationOrigin() {
@@ -146,8 +146,8 @@ function isResSent(res) {
 function normalizeRepeatedSlashes(url) {
     const urlParts = url.split('?');
     const urlNoQuery = urlParts[0];
-    return urlNoQuery // first we replace any non-encoded backslashes with forward
-    // then normalize repeated forward slashes
+    return urlNoQuery 
+    
     .replace(/\\/g, '/').replace(/\/\/+/g, '/') + (urlParts[1] ? `?${urlParts.slice(1).join('?')}` : '');
 }
 async function loadGetInitialProps(App, ctx) {
@@ -161,11 +161,11 @@ async function loadGetInitialProps(App, ctx) {
             });
         }
     }
-    // when called from _app `ctx` is nested in `ctx`
+    
     const res = ctx.res || ctx.ctx && ctx.ctx.res;
     if (!App.getInitialProps) {
         if (ctx.ctx && ctx.Component) {
-            // @ts-ignore pageProps default
+            
             return {
                 pageProps: await loadGetInitialProps(ctx.Component, ctx.ctx)
             };
@@ -227,7 +227,7 @@ function stringifyError(error) {
         message: error.message,
         stack: error.stack
     });
-} //# sourceMappingURL=utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/pages/_app.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -243,12 +243,12 @@ Object.defineProperty(exports, "default", {
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [ssr] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[externals]/react/jsx-runtime [external] (react/jsx-runtime, cjs)");
-const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[externals]/react [external] (react, cjs)"));
+const _react =  _interop_require_default._(__turbopack_context__.r("[externals]/react [external] (react, cjs)"));
 const _utils = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils.js [ssr] (ecmascript)");
-/**
- * `App` component is used for initialize of pages. It allows for overwriting and full control of the `page` initialization.
- * This allows for keeping state between navigation, custom error handling, injecting additional data.
- */ async function appGetInitialProps({ Component, ctx }) {
+
+
+
+ async function appGetInitialProps({ Component, ctx }) {
     const pageProps = await (0, _utils.loadGetInitialProps)(Component, ctx);
     return {
         pageProps
@@ -263,7 +263,7 @@ class App extends _react.default.Component {
     }
     render() {
         const { Component, pageProps } = this.props;
-        return /*#__PURE__*/ (0, _jsxruntime.jsx)(Component, {
+        return  (0, _jsxruntime.jsx)(Component, {
             ...pageProps
         });
     }
@@ -274,7 +274,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=_app.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/app.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
@@ -282,4 +282,3 @@ module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixel
 }),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__b6e15217._.js.map

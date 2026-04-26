@@ -22,19 +22,19 @@ export default function QuotationViewPage() {
 
     (async () => {
       try {
-        // Fetch quotation
+        
         const qRes = await fetch(`/api/quotations/${id}`);
         if (!qRes.ok) throw new Error("Failed to fetch quotation");
         const qData = await qRes.json();
         setQuotation(qData);
 
-        // Fetch client
+        
         if (qData.clientId) {
           const cRes = await fetch(`/api/clients/${qData.clientId}`);
           if (cRes.ok) setClient(await cRes.json());
         }
 
-        // Fetch settings
+        
         const sRes = await fetch("/api/settings");
         if (sRes.ok) setSettings(await sRes.json());
       } catch (error) {
@@ -104,46 +104,46 @@ export default function QuotationViewPage() {
       </div>
       <div className="print-area min-h-screen bg-white">
         <div className="max-w-[210mm] mx-auto">
-          {/* <div className="relative bg-[#044bab] w-full px-12 py-6 print:fixed print:top-0 print:left-0 print:right-0 print:z-50">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-white opacity-30"></div>
+          {
 
-            <div className="max-w-full">
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-4">
-                  <div className="bg-white p-2 rounded-lg shadow-lg">
-                    <img
-                      src="/assets/images/logo-transparent.png"
-                      alt="Pixelate Nest Logo"
-                      className="h-10 w-auto"
-                    />
-                  </div>
-                  <div className="border-l-2 border-white pl-4">
-                    <h1 className="text-2xl font-black text-white tracking-tight">
-                      Pixelate Nest
-                    </h1>
-                    <p className="text-white text-xs font-medium opacity-90">
-                      Creative Digital Solutions
-                    </p>
-                  </div>
-                </div>
 
-                <div className="bg-white bg-opacity-10 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white border-opacity-30">
-                  <p className="text-white text-xs font-semibold">
-                    {new Date().toLocaleDateString("en-GB", {
-                      day: "2-digit",
-                      month: "short",
-                      year: "numeric",
-                    })}{" "}
-                    |{" "}
-                    {new Date().toLocaleTimeString("en-US", {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
           <section className="h-screen flex flex-col items-center justify-center p-12 relative bg-[#ffffff]">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#044bab] to-[#044bab]"></div>
             <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#044bab] to-[#044bab]"></div>
@@ -181,9 +181,9 @@ export default function QuotationViewPage() {
               <p className="text-lg text-gray-600">{formattedDate}</p>
             </div>
           </section>
-          {/* PAGE 2: About Us */}
+          {}
           <div className="print-page px-12 pt-24 pb-20">
-            {/* About Us - Permanent */}
+            {}
             <div className="mb-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
                 <span className="w-1 h-8 bg-[#044bab] mr-3"></span>

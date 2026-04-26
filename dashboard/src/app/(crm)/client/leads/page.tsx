@@ -67,12 +67,12 @@ export default function ClientLeadsPage() {
         const data: Lead[] = await res.json();
         setLeads(Array.isArray(data) ? data : []);
 
-        // Calculate stats
+        
         const total = data.length;
         const converted = data.filter((l) => l.status === "interested" || l.status === "meeting booked").length;
         const conversionRate = total > 0 ? Math.round((converted / total) * 100) : 0;
 
-        // Count new leads this month
+        
         const now = new Date();
         const currentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
         const newThisMonth = data.filter((l) => {
@@ -97,11 +97,11 @@ export default function ClientLeadsPage() {
     fetchLeads();
   }, [user]);
 
-  // Get unique sources and statuses for filters
+  
   const uniqueSources = Array.from(new Set(leads.map((l) => l.source).filter(Boolean)));
   const uniqueStatuses = Array.from(new Set(leads.map((l) => l.status).filter(Boolean)));
 
-  // Filter leads
+  
   const filteredLeads = leads.filter((lead) => {
     const matchSearch =
       !searchTerm ||
@@ -132,13 +132,13 @@ export default function ClientLeadsPage() {
 
   return (
     <div className="min-h-screen bg-background font-headline p-6 space-y-6">
-      {/* Header */}
+      {}
       <div>
         <h1 className="text-4xl font-black tracking-tighter">Your Leads</h1>
         <p className="text-muted-foreground mt-1">Track the performance and status of your leads</p>
       </div>
 
-      {/* Stats Cards */}
+      {}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
           <CardHeader className="pb-3">

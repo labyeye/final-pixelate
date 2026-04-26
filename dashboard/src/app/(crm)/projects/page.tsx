@@ -74,12 +74,12 @@ export default function ProjectsPage() {
   };
 
   const getClientName = (clientId: string | any, project?: any): string => {
-    // First check if project has clientName from server enrichment
+    
     if (project?.clientName) return project.clientName;
     
     if (!clientId) return "—";
     const clientIdStr = String(clientId);
-    // Search in clients array as fallback
+    
     const found = clients.find(c => {
       const cId = String(c._id || c.id || "");
       return cId === clientIdStr;
@@ -122,7 +122,7 @@ export default function ProjectsPage() {
         </CardContent>
       </Card>
 
-      {/* Projects Table */}
+      {}
       <div className="border-2 border-black overflow-hidden">
         <Table>
           <TableHeader>
@@ -152,7 +152,7 @@ export default function ProjectsPage() {
                 key={project.id ?? String(project._id)}
                 className={`border-b border-black/10 last:border-b-0 transition-colors hover:bg-muted/40 ${idx % 2 === 0 ? "" : "bg-muted/20"}`}
               >
-                {/* Project Name */}
+                {}
                 <TableCell className="py-3">
                   <div className="flex items-center gap-2">
                     {project.status === 'COMPLETED' && (
@@ -167,19 +167,19 @@ export default function ProjectsPage() {
                   </div>
                 </TableCell>
 
-                {/* Client */}
+                {}
                 <TableCell className="text-sm py-3 font-medium">
                   {getClientName(project.client, project)}
                 </TableCell>
 
-                {/* Status */}
+                {}
                 <TableCell className="py-3">
                   <span className={`text-xs font-black tracking-widest px-2 py-1 ${statusColor[project.status ?? ""] ?? "bg-gray-100 text-gray-700 border border-gray-300"}`}>
                     {project.status ?? "—"}
                   </span>
                 </TableCell>
 
-                {/* Progress */}
+                {}
                 <TableCell className="py-3 min-w-[140px]">
                   <div className="space-y-1">
                     <div className="flex justify-between text-xs font-bold">
@@ -189,7 +189,7 @@ export default function ProjectsPage() {
                   </div>
                 </TableCell>
 
-                {/* Amount */}
+                {}
                 <TableCell className="py-3">
                   <div className="font-bold text-sm">₹{(project.amount ?? 0).toLocaleString()}</div>
                   {project.assignees && project.assignees.length > 0 && (
@@ -199,7 +199,7 @@ export default function ProjectsPage() {
                   )}
                 </TableCell>
 
-                {/* Assignees */}
+                {}
                 <TableCell className="py-3">
                   {project.assignees && project.assignees.length > 0 ? (
                     <div className="flex flex-wrap gap-1">
@@ -219,10 +219,10 @@ export default function ProjectsPage() {
                   )}
                 </TableCell>
 
-                {/* Actions */}
+                {}
                 <TableCell className="text-right py-3">
                   <div className="flex items-center justify-end gap-1.5">
-                    {/* Edit */}
+                    {}
                     <Button
                       size="sm"
                       variant="outline"
@@ -241,7 +241,7 @@ export default function ProjectsPage() {
                       <Pencil className="h-3.5 w-3.5" />
                     </Button>
 
-                    {/* Mark complete */}
+                    {}
                     {project.status !== 'COMPLETED' && (
                       <Button
                         size="sm"
@@ -264,7 +264,7 @@ export default function ProjectsPage() {
                               const invoicesRes = await fetch('/api/invoices');
                               const invoicesData = invoicesRes.ok ? await invoicesRes.json() : [];
                               window.dispatchEvent(new CustomEvent('data:changed', { detail: { type: 'invoices', invoices: invoicesData } }));
-                            } catch(e) { /* ignore */ }
+                            } catch(e) {  }
                           } catch (err) { console.error(err); }
                         }}
                       >
@@ -272,7 +272,7 @@ export default function ProjectsPage() {
                       </Button>
                     )}
 
-                    {/* Delete */}
+                    {}
                     <Button
                       size="sm"
                       variant="destructive"

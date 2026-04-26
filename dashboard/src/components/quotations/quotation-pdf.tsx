@@ -18,7 +18,7 @@ export function QuotationPDF({
   useEffect(() => {
     let mounted = true;
     
-    // Fetch client
+    
     if (!client && quote.clientId) {
       (async () => {
         try {
@@ -29,12 +29,12 @@ export function QuotationPDF({
             setClient(data);
           }
         } catch (e) {
-          // ignore
+          
         }
       })();
     }
     
-    // Fetch settings
+    
     (async () => {
       try {
         const res = await fetch('/api/settings');
@@ -44,7 +44,7 @@ export function QuotationPDF({
           setSettings(data);
         }
       } catch (e) {
-        // ignore
+        
       }
     })();
     
@@ -55,7 +55,7 @@ export function QuotationPDF({
 
   const effectiveClientName = client?.name || quote.clientName || "Client";
 
-  // Calculate totals from services if available
+  
   const servicesTotal = (quote.services || []).reduce((sum: number, item) => sum + Number(item.amount || 0), 0);
   const subtotal = servicesTotal || quote.amount || 0;
   const discount = Number(quote.discount || 0);
@@ -91,7 +91,7 @@ export function QuotationPDF({
         lineHeight: "1.6",
       }}
     >
-      {/* PAGE 1: COVER PAGE */}
+      {}
       <div
         style={{
           width: "210mm",
@@ -156,7 +156,7 @@ export function QuotationPDF({
         </div>
       </div>
 
-      {/* PAGE 2: COMPANY INFORMATION (PERMANENT) */}
+      {}
       <div
         style={{
           width: "210mm",
@@ -167,7 +167,7 @@ export function QuotationPDF({
           pageBreakAfter: "always",
         }}
       >
-        {/* Company Header */}
+        {}
         <div style={{ textAlign: "center", marginBottom: "40px", paddingTop: "20px" }}>
           <div style={{ fontSize: "42px", fontWeight: "800", color: "#F36F21", marginBottom: "10px" }}>
             {settings?.name || "Pixelate Nest"}
@@ -177,7 +177,7 @@ export function QuotationPDF({
           </div>
         </div>
 
-        {/* About Section */}
+        {}
         {settings?.aboutUs && (
           <div style={{ marginBottom: "35px" }}>
             <div
@@ -198,7 +198,7 @@ export function QuotationPDF({
           </div>
         )}
 
-        {/* Mission, Vision, Goal Cards */}
+        {}
         <div
           style={{
             display: "grid",
@@ -262,7 +262,7 @@ export function QuotationPDF({
           )}
         </div>
 
-        {/* Contact Information */}
+        {}
         <div
           style={{
             background: "#2a2a2a",
@@ -303,9 +303,9 @@ export function QuotationPDF({
         </div>
       </div>
 
-      {/* PAGE 3+: QUOTATION DETAILS */}
+      {}
       <div style={{ width: "210mm", padding: "20mm" }}>
-        {/* Client Information */}
+        {}
         <div style={{ marginBottom: "35px" }}>
           <div
             style={{
@@ -355,7 +355,7 @@ export function QuotationPDF({
           </div>
         </div>
 
-        {/* Objective */}
+        {}
         {(quote as any).objective && (
           <div style={{ marginBottom: "30px" }}>
             <div
@@ -376,7 +376,7 @@ export function QuotationPDF({
           </div>
         )}
 
-        {/* Purpose */}
+        {}
         {(quote as any).purpose && (
           <div style={{ marginBottom: "30px" }}>
             <div
@@ -397,7 +397,7 @@ export function QuotationPDF({
           </div>
         )}
 
-        {/* Scope */}
+        {}
         {(quote as any).scope && (quote as any).scope.length > 0 && (
           <div style={{ marginBottom: "30px" }}>
             <div
@@ -423,7 +423,7 @@ export function QuotationPDF({
           </div>
         )}
 
-        {/* Deliverables */}
+        {}
         {(quote as any).deliverables && (quote as any).deliverables.length > 0 && (
           <div style={{ marginBottom: "30px" }}>
             <div
@@ -449,7 +449,7 @@ export function QuotationPDF({
           </div>
         )}
 
-        {/* Timeline */}
+        {}
         {(quote as any).timeline && (quote as any).timeline.length > 0 && (
           <div style={{ marginBottom: "35px" }}>
             <div
@@ -486,7 +486,7 @@ export function QuotationPDF({
           </div>
         )}
 
-        {/* Services Table */}
+        {}
         {quote.services && quote.services.length > 0 && (
           <div style={{ marginBottom: "35px" }}>
             <div
@@ -533,7 +533,7 @@ export function QuotationPDF({
           </div>
         )}
 
-        {/* Pricing Breakdown */}
+        {}
         <div
           style={{
             marginBottom: "35px",
@@ -585,7 +585,7 @@ export function QuotationPDF({
           </div>
         </div>
 
-        {/* Modules */}
+        {}
         {(quote as any).modules && (quote as any).modules.length > 0 && (
           <div style={{ marginBottom: "35px" }}>
             <div
@@ -647,7 +647,7 @@ export function QuotationPDF({
           </div>
         )}
 
-        {/* Additional Information */}
+        {}
         {((quote as any).paymentTerms || (quote as any).notes) && (
           <div style={{ marginTop: "40px" }}>
             <div
@@ -680,7 +680,7 @@ export function QuotationPDF({
           </div>
         )}
 
-        {/* Terms & Conditions */}
+        {}
         <div style={{ marginTop: "40px" }}>
           <div
             style={{
@@ -718,7 +718,7 @@ export function QuotationPDF({
           </div>
         </div>
 
-        {/* Signature */}
+        {}
         <div style={{ marginTop: "50px", display: "flex", justifyContent: "space-between", pageBreakInside: "avoid" }}>
           <div style={{ textAlign: "center" }}>
             <div style={{ borderTop: "2px solid #111", width: "200px", paddingTop: "10px", marginTop: "60px" }}>
@@ -741,7 +741,7 @@ export function QuotationPDF({
           </div>
         </div>
 
-        {/* Footer */}
+        {}
         <div
           style={{
             marginTop: "40px",

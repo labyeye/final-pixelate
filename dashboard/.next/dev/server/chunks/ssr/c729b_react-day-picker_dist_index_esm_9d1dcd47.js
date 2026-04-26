@@ -152,20 +152,20 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-/******************************************************************************
-Copyright (c) Microsoft Corporation.
 
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
 
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */ /* global Reflect, Promise, SuppressedError, Symbol */ var __assign = function() {
+
+
+
+
+
+
+
+
+
+
+
+  var __assign = function() {
     __assign = Object.assign || function __assign(t) {
         for(var s, i = 1, n = arguments.length; i < n; i++){
             s = arguments[i];
@@ -196,18 +196,18 @@ typeof SuppressedError === "function" ? SuppressedError : function(error, suppre
     var e = new Error(message);
     return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
 };
-/** Returns true when the props are of type {@link DayPickerMultipleProps}. */ function isDayPickerMultiple(props) {
+ function isDayPickerMultiple(props) {
     return props.mode === 'multiple';
 }
-/** Returns true when the props are of type {@link DayPickerRangeProps}. */ function isDayPickerRange(props) {
+ function isDayPickerRange(props) {
     return props.mode === 'range';
 }
-/** Returns true when the props are of type {@link DayPickerSingleProps}. */ function isDayPickerSingle(props) {
+ function isDayPickerSingle(props) {
     return props.mode === 'single';
 }
-/**
- * The name of the default CSS classes.
- */ var defaultClassNames = {
+
+
+ var defaultClassNames = {
     root: 'rdp',
     multiple_months: 'rdp-multiple_months',
     with_weeknumber: 'rdp-with_weeknumber',
@@ -250,37 +250,37 @@ typeof SuppressedError === "function" ? SuppressedError : function(error, suppre
     day_range_end: 'rdp-day_range_end',
     day_range_middle: 'rdp-day_range_middle'
 };
-/**
- * The default formatter for the caption.
- */ function formatCaption(month, options) {
+
+
+ function formatCaption(month, options) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(month, 'LLLL y', options);
 }
-/**
- * The default formatter for the Day button.
- */ function formatDay(day, options) {
+
+
+ function formatDay(day, options) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(day, 'd', options);
 }
-/**
- * The default formatter for the Month caption.
- */ function formatMonthCaption(month, options) {
+
+
+ function formatMonthCaption(month, options) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(month, 'LLLL', options);
 }
-/**
- * The default formatter for the week number.
- */ function formatWeekNumber(weekNumber) {
+
+
+ function formatWeekNumber(weekNumber) {
     return "".concat(weekNumber);
 }
-/**
- * The default formatter for the name of the weekday.
- */ function formatWeekdayName(weekday, options) {
+
+
+ function formatWeekdayName(weekday, options) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(weekday, 'cccccc', options);
 }
-/**
- * The default formatter for the Year caption.
- */ function formatYearCaption(year, options) {
+
+
+ function formatYearCaption(year, options) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(year, 'yyyy', options);
 }
-var formatters = /*#__PURE__*/ Object.freeze({
+var formatters =  Object.freeze({
     __proto__: null,
     formatCaption: formatCaption,
     formatDay: formatDay,
@@ -289,42 +289,42 @@ var formatters = /*#__PURE__*/ Object.freeze({
     formatWeekdayName: formatWeekdayName,
     formatYearCaption: formatYearCaption
 });
-/**
- * The default ARIA label for the day button.
- */ var labelDay = function(day, activeModifiers, options) {
+
+
+ var labelDay = function(day, activeModifiers, options) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(day, 'do MMMM (EEEE)', options);
 };
-/**
- * The default ARIA label for the WeekNumber element.
- */ var labelMonthDropdown = function() {
+
+
+ var labelMonthDropdown = function() {
     return 'Month: ';
 };
-/**
- * The default ARIA label for next month button in navigation
- */ var labelNext = function() {
+
+
+ var labelNext = function() {
     return 'Go to next month';
 };
-/**
- * The default ARIA label for previous month button in navigation
- */ var labelPrevious = function() {
+
+
+ var labelPrevious = function() {
     return 'Go to previous month';
 };
-/**
- * The default ARIA label for the Weekday element.
- */ var labelWeekday = function(day, options) {
+
+
+ var labelWeekday = function(day, options) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(day, 'cccc', options);
 };
-/**
- * The default ARIA label for the WeekNumber element.
- */ var labelWeekNumber = function(n) {
+
+
+ var labelWeekNumber = function(n) {
     return "Week n. ".concat(n);
 };
-/**
- * The default ARIA label for the WeekNumber element.
- */ var labelYearDropdown = function() {
+
+
+ var labelYearDropdown = function() {
     return 'Year: ';
 };
-var labels = /*#__PURE__*/ Object.freeze({
+var labels =  Object.freeze({
     __proto__: null,
     labelDay: labelDay,
     labelMonthDropdown: labelMonthDropdown,
@@ -334,10 +334,10 @@ var labels = /*#__PURE__*/ Object.freeze({
     labelWeekday: labelWeekday,
     labelYearDropdown: labelYearDropdown
 });
-/**
- * Returns the default values to use in the DayPickerContext, in case they are
- * not passed down with the DayPicker initial props.
- */ function getDefaultContextValues() {
+
+
+
+ function getDefaultContextValues() {
     var captionLayout = 'buttons';
     var classNames = defaultClassNames;
     var locale = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$locale$2f$en$2d$US$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["enUS"];
@@ -360,7 +360,7 @@ var labels = /*#__PURE__*/ Object.freeze({
         mode: 'default'
     };
 }
-/** Return the `fromDate` and `toDate` prop values values parsing the DayPicker props. */ function parseFromToProps(props) {
+ function parseFromToProps(props) {
     var fromYear = props.fromYear, toYear = props.toYear, fromMonth = props.fromMonth, toMonth = props.toMonth;
     var fromDate = props.fromDate, toDate = props.toDate;
     if (fromMonth) {
@@ -378,24 +378,24 @@ var labels = /*#__PURE__*/ Object.freeze({
         toDate: toDate ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfDay$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["startOfDay"])(toDate) : undefined
     };
 }
-/**
- * The DayPicker context shares the props passed to DayPicker within internal
- * and custom components. It is used to set the default values and perform
- * one-time calculations required to render the days.
- *
- * Access to this context from the {@link useDayPicker} hook.
- */ var DayPickerContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-/**
- * The provider for the {@link DayPickerContext}, assigning the defaults from the
- * initial DayPicker props.
- */ function DayPickerProvider(props) {
+
+
+
+
+
+
+ var DayPickerContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+
+
+
+ function DayPickerProvider(props) {
     var _a;
     var initialProps = props.initialProps;
     var defaultContextValues = getDefaultContextValues();
     var _b = parseFromToProps(initialProps), fromDate = _b.fromDate, toDate = _b.toDate;
     var captionLayout = (_a = initialProps.captionLayout) !== null && _a !== void 0 ? _a : defaultContextValues.captionLayout;
     if (captionLayout !== 'buttons' && (!fromDate || !toDate)) {
-        // When no from/to dates are set, the caption is always buttons
+        
         captionLayout = 'buttons';
     }
     var onSelect;
@@ -421,19 +421,19 @@ var labels = /*#__PURE__*/ Object.freeze({
         children: props.children
     });
 }
-/**
- * Hook to access the {@link DayPickerContextValue}.
- *
- * Use the DayPicker context to access to the props passed to DayPicker inside
- * internal or custom components.
- */ function useDayPicker() {
+
+
+
+
+
+ function useDayPicker() {
     var context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(DayPickerContext);
     if (!context) {
         throw new Error("useDayPicker must be used within a DayPickerProvider.");
     }
     return context;
 }
-/** Render the caption for the displayed month. This component is used when `captionLayout="buttons"`. */ function CaptionLabel(props) {
+ function CaptionLabel(props) {
     var _a = useDayPicker(), locale = _a.locale, classNames = _a.classNames, styles = _a.styles, formatCaption = _a.formatters.formatCaption;
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])("div", {
         className: classNames.caption_label,
@@ -446,9 +446,9 @@ var labels = /*#__PURE__*/ Object.freeze({
         })
     });
 }
-/**
- * Render the icon in the styled drop-down.
- */ function IconDropdown(props) {
+
+
+ function IconDropdown(props) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])("svg", __assign({
         width: "8px",
         height: "8px",
@@ -462,10 +462,10 @@ var labels = /*#__PURE__*/ Object.freeze({
         })
     }));
 }
-/**
- * Render a styled select component – displaying a caption and a custom
- * drop-down icon.
- */ function Dropdown(props) {
+
+
+
+ function Dropdown(props) {
     var _a, _b;
     var onChange = props.onChange, value = props.value, children = props.children, caption = props.caption, className = props.className, style = props.style;
     var dayPicker = useDayPicker();
@@ -502,22 +502,22 @@ var labels = /*#__PURE__*/ Object.freeze({
         ]
     });
 }
-/** Render the dropdown to navigate between months. */ function MonthsDropdown(props) {
+ function MonthsDropdown(props) {
     var _a;
     var _b = useDayPicker(), fromDate = _b.fromDate, toDate = _b.toDate, styles = _b.styles, locale = _b.locale, formatMonthCaption = _b.formatters.formatMonthCaption, classNames = _b.classNames, components = _b.components, labelMonthDropdown = _b.labels.labelMonthDropdown;
-    // Dropdown should appear only when both from/toDate is set
+    
     if (!fromDate) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {});
     if (!toDate) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {});
     var dropdownMonths = [];
     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$isSameYear$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isSameYear"])(fromDate, toDate)) {
-        // only display the months included in the range
+        
         var date = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["startOfMonth"])(fromDate);
         for(var month = fromDate.getMonth(); month <= toDate.getMonth(); month++){
             dropdownMonths.push((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$setMonth$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["setMonth"])(date, month));
         }
     } else {
-        // display all the 12 months
-        var date = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["startOfMonth"])(new Date()); // Any date should be OK, as we just need the year
+        
+        var date = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["startOfMonth"])(new Date()); 
         for(var month = 0; month <= 11; month++){
             dropdownMonths.push((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$setMonth$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["setMonth"])(date, month));
         }
@@ -548,15 +548,15 @@ var labels = /*#__PURE__*/ Object.freeze({
         })
     });
 }
-/**
- * Render a dropdown to change the year. Take in account the `nav.fromDate` and
- * `toDate` from context.
- */ function YearsDropdown(props) {
+
+
+
+ function YearsDropdown(props) {
     var _a;
     var displayMonth = props.displayMonth;
     var _b = useDayPicker(), fromDate = _b.fromDate, toDate = _b.toDate, locale = _b.locale, styles = _b.styles, classNames = _b.classNames, components = _b.components, formatYearCaption = _b.formatters.formatYearCaption, labelYearDropdown = _b.labels.labelYearDropdown;
     var years = [];
-    // Dropdown should appear only when both from/toDate is set
+    
     if (!fromDate) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {});
     if (!toDate) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {});
     var fromYear = fromDate.getFullYear();
@@ -589,15 +589,15 @@ var labels = /*#__PURE__*/ Object.freeze({
         })
     });
 }
-/**
- * Helper hook for using controlled/uncontrolled values from a component props.
- *
- * When the value is not controlled, pass `undefined` as `controlledValue` and
- * use the returned setter to update it.
- *
- * When the value is controlled, pass the controlled value as second
- * argument, which will be always returned as `value`.
- */ function useControlledValue(defaultValue, controlledValue) {
+
+
+
+
+
+
+
+
+ function useControlledValue(defaultValue, controlledValue) {
     var _a = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(defaultValue), uncontrolledValue = _a[0], setValue = _a[1];
     var value = controlledValue === undefined ? uncontrolledValue : controlledValue;
     return [
@@ -605,22 +605,22 @@ var labels = /*#__PURE__*/ Object.freeze({
         setValue
     ];
 }
-/** Return the initial month according to the given options. */ function getInitialMonth(context) {
+ function getInitialMonth(context) {
     var month = context.month, defaultMonth = context.defaultMonth, today = context.today;
     var initialMonth = month || defaultMonth || today || new Date();
     var toDate = context.toDate, fromDate = context.fromDate, _a = context.numberOfMonths, numberOfMonths = _a === void 0 ? 1 : _a;
-    // Fix the initialMonth if is after the to-date
+    
     if (toDate && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$differenceInCalendarMonths$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["differenceInCalendarMonths"])(toDate, initialMonth) < 0) {
         var offset = -1 * (numberOfMonths - 1);
         initialMonth = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$addMonths$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addMonths"])(toDate, offset);
     }
-    // Fix the initialMonth if is before the from-date
+    
     if (fromDate && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$differenceInCalendarMonths$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["differenceInCalendarMonths"])(initialMonth, fromDate) < 0) {
         initialMonth = fromDate;
     }
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["startOfMonth"])(initialMonth);
 }
-/** Controls the navigation state. */ function useNavigationState() {
+ function useNavigationState() {
     var context = useDayPicker();
     var initialMonth = getInitialMonth(context);
     var _a = useControlledValue(initialMonth, context.month), month = _a[0], setMonth = _a[1];
@@ -636,10 +636,10 @@ var labels = /*#__PURE__*/ Object.freeze({
         goToMonth
     ];
 }
-/**
- * Return the months to display in the component according to the number of
- * months and the from/to date.
- */ function getDisplayMonths(month, _a) {
+
+
+
+ function getDisplayMonths(month, _a) {
     var reverseMonths = _a.reverseMonths, numberOfMonths = _a.numberOfMonths;
     var start = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["startOfMonth"])(month);
     var end = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["startOfMonth"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$addMonths$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addMonths"])(start, numberOfMonths));
@@ -652,16 +652,16 @@ var labels = /*#__PURE__*/ Object.freeze({
     if (reverseMonths) months = months.reverse();
     return months;
 }
-/**
- * Returns the next month the user can navigate to according to the given
- * options.
- *
- * Please note that the next month is not always the next calendar month:
- *
- * - if after the `toDate` range, is undefined;
- * - if the navigation is paged, is the number of months displayed ahead.
- *
- */ function getNextMonth(startingMonth, options) {
+
+
+
+
+
+
+
+
+
+ function getNextMonth(startingMonth, options) {
     if (options.disableNavigation) {
         return undefined;
     }
@@ -675,20 +675,20 @@ var labels = /*#__PURE__*/ Object.freeze({
     if (monthsDiff < numberOfMonths) {
         return undefined;
     }
-    // Jump forward as the number of months when paged navigation
+    
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$addMonths$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addMonths"])(month, offset);
 }
-/**
- * Returns the next previous the user can navigate to, according to the given
- * options.
- *
- * Please note that the previous month is not always the previous calendar
- * month:
- *
- * - if before the `fromDate` date, is `undefined`;
- * - if the navigation is paged, is the number of months displayed before.
- *
- */ function getPreviousMonth(startingMonth, options) {
+
+
+
+
+
+
+
+
+
+
+ function getPreviousMonth(startingMonth, options) {
     if (options.disableNavigation) {
         return undefined;
     }
@@ -702,14 +702,14 @@ var labels = /*#__PURE__*/ Object.freeze({
     if (monthsDiff <= 0) {
         return undefined;
     }
-    // Jump back as the number of months when paged navigation
+    
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$addMonths$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addMonths"])(month, -offset);
 }
-/**
- * The Navigation context shares details and methods to navigate the months in DayPicker.
- * Access this context from the {@link useNavigation} hook.
- */ var NavigationContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-/** Provides the values for the {@link NavigationContext}. */ function NavigationProvider(props) {
+
+
+
+ var NavigationContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+ function NavigationProvider(props) {
     var dayPicker = useDayPicker();
     var _a = useNavigationState(), currentMonth = _a[0], goToMonth = _a[1];
     var displayMonths = getDisplayMonths(currentMonth, dayPicker);
@@ -744,21 +744,21 @@ var labels = /*#__PURE__*/ Object.freeze({
         children: props.children
     });
 }
-/**
- * Hook to access the {@link NavigationContextValue}. Use this hook to navigate
- * between months or years in DayPicker.
- *
- * This hook is meant to be used inside internal or custom components.
- */ function useNavigation() {
+
+
+
+
+
+ function useNavigation() {
     var context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(NavigationContext);
     if (!context) {
         throw new Error('useNavigation must be used within a NavigationProvider');
     }
     return context;
 }
-/**
- * Render a caption with the dropdowns to navigate between months and years.
- */ function CaptionDropdowns(props) {
+
+
+ function CaptionDropdowns(props) {
     var _a;
     var _b = useDayPicker(), classNames = _b.classNames, styles = _b.styles, components = _b.components;
     var goToMonth = useNavigation().goToMonth;
@@ -789,9 +789,9 @@ var labels = /*#__PURE__*/ Object.freeze({
         ]
     });
 }
-/**
- * Render the "previous month" button in the navigation.
- */ function IconLeft(props) {
+
+
+ function IconLeft(props) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])("svg", __assign({
         width: "16px",
         height: "16px",
@@ -804,9 +804,9 @@ var labels = /*#__PURE__*/ Object.freeze({
         })
     }));
 }
-/**
- * Render the "next month" button in the navigation.
- */ function IconRight(props) {
+
+
+ function IconRight(props) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])("svg", __assign({
         width: "16px",
         height: "16px",
@@ -818,7 +818,7 @@ var labels = /*#__PURE__*/ Object.freeze({
         })
     }));
 }
-/** Render a button HTML element applying the reset class name. */ var Button = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"])(function(props, ref) {
+ var Button = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"])(function(props, ref) {
     var _a = useDayPicker(), classNames = _a.classNames, styles = _a.styles;
     var classNamesArr = [
         classNames.button_reset,
@@ -839,7 +839,7 @@ var labels = /*#__PURE__*/ Object.freeze({
         style: style
     }));
 });
-/** A component rendering the navigation buttons or the drop-downs. */ function Navigation(props) {
+ function Navigation(props) {
     var _a, _b;
     var _c = useDayPicker(), dir = _c.dir, locale = _c.locale, classNames = _c.classNames, styles = _c.styles, _d = _c.labels, labelPrevious = _d.labelPrevious, labelNext = _d.labelNext, components = _c.components;
     if (!props.nextMonth && !props.previousMonth) {
@@ -898,9 +898,9 @@ var labels = /*#__PURE__*/ Object.freeze({
         ]
     });
 }
-/**
- * Render a caption with a button-based navigation.
- */ function CaptionNavigation(props) {
+
+
+ function CaptionNavigation(props) {
     var numberOfMonths = useDayPicker().numberOfMonths;
     var _a = useNavigation(), previousMonth = _a.previousMonth, nextMonth = _a.nextMonth, goToMonth = _a.goToMonth, displayMonths = _a.displayMonths;
     var displayIndex = displayMonths.findIndex(function(month) {
@@ -928,10 +928,10 @@ var labels = /*#__PURE__*/ Object.freeze({
         onNextClick: handleNextClick
     });
 }
-/**
- * Render the caption of a month. The caption has a different layout when
- * setting the {@link DayPickerBase.captionLayout} prop.
- */ function Caption(props) {
+
+
+
+ function Caption(props) {
     var _a;
     var _b = useDayPicker(), classNames = _b.classNames, disableNavigation = _b.disableNavigation, styles = _b.styles, captionLayout = _b.captionLayout, components = _b.components;
     var CaptionLabelComponent = (_a = components === null || components === void 0 ? void 0 : components.CaptionLabel) !== null && _a !== void 0 ? _a : CaptionLabel;
@@ -982,7 +982,7 @@ var labels = /*#__PURE__*/ Object.freeze({
         children: caption
     });
 }
-/** Render the Footer component (empty as default).*/ // eslint-disable-next-line @typescript-eslint/no-unused-vars
+ 
 function Footer(props) {
     var _a = useDayPicker(), footer = _a.footer, styles = _a.styles, tfoot = _a.classNames.tfoot;
     if (!footer) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {});
@@ -997,10 +997,10 @@ function Footer(props) {
         })
     });
 }
-/**
- * Generate a series of 7 days, starting from the week, to use for formatting
- * the weekday names (Monday, Tuesday, etc.).
- */ function getWeekdays(locale, /** The index of the first day of the week (0 - Sunday). */ weekStartsOn, /** Use ISOWeek instead of locale/ */ ISOWeek) {
+
+
+
+ function getWeekdays(locale,  weekStartsOn,  ISOWeek) {
     var start = ISOWeek ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfISOWeek$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["startOfISOWeek"])(new Date()) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfWeek$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["startOfWeek"])(new Date(), {
         locale: locale,
         weekStartsOn: weekStartsOn
@@ -1012,9 +1012,9 @@ function Footer(props) {
     }
     return days;
 }
-/**
- * Render the HeadRow component - i.e. the table head row with the weekday names.
- */ function HeadRow() {
+
+
+ function HeadRow() {
     var _a = useDayPicker(), classNames = _a.classNames, styles = _a.styles, showWeekNumber = _a.showWeekNumber, locale = _a.locale, weekStartsOn = _a.weekStartsOn, ISOWeek = _a.ISOWeek, formatWeekdayName = _a.formatters.formatWeekdayName, labelWeekday = _a.labels.labelWeekday;
     var weekdays = getWeekdays(locale, weekStartsOn, ISOWeek);
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])("tr", {
@@ -1041,7 +1041,7 @@ function Footer(props) {
         ]
     });
 }
-/** Render the table head. */ function Head() {
+ function Head() {
     var _a;
     var _b = useDayPicker(), classNames = _b.classNames, styles = _b.styles, components = _b.components;
     var HeadRowComponent = (_a = components === null || components === void 0 ? void 0 : components.HeadRow) !== null && _a !== void 0 ? _a : HeadRow;
@@ -1051,7 +1051,7 @@ function Footer(props) {
         children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(HeadRowComponent, {})
     });
 }
-/** Render the content of the day cell. */ function DayContent(props) {
+ function DayContent(props) {
     var _a = useDayPicker(), locale = _a.locale, formatDay = _a.formatters.formatDay;
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: formatDay(props.date, {
@@ -1059,13 +1059,13 @@ function Footer(props) {
         })
     });
 }
-/**
- * The SelectMultiple context shares details about the selected days when in
- * multiple selection mode.
- *
- * Access this context from the {@link useSelectMultiple} hook.
- */ var SelectMultipleContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-/** Provides the values for the {@link SelectMultipleContext}. */ function SelectMultipleProvider(props) {
+
+
+
+
+
+ var SelectMultipleContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+ function SelectMultipleProvider(props) {
     if (!isDayPickerMultiple(props.initialProps)) {
         var emptyContextValue = {
             selected: undefined,
@@ -1130,23 +1130,23 @@ function SelectMultipleProviderInternal(_a) {
         children: children
     });
 }
-/**
- * Hook to access the {@link SelectMultipleContextValue}.
- *
- * This hook is meant to be used inside internal or custom components.
- */ function useSelectMultiple() {
+
+
+
+
+ function useSelectMultiple() {
     var context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(SelectMultipleContext);
     if (!context) {
         throw new Error('useSelectMultiple must be used within a SelectMultipleProvider');
     }
     return context;
 }
-/**
- * Add a day to an existing range.
- *
- * The returned range takes in account the `undefined` values and if the added
- * day is already present in the range.
- */ function addToRange(day, range) {
+
+
+
+
+
+ function addToRange(day, range) {
     var _a = range || {}, from = _a.from, to = _a.to;
     if (from && to) {
         if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$isSameDay$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isSameDay"])(to, day) && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$isSameDay$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isSameDay"])(from, day)) {
@@ -1201,13 +1201,13 @@ function SelectMultipleProviderInternal(_a) {
         to: undefined
     };
 }
-/**
- * The SelectRange context shares details about the selected days when in
- * range selection mode.
- *
- * Access this context from the {@link useSelectRange} hook.
- */ var SelectRangeContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-/** Provides the values for the {@link SelectRangeProvider}. */ function SelectRangeProvider(props) {
+
+
+
+
+
+ var SelectRangeContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+ function SelectRangeProvider(props) {
     if (!isDayPickerRange(props.initialProps)) {
         var emptyContextValue = {
             selected: undefined,
@@ -1332,18 +1332,18 @@ function SelectRangeProviderInternal(_a) {
         children: children
     });
 }
-/**
- * Hook to access the {@link SelectRangeContextValue}.
- *
- * This hook is meant to be used inside internal or custom components.
- */ function useSelectRange() {
+
+
+
+
+ function useSelectRange() {
     var context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(SelectRangeContext);
     if (!context) {
         throw new Error('useSelectRange must be used within a SelectRangeProvider');
     }
     return context;
 }
-/** Normalize to array a matcher input. */ function matcherToArray(matcher) {
+ function matcherToArray(matcher) {
     if (Array.isArray(matcher)) {
         return __spreadArray([], matcher, true);
     } else if (matcher !== undefined) {
@@ -1354,7 +1354,7 @@ function SelectRangeProviderInternal(_a) {
         return [];
     }
 }
-/** Create CustomModifiers from dayModifiers */ function getCustomModifiers(dayModifiers) {
+ function getCustomModifiers(dayModifiers) {
     var customModifiers = {};
     Object.entries(dayModifiers).forEach(function(_a) {
         var modifier = _a[0], matcher = _a[1];
@@ -1362,19 +1362,19 @@ function SelectRangeProviderInternal(_a) {
     });
     return customModifiers;
 }
-/** The name of the modifiers that are used internally by DayPicker. */ var InternalModifier;
+ var InternalModifier;
 (function(InternalModifier) {
     InternalModifier["Outside"] = "outside";
-    /** Name of the modifier applied to the disabled days, using the `disabled` prop. */ InternalModifier["Disabled"] = "disabled";
-    /** Name of the modifier applied to the selected days using the `selected` prop). */ InternalModifier["Selected"] = "selected";
-    /** Name of the modifier applied to the hidden days using the `hidden` prop). */ InternalModifier["Hidden"] = "hidden";
-    /** Name of the modifier applied to the day specified using the `today` prop). */ InternalModifier["Today"] = "today";
-    /** The modifier applied to the day starting a selected range, when in range selection mode.  */ InternalModifier["RangeStart"] = "range_start";
-    /** The modifier applied to the day ending a selected range, when in range selection mode.  */ InternalModifier["RangeEnd"] = "range_end";
-    /** The modifier applied to the days between the start and the end of a selected range, when in range selection mode.  */ InternalModifier["RangeMiddle"] = "range_middle";
+     InternalModifier["Disabled"] = "disabled";
+     InternalModifier["Selected"] = "selected";
+     InternalModifier["Hidden"] = "hidden";
+     InternalModifier["Today"] = "today";
+     InternalModifier["RangeStart"] = "range_start";
+     InternalModifier["RangeEnd"] = "range_end";
+     InternalModifier["RangeMiddle"] = "range_middle";
 })(InternalModifier || (InternalModifier = {}));
 var Selected = InternalModifier.Selected, Disabled = InternalModifier.Disabled, Hidden = InternalModifier.Hidden, Today = InternalModifier.Today, RangeEnd = InternalModifier.RangeEnd, RangeMiddle = InternalModifier.RangeMiddle, RangeStart = InternalModifier.RangeStart, Outside = InternalModifier.Outside;
-/** Return the {@link InternalModifiers} from the DayPicker and select contexts. */ function getInternalModifiers(dayPicker, selectMultiple, selectRange) {
+ function getInternalModifiers(dayPicker, selectMultiple, selectRange) {
     var _a;
     var internalModifiers = (_a = {}, _a[Selected] = matcherToArray(dayPicker.selected), _a[Disabled] = matcherToArray(dayPicker.disabled), _a[Hidden] = matcherToArray(dayPicker.hidden), _a[Today] = [
         dayPicker.today
@@ -1399,8 +1399,8 @@ var Selected = InternalModifier.Selected, Disabled = InternalModifier.Disabled, 
     }
     return internalModifiers;
 }
-/** The Modifiers context store the modifiers used in DayPicker. To access the value of this context, use {@link useModifiers}. */ var ModifiersContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-/** Provide the value for the {@link ModifiersContext}. */ function ModifiersProvider(props) {
+ var ModifiersContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+ function ModifiersProvider(props) {
     var dayPicker = useDayPicker();
     var selectMultiple = useSelectMultiple();
     var selectRange = useSelectRange();
@@ -1412,35 +1412,35 @@ var Selected = InternalModifier.Selected, Disabled = InternalModifier.Disabled, 
         children: props.children
     });
 }
-/**
- * Return the modifiers used by DayPicker.
- *
- * This hook is meant to be used inside internal or custom components.
- * Requires to be wrapped into {@link ModifiersProvider}.
- *
- */ function useModifiers() {
+
+
+
+
+
+
+ function useModifiers() {
     var context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(ModifiersContext);
     if (!context) {
         throw new Error('useModifiers must be used within a ModifiersProvider');
     }
     return context;
 }
-/** Returns true if `matcher` is of type {@link DateInterval}. */ function isDateInterval(matcher) {
+ function isDateInterval(matcher) {
     return Boolean(matcher && typeof matcher === 'object' && 'before' in matcher && 'after' in matcher);
 }
-/** Returns true if `value` is a {@link DateRange} type. */ function isDateRange(value) {
+ function isDateRange(value) {
     return Boolean(value && typeof value === 'object' && 'from' in value);
 }
-/** Returns true if `value` is of type {@link DateAfter}. */ function isDateAfterType(value) {
+ function isDateAfterType(value) {
     return Boolean(value && typeof value === 'object' && 'after' in value);
 }
-/** Returns true if `value` is of type {@link DateBefore}. */ function isDateBeforeType(value) {
+ function isDateBeforeType(value) {
     return Boolean(value && typeof value === 'object' && 'before' in value);
 }
-/** Returns true if `value` is a {@link DayOfWeek} type. */ function isDayOfWeekType(value) {
+ function isDayOfWeekType(value) {
     return Boolean(value && typeof value === 'object' && 'dayOfWeek' in value);
 }
-/** Return `true` whether `date` is inside `range`. */ function isDateInRange(date, range) {
+ function isDateInRange(date, range) {
     var _a;
     var from = range.from, to = range.to;
     if (from && to) {
@@ -1462,29 +1462,29 @@ var Selected = InternalModifier.Selected, Disabled = InternalModifier.Disabled, 
     }
     return false;
 }
-/** Returns true if `value` is a Date type. */ function isDateType(value) {
+ function isDateType(value) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$isDate$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isDate"])(value);
 }
-/** Returns true if `value` is an array of valid dates. */ function isArrayOfDates(value) {
+ function isArrayOfDates(value) {
     return Array.isArray(value) && value.every(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$isDate$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isDate"]);
 }
-/**
- * Returns whether a day matches against at least one of the given Matchers.
- *
- * ```
- * const day = new Date(2022, 5, 19);
- * const matcher1: DateRange = {
- *    from: new Date(2021, 12, 21),
- *    to: new Date(2021, 12, 30)
- * }
- * const matcher2: DateRange = {
- *    from: new Date(2022, 5, 1),
- *    to: new Date(2022, 5, 23)
- * }
- *
- * const isMatch(day, [matcher1, matcher2]); // true, since day is in the matcher1 range.
- * ```
- * */ function isMatch(day, matchers) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ function isMatch(day, matchers) {
     return matchers.some(function(matcher) {
         if (typeof matcher === 'boolean') {
             return matcher;
@@ -1525,7 +1525,7 @@ var Selected = InternalModifier.Selected, Disabled = InternalModifier.Disabled, 
         return false;
     });
 }
-/** Return the active modifiers for the given day. */ function getActiveModifiers(day, /** The modifiers to match for the given date. */ modifiers, /** The month where the day is displayed, to add the "outside" modifiers.  */ displayMonth) {
+ function getActiveModifiers(day,  modifiers,  displayMonth) {
     var matchedModifiers = Object.keys(modifiers).reduce(function(result, key) {
         var modifier = modifiers[key];
         if (isMatch(day, modifier)) {
@@ -1542,17 +1542,17 @@ var Selected = InternalModifier.Selected, Disabled = InternalModifier.Disabled, 
     }
     return activeModifiers;
 }
-/**
- * Returns the day that should be the target of the focus when DayPicker is
- * rendered the first time.
- *
- * TODO: this function doesn't consider if the day is outside the month. We
- * implemented this check in `useDayRender` but it should probably go here. See
- * https://github.com/gpbl/react-day-picker/pull/1576
- */ function getInitialFocusTarget(displayMonths, modifiers) {
+
+
+
+
+
+
+
+ function getInitialFocusTarget(displayMonths, modifiers) {
     var firstDayInMonth = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["startOfMonth"])(displayMonths[0]);
     var lastDayInMonth = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$endOfMonth$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["endOfMonth"])(displayMonths[displayMonths.length - 1]);
-    // TODO: cleanup code
+    
     var firstFocusableDay;
     var today;
     var date = firstDayInMonth;
@@ -1581,7 +1581,7 @@ var Selected = InternalModifier.Selected, Disabled = InternalModifier.Disabled, 
     }
 }
 var MAX_RETRY = 365;
-/** Return the next date to be focused. */ function getNextFocus(focusedDay, options) {
+ function getNextFocus(focusedDay, options) {
     var moveBy = options.moveBy, direction = options.direction, context = options.context, modifiers = options.modifiers, _a = options.retry, retry = _a === void 0 ? {
         count: 0,
         lastFocused: focusedDay
@@ -1639,18 +1639,18 @@ var MAX_RETRY = 365;
         });
     }
 }
-/**
- * The Focus context shares details about the focused day for the keyboard
- *
- * Access this context from the {@link useFocusContext} hook.
- */ var FocusContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-/** The provider for the {@link FocusContext}. */ function FocusProvider(props) {
+
+
+
+
+ var FocusContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+ function FocusProvider(props) {
     var navigation = useNavigation();
     var modifiers = useModifiers();
     var _a = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(), focusedDay = _a[0], setFocusedDay = _a[1];
     var _b = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(), lastFocused = _b[0], setLastFocused = _b[1];
     var initialFocusTarget = getInitialFocusTarget(navigation.displayMonths, modifiers);
-    // TODO: cleanup and test obscure code below
+    
     var focusTarget = (focusedDay !== null && focusedDay !== void 0 ? focusedDay : lastFocused && navigation.isDateDisplayed(lastFocused)) ? lastFocused : initialFocusTarget;
     var blur = function() {
         setLastFocused(focusedDay);
@@ -1713,40 +1713,40 @@ var MAX_RETRY = 365;
         children: props.children
     });
 }
-/**
- * Hook to access the {@link FocusContextValue}. Use this hook to handle the
- * focus state of the elements.
- *
- * This hook is meant to be used inside internal or custom components.
- */ function useFocusContext() {
+
+
+
+
+
+ function useFocusContext() {
     var context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(FocusContext);
     if (!context) {
         throw new Error('useFocusContext must be used within a FocusProvider');
     }
     return context;
 }
-/**
- * Return the active modifiers for the specified day.
- *
- * This hook is meant to be used inside internal or custom components.
- *
- * @param day
- * @param displayMonth
- */ function useActiveModifiers(day, /**
- * The month where the date is displayed. If not the same as `date`, the day
- * is an "outside day".
- */ displayMonth) {
+
+
+
+
+
+
+
+ function useActiveModifiers(day, 
+
+
+ displayMonth) {
     var modifiers = useModifiers();
     var activeModifiers = getActiveModifiers(day, modifiers, displayMonth);
     return activeModifiers;
 }
-/**
- * The SelectSingle context shares details about the selected days when in
- * single selection mode.
- *
- * Access this context from the {@link useSelectSingle} hook.
- */ var SelectSingleContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-/** Provides the values for the {@link SelectSingleProvider}. */ function SelectSingleProvider(props) {
+
+
+
+
+
+ var SelectSingleContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+ function SelectSingleProvider(props) {
     if (!isDayPickerSingle(props.initialProps)) {
         var emptyContextValue = {
             selected: undefined
@@ -1781,37 +1781,37 @@ function SelectSingleProviderInternal(_a) {
         children: children
     });
 }
-/**
- * Hook to access the {@link SelectSingleContextValue}.
- *
- * This hook is meant to be used inside internal or custom components.
- */ function useSelectSingle() {
+
+
+
+
+ function useSelectSingle() {
     var context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(SelectSingleContext);
     if (!context) {
         throw new Error('useSelectSingle must be used within a SelectSingleProvider');
     }
     return context;
 }
-/**
- * This hook returns details about the content to render in the day cell.
- *
- *
- * When a day cell is rendered in the table, DayPicker can either:
- *
- * - render nothing: when the day is outside the month or has matched the
- *   "hidden" modifier.
- * - render a button when `onDayClick` or a selection mode is set.
- * - render a non-interactive element: when no selection mode is set, the day
- *   cell shouldn’t respond to any interaction. DayPicker should render a `div`
- *   or a `span`.
- *
- * ### Usage
- *
- * Use this hook to customize the behavior of the {@link Day} component. Create a
- * new `Day` component using this hook and pass it to the `components` prop.
- * The source of {@link Day} can be a good starting point.
- *
- */ function useDayEventHandlers(date, activeModifiers) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ function useDayEventHandlers(date, activeModifiers) {
     var dayPicker = useDayPicker();
     var single = useSelectSingle();
     var multiple = useSelectMultiple();
@@ -1938,13 +1938,13 @@ function SelectSingleProviderInternal(_a) {
     };
     return eventHandlers;
 }
-/**
- * Return the current selected days when DayPicker is in selection mode. Days
- * selected by the custom selection mode are not returned.
- *
- * This hook is meant to be used inside internal or custom components.
- *
- */ function useSelectedDays() {
+
+
+
+
+
+
+ function useSelectedDays() {
     var dayPicker = useDayPicker();
     var single = useSelectSingle();
     var multiple = useSelectMultiple();
@@ -1955,13 +1955,13 @@ function SelectSingleProviderInternal(_a) {
 function isInternalModifier(modifier) {
     return Object.values(InternalModifier).includes(modifier);
 }
-/**
- * Return the class names for the Day element, according to the given active
- * modifiers.
- *
- * Custom class names are set via `modifiersClassNames` or `classNames`,
- * where the first have the precedence.
- */ function getDayClassNames(dayPicker, activeModifiers) {
+
+
+
+
+
+
+ function getDayClassNames(dayPicker, activeModifiers) {
     var classNames = [
         dayPicker.classNames.day
     ];
@@ -1978,7 +1978,7 @@ function isInternalModifier(modifier) {
     });
     return classNames;
 }
-/** Return the style for the Day element, according to the given active modifiers. */ function getDayStyle(dayPicker, activeModifiers) {
+ function getDayStyle(dayPicker, activeModifiers) {
     var style = __assign({}, dayPicker.styles.day);
     Object.keys(activeModifiers).forEach(function(modifier) {
         var _a;
@@ -1986,12 +1986,12 @@ function isInternalModifier(modifier) {
     });
     return style;
 }
-/**
- * Return props and data used to render the {@link Day} component.
- *
- * Use this hook when creating a component to replace the built-in `Day`
- * component.
- */ function useDayRender(/** The date to render. */ day, /** The month where the date is displayed (if not the same as `date`, it means it is an "outside" day). */ displayMonth, /** A ref to the button element that will be target of focus when rendered (if required). */ buttonRef) {
+
+
+
+
+
+ function useDayRender( day,  displayMonth,  buttonRef) {
     var _a;
     var _b, _c;
     var dayPicker = useDayPicker();
@@ -2000,7 +2000,7 @@ function isInternalModifier(modifier) {
     var eventHandlers = useDayEventHandlers(day, activeModifiers);
     var selectedDays = useSelectedDays();
     var isButton = Boolean(dayPicker.onDayClick || dayPicker.mode !== 'default');
-    // Focus the button if the day is focused according to the focus context
+    
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(function() {
         var _a;
         if (activeModifiers.outside) return;
@@ -2047,10 +2047,10 @@ function isInternalModifier(modifier) {
     };
     return dayRender;
 }
-/**
- * The content of a day cell – as a button or span element according to its
- * modifiers.
- */ function Day(props) {
+
+
+
+ function Day(props) {
     var buttonRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     var dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
     if (dayRender.isHidden) {
@@ -2066,10 +2066,10 @@ function isInternalModifier(modifier) {
         ref: buttonRef
     }, dayRender.buttonProps));
 }
-/**
- * Render the week number element. If `onWeekNumberClick` is passed to DayPicker, it
- * renders a button, otherwise a span element.
- */ function WeekNumber(props) {
+
+
+
+ function WeekNumber(props) {
     var weekNumber = props.number, dates = props.dates;
     var _a = useDayPicker(), onWeekNumberClick = _a.onWeekNumberClick, styles = _a.styles, classNames = _a.classNames, locale = _a.locale, labelWeekNumber = _a.labels.labelWeekNumber, formatWeekNumber = _a.formatters.formatWeekNumber;
     var content = formatWeekNumber(Number(weekNumber), {
@@ -2097,7 +2097,7 @@ function isInternalModifier(modifier) {
         children: content
     });
 }
-/** Render a row in the calendar, with the days and the week number. */ function Row(props) {
+ function Row(props) {
     var _a, _b;
     var _c = useDayPicker(), styles = _c.styles, classNames = _c.classNames, showWeekNumber = _c.showWeekNumber, components = _c.components;
     var DayComponent = (_a = components === null || components === void 0 ? void 0 : components.Day) !== null && _a !== void 0 ? _a : Day;
@@ -2132,7 +2132,7 @@ function isInternalModifier(modifier) {
         ]
     });
 }
-/** Return the weeks between two dates.  */ function daysToMonthWeeks(fromDate, toDate, options) {
+ function daysToMonthWeeks(fromDate, toDate, options) {
     var toWeek = (options === null || options === void 0 ? void 0 : options.ISOWeek) ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$endOfISOWeek$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["endOfISOWeek"])(toDate) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$endOfWeek$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["endOfWeek"])(toDate, options);
     var fromWeek = (options === null || options === void 0 ? void 0 : options.ISOWeek) ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfISOWeek$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["startOfISOWeek"])(fromDate) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfWeek$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["startOfWeek"])(fromDate, options);
     var nOfDays = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$differenceInCalendarDays$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["differenceInCalendarDays"])(toWeek, fromWeek);
@@ -2159,13 +2159,13 @@ function isInternalModifier(modifier) {
     }, []);
     return weeksInMonth;
 }
-/**
- * Return the weeks belonging to the given month, adding the "outside days" to
- * the first and last week.
- */ function getMonthWeeks(month, options) {
+
+
+
+ function getMonthWeeks(month, options) {
     var weeksInMonth = daysToMonthWeeks((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["startOfMonth"])(month), (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$endOfMonth$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["endOfMonth"])(month), options);
     if (options === null || options === void 0 ? void 0 : options.useFixedWeeks) {
-        // Add extra weeks to the month, up to 6 weeks
+        
         var nrOfMonthWeeks = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$getWeeksInMonth$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getWeeksInMonth"])(month, options);
         if (nrOfMonthWeeks < 6) {
             var lastWeek = weeksInMonth[weeksInMonth.length - 1];
@@ -2177,7 +2177,7 @@ function isInternalModifier(modifier) {
     }
     return weeksInMonth;
 }
-/** Render the table with the calendar. */ function Table(props) {
+ function Table(props) {
     var _a, _b, _c;
     var _d = useDayPicker(), locale = _d.locale, classNames = _d.classNames, styles = _d.styles, hideHead = _d.hideHead, fixedWeeks = _d.fixedWeeks, components = _d.components, weekStartsOn = _d.weekStartsOn, firstWeekContainsDate = _d.firstWeekContainsDate, ISOWeek = _d.ISOWeek;
     var weeks = getMonthWeeks(props.displayMonth, {
@@ -2215,130 +2215,130 @@ function isInternalModifier(modifier) {
         ]
     });
 }
-/*
-The MIT License (MIT)
 
-Copyright (c) 2018-present, React Training LLC
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/ /* eslint-disable prefer-const */ /* eslint-disable @typescript-eslint/ban-ts-comment */ /*
- * Welcome to @reach/auto-id!
- * Let's see if we can make sense of why this hook exists and its
- * implementation.
- *
- * Some background:
- *   1. Accessibility APIs rely heavily on element IDs
- *   2. Requiring developers to put IDs on every element in Reach UI is both
- *      cumbersome and error-prone
- *   3. With a component model, we can generate IDs for them!
- *
- * Solution 1: Generate random IDs.
- *
- * This works great as long as you don't server render your app. When React (in
- * the client) tries to reuse the markup from the server, the IDs won't match
- * and React will then recreate the entire DOM tree.
- *
- * Solution 2: Increment an integer
- *
- * This sounds great. Since we're rendering the exact same tree on the server
- * and client, we can increment a counter and get a deterministic result between
- * client and server. Also, JS integers can go up to nine-quadrillion. I'm
- * pretty sure the tab will be closed before an app never needs
- * 10 quadrillion IDs!
- *
- * Problem solved, right?
- *
- * Ah, but there's a catch! React's concurrent rendering makes this approach
- * non-deterministic. While the client and server will end up with the same
- * elements in the end, depending on suspense boundaries (and possibly some user
- * input during the initial render) the incrementing integers won't always match
- * up.
- *
- * Solution 3: Don't use IDs at all on the server; patch after first render.
- *
- * What we've done here is solution 2 with some tricks. With this approach, the
- * ID returned is an empty string on the first render. This way the server and
- * client have the same markup no matter how wild the concurrent rendering may
- * have gotten.
- *
- * After the render, we patch up the components with an incremented ID. This
- * causes a double render on any components with `useId`. Shouldn't be a problem
- * since the components using this hook should be small, and we're only updating
- * the ID attribute on the DOM, nothing big is happening.
- *
- * It doesn't have to be an incremented number, though--we could do generate
- * random strings instead, but incrementing a number is probably the cheapest
- * thing we can do.
- *
- * Additionally, we only do this patchup on the very first client render ever.
- * Any calls to `useId` that happen dynamically in the client will be
- * populated immediately with a value. So, we only get the double render after
- * server hydration and never again, SO BACK OFF ALRIGHT?
- */ function canUseDOM() {
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ function canUseDOM() {
     return !!(("TURBOPACK compile-time value", "undefined") !== 'undefined' && window.document && window.document.createElement);
 }
-/**
- * React currently throws a warning when using useLayoutEffect on the server. To
- * get around it, we can conditionally useEffect on the server (no-op) and
- * useLayoutEffect in the browser. We occasionally need useLayoutEffect to
- * ensure we don't get a render flash for certain operations, but we may also
- * need affected components to render on the server. One example is when setting
- * a component's descendants to retrieve their index values.
- *
- * Important to note that using this hook as an escape hatch will break the
- * eslint dependency warnings unless you rename the import to `useLayoutEffect`.
- * Use sparingly only when the effect won't effect the rendered HTML to avoid
- * any server/client mismatch.
- *
- * If a useLayoutEffect is needed and the result would create a mismatch, it's
- * likely that the component in question shouldn't be rendered on the server at
- * all, so a better approach would be to lazily render those in a parent
- * component after client-side hydration.
- *
- * https://gist.github.com/gaearon/e7d97cdf38a2907924ea12e4ebdf3c85
- * https://github.com/reduxjs/react-redux/blob/master/src/utils/useIsomorphicLayoutEffect.js
- *
- * @param effect
- * @param deps
- */ var useIsomorphicLayoutEffect = canUseDOM() ? "TURBOPACK unreachable" : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ var useIsomorphicLayoutEffect = canUseDOM() ? "TURBOPACK unreachable" : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"];
 var serverHandoffComplete = false;
 var id = 0;
 function genId() {
     return "react-day-picker-".concat(++id);
 }
 function useId(providedId) {
-    // TODO: Remove error flag when updating internal deps to React 18. None of
-    // our tricks will play well with concurrent rendering anyway.
+    
+    
     var _a;
-    // If this instance isn't part of the initial render, we don't have to do the
-    // double render/patch-up dance. We can just generate the ID and return it.
+    
+    
     var initialId = providedId !== null && providedId !== void 0 ? providedId : serverHandoffComplete ? genId() : null;
     var _b = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(initialId), id = _b[0], setId = _b[1];
     useIsomorphicLayoutEffect(function() {
         if (id === null) {
-            // Patch the ID after render. We do this in `useLayoutEffect` to avoid any
-            // rendering flicker, though it'll make the first render slower (unlikely
-            // to matter, but you're welcome to measure your app and let us know if
-            // it's a problem).
+            
+            
+            
+            
             setId(genId());
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
     }, []);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(function() {
         if (serverHandoffComplete === false) {
-            // Flag all future uses of `useId` to skip the update dance. This is in
-            // `useEffect` because it goes after `useLayoutEffect`, ensuring we don't
-            // accidentally bail out of the patch-up dance prematurely.
+            
+            
+            
             serverHandoffComplete = true;
         }
     }, []);
     return (_a = providedId !== null && providedId !== void 0 ? providedId : id) !== null && _a !== void 0 ? _a : undefined;
 }
-/** Render a month. */ function Month(props) {
+ function Month(props) {
     var _a;
     var _b;
     var dayPicker = useDayPicker();
@@ -2389,9 +2389,9 @@ function useId(providedId) {
         ]
     }, props.displayIndex);
 }
-/**
- * Render the wrapper for the month grids.
- */ function Months(props) {
+
+
+ function Months(props) {
     var _a = useDayPicker(), classNames = _a.classNames, styles = _a.styles;
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])("div", {
         className: classNames.months,
@@ -2399,14 +2399,14 @@ function useId(providedId) {
         children: props.children
     });
 }
-/** Render the container with the months according to the number of months to display. */ function Root(_a) {
+ function Root(_a) {
     var _b, _c;
     var initialProps = _a.initialProps;
     var dayPicker = useDayPicker();
     var focusContext = useFocusContext();
     var navigation = useNavigation();
     var _d = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false), hasInitialFocus = _d[0], setHasInitialFocus = _d[1];
-    // Focus the focus target when initialFocus is passed in
+    
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(function() {
         if (!dayPicker.initialFocus) return;
         if (!focusContext.focusTarget) return;
@@ -2420,7 +2420,7 @@ function useId(providedId) {
         focusContext.focusTarget,
         focusContext
     ]);
-    // Apply classnames according to props
+    
     var classNames = [
         dayPicker.classNames.root,
         dayPicker.className
@@ -2458,7 +2458,7 @@ function useId(providedId) {
         })
     }));
 }
-/** Provide the value for all the context providers. */ function RootProvider(props) {
+ function RootProvider(props) {
     var children = props.children, initialProps = __rest(props, [
         "children"
     ]);
@@ -2482,115 +2482,115 @@ function useId(providedId) {
         })
     });
 }
-/**
- * DayPicker render a date picker component to let users pick dates from a
- * calendar. See http://react-day-picker.js.org for updated documentation and
- * examples.
- *
- * ### Customization
- *
- * DayPicker offers different customization props. For example,
- *
- * - show multiple months using `numberOfMonths`
- * - display a dropdown to navigate the months via `captionLayout`
- * - display the week numbers with `showWeekNumbers`
- * - disable or hide days with `disabled` or `hidden`
- *
- * ### Controlling the months
- *
- * Change the initially displayed month using the `defaultMonth` prop. The
- * displayed months are controlled by DayPicker and stored in its internal
- * state. To control the months yourself, use `month` instead of `defaultMonth`
- * and use the `onMonthChange` event to set it.
- *
- * To limit the months the user can navigate to, use
- * `fromDate`/`fromMonth`/`fromYear` or `toDate`/`toMonth`/`toYear`.
- *
- * ### Selection modes
- *
- * DayPicker supports different selection mode that can be toggled using the
- * `mode` prop:
- *
- * - `mode="single"`: only one day can be selected. Use `required` to make the
- *   selection required. Use the `onSelect` event handler to get the selected
- *   days.
- * - `mode="multiple"`: users can select one or more days. Limit the amount of
- *   days that can be selected with the `min` or the `max` props.
- * - `mode="range"`: users can select a range of days. Limit the amount of days
- *   in the range with the `min` or the `max` props.
- * - `mode="default"` (default): the built-in selections are disabled. Implement
- *   your own selection mode with `onDayClick`.
- *
- * The selection modes should cover the most common use cases. In case you
- * need a more refined way of selecting days, use `mode="default"`. Use the
- * `selected` props and add the day event handlers to add/remove days from the
- * selection.
- *
- * ### Modifiers
- *
- * A _modifier_ represents different styles or states for the days displayed in
- * the calendar (like "selected" or "disabled"). Define custom modifiers using
- * the `modifiers` prop.
- *
- * ### Formatters and custom component
- *
- * You can customize how the content is displayed in the date picker by using
- * either the formatters or replacing the internal components.
- *
- * For the most common cases you want to use the `formatters` prop to change how
- * the content is formatted in the calendar. Use the `components` prop to
- * replace the internal components, like the navigation icons.
- *
- * ### Styling
- *
- * DayPicker comes with a default, basic style in `react-day-picker/style` – use
- * it as template for your own style.
- *
- * If you are using CSS modules, pass the imported styles object the
- * `classNames` props.
- *
- * You can also style the elements via inline styles using the `styles` prop.
- *
- * ### Form fields
- *
- * If you need to bind the date picker to a form field, you can use the
- * `useInput` hooks for a basic behavior. See the `useInput` source as an
- * example to bind the date picker with form fields.
- *
- * ### Localization
- *
- * To localize DayPicker, import the locale from `date-fns` package and use the
- * `locale` prop.
- *
- * For example, to use Spanish locale:
- *
- * ```
- * import { es } from 'date-fns/locale';
- * <DayPicker locale={es} />
- * ```
- */ function DayPicker(props) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ function DayPicker(props) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(RootProvider, __assign({}, props, {
         children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Root, {
             initialProps: props
         })
     }));
 }
-/** @private */ function isValidDate(day) {
+ function isValidDate(day) {
     return !isNaN(day.getTime());
 }
-/** Return props and setters for binding an input field to DayPicker. */ function useInput(options) {
+ function useInput(options) {
     if (options === void 0) {
         options = {};
     }
     var _a = options.locale, locale = _a === void 0 ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$locale$2f$en$2d$US$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["enUS"] : _a, required = options.required, _b = options.format, format$1 = _b === void 0 ? 'PP' : _b, defaultSelected = options.defaultSelected, _c = options.today, today = _c === void 0 ? new Date() : _c;
     var _d = parseFromToProps(options), fromDate = _d.fromDate, toDate = _d.toDate;
-    // Shortcut to the DateFns functions
+    
     var parseValue = function(value) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["parse"])(value, format$1, today, {
             locale: locale
         });
     };
-    // Initialize states
+    
     var _e = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(defaultSelected !== null && defaultSelected !== void 0 ? defaultSelected : today), month = _e[0], setMonth = _e[1];
     var _f = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(defaultSelected), selectedDay = _f[0], setSelectedDay = _f[1];
     var defaultInputValue = defaultSelected ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(defaultSelected, format$1, {
@@ -2624,9 +2624,9 @@ function useId(providedId) {
     var handleMonthChange = function(month) {
         setMonth(month);
     };
-    // When changing the input field, save its value in state and check if the
-    // string is a valid date. If it is a valid day, set it as selected and update
-    // the calendar’s month.
+    
+    
+    
     var handleChange = function(e) {
         setInputValue(e.target.value);
         var day = parseValue(e.target.value);
@@ -2639,16 +2639,16 @@ function useId(providedId) {
         setSelectedDay(day);
         setMonth(day);
     };
-    // Special case for _required_ fields: on blur, if the value of the input is not
-    // a valid date, reset the calendar and the input value.
+    
+    
     var handleBlur = function(e) {
         var day = parseValue(e.target.value);
         if (!isValidDate(day)) {
             reset();
         }
     };
-    // When focusing, make sure DayPicker visualizes the month of the date in the
-    // input field.
+    
+    
     var handleFocus = function(e) {
         if (!e.target.value) {
             reset();
@@ -2685,12 +2685,11 @@ function useId(providedId) {
         setSelected: setSelected
     };
 }
-/** Returns true when the props are of type {@link DayPickerDefaultProps}. */ function isDayPickerDefault(props) {
+ function isDayPickerDefault(props) {
     return props.mode === undefined || props.mode === 'default';
 }
 ;
- //# sourceMappingURL=index.esm.js.map
+ 
 }),
 ];
 
-//# sourceMappingURL=c729b_react-day-picker_dist_index_esm_9d1dcd47.js.map

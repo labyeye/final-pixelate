@@ -25,7 +25,7 @@ import { PaymentReceiptModal } from "@/components/dashboard/payment-receipt-moda
 import { TaskCreationModal } from "@/components/dashboard/task-creation-modal";
 import { TrendsSection } from "@/components/dashboard/trends-section";
 
-// Helper: month names for display
+
 const MONTH_NAMES = [
   "Jan",
   "Feb",
@@ -64,7 +64,7 @@ export default function DashboardPage() {
   const [services, setServices] = useState<any[]>([]);
   const [teamMembers, setTeamMembers] = useState<any[]>([]);
 
-  // Animated number component: safe to use anywhere (including lists)
+  
   function AnimatedNumber({
     value,
     duration = 800,
@@ -150,13 +150,13 @@ export default function DashboardPage() {
         setProjects(projectsData || []);
         setInvoices(invoicesData || []);
         setExpenses(expensesData || []);
-        // ensure leads is an array even if server returned an error object (401 etc)
+        
         setLeads(Array.isArray(leadsData) ? leadsData : []);
         setQuotations(quotationsData || []);
         setServices(servicesData || []);
         setTeamMembers(Array.isArray(teamMembersData) ? teamMembersData : []);
 
-        // Derived metrics
+        
         const clientsList = await (await fetch("/api/clients")).json();
         setClients(clientsList || []);
         const clientsCount = (clientsList || []).length || 0;
@@ -165,7 +165,7 @@ export default function DashboardPage() {
           (s: any, inv: any) => s + Number(inv.amount || 0),
           0,
         );
-        // Use recorded expenses from the expenses collection for dashboard expense
+        
         const totalExpense = (expensesData || []).reduce(
           (s: any, ex: any) => s + Number(ex.amount || 0),
           0,
@@ -240,7 +240,7 @@ export default function DashboardPage() {
     };
   }, []);
 
-  // Derived helper data
+  
   const projectStatusCounts = projects.reduce(
     (acc, project) => {
       const status = project.status || "BACKLOG";
@@ -284,7 +284,7 @@ export default function DashboardPage() {
     .map(([service, count]) => ({ service, count }))
     .sort((a, b) => b.count - a.count);
 
-  // Compute revenue per month for the last 6 months from invoices
+  
   const revenueData = (() => {
     const now = new Date();
     const months: { month: string; revenue: number }[] = [];
@@ -312,7 +312,7 @@ export default function DashboardPage() {
     .filter((p) => p.status === "COMPLETED")
     .map((p) => ({ title: p.title, amount: Number(p.amount || 0) }));
 
-  // Compute earnings for the logged-in staff user by summing payouts in project.assignees
+  
   const myEarnings = (() => {
     if (!user || user.role !== "staff") return 0;
     const uid = user.id ?? (user._id as any);
@@ -321,7 +321,7 @@ export default function DashboardPage() {
       const ass = p.assignees || [];
       for (const aRaw of ass) {
         const a: any = aRaw as any;
-        // assignee id may be stored in multiple shapes; tolerate common keys
+        
         const aid =
           a && (a.id ?? a._id ?? a.teamMemberId ?? a.memberId ?? a.userId ?? a);
         if (!aid) continue;
@@ -333,7 +333,7 @@ export default function DashboardPage() {
     return sum;
   })();
 
-  // Breakdown of earnings per project for the logged-in staff user
+  
   const myEarningsByProject = (() => {
     if (!user || user.role !== "staff")
       return [] as {
@@ -356,14 +356,14 @@ export default function DashboardPage() {
         if (!aid) continue;
         if (String(aid) === String(uid)) {
           const pid = String(p._id ?? p.id ?? p.title);
-          // resolve client name with multiple fallbacks:
-          // 1) explicit p.clientName, 2) p.client as object with .name,
-          // 3) p.client or p.clientId treated as id to lookup in clients list,
-          // 4) p.client as string fallback, otherwise '-'
+          
+          
+          
+          
           let clientName = (p as any).clientName || "-";
           try {
             if (!clientName || clientName === "-") {
-              // case: project.client is an object like { id, name }
+              
               if (
                 p.client &&
                 typeof p.client === "object" &&
@@ -374,7 +374,7 @@ export default function DashboardPage() {
                   (p.client as any).title ||
                   String(p.client);
               } else if (p.client) {
-                // p.client may be an id or a string name
+                
                 const found = (clients || []).find(
                   (c: any) => String(c.id ?? c._id) === String(p.client),
                 );
@@ -400,7 +400,7 @@ export default function DashboardPage() {
             clientName,
           };
           prev.payout += Number(a.payout || 0);
-          // keep the clientName (if already present, preserve)
+          
           if (!prev.clientName) prev.clientName = clientName;
           map.set(pid, prev);
         }
@@ -543,13 +543,13 @@ export default function DashboardPage() {
                 ))}
               </div>
 
-              {/* Team Members Section - shown for non-staff users */}
-              {/* Trends Section - shown for non-staff users */}
+              {}
+              {}
               {!isStaff && (
                 <TrendsSection invoices={invoices} clients={clients} />
               )}
 
-              {/* Team Members Section - shown for non-staff users */}
+              {}
               {!isStaff && (
                 <TeamMembersSection
                   teamMembers={teamMembers}

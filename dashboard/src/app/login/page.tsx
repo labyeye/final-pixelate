@@ -26,9 +26,9 @@ function LoginContent() {
       const { token, user } = body;
       if (token) localStorage.setItem('auth_token', token);
       if (user && (user.id || user._id)) sessionStorage.setItem('userId', String(user.id ?? user._id));
-      // inform auth context
+      
       login(user.id ?? user._id as any);
-      // Redirect based on role
+      
       if (user.role === 'client') {
         router.replace('/client-portal');
       } else {

@@ -106,7 +106,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-// @ts-expect-error ts being silly
+
 const STANDARD_FONTS = [
     'Courier',
     'Courier-Bold',
@@ -198,18 +198,18 @@ class StandardFont {
             isLigature: false,
             name: this.src.font.characterToGlyph(id),
             _font: this.src,
-            // @ts-expect-error assign proper value
+            
             advanceWidth: undefined
         };
     }
     hasGlyphForCodePoint(codePoint) {
         return this.src.font.characterToGlyph(codePoint) !== '.notdef';
     }
-    // Based on empirical observation
+    
     get ascent() {
         return 900;
     }
-    // Based on empirical observation
+    
     get capHeight() {
         switch(this.name){
             case 'Times-Roman':
@@ -226,7 +226,7 @@ class StandardFont {
                 return 690;
         }
     }
-    // Based on empirical observation
+    
     get xHeight() {
         switch(this.name){
             case 'Times-Roman':
@@ -243,7 +243,7 @@ class StandardFont {
                 return 490;
         }
     }
-    // Based on empirical observation
+    
     get descent() {
         switch(this.name){
             case 'Times-Roman':
@@ -391,7 +391,7 @@ class FontFamily {
         const styleSources = this.sources.filter((s)=>s.fontStyle === fontStyle);
         const exactFit = styleSources.find((s)=>s.fontWeight === fontWeight);
         if (exactFit) return exactFit;
-        // Weight resolution. https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Fallback_weights
+        
         let font = null;
         const numericFontWeight = resolveFontWeight(fontWeight);
         if (numericFontWeight >= 400 && numericFontWeight <= 500) {
@@ -493,7 +493,7 @@ class FontStore {
                 }
             ]
         });
-        // For backwards compatibility
+        
         this.register({
             family: 'Helvetica-Bold',
             src: 'Helvetica-Bold'
@@ -530,7 +530,7 @@ class FontStore {
             family: 'Times-BoldItalic',
             src: 'Times-BoldItalic'
         });
-        // Load default fonts
+        
         this.load({
             fontFamily: 'Helvetica',
             fontStyle: 'normal',
@@ -558,7 +558,7 @@ class FontStore {
         if (!this.fontFamilies[family]) {
             this.fontFamilies[family] = FontFamily.create(family);
         }
-        // Bulk loading
+        
         if ('fonts' in data) {
             for(let i = 0; i < data.fonts.length; i += 1){
                 const { src, fontStyle, fontWeight, ...options } = data.fonts[i];
@@ -619,14 +619,14 @@ class FontStore {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/fns/lib/index.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Applies a function to the value at the given index of an array
- *
- * @param index
- * @param fn
- * @param collection
- * @returns Copy of the array with the element at the given index replaced with the result of the function application.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "adjust",
     ()=>adjust,
     "asyncCompose",
@@ -674,12 +674,12 @@ const adjust = (index, fn, collection)=>{
         [i]: fn(collection[i])
     });
 };
-/* eslint-disable no-await-in-loop */ /**
- * Performs right-to-left function composition with async functions support
- *
- * @param fns - Functions
- * @returns Composed function
- */ const asyncCompose = (...fns)=>async (value, ...args)=>{
+ 
+
+
+
+
+ const asyncCompose = (...fns)=>async (value, ...args)=>{
         let result = value;
         const reversedFns = fns.slice().reverse();
         for(let i = 0; i < reversedFns.length; i += 1){
@@ -688,32 +688,32 @@ const adjust = (index, fn, collection)=>{
         }
         return result;
     };
-/**
- * Capitalize first letter of each word
- *
- * @param value - Any string
- * @returns Capitalized string
- */ const capitalize = (value)=>{
+
+
+
+
+
+ const capitalize = (value)=>{
     if (!value) return value;
     return value.replace(/(^|\s)\S/g, (l)=>l.toUpperCase());
 };
-/**
- * Casts value to array
- *
- * @template T - The type of the value.
- * @param value - The value to cast into an array.
- * @returns An array containing the given value.
- */ const castArray = (value)=>{
+
+
+
+
+
+
+ const castArray = (value)=>{
     return Array.isArray(value) ? value : [
         value
     ];
 };
-/**
- * Performs right-to-left function composition
- *
- * @param fns - Functions
- * @returns Composed function
- */ const compose = (...fns)=>(value, ...args)=>{
+
+
+
+
+
+ const compose = (...fns)=>(value, ...args)=>{
         let result = value;
         const reversedFns = fns.slice().reverse();
         for(let i = 0; i < reversedFns.length; i += 1){
@@ -722,21 +722,21 @@ const adjust = (index, fn, collection)=>{
         }
         return result;
     };
-/**
- * Drops the last element from an array.
- *
- * @template T
- * @param  array - The array to drop the last element from
- * @returns - The new array with the last element dropped
- */ const dropLast = (array)=>array.slice(0, array.length - 1);
-/**
- * Applies a set of transformations to an object and returns a new object with the transformed values.
- *
- * @template T
- * @param transformations - The transformations to apply.
- * @param object - The object to transform.
- * @returns The transformed object.
- */ function evolve(transformations, object) {
+
+
+
+
+
+
+ const dropLast = (array)=>array.slice(0, array.length - 1);
+
+
+
+
+
+
+
+ function evolve(transformations, object) {
     const result = {};
     const keys = Object.keys(object);
     for(let i = 0; i < keys.length; i += 1){
@@ -750,21 +750,21 @@ const adjust = (index, fn, collection)=>{
     }
     return result;
 }
-/**
- * Checks if a value is null or undefined.
- *
- * @template T - The type of the value.
- * @param value - The value to check
- * @returns True if the value is null or undefined, false otherwise
- */ const isNil = (value)=>value === null || value === undefined;
-/**
- * Retrieves the value at a given path from an object.
- *
- * @param target - The object to retrieve the value from.
- * @param path - The path of the value to retrieve.
- * @param defaultValue - The default value to return if the path does not exist.
- * @returns The value at the given path, or the default value if the path does not exist.
- */ const get = (target, path, defaultValue)=>{
+
+
+
+
+
+
+ const isNil = (value)=>value === null || value === undefined;
+
+
+
+
+
+
+
+ const get = (target, path, defaultValue)=>{
     if (isNil(target)) return defaultValue;
     const _path = castArray(path);
     let result = target;
@@ -777,13 +777,13 @@ const adjust = (index, fn, collection)=>{
 function last(value) {
     return value === '' ? '' : value[value.length - 1];
 }
-/**
- * Maps over the values of an object and applies a function to each value.
- *
- * @param object - The object to map over
- * @param fn - The function to apply to each value
- * @returns A new object with the mapped values
- */ const mapValues = (object, fn)=>{
+
+
+
+
+
+
+ const mapValues = (object, fn)=>{
     const entries = Object.entries(object);
     const acc = {};
     return entries.reduce((acc, [key, value], index)=>{
@@ -792,12 +792,12 @@ function last(value) {
     }, acc);
 };
 const isPercent = (value)=>/((-)?\d+\.?\d*)%/g.exec(`${value}`);
-/**
- * Get percentage value of input
- *
- * @param value
- * @returns Percent value (if matches)
- */ const matchPercent = (value)=>{
+
+
+
+
+
+ const matchPercent = (value)=>{
     const match = isPercent(value);
     if (match) {
         const f = parseFloat(match[1]);
@@ -809,13 +809,13 @@ const isPercent = (value)=>/((-)?\d+\.?\d*)%/g.exec(`${value}`);
     }
     return null;
 };
-/**
- * Creates a new object by omitting specified keys from the original object.
- *
- * @param keys - The key or keys to omit
- * @param object - The original object
- * @returns The new object without the omitted keys
- */ const omit = (keys, object)=>{
+
+
+
+
+
+
+ const omit = (keys, object)=>{
     const _keys = castArray(keys);
     const copy = Object.assign({}, object);
     _keys.forEach((key)=>{
@@ -823,13 +823,13 @@ const isPercent = (value)=>/((-)?\d+\.?\d*)%/g.exec(`${value}`);
     });
     return copy;
 };
-/**
- * Picks the specified keys from an object and returns a new object with only those keys.
- *
- * @param keys - The keys to pick from the object
- * @param object - The object to pick the keys from
- * @returns A new object with only the picked keys
- */ const pick = (keys, obj)=>{
+
+
+
+
+
+
+ const pick = (keys, obj)=>{
     const result = {};
     for(let i = 0; i < keys.length; i += 1){
         const key = keys[i];
@@ -837,43 +837,43 @@ const isPercent = (value)=>/((-)?\d+\.?\d*)%/g.exec(`${value}`);
     }
     return result;
 };
-/**
- * Repeats an element a specified number of times.
- *
- * @template T
- * @param element - Element to be repeated
- * @param length - Number of times to repeat element
- * @returns Repeated elements
- */ const repeat = (element, length = 0)=>{
+
+
+
+
+
+
+
+ const repeat = (element, length = 0)=>{
     const result = new Array(length);
     for(let i = 0; i < length; i += 1){
         result[i] = element;
     }
     return result;
 };
-/**
- * Reverses the list
- *
- * @template T
- * @param list - List to be reversed
- * @returns Reversed list
- */ const reverse = (list)=>Array.prototype.slice.call(list, 0).reverse();
-/**
- * Capitalize first letter of string
- *
- * @param value - String
- * @returns Capitalized string
- */ const upperFirst = (value)=>{
+
+
+
+
+
+
+ const reverse = (list)=>Array.prototype.slice.call(list, 0).reverse();
+
+
+
+
+
+ const upperFirst = (value)=>{
     if (!value) return value;
     return value.charAt(0).toUpperCase() + value.slice(1);
 };
-/**
- * Returns a new array with all the values from the original array that are not present in the keys array.
- *
- * @param keys - The keys to pick from the object
- * @param array - Array to filter the values from
- * @returns A new array with without the omitted values
- */ const without = (keys, array)=>{
+
+
+
+
+
+
+ const without = (keys, array)=>{
     const result = [];
     for(let i = 0; i < array.length; i += 1){
         const value = array[i];
@@ -881,12 +881,12 @@ const isPercent = (value)=>/((-)?\d+\.?\d*)%/g.exec(`${value}`);
     }
     return result;
 };
-/**
- * Parse a string or number to a float
- *
- * @param value - String or number
- * @returns Parsed float
- */ const parseFloat$1 = (value)=>{
+
+
+
+
+
+ const parseFloat$1 = (value)=>{
     return typeof value === 'string' ? Number.parseFloat(value) : value;
 };
 ;
@@ -949,7 +949,7 @@ const renderLine$1 = (ctx, node)=>{
     ctx.lineTo(x2, y2);
 };
 const renderGroup = ()=>{
-// noop
+
 };
 const KAPPA$2 = 4.0 * ((Math.sqrt(2) - 1.0) / 3.0);
 const drawEllipse = (ctx, rx, ry, cx = 0, cy = 0)=>{
@@ -978,7 +978,7 @@ const renderCircle = (ctx, node)=>{
     const r = node.props?.r;
     drawEllipse(ctx, r, r, cx, cy);
 };
-/* eslint-disable no-return-assign */ const number = (n)=>{
+ const number = (n)=>{
     if (n > -1e21 && n < 1e21) {
         return Math.round(n * 1e6) / 1e6;
     }
@@ -991,20 +991,20 @@ const _renderGlyphs = (ctx, encoded, positions, x, y)=>{
     let last = 0;
     let hadOffset = false;
     ctx.save();
-    // flip coordinate system
+    
     ctx.transform(1, 0, 0, -1, 0, ctx.page.height);
     y = ctx.page.height - y;
-    // add current font to page if necessary
+    
     if (ctx.page.fonts[ctx._font.id] == null) {
         ctx.page.fonts[ctx._font.id] = ctx._font.ref();
     }
-    // begin the text object
+    
     ctx.addContent('BT');
-    // text position
+    
     ctx.addContent(`1 0 0 1 ${number(x)} ${number(y)} Tm`);
-    // font and font size
+    
     ctx.addContent(`/${ctx._font.id} ${number(ctx._fontSize)} Tf`);
-    // Adds a segment of text to the TJ command buffer
+    
     const addSegment = (cur)=>{
         if (last < cur) {
             const hex = encoded.slice(last, cur).join('');
@@ -1013,7 +1013,7 @@ const _renderGlyphs = (ctx, encoded, positions, x, y)=>{
         }
         return last = cur;
     };
-    // Flushes the current TJ commands to the output stream
+    
     const flush = (s)=>{
         addSegment(s);
         if (commands.length > 0) {
@@ -1022,41 +1022,41 @@ const _renderGlyphs = (ctx, encoded, positions, x, y)=>{
         }
     };
     for(i = 0; i < positions.length; i += 1){
-        // If we have an x or y offset, we have to break out of the current TJ command
-        // so we can move the text position.
+        
+        
         const pos = positions[i];
         if (pos.xOffset || pos.yOffset) {
-            // Flush the current buffer
+            
             flush(i);
-            // Move the text position and flush just the current character
+            
             ctx.addContent(`1 0 0 1 ${number(x + pos.xOffset * scale)} ${number(y + pos.yOffset * scale)} Tm`);
             flush(i + 1);
             hadOffset = true;
         } else {
-            // If the last character had an offset, reset the text position
+            
             if (hadOffset) {
                 ctx.addContent(`1 0 0 1 ${number(x)} ${number(y)} Tm`);
                 hadOffset = false;
             }
-            // Group segments that don't have any advance adjustments
+            
             if (pos.xAdvance - pos.advanceWidth !== 0) {
                 addSegment(i + 1);
             }
         }
         x += pos.xAdvance * scale;
     }
-    // Flush any remaining commands
+    
     flush(i);
-    // end the text object
+    
     ctx.addContent('ET');
-    // restore flipped coordinate system
+    
     return ctx.restore();
 };
 const renderGlyphs = (ctx, glyphs, positions, x, y)=>{
     const scale = 1000 / ctx._fontSize;
     const unitsPerEm = ctx._font.font.unitsPerEm || 1000;
     const advanceWidthScale = 1000 / unitsPerEm;
-    // Glyph encoding and positioning
+    
     const encodedGlyphs = ctx._font.encodeGlyphs(glyphs);
     const encodedPositions = positions.map((pos, i)=>({
             xAdvance: pos.xAdvance * scale,
@@ -1149,12 +1149,12 @@ const pairs = (values)=>{
     }
     return result;
 };
-/**
- * Parse svg-like points into number arrays
- *
- * @param points string ex. "20,30 50,60"
- * @returns points array ex. [[20, 30], [50, 60]]
- */ const parsePoints = (points)=>{
+
+
+
+
+
+ const parsePoints = (points)=>{
     let values = (points || '').trim().replace(/,/g, ' ').replace(/(\d)-(\d)/g, '$1 -$2').split(/\s+/);
     if (values.length % 2 !== 0) {
         values = values.slice(0, -1);
@@ -1199,35 +1199,35 @@ const renderImage$1 = (ctx, node)=>{
     });
     ctx.restore();
 };
-// This constant is used to approximate a symmetrical arc using a cubic
-// Bezier curve.
+
+
 const KAPPA$1 = 4.0 * ((Math.sqrt(2) - 1.0) / 3.0);
 const clipNode = (ctx, node)=>{
     if (!node.box) return;
     if (!node.style) return;
     const { top, left, width, height } = node.box;
     const { borderTopLeftRadius = 0, borderTopRightRadius = 0, borderBottomRightRadius = 0, borderBottomLeftRadius = 0 } = node.style;
-    // Border top
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
+    
     const rtr = Math.min(borderTopRightRadius, 0.5 * width, 0.5 * height);
     const ctr = rtr * (1.0 - KAPPA$1);
     ctx.moveTo(left + rtr, top);
     ctx.lineTo(left + width - rtr, top);
     ctx.bezierCurveTo(left + width - ctr, top, left + width, top + ctr, left + width, top + rtr);
-    // Border right
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
+    
     const rbr = Math.min(borderBottomRightRadius, 0.5 * width, 0.5 * height);
     const cbr = rbr * (1.0 - KAPPA$1);
     ctx.lineTo(left + width, top + height - rbr);
     ctx.bezierCurveTo(left + width, top + height - cbr, left + width - cbr, top + height, left + width - rbr, top + height);
-    // Border bottom
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
+    
     const rbl = Math.min(borderBottomLeftRadius, 0.5 * width, 0.5 * height);
     const cbl = rbl * (1.0 - KAPPA$1);
     ctx.lineTo(left + rbl, top + height);
     ctx.bezierCurveTo(left + cbl, top + height, left, top + height - cbl, left, top + height - rbl);
-    // Border left
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
+    
     const rtl = Math.min(borderTopLeftRadius, 0.5 * width, 0.5 * height);
     const ctl = rtl * (1.0 - KAPPA$1);
     ctx.lineTo(left, top + rtl);
@@ -1305,7 +1305,7 @@ const applyTransformations = (ctx, node)=>{
         applySingleTransformation(ctx, operation, origin);
     });
 };
-// From https://github.com/dy/svg-path-bounds/blob/master/index.js
+
 const getPathBoundingBox = (node)=>{
     const path = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$normalize$2d$svg$2d$path$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$abs$2d$svg$2d$path$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$parse$2d$svg$2d$path$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(node.props?.d || '')));
     if (!path.length) return [
@@ -1455,7 +1455,7 @@ const setLineDash = (ctx, node)=>{
     if (!node.props) return;
     if (!('strokeDasharray' in node.props)) return;
     const value = node.props?.strokeDasharray || null;
-    // @ts-expect-error check this works as expected
+    
     if (value) ctx.dash(value.split(/[\s,]+/).map(Number));
 };
 const hasLinearGradientFill = (node)=>{
@@ -1584,7 +1584,7 @@ const transformGradient = (grad, transforms, bbox, units)=>{
     ]);
     grad.setTransform(...matrix);
 };
-// Math simplified from https://github.com/devongovett/svgkit/blob/master/src/elements/SVGGradient.js#L104
+
 const setLinearGradientFill = (ctx, node)=>{
     if (!node.props) return;
     if (!('fill' in node.props)) return;
@@ -1614,7 +1614,7 @@ const setLinearGradientFill = (ctx, node)=>{
     });
     ctx.fill(grad);
 };
-// Math simplified from https://github.com/devongovett/svgkit/blob/master/src/elements/SVGGradient.js#L155
+
 const setRadialGradientFill = (ctx, node)=>{
     if (!node.props) return;
     if (!('fill' in node.props)) return;
@@ -1801,7 +1801,7 @@ const black = {
     value: '#000',
     opacity: 1
 };
-// TODO: parse to number[] in layout to avoid this step
+
 const parseColor = (hex)=>{
     if (!hex) return black;
     const parsed = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$color$2d$string$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get(hex);
@@ -1867,7 +1867,7 @@ const renderRun = (ctx, run)=>{
             ctx.link(0, -height - descent, xAdvance, height, link);
         }
     }
-    // Copy glyphs to avoid mutating the original array
+    
     const glyphs = [
         ...run.glyphs
     ];
@@ -1901,7 +1901,7 @@ const renderDecorationLine = (ctx, decorationLine)=>{
         const dist = Math.max(2, decorationLine.rect.height);
         let step = 1.1 * dist;
         const stepCount = Math.floor(decorationLine.rect.width / (2 * step));
-        // Adjust step to fill entire width
+        
         const remainingWidth = decorationLine.rect.width - stepCount * 2 * step;
         const adjustment = remainingWidth / stepCount / 2;
         step += adjustment;
@@ -2160,7 +2160,7 @@ const renderImage = (ctx, node, options)=>{
 const CONTENT_COLOR = '#a1c6e7';
 const PADDING_COLOR = '#c4deb9';
 const MARGIN_COLOR = '#f8cca1';
-// TODO: Draw debug boxes using clipping to enhance quality
+
 const debugContent = (ctx, node)=>{
     if (!node.box) return;
     const { left, top, width, height, paddingLeft = 0, paddingTop = 0, paddingRight = 0, paddingBottom = 0, borderLeftWidth = 0, borderTopWidth = 0, borderRightWidth = 0, borderBottomWidth = 0 } = node.box;
@@ -2170,13 +2170,13 @@ const debugPadding = (ctx, node)=>{
     if (!node.box) return;
     const { left, top, width, height, paddingLeft = 0, paddingTop = 0, paddingRight = 0, paddingBottom = 0, borderLeftWidth = 0, borderTopWidth = 0, borderRightWidth = 0, borderBottomWidth = 0 } = node.box;
     ctx.fillColor(PADDING_COLOR).opacity(0.5);
-    // Padding top
+    
     ctx.rect(left + paddingLeft + borderLeftWidth, top + borderTopWidth, width - paddingRight - paddingLeft - borderLeftWidth - borderRightWidth, paddingTop).fill();
-    // Padding left
+    
     ctx.rect(left + borderLeftWidth, top + borderTopWidth, paddingLeft, height - borderTopWidth - borderBottomWidth).fill();
-    // Padding right
+    
     ctx.rect(left + width - paddingRight - borderRightWidth, top + borderTopWidth, paddingRight, height - borderTopWidth - borderBottomWidth).fill();
-    // Padding bottom
+    
     ctx.rect(left + paddingLeft + borderLeftWidth, top + height - paddingBottom - borderBottomWidth, width - paddingRight - paddingLeft - borderLeftWidth - borderRightWidth, paddingBottom).fill();
 };
 const debugMargin = (ctx, node)=>{
@@ -2184,13 +2184,13 @@ const debugMargin = (ctx, node)=>{
     const { left, top, width, height } = node.box;
     const { marginLeft = 0, marginTop = 0, marginRight = 0, marginBottom = 0 } = node.box;
     ctx.fillColor(MARGIN_COLOR).opacity(0.5);
-    // Margin top
+    
     ctx.rect(left, top - marginTop, width, marginTop).fill();
-    // Margin left
+    
     ctx.rect(left - marginLeft, top - marginTop, marginLeft, height + marginTop + marginBottom).fill();
-    // Margin right
+    
     ctx.rect(left + width, top - marginTop, marginRight, height + marginTop + marginBottom).fill();
-    // Margin bottom
+    
     ctx.rect(left, top + height, width, marginBottom).fill();
 };
 const debugText = (ctx, node)=>{
@@ -2259,7 +2259,7 @@ const painter = (ctx)=>{
     const p = availableMethods.reduce((acc, prop)=>({
             ...acc,
             [prop]: (...args)=>{
-                // @ts-expect-error ctx[prop] is a function
+                
                 ctx[prop](...args);
                 return p;
             }
@@ -2284,51 +2284,51 @@ const renderCanvas = (ctx, node)=>{
     }
     ctx.restore();
 };
-// Ref: https://www.w3.org/TR/css-backgrounds-3/#borders
-// This constant is used to approximate a symmetrical arc using a cubic Bezier curve.
+
+
 const KAPPA = 4.0 * ((Math.sqrt(2) - 1.0) / 3.0);
 const clipBorderTop = (ctx, layout, style, rtr, rtl)=>{
     const { top, left, width, height } = layout;
     const { borderTopWidth, borderRightWidth, borderLeftWidth } = style;
-    // Clip outer top border edge
+    
     ctx.moveTo(left + rtl, top);
     ctx.lineTo(left + width - rtr, top);
-    // Ellipse coefficients outer top right cap
+    
     const c0 = rtr * (1.0 - KAPPA);
-    // Clip outer top right cap
+    
     ctx.bezierCurveTo(left + width - c0, top, left + width, top + c0, left + width, top + rtr);
-    // Move down in case the margin exceedes the radius
+    
     const topRightYCoord = top + Math.max(borderTopWidth, rtr);
     ctx.lineTo(left + width, topRightYCoord);
-    // Clip inner top right cap
+    
     ctx.lineTo(left + width - borderRightWidth, topRightYCoord);
-    // Ellipse coefficients inner top right cap
+    
     const innerTopRightRadiusX = Math.max(rtr - borderRightWidth, 0);
     const innerTopRightRadiusY = Math.max(rtr - borderTopWidth, 0);
     const c1 = innerTopRightRadiusX * (1.0 - KAPPA);
     const c2 = innerTopRightRadiusY * (1.0 - KAPPA);
-    // Clip inner top right cap
+    
     ctx.bezierCurveTo(left + width - borderRightWidth, top + borderTopWidth + c2, left + width - borderRightWidth - c1, top + borderTopWidth, left + width - borderRightWidth - innerTopRightRadiusX, top + borderTopWidth);
-    // Clip inner top border edge
+    
     ctx.lineTo(left + Math.max(rtl, borderLeftWidth), top + borderTopWidth);
-    // Ellipse coefficients inner top left cap
+    
     const innerTopLeftRadiusX = Math.max(rtl - borderLeftWidth, 0);
     const innerTopLeftRadiusY = Math.max(rtl - borderTopWidth, 0);
     const c3 = innerTopLeftRadiusX * (1.0 - KAPPA);
     const c4 = innerTopLeftRadiusY * (1.0 - KAPPA);
     const topLeftYCoord = top + Math.max(borderTopWidth, rtl);
-    // Clip inner top left cap
+    
     ctx.bezierCurveTo(left + borderLeftWidth + c3, top + borderTopWidth, left + borderLeftWidth, top + borderTopWidth + c4, left + borderLeftWidth, topLeftYCoord);
     ctx.lineTo(left, topLeftYCoord);
-    // Move down in case the margin exceedes the radius
+    
     ctx.lineTo(left, top + rtl);
-    // Ellipse coefficients outer top left cap
+    
     const c5 = rtl * (1.0 - KAPPA);
-    // Clip outer top left cap
+    
     ctx.bezierCurveTo(left, top + c5, left + c5, top, left + rtl, top);
     ctx.closePath();
     ctx.clip();
-    // Clip border top cap joins
+    
     if (borderRightWidth) {
         const trSlope = -borderTopWidth / borderRightWidth;
         ctx.moveTo(left + width / 2, trSlope * (-width / 2) + top);
@@ -2374,45 +2374,45 @@ const fillBorderTop = (ctx, layout, style, rtr, rtl)=>{
 const clipBorderRight = (ctx, layout, style, rtr, rbr)=>{
     const { top, left, width, height } = layout;
     const { borderTopWidth, borderRightWidth, borderBottomWidth } = style;
-    // Clip outer right border edge
+    
     ctx.moveTo(left + width, top + rtr);
     ctx.lineTo(left + width, top + height - rbr);
-    // Ellipse coefficients outer bottom right cap
+    
     const c0 = rbr * (1.0 - KAPPA);
-    // Clip outer top right cap
+    
     ctx.bezierCurveTo(left + width, top + height - c0, left + width - c0, top + height, left + width - rbr, top + height);
-    // Move left in case the margin exceedes the radius
+    
     const topBottomXCoord = left + width - Math.max(borderRightWidth, rbr);
     ctx.lineTo(topBottomXCoord, top + height);
-    // Clip inner bottom right cap
+    
     ctx.lineTo(topBottomXCoord, top + height - borderBottomWidth);
-    // Ellipse coefficients inner bottom right cap
+    
     const innerBottomRightRadiusX = Math.max(rbr - borderRightWidth, 0);
     const innerBottomRightRadiusY = Math.max(rbr - borderBottomWidth, 0);
     const c1 = innerBottomRightRadiusX * (1.0 - KAPPA);
     const c2 = innerBottomRightRadiusY * (1.0 - KAPPA);
-    // Clip inner top right cap
+    
     ctx.bezierCurveTo(left + width - borderRightWidth - c1, top + height - borderBottomWidth, left + width - borderRightWidth, top + height - borderBottomWidth - c2, left + width - borderRightWidth, top + height - Math.max(rbr, borderBottomWidth));
-    // Clip inner right border edge
+    
     ctx.lineTo(left + width - borderRightWidth, top + Math.max(rtr, borderTopWidth));
-    // Ellipse coefficients inner top right cap
+    
     const innerTopRightRadiusX = Math.max(rtr - borderRightWidth, 0);
     const innerTopRightRadiusY = Math.max(rtr - borderTopWidth, 0);
     const c3 = innerTopRightRadiusX * (1.0 - KAPPA);
     const c4 = innerTopRightRadiusY * (1.0 - KAPPA);
     const topRightXCoord = left + width - Math.max(rtr, borderRightWidth);
-    // Clip inner top left cap
+    
     ctx.bezierCurveTo(left + width - borderRightWidth, top + borderTopWidth + c4, left + width - borderRightWidth - c3, top + borderTopWidth, topRightXCoord, top + borderTopWidth);
     ctx.lineTo(topRightXCoord, top);
-    // Move right in case the margin exceedes the radius
+    
     ctx.lineTo(left + width - rtr, top);
-    // Ellipse coefficients outer top right cap
+    
     const c5 = rtr * (1.0 - KAPPA);
-    // Clip outer top right cap
+    
     ctx.bezierCurveTo(left + width - c5, top, left + width, top + c5, left + width, top + rtr);
     ctx.closePath();
     ctx.clip();
-    // Clip border right cap joins
+    
     if (borderTopWidth) {
         const trSlope = -borderTopWidth / borderRightWidth;
         ctx.moveTo(left + width / 2, trSlope * (-width / 2) + top);
@@ -2458,45 +2458,45 @@ const fillBorderRight = (ctx, layout, style, rtr, rbr)=>{
 const clipBorderBottom = (ctx, layout, style, rbl, rbr)=>{
     const { top, left, width, height } = layout;
     const { borderBottomWidth, borderRightWidth, borderLeftWidth } = style;
-    // Clip outer top border edge
+    
     ctx.moveTo(left + width - rbr, top + height);
     ctx.lineTo(left + rbl, top + height);
-    // Ellipse coefficients outer top right cap
+    
     const c0 = rbl * (1.0 - KAPPA);
-    // Clip outer top right cap
+    
     ctx.bezierCurveTo(left + c0, top + height, left, top + height - c0, left, top + height - rbl);
-    // Move up in case the margin exceedes the radius
+    
     const bottomLeftYCoord = top + height - Math.max(borderBottomWidth, rbl);
     ctx.lineTo(left, bottomLeftYCoord);
-    // Clip inner bottom left cap
+    
     ctx.lineTo(left + borderLeftWidth, bottomLeftYCoord);
-    // Ellipse coefficients inner top right cap
+    
     const innerBottomLeftRadiusX = Math.max(rbl - borderLeftWidth, 0);
     const innerBottomLeftRadiusY = Math.max(rbl - borderBottomWidth, 0);
     const c1 = innerBottomLeftRadiusX * (1.0 - KAPPA);
     const c2 = innerBottomLeftRadiusY * (1.0 - KAPPA);
-    // Clip inner bottom left cap
+    
     ctx.bezierCurveTo(left + borderLeftWidth, top + height - borderBottomWidth - c2, left + borderLeftWidth + c1, top + height - borderBottomWidth, left + borderLeftWidth + innerBottomLeftRadiusX, top + height - borderBottomWidth);
-    // Clip inner bottom border edge
+    
     ctx.lineTo(left + width - Math.max(rbr, borderRightWidth), top + height - borderBottomWidth);
-    // Ellipse coefficients inner top left cap
+    
     const innerBottomRightRadiusX = Math.max(rbr - borderRightWidth, 0);
     const innerBottomRightRadiusY = Math.max(rbr - borderBottomWidth, 0);
     const c3 = innerBottomRightRadiusX * (1.0 - KAPPA);
     const c4 = innerBottomRightRadiusY * (1.0 - KAPPA);
     const bottomRightYCoord = top + height - Math.max(borderBottomWidth, rbr);
-    // Clip inner top left cap
+    
     ctx.bezierCurveTo(left + width - borderRightWidth - c3, top + height - borderBottomWidth, left + width - borderRightWidth, top + height - borderBottomWidth - c4, left + width - borderRightWidth, bottomRightYCoord);
     ctx.lineTo(left + width, bottomRightYCoord);
-    // Move down in case the margin exceedes the radius
+    
     ctx.lineTo(left + width, top + height - rbr);
-    // Ellipse coefficients outer top left cap
+    
     const c5 = rbr * (1.0 - KAPPA);
-    // Clip outer top left cap
+    
     ctx.bezierCurveTo(left + width, top + height - c5, left + width - c5, top + height, left + width - rbr, top + height);
     ctx.closePath();
     ctx.clip();
-    // Clip border bottom cap joins
+    
     if (borderRightWidth) {
         const brSlope = borderBottomWidth / borderRightWidth;
         ctx.moveTo(left + width / 2, brSlope * (-width / 2) + top + height);
@@ -2542,45 +2542,45 @@ const fillBorderBottom = (ctx, layout, style, rbl, rbr)=>{
 const clipBorderLeft = (ctx, layout, style, rbl, rtl)=>{
     const { top, left, width, height } = layout;
     const { borderTopWidth, borderLeftWidth, borderBottomWidth } = style;
-    // Clip outer left border edge
+    
     ctx.moveTo(left, top + height - rbl);
     ctx.lineTo(left, top + rtl);
-    // Ellipse coefficients outer top left cap
+    
     const c0 = rtl * (1.0 - KAPPA);
-    // Clip outer top left cap
+    
     ctx.bezierCurveTo(left, top + c0, left + c0, top, left + rtl, top);
-    // Move right in case the margin exceedes the radius
+    
     const topLeftCoordX = left + Math.max(borderLeftWidth, rtl);
     ctx.lineTo(topLeftCoordX, top);
-    // Clip inner top left cap
+    
     ctx.lineTo(topLeftCoordX, top + borderTopWidth);
-    // Ellipse coefficients inner top left cap
+    
     const innerTopLeftRadiusX = Math.max(rtl - borderLeftWidth, 0);
     const innerTopLeftRadiusY = Math.max(rtl - borderTopWidth, 0);
     const c1 = innerTopLeftRadiusX * (1.0 - KAPPA);
     const c2 = innerTopLeftRadiusY * (1.0 - KAPPA);
-    // Clip inner top right cap
+    
     ctx.bezierCurveTo(left + borderLeftWidth + c1, top + borderTopWidth, left + borderLeftWidth, top + borderTopWidth + c2, left + borderLeftWidth, top + Math.max(rtl, borderTopWidth));
-    // Clip inner left border edge
+    
     ctx.lineTo(left + borderLeftWidth, top + height - Math.max(rbl, borderBottomWidth));
-    // Ellipse coefficients inner bottom left cap
+    
     const innerBottomLeftRadiusX = Math.max(rbl - borderLeftWidth, 0);
     const innerBottomLeftRadiusY = Math.max(rbl - borderBottomWidth, 0);
     const c3 = innerBottomLeftRadiusX * (1.0 - KAPPA);
     const c4 = innerBottomLeftRadiusY * (1.0 - KAPPA);
     const bottomLeftXCoord = left + Math.max(rbl, borderLeftWidth);
-    // Clip inner top left cap
+    
     ctx.bezierCurveTo(left + borderLeftWidth, top + height - borderBottomWidth - c4, left + borderLeftWidth + c3, top + height - borderBottomWidth, bottomLeftXCoord, top + height - borderBottomWidth);
     ctx.lineTo(bottomLeftXCoord, top + height);
-    // Move left in case the margin exceedes the radius
+    
     ctx.lineTo(left + rbl, top + height);
-    // Ellipse coefficients outer top right cap
+    
     const c5 = rbl * (1.0 - KAPPA);
-    // Clip outer top right cap
+    
     ctx.bezierCurveTo(left + c5, top + height, left, top + height - c5, left, top + height - rbl);
     ctx.closePath();
     ctx.clip();
-    // Clip border right cap joins
+    
     if (borderBottomWidth) {
         const trSlope = -borderBottomWidth / borderLeftWidth;
         ctx.moveTo(left + width / 2, trSlope * (width / 2) + top + height);
@@ -2629,13 +2629,13 @@ const renderBorders = (ctx, node)=>{
     if (!shouldRenderBorders(node)) return;
     const { width, height, borderTopWidth = 0, borderLeftWidth = 0, borderRightWidth = 0, borderBottomWidth = 0 } = node.box;
     const { opacity = 1, borderTopColor = 'black', borderTopStyle = 'solid', borderLeftColor = 'black', borderLeftStyle = 'solid', borderRightColor = 'black', borderRightStyle = 'solid', borderBottomColor = 'black', borderBottomStyle = 'solid' } = node.style;
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
     const borderTopLeftRadius = node.style.borderTopLeftRadius || 0;
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
     const borderTopRightRadius = node.style.borderTopRightRadius || 0;
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
     const borderBottomLeftRadius = node.style.borderBottomLeftRadius || 0;
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
     const borderBottomRightRadius = node.style.borderBottomRightRadius || 0;
     const style = {
         borderTopColor,
@@ -2726,7 +2726,7 @@ const clean = (options)=>{
     const opt = {
         ...options
     };
-    // We need to ensure the elements are no present if not true
+    
     Object.entries(opt).forEach((pair)=>{
         if (!pair[1]) {
             delete opt[pair[0]];
@@ -2735,7 +2735,7 @@ const clean = (options)=>{
     return opt;
 };
 const parseCommonFormOptions = (node)=>{
-    // Common Options
+    
     return {
         required: node.props?.required || false,
         noExport: node.props?.noExport || false,
@@ -2832,7 +2832,7 @@ const parseCheckboxOptions = (ctx, node, fieldSet)=>{
 const renderTextInput = (ctx, node, options)=>{
     if (!node.box) return;
     const { top, left, width, height } = node.box;
-    // Element's name
+    
     const name = node.props?.name || '';
     const fieldSetOptions = options.fieldSets?.at(0);
     if (!ctx._root.data.AcroForm) {
@@ -2843,7 +2843,7 @@ const renderTextInput = (ctx, node, options)=>{
 const renderSelect = (ctx, node)=>{
     if (!node.box) return;
     const { top, left, width, height } = node.box;
-    // Element's name
+    
     const name = node.props?.name || '';
     if (!ctx._root.data.AcroForm) {
         ctx.initForm();
@@ -2871,7 +2871,7 @@ const cleanUpFieldSet = (_ctx, _node, options)=>{
 const renderList = (ctx, node)=>{
     if (!node.box) return;
     const { top, left, width, height } = node.box || {};
-    // Element's name
+    
     const name = 'name' in node.props ? node.props.name || '' : '';
     if (!ctx._root.data.AcroForm) {
         ctx.initForm();
@@ -2881,7 +2881,7 @@ const renderList = (ctx, node)=>{
 const renderCheckbox = (ctx, node, options)=>{
     if (!node.box) return;
     const { top, left, width, height } = node.box;
-    // Element's name
+    
     const name = node.props?.name || '';
     const fieldSetOptions = options.fieldSets?.at(0);
     if (!ctx._root.data.AcroForm) {
@@ -2999,18 +2999,18 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-/**
- * Remove nil values from array
- *
- * @param array - Style array
- * @returns Style array without nils
- */ const compact = (array)=>array.filter(Boolean);
-/**
- * Merges style objects array
- *
- * @param styles - Style array
- * @returns Merged style object
- */ const mergeStyles = (styles)=>styles.reduce((acc, style)=>{
+
+
+
+
+
+ const compact = (array)=>array.filter(Boolean);
+
+
+
+
+
+ const mergeStyles = (styles)=>styles.reduce((acc, style)=>{
         const s = Array.isArray(style) ? flatten(style) : style;
         Object.keys(s).forEach((key)=>{
             if (s[key] !== null && s[key] !== undefined) {
@@ -3019,19 +3019,19 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
         });
         return acc;
     }, {});
-/**
- * Flattens an array of style objects, into one aggregated style object.
- *
- * @param styles - Style or style array
- * @returns Flattened style object
- */ const flatten = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["compose"])(mergeStyles, compact, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["castArray"]);
-/**
- * Resolves media queries in styles object
- *
- * @param container - Container for which styles are resolved
- * @param style - Style description
- * @returns Resolved style object
- */ const resolveMediaQueries = (container, style)=>{
+
+
+
+
+
+ const flatten = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["compose"])(mergeStyles, compact, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["castArray"]);
+
+
+
+
+
+
+ const resolveMediaQueries = (container, style)=>{
     return Object.keys(style).reduce((acc, key)=>{
         if (/@media/.test(key)) {
             return {
@@ -3049,41 +3049,41 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 };
 const isRgb = (value)=>/rgba?/g.test(value);
 const isHsl = (value)=>/hsla?/g.test(value);
-/**
- * Transform rgb color to hexa
- *
- * @param value - Styles value
- * @returns Transformed value
- */ const parseRgb = (value)=>{
+
+
+
+
+
+ const parseRgb = (value)=>{
     const rgb = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$color$2d$string$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get.rgb(value);
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$color$2d$string$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].to.hex(rgb);
 };
-/**
- * Transform Hsl color to hexa
- *
- * @param value - Styles value
- * @returns Transformed value
- */ const parseHsl = (value)=>{
+
+
+
+
+
+ const parseHsl = (value)=>{
     const hsl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$color$2d$string$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get.hsl(value).map(Math.round);
     const hex = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$hsl$2d$to$2d$hex$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(...hsl);
     return hex.toUpperCase();
 };
-/**
- * Transform given color to hexa
- *
- * @param value - Styles value
- * @returns Transformed value
- */ const transformColor = (value)=>{
+
+
+
+
+
+ const transformColor = (value)=>{
     if (isRgb(value)) return parseRgb(value);
     if (isHsl(value)) return parseHsl(value);
     return value;
 };
-/**
- * Parses scalar value in value and unit pairs
- *
- * @param value - Scalar value
- * @returns Parsed value
- */ const parseValue = (value)=>{
+
+
+
+
+
+ const parseValue = (value)=>{
     if (typeof value === 'number') return {
         value,
         unit: undefined
@@ -3097,13 +3097,13 @@ const isHsl = (value)=>/hsla?/g.test(value);
         unit: undefined
     };
 };
-/**
- * Transform given scalar value
- *
- * @param container
- * @param value - Styles value
- * @returns Transformed value
- */ const transformUnit = (container, value)=>{
+
+
+
+
+
+
+ const transformUnit = (container, value)=>{
     const scalar = parseValue(value);
     const outputDpi = 72;
     const inputDpi = container.dpi || 72;
@@ -3215,7 +3215,7 @@ const resolveBorderShorthand = (key, value, container)=>{
             borderLeftWidth: width
         };
     }
-    //TURBOPACK unreachable
+    
     ;
 };
 const handlers$b = {
@@ -3258,8 +3258,8 @@ const handlers$9 = {
     minWidth: processUnitValue,
     width: processUnitValue
 };
-// https://developer.mozilla.org/en-US/docs/Web/CSS/flex#values
-// TODO: change flex defaults to [0, 1, 'auto'] as in spec in next major release
+
+
 const flexDefaults = [
     1,
     1,
@@ -3329,7 +3329,7 @@ const handlers$6 = {
 const BOX_MODEL_UNITS = 'px,in,mm,cm,pt,%,vw,vh';
 const logError = (style, value)=>{
     const name = style.toString();
-    // eslint-disable-next-line no-console
+    
     console.error(`
     @react-pdf/stylesheet parsing error:
     ${name}: ${value},
@@ -3337,18 +3337,18 @@ const logError = (style, value)=>{
     Unsupported ${name} value format
   `);
 };
-/**
- * @param options
- * @param [options.expandsTo]
- * @param [options.maxValues]
- * @param [options.autoSupported]
- */ const expandBoxModel = ({ expandsTo, maxValues = 1, autoSupported = false } = {})=>(model, value, container)=>{
+
+
+
+
+
+ const expandBoxModel = ({ expandsTo, maxValues = 1, autoSupported = false } = {})=>(model, value, container)=>{
         const nodes = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$postcss$2d$value$2d$parser$2f$lib$2f$parse$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(`${value}`);
         const parts = [];
         for(let i = 0; i < nodes.length; i++){
             const node = nodes[i];
-            // value contains `calc`, `url` or other css function
-            // `,`, `/` or strings that unsupported by margin and padding
+            
+            
             if (node.type === 'function' || node.type === 'string' || node.type === 'div') {
                 logError(model, value);
                 return {};
@@ -3358,7 +3358,7 @@ const logError = (style, value)=>{
                     parts.push(node.value);
                 } else {
                     const result = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$postcss$2d$value$2d$parser$2f$lib$2f$unit$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(node.value);
-                    // when unit isn't specified this condition is true
+                    
                     if (result && BOX_MODEL_UNITS.includes(result.unit)) {
                         parts.push(node.value);
                     } else {
@@ -3368,7 +3368,7 @@ const logError = (style, value)=>{
                 }
             }
         }
-        // checks that we have enough parsed values
+        
         if (parts.length > maxValues) {
             logError(model, value);
             return {};
@@ -3528,10 +3528,10 @@ const transformLineHeight = (value, styles, container)=>{
     if (value === '') return value;
     const fontSize = transformUnit(container, styles.fontSize || 18);
     const lineHeight = transformUnit(container, value);
-    // Percent values: use this number multiplied by the element's font size
+    
     const { percent } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["matchPercent"])(lineHeight) || {};
     if (percent) return percent * fontSize;
-    // Unitless values: use this number multiplied by the element's font size
+    
     return isNaN(value) ? lineHeight : lineHeight * fontSize;
 };
 const processLineHeight = (key, value, container, styles)=>{
@@ -3565,7 +3565,7 @@ const castFloat = (value)=>{
 };
 const parse = (transformString)=>{
     const transforms = transformString.trim().split(/\)[ ,]|\)/);
-    // Handle "initial", "inherit", "unset".
+    
     if (transforms.length === 1) {
         return [
             [
@@ -3731,7 +3731,7 @@ const getTransformOriginPair = (values)=>{
     ] : values;
     return pair.sort(sortTransformOriginPair);
 };
-// Transforms shorthand transformOrigin values
+
 const processTransformOriginShorthand = (key, value, container)=>{
     const match = `${value}`.split(' ');
     const pair = getTransformOriginPair(match);
@@ -3784,12 +3784,12 @@ const shorthands = {
     ...handlers$1,
     ...handlers
 };
-/**
- * Expand the shorthand properties.
- *
- * @param style - Style object
- * @returns Expanded style object
- */ const resolve = (container)=>(style)=>{
+
+
+
+
+
+ const resolve = (container)=>(style)=>{
         const propsArray = Object.keys(style);
         const resolvedStyle = {};
         for(let i = 0; i < propsArray.length; i += 1){
@@ -3809,13 +3809,13 @@ const shorthands = {
         }
         return resolvedStyle;
     };
-/**
- * Resolves styles
- *
- * @param container
- * @param style - Style
- * @returns Resolved style
- */ const resolveStyles = (container, style)=>{
+
+
+
+
+
+
+ const resolveStyles = (container, style)=>{
     const computeMediaQueries = (value)=>resolveMediaQueries(container, value);
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["compose"])(resolve(container), computeMediaQueries, flatten)(style);
 };
@@ -3854,12 +3854,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-/**
- * Create attributed string from text fragments
- *
- * @param fragments - Fragments
- * @returns Attributed string
- */ const fromFragments = (fragments)=>{
+
+
+
+
+
+ const fromFragments = (fragments)=>{
     let offset = 0;
     let string = '';
     const runs = [];
@@ -3879,33 +3879,33 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
     };
 };
 const SOFT_HYPHEN$1 = '\u00ad';
-/**
- * Default word hyphenation engine used when no one provided.
- * Does not perform word hyphenation at all
- *
- * @param word
- * @returns Same word
- */ const defaultHyphenate = (word)=>[
+
+
+
+
+
+
+ const defaultHyphenate = (word)=>[
         word
     ];
-/**
- * Remove soft hyphens from word
- *
- * @param word
- * @returns Word without soft hyphens
- */ const removeSoftHyphens = (word)=>{
+
+
+
+
+
+ const removeSoftHyphens = (word)=>{
     return word.replaceAll(SOFT_HYPHEN$1, '');
 };
-/**
- * Wrap words of attribute string
- *
- * @param engines layout engines
- * @param options layout options
- */ const wrapWords = (engines = {}, options = {})=>{
-    /**
-     * @param attributedString - Attributed string
-     * @returns Attributed string including syllables
-     */ return (attributedString)=>{
+
+
+
+
+
+ const wrapWords = (engines = {}, options = {})=>{
+    
+
+
+ return (attributedString)=>{
         const syllables = [];
         const fragments = [];
         const builtinHyphenate = engines.wordHyphenation?.() || defaultHyphenate;
@@ -3921,7 +3921,7 @@ const SOFT_HYPHEN$1 = '\u00ad';
                 syllables.push(...parts);
                 string += parts.join('');
             }
-            // Modify run start and end based on removed soft hyphens.
+            
             const runOffset = run.end - run.start - string.length;
             const start = run.start - offset;
             const end = run.end - offset - runOffset;
@@ -3940,21 +3940,21 @@ const SOFT_HYPHEN$1 = '\u00ad';
         return result;
     };
 };
-/**
- * Clone rect
- *
- * @param rect - Rect
- * @returns Cloned rect
- */ const copy = (rect)=>{
+
+
+
+
+
+ const copy = (rect)=>{
     return Object.assign({}, rect);
 };
-/**
- * Partition rect in two in the vertical direction
- *
- * @param rect - Rect
- * @param height - Height
- * @returns Partitioned rects
- */ const partition = (rect, height)=>{
+
+
+
+
+
+
+ const partition = (rect, height)=>{
     const a = Object.assign({}, rect, {
         height
     });
@@ -3967,80 +3967,80 @@ const SOFT_HYPHEN$1 = '\u00ad';
         b
     ];
 };
-/**
- * Crop upper section of rect
- *
- * @param height - Height
- * @param rect - Rect
- * @returns Cropped rect
- */ const crop = (height, rect)=>{
+
+
+
+
+
+
+ const crop = (height, rect)=>{
     const [, result] = partition(rect, height);
     return result;
 };
-/**
- * Get paragraph block height
- *
- * @param paragraph - Paragraph
- * @returns Paragraph block height
- */ const height$2 = (paragraph)=>{
+
+
+
+
+
+ const height$2 = (paragraph)=>{
     return paragraph.reduce((acc, block)=>acc + block.box.height, 0);
 };
-/**
- * Calculate run scale
- *
- * @param run - Run
- * @returns Scale
- */ const calculateScale = (run)=>{
+
+
+
+
+
+ const calculateScale = (run)=>{
     const attributes = run.attributes || {};
     const fontSize = attributes.fontSize || 12;
     const font = attributes.font;
     const unitsPerEm = typeof font === 'string' ? null : font?.[0]?.unitsPerEm;
     return unitsPerEm ? fontSize / unitsPerEm : 0;
 };
-/**
- * Get run scale
- *
- * @param  run
- * @returns Scale
- */ const scale = (run)=>{
+
+
+
+
+
+ const scale = (run)=>{
     return run.attributes?.scale || calculateScale(run);
 };
-/**
- * Get ligature offset by index
- *
- * Ex. ffi ligature
- *
- *   glyphs:         l  o  f  f  i  m
- *   glyphIndices:   0  1  2  2  2  3
- *   offset:         0  0  0  1  2  0
- *
- * @param index
- * @param run - Run
- * @returns Ligature offset
- */ const offset = (index, run)=>{
+
+
+
+
+
+
+
+
+
+
+
+
+ const offset = (index, run)=>{
     if (!run) return 0;
     const glyphIndices = run.glyphIndices || [];
     const value = glyphIndices[index];
     return glyphIndices.slice(0, index).filter((i)=>i === value).length;
 };
-/**
- * Get run font
- *
- * @param run - Run
- * @returns Font
- */ const getFont = (run)=>{
+
+
+
+
+
+ const getFont = (run)=>{
     return run.attributes?.font?.[0] || null;
 };
-/**
- * Slice glyph between codePoints range
- * Util for breaking ligatures
- *
- * @param start - Start code point index
- * @param end - End code point index
- * @param font - Font to generate new glyph
- * @param glyph - Glyph to be sliced
- * @returns Sliced glyph parts
- */ const slice$2 = (start, end, font, glyph)=>{
+
+
+
+
+
+
+
+
+
+ const slice$2 = (start, end, font, glyph)=>{
     if (!glyph) return [];
     if (start === end) return [];
     if (start === 0 && end === glyph.codePoints.length) return [
@@ -4048,57 +4048,57 @@ const SOFT_HYPHEN$1 = '\u00ad';
     ];
     const codePoints = glyph.codePoints.slice(start, end);
     const string = String.fromCodePoint(...codePoints);
-    // passing LTR To force fontkit to not reverse the string
+    
     return font ? font.layout(string, undefined, undefined, undefined, 'ltr').glyphs : [
         glyph
     ];
 };
-/**
- * Return glyph index at string index, if glyph indices present.
- * Otherwise return string index
- *
- * @param index - Index
- * @param run - Run
- * @returns Glyph index
- */ const glyphIndexAt = (index, run)=>{
+
+
+
+
+
+
+
+ const glyphIndexAt = (index, run)=>{
     const result = run?.glyphIndices?.[index];
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(result) ? index : result;
 };
-/**
- * Returns new array starting with zero, and keeping same relation between consecutive values
- *
- * @param array - List
- * @returns Normalized array
- */ const normalize = (array)=>{
+
+
+
+
+
+ const normalize = (array)=>{
     const head = array[0];
     return array.map((value)=>value - head);
 };
-/**
- * Slice run between glyph indices range
- *
- * @param start - Glyph index
- * @param end - Glyph index
- * @param run - Run
- * @returns Sliced run
- */ const slice$1 = (start, end, run)=>{
+
+
+
+
+
+
+
+ const slice$1 = (start, end, run)=>{
     const runScale = scale(run);
     const font = getFont(run);
-    // Get glyph start and end indices
+    
     const startIndex = glyphIndexAt(start, run);
     const endIndex = glyphIndexAt(end, run);
-    // Get start and end glyph
+    
     const startGlyph = run.glyphs?.[startIndex];
     const endGlyph = run.glyphs?.[endIndex];
-    // Get start ligature chunks (if any)
+    
     const startOffset = offset(start, run);
     const startGlyphs = startOffset > 0 ? slice$2(startOffset, Infinity, font, startGlyph) : [];
-    // Get end ligature chunks (if any)
+    
     const endOffset = offset(end, run);
     const endGlyphs = slice$2(0, endOffset, font, endGlyph);
-    // Compute new glyphs
+    
     const sliceStart = startIndex + Math.min(1, startOffset);
     const glyphs = (run.glyphs || []).slice(sliceStart, endIndex);
-    // Compute new positions
+    
     const glyphPosition = (g)=>({
             xAdvance: g.advanceWidth * runScale,
             yAdvance: 0,
@@ -4124,35 +4124,35 @@ const SOFT_HYPHEN$1 = '\u00ad';
         ].flat()
     });
 };
-/**
- * Get run index that contains passed index
- *
- * @param index - Index
- * @param runs - Runs
- * @returns Run index
- */ const runIndexAt$1 = (index, runs)=>{
+
+
+
+
+
+
+ const runIndexAt$1 = (index, runs)=>{
     if (!runs) return -1;
     return runs.findIndex((run)=>run.start <= index && index < run.end);
 };
-/**
- * Filter runs contained between start and end
- *
- * @param start
- * @param end
- * @param runs
- * @returns Filtered runs
- */ const filter = (start, end, runs)=>{
+
+
+
+
+
+
+
+ const filter = (start, end, runs)=>{
     const startIndex = runIndexAt$1(start, runs);
     const endIndex = Math.max(runIndexAt$1(end - 1, runs), startIndex);
     return runs.slice(startIndex, endIndex + 1);
 };
-/**
- * Subtract scalar to run
- *
- * @param index - Scalar
- * @param run - Run
- * @returns Subtracted run
- */ const subtract = (index, run)=>{
+
+
+
+
+
+
+ const subtract = (index, run)=>{
     const start = run.start - index;
     const end = run.end - index;
     return Object.assign({}, run, {
@@ -4160,14 +4160,14 @@ const SOFT_HYPHEN$1 = '\u00ad';
         end
     });
 };
-/**
- * Slice array of runs
- *
- * @param start - Offset
- * @param end - Offset
- * @param runs
- * @returns Sliced runs
- */ const sliceRuns = (start, end, runs)=>{
+
+
+
+
+
+
+
+ const sliceRuns = (start, end, runs)=>{
     const sliceFirstRun = (a)=>slice$1(start - a.start, end - a.start, a);
     const sliceLastRun = (a)=>slice$1(0, end - a.start, a);
     return runs.map((run, i)=>{
@@ -4179,14 +4179,14 @@ const SOFT_HYPHEN$1 = '\u00ad';
         return subtract(start, result);
     });
 };
-/**
- * Slice attributed string between two indices
- *
- * @param start - Offset
- * @param end - Offset
- * @param attributedString - Attributed string
- * @returns Attributed string
- */ const slice = (start, end, attributedString)=>{
+
+
+
+
+
+
+
+ const slice = (start, end, attributedString)=>{
     if (attributedString.string.length === 0) return attributedString;
     const string = attributedString.string.slice(start, end);
     const filteredRuns = filter(start, end, attributedString.runs);
@@ -4203,21 +4203,21 @@ const findLastCharIndex = (string)=>{
     const match = string.match(/\S/g);
     return match ? string.lastIndexOf(match[match.length - 1]) : -1;
 };
-/**
- * Removes (strips) whitespace from both ends of the attributted string.
- *
- * @param attributedString - Attributed string
- * @returns Attributed string
- */ const trim = (attributedString)=>{
+
+
+
+
+
+ const trim = (attributedString)=>{
     const start = findCharIndex(attributedString.string);
     const end = findLastCharIndex(attributedString.string);
     return slice(start, end + 1, attributedString);
 };
-/**
- * Returns empty run
- *
- * @returns Empty run
- */ const empty$1 = ()=>{
+
+
+
+
+ const empty$1 = ()=>{
     return {
         start: 0,
         end: 0,
@@ -4227,45 +4227,45 @@ const findLastCharIndex = (string)=>{
         attributes: {}
     };
 };
-/**
- * Check if value is a number
- *
- * @param value - Value to check
- * @returns Whether value is a number
- */ const isNumber = (value)=>{
+
+
+
+
+
+ const isNumber = (value)=>{
     return typeof value === 'number';
 };
-/**
- * Append glyph indices with given length
- *
- * Ex. appendIndices(3, [0, 1, 2, 2]) => [0, 1, 2, 2, 3, 3, 3]
- *
- * @param length - Length
- * @param indices - Glyph indices
- * @returns Extended glyph indices
- */ const appendIndices = (length, indices)=>{
+
+
+
+
+
+
+
+
+ const appendIndices = (length, indices)=>{
     const lastIndex = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["last"])(indices);
     const value = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(lastIndex) ? 0 : lastIndex + 1;
     const newIndices = Array(length).fill(value);
     return indices.concat(newIndices);
 };
-/**
- * Get glyph for a given code point
- *
- * @param value - CodePoint
- * @param font - Font
- * @returns Glyph
- * */ const fromCodePoint = (value, font)=>{
+
+
+
+
+
+
+ const fromCodePoint = (value, font)=>{
     if (typeof font === 'string') return null;
     return font && value ? font.glyphForCodePoint(value) : null;
 };
-/**
- * Append glyph to run
- *
- * @param glyph - Glyph
- * @param run - Run
- * @returns Run with glyph
- */ const appendGlyph = (glyph, run)=>{
+
+
+
+
+
+
+ const appendGlyph = (glyph, run)=>{
     const glyphLength = glyph.codePoints?.length || 0;
     const end = run.end + glyphLength;
     const glyphs = run.glyphs.concat(glyph);
@@ -4288,33 +4288,33 @@ const findLastCharIndex = (string)=>{
         positions
     });
 };
-/**
- * Append glyph or code point to run
- *
- * @param value - Glyph or codePoint
- * @param run - Run
- * @returns Run with glyph
- */ const append$1 = (value, run)=>{
+
+
+
+
+
+
+ const append$1 = (value, run)=>{
     if (!value) return run;
     const font = getFont(run);
     const glyph = isNumber(value) ? fromCodePoint(value, font) : value;
     return appendGlyph(glyph, run);
 };
-/**
- * Get string from array of code points
- *
- * @param codePoints - Points
- * @returns String
- */ const stringFromCodePoints = (codePoints)=>{
+
+
+
+
+
+ const stringFromCodePoints = (codePoints)=>{
     return String.fromCodePoint(...codePoints || []);
 };
-/**
- * Append glyph into last run of attributed string
- *
- * @param glyph - Glyph or code point
- * @param attributedString - Attributed string
- * @returns Attributed string with new glyph
- */ const append = (glyph, attributedString)=>{
+
+
+
+
+
+
+ const append = (glyph, attributedString)=>{
     const codePoints = typeof glyph === 'number' ? [
         glyph
     ] : glyph?.codePoints;
@@ -4330,22 +4330,22 @@ const findLastCharIndex = (string)=>{
 };
 const ELLIPSIS_UNICODE = 8230;
 const ELLIPSIS_STRING = String.fromCharCode(ELLIPSIS_UNICODE);
-/**
- * Get ellipsis codepoint. This may be different in standard and embedded fonts
- *
- * @param font
- * @returns Ellipsis codepoint
- */ const getEllipsisCodePoint = (font)=>{
+
+
+
+
+
+ const getEllipsisCodePoint = (font)=>{
     if (!font.encode) return ELLIPSIS_UNICODE;
     const [codePoints] = font.encode(ELLIPSIS_STRING);
     return parseInt(codePoints[0], 16);
 };
-/**
- * Trucante block with ellipsis
- *
- * @param paragraph - Paragraph
- * @returns Sliced paragraph
- */ const truncate = (paragraph)=>{
+
+
+
+
+
+ const truncate = (paragraph)=>{
     const runs = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["last"])(paragraph)?.runs || [];
     const font = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["last"])(runs)?.attributes?.font[0];
     if (font) {
@@ -4359,75 +4359,75 @@ const ELLIPSIS_STRING = String.fromCharCode(ELLIPSIS_UNICODE);
     }
     return paragraph;
 };
-/**
- * Omit attribute from run
- *
- * @param value - Attribute key
- * @param run - Run
- * @returns Run without ommited attribute
- */ const omit = (value, run)=>{
+
+
+
+
+
+
+ const omit = (value, run)=>{
     const attributes = Object.assign({}, run.attributes);
     delete attributes[value];
     return Object.assign({}, run, {
         attributes
     });
 };
-/**
- * Get run ascent
- *
- * @param run - Run
- * @returns Ascent
- */ const ascent$1 = (run)=>{
+
+
+
+
+
+ const ascent$1 = (run)=>{
     const { font, attachment } = run.attributes;
     const attachmentHeight = attachment?.height || 0;
     const fontAscent = typeof font === 'string' ? 0 : font?.[0]?.ascent || 0;
     return Math.max(attachmentHeight, fontAscent * scale(run));
 };
-/**
- * Get run descent
- *
- * @param run - Run
- * @returns Descent
- */ const descent = (run)=>{
+
+
+
+
+
+ const descent = (run)=>{
     const font = run.attributes?.font;
     const fontDescent = typeof font === 'string' ? 0 : font?.[0]?.descent || 0;
     return scale(run) * fontDescent;
 };
-/**
- * Get run lineGap
- *
- * @param run - Run
- * @returns LineGap
- */ const lineGap = (run)=>{
+
+
+
+
+
+ const lineGap = (run)=>{
     const font = run.attributes?.font;
     const lineGap = typeof font === 'string' ? 0 : font?.[0]?.lineGap || 0;
     return lineGap * scale(run);
 };
-/**
- * Get run height
- *
- * @param run - Run
- * @returns Height
- */ const height$1 = (run)=>{
+
+
+
+
+
+ const height$1 = (run)=>{
     const lineHeight = run.attributes?.lineHeight;
     return lineHeight || lineGap(run) + ascent$1(run) - descent(run);
 };
-/**
- * Returns attributed string height
- *
- * @param attributedString - Attributed string
- * @returns Height
- */ const height = (attributedString)=>{
+
+
+
+
+
+ const height = (attributedString)=>{
     const reducer = (acc, run)=>Math.max(acc, height$1(run));
     return attributedString.runs.reduce(reducer, 0);
 };
-/**
- * Checks if two rects intersect each other
- *
- * @param a - Rect A
- * @param b - Rect B
- * @returns Whether rects intersect
- */ const intersects = (a, b)=>{
+
+
+
+
+
+
+ const intersects = (a, b)=>{
     const x = Math.max(a.x, b.x);
     const num1 = Math.min(a.x + a.width, b.x + b.width);
     const y = Math.max(a.y, b.y);
@@ -4486,13 +4486,13 @@ const generateLineRects = (container, height)=>{
         currentRect
     ];
 };
-const ATTACHMENT_CODE$1 = '\ufffc'; // 65532
-/**
- * Remove attachment attribute if no char present
- *
- * @param line - Line
- * @returns Line
- */ const purgeAttachments = (line)=>{
+const ATTACHMENT_CODE$1 = '\ufffc'; 
+
+
+
+
+
+ const purgeAttachments = (line)=>{
     const shouldPurge = !line.string.includes(ATTACHMENT_CODE$1);
     if (!shouldPurge) return line;
     const runs = line.runs.map((run)=>omit('attachment', run));
@@ -4500,14 +4500,14 @@ const ATTACHMENT_CODE$1 = '\ufffc'; // 65532
         runs
     });
 };
-/**
- * Layout paragraphs inside rectangle
- *
- * @param rects - Rects
- * @param lines - Attributed strings
- * @param indent
- * @returns layout blocks
- */ const layoutLines = (rects, lines, indent)=>{
+
+
+
+
+
+
+
+ const layoutLines = (rects, lines, indent)=>{
     let rect = rects.shift();
     let currentY = rect.y;
     return lines.map((line, i)=>{
@@ -4532,17 +4532,17 @@ const ATTACHMENT_CODE$1 = '\ufffc'; // 65532
         return purgeAttachments(newLine);
     });
 };
-/**
- * Performs line breaking and layout
- *
- * @param engines - Engines
- * @param options - Layout options
- */ const layoutParagraph = (engines, options = {})=>{
-    /**
-     * @param container - Container
-     * @param paragraph - Attributed string
-     * @returns Layout block
-     */ return (container, paragraph)=>{
+
+
+
+
+
+ const layoutParagraph = (engines, options = {})=>{
+    
+
+
+
+ return (container, paragraph)=>{
         const height$1 = height(paragraph);
         const indent = paragraph.runs?.[0]?.attributes?.indent || 0;
         const rects = generateLineRects(container, height$1);
@@ -4552,13 +4552,13 @@ const ATTACHMENT_CODE$1 = '\ufffc'; // 65532
         return layoutLines(rects, lines, indent);
     };
 };
-/**
- * Slice block at given height
- *
- * @param height - Height
- * @param paragraph - Paragraph
- * @returns Sliced paragraph
- */ const sliceAtHeight = (height, paragraph)=>{
+
+
+
+
+
+
+ const sliceAtHeight = (height, paragraph)=>{
     const newBlock = [];
     let counter = 0;
     for(let i = 0; i < paragraph.length; i += 1){
@@ -4572,18 +4572,18 @@ const ATTACHMENT_CODE$1 = '\ufffc'; // 65532
     }
     return newBlock;
 };
-/**
- * Layout paragraphs inside container until it does not
- * fit anymore, performing line wrapping in the process.
- *
- * @param  engines - Engines
- * @param  options - Layout options
- * @param container - Container
- */ const typesetter = (engines, options, container)=>{
-    /**
-     * @param attributedStrings - Attributed strings (paragraphs)
-     * @returns Paragraph blocks
-     */ return (attributedStrings)=>{
+
+
+
+
+
+
+
+ const typesetter = (engines, options, container)=>{
+    
+
+
+ return (attributedStrings)=>{
         const result = [];
         const paragraphs = [
             ...attributedStrings
@@ -4612,30 +4612,30 @@ const ATTACHMENT_CODE$1 = '\ufffc'; // 65532
         return result;
     };
 };
-/**
- * Get attributed string start value
- *
- * @param attributedString - Attributed string
- * @returns Start
- */ const start = (attributedString)=>{
+
+
+
+
+
+ const start = (attributedString)=>{
     const { runs } = attributedString;
     return runs.length === 0 ? 0 : runs[0].start;
 };
-/**
- * Get attributed string end value
- *
- * @param attributedString - Attributed string
- * @returns End
- */ const end = (attributedString)=>{
+
+
+
+
+
+ const end = (attributedString)=>{
     const { runs } = attributedString;
     return runs.length === 0 ? 0 : (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["last"])(runs).end;
 };
-/**
- * Get attributed string length
- *
- * @param attributedString - Attributed string
- * @returns End
- */ const length$1 = (attributedString)=>{
+
+
+
+
+
+ const length$1 = (attributedString)=>{
     return end(attributedString) - start(attributedString);
 };
 const bidi$2 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$bidi$2d$js$2f$dist$2f$bidi$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])();
@@ -4647,12 +4647,12 @@ const getBidiLevels$1 = (runs)=>{
     }, []);
 };
 const getReorderedIndices = (string, segments)=>{
-    // Fill an array with indices
+    
     const indices = [];
     for(let i = 0; i < string.length; i += 1){
         indices[i] = i;
     }
-    // Reverse each segment in order
+    
     segments.forEach(([start, end])=>{
         const slice = indices.slice(start, end + 1);
         for(let i = slice.length - 1; i >= 0; i -= 1){
@@ -4688,7 +4688,7 @@ const reorderLine = (line)=>{
         levels
     };
     const segments = bidi$2.getReorderSegments(line.string, embeddingLevels);
-    // No need for bidi reordering
+    
     if (segments.length === 0) return line;
     const indices = getReorderedIndices(line.string, segments);
     const updatedString = bidi$2.getReorderedString(line.string, embeddingLevels);
@@ -4720,23 +4720,23 @@ const reorderLine = (line)=>{
     };
 };
 const reorderParagraph = (paragraph)=>paragraph.map(reorderLine);
-/**
- * Perform bidi reordering
- *
- * @returns Reordered paragraphs
- */ const bidiReordering = ()=>{
-    /**
-     * @param paragraphs - Paragraphs
-     * @returns Reordered paragraphs
-     */ return (paragraphs)=>paragraphs.map(reorderParagraph);
+
+
+
+
+ const bidiReordering = ()=>{
+    
+
+
+ return (paragraphs)=>paragraphs.map(reorderParagraph);
 };
 const DUMMY_CODEPOINT = 123;
-/**
- * Resolve string indices based on glyphs code points
- *
- * @param glyphs
- * @returns Glyph indices
- */ const resolve = (glyphs = [])=>{
+
+
+
+
+
+ const resolve = (glyphs = [])=>{
     return glyphs.reduce((acc, glyph)=>{
         const codePoints = glyph?.codePoints || [
             DUMMY_CODEPOINT
@@ -4753,13 +4753,13 @@ const DUMMY_CODEPOINT = 123;
 const getCharacterSpacing = (run)=>{
     return run.attributes?.characterSpacing || 0;
 };
-/**
- * Scale run positions
- *
- * @param  run
- * @param  positions
- * @returns Scaled positions
- */ const scalePositions = (run, positions)=>{
+
+
+
+
+
+
+ const scalePositions = (run, positions)=>{
     const runScale = scale(run);
     const characterSpacing = getCharacterSpacing(run);
     return positions.map((position, i)=>{
@@ -4773,15 +4773,15 @@ const getCharacterSpacing = (run)=>{
         });
     });
 };
-/**
- * Create glyph run
- *
- * @param string string
- */ const layoutRun = (string)=>{
-    /**
-     * @param run - Run
-     * @returns Glyph run
-     */ return (run)=>{
+
+
+
+
+ const layoutRun = (string)=>{
+    
+
+
+ return (run)=>{
         const { start, end, attributes = {} } = run;
         const { font } = attributes;
         if (!font) return {
@@ -4792,7 +4792,7 @@ const getCharacterSpacing = (run)=>{
         };
         const runString = string.slice(start, end);
         if (typeof font === 'string') throw new Error('Invalid font');
-        // passing LTR To force fontkit to not reverse the string
+        
         const glyphRun = font[0].layout(runString, undefined, undefined, undefined, 'ltr');
         const positions = scalePositions(run, glyphRun.positions);
         const glyphIndices = resolve(glyphRun.glyphs);
@@ -4805,13 +4805,13 @@ const getCharacterSpacing = (run)=>{
         return result;
     };
 };
-/**
- * Generate glyphs for single attributed string
- */ const generateGlyphs = ()=>{
-    /**
-     * @param attributedString - Attributed string
-     * @returns Attributed string with glyphs
-     */ return (attributedString)=>{
+
+
+ const generateGlyphs = ()=>{
+    
+
+
+ return (attributedString)=>{
         const runs = attributedString.runs.map(layoutRun(attributedString.string));
         const res = Object.assign({}, attributedString, {
             runs
@@ -4819,12 +4819,12 @@ const getCharacterSpacing = (run)=>{
         return res;
     };
 };
-/**
- * Resolves yOffset for run
- *
- * @param run - Run
- * @returns Run
- */ const resolveRunYOffset = (run)=>{
+
+
+
+
+
+ const resolveRunYOffset = (run)=>{
     if (!run.positions) return run;
     const unitsPerEm = run.attributes?.font?.[0]?.unitsPerEm || 0;
     const yOffset = (run.attributes?.yOffset || 0) * unitsPerEm;
@@ -4835,13 +4835,13 @@ const getCharacterSpacing = (run)=>{
         positions
     });
 };
-/**
- * Resolves yOffset for multiple paragraphs
- */ const resolveYOffset = ()=>{
-    /**
-     * @param attributedString - Attributed string
-     * @returns Attributed string
-     */ return (attributedString)=>{
+
+
+ const resolveYOffset = ()=>{
+    
+
+
+ return (attributedString)=>{
         const runs = attributedString.runs.map(resolveRunYOffset);
         const res = Object.assign({}, attributedString, {
             runs
@@ -4849,34 +4849,34 @@ const getCharacterSpacing = (run)=>{
         return res;
     };
 };
-/**
- * Sort runs in ascending order
- *
- * @param runs
- * @returns Sorted runs
- */ const sort = (runs)=>{
+
+
+
+
+
+ const sort = (runs)=>{
     return runs.sort((a, b)=>a.start - b.start || a.end - b.end);
 };
-/**
- * Is run empty (start === end)
- *
- * @param run - Run
- * @returns Is run empty
- */ const isEmpty = (run)=>{
+
+
+
+
+
+ const isEmpty = (run)=>{
     return run.start === run.end;
 };
-/**
- * Sort points in ascending order
- * @param a - First point
- * @param b - Second point
- * @returns Sort order
- */ const sortPoints = (a, b)=>{
+
+
+
+
+
+ const sortPoints = (a, b)=>{
     return a[1] - b[1] || a[3] - b[3];
 };
-/**
- * @param runs
- * @returns Points
- */ const generatePoints = (runs)=>{
+
+
+
+ const generatePoints = (runs)=>{
     const result = runs.reduce((acc, run, i)=>{
         return acc.concat([
             [
@@ -4895,10 +4895,10 @@ const getCharacterSpacing = (run)=>{
     }, []);
     return result.sort(sortPoints);
 };
-/**
- * @param runs
- * @returns Merged runs
- */ const mergeRuns = (runs)=>{
+
+
+
+ const mergeRuns = (runs)=>{
     return runs.reduce((acc, run)=>{
         const attributes = Object.assign({}, acc.attributes, run.attributes);
         return Object.assign({}, run, {
@@ -4906,10 +4906,10 @@ const getCharacterSpacing = (run)=>{
         });
     }, {});
 };
-/**
- * @param runs
- * @returns Grouped runs
- */ const groupEmptyRuns = (runs)=>{
+
+
+
+ const groupEmptyRuns = (runs)=>{
     const groups = runs.reduce((acc, run)=>{
         if (!acc[run.start]) acc[run.start] = [];
         acc[run.start].push(run);
@@ -4917,16 +4917,16 @@ const getCharacterSpacing = (run)=>{
     }, []);
     return Object.values(groups);
 };
-/**
- * @param runs
- * @returns Flattened runs
- */ const flattenEmptyRuns = (runs)=>{
+
+
+
+ const flattenEmptyRuns = (runs)=>{
     return groupEmptyRuns(runs).map(mergeRuns);
 };
-/**
- * @param runs
- * @returns Flattened runs
- */ const flattenRegularRuns = (runs)=>{
+
+
+
+ const flattenRegularRuns = (runs)=>{
     const res = [];
     const points = generatePoints(runs);
     let start = -1;
@@ -4961,43 +4961,43 @@ const getCharacterSpacing = (run)=>{
     }
     return res;
 };
-/**
- * Flatten many runs
- *
- * @param runs
- * @returns Flattened runs
- */ const flatten = (runs = [])=>{
+
+
+
+
+
+ const flatten = (runs = [])=>{
     const emptyRuns = flattenEmptyRuns(runs.filter((run)=>isEmpty(run)));
     const regularRuns = flattenRegularRuns(runs.filter((run)=>!isEmpty(run)));
     return sort(emptyRuns.concat(regularRuns));
 };
-/**
- * Returns empty attributed string
- *
- * @returns Empty attributed string
- */ const empty = ()=>({
+
+
+
+
+ const empty = ()=>({
         string: '',
         runs: []
     });
-/**
- *
- * @param attributedString
- * @returns Attributed string without font
- */ const omitFont = (attributedString)=>{
+
+
+
+
+ const omitFont = (attributedString)=>{
     const runs = attributedString.runs.map((run)=>omit('font', run));
     return Object.assign({}, attributedString, {
         runs
     });
 };
-/**
- * Performs font substitution and script itemization on attributed string
- *
- * @param engines - engines
- */ const preprocessRuns = (engines)=>{
-    /**
-     * @param attributedString - Attributed string
-     * @returns Processed attributed string
-     */ return (attributedString)=>{
+
+
+
+
+ const preprocessRuns = (engines)=>{
+    
+
+
+ return (attributedString)=>{
         if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(attributedString)) return empty();
         const { string } = attributedString;
         const { fontSubstitution, scriptItemizer, bidi } = engines;
@@ -5012,13 +5012,13 @@ const getCharacterSpacing = (run)=>{
         };
     };
 };
-/**
- * Breaks attributed string into paragraphs
- */ const splitParagraphs = ()=>{
-    /**
-     * @param attributedString - Attributed string
-     * @returns Paragraphs attributed strings
-     */ return (attributedString)=>{
+
+
+ const splitParagraphs = ()=>{
+    
+
+
+ return (attributedString)=>{
         const paragraphs = [];
         let start = 0;
         let breakPoint = attributedString.string.indexOf('\n') + 1;
@@ -5035,113 +5035,113 @@ const getCharacterSpacing = (run)=>{
         return paragraphs;
     };
 };
-/**
- * Return positions advance width
- *
- * @param positions - Positions
- * @returns {number} advance width
- */ const advanceWidth$2 = (positions)=>{
+
+
+
+
+
+ const advanceWidth$2 = (positions)=>{
     return positions.reduce((acc, pos)=>acc + (pos.xAdvance || 0), 0);
 };
-/**
- * Return run advance width
- *
- * @param run - Run
- * @returns Advance width
- */ const advanceWidth$1 = (run)=>{
+
+
+
+
+
+ const advanceWidth$1 = (run)=>{
     return advanceWidth$2(run.positions || []);
 };
-/**
- * Returns attributed string advancewidth
- *
- * @param attributedString - Attributed string
- * @returns Advance width
- */ const advanceWidth = (attributedString)=>{
+
+
+
+
+
+ const advanceWidth = (attributedString)=>{
     const reducer = (acc, run)=>acc + advanceWidth$1(run);
     return attributedString.runs.reduce(reducer, 0);
 };
 const WHITE_SPACES_CODE = 32;
-/**
- * Check if glyph is white space
- *
- * @param glyph - Glyph
- * @returns Whether glyph is white space
- * */ const isWhiteSpace = (glyph)=>{
+
+
+
+
+
+ const isWhiteSpace = (glyph)=>{
     const codePoints = glyph?.codePoints || [];
     return codePoints.includes(WHITE_SPACES_CODE);
 };
-/**
- * Get white space leading positions
- *
- * @param run - Run
- * @returns White space leading positions
- */ const leadingPositions = (run)=>{
+
+
+
+
+
+ const leadingPositions = (run)=>{
     const glyphs = run.glyphs || [];
     const positions = run.positions || [];
     const leadingWhitespaces = glyphs.findIndex((g)=>!isWhiteSpace(g));
     return positions.slice(0, leadingWhitespaces);
 };
-/**
- * Get run leading white space offset
- *
- * @param run - Run
- * @returns Leading white space offset
- */ const leadingOffset$1 = (run)=>{
+
+
+
+
+
+ const leadingOffset$1 = (run)=>{
     const positions = leadingPositions(run);
     return positions.reduce((acc, pos)=>acc + (pos.xAdvance || 0), 0);
 };
-/**
- * Get attributed string leading white space offset
- *
- * @param attributedString - Attributed string
- * @returns Leading white space offset
- */ const leadingOffset = (attributedString)=>{
+
+
+
+
+
+ const leadingOffset = (attributedString)=>{
     const runs = attributedString.runs || [];
     return leadingOffset$1(runs[0]);
 };
-/**
- * Get white space trailing positions
- *
- * @param run run
- * @returns White space trailing positions
- */ const trailingPositions = (run)=>{
+
+
+
+
+
+ const trailingPositions = (run)=>{
     const glyphs = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["reverse"])(run.glyphs || []);
     const positions = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["reverse"])(run.positions || []);
     const leadingWhitespaces = glyphs.findIndex((g)=>!isWhiteSpace(g));
     return positions.slice(0, leadingWhitespaces);
 };
-/**
- * Get run trailing white space offset
- *
- * @param run - Run
- * @returns Trailing white space offset
- */ const trailingOffset$1 = (run)=>{
+
+
+
+
+
+ const trailingOffset$1 = (run)=>{
     const positions = trailingPositions(run);
     return positions.reduce((acc, pos)=>acc + (pos.xAdvance || 0), 0);
 };
-/**
- * Get attributed string trailing white space offset
- *
- * @param attributedString - Attributed string
- * @returns Trailing white space offset
- */ const trailingOffset = (attributedString)=>{
+
+
+
+
+
+ const trailingOffset = (attributedString)=>{
     const runs = attributedString.runs || [];
     return trailingOffset$1((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["last"])(runs));
 };
-/**
- * Drop last char of run
- *
- * @param run - Run
- * @returns Run without last char
- */ const dropLast$1 = (run)=>{
+
+
+
+
+
+ const dropLast$1 = (run)=>{
     return slice$1(0, run.end - run.start - 1, run);
 };
-/**
- * Drop last glyph
- *
- * @param attributedString - Attributed string
- * @returns Attributed string with new glyph
- */ const dropLast = (attributedString)=>{
+
+
+
+
+
+ const dropLast = (attributedString)=>{
     const string = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["dropLast"])(attributedString.string);
     const runs = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["adjust"])(-1, dropLast$1, attributedString.runs);
     return Object.assign({}, attributedString, {
@@ -5153,12 +5153,12 @@ const ALIGNMENT_FACTORS = {
     center: 0.5,
     right: 1
 };
-/**
- * Remove new line char at the end of line if present
- *
- * @param line
- * @returns Line
- */ const removeNewLine = (line)=>{
+
+
+
+
+
+ const removeNewLine = (line)=>{
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["last"])(line.string) === '\n' ? dropLast(line) : line;
 };
 const getOverflowLeft = (line)=>{
@@ -5167,12 +5167,12 @@ const getOverflowLeft = (line)=>{
 const getOverflowRight = (line)=>{
     return trailingOffset(line) + (line.overflowRight || 0);
 };
-/**
- * Ignore whitespace at the start and end of a line for alignment
- *
- * @param line
- * @returns Line
- */ const adjustOverflow = (line)=>{
+
+
+
+
+
+ const adjustOverflow = (line)=>{
     const overflowLeft = getOverflowLeft(line);
     const overflowRight = getOverflowRight(line);
     const x = line.box.x - overflowLeft;
@@ -5187,17 +5187,17 @@ const getOverflowRight = (line)=>{
         overflowRight
     });
 };
-/**
- * Performs line justification by calling appropiate engine
- *
- * @param engines - Engines
- * @param options - Layout options
- * @param align - Text align
- */ const justifyLine$1 = (engines, options, align)=>{
-    /**
-     * @param line - Line
-     * @returns Line
-     */ return (line)=>{
+
+
+
+
+
+
+ const justifyLine$1 = (engines, options, align)=>{
+    
+
+
+ return (line)=>{
         const lineWidth = advanceWidth(line);
         const alignFactor = ALIGNMENT_FACTORS[align] || 0;
         const remainingWidth = Math.max(0, line.box.width - lineWidth);
@@ -5241,48 +5241,48 @@ const finalizeLine = (line)=>{
         xAdvance: lineXAdvance
     });
 };
-/**
- * Finalize line by performing line justification
- * and text decoration (using appropiate engines)
- *
- * @param engines - Engines
- * @param options - Layout options
- */ const finalizeBlock = (engines, options)=>{
-    /**
-     * @param line - Line
-     * @param i - Line index
-     * @param lines - Total lines
-     * @returns Line
-     */ return (line, index, lines)=>{
+
+
+
+
+
+
+ const finalizeBlock = (engines, options)=>{
+    
+
+
+
+
+ return (line, index, lines)=>{
         const isLastFragment = index === lines.length - 1;
         const style = line.runs?.[0]?.attributes || {};
         const align = isLastFragment ? style.alignLastLine : style.align;
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["compose"])(finalizeLine, engines.textDecoration(), justifyLine$1(engines, options, align), adjustOverflow, removeNewLine)(line);
     };
 };
-/**
- * Finalize line block by performing line justification
- * and text decoration (using appropiate engines)
- *
- * @param engines - Engines
- * @param options - Layout options
- */ const finalizeFragments = (engines, options)=>{
-    /**
-     * @param paragraphs - Paragraphs
-     * @returns Paragraphs
-     */ return (paragraphs)=>{
+
+
+
+
+
+
+ const finalizeFragments = (engines, options)=>{
+    
+
+
+ return (paragraphs)=>{
         const blockFinalizer = finalizeBlock(engines, options);
         return paragraphs.map((paragraph)=>paragraph.map(blockFinalizer));
     };
 };
-const ATTACHMENT_CODE = 0xfffc; // 65532
+const ATTACHMENT_CODE = 0xfffc; 
 const isReplaceGlyph = (glyph)=>glyph.codePoints.includes(ATTACHMENT_CODE);
-/**
- * Resolve attachments of run
- *
- * @param run
- * @returns Run
- */ const resolveRunAttachments = (run)=>{
+
+
+
+
+
+ const resolveRunAttachments = (run)=>{
     if (!run.positions) return run;
     const glyphs = run.glyphs || [];
     const attachment = run.attributes?.attachment;
@@ -5300,13 +5300,13 @@ const isReplaceGlyph = (glyph)=>glyph.codePoints.includes(ATTACHMENT_CODE);
         positions
     });
 };
-/**
- * Resolve attachments for multiple paragraphs
- */ const resolveAttachments = ()=>{
-    /**
-     * @param attributedString - Attributed string
-     * @returns Attributed string
-     */ return (attributedString)=>{
+
+
+ const resolveAttachments = ()=>{
+    
+
+
+ return (attributedString)=>{
         const runs = attributedString.runs.map(resolveRunAttachments);
         const res = Object.assign({}, attributedString, {
             runs
@@ -5314,10 +5314,10 @@ const isReplaceGlyph = (glyph)=>glyph.codePoints.includes(ATTACHMENT_CODE);
         return res;
     };
 };
-/**
- * @param attributes - Attributes
- * @returns Attributes with defaults
- */ const applyAttributes = (a)=>{
+
+
+
+ const applyAttributes = (a)=>{
     return {
         align: a.align || (a.direction === 'rtl' ? 'right' : 'left'),
         alignLastLine: a.alignLastLine || (a.align === 'justify' ? 'left' : a.align || 'left'),
@@ -5357,20 +5357,20 @@ const isReplaceGlyph = (glyph)=>glyph.codePoints.includes(ATTACHMENT_CODE);
         yOffset: a.yOffset || 0
     };
 };
-/**
- * Apply default style to run
- *
- * @param run - Run
- * @returns Run with default styles
- */ const applyRunStyles = (run)=>{
+
+
+
+
+
+ const applyRunStyles = (run)=>{
     const attributes = applyAttributes(run.attributes);
     return Object.assign({}, run, {
         attributes
     });
 };
-/**
- * Apply default attributes for an attributed string
- */ const applyDefaultStyles = ()=>{
+
+
+ const applyDefaultStyles = ()=>{
     return (attributedString)=>{
         const string = attributedString.string || '';
         const runs = (attributedString.runs || []).map(applyRunStyles);
@@ -5380,13 +5380,13 @@ const isReplaceGlyph = (glyph)=>glyph.codePoints.includes(ATTACHMENT_CODE);
         };
     };
 };
-/**
- * Apply scaling and yOffset for verticalAlign 'sub' and 'super'.
- */ const verticalAlignment = ()=>{
-    /**
-     * @param attributedString - Attributed string
-     * @returns Attributed string
-     */ return (attributedString)=>{
+
+
+ const verticalAlignment = ()=>{
+    
+
+
+ return (attributedString)=>{
         attributedString.runs.forEach((run)=>{
             const { attributes } = run;
             const { verticalAlign } = attributes;
@@ -5400,23 +5400,23 @@ const isReplaceGlyph = (glyph)=>glyph.codePoints.includes(ATTACHMENT_CODE);
     };
 };
 const bidi$1 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$bidi$2d$js$2f$dist$2f$bidi$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])();
-/**
- * @param runs
- * @returns Bidi levels
- */ const getBidiLevels = (runs)=>{
+
+
+
+ const getBidiLevels = (runs)=>{
     return runs.reduce((acc, run)=>{
         const length = run.end - run.start;
         const levels = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["repeat"])(run.attributes.bidiLevel, length);
         return acc.concat(levels);
     }, []);
 };
-/**
- * Perform bidi mirroring
- */ const mirrorString = ()=>{
-    /**
-     * @param attributedString - Attributed string
-     * @returns Attributed string
-     */ return (attributedString)=>{
+
+
+ const mirrorString = ()=>{
+    
+
+
+ return (attributedString)=>{
         const levels = getBidiLevels(attributedString.runs);
         let updatedString = '';
         attributedString.string.split('').forEach((char, index)=>{
@@ -5431,13 +5431,13 @@ const bidi$1 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Pr
         return result;
     };
 };
-/**
- * A LayoutEngine is the main object that performs text layout.
- * It accepts an AttributedString and a Container object
- * to layout text into, and uses several helper objects to perform
- * various layout tasks. These objects can be overridden to customize
- * layout behavior.
- */ const layoutEngine = (engines)=>{
+
+
+
+
+
+
+ const layoutEngine = (engines)=>{
     return (attributedString, container, options = {})=>{
         const processParagraph = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["compose"])(resolveYOffset(), resolveAttachments(), verticalAlignment(), generateGlyphs(), wrapWords(engines, options), mirrorString(), preprocessRuns(engines));
         const processParagraphs = (paragraphs)=>paragraphs.map(processParagraph);
@@ -5446,10 +5446,10 @@ const bidi$1 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Pr
 };
 const bidi = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$bidi$2d$js$2f$dist$2f$bidi$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])();
 const bidiEngine = ()=>{
-    /**
-     * @param attributedString - Attributed string
-     * @returns Attributed string
-     */ return (attributedString)=>{
+    
+
+
+ return (attributedString)=>{
         const { string } = attributedString;
         const direction = attributedString.runs[0]?.attributes.direction;
         const { levels } = bidi.getEmbeddingLevels(string, direction);
@@ -5578,7 +5578,7 @@ const applyBestFit = (nodes, widths)=>{
     }
     return breakpoints;
 };
-/* eslint-disable max-classes-per-file */ class LinkedListNode {
+ class LinkedListNode {
     data;
     prev;
     next;
@@ -5699,11 +5699,11 @@ class LinkedList {
         return this;
     }
 }
-/**
- * Licensed under the new BSD License.
- * Copyright 2009-2010, Bram Stein
- * All rights reserved.
- */ function breakpoint(position, demerits, line, fitnessClass, totals, previous) {
+
+
+
+
+ function breakpoint(position, demerits, line, fitnessClass, totals, previous) {
     return {
         position,
         demerits,
@@ -5721,13 +5721,13 @@ function computeCost(nodes, lineLengths, sum, end, active, currentLine) {
     let width = sum.width - active.totals.width;
     let stretch = 0;
     let shrink = 0;
-    // If the current line index is within the list of linelengths, use it, otherwise use
-    // the last line length of the list.
+    
+    
     const lineLength = currentLine < lineLengths.length ? lineLengths[currentLine - 1] : lineLengths[lineLengths.length - 1];
     if (nodes[end].type === 'penalty') {
         width += nodes[end].width;
     }
-    // Calculate the stretch ratio
+    
     if (width < lineLength) {
         stretch = sum.stretch - active.totals.stretch;
         if (stretch > 0) {
@@ -5735,7 +5735,7 @@ function computeCost(nodes, lineLengths, sum, end, active, currentLine) {
         }
         return linebreak.infinity;
     }
-    // Calculate the shrink ratio
+    
     if (width > lineLength) {
         shrink = sum.shrink - active.totals.shrink;
         if (shrink > 0) {
@@ -5743,11 +5743,11 @@ function computeCost(nodes, lineLengths, sum, end, active, currentLine) {
         }
         return linebreak.infinity;
     }
-    // perfect match
+    
     return 0;
 }
-// Add width, stretch and shrink values from the current
-// break point up to the next box or forced penalty.
+
+
 function computeSum(nodes, sum, breakPointIndex) {
     const result = {
         width: sum.width,
@@ -5774,7 +5774,7 @@ function findBestBreakpoints(activeNodes) {
             demerits: Infinity
         }
     };
-    // Find the best active node (the one with the least total demerits.)
+    
     activeNodes.forEach((node)=>{
         if (node.data.demerits < tmp.data.demerits) {
             tmp = node;
@@ -5786,18 +5786,18 @@ function findBestBreakpoints(activeNodes) {
     }
     return breakpoints.reverse();
 }
-/**
- * @param nodes
- * @param availableWidths
- * @param tolerance
- * @preserve Knuth and Plass line breaking algorithm in JavaScript
- */ const linebreak = (nodes, availableWidths, tolerance)=>{
-    // Demerits are used as a way to penalize bad line breaks
-    //  - line: applied to each line, depending on how much spaces need to stretch or shrink
-    //  - flagged: applied when consecutive lines end in hyphenation
-    //  - fitness: algorithm groups lines into fitness classes based on how loose or tight the spacing is.
-    //             if a paragraph has consecutive lines from different fitness classes,
-    //             a fitness demerit is applied to maintain visual consistency.
+
+
+
+
+
+ const linebreak = (nodes, availableWidths, tolerance)=>{
+    
+    
+    
+    
+    
+    
     const options = {
         demerits: {
             line: 10,
@@ -5813,18 +5813,18 @@ function findBestBreakpoints(activeNodes) {
         shrink: 0
     };
     const lineLengths = availableWidths;
-    // Add an active node for the start of the paragraph.
+    
     activeNodes.push(new LinkedList.Node(breakpoint(0, 0, 0, 0, undefined, null)));
-    // The main loop of the algorithm
+    
     function mainLoop(node, index, nodes) {
         let active = activeNodes.first();
-        // The inner loop iterates through all the active nodes with line < currentLine and then
-        // breaks out to insert the new active node candidates before looking at the next active
-        // nodes for the next lines. The result of this is that the active node list is always
-        // sorted by line number.
+        
+        
+        
+        
         while(active !== null){
             let currentLine = 0;
-            // Candidates fo each fitness class
+            
             const candidates = [
                 {
                     active: undefined,
@@ -5843,38 +5843,38 @@ function findBestBreakpoints(activeNodes) {
                     demerits: Infinity
                 }
             ];
-            // Iterate through the linked list of active nodes to find new potential active nodes and deactivate current active nodes.
+            
             while(active !== null){
                 currentLine = active.data.line + 1;
                 const ratio = computeCost(nodes, lineLengths, sum, index, active.data, currentLine);
-                // Deactive nodes when the distance between the current active node and the
-                // current node becomes too large (i.e. it exceeds the stretch limit and the stretch
-                // ratio becomes negative) or when the current node is a forced break (i.e. the end
-                // of the paragraph when we want to remove all active nodes, but possibly have a final
-                // candidate active node---if the paragraph can be set using the given tolerance value.)
+                
+                
+                
+                
+                
                 if (ratio < -1 || node.type === 'penalty' && node.penalty === -linebreak.infinity) {
                     activeNodes.remove(active);
                 }
-                // If the ratio is within the valid range of -1 <= ratio <= tolerance calculate the
-                // total demerits and record a candidate active node.
+                
+                
                 if (ratio >= -1 && ratio <= options.tolerance) {
                     const badness = 100 * Math.pow(Math.abs(ratio), 3);
                     let demerits = 0;
-                    // Positive penalty
+                    
                     if (node.type === 'penalty' && node.penalty >= 0) {
                         demerits = Math.pow(options.demerits.line + badness, 2) + Math.pow(node.penalty, 2);
-                    // Negative penalty but not a forced break
+                    
                     } else if (node.type === 'penalty' && node.penalty !== -linebreak.infinity) {
                         demerits = Math.pow(options.demerits.line + badness, 2) - Math.pow(node.penalty, 2);
-                    // All other cases
+                    
                     } else {
                         demerits = Math.pow(options.demerits.line + badness, 2);
                     }
                     if (node.type === 'penalty' && nodes[active.data.position].type === 'penalty') {
-                        demerits += options.demerits.flagged * node.flagged * // @ts-expect-error node is penalty here
+                        demerits += options.demerits.flagged * node.flagged * 
                         nodes[active.data.position].flagged;
                     }
-                    // Calculate the fitness class for this candidate active node.
+                    
                     let currentClass;
                     if (ratio < -0.5) {
                         currentClass = 0;
@@ -5885,13 +5885,13 @@ function findBestBreakpoints(activeNodes) {
                     } else {
                         currentClass = 3;
                     }
-                    // Add a fitness penalty to the demerits if the fitness classes of two adjacent lines differ too much.
+                    
                     if (Math.abs(currentClass - active.data.fitnessClass) > 1) {
                         demerits += options.demerits.fitness;
                     }
-                    // Add the total demerits of the active node to get the total demerits of this candidate node.
+                    
                     demerits += active.data.demerits;
-                    // Only store the best candidate for each fitness class
+                    
                     if (demerits < candidates[currentClass].demerits) {
                         candidates[currentClass] = {
                             active,
@@ -5900,12 +5900,12 @@ function findBestBreakpoints(activeNodes) {
                     }
                 }
                 active = active.next;
-                // Stop iterating through active nodes to insert new candidate active nodes in the active list
-                // before moving on to the active nodes for the next line.
-                // TODO: The Knuth and Plass paper suggests a conditional for currentLine < j0. This means paragraphs
-                // with identical line lengths will not be sorted by line number. Find out if that is a desirable outcome.
-                // For now I left this out, as it only adds minimal overhead to the algorithm and keeping the active node
-                // list sorted has a higher priority.
+                
+                
+                
+                
+                
+                
                 if (active !== null && active.data.line >= currentLine) {
                     break;
                 }
@@ -5964,13 +5964,13 @@ linebreak.penalty = (width, penalty, flagged)=>({
         penalty,
         flagged
     });
-/**
- * Add scalar to run
- *
- * @param index - Scalar
- * @param run - Run
- * @returns Added run
- */ const add = (index, run)=>{
+
+
+
+
+
+
+ const add = (index, run)=>{
     const start = run.start + index;
     const end = run.end + index;
     return Object.assign({}, run, {
@@ -5978,21 +5978,21 @@ linebreak.penalty = (width, penalty, flagged)=>({
         end
     });
 };
-/**
- * Get run length
- *
- * @param run - Run
- * @returns Length
- */ const length = (run)=>{
+
+
+
+
+
+ const length = (run)=>{
     return run.end - run.start;
 };
-/**
- * Concats two runs into one
- *
- * @param runA - First run
- * @param runB - Second run
- * @returns Concatenated run
- */ const concat = (runA, runB)=>{
+
+
+
+
+
+
+ const concat = (runA, runB)=>{
     const end = runA.end + length(runB);
     const glyphs = (runA.glyphs || []).concat(runB.glyphs || []);
     const positions = (runA.positions || []).concat(runB.positions || []);
@@ -6009,51 +6009,51 @@ linebreak.penalty = (width, penalty, flagged)=>({
         glyphIndices
     });
 };
-/**
- * Insert glyph to run in the given index
- *
- * @param index - Index
- * @param glyph - Glyph
- * @param run - Run
- * @returns Run with glyph
- */ const insertGlyph$1 = (index, glyph, run)=>{
+
+
+
+
+
+
+
+ const insertGlyph$1 = (index, glyph, run)=>{
     if (!glyph) return run;
-    // Split resolves ligature splitting in case new glyph breaks some
+    
     const leadingRun = slice$1(0, index, run);
     const trailingRun = slice$1(index, Infinity, run);
     return concat(append$1(glyph, leadingRun), trailingRun);
 };
-/**
- * Insert either glyph or code point to run in the given index
- *
- * @param index - Index
- * @param value - Glyph or codePoint
- * @param run - Run
- * @returns Run with glyph
- */ const insert = (index, value, run)=>{
+
+
+
+
+
+
+
+ const insert = (index, value, run)=>{
     const font = getFont(run);
     const glyph = isNumber(value) ? fromCodePoint(value, font) : value;
     return insertGlyph$1(index, glyph, run);
 };
-/**
- * Get run index at char index
- *
- * @param index - Char index
- * @param attributedString - Attributed string
- * @returns Run index
- */ const runIndexAt = (index, attributedString)=>{
+
+
+
+
+
+
+ const runIndexAt = (index, attributedString)=>{
     return runIndexAt$1(index, attributedString.runs);
 };
-/**
- * Insert glyph into attributed string
- *
- * @param index - Index
- * @param glyph - Glyph or code point
- * @param attributedString - Attributed string
- * @returns Attributed string with new glyph
- */ const insertGlyph = (index, glyph, attributedString)=>{
+
+
+
+
+
+
+
+ const insertGlyph = (index, glyph, attributedString)=>{
     const runIndex = runIndexAt(index, attributedString);
-    // Add glyph to the end if run index invalid
+    
     if (runIndex === -1) return append(glyph, attributedString);
     const codePoints = [
         glyph
@@ -6069,30 +6069,30 @@ linebreak.penalty = (width, penalty, flagged)=>({
         runs
     });
 };
-/**
- * Advance width between two string indices
- *
- * @param start - Glyph index
- * @param end - Glyph index
- * @param run - Run
- * @returns Advanced width run
- */ const advanceWidthBetween$1 = (start, end, run)=>{
+
+
+
+
+
+
+
+ const advanceWidthBetween$1 = (start, end, run)=>{
     const runStart = run.start || 0;
     const glyphStartIndex = Math.max(0, glyphIndexAt(start - runStart, run));
     const glyphEndIndex = Math.max(0, glyphIndexAt(end - runStart, run));
     const positions = (run.positions || []).slice(glyphStartIndex, glyphEndIndex);
     return advanceWidth$2(positions);
 };
-/**
- * Advance width between start and end
- * Does not consider ligature splitting for the moment.
- * Check performance impact on supporting this
- *
- * @param start - Start offset
- * @param end - End offset
- * @param attributedString
- * @returns Advance width
- */ const advanceWidthBetween = (start, end, attributedString)=>{
+
+
+
+
+
+
+
+
+
+ const advanceWidthBetween = (start, end, attributedString)=>{
     const runs = filter(start, end, attributedString.runs);
     return runs.reduce((acc, run)=>acc + advanceWidthBetween$1(start, end, run), 0);
 };
@@ -6104,24 +6104,24 @@ const opts = {
     stretch: 6,
     shrink: 9
 };
-/**
- * Slice attributed string to many lines
- *
- * @param attributedString - Attributed string
- * @param nodes
- * @param breaks
- * @returns Attributed strings
- */ const breakLines = (attributedString, nodes, breaks)=>{
+
+
+
+
+
+
+
+ const breakLines = (attributedString, nodes, breaks)=>{
     let start = 0;
     let end = null;
     const lines = breaks.reduce((acc, breakPoint)=>{
         const node = nodes[breakPoint];
         const prevNode = nodes[breakPoint - 1];
-        // Last breakpoint corresponds to K&P mandatory final glue
+        
         if (breakPoint === nodes.length - 1) return acc;
         let line;
         if (node.type === 'penalty') {
-            // @ts-expect-error penalty node will always preceed box or glue node
+            
             end = prevNode.end;
             line = slice(start, end, attributedString);
             line = insertGlyph(line.string.length, HYPHEN, line);
@@ -6138,14 +6138,14 @@ const opts = {
     lines.push(slice(start, attributedString.string.length, attributedString));
     return lines;
 };
-/**
- * Return Knuth & Plass nodes based on line and previously calculated syllables
- *
- * @param attributedString - Attributed string
- * @param attributes - Attributes
- * @param options - Layout options
- * @returns ?
- */ const getNodes = (attributedString, { align }, options)=>{
+
+
+
+
+
+
+
+ const getNodes = (attributedString, { align }, options)=>{
     let start = 0;
     const hyphenWidth = 5;
     const { syllables } = attributedString;
@@ -6156,48 +6156,48 @@ const opts = {
             const stretch = width * opts.width / opts.stretch;
             const shrink = width * opts.width / opts.shrink;
             const end = start + s.length;
-            // Add glue node. Glue nodes are used to fill the space between words.
+            
             acc.push(linebreak.glue(width, start, end, stretch, shrink));
         } else {
             const hyphenated = syllables[index + 1] !== ' ';
             const end = start + s.length;
-            // Add box node. Box nodes are used to represent words.
+            
             acc.push(linebreak.box(width, start, end, hyphenated));
             if (syllables[index + 1] && hyphenated) {
-                // Add penalty node. Penalty nodes are used to represent hyphenation points.
+                
                 acc.push(linebreak.penalty(hyphenWidth, hyphenPenalty, 1));
             }
         }
         start += s.length;
         return acc;
     }, []);
-    // Add mandatory final glue
+    
     result.push(linebreak.glue(0, start, start, linebreak.infinity, 0));
     result.push(linebreak.penalty(0, -linebreak.infinity, 1));
     return result;
 };
-/**
- * @param attributedString - Attributed string
- * @returns Attributes
- */ const getAttributes = (attributedString)=>{
+
+
+
+ const getAttributes = (attributedString)=>{
     return attributedString.runs?.[0]?.attributes || {};
 };
-/**
- * Performs Knuth & Plass line breaking algorithm
- * Fallbacks to best fit algorithm if latter not successful
- *
- * @param options - Layout options
- */ const linebreaker = (options)=>{
-    /**
-     * @param attributedString - Attributed string
-     * @param availableWidths - Available widths
-     * @returns Attributed string
-     */ return (attributedString, availableWidths)=>{
+
+
+
+
+
+ const linebreaker = (options)=>{
+    
+
+
+
+ return (attributedString, availableWidths)=>{
         let tolerance = options.tolerance || 4;
         const attributes = getAttributes(attributedString);
         const nodes = getNodes(attributedString, attributes, options);
         let breaks = linebreak(nodes, availableWidths, tolerance);
-        // Try again with a higher tolerance if the line breaking failed.
+        
         while(breaks.length === 0 && tolerance < TOLERANCE_LIMIT){
             tolerance += TOLERANCE_STEPS;
             breaks = linebreak(nodes, availableWidths, tolerance);
@@ -6294,7 +6294,7 @@ const getDistances = (gap, factors)=>{
     for(let priority = KASHIDA_PRIORITY; priority <= NULL_PRIORITY; priority += 1){
         priorities[priority] = unconstrained[priority] = 0;
     }
-    // sum the factors at each priority
+    
     for(let j = 0; j < factors.length; j += 1){
         const f = factors[j];
         const sum = f.before + f.after;
@@ -6304,7 +6304,7 @@ const getDistances = (gap, factors)=>{
             unconstrained[f.priority] += sum;
         }
     }
-    // choose the priorities that need to be applied
+    
     let highestPriority = -1;
     let highestPrioritySum = 0;
     let remainingGap = gap;
@@ -6316,18 +6316,18 @@ const getDistances = (gap, factors)=>{
                 highestPriority = priority;
                 highestPrioritySum = prioritySum;
             }
-            // if this priority covers the remaining gap, we're done
+            
             if (Math.abs(remainingGap) <= Math.abs(prioritySum)) {
                 priorities[priority] = remainingGap / prioritySum;
                 unconstrained[priority] = 0;
                 remainingGap = 0;
                 break;
             }
-            // mark that we need to use 100% of the adjustment from
-            // this priority, and subtract the space that it consumes
+            
+            
             priorities[priority] = 1;
             remainingGap -= prioritySum;
-            // if this priority has unconstrained glyphs, let them consume the remaining space
+            
             if (unconstrained[priority] !== 0) {
                 unconstrained[priority] = remainingGap / unconstrained[priority];
                 remainingGap = 0;
@@ -6335,28 +6335,28 @@ const getDistances = (gap, factors)=>{
             }
         }
     }
-    // zero out remaining priorities (if any)
+    
     for(let p = priority + 1; p <= NULL_PRIORITY; p += 1){
         priorities[p] = 0;
         unconstrained[p] = 0;
     }
-    // if there is still space left over, assign it to the highest priority that we saw.
-    // this violates their factors, but it only happens in extreme cases
+    
+    
     if (remainingGap > 0 && highestPriority > -1) {
         priorities[highestPriority] = (highestPrioritySum + (gap - total)) / highestPrioritySum;
     }
-    // create and return an array of distances to add to each glyph's advance
+    
     const distances = [];
     for(let index = 0; index < factors.length; index += 1){
-        // the distance to add to this glyph is the sum of the space to add
-        // after this glyph, and the space to add before the next glyph
+        
+        
         const f = factors[index];
         const next = factors[index + 1];
         let dist = f.after * priorities[f.priority];
         if (next) {
             dist += next.before * priorities[next.priority];
         }
-        // if this glyph is unconstrained, add the unconstrained distance as well
+        
         if (f.unconstrained) {
             dist += f.after * unconstrained[f.priority];
             if (next) {
@@ -6367,13 +6367,13 @@ const getDistances = (gap, factors)=>{
     }
     return distances;
 };
-/**
- * Adjust run positions by given distances
- *
- * @param distances
- * @param line
- * @returns Line
- */ const justifyLine = (distances, line)=>{
+
+
+
+
+
+
+ const justifyLine = (distances, line)=>{
     let index = 0;
     for (const run of line.runs){
         for (const position of run.positions){
@@ -6382,40 +6382,40 @@ const getDistances = (gap, factors)=>{
     }
     return line;
 };
-/**
- * A JustificationEngine is used by a Typesetter to perform line fragment
- * justification. This implementation is based on a description of Apple's
- * justification algorithm from a PDF in the Apple Font Tools package.
- *
- * @param options - Layout options
- */ const justification = (options)=>{
-    /**
-     * @param line
-     * @returns Line
-     */ return (line)=>{
+
+
+
+
+
+
+ const justification = (options)=>{
+    
+
+
+ return (line)=>{
         const gap = line.box.width - advanceWidth(line);
-        if (gap === 0) return line; // Exact fit
+        if (gap === 0) return line; 
         const factors = getFactors(gap, line, options);
         const distances = getDistances(gap, factors);
         return justifyLine(distances, line);
     };
 };
-/**
- * Returns attributed string ascent
- *
- * @param attributedString - Attributed string
- * @returns Ascent
- */ const ascent = (attributedString)=>{
+
+
+
+
+
+ const ascent = (attributedString)=>{
     const reducer = (acc, run)=>Math.max(acc, ascent$1(run));
     return attributedString.runs.reduce(reducer, 0);
 };
-// The base font size used for calculating underline thickness.
+
 const BASE_FONT_SIZE = 12;
-/**
- * A TextDecorationEngine is used by a Typesetter to generate
- * DecorationLines for a line fragment, including underlines
- * and strikes.
- */ const textDecoration = ()=>(line)=>{
+
+
+
+
+ const textDecoration = ()=>(line)=>{
         let x = line.overflowLeft || 0;
         const overflowRight = line.overflowRight || 0;
         const maxX = advanceWidth(line) - overflowRight;
@@ -6464,13 +6464,13 @@ const ignoredScripts = [
     'Inherited',
     'Unknown'
 ];
-/**
- * Resolves unicode script in runs, grouping equal runs together
- */ const scriptItemizer = ()=>{
-    /**
-     * @param attributedString - Attributed string
-     * @returns Attributed string
-     */ return (attributedString)=>{
+
+
+ const scriptItemizer = ()=>{
+    
+
+
+ return (attributedString)=>{
         const { string } = attributedString;
         let lastScript = 'Unknown';
         let lastIndex = 0;
@@ -6514,25 +6514,25 @@ const ignoredScripts = [
 };
 const SOFT_HYPHEN = '\u00ad';
 const hyphenator = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$hyphen$2f$hyphen$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$hyphen$2f$patterns$2f$en$2d$us$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]);
-/**
- * @param word
- * @returns Word parts
- */ const splitHyphen = (word)=>{
+
+
+
+ const splitHyphen = (word)=>{
     return word.split(SOFT_HYPHEN);
 };
 const cache = {};
-/**
- * @param word
- * @returns Word parts
- */ const getParts = (word)=>{
+
+
+
+ const getParts = (word)=>{
     const base = word.includes(SOFT_HYPHEN) ? word : hyphenator(word);
     return splitHyphen(base);
 };
 const wordHyphenation = ()=>{
-    /**
-     * @param word - Word
-     * @returns Word parts
-     */ return (word)=>{
+    
+
+
+ return (word)=>{
         const cacheKey = `_${word}`;
         if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(word)) return [];
         if (cache[cacheKey]) return cache[cacheKey];
@@ -6580,10 +6580,10 @@ const fontSubstitution = ()=>({ string, runs })=>{
             for(let j = 0; j < chars.length; j += 1){
                 const char = chars[j];
                 const codePoint = char.codePointAt(0);
-                // If the default font does not have a glyph and the fallback font does, we use it
+                
                 const font = pickFontFromFontStack(codePoint, run.attributes.font, lastFont);
                 const fontSize = getFontSize(run);
-                // If anything that would impact res has changed, update it
+                
                 if (font !== lastFont || fontSize !== lastFontSize || font.unitsPerEm !== lastFont.unitsPerEm) {
                     if (lastFont) {
                         res.push({
@@ -6635,7 +6635,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$jay$2d$peg$2f$src$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/jay-peg/src/index.js [app-client] (ecmascript)");
 ;
 ;
-var global$1 = ("TURBOPACK compile-time truthy", 1) ? /*TURBOPACK member replacement*/ __turbopack_context__.g : "TURBOPACK unreachable";
+var global$1 = ("TURBOPACK compile-time truthy", 1) ?  __turbopack_context__.g : "TURBOPACK unreachable";
 var lookup = [];
 var revLookup = [];
 var Arr = typeof Uint8Array !== 'undefined' ? Uint8Array : Array;
@@ -6659,15 +6659,15 @@ function toByteArray(b64) {
     if (len % 4 > 0) {
         throw new Error('Invalid string. Length must be a multiple of 4');
     }
-    // the number of equal signs (place holders)
-    // if there are two placeholders, than the two characters before it
-    // represent one byte
-    // if there is only one, then the three characters before it represent 2 bytes
-    // this is just a cheap hack to not do indexOf twice
+    
+    
+    
+    
+    
     placeHolders = b64[len - 2] === '=' ? 2 : b64[len - 1] === '=' ? 1 : 0;
-    // base64 is 4/3 + up to two characters of the original data
+    
     arr = new Arr(len * 3 / 4 - placeHolders);
-    // if there are placeholders, only get up to the last complete 4 chars
+    
     l = placeHolders > 0 ? len - 4 : len;
     var L = 0;
     for(i = 0, j = 0; i < l; i += 4, j += 3){
@@ -6704,15 +6704,15 @@ function fromByteArray(uint8) {
     }
     var tmp;
     var len = uint8.length;
-    var extraBytes = len % 3; // if we have 1 byte left, pad 2 bytes
+    var extraBytes = len % 3; 
     var output = '';
     var parts = [];
-    var maxChunkLength = 16383; // must be multiple of 3
-    // go through the array every three bytes, we'll deal with trailing stuff later
+    var maxChunkLength = 16383; 
+    
     for(var i = 0, len2 = len - extraBytes; i < len2; i += maxChunkLength){
         parts.push(encodeChunk(uint8, i, i + maxChunkLength > len2 ? len2 : i + maxChunkLength));
     }
-    // pad the end with zeros, but make sure to not forget the extra bytes
+    
     if (extraBytes === 1) {
         tmp = uint8[len - 1];
         output += lookup[tmp >> 2];
@@ -6805,39 +6805,39 @@ var toString = {}.toString;
 var isArray = Array.isArray || function(arr) {
     return toString.call(arr) == '[object Array]';
 };
-/*!
- * The buffer module from node.js, for the browser.
- *
- * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
- * @license  MIT
- */ /* eslint-disable no-proto */ var INSPECT_MAX_BYTES = 50;
-/**
- * If `Buffer.TYPED_ARRAY_SUPPORT`:
- *   === true    Use Uint8Array implementation (fastest)
- *   === false   Use Object implementation (most compatible, even IE6)
- *
- * Browsers that support typed arrays are IE 10+, Firefox 4+, Chrome 7+, Safari 5.1+,
- * Opera 11.6+, iOS 4.2+.
- *
- * Due to various browser bugs, sometimes the Object implementation will be used even
- * when the browser supports typed arrays.
- *
- * Note:
- *
- *   - Firefox 4-29 lacks support for adding new properties to `Uint8Array` instances,
- *     See: https://bugzilla.mozilla.org/show_bug.cgi?id=695438.
- *
- *   - Chrome 9-10 is missing the `TypedArray.prototype.subarray` function.
- *
- *   - IE10 has a broken `TypedArray.prototype.subarray` function which returns arrays of
- *     incorrect length in some situations.
 
- * We detect these buggy browsers and set `Buffer.TYPED_ARRAY_SUPPORT` to `false` so they
- * get the Object implementation, which is slower but behaves correctly.
- */ Buffer.TYPED_ARRAY_SUPPORT = global$1.TYPED_ARRAY_SUPPORT !== undefined ? global$1.TYPED_ARRAY_SUPPORT : true;
-/*
- * Export kMaxLength after typed array support is determined.
- */ kMaxLength();
+
+
+
+
+  var INSPECT_MAX_BYTES = 50;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Buffer.TYPED_ARRAY_SUPPORT = global$1.TYPED_ARRAY_SUPPORT !== undefined ? global$1.TYPED_ARRAY_SUPPORT : true;
+
+
+ kMaxLength();
 function kMaxLength() {
     return Buffer.TYPED_ARRAY_SUPPORT ? 0x7fffffff : 0x3fffffff;
 }
@@ -6846,11 +6846,11 @@ function createBuffer(that, length) {
         throw new RangeError('Invalid typed array length');
     }
     if (Buffer.TYPED_ARRAY_SUPPORT) {
-        // Return an augmented `Uint8Array` instance, for best performance
+        
         that = new Uint8Array(length);
         that.__proto__ = Buffer.prototype;
     } else {
-        // Fallback: Return an object instance of the Buffer class
+        
         if (that === null) {
             that = new Buffer(length);
         }
@@ -6858,19 +6858,19 @@ function createBuffer(that, length) {
     }
     return that;
 }
-/**
- * The Buffer constructor returns instances of `Uint8Array` that have their
- * prototype changed to `Buffer.prototype`. Furthermore, `Buffer` is a subclass of
- * `Uint8Array`, so the returned instances will have all the node `Buffer` methods
- * and the `Uint8Array` methods. Square bracket notation works as expected -- it
- * returns a single octet.
- *
- * The `Uint8Array` prototype remains unmodified.
- */ function Buffer(arg, encodingOrOffset, length) {
+
+
+
+
+
+
+
+
+ function Buffer(arg, encodingOrOffset, length) {
     if (!Buffer.TYPED_ARRAY_SUPPORT && !(this instanceof Buffer)) {
         return new Buffer(arg, encodingOrOffset, length);
     }
-    // Common case.
+    
     if (typeof arg === 'number') {
         if (typeof encodingOrOffset === 'string') {
             throw new Error('If encoding is specified then the first argument must be a string');
@@ -6879,8 +6879,8 @@ function createBuffer(that, length) {
     }
     return from(this, arg, encodingOrOffset, length);
 }
-Buffer.poolSize = 8192; // not used by this implementation
-// TODO: Legacy, not needed anymore. Remove in next major version.
+Buffer.poolSize = 8192; 
+
 Buffer._augment = function(arr) {
     arr.__proto__ = Buffer.prototype;
     return arr;
@@ -6897,14 +6897,14 @@ function from(that, value, encodingOrOffset, length) {
     }
     return fromObject(that, value);
 }
-/**
- * Functionally equivalent to Buffer(arg, encoding) but throws a TypeError
- * if value is a number.
- * Buffer.from(str[, encoding])
- * Buffer.from(array)
- * Buffer.from(buffer)
- * Buffer.from(arrayBuffer[, byteOffset[, length]])
- **/ Buffer.from = function(value, encodingOrOffset, length) {
+
+
+
+
+
+
+
+ Buffer.from = function(value, encodingOrOffset, length) {
     return from(null, value, encodingOrOffset, length);
 };
 if (Buffer.TYPED_ARRAY_SUPPORT) {
@@ -6925,17 +6925,17 @@ function alloc(that, size, fill, encoding) {
         return createBuffer(that, size);
     }
     if (fill !== undefined) {
-        // Only pay attention to encoding if it's a string. This
-        // prevents accidentally sending in a number that would
-        // be interpretted as a start offset.
+        
+        
+        
         return typeof encoding === 'string' ? createBuffer(that, size).fill(fill, encoding) : createBuffer(that, size).fill(fill);
     }
     return createBuffer(that, size);
 }
-/**
- * Creates a new filled Buffer instance.
- * alloc(size[, fill[, encoding]])
- **/ Buffer.alloc = function(size, fill, encoding) {
+
+
+
+ Buffer.alloc = function(size, fill, encoding) {
     return alloc(null, size, fill, encoding);
 };
 function allocUnsafe(that, size) {
@@ -6948,14 +6948,14 @@ function allocUnsafe(that, size) {
     }
     return that;
 }
-/**
- * Equivalent to Buffer(num), by default creates a non-zero-filled Buffer instance.
- * */ Buffer.allocUnsafe = function(size) {
+
+
+ Buffer.allocUnsafe = function(size) {
     return allocUnsafe(null, size);
 };
-/**
- * Equivalent to SlowBuffer(num), by default creates a non-zero-filled Buffer instance.
- */ Buffer.allocUnsafeSlow = function(size) {
+
+
+ Buffer.allocUnsafeSlow = function(size) {
     return allocUnsafe(null, size);
 };
 function fromString(that, string, encoding) {
@@ -6969,9 +6969,9 @@ function fromString(that, string, encoding) {
     that = createBuffer(that, length);
     var actual = that.write(string, encoding);
     if (actual !== length) {
-        // Writing a hex string, for example, that contains invalid characters will
-        // cause everything after the first invalid character to be ignored. (e.g.
-        // 'abxxcd' will be treated as 'ab')
+        
+        
+        
         that = that.slice(0, actual);
     }
     return that;
@@ -6985,7 +6985,7 @@ function fromArrayLike(that, array) {
     return that;
 }
 function fromArrayBuffer(that, array, byteOffset, length) {
-    array.byteLength; // this throws if `array` is not a valid ArrayBuffer
+    array.byteLength; 
     if (byteOffset < 0 || array.byteLength < byteOffset) {
         throw new RangeError('\'offset\' is out of bounds');
     }
@@ -7000,11 +7000,11 @@ function fromArrayBuffer(that, array, byteOffset, length) {
         array = new Uint8Array(array, byteOffset, length);
     }
     if (Buffer.TYPED_ARRAY_SUPPORT) {
-        // Return an augmented `Uint8Array` instance, for best performance
+        
         that = array;
         that.__proto__ = Buffer.prototype;
     } else {
-        // Fallback: Return an object instance of the Buffer class
+        
         that = fromArrayLike(that, array);
     }
     return that;
@@ -7033,8 +7033,8 @@ function fromObject(that, obj) {
     throw new TypeError('First argument must be a string, Buffer, ArrayBuffer, Array, or array-like object.');
 }
 function checked(length) {
-    // Note: cannot use `length < kMaxLength()` here because that fails when
-    // length is NaN (which is otherwise coerced to zero.)
+    
+    
     if (length >= kMaxLength()) {
         throw new RangeError('Attempt to allocate Buffer larger than maximum ' + 'size: 0x' + kMaxLength().toString(16) + ' bytes');
     }
@@ -7118,7 +7118,7 @@ function byteLength(string, encoding) {
     }
     var len = string.length;
     if (len === 0) return 0;
-    // Use a for loop to avoid recursion
+    
     var loweredCase = false;
     for(;;){
         switch(encoding){
@@ -7140,7 +7140,7 @@ function byteLength(string, encoding) {
             case 'base64':
                 return base64ToBytes(string).length;
             default:
-                if (loweredCase) return utf8ToBytes(string).length // assume utf8
+                if (loweredCase) return utf8ToBytes(string).length 
                 ;
                 encoding = ('' + encoding).toLowerCase();
                 loweredCase = true;
@@ -7150,17 +7150,17 @@ function byteLength(string, encoding) {
 Buffer.byteLength = byteLength;
 function slowToString(encoding, start, end) {
     var loweredCase = false;
-    // No need to verify that "this.length <= MAX_UINT32" since it's a read-only
-    // property of a typed array.
-    // This behaves neither like String nor Uint8Array in that we set start/end
-    // to their upper/lower bounds if the value passed is out of range.
-    // undefined is handled specially as per ECMA-262 6th Edition,
-    // Section 13.3.3.7 Runtime Semantics: KeyedBindingInitialization.
+    
+    
+    
+    
+    
+    
     if (start === undefined || start < 0) {
         start = 0;
     }
-    // Return early if start > this.length. Done here to prevent potential uint32
-    // coercion fail below.
+    
+    
     if (start > this.length) {
         return '';
     }
@@ -7170,7 +7170,7 @@ function slowToString(encoding, start, end) {
     if (end <= 0) {
         return '';
     }
-    // Force coersion to uint32. This will also coerce falsey/NaN values to 0.
+    
     end >>>= 0;
     start >>>= 0;
     if (end <= start) {
@@ -7203,8 +7203,8 @@ function slowToString(encoding, start, end) {
         }
     }
 }
-// The property is used by `Buffer.isBuffer` and `is-buffer` (in Safari 5-7) to detect
-// Buffer instances.
+
+
 Buffer.prototype._isBuffer = true;
 function swap(b, n, m) {
     var i = b[n];
@@ -7314,19 +7314,19 @@ Buffer.prototype.compare = function compare(target, start, end, thisStart, thisE
     if (y < x) return 1;
     return 0;
 };
-// Finds either the first index of `val` in `buffer` at offset >= `byteOffset`,
-// OR the last index of `val` in `buffer` at offset <= `byteOffset`.
-//
-// Arguments:
-// - buffer - a Buffer to search
-// - val - a string, Buffer, or number
-// - byteOffset - an index into `buffer`; will be clamped to an int32
-// - encoding - an optional encoding, relevant is val is a string
-// - dir - true for indexOf, false for lastIndexOf
+
+
+
+
+
+
+
+
+
 function bidirectionalIndexOf(buffer, val, byteOffset, encoding, dir) {
-    // Empty buffer means no match
+    
     if (buffer.length === 0) return -1;
-    // Normalize byteOffset
+    
     if (typeof byteOffset === 'string') {
         encoding = byteOffset;
         byteOffset = 0;
@@ -7335,12 +7335,12 @@ function bidirectionalIndexOf(buffer, val, byteOffset, encoding, dir) {
     } else if (byteOffset < -2147483648) {
         byteOffset = -2147483648;
     }
-    byteOffset = +byteOffset; // Coerce to Number.
+    byteOffset = +byteOffset; 
     if (isNaN(byteOffset)) {
-        // byteOffset: it it's undefined, null, NaN, "foo", etc, search whole buffer
+        
         byteOffset = dir ? 0 : buffer.length - 1;
     }
-    // Normalize byteOffset: negative offsets start from the end of the buffer
+    
     if (byteOffset < 0) byteOffset = buffer.length + byteOffset;
     if (byteOffset >= buffer.length) {
         if (dir) return -1;
@@ -7349,19 +7349,19 @@ function bidirectionalIndexOf(buffer, val, byteOffset, encoding, dir) {
         if (dir) byteOffset = 0;
         else return -1;
     }
-    // Normalize val
+    
     if (typeof val === 'string') {
         val = Buffer.from(val, encoding);
     }
-    // Finally, search either indexOf (if dir is true) or lastIndexOf
+    
     if (internalIsBuffer(val)) {
-        // Special case: looking for empty string/buffer always fails
+        
         if (val.length === 0) {
             return -1;
         }
         return arrayIndexOf(buffer, val, byteOffset, encoding, dir);
     } else if (typeof val === 'number') {
-        val = val & 0xFF; // Search for a byte value [0-255]
+        val = val & 0xFF; 
         if (Buffer.TYPED_ARRAY_SUPPORT && typeof Uint8Array.prototype.indexOf === 'function') {
             if (dir) {
                 return Uint8Array.prototype.indexOf.call(buffer, val, byteOffset);
@@ -7445,7 +7445,7 @@ function hexWrite(buf, string, offset, length) {
             length = remaining;
         }
     }
-    // must be an even number of digits
+    
     var strLen = string.length;
     if (strLen % 2 !== 0) throw new TypeError('Invalid hex string');
     if (length > strLen / 2) {
@@ -7474,17 +7474,17 @@ function ucs2Write(buf, string, offset, length) {
     return blitBuffer(utf16leToBytes(string, buf.length - offset), buf, offset, length);
 }
 Buffer.prototype.write = function write(string, offset, length, encoding) {
-    // Buffer#write(string)
+    
     if (offset === undefined) {
         encoding = 'utf8';
         length = this.length;
         offset = 0;
-    // Buffer#write(string, encoding)
+    
     } else if (length === undefined && typeof offset === 'string') {
         encoding = offset;
         length = this.length;
         offset = 0;
-    // Buffer#write(string, offset[, length][, encoding])
+    
     } else if (isFinite(offset)) {
         offset = offset | 0;
         if (isFinite(length)) {
@@ -7494,7 +7494,7 @@ Buffer.prototype.write = function write(string, offset, length, encoding) {
             encoding = length;
             length = undefined;
         }
-    // legacy write(string, encoding, offset, length) - remove in v0.13
+    
     } else {
         throw new Error('Buffer.write(string, encoding, offset[, length]) is no longer supported');
     }
@@ -7518,7 +7518,7 @@ Buffer.prototype.write = function write(string, offset, length, encoding) {
             case 'binary':
                 return latin1Write(this, string, offset, length);
             case 'base64':
-                // Warning: maxLength not taken into account in base64Write
+                
                 return base64Write(this, string, offset, length);
             case 'ucs2':
             case 'ucs-2':
@@ -7593,12 +7593,12 @@ function utf8Slice(buf, start, end) {
             }
         }
         if (codePoint === null) {
-            // we did not generate a valid codePoint so insert a
-            // replacement char (U+FFFD) and advance only 1 byte
+            
+            
             codePoint = 0xFFFD;
             bytesPerSequence = 1;
         } else if (codePoint > 0xFFFF) {
-            // encode to utf16 (surrogate pair dance)
+            
             codePoint -= 0x10000;
             res.push(codePoint >>> 10 & 0x3FF | 0xD800);
             codePoint = 0xDC00 | codePoint & 0x3FF;
@@ -7608,17 +7608,17 @@ function utf8Slice(buf, start, end) {
     }
     return decodeCodePointsArray(res);
 }
-// Based on http://stackoverflow.com/a/22747272/680742, the browser with
-// the lowest limit is Chrome, with 0x10000 args.
-// We go 1 magnitude less, for safety
+
+
+
 var MAX_ARGUMENTS_LENGTH = 0x1000;
 function decodeCodePointsArray(codePoints) {
     var len = codePoints.length;
     if (len <= MAX_ARGUMENTS_LENGTH) {
-        return String.fromCharCode.apply(String, codePoints) // avoid extra slice()
+        return String.fromCharCode.apply(String, codePoints) 
         ;
     }
-    // Decode in chunks to avoid "call stack size exceeded".
+    
     var res = '';
     var i = 0;
     while(i < len){
@@ -7690,9 +7690,9 @@ Buffer.prototype.slice = function slice(start, end) {
     }
     return newBuf;
 };
-/*
- * Need to make sure that buffer isn't trying to write out of bounds.
- */ function checkOffset(offset, ext, length) {
+
+
+ function checkOffset(offset, ext, length) {
     if (offset % 1 !== 0 || offset < 0) throw new RangeError('offset is not uint');
     if (offset + ext > length) throw new RangeError('Trying to access beyond buffer length');
 }
@@ -8047,23 +8047,23 @@ Buffer.prototype.writeDoubleLE = function writeDoubleLE(value, offset, noAssert)
 Buffer.prototype.writeDoubleBE = function writeDoubleBE(value, offset, noAssert) {
     return writeDouble(this, value, offset, false, noAssert);
 };
-// copy(targetBuffer, targetStart=0, sourceStart=0, sourceEnd=buffer.length)
+
 Buffer.prototype.copy = function copy(target, targetStart, start, end) {
     if (!start) start = 0;
     if (!end && end !== 0) end = this.length;
     if (targetStart >= target.length) targetStart = target.length;
     if (!targetStart) targetStart = 0;
     if (end > 0 && end < start) end = start;
-    // Copy 0 bytes; we're done
+    
     if (end === start) return 0;
     if (target.length === 0 || this.length === 0) return 0;
-    // Fatal error conditions
+    
     if (targetStart < 0) {
         throw new RangeError('targetStart out of bounds');
     }
     if (start < 0 || start >= this.length) throw new RangeError('sourceStart out of bounds');
     if (end < 0) throw new RangeError('sourceEnd out of bounds');
-    // Are we oob?
+    
     if (end > this.length) end = this.length;
     if (target.length - targetStart < end - start) {
         end = target.length - targetStart + start;
@@ -8071,12 +8071,12 @@ Buffer.prototype.copy = function copy(target, targetStart, start, end) {
     var len = end - start;
     var i;
     if (this === target && start < targetStart && targetStart < end) {
-        // descending copy from end
+        
         for(i = len - 1; i >= 0; --i){
             target[i + targetStart] = this[i + start];
         }
     } else if (len < 1000 || !Buffer.TYPED_ARRAY_SUPPORT) {
-        // ascending copy from start
+        
         for(i = 0; i < len; ++i){
             target[i + targetStart] = this[i + start];
         }
@@ -8085,12 +8085,12 @@ Buffer.prototype.copy = function copy(target, targetStart, start, end) {
     }
     return len;
 };
-// Usage:
-//    buffer.fill(number[, offset[, end]])
-//    buffer.fill(buffer[, offset[, end]])
-//    buffer.fill(string[, offset[, end]][, encoding])
+
+
+
+
 Buffer.prototype.fill = function fill(val, start, end, encoding) {
-    // Handle string cases:
+    
     if (typeof val === 'string') {
         if (typeof start === 'string') {
             encoding = start;
@@ -8115,7 +8115,7 @@ Buffer.prototype.fill = function fill(val, start, end, encoding) {
     } else if (typeof val === 'number') {
         val = val & 255;
     }
-    // Invalid ranges are not set to a default, so can range check early.
+    
     if (start < 0 || this.length < start || this.length < end) {
         throw new RangeError('Out of range index');
     }
@@ -8139,15 +8139,15 @@ Buffer.prototype.fill = function fill(val, start, end, encoding) {
     }
     return this;
 };
-// HELPER FUNCTIONS
-// ================
+
+
 var INVALID_BASE64_RE = /[^+\/0-9A-Za-z-_]/g;
 function base64clean(str) {
-    // Node strips out invalid characters like \n and \t from the string, base64-js does not
+    
     str = stringtrim(str).replace(INVALID_BASE64_RE, '');
-    // Node converts strings with length < 2 to ''
+    
     if (str.length < 2) return '';
-    // Node allows for non-padded base64 strings (missing trailing ===), base64-js does not
+    
     while(str.length % 4 !== 0){
         str = str + '=';
     }
@@ -8169,38 +8169,38 @@ function utf8ToBytes(string, units) {
     var bytes = [];
     for(var i = 0; i < length; ++i){
         codePoint = string.charCodeAt(i);
-        // is surrogate component
+        
         if (codePoint > 0xD7FF && codePoint < 0xE000) {
-            // last char was a lead
+            
             if (!leadSurrogate) {
-                // no lead yet
+                
                 if (codePoint > 0xDBFF) {
-                    // unexpected trail
+                    
                     if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD);
                     continue;
                 } else if (i + 1 === length) {
-                    // unpaired lead
+                    
                     if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD);
                     continue;
                 }
-                // valid lead
+                
                 leadSurrogate = codePoint;
                 continue;
             }
-            // 2 leads in a row
+            
             if (codePoint < 0xDC00) {
                 if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD);
                 leadSurrogate = codePoint;
                 continue;
             }
-            // valid surrogate pair
+            
             codePoint = (leadSurrogate - 0xD800 << 10 | codePoint - 0xDC00) + 0x10000;
         } else if (leadSurrogate) {
-            // valid bmp char, but last char was a lead
+            
             if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD);
         }
         leadSurrogate = null;
-        // encode utf8
+        
         if (codePoint < 0x80) {
             if ((units -= 1) < 0) break;
             bytes.push(codePoint);
@@ -8222,7 +8222,7 @@ function utf8ToBytes(string, units) {
 function asciiToBytes(str) {
     var byteArray = [];
     for(var i = 0; i < str.length; ++i){
-        // Node's code seems to be doing this and not & 0x7F..
+        
         byteArray.push(str.charCodeAt(i) & 0xFF);
     }
     return byteArray;
@@ -8251,19 +8251,19 @@ function blitBuffer(src, dst, offset, length) {
     return i;
 }
 function isnan(val) {
-    return val !== val // eslint-disable-line no-self-compare
+    return val !== val 
     ;
 }
-// the following is from is-buffer, also by Feross Aboukhadijeh and with same lisence
-// The _isBuffer check is for Safari 5-7 support, because it's missing
-// Object.prototype.constructor. Remove this eventually
+
+
+
 function isBuffer$1(obj) {
     return obj != null && (!!obj._isBuffer || isFastBuffer(obj) || isSlowBuffer(obj));
 }
 function isFastBuffer(obj) {
     return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj);
 }
-// For Node v0.10 support. Remove this eventually.
+
 function isSlowBuffer(obj) {
     return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isFastBuffer(obj.slice(0, 0));
 }

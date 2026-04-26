@@ -2,7 +2,7 @@
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -14,28 +14,28 @@ Object.defineProperty(exports, "HeadManagerContext", {
     }
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
+const _react =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
 const HeadManagerContext = _react.default.createContext({});
 if ("TURBOPACK compile-time truthy", 1) {
     HeadManagerContext.displayName = 'HeadManagerContext';
-} //# sourceMappingURL=head-manager-context.shared-runtime.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/mitt.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/*
-MIT License
 
-Copyright (c) Jason Miller (https://jasonformat.com/)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/ // This file is based on https://github.com/developit/mitt/blob/v1.1.3/src/index.js
-// It's been edited for the needs of this script
-// See the LICENSE at the top of the file
+
+
+
+
+
+
+ 
+
+
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -58,19 +58,19 @@ function mitt() {
             }
         },
         emit (type, ...evts) {
-            // eslint-disable-next-line array-callback-return
+            
             ;
             (all[type] || []).slice().map((handler)=>{
                 handler(...evts);
             });
         }
     };
-} //# sourceMappingURL=mitt.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router-context.shared-runtime.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -82,16 +82,16 @@ Object.defineProperty(exports, "RouterContext", {
     }
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
+const _react =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
 const RouterContext = _react.default.createContext(null);
 if ("TURBOPACK compile-time truthy", 1) {
     RouterContext.displayName = 'RouterContext';
-} //# sourceMappingURL=router-context.shared-runtime.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils/warn-once.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -111,12 +111,12 @@ if ("TURBOPACK compile-time truthy", 1) {
         }
         warnings.add(msg);
     };
-} //# sourceMappingURL=warn-once.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/disable-smooth-scroll.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -129,8 +129,8 @@ Object.defineProperty(exports, "disableSmoothScrollDuringRouteTransition", {
 });
 const _warnonce = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils/warn-once.js [client] (ecmascript)");
 function disableSmoothScrollDuringRouteTransition(fn, options = {}) {
-    // if only the hash is changed, we don't need to disable smooth scrolling
-    // we only care to prevent smooth scrolling when navigating to a new page to avoid jarring UX
+    
+    
     if (options.onlyHashChange) {
         fn();
         return;
@@ -138,34 +138,34 @@ function disableSmoothScrollDuringRouteTransition(fn, options = {}) {
     const htmlElement = document.documentElement;
     const hasDataAttribute = htmlElement.dataset.scrollBehavior === 'smooth';
     if (!hasDataAttribute) {
-        // Warn if smooth scrolling is detected but no data attribute is present
+        
         if (("TURBOPACK compile-time value", "development") === 'development' && getComputedStyle(htmlElement).scrollBehavior === 'smooth') {
             (0, _warnonce.warnOnce)('Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, ' + 'add `data-scroll-behavior="smooth"` to your <html> element. ' + 'Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior');
         }
-        // No smooth scrolling configured, run directly without style manipulation
+        
         fn();
         return;
     }
-    // Proceed with temporarily disabling smooth scrolling
+    
     const existing = htmlElement.style.scrollBehavior;
     htmlElement.style.scrollBehavior = 'auto';
     if (!options.dontForceLayout) {
-        // In Chrome-based browsers we need to force reflow before calling `scrollTo`.
-        // Otherwise it will not pickup the change in scrollBehavior
-        // More info here: https://github.com/vercel/next.js/issues/40719#issuecomment-1336248042
+        
+        
+        
         htmlElement.getClientRects();
     }
     fn();
     htmlElement.style.scrollBehavior = existing;
-} //# sourceMappingURL=disable-smooth-scroll.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/page-path/ensure-leading-slash.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * For a given page path, this function ensures that there is a leading slash.
- * If there is not a leading slash, one is added, otherwise it is noop.
- */ Object.defineProperty(exports, "__esModule", {
+
+
+
+ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 Object.defineProperty(exports, "ensureLeadingSlash", {
@@ -176,7 +176,7 @@ Object.defineProperty(exports, "ensureLeadingSlash", {
 });
 function ensureLeadingSlash(path) {
     return path.startsWith('/') ? path : `/${path}`;
-} //# sourceMappingURL=ensure-leading-slash.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -230,7 +230,7 @@ function getSegmentValue(segment) {
     return Array.isArray(segment) ? segment[1] : segment;
 }
 function isGroupSegment(segment) {
-    // Use array[0] for performant purpose
+    
     return segment[0] === '(' && segment.endsWith(')');
 }
 function isParallelRouteSegment(segment) {
@@ -248,19 +248,19 @@ function computeSelectedLayoutSegment(segments, parallelRouteKey) {
     if (!segments || segments.length === 0) {
         return null;
     }
-    // For 'children', use first segment; for other parallel routes, use last segment
+    
     const rawSegment = parallelRouteKey === 'children' ? segments[0] : segments[segments.length - 1];
-    // If the default slot is showing, return null since it's not technically "selected" (it's a fallback)
-    // Returning an internal value like `__DEFAULT__` would be confusing
+    
+    
     return rawSegment === DEFAULT_SEGMENT_KEY ? null : rawSegment;
 }
 function getSelectedLayoutSegmentPath(tree, parallelRouteKey, first = true, segmentPath = []) {
     let node;
     if (first) {
-        // Use the provided parallel route key on the first parallel route
+        
         node = tree[1][parallelRouteKey];
     } else {
-        // After first parallel route prefer children, if there's no children pick the first parallel route.
+        
         const parallelRoutes = tree[1];
         node = parallelRoutes.children ?? Object.values(parallelRoutes)[0];
     }
@@ -274,7 +274,7 @@ function getSelectedLayoutSegmentPath(tree, parallelRouteKey, first = true, segm
     return getSelectedLayoutSegmentPath(node, parallelRouteKey, false, segmentPath);
 }
 const PAGE_SEGMENT_KEY = '__PAGE__';
-const DEFAULT_SEGMENT_KEY = '__DEFAULT__'; //# sourceMappingURL=segment.js.map
+const DEFAULT_SEGMENT_KEY = '__DEFAULT__'; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/app-paths.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -304,19 +304,19 @@ const _ensureleadingslash = __turbopack_context__.r("[project]/Desktop/Projects/
 const _segment = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment.js [client] (ecmascript)");
 function normalizeAppPath(route) {
     return (0, _ensureleadingslash.ensureLeadingSlash)(route.split('/').reduce((pathname, segment, index, segments)=>{
-        // Empty segments are ignored.
+        
         if (!segment) {
             return pathname;
         }
-        // Groups are ignored.
+        
         if ((0, _segment.isGroupSegment)(segment)) {
             return pathname;
         }
-        // Parallel segments are ignored.
+        
         if (segment[0] === '@') {
             return pathname;
         }
-        // The last segment (if it's a leaf) should be ignored.
+        
         if ((segment === 'page' || segment === 'route') && index === segments.length - 1) {
             return pathname;
         }
@@ -325,7 +325,7 @@ function normalizeAppPath(route) {
 }
 function normalizeRscURL(url) {
     return url.replace(/\.rsc($|\?)/, '$1');
-} //# sourceMappingURL=app-paths.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/interception-routes.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -363,7 +363,7 @@ const INTERCEPTION_ROUTE_MARKERS = [
     '(...)'
 ];
 function isInterceptionRouteAppPath(path) {
-    // TODO-APP: add more serious validation
+    
     return path.split('/').find((segment)=>INTERCEPTION_ROUTE_MARKERS.find((m)=>segment.startsWith(m))) !== undefined;
 }
 function extractInterceptionRouteInformation(path) {
@@ -385,11 +385,11 @@ function extractInterceptionRouteInformation(path) {
             configurable: true
         });
     }
-    interceptingRoute = (0, _apppaths.normalizeAppPath)(interceptingRoute) // normalize the path, e.g. /(blog)/feed -> /feed
+    interceptingRoute = (0, _apppaths.normalizeAppPath)(interceptingRoute) 
     ;
     switch(marker){
         case '(.)':
-            // (.) indicates that we should match with sibling routes, so we just need to append the intercepted route to the intercepting route
+            
             if (interceptingRoute === '/') {
                 interceptedRoute = `/${interceptedRoute}`;
             } else {
@@ -397,7 +397,7 @@ function extractInterceptionRouteInformation(path) {
             }
             break;
         case '(..)':
-            // (..) indicates that we should match at one level up, so we need to remove the last segment of the intercepting route
+            
             if (interceptingRoute === '/') {
                 throw Object.defineProperty(new Error(`Invalid interception route: ${path}. Cannot use (..) marker at the root level, use (.) instead.`), "__NEXT_ERROR_CODE", {
                     value: "E207",
@@ -408,11 +408,11 @@ function extractInterceptionRouteInformation(path) {
             interceptedRoute = interceptingRoute.split('/').slice(0, -1).concat(interceptedRoute).join('/');
             break;
         case '(...)':
-            // (...) will match the route segment in the root directory, so we need to use the root directory to prepend the intercepted route
+            
             interceptedRoute = '/' + interceptedRoute;
             break;
         case '(..)(..)':
-            // (..)(..) indicates that we should match at two levels up, so we need to remove the last two segments of the intercepting route
+            
             const splitInterceptingRoute = interceptingRoute.split('/');
             if (splitInterceptingRoute.length <= 2) {
                 throw Object.defineProperty(new Error(`Invalid interception route: ${path}. Cannot use (..)(..) marker at the root level or one level up.`), "__NEXT_ERROR_CODE", {
@@ -434,7 +434,7 @@ function extractInterceptionRouteInformation(path) {
         interceptingRoute,
         interceptedRoute
     };
-} //# sourceMappingURL=interception-routes.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/is-dynamic.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -449,9 +449,9 @@ Object.defineProperty(exports, "isDynamicRoute", {
     }
 });
 const _interceptionroutes = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/interception-routes.js [client] (ecmascript)");
-// Identify /.*[param].*/ in route string
+
 const TEST_ROUTE = /\/[^/]*\[[^/]+\][^/]*(?=\/|$)/;
-// Identify /[param]/ in route string
+
 const TEST_STRICT_ROUTE = /\/\[[^/]+\](?=\/|$)/;
 function isDynamicRoute(route, strict = true) {
     if ((0, _interceptionroutes.isInterceptionRouteAppPath)(route)) {
@@ -461,7 +461,7 @@ function isDynamicRoute(route, strict = true) {
         return TEST_STRICT_ROUTE.test(route);
     }
     return TEST_ROUTE.test(route);
-} //# sourceMappingURL=is-dynamic.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/querystring.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -541,12 +541,12 @@ function assign(target, ...searchParamsList) {
         }
     }
     return target;
-} //# sourceMappingURL=querystring.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -648,8 +648,8 @@ function execOnce(fn) {
         return result;
     };
 }
-// Scheme: https://tools.ietf.org/html/rfc3986#section-3.1
-// Absolute URL: https://tools.ietf.org/html/rfc3986#section-4.3
+
+
 const ABSOLUTE_URL_REGEX = /^[a-zA-Z][a-zA-Z\d+\-.]*?:/;
 const isAbsoluteUrl = (url)=>ABSOLUTE_URL_REGEX.test(url);
 function getLocationOrigin() {
@@ -670,8 +670,8 @@ function isResSent(res) {
 function normalizeRepeatedSlashes(url) {
     const urlParts = url.split('?');
     const urlNoQuery = urlParts[0];
-    return urlNoQuery // first we replace any non-encoded backslashes with forward
-    // then normalize repeated forward slashes
+    return urlNoQuery 
+    
     .replace(/\\/g, '/').replace(/\/\/+/g, '/') + (urlParts[1] ? `?${urlParts.slice(1).join('?')}` : '');
 }
 async function loadGetInitialProps(App, ctx) {
@@ -685,11 +685,11 @@ async function loadGetInitialProps(App, ctx) {
             });
         }
     }
-    // when called from _app `ctx` is nested in `ctx`
+    
     const res = ctx.res || ctx.ctx && ctx.ctx.res;
     if (!App.getInitialProps) {
         if (ctx.ctx && ctx.Component) {
-            // @ts-ignore pageProps default
+            
             return {
                 pageProps: await loadGetInitialProps(ctx.Component, ctx.ctx)
             };
@@ -751,16 +751,16 @@ function stringifyError(error) {
         message: error.message,
         stack: error.stack
     });
-} //# sourceMappingURL=utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/parse-path.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * Given a path this function will find the pathname, query and hash and return
- * them. This is useful to parse full paths on the client side.
- * @param path A path to parse e.g. /foo/bar?id=1#hash
- */ Object.defineProperty(exports, "__esModule", {
+
+
+
+
+ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 Object.defineProperty(exports, "parsePath", {
@@ -785,7 +785,7 @@ function parsePath(path) {
         query: '',
         hash: ''
     };
-} //# sourceMappingURL=parse-path.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -806,18 +806,18 @@ function addPathPrefix(path, prefix) {
     }
     const { pathname, query, hash } = (0, _parsepath.parsePath)(path);
     return `${prefix}${pathname}${query}${hash}`;
-} //# sourceMappingURL=add-path-prefix.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/remove-trailing-slash.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * Removes the trailing slash for a given route or page path. Preserves the
- * root page. Examples:
- *   - `/foo/bar/` -> `/foo/bar`
- *   - `/foo/bar` -> `/foo/bar`
- *   - `/` -> `/`
- */ Object.defineProperty(exports, "__esModule", {
+
+
+
+
+
+
+ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 Object.defineProperty(exports, "removeTrailingSlash", {
@@ -828,15 +828,15 @@ Object.defineProperty(exports, "removeTrailingSlash", {
 });
 function removeTrailingSlash(route) {
     return route.replace(/\/$/, '') || '/';
-} //# sourceMappingURL=remove-trailing-slash.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/route-match-utils.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * Client-safe utilities for route matching that don't import server-side
- * utilities to avoid bundling issues with Turbopack
- */ Object.defineProperty(exports, "__esModule", {
+
+
+
+ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 0 && (module.exports = {
@@ -871,19 +871,19 @@ function safePathToRegexp(route, keys, options) {
     if (typeof route !== 'string') {
         return (0, _pathtoregexp.pathToRegexp)(route, keys, options);
     }
-    // Check if normalization is needed and cache the result
+    
     const needsNormalization = (0, _routepatternnormalizer.hasAdjacentParameterIssues)(route);
     const routeToUse = needsNormalization ? (0, _routepatternnormalizer.normalizeAdjacentParameters)(route) : route;
     try {
         return (0, _pathtoregexp.pathToRegexp)(routeToUse, keys, options);
     } catch (error) {
-        // Only try normalization if we haven't already normalized
+        
         if (!needsNormalization) {
             try {
                 const normalizedRoute = (0, _routepatternnormalizer.normalizeAdjacentParameters)(route);
                 return (0, _pathtoregexp.pathToRegexp)(normalizedRoute, keys, options);
             } catch (retryError) {
-                // If that doesn't work, fall back to original error
+                
                 throw error;
             }
         }
@@ -891,14 +891,14 @@ function safePathToRegexp(route, keys, options) {
     }
 }
 function safeCompile(route, options) {
-    // Check if normalization is needed and cache the result
+    
     const needsNormalization = (0, _routepatternnormalizer.hasAdjacentParameterIssues)(route);
     const routeToUse = needsNormalization ? (0, _routepatternnormalizer.normalizeAdjacentParameters)(route) : route;
     try {
         const compiler = (0, _pathtoregexp.compile)(routeToUse, options);
-        // If we normalized the route, wrap the compiler to strip separators from output
-        // The normalization inserts _NEXTSEP_ as a literal string in the pattern to satisfy
-        // path-to-regexp validation, but we don't want it in the final compiled URL
+        
+        
+        
         if (needsNormalization) {
             return (params)=>{
                 return (0, _routepatternnormalizer.stripNormalizedSeparators)(compiler(params));
@@ -906,17 +906,17 @@ function safeCompile(route, options) {
         }
         return compiler;
     } catch (error) {
-        // Only try normalization if we haven't already normalized
+        
         if (!needsNormalization) {
             try {
                 const normalizedRoute = (0, _routepatternnormalizer.normalizeAdjacentParameters)(route);
                 const compiler = (0, _pathtoregexp.compile)(normalizedRoute, options);
-                // Wrap the compiler to strip separators from output
+                
                 return (params)=>{
                     return (0, _routepatternnormalizer.stripNormalizedSeparators)(compiler(params));
                 };
             } catch (retryError) {
-                // If that doesn't work, fall back to original error
+                
                 throw error;
             }
         }
@@ -928,7 +928,7 @@ function safeRegexpToFunction(regexp, keys) {
     return (pathname)=>{
         const result = originalMatcher(pathname);
         if (!result) return false;
-        // Clean parameters before returning
+        
         return {
             ...result,
             params: (0, _routepatternnormalizer.stripParameterSeparators)(result.params)
@@ -939,10 +939,10 @@ function safeRouteMatcher(matcherFn) {
     return (pathname)=>{
         const result = matcherFn(pathname);
         if (!result) return false;
-        // Clean parameters before returning
+        
         return (0, _routepatternnormalizer.stripParameterSeparators)(result);
     };
-} //# sourceMappingURL=route-match-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/route-matcher.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -986,14 +986,14 @@ function getRouteMatcher({ re, groups }) {
         }
         return params;
     };
-    // Wrap with safe matcher to handle parameter cleaning
+    
     return (0, _routematchutils.safeRouteMatcher)(rawMatcher);
-} //# sourceMappingURL=route-matcher.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/escape-regexp.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-// regexp is based on https://github.com/sindresorhus/escape-string-regexp
+
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -1006,12 +1006,12 @@ Object.defineProperty(exports, "escapeStringRegexp", {
 const reHasRegExp = /[|\\{}()[\]^$+*?.-]/;
 const reReplaceRegExp = /[|\\{}()[\]^$+*?.-]/g;
 function escapeStringRegexp(str) {
-    // see also: https://github.com/lodash/lodash/blob/2da024c3b4f9947a48517639de7560457cd4ec6c/escapeRegExp.js#L23
+    
     if (reHasRegExp.test(str)) {
         return str.replace(reReplaceRegExp, '\\$&');
     }
     return str;
-} //# sourceMappingURL=escape-regexp.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/invariant-error.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1030,7 +1030,7 @@ class InvariantError extends Error {
         super(`Invariant: ${message.endsWith('.') ? message : message + '.'} This is a bug in Next.js.`, options);
         this.name = 'InvariantError';
     }
-} //# sourceMappingURL=invariant-error.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/parse-loader-tree.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1049,18 +1049,18 @@ function parseLoaderTree(tree) {
     const [segment, parallelRoutes, modules] = tree;
     const { layout, template } = modules;
     let { page } = modules;
-    // a __DEFAULT__ segment means that this route didn't match any of the
-    // segments in the route, so we should use the default page
+    
+    
     page = segment === _segment.DEFAULT_SEGMENT_KEY ? modules.defaultPage : page;
     const conventionPath = layout?.[1] || template?.[1] || page?.[1];
     return {
         page,
         segment,
         modules,
-        /* it can be either layout / template / page */ conventionPath,
+         conventionPath,
         parallelRoutes
     };
-} //# sourceMappingURL=parse-loader-tree.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/get-segment-param.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1093,15 +1093,15 @@ _export(exports, {
 const _interceptionroutes = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/interception-routes.js [client] (ecmascript)");
 function getSegmentParam(segment) {
     const interceptionMarker = _interceptionroutes.INTERCEPTION_ROUTE_MARKERS.find((marker)=>segment.startsWith(marker));
-    // if an interception marker is part of the path segment, we need to jump ahead
-    // to the relevant portion for param parsing
+    
+    
     if (interceptionMarker) {
         segment = segment.slice(interceptionMarker.length);
     }
     if (segment.startsWith('[[...') && segment.endsWith(']]')) {
         return {
-            // TODO-APP: Optional catchall does not currently work with parallel routes,
-            // so for now aren't handling a potential interception marker.
+            
+            
             type: 'optional-catchall',
             param: segment.slice(5, -2)
         };
@@ -1151,7 +1151,7 @@ function getParamProperties(paramType) {
         repeat,
         optional
     };
-} //# sourceMappingURL=get-segment-param.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/get-dynamic-param.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1192,20 +1192,20 @@ _export(exports, {
 const _invarianterror = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/invariant-error.js [client] (ecmascript)");
 const _parseloadertree = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/parse-loader-tree.js [client] (ecmascript)");
 const _getsegmentparam = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/get-segment-param.js [client] (ecmascript)");
-/**
- * Gets the value of a param from the params object. This correctly handles the
- * case where the param is a fallback route param and encodes the resulting
- * value.
- *
- * @param interpolatedParams - The params object.
- * @param segmentKey - The key of the segment.
- * @param fallbackRouteParams - The fallback route params.
- * @returns The value of the param.
- */ function getParamValue(interpolatedParams, segmentKey, fallbackRouteParams) {
+
+
+
+
+
+
+
+
+
+ function getParamValue(interpolatedParams, segmentKey, fallbackRouteParams) {
     let value = interpolatedParams[segmentKey];
     if (fallbackRouteParams?.has(segmentKey)) {
-        // We know that the fallback route params has the segment key because we
-        // checked that above.
+        
+        
         const [searchValue] = fallbackRouteParams.get(segmentKey);
         value = searchValue;
     } else if (Array.isArray(value)) {
@@ -1217,23 +1217,23 @@ const _getsegmentparam = __turbopack_context__.r("[project]/Desktop/Projects/fin
 }
 function interpolateParallelRouteParams(loaderTree, params, pagePath, fallbackRouteParams) {
     const interpolated = structuredClone(params);
-    // Stack-based traversal with depth tracking
+    
     const stack = [
         {
             tree: loaderTree,
             depth: 0
         }
     ];
-    // Derive value from pagePath based on depth and parameter type
-    const pathSegments = pagePath.split('/').slice(1) // Remove first empty string
+    
+    const pathSegments = pagePath.split('/').slice(1) 
     ;
     while(stack.length > 0){
         const { tree, depth } = stack.pop();
         const { segment, parallelRoutes } = (0, _parseloadertree.parseLoaderTree)(tree);
-        // Check if current segment contains a parameter
+        
         const segmentParam = (0, _getsegmentparam.getSegmentParam)(segment);
-        if (segmentParam && !interpolated.hasOwnProperty(segmentParam.param) && // If the param is in the fallback route params, we don't need to
-        // interpolate it because it's already marked as being unknown.
+        if (segmentParam && !interpolated.hasOwnProperty(segmentParam.param) && 
+        
         !fallbackRouteParams?.has(segmentParam.param)) {
             switch(segmentParam.type){
                 case 'catchall':
@@ -1242,16 +1242,16 @@ function interpolateParallelRouteParams(loaderTree, params, pagePath, fallbackRo
                 case 'catchall-intercepted-(.)':
                 case 'catchall-intercepted-(..)':
                 case 'catchall-intercepted-(...)':
-                    // For catchall parameters, take all remaining segments from this depth
+                    
                     const remainingSegments = pathSegments.slice(depth);
-                    // Process each segment to handle any dynamic params
+                    
                     const processedSegments = remainingSegments.flatMap((pathSegment)=>{
                         const param = (0, _getsegmentparam.getSegmentParam)(pathSegment);
-                        // If the segment matches a param, return the param value otherwise,
-                        // it's a static segment, so just return that. We don't use the
-                        // `getParamValue` function here because we don't want the values to
-                        // be encoded, that's handled on get by the `getDynamicParam`
-                        // function.
+                        
+                        
+                        
+                        
+                        
                         return param ? interpolated[param.param] : pathSegment;
                     }).filter((s)=>s !== undefined);
                     if (processedSegments.length > 0) {
@@ -1263,7 +1263,7 @@ function interpolateParallelRouteParams(loaderTree, params, pagePath, fallbackRo
                 case 'dynamic-intercepted-(.)':
                 case 'dynamic-intercepted-(..)':
                 case 'dynamic-intercepted-(...)':
-                    // For regular dynamic parameters, take the segment at this depth
+                    
                     if (depth < pathSegments.length) {
                         const pathSegment = pathSegments[depth];
                         const param = (0, _getsegmentparam.getSegmentParam)(pathSegment);
@@ -1274,13 +1274,13 @@ function interpolateParallelRouteParams(loaderTree, params, pagePath, fallbackRo
                     segmentParam.type;
             }
         }
-        // Calculate next depth - increment if this is not a route group and not empty
+        
         let nextDepth = depth;
         const isRouteGroup = segment.startsWith('(') && segment.endsWith(')');
         if (!isRouteGroup && segment !== '') {
             nextDepth++;
         }
-        // Add all parallel routes to the stack for processing
+        
         for (const route of Object.values(parallelRoutes)){
             stack.push({
                 tree: route,
@@ -1292,8 +1292,8 @@ function interpolateParallelRouteParams(loaderTree, params, pagePath, fallbackRo
 }
 function getDynamicParam(interpolatedParams, segmentKey, dynamicParamType, fallbackRouteParams) {
     let value = getParamValue(interpolatedParams, segmentKey, fallbackRouteParams);
-    // handle the case where an optional catchall does not have a value,
-    // e.g. `/dashboard/[[...slug]]` when requesting `/dashboard`
+    
+    
     if (!value || value.length === 0) {
         if (dynamicParamType === 'oc') {
             return {
@@ -1315,9 +1315,9 @@ function getDynamicParam(interpolatedParams, segmentKey, dynamicParamType, fallb
     }
     return {
         param: segmentKey,
-        // The value that is passed to user code.
+        
         value,
-        // The value that is rendered in the router tree.
+        
         treeSegment: [
             segmentKey,
             Array.isArray(value) ? value.join('/') : value,
@@ -1348,7 +1348,7 @@ function parseMatchedParameter(param) {
         repeat,
         optional
     };
-} //# sourceMappingURL=get-dynamic-param.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/route-regex.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1389,7 +1389,7 @@ function getParametrizedRoute(route, includeSuffix, includePrefix) {
     const segments = [];
     for (const segment of (0, _removetrailingslash.removeTrailingSlash)(route).slice(1).split('/')){
         const markerMatch = _interceptionroutes.INTERCEPTION_ROUTE_MARKERS.find((m)=>segment.startsWith(m));
-        const paramMatches = segment.match(_getdynamicparam.PARAMETER_PATTERN) // Check for parameters
+        const paramMatches = segment.match(_getdynamicparam.PARAMETER_PATTERN) 
         ;
         if (markerMatch && paramMatches && paramMatches[2]) {
             const { key, optional, repeat } = (0, _getdynamicparam.parseMatchedParameter)(paramMatches[2]);
@@ -1410,7 +1410,7 @@ function getParametrizedRoute(route, includeSuffix, includePrefix) {
                 segments.push(`/${(0, _escaperegexp.escapeStringRegexp)(paramMatches[1])}`);
             }
             let s = repeat ? optional ? '(?:/(.+?))?' : '/(.+?)' : '/([^/]+?)';
-            // Remove the leading slash if includePrefix already added it.
+            
             if (includePrefix && paramMatches[1]) {
                 s = s.substring(1);
             }
@@ -1418,7 +1418,7 @@ function getParametrizedRoute(route, includeSuffix, includePrefix) {
         } else {
             segments.push(`/${(0, _escaperegexp.escapeStringRegexp)(segment)}`);
         }
-        // If there's a suffix, add it to the segments if it's enabled.
+        
         if (includeSuffix && paramMatches && paramMatches[3]) {
             segments.push((0, _escaperegexp.escapeStringRegexp)(paramMatches[3]));
         }
@@ -1439,10 +1439,10 @@ function getRouteRegex(normalizedRoute, { includeSuffix = false, includePrefix =
         groups: groups
     };
 }
-/**
- * Builds a function to generate a minimal routeKey using only a-z and minimal
- * number of characters.
- */ function buildGetSafeRouteKey() {
+
+
+
+ function buildGetSafeRouteKey() {
     let i = 0;
     return ()=>{
         let routeKey = '';
@@ -1456,15 +1456,15 @@ function getRouteRegex(normalizedRoute, { includeSuffix = false, includePrefix =
 }
 function getSafeKeyFromSegment({ interceptionMarker, getSafeRouteKey, segment, routeKeys, keyPrefix, backreferenceDuplicateKeys }) {
     const { key, optional, repeat } = (0, _getdynamicparam.parseMatchedParameter)(segment);
-    // replace any non-word characters since they can break
-    // the named regex
+    
+    
     let cleanedKey = key.replace(/\W/g, '');
     if (keyPrefix) {
         cleanedKey = `${keyPrefix}${cleanedKey}`;
     }
     let invalidKey = false;
-    // check if the key is still invalid and fallback to using a known
-    // safe key
+    
+    
     if (cleanedKey.length === 0 || cleanedKey.length > 30) {
         invalidKey = true;
     }
@@ -1480,14 +1480,14 @@ function getSafeKeyFromSegment({ interceptionMarker, getSafeRouteKey, segment, r
     } else {
         routeKeys[cleanedKey] = key;
     }
-    // if the segment has an interception marker, make sure that's part of the regex pattern
-    // this is to ensure that the route with the interception marker doesn't incorrectly match
-    // the non-intercepted route (ie /app/(.)[username] should not match /app/[username])
+    
+    
+    
     const interceptionPrefix = interceptionMarker ? (0, _escaperegexp.escapeStringRegexp)(interceptionMarker) : '';
     let pattern;
     if (duplicateKey && backreferenceDuplicateKeys) {
-        // Use a backreference to the key to ensure that the key is the same value
-        // in each of the placeholders.
+        
+        
         pattern = `\\k<${cleanedKey}>`;
     } else if (repeat) {
         pattern = `(?<${cleanedKey}>.+?)`;
@@ -1510,11 +1510,11 @@ function getNamedParametrizedRoute(route, prefixRouteKeys, includeSuffix, includ
     const routeKeys = {};
     const segments = [];
     const inverseParts = [];
-    // Ensure we don't mutate the original reference object.
+    
     reference = structuredClone(reference);
     for (const segment of (0, _removetrailingslash.removeTrailingSlash)(route).slice(1).split('/')){
         const hasInterceptionMarker = _interceptionroutes.INTERCEPTION_ROUTE_MARKERS.some((m)=>segment.startsWith(m));
-        const paramMatches = segment.match(_getdynamicparam.PARAMETER_PATTERN) // Check for parameters
+        const paramMatches = segment.match(_getdynamicparam.PARAMETER_PATTERN) 
         ;
         const interceptionMarker = hasInterceptionMarker ? paramMatches?.[1] : undefined;
         let keyPrefix;
@@ -1527,7 +1527,7 @@ function getNamedParametrizedRoute(route, prefixRouteKeys, includeSuffix, includ
             keyPrefix = prefixRouteKeys ? _constants.NEXT_QUERY_PARAM_PREFIX : undefined;
         }
         if (interceptionMarker && paramMatches && paramMatches[2]) {
-            // If there's an interception marker, add it to the segments.
+            
             const { key, pattern, cleanedKey, repeat, optional } = getSafeKeyFromSegment({
                 getSafeRouteKey,
                 interceptionMarker,
@@ -1540,7 +1540,7 @@ function getNamedParametrizedRoute(route, prefixRouteKeys, includeSuffix, includ
             inverseParts.push(`/${paramMatches[1]}:${reference.names[key] ?? cleanedKey}${repeat ? optional ? '*' : '+' : ''}`);
             reference.names[key] ??= cleanedKey;
         } else if (paramMatches && paramMatches[2]) {
-            // If there's a prefix, add it to the segments if it's enabled.
+            
             if (includePrefix && paramMatches[1]) {
                 segments.push(`/${(0, _escaperegexp.escapeStringRegexp)(paramMatches[1])}`);
                 inverseParts.push(`/${paramMatches[1]}`);
@@ -1552,7 +1552,7 @@ function getNamedParametrizedRoute(route, prefixRouteKeys, includeSuffix, includ
                 keyPrefix,
                 backreferenceDuplicateKeys
             });
-            // Remove the leading slash if includePrefix already added it.
+            
             let s = pattern;
             if (includePrefix && paramMatches[1]) {
                 s = s.substring(1);
@@ -1564,7 +1564,7 @@ function getNamedParametrizedRoute(route, prefixRouteKeys, includeSuffix, includ
             segments.push(`/${(0, _escaperegexp.escapeStringRegexp)(segment)}`);
             inverseParts.push(`/${segment}`);
         }
-        // If there's a suffix, add it to the segments if it's enabled.
+        
         if (includeSuffix && paramMatches && paramMatches[3]) {
             segments.push((0, _escaperegexp.escapeStringRegexp)(paramMatches[3]));
             inverseParts.push(paramMatches[3]);
@@ -1605,7 +1605,7 @@ function getNamedMiddlewareRegex(normalizedRoute, options) {
     return {
         namedRegex: `^${namedParameterizedRoute}${catchAllGroupedRegex}$`
     };
-} //# sourceMappingURL=route-regex.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/interpolate-as.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1625,16 +1625,16 @@ function interpolateAs(route, asPathname, query) {
     let interpolatedRoute = '';
     const dynamicRegex = (0, _routeregex.getRouteRegex)(route);
     const dynamicGroups = dynamicRegex.groups;
-    const dynamicMatches = (asPathname !== route ? (0, _routematcher.getRouteMatcher)(dynamicRegex)(asPathname) : '') || // Fall back to reading the values from the href
-    // TODO: should this take priority; also need to change in the router.
+    const dynamicMatches = (asPathname !== route ? (0, _routematcher.getRouteMatcher)(dynamicRegex)(asPathname) : '') || 
+    
     query;
     interpolatedRoute = route;
     const params = Object.keys(dynamicGroups);
     if (!params.every((param)=>{
         let value = dynamicMatches[param] || '';
         const { repeat, optional } = dynamicGroups[param];
-        // support single-level catch-all
-        // TODO: more robust handling for user-error (passing `/`)
+        
+        
         let replaced = `[${repeat ? '...' : ''}${param}]`;
         if (optional) {
             replaced = `${!value ? '/' : ''}[${replaced}]`;
@@ -1642,28 +1642,28 @@ function interpolateAs(route, asPathname, query) {
         if (repeat && !Array.isArray(value)) value = [
             value
         ];
-        return (optional || param in dynamicMatches) && // Interpolate group into data URL if present
-        (interpolatedRoute = interpolatedRoute.replace(replaced, repeat ? value.map(// path delimiter escaped since they are being inserted
-        // into the URL and we expect URL encoded segments
-        // when parsing dynamic route params
+        return (optional || param in dynamicMatches) && 
+        (interpolatedRoute = interpolatedRoute.replace(replaced, repeat ? value.map(
+        
+        
         (segment)=>encodeURIComponent(segment)).join('/') : encodeURIComponent(value)) || '/');
     })) {
-        interpolatedRoute = '' // did not satisfy all requirements
+        interpolatedRoute = '' 
         ;
-    // n.b. We ignore this error because we handle warning for this case in
-    // development in the `<Link>` component directly.
+    
+    
     }
     return {
         params,
         result: interpolatedRoute
     };
-} //# sourceMappingURL=interpolate-as.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/get-asset-path-from-route.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-// Translates a logical route into its pages asset path (relative from a common prefix)
-// "asset path" being its javascript file, data file, prerendered html,...
+
+
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -1676,7 +1676,7 @@ Object.defineProperty(exports, "default", {
 function getAssetPathFromRoute(route, ext = '') {
     const path = route === '/' ? '/index' : /^\/index(\/|$)/.test(route) ? `/index${route}` : route;
     return path + ext;
-} //# sourceMappingURL=get-asset-path-from-route.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/parse-relative-url.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1709,11 +1709,11 @@ function parseRelativeUrl(url, base, parseQuery = true) {
         search,
         hash,
         href: href.slice(origin.length),
-        // We don't know for relative URLs at this point since we set a custom, internal
-        // base that isn't surfaced to users.
+        
+        
         slashes: undefined
     };
-} //# sourceMappingURL=parse-relative-url.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/encode-uri-path.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1729,23 +1729,23 @@ Object.defineProperty(exports, "encodeURIPath", {
 });
 function encodeURIPath(file) {
     return file.split('/').map((p)=>encodeURIComponent(p)).join('/');
-} //# sourceMappingURL=encode-uri-path.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/modern-browserslist-target.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-// Note: This file is JS because it's used by the taskfile-swc.js file, which is JS.
-// Keep file changes in sync with the corresponding `.d.ts` files.
-/**
- * These are the minimum browser versions that we consider "modern" and thus compile for by default.
- * This list was generated using `pnpm browserslist "baseline widely available"` on 2025-10-01.
- */ const MODERN_BROWSERSLIST_TARGET = [
+
+
+
+
+
+ const MODERN_BROWSERSLIST_TARGET = [
     'chrome 111',
     'edge 111',
     'firefox 111',
     'safari 16.4'
 ];
-module.exports = MODERN_BROWSERSLIST_TARGET; //# sourceMappingURL=modern-browserslist-target.js.map
+module.exports = MODERN_BROWSERSLIST_TARGET; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/entry-constants.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1782,12 +1782,12 @@ _export(exports, {
 const UNDERSCORE_NOT_FOUND_ROUTE = '/_not-found';
 const UNDERSCORE_NOT_FOUND_ROUTE_ENTRY = `${UNDERSCORE_NOT_FOUND_ROUTE}/page`;
 const UNDERSCORE_GLOBAL_ERROR_ROUTE = '/_global-error';
-const UNDERSCORE_GLOBAL_ERROR_ROUTE_ENTRY = `${UNDERSCORE_GLOBAL_ERROR_ROUTE}/page`; //# sourceMappingURL=entry-constants.js.map
+const UNDERSCORE_GLOBAL_ERROR_ROUTE_ENTRY = `${UNDERSCORE_GLOBAL_ERROR_ROUTE}/page`; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/constants.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -2075,7 +2075,7 @@ _export(exports, {
     }
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _modernbrowserslisttarget = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/modern-browserslist-target.js [client] (ecmascript)"));
+const _modernbrowserslisttarget =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/modern-browserslist-target.js [client] (ecmascript)"));
 const _entryconstants = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/entry-constants.js [client] (ecmascript)");
 const COMPILER_NAMES = {
     client: 'client',
@@ -2087,31 +2087,31 @@ const COMPILER_INDEXES = {
     [COMPILER_NAMES.server]: 1,
     [COMPILER_NAMES.edgeServer]: 2
 };
-var AdapterOutputType = /*#__PURE__*/ function(AdapterOutputType) {
-    /**
-   * `PAGES` represents all the React pages that are under `pages/`.
-   */ AdapterOutputType["PAGES"] = "PAGES";
-    /**
-   * `PAGES_API` represents all the API routes under `pages/api/`.
-   */ AdapterOutputType["PAGES_API"] = "PAGES_API";
-    /**
-   * `APP_PAGE` represents all the React pages that are under `app/` with the
-   * filename of `page.{j,t}s{,x}`.
-   */ AdapterOutputType["APP_PAGE"] = "APP_PAGE";
-    /**
-   * `APP_ROUTE` represents all the API routes and metadata routes that are under `app/` with the
-   * filename of `route.{j,t}s{,x}`.
-   */ AdapterOutputType["APP_ROUTE"] = "APP_ROUTE";
-    /**
-   * `PRERENDER` represents an ISR enabled route that might
-   * have a seeded cache entry or fallback generated during build
-   */ AdapterOutputType["PRERENDER"] = "PRERENDER";
-    /**
-   * `STATIC_FILE` represents a static file (ie /_next/static)
-   */ AdapterOutputType["STATIC_FILE"] = "STATIC_FILE";
-    /**
-   * `MIDDLEWARE` represents the middleware output if present
-   */ AdapterOutputType["MIDDLEWARE"] = "MIDDLEWARE";
+var AdapterOutputType =  function(AdapterOutputType) {
+    
+
+ AdapterOutputType["PAGES"] = "PAGES";
+    
+
+ AdapterOutputType["PAGES_API"] = "PAGES_API";
+    
+
+
+ AdapterOutputType["APP_PAGE"] = "APP_PAGE";
+    
+
+
+ AdapterOutputType["APP_ROUTE"] = "APP_ROUTE";
+    
+
+
+ AdapterOutputType["PRERENDER"] = "PRERENDER";
+    
+
+ AdapterOutputType["STATIC_FILE"] = "STATIC_FILE";
+    
+
+ AdapterOutputType["MIDDLEWARE"] = "MIDDLEWARE";
     return AdapterOutputType;
 }({});
 const PHASE_EXPORT = 'phase-export';
@@ -2145,8 +2145,8 @@ const CONFIG_FILES = [
     'next.config.js',
     'next.config.mjs',
     'next.config.ts',
-    // process.features can be undefined on Edge runtime
-    // TODO: Remove `as any` once we bump @types/node to v22.10.0+
+    
+    
     ...__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"]?.features?.typescript ? [
         'next.config.mts'
     ] : []
@@ -2229,13 +2229,13 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=constants.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/bloom-filter.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-// minimal implementation MurmurHash2 hash function
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -2256,7 +2256,7 @@ function murmurhash2(str) {
     }
     return h >>> 0;
 }
-// default to 0.01% error rate as the filter compresses very well
+
 const DEFAULT_ERROR_RATE = 0.0001;
 class BloomFilter {
     constructor(numItems, errorRate = DEFAULT_ERROR_RATE){
@@ -2281,7 +2281,7 @@ class BloomFilter {
             numHashes: this.numHashes,
             bitArray: this.bitArray
         };
-        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        if ("TURBOPACK compile-time falsy", 0) 
         ;
         return data;
     }
@@ -2310,7 +2310,7 @@ class BloomFilter {
         }
         return hashValues;
     }
-} //# sourceMappingURL=bloom-filter.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/is-plain-object.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2344,16 +2344,16 @@ function isPlainObject(value) {
         return false;
     }
     const prototype = Object.getPrototypeOf(value);
-    /**
-   * this used to be previously:
-   *
-   * `return prototype === null || prototype === Object.prototype`
-   *
-   * but Edge Runtime expose Object from vm, being that kind of type-checking wrongly fail.
-   *
-   * It was changed to the current implementation since it's resilient to serialization.
-   */ return prototype === null || prototype.hasOwnProperty('isPrototypeOf');
-} //# sourceMappingURL=is-plain-object.js.map
+    
+
+
+
+
+
+
+
+ return prototype === null || prototype.hasOwnProperty('isPrototypeOf');
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/sorted-routes.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2437,15 +2437,15 @@ class UrlNode {
                 configurable: true
             });
         }
-        // The next segment in the urlPaths list
+        
         let nextSegment = urlPaths[0];
-        // Check if the segment matches `[something]`
+        
         if (nextSegment.startsWith('[') && nextSegment.endsWith(']')) {
-            // Strip `[` and `]`, leaving only `something`
+            
             let segmentName = nextSegment.slice(1, -1);
             let isOptional = false;
             if (segmentName.startsWith('[') && segmentName.endsWith(']')) {
-                // Strip optional `[` and `]`, leaving only `something`
+                
                 segmentName = segmentName.slice(1, -1);
                 isOptional = true;
             }
@@ -2457,7 +2457,7 @@ class UrlNode {
                 });
             }
             if (segmentName.startsWith('...')) {
-                // Strip `...`, leaving only `something`
+                
                 segmentName = segmentName.substring(3);
                 isCatchAll = true;
             }
@@ -2477,13 +2477,13 @@ class UrlNode {
             }
             function handleSlug(previousSlug, nextSlug) {
                 if (previousSlug !== null) {
-                    // If the specific segment already has a slug but the slug is not `something`
-                    // This prevents collisions like:
-                    // pages/[post]/index.js
-                    // pages/[id]/index.js
-                    // Because currently multiple dynamic params on the same segment level are not supported
+                    
+                    
+                    
+                    
+                    
                     if (previousSlug !== nextSlug) {
-                        // TODO: This error seems to be confusing for users, needs an error link, the description can be based on above comment.
+                        
                         throw Object.defineProperty(new Error(`You cannot use different slug names for the same dynamic path ('${previousSlug}' !== '${nextSlug}').`), "__NEXT_ERROR_CODE", {
                             value: "E337",
                             enumerable: false,
@@ -2519,9 +2519,9 @@ class UrlNode {
                         });
                     }
                     handleSlug(this.optionalRestSlugName, segmentName);
-                    // slugName is kept as it can only be one particular slugName
+                    
                     this.optionalRestSlugName = segmentName;
-                    // nextSegment is overwritten to [[...]] so that it can later be sorted specifically
+                    
                     nextSegment = '[[...]]';
                 } else {
                     if (this.optionalRestSlugName != null) {
@@ -2532,9 +2532,9 @@ class UrlNode {
                         });
                     }
                     handleSlug(this.restSlugName, segmentName);
-                    // slugName is kept as it can only be one particular slugName
+                    
                     this.restSlugName = segmentName;
-                    // nextSegment is overwritten to [...] so that it can later be sorted specifically
+                    
                     nextSegment = '[...]';
                 }
             } else {
@@ -2546,13 +2546,13 @@ class UrlNode {
                     });
                 }
                 handleSlug(this.slugName, segmentName);
-                // slugName is kept as it can only be one particular slugName
+                
                 this.slugName = segmentName;
-                // nextSegment is overwritten to [] so that it can later be sorted specifically
+                
                 nextSegment = '[]';
             }
         }
-        // If this UrlNode doesn't have the nextSegment yet we create a new child UrlNode
+        
         if (!this.children.has(nextSegment)) {
             this.children.set(nextSegment, new UrlNode());
         }
@@ -2567,25 +2567,25 @@ class UrlNode {
     }
 }
 function getSortedRoutes(normalizedPages) {
-    // First the UrlNode is created, and every UrlNode can have only 1 dynamic segment
-    // Eg you can't have pages/[post]/abc.js and pages/[hello]/something-else.js
-    // Only 1 dynamic segment per nesting level
-    // So in the case that is test/integration/dynamic-routing it'll be this:
-    // pages/[post]/comments.js
-    // pages/blog/[post]/comment/[id].js
-    // Both are fine because `pages/[post]` and `pages/blog` are on the same level
-    // So in this case `UrlNode` created here has `this.slugName === 'post'`
-    // And since your PR passed through `slugName` as an array basically it'd including it in too many possibilities
-    // Instead what has to be passed through is the upwards path's dynamic names
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     const root = new UrlNode();
-    // Here the `root` gets injected multiple paths, and insert will break them up into sublevels
+    
     normalizedPages.forEach((pagePath)=>root.insert(pagePath));
-    // Smoosh will then sort those sublevels up to the point where you get the correct route definition priority
+    
     return root.smoosh();
 }
 function getSortedRouteObjects(objects, getter) {
-    // We're assuming here that all the pathnames are unique, that way we can
-    // sort the list and use the index as the key.
+    
+    
     const indexes = {};
     const pathnames = [];
     for(let i = 0; i < objects.length; i++){
@@ -2593,12 +2593,12 @@ function getSortedRouteObjects(objects, getter) {
         indexes[pathname] = i;
         pathnames[i] = pathname;
     }
-    // Sort the pathnames.
+    
     const sorted = getSortedRoutes(pathnames);
-    // Map the sorted pathnames back to the original objects using the new sorted
-    // index.
+    
+    
     return sorted.map((pathname)=>objects[indexes[pathname]]);
-} //# sourceMappingURL=sorted-routes.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/index.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2629,16 +2629,16 @@ _export(exports, {
     }
 });
 const _sortedroutes = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/sorted-routes.js [client] (ecmascript)");
-const _isdynamic = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/is-dynamic.js [client] (ecmascript)"); //# sourceMappingURL=index.js.map
+const _isdynamic = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/is-dynamic.js [client] (ecmascript)"); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/page-path/normalize-path-sep.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * For a given page path, this function ensures that there is no backslash
- * escaping slashes in the path. Example:
- *  - `foo\/bar\/baz` -> `foo/bar/baz`
- */ Object.defineProperty(exports, "__esModule", {
+
+
+
+
+ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 Object.defineProperty(exports, "normalizePathSep", {
@@ -2649,7 +2649,7 @@ Object.defineProperty(exports, "normalizePathSep", {
 });
 function normalizePathSep(path) {
     return path.replace(/\\/g, '/');
-} //# sourceMappingURL=normalize-path-sep.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/page-path/denormalize-page-path.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2668,7 +2668,7 @@ const _normalizepathsep = __turbopack_context__.r("[project]/Desktop/Projects/fi
 function denormalizePagePath(page) {
     let _page = (0, _normalizepathsep.normalizePathSep)(page);
     return _page.startsWith('/index/') && !(0, _utils.isDynamicRoute)(_page) ? _page.slice(6) : _page !== '/index' ? _page : '/';
-} //# sourceMappingURL=denormalize-page-path.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/i18n/normalize-locale-path.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2682,74 +2682,74 @@ Object.defineProperty(exports, "normalizeLocalePath", {
         return normalizeLocalePath;
     }
 });
-/**
- * A cache of lowercased locales for each list of locales. This is stored as a
- * WeakMap so if the locales are garbage collected, the cache entry will be
- * removed as well.
- */ const cache = new WeakMap();
+
+
+
+
+ const cache = new WeakMap();
 function normalizeLocalePath(pathname, locales) {
-    // If locales is undefined, return the pathname as is.
+    
     if (!locales) return {
         pathname
     };
-    // Get the cached lowercased locales or create a new cache entry.
+    
     let lowercasedLocales = cache.get(locales);
     if (!lowercasedLocales) {
         lowercasedLocales = locales.map((locale)=>locale.toLowerCase());
         cache.set(locales, lowercasedLocales);
     }
     let detectedLocale;
-    // The first segment will be empty, because it has a leading `/`. If
-    // there is no further segment, there is no locale (or it's the default).
+    
+    
     const segments = pathname.split('/', 2);
-    // If there's no second segment (ie, the pathname is just `/`), there's no
-    // locale.
+    
+    
     if (!segments[1]) return {
         pathname
     };
-    // The second segment will contain the locale part if any.
+    
     const segment = segments[1].toLowerCase();
-    // See if the segment matches one of the locales. If it doesn't, there is
-    // no locale (or it's the default).
+    
+    
     const index = lowercasedLocales.indexOf(segment);
     if (index < 0) return {
         pathname
     };
-    // Return the case-sensitive locale.
+    
     detectedLocale = locales[index];
-    // Remove the `/${locale}` part of the pathname.
+    
     pathname = pathname.slice(detectedLocale.length + 1) || '/';
     return {
         pathname,
         detectedLocale
     };
-} //# sourceMappingURL=normalize-locale-path.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/format-url.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-// Format function modified from nodejs
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -2777,7 +2777,7 @@ _export(exports, {
     }
 });
 const _interop_require_wildcard = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
-const _querystring = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/querystring.js [client] (ecmascript)"));
+const _querystring =  _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/querystring.js [client] (ecmascript)"));
 const slashedProtocols = /https?|ftp|gopher|file/;
 function formatUrl(urlObj) {
     let { auth, hostname } = urlObj;
@@ -2837,7 +2837,7 @@ function formatWithValidation(url) {
         }
     }
     return formatUrl(url);
-} //# sourceMappingURL=format-url.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/path-has-prefix.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2858,7 +2858,7 @@ function pathHasPrefix(path, prefix) {
     }
     const { pathname } = (0, _parsepath.parsePath)(path);
     return pathname === prefix || pathname.startsWith(prefix + '/');
-} //# sourceMappingURL=path-has-prefix.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/omit.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2880,7 +2880,7 @@ function omit(object, keys) {
         }
     });
     return omitted;
-} //# sourceMappingURL=omit.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/is-local-url.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2897,17 +2897,17 @@ Object.defineProperty(exports, "isLocalURL", {
 const _utils = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils.js [client] (ecmascript)");
 const _hasbasepath = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/has-base-path.js [client] (ecmascript)");
 function isLocalURL(url) {
-    // prevent a hydration mismatch on href for url with anchor refs
+    
     if (!(0, _utils.isAbsoluteUrl)(url)) return true;
     try {
-        // absolute urls can be local if they are on the same origin
+        
         const locationOrigin = (0, _utils.getLocationOrigin)();
         const resolved = new URL(url, locationOrigin);
         return resolved.origin === locationOrigin && (0, _hasbasepath.hasBasePath)(resolved.pathname);
     } catch (_) {
         return false;
     }
-} //# sourceMappingURL=is-local-url.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/remove-path-prefix.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2923,31 +2923,31 @@ Object.defineProperty(exports, "removePathPrefix", {
 });
 const _pathhasprefix = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/path-has-prefix.js [client] (ecmascript)");
 function removePathPrefix(path, prefix) {
-    // If the path doesn't start with the prefix we can return it as is. This
-    // protects us from situations where the prefix is a substring of the path
-    // prefix such as:
-    //
-    // For prefix: /blog
-    //
-    //   /blog -> true
-    //   /blog/ -> true
-    //   /blog/1 -> true
-    //   /blogging -> false
-    //   /blogging/ -> false
-    //   /blogging/1 -> false
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     if (!(0, _pathhasprefix.pathHasPrefix)(path, prefix)) {
         return path;
     }
-    // Remove the prefix from the path via slicing.
+    
     const withoutPrefix = path.slice(prefix.length);
-    // If the path without the prefix starts with a `/` we can return it as is.
+    
     if (withoutPrefix.startsWith('/')) {
         return withoutPrefix;
     }
-    // If the path without the prefix doesn't start with a `/` we need to add it
-    // back to the path to make sure it's a valid path.
+    
+    
     return `/${withoutPrefix}`;
-} //# sourceMappingURL=remove-path-prefix.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/get-next-pathname-info.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2976,18 +2976,18 @@ function getNextPathnameInfo(pathname, options) {
     }
     let pathnameNoDataPrefix = info.pathname;
     if (info.pathname.startsWith('/_next/data/') && info.pathname.endsWith('.json')) {
-        const paths = info.pathname.replace(/^\/_next\/data\//, '').replace(/\.json$/, '').split('/');
+        const paths = info.pathname.replace(/^\/_next\/data\
         const buildId = paths[0];
         info.buildId = buildId;
         pathnameNoDataPrefix = paths[1] !== 'index' ? `/${paths.slice(1).join('/')}` : '/';
-        // update pathname with normalized if enabled although
-        // we use normalized to populate locale info still
+        
+        
         if (options.parseData === true) {
             info.pathname = pathnameNoDataPrefix;
         }
     }
-    // If provided, use the locale route normalizer to detect the locale instead
-    // of the function below.
+    
+    
     if (i18n) {
         let result = options.i18nProvider ? options.i18nProvider.analyze(info.pathname) : (0, _normalizelocalepath.normalizeLocalePath)(info.pathname, i18n.locales);
         info.locale = result.detectedLocale;
@@ -3000,7 +3000,7 @@ function getNextPathnameInfo(pathname, options) {
         }
     }
     return info;
-} //# sourceMappingURL=get-next-pathname-info.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/add-path-suffix.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -3021,7 +3021,7 @@ function addPathSuffix(path, suffix) {
     }
     const { pathname, query, hash } = (0, _parsepath.parsePath)(path);
     return `${pathname}${suffix}${query}${hash}`;
-} //# sourceMappingURL=add-path-suffix.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/add-locale.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -3038,19 +3038,19 @@ Object.defineProperty(exports, "addLocale", {
 const _addpathprefix = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js [client] (ecmascript)");
 const _pathhasprefix = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/path-has-prefix.js [client] (ecmascript)");
 function addLocale(path, locale, defaultLocale, ignorePrefix) {
-    // If no locale was given or the locale is the default locale, we don't need
-    // to prefix the path.
+    
+    
     if (!locale || locale === defaultLocale) return path;
     const lower = path.toLowerCase();
-    // If the path is an API path or the path already has the locale prefix, we
-    // don't need to prefix the path.
+    
+    
     if (!ignorePrefix) {
         if ((0, _pathhasprefix.pathHasPrefix)(lower, '/api')) return path;
         if ((0, _pathhasprefix.pathHasPrefix)(lower, `/${locale.toLowerCase()}`)) return path;
     }
-    // Add the locale prefix to the path.
+    
     return (0, _addpathprefix.addPathPrefix)(path, `/${locale}`);
-} //# sourceMappingURL=add-locale.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/format-next-pathname-info.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -3078,7 +3078,7 @@ function formatNextPathnameInfo(info) {
     }
     pathname = (0, _addpathprefix.addPathPrefix)(pathname, info.basePath);
     return !info.buildId && info.trailingSlash ? !pathname.endsWith('/') ? (0, _addpathsuffix.addPathSuffix)(pathname, '/') : pathname : (0, _removetrailingslash.removeTrailingSlash)(pathname);
-} //# sourceMappingURL=format-next-pathname-info.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/compare-states.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -3113,15 +3113,15 @@ function compareRouterStates(a, b) {
         }
     }
     return true;
-} //# sourceMappingURL=compare-states.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/html-bots.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-// This regex contains the bots that we need to do a blocking render for and can't safely stream the response
-// due to how they parse the DOM. For example, they might explicitly check for metadata in the `head` tag, so we can't stream metadata tags after the `head` was sent.
-// Note: The pattern [\w-]+-Google captures all Google crawlers with "-Google" suffix (e.g., Mediapartners-Google, AdsBot-Google, Storebot-Google)
-// as well as crawlers starting with "Google-" (e.g., Google-PageRenderer, Google-InspectionTool)
+
+
+
+
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -3131,7 +3131,7 @@ Object.defineProperty(exports, "HTML_LIMITED_BOT_UA_RE", {
         return HTML_LIMITED_BOT_UA_RE;
     }
 });
-const HTML_LIMITED_BOT_UA_RE = /[\w-]+-Google|Google-[\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight/i; //# sourceMappingURL=html-bots.js.map
+const HTML_LIMITED_BOT_UA_RE = /[\w-]+-Google|Google-[\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight/i; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/is-bot.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -3166,10 +3166,10 @@ _export(exports, {
     }
 });
 const _htmlbots = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/html-bots.js [client] (ecmascript)");
-// Bot crawler that will spin up a headless browser and execute JS.
-// Only the main Googlebot search crawler executes JavaScript, not other Google crawlers.
-// x-ref: https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers
-// This regex specifically matches "Googlebot" but NOT "Mediapartners-Google", "AdsBot-Google", etc.
+
+
+
+
 const HEADLESS_BROWSER_BOT_UA_RE = /Googlebot(?!-)|Googlebot$/i;
 const HTML_LIMITED_BOT_UA_RE_STRING = _htmlbots.HTML_LIMITED_BOT_UA_RE.source;
 function isDomBotUA(userAgent) {
@@ -3189,12 +3189,12 @@ function getBotType(userAgent) {
         return 'html';
     }
     return undefined;
-} //# sourceMappingURL=is-bot.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/router.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -3226,10 +3226,10 @@ const _interop_require_wildcard = __turbopack_context__.r("[project]/Desktop/Pro
 const _removetrailingslash = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/remove-trailing-slash.js [client] (ecmascript)");
 const _routeloader = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/route-loader.js [client] (ecmascript)");
 const _script = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/script.js [client] (ecmascript)");
-const _iserror = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [client] (ecmascript)"));
+const _iserror =  _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [client] (ecmascript)"));
 const _denormalizepagepath = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/page-path/denormalize-page-path.js [client] (ecmascript)");
 const _normalizelocalepath = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/i18n/normalize-locale-path.js [client] (ecmascript)");
-const _mitt = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/mitt.js [client] (ecmascript)"));
+const _mitt =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/mitt.js [client] (ecmascript)"));
 const _utils = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils.js [client] (ecmascript)");
 const _isdynamic = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/is-dynamic.js [client] (ecmascript)");
 const _parserelativeurl = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/parse-relative-url.js [client] (ecmascript)");
@@ -3255,7 +3255,7 @@ const _interpolateas = __turbopack_context__.r("[project]/Desktop/Projects/final
 const _disablesmoothscroll = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/disable-smooth-scroll.js [client] (ecmascript)");
 const _constants = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/constants.js [client] (ecmascript)");
 let resolveRewrites;
-if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+if ("TURBOPACK compile-time falsy", 0) 
 ;
 function buildCancellationError() {
     return Object.assign(Object.defineProperty(new Error('Route Cancelled'), "__NEXT_ERROR_CODE", {
@@ -3270,11 +3270,11 @@ async function matchesMiddleware(options) {
     const matchers = await Promise.resolve(options.router.pageLoader.getMiddleware());
     if (!matchers) return false;
     const { pathname: asPathname } = (0, _parsepath.parsePath)(options.asPath);
-    // remove basePath first since path prefix has to be in the order of `/${basePath}/${locale}`
+    
     const cleanedAs = (0, _hasbasepath.hasBasePath)(asPathname) ? (0, _removebasepath.removeBasePath)(asPathname) : asPathname;
     const asWithBasePathAndLocale = (0, _addbasepath.addBasePath)((0, _addlocale.addLocale)(cleanedAs, options.locale));
-    // Check only path match on client. Matching "has" should be done on server
-    // where we can access more info such as headers, HttpOnly cookie, etc.
+    
+    
     return matchers.some((m)=>new RegExp(m.regexp).test(asWithBasePathAndLocale));
 }
 function stripOrigin(url) {
@@ -3282,8 +3282,8 @@ function stripOrigin(url) {
     return url.startsWith(origin) ? url.substring(origin.length) : url;
 }
 function prepareUrlAs(router, url, as) {
-    // If url and as provided as an object representation,
-    // we'll format them into the string version here.
+    
+    
     let [resolvedHref, resolvedAs] = (0, _resolvehref.resolveHref)(router, url, true);
     const origin = (0, _utils.getLocationOrigin)();
     const hrefWasAbsolute = resolvedHref.startsWith(origin);
@@ -3302,9 +3302,9 @@ function resolveDynamicRoute(pathname, pages) {
     if (cleanPathname === '/404' || cleanPathname === '/_error') {
         return pathname;
     }
-    // handle resolving href for dynamic routes
+    
     if (!pages.includes(cleanPathname)) {
-        // eslint-disable-next-line array-callback-return
+        
         pages.some((page)=>{
             if ((0, _isdynamic.isDynamicRoute)(page) && (0, _routeregex.getRouteRegex)(page).re.test(cleanPathname)) {
                 pathname = page;
@@ -3326,7 +3326,7 @@ function getMiddlewareData(source, response, options) {
     let rewriteTarget = rewriteHeader || response.headers.get('x-nextjs-matched-path');
     const matchedPath = response.headers.get(_constants.MATCHED_PATH_HEADER);
     if (matchedPath && !rewriteTarget && !matchedPath.includes('__next_data_catchall') && !matchedPath.includes('/_error') && !matchedPath.includes('/404')) {
-        // leverage x-matched-path to detect next.config.js rewrites
+        
         rewriteTarget = matchedPath;
     }
     if (rewriteTarget) {
@@ -3350,7 +3350,7 @@ function getMiddlewareData(source, response, options) {
                     as = (0, _addbasepath.addBasePath)(parsedSource.pathname);
                     parsedRewriteTarget.pathname = as;
                 }
-                if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+                if ("TURBOPACK compile-time falsy", 0) 
                 ;
                 else if (!pages.includes(fsPathname)) {
                     const resolvedPathname = resolveDynamicRoute(fsPathname, pages);
@@ -3436,17 +3436,17 @@ const manualScrollRestoration = ("TURBOPACK compile-time value", false) && typeo
 const SSG_DATA_NOT_FOUND = Symbol('SSG_DATA_NOT_FOUND');
 function fetchRetry(url, attempts, options) {
     return fetch(url, {
-        // Cookies are required to be present for Next.js' SSG "Preview Mode".
-        // Cookies may also be required for `getServerSideProps`.
-        //
-        // > `fetch` won’t send cookies, unless you set the credentials init
-        // > option.
-        // https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch
-        //
-        // > For maximum browser compatibility when it comes to sending &
-        // > receiving cookies, always supply the `credentials: 'same-origin'`
-        // > option instead of relying on the default.
-        // https://github.com/github/fetch#caveats
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         credentials: 'same-origin',
         method: options.method || 'GET',
         headers: Object.assign({}, options.headers, {
@@ -3484,12 +3484,12 @@ function fetchNextData({ dataHref, inflightCache, isPrefetch, hasMiddleware, isS
             }
             return response.text().then((text)=>{
                 if (!response.ok) {
-                    /**
-             * When the data response is a redirect because of a middleware
-             * we do not consider it an error. The headers must bring the
-             * mapped location.
-             * TODO: Change the status code in the handler.
-             */ if (hasMiddleware && [
+                    
+
+
+
+
+ if (hasMiddleware && [
                         301,
                         302,
                         307,
@@ -3521,11 +3521,11 @@ function fetchNextData({ dataHref, inflightCache, isPrefetch, hasMiddleware, isS
                         enumerable: false,
                         configurable: true
                     });
-                    /**
-             * We should only trigger a server-side transition if this was
-             * caused on a client-side transition. Otherwise, we'd get into
-             * an infinite loop.
-             */ if (!isServerRender) {
+                    
+
+
+
+ if (!isServerRender) {
                         (0, _routeloader.markAssetError)(error);
                     }
                     throw error;
@@ -3547,21 +3547,21 @@ function fetchNextData({ dataHref, inflightCache, isPrefetch, hasMiddleware, isS
             if (!unstable_skipClientCache) {
                 delete inflightCache[cacheKey];
             }
-            if (err.message === 'Failed to fetch' || // firefox
-            err.message === 'NetworkError when attempting to fetch resource.' || // safari
+            if (err.message === 'Failed to fetch' || 
+            err.message === 'NetworkError when attempting to fetch resource.' || 
             err.message === 'Load failed') {
                 (0, _routeloader.markAssetError)(err);
             }
             throw err;
         });
-    // when skipping client cache we wait to update
-    // inflight cache until successful data response
-    // this allows racing click event with fetching newer data
-    // without blocking navigation when stale data is available
+    
+    
+    
+    
     if (unstable_skipClientCache && persistCache) {
         return getData({}).then((data)=>{
             if (data.response.headers.get('x-middleware-cache') !== 'no-cache') {
-                // only update cache if not marked as no-cache
+                
                 inflightCache[cacheKey] = Promise.resolve(data);
             }
             return data;
@@ -3578,8 +3578,8 @@ function createKey() {
     return Math.random().toString(36).slice(2, 10);
 }
 function handleHardNavigation({ url, router }) {
-    // ensure we don't trigger a hard navigation to the same
-    // URL as this can end up with an infinite refresh
+    
+    
     if (url === (0, _addbasepath.addBasePath)((0, _addlocale.addLocale)(router.asPath, router.locale))) {
         throw Object.defineProperty(new Error(`Invariant: attempted to hard navigate to the same URL ${url} ${location.href}`), "__NEXT_ERROR_CODE", {
             value: "E282",
@@ -3615,9 +3615,9 @@ class Router {
         this.events = (0, _mitt.default)();
     }
     constructor(pathname, query, as, { initialProps, pageLoader, App, wrapApp, Component, err, subscription, isFallback, locale, locales, defaultLocale, domainLocales, isPreview }){
-        // Server Data Cache (full data requests)
+        
         this.sdc = {};
-        // Server Background Cache (HEAD requests)
+        
         this.sbc = {};
         this.isFirstPopStateEvent = true;
         this._key = createKey();
@@ -3626,15 +3626,15 @@ class Router {
             this.isFirstPopStateEvent = false;
             const state = e.state;
             if (!state) {
-                // We get state as undefined for two reasons.
-                //  1. With older safari (< 8) and older chrome (< 34)
-                //  2. When the URL changed with #
-                //
-                // In the both cases, we don't need to proceed and change the route.
-                // (as it's already changed)
-                // But we can simply replace the state with the new changes.
-                // Actually, for (1) we don't need to nothing. But it's hard to detect that event.
-                // So, doing the following for (1) does no harm.
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 const { pathname, query } = this;
                 this.changeState('replaceState', (0, _formaturl.formatWithValidation)({
                     pathname: (0, _addbasepath.addBasePath)(pathname),
@@ -3642,7 +3642,7 @@ class Router {
                 }), (0, _utils.getURL)());
                 return;
             }
-            // __NA is used to identify if the history entry can be handled by the app-router.
+            
             if (state.__NA) {
                 window.location.reload();
                 return;
@@ -3650,40 +3650,40 @@ class Router {
             if (!state.__N) {
                 return;
             }
-            // Safari fires popstateevent when reopening the browser.
+            
             if (isFirstPopStateEvent && this.locale === state.options.locale && state.as === this.asPath) {
                 return;
             }
             let forcedScroll;
             const { url, as, options, key } = state;
-            if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+            if ("TURBOPACK compile-time falsy", 0) 
             ;
             this._key = key;
             const { pathname } = (0, _parserelativeurl.parseRelativeUrl)(url);
-            // Make sure we don't re-render on initial load,
-            // can be caused by navigating back from an external site
+            
+            
             if (this.isSsr && as === (0, _addbasepath.addBasePath)(this.asPath) && pathname === (0, _addbasepath.addBasePath)(this.pathname)) {
                 return;
             }
-            // If the downstream application returns falsy, return.
-            // They will then be responsible for handling the event.
+            
+            
             if (this._bps && !this._bps(state)) {
                 return;
             }
             this.change('replaceState', url, as, Object.assign({}, options, {
                 shallow: options.shallow && this._shallow,
                 locale: options.locale || this.defaultLocale,
-                // @ts-ignore internal value not exposed on types
+                
                 _h: 0
             }), forcedScroll);
         };
-        // represents the current component key
+        
         const route = (0, _removetrailingslash.removeTrailingSlash)(pathname);
-        // set up the component cache (by route keys)
+        
         this.components = {};
-        // We should not keep the cache, if there's an error
-        // Otherwise, this cause issues when when going back and
-        // come again to the errored page.
+        
+        
+        
         if (pathname !== '/_error') {
             this.components[route] = {
                 Component,
@@ -3698,23 +3698,23 @@ class Router {
             Component: App,
             styleSheets: []
         };
-        // Backwards compat for Router.router.events
-        // TODO: Should be remove the following major version as it was never documented
+        
+        
         this.events = Router.events;
         this.pageLoader = pageLoader;
-        // if auto prerendered and dynamic route wait to update asPath
-        // until after mount to prevent hydration mismatch
+        
+        
         const autoExportDynamic = (0, _isdynamic.isDynamicRoute)(pathname) && self.__NEXT_DATA__.autoExport;
         this.basePath = ("TURBOPACK compile-time value", "") || '';
         this.sub = subscription;
         this.clc = null;
         this._wrapApp = wrapApp;
-        // make sure to ignore extra popState in safari on navigating
-        // back from external site
+        
+        
         this.isSsr = true;
         this.isLocaleDomain = false;
         this.isReady = !!(self.__NEXT_DATA__.gssp || self.__NEXT_DATA__.gip || self.__NEXT_DATA__.isExperimentalCompile || self.__NEXT_DATA__.appGip && !self.__NEXT_DATA__.gsp || !autoExportDynamic && !self.location.search && !("TURBOPACK compile-time value", false));
-        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        if ("TURBOPACK compile-time falsy", 0) 
         ;
         this.state = {
             route,
@@ -3727,11 +3727,11 @@ class Router {
         };
         this._initialMatchesMiddlewarePromise = Promise.resolve(false);
         if (typeof window !== 'undefined') {
-            // make sure "as" doesn't start with double slashes or else it can
-            // throw an error as it's considered invalid
+            
+            
             if (!as.startsWith('//')) {
-                // in order for `e.state` to work on the `onpopstate` event
-                // we have to register the initial route upon initialization
+                
+                
                 const options = {
                     locale
                 };
@@ -3741,8 +3741,8 @@ class Router {
                     locale,
                     asPath
                 }).then((matches)=>{
-                    // if middleware matches we leave resolving to the change function
-                    // as the server needs to resolve for correct priority
+                    
+                    
                     ;
                     options._shouldResolveHref = as !== pathname;
                     this.changeState('replaceState', matches ? asPath : (0, _formaturl.formatWithValidation)({
@@ -3753,43 +3753,43 @@ class Router {
                 });
             }
             window.addEventListener('popstate', this.onPopState);
-            // enable custom scroll restoration handling when available
-            // otherwise fallback to browser's default handling
-            if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+            
+            
+            if ("TURBOPACK compile-time falsy", 0) 
             ;
         }
     }
     reload() {
         window.location.reload();
     }
-    /**
-   * Go back in history
-   */ back() {
+    
+
+ back() {
         window.history.back();
     }
-    /**
-   * Go forward in history
-   */ forward() {
+    
+
+ forward() {
         window.history.forward();
     }
-    /**
-   * Performs a `pushState` with arguments
-   * @param url of the route
-   * @param as masks `url` for the browser
-   * @param options object you can define `shallow` and other options
-   */ push(url, as, options = {}) {
-        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    
+
+
+
+
+ push(url, as, options = {}) {
+        if ("TURBOPACK compile-time falsy", 0) 
         ;
         ;
         ({ url, as } = prepareUrlAs(this, url, as));
         return this.change('pushState', url, as, options);
     }
-    /**
-   * Performs a `replaceState` with arguments
-   * @param url of the route
-   * @param as masks `url` for the browser
-   * @param options object you can define `shallow` and other options
-   */ replace(url, as, options = {}) {
+    
+
+
+
+
+ replace(url, as, options = {}) {
         ;
         ({ url, as } = prepareUrlAs(this, url, as));
         return this.change('replaceState', url, as, options);
@@ -3804,8 +3804,8 @@ class Router {
                     ;
                     ({ __routerFilterStatic: staticFilterData, __routerFilterDynamic: dynamicFilterData } = await (0, _routeloader.getClientBuildManifest)());
                 } catch (err) {
-                    // failed to load build manifest hard navigate
-                    // to be safe
+                    
+                    
                     console.error(err);
                     if (skipNavigate) {
                         return true;
@@ -6533,8 +6533,8 @@ class Router {
                             asNoSlash,
                             asNoSlashLocale
                         ]){
-                            // if any sub-path of as matches a dynamic filter path
-                            // it should be hard navigated
+                            
+                            
                             const curAsParts = normalizedAS.split('/');
                             for(let i = 0; !matchesBflDynamic && i < curAsParts.length + 1; i++){
                                 const currentPart = curAsParts.slice(0, i).join('/');
@@ -6544,8 +6544,8 @@ class Router {
                                 }
                             }
                         }
-                        // if the client router filter is matched then we trigger
-                        // a hard navigation
+                        
+                        
                         if (matchesBflStatic || matchesBflDynamic) {
                             if (skipNavigate) {
                                 return true;
@@ -6570,9 +6570,9 @@ class Router {
             });
             return false;
         }
-        // WARNING: `_h` is an internal option for handing Next.js client-side
-        // hydration. Your app should _never_ use this property. It may change at
-        // any time without notice.
+        
+        
+        
         const isQueryUpdating = options._h === 1;
         if (!isQueryUpdating && !options.shallow) {
             await this._bfl(as, undefined, options.locale);
@@ -6581,24 +6581,24 @@ class Router {
         const nextState = {
             ...this.state
         };
-        // for static pages with query params in the URL we delay
-        // marking the router ready until after the query is updated
-        // or a navigation has occurred
+        
+        
+        
         const readyStateChange = this.isReady !== true;
         this.isReady = true;
         const isSsr = this.isSsr;
         if (!isQueryUpdating) {
             this.isSsr = false;
         }
-        // if a route transition is already in progress before
-        // the query updating is triggered ignore query updating
+        
+        
         if (isQueryUpdating && this.clc) {
             return false;
         }
         const prevLocale = nextState.locale;
-        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        if ("TURBOPACK compile-time falsy", 0) 
         ;
-        // marking route changes as a navigation start entry
+        
         if (_utils.ST) {
             performance.mark('routeChange');
         }
@@ -6617,12 +6617,12 @@ class Router {
         const cleanedAs = (0, _removelocale.removeLocale)((0, _hasbasepath.hasBasePath)(as) ? (0, _removebasepath.removeBasePath)(as) : as, nextState.locale);
         this._inFlightRoute = as;
         const localeChange = prevLocale !== nextState.locale;
-        // If the url change is only related to a hash change
-        // We should not proceed. We should only change the state.
+        
+        
         if (!isQueryUpdating && this.onlyAHashChange(cleanedAs) && !localeChange) {
             nextState.asPath = cleanedAs;
             Router.events.emit('hashChangeStart', as, routeProps);
-            // TODO: do we need the resolved href when only a hash change?
+            
             this.changeState(method, url, as, {
                 ...options,
                 scroll: false
@@ -6643,9 +6643,9 @@ class Router {
         }
         let parsed = (0, _parserelativeurl.parseRelativeUrl)(url);
         let { pathname, query } = parsed;
-        // The build manifest needs to be loaded before auto-static dynamic pages
-        // get their query parameters to allow ensuring they can be parsed properly
-        // when rewritten to
+        
+        
+        
         let pages, rewrites;
         try {
             ;
@@ -6655,33 +6655,33 @@ class Router {
                 this.pageLoader.getMiddleware()
             ]);
         } catch (err) {
-            // If we fail to resolve the page list or client-build manifest, we must
-            // do a server-side transition:
+            
+            
             handleHardNavigation({
                 url: as,
                 router: this
             });
             return false;
         }
-        // If asked to change the current URL we should reload the current page
-        // (not location.reload() but reload getInitialProps and other Next.js stuffs)
-        // We also need to set the method = replaceState always
-        // as this should not go into the history (That's how browsers work)
-        // We should compare the new asPath to the current asPath, not the url
+        
+        
+        
+        
+        
         if (!this.urlIsNew(cleanedAs) && !localeChange) {
             method = 'replaceState';
         }
-        // we need to resolve the as value using rewrites for dynamic SSG
-        // pages to allow building the data URL correctly
+        
+        
         let resolvedAs = as;
-        // url and as should always be prefixed with basePath by this
-        // point by either next/link or router.push/replace so strip the
-        // basePath from the pathname to match the pages dir 1-to-1
+        
+        
+        
         pathname = pathname ? (0, _removetrailingslash.removeTrailingSlash)((0, _removebasepath.removeBasePath)(pathname)) : pathname;
         let route = (0, _removetrailingslash.removeTrailingSlash)(pathname);
         const parsedAsPathname = as.startsWith('/') && (0, _parserelativeurl.parseRelativeUrl)(as).pathname;
-        // if we detected the path as app route during prefetching
-        // trigger hard navigation
+        
+        
         if (this.components[pathname]?.__appRouter) {
             handleHardNavigation({
                 url: as,
@@ -6690,8 +6690,8 @@ class Router {
             return new Promise(()=>{});
         }
         const isMiddlewareRewrite = !!(parsedAsPathname && route !== parsedAsPathname && (!(0, _isdynamic.isDynamicRoute)(route) || !(0, _routematcher.getRouteMatcher)((0, _routeregex.getRouteRegex)(route))(parsedAsPathname)));
-        // we don't attempt resolve asPath when we need to execute
-        // middleware as the resolving will occur server-side
+        
+        
         const isMiddlewareMatch = !options.shallow && await matchesMiddleware({
             asPath: as,
             locale: nextState.locale,
@@ -6703,7 +6703,7 @@ class Router {
         if (shouldResolveHref && pathname !== '/_error') {
             ;
             options._shouldResolveHref = true;
-            if (("TURBOPACK compile-time value", false) && as.startsWith('/')) //TURBOPACK unreachable
+            if (("TURBOPACK compile-time value", false) && as.startsWith('/')) 
             ;
             else {
                 parsed.pathname = resolveDynamicRoute(pathname, pages);
@@ -6758,7 +6758,7 @@ class Router {
                     query: (0, _omit.omit)(query, interpolatedAs.params)
                 }));
             } else {
-                // Merge params into `query`, overwriting any specified in search
+                
                 Object.assign(query, routeMatch);
             }
         }
@@ -6804,7 +6804,7 @@ class Router {
                     if ((0, _hasbasepath.hasBasePath)(rewriteAs)) {
                         rewriteAs = (0, _removebasepath.removeBasePath)(rewriteAs);
                     }
-                    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+                    if ("TURBOPACK compile-time falsy", 0) 
                     ;
                     const routeRegex = (0, _routeregex.getRouteRegex)(pathname);
                     const curRouteMatch = (0, _routematcher.getRouteMatcher)(routeRegex)(new URL(rewriteAs, location.href).pathname);
@@ -6813,7 +6813,7 @@ class Router {
                     }
                 }
             }
-            // If the routeInfo brings a redirect we simply apply it.
+            
             if ('type' in routeInfo) {
                 if (routeInfo.type === 'redirect-internal') {
                     return this.change(method, routeInfo.newUrl, routeInfo.newAs, options);
@@ -6832,15 +6832,15 @@ class Router {
                     (0, _script.handleClientScriptLoad)(script.props);
                 });
             }
-            // handle redirect on client-transition
+            
             if ((routeInfo.__N_SSG || routeInfo.__N_SSP) && routeInfo.props) {
                 if (routeInfo.props.pageProps && routeInfo.props.pageProps.__N_REDIRECT) {
-                    // Use the destination from redirect without adding locale
+                    
                     options.locale = false;
                     const destination = routeInfo.props.pageProps.__N_REDIRECT;
-                    // check if destination is internal (resolves to a page) and attempt
-                    // client-navigation if it is falling back to hard navigation if
-                    // it's not
+                    
+                    
+                    
                     if (destination.startsWith('/') && routeInfo.props.pageProps.__N_REDIRECT_BASE_PATH !== false) {
                         const parsedHref = (0, _parserelativeurl.parseRelativeUrl)(destination);
                         parsedHref.pathname = resolveDynamicRoute(parsedHref.pathname, pages);
@@ -6854,7 +6854,7 @@ class Router {
                     return new Promise(()=>{});
                 }
                 nextState.isPreview = !!routeInfo.props.__N_PREVIEW;
-                // handle SSG data 404
+                
                 if (routeInfo.props.notFound === SSG_DATA_NOT_FOUND) {
                     let notFoundRoute;
                     try {
@@ -6886,11 +6886,11 @@ class Router {
                 }
             }
             if (isQueryUpdating && this.pathname === '/_error' && self.__NEXT_DATA__.props?.pageProps?.statusCode === 500 && routeInfo.props?.pageProps) {
-                // ensure statusCode is still correct for static 500 page
-                // when updating query information
+                
+                
                 routeInfo.props.pageProps.statusCode = 500;
             }
-            // shallow routing is only allowed for same page URL changes.
+            
             const isValidShallowRoute = options.shallow && nextState.route === (routeInfo.route ?? route);
             const shouldScroll = options.scroll ?? (!isQueryUpdating && !isValidShallowRoute);
             const resetScroll = shouldScroll ? {
@@ -6898,7 +6898,7 @@ class Router {
                 y: 0
             } : null;
             const upcomingScrollState = forcedScroll ?? resetScroll;
-            // the new state that the router gonna set
+            
             const upcomingRouterState = {
                 ...nextState,
                 route,
@@ -6907,11 +6907,11 @@ class Router {
                 asPath: cleanedAs,
                 isFallback: false
             };
-            // When the page being rendered is the 404 page, we should only update the
-            // query parameters. Route changes here might add the basePath when it
-            // wasn't originally present. This is also why this block is before the
-            // below `changeState` call which updates the browser's history (changing
-            // the URL).
+            
+            
+            
+            
+            
             if (isQueryUpdating && isErrorRoute) {
                 routeInfo = await this.getRouteInfo({
                     route: this.pathname,
@@ -6934,8 +6934,8 @@ class Router {
                     });
                 }
                 if (this.pathname === '/_error' && self.__NEXT_DATA__.props?.pageProps?.statusCode === 500 && routeInfo.props?.pageProps) {
-                    // ensure statusCode is still correct for static 500 page
-                    // when updating query information
+                    
+                    
                     routeInfo.props.pageProps.statusCode = 500;
                 }
                 try {
@@ -6950,9 +6950,9 @@ class Router {
             }
             Router.events.emit('beforeHistoryChange', as, routeProps);
             this.changeState(method, url, as, options);
-            // for query updates we can skip it if the state is unchanged and we don't
-            // need to scroll
-            // https://github.com/vercel/next.js/issues/37139
+            
+            
+            
             const canSkipUpdating = isQueryUpdating && !upcomingScrollState && !readyStateChange && !localeChange && (0, _comparestates.compareRouterStates)(upcomingRouterState, this.state);
             if (!canSkipUpdating) {
                 try {
@@ -6967,12 +6967,12 @@ class Router {
                     }
                     throw routeInfo.error;
                 }
-                if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+                if ("TURBOPACK compile-time falsy", 0) 
                 ;
                 if (!isQueryUpdating) {
                     Router.events.emit('routeChangeComplete', as, routeProps);
                 }
-                // A hash mark # is the optional last part of a URL
+                
                 const hashRegex = /#.+$/;
                 if (shouldScroll && hashRegex.test(as)) {
                     this.scrollToHash(as);
@@ -7005,29 +7005,29 @@ class Router {
                 options,
                 __N: true,
                 key: this._key = method !== 'pushState' ? this._key : createKey()
-            }, // Passing the empty string here should be safe against future changes to the method.
-            // https://developer.mozilla.org/docs/Web/API/History/replaceState
+            }, 
+            
             '', as);
         }
     }
     async handleRouteInfoError(err, pathname, query, as, routeProps, loadErrorFail) {
         if (err.cancelled) {
-            // bubble up cancellation errors
+            
             throw err;
         }
         if ((0, _routeloader.isAssetError)(err) || loadErrorFail) {
             Router.events.emit('routeChangeError', err, as, routeProps);
-            // If we can't load the page it could be one of following reasons
-            //  1. Page doesn't exists
-            //  2. Page does exist in a different zone
-            //  3. Internal error while loading the page
-            // So, doing a hard reload is the proper way to deal with this.
+            
+            
+            
+            
+            
             handleHardNavigation({
                 url: as,
                 router: this
             });
-            // Changing the URL doesn't block executing the current code path.
-            // So let's throw a cancellation error stop the routing logic.
+            
+            
             throw buildCancellationError();
         }
         console.error(err);
@@ -7063,12 +7063,12 @@ class Router {
         }
     }
     async getRouteInfo({ route: requestedRoute, pathname, query, as, resolvedAs, routeProps, locale, hasMiddleware, isPreview, unstable_skipClientCache, isQueryUpdating, isMiddlewareRewrite, isNotFound }) {
-        /**
-     * This `route` binding can change if there's a rewrite
-     * so we keep a reference to the original requested route
-     * so we can store the cache for it and avoid re-requesting every time
-     * for shallow routing purposes.
-     */ let route = requestedRoute;
+        
+
+
+
+
+ let route = requestedRoute;
         try {
             let existingInfo = this.components[route];
             if (routeProps.shallow && existingInfo && this.route === route) {
@@ -7108,17 +7108,17 @@ class Router {
                 locale: locale,
                 router: this
             }).catch((err)=>{
-                // we don't hard error during query updating
-                // as it's un-necessary and doesn't need to be fatal
-                // unless it is a fallback route and the props can't
-                // be loaded
+                
+                
+                
+                
                 if (isQueryUpdating) {
                     return null;
                 }
                 throw err;
             });
-            // when rendering error routes we don't apply middleware
-            // effects
+            
+            
             if (data && (pathname === '/_error' || pathname === '/404')) {
                 data.effect = undefined;
             }
@@ -7138,10 +7138,10 @@ class Router {
             if (data?.effect?.type === 'rewrite') {
                 const resolvedRoute = (0, _removetrailingslash.removeTrailingSlash)(data.effect.resolvedHref);
                 const pages = await this.pageLoader.getPageList();
-                // during query updating the page must match although during
-                // client-transition a redirect that doesn't match a page
-                // can be returned and this should trigger a hard navigation
-                // which is valid for incremental migration
+                
+                
+                
+                
                 if (!isQueryUpdating || pages.includes(resolvedRoute)) {
                     route = resolvedRoute;
                     pathname = data.effect.resolvedHref;
@@ -7150,12 +7150,12 @@ class Router {
                         ...data.effect.parsedAs.query
                     };
                     resolvedAs = (0, _removebasepath.removeBasePath)((0, _normalizelocalepath.normalizeLocalePath)(data.effect.parsedAs.pathname, this.locales).pathname);
-                    // Check again the cache with the new destination.
+                    
                     existingInfo = this.components[route];
                     if (routeProps.shallow && existingInfo && this.route === route && !hasMiddleware) {
-                        // If we have a match with the current route due to rewrite,
-                        // we can copy the existing information to the rewritten one.
-                        // Then, we return the information along with the matched route.
+                        
+                        
+                        
                         return {
                             ...existingInfo,
                             route
@@ -7188,8 +7188,8 @@ class Router {
             }
             const wasBailedPrefetch = data?.response?.headers.get('x-middleware-skip');
             const shouldFetchData = routeInfo.__N_SSG || routeInfo.__N_SSP;
-            // For non-SSG prefetches that bailed before sending data
-            // we clear the cache to fetch full response
+            
+            
             if (wasBailedPrefetch && data?.dataHref) {
                 delete this.sdc[data.dataHref];
             }
@@ -7235,15 +7235,15 @@ class Router {
                     })
                 };
             });
-            // Only bust the data cache for SSP routes although
-            // middleware can skip cache per request with
-            // x-middleware-cache: no-cache as well
+            
+            
+            
             if (routeInfo.__N_SSP && fetchNextDataParams.dataHref && cacheKey) {
                 delete this.sdc[cacheKey];
             }
-            // we kick off a HEAD request in the background
-            // when a non-prefetch request is made to signal revalidation
-            if (!this.isPreview && routeInfo.__N_SSG && ("TURBOPACK compile-time value", "development") !== 'development' && !isQueryUpdating) //TURBOPACK unreachable
+            
+            
+            if (!this.isPreview && routeInfo.__N_SSG && ("TURBOPACK compile-time value", "development") !== 'development' && !isQueryUpdating) 
             ;
             props.pageProps = Object.assign({}, props.pageProps);
             routeInfo.props = props;
@@ -7260,49 +7260,49 @@ class Router {
         this.state = state;
         return this.sub(data, this.components['/_app'].Component, resetScroll);
     }
-    /**
-   * Callback to execute before replacing router state
-   * @param cb callback to be executed
-   */ beforePopState(cb) {
+    
+
+
+ beforePopState(cb) {
         this._bps = cb;
     }
     onlyAHashChange(as) {
         if (!this.asPath) return false;
         const [oldUrlNoHash, oldHash] = this.asPath.split('#', 2);
         const [newUrlNoHash, newHash] = as.split('#', 2);
-        // Makes sure we scroll to the provided hash if the url/hash are the same
+        
         if (newHash && oldUrlNoHash === newUrlNoHash && oldHash === newHash) {
             return true;
         }
-        // If the urls are change, there's more than a hash change
+        
         if (oldUrlNoHash !== newUrlNoHash) {
             return false;
         }
-        // If the hash has changed, then it's a hash only change.
-        // This check is necessary to handle both the enter and
-        // leave hash === '' cases. The identity case falls through
-        // and is treated as a next reload.
+        
+        
+        
+        
         return oldHash !== newHash;
     }
     scrollToHash(as) {
         const [, hash = ''] = as.split('#', 2);
         (0, _disablesmoothscroll.disableSmoothScrollDuringRouteTransition)(()=>{
-            // Scroll to top if the hash is just `#` with no value or `#top`
-            // To mirror browsers
+            
+            
             if (hash === '' || hash === 'top') {
                 window.scrollTo(0, 0);
                 return;
             }
-            // Decode hash to make non-latin anchor works.
+            
             const rawHash = decodeURIComponent(hash);
-            // First we check if the element by id is found
+            
             const idEl = document.getElementById(rawHash);
             if (idEl) {
                 idEl.scrollIntoView();
                 return;
             }
-            // If there's no element with the id, we check the `name` property
-            // To mirror browsers
+            
+            
             const nameEl = document.getElementsByName(rawHash)[0];
             if (nameEl) {
                 nameEl.scrollIntoView();
@@ -7314,17 +7314,17 @@ class Router {
     urlIsNew(asPath) {
         return this.asPath !== asPath;
     }
-    /**
-   * Prefetch page code, you may wait for the data during page rendering.
-   * This feature only works in production!
-   * @param url the href of prefetched page
-   * @param asPath the as path of the prefetched page
-   */ async prefetch(url, asPath = url, options = {}) {
-        // Prefetch is not supported in development mode because it would trigger on-demand-entries
+    
+
+
+
+
+ async prefetch(url, asPath = url, options = {}) {
+        
         if ("TURBOPACK compile-time truthy", 1) {
             return;
         }
-        //TURBOPACK unreachable
+        
         ;
         let parsed;
         const urlPathname = undefined;
@@ -7405,7 +7405,7 @@ class Router {
     get isPreview() {
         return this.state.isPreview;
     }
-} //# sourceMappingURL=router.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-config.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -7461,9 +7461,9 @@ const imageConfigDefault = {
     path: '/_next/image',
     loader: 'default',
     loaderFile: '',
-    /**
-   * @deprecated Use `remotePatterns` instead to protect your application from malicious users.
-   */ domains: [],
+    
+
+ domains: [],
     disableStaticImages: false,
     minimumCacheTTL: 14400,
     formats: [
@@ -7480,12 +7480,12 @@ const imageConfigDefault = {
         75
     ],
     unoptimized: false
-}; //# sourceMappingURL=image-config.js.map
+}; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-config-context.shared-runtime.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -7497,17 +7497,17 @@ Object.defineProperty(exports, "ImageConfigContext", {
     }
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
+const _react =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
 const _imageconfig = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-config.js [client] (ecmascript)");
 const ImageConfigContext = _react.default.createContext(_imageconfig.imageConfigDefault);
 if ("TURBOPACK compile-time truthy", 1) {
     ImageConfigContext.displayName = 'ImageConfigContext';
-} //# sourceMappingURL=image-config-context.shared-runtime.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/app-router-context.shared-runtime.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 'use client';
 "use strict";
 Object.defineProperty(exports, "__esModule", {
@@ -7544,7 +7544,7 @@ _export(exports, {
     }
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
+const _react =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
 const AppRouterContext = _react.default.createContext(null);
 const LayoutRouterContext = _react.default.createContext(null);
 const GlobalLayoutRouterContext = _react.default.createContext(null);
@@ -7555,12 +7555,12 @@ if ("TURBOPACK compile-time truthy", 1) {
     GlobalLayoutRouterContext.displayName = 'GlobalLayoutRouterContext';
     TemplateContext.displayName = 'TemplateContext';
 }
-const MissingSlotContext = _react.default.createContext(new Set()); //# sourceMappingURL=app-router-context.shared-runtime.js.map
+const MissingSlotContext = _react.default.createContext(new Set()); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/hooks-client-context.shared-runtime.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 'use client';
 "use strict";
 Object.defineProperty(exports, "__esModule", {
@@ -7613,13 +7613,13 @@ if ("TURBOPACK compile-time truthy", 1) {
     PathnameContext.displayName = 'PathnameContext';
     PathParamsContext.displayName = 'PathParamsContext';
     NavigationPromisesContext.displayName = 'NavigationPromisesContext';
-} //# sourceMappingURL=hooks-client-context.shared-runtime.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/as-path-to-search-params.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-// Convert router.asPath to a URLSearchParams object
-// example: /dynamic/[slug]?foo=bar -> { foo: 'bar' }
+
+
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -7631,7 +7631,7 @@ Object.defineProperty(exports, "asPathToSearchParams", {
 });
 function asPathToSearchParams(asPath) {
     return new URL(asPath, 'http://n').searchParams;
-} //# sourceMappingURL=as-path-to-search-params.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/adapters.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -7667,7 +7667,7 @@ _export(exports, {
 });
 const _interop_require_wildcard = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/jsx-runtime.js [client] (ecmascript)");
-const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
+const _react =  _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
 const _hooksclientcontextsharedruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/hooks-client-context.shared-runtime.js [client] (ecmascript)");
 const _utils = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/index.js [client] (ecmascript)");
 const _aspathtosearchparams = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/as-path-to-search-params.js [client] (ecmascript)");
@@ -7720,41 +7720,41 @@ function adaptForPathParams(router) {
 function PathnameContextProviderAdapter({ children, router, ...props }) {
     const ref = (0, _react.useRef)(props.isAutoExport);
     const value = (0, _react.useMemo)(()=>{
-        // isAutoExport is only ever `true` on the first render from the server,
-        // so reset it to `false` after we read it for the first time as `true`. If
-        // we don't use the value, then we don't need it.
+        
+        
+        
         const isAutoExport = ref.current;
         if (isAutoExport) {
             ref.current = false;
         }
-        // When the route is a dynamic route, we need to do more processing to
-        // determine if we need to stop showing the pathname.
+        
+        
         if ((0, _utils.isDynamicRoute)(router.pathname)) {
-            // When the router is rendering the fallback page, it can't possibly know
-            // the path, so return `null` here. Read more about fallback pages over
-            // at:
-            // https://nextjs.org/docs/api-reference/data-fetching/get-static-paths#fallback-pages
+            
+            
+            
+            
             if (router.isFallback) {
                 return null;
             }
-            // When `isAutoExport` is true, meaning this is a page page has been
-            // automatically statically optimized, and the router is not ready, then
-            // we can't know the pathname yet. Read more about automatic static
-            // optimization at:
-            // https://nextjs.org/docs/advanced-features/automatic-static-optimization
+            
+            
+            
+            
+            
             if (isAutoExport && !router.isReady) {
                 return null;
             }
         }
-        // The `router.asPath` contains the pathname seen by the browser (including
-        // any query strings), so it should have that stripped. Read more about the
-        // `asPath` option over at:
-        // https://nextjs.org/docs/api-reference/next/router#router-object
+        
+        
+        
+        
         let url;
         try {
             url = new URL(router.asPath, 'http://f');
         } catch (_) {
-            // fallback to / for invalid asPath values e.g. //
+            
             return '/';
         }
         return url.pathname;
@@ -7764,16 +7764,16 @@ function PathnameContextProviderAdapter({ children, router, ...props }) {
         router.isReady,
         router.pathname
     ]);
-    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_hooksclientcontextsharedruntime.PathnameContext.Provider, {
+    return  (0, _jsxruntime.jsx)(_hooksclientcontextsharedruntime.PathnameContext.Provider, {
         value: value,
         children: children
     });
-} //# sourceMappingURL=adapters.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/lazy-dynamic/bailout-to-csr.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-// This has to be a shared module which is shared between client component error boundary and dynamic component
+
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -7806,7 +7806,7 @@ function isBailoutToCSRError(err) {
         return false;
     }
     return err.digest === BAILOUT_TO_CSR;
-} //# sourceMappingURL=bailout-to-csr.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/error-source.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -7843,7 +7843,7 @@ function decorateServerError(error, type) {
         configurable: false,
         value: type
     });
-} //# sourceMappingURL=error-source.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/normalized-asset-prefix.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -7858,10 +7858,10 @@ Object.defineProperty(exports, "normalizedAssetPrefix", {
     }
 });
 function normalizedAssetPrefix(assetPrefix) {
-    // remove all leading slashes and trailing slashes
+    
     const escapedAssetPrefix = assetPrefix?.replace(/^\/+|\/+$/g, '') || false;
-    // if an assetPrefix was '/', we return empty string
-    // because it could be an unnecessary trailing slash
+    
+    
     if (!escapedAssetPrefix) {
         return '';
     }
@@ -7869,37 +7869,37 @@ function normalizedAssetPrefix(assetPrefix) {
         const url = new URL(escapedAssetPrefix).toString();
         return url.endsWith('/') ? url.slice(0, -1) : url;
     }
-    // assuming assetPrefix here is a pathname-style,
-    // restore the leading slash
+    
+    
     return `/${escapedAssetPrefix}`;
-} //# sourceMappingURL=normalized-asset-prefix.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/format-webpack-messages.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
-MIT License
 
-Copyright (c) 2015-present, Facebook, Inc.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-*/ Object.defineProperty(exports, "__esModule", {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 Object.defineProperty(exports, "default", {
@@ -7909,18 +7909,18 @@ Object.defineProperty(exports, "default", {
     }
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _stripansi = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/strip-ansi/index.js [client] (ecmascript)"));
-// This file is based on https://github.com/facebook/create-react-app/blob/7b1a32be6ec9f99a6c9a3c66813f3ac09c4736b9/packages/react-dev-utils/formatWebpackMessages.js
-// It's been edited to remove chalk and CRA-specific logic
+const _stripansi =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/strip-ansi/index.js [client] (ecmascript)"));
+
+
 const friendlySyntaxErrorLabel = 'Syntax error:';
 const WEBPACK_BREAKING_CHANGE_POLYFILLS = '\n\nBREAKING CHANGE: webpack < 5 used to include polyfills for node.js core modules by default.';
 function isLikelyASyntaxError(message) {
     return (0, _stripansi.default)(message).includes(friendlySyntaxErrorLabel);
 }
 let hadMissingSassError = false;
-// Cleans up webpack error messages.
+
 function formatMessage(message, verbose, importTraceNote) {
-    // TODO: Replace this once webpack 5 is stable
+    
     if (typeof message === 'object' && message.message) {
         const filteredModuleTrace = message.moduleTrace && message.moduleTrace.filter((trace)=>!/next-(middleware|client-pages|route|edge-function)-loader\.js/.test(trace.originName));
         let body = message.message;
@@ -7931,11 +7931,11 @@ function formatMessage(message, verbose, importTraceNote) {
         message = (message.moduleName ? (0, _stripansi.default)(message.moduleName) + '\n' : '') + (message.file ? (0, _stripansi.default)(message.file) + '\n' : '') + body + (message.details && verbose ? '\n' + message.details : '') + (filteredModuleTrace && filteredModuleTrace.length ? (importTraceNote || '\n\nImport trace for requested module:') + filteredModuleTrace.map((trace)=>`\n${trace.moduleName}`).join('') : '') + (message.stack && verbose ? '\n' + message.stack : '');
     }
     let lines = message.split('\n');
-    // Strip Webpack-added headers off errors/warnings
-    // https://github.com/webpack/webpack/blob/master/lib/ModuleError.js
+    
+    
     lines = lines.filter((line)=>!/Module [A-z ]+\(from/.test(line));
-    // Transform parsing error into syntax error
-    // TODO: move this to our ESLint formatter?
+    
+    
     lines = lines.map((line)=>{
         const parsingError = /Line (\d+):(?:(\d+):)?\s*Parsing error: (.+)$/.exec(line);
         if (!parsingError) {
@@ -7945,18 +7945,18 @@ function formatMessage(message, verbose, importTraceNote) {
         return `${friendlySyntaxErrorLabel} ${errorMessage} (${errorLine}:${errorColumn})`;
     });
     message = lines.join('\n');
-    // Smoosh syntax errors (commonly found in CSS)
+    
     message = message.replace(/SyntaxError\s+\((\d+):(\d+)\)\s*(.+?)\n/g, `${friendlySyntaxErrorLabel} $3 ($1:$2)\n`);
-    // Clean up export errors
+    
     message = message.replace(/^.*export '(.+?)' was not found in '(.+?)'.*$/gm, `Attempted import error: '$1' is not exported from '$2'.`);
     message = message.replace(/^.*export 'default' \(imported as '(.+?)'\) was not found in '(.+?)'.*$/gm, `Attempted import error: '$2' does not contain a default export (imported as '$1').`);
     message = message.replace(/^.*export '(.+?)' \(imported as '(.+?)'\) was not found in '(.+?)'.*$/gm, `Attempted import error: '$1' is not exported from '$3' (imported as '$2').`);
     lines = message.split('\n');
-    // Remove leading newline
+    
     if (lines.length > 2 && lines[1].trim() === '') {
         lines.splice(1, 1);
     }
-    // Cleans up verbose "module not found" messages for files and packages.
+    
     if (lines[1] && lines[1].startsWith('Module not found: ')) {
         lines = [
             lines[0],
@@ -7964,37 +7964,37 @@ function formatMessage(message, verbose, importTraceNote) {
             ...lines.slice(2)
         ];
     }
-    // Add helpful message for users trying to use Sass for the first time
+    
     if (lines[1] && lines[1].match(/Cannot find module.+sass/)) {
-        // ./file.module.scss (<<loader info>>) => ./file.module.scss
+        
         const firstLine = lines[0].split('!');
         lines[0] = firstLine[firstLine.length - 1];
         lines[1] = "To use Next.js' built-in Sass support, you first need to install `sass`.\n";
         lines[1] += 'Run `npm i sass` or `yarn add sass` inside your workspace.\n';
         lines[1] += '\nLearn more: https://nextjs.org/docs/messages/install-sass';
-        // dispose of unhelpful stack trace
+        
         lines = lines.slice(0, 2);
         hadMissingSassError = true;
     } else if (hadMissingSassError && message.match(/(sass-loader|resolve-url-loader: CSS error)/)) {
-        // dispose of unhelpful stack trace following missing sass module
+        
         lines = [];
     }
     if (!verbose) {
         message = lines.join('\n');
-        // Internal stacks are generally useless so we strip them... with the
-        // exception of stacks containing `webpack:` because they're normally
-        // from user code generated by Webpack. For more information see
-        // https://github.com/facebook/create-react-app/pull/1050
-        message = message.replace(/^\s*at\s((?!webpack:).)*:\d+:\d+[\s)]*(\n|$)/gm, '') // at ... ...:x:y
+        
+        
+        
+        
+        message = message.replace(/^\s*at\s((?!webpack:).)*:\d+:\d+[\s)]*(\n|$)/gm, '') 
         ;
-        message = message.replace(/^\s*at\s<anonymous>(\n|$)/gm, '') // at <anonymous>
+        message = message.replace(/^\s*at\s<anonymous>(\n|$)/gm, '') 
         ;
         message = message.replace(/File was processed with these loaders:\n(.+[\\/](next[\\/]dist[\\/].+|@next[\\/]react-refresh-utils[\\/]loader)\.js\n)*You may need an additional loader to handle the result of these loaders.\n/g, '');
         lines = message.split('\n');
     }
-    // Remove duplicated newlines
+    
     lines = lines.filter((line, index, arr)=>index === 0 || line.trim() !== '' || line.trim() !== arr[index - 1].trim());
-    // Reassemble the message
+    
     message = lines.join('\n');
     return message.trim();
 }
@@ -8006,7 +8006,7 @@ function formatWebpackMessages(json, verbose) {
     const formattedWarnings = json.warnings.map((message)=>{
         return formatMessage(message, verbose);
     });
-    // Reorder errors to put the most relevant ones first.
+    
     let reactServerComponentsError = -1;
     for(let i = 0; i < formattedErrors.length; i++){
         const error = formattedErrors[i];
@@ -8015,7 +8015,7 @@ function formatWebpackMessages(json, verbose) {
             break;
         }
     }
-    // Move the reactServerComponentsError to the top if it exists
+    
     if (reactServerComponentsError !== -1) {
         const error = formattedErrors.splice(reactServerComponentsError, 1);
         formattedErrors.unshift(error[0]);
@@ -8026,13 +8026,12 @@ function formatWebpackMessages(json, verbose) {
         warnings: formattedWarnings
     };
     if (!verbose && result.errors.some(isLikelyASyntaxError)) {
-        // If there are any syntax errors, show just them.
+        
         result.errors = result.errors.filter(isLikelyASyntaxError);
         result.warnings = [];
     }
     return result;
-} //# sourceMappingURL=format-webpack-messages.js.map
+} 
 }),
 ]);
 
-//# sourceMappingURL=c729b_next_dist_shared_lib_2e7e7a8b._.js.map

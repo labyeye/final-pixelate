@@ -98,7 +98,7 @@ __turbopack_context__.s([
 ]);
 function buildFormatLongFn(args) {
     return (options = {})=>{
-        // TODO: Remove String()
+        
         const width = options.width ? String(options.width) : args.defaultWidth;
         const format = args.formats[width] || args.formats[args.defaultWidth];
         return format;
@@ -167,30 +167,30 @@ const formatRelative = (token, _date, _baseDate, _options)=>formatRelativeLocale
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/date-fns/locale/_lib/buildLocalizeFn.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/* eslint-disable no-unused-vars */ /**
- * The localize function argument callback which allows to convert raw value to
- * the actual type.
- *
- * @param value - The value to convert
- *
- * @returns The converted value
- */ /**
- * The map of localized values for each width.
- */ /**
- * The index type of the locale unit value. It types conversion of units of
- * values that don't start at 0 (i.e. quarters).
- */ /**
- * Converts the unit value to the tuple of values.
- */ /**
- * The tuple of localized era values. The first element represents BC,
- * the second element represents AD.
- */ /**
- * The tuple of localized quarter values. The first element represents Q1.
- */ /**
- * The tuple of localized day values. The first element represents Sunday.
- */ /**
- * The tuple of localized month values. The first element represents January.
- */ __turbopack_context__.s([
+ 
+
+
+
+
+
+
+ 
+
+ 
+
+
+ 
+
+ 
+
+
+ 
+
+ 
+
+ 
+
+ __turbopack_context__.s([
     "buildLocalizeFn",
     ()=>buildLocalizeFn
 ]);
@@ -208,7 +208,7 @@ function buildLocalizeFn(args) {
             valuesArray = args.values[width] || args.values[defaultWidth];
         }
         const index = args.argumentCallback ? args.argumentCallback(value) : value;
-        // @ts-expect-error - For some reason TypeScript just don't want to match it, no matter how hard we try. I challenge you to try to remove it!
+        
         return valuesArray[index];
     };
 }
@@ -256,10 +256,10 @@ const quarterValues = {
         "4th quarter"
     ]
 };
-// Note: in English, the names of days of the week and months are capitalized.
-// If you are making a new locale based on this one, check if the same is true for the language you're working on.
-// Generally, formatted dates should look like they are in the middle of a sentence,
-// e.g. in Spanish language the weekdays and months should be in the lowercase.
+
+
+
+
 const monthValues = {
     narrow: [
         "J",
@@ -408,12 +408,12 @@ const formattingDayPeriodValues = {
 };
 const ordinalNumber = (dirtyNumber, _options)=>{
     const number = Number(dirtyNumber);
-    // If ordinal numbers depend on context, for example,
-    // if they are different for different grammatical genders,
-    // use `options.unit`.
-    //
-    // `unit` can be 'year', 'quarter', 'month', 'week', 'date', 'dayOfYear',
-    // 'day', 'hour', 'minute', 'second'.
+    
+    
+    
+    
+    
+    
     const rem100 = number % 100;
     if (rem100 > 20 || rem100 < 10) {
         switch(rem100 % 10){
@@ -514,7 +514,7 @@ function buildMatchPatternFn(args) {
         const parseResult = string.match(args.parsePattern);
         if (!parseResult) return null;
         let value = args.valueCallback ? args.valueCallback(parseResult[0]) : parseResult[0];
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- I challange you to fix the type
+        
         value = options.valueCallback ? options.valueCallback(value) : value;
         const rest = string.slice(matchedString.length);
         return {
@@ -704,7 +704,7 @@ const enUS = {
     localize: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$locale$2f$en$2d$US$2f$_lib$2f$localize$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["localize"],
     match: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$locale$2f$en$2d$US$2f$_lib$2f$match$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["match"],
     options: {
-        weekStartsOn: 0 /* Sunday */ ,
+        weekStartsOn: 0  ,
         firstWeekContainsDate: 1
     }
 };
@@ -739,26 +739,26 @@ function setDefaultOptions(newOptions) {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/date-fns/constants.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @module constants
- * @summary Useful constants
- * @description
- * Collection of useful date constants.
- *
- * The constants could be imported from `date-fns/constants`:
- *
- * ```ts
- * import { maxTime, minTime } from "./constants/date-fns/constants";
- *
- * function isAllowedTime(time) {
- *   return time <= maxTime && time >= minTime;
- * }
- * ```
- */ /**
- * @constant
- * @name daysInWeek
- * @summary Days in 1 week.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ __turbopack_context__.s([
     "daysInWeek",
     ()=>daysInWeek,
     "daysInYear",
@@ -833,38 +833,38 @@ const secondsInQuarter = secondsInMonth * 3;
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/date-fns/toDate.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @name toDate
- * @category Common Helpers
- * @summary Convert the given argument to an instance of Date.
- *
- * @description
- * Convert the given argument to an instance of Date.
- *
- * If the argument is an instance of Date, the function returns its clone.
- *
- * If the argument is a number, it is treated as a timestamp.
- *
- * If the argument is none of the above, the function returns Invalid Date.
- *
- * **Note**: *all* Date arguments passed to any *date-fns* function is processed by `toDate`.
- *
- * @typeParam DateType - The `Date` type, the function operates on. Gets inferred from passed arguments. Allows to use extensions like [`UTCDate`](https://github.com/date-fns/utc).
- *
- * @param argument - The value to convert
- *
- * @returns The parsed date in the local time zone
- *
- * @example
- * // Clone the date:
- * const result = toDate(new Date(2014, 1, 11, 11, 30, 30))
- * //=> Tue Feb 11 2014 11:30:30
- *
- * @example
- * // Convert the timestamp to date:
- * const result = toDate(1392098430000)
- * //=> Tue Feb 11 2014 11:30:30
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "default",
     ()=>__TURBOPACK__default__export__,
     "toDate",
@@ -872,15 +872,15 @@ const secondsInQuarter = secondsInMonth * 3;
 ]);
 function toDate(argument) {
     const argStr = Object.prototype.toString.call(argument);
-    // Clone the date
+    
     if (argument instanceof Date || typeof argument === "object" && argStr === "[object Date]") {
-        // Prevent the date to lose the milliseconds when passed to new Date() in IE10
+        
         return new argument.constructor(+argument);
     } else if (typeof argument === "number" || argStr === "[object Number]" || typeof argument === "string" || argStr === "[object String]") {
-        // TODO: Can we get rid of as?
+        
         return new Date(argument);
     } else {
-        // TODO: Can we get rid of as?
+        
         return new Date(NaN);
     }
 }
@@ -940,9 +940,9 @@ function differenceInCalendarDays(dateLeft, dateRight) {
     const startOfDayRight = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfDay$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfDay"])(dateRight);
     const timestampLeft = +startOfDayLeft - (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$getTimezoneOffsetInMilliseconds$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getTimezoneOffsetInMilliseconds"])(startOfDayLeft);
     const timestampRight = +startOfDayRight - (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$getTimezoneOffsetInMilliseconds$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getTimezoneOffsetInMilliseconds"])(startOfDayRight);
-    // Round the number of days to the nearest integer because the number of
-    // milliseconds in a day is not constant (e.g. it's different in the week of
-    // the daylight saving time clock shift).
+    
+    
+    
     return Math.round((timestampLeft - timestampRight) / __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$constants$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["millisecondsInDay"]);
 }
 const __TURBOPACK__default__export__ = differenceInCalendarDays;
@@ -950,36 +950,36 @@ const __TURBOPACK__default__export__ = differenceInCalendarDays;
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/date-fns/constructFrom.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @name constructFrom
- * @category Generic Helpers
- * @summary Constructs a date using the reference date and the value
- *
- * @description
- * The function constructs a new date using the constructor from the reference
- * date and the given value. It helps to build generic functions that accept
- * date extensions.
- *
- * It defaults to `Date` if the passed reference date is a number or a string.
- *
- * @typeParam DateType - The `Date` type, the function operates on. Gets inferred from passed arguments. Allows to use extensions like [`UTCDate`](https://github.com/date-fns/utc).
- *
- * @param date - The reference date to take constructor from
- * @param value - The value to create the date
- *
- * @returns Date initialized using the given date and value
- *
- * @example
- * import { constructFrom } from 'date-fns'
- *
- * // A function that clones a date preserving the original type
- * function cloneDate<DateType extends Date(date: DateType): DateType {
- *   return constructFrom(
- *     date, // Use contrustor from the given date
- *     date.getTime() // Use the date value to create a new date
- *   )
- * }
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "constructFrom",
     ()=>constructFrom,
     "default",
@@ -1162,9 +1162,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 function getISOWeek(date) {
     const _date = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$toDate$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toDate"])(date);
     const diff = +(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfISOWeek$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfISOWeek"])(_date) - +(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfISOWeekYear$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfISOWeekYear"])(_date);
-    // Round the number of weeks to the nearest integer because the number of
-    // milliseconds in a week is not constant (e.g. it's different in the week of
-    // the daylight saving time clock shift).
+    
+    
+    
     return Math.round(diff / __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$constants$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["millisecondsInWeek"]) + 1;
 }
 const __TURBOPACK__default__export__ = getISOWeek;
@@ -1258,9 +1258,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 function getWeek(date, options) {
     const _date = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$toDate$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toDate"])(date);
     const diff = +(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfWeek$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfWeek"])(_date, options) - +(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfWeekYear$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfWeekYear"])(_date, options);
-    // Round the number of weeks to the nearest integer because the number of
-    // milliseconds in a week is not constant (e.g. it's different in the week of
-    // the daylight saving time clock shift).
+    
+    
+    
     return Math.round(diff / __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$constants$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["millisecondsInWeek"]) + 1;
 }
 const __TURBOPACK__default__export__ = getWeek;
@@ -1288,31 +1288,31 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/date-fns/_lib/addLeadingZeros.mjs [app-client] (ecmascript)");
 ;
 const lightFormatters = {
-    // Year
+    
     y (date, token) {
-        // From http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_tokens
-        // | Year     |     y | yy |   yyy |  yyyy | yyyyy |
-        // |----------|-------|----|-------|-------|-------|
-        // | AD 1     |     1 | 01 |   001 |  0001 | 00001 |
-        // | AD 12    |    12 | 12 |   012 |  0012 | 00012 |
-        // | AD 123   |   123 | 23 |   123 |  0123 | 00123 |
-        // | AD 1234  |  1234 | 34 |  1234 |  1234 | 01234 |
-        // | AD 12345 | 12345 | 45 | 12345 | 12345 | 12345 |
+        
+        
+        
+        
+        
+        
+        
+        
         const signedYear = date.getFullYear();
-        // Returns 1 for 1 BC (which is year 0 in JavaScript)
+        
         const year = signedYear > 0 ? signedYear : 1 - signedYear;
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(token === "yy" ? year % 100 : year, token.length);
     },
-    // Month
+    
     M (date, token) {
         const month = date.getMonth();
         return token === "M" ? String(month + 1) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(month + 1, 2);
     },
-    // Day of the month
+    
     d (date, token) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(date.getDate(), token.length);
     },
-    // AM or PM
+    
     a (date, token) {
         const dayPeriodEnumValue = date.getHours() / 12 >= 1 ? "pm" : "am";
         switch(token){
@@ -1328,23 +1328,23 @@ const lightFormatters = {
                 return dayPeriodEnumValue === "am" ? "a.m." : "p.m.";
         }
     },
-    // Hour [1-12]
+    
     h (date, token) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(date.getHours() % 12 || 12, token.length);
     },
-    // Hour [0-23]
+    
     H (date, token) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(date.getHours(), token.length);
     },
-    // Minute
+    
     m (date, token) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(date.getMinutes(), token.length);
     },
-    // Second
+    
     s (date, token) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(date.getSeconds(), token.length);
     },
-    // Fraction of second
+    
     S (date, token) {
         const numberOfDigits = token.length;
         const milliseconds = date.getMilliseconds();
@@ -1385,23 +1385,23 @@ const dayPeriodEnum = {
     night: "night"
 };
 const formatters = {
-    // Era
+    
     G: function(date, token, localize) {
         const era = date.getFullYear() > 0 ? 1 : 0;
         switch(token){
-            // AD, BC
+            
             case "G":
             case "GG":
             case "GGG":
                 return localize.era(era, {
                     width: "abbreviated"
                 });
-            // A, B
+            
             case "GGGGG":
                 return localize.era(era, {
                     width: "narrow"
                 });
-            // Anno Domini, Before Christ
+            
             case "GGGG":
             default:
                 return localize.era(era, {
@@ -1409,12 +1409,12 @@ const formatters = {
                 });
         }
     },
-    // Year
+    
     y: function(date, token, localize) {
-        // Ordinal number
+        
         if (token === "yo") {
             const signedYear = date.getFullYear();
-            // Returns 1 for 1 BC (which is year 0 in JavaScript)
+            
             const year = signedYear > 0 ? signedYear : 1 - signedYear;
             return localize.ordinalNumber(year, {
                 unit: "year"
@@ -1422,72 +1422,72 @@ const formatters = {
         }
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$format$2f$lightFormatters$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["lightFormatters"].y(date, token);
     },
-    // Local week-numbering year
+    
     Y: function(date, token, localize, options) {
         const signedWeekYear = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$getWeekYear$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getWeekYear"])(date, options);
-        // Returns 1 for 1 BC (which is year 0 in JavaScript)
+        
         const weekYear = signedWeekYear > 0 ? signedWeekYear : 1 - signedWeekYear;
-        // Two digit year
+        
         if (token === "YY") {
             const twoDigitYear = weekYear % 100;
             return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(twoDigitYear, 2);
         }
-        // Ordinal number
+        
         if (token === "Yo") {
             return localize.ordinalNumber(weekYear, {
                 unit: "year"
             });
         }
-        // Padding
+        
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(weekYear, token.length);
     },
-    // ISO week-numbering year
+    
     R: function(date, token) {
         const isoWeekYear = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$getISOWeekYear$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getISOWeekYear"])(date);
-        // Padding
+        
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(isoWeekYear, token.length);
     },
-    // Extended year. This is a single number designating the year of this calendar system.
-    // The main difference between `y` and `u` localizers are B.C. years:
-    // | Year | `y` | `u` |
-    // |------|-----|-----|
-    // | AC 1 |   1 |   1 |
-    // | BC 1 |   1 |   0 |
-    // | BC 2 |   2 |  -1 |
-    // Also `yy` always returns the last two digits of a year,
-    // while `uu` pads single digit years to 2 characters and returns other years unchanged.
+    
+    
+    
+    
+    
+    
+    
+    
+    
     u: function(date, token) {
         const year = date.getFullYear();
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(year, token.length);
     },
-    // Quarter
+    
     Q: function(date, token, localize) {
         const quarter = Math.ceil((date.getMonth() + 1) / 3);
         switch(token){
-            // 1, 2, 3, 4
+            
             case "Q":
                 return String(quarter);
-            // 01, 02, 03, 04
+            
             case "QQ":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(quarter, 2);
-            // 1st, 2nd, 3rd, 4th
+            
             case "Qo":
                 return localize.ordinalNumber(quarter, {
                     unit: "quarter"
                 });
-            // Q1, Q2, Q3, Q4
+            
             case "QQQ":
                 return localize.quarter(quarter, {
                     width: "abbreviated",
                     context: "formatting"
                 });
-            // 1, 2, 3, 4 (narrow quarter; could be not numerical)
+            
             case "QQQQQ":
                 return localize.quarter(quarter, {
                     width: "narrow",
                     context: "formatting"
                 });
-            // 1st quarter, 2nd quarter, ...
+            
             case "QQQQ":
             default:
                 return localize.quarter(quarter, {
@@ -1496,34 +1496,34 @@ const formatters = {
                 });
         }
     },
-    // Stand-alone quarter
+    
     q: function(date, token, localize) {
         const quarter = Math.ceil((date.getMonth() + 1) / 3);
         switch(token){
-            // 1, 2, 3, 4
+            
             case "q":
                 return String(quarter);
-            // 01, 02, 03, 04
+            
             case "qq":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(quarter, 2);
-            // 1st, 2nd, 3rd, 4th
+            
             case "qo":
                 return localize.ordinalNumber(quarter, {
                     unit: "quarter"
                 });
-            // Q1, Q2, Q3, Q4
+            
             case "qqq":
                 return localize.quarter(quarter, {
                     width: "abbreviated",
                     context: "standalone"
                 });
-            // 1, 2, 3, 4 (narrow quarter; could be not numerical)
+            
             case "qqqqq":
                 return localize.quarter(quarter, {
                     width: "narrow",
                     context: "standalone"
                 });
-            // 1st quarter, 2nd quarter, ...
+            
             case "qqqq":
             default:
                 return localize.quarter(quarter, {
@@ -1532,31 +1532,31 @@ const formatters = {
                 });
         }
     },
-    // Month
+    
     M: function(date, token, localize) {
         const month = date.getMonth();
         switch(token){
             case "M":
             case "MM":
                 return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$format$2f$lightFormatters$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["lightFormatters"].M(date, token);
-            // 1st, 2nd, ..., 12th
+            
             case "Mo":
                 return localize.ordinalNumber(month + 1, {
                     unit: "month"
                 });
-            // Jan, Feb, ..., Dec
+            
             case "MMM":
                 return localize.month(month, {
                     width: "abbreviated",
                     context: "formatting"
                 });
-            // J, F, ..., D
+            
             case "MMMMM":
                 return localize.month(month, {
                     width: "narrow",
                     context: "formatting"
                 });
-            // January, February, ..., December
+            
             case "MMMM":
             default:
                 return localize.month(month, {
@@ -1565,34 +1565,34 @@ const formatters = {
                 });
         }
     },
-    // Stand-alone month
+    
     L: function(date, token, localize) {
         const month = date.getMonth();
         switch(token){
-            // 1, 2, ..., 12
+            
             case "L":
                 return String(month + 1);
-            // 01, 02, ..., 12
+            
             case "LL":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(month + 1, 2);
-            // 1st, 2nd, ..., 12th
+            
             case "Lo":
                 return localize.ordinalNumber(month + 1, {
                     unit: "month"
                 });
-            // Jan, Feb, ..., Dec
+            
             case "LLL":
                 return localize.month(month, {
                     width: "abbreviated",
                     context: "standalone"
                 });
-            // J, F, ..., D
+            
             case "LLLLL":
                 return localize.month(month, {
                     width: "narrow",
                     context: "standalone"
                 });
-            // January, February, ..., December
+            
             case "LLLL":
             default:
                 return localize.month(month, {
@@ -1601,7 +1601,7 @@ const formatters = {
                 });
         }
     },
-    // Local week of year
+    
     w: function(date, token, localize, options) {
         const week = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$getWeek$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getWeek"])(date, options);
         if (token === "wo") {
@@ -1611,7 +1611,7 @@ const formatters = {
         }
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(week, token.length);
     },
-    // ISO week of year
+    
     I: function(date, token, localize) {
         const isoWeek = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$getISOWeek$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getISOWeek"])(date);
         if (token === "Io") {
@@ -1621,7 +1621,7 @@ const formatters = {
         }
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(isoWeek, token.length);
     },
-    // Day of the month
+    
     d: function(date, token, localize) {
         if (token === "do") {
             return localize.ordinalNumber(date.getDate(), {
@@ -1630,7 +1630,7 @@ const formatters = {
         }
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$format$2f$lightFormatters$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["lightFormatters"].d(date, token);
     },
-    // Day of year
+    
     D: function(date, token, localize) {
         const dayOfYear = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$getDayOfYear$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDayOfYear"])(date);
         if (token === "Do") {
@@ -1640,11 +1640,11 @@ const formatters = {
         }
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(dayOfYear, token.length);
     },
-    // Day of week
+    
     E: function(date, token, localize) {
         const dayOfWeek = date.getDay();
         switch(token){
-            // Tue
+            
             case "E":
             case "EE":
             case "EEE":
@@ -1652,19 +1652,19 @@ const formatters = {
                     width: "abbreviated",
                     context: "formatting"
                 });
-            // T
+            
             case "EEEEE":
                 return localize.day(dayOfWeek, {
                     width: "narrow",
                     context: "formatting"
                 });
-            // Tu
+            
             case "EEEEEE":
                 return localize.day(dayOfWeek, {
                     width: "short",
                     context: "formatting"
                 });
-            // Tuesday
+            
             case "EEEE":
             default:
                 return localize.day(dayOfWeek, {
@@ -1673,18 +1673,18 @@ const formatters = {
                 });
         }
     },
-    // Local day of week
+    
     e: function(date, token, localize, options) {
         const dayOfWeek = date.getDay();
         const localDayOfWeek = (dayOfWeek - options.weekStartsOn + 8) % 7 || 7;
         switch(token){
-            // Numerical value (Nth day of week with current locale or weekStartsOn)
+            
             case "e":
                 return String(localDayOfWeek);
-            // Padded numerical value
+            
             case "ee":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(localDayOfWeek, 2);
-            // 1st, 2nd, ..., 7th
+            
             case "eo":
                 return localize.ordinalNumber(localDayOfWeek, {
                     unit: "day"
@@ -1694,19 +1694,19 @@ const formatters = {
                     width: "abbreviated",
                     context: "formatting"
                 });
-            // T
+            
             case "eeeee":
                 return localize.day(dayOfWeek, {
                     width: "narrow",
                     context: "formatting"
                 });
-            // Tu
+            
             case "eeeeee":
                 return localize.day(dayOfWeek, {
                     width: "short",
                     context: "formatting"
                 });
-            // Tuesday
+            
             case "eeee":
             default:
                 return localize.day(dayOfWeek, {
@@ -1715,18 +1715,18 @@ const formatters = {
                 });
         }
     },
-    // Stand-alone local day of week
+    
     c: function(date, token, localize, options) {
         const dayOfWeek = date.getDay();
         const localDayOfWeek = (dayOfWeek - options.weekStartsOn + 8) % 7 || 7;
         switch(token){
-            // Numerical value (same as in `e`)
+            
             case "c":
                 return String(localDayOfWeek);
-            // Padded numerical value
+            
             case "cc":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(localDayOfWeek, token.length);
-            // 1st, 2nd, ..., 7th
+            
             case "co":
                 return localize.ordinalNumber(localDayOfWeek, {
                     unit: "day"
@@ -1736,19 +1736,19 @@ const formatters = {
                     width: "abbreviated",
                     context: "standalone"
                 });
-            // T
+            
             case "ccccc":
                 return localize.day(dayOfWeek, {
                     width: "narrow",
                     context: "standalone"
                 });
-            // Tu
+            
             case "cccccc":
                 return localize.day(dayOfWeek, {
                     width: "short",
                     context: "standalone"
                 });
-            // Tuesday
+            
             case "cccc":
             default:
                 return localize.day(dayOfWeek, {
@@ -1757,41 +1757,41 @@ const formatters = {
                 });
         }
     },
-    // ISO day of week
+    
     i: function(date, token, localize) {
         const dayOfWeek = date.getDay();
         const isoDayOfWeek = dayOfWeek === 0 ? 7 : dayOfWeek;
         switch(token){
-            // 2
+            
             case "i":
                 return String(isoDayOfWeek);
-            // 02
+            
             case "ii":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(isoDayOfWeek, token.length);
-            // 2nd
+            
             case "io":
                 return localize.ordinalNumber(isoDayOfWeek, {
                     unit: "day"
                 });
-            // Tue
+            
             case "iii":
                 return localize.day(dayOfWeek, {
                     width: "abbreviated",
                     context: "formatting"
                 });
-            // T
+            
             case "iiiii":
                 return localize.day(dayOfWeek, {
                     width: "narrow",
                     context: "formatting"
                 });
-            // Tu
+            
             case "iiiiii":
                 return localize.day(dayOfWeek, {
                     width: "short",
                     context: "formatting"
                 });
-            // Tuesday
+            
             case "iiii":
             default:
                 return localize.day(dayOfWeek, {
@@ -1800,7 +1800,7 @@ const formatters = {
                 });
         }
     },
-    // AM or PM
+    
     a: function(date, token, localize) {
         const hours = date.getHours();
         const dayPeriodEnumValue = hours / 12 >= 1 ? "pm" : "am";
@@ -1829,7 +1829,7 @@ const formatters = {
                 });
         }
     },
-    // AM, PM, midnight, noon
+    
     b: function(date, token, localize) {
         const hours = date.getHours();
         let dayPeriodEnumValue;
@@ -1865,7 +1865,7 @@ const formatters = {
                 });
         }
     },
-    // in the morning, in the afternoon, in the evening, at night
+    
     B: function(date, token, localize) {
         const hours = date.getHours();
         let dayPeriodEnumValue;
@@ -1899,7 +1899,7 @@ const formatters = {
                 });
         }
     },
-    // Hour [1-12]
+    
     h: function(date, token, localize) {
         if (token === "ho") {
             let hours = date.getHours() % 12;
@@ -1910,7 +1910,7 @@ const formatters = {
         }
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$format$2f$lightFormatters$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["lightFormatters"].h(date, token);
     },
-    // Hour [0-23]
+    
     H: function(date, token, localize) {
         if (token === "Ho") {
             return localize.ordinalNumber(date.getHours(), {
@@ -1919,7 +1919,7 @@ const formatters = {
         }
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$format$2f$lightFormatters$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["lightFormatters"].H(date, token);
     },
-    // Hour [0-11]
+    
     K: function(date, token, localize) {
         const hours = date.getHours() % 12;
         if (token === "Ko") {
@@ -1929,7 +1929,7 @@ const formatters = {
         }
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(hours, token.length);
     },
-    // Hour [1-24]
+    
     k: function(date, token, localize) {
         let hours = date.getHours();
         if (hours === 0) hours = 24;
@@ -1940,7 +1940,7 @@ const formatters = {
         }
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(hours, token.length);
     },
-    // Minute
+    
     m: function(date, token, localize) {
         if (token === "mo") {
             return localize.ordinalNumber(date.getMinutes(), {
@@ -1949,7 +1949,7 @@ const formatters = {
         }
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$format$2f$lightFormatters$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["lightFormatters"].m(date, token);
     },
-    // Second
+    
     s: function(date, token, localize) {
         if (token === "so") {
             return localize.ordinalNumber(date.getSeconds(), {
@@ -1958,93 +1958,93 @@ const formatters = {
         }
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$format$2f$lightFormatters$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["lightFormatters"].s(date, token);
     },
-    // Fraction of second
+    
     S: function(date, token) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$format$2f$lightFormatters$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["lightFormatters"].S(date, token);
     },
-    // Timezone (ISO-8601. If offset is 0, output is always `'Z'`)
+    
     X: function(date, token, _localize) {
         const timezoneOffset = date.getTimezoneOffset();
         if (timezoneOffset === 0) {
             return "Z";
         }
         switch(token){
-            // Hours and optional minutes
+            
             case "X":
                 return formatTimezoneWithOptionalMinutes(timezoneOffset);
-            // Hours, minutes and optional seconds without `:` delimiter
-            // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
-            // so this token always has the same output as `XX`
+            
+            
+            
             case "XXXX":
             case "XX":
                 return formatTimezone(timezoneOffset);
-            // Hours, minutes and optional seconds with `:` delimiter
-            // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
-            // so this token always has the same output as `XXX`
+            
+            
+            
             case "XXXXX":
             case "XXX":
             default:
                 return formatTimezone(timezoneOffset, ":");
         }
     },
-    // Timezone (ISO-8601. If offset is 0, output is `'+00:00'` or equivalent)
+    
     x: function(date, token, _localize) {
         const timezoneOffset = date.getTimezoneOffset();
         switch(token){
-            // Hours and optional minutes
+            
             case "x":
                 return formatTimezoneWithOptionalMinutes(timezoneOffset);
-            // Hours, minutes and optional seconds without `:` delimiter
-            // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
-            // so this token always has the same output as `xx`
+            
+            
+            
             case "xxxx":
             case "xx":
                 return formatTimezone(timezoneOffset);
-            // Hours, minutes and optional seconds with `:` delimiter
-            // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
-            // so this token always has the same output as `xxx`
+            
+            
+            
             case "xxxxx":
             case "xxx":
             default:
                 return formatTimezone(timezoneOffset, ":");
         }
     },
-    // Timezone (GMT)
+    
     O: function(date, token, _localize) {
         const timezoneOffset = date.getTimezoneOffset();
         switch(token){
-            // Short
+            
             case "O":
             case "OO":
             case "OOO":
                 return "GMT" + formatTimezoneShort(timezoneOffset, ":");
-            // Long
+            
             case "OOOO":
             default:
                 return "GMT" + formatTimezone(timezoneOffset, ":");
         }
     },
-    // Timezone (specific non-location)
+    
     z: function(date, token, _localize) {
         const timezoneOffset = date.getTimezoneOffset();
         switch(token){
-            // Short
+            
             case "z":
             case "zz":
             case "zzz":
                 return "GMT" + formatTimezoneShort(timezoneOffset, ":");
-            // Long
+            
             case "zzzz":
             default:
                 return "GMT" + formatTimezone(timezoneOffset, ":");
         }
     },
-    // Seconds timestamp
+    
     t: function(date, token, _localize) {
         const timestamp = Math.trunc(date.getTime() / 1000);
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(timestamp, token.length);
     },
-    // Milliseconds timestamp
+    
     T: function(date, token, _localize) {
         const timestamp = date.getTime();
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$addLeadingZeros$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addLeadingZeros"])(timestamp, token.length);
@@ -2200,38 +2200,38 @@ function message(token, format, input) {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/date-fns/isDate.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @name isDate
- * @category Common Helpers
- * @summary Is the given value a date?
- *
- * @description
- * Returns true if the given value is an instance of Date. The function works for dates transferred across iframes.
- *
- * @param value - The value to check
- *
- * @returns True if the given value is a date
- *
- * @example
- * // For a valid date:
- * const result = isDate(new Date())
- * //=> true
- *
- * @example
- * // For an invalid date:
- * const result = isDate(new Date(NaN))
- * //=> true
- *
- * @example
- * // For some value:
- * const result = isDate('2014-02-31')
- * //=> false
- *
- * @example
- * // For an object:
- * const result = isDate({})
- * //=> false
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "default",
     ()=>__TURBOPACK__default__export__,
     "isDate",
@@ -2290,17 +2290,17 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-// This RegExp consists of three parts separated by `|`:
-// - [yYQqMLwIdDecihHKkms]o matches any available ordinal number token
-//   (one of the certain letters followed by `o`)
-// - (\w)\1* matches any sequences of the same letter
-// - '' matches two quote characters in a row
-// - '(''|[^'])+('|$) matches anything surrounded by two quote characters ('),
-//   except a single quote symbol, which ends the sequence.
-//   Two quote characters do not end the sequence.
-//   If there is no matching single quote
-//   then the sequence will continue until the end of the string.
-// - . matches any single character unmatched by previous parts of the RegExps
+
+
+
+
+
+
+
+
+
+
+
 const formattingTokensRegExp = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g;
 // This RegExp catches symbols escaped by quotes, and also
 // sequences of symbols P, p, and the combinations like `PPPPPPPppppp`
@@ -2326,7 +2326,7 @@ function format(date, formatStr, options) {
         }
         return substring;
     }).join("").match(formattingTokensRegExp).map((substring)=>{
-        // Replace two single quote characters with one single quote character
+        
         if (substring === "''") {
             return {
                 isToken: false,
@@ -2354,7 +2354,7 @@ function format(date, formatStr, options) {
             value: substring
         };
     });
-    // invoke localize preprocessor (only for french locales at the moment)
+    
     if (locale.localize.preprocessor) {
         parts = locale.localize.preprocessor(originalDate, parts);
     }
@@ -2385,12 +2385,12 @@ const __TURBOPACK__default__export__ = format;
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/plus.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2416,7 +2416,7 @@ const __iconNode = [
 ];
 const Plus = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Plus", __iconNode);
 ;
- //# sourceMappingURL=plus.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/plus.js [app-client] (ecmascript) <export default as Plus>", ((__turbopack_context__) => {
 "use strict";
@@ -2430,12 +2430,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/ellipsis.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2474,7 +2474,7 @@ const __iconNode = [
 ];
 const Ellipsis = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Ellipsis", __iconNode);
 ;
- //# sourceMappingURL=ellipsis.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/ellipsis.js [app-client] (ecmascript) <export default as MoreHorizontal>", ((__turbopack_context__) => {
 "use strict";
@@ -2488,12 +2488,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/search.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2521,7 +2521,7 @@ const __iconNode = [
 ];
 const Search = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Search", __iconNode);
 ;
- //# sourceMappingURL=search.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/search.js [app-client] (ecmascript) <export default as Search>", ((__turbopack_context__) => {
 "use strict";
@@ -2535,12 +2535,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/filter.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2559,7 +2559,7 @@ const __iconNode = [
 ];
 const Filter = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Filter", __iconNode);
 ;
- //# sourceMappingURL=filter.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/filter.js [app-client] (ecmascript) <export default as Filter>", ((__turbopack_context__) => {
 "use strict";
@@ -2573,12 +2573,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/arrow-up-down.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2618,7 +2618,7 @@ const __iconNode = [
 ];
 const ArrowUpDown = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("ArrowUpDown", __iconNode);
 ;
- //# sourceMappingURL=arrow-up-down.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/arrow-up-down.js [app-client] (ecmascript) <export default as ArrowUpDown>", ((__turbopack_context__) => {
 "use strict";
@@ -2632,12 +2632,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/calendar.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2681,7 +2681,7 @@ const __iconNode = [
 ];
 const Calendar = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Calendar", __iconNode);
 ;
- //# sourceMappingURL=calendar.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/calendar.js [app-client] (ecmascript) <export default as Calendar>", ((__turbopack_context__) => {
 "use strict";
@@ -2695,12 +2695,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/flag.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2729,7 +2729,7 @@ const __iconNode = [
 ];
 const Flag = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Flag", __iconNode);
 ;
- //# sourceMappingURL=flag.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/flag.js [app-client] (ecmascript) <export default as Flag>", ((__turbopack_context__) => {
 "use strict";
@@ -2743,12 +2743,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/panels-top-left.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2785,7 +2785,7 @@ const __iconNode = [
 ];
 const PanelsTopLeft = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("PanelsTopLeft", __iconNode);
 ;
- //# sourceMappingURL=panels-top-left.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/panels-top-left.js [app-client] (ecmascript) <export default as Layout>", ((__turbopack_context__) => {
 "use strict";
@@ -2799,12 +2799,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/smile.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2852,7 +2852,7 @@ const __iconNode = [
 ];
 const Smile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Smile", __iconNode);
 ;
- //# sourceMappingURL=smile.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/smile.js [app-client] (ecmascript) <export default as Smile>", ((__turbopack_context__) => {
 "use strict";
@@ -2866,12 +2866,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/user.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2899,7 +2899,7 @@ const __iconNode = [
 ];
 const User = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("User", __iconNode);
 ;
- //# sourceMappingURL=user.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/user.js [app-client] (ecmascript) <export default as User>", ((__turbopack_context__) => {
 "use strict";
@@ -2913,7 +2913,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/number/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// packages/core/number/src/number.ts
+
 __turbopack_context__.s([
     "clamp",
     ()=>clamp
@@ -2922,12 +2922,12 @@ function clamp(value, [min, max]) {
     return Math.min(max, Math.max(min, value));
 }
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-direction/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// packages/react/direction/src/direction.tsx
+
 __turbopack_context__.s([
     "DirectionProvider",
     ()=>DirectionProvider,
@@ -2943,7 +2943,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var DirectionContext = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"](void 0);
 var DirectionProvider = (props)=>{
     const { dir, children } = props;
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DirectionContext.Provider, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(DirectionContext.Provider, {
         value: dir,
         children
     });
@@ -2954,15 +2954,15 @@ function useDirection(localDir) {
 }
 var Provider = DirectionProvider;
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Custom positioning reference element.
- * @see https://floating-ui.com/docs/virtual-elements
- */ __turbopack_context__.s([
+
+
+
+ __turbopack_context__.s([
     "alignments",
     ()=>alignments,
     "clamp",
@@ -3022,7 +3022,7 @@ const alignments = [
     'start',
     'end'
 ];
-const placements = /*#__PURE__*/ sides.reduce((acc, side)=>acc.concat(side, side + "-" + alignments[0], side + "-" + alignments[1]), []);
+const placements =  sides.reduce((acc, side)=>acc.concat(side, side + "-" + alignments[0], side + "-" + alignments[1]), []);
 const min = Math.min;
 const max = Math.max;
 const round = Math.round;
@@ -3059,7 +3059,7 @@ function getOppositeAxis(axis) {
 function getAxisLength(axis) {
     return axis === 'y' ? 'height' : 'width';
 }
-const yAxisSides = /*#__PURE__*/ new Set([
+const yAxisSides =  new Set([
     'top',
     'bottom'
 ]);
@@ -3253,13 +3253,13 @@ function computeCoordsFromPlacement(_ref, placement, rtl) {
     }
     return coords;
 }
-/**
- * Computes the `x` and `y` coordinates that will place the floating element
- * next to a given reference element.
- *
- * This export does not have any `platform` interface logic. You will need to
- * write one for the platform you are using Floating UI with.
- */ const computePosition = async (reference, floating, config)=>{
+
+
+
+
+
+
+ const computePosition = async (reference, floating, config)=>{
     const { placement = 'bottom', strategy = 'absolute', middleware = [], platform } = config;
     const validMiddleware = middleware.filter(Boolean);
     const rtl = await (platform.isRTL == null ? void 0 : platform.isRTL(floating));
@@ -3323,14 +3323,14 @@ function computeCoordsFromPlacement(_ref, placement, rtl) {
         middlewareData
     };
 };
-/**
- * Resolves with an object of overflow side offsets that determine how much the
- * element is overflowing a given clipping boundary on each side.
- * - positive = overflowing the boundary by that number of pixels
- * - negative = how many pixels left before it will overflow
- * - 0 = lies flush with the boundary
- * @see https://floating-ui.com/docs/detectOverflow
- */ async function detectOverflow(state, options) {
+
+
+
+
+
+
+
+ async function detectOverflow(state, options) {
     var _await$platform$isEle;
     if (options === void 0) {
         options = {};
@@ -3373,16 +3373,16 @@ function computeCoordsFromPlacement(_ref, placement, rtl) {
         right: (elementClientRect.right - clippingClientRect.right + paddingObject.right) / offsetScale.x
     };
 }
-/**
- * Provides data to position an inner element of the floating element so that it
- * appears centered to the reference element.
- * @see https://floating-ui.com/docs/arrow
- */ const arrow = (options)=>({
+
+
+
+
+ const arrow = (options)=>({
         name: 'arrow',
         options,
         async fn (state) {
             const { x, y, placement, rects, platform, elements, middlewareData } = state;
-            // Since `element` is required, we don't Partial<> the type.
+            
             const { element, padding = 0 } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["evaluate"])(options, state) || {};
             if (element == null) {
                 return {};
@@ -3403,26 +3403,26 @@ function computeCoordsFromPlacement(_ref, placement, rtl) {
             const startDiff = coords[axis] - rects.reference[axis];
             const arrowOffsetParent = await (platform.getOffsetParent == null ? void 0 : platform.getOffsetParent(element));
             let clientSize = arrowOffsetParent ? arrowOffsetParent[clientProp] : 0;
-            // DOM platform can return `window` as the `offsetParent`.
+            
             if (!clientSize || !await (platform.isElement == null ? void 0 : platform.isElement(arrowOffsetParent))) {
                 clientSize = elements.floating[clientProp] || rects.floating[length];
             }
             const centerToReference = endDiff / 2 - startDiff / 2;
-            // If the padding is large enough that it causes the arrow to no longer be
-            // centered, modify the padding so that it is centered.
+            
+            
             const largestPossiblePadding = clientSize / 2 - arrowDimensions[length] / 2 - 1;
             const minPadding = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["min"])(paddingObject[minProp], largestPossiblePadding);
             const maxPadding = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["min"])(paddingObject[maxProp], largestPossiblePadding);
-            // Make sure the arrow doesn't overflow the floating element if the center
-            // point is outside the floating element's bounds.
+            
+            
             const min$1 = minPadding;
             const max = clientSize - arrowDimensions[length] - maxPadding;
             const center = clientSize / 2 - arrowDimensions[length] / 2 + centerToReference;
             const offset = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clamp"])(min$1, center, max);
-            // If the reference is small enough that the arrow's padding causes it to
-            // to point to nothing for an aligned placement, adjust the offset of the
-            // floating element itself. To ensure `shift()` continues to take action,
-            // a single reset is performed when this is true.
+            
+            
+            
+            
             const shouldAddOffset = !middlewareData.arrow && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAlignment"])(placement) != null && center !== offset && rects.reference[length] / 2 - (center < min$1 ? minPadding : maxPadding) - arrowDimensions[length] / 2 < 0;
             const alignmentOffset = shouldAddOffset ? center < min$1 ? center - min$1 : center - max : 0;
             return {
@@ -3450,12 +3450,12 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
         return true;
     });
 }
-/**
- * Optimizes the visibility of the floating element by choosing the placement
- * that has the most space available automatically, without needing to specify a
- * preferred placement. Alternative to `flip`.
- * @see https://floating-ui.com/docs/autoPlacement
- */ const autoPlacement = function(options) {
+
+
+
+
+
+ const autoPlacement = function(options) {
     if (options === void 0) {
         options = {};
     }
@@ -3474,7 +3474,7 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
                 return {};
             }
             const alignmentSides = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAlignmentSides"])(currentPlacement, rects, await (platform.isRTL == null ? void 0 : platform.isRTL(elements.floating)));
-            // Make `computeCoords` start from the right place.
+            
             if (placement !== currentPlacement) {
                 return {
                     reset: {
@@ -3495,7 +3495,7 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
                 }
             ];
             const nextPlacement = placements$1[currentIndex + 1];
-            // There are more placements to check.
+            
             if (nextPlacement) {
                 return {
                     data: {
@@ -3511,14 +3511,14 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
                 const alignment = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAlignment"])(d.placement);
                 return [
                     d.placement,
-                    alignment && crossAxis ? // Check along the mainAxis and main crossAxis side.
-                    d.overflows.slice(0, 2).reduce((acc, v)=>acc + v, 0) : // Check only the mainAxis.
+                    alignment && crossAxis ? 
+                    d.overflows.slice(0, 2).reduce((acc, v)=>acc + v, 0) : 
                     d.overflows[0],
                     d.overflows
                 ];
             }).sort((a, b)=>a[1] - b[1]);
-            const placementsThatFitOnEachSide = placementsSortedByMostSpace.filter((d)=>d[2].slice(0, // Aligned placements should not check their opposite crossAxis
-                // side.
+            const placementsThatFitOnEachSide = placementsSortedByMostSpace.filter((d)=>d[2].slice(0, 
+                
                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAlignment"])(d[0]) ? 2 : 3).every((v)=>v <= 0));
             const resetPlacement = ((_placementsThatFitOnE = placementsThatFitOnEachSide[0]) == null ? void 0 : _placementsThatFitOnE[0]) || placementsSortedByMostSpace[0][0];
             if (resetPlacement !== placement) {
@@ -3536,12 +3536,12 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
         }
     };
 };
-/**
- * Optimizes the visibility of the floating element by flipping the `placement`
- * in order to keep it in view when the preferred placement(s) will overflow the
- * clipping boundary. Alternative to `autoPlacement`.
- * @see https://floating-ui.com/docs/flip
- */ const flip = function(options) {
+
+
+
+
+
+ const flip = function(options) {
     if (options === void 0) {
         options = {};
     }
@@ -3552,10 +3552,10 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
             var _middlewareData$arrow, _middlewareData$flip;
             const { placement, middlewareData, rects, initialPlacement, platform, elements } = state;
             const { mainAxis: checkMainAxis = true, crossAxis: checkCrossAxis = true, fallbackPlacements: specifiedFallbackPlacements, fallbackStrategy = 'bestFit', fallbackAxisSideDirection = 'none', flipAlignment = true, ...detectOverflowOptions } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["evaluate"])(options, state);
-            // If a reset by the arrow was caused due to an alignment offset being
-            // added, we should skip any logic now since `flip()` has already done its
-            // work.
-            // https://github.com/floating-ui/floating-ui/issues/2549#issuecomment-1719601643
+            
+            
+            
+            
             if ((_middlewareData$arrow = middlewareData.arrow) != null && _middlewareData$arrow.alignmentOffset) {
                 return {};
             }
@@ -3591,17 +3591,17 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
                     overflows
                 }
             ];
-            // One or more sides is overflowing.
+            
             if (!overflows.every((side)=>side <= 0)) {
                 var _middlewareData$flip2, _overflowsData$filter;
                 const nextIndex = (((_middlewareData$flip2 = middlewareData.flip) == null ? void 0 : _middlewareData$flip2.index) || 0) + 1;
                 const nextPlacement = placements[nextIndex];
                 if (nextPlacement) {
                     const ignoreCrossAxisOverflow = checkCrossAxis === 'alignment' ? initialSideAxis !== (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getSideAxis"])(nextPlacement) : false;
-                    if (!ignoreCrossAxisOverflow || // We leave the current main axis only if every placement on that axis
-                    // overflows the main axis.
+                    if (!ignoreCrossAxisOverflow || 
+                    
                     overflowsData.every((d)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getSideAxis"])(d.placement) === initialSideAxis ? d.overflows[0] > 0 : true)) {
-                        // Try next placement and re-run the lifecycle.
+                        
                         return {
                             data: {
                                 index: nextIndex,
@@ -3613,10 +3613,10 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
                         };
                     }
                 }
-                // First, find the candidates that fit on the mainAxis side of overflow,
-                // then find the placement that fits the best on the main crossAxis side.
+                
+                
                 let resetPlacement = (_overflowsData$filter = overflowsData.filter((d)=>d.overflows[0] <= 0).sort((a, b)=>a.overflows[1] - b.overflows[1])[0]) == null ? void 0 : _overflowsData$filter.placement;
-                // Otherwise fallback.
+                
                 if (!resetPlacement) {
                     switch(fallbackStrategy){
                         case 'bestFit':
@@ -3625,8 +3625,8 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
                                 const placement = (_overflowsData$filter2 = overflowsData.filter((d)=>{
                                     if (hasFallbackAxisSideDirection) {
                                         const currentSideAxis = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getSideAxis"])(d.placement);
-                                        return currentSideAxis === initialSideAxis || // Create a bias to the `y` side axis due to horizontal
-                                        // reading directions favoring greater width.
+                                        return currentSideAxis === initialSideAxis || 
+                                        
                                         currentSideAxis === 'y';
                                     }
                                     return true;
@@ -3667,11 +3667,11 @@ function getSideOffsets(overflow, rect) {
 function isAnySideFullyClipped(overflow) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["sides"].some((side)=>overflow[side] >= 0);
 }
-/**
- * Provides data to hide the floating element in applicable situations, such as
- * when it is not in the same clipping context as the reference element.
- * @see https://floating-ui.com/docs/hide
- */ const hide = function(options) {
+
+
+
+
+ const hide = function(options) {
     if (options === void 0) {
         options = {};
     }
@@ -3747,11 +3747,11 @@ function getRectsByLine(rects) {
     }
     return groups.map((rect)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["rectToClientRect"])(getBoundingRect(rect)));
 }
-/**
- * Provides improved positioning for inline reference elements that can span
- * over multiple lines, such as hyperlinks or range selections.
- * @see https://floating-ui.com/docs/inline
- */ const inline = function(options) {
+
+
+
+
+ const inline = function(options) {
     if (options === void 0) {
         options = {};
     }
@@ -3760,21 +3760,21 @@ function getRectsByLine(rects) {
         options,
         async fn (state) {
             const { placement, elements, rects, platform, strategy } = state;
-            // A MouseEvent's client{X,Y} coords can be up to 2 pixels off a
-            // ClientRect's bounds, despite the event listener being triggered. A
-            // padding of 2 seems to handle this issue.
+            
+            
+            
             const { padding = 2, x, y } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["evaluate"])(options, state);
             const nativeClientRects = Array.from(await (platform.getClientRects == null ? void 0 : platform.getClientRects(elements.reference)) || []);
             const clientRects = getRectsByLine(nativeClientRects);
             const fallback = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["rectToClientRect"])(getBoundingRect(nativeClientRects));
             const paddingObject = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getPaddingObject"])(padding);
             function getBoundingClientRect() {
-                // There are two rects and they are disjoined.
+                
                 if (clientRects.length === 2 && clientRects[0].left > clientRects[1].right && x != null && y != null) {
-                    // Find the first rect in which the point is fully inside.
+                    
                     return clientRects.find((rect)=>x > rect.left - paddingObject.left && x < rect.right + paddingObject.right && y > rect.top - paddingObject.top && y < rect.bottom + paddingObject.bottom) || fallback;
                 }
-                // There are 2 or more connected rects.
+                
                 if (clientRects.length >= 2) {
                     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getSideAxis"])(placement) === 'y') {
                         const firstRect = clientRects[0];
@@ -3838,12 +3838,12 @@ function getRectsByLine(rects) {
         }
     };
 };
-const originSides = /*#__PURE__*/ new Set([
+const originSides =  new Set([
     'left',
     'top'
 ]);
-// For type backwards-compatibility, the `OffsetOptions` type was also
-// Derivable.
+
+
 async function convertValueToCoords(state, options) {
     const { placement, platform, elements } = state;
     const rtl = await (platform.isRTL == null ? void 0 : platform.isRTL(elements.floating));
@@ -3853,7 +3853,7 @@ async function convertValueToCoords(state, options) {
     const mainAxisMulti = originSides.has(side) ? -1 : 1;
     const crossAxisMulti = rtl && isVertical ? -1 : 1;
     const rawValue = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["evaluate"])(options, state);
-    // eslint-disable-next-line prefer-const
+    
     let { mainAxis, crossAxis, alignmentAxis } = typeof rawValue === 'number' ? {
         mainAxis: rawValue,
         crossAxis: 0,
@@ -3874,13 +3874,13 @@ async function convertValueToCoords(state, options) {
         y: crossAxis * crossAxisMulti
     };
 }
-/**
- * Modifies the placement by translating the floating element along the
- * specified axes.
- * A number (shorthand for `mainAxis` or distance), or an axes configuration
- * object may be passed.
- * @see https://floating-ui.com/docs/offset
- */ const offset = function(options) {
+
+
+
+
+
+
+ const offset = function(options) {
     if (options === void 0) {
         options = 0;
     }
@@ -3891,8 +3891,8 @@ async function convertValueToCoords(state, options) {
             var _middlewareData$offse, _middlewareData$arrow;
             const { x, y, placement, middlewareData } = state;
             const diffCoords = await convertValueToCoords(state, options);
-            // If the placement is the same and the arrow caused an alignment offset
-            // then we don't need to change the positioning coordinates.
+            
+            
             if (placement === ((_middlewareData$offse = middlewareData.offset) == null ? void 0 : _middlewareData$offse.placement) && (_middlewareData$arrow = middlewareData.arrow) != null && _middlewareData$arrow.alignmentOffset) {
                 return {};
             }
@@ -3907,11 +3907,11 @@ async function convertValueToCoords(state, options) {
         }
     };
 };
-/**
- * Optimizes the visibility of the floating element by shifting it in order to
- * keep it in view when it will overflow the clipping boundary.
- * @see https://floating-ui.com/docs/shift
- */ const shift = function(options) {
+
+
+
+
+ const shift = function(options) {
     if (options === void 0) {
         options = {};
     }
@@ -3971,9 +3971,9 @@ async function convertValueToCoords(state, options) {
         }
     };
 };
-/**
- * Built-in `limiter` that will stop `shift()` at a certain point.
- */ const limitShift = function(options) {
+
+
+ const limitShift = function(options) {
     if (options === void 0) {
         options = {};
     }
@@ -4028,12 +4028,12 @@ async function convertValueToCoords(state, options) {
         }
     };
 };
-/**
- * Provides data that allows you to change the size of the floating element —
- * for instance, prevent it from overflowing the clipping boundary or match the
- * width of the reference element.
- * @see https://floating-ui.com/docs/size
- */ const size = function(options) {
+
+
+
+
+
+ const size = function(options) {
     if (options === void 0) {
         options = {};
     }
@@ -4153,9 +4153,9 @@ function getNodeName(node) {
     if (isNode(node)) {
         return (node.nodeName || '').toLowerCase();
     }
-    // Mocked nodes in testing environments may not be instances of Node. By
-    // returning `#document` an infinite loop won't occur.
-    // https://github.com/floating-ui/floating-ui/issues/2317
+    
+    
+    
     return '#document';
 }
 function getWindow(node) {
@@ -4190,7 +4190,7 @@ function isShadowRoot(value) {
     }
     return value instanceof ShadowRoot || value instanceof getWindow(value).ShadowRoot;
 }
-const invalidOverflowDisplayValues = /*#__PURE__*/ new Set([
+const invalidOverflowDisplayValues =  new Set([
     'inline',
     'contents'
 ]);
@@ -4198,7 +4198,7 @@ function isOverflowElement(element) {
     const { overflow, overflowX, overflowY, display } = getComputedStyle(element);
     return /auto|scroll|overlay|hidden|clip/.test(overflow + overflowY + overflowX) && !invalidOverflowDisplayValues.has(display);
 }
-const tableElements = /*#__PURE__*/ new Set([
+const tableElements =  new Set([
     'table',
     'td',
     'th'
@@ -4243,8 +4243,8 @@ const containValues = [
 function isContainingBlock(elementOrCss) {
     const webkit = isWebKit();
     const css = isElement(elementOrCss) ? getComputedStyle(elementOrCss) : elementOrCss;
-    // https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block
-    // https://drafts.csswg.org/css-transforms-2/#individual-transforms
+    
+    
     return transformProperties.some((value)=>css[value] ? css[value] !== 'none' : false) || (css.containerType ? css.containerType !== 'normal' : false) || !webkit && (css.backdropFilter ? css.backdropFilter !== 'none' : false) || !webkit && (css.filter ? css.filter !== 'none' : false) || willChangeValues.some((value)=>(css.willChange || '').includes(value)) || containValues.some((value)=>(css.contain || '').includes(value));
 }
 function getContainingBlock(element) {
@@ -4263,7 +4263,7 @@ function isWebKit() {
     if (typeof CSS === 'undefined' || !CSS.supports) return false;
     return CSS.supports('-webkit-backdrop-filter', 'none');
 }
-const lastTraversableNodeNames = /*#__PURE__*/ new Set([
+const lastTraversableNodeNames =  new Set([
     'html',
     'body',
     '#document'
@@ -4290,10 +4290,10 @@ function getParentNode(node) {
     if (getNodeName(node) === 'html') {
         return node;
     }
-    const result = // Step into the shadow DOM of the parent of a slotted node.
-    node.assignedSlot || // DOM Element detected.
-    node.parentNode || // ShadowRoot detected.
-    isShadowRoot(node) && node.host || // Fallback.
+    const result = 
+    node.assignedSlot || 
+    node.parentNode || 
+    isShadowRoot(node) && node.host || 
     getDocumentElement(node);
     return isShadowRoot(result) ? result.host : result;
 }
@@ -4369,8 +4369,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 function getCssDimensions(element) {
     const css = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getComputedStyle"])(element);
-    // In testing environments, the `width` and `height` properties are empty
-    // strings for SVG elements, returning NaN. Fallback to `0` in this case.
+    
+    
     let width = parseFloat(css.width) || 0;
     let height = parseFloat(css.height) || 0;
     const hasOffset = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isHTMLElement"])(element);
@@ -4399,7 +4399,7 @@ function getScale(element) {
     const { width, height, $ } = getCssDimensions(domElement);
     let x = ($ ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["round"])(rect.width) : rect.width) / width;
     let y = ($ ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["round"])(rect.height) : rect.height) / height;
-    // 0, NaN, or Infinity should always fallback to 1.
+    
     if (!x || !Number.isFinite(x)) {
         x = 1;
     }
@@ -4411,7 +4411,7 @@ function getScale(element) {
         y
     };
 }
-const noOffsets = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createCoords"])(0);
+const noOffsets =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createCoords"])(0);
 function getVisualOffsets(element) {
     const win = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getWindow"])(element);
     if (!(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isWebKit"])() || !win.visualViewport) {
@@ -4483,8 +4483,8 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetPar
         y
     });
 }
-// If <html> has a CSS width greater than the viewport, then this will be
-// incorrect for RTL.
+
+
 function getWindowScrollBarX(element, rect) {
     const leftScroll = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getNodeScroll"])(element).scrollLeft;
     if (!rect) {
@@ -4538,8 +4538,8 @@ function convertOffsetParentRelativeRectToViewportRelativeRect(_ref) {
 function getClientRects(element) {
     return Array.from(element.getClientRects());
 }
-// Gets the entire size of the scrollable document area, even extending outside
-// of the `<html>` and `<body>` rect bounds if horizontally scrollable.
+
+
 function getDocumentRect(element) {
     const html = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDocumentElement"])(element);
     const scroll = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getNodeScroll"])(element);
@@ -4558,9 +4558,9 @@ function getDocumentRect(element) {
         y
     };
 }
-// Safety check: ensure the scrollbar space is reasonable in case this
-// calculation is affected by unusual styles.
-// Most scrollbars leave 15-18px of space.
+
+
+
 const SCROLLBAR_MAX = 25;
 function getViewportRect(element, strategy) {
     const win = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getWindow"])(element);
@@ -4580,9 +4580,9 @@ function getViewportRect(element, strategy) {
         }
     }
     const windowScrollbarX = getWindowScrollBarX(html);
-    // <html> `overflow: hidden` + `scrollbar-gutter: stable` reduces the
-    // visual width of the <html> but this is not considered in the size
-    // of `html.clientWidth`.
+    
+    
+    
     if (windowScrollbarX <= 0) {
         const doc = html.ownerDocument;
         const body = doc.body;
@@ -4593,8 +4593,8 @@ function getViewportRect(element, strategy) {
             width -= clippingStableScrollbarWidth;
         }
     } else if (windowScrollbarX <= SCROLLBAR_MAX) {
-        // If the <body> scrollbar is on the left, the width needs to be extended
-        // by the scrollbar amount so there isn't extra space on the right.
+        
+        
         width += windowScrollbarX;
     }
     return {
@@ -4604,11 +4604,11 @@ function getViewportRect(element, strategy) {
         y
     };
 }
-const absoluteOrFixed = /*#__PURE__*/ new Set([
+const absoluteOrFixed =  new Set([
     'absolute',
     'fixed'
 ]);
-// Returns the inner client rect, subtracting scrollbars if present.
+
 function getInnerBoundingClientRect(element, strategy) {
     const clientRect = getBoundingClientRect(element, true, strategy === 'fixed');
     const top = clientRect.top + element.clientTop;
@@ -4651,9 +4651,9 @@ function hasFixedPositionAncestor(element, stopNode) {
     }
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getComputedStyle"])(parentNode).position === 'fixed' || hasFixedPositionAncestor(parentNode, stopNode);
 }
-// A "clipping ancestor" is an `overflow` element with the characteristic of
-// clipping (or hiding) child elements. This returns all clipping ancestors
-// of the given element up the tree.
+
+
+
 function getClippingElementAncestors(element, cache) {
     const cachedResult = cache.get(element);
     if (cachedResult) {
@@ -4663,7 +4663,7 @@ function getClippingElementAncestors(element, cache) {
     let currentContainingBlockComputedStyle = null;
     const elementIsFixed = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getComputedStyle"])(element).position === 'fixed';
     let currentNode = elementIsFixed ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getParentNode"])(element) : element;
-    // https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block
+    
     while((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isElement"])(currentNode) && !(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isLastTraversableNode"])(currentNode)){
         const computedStyle = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getComputedStyle"])(currentNode);
         const currentNodeIsContaining = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isContainingBlock"])(currentNode);
@@ -4672,10 +4672,10 @@ function getClippingElementAncestors(element, cache) {
         }
         const shouldDropCurrentNode = elementIsFixed ? !currentNodeIsContaining && !currentContainingBlockComputedStyle : !currentNodeIsContaining && computedStyle.position === 'static' && !!currentContainingBlockComputedStyle && absoluteOrFixed.has(currentContainingBlockComputedStyle.position) || (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isOverflowElement"])(currentNode) && !currentNodeIsContaining && hasFixedPositionAncestor(element, currentNode);
         if (shouldDropCurrentNode) {
-            // Drop non-containing blocks.
+            
             result = result.filter((ancestor)=>ancestor !== currentNode);
         } else {
-            // Record last containing block for next iteration.
+            
             currentContainingBlockComputedStyle = computedStyle;
         }
         currentNode = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getParentNode"])(currentNode);
@@ -4683,8 +4683,8 @@ function getClippingElementAncestors(element, cache) {
     cache.set(element, result);
     return result;
 }
-// Gets the maximum area that the element is visible in due to any number of
-// clipping ancestors.
+
+
 function getClippingRect(_ref) {
     let { element, boundary, rootBoundary, strategy } = _ref;
     const elementClippingAncestors = boundary === 'clippingAncestors' ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isTopLayer"])(element) ? [] : getClippingElementAncestors(element, this._c) : [].concat(boundary);
@@ -4725,8 +4725,8 @@ function getRectRelativeToOffsetParent(element, offsetParent, strategy) {
         scrollTop: 0
     };
     const offsets = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createCoords"])(0);
-    // If the <body> scrollbar appears on the left (e.g. RTL systems). Use
-    // Firefox with layout.scrollbar.side = 3 in about:config to test this.
+    
+    
     function setLeftRTLScrollbarOffset() {
         offsets.x = getWindowScrollBarX(documentElement);
     }
@@ -4766,17 +4766,17 @@ function getTrueOffsetParent(element, polyfill) {
         return polyfill(element);
     }
     let rawOffsetParent = element.offsetParent;
-    // Firefox returns the <html> element as the offsetParent if it's non-static,
-    // while Chrome and Safari return the <body> element. The <body> element must
-    // be used to perform the correct calculations even if the <html> element is
-    // non-static.
+    
+    
+    
+    
     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDocumentElement"])(element) === rawOffsetParent) {
         rawOffsetParent = rawOffsetParent.ownerDocument.body;
     }
     return rawOffsetParent;
 }
-// Gets the closest ancestor positioned element. Handles some edge cases,
-// such as table ancestors and cross browser bugs.
+
+
 function getOffsetParent(element, polyfill) {
     const win = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getWindow"])(element);
     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isTopLayer"])(element)) {
@@ -4833,7 +4833,7 @@ const platform = {
 function rectsAreEqual(a, b) {
     return a.x === b.x && a.y === b.y && a.width === b.width && a.height === b.height;
 }
-// https://samthor.au/2021/observing-dom/
+
 function observeMove(element, onMove) {
     let io = null;
     let timeoutId;
@@ -4877,8 +4877,8 @@ function observeMove(element, onMove) {
                     return refresh();
                 }
                 if (!ratio) {
-                    // If the reference is clipped, the ratio is 0. Throttle the refresh
-                    // to prevent an infinite loop of updates.
+                    
+                    
                     timeoutId = setTimeout(()=>{
                         refresh(false, 1e-7);
                     }, 1000);
@@ -4887,23 +4887,23 @@ function observeMove(element, onMove) {
                 }
             }
             if (ratio === 1 && !rectsAreEqual(elementRectForRootMargin, element.getBoundingClientRect())) {
-                // It's possible that even though the ratio is reported as 1, the
-                // element is not actually fully within the IntersectionObserver's root
-                // area anymore. This can happen under performance constraints. This may
-                // be a bug in the browser's IntersectionObserver implementation. To
-                // work around this, we compare the element's bounding rect now with
-                // what it was at the time we created the IntersectionObserver. If they
-                // are not equal then the element moved, so we refresh.
+                
+                
+                
+                
+                
+                
+                
                 refresh();
             }
             isFirstUpdate = false;
         }
-        // Older browsers don't support a `document` as the root and will throw an
-        // error.
+        
+        
         try {
             io = new IntersectionObserver(handleObserve, {
                 ...options,
-                // Handle <iframe>s
+                
                 root: root.ownerDocument
             });
         } catch (_e) {
@@ -4914,14 +4914,14 @@ function observeMove(element, onMove) {
     refresh(true);
     return cleanup;
 }
-/**
- * Automatically updates the position of the floating element when necessary.
- * Should only be called when the floating element is mounted on the DOM or
- * visible on the screen.
- * @returns cleanup function that should be invoked when the floating element is
- * removed from the DOM or hidden from the screen.
- * @see https://floating-ui.com/docs/autoUpdate
- */ function autoUpdate(reference, floating, update, options) {
+
+
+
+
+
+
+
+ function autoUpdate(reference, floating, update, options) {
     if (options === void 0) {
         options = {};
     }
@@ -4944,8 +4944,8 @@ function observeMove(element, onMove) {
         resizeObserver = new ResizeObserver((_ref)=>{
             let [firstEntry] = _ref;
             if (firstEntry && firstEntry.target === referenceEl && resizeObserver) {
-                // Prevent update loops when using the `size` middleware.
-                // https://github.com/floating-ui/floating-ui/issues/1740
+                
+                
                 resizeObserver.unobserve(floating);
                 cancelAnimationFrame(reobserveFrame);
                 reobserveFrame = requestAnimationFrame(()=>{
@@ -4988,69 +4988,69 @@ function observeMove(element, onMove) {
         }
     };
 }
-/**
- * Resolves with an object of overflow side offsets that determine how much the
- * element is overflowing a given clipping boundary on each side.
- * - positive = overflowing the boundary by that number of pixels
- * - negative = how many pixels left before it will overflow
- * - 0 = lies flush with the boundary
- * @see https://floating-ui.com/docs/detectOverflow
- */ const detectOverflow = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["detectOverflow"];
-/**
- * Modifies the placement by translating the floating element along the
- * specified axes.
- * A number (shorthand for `mainAxis` or distance), or an axes configuration
- * object may be passed.
- * @see https://floating-ui.com/docs/offset
- */ const offset = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["offset"];
-/**
- * Optimizes the visibility of the floating element by choosing the placement
- * that has the most space available automatically, without needing to specify a
- * preferred placement. Alternative to `flip`.
- * @see https://floating-ui.com/docs/autoPlacement
- */ const autoPlacement = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["autoPlacement"];
-/**
- * Optimizes the visibility of the floating element by shifting it in order to
- * keep it in view when it will overflow the clipping boundary.
- * @see https://floating-ui.com/docs/shift
- */ const shift = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["shift"];
-/**
- * Optimizes the visibility of the floating element by flipping the `placement`
- * in order to keep it in view when the preferred placement(s) will overflow the
- * clipping boundary. Alternative to `autoPlacement`.
- * @see https://floating-ui.com/docs/flip
- */ const flip = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["flip"];
-/**
- * Provides data that allows you to change the size of the floating element —
- * for instance, prevent it from overflowing the clipping boundary or match the
- * width of the reference element.
- * @see https://floating-ui.com/docs/size
- */ const size = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["size"];
-/**
- * Provides data to hide the floating element in applicable situations, such as
- * when it is not in the same clipping context as the reference element.
- * @see https://floating-ui.com/docs/hide
- */ const hide = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["hide"];
-/**
- * Provides data to position an inner element of the floating element so that it
- * appears centered to the reference element.
- * @see https://floating-ui.com/docs/arrow
- */ const arrow = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["arrow"];
-/**
- * Provides improved positioning for inline reference elements that can span
- * over multiple lines, such as hyperlinks or range selections.
- * @see https://floating-ui.com/docs/inline
- */ const inline = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["inline"];
-/**
- * Built-in `limiter` that will stop `shift()` at a certain point.
- */ const limitShift = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["limitShift"];
-/**
- * Computes the `x` and `y` coordinates that will place the floating element
- * next to a given reference element.
- */ const computePosition = (reference, floating, options)=>{
-    // This caches the expensive `getClippingElementAncestors` function so that
-    // multiple lifecycle resets re-use the same result. It only lives for a
-    // single call. If other functions become expensive, we can add them as well.
+
+
+
+
+
+
+
+ const detectOverflow = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["detectOverflow"];
+
+
+
+
+
+
+ const offset = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["offset"];
+
+
+
+
+
+ const autoPlacement = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["autoPlacement"];
+
+
+
+
+ const shift = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["shift"];
+
+
+
+
+
+ const flip = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["flip"];
+
+
+
+
+
+ const size = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["size"];
+
+
+
+
+ const hide = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["hide"];
+
+
+
+
+ const arrow = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["arrow"];
+
+
+
+
+ const inline = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["inline"];
+
+
+ const limitShift = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["limitShift"];
+
+
+
+ const computePosition = (reference, floating, options)=>{
+    
+    
+    
     const cache = new Map();
     const mergedOptions = {
         platform,
@@ -5103,8 +5103,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var isClient = typeof document !== 'undefined';
 var noop = function noop() {};
 var index = isClient ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useLayoutEffect"] : noop;
-// Fork of `fast-deep-equal` that only does the comparisons we need and compares
-// functions
+
+
 function deepEqual(a, b) {
     if (a === b) {
         return true;
@@ -5170,10 +5170,10 @@ function useLatestRef(value) {
     });
     return ref;
 }
-/**
- * Provides data to position a floating element.
- * @see https://floating-ui.com/docs/useFloating
- */ function useFloating(options) {
+
+
+
+ function useFloating(options) {
     if (options === void 0) {
         options = {};
     }
@@ -5234,10 +5234,10 @@ function useLatestRef(value) {
                 "useFloating.useCallback[update]": (data)=>{
                     const fullData = {
                         ...data,
-                        // The floating element's position may be recomputed while it's closed
-                        // but still mounted (such as when transitioning out). To ensure
-                        // `isPositioned` will be `false` initially on the next open, avoid
-                        // setting it to `true` when `open === false` (must be specified).
+                        
+                        
+                        
+                        
                         isPositioned: openRef.current !== false
                     };
                     if (isMountedRef.current && !deepEqual(dataRef.current, fullData)) {
@@ -5362,12 +5362,12 @@ function useLatestRef(value) {
         floatingStyles
     ]);
 }
-/**
- * Provides data to position an inner element of the floating element so that it
- * appears centered to the reference element.
- * This wraps the core `arrow` middleware to allow React refs as the element.
- * @see https://floating-ui.com/docs/arrow
- */ const arrow$1 = (options)=>{
+
+
+
+
+
+ const arrow$1 = (options)=>{
     function isRef(value) {
         return ({}).hasOwnProperty.call(value, 'current');
     }
@@ -5395,103 +5395,103 @@ function useLatestRef(value) {
         }
     };
 };
-/**
- * Modifies the placement by translating the floating element along the
- * specified axes.
- * A number (shorthand for `mainAxis` or distance), or an axes configuration
- * object may be passed.
- * @see https://floating-ui.com/docs/offset
- */ const offset = (options, deps)=>({
+
+
+
+
+
+
+ const offset = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["offset"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Optimizes the visibility of the floating element by shifting it in order to
- * keep it in view when it will overflow the clipping boundary.
- * @see https://floating-ui.com/docs/shift
- */ const shift = (options, deps)=>({
+
+
+
+
+ const shift = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["shift"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Built-in `limiter` that will stop `shift()` at a certain point.
- */ const limitShift = (options, deps)=>({
+
+
+ const limitShift = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["limitShift"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Optimizes the visibility of the floating element by flipping the `placement`
- * in order to keep it in view when the preferred placement(s) will overflow the
- * clipping boundary. Alternative to `autoPlacement`.
- * @see https://floating-ui.com/docs/flip
- */ const flip = (options, deps)=>({
+
+
+
+
+
+ const flip = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["flip"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Provides data that allows you to change the size of the floating element —
- * for instance, prevent it from overflowing the clipping boundary or match the
- * width of the reference element.
- * @see https://floating-ui.com/docs/size
- */ const size = (options, deps)=>({
+
+
+
+
+
+ const size = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["size"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Optimizes the visibility of the floating element by choosing the placement
- * that has the most space available automatically, without needing to specify a
- * preferred placement. Alternative to `flip`.
- * @see https://floating-ui.com/docs/autoPlacement
- */ const autoPlacement = (options, deps)=>({
+
+
+
+
+
+ const autoPlacement = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["autoPlacement"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Provides data to hide the floating element in applicable situations, such as
- * when it is not in the same clipping context as the reference element.
- * @see https://floating-ui.com/docs/hide
- */ const hide = (options, deps)=>({
+
+
+
+
+ const hide = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["hide"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Provides improved positioning for inline reference elements that can span
- * over multiple lines, such as hyperlinks or range selections.
- * @see https://floating-ui.com/docs/inline
- */ const inline = (options, deps)=>({
+
+
+
+
+ const inline = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["inline"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Provides data to position an inner element of the floating element so that it
- * appears centered to the reference element.
- * This wraps the core `arrow` middleware to allow React refs as the element.
- * @see https://floating-ui.com/docs/arrow
- */ const arrow = (options, deps)=>({
+
+
+
+
+
+ const arrow = (options, deps)=>({
         ...arrow$1(options),
         options: [
             options,
@@ -5503,7 +5503,7 @@ function useLatestRef(value) {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-arrow/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// src/arrow.tsx
+
 __turbopack_context__.s([
     "Arrow",
     ()=>Arrow,
@@ -5519,14 +5519,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var NAME = "Arrow";
 var Arrow = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { children, width = 10, height = 5, ...arrowProps } = props;
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].svg, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].svg, {
         ...arrowProps,
         ref: forwardedRef,
         width,
         height,
         viewBox: "0 0 30 10",
         preserveAspectRatio: "none",
-        children: props.asChild ? children : /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("polygon", {
+        children: props.asChild ? children :  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("polygon", {
             points: "0,0 30,0 15,10"
         })
     });
@@ -5534,12 +5534,12 @@ var Arrow = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$
 Arrow.displayName = NAME;
 var Root = Arrow;
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-size/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// packages/react/use-size/src/use-size.tsx
+
 __turbopack_context__.s([
     "useSize",
     ()=>useSize
@@ -5599,7 +5599,7 @@ function useSize(element) {
     return size;
 }
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-popper/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -5628,7 +5628,7 @@ __turbopack_context__.s([
     "createPopperScope",
     ()=>createPopperScope
 ]);
-// src/popper.tsx
+
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$react$2d$dom$2f$dist$2f$floating$2d$ui$2e$react$2d$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@floating-ui/react-dom/dist/floating-ui.react-dom.mjs [app-client] (ecmascript) <locals>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@floating-ui/dom/dist/floating-ui.dom.mjs [app-client] (ecmascript) <locals>");
@@ -5668,7 +5668,7 @@ var [PopperProvider, usePopperContext] = createPopperContext(POPPER_NAME);
 var Popper = (props)=>{
     const { __scopePopper, children } = props;
     const [anchor, setAnchor] = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](null);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PopperProvider, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PopperProvider, {
         scope: __scopePopper,
         anchor,
         onAnchorChange: setAnchor,
@@ -5692,7 +5692,7 @@ var PopperAnchor = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Pr
             }
         }
     }["PopperAnchor.useEffect"]);
-    return virtualRef ? null : /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
+    return virtualRef ? null :  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
         ...anchorProps,
         ref: composedRefs
     });
@@ -5726,11 +5726,11 @@ var PopperContent = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$P
     const detectOverflowOptions = {
         padding: collisionPadding,
         boundary: boundary.filter(isNotNull),
-        // with `strategy: 'fixed'`, this is the only way to get it to respect boundaries
+        
         altBoundary: hasExplicitBoundaries
     };
     const { refs, floatingStyles, placement, isPositioned, middlewareData } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$react$2d$dom$2f$dist$2f$floating$2d$ui$2e$react$2d$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["useFloating"])({
-        // default to `fixed` strategy so users don't have to pick and we also avoid focus scroll issues
+        
         strategy: "fixed",
         placement: desiredPlacement,
         whileElementsMounted: {
@@ -5808,44 +5808,44 @@ var PopperContent = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$P
     }["PopperContent.useLayoutEffect"], [
         content
     ]);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("div", {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("div", {
         ref: refs.setFloating,
         "data-radix-popper-content-wrapper": "",
         style: {
             ...floatingStyles,
             transform: isPositioned ? floatingStyles.transform : "translate(0, -200%)",
-            // keep off the page when measuring
+            
             minWidth: "max-content",
             zIndex: contentZIndex,
             ["--radix-popper-transform-origin"]: [
                 middlewareData.transformOrigin?.x,
                 middlewareData.transformOrigin?.y
             ].join(" "),
-            // hide the content if using the hide middleware and should be hidden
-            // set visibility to hidden and disable pointer events so the UI behaves
-            // as if the PopperContent isn't there at all
+            
+            
+            
             ...middlewareData.hide?.referenceHidden && {
                 visibility: "hidden",
                 pointerEvents: "none"
             }
         },
         dir: props.dir,
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PopperContentProvider, {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PopperContentProvider, {
             scope: __scopePopper,
             placedSide,
             onArrowChange: setArrow,
             arrowX,
             arrowY,
             shouldHideArrow: cannotCenterArrow,
-            children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
+            children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
                 "data-side": placedSide,
                 "data-align": placedAlign,
                 ...contentProps,
                 ref: composedRefs,
                 style: {
                     ...contentProps.style,
-                    // if the PopperContent hasn't been placed yet (not all measurements done)
-                    // we prevent animations so that users's animation don't kick in too early referring wrong sides
+                    
+                    
                     animation: !isPositioned ? "none" : void 0
                 }
             })
@@ -5864,10 +5864,10 @@ var PopperArrow = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Pro
     const { __scopePopper, ...arrowProps } = props;
     const contentContext = useContentContext(ARROW_NAME, __scopePopper);
     const baseSide = OPPOSITE_SIDE[contentContext.placedSide];
-    return(// we have to use an extra wrapper because `ResizeObserver` (used by `useSize`)
-    // doesn't report size as we'd expect on SVG elements.
-    // it reports their bounding box which is effectively the largest path inside the SVG.
-    /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("span", {
+    return(
+    
+    
+     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("span", {
         ref: contentContext.onArrowChange,
         style: {
             position: "absolute",
@@ -5888,12 +5888,12 @@ var PopperArrow = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Pro
             }[contentContext.placedSide],
             visibility: contentContext.shouldHideArrow ? "hidden" : void 0
         },
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$arrow$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$arrow$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
             ...arrowProps,
             ref: forwardedRef,
             style: {
                 ...arrowProps.style,
-                // ensures the element can be measured correctly (mostly for if SVG)
+                
                 display: "block"
             }
         })
@@ -5955,12 +5955,12 @@ var Anchor = PopperAnchor;
 var Content = PopperContent;
 var Arrow = PopperArrow;
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-select/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// src/slot.tsx
+
 __turbopack_context__.s([
     "Root",
     ()=>Slot,
@@ -5979,9 +5979,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-// @__NO_SIDE_EFFECTS__
+
 function createSlot(ownerName) {
-    const SlotClone = /* @__PURE__ */ createSlotClone(ownerName);
+    const SlotClone =  createSlotClone(ownerName);
     const Slot2 = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
         const { children, ...slotProps } = props;
         const childrenArray = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Children"].toArray(children);
@@ -5996,13 +5996,13 @@ function createSlot(ownerName) {
                     return child;
                 }
             });
-            return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+            return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
                 ...slotProps,
                 ref: forwardedRef,
                 children: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isValidElement"](newElement) ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cloneElement"](newElement, void 0, newChildren) : null
             });
         }
-        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
             ...slotProps,
             ref: forwardedRef,
             children
@@ -6011,8 +6011,8 @@ function createSlot(ownerName) {
     Slot2.displayName = `${ownerName}.Slot`;
     return Slot2;
 }
-var Slot = /* @__PURE__ */ createSlot("Slot");
-// @__NO_SIDE_EFFECTS__
+var Slot =  createSlot("Slot");
+
 function createSlotClone(ownerName) {
     const SlotClone = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
         const { children, ...slotProps } = props;
@@ -6030,10 +6030,10 @@ function createSlotClone(ownerName) {
     return SlotClone;
 }
 var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-// @__NO_SIDE_EFFECTS__
+
 function createSlottable(ownerName) {
     const Slottable2 = ({ children })=>{
-        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
             children
         });
     };
@@ -6041,7 +6041,7 @@ function createSlottable(ownerName) {
     Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
     return Slottable2;
 }
-var Slottable = /* @__PURE__ */ createSlottable("Slottable");
+var Slottable =  createSlottable("Slottable");
 function isSlottable(child) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isValidElement"](child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER;
 }
@@ -6094,12 +6094,12 @@ function getElementRef(element) {
     return element.props.ref || element.ref;
 }
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-previous/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// packages/react/use-previous/src/use-previous.tsx
+
 __turbopack_context__.s([
     "usePrevious",
     ()=>usePrevious
@@ -6124,7 +6124,7 @@ function usePrevious(value) {
     ]);
 }
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-select/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -6197,7 +6197,7 @@ __turbopack_context__.s([
     "createSelectScope",
     ()=>createSelectScope
 ]);
-// src/select.tsx
+
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2d$dom$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-dom/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$number$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/number/dist/index.mjs [app-client] (ecmascript)");
@@ -6288,11 +6288,11 @@ var Select = (props)=>{
     });
     const triggerPointerDownPosRef = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](null);
     const isFormControl = trigger ? form || !!trigger.closest("form") : true;
-    const [nativeOptionsSet, setNativeOptionsSet] = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](/* @__PURE__ */ new Set());
+    const [nativeOptionsSet, setNativeOptionsSet] = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"]( new Set());
     const nativeSelectKey = Array.from(nativeOptionsSet).map((option)=>option.props.value).join(";");
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
         ...popperScope,
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxs"])(SelectProvider, {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxs"])(SelectProvider, {
             required,
             scope: __scopeSelect,
             trigger,
@@ -6310,9 +6310,9 @@ var Select = (props)=>{
             triggerPointerDownPosRef,
             disabled,
             children: [
-                /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Collection.Provider, {
+                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Collection.Provider, {
                     scope: __scopeSelect,
-                    children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectNativeOptionsProvider, {
+                    children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectNativeOptionsProvider, {
                         scope: props.__scopeSelect,
                         onNativeOptionAdd: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"]({
                             "Select.useCallback": (option)=>{
@@ -6335,7 +6335,7 @@ var Select = (props)=>{
                         children
                     })
                 }),
-                isFormControl ? /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxs"])(SelectBubbleInput, {
+                isFormControl ?  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxs"])(SelectBubbleInput, {
                     "aria-hidden": true,
                     required,
                     tabIndex: -1,
@@ -6346,7 +6346,7 @@ var Select = (props)=>{
                     disabled,
                     form,
                     children: [
-                        value === void 0 ? /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("option", {
+                        value === void 0 ?  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("option", {
                             value: ""
                         }) : null,
                         Array.from(nativeOptionsSet)
@@ -6392,10 +6392,10 @@ var SelectTrigger = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$P
             };
         }
     };
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Anchor"], {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Anchor"], {
         asChild: true,
         ...popperScope,
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].button, {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].button, {
             type: "button",
             role: "combobox",
             "aria-controls": context.contentId,
@@ -6455,13 +6455,13 @@ var SelectValue = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Pro
         onValueNodeHasChildrenChange,
         hasChildren
     ]);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].span, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].span, {
         ...valueProps,
         ref: composedRefs,
         style: {
             pointerEvents: "none"
         },
-        children: shouldShowPlaceholder(context.value) ? /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+        children: shouldShowPlaceholder(context.value) ?  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
             children: placeholder
         }) : children
     });
@@ -6470,7 +6470,7 @@ SelectValue.displayName = VALUE_NAME;
 var ICON_NAME = "SelectIcon";
 var SelectIcon = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeSelect, children, ...iconProps } = props;
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].span, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].span, {
         "aria-hidden": true,
         ...iconProps,
         ref: forwardedRef,
@@ -6480,7 +6480,7 @@ var SelectIcon = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proj
 SelectIcon.displayName = ICON_NAME;
 var PORTAL_NAME = "SelectPortal";
 var SelectPortal = (props)=>{
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$portal$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Portal"], {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$portal$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Portal"], {
         asChild: true,
         ...props
     });
@@ -6497,17 +6497,17 @@ var SelectContent = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$P
     }["SelectContent.useLayoutEffect"], []);
     if (!context.open) {
         const frag = fragment;
-        return frag ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2d$dom$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createPortal"](/* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectContentProvider, {
+        return frag ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2d$dom$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createPortal"]( (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectContentProvider, {
             scope: props.__scopeSelect,
-            children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Collection.Slot, {
+            children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Collection.Slot, {
                 scope: props.__scopeSelect,
-                children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("div", {
+                children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("div", {
                     children: props.children
                 })
             })
         }), frag) : null;
     }
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectContentImpl, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectContentImpl, {
         ...props,
         ref: forwardedRef
     });
@@ -6518,9 +6518,9 @@ var [SelectContentProvider, useSelectContentContext] = createSelectContext(CONTE
 var CONTENT_IMPL_NAME = "SelectContentImpl";
 var Slot = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createSlot"])("SelectContent.RemoveScroll");
 var SelectContentImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
-    const { __scopeSelect, position = "item-aligned", onCloseAutoFocus, onEscapeKeyDown, onPointerDownOutside, //
-    // PopperContent props
-    side, sideOffset, align, alignOffset, arrowPadding, collisionBoundary, collisionPadding, sticky, hideWhenDetached, avoidCollisions, //
+    const { __scopeSelect, position = "item-aligned", onCloseAutoFocus, onEscapeKeyDown, onPointerDownOutside, 
+    
+    side, sideOffset, align, alignOffset, arrowPadding, collisionBoundary, collisionPadding, sticky, hideWhenDetached, avoidCollisions, 
     ...contentProps } = props;
     const context = useSelectContext(CONTENT_NAME, __scopeSelect);
     const [content, setContent] = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"](null);
@@ -6708,7 +6708,7 @@ var SelectContentImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$
         hideWhenDetached,
         avoidCollisions
     } : {};
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectContentProvider, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectContentProvider, {
         scope: __scopeSelect,
         content,
         viewport,
@@ -6722,10 +6722,10 @@ var SelectContentImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$
         position,
         isPositioned,
         searchRef,
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$remove$2d$scroll$2f$dist$2f$es2015$2f$Combination$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RemoveScroll$3e$__["RemoveScroll"], {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$remove$2d$scroll$2f$dist$2f$es2015$2f$Combination$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RemoveScroll$3e$__["RemoveScroll"], {
             as: Slot,
             allowPinchZoom: true,
-            children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$focus$2d$scope$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FocusScope"], {
+            children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$focus$2d$scope$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FocusScope"], {
                 asChild: true,
                 trapped: context.open,
                 onMountAutoFocus: (event)=>{
@@ -6737,14 +6737,14 @@ var SelectContentImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$
                     });
                     event.preventDefault();
                 }),
-                children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dismissable$2d$layer$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DismissableLayer"], {
+                children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dismissable$2d$layer$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DismissableLayer"], {
                     asChild: true,
                     disableOutsidePointerEvents: true,
                     onEscapeKeyDown,
                     onPointerDownOutside,
                     onFocusOutside: (event)=>event.preventDefault(),
                     onDismiss: ()=>context.onOpenChange(false),
-                    children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectPosition, {
+                    children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectPosition, {
                         role: "listbox",
                         id: context.contentId,
                         "data-state": context.open ? "open" : "closed",
@@ -6755,10 +6755,10 @@ var SelectContentImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$
                         onPlaced: ()=>setIsPositioned(true),
                         ref: composedRefs,
                         style: {
-                            // flex layout so we can place the scroll buttons properly
+                            
                             display: "flex",
                             flexDirection: "column",
-                            // reset the outline by default as the content MAY get focused
+                            
                             outline: "none",
                             ...contentProps.style
                         },
@@ -6829,11 +6829,11 @@ var SelectItemAlignedPosition = __TURBOPACK__imported__module__$5b$project$5d2f$
                     const rightEdge = window.innerWidth - CONTENT_MARGIN;
                     const clampedLeft = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$number$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clamp"])(left, [
                         CONTENT_MARGIN,
-                        // Prevents the content from going off the starting edge of the
-                        // viewport. It may still go off the ending edge, but this can be
-                        // controlled by the user since they may want to manage overflow in a
-                        // specific way.
-                        // https://github.com/radix-ui/primitives/issues/2049
+                        
+                        
+                        
+                        
+                        
                         Math.max(CONTENT_MARGIN, rightEdge - contentWidth)
                     ]);
                     contentWrapper.style.minWidth = minContentWidth + "px";
@@ -6876,14 +6876,14 @@ var SelectItemAlignedPosition = __TURBOPACK__imported__module__$5b$project$5d2f$
                     const isLastItem = items.length > 0 && selectedItem === items[items.length - 1].ref.current;
                     contentWrapper.style.bottom = "0px";
                     const viewportOffsetBottom = content.clientHeight - viewport.offsetTop - viewport.offsetHeight;
-                    const clampedTriggerMiddleToBottomEdge = Math.max(triggerMiddleToBottomEdge, selectedItemHalfHeight + // viewport might have padding bottom, include it to avoid a scrollable viewport
+                    const clampedTriggerMiddleToBottomEdge = Math.max(triggerMiddleToBottomEdge, selectedItemHalfHeight + 
                     (isLastItem ? viewportPaddingBottom : 0) + viewportOffsetBottom + contentBorderBottomWidth);
                     const height = contentTopToItemMiddle + clampedTriggerMiddleToBottomEdge;
                     contentWrapper.style.height = height + "px";
                 } else {
                     const isFirstItem = items.length > 0 && selectedItem === items[0].ref.current;
                     contentWrapper.style.top = "0px";
-                    const clampedTopEdgeToTriggerMiddle = Math.max(topEdgeToTriggerMiddle, contentBorderTopWidth + viewport.offsetTop + // viewport might have padding top, include it to avoid a scrollable viewport
+                    const clampedTopEdgeToTriggerMiddle = Math.max(topEdgeToTriggerMiddle, contentBorderTopWidth + viewport.offsetTop + 
                     (isFirstItem ? viewportPaddingTop : 0) + selectedItemHalfHeight);
                     const height = clampedTopEdgeToTriggerMiddle + itemMiddleToContentBottom;
                     contentWrapper.style.height = height + "px";
@@ -6935,12 +6935,12 @@ var SelectItemAlignedPosition = __TURBOPACK__imported__module__$5b$project$5d2f$
         position,
         focusSelectedItem
     ]);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectViewportProvider, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectViewportProvider, {
         scope: __scopeSelect,
         contentWrapper,
         shouldExpandOnScrollRef,
         onScrollButtonChange: handleScrollButtonChange,
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("div", {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("div", {
             ref: setContentWrapper,
             style: {
                 display: "flex",
@@ -6948,14 +6948,14 @@ var SelectItemAlignedPosition = __TURBOPACK__imported__module__$5b$project$5d2f$
                 position: "fixed",
                 zIndex: contentZIndex
             },
-            children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
+            children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
                 ...popperProps,
                 ref: composedRefs,
                 style: {
-                    // When we get the height of the content, it includes borders. If we were to set
-                    // the height without having `boxSizing: 'border-box'` it would be too big.
+                    
+                    
                     boxSizing: "border-box",
-                    // We need to ensure the content doesn't get taller than the wrapper
+                    
                     maxHeight: "100%",
                     ...popperProps.style
                 }
@@ -6968,17 +6968,17 @@ var POPPER_POSITION_NAME = "SelectPopperPosition";
 var SelectPopperPosition = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeSelect, align = "start", collisionPadding = CONTENT_MARGIN, ...popperProps } = props;
     const popperScope = usePopperScope(__scopeSelect);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Content"], {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Content"], {
         ...popperScope,
         ...popperProps,
         ref: forwardedRef,
         align,
         collisionPadding,
         style: {
-            // Ensure border-box for floating-ui calculations
+            
             boxSizing: "border-box",
             ...popperProps.style,
-            // re-namespace exposed content custom properties
+            
             ...{
                 "--radix-select-content-transform-origin": "var(--radix-popper-transform-origin)",
                 "--radix-select-content-available-width": "var(--radix-popper-available-width)",
@@ -6998,31 +6998,31 @@ var SelectViewport = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$
     const viewportContext = useSelectViewportContext(VIEWPORT_NAME, __scopeSelect);
     const composedRefs = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useComposedRefs"])(forwardedRef, contentContext.onViewportChange);
     const prevScrollTopRef = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](0);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
-            /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("style", {
+             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("style", {
                 dangerouslySetInnerHTML: {
                     __html: `[data-radix-select-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-select-viewport]::-webkit-scrollbar{display:none}`
                 },
                 nonce
             }),
-            /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Collection.Slot, {
+             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Collection.Slot, {
                 scope: __scopeSelect,
-                children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
+                children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
                     "data-radix-select-viewport": "",
                     role: "presentation",
                     ...viewportProps,
                     ref: composedRefs,
                     style: {
-                        // we use position: 'relative' here on the `viewport` so that when we call
-                        // `selectedItem.offsetTop` in calculations, the offset is relative to the viewport
-                        // (independent of the scrollUpButton).
+                        
+                        
+                        
                         position: "relative",
                         flex: 1,
-                        // Viewport should only be scrollable in the vertical direction.
-                        // This won't work in vertical writing modes, so we'll need to
-                        // revisit this if/when that is supported
-                        // https://developer.chrome.com/blog/vertical-form-controls
+                        
+                        
+                        
+                        
                         overflow: "hidden auto",
                         ...viewportProps.style
                     },
@@ -7061,10 +7061,10 @@ var [SelectGroupContextProvider, useSelectGroupContext] = createSelectContext(GR
 var SelectGroup = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeSelect, ...groupProps } = props;
     const groupId = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$id$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useId"])();
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectGroupContextProvider, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectGroupContextProvider, {
         scope: __scopeSelect,
         id: groupId,
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
             role: "group",
             "aria-labelledby": groupId,
             ...groupProps,
@@ -7077,7 +7077,7 @@ var LABEL_NAME = "SelectLabel";
 var SelectLabel = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeSelect, ...labelProps } = props;
     const groupContext = useSelectGroupContext(LABEL_NAME, __scopeSelect);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
         id: groupContext.id,
         ...labelProps,
         ref: forwardedRef
@@ -7107,7 +7107,7 @@ var SelectItem = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proj
     if (value === "") {
         throw new Error("A <Select.Item /> must have a value prop that is not an empty string. This is because the Select value can be set to an empty string to clear the selection and show the placeholder.");
     }
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectItemContextProvider, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectItemContextProvider, {
         scope: __scopeSelect,
         value,
         disabled,
@@ -7120,12 +7120,12 @@ var SelectItem = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proj
                 }["SelectItem.useCallback"]);
             }
         }["SelectItem.useCallback"], []),
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Collection.ItemSlot, {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Collection.ItemSlot, {
             scope: __scopeSelect,
             value,
             disabled,
             textValue,
-            children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
+            children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
                 role: "option",
                 "aria-labelledby": textId,
                 "data-highlighted": isFocused ? "" : void 0,
@@ -7188,7 +7188,7 @@ var SelectItemText = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$
     }["SelectItemText.useComposedRefs[composedRefs]"]);
     const textContent = itemTextNode?.textContent;
     const nativeOption = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"]({
-        "SelectItemText.useMemo[nativeOption]": ()=>/* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("option", {
+        "SelectItemText.useMemo[nativeOption]": ()=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("option", {
                 value: itemContext.value,
                 disabled: itemContext.disabled,
                 children: textContent
@@ -7211,9 +7211,9 @@ var SelectItemText = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$
         onNativeOptionRemove,
         nativeOption
     ]);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
-            /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].span, {
+             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].span, {
                 id: itemContext.textId,
                 ...itemTextProps,
                 ref: composedRefs
@@ -7227,7 +7227,7 @@ var ITEM_INDICATOR_NAME = "SelectItemIndicator";
 var SelectItemIndicator = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeSelect, ...itemIndicatorProps } = props;
     const itemContext = useSelectItemContext(ITEM_INDICATOR_NAME, __scopeSelect);
-    return itemContext.isSelected ? /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].span, {
+    return itemContext.isSelected ?  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].span, {
         "aria-hidden": true,
         ...itemIndicatorProps,
         ref: forwardedRef
@@ -7262,7 +7262,7 @@ var SelectScrollUpButton = __TURBOPACK__imported__module__$5b$project$5d2f$Deskt
         contentContext.viewport,
         contentContext.isPositioned
     ]);
-    return canScrollUp ? /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectScrollButtonImpl, {
+    return canScrollUp ?  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectScrollButtonImpl, {
         ...props,
         ref: composedRefs,
         onAutoScroll: ()=>{
@@ -7303,7 +7303,7 @@ var SelectScrollDownButton = __TURBOPACK__imported__module__$5b$project$5d2f$Des
         contentContext.viewport,
         contentContext.isPositioned
     ]);
-    return canScrollDown ? /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectScrollButtonImpl, {
+    return canScrollDown ?  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SelectScrollButtonImpl, {
         ...props,
         ref: composedRefs,
         onAutoScroll: ()=>{
@@ -7349,7 +7349,7 @@ var SelectScrollButtonImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Des
     }["SelectScrollButtonImpl.useLayoutEffect"], [
         getItems
     ]);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
         "aria-hidden": true,
         ...scrollIndicatorProps,
         ref: forwardedRef,
@@ -7376,7 +7376,7 @@ var SelectScrollButtonImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Des
 var SEPARATOR_NAME = "SelectSeparator";
 var SelectSeparator = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeSelect, ...separatorProps } = props;
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].div, {
         "aria-hidden": true,
         ...separatorProps,
         ref: forwardedRef
@@ -7389,7 +7389,7 @@ var SelectArrow = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Pro
     const popperScope = usePopperScope(__scopeSelect);
     const context = useSelectContext(ARROW_NAME, __scopeSelect);
     const contentContext = useSelectContentContext(ARROW_NAME, __scopeSelect);
-    return context.open && contentContext.position === "popper" ? /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Arrow"], {
+    return context.open && contentContext.position === "popper" ?  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Arrow"], {
         ...popperScope,
         ...arrowProps,
         ref: forwardedRef
@@ -7420,7 +7420,7 @@ var SelectBubbleInput = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$
         prevValue,
         value
     ]);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].select, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].select, {
         ...props,
         style: {
             ...__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$visually$2d$hidden$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["VISUALLY_HIDDEN_STYLES"],
@@ -7502,17 +7502,17 @@ var ScrollDownButton = SelectScrollDownButton;
 var Separator = SelectSeparator;
 var Arrow2 = SelectArrow;
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/check.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -7531,7 +7531,7 @@ const __iconNode = [
 ];
 const Check = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("Check", __iconNode);
 ;
- //# sourceMappingURL=check.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/check.js [app-client] (ecmascript) <export default as Check>", ((__turbopack_context__) => {
 "use strict";
@@ -7545,12 +7545,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -7569,7 +7569,7 @@ const __iconNode = [
 ];
 const ChevronDown = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("ChevronDown", __iconNode);
 ;
- //# sourceMappingURL=chevron-down.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-client] (ecmascript) <export default as ChevronDown>", ((__turbopack_context__) => {
 "use strict";
@@ -7583,12 +7583,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-up.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -7607,7 +7607,7 @@ const __iconNode = [
 ];
 const ChevronUp = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("ChevronUp", __iconNode);
 ;
- //# sourceMappingURL=chevron-up.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-up.js [app-client] (ecmascript) <export default as ChevronUp>", ((__turbopack_context__) => {
 "use strict";
@@ -7621,7 +7621,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-popover/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// src/slot.tsx
+
 __turbopack_context__.s([
     "Root",
     ()=>Slot,
@@ -7640,9 +7640,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-// @__NO_SIDE_EFFECTS__
+
 function createSlot(ownerName) {
-    const SlotClone = /* @__PURE__ */ createSlotClone(ownerName);
+    const SlotClone =  createSlotClone(ownerName);
     const Slot2 = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
         const { children, ...slotProps } = props;
         const childrenArray = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Children"].toArray(children);
@@ -7657,13 +7657,13 @@ function createSlot(ownerName) {
                     return child;
                 }
             });
-            return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+            return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
                 ...slotProps,
                 ref: forwardedRef,
                 children: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isValidElement"](newElement) ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cloneElement"](newElement, void 0, newChildren) : null
             });
         }
-        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
             ...slotProps,
             ref: forwardedRef,
             children
@@ -7672,8 +7672,8 @@ function createSlot(ownerName) {
     Slot2.displayName = `${ownerName}.Slot`;
     return Slot2;
 }
-var Slot = /* @__PURE__ */ createSlot("Slot");
-// @__NO_SIDE_EFFECTS__
+var Slot =  createSlot("Slot");
+
 function createSlotClone(ownerName) {
     const SlotClone = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
         const { children, ...slotProps } = props;
@@ -7691,10 +7691,10 @@ function createSlotClone(ownerName) {
     return SlotClone;
 }
 var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-// @__NO_SIDE_EFFECTS__
+
 function createSlottable(ownerName) {
     const Slottable2 = ({ children })=>{
-        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
             children
         });
     };
@@ -7702,7 +7702,7 @@ function createSlottable(ownerName) {
     Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
     return Slottable2;
 }
-var Slottable = /* @__PURE__ */ createSlottable("Slottable");
+var Slottable =  createSlottable("Slottable");
 function isSlottable(child) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isValidElement"](child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER;
 }
@@ -7755,7 +7755,7 @@ function getElementRef(element) {
     return element.props.ref || element.ref;
 }
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-popover/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7792,7 +7792,7 @@ __turbopack_context__.s([
     "createPopoverScope",
     ()=>createPopoverScope
 ]);
-// src/popover.tsx
+
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/primitive/dist/index.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-compose-refs/dist/index.mjs [app-client] (ecmascript)");
@@ -7846,9 +7846,9 @@ var Popover = (props)=>{
         onChange: onOpenChange,
         caller: POPOVER_NAME
     });
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
         ...popperScope,
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PopoverProvider, {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PopoverProvider, {
             scope: __scopePopover,
             contentId: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$id$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useId"])(),
             triggerRef,
@@ -7891,7 +7891,7 @@ var PopoverAnchor = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$P
         onCustomAnchorAdd,
         onCustomAnchorRemove
     ]);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Anchor"], {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Anchor"], {
         ...popperScope,
         ...anchorProps,
         ref: forwardedRef
@@ -7904,7 +7904,7 @@ var PopoverTrigger = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$
     const context = usePopoverContext(TRIGGER_NAME, __scopePopover);
     const popperScope = usePopperScope(__scopePopover);
     const composedTriggerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useComposedRefs"])(forwardedRef, context.triggerRef);
-    const trigger = /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].button, {
+    const trigger =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].button, {
         type: "button",
         "aria-haspopup": "dialog",
         "aria-expanded": context.open,
@@ -7914,7 +7914,7 @@ var PopoverTrigger = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$
         ref: composedTriggerRef,
         onClick: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["composeEventHandlers"])(props.onClick, context.onOpenToggle)
     });
-    return context.hasCustomAnchor ? trigger : /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Anchor"], {
+    return context.hasCustomAnchor ? trigger :  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Anchor"], {
         asChild: true,
         ...popperScope,
         children: trigger
@@ -7928,12 +7928,12 @@ var [PortalProvider, usePortalContext] = createPopoverContext(PORTAL_NAME, {
 var PopoverPortal = (props)=>{
     const { __scopePopover, forceMount, children, container } = props;
     const context = usePopoverContext(PORTAL_NAME, __scopePopover);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PortalProvider, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PortalProvider, {
         scope: __scopePopover,
         forceMount,
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$presence$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Presence"], {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$presence$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Presence"], {
             present: forceMount || context.open,
-            children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$portal$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Portal"], {
+            children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$portal$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Portal"], {
                 asChild: true,
                 container,
                 children
@@ -7947,12 +7947,12 @@ var PopoverContent = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$
     const portalContext = usePortalContext(CONTENT_NAME, props.__scopePopover);
     const { forceMount = portalContext.forceMount, ...contentProps } = props;
     const context = usePopoverContext(CONTENT_NAME, props.__scopePopover);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$presence$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Presence"], {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$presence$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Presence"], {
         present: forceMount || context.open,
-        children: context.modal ? /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PopoverContentModal, {
+        children: context.modal ?  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PopoverContentModal, {
             ...contentProps,
             ref: forwardedRef
-        }) : /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PopoverContentNonModal, {
+        }) :  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PopoverContentNonModal, {
             ...contentProps,
             ref: forwardedRef
         })
@@ -7971,10 +7971,10 @@ var PopoverContentModal = __TURBOPACK__imported__module__$5b$project$5d2f$Deskto
             if (content) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$aria$2d$hidden$2f$dist$2f$es2015$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["hideOthers"])(content);
         }
     }["PopoverContentModal.useEffect"], []);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$remove$2d$scroll$2f$dist$2f$es2015$2f$Combination$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RemoveScroll$3e$__["RemoveScroll"], {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$react$2d$remove$2d$scroll$2f$dist$2f$es2015$2f$Combination$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__RemoveScroll$3e$__["RemoveScroll"], {
         as: Slot,
         allowPinchZoom: true,
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PopoverContentImpl, {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PopoverContentImpl, {
             ...props,
             ref: composedRefs,
             trapFocus: context.open,
@@ -8001,7 +8001,7 @@ var PopoverContentNonModal = __TURBOPACK__imported__module__$5b$project$5d2f$Des
     const context = usePopoverContext(CONTENT_NAME, props.__scopePopover);
     const hasInteractedOutsideRef = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](false);
     const hasPointerDownOutsideRef = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"](false);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PopoverContentImpl, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(PopoverContentImpl, {
         ...props,
         ref: forwardedRef,
         trapFocus: false,
@@ -8037,13 +8037,13 @@ var PopoverContentImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop
     const context = usePopoverContext(CONTENT_NAME, __scopePopover);
     const popperScope = usePopperScope(__scopePopover);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$focus$2d$guards$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useFocusGuards"])();
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$focus$2d$scope$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FocusScope"], {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$focus$2d$scope$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FocusScope"], {
         asChild: true,
         loop: true,
         trapped: trapFocus,
         onMountAutoFocus: onOpenAutoFocus,
         onUnmountAutoFocus: onCloseAutoFocus,
-        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dismissable$2d$layer$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DismissableLayer"], {
+        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dismissable$2d$layer$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DismissableLayer"], {
             asChild: true,
             disableOutsidePointerEvents,
             onInteractOutside,
@@ -8051,7 +8051,7 @@ var PopoverContentImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop
             onPointerDownOutside,
             onFocusOutside,
             onDismiss: ()=>context.onOpenChange(false),
-            children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Content"], {
+            children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Content"], {
                 "data-state": getState(context.open),
                 role: "dialog",
                 id: context.contentId,
@@ -8060,7 +8060,7 @@ var PopoverContentImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop
                 ref: forwardedRef,
                 style: {
                     ...contentProps.style,
-                    // re-namespace exposed content custom properties
+                    
                     ...{
                         "--radix-popover-content-transform-origin": "var(--radix-popper-transform-origin)",
                         "--radix-popover-content-available-width": "var(--radix-popper-available-width)",
@@ -8077,7 +8077,7 @@ var CLOSE_NAME = "PopoverClose";
 var PopoverClose = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopePopover, ...closeProps } = props;
     const context = usePopoverContext(CLOSE_NAME, __scopePopover);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].button, {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Primitive"].button, {
         type: "button",
         ...closeProps,
         ref: forwardedRef,
@@ -8089,7 +8089,7 @@ var ARROW_NAME = "PopoverArrow";
 var PopoverArrow = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopePopover, ...arrowProps } = props;
     const popperScope = usePopperScope(__scopePopover);
-    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Arrow"], {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$popper$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Arrow"], {
         ...popperScope,
         ...arrowProps,
         ref: forwardedRef
@@ -8107,17 +8107,17 @@ var Content2 = PopoverContent;
 var Close = PopoverClose;
 var Arrow2 = PopoverArrow;
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-left.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -8136,7 +8136,7 @@ const __iconNode = [
 ];
 const ChevronLeft = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("ChevronLeft", __iconNode);
 ;
- //# sourceMappingURL=chevron-left.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-left.js [app-client] (ecmascript) <export default as ChevronLeft>", ((__turbopack_context__) => {
 "use strict";
@@ -8150,12 +8150,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-right.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */ __turbopack_context__.s([
+
+
+
+
+
+ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -8174,7 +8174,7 @@ const __iconNode = [
 ];
 const ChevronRight = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])("ChevronRight", __iconNode);
 ;
- //# sourceMappingURL=chevron-right.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-right.js [app-client] (ecmascript) <export default as ChevronRight>", ((__turbopack_context__) => {
 "use strict";
@@ -8289,8 +8289,8 @@ function setMonth(date, month) {
     dateWithDesiredMonth.setFullYear(year, month, 15);
     dateWithDesiredMonth.setHours(0, 0, 0, 0);
     const daysInMonth = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$getDaysInMonth$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDaysInMonth"])(dateWithDesiredMonth);
-    // Set the last day of the new month
-    // if the original date was the last day of the longer month
+    
+    
     _date.setMonth(month, Math.min(day, daysInMonth));
     return _date;
 }
@@ -8311,7 +8311,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 function setYear(date, year) {
     const _date = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$toDate$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toDate"])(date);
-    // Check if date is Invalid Date because Date.prototype.setFullYear ignores the value of Invalid Date
+    
     if (isNaN(+_date)) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$constructFrom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["constructFrom"])(date, NaN);
     }
@@ -8357,33 +8357,33 @@ function addMonths(date, amount) {
     const _date = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$toDate$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toDate"])(date);
     if (isNaN(amount)) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$constructFrom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["constructFrom"])(date, NaN);
     if (!amount) {
-        // If 0 months, no-op to avoid changing times in the hour before end of DST
+        
         return _date;
     }
     const dayOfMonth = _date.getDate();
-    // The JS Date object supports date math by accepting out-of-bounds values for
-    // month, day, etc. For example, new Date(2020, 0, 0) returns 31 Dec 2019 and
-    // new Date(2020, 13, 1) returns 1 Feb 2021.  This is *almost* the behavior we
-    // want except that dates will wrap around the end of a month, meaning that
-    // new Date(2020, 13, 31) will return 3 Mar 2021 not 28 Feb 2021 as desired. So
-    // we'll default to the end of the desired month by adding 1 to the desired
-    // month and using a date of 0 to back up one day to the end of the desired
-    // month.
+    
+    
+    
+    
+    
+    
+    
+    
     const endOfDesiredMonth = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$constructFrom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["constructFrom"])(date, _date.getTime());
     endOfDesiredMonth.setMonth(_date.getMonth() + amount + 1, 0);
     const daysInMonth = endOfDesiredMonth.getDate();
     if (dayOfMonth >= daysInMonth) {
-        // If we're already at the end of the month, then this is the correct date
-        // and we're done.
+        
+        
         return endOfDesiredMonth;
     } else {
-        // Otherwise, we now know that setting the original day-of-month value won't
-        // cause an overflow, so set the desired day-of-month. Note that we can't
-        // just set the date of `endOfDesiredMonth` because that object may have had
-        // its time changed in the unusual case where where a DST transition was on
-        // the last day of the month and its local time was in the hour skipped or
-        // repeated next to a DST transition.  So we use `date` instead which is
-        // guaranteed to still have the original time.
+        
+        
+        
+        
+        
+        
+        
         _date.setFullYear(endOfDesiredMonth.getFullYear(), endOfDesiredMonth.getMonth(), dayOfMonth);
         return _date;
     }
@@ -8443,7 +8443,7 @@ function addDays(date, amount) {
     const _date = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$toDate$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toDate"])(date);
     if (isNaN(amount)) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$constructFrom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["constructFrom"])(date, NaN);
     if (!amount) {
-        // If 0 days, no-op to avoid changing times in the hour before end of DST
+        
         return _date;
     }
     _date.setDate(_date.getDate() + amount);
@@ -8661,9 +8661,9 @@ function differenceInCalendarWeeks(dateLeft, dateRight, options) {
     const startOfWeekRight = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfWeek$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfWeek"])(dateRight, options);
     const timestampLeft = +startOfWeekLeft - (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$getTimezoneOffsetInMilliseconds$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getTimezoneOffsetInMilliseconds"])(startOfWeekLeft);
     const timestampRight = +startOfWeekRight - (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$_lib$2f$getTimezoneOffsetInMilliseconds$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getTimezoneOffsetInMilliseconds"])(startOfWeekRight);
-    // Round the number of days to the nearest integer because the number of
-    // milliseconds in a days is not constant (e.g. it's different in the week of
-    // the daylight saving time clock shift).
+    
+    
+    
     return Math.round((timestampLeft - timestampRight) / __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$constants$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["millisecondsInWeek"]);
 }
 const __TURBOPACK__default__export__ = differenceInCalendarWeeks;
@@ -8830,7 +8830,7 @@ class EraParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$
     priority = 140;
     parse(dateString, token, match) {
         switch(token){
-            // AD, BC
+            
             case "G":
             case "GG":
             case "GGG":
@@ -8839,12 +8839,12 @@ class EraParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$
                 }) || match.era(dateString, {
                     width: "narrow"
                 });
-            // A, B
+            
             case "GGGGG":
                 return match.era(dateString, {
                     width: "narrow"
                 });
-            // Anno Domini, Before Christ
+            
             case "GGGG":
             default:
                 return match.era(dateString, {
@@ -8959,7 +8959,7 @@ function parseTimezonePattern(pattern, dateString) {
     if (!matchResult) {
         return null;
     }
-    // Input is 'Z'
+    
     if (matchResult[0] === "Z") {
         return {
             value: 0,
@@ -9025,10 +9025,10 @@ function dayPeriodEnumToHours(dayPeriod) {
 }
 function normalizeTwoDigitYear(twoDigitYear, currentYear) {
     const isCommonEra = currentYear > 0;
-    // Absolute number of the current year:
-    // 1 -> 1 AC
-    // 0 -> 1 BC
-    // -1 -> 2 BC
+    
+    
+    
+    
     const absCurrentYear = isCommonEra ? currentYear : 1 - currentYear;
     let result;
     if (absCurrentYear <= 50) {
@@ -9272,16 +9272,16 @@ class QuarterParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Desk
     priority = 120;
     parse(dateString, token, match) {
         switch(token){
-            // 1, 2, 3, 4
+            
             case "Q":
             case "QQ":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["parseNDigits"])(token.length, dateString);
-            // 1st, 2nd, 3rd, 4th
+            
             case "Qo":
                 return match.ordinalNumber(dateString, {
                     unit: "quarter"
                 });
-            // Q1, Q2, Q3, Q4
+            
             case "QQQ":
                 return match.quarter(dateString, {
                     width: "abbreviated",
@@ -9290,13 +9290,13 @@ class QuarterParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Desk
                     width: "narrow",
                     context: "formatting"
                 });
-            // 1, 2, 3, 4 (narrow quarter; could be not numerical)
+            
             case "QQQQQ":
                 return match.quarter(dateString, {
                     width: "narrow",
                     context: "formatting"
                 });
-            // 1st quarter, 2nd quarter, ...
+            
             case "QQQQ":
             default:
                 return match.quarter(dateString, {
@@ -9352,16 +9352,16 @@ class StandAloneQuarterParser extends __TURBOPACK__imported__module__$5b$project
     priority = 120;
     parse(dateString, token, match) {
         switch(token){
-            // 1, 2, 3, 4
+            
             case "q":
             case "qq":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["parseNDigits"])(token.length, dateString);
-            // 1st, 2nd, 3rd, 4th
+            
             case "qo":
                 return match.ordinalNumber(dateString, {
                     unit: "quarter"
                 });
-            // Q1, Q2, Q3, Q4
+            
             case "qqq":
                 return match.quarter(dateString, {
                     width: "abbreviated",
@@ -9370,13 +9370,13 @@ class StandAloneQuarterParser extends __TURBOPACK__imported__module__$5b$project
                     width: "narrow",
                     context: "standalone"
                 });
-            // 1, 2, 3, 4 (narrow quarter; could be not numerical)
+            
             case "qqqqq":
                 return match.quarter(dateString, {
                     width: "narrow",
                     context: "standalone"
                 });
-            // 1st quarter, 2nd quarter, ...
+            
             case "qqqq":
             default:
                 return match.quarter(dateString, {
@@ -9450,18 +9450,18 @@ class MonthParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Deskto
     parse(dateString, token, match) {
         const valueCallback = (value)=>value - 1;
         switch(token){
-            // 1, 2, ..., 12
+            
             case "M":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mapValue"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["parseNumericPattern"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$constants$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["numericPatterns"].month, dateString), valueCallback);
-            // 01, 02, ..., 12
+            
             case "MM":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mapValue"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["parseNDigits"])(2, dateString), valueCallback);
-            // 1st, 2nd, ..., 12th
+            
             case "Mo":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mapValue"])(match.ordinalNumber(dateString, {
                     unit: "month"
                 }), valueCallback);
-            // Jan, Feb, ..., Dec
+            
             case "MMM":
                 return match.month(dateString, {
                     width: "abbreviated",
@@ -9470,13 +9470,13 @@ class MonthParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Deskto
                     width: "narrow",
                     context: "formatting"
                 });
-            // J, F, ..., D
+            
             case "MMMMM":
                 return match.month(dateString, {
                     width: "narrow",
                     context: "formatting"
                 });
-            // January, February, ..., December
+            
             case "MMMM":
             default:
                 return match.month(dateString, {
@@ -9519,18 +9519,18 @@ class StandAloneMonthParser extends __TURBOPACK__imported__module__$5b$project$5
     parse(dateString, token, match) {
         const valueCallback = (value)=>value - 1;
         switch(token){
-            // 1, 2, ..., 12
+            
             case "L":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mapValue"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["parseNumericPattern"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$constants$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["numericPatterns"].month, dateString), valueCallback);
-            // 01, 02, ..., 12
+            
             case "LL":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mapValue"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["parseNDigits"])(2, dateString), valueCallback);
-            // 1st, 2nd, ..., 12th
+            
             case "Lo":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mapValue"])(match.ordinalNumber(dateString, {
                     unit: "month"
                 }), valueCallback);
-            // Jan, Feb, ..., Dec
+            
             case "LLL":
                 return match.month(dateString, {
                     width: "abbreviated",
@@ -9539,13 +9539,13 @@ class StandAloneMonthParser extends __TURBOPACK__imported__module__$5b$project$5
                     width: "narrow",
                     context: "standalone"
                 });
-            // J, F, ..., D
+            
             case "LLLLL":
                 return match.month(dateString, {
                     width: "narrow",
                     context: "standalone"
                 });
-            // January, February, ..., December
+            
             case "LLLL":
             default:
                 return match.month(dateString, {
@@ -9928,7 +9928,7 @@ class DayParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$
     priority = 90;
     parse(dateString, token, match) {
         switch(token){
-            // Tue
+            
             case "E":
             case "EE":
             case "EEE":
@@ -9942,13 +9942,13 @@ class DayParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$
                     width: "narrow",
                     context: "formatting"
                 });
-            // T
+            
             case "EEEEE":
                 return match.day(dateString, {
                     width: "narrow",
                     context: "formatting"
                 });
-            // Tu
+            
             case "EEEEEE":
                 return match.day(dateString, {
                     width: "short",
@@ -9957,7 +9957,7 @@ class DayParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$
                     width: "narrow",
                     context: "formatting"
                 });
-            // Tuesday
+            
             case "EEEE":
             default:
                 return match.day(dateString, {
@@ -10010,21 +10010,21 @@ class LocalDayParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Des
     priority = 90;
     parse(dateString, token, match, options) {
         const valueCallback = (value)=>{
-            // We want here floor instead of trunc, so we get -7 for value 0 instead of 0
+            
             const wholeWeekDays = Math.floor((value - 1) / 7) * 7;
             return (value + options.weekStartsOn + 6) % 7 + wholeWeekDays;
         };
         switch(token){
-            // 3
+            
             case "e":
             case "ee":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mapValue"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["parseNDigits"])(token.length, dateString), valueCallback);
-            // 3rd
+            
             case "eo":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mapValue"])(match.ordinalNumber(dateString, {
                     unit: "day"
                 }), valueCallback);
-            // Tue
+            
             case "eee":
                 return match.day(dateString, {
                     width: "abbreviated",
@@ -10036,13 +10036,13 @@ class LocalDayParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Des
                     width: "narrow",
                     context: "formatting"
                 });
-            // T
+            
             case "eeeee":
                 return match.day(dateString, {
                     width: "narrow",
                     context: "formatting"
                 });
-            // Tu
+            
             case "eeeeee":
                 return match.day(dateString, {
                     width: "short",
@@ -10051,7 +10051,7 @@ class LocalDayParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Des
                     width: "narrow",
                     context: "formatting"
                 });
-            // Tuesday
+            
             case "eeee":
             default:
                 return match.day(dateString, {
@@ -10113,21 +10113,21 @@ class StandAloneLocalDayParser extends __TURBOPACK__imported__module__$5b$projec
     priority = 90;
     parse(dateString, token, match, options) {
         const valueCallback = (value)=>{
-            // We want here floor instead of trunc, so we get -7 for value 0 instead of 0
+            
             const wholeWeekDays = Math.floor((value - 1) / 7) * 7;
             return (value + options.weekStartsOn + 6) % 7 + wholeWeekDays;
         };
         switch(token){
-            // 3
+            
             case "c":
             case "cc":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mapValue"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["parseNDigits"])(token.length, dateString), valueCallback);
-            // 3rd
+            
             case "co":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mapValue"])(match.ordinalNumber(dateString, {
                     unit: "day"
                 }), valueCallback);
-            // Tue
+            
             case "ccc":
                 return match.day(dateString, {
                     width: "abbreviated",
@@ -10139,13 +10139,13 @@ class StandAloneLocalDayParser extends __TURBOPACK__imported__module__$5b$projec
                     width: "narrow",
                     context: "standalone"
                 });
-            // T
+            
             case "ccccc":
                 return match.day(dateString, {
                     width: "narrow",
                     context: "standalone"
                 });
-            // Tu
+            
             case "cccccc":
                 return match.day(dateString, {
                     width: "short",
@@ -10154,7 +10154,7 @@ class StandAloneLocalDayParser extends __TURBOPACK__imported__module__$5b$projec
                     width: "narrow",
                     context: "standalone"
                 });
-            // Tuesday
+            
             case "cccc":
             default:
                 return match.day(dateString, {
@@ -10266,16 +10266,16 @@ class ISODayParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Deskt
             return value;
         };
         switch(token){
-            // 2
+            
             case "i":
             case "ii":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["parseNDigits"])(token.length, dateString);
-            // 2nd
+            
             case "io":
                 return match.ordinalNumber(dateString, {
                     unit: "day"
                 });
-            // Tue
+            
             case "iii":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mapValue"])(match.day(dateString, {
                     width: "abbreviated",
@@ -10287,13 +10287,13 @@ class ISODayParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Deskt
                     width: "narrow",
                     context: "formatting"
                 }), valueCallback);
-            // T
+            
             case "iiiii":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mapValue"])(match.day(dateString, {
                     width: "narrow",
                     context: "formatting"
                 }), valueCallback);
-            // Tu
+            
             case "iiiiii":
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mapValue"])(match.day(dateString, {
                     width: "short",
@@ -10302,7 +10302,7 @@ class ISODayParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Deskt
                     width: "narrow",
                     context: "formatting"
                 }), valueCallback);
-            // Tuesday
+            
             case "iiii":
             default:
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mapValue"])(match.day(dateString, {
@@ -11092,19 +11092,19 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-/**
- * The {@link parse} function options.
- */ // This RegExp consists of three parts separated by `|`:
-// - [yYQqMLwIdDecihHKkms]o matches any available ordinal number token
-//   (one of the certain letters followed by `o`)
-// - (\w)\1* matches any sequences of the same letter
-// - '' matches two quote characters in a row
-// - '(''|[^'])+('|$) matches anything surrounded by two quote characters ('),
-//   except a single quote symbol, which ends the sequence.
-//   Two quote characters do not end the sequence.
-//   If there is no matching single quote
-//   then the sequence will continue until the end of the string.
-// - . matches any single character unmatched by previous parts of the RegExps
+
+
+ 
+
+
+
+
+
+
+
+
+
+
 const formattingTokensRegExp = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g;
 // This RegExp catches symbols escaped by quotes, and also
 // sequences of symbols P, p, and the combinations like `PPPPPPPppppp`
@@ -11130,7 +11130,7 @@ function parse(dateStr, formatStr, referenceDate, options) {
         weekStartsOn,
         locale
     };
-    // If timezone isn't specified, it will be set to the system timezone
+    
     const setters = [
         new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2f$_lib$2f$Setter$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DateToSystemTimezoneSetter"]()
     ];
@@ -11176,13 +11176,13 @@ function parse(dateStr, formatStr, referenceDate, options) {
             if (firstCharacter.match(unescapedLatinCharacterRegExp)) {
                 throw new RangeError("Format string contains an unescaped latin alphabet character `" + firstCharacter + "`");
             }
-            // Replace two single quote characters with one single quote character
+            
             if (token === "''") {
                 token = "'";
             } else if (firstCharacter === "'") {
                 token = cleanEscapedString(token);
             }
-            // Cut token from string, or, if string doesn't match the token, return Invalid Date
+            
             if (dateStr.indexOf(token) === 0) {
                 dateStr = dateStr.slice(token.length);
             } else {
@@ -11190,7 +11190,7 @@ function parse(dateStr, formatStr, referenceDate, options) {
             }
         }
     }
-    // Check if the remaining input contains something other than whitespace
+    
     if (dateStr.length > 0 && notWhitespaceRegExp.test(dateStr)) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$constructFrom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["constructFrom"])(referenceDate, NaN);
     }
@@ -11205,11 +11205,11 @@ function parse(dateStr, formatStr, referenceDate, options) {
             return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$constructFrom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["constructFrom"])(referenceDate, NaN);
         }
         const result = setter.set(date, flags, subFnOptions);
-        // Result is tuple (date, flags)
+        
         if (Array.isArray(result)) {
             date = result[0];
             Object.assign(flags, result[1]);
-        // Result is date
+        
         } else {
             date = result;
         }
@@ -11374,20 +11374,20 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-/******************************************************************************
-Copyright (c) Microsoft Corporation.
 
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
 
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */ /* global Reflect, Promise, SuppressedError, Symbol */ var __assign = function() {
+
+
+
+
+
+
+
+
+
+
+
+  var __assign = function() {
     __assign = Object.assign || function __assign(t) {
         for(var s, i = 1, n = arguments.length; i < n; i++){
             s = arguments[i];
@@ -11418,18 +11418,18 @@ typeof SuppressedError === "function" ? SuppressedError : function(error, suppre
     var e = new Error(message);
     return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
 };
-/** Returns true when the props are of type {@link DayPickerMultipleProps}. */ function isDayPickerMultiple(props) {
+ function isDayPickerMultiple(props) {
     return props.mode === 'multiple';
 }
-/** Returns true when the props are of type {@link DayPickerRangeProps}. */ function isDayPickerRange(props) {
+ function isDayPickerRange(props) {
     return props.mode === 'range';
 }
-/** Returns true when the props are of type {@link DayPickerSingleProps}. */ function isDayPickerSingle(props) {
+ function isDayPickerSingle(props) {
     return props.mode === 'single';
 }
-/**
- * The name of the default CSS classes.
- */ var defaultClassNames = {
+
+
+ var defaultClassNames = {
     root: 'rdp',
     multiple_months: 'rdp-multiple_months',
     with_weeknumber: 'rdp-with_weeknumber',
@@ -11472,37 +11472,37 @@ typeof SuppressedError === "function" ? SuppressedError : function(error, suppre
     day_range_end: 'rdp-day_range_end',
     day_range_middle: 'rdp-day_range_middle'
 };
-/**
- * The default formatter for the caption.
- */ function formatCaption(month, options) {
+
+
+ function formatCaption(month, options) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(month, 'LLLL y', options);
 }
-/**
- * The default formatter for the Day button.
- */ function formatDay(day, options) {
+
+
+ function formatDay(day, options) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(day, 'd', options);
 }
-/**
- * The default formatter for the Month caption.
- */ function formatMonthCaption(month, options) {
+
+
+ function formatMonthCaption(month, options) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(month, 'LLLL', options);
 }
-/**
- * The default formatter for the week number.
- */ function formatWeekNumber(weekNumber) {
+
+
+ function formatWeekNumber(weekNumber) {
     return "".concat(weekNumber);
 }
-/**
- * The default formatter for the name of the weekday.
- */ function formatWeekdayName(weekday, options) {
+
+
+ function formatWeekdayName(weekday, options) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(weekday, 'cccccc', options);
 }
-/**
- * The default formatter for the Year caption.
- */ function formatYearCaption(year, options) {
+
+
+ function formatYearCaption(year, options) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(year, 'yyyy', options);
 }
-var formatters = /*#__PURE__*/ Object.freeze({
+var formatters =  Object.freeze({
     __proto__: null,
     formatCaption: formatCaption,
     formatDay: formatDay,
@@ -11511,42 +11511,42 @@ var formatters = /*#__PURE__*/ Object.freeze({
     formatWeekdayName: formatWeekdayName,
     formatYearCaption: formatYearCaption
 });
-/**
- * The default ARIA label for the day button.
- */ var labelDay = function(day, activeModifiers, options) {
+
+
+ var labelDay = function(day, activeModifiers, options) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(day, 'do MMMM (EEEE)', options);
 };
-/**
- * The default ARIA label for the WeekNumber element.
- */ var labelMonthDropdown = function() {
+
+
+ var labelMonthDropdown = function() {
     return 'Month: ';
 };
-/**
- * The default ARIA label for next month button in navigation
- */ var labelNext = function() {
+
+
+ var labelNext = function() {
     return 'Go to next month';
 };
-/**
- * The default ARIA label for previous month button in navigation
- */ var labelPrevious = function() {
+
+
+ var labelPrevious = function() {
     return 'Go to previous month';
 };
-/**
- * The default ARIA label for the Weekday element.
- */ var labelWeekday = function(day, options) {
+
+
+ var labelWeekday = function(day, options) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(day, 'cccc', options);
 };
-/**
- * The default ARIA label for the WeekNumber element.
- */ var labelWeekNumber = function(n) {
+
+
+ var labelWeekNumber = function(n) {
     return "Week n. ".concat(n);
 };
-/**
- * The default ARIA label for the WeekNumber element.
- */ var labelYearDropdown = function() {
+
+
+ var labelYearDropdown = function() {
     return 'Year: ';
 };
-var labels = /*#__PURE__*/ Object.freeze({
+var labels =  Object.freeze({
     __proto__: null,
     labelDay: labelDay,
     labelMonthDropdown: labelMonthDropdown,
@@ -11556,10 +11556,10 @@ var labels = /*#__PURE__*/ Object.freeze({
     labelWeekday: labelWeekday,
     labelYearDropdown: labelYearDropdown
 });
-/**
- * Returns the default values to use in the DayPickerContext, in case they are
- * not passed down with the DayPicker initial props.
- */ function getDefaultContextValues() {
+
+
+
+ function getDefaultContextValues() {
     var captionLayout = 'buttons';
     var classNames = defaultClassNames;
     var locale = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$locale$2f$en$2d$US$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["enUS"];
@@ -11582,7 +11582,7 @@ var labels = /*#__PURE__*/ Object.freeze({
         mode: 'default'
     };
 }
-/** Return the `fromDate` and `toDate` prop values values parsing the DayPicker props. */ function parseFromToProps(props) {
+ function parseFromToProps(props) {
     var fromYear = props.fromYear, toYear = props.toYear, fromMonth = props.fromMonth, toMonth = props.toMonth;
     var fromDate = props.fromDate, toDate = props.toDate;
     if (fromMonth) {
@@ -11600,24 +11600,24 @@ var labels = /*#__PURE__*/ Object.freeze({
         toDate: toDate ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfDay$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfDay"])(toDate) : undefined
     };
 }
-/**
- * The DayPicker context shares the props passed to DayPicker within internal
- * and custom components. It is used to set the default values and perform
- * one-time calculations required to render the days.
- *
- * Access to this context from the {@link useDayPicker} hook.
- */ var DayPickerContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-/**
- * The provider for the {@link DayPickerContext}, assigning the defaults from the
- * initial DayPicker props.
- */ function DayPickerProvider(props) {
+
+
+
+
+
+
+ var DayPickerContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+
+
+
+ function DayPickerProvider(props) {
     var _a;
     var initialProps = props.initialProps;
     var defaultContextValues = getDefaultContextValues();
     var _b = parseFromToProps(initialProps), fromDate = _b.fromDate, toDate = _b.toDate;
     var captionLayout = (_a = initialProps.captionLayout) !== null && _a !== void 0 ? _a : defaultContextValues.captionLayout;
     if (captionLayout !== 'buttons' && (!fromDate || !toDate)) {
-        // When no from/to dates are set, the caption is always buttons
+        
         captionLayout = 'buttons';
     }
     var onSelect;
@@ -11643,19 +11643,19 @@ var labels = /*#__PURE__*/ Object.freeze({
         children: props.children
     });
 }
-/**
- * Hook to access the {@link DayPickerContextValue}.
- *
- * Use the DayPicker context to access to the props passed to DayPicker inside
- * internal or custom components.
- */ function useDayPicker() {
+
+
+
+
+
+ function useDayPicker() {
     var context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"])(DayPickerContext);
     if (!context) {
         throw new Error("useDayPicker must be used within a DayPickerProvider.");
     }
     return context;
 }
-/** Render the caption for the displayed month. This component is used when `captionLayout="buttons"`. */ function CaptionLabel(props) {
+ function CaptionLabel(props) {
     var _a = useDayPicker(), locale = _a.locale, classNames = _a.classNames, styles = _a.styles, formatCaption = _a.formatters.formatCaption;
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("div", {
         className: classNames.caption_label,
@@ -11668,9 +11668,9 @@ var labels = /*#__PURE__*/ Object.freeze({
         })
     });
 }
-/**
- * Render the icon in the styled drop-down.
- */ function IconDropdown(props) {
+
+
+ function IconDropdown(props) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("svg", __assign({
         width: "8px",
         height: "8px",
@@ -11684,10 +11684,10 @@ var labels = /*#__PURE__*/ Object.freeze({
         })
     }));
 }
-/**
- * Render a styled select component – displaying a caption and a custom
- * drop-down icon.
- */ function Dropdown(props) {
+
+
+
+ function Dropdown(props) {
     var _a, _b;
     var onChange = props.onChange, value = props.value, children = props.children, caption = props.caption, className = props.className, style = props.style;
     var dayPicker = useDayPicker();
@@ -11724,22 +11724,22 @@ var labels = /*#__PURE__*/ Object.freeze({
         ]
     });
 }
-/** Render the dropdown to navigate between months. */ function MonthsDropdown(props) {
+ function MonthsDropdown(props) {
     var _a;
     var _b = useDayPicker(), fromDate = _b.fromDate, toDate = _b.toDate, styles = _b.styles, locale = _b.locale, formatMonthCaption = _b.formatters.formatMonthCaption, classNames = _b.classNames, components = _b.components, labelMonthDropdown = _b.labels.labelMonthDropdown;
-    // Dropdown should appear only when both from/toDate is set
+    
     if (!fromDate) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {});
     if (!toDate) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {});
     var dropdownMonths = [];
     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$isSameYear$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isSameYear"])(fromDate, toDate)) {
-        // only display the months included in the range
+        
         var date = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfMonth"])(fromDate);
         for(var month = fromDate.getMonth(); month <= toDate.getMonth(); month++){
             dropdownMonths.push((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$setMonth$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setMonth"])(date, month));
         }
     } else {
-        // display all the 12 months
-        var date = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfMonth"])(new Date()); // Any date should be OK, as we just need the year
+        
+        var date = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfMonth"])(new Date()); 
         for(var month = 0; month <= 11; month++){
             dropdownMonths.push((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$setMonth$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["setMonth"])(date, month));
         }
@@ -11770,15 +11770,15 @@ var labels = /*#__PURE__*/ Object.freeze({
         })
     });
 }
-/**
- * Render a dropdown to change the year. Take in account the `nav.fromDate` and
- * `toDate` from context.
- */ function YearsDropdown(props) {
+
+
+
+ function YearsDropdown(props) {
     var _a;
     var displayMonth = props.displayMonth;
     var _b = useDayPicker(), fromDate = _b.fromDate, toDate = _b.toDate, locale = _b.locale, styles = _b.styles, classNames = _b.classNames, components = _b.components, formatYearCaption = _b.formatters.formatYearCaption, labelYearDropdown = _b.labels.labelYearDropdown;
     var years = [];
-    // Dropdown should appear only when both from/toDate is set
+    
     if (!fromDate) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {});
     if (!toDate) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {});
     var fromYear = fromDate.getFullYear();
@@ -11811,15 +11811,15 @@ var labels = /*#__PURE__*/ Object.freeze({
         })
     });
 }
-/**
- * Helper hook for using controlled/uncontrolled values from a component props.
- *
- * When the value is not controlled, pass `undefined` as `controlledValue` and
- * use the returned setter to update it.
- *
- * When the value is controlled, pass the controlled value as second
- * argument, which will be always returned as `value`.
- */ function useControlledValue(defaultValue, controlledValue) {
+
+
+
+
+
+
+
+
+ function useControlledValue(defaultValue, controlledValue) {
     var _a = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(defaultValue), uncontrolledValue = _a[0], setValue = _a[1];
     var value = controlledValue === undefined ? uncontrolledValue : controlledValue;
     return [
@@ -11827,22 +11827,22 @@ var labels = /*#__PURE__*/ Object.freeze({
         setValue
     ];
 }
-/** Return the initial month according to the given options. */ function getInitialMonth(context) {
+ function getInitialMonth(context) {
     var month = context.month, defaultMonth = context.defaultMonth, today = context.today;
     var initialMonth = month || defaultMonth || today || new Date();
     var toDate = context.toDate, fromDate = context.fromDate, _a = context.numberOfMonths, numberOfMonths = _a === void 0 ? 1 : _a;
-    // Fix the initialMonth if is after the to-date
+    
     if (toDate && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$differenceInCalendarMonths$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["differenceInCalendarMonths"])(toDate, initialMonth) < 0) {
         var offset = -1 * (numberOfMonths - 1);
         initialMonth = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$addMonths$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addMonths"])(toDate, offset);
     }
-    // Fix the initialMonth if is before the from-date
+    
     if (fromDate && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$differenceInCalendarMonths$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["differenceInCalendarMonths"])(initialMonth, fromDate) < 0) {
         initialMonth = fromDate;
     }
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfMonth"])(initialMonth);
 }
-/** Controls the navigation state. */ function useNavigationState() {
+ function useNavigationState() {
     var context = useDayPicker();
     var initialMonth = getInitialMonth(context);
     var _a = useControlledValue(initialMonth, context.month), month = _a[0], setMonth = _a[1];
@@ -11858,10 +11858,10 @@ var labels = /*#__PURE__*/ Object.freeze({
         goToMonth
     ];
 }
-/**
- * Return the months to display in the component according to the number of
- * months and the from/to date.
- */ function getDisplayMonths(month, _a) {
+
+
+
+ function getDisplayMonths(month, _a) {
     var reverseMonths = _a.reverseMonths, numberOfMonths = _a.numberOfMonths;
     var start = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfMonth"])(month);
     var end = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfMonth"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$addMonths$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addMonths"])(start, numberOfMonths));
@@ -11874,16 +11874,16 @@ var labels = /*#__PURE__*/ Object.freeze({
     if (reverseMonths) months = months.reverse();
     return months;
 }
-/**
- * Returns the next month the user can navigate to according to the given
- * options.
- *
- * Please note that the next month is not always the next calendar month:
- *
- * - if after the `toDate` range, is undefined;
- * - if the navigation is paged, is the number of months displayed ahead.
- *
- */ function getNextMonth(startingMonth, options) {
+
+
+
+
+
+
+
+
+
+ function getNextMonth(startingMonth, options) {
     if (options.disableNavigation) {
         return undefined;
     }
@@ -11897,20 +11897,20 @@ var labels = /*#__PURE__*/ Object.freeze({
     if (monthsDiff < numberOfMonths) {
         return undefined;
     }
-    // Jump forward as the number of months when paged navigation
+    
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$addMonths$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addMonths"])(month, offset);
 }
-/**
- * Returns the next previous the user can navigate to, according to the given
- * options.
- *
- * Please note that the previous month is not always the previous calendar
- * month:
- *
- * - if before the `fromDate` date, is `undefined`;
- * - if the navigation is paged, is the number of months displayed before.
- *
- */ function getPreviousMonth(startingMonth, options) {
+
+
+
+
+
+
+
+
+
+
+ function getPreviousMonth(startingMonth, options) {
     if (options.disableNavigation) {
         return undefined;
     }
@@ -11924,14 +11924,14 @@ var labels = /*#__PURE__*/ Object.freeze({
     if (monthsDiff <= 0) {
         return undefined;
     }
-    // Jump back as the number of months when paged navigation
+    
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$addMonths$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addMonths"])(month, -offset);
 }
-/**
- * The Navigation context shares details and methods to navigate the months in DayPicker.
- * Access this context from the {@link useNavigation} hook.
- */ var NavigationContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-/** Provides the values for the {@link NavigationContext}. */ function NavigationProvider(props) {
+
+
+
+ var NavigationContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+ function NavigationProvider(props) {
     var dayPicker = useDayPicker();
     var _a = useNavigationState(), currentMonth = _a[0], goToMonth = _a[1];
     var displayMonths = getDisplayMonths(currentMonth, dayPicker);
@@ -11966,21 +11966,21 @@ var labels = /*#__PURE__*/ Object.freeze({
         children: props.children
     });
 }
-/**
- * Hook to access the {@link NavigationContextValue}. Use this hook to navigate
- * between months or years in DayPicker.
- *
- * This hook is meant to be used inside internal or custom components.
- */ function useNavigation() {
+
+
+
+
+
+ function useNavigation() {
     var context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"])(NavigationContext);
     if (!context) {
         throw new Error('useNavigation must be used within a NavigationProvider');
     }
     return context;
 }
-/**
- * Render a caption with the dropdowns to navigate between months and years.
- */ function CaptionDropdowns(props) {
+
+
+ function CaptionDropdowns(props) {
     var _a;
     var _b = useDayPicker(), classNames = _b.classNames, styles = _b.styles, components = _b.components;
     var goToMonth = useNavigation().goToMonth;
@@ -12011,9 +12011,9 @@ var labels = /*#__PURE__*/ Object.freeze({
         ]
     });
 }
-/**
- * Render the "previous month" button in the navigation.
- */ function IconLeft(props) {
+
+
+ function IconLeft(props) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("svg", __assign({
         width: "16px",
         height: "16px",
@@ -12026,9 +12026,9 @@ var labels = /*#__PURE__*/ Object.freeze({
         })
     }));
 }
-/**
- * Render the "next month" button in the navigation.
- */ function IconRight(props) {
+
+
+ function IconRight(props) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("svg", __assign({
         width: "16px",
         height: "16px",
@@ -12040,7 +12040,7 @@ var labels = /*#__PURE__*/ Object.freeze({
         })
     }));
 }
-/** Render a button HTML element applying the reset class name. */ var Button = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"])(function(props, ref) {
+ var Button = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"])(function(props, ref) {
     var _a = useDayPicker(), classNames = _a.classNames, styles = _a.styles;
     var classNamesArr = [
         classNames.button_reset,
@@ -12061,7 +12061,7 @@ var labels = /*#__PURE__*/ Object.freeze({
         style: style
     }));
 });
-/** A component rendering the navigation buttons or the drop-downs. */ function Navigation(props) {
+ function Navigation(props) {
     var _a, _b;
     var _c = useDayPicker(), dir = _c.dir, locale = _c.locale, classNames = _c.classNames, styles = _c.styles, _d = _c.labels, labelPrevious = _d.labelPrevious, labelNext = _d.labelNext, components = _c.components;
     if (!props.nextMonth && !props.previousMonth) {
@@ -12120,9 +12120,9 @@ var labels = /*#__PURE__*/ Object.freeze({
         ]
     });
 }
-/**
- * Render a caption with a button-based navigation.
- */ function CaptionNavigation(props) {
+
+
+ function CaptionNavigation(props) {
     var numberOfMonths = useDayPicker().numberOfMonths;
     var _a = useNavigation(), previousMonth = _a.previousMonth, nextMonth = _a.nextMonth, goToMonth = _a.goToMonth, displayMonths = _a.displayMonths;
     var displayIndex = displayMonths.findIndex(function(month) {
@@ -12150,10 +12150,10 @@ var labels = /*#__PURE__*/ Object.freeze({
         onNextClick: handleNextClick
     });
 }
-/**
- * Render the caption of a month. The caption has a different layout when
- * setting the {@link DayPickerBase.captionLayout} prop.
- */ function Caption(props) {
+
+
+
+ function Caption(props) {
     var _a;
     var _b = useDayPicker(), classNames = _b.classNames, disableNavigation = _b.disableNavigation, styles = _b.styles, captionLayout = _b.captionLayout, components = _b.components;
     var CaptionLabelComponent = (_a = components === null || components === void 0 ? void 0 : components.CaptionLabel) !== null && _a !== void 0 ? _a : CaptionLabel;
@@ -12204,7 +12204,7 @@ var labels = /*#__PURE__*/ Object.freeze({
         children: caption
     });
 }
-/** Render the Footer component (empty as default).*/ // eslint-disable-next-line @typescript-eslint/no-unused-vars
+ 
 function Footer(props) {
     var _a = useDayPicker(), footer = _a.footer, styles = _a.styles, tfoot = _a.classNames.tfoot;
     if (!footer) return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {});
@@ -12219,10 +12219,10 @@ function Footer(props) {
         })
     });
 }
-/**
- * Generate a series of 7 days, starting from the week, to use for formatting
- * the weekday names (Monday, Tuesday, etc.).
- */ function getWeekdays(locale, /** The index of the first day of the week (0 - Sunday). */ weekStartsOn, /** Use ISOWeek instead of locale/ */ ISOWeek) {
+
+
+
+ function getWeekdays(locale,  weekStartsOn,  ISOWeek) {
     var start = ISOWeek ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfISOWeek$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfISOWeek"])(new Date()) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfWeek$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfWeek"])(new Date(), {
         locale: locale,
         weekStartsOn: weekStartsOn
@@ -12234,9 +12234,9 @@ function Footer(props) {
     }
     return days;
 }
-/**
- * Render the HeadRow component - i.e. the table head row with the weekday names.
- */ function HeadRow() {
+
+
+ function HeadRow() {
     var _a = useDayPicker(), classNames = _a.classNames, styles = _a.styles, showWeekNumber = _a.showWeekNumber, locale = _a.locale, weekStartsOn = _a.weekStartsOn, ISOWeek = _a.ISOWeek, formatWeekdayName = _a.formatters.formatWeekdayName, labelWeekday = _a.labels.labelWeekday;
     var weekdays = getWeekdays(locale, weekStartsOn, ISOWeek);
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxs"])("tr", {
@@ -12263,7 +12263,7 @@ function Footer(props) {
         ]
     });
 }
-/** Render the table head. */ function Head() {
+ function Head() {
     var _a;
     var _b = useDayPicker(), classNames = _b.classNames, styles = _b.styles, components = _b.components;
     var HeadRowComponent = (_a = components === null || components === void 0 ? void 0 : components.HeadRow) !== null && _a !== void 0 ? _a : HeadRow;
@@ -12273,7 +12273,7 @@ function Footer(props) {
         children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(HeadRowComponent, {})
     });
 }
-/** Render the content of the day cell. */ function DayContent(props) {
+ function DayContent(props) {
     var _a = useDayPicker(), locale = _a.locale, formatDay = _a.formatters.formatDay;
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: formatDay(props.date, {
@@ -12281,13 +12281,13 @@ function Footer(props) {
         })
     });
 }
-/**
- * The SelectMultiple context shares details about the selected days when in
- * multiple selection mode.
- *
- * Access this context from the {@link useSelectMultiple} hook.
- */ var SelectMultipleContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-/** Provides the values for the {@link SelectMultipleContext}. */ function SelectMultipleProvider(props) {
+
+
+
+
+
+ var SelectMultipleContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+ function SelectMultipleProvider(props) {
     if (!isDayPickerMultiple(props.initialProps)) {
         var emptyContextValue = {
             selected: undefined,
@@ -12352,23 +12352,23 @@ function SelectMultipleProviderInternal(_a) {
         children: children
     });
 }
-/**
- * Hook to access the {@link SelectMultipleContextValue}.
- *
- * This hook is meant to be used inside internal or custom components.
- */ function useSelectMultiple() {
+
+
+
+
+ function useSelectMultiple() {
     var context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"])(SelectMultipleContext);
     if (!context) {
         throw new Error('useSelectMultiple must be used within a SelectMultipleProvider');
     }
     return context;
 }
-/**
- * Add a day to an existing range.
- *
- * The returned range takes in account the `undefined` values and if the added
- * day is already present in the range.
- */ function addToRange(day, range) {
+
+
+
+
+
+ function addToRange(day, range) {
     var _a = range || {}, from = _a.from, to = _a.to;
     if (from && to) {
         if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$isSameDay$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isSameDay"])(to, day) && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$isSameDay$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isSameDay"])(from, day)) {
@@ -12423,13 +12423,13 @@ function SelectMultipleProviderInternal(_a) {
         to: undefined
     };
 }
-/**
- * The SelectRange context shares details about the selected days when in
- * range selection mode.
- *
- * Access this context from the {@link useSelectRange} hook.
- */ var SelectRangeContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-/** Provides the values for the {@link SelectRangeProvider}. */ function SelectRangeProvider(props) {
+
+
+
+
+
+ var SelectRangeContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+ function SelectRangeProvider(props) {
     if (!isDayPickerRange(props.initialProps)) {
         var emptyContextValue = {
             selected: undefined,
@@ -12554,18 +12554,18 @@ function SelectRangeProviderInternal(_a) {
         children: children
     });
 }
-/**
- * Hook to access the {@link SelectRangeContextValue}.
- *
- * This hook is meant to be used inside internal or custom components.
- */ function useSelectRange() {
+
+
+
+
+ function useSelectRange() {
     var context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"])(SelectRangeContext);
     if (!context) {
         throw new Error('useSelectRange must be used within a SelectRangeProvider');
     }
     return context;
 }
-/** Normalize to array a matcher input. */ function matcherToArray(matcher) {
+ function matcherToArray(matcher) {
     if (Array.isArray(matcher)) {
         return __spreadArray([], matcher, true);
     } else if (matcher !== undefined) {
@@ -12576,7 +12576,7 @@ function SelectRangeProviderInternal(_a) {
         return [];
     }
 }
-/** Create CustomModifiers from dayModifiers */ function getCustomModifiers(dayModifiers) {
+ function getCustomModifiers(dayModifiers) {
     var customModifiers = {};
     Object.entries(dayModifiers).forEach(function(_a) {
         var modifier = _a[0], matcher = _a[1];
@@ -12584,19 +12584,19 @@ function SelectRangeProviderInternal(_a) {
     });
     return customModifiers;
 }
-/** The name of the modifiers that are used internally by DayPicker. */ var InternalModifier;
+ var InternalModifier;
 (function(InternalModifier) {
     InternalModifier["Outside"] = "outside";
-    /** Name of the modifier applied to the disabled days, using the `disabled` prop. */ InternalModifier["Disabled"] = "disabled";
-    /** Name of the modifier applied to the selected days using the `selected` prop). */ InternalModifier["Selected"] = "selected";
-    /** Name of the modifier applied to the hidden days using the `hidden` prop). */ InternalModifier["Hidden"] = "hidden";
-    /** Name of the modifier applied to the day specified using the `today` prop). */ InternalModifier["Today"] = "today";
-    /** The modifier applied to the day starting a selected range, when in range selection mode.  */ InternalModifier["RangeStart"] = "range_start";
-    /** The modifier applied to the day ending a selected range, when in range selection mode.  */ InternalModifier["RangeEnd"] = "range_end";
-    /** The modifier applied to the days between the start and the end of a selected range, when in range selection mode.  */ InternalModifier["RangeMiddle"] = "range_middle";
+     InternalModifier["Disabled"] = "disabled";
+     InternalModifier["Selected"] = "selected";
+     InternalModifier["Hidden"] = "hidden";
+     InternalModifier["Today"] = "today";
+     InternalModifier["RangeStart"] = "range_start";
+     InternalModifier["RangeEnd"] = "range_end";
+     InternalModifier["RangeMiddle"] = "range_middle";
 })(InternalModifier || (InternalModifier = {}));
 var Selected = InternalModifier.Selected, Disabled = InternalModifier.Disabled, Hidden = InternalModifier.Hidden, Today = InternalModifier.Today, RangeEnd = InternalModifier.RangeEnd, RangeMiddle = InternalModifier.RangeMiddle, RangeStart = InternalModifier.RangeStart, Outside = InternalModifier.Outside;
-/** Return the {@link InternalModifiers} from the DayPicker and select contexts. */ function getInternalModifiers(dayPicker, selectMultiple, selectRange) {
+ function getInternalModifiers(dayPicker, selectMultiple, selectRange) {
     var _a;
     var internalModifiers = (_a = {}, _a[Selected] = matcherToArray(dayPicker.selected), _a[Disabled] = matcherToArray(dayPicker.disabled), _a[Hidden] = matcherToArray(dayPicker.hidden), _a[Today] = [
         dayPicker.today
@@ -12621,8 +12621,8 @@ var Selected = InternalModifier.Selected, Disabled = InternalModifier.Disabled, 
     }
     return internalModifiers;
 }
-/** The Modifiers context store the modifiers used in DayPicker. To access the value of this context, use {@link useModifiers}. */ var ModifiersContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-/** Provide the value for the {@link ModifiersContext}. */ function ModifiersProvider(props) {
+ var ModifiersContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+ function ModifiersProvider(props) {
     var dayPicker = useDayPicker();
     var selectMultiple = useSelectMultiple();
     var selectRange = useSelectRange();
@@ -12634,35 +12634,35 @@ var Selected = InternalModifier.Selected, Disabled = InternalModifier.Disabled, 
         children: props.children
     });
 }
-/**
- * Return the modifiers used by DayPicker.
- *
- * This hook is meant to be used inside internal or custom components.
- * Requires to be wrapped into {@link ModifiersProvider}.
- *
- */ function useModifiers() {
+
+
+
+
+
+
+ function useModifiers() {
     var context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"])(ModifiersContext);
     if (!context) {
         throw new Error('useModifiers must be used within a ModifiersProvider');
     }
     return context;
 }
-/** Returns true if `matcher` is of type {@link DateInterval}. */ function isDateInterval(matcher) {
+ function isDateInterval(matcher) {
     return Boolean(matcher && typeof matcher === 'object' && 'before' in matcher && 'after' in matcher);
 }
-/** Returns true if `value` is a {@link DateRange} type. */ function isDateRange(value) {
+ function isDateRange(value) {
     return Boolean(value && typeof value === 'object' && 'from' in value);
 }
-/** Returns true if `value` is of type {@link DateAfter}. */ function isDateAfterType(value) {
+ function isDateAfterType(value) {
     return Boolean(value && typeof value === 'object' && 'after' in value);
 }
-/** Returns true if `value` is of type {@link DateBefore}. */ function isDateBeforeType(value) {
+ function isDateBeforeType(value) {
     return Boolean(value && typeof value === 'object' && 'before' in value);
 }
-/** Returns true if `value` is a {@link DayOfWeek} type. */ function isDayOfWeekType(value) {
+ function isDayOfWeekType(value) {
     return Boolean(value && typeof value === 'object' && 'dayOfWeek' in value);
 }
-/** Return `true` whether `date` is inside `range`. */ function isDateInRange(date, range) {
+ function isDateInRange(date, range) {
     var _a;
     var from = range.from, to = range.to;
     if (from && to) {
@@ -12684,29 +12684,29 @@ var Selected = InternalModifier.Selected, Disabled = InternalModifier.Disabled, 
     }
     return false;
 }
-/** Returns true if `value` is a Date type. */ function isDateType(value) {
+ function isDateType(value) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$isDate$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isDate"])(value);
 }
-/** Returns true if `value` is an array of valid dates. */ function isArrayOfDates(value) {
+ function isArrayOfDates(value) {
     return Array.isArray(value) && value.every(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$isDate$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isDate"]);
 }
-/**
- * Returns whether a day matches against at least one of the given Matchers.
- *
- * ```
- * const day = new Date(2022, 5, 19);
- * const matcher1: DateRange = {
- *    from: new Date(2021, 12, 21),
- *    to: new Date(2021, 12, 30)
- * }
- * const matcher2: DateRange = {
- *    from: new Date(2022, 5, 1),
- *    to: new Date(2022, 5, 23)
- * }
- *
- * const isMatch(day, [matcher1, matcher2]); // true, since day is in the matcher1 range.
- * ```
- * */ function isMatch(day, matchers) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ function isMatch(day, matchers) {
     return matchers.some(function(matcher) {
         if (typeof matcher === 'boolean') {
             return matcher;
@@ -12747,7 +12747,7 @@ var Selected = InternalModifier.Selected, Disabled = InternalModifier.Disabled, 
         return false;
     });
 }
-/** Return the active modifiers for the given day. */ function getActiveModifiers(day, /** The modifiers to match for the given date. */ modifiers, /** The month where the day is displayed, to add the "outside" modifiers.  */ displayMonth) {
+ function getActiveModifiers(day,  modifiers,  displayMonth) {
     var matchedModifiers = Object.keys(modifiers).reduce(function(result, key) {
         var modifier = modifiers[key];
         if (isMatch(day, modifier)) {
@@ -12764,17 +12764,17 @@ var Selected = InternalModifier.Selected, Disabled = InternalModifier.Disabled, 
     }
     return activeModifiers;
 }
-/**
- * Returns the day that should be the target of the focus when DayPicker is
- * rendered the first time.
- *
- * TODO: this function doesn't consider if the day is outside the month. We
- * implemented this check in `useDayRender` but it should probably go here. See
- * https://github.com/gpbl/react-day-picker/pull/1576
- */ function getInitialFocusTarget(displayMonths, modifiers) {
+
+
+
+
+
+
+
+ function getInitialFocusTarget(displayMonths, modifiers) {
     var firstDayInMonth = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfMonth"])(displayMonths[0]);
     var lastDayInMonth = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$endOfMonth$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["endOfMonth"])(displayMonths[displayMonths.length - 1]);
-    // TODO: cleanup code
+    
     var firstFocusableDay;
     var today;
     var date = firstDayInMonth;
@@ -12803,7 +12803,7 @@ var Selected = InternalModifier.Selected, Disabled = InternalModifier.Disabled, 
     }
 }
 var MAX_RETRY = 365;
-/** Return the next date to be focused. */ function getNextFocus(focusedDay, options) {
+ function getNextFocus(focusedDay, options) {
     var moveBy = options.moveBy, direction = options.direction, context = options.context, modifiers = options.modifiers, _a = options.retry, retry = _a === void 0 ? {
         count: 0,
         lastFocused: focusedDay
@@ -12861,18 +12861,18 @@ var MAX_RETRY = 365;
         });
     }
 }
-/**
- * The Focus context shares details about the focused day for the keyboard
- *
- * Access this context from the {@link useFocusContext} hook.
- */ var FocusContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-/** The provider for the {@link FocusContext}. */ function FocusProvider(props) {
+
+
+
+
+ var FocusContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+ function FocusProvider(props) {
     var navigation = useNavigation();
     var modifiers = useModifiers();
     var _a = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(), focusedDay = _a[0], setFocusedDay = _a[1];
     var _b = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(), lastFocused = _b[0], setLastFocused = _b[1];
     var initialFocusTarget = getInitialFocusTarget(navigation.displayMonths, modifiers);
-    // TODO: cleanup and test obscure code below
+    
     var focusTarget = (focusedDay !== null && focusedDay !== void 0 ? focusedDay : lastFocused && navigation.isDateDisplayed(lastFocused)) ? lastFocused : initialFocusTarget;
     var blur = function() {
         setLastFocused(focusedDay);
@@ -12935,40 +12935,40 @@ var MAX_RETRY = 365;
         children: props.children
     });
 }
-/**
- * Hook to access the {@link FocusContextValue}. Use this hook to handle the
- * focus state of the elements.
- *
- * This hook is meant to be used inside internal or custom components.
- */ function useFocusContext() {
+
+
+
+
+
+ function useFocusContext() {
     var context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"])(FocusContext);
     if (!context) {
         throw new Error('useFocusContext must be used within a FocusProvider');
     }
     return context;
 }
-/**
- * Return the active modifiers for the specified day.
- *
- * This hook is meant to be used inside internal or custom components.
- *
- * @param day
- * @param displayMonth
- */ function useActiveModifiers(day, /**
- * The month where the date is displayed. If not the same as `date`, the day
- * is an "outside day".
- */ displayMonth) {
+
+
+
+
+
+
+
+ function useActiveModifiers(day, 
+
+
+ displayMonth) {
     var modifiers = useModifiers();
     var activeModifiers = getActiveModifiers(day, modifiers, displayMonth);
     return activeModifiers;
 }
-/**
- * The SelectSingle context shares details about the selected days when in
- * single selection mode.
- *
- * Access this context from the {@link useSelectSingle} hook.
- */ var SelectSingleContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-/** Provides the values for the {@link SelectSingleProvider}. */ function SelectSingleProvider(props) {
+
+
+
+
+
+ var SelectSingleContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+ function SelectSingleProvider(props) {
     if (!isDayPickerSingle(props.initialProps)) {
         var emptyContextValue = {
             selected: undefined
@@ -13003,37 +13003,37 @@ function SelectSingleProviderInternal(_a) {
         children: children
     });
 }
-/**
- * Hook to access the {@link SelectSingleContextValue}.
- *
- * This hook is meant to be used inside internal or custom components.
- */ function useSelectSingle() {
+
+
+
+
+ function useSelectSingle() {
     var context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"])(SelectSingleContext);
     if (!context) {
         throw new Error('useSelectSingle must be used within a SelectSingleProvider');
     }
     return context;
 }
-/**
- * This hook returns details about the content to render in the day cell.
- *
- *
- * When a day cell is rendered in the table, DayPicker can either:
- *
- * - render nothing: when the day is outside the month or has matched the
- *   "hidden" modifier.
- * - render a button when `onDayClick` or a selection mode is set.
- * - render a non-interactive element: when no selection mode is set, the day
- *   cell shouldn’t respond to any interaction. DayPicker should render a `div`
- *   or a `span`.
- *
- * ### Usage
- *
- * Use this hook to customize the behavior of the {@link Day} component. Create a
- * new `Day` component using this hook and pass it to the `components` prop.
- * The source of {@link Day} can be a good starting point.
- *
- */ function useDayEventHandlers(date, activeModifiers) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ function useDayEventHandlers(date, activeModifiers) {
     var dayPicker = useDayPicker();
     var single = useSelectSingle();
     var multiple = useSelectMultiple();
@@ -13160,13 +13160,13 @@ function SelectSingleProviderInternal(_a) {
     };
     return eventHandlers;
 }
-/**
- * Return the current selected days when DayPicker is in selection mode. Days
- * selected by the custom selection mode are not returned.
- *
- * This hook is meant to be used inside internal or custom components.
- *
- */ function useSelectedDays() {
+
+
+
+
+
+
+ function useSelectedDays() {
     var dayPicker = useDayPicker();
     var single = useSelectSingle();
     var multiple = useSelectMultiple();
@@ -13177,13 +13177,13 @@ function SelectSingleProviderInternal(_a) {
 function isInternalModifier(modifier) {
     return Object.values(InternalModifier).includes(modifier);
 }
-/**
- * Return the class names for the Day element, according to the given active
- * modifiers.
- *
- * Custom class names are set via `modifiersClassNames` or `classNames`,
- * where the first have the precedence.
- */ function getDayClassNames(dayPicker, activeModifiers) {
+
+
+
+
+
+
+ function getDayClassNames(dayPicker, activeModifiers) {
     var classNames = [
         dayPicker.classNames.day
     ];
@@ -13200,7 +13200,7 @@ function isInternalModifier(modifier) {
     });
     return classNames;
 }
-/** Return the style for the Day element, according to the given active modifiers. */ function getDayStyle(dayPicker, activeModifiers) {
+ function getDayStyle(dayPicker, activeModifiers) {
     var style = __assign({}, dayPicker.styles.day);
     Object.keys(activeModifiers).forEach(function(modifier) {
         var _a;
@@ -13208,12 +13208,12 @@ function isInternalModifier(modifier) {
     });
     return style;
 }
-/**
- * Return props and data used to render the {@link Day} component.
- *
- * Use this hook when creating a component to replace the built-in `Day`
- * component.
- */ function useDayRender(/** The date to render. */ day, /** The month where the date is displayed (if not the same as `date`, it means it is an "outside" day). */ displayMonth, /** A ref to the button element that will be target of focus when rendered (if required). */ buttonRef) {
+
+
+
+
+
+ function useDayRender( day,  displayMonth,  buttonRef) {
     var _a;
     var _b, _c;
     var dayPicker = useDayPicker();
@@ -13222,7 +13222,7 @@ function isInternalModifier(modifier) {
     var eventHandlers = useDayEventHandlers(day, activeModifiers);
     var selectedDays = useSelectedDays();
     var isButton = Boolean(dayPicker.onDayClick || dayPicker.mode !== 'default');
-    // Focus the button if the day is focused according to the focus context
+    
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "useDayRender.useEffect": function() {
             var _a;
@@ -13271,10 +13271,10 @@ function isInternalModifier(modifier) {
     };
     return dayRender;
 }
-/**
- * The content of a day cell – as a button or span element according to its
- * modifiers.
- */ function Day(props) {
+
+
+
+ function Day(props) {
     var buttonRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     var dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
     if (dayRender.isHidden) {
@@ -13290,10 +13290,10 @@ function isInternalModifier(modifier) {
         ref: buttonRef
     }, dayRender.buttonProps));
 }
-/**
- * Render the week number element. If `onWeekNumberClick` is passed to DayPicker, it
- * renders a button, otherwise a span element.
- */ function WeekNumber(props) {
+
+
+
+ function WeekNumber(props) {
     var weekNumber = props.number, dates = props.dates;
     var _a = useDayPicker(), onWeekNumberClick = _a.onWeekNumberClick, styles = _a.styles, classNames = _a.classNames, locale = _a.locale, labelWeekNumber = _a.labels.labelWeekNumber, formatWeekNumber = _a.formatters.formatWeekNumber;
     var content = formatWeekNumber(Number(weekNumber), {
@@ -13321,7 +13321,7 @@ function isInternalModifier(modifier) {
         children: content
     });
 }
-/** Render a row in the calendar, with the days and the week number. */ function Row(props) {
+ function Row(props) {
     var _a, _b;
     var _c = useDayPicker(), styles = _c.styles, classNames = _c.classNames, showWeekNumber = _c.showWeekNumber, components = _c.components;
     var DayComponent = (_a = components === null || components === void 0 ? void 0 : components.Day) !== null && _a !== void 0 ? _a : Day;
@@ -13356,7 +13356,7 @@ function isInternalModifier(modifier) {
         ]
     });
 }
-/** Return the weeks between two dates.  */ function daysToMonthWeeks(fromDate, toDate, options) {
+ function daysToMonthWeeks(fromDate, toDate, options) {
     var toWeek = (options === null || options === void 0 ? void 0 : options.ISOWeek) ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$endOfISOWeek$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["endOfISOWeek"])(toDate) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$endOfWeek$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["endOfWeek"])(toDate, options);
     var fromWeek = (options === null || options === void 0 ? void 0 : options.ISOWeek) ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfISOWeek$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfISOWeek"])(fromDate) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfWeek$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfWeek"])(fromDate, options);
     var nOfDays = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$differenceInCalendarDays$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["differenceInCalendarDays"])(toWeek, fromWeek);
@@ -13383,13 +13383,13 @@ function isInternalModifier(modifier) {
     }, []);
     return weeksInMonth;
 }
-/**
- * Return the weeks belonging to the given month, adding the "outside days" to
- * the first and last week.
- */ function getMonthWeeks(month, options) {
+
+
+
+ function getMonthWeeks(month, options) {
     var weeksInMonth = daysToMonthWeeks((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$startOfMonth$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfMonth"])(month), (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$endOfMonth$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["endOfMonth"])(month), options);
     if (options === null || options === void 0 ? void 0 : options.useFixedWeeks) {
-        // Add extra weeks to the month, up to 6 weeks
+        
         var nrOfMonthWeeks = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$getWeeksInMonth$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getWeeksInMonth"])(month, options);
         if (nrOfMonthWeeks < 6) {
             var lastWeek = weeksInMonth[weeksInMonth.length - 1];
@@ -13401,7 +13401,7 @@ function isInternalModifier(modifier) {
     }
     return weeksInMonth;
 }
-/** Render the table with the calendar. */ function Table(props) {
+ function Table(props) {
     var _a, _b, _c;
     var _d = useDayPicker(), locale = _d.locale, classNames = _d.classNames, styles = _d.styles, hideHead = _d.hideHead, fixedWeeks = _d.fixedWeeks, components = _d.components, weekStartsOn = _d.weekStartsOn, firstWeekContainsDate = _d.firstWeekContainsDate, ISOWeek = _d.ISOWeek;
     var weeks = getMonthWeeks(props.displayMonth, {
@@ -13439,134 +13439,134 @@ function isInternalModifier(modifier) {
         ]
     });
 }
-/*
-The MIT License (MIT)
 
-Copyright (c) 2018-present, React Training LLC
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/ /* eslint-disable prefer-const */ /* eslint-disable @typescript-eslint/ban-ts-comment */ /*
- * Welcome to @reach/auto-id!
- * Let's see if we can make sense of why this hook exists and its
- * implementation.
- *
- * Some background:
- *   1. Accessibility APIs rely heavily on element IDs
- *   2. Requiring developers to put IDs on every element in Reach UI is both
- *      cumbersome and error-prone
- *   3. With a component model, we can generate IDs for them!
- *
- * Solution 1: Generate random IDs.
- *
- * This works great as long as you don't server render your app. When React (in
- * the client) tries to reuse the markup from the server, the IDs won't match
- * and React will then recreate the entire DOM tree.
- *
- * Solution 2: Increment an integer
- *
- * This sounds great. Since we're rendering the exact same tree on the server
- * and client, we can increment a counter and get a deterministic result between
- * client and server. Also, JS integers can go up to nine-quadrillion. I'm
- * pretty sure the tab will be closed before an app never needs
- * 10 quadrillion IDs!
- *
- * Problem solved, right?
- *
- * Ah, but there's a catch! React's concurrent rendering makes this approach
- * non-deterministic. While the client and server will end up with the same
- * elements in the end, depending on suspense boundaries (and possibly some user
- * input during the initial render) the incrementing integers won't always match
- * up.
- *
- * Solution 3: Don't use IDs at all on the server; patch after first render.
- *
- * What we've done here is solution 2 with some tricks. With this approach, the
- * ID returned is an empty string on the first render. This way the server and
- * client have the same markup no matter how wild the concurrent rendering may
- * have gotten.
- *
- * After the render, we patch up the components with an incremented ID. This
- * causes a double render on any components with `useId`. Shouldn't be a problem
- * since the components using this hook should be small, and we're only updating
- * the ID attribute on the DOM, nothing big is happening.
- *
- * It doesn't have to be an incremented number, though--we could do generate
- * random strings instead, but incrementing a number is probably the cheapest
- * thing we can do.
- *
- * Additionally, we only do this patchup on the very first client render ever.
- * Any calls to `useId` that happen dynamically in the client will be
- * populated immediately with a value. So, we only get the double render after
- * server hydration and never again, SO BACK OFF ALRIGHT?
- */ function canUseDOM() {
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ function canUseDOM() {
     return !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 }
-/**
- * React currently throws a warning when using useLayoutEffect on the server. To
- * get around it, we can conditionally useEffect on the server (no-op) and
- * useLayoutEffect in the browser. We occasionally need useLayoutEffect to
- * ensure we don't get a render flash for certain operations, but we may also
- * need affected components to render on the server. One example is when setting
- * a component's descendants to retrieve their index values.
- *
- * Important to note that using this hook as an escape hatch will break the
- * eslint dependency warnings unless you rename the import to `useLayoutEffect`.
- * Use sparingly only when the effect won't effect the rendered HTML to avoid
- * any server/client mismatch.
- *
- * If a useLayoutEffect is needed and the result would create a mismatch, it's
- * likely that the component in question shouldn't be rendered on the server at
- * all, so a better approach would be to lazily render those in a parent
- * component after client-side hydration.
- *
- * https://gist.github.com/gaearon/e7d97cdf38a2907924ea12e4ebdf3c85
- * https://github.com/reduxjs/react-redux/blob/master/src/utils/useIsomorphicLayoutEffect.js
- *
- * @param effect
- * @param deps
- */ var useIsomorphicLayoutEffect = canUseDOM() ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useLayoutEffect"] : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ var useIsomorphicLayoutEffect = canUseDOM() ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useLayoutEffect"] : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"];
 var serverHandoffComplete = false;
 var id = 0;
 function genId() {
     return "react-day-picker-".concat(++id);
 }
 function useId(providedId) {
-    // TODO: Remove error flag when updating internal deps to React 18. None of
-    // our tricks will play well with concurrent rendering anyway.
+    
+    
     var _a;
-    // If this instance isn't part of the initial render, we don't have to do the
-    // double render/patch-up dance. We can just generate the ID and return it.
+    
+    
     var initialId = providedId !== null && providedId !== void 0 ? providedId : serverHandoffComplete ? genId() : null;
     var _b = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(initialId), id = _b[0], setId = _b[1];
     useIsomorphicLayoutEffect({
         "useId.useIsomorphicLayoutEffect": function() {
             if (id === null) {
-                // Patch the ID after render. We do this in `useLayoutEffect` to avoid any
-                // rendering flicker, though it'll make the first render slower (unlikely
-                // to matter, but you're welcome to measure your app and let us know if
-                // it's a problem).
+                
+                
+                
+                
                 setId(genId());
             }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        
         }
     }["useId.useIsomorphicLayoutEffect"], []);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "useId.useEffect": function() {
             if (serverHandoffComplete === false) {
-                // Flag all future uses of `useId` to skip the update dance. This is in
-                // `useEffect` because it goes after `useLayoutEffect`, ensuring we don't
-                // accidentally bail out of the patch-up dance prematurely.
+                
+                
+                
                 serverHandoffComplete = true;
             }
         }
     }["useId.useEffect"], []);
     return (_a = providedId !== null && providedId !== void 0 ? providedId : id) !== null && _a !== void 0 ? _a : undefined;
 }
-/** Render a month. */ function Month(props) {
+ function Month(props) {
     var _a;
     var _b;
     var dayPicker = useDayPicker();
@@ -13617,9 +13617,9 @@ function useId(providedId) {
         ]
     }, props.displayIndex);
 }
-/**
- * Render the wrapper for the month grids.
- */ function Months(props) {
+
+
+ function Months(props) {
     var _a = useDayPicker(), classNames = _a.classNames, styles = _a.styles;
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("div", {
         className: classNames.months,
@@ -13627,14 +13627,14 @@ function useId(providedId) {
         children: props.children
     });
 }
-/** Render the container with the months according to the number of months to display. */ function Root(_a) {
+ function Root(_a) {
     var _b, _c;
     var initialProps = _a.initialProps;
     var dayPicker = useDayPicker();
     var focusContext = useFocusContext();
     var navigation = useNavigation();
     var _d = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false), hasInitialFocus = _d[0], setHasInitialFocus = _d[1];
-    // Focus the focus target when initialFocus is passed in
+    
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Root.useEffect": function() {
             if (!dayPicker.initialFocus) return;
@@ -13650,7 +13650,7 @@ function useId(providedId) {
         focusContext.focusTarget,
         focusContext
     ]);
-    // Apply classnames according to props
+    
     var classNames = [
         dayPicker.classNames.root,
         dayPicker.className
@@ -13688,7 +13688,7 @@ function useId(providedId) {
         })
     }));
 }
-/** Provide the value for all the context providers. */ function RootProvider(props) {
+ function RootProvider(props) {
     var children = props.children, initialProps = __rest(props, [
         "children"
     ]);
@@ -13712,115 +13712,115 @@ function useId(providedId) {
         })
     });
 }
-/**
- * DayPicker render a date picker component to let users pick dates from a
- * calendar. See http://react-day-picker.js.org for updated documentation and
- * examples.
- *
- * ### Customization
- *
- * DayPicker offers different customization props. For example,
- *
- * - show multiple months using `numberOfMonths`
- * - display a dropdown to navigate the months via `captionLayout`
- * - display the week numbers with `showWeekNumbers`
- * - disable or hide days with `disabled` or `hidden`
- *
- * ### Controlling the months
- *
- * Change the initially displayed month using the `defaultMonth` prop. The
- * displayed months are controlled by DayPicker and stored in its internal
- * state. To control the months yourself, use `month` instead of `defaultMonth`
- * and use the `onMonthChange` event to set it.
- *
- * To limit the months the user can navigate to, use
- * `fromDate`/`fromMonth`/`fromYear` or `toDate`/`toMonth`/`toYear`.
- *
- * ### Selection modes
- *
- * DayPicker supports different selection mode that can be toggled using the
- * `mode` prop:
- *
- * - `mode="single"`: only one day can be selected. Use `required` to make the
- *   selection required. Use the `onSelect` event handler to get the selected
- *   days.
- * - `mode="multiple"`: users can select one or more days. Limit the amount of
- *   days that can be selected with the `min` or the `max` props.
- * - `mode="range"`: users can select a range of days. Limit the amount of days
- *   in the range with the `min` or the `max` props.
- * - `mode="default"` (default): the built-in selections are disabled. Implement
- *   your own selection mode with `onDayClick`.
- *
- * The selection modes should cover the most common use cases. In case you
- * need a more refined way of selecting days, use `mode="default"`. Use the
- * `selected` props and add the day event handlers to add/remove days from the
- * selection.
- *
- * ### Modifiers
- *
- * A _modifier_ represents different styles or states for the days displayed in
- * the calendar (like "selected" or "disabled"). Define custom modifiers using
- * the `modifiers` prop.
- *
- * ### Formatters and custom component
- *
- * You can customize how the content is displayed in the date picker by using
- * either the formatters or replacing the internal components.
- *
- * For the most common cases you want to use the `formatters` prop to change how
- * the content is formatted in the calendar. Use the `components` prop to
- * replace the internal components, like the navigation icons.
- *
- * ### Styling
- *
- * DayPicker comes with a default, basic style in `react-day-picker/style` – use
- * it as template for your own style.
- *
- * If you are using CSS modules, pass the imported styles object the
- * `classNames` props.
- *
- * You can also style the elements via inline styles using the `styles` prop.
- *
- * ### Form fields
- *
- * If you need to bind the date picker to a form field, you can use the
- * `useInput` hooks for a basic behavior. See the `useInput` source as an
- * example to bind the date picker with form fields.
- *
- * ### Localization
- *
- * To localize DayPicker, import the locale from `date-fns` package and use the
- * `locale` prop.
- *
- * For example, to use Spanish locale:
- *
- * ```
- * import { es } from 'date-fns/locale';
- * <DayPicker locale={es} />
- * ```
- */ function DayPicker(props) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ function DayPicker(props) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(RootProvider, __assign({}, props, {
         children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(Root, {
             initialProps: props
         })
     }));
 }
-/** @private */ function isValidDate(day) {
+ function isValidDate(day) {
     return !isNaN(day.getTime());
 }
-/** Return props and setters for binding an input field to DayPicker. */ function useInput(options) {
+ function useInput(options) {
     if (options === void 0) {
         options = {};
     }
     var _a = options.locale, locale = _a === void 0 ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$locale$2f$en$2d$US$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["enUS"] : _a, required = options.required, _b = options.format, format$1 = _b === void 0 ? 'PP' : _b, defaultSelected = options.defaultSelected, _c = options.today, today = _c === void 0 ? new Date() : _c;
     var _d = parseFromToProps(options), fromDate = _d.fromDate, toDate = _d.toDate;
-    // Shortcut to the DateFns functions
+    
     var parseValue = function(value) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$parse$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["parse"])(value, format$1, today, {
             locale: locale
         });
     };
-    // Initialize states
+    
     var _e = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(defaultSelected !== null && defaultSelected !== void 0 ? defaultSelected : today), month = _e[0], setMonth = _e[1];
     var _f = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(defaultSelected), selectedDay = _f[0], setSelectedDay = _f[1];
     var defaultInputValue = defaultSelected ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(defaultSelected, format$1, {
@@ -13854,9 +13854,9 @@ function useId(providedId) {
     var handleMonthChange = function(month) {
         setMonth(month);
     };
-    // When changing the input field, save its value in state and check if the
-    // string is a valid date. If it is a valid day, set it as selected and update
-    // the calendar’s month.
+    
+    
+    
     var handleChange = function(e) {
         setInputValue(e.target.value);
         var day = parseValue(e.target.value);
@@ -13869,16 +13869,16 @@ function useId(providedId) {
         setSelectedDay(day);
         setMonth(day);
     };
-    // Special case for _required_ fields: on blur, if the value of the input is not
-    // a valid date, reset the calendar and the input value.
+    
+    
     var handleBlur = function(e) {
         var day = parseValue(e.target.value);
         if (!isValidDate(day)) {
             reset();
         }
     };
-    // When focusing, make sure DayPicker visualizes the month of the date in the
-    // input field.
+    
+    
     var handleFocus = function(e) {
         if (!e.target.value) {
             reset();
@@ -13915,12 +13915,11 @@ function useId(providedId) {
         setSelected: setSelected
     };
 }
-/** Returns true when the props are of type {@link DayPickerDefaultProps}. */ function isDayPickerDefault(props) {
+ function isDayPickerDefault(props) {
     return props.mode === undefined || props.mode === 'default';
 }
 ;
- //# sourceMappingURL=index.esm.js.map
+ 
 }),
 ]);
 
-//# sourceMappingURL=c729b_9d21fe4d._.js.map

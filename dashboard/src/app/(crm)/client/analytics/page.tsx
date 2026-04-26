@@ -39,7 +39,7 @@ export default function ClientAnalyticsPage() {
         const headers: Record<string, string> = { "Content-Type": "application/json" };
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
-        // Fetch posts to calculate analytics
+        
         const res = await fetch("/api/social-media-planner", { headers });
         if (!res.ok) throw new Error("Failed to fetch analytics");
 
@@ -48,7 +48,7 @@ export default function ClientAnalyticsPage() {
           ? posts.filter((p) => p.clientId === user.clientId)
           : [];
 
-        // Calculate summary stats
+        
         const totalViews = clientPosts.reduce((sum, p) => sum + (p.views || 0), 0);
         const totalLikes = clientPosts.reduce((sum, p) => sum + (p.likes || 0), 0);
         const totalShares = clientPosts.reduce((sum, p) => sum + (p.shares || 0), 0);
@@ -64,7 +64,7 @@ export default function ClientAnalyticsPage() {
           engagementRate,
         });
 
-        // Prepare chart data (last 7 days or posts)
+        
         const last7Posts = clientPosts
           .sort((a, b) => new Date(b.scheduledDate).getTime() - new Date(a.scheduledDate).getTime())
           .slice(0, 7)
@@ -107,13 +107,13 @@ export default function ClientAnalyticsPage() {
 
   return (
     <div className="min-h-screen bg-background font-headline p-6 space-y-6">
-      {/* Header */}
+      {}
       <div>
         <h1 className="text-4xl font-black tracking-tighter">Analytics</h1>
         <p className="text-muted-foreground mt-1">Track your performance metrics</p>
       </div>
 
-      {/* Stats Cards */}
+      {}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
           <CardHeader className="pb-3">
@@ -168,7 +168,7 @@ export default function ClientAnalyticsPage() {
         </Card>
       </div>
 
-      {/* Chart */}
+      {}
       {!loading && chartData.length > 0 && (
         <Card className="border-2 border-black">
           <CardHeader>
@@ -209,7 +209,7 @@ export default function ClientAnalyticsPage() {
         </Card>
       )}
 
-      {/* Info Card */}
+      {}
       <Card className="border-2 border-black bg-primary/5">
         <CardContent className="pt-6">
           <p className="text-sm">

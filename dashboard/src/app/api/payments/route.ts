@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Use robust helper to find invoice by _id, invoiceNo, or custom id
+    
     const invoice = await svc.findById("invoices", invoiceId);
 
     if (!invoice) {

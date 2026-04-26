@@ -56,27 +56,27 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/mongodb [external] (mongodb, cjs)");
 ;
-/**
- * Dynamic MongoDB helper
- *
- * - Reads connection info from env: MONGODB_URI (required) and optional MONGODB_DB
- * - Lazily connects and caches the client across module reloads (works in dev/Next.js)
- * - Exposes getMongoClient(), getDb(dbName?), and closeMongoClient()
- */ const uri = process.env.MONGODB_URI || process.env.MONGO_URI || "";
+
+
+
+
+
+
+ const uri = process.env.MONGODB_URI || process.env.MONGO_URI || "";
 const defaultDbFromEnv = process.env.MONGODB_DB || process.env.MONGO_DB;
 if (!uri) {
-    // don't throw at import time in some environments, but surface a clear error when used
-    // Consumers should handle the missing URL or provide it via env.
-    // eslint-disable-next-line no-console
+    
+    
+    
     console.warn("MONGODB_URI is not set. MongoDB operations will fail until it's provided.");
 }
 let client = global._mongoClient;
 let clientPromise = global._mongoClientPromise;
 function parseDbNameFromUri(connectionString) {
     if (!connectionString) return undefined;
-    // strip query string
+    
     const withoutQuery = connectionString.split("?")[0];
-    // find last slash
+    
     const lastSlash = withoutQuery.lastIndexOf("/");
     if (lastSlash === -1) return undefined;
     const db = withoutQuery.substring(lastSlash + 1);
@@ -89,15 +89,15 @@ function ensureClientInitialized() {
         }
         client = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["MongoClient"](uri);
         clientPromise = client.connect();
-        // Cache on global to survive hot reloads in development
+        
         try {
             global._mongoClient = client;
             global._mongoClientPromise = clientPromise;
         } catch (e) {
-        // ignore non-writable global in some runtimes
+        
         }
     }
-    // clientPromise must be set here
+    
     return clientPromise;
 }
 async function getMongoClient() {
@@ -105,7 +105,7 @@ async function getMongoClient() {
 }
 async function getDb(dbName) {
     const conn = await ensureClientInitialized();
-    // priority: explicit arg -> MONGODB_DB env -> DB parsed from URI -> default 'admin'
+    
     const dbFromUri = parseDbNameFromUri(uri);
     const name = dbName || defaultDbFromEnv || dbFromUri || "admin";
     return conn.db(name);
@@ -121,7 +121,7 @@ async function closeMongoClient() {
             global._mongoClient = undefined;
             global._mongoClientPromise = undefined;
         } catch (e) {
-        // ignore
+        
         }
     }
 }
@@ -362,7 +362,7 @@ async function softDeleteById(collectionName, id, collectionLabel) {
     const col = await getCollection(collectionName);
     const trash = await getCollection("_trash");
     const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
-    // Locate the document first
+    
     let doc = null;
     let filter = null;
     if (hex24) {
@@ -376,7 +376,7 @@ async function softDeleteById(collectionName, id, collectionLabel) {
         } catch (_) {}
     }
     if (!doc) {
-        // Try custom id field
+        
         doc = await col.findOne({
             id
         });
@@ -393,7 +393,7 @@ async function softDeleteById(collectionName, id, collectionLabel) {
         };
     }
     if (!doc || !filter) return false;
-    // For invoices: restore inventory quantities
+    
     if (collectionName === "invoices") {
         if (Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
             try {
@@ -428,7 +428,7 @@ async function softDeleteById(collectionName, id, collectionLabel) {
         teamMembers: "Team Member",
         careers: "Career"
     };
-    // Snapshot into _trash
+    
     await trash.insertOne({
         _originalId: String(doc._id),
         originalCollection: collectionName,
@@ -436,7 +436,7 @@ async function softDeleteById(collectionName, id, collectionLabel) {
         document: doc,
         deletedAt: new Date()
     });
-    // Remove from original collection
+    
     const res = await col.deleteOne(filter);
     return res.deletedCount === 1;
 }
@@ -458,11 +458,11 @@ async function restoreFromTrash(trashId) {
     const doc = {
         ...trashDoc.document
     };
-    // Restore _id as ObjectId if it was one
+    
     if (trashDoc._originalId && /^[a-fA-F0-9]{24}$/.test(trashDoc._originalId)) {
         doc._id = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](trashDoc._originalId);
     }
-    // Re-decrement inventory if invoice
+    
     if (trashDoc.originalCollection === "invoices") {
         if (Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
             try {
@@ -479,7 +479,7 @@ async function restoreFromTrash(trashId) {
     try {
         await originalCol.insertOne(doc);
     } catch (e) {
-        // If duplicate _id, try without _id so Mongo assigns a new one
+        
         if (e?.code === 11000) {
             delete doc._id;
             await originalCol.insertOne(doc);
@@ -506,7 +506,7 @@ async function permanentlyDestroyTrashItem(trashId) {
     }
     return (res?.deletedCount ?? 0) === 1;
 }
-// Helper to adjust stock quantities. `items` is array of { inventoryId, quantity }
+
 async function adjustInventoryQuantities(items, direction) {
     if (!Array.isArray(items) || items.length === 0) return;
     const col = await getCollection("inventory");
@@ -539,7 +539,7 @@ async function adjustInventoryQuantities(items, direction) {
     }
 }
 async function getTeamMembers() {
-    // Team members are now stored in the 'users' collection with a jobRole field
+    
     const col = await getCollection("users");
     return col.find({
         jobRole: {
@@ -548,7 +548,7 @@ async function getTeamMembers() {
     }).toArray();
 }
 async function createTeamMember(member) {
-    // Create a user document representing a team member. Map member.role -> jobRole and default auth role to staff
+    
     const usersCol = await getCollection("users");
     const toInsert = {
         ...member,
@@ -556,11 +556,11 @@ async function createTeamMember(member) {
         role: member.authRole ?? "staff",
         createdAt: new Date()
     };
-    // remove old role field used for job title
-    delete toInsert.role; // we'll set auth role below
+    
+    delete toInsert.role; 
     const authRole = member.loginRole ?? member.authRole ?? "staff";
     toInsert.role = authRole;
-    // Hash password if provided (defensive)
+    
     if (member.password) {
         toInsert.password = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["hashPassword"])(member.password);
     }
@@ -594,12 +594,12 @@ async function createUser(user) {
 async function findById(collectionName, id) {
     const col = await getCollection(collectionName);
     if (!id) return null;
-    // 1. Try finding by _id as raw String first (common in this DB)
+    
     const byRawId = await col.findOne({
         _id: id
     });
     if (byRawId) return byRawId;
-    // 2. Try Mongo ObjectId if it matches the format
+    
     const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
     if (hex24) {
         try {
@@ -608,16 +608,16 @@ async function findById(collectionName, id) {
             });
             if (byObjectId) return byObjectId;
         } catch (e) {
-        /* ignore */ }
+         }
     }
-    // 3. For invoices, try lookup by invoiceNo (e.g. PN-2025/001)
+    
     if (collectionName === "invoices") {
         const byInvoiceNo = await col.findOne({
             invoiceNo: id
         });
         if (byInvoiceNo) return byInvoiceNo;
     }
-    // 4. Try fallback to custom `id` field
+    
     const byCustomId = await col.findOne({
         id: id
     });
@@ -625,13 +625,13 @@ async function findById(collectionName, id) {
 }
 async function updateById(collectionName, id, update) {
     const col = await getCollection(collectionName);
-    // If password is being updated, hash it before saving
+    
     const updateDoc = {
         ...update || {}
     };
-    // remove _id to avoid Mongo errors trying to modify the immutable _id field
+    
     if (updateDoc._id) delete updateDoc._id;
-    // If password is being updated, hash it before saving
+    
     if (updateDoc && updateDoc.password) {
         updateDoc.password = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["hashPassword"])(updateDoc.password);
     }
@@ -644,7 +644,7 @@ async function updateById(collectionName, id, update) {
         });
         return findById(collectionName, id);
     }
-    // try update by custom `id` field; for invoices also allow invoiceNo
+    
     if (collectionName === "invoices") {
         const byInvoiceNo = await col.findOne({
             invoiceNo: id
@@ -674,7 +674,7 @@ async function getInvoices() {
 }
 async function renumberInvoices(financialYear) {
     const col = await getCollection("invoices");
-    // fetch invoices sorted by createdAt asc
+    
     const invoices = await col.find({}).sort({
         createdAt: 1
     }).toArray();
@@ -683,7 +683,7 @@ async function renumberInvoices(financialYear) {
     };
     let counter = 1;
     for (const inv of invoices){
-        // determine fy for this invoice
+        
         const invDate = inv.createdAt ? new Date(inv.createdAt) : new Date();
         const fy = financialYear || function getFY(d) {
             const y = d.getFullYear();
@@ -709,17 +709,17 @@ async function renumberInvoices(financialYear) {
 }
 async function createInvoice(invoice) {
     const col = await getCollection("invoices");
-    // generate invoice id and invoiceNo using KTS/<financialYear>/<padded>
+    
     try {
         const now = new Date();
         const fy = invoice.financialYear || function getFY(d) {
             const y = d.getFullYear();
             const m = d.getMonth() + 1;
-            // FY starts from April
+            
             if (m >= 4) return `${y}-${y + 1}`;
             return `${y - 1}-${y}`;
         }(now);
-        // find existing max number for this FY
+        
         const regex = new RegExp(`^KTS/${fy.replace(/[-\\/]/g, "\\$&")}/(\\d+)$`);
         const docs = await col.find({
             invoiceNo: {
@@ -755,7 +755,7 @@ async function createInvoice(invoice) {
             financialYear: fy,
             _id: res.insertedId
         };
-        // If invoice contains inventory usage, decrement stock
+        
         if (Array.isArray(invoice.inventoryItems) && invoice.inventoryItems.length) {
             const items = invoice.inventoryItems.map((r)=>({
                     inventoryId: r.inventoryId,
@@ -781,7 +781,7 @@ async function getQuotations() {
 }
 async function createQuotation(q) {
     const col = await getCollection("quotations");
-    // generate human-friendly id like pn-00001
+    
     try {
         const last = await col.find({}).sort({
             createdAt: -1
@@ -925,7 +925,7 @@ async function POST(request) {
     try {
         const body = await request.json();
         const col = await __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]('enquiries');
-        // ensure default status and accept budget
+        
         const toInsert = {
             ...body,
             status: body.status || 'pending',
@@ -1025,4 +1025,3 @@ async function DELETE(request) {
 }),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__0748c836._.js.map

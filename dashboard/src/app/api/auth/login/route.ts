@@ -24,7 +24,7 @@ export async function POST(request: Request) {
         { status: 401 },
       );
     const token = signToken({ id: u._id, email: u.email, role: u.role });
-    // Log login event into `erp_events` collection
+    
     try {
       const db = await getDb();
       await db.collection("erp_events").insertOne({
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
         createdAt: new Date(),
       });
     } catch (e) {
-      // non-fatal
+      
       console.error("Failed to log login event", e);
     }
 

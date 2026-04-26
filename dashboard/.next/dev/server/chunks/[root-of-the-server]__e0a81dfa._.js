@@ -56,27 +56,27 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/mongodb [external] (mongodb, cjs)");
 ;
-/**
- * Dynamic MongoDB helper
- *
- * - Reads connection info from env: MONGODB_URI (required) and optional MONGODB_DB
- * - Lazily connects and caches the client across module reloads (works in dev/Next.js)
- * - Exposes getMongoClient(), getDb(dbName?), and closeMongoClient()
- */ const uri = process.env.MONGODB_URI || process.env.MONGO_URI || "";
+
+
+
+
+
+
+ const uri = process.env.MONGODB_URI || process.env.MONGO_URI || "";
 const defaultDbFromEnv = process.env.MONGODB_DB || process.env.MONGO_DB;
 if (!uri) {
-    // don't throw at import time in some environments, but surface a clear error when used
-    // Consumers should handle the missing URL or provide it via env.
-    // eslint-disable-next-line no-console
+    
+    
+    
     console.warn("MONGODB_URI is not set. MongoDB operations will fail until it's provided.");
 }
 let client = global._mongoClient;
 let clientPromise = global._mongoClientPromise;
 function parseDbNameFromUri(connectionString) {
     if (!connectionString) return undefined;
-    // strip query string
+    
     const withoutQuery = connectionString.split("?")[0];
-    // find last slash
+    
     const lastSlash = withoutQuery.lastIndexOf("/");
     if (lastSlash === -1) return undefined;
     const db = withoutQuery.substring(lastSlash + 1);
@@ -89,15 +89,15 @@ function ensureClientInitialized() {
         }
         client = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["MongoClient"](uri);
         clientPromise = client.connect();
-        // Cache on global to survive hot reloads in development
+        
         try {
             global._mongoClient = client;
             global._mongoClientPromise = clientPromise;
         } catch (e) {
-        // ignore non-writable global in some runtimes
+        
         }
     }
-    // clientPromise must be set here
+    
     return clientPromise;
 }
 async function getMongoClient() {
@@ -105,7 +105,7 @@ async function getMongoClient() {
 }
 async function getDb(dbName) {
     const conn = await ensureClientInitialized();
-    // priority: explicit arg -> MONGODB_DB env -> DB parsed from URI -> default 'admin'
+    
     const dbFromUri = parseDbNameFromUri(uri);
     const name = dbName || defaultDbFromEnv || dbFromUri || "admin";
     return conn.db(name);
@@ -121,7 +121,7 @@ async function closeMongoClient() {
             global._mongoClient = undefined;
             global._mongoClientPromise = undefined;
         } catch (e) {
-        // ignore
+        
         }
     }
 }
@@ -279,7 +279,7 @@ async function POST(request) {
                 if (result.success) {
                     successCount++;
                     console.log(`✅ Message sent to ${contact.name} (${formattedPhone})`);
-                    // Save message to inbox
+                    
                     try {
                         const db = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$mongodb$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])();
                         await db.collection("whatsapp_messages").insertOne({
@@ -315,7 +315,7 @@ async function POST(request) {
             }
         }
         console.log(`📊 Bulk send complete: ${successCount} sent, ${failureCount} failed`);
-        // Save campaign record to database
+        
         try {
             const db = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$mongodb$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])();
             const now = new Date();
@@ -339,7 +339,7 @@ async function POST(request) {
             await db.collection("campaigns").insertOne(campaign);
         } catch (dbError) {
             console.error("Failed to save campaign:", dbError);
-        // Don't fail the entire request if campaign saving fails
+        
         }
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             summary: {
@@ -370,4 +370,3 @@ async function GET() {
 }),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__e0a81dfa._.js.map

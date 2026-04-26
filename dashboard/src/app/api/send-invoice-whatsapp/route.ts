@@ -1,50 +1,50 @@
-/**
- * POST /api/send-invoice-whatsapp
- *
- * Sends an invoice PDF to a WhatsApp number via Meta WhatsApp Cloud API
- * using an approved message template with a document header.
- *
- * FIXES APPLIED:
- *  - API version bumped to v21.0 (v19.0 is deprecated for new accounts)
- *  - Template language defaults to "en_US" (not "en" — causes 132005 error)
- *  - Body parameters: uses `parameter_name` to match named variables in the
- *    approved template ({{client_name}}, {{inv_no}}, {{amount}}).
- *    Named-variable templates require parameter_name — omitting it → error 100.
- *  - Full payload is logged before sending for debugging
- *  - Text fallback is attempted automatically on document delivery failure
- *  - Recipient ≠ sender guard added
- *  - Detailed error map expanded with all common failure codes
- *
- * Environment variables:
- *   WHATSAPP_ACCESS_TOKEN       – permanent System User token (never NEXT_PUBLIC_)
- *   WHATSAPP_PHONE_NUMBER_ID    – sender phone number ID from Meta App Dashboard
- *   WHATSAPP_TEMPLATE_NAME      – approved template name (default: "invoicing")
- *   WHATSAPP_TEMPLATE_LANG      – template language code (default: "en_US")
- *   WHATSAPP_API_VERSION        – Graph API version (default: "v21.0")
- *   INTERNAL_API_SECRET         – optional server-to-server guard secret
- *
- * WHY wamid ≠ delivered:
- *   A wamid just means Meta's servers accepted the message for queuing.
- *   Actual delivery is confirmed only via the webhook (sent → delivered → read).
- *   If the recipient's number is not on WhatsApp, you get a "failed" webhook
- *   event, NOT an error from this API call. Always set up the webhook.
- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
+
 
 function sanitisePhone(raw: string): string {
   return raw.replace(/\D/g, "");
 }
 
-/** E.164 without +: 7–15 digits. WhatsApp also requires country code. */
+
 function isValidPhone(digits: string): boolean {
   return /^\d{7,15}$/.test(digits);
 }
 
-// ── Types ─────────────────────────────────────────────────────────────────────
+
 
 interface SendInvoiceBody {
   phone: string;
@@ -52,14 +52,14 @@ interface SendInvoiceBody {
   invNo: string;
   amount: string;
   filename?: string;
-  /** WhatsApp media_id (preferred) — returned by /api/upload-whatsapp-media */
+  
   mediaId?: string;
-  /** Public HTTPS PDF URL (fallback if no mediaId). Must be directly accessible, no auth, no redirects. */
+  
   pdfUrl?: string;
-  /**
-   * Optional: pass clientId + invoiceId to enable opt-in guard and
-   * idempotency check (prevents sending the same invoice twice).
-   */
+  
+
+
+
   clientId?: string;
   invoiceId?: string;
 }
@@ -71,17 +71,17 @@ interface WhatsAppErrorDetail {
   fbtrace_id?: string;
 }
 
-// ── Error code map ────────────────────────────────────────────────────────────
+
 
 const WA_ERROR_MAP: Record<number, string> = {
-  // Recipient errors
+  
   131030: "Recipient phone number is not registered on WhatsApp.",
   131031: "Recipient phone number is not a valid WhatsApp account.",
   131026: "Message undeliverable to this recipient.",
   131047:
     "Session expired (24-hour window). Template was used but check template approval.",
   131051: "Unsupported message type for this recipient.",
-  // Template errors
+  
   132000: "Template not found or not approved. Check WHATSAPP_TEMPLATE_NAME.",
   132001:
     "Template parameter count or type does not match the approved template.",
@@ -92,20 +92,20 @@ const WA_ERROR_MAP: Record<number, string> = {
   132012: "Template parameter format mismatch.",
   135000:
     "Generic template error — check component types and parameter values.",
-  // Auth errors
+  
   190: "Access token expired or invalid. Regenerate your System User token.",
   200: "Permission error — ensure whatsapp_business_messaging permission is granted.",
-  // Account/policy errors
+  
   368: "Account temporarily blocked due to policy violation.",
   131048: "Spam rate limit hit. Slow down.",
   131049: "Message failed to send because of a business account issue.",
-  // Media errors
+  
   131016: "Service temporarily unavailable.",
-  // Generic
+  
   100: "Invalid request or missing parameter. Check the payload structure.",
 };
 
-// ── Helper: send text-only fallback ──────────────────────────────────────────
+
 
 async function sendTextFallback(
   digits: string,

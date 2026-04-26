@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import clientPromise, { getDb } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 
-// PATCH update application status
+
 export async function PATCH(
   request: NextRequest,
   { params }: { params: { id: string } }
@@ -27,7 +27,7 @@ export async function PATCH(
   }
 }
 
-// DELETE application
+
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { id: string } }

@@ -37,7 +37,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Fetch all client emails from the database
+    
     const clients = await svc.getClients();
     const recipientEmails = clients
       .map((c: any) => c.email)
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Convert banner image to base64 if provided
+    
     let bannerHtml = '';
     let bannerAttachment: nodemailer.SendMailOptions['attachments'] = [];
 
@@ -91,7 +91,7 @@ export async function POST(request: Request) {
         <span style="color: #ff640d; font-size: 22px; font-weight: 900; letter-spacing: -1px;">Pixelate Nest</span>
       </div>`;
 
-    // Convert plain text message to HTML paragraphs
+    
     const messageHtml = message
       .split(/\n\n+/)
       .map(
@@ -118,7 +118,7 @@ export async function POST(request: Request) {
 </body>
 </html>`;
 
-    // Send to all recipients as BCC to protect privacy
+    
     await transporter.sendMail({
       from: `"Pixelate Nest" <${EMAIL}>`,
       to: EMAIL,

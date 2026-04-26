@@ -23,7 +23,7 @@ import {
   type SocialPlatform,
 } from "@/lib/social-media-planner";
 import { PlatformLogo } from "./platform-logo";
-import { Trash2, Plus } from "lucide-react";
+import { Trash2, Plus, Link2, CheckCircle2 } from "lucide-react";
 import { PlatformIcon } from "./platform-icon";
 
 interface SocialAccountsTableProps {
@@ -41,7 +41,7 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Load accounts for client
+  
   const loadAccounts = async () => {
     if (!clientId) {
       setAccounts([]);
@@ -101,13 +101,13 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
         throw new Error(errorData.error || "Failed to add account");
       }
 
-      // Reset form
+      
       setUsername("");
       setDisplayName("");
       setSelectedPlatform("Instagram");
       setIsDialogOpen(false);
 
-      // Reload accounts
+      
       await loadAccounts();
     } catch (e: any) {
       setError(e.message || "Failed to add account");
@@ -228,9 +228,8 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
               <tr>
                 <th className="px-4 py-3 text-left font-medium">Platform</th>
                 <th className="px-4 py-3 text-left font-medium">Username</th>
-                <th className="px-4 py-3 text-left font-medium">
-                  Display Name
-                </th>
+                <th className="px-4 py-3 text-left font-medium">Display Name</th>
+                <th className="px-4 py-3 text-center font-medium">Meta Connection</th>
                 <th className="px-4 py-3 text-center font-medium">Actions</th>
               </tr>
             </thead>
@@ -247,6 +246,30 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
                   <td className="px-4 py-3 text-gray-600">
                     {account.displayName || account.handle}
                   </td>
+
+                  {}
+                  <td className="px-4 py-3 text-center">
+                    {account.platform === "Facebook" || account.platform === "Instagram" ? (
+                      account.isConnected ? (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-green-100 px-2 py-1 text-xs font-semibold text-green-800">
+                          <CheckCircle2 className="h-3 w-3" />
+                          {account.connectedPageName ? `Connected: ${account.connectedPageName}` : "Connected"}
+                        </span>
+                      ) : (
+                        <a
+                          href={`/api/auth/meta/connect?accountId=${account._id || account.id}`}
+                          className="inline-flex items-center gap-1 rounded border border-blue-600 px-2 py-1 text-xs font-semibold text-blue-700 hover:bg-blue-50"
+                          title="Connect this account to Meta to enable auto-sync"
+                        >
+                          <Link2 className="h-3 w-3" />
+                          Connect to Meta
+                        </a>
+                      )
+                    ) : (
+                      <span className="text-xs text-gray-400">N/A</span>
+                    )}
+                  </td>
+
                   <td className="px-4 py-3 text-center">
                     <button
                       onClick={() =>

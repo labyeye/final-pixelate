@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  // Handle CORS for public API routes
+  
   if (request.nextUrl.pathname.startsWith('/api/public/')) {
     const response = NextResponse.next();
     

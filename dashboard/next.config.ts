@@ -5,10 +5,10 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
 
-  // Turbopack configuration for Next.js 16
+  
   turbopack: {},
 
-  // Handle MongoDB and other server-only packages
+  
   serverExternalPackages: [
     'mongodb',
     'mongodb-client-encryption',

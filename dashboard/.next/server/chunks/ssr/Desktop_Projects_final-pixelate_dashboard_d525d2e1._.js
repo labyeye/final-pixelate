@@ -4,4 +4,3 @@ If you want to hide the \`${b.titleName}\`, you can wrap it with our VisuallyHid
 
 For more information, see https://radix-ui.com/primitives/docs/components/${b.docsSlug}`;return e.useEffect(()=>{a&&(document.getElementById(a)||console.error(c))},[c,a]),null},_=({contentRef:a,descriptionId:b})=>{let c=Z("DialogDescriptionWarning"),d=`Warning: Missing \`Description\` or \`aria-describedby={undefined}\` for {${c.contentName}}.`;return e.useEffect(()=>{let c=a.current?.getAttribute("aria-describedby");b&&c&&(document.getElementById(b)||console.warn(d))},[d,a,b]),null};a.s(["Close",()=>V,"Content",()=>M,"Description",()=>T,"Overlay",()=>I,"Portal",()=>G,"Root",()=>A,"Title",()=>R,"Trigger",()=>C,"WarningProvider",()=>Y,"createDialogScope",()=>x],80361)}];
 
-//# sourceMappingURL=Desktop_Projects_final-pixelate_dashboard_d525d2e1._.js.map

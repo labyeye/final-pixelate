@@ -21,17 +21,17 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
     const { id } = await params;
     const body = await request.json();
 
-    // Fetch existing to know the previous status
+    
     const existing = await svc.findById('quotations', id);
     const prevStatus = (existing as any)?.status ?? 'DRAFT';
     const newStatus  = body.status ?? prevStatus;
 
     await svc.updateById('quotations', id, { ...body, updatedAt: new Date() });
 
-    // Re-fetch the fully updated document from DB
+    
     const updated = await svc.findById('quotations', id);
 
-    // ── Auto-create Journey event when status moves out of DRAFT ──────────
+    
     if (
       updated &&
       (updated as any).clientId &&
@@ -40,7 +40,7 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
     ) {
       try {
         const db = await getDb();
-        // Guard against duplicates
+        
         const alreadyExists = await db.collection('journey_events').findOne({
           'metadata.quotationId': id,
         });
@@ -51,7 +51,7 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
         console.error('Failed to auto-create journey event on update:', journeyErr);
       }
     }
-    // ─────────────────────────────────────────────────────────────────────
+    
 
     return NextResponse.json(updated);
   } catch (error: any) {

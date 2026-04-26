@@ -157,14 +157,14 @@ export default function SocialMediaPlannerDashboardPage() {
         </div>
       </header>
 
-      {/* Client Picker */}
+      {}
       <section className="border-2 border-black rounded-lg p-4">
         <ClientPicker
           onClientSelected={setSelectedClientId}
         />
       </section>
 
-      {/* No Client Selected - Empty State */}
+      {}
       {!selectedClientId && (
         <section className="border-2 border-yellow-400 bg-yellow-50 rounded-lg p-6 text-center">
           <div className="text-lg font-semibold text-yellow-900">
@@ -176,7 +176,7 @@ export default function SocialMediaPlannerDashboardPage() {
         </section>
       )}
 
-      {/* Dashboard Content - Only visible when client is selected */}
+      {}
       {selectedClientId && (
         <div className="space-y-6">
           <header className="flex flex-wrap items-center justify-between gap-3">

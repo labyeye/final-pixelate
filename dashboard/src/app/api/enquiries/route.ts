@@ -27,7 +27,7 @@ export async function POST(request: Request) {
   try {
     const body = await request.json()
     const col = await svc.getCollection('enquiries')
-    // ensure default status and accept budget
+    
     const toInsert = { ...body, status: body.status || 'pending', budget: body.budget || null, createdAt: new Date() }
     const res = await col.insertOne(toInsert)
     return NextResponse.json({ ...toInsert, _id: res.insertedId }, { status: 201, headers: CORS })

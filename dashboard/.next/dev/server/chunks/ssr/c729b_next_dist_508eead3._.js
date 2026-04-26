@@ -1,21 +1,21 @@
 module.exports = [
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+if ("TURBOPACK compile-time falsy", 0) 
 ;
 else {
-    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    if ("TURBOPACK compile-time falsy", 0) 
     ;
     else {
         if ("TURBOPACK compile-time truthy", 1) {
             if ("TURBOPACK compile-time truthy", 1) {
                 module.exports = __turbopack_context__.r("[externals]/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js [external] (next/dist/compiled/next-server/app-page-turbo.runtime.dev.js, cjs)");
-            } else //TURBOPACK unreachable
+            } else 
             ;
-        } else //TURBOPACK unreachable
+        } else 
         ;
     }
-} //# sourceMappingURL=module.compiled.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/route-kind.js [app-rsc] (ecmascript, Next.js server utility)", ((__turbopack_context__) => {
 
@@ -35,20 +35,20 @@ function getRevalidateReason(params) {
         return 'stale';
     }
     return undefined;
-} //# sourceMappingURL=utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/interop-default.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Interop between "export default" and "module.exports".
- */ __turbopack_context__.s([
+
+
+ __turbopack_context__.s([
     "interopDefault",
     ()=>interopDefault
 ]);
 function interopDefault(mod) {
     return mod.default || mod;
-} //# sourceMappingURL=interop-default.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/strip-flight-headers.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -63,7 +63,7 @@ function stripFlightHeaders(headers) {
     for (const header of __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["FLIGHT_HEADERS"]){
         delete headers[header];
     }
-} //# sourceMappingURL=strip-flight-headers.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/spec-extension/adapters/headers.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -86,25 +86,25 @@ class ReadonlyHeadersError extends Error {
 }
 class HeadersAdapter extends Headers {
     constructor(headers){
-        // We've already overridden the methods that would be called, so we're just
-        // calling the super constructor to ensure that the instanceof check works.
+        
+        
         super();
         this.headers = new Proxy(headers, {
             get (target, prop, receiver) {
-                // Because this is just an object, we expect that all "get" operations
-                // are for properties. If it's a "get" for a symbol, we'll just return
-                // the symbol.
+                
+                
+                
                 if (typeof prop === 'symbol') {
                     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ReflectAdapter"].get(target, prop, receiver);
                 }
                 const lowercased = prop.toLowerCase();
-                // Let's find the original casing of the key. This assumes that there is
-                // no mixed case keys (e.g. "Content-Type" and "content-type") in the
-                // headers object.
+                
+                
+                
                 const original = Object.keys(headers).find((o)=>o.toLowerCase() === lowercased);
-                // If the original casing doesn't exist, return undefined.
+                
                 if (typeof original === 'undefined') return;
-                // If the original casing exists, return the value.
+                
                 return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ReflectAdapter"].get(target, original, receiver);
             },
             set (target, prop, value, receiver) {
@@ -112,43 +112,43 @@ class HeadersAdapter extends Headers {
                     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ReflectAdapter"].set(target, prop, value, receiver);
                 }
                 const lowercased = prop.toLowerCase();
-                // Let's find the original casing of the key. This assumes that there is
-                // no mixed case keys (e.g. "Content-Type" and "content-type") in the
-                // headers object.
+                
+                
+                
                 const original = Object.keys(headers).find((o)=>o.toLowerCase() === lowercased);
-                // If the original casing doesn't exist, use the prop as the key.
+                
                 return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ReflectAdapter"].set(target, original ?? prop, value, receiver);
             },
             has (target, prop) {
                 if (typeof prop === 'symbol') return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ReflectAdapter"].has(target, prop);
                 const lowercased = prop.toLowerCase();
-                // Let's find the original casing of the key. This assumes that there is
-                // no mixed case keys (e.g. "Content-Type" and "content-type") in the
-                // headers object.
+                
+                
+                
                 const original = Object.keys(headers).find((o)=>o.toLowerCase() === lowercased);
-                // If the original casing doesn't exist, return false.
+                
                 if (typeof original === 'undefined') return false;
-                // If the original casing exists, return true.
+                
                 return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ReflectAdapter"].has(target, original);
             },
             deleteProperty (target, prop) {
                 if (typeof prop === 'symbol') return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ReflectAdapter"].deleteProperty(target, prop);
                 const lowercased = prop.toLowerCase();
-                // Let's find the original casing of the key. This assumes that there is
-                // no mixed case keys (e.g. "Content-Type" and "content-type") in the
-                // headers object.
+                
+                
+                
                 const original = Object.keys(headers).find((o)=>o.toLowerCase() === lowercased);
-                // If the original casing doesn't exist, return true.
+                
                 if (typeof original === 'undefined') return true;
-                // If the original casing exists, delete the property.
+                
                 return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ReflectAdapter"].deleteProperty(target, original);
             }
         });
     }
-    /**
-   * Seals a Headers instance to prevent modification by throwing an error when
-   * any mutating method is called.
-   */ static seal(headers) {
+    
+
+
+ static seal(headers) {
         return new Proxy(headers, {
             get (target, prop, receiver) {
                 switch(prop){
@@ -162,22 +162,22 @@ class HeadersAdapter extends Headers {
             }
         });
     }
-    /**
-   * Merges a header value into a string. This stores multiple values as an
-   * array, so we need to merge them into a string.
-   *
-   * @param value a header value
-   * @returns a merged header value (a string)
-   */ merge(value) {
+    
+
+
+
+
+
+ merge(value) {
         if (Array.isArray(value)) return value.join(', ');
         return value;
     }
-    /**
-   * Creates a Headers instance from a plain object or a Headers instance.
-   *
-   * @param headers a plain object or a Headers instance
-   * @returns a headers instance
-   */ static from(headers) {
+    
+
+
+
+
+ static from(headers) {
         if (headers instanceof Headers) return headers;
         return new HeadersAdapter(headers);
     }
@@ -216,8 +216,8 @@ class HeadersAdapter extends Headers {
     *entries() {
         for (const key of Object.keys(this.headers)){
             const name = key.toLowerCase();
-            // We assert here that this is a string because we got it from the
-            // Object.keys() call above.
+            
+            
             const value = this.get(name);
             yield [
                 name,
@@ -233,8 +233,8 @@ class HeadersAdapter extends Headers {
     }
     *values() {
         for (const key of Object.keys(this.headers)){
-            // We assert here that this is a string because we got it from the
-            // Object.keys() call above.
+            
+            
             const value = this.get(key);
             yield value;
         }
@@ -242,7 +242,7 @@ class HeadersAdapter extends Headers {
     [Symbol.iterator]() {
         return this.entries();
     }
-} //# sourceMappingURL=headers.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/cookie/index.js [app-rsc] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
@@ -252,12 +252,12 @@ class HeadersAdapter extends Headers {
     var e = {};
     (()=>{
         var r = e;
-        /*!
- * cookie
- * Copyright(c) 2012-2014 Roman Shtylman
- * Copyright(c) 2015 Douglas Christopher Wilson
- * MIT Licensed
- */ r.parse = parse;
+        
+
+
+
+
+ r.parse = parse;
         r.serialize = serialize;
         var i = decodeURIComponent;
         var t = encodeURIComponent;
@@ -407,7 +407,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 function wrapApiHandler(page, handler) {
     return (...args)=>{
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$trace$2f$tracer$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getTracer"])().setRootSpanAttribute('next.route', page);
-        // Call API route method
+        
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$trace$2f$tracer$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getTracer"])().trace(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$trace$2f$constants$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NodeSpan"].runHandler, {
             spanName: `executing api route (pages) ${page}`
         }, ()=>handler(...args));
@@ -462,9 +462,9 @@ function clearPreviewData(res, options = {}) {
             previous
         ] : Array.isArray(previous) ? previous : [],
         serialize(COOKIE_NAME_PRERENDER_BYPASS, '', {
-            // To delete a cookie, set `expires` to a date in the past:
-            // https://tools.ietf.org/html/rfc6265#section-4.1.1
-            // `Max-Age: 0` is not valid, thus ignored, and the cookie is persisted.
+            
+            
+            
             expires: new Date(0),
             httpOnly: true,
             sameSite: ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : 'lax',
@@ -475,9 +475,9 @@ function clearPreviewData(res, options = {}) {
             } : undefined
         }),
         serialize(COOKIE_NAME_PRERENDER_DATA, '', {
-            // To delete a cookie, set `expires` to a date in the past:
-            // https://tools.ietf.org/html/rfc6265#section-4.1.1
-            // `Max-Age: 0` is not valid, thus ignored, and the cookie is persisted.
+            
+            
+            
             expires: new Date(0),
             httpOnly: true,
             sameSite: ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : 'lax',
@@ -518,7 +518,7 @@ function setLazyProp({ req }, prop, getter) {
         ...opts,
         get: ()=>{
             const value = getter();
-            // we set the property on the object to avoid recalculating it
+            
             Object.defineProperty(req, prop, {
                 ...optsReset,
                 value
@@ -532,15 +532,15 @@ function setLazyProp({ req }, prop, getter) {
             });
         }
     });
-} //# sourceMappingURL=index.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/api-utils/get-cookie-parser.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Parse cookies from the `headers` of request
- * @param req request object
- */ __turbopack_context__.s([
+
+
+
+ __turbopack_context__.s([
     "getCookieParser",
     ()=>getCookieParser
 ]);
@@ -553,7 +553,7 @@ function getCookieParser(headers) {
         const { parse: parseCookieFn } = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/cookie/index.js [app-rsc] (ecmascript)");
         return parseCookieFn(Array.isArray(cookie) ? cookie.join('; ') : cookie);
     };
-} //# sourceMappingURL=get-cookie-parser.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/base-http/index.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -574,7 +574,7 @@ class BaseNextRequest {
         this.url = url;
         this.body = body;
     }
-    // Utils implemented using the abstract methods above
+    
     get cookies() {
         if (this._cookies) return this._cookies;
         return this._cookies = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$api$2d$utils$2f$get$2d$cookie$2d$parser$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getCookieParser"])(this.headers)();
@@ -584,18 +584,18 @@ class BaseNextResponse {
     constructor(destination){
         this.destination = destination;
     }
-    // Utils implemented using the abstract methods above
+    
     redirect(destination, statusCode) {
         this.setHeader('Location', destination);
         this.statusCode = statusCode;
-        // Since IE11 doesn't support the 308 header add backwards
-        // compatibility using refresh header
+        
+        
         if (statusCode === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$status$2d$code$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["RedirectStatusCode"].PermanentRedirect) {
             this.setHeader('Refresh', `0;url=${destination}`);
         }
         return this;
     }
-} //# sourceMappingURL=index.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/base-http/node.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -620,8 +620,8 @@ class NodeNextRequest extends __TURBOPACK__imported__module__$5b$project$5d2f$De
         super(_req.method.toUpperCase(), _req.url, _req), this._req = _req, this.headers = this._req.headers, this.fetchMetrics = (_this__req = this._req) == null ? void 0 : _this__req.fetchMetrics, this[_NEXT_REQUEST_META] = this._req[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NEXT_REQUEST_META"]] || {}, this.streaming = false;
     }
     get originalRequest() {
-        // Need to mimic these changes to the original req object for places where we use it:
-        // render.tsx, api/ssg requests
+        
+        
         this._req[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NEXT_REQUEST_META"]] = this[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NEXT_REQUEST_META"]];
         this._req.url = this.url;
         this._req.cookies = this.cookies;
@@ -630,13 +630,13 @@ class NodeNextRequest extends __TURBOPACK__imported__module__$5b$project$5d2f$De
     set originalRequest(value) {
         this._req = value;
     }
-    /**
-   * Returns the request body as a Web Readable Stream. The body here can only
-   * be read once as the body will start flowing as soon as the data handler
-   * is attached.
-   *
-   * @internal
-   */ stream() {
+    
+
+
+
+
+
+ stream() {
         if (this.streaming) {
             throw Object.defineProperty(new Error('Invariant: NodeNextRequest.stream() can only be called once'), "__NEXT_ERROR_CODE", {
                 value: "E467",
@@ -731,46 +731,46 @@ class NodeNextResponse extends __TURBOPACK__imported__module__$5b$project$5d2f$D
         this.originalResponse.on('close', callback);
     }
 }
-var _NEXT_REQUEST_META; //# sourceMappingURL=node.js.map
+var _NEXT_REQUEST_META; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/lib/experimental/ppr.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * If set to `incremental`, only those leaf pages that export
- * `experimental_ppr = true` will have partial prerendering enabled. If any
- * page exports this value as `false` or does not export it at all will not
- * have partial prerendering enabled. If set to a boolean, the options for
- * `experimental_ppr` will be ignored.
- */ /**
- * Returns true if partial prerendering is enabled for the application. It does
- * not tell you if a given route has PPR enabled, as that requires analysis of
- * the route's configuration.
- *
- * @see {@link checkIsRoutePPREnabled} - for checking if a specific route has PPR enabled.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+ 
+
+
+
+
+
+ __turbopack_context__.s([
     "checkIsAppPPREnabled",
     ()=>checkIsAppPPREnabled,
     "checkIsRoutePPREnabled",
     ()=>checkIsRoutePPREnabled
 ]);
 function checkIsAppPPREnabled(config) {
-    // If the config is undefined, partial prerendering is disabled.
+    
     if (typeof config === 'undefined') return false;
-    // If the config is a boolean, use it directly.
+    
     if (typeof config === 'boolean') return config;
-    // If the config is a string, it must be 'incremental' to enable partial
-    // prerendering.
+    
+    
     if (config === 'incremental') return true;
     return false;
 }
 function checkIsRoutePPREnabled(config) {
-    // If the config is undefined, partial prerendering is disabled.
+    
     if (typeof config === 'undefined') return false;
-    // If the config is a boolean, use it directly.
+    
     if (typeof config === 'boolean') return config;
     return false;
-} //# sourceMappingURL=ppr.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/zod/index.cjs [app-rsc] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
@@ -5522,7 +5522,7 @@ function parseAppSegmentConfig(data, route) {
                         {
                             return {
                                 // @TODO replace this link with a link to the docs when they are written
-                                message: `Invalid unstable_prefetch value ${JSON.stringify(ctx.data)} on "${route}", must be an object with a mode of "static" or "runtime". Read more at https://nextjs.org/docs/messages/invalid-prefetch-configuration`
+                                message: `Invalid unstable_prefetch value ${JSON.stringify(ctx.data)} on "${route}", must be an object with a mode of "static" or "runtime". Read more at https:
                             };
                         }
                     default:
@@ -5538,7 +5538,7 @@ function parseAppSegmentConfig(data, route) {
     }
     return parsed.data;
 }
-const AppSegmentConfigSchemaKeys = AppSegmentConfigSchema.keyof().options; //# sourceMappingURL=app-segment-config.js.map
+const AppSegmentConfigSchemaKeys = AppSegmentConfigSchema.keyof().options; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/route-modules/checks.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -5566,21 +5566,21 @@ function isPagesRouteModule(routeModule) {
 }
 function isPagesAPIRouteModule(routeModule) {
     return routeModule.definition.kind === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$route$2d$kind$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["RouteKind"].PAGES_API;
-} //# sourceMappingURL=checks.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/page-path/ensure-leading-slash.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * For a given page path, this function ensures that there is a leading slash.
- * If there is not a leading slash, one is added, otherwise it is noop.
- */ __turbopack_context__.s([
+
+
+
+ __turbopack_context__.s([
     "ensureLeadingSlash",
     ()=>ensureLeadingSlash
 ]);
 function ensureLeadingSlash(path) {
     return path.startsWith('/') ? path : `/${path}`;
-} //# sourceMappingURL=ensure-leading-slash.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/app-paths.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -5597,19 +5597,19 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 function normalizeAppPath(route) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$page$2d$path$2f$ensure$2d$leading$2d$slash$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ensureLeadingSlash"])(route.split('/').reduce((pathname, segment, index, segments)=>{
-        // Empty segments are ignored.
+        
         if (!segment) {
             return pathname;
         }
-        // Groups are ignored.
+        
         if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["isGroupSegment"])(segment)) {
             return pathname;
         }
-        // Parallel segments are ignored.
+        
         if (segment[0] === '@') {
             return pathname;
         }
-        // The last segment (if it's a leaf) should be ignored.
+        
         if ((segment === 'page' || segment === 'route') && index === segments.length - 1) {
             return pathname;
         }
@@ -5618,7 +5618,7 @@ function normalizeAppPath(route) {
 }
 function normalizeRscURL(url) {
     return url.replace(/\.rsc($|\?)/, '$1');
-} //# sourceMappingURL=app-paths.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/interception-routes.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -5640,7 +5640,7 @@ const INTERCEPTION_ROUTE_MARKERS = [
     '(...)'
 ];
 function isInterceptionRouteAppPath(path) {
-    // TODO-APP: add more serious validation
+    
     return path.split('/').find((segment)=>INTERCEPTION_ROUTE_MARKERS.find((m)=>segment.startsWith(m))) !== undefined;
 }
 function extractInterceptionRouteInformation(path) {
@@ -5662,11 +5662,11 @@ function extractInterceptionRouteInformation(path) {
             configurable: true
         });
     }
-    interceptingRoute = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$app$2d$paths$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["normalizeAppPath"])(interceptingRoute) // normalize the path, e.g. /(blog)/feed -> /feed
+    interceptingRoute = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$app$2d$paths$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["normalizeAppPath"])(interceptingRoute) 
     ;
     switch(marker){
         case '(.)':
-            // (.) indicates that we should match with sibling routes, so we just need to append the intercepted route to the intercepting route
+            
             if (interceptingRoute === '/') {
                 interceptedRoute = `/${interceptedRoute}`;
             } else {
@@ -5674,7 +5674,7 @@ function extractInterceptionRouteInformation(path) {
             }
             break;
         case '(..)':
-            // (..) indicates that we should match at one level up, so we need to remove the last segment of the intercepting route
+            
             if (interceptingRoute === '/') {
                 throw Object.defineProperty(new Error(`Invalid interception route: ${path}. Cannot use (..) marker at the root level, use (.) instead.`), "__NEXT_ERROR_CODE", {
                     value: "E207",
@@ -5685,11 +5685,11 @@ function extractInterceptionRouteInformation(path) {
             interceptedRoute = interceptingRoute.split('/').slice(0, -1).concat(interceptedRoute).join('/');
             break;
         case '(...)':
-            // (...) will match the route segment in the root directory, so we need to use the root directory to prepend the intercepted route
+            
             interceptedRoute = '/' + interceptedRoute;
             break;
         case '(..)(..)':
-            // (..)(..) indicates that we should match at two levels up, so we need to remove the last two segments of the intercepting route
+            
             const splitInterceptingRoute = interceptingRoute.split('/');
             if (splitInterceptingRoute.length <= 2) {
                 throw Object.defineProperty(new Error(`Invalid interception route: ${path}. Cannot use (..)(..) marker at the root level or one level up.`), "__NEXT_ERROR_CODE", {
@@ -5711,7 +5711,7 @@ function extractInterceptionRouteInformation(path) {
         interceptingRoute,
         interceptedRoute
     };
-} //# sourceMappingURL=interception-routes.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/get-segment-param.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -5728,15 +5728,15 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 function getSegmentParam(segment) {
     const interceptionMarker = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$interception$2d$routes$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["INTERCEPTION_ROUTE_MARKERS"].find((marker)=>segment.startsWith(marker));
-    // if an interception marker is part of the path segment, we need to jump ahead
-    // to the relevant portion for param parsing
+    
+    
     if (interceptionMarker) {
         segment = segment.slice(interceptionMarker.length);
     }
     if (segment.startsWith('[[...') && segment.endsWith(']]')) {
         return {
-            // TODO-APP: Optional catchall does not currently work with parallel routes,
-            // so for now aren't handling a potential interception marker.
+            
+            
             type: 'optional-catchall',
             param: segment.slice(5, -2)
         };
@@ -5786,18 +5786,18 @@ function getParamProperties(paramType) {
         repeat,
         optional
     };
-} //# sourceMappingURL=get-segment-param.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/build/static-paths/utils.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Encodes a parameter value using the provided encoder.
- *
- * @param value - The value to encode.
- * @param encoder - The encoder to use.
- * @returns The encoded value.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+ __turbopack_context__.s([
     "createFallbackRouteParam",
     ()=>createFallbackRouteParam,
     "encodeParam",
@@ -5823,7 +5823,7 @@ function createFallbackRouteParam(paramName, paramType, isParallelRouteParam) {
         paramType,
         isParallelRouteParam
     };
-} //# sourceMappingURL=utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/build/segment-config/app/app-segments.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -5850,23 +5850,23 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-/**
- * Parses the app config and attaches it to the segment.
- */ function attach(segment, userland, route) {
-    // If the userland is not an object, then we can't do anything with it.
+
+
+ function attach(segment, userland, route) {
+    
     if (typeof userland !== 'object' || userland === null) {
         return;
     }
-    // Try to parse the application configuration.
+    
     const config = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$build$2f$segment$2d$config$2f$app$2f$app$2d$segment$2d$config$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["parseAppSegmentConfig"])(userland, route);
-    // If there was any keys on the config, then attach it to the segment.
+    
     if (Object.keys(config).length > 0) {
         segment.config = config;
     }
     if ('generateStaticParams' in userland && typeof userland.generateStaticParams === 'function') {
         var _segment_config;
         segment.generateStaticParams = userland.generateStaticParams;
-        // Validate that `generateStaticParams` makes sense in this context.
+        
         if (((_segment_config = segment.config) == null ? void 0 : _segment_config.runtime) === 'edge') {
             throw Object.defineProperty(new Error('Edge runtime is not supported with `generateStaticParams`.'), "__NEXT_ERROR_CODE", {
                 value: "E502",
@@ -5876,14 +5876,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
         }
     }
 }
-/**
- * Walks the loader tree and collects the generate parameters for each segment.
- *
- * @param routeModule the app page route module
- * @returns the segments for the app page route module
- */ async function collectAppPageSegments(routeModule) {
-    // We keep track of unique segments, since with parallel routes, it's possible
-    // to see the same segment multiple times.
+
+
+
+
+
+ async function collectAppPageSegments(routeModule) {
+    
+    
     const uniqueSegments = new Map();
     const queue = [
         [
@@ -5895,7 +5895,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
     while(queue.length > 0){
         const [loaderTree, currentSegments, isParallelRouteSegment] = queue.shift();
         const [name, parallelRoutes] = loaderTree;
-        // Process current node
+        
         const { mod: userland, filePath } = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$app$2d$dir$2d$module$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getLayoutOrPageModule"])(loaderTree);
         const isClientComponent = userland && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$client$2d$and$2d$server$2d$references$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["isClientReference"])(userland);
         const { param: paramName, type: paramType } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$get$2d$segment$2d$param$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getSegmentParam"])(name) ?? {};
@@ -5909,11 +5909,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
             generateStaticParams: undefined,
             isParallelRouteSegment
         };
-        // Only server components can have app segment configurations
+        
         if (!isClientComponent) {
             attach(segment, userland, routeModule.definition.pathname);
         }
-        // Create a unique key for the segment
+        
         const segmentKey = getSegmentKey(segment);
         if (!uniqueSegments.has(segmentKey)) {
             uniqueSegments.set(segmentKey, segment);
@@ -5922,9 +5922,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
             ...currentSegments,
             segment
         ];
-        // If this is a page segment, we've reached a leaf node
+        
         if (name === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["PAGE_SEGMENT_KEY"]) {
-            // Add all segments in the current path, preferring non-parallel segments
+            
             updatedSegments.forEach((seg)=>{
                 const key = getSegmentKey(seg);
                 if (!uniqueSegments.has(key)) {
@@ -5932,14 +5932,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
                 }
             });
         }
-        // Add all parallel routes to the queue
+        
         for(const parallelRouteKey in parallelRoutes){
             const parallelRoute = parallelRoutes[parallelRouteKey];
             queue.push([
                 parallelRoute,
                 updatedSegments,
-                // A parallel route segment is one that descends from a segment that is
-                // not children or descends from a parallel route segment.
+                
+                
                 isParallelRouteSegment || parallelRouteKey !== 'children'
             ]);
         }
@@ -5949,13 +5949,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 function getSegmentKey(segment) {
     return `${segment.name}-${segment.filePath ?? ''}-${segment.paramName ?? ''}-${segment.isParallelRouteSegment ? 'pr' : 'np'}`;
 }
-/**
- * Collects the segments for a given app route module.
- *
- * @param routeModule the app route module
- * @returns the segments for the app route module
- */ function collectAppRouteSegments(routeModule) {
-    // Get the pathname parts, slice off the first element (which is empty).
+
+
+
+
+
+ function collectAppRouteSegments(routeModule) {
+    
     const parts = routeModule.definition.pathname.split('/').slice(1);
     if (parts.length === 0) {
         throw Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$invariant$2d$error$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["InvariantError"]('Expected at least one segment'), "__NEXT_ERROR_CODE", {
@@ -5964,7 +5964,7 @@ function getSegmentKey(segment) {
             configurable: true
         });
     }
-    // Generate all the segments.
+    
     const segments = parts.map((name)=>{
         const { param: paramName, type: paramType } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$get$2d$segment$2d$param$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getSegmentParam"])(name) ?? {};
         return {
@@ -5978,11 +5978,11 @@ function getSegmentKey(segment) {
             isParallelRouteSegment: undefined
         };
     });
-    // We know we have at least one, we verified this above. We should get the
-    // last segment which represents the root route module.
+    
+    
     const segment = segments[segments.length - 1];
     segment.filePath = routeModule.definition.filename;
-    // Extract the segment config from the userland module.
+    
     attach(segment, routeModule.userland, routeModule.definition.pathname);
     return segments;
 }
@@ -6010,7 +6010,7 @@ function collectFallbackRouteParams(routeModule) {
     while(queue.length > 0){
         const [loaderTree, isParallelRouteSegment] = queue.shift();
         const [name, parallelRoutes] = loaderTree;
-        // Handle this segment (if it's a dynamic segment param).
+        
         const segmentParam = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$get$2d$segment$2d$param$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getSegmentParam"])(name);
         if (segmentParam) {
             const key = `${name}-${segmentParam.param}-${isParallelRouteSegment ? 'pr' : 'np'}`;
@@ -6018,27 +6018,27 @@ function collectFallbackRouteParams(routeModule) {
                 uniqueSegments.set(key, (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$build$2f$static$2d$paths$2f$utils$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["createFallbackRouteParam"])(segmentParam.param, segmentParam.type, isParallelRouteSegment));
             }
         }
-        // Add all of this segment's parallel routes to the queue.
+        
         for(const parallelRouteKey in parallelRoutes){
             const parallelRoute = parallelRoutes[parallelRouteKey];
             queue.push([
                 parallelRoute,
-                // A parallel route segment is one that descends from a segment that is
-                // not children or descends from a parallel route segment.
+                
+                
                 isParallelRouteSegment || parallelRouteKey !== 'children'
             ]);
         }
     }
     return Array.from(uniqueSegments.values());
-} //# sourceMappingURL=app-segments.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/utils.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Web vitals provided to _app.reportWebVitals by Core Web Vitals plugin developed by Google Chrome team.
- * https://nextjs.org/blog/next-9-4#integrated-web-vitals-reporting
- */ __turbopack_context__.s([
+
+
+
+ __turbopack_context__.s([
     "DecodeError",
     ()=>DecodeError,
     "MiddlewareNotFoundError",
@@ -6093,8 +6093,8 @@ function execOnce(fn) {
         return result;
     };
 }
-// Scheme: https://tools.ietf.org/html/rfc3986#section-3.1
-// Absolute URL: https://tools.ietf.org/html/rfc3986#section-4.3
+
+
 const ABSOLUTE_URL_REGEX = /^[a-zA-Z][a-zA-Z\d+\-.]*?:/;
 const isAbsoluteUrl = (url)=>ABSOLUTE_URL_REGEX.test(url);
 function getLocationOrigin() {
@@ -6115,8 +6115,8 @@ function isResSent(res) {
 function normalizeRepeatedSlashes(url) {
     const urlParts = url.split('?');
     const urlNoQuery = urlParts[0];
-    return urlNoQuery // first we replace any non-encoded backslashes with forward
-    // then normalize repeated forward slashes
+    return urlNoQuery 
+    
     .replace(/\\/g, '/').replace(/\/\/+/g, '/') + (urlParts[1] ? `?${urlParts.slice(1).join('?')}` : '');
 }
 async function loadGetInitialProps(App, ctx) {
@@ -6130,11 +6130,11 @@ async function loadGetInitialProps(App, ctx) {
             });
         }
     }
-    // when called from _app `ctx` is nested in `ctx`
+    
     const res = ctx.res || ctx.ctx && ctx.ctx.res;
     if (!App.getInitialProps) {
         if (ctx.ctx && ctx.Component) {
-            // @ts-ignore pageProps default
+            
             return {
                 pageProps: await loadGetInitialProps(ctx.Component, ctx.ctx)
             };
@@ -6196,7 +6196,7 @@ function stringifyError(error) {
         message: error.message,
         stack: error.stack
     });
-} //# sourceMappingURL=utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/path-to-regexp/index.js [app-rsc] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
@@ -6611,18 +6611,18 @@ function stringifyError(error) {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/lib/route-pattern-normalizer.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Route pattern normalization utilities for path-to-regexp compatibility.
- *
- * path-to-regexp 6.3.0+ introduced stricter validation that rejects certain
- * patterns commonly used in Next.js interception routes. This module provides
- * normalization functions to make Next.js route patterns compatible with the
- * updated library while preserving all functionality.
- */ /**
- * Internal separator used to normalize adjacent parameter patterns.
- * This unique marker is inserted between adjacent parameters and stripped out
- * during parameter extraction to avoid conflicts with real URL content.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+ 
+
+
+
+ __turbopack_context__.s([
     "PARAM_SEPARATOR",
     ()=>PARAM_SEPARATOR,
     "hasAdjacentParameterIssues",
@@ -6639,14 +6639,14 @@ function stringifyError(error) {
 const PARAM_SEPARATOR = '_NEXTSEP_';
 function hasAdjacentParameterIssues(route) {
     if (typeof route !== 'string') return false;
-    // Check for interception route markers followed immediately by parameters
-    // Pattern: /(.):param, /(..):param, /(...):param, /(.)(.):param etc.
-    // These patterns cause "Must have text between two parameters" errors
+    
+    
+    
     if (/\/\(\.{1,3}\):[^/\s]+/.test(route)) {
         return true;
     }
-    // Check for basic adjacent parameters without separators
-    // Pattern: :param1:param2 (but not :param* or other URL patterns)
+    
+    
     if (/:[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*/.test(route)) {
         return true;
     }
@@ -6654,26 +6654,26 @@ function hasAdjacentParameterIssues(route) {
 }
 function normalizeAdjacentParameters(route) {
     let normalized = route;
-    // Handle interception route patterns: (.):param -> (.)_NEXTSEP_:param
+    
     normalized = normalized.replace(/(\([^)]*\)):([^/\s]+)/g, `$1${PARAM_SEPARATOR}:$2`);
-    // Handle other adjacent parameter patterns: :param1:param2 -> :param1_NEXTSEP_:param2
+    
     normalized = normalized.replace(/:([^:/\s)]+)(?=:)/g, `:$1${PARAM_SEPARATOR}`);
     return normalized;
 }
 function normalizeTokensForRegexp(tokens) {
     return tokens.map((token)=>{
-        // Token union type: Token = string | TokenObject
-        // Literal path segments are strings, parameters/wildcards are objects
-        if (typeof token === 'object' && token !== null && // Not all token objects have 'modifier' property (e.g., simple text tokens)
-        'modifier' in token && // Only repeating modifiers (* or +) cause the validation error
-        // Other modifiers like '?' (optional) are fine
-        (token.modifier === '*' || token.modifier === '+') && // Token objects can have different shapes depending on route pattern
-        'prefix' in token && 'suffix' in token && // Both prefix and suffix must be empty strings
-        // This is what causes the validation error in path-to-regexp
+        
+        
+        if (typeof token === 'object' && token !== null && 
+        'modifier' in token && 
+        
+        (token.modifier === '*' || token.modifier === '+') && 
+        'prefix' in token && 'suffix' in token && 
+        
         token.prefix === '' && token.suffix === '') {
-            // Add minimal prefix to satisfy path-to-regexp validation
-            // We use '/' as it's the most common path delimiter and won't break route matching
-            // The prefix gets used in regex generation but doesn't affect parameter extraction
+            
+            
+            
             return {
                 ...token,
                 prefix: '/'
@@ -6683,34 +6683,34 @@ function normalizeTokensForRegexp(tokens) {
     });
 }
 function stripNormalizedSeparators(pathname) {
-    // Remove separator after interception route markers
-    // Pattern: (.)_NEXTSEP_ -> (.), (..)_NEXTSEP_ -> (..), etc.
-    // The separator appears after the closing paren of interception markers
+    
+    
+    
     return pathname.replace(new RegExp(`\\)${PARAM_SEPARATOR}`, 'g'), ')');
 }
 function stripParameterSeparators(params) {
     const cleaned = {};
     for (const [key, value] of Object.entries(params)){
         if (typeof value === 'string') {
-            // Remove the separator if it appears at the start of parameter values
+            
             cleaned[key] = value.replace(new RegExp(`^${PARAM_SEPARATOR}`), '');
         } else if (Array.isArray(value)) {
-            // Handle array parameters (from repeated route segments)
+            
             cleaned[key] = value.map((item)=>typeof item === 'string' ? item.replace(new RegExp(`^${PARAM_SEPARATOR}`), '') : item);
         } else {
             cleaned[key] = value;
         }
     }
     return cleaned;
-} //# sourceMappingURL=route-pattern-normalizer.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/route-match-utils.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Client-safe utilities for route matching that don't import server-side
- * utilities to avoid bundling issues with Turbopack
- */ __turbopack_context__.s([
+
+
+
+ __turbopack_context__.s([
     "safeCompile",
     ()=>safeCompile,
     "safePathToRegexp",
@@ -6728,19 +6728,19 @@ function safePathToRegexp(route, keys, options) {
     if (typeof route !== 'string') {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$path$2d$to$2d$regexp$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["pathToRegexp"])(route, keys, options);
     }
-    // Check if normalization is needed and cache the result
+    
     const needsNormalization = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$route$2d$pattern$2d$normalizer$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["hasAdjacentParameterIssues"])(route);
     const routeToUse = needsNormalization ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$route$2d$pattern$2d$normalizer$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["normalizeAdjacentParameters"])(route) : route;
     try {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$path$2d$to$2d$regexp$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["pathToRegexp"])(routeToUse, keys, options);
     } catch (error) {
-        // Only try normalization if we haven't already normalized
+        
         if (!needsNormalization) {
             try {
                 const normalizedRoute = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$route$2d$pattern$2d$normalizer$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["normalizeAdjacentParameters"])(route);
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$path$2d$to$2d$regexp$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["pathToRegexp"])(normalizedRoute, keys, options);
             } catch (retryError) {
-                // If that doesn't work, fall back to original error
+                
                 throw error;
             }
         }
@@ -6748,14 +6748,14 @@ function safePathToRegexp(route, keys, options) {
     }
 }
 function safeCompile(route, options) {
-    // Check if normalization is needed and cache the result
+    
     const needsNormalization = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$route$2d$pattern$2d$normalizer$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["hasAdjacentParameterIssues"])(route);
     const routeToUse = needsNormalization ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$route$2d$pattern$2d$normalizer$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["normalizeAdjacentParameters"])(route) : route;
     try {
         const compiler = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$path$2d$to$2d$regexp$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["compile"])(routeToUse, options);
-        // If we normalized the route, wrap the compiler to strip separators from output
-        // The normalization inserts _NEXTSEP_ as a literal string in the pattern to satisfy
-        // path-to-regexp validation, but we don't want it in the final compiled URL
+        
+        
+        
         if (needsNormalization) {
             return (params)=>{
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$route$2d$pattern$2d$normalizer$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["stripNormalizedSeparators"])(compiler(params));
@@ -6763,17 +6763,17 @@ function safeCompile(route, options) {
         }
         return compiler;
     } catch (error) {
-        // Only try normalization if we haven't already normalized
+        
         if (!needsNormalization) {
             try {
                 const normalizedRoute = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$route$2d$pattern$2d$normalizer$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["normalizeAdjacentParameters"])(route);
                 const compiler = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$path$2d$to$2d$regexp$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["compile"])(normalizedRoute, options);
-                // Wrap the compiler to strip separators from output
+                
                 return (params)=>{
                     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$route$2d$pattern$2d$normalizer$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["stripNormalizedSeparators"])(compiler(params));
                 };
             } catch (retryError) {
-                // If that doesn't work, fall back to original error
+                
                 throw error;
             }
         }
@@ -6785,7 +6785,7 @@ function safeRegexpToFunction(regexp, keys) {
     return (pathname)=>{
         const result = originalMatcher(pathname);
         if (!result) return false;
-        // Clean parameters before returning
+        
         return {
             ...result,
             params: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$route$2d$pattern$2d$normalizer$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["stripParameterSeparators"])(result.params)
@@ -6796,10 +6796,10 @@ function safeRouteMatcher(matcherFn) {
     return (pathname)=>{
         const result = matcherFn(pathname);
         if (!result) return false;
-        // Clean parameters before returning
+        
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$route$2d$pattern$2d$normalizer$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["stripParameterSeparators"])(result);
     };
-} //# sourceMappingURL=route-match-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/route-matcher.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -6840,14 +6840,14 @@ function getRouteMatcher({ re, groups }) {
         }
         return params;
     };
-    // Wrap with safe matcher to handle parameter cleaning
+    
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$route$2d$match$2d$utils$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["safeRouteMatcher"])(rawMatcher);
-} //# sourceMappingURL=route-matcher.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/escape-regexp.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// regexp is based on https://github.com/sindresorhus/escape-string-regexp
+
 __turbopack_context__.s([
     "escapeStringRegexp",
     ()=>escapeStringRegexp
@@ -6855,12 +6855,12 @@ __turbopack_context__.s([
 const reHasRegExp = /[|\\{}()[\]^$+*?.-]/;
 const reReplaceRegExp = /[|\\{}()[\]^$+*?.-]/g;
 function escapeStringRegexp(str) {
-    // see also: https://github.com/lodash/lodash/blob/2da024c3b4f9947a48517639de7560457cd4ec6c/escapeRegExp.js#L23
+    
     if (reHasRegExp.test(str)) {
         return str.replace(reReplaceRegExp, '\\$&');
     }
     return str;
-} //# sourceMappingURL=escape-regexp.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/parse-loader-tree.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -6875,18 +6875,18 @@ function parseLoaderTree(tree) {
     const [segment, parallelRoutes, modules] = tree;
     const { layout, template } = modules;
     let { page } = modules;
-    // a __DEFAULT__ segment means that this route didn't match any of the
-    // segments in the route, so we should use the default page
+    
+    
     page = segment === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["DEFAULT_SEGMENT_KEY"] ? modules.defaultPage : page;
     const conventionPath = layout?.[1] || template?.[1] || page?.[1];
     return {
         page,
         segment,
         modules,
-        /* it can be either layout / template / page */ conventionPath,
+         conventionPath,
         parallelRoutes
     };
-} //# sourceMappingURL=parse-loader-tree.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/get-dynamic-param.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -6909,20 +6909,20 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-/**
- * Gets the value of a param from the params object. This correctly handles the
- * case where the param is a fallback route param and encodes the resulting
- * value.
- *
- * @param interpolatedParams - The params object.
- * @param segmentKey - The key of the segment.
- * @param fallbackRouteParams - The fallback route params.
- * @returns The value of the param.
- */ function getParamValue(interpolatedParams, segmentKey, fallbackRouteParams) {
+
+
+
+
+
+
+
+
+
+ function getParamValue(interpolatedParams, segmentKey, fallbackRouteParams) {
     let value = interpolatedParams[segmentKey];
     if (fallbackRouteParams?.has(segmentKey)) {
-        // We know that the fallback route params has the segment key because we
-        // checked that above.
+        
+        
         const [searchValue] = fallbackRouteParams.get(segmentKey);
         value = searchValue;
     } else if (Array.isArray(value)) {
@@ -6934,23 +6934,23 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 }
 function interpolateParallelRouteParams(loaderTree, params, pagePath, fallbackRouteParams) {
     const interpolated = structuredClone(params);
-    // Stack-based traversal with depth tracking
+    
     const stack = [
         {
             tree: loaderTree,
             depth: 0
         }
     ];
-    // Derive value from pagePath based on depth and parameter type
-    const pathSegments = pagePath.split('/').slice(1) // Remove first empty string
+    
+    const pathSegments = pagePath.split('/').slice(1) 
     ;
     while(stack.length > 0){
         const { tree, depth } = stack.pop();
         const { segment, parallelRoutes } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$parse$2d$loader$2d$tree$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["parseLoaderTree"])(tree);
-        // Check if current segment contains a parameter
+        
         const segmentParam = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$get$2d$segment$2d$param$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getSegmentParam"])(segment);
-        if (segmentParam && !interpolated.hasOwnProperty(segmentParam.param) && // If the param is in the fallback route params, we don't need to
-        // interpolate it because it's already marked as being unknown.
+        if (segmentParam && !interpolated.hasOwnProperty(segmentParam.param) && 
+        
         !fallbackRouteParams?.has(segmentParam.param)) {
             switch(segmentParam.type){
                 case 'catchall':
@@ -6959,16 +6959,16 @@ function interpolateParallelRouteParams(loaderTree, params, pagePath, fallbackRo
                 case 'catchall-intercepted-(.)':
                 case 'catchall-intercepted-(..)':
                 case 'catchall-intercepted-(...)':
-                    // For catchall parameters, take all remaining segments from this depth
+                    
                     const remainingSegments = pathSegments.slice(depth);
-                    // Process each segment to handle any dynamic params
+                    
                     const processedSegments = remainingSegments.flatMap((pathSegment)=>{
                         const param = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$get$2d$segment$2d$param$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getSegmentParam"])(pathSegment);
-                        // If the segment matches a param, return the param value otherwise,
-                        // it's a static segment, so just return that. We don't use the
-                        // `getParamValue` function here because we don't want the values to
-                        // be encoded, that's handled on get by the `getDynamicParam`
-                        // function.
+                        
+                        
+                        
+                        
+                        
                         return param ? interpolated[param.param] : pathSegment;
                     }).filter((s)=>s !== undefined);
                     if (processedSegments.length > 0) {
@@ -6980,7 +6980,7 @@ function interpolateParallelRouteParams(loaderTree, params, pagePath, fallbackRo
                 case 'dynamic-intercepted-(.)':
                 case 'dynamic-intercepted-(..)':
                 case 'dynamic-intercepted-(...)':
-                    // For regular dynamic parameters, take the segment at this depth
+                    
                     if (depth < pathSegments.length) {
                         const pathSegment = pathSegments[depth];
                         const param = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$get$2d$segment$2d$param$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getSegmentParam"])(pathSegment);
@@ -6991,13 +6991,13 @@ function interpolateParallelRouteParams(loaderTree, params, pagePath, fallbackRo
                     segmentParam.type;
             }
         }
-        // Calculate next depth - increment if this is not a route group and not empty
+        
         let nextDepth = depth;
         const isRouteGroup = segment.startsWith('(') && segment.endsWith(')');
         if (!isRouteGroup && segment !== '') {
             nextDepth++;
         }
-        // Add all parallel routes to the stack for processing
+        
         for (const route of Object.values(parallelRoutes)){
             stack.push({
                 tree: route,
@@ -7009,8 +7009,8 @@ function interpolateParallelRouteParams(loaderTree, params, pagePath, fallbackRo
 }
 function getDynamicParam(interpolatedParams, segmentKey, dynamicParamType, fallbackRouteParams) {
     let value = getParamValue(interpolatedParams, segmentKey, fallbackRouteParams);
-    // handle the case where an optional catchall does not have a value,
-    // e.g. `/dashboard/[[...slug]]` when requesting `/dashboard`
+    
+    
     if (!value || value.length === 0) {
         if (dynamicParamType === 'oc') {
             return {
@@ -7032,9 +7032,9 @@ function getDynamicParam(interpolatedParams, segmentKey, dynamicParamType, fallb
     }
     return {
         param: segmentKey,
-        // The value that is passed to user code.
+        
         value,
-        // The value that is rendered in the router tree.
+        
         treeSegment: [
             segmentKey,
             Array.isArray(value) ? value.join('/') : value,
@@ -7065,7 +7065,7 @@ function parseMatchedParameter(param) {
         repeat,
         optional
     };
-} //# sourceMappingURL=get-dynamic-param.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/route-regex.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7094,7 +7094,7 @@ function getParametrizedRoute(route, includeSuffix, includePrefix) {
     const segments = [];
     for (const segment of (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$remove$2d$trailing$2d$slash$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["removeTrailingSlash"])(route).slice(1).split('/')){
         const markerMatch = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$interception$2d$routes$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["INTERCEPTION_ROUTE_MARKERS"].find((m)=>segment.startsWith(m));
-        const paramMatches = segment.match(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$get$2d$dynamic$2d$param$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["PARAMETER_PATTERN"]) // Check for parameters
+        const paramMatches = segment.match(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$get$2d$dynamic$2d$param$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["PARAMETER_PATTERN"]) 
         ;
         if (markerMatch && paramMatches && paramMatches[2]) {
             const { key, optional, repeat } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$get$2d$dynamic$2d$param$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["parseMatchedParameter"])(paramMatches[2]);
@@ -7115,7 +7115,7 @@ function getParametrizedRoute(route, includeSuffix, includePrefix) {
                 segments.push(`/${(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$escape$2d$regexp$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["escapeStringRegexp"])(paramMatches[1])}`);
             }
             let s = repeat ? optional ? '(?:/(.+?))?' : '/(.+?)' : '/([^/]+?)';
-            // Remove the leading slash if includePrefix already added it.
+            
             if (includePrefix && paramMatches[1]) {
                 s = s.substring(1);
             }
@@ -7123,7 +7123,7 @@ function getParametrizedRoute(route, includeSuffix, includePrefix) {
         } else {
             segments.push(`/${(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$escape$2d$regexp$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["escapeStringRegexp"])(segment)}`);
         }
-        // If there's a suffix, add it to the segments if it's enabled.
+        
         if (includeSuffix && paramMatches && paramMatches[3]) {
             segments.push((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$escape$2d$regexp$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["escapeStringRegexp"])(paramMatches[3]));
         }
@@ -7144,10 +7144,10 @@ function getRouteRegex(normalizedRoute, { includeSuffix = false, includePrefix =
         groups: groups
     };
 }
-/**
- * Builds a function to generate a minimal routeKey using only a-z and minimal
- * number of characters.
- */ function buildGetSafeRouteKey() {
+
+
+
+ function buildGetSafeRouteKey() {
     let i = 0;
     return ()=>{
         let routeKey = '';
@@ -7161,15 +7161,15 @@ function getRouteRegex(normalizedRoute, { includeSuffix = false, includePrefix =
 }
 function getSafeKeyFromSegment({ interceptionMarker, getSafeRouteKey, segment, routeKeys, keyPrefix, backreferenceDuplicateKeys }) {
     const { key, optional, repeat } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$get$2d$dynamic$2d$param$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["parseMatchedParameter"])(segment);
-    // replace any non-word characters since they can break
-    // the named regex
+    
+    
     let cleanedKey = key.replace(/\W/g, '');
     if (keyPrefix) {
         cleanedKey = `${keyPrefix}${cleanedKey}`;
     }
     let invalidKey = false;
-    // check if the key is still invalid and fallback to using a known
-    // safe key
+    
+    
     if (cleanedKey.length === 0 || cleanedKey.length > 30) {
         invalidKey = true;
     }
@@ -7185,14 +7185,14 @@ function getSafeKeyFromSegment({ interceptionMarker, getSafeRouteKey, segment, r
     } else {
         routeKeys[cleanedKey] = key;
     }
-    // if the segment has an interception marker, make sure that's part of the regex pattern
-    // this is to ensure that the route with the interception marker doesn't incorrectly match
-    // the non-intercepted route (ie /app/(.)[username] should not match /app/[username])
+    
+    
+    
     const interceptionPrefix = interceptionMarker ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$escape$2d$regexp$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["escapeStringRegexp"])(interceptionMarker) : '';
     let pattern;
     if (duplicateKey && backreferenceDuplicateKeys) {
-        // Use a backreference to the key to ensure that the key is the same value
-        // in each of the placeholders.
+        
+        
         pattern = `\\k<${cleanedKey}>`;
     } else if (repeat) {
         pattern = `(?<${cleanedKey}>.+?)`;
@@ -7215,11 +7215,11 @@ function getNamedParametrizedRoute(route, prefixRouteKeys, includeSuffix, includ
     const routeKeys = {};
     const segments = [];
     const inverseParts = [];
-    // Ensure we don't mutate the original reference object.
+    
     reference = structuredClone(reference);
     for (const segment of (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$remove$2d$trailing$2d$slash$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["removeTrailingSlash"])(route).slice(1).split('/')){
         const hasInterceptionMarker = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$interception$2d$routes$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["INTERCEPTION_ROUTE_MARKERS"].some((m)=>segment.startsWith(m));
-        const paramMatches = segment.match(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$get$2d$dynamic$2d$param$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["PARAMETER_PATTERN"]) // Check for parameters
+        const paramMatches = segment.match(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$get$2d$dynamic$2d$param$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["PARAMETER_PATTERN"]) 
         ;
         const interceptionMarker = hasInterceptionMarker ? paramMatches?.[1] : undefined;
         let keyPrefix;
@@ -7232,7 +7232,7 @@ function getNamedParametrizedRoute(route, prefixRouteKeys, includeSuffix, includ
             keyPrefix = prefixRouteKeys ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$constants$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NEXT_QUERY_PARAM_PREFIX"] : undefined;
         }
         if (interceptionMarker && paramMatches && paramMatches[2]) {
-            // If there's an interception marker, add it to the segments.
+            
             const { key, pattern, cleanedKey, repeat, optional } = getSafeKeyFromSegment({
                 getSafeRouteKey,
                 interceptionMarker,
@@ -7245,7 +7245,7 @@ function getNamedParametrizedRoute(route, prefixRouteKeys, includeSuffix, includ
             inverseParts.push(`/${paramMatches[1]}:${reference.names[key] ?? cleanedKey}${repeat ? optional ? '*' : '+' : ''}`);
             reference.names[key] ??= cleanedKey;
         } else if (paramMatches && paramMatches[2]) {
-            // If there's a prefix, add it to the segments if it's enabled.
+            
             if (includePrefix && paramMatches[1]) {
                 segments.push(`/${(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$escape$2d$regexp$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["escapeStringRegexp"])(paramMatches[1])}`);
                 inverseParts.push(`/${paramMatches[1]}`);
@@ -7257,7 +7257,7 @@ function getNamedParametrizedRoute(route, prefixRouteKeys, includeSuffix, includ
                 keyPrefix,
                 backreferenceDuplicateKeys
             });
-            // Remove the leading slash if includePrefix already added it.
+            
             let s = pattern;
             if (includePrefix && paramMatches[1]) {
                 s = s.substring(1);
@@ -7269,7 +7269,7 @@ function getNamedParametrizedRoute(route, prefixRouteKeys, includeSuffix, includ
             segments.push(`/${(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$escape$2d$regexp$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["escapeStringRegexp"])(segment)}`);
             inverseParts.push(`/${segment}`);
         }
-        // If there's a suffix, add it to the segments if it's enabled.
+        
         if (includeSuffix && paramMatches && paramMatches[3]) {
             segments.push((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$escape$2d$regexp$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["escapeStringRegexp"])(paramMatches[3]));
             inverseParts.push(paramMatches[3]);
@@ -7310,7 +7310,7 @@ function getNamedMiddlewareRegex(normalizedRoute, options) {
     return {
         namedRegex: `^${namedParameterizedRoute}${catchAllGroupedRegex}$`
     };
-} //# sourceMappingURL=route-regex.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/get-short-dynamic-param-type.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7331,7 +7331,7 @@ const dynamicParamTypes = {
     'dynamic-intercepted-(.)': 'di(.)',
     'dynamic-intercepted-(..)': 'di(..)',
     'dynamic-intercepted-(...)': 'di(...)'
-}; //# sourceMappingURL=get-short-dynamic-param-type.js.map
+}; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/request/fallback-params.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7355,19 +7355,19 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 function getParamKeys(page) {
     const pattern = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$route$2d$regex$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRouteRegex"])(page);
     const matcher = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$route$2d$matcher$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRouteMatcher"])(pattern);
-    // Get the default list of allowed params.
+    
     return Object.keys(matcher(page));
 }
 function createOpaqueFallbackRouteParams(fallbackRouteParams) {
-    // If there are no fallback route params, we can return early.
+    
     if (fallbackRouteParams.length === 0) return null;
-    // As we're creating unique keys for each of the dynamic route params, we only
-    // need to generate a unique ID once per request because each of the keys will
-    // be also be unique.
+    
+    
+    
     const uniqueID = Math.random().toString(16).slice(2);
     const keys = new Map();
-    // Generate a unique key for the fallback route param, if this key is found
-    // in the static output, it represents a bug in cache components.
+    
+    
     for (const { paramName, paramType } of fallbackRouteParams){
         keys.set(paramName, [
             `%%drp:${paramName}:${uniqueID}%%`,
@@ -7377,50 +7377,50 @@ function createOpaqueFallbackRouteParams(fallbackRouteParams) {
     return keys;
 }
 function getFallbackRouteParams(page, routeModule) {
-    // First, get the fallback route params based on the provided page.
+    
     const unknownParamKeys = new Set(getParamKeys(page));
-    // Needed when processing fallback route params for catchall routes in
-    // parallel segments, derive from pathname. This is similar to
-    // getDynamicParam's pagePath parsing logic.
+    
+    
+    
     const pathSegments = page.split('/').filter(Boolean);
     const collected = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$build$2f$segment$2d$config$2f$app$2f$app$2d$segments$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["collectFallbackRouteParams"])(routeModule);
-    // Then, we have to get the fallback route params from the segments that are
-    // associated with parallel route segments.
+    
+    
     const fallbackRouteParams = [];
     for (const fallbackRouteParam of collected){
         if (fallbackRouteParam.isParallelRouteParam) {
-            // Try to see if we can resolve this parameter from the page that was
-            // passed in.
+            
+            
             if (unknownParamKeys.has(fallbackRouteParam.paramName)) {
                 continue;
             }
             if (fallbackRouteParam.paramType === 'optional-catchall' || fallbackRouteParam.paramType === 'catchall') {
-                // If there are any fallback route segments then we can't use the
-                // pathname to derive the value because it's not complete. We can
-                // make this assumption because the routes are always resolved left
-                // to right and the catchall is always the last segment, so any
-                // route parameters that are unknown will always contribute to the
-                // pathname and therefore the catchall param too.
+                
+                
+                
+                
+                
+                
                 if (collected.some((param)=>!param.isParallelRouteParam && unknownParamKeys.has(param.paramName))) {
                     fallbackRouteParams.push(fallbackRouteParam);
                     continue;
                 }
                 if (pathSegments.length === 0 && fallbackRouteParam.paramType !== 'optional-catchall') {
-                    // We shouldn't be able to match a catchall segment without any path
-                    // segments if it's not an optional catchall.
+                    
+                    
                     throw Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$invariant$2d$error$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["InvariantError"](`Unexpected empty path segments match for a pathname "${page}" with param "${fallbackRouteParam.paramName}" of type "${fallbackRouteParam.paramType}"`), "__NEXT_ERROR_CODE", {
                         value: "E792",
                         enumerable: false,
                         configurable: true
                     });
                 }
-            // The path segments are not empty, and the segments didn't contain any
-            // unknown params, so we know that this particular fallback route param
-            // route param is not actually unknown, and is known. We can skip adding
-            // it to the fallback route params.
+            
+            
+            
+            
             } else {
-                // This is some other type of route param that shouldn't get resolved
-                // statically.
+                
+                
                 throw Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$invariant$2d$error$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["InvariantError"](`Unexpected match for a pathname "${page}" with a param "${fallbackRouteParam.paramName}" of type "${fallbackRouteParam.paramType}"`), "__NEXT_ERROR_CODE", {
                     value: "E791",
                     enumerable: false,
@@ -7428,13 +7428,13 @@ function getFallbackRouteParams(page, routeModule) {
                 });
             }
         } else if (unknownParamKeys.has(fallbackRouteParam.paramName)) {
-            // As this is a non-parallel route segment, and it exists in the unknown
-            // param keys, we know it's a fallback route param.
+            
+            
             fallbackRouteParams.push(fallbackRouteParam);
         }
     }
     return createOpaqueFallbackRouteParams(fallbackRouteParams);
-} //# sourceMappingURL=fallback-params.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/encryption-utils.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7467,9 +7467,9 @@ let __next_loaded_action_key;
 function arrayBufferToString(buffer) {
     const bytes = new Uint8Array(buffer);
     const len = bytes.byteLength;
-    // @anonrig: V8 has a limit of 65535 arguments in a function.
-    // For len < 65535, this is faster.
-    // https://github.com/vercel/next.js/pull/56377#pullrequestreview-1656181623
+    
+    
+    
     if (len < 65535) {
         return String.fromCharCode.apply(null, bytes);
     }
@@ -7499,16 +7499,16 @@ function decrypt(key, iv, data) {
         iv
     }, key, data);
 }
-// This is a global singleton that is used to encode/decode the action bound args from
-// the closure. This can't be using a AsyncLocalStorage as it might happen on the module
-// level. Since the client reference manifest won't be mutated, let's use a global singleton
-// to keep it.
+
+
+
+
 const SERVER_ACTION_MANIFESTS_SINGLETON = Symbol.for('next.server.action-manifests');
 function setReferenceManifestsSingleton({ page, clientReferenceManifest, serverActionsManifest, serverModuleMap }) {
     var _globalThis_SERVER_ACTION_MANIFESTS_SINGLETON;
-    // @ts-expect-error
+    
     const clientReferenceManifestsPerPage = (_globalThis_SERVER_ACTION_MANIFESTS_SINGLETON = globalThis[SERVER_ACTION_MANIFESTS_SINGLETON]) == null ? void 0 : _globalThis_SERVER_ACTION_MANIFESTS_SINGLETON.clientReferenceManifestsPerPage;
-    // @ts-expect-error
+    
     globalThis[SERVER_ACTION_MANIFESTS_SINGLETON] = {
         clientReferenceManifestsPerPage: {
             ...clientReferenceManifestsPerPage,
@@ -7541,14 +7541,14 @@ function getClientReferenceManifestForRsc() {
     const { clientReferenceManifestsPerPage } = serverActionsManifestSingleton;
     const workStore = __TURBOPACK__imported__module__$5b$externals$5d2f$next$2f$dist$2f$server$2f$app$2d$render$2f$work$2d$async$2d$storage$2e$external$2e$js__$5b$external$5d$__$28$next$2f$dist$2f$server$2f$app$2d$render$2f$work$2d$async$2d$storage$2e$external$2e$js$2c$__cjs$29$__["workAsyncStorage"].getStore();
     if (!workStore) {
-        // If there's no work store defined, we can assume that a client reference
-        // manifest is needed during module evaluation, e.g. to create a server
-        // action using a higher-order function. This might also use client
-        // components which need to be serialized by Flight, and therefore client
-        // references need to be resolvable. To make this work, we're returning a
-        // merged manifest across all pages. This is fine as long as the module IDs
-        // are not page specific, which they are not for Webpack. TODO: Fix this in
-        // Turbopack.
+        
+        
+        
+        
+        
+        
+        
+        
         return mergeClientReferenceManifests(clientReferenceManifestsPerPage);
     }
     const clientReferenceManifest = clientReferenceManifestsPerPage[workStore.route];
@@ -7609,20 +7609,20 @@ function mergeClientReferenceManifests(clientReferenceManifestsPerPage) {
         };
     }
     return mergedClientReferenceManifest;
-} //# sourceMappingURL=encryption-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/html-bots.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// This regex contains the bots that we need to do a blocking render for and can't safely stream the response
-// due to how they parse the DOM. For example, they might explicitly check for metadata in the `head` tag, so we can't stream metadata tags after the `head` was sent.
-// Note: The pattern [\w-]+-Google captures all Google crawlers with "-Google" suffix (e.g., Mediapartners-Google, AdsBot-Google, Storebot-Google)
-// as well as crawlers starting with "Google-" (e.g., Google-PageRenderer, Google-InspectionTool)
+
+
+
+
 __turbopack_context__.s([
     "HTML_LIMITED_BOT_UA_RE",
     ()=>HTML_LIMITED_BOT_UA_RE
 ]);
-const HTML_LIMITED_BOT_UA_RE = /[\w-]+-Google|Google-[\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight/i; //# sourceMappingURL=html-bots.js.map
+const HTML_LIMITED_BOT_UA_RE = /[\w-]+-Google|Google-[\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight/i; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/is-bot.js [app-rsc] (ecmascript) <locals>", ((__turbopack_context__) => {
 "use strict";
@@ -7637,10 +7637,10 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$html$2d$bots$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/html-bots.js [app-rsc] (ecmascript)");
 ;
-// Bot crawler that will spin up a headless browser and execute JS.
-// Only the main Googlebot search crawler executes JavaScript, not other Google crawlers.
-// x-ref: https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers
-// This regex specifically matches "Googlebot" but NOT "Mediapartners-Google", "AdsBot-Google", etc.
+
+
+
+
 const HEADLESS_BROWSER_BOT_UA_RE = /Googlebot(?!-)|Googlebot$/i;
 const HTML_LIMITED_BOT_UA_RE_STRING = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$html$2d$bots$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["HTML_LIMITED_BOT_UA_RE"].source;
 ;
@@ -7661,7 +7661,7 @@ function getBotType(userAgent) {
         return 'html';
     }
     return undefined;
-} //# sourceMappingURL=is-bot.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/lib/streaming-metadata.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7676,7 +7676,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 function shouldServeStreamingMetadata(userAgent, htmlLimitedBots) {
     const blockingMetadataUARegex = new RegExp(htmlLimitedBots || __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$is$2d$bot$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__["HTML_LIMITED_BOT_UA_RE_STRING"], 'i');
-    // Only block metadata for HTML-limited bots
+    
     if (userAgent && blockingMetadataUARegex.test(userAgent)) {
         return false;
     }
@@ -7686,7 +7686,7 @@ function isHtmlBotRequest(req) {
     const ua = req.headers['user-agent'] || '';
     const botType = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$is$2d$bot$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__["getBotType"])(ua);
     return botType === 'html';
-} //# sourceMappingURL=streaming-metadata.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/action-utils.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7718,13 +7718,13 @@ function createServerModuleMap({ serverActionsManifest }) {
             if (workStore) {
                 workerEntry = workers[normalizeWorkerPageName(workStore.page)];
             } else {
-                // If there's no work store defined, we can assume that a server
-                // module map is needed during module evaluation, e.g. to create a
-                // server action using a higher-order function. Therefore it should be
-                // safe to return any entry from the manifest that matches the action
-                // ID. They all refer to the same module ID, which must also exist in
-                // the current page bundle. TODO: This is currently not guaranteed in
-                // Turbopack, and needs to be fixed.
+                
+                
+                
+                
+                
+                
+                
                 workerEntry = Object.values(workers).at(0);
             }
             if (!workerEntry) {
@@ -7744,29 +7744,29 @@ function selectWorkerForForwarding(actionId, pageName, serverActionsManifest) {
     var _serverActionsManifest__actionId;
     const workers = (_serverActionsManifest__actionId = serverActionsManifest[("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : 'node'][actionId]) == null ? void 0 : _serverActionsManifest__actionId.workers;
     const workerName = normalizeWorkerPageName(pageName);
-    // no workers, nothing to forward to
+    
     if (!workers) return;
-    // if there is a worker for this page, no need to forward it.
+    
     if (workers[workerName]) {
         return;
     }
-    // otherwise, grab the first worker that has a handler for this action id
+    
     return denormalizeWorkerPageName(Object.keys(workers)[0]);
 }
-/**
- * The flight entry loader keys actions by bundlePath.
- * bundlePath corresponds with the relative path (including 'app') to the page entrypoint.
- */ function normalizeWorkerPageName(pageName) {
+
+
+
+ function normalizeWorkerPageName(pageName) {
     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$path$2d$has$2d$prefix$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["pathHasPrefix"])(pageName, 'app')) {
         return pageName;
     }
     return 'app' + pageName;
 }
-/**
- * Converts a bundlePath (relative path to the entrypoint) to a routable page name
- */ function denormalizeWorkerPageName(bundlePath) {
+
+
+ function denormalizeWorkerPageName(bundlePath) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$app$2d$paths$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["normalizeAppPath"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$remove$2d$path$2d$prefix$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["removePathPrefix"])(bundlePath, 'app'));
-} //# sourceMappingURL=action-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/lib/server-action-request-meta.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7803,14 +7803,14 @@ function getServerActionRequestMetadata(req) {
 }
 function getIsPossibleServerAction(req) {
     return getServerActionRequestMetadata(req).isPossibleServerAction;
-} //# sourceMappingURL=server-action-request-meta.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/lib/fallback.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Describes the different fallback modes that a given page can have.
- */ __turbopack_context__.s([
+
+
+ __turbopack_context__.s([
     "FallbackMode",
     ()=>FallbackMode,
     "fallbackModeToFallbackField",
@@ -7820,21 +7820,21 @@ function getIsPossibleServerAction(req) {
     "parseStaticPathsResult",
     ()=>parseStaticPathsResult
 ]);
-var FallbackMode = /*#__PURE__*/ function(FallbackMode) {
-    /**
-   * A BLOCKING_STATIC_RENDER fallback will block the request until the page is
-   * generated. No fallback page will be rendered, and users will have to wait
-   * to render the page.
-   */ FallbackMode["BLOCKING_STATIC_RENDER"] = "BLOCKING_STATIC_RENDER";
-    /**
-   * When set to PRERENDER, a fallback page will be sent to users in place of
-   * forcing them to wait for the page to be generated. This allows the user to
-   * see a rendered page earlier.
-   */ FallbackMode["PRERENDER"] = "PRERENDER";
-    /**
-   * When set to NOT_FOUND, pages that are not already prerendered will result
-   * in a not found response.
-   */ FallbackMode["NOT_FOUND"] = "NOT_FOUND";
+var FallbackMode =  function(FallbackMode) {
+    
+
+
+
+ FallbackMode["BLOCKING_STATIC_RENDER"] = "BLOCKING_STATIC_RENDER";
+    
+
+
+
+ FallbackMode["PRERENDER"] = "PRERENDER";
+    
+
+
+ FallbackMode["NOT_FOUND"] = "NOT_FOUND";
     return FallbackMode;
 }({});
 function parseFallbackField(fallbackField) {
@@ -7885,20 +7885,20 @@ function parseStaticPathsResult(result) {
     } else {
         return "NOT_FOUND";
     }
-} //# sourceMappingURL=fallback.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/lib/etag.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * FNV-1a Hash implementation
- * @author Travis Webb (tjwebb) <me@traviswebb.com>
- *
- * Ported from https://github.com/tjwebb/fnv-plus/blob/master/index.js
- *
- * Simplified, optimized and add modified for 52 bit, which provides a larger hash space
- * and still making use of Javascript's 53-bit integer space.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "fnv1a52",
     ()=>fnv1a52,
     "generateETag",
@@ -7927,7 +7927,7 @@ const fnv1a52 = (str)=>{
 const generateETag = (payload, weak = false)=>{
     const prefix = weak ? 'W/"' : '"';
     return prefix + fnv1a52(payload).toString(36) + payload.length.toString(36) + '"';
-}; //# sourceMappingURL=etag.js.map
+}; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/fresh/index.js [app-rsc] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
@@ -7935,12 +7935,12 @@ const generateETag = (payload, weak = false)=>{
     "use strict";
     var e = {
         695: (e)=>{
-            /*!
- * fresh
- * Copyright(c) 2012 TJ Holowaychuk
- * Copyright(c) 2016-2017 Douglas Christopher Wilson
- * MIT Licensed
- */ var r = /(?:^|,)\s*?no-cache\s*?(?:,|$)/;
+            
+
+
+
+
+ var r = /(?:^|,)\s*?no-cache\s*?(?:,|$)/;
             e.exports = fresh;
             function fresh(e, a) {
                 var t = e["if-modified-since"];
@@ -8048,7 +8048,7 @@ function getCacheControlHeader({ revalidate, expire }) {
         return `s-maxage=${revalidate}${swrHeader}`;
     }
     return `s-maxage=${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$constants$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CACHE_ONE_YEAR"]}${swrHeader}`;
-} //# sourceMappingURL=cache-control.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/send-payload.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -8071,12 +8071,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 function sendEtagResponse(req, res, etag) {
     if (etag) {
-        /**
-     * The server generating a 304 response MUST generate any of the
-     * following header fields that would have been sent in a 200 (OK)
-     * response to the same request: Cache-Control, Content-Location, Date,
-     * ETag, Expires, and Vary. https://tools.ietf.org/html/rfc7232#section-4.1
-     */ res.setHeader('ETag', etag);
+        
+
+
+
+
+ res.setHeader('ETag', etag);
     }
     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$fresh$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"])(req.headers, {
         etag
@@ -8094,8 +8094,8 @@ async function sendRenderResult({ req, res, result, generateEtags, poweredByHead
     if (poweredByHeader && result.contentType === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$constants$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["HTML_CONTENT_TYPE_HEADER"]) {
         res.setHeader('X-Powered-By', 'Next.js');
     }
-    // If cache control is already set on the response we don't
-    // override it to allow users to customize it via next.config
+    
+    
     if (cacheControl && !res.getHeader('Cache-Control')) {
         res.setHeader('Cache-Control', (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$cache$2d$control$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getCacheControlHeader"])(cacheControl));
     }
@@ -8120,9 +8120,9 @@ async function sendRenderResult({ req, res, result, generateEtags, poweredByHead
         res.end(payload);
         return;
     }
-    // Pipe the render result to the response after we get a writer for it.
+    
     await result.pipeToNodeResponse(res);
-} //# sourceMappingURL=send-payload.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)", ((__turbopack_context__) => {
 
@@ -8225,8 +8225,8 @@ const __TURBOPACK__page__$23$9__ = ()=>__turbopack_context__.r("[project]/Deskto
 ;
 ;
 ;
-// We inject the tree and pages here so that we can use them in the route
-// module.
+
+
 const tree = [
     "",
     {
@@ -8316,7 +8316,7 @@ const routeModule = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$
         kind: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$route$2d$kind$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$2c$__Next$2e$js__server__utility$29$__["RouteKind"].APP_PAGE,
         page: "/(crm)/reels/page",
         pathname: "/reels",
-        // The following aren't used in production.
+        
         bundlePath: '',
         filename: '',
         appPaths: []
@@ -8333,13 +8333,13 @@ async function handler(req, res, ctx) {
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["addRequestMeta"])(req, 'devRequestTimingInternalsEnd', process.hrtime.bigint());
     }
     let srcPage = "/(crm)/reels/page";
-    // turbopack doesn't normalize `/index` in the page name
-    // so we need to to process dynamic routes properly
-    // TODO: fix turbopack providing differing value from webpack
+    
+    
+    
     if ("TURBOPACK compile-time truthy", 1) {
         srcPage = srcPage.replace(/\/index$/, '') || '/';
     } else if (srcPage === '/index') {
-        // we always normalize /index specifically
+        
         srcPage = '/';
     }
     const multiZoneDraftMode = ("TURBOPACK compile-time value", false);
@@ -8357,106 +8357,106 @@ async function handler(req, res, ctx) {
     const { buildId, query, params, pageIsDynamic, buildManifest, nextFontManifest, reactLoadableManifest, serverActionsManifest, clientReferenceManifest, subresourceIntegrityManifest, prerenderManifest, isDraftMode, resolvedPathname, revalidateOnlyGenerated, routerServerContext, nextConfig, parsedUrl, interceptionRoutePatterns } = prepareResult;
     const normalizedSrcPage = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$app$2d$paths$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["normalizeAppPath"])(srcPage);
     let { isOnDemandRevalidate } = prepareResult;
-    // We use the resolvedPathname instead of the parsedUrl.pathname because it
-    // is not rewritten as resolvedPathname is. This will ensure that the correct
-    // prerender info is used instead of using the original pathname as the
-    // source. If however PPR is enabled and cacheComponents is disabled, we
-    // treat the pathname as dynamic. Currently, there's a bug in the PPR
-    // implementation that incorrectly leaves %%drp placeholders in the output of
-    // parallel routes. This is addressed with cacheComponents.
+    
+    
+    
+    
+    
+    
+    
     const prerenderInfo = nextConfig.experimental.ppr && !nextConfig.cacheComponents && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$interception$2d$routes$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["isInterceptionRouteAppPath"])(resolvedPathname) ? null : routeModule.match(resolvedPathname, prerenderManifest);
     const isPrerendered = !!prerenderManifest.routes[resolvedPathname];
     const userAgent = req.headers['user-agent'] || '';
     const botType = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$is$2d$bot$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__["getBotType"])(userAgent);
     const isHtmlBot = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$streaming$2d$metadata$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["isHtmlBotRequest"])(req);
-    /**
-   * If true, this indicates that the request being made is for an app
-   * prefetch request.
-   */ const isPrefetchRSCRequest = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRequestMeta"])(req, 'isPrefetchRSCRequest') ?? req.headers[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NEXT_ROUTER_PREFETCH_HEADER"]] === '1' // exclude runtime prefetches, which use '2'
+    
+
+
+ const isPrefetchRSCRequest = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRequestMeta"])(req, 'isPrefetchRSCRequest') ?? req.headers[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NEXT_ROUTER_PREFETCH_HEADER"]] === '1' 
     ;
-    // NOTE: Don't delete headers[RSC] yet, it still needs to be used in renderToHTML later
+    
     const isRSCRequest = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRequestMeta"])(req, 'isRSCRequest') ?? Boolean(req.headers[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["RSC_HEADER"]]);
     const isPossibleServerAction = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$server$2d$action$2d$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getIsPossibleServerAction"])(req);
-    /**
-   * If the route being rendered is an app page, and the ppr feature has been
-   * enabled, then the given route _could_ support PPR.
-   */ const couldSupportPPR = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$experimental$2f$ppr$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["checkIsAppPPREnabled"])(nextConfig.experimental.ppr);
-    // When enabled, this will allow the use of the `?__nextppronly` query to
-    // enable debugging of the static shell.
+    
+
+
+ const couldSupportPPR = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$experimental$2f$ppr$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["checkIsAppPPREnabled"])(nextConfig.experimental.ppr);
+    
+    
     const hasDebugStaticShellQuery = ("TURBOPACK compile-time value", false) === '1' && typeof query.__nextppronly !== 'undefined' && couldSupportPPR;
-    // When enabled, this will allow the use of the `?__nextppronly` query
-    // to enable debugging of the fallback shell.
+    
+    
     const hasDebugFallbackShellQuery = hasDebugStaticShellQuery && query.__nextppronly === 'fallback';
-    // This page supports PPR if it is marked as being `PARTIALLY_STATIC` in the
-    // prerender manifest and this is an app page.
-    const isRoutePPREnabled = couldSupportPPR && (((_this = prerenderManifest.routes[normalizedSrcPage] ?? prerenderManifest.dynamicRoutes[normalizedSrcPage]) == null ? void 0 : _this.renderingMode) === 'PARTIALLY_STATIC' || // Ideally we'd want to check the appConfig to see if this page has PPR
-    // enabled or not, but that would require plumbing the appConfig through
-    // to the server during development. We assume that the page supports it
-    // but only during development.
+    
+    
+    const isRoutePPREnabled = couldSupportPPR && (((_this = prerenderManifest.routes[normalizedSrcPage] ?? prerenderManifest.dynamicRoutes[normalizedSrcPage]) == null ? void 0 : _this.renderingMode) === 'PARTIALLY_STATIC' || 
+    
+    
+    
     hasDebugStaticShellQuery && (routeModule.isDev === true || (routerServerContext == null ? void 0 : routerServerContext.experimentalTestProxy) === true));
     const isDebugStaticShell = hasDebugStaticShellQuery && isRoutePPREnabled;
-    // We should enable debugging dynamic accesses when the static shell
-    // debugging has been enabled and we're also in development mode.
+    
+    
     const isDebugDynamicAccesses = isDebugStaticShell && routeModule.isDev === true;
     const isDebugFallbackShell = hasDebugFallbackShellQuery && isRoutePPREnabled;
-    // If we're in minimal mode, then try to get the postponed information from
-    // the request metadata. If available, use it for resuming the postponed
-    // render.
+    
+    
+    
     const minimalPostponed = isRoutePPREnabled ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRequestMeta"])(req, 'postponed') : undefined;
-    // If PPR is enabled, and this is a RSC request (but not a prefetch), then
-    // we can use this fact to only generate the flight data for the request
-    // because we can't cache the HTML (as it's also dynamic).
+    
+    
+    
     let isDynamicRSCRequest = isRoutePPREnabled && isRSCRequest && !isPrefetchRSCRequest;
-    // During a PPR revalidation, the RSC request is not dynamic if we do not have the postponed data.
-    // We only attach the postponed data during a resume. If there's no postponed data, then it must be a revalidation.
-    // This is to ensure that we don't bypass the cache during a revalidation.
+    
+    
+    
     if (isMinimalMode) {
         isDynamicRSCRequest = isDynamicRSCRequest && !!minimalPostponed;
     }
-    // Need to read this before it's stripped by stripFlightHeaders. We don't
-    // need to transfer it to the request meta because it's only read
-    // within this function; the static segment data should have already been
-    // generated, so we will always either return a static response or a 404.
+    
+    
+    
+    
     const segmentPrefetchHeader = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRequestMeta"])(req, 'segmentPrefetchRSCRequest');
-    // TODO: investigate existing bug with shouldServeStreamingMetadata always
-    // being true for a revalidate due to modifying the base-server this.renderOpts
-    // when fixing this to correct logic it causes hydration issue since we set
-    // serveStreamingMetadata to true during export
+    
+    
+    
+    
     const serveStreamingMetadata = isHtmlBot && isRoutePPREnabled ? false : !userAgent ? true : (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$streaming$2d$metadata$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["shouldServeStreamingMetadata"])(userAgent, nextConfig.htmlLimitedBots);
-    const isSSG = Boolean((prerenderInfo || isPrerendered || prerenderManifest.routes[normalizedSrcPage]) && // If this is a html bot request and PPR is enabled, then we don't want
-    // to serve a static response.
+    const isSSG = Boolean((prerenderInfo || isPrerendered || prerenderManifest.routes[normalizedSrcPage]) && 
+    
     !(isHtmlBot && isRoutePPREnabled));
-    // When a page supports cacheComponents, we can support RDC for Navigations
+    
     const supportsRDCForNavigations = isRoutePPREnabled && nextConfig.cacheComponents === true;
-    // In development, we always want to generate dynamic HTML.
-    const supportsDynamicResponse = // a data request, in which case we only produce static HTML.
-    routeModule.isDev === true || // If this is not SSG or does not have static paths, then it supports
-    // dynamic HTML.
-    !isSSG || // If this request has provided postponed data, it supports dynamic
-    // HTML.
-    typeof minimalPostponed === 'string' || // If this handler supports onCacheEntryV2, then we can only support
-    // dynamic responses if it's a dynamic RSC request and not in minimal mode. If it
-    // doesn't support it we must fallback to the default behavior.
-    (supportsRDCForNavigations && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRequestMeta"])(req, 'onCacheEntryV2') ? // RSC request, we'll pass the minimal postponed data to the render
-    // which will trigger the `supportsDynamicResponse` to be true.
+    
+    const supportsDynamicResponse = 
+    routeModule.isDev === true || 
+    
+    !isSSG || 
+    
+    typeof minimalPostponed === 'string' || 
+    
+    
+    (supportsRDCForNavigations && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRequestMeta"])(req, 'onCacheEntryV2') ? 
+    
     isDynamicRSCRequest && !isMinimalMode : isDynamicRSCRequest);
-    // When html bots request PPR page, perform the full dynamic rendering.
+    
     const shouldWaitOnAllReady = isHtmlBot && isRoutePPREnabled;
     let ssgCacheKey = null;
     if (!isDraftMode && isSSG && !supportsDynamicResponse && !isPossibleServerAction && !minimalPostponed && !isDynamicRSCRequest) {
         ssgCacheKey = resolvedPathname;
     }
-    // the staticPathKey differs from ssgCacheKey since
-    // ssgCacheKey is null in dev since we're always in "dynamic"
-    // mode in dev to bypass the cache, but we still need to honor
-    // dynamicParams = false in dev mode
+    
+    
+    
+    
     let staticPathKey = ssgCacheKey;
     if (!staticPathKey && routeModule.isDev) {
         staticPathKey = resolvedPathname;
     }
-    // If this is a request for an app path that should be statically generated
-    // and we aren't in the edge runtime, strip the flight headers so it will
-    // generate the static response.
+    
+    
+    
     if (!routeModule.isDev && !isDraftMode && isSSG && isRSCRequest && !isDynamicRSCRequest) {
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$strip$2d$flight$2d$headers$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["stripFlightHeaders"])(req.headers);
     }
@@ -8468,9 +8468,9 @@ async function handler(req, res, ctx) {
         routeModule,
         __next_app__
     };
-    // Before rendering (which initializes component tree modules), we have to
-    // set the reference manifests to our global store so Server Action's
-    // encryption util can access to them at the top level of the page module.
+    
+    
+    
     if (serverActionsManifest && clientReferenceManifest) {
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$encryption$2d$utils$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["setReferenceManifestsSingleton"])({
             page: srcPage,
@@ -8485,7 +8485,7 @@ async function handler(req, res, ctx) {
     const tracer = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$lib$2f$trace$2f$tracer$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getTracer"])();
     const activeSpan = tracer.getActiveScopeSpan();
     const render404 = async ()=>{
-        // TODO: should route-module itself handle rendering the 404
+        
         if (routerServerContext == null ? void 0 : routerServerContext.render404) {
             await routerServerContext.render404(req, res, parsedUrl, false);
         } else {
@@ -8506,7 +8506,7 @@ async function handler(req, res, ctx) {
                     'next.rsc': false
                 });
                 const rootSpanAttributes = tracer.getRootSpanAttributes();
-                // We were unable to get attributes, probably OTEL is not enabled
+                
                 if (!rootSpanAttributes) {
                     return;
                 }
@@ -8561,7 +8561,7 @@ async function handler(req, res, ctx) {
                     setCacheStatus: routerServerContext == null ? void 0 : routerServerContext.setCacheStatus,
                     setIsrStatus: routerServerContext == null ? void 0 : routerServerContext.setIsrStatus,
                     setReactDebugChannel: routerServerContext == null ? void 0 : routerServerContext.setReactDebugChannel,
-                    dir: ("TURBOPACK compile-time truthy", 1) ? require('path').join(/* turbopackIgnore: true */ process.cwd(), routeModule.relativeProjectDir) : "TURBOPACK unreachable",
+                    dir: ("TURBOPACK compile-time truthy", 1) ? require('path').join( process.cwd(), routeModule.relativeProjectDir) : "TURBOPACK unreachable",
                     isDraftMode,
                     botType,
                     isOnDemandRevalidate,
@@ -8613,8 +8613,8 @@ async function handler(req, res, ctx) {
                 context.renderOpts.supportsDynamicResponse = false;
                 context.renderOpts.isDebugDynamicAccesses = isDebugDynamicAccesses;
             }
-            // When we're revalidating in the background, we should not allow dynamic
-            // responses.
+            
+            
             if (forceStaticRender) {
                 context.renderOpts.supportsDynamicResponse = false;
             }
@@ -8624,12 +8624,12 @@ async function handler(req, res, ctx) {
             if (cacheTags) {
                 headers[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$constants$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NEXT_CACHE_TAGS_HEADER"]] = cacheTags;
             }
-            // Pull any fetch metrics from the render onto the request.
+            
             ;
             req.fetchMetrics = fetchMetrics;
-            // we don't throw static to dynamic errors in dev as isSSG
-            // is a best guess in dev since we don't have the prerender pass
-            // to know whether the path is actually static or not
+            
+            
+            
             if (isSSG && (cacheControl == null ? void 0 : cacheControl.revalidate) === 0 && !routeModule.isDev && !isRoutePPREnabled) {
                 const staticBailoutInfo = metadata.staticBailoutInfo;
                 const err = Object.defineProperty(new Error(`Page changed from static to dynamic at runtime ${resolvedPathname}${(staticBailoutInfo == null ? void 0 : staticBailoutInfo.description) ? `, reason: ${staticBailoutInfo.description}` : ``}` + `\nsee more here https://nextjs.org/docs/messages/app-static-to-dynamic-error`), "__NEXT_ERROR_CODE", {
@@ -8659,8 +8659,8 @@ async function handler(req, res, ctx) {
         const responseGenerator = async ({ hasResolved, previousCacheEntry: previousIncrementalCacheEntry, isRevalidating, span, forceStaticRender = false })=>{
             const isProduction = routeModule.isDev === false;
             const didRespond = hasResolved || res.writableEnded;
-            // skip on-demand revalidate if cache is not present and
-            // revalidate-if-generated is set
+            
+            
             if (isOnDemandRevalidate && revalidateOnlyGenerated && !previousIncrementalCacheEntry && !isMinimalMode) {
                 if (routerServerContext == null ? void 0 : routerServerContext.render404) {
                     await routerServerContext.render404(req, res);
@@ -8674,9 +8674,9 @@ async function handler(req, res, ctx) {
             if (prerenderInfo) {
                 fallbackMode = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$fallback$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["parseFallbackField"])(prerenderInfo.fallback);
             }
-            // When serving a HTML bot request, we want to serve a blocking render and
-            // not the prerendered page. This ensures that the correct content is served
-            // to the bot in the head.
+            
+            
+            
             if (fallbackMode === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$fallback$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["FallbackMode"].PRERENDER && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$is$2d$bot$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__["isBot"])(userAgent)) {
                 if (!isRoutePPREnabled || isHtmlBot) {
                     fallbackMode = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$fallback$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["FallbackMode"].BLOCKING_STATIC_RENDER;
@@ -8685,34 +8685,34 @@ async function handler(req, res, ctx) {
             if ((previousIncrementalCacheEntry == null ? void 0 : previousIncrementalCacheEntry.isStale) === -1) {
                 isOnDemandRevalidate = true;
             }
-            // TODO: adapt for PPR
-            // only allow on-demand revalidate for fallback: true/blocking
-            // or for prerendered fallback: false paths
+            
+            
+            
             if (isOnDemandRevalidate && (fallbackMode !== __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$fallback$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["FallbackMode"].NOT_FOUND || previousIncrementalCacheEntry)) {
                 fallbackMode = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$fallback$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["FallbackMode"].BLOCKING_STATIC_RENDER;
             }
             if (!isMinimalMode && fallbackMode !== __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$fallback$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["FallbackMode"].BLOCKING_STATIC_RENDER && staticPathKey && !didRespond && !isDraftMode && pageIsDynamic && (isProduction || !isPrerendered)) {
-                // if the page has dynamicParams: false and this pathname wasn't
-                // prerendered trigger the no fallback handling
-                if (// getStaticPaths.
-                (isProduction || prerenderInfo) && // When fallback isn't present, abort this render so we 404
+                
+                
+                if (
+                (isProduction || prerenderInfo) && 
                 fallbackMode === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$fallback$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["FallbackMode"].NOT_FOUND) {
                     if (nextConfig.experimental.adapterPath) {
                         return await render404();
                     }
                     throw new __TURBOPACK__imported__module__$5b$externals$5d2f$next$2f$dist$2f$shared$2f$lib$2f$no$2d$fallback$2d$error$2e$external$2e$js__$5b$external$5d$__$28$next$2f$dist$2f$shared$2f$lib$2f$no$2d$fallback$2d$error$2e$external$2e$js$2c$__cjs$29$__["NoFallbackError"]();
                 }
-                // When cacheComponents is enabled, we can use the fallback
-                // response if the request is not a dynamic RSC request because the
-                // RSC data when this feature flag is enabled does not contain any
-                // param references. Without this feature flag enabled, the RSC data
-                // contains param references, and therefore we can't use the fallback.
+                
+                
+                
+                
+                
                 if (isRoutePPREnabled && (nextConfig.cacheComponents ? !isDynamicRSCRequest : !isRSCRequest)) {
                     const cacheKey = isProduction && typeof (prerenderInfo == null ? void 0 : prerenderInfo.fallback) === 'string' ? prerenderInfo.fallback : normalizedSrcPage;
-                    const fallbackRouteParams = // can use the manifest fallback route params.
+                    const fallbackRouteParams = 
                     isProduction && (prerenderInfo == null ? void 0 : prerenderInfo.fallbackRouteParams) ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2f$fallback$2d$params$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["createOpaqueFallbackRouteParams"])(prerenderInfo.fallbackRouteParams) : isDebugFallbackShell ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2f$fallback$2d$params$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getFallbackRouteParams"])(normalizedSrcPage, routeModule) : null;
-                    // We use the response cache here to handle the revalidation and
-                    // management of the fallback shell.
+                    
+                    
                     const fallbackResponse = await routeModule.handleResponse({
                         cacheKey,
                         req,
@@ -8723,8 +8723,8 @@ async function handler(req, res, ctx) {
                         isRoutePPREnabled,
                         responseGenerator: async ()=>doRender({
                                 span,
-                                // We pass `undefined` as rendering a fallback isn't resumed
-                                // here.
+                                
+                                
                                 postponed: undefined,
                                 fallbackRouteParams,
                                 forceStaticRender: false
@@ -8732,60 +8732,60 @@ async function handler(req, res, ctx) {
                         waitUntil: ctx.waitUntil,
                         isMinimalMode
                     });
-                    // If the fallback response was set to null, then we should return null.
+                    
                     if (fallbackResponse === null) return null;
-                    // Otherwise, if we did get a fallback response, we should return it.
+                    
                     if (fallbackResponse) {
-                        // Remove the cache control from the response to prevent it from being
-                        // used in the surrounding cache.
+                        
+                        
                         delete fallbackResponse.cacheControl;
                         return fallbackResponse;
                     }
                 }
             }
-            // Only requests that aren't revalidating can be resumed. If we have the
-            // minimal postponed data, then we should resume the render with it.
+            
+            
             let postponed = !isOnDemandRevalidate && !isRevalidating && minimalPostponed ? minimalPostponed : undefined;
-            // If this is a dynamic RSC request, we should use the postponed data from
-            // the static render (if available). This ensures that we can utilize the
-            // resume data cache (RDC) from the static render to ensure that the data
-            // is consistent between the static and dynamic renders.
-            if (supportsRDCForNavigations && ("TURBOPACK compile-time value", "nodejs") !== 'edge' && !isMinimalMode && incrementalCache && isDynamicRSCRequest && // We don't typically trigger an on-demand revalidation for dynamic RSC
-            // requests, as we're typically revalidating the page in the background
-            // instead. However, if the cache entry is stale, we should trigger a
-            // background revalidation on dynamic RSC requests. This prevents us
-            // from entering an infinite loop of revalidations.
+            
+            
+            
+            
+            if (supportsRDCForNavigations && ("TURBOPACK compile-time value", "nodejs") !== 'edge' && !isMinimalMode && incrementalCache && isDynamicRSCRequest && 
+            
+            
+            
+            
             !forceStaticRender) {
                 const incrementalCacheEntry = await incrementalCache.get(resolvedPathname, {
                     kind: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$response$2d$cache$2f$types$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["IncrementalCacheKind"].APP_PAGE,
                     isRoutePPREnabled: true,
                     isFallback: false
                 });
-                // If the cache entry is found, we should use the postponed data from
-                // the cache.
+                
+                
                 if (incrementalCacheEntry && incrementalCacheEntry.value && incrementalCacheEntry.value.kind === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$response$2d$cache$2f$types$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CachedRouteKind"].APP_PAGE) {
-                    // CRITICAL: we're assigning the postponed data from the cache entry
-                    // here as we're using the RDC to resume the render.
+                    
+                    
                     postponed = incrementalCacheEntry.value.postponed;
-                    // If the cache entry is stale, we should trigger a background
-                    // revalidation so that subsequent requests will get a fresh response.
-                    if (incrementalCacheEntry && // We want to trigger this flow if the cache entry is stale and if
-                    // the requested revalidation flow is either foreground or
-                    // background.
+                    
+                    
+                    if (incrementalCacheEntry && 
+                    
+                    
                     (incrementalCacheEntry.isStale === -1 || incrementalCacheEntry.isStale === true)) {
-                        // We want to schedule this on the next tick to ensure that the
-                        // render is not blocked on it.
+                        
+                        
                         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$scheduler$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["scheduleOnNextTick"])(async ()=>{
                             const responseCache = routeModule.getResponseCache(req);
                             try {
                                 await responseCache.revalidate(resolvedPathname, incrementalCache, isRoutePPREnabled, false, (c)=>responseGenerator({
                                         ...c,
-                                        // CRITICAL: we need to set this to true as we're
-                                        // revalidating in the background and typically this dynamic
-                                        // RSC request is not treated as static.
+                                        
+                                        
+                                        
                                         forceStaticRender: true
-                                    }), // previous cache entry here (which is stale) will switch on
-                                // isOnDemandRevalidate and break the prerendering.
+                                    }), 
+                                
                                 null, hasResolved, ctx.waitUntil);
                             } catch (err) {
                                 console.error('Error revalidating the page in the background', err);
@@ -8794,8 +8794,8 @@ async function handler(req, res, ctx) {
                     }
                 }
             }
-            // When we're in minimal mode, if we're trying to debug the static shell,
-            // we should just return nothing instead of resuming the dynamic render.
+            
+            
             if ((isDebugStaticShell || isDebugDynamicAccesses) && typeof postponed !== 'undefined') {
                 return {
                     cacheControl: {
@@ -8811,10 +8811,10 @@ async function handler(req, res, ctx) {
                     }
                 };
             }
-            const fallbackRouteParams = // can use the manifest fallback route params if we need to render the
-            // fallback shell.
+            const fallbackRouteParams = 
+            
             isProduction && (prerenderInfo == null ? void 0 : prerenderInfo.fallbackRouteParams) && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRequestMeta"])(req, 'renderFallbackShell') ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2f$fallback$2d$params$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["createOpaqueFallbackRouteParams"])(prerenderInfo.fallbackRouteParams) : isDebugFallbackShell ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2f$fallback$2d$params$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getFallbackRouteParams"])(normalizedSrcPage, routeModule) : null;
-            // Perform the render.
+            
             return doRender({
                 span,
                 postponed,
@@ -8842,17 +8842,17 @@ async function handler(req, res, ctx) {
             if (isDraftMode) {
                 res.setHeader('Cache-Control', 'private, no-cache, no-store, max-age=0, must-revalidate');
             }
-            // In dev, we should not cache pages for any reason.
+            
             if (routeModule.isDev) {
                 res.setHeader('Cache-Control', 'no-store, must-revalidate');
             }
             if (!cacheEntry) {
                 if (ssgCacheKey) {
-                    // A cache entry might not be generated if a response is written
-                    // in `getInitialProps` or `getServerSideProps`, but those shouldn't
-                    // have a cache key. If we do have a cache key but we don't end up
-                    // with a cache entry, then either Next.js or the application has a
-                    // bug that needs fixing.
+                    
+                    
+                    
+                    
+                    
                     throw Object.defineProperty(new Error('invariant: cache entry required but not generated'), "__NEXT_ERROR_CODE", {
                         value: "E62",
                         enumerable: false,
@@ -8870,24 +8870,24 @@ async function handler(req, res, ctx) {
                 });
             }
             const didPostpone = typeof cacheEntry.value.postponed === 'string';
-            if (isSSG && // We don't want to send a cache header for requests that contain dynamic
-            // data. If this is a Dynamic RSC request or wasn't a Prefetch RSC
-            // request, then we should set the cache header.
+            if (isSSG && 
+            
+            
             !isDynamicRSCRequest && (!didPostpone || isPrefetchRSCRequest)) {
                 if (!isMinimalMode) {
-                    // set x-nextjs-cache header to match the header
-                    // we set for the image-optimizer
+                    
+                    
                     res.setHeader('x-nextjs-cache', isOnDemandRevalidate ? 'REVALIDATED' : cacheEntry.isMiss ? 'MISS' : cacheEntry.isStale ? 'STALE' : 'HIT');
                 }
-                // Set a header used by the client router to signal the response is static
-                // and should respect the `static` cache staleTime value.
+                
+                
                 res.setHeader(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NEXT_IS_PRERENDER_HEADER"], '1');
             }
             const { value: cachedData } = cacheEntry;
-            // Coerce the cache control parameter from the render.
+            
             let cacheControl;
-            // If this is a resume request in minimal mode it is streamed with dynamic
-            // content and should not be cached.
+            
+            
             if (minimalPostponed) {
                 cacheControl = {
                     revalidate: 0,
@@ -8899,7 +8899,7 @@ async function handler(req, res, ctx) {
                     expire: undefined
                 };
             } else if (!routeModule.isDev) {
-                // If this is a preview mode request, we shouldn't cache it
+                
                 if (isDraftMode) {
                     cacheControl = {
                         revalidate: 0,
@@ -8913,8 +8913,8 @@ async function handler(req, res, ctx) {
                         };
                     }
                 } else if (cacheEntry.cacheControl) {
-                    // If the cache entry has a cache control with a revalidate value that's
-                    // a number, use it.
+                    
+                    
                     if (typeof cacheEntry.cacheControl.revalidate === 'number') {
                         var _cacheEntry_cacheControl;
                         if (cacheEntry.cacheControl.revalidate < 1) {
@@ -8939,25 +8939,25 @@ async function handler(req, res, ctx) {
             cacheEntry.cacheControl = cacheControl;
             if (typeof segmentPrefetchHeader === 'string' && (cachedData == null ? void 0 : cachedData.kind) === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$response$2d$cache$2f$types$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CachedRouteKind"].APP_PAGE && cachedData.segmentData) {
                 var _cachedData_headers1;
-                // This is a prefetch request issued by the client Segment Cache. These
-                // should never reach the application layer (lambda). We should either
-                // respond from the cache (HIT) or respond with 204 No Content (MISS).
-                // Set a header to indicate that PPR is enabled for this route. This
-                // lets the client distinguish between a regular cache miss and a cache
-                // miss due to PPR being disabled. In other contexts this header is used
-                // to indicate that the response contains dynamic data, but here we're
-                // only using it to indicate that the feature is enabled — the segment
-                // response itself contains whether the data is dynamic.
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 res.setHeader(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NEXT_DID_POSTPONE_HEADER"], '2');
-                // Add the cache tags header to the response if it exists and we're in
-                // minimal mode while rendering a static page.
+                
+                
                 const tags = (_cachedData_headers1 = cachedData.headers) == null ? void 0 : _cachedData_headers1[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$constants$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NEXT_CACHE_TAGS_HEADER"]];
                 if (isMinimalMode && isSSG && tags && typeof tags === 'string') {
                     res.setHeader(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$constants$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NEXT_CACHE_TAGS_HEADER"], tags);
                 }
                 const matchedSegment = cachedData.segmentData.get(segmentPrefetchHeader);
                 if (matchedSegment !== undefined) {
-                    // Cache hit
+                    
                     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$send$2d$payload$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["sendRenderResult"])({
                         req,
                         res,
@@ -8967,12 +8967,12 @@ async function handler(req, res, ctx) {
                         cacheControl: cacheEntry.cacheControl
                     });
                 }
-                // Cache miss. Either a cache entry for this route has not been generated
-                // (which technically should not be possible when PPR is enabled, because
-                // at a minimum there should always be a fallback entry) or there's no
-                // match for the requested segment. Respond with a 204 No Content. We
-                // don't bother to respond with 404, because these requests are only
-                // issued as part of a prefetch.
+                
+                
+                
+                
+                
+                
                 res.statusCode = 204;
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$send$2d$payload$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["sendRenderResult"])({
                     req,
@@ -8983,11 +8983,11 @@ async function handler(req, res, ctx) {
                     cacheControl: cacheEntry.cacheControl
                 });
             }
-            // If there's a callback for `onCacheEntry`, call it with the cache entry
-            // and the revalidate options. If we support RDC for Navigations, we
-            // prefer the `onCacheEntryV2` callback. Once RDC for Navigations is the
-            // default, we can remove the fallback to `onCacheEntry` as
-            // `onCacheEntryV2` is now fully supported.
+            
+            
+            
+            
+            
             const onCacheEntry = supportsRDCForNavigations ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRequestMeta"])(req, 'onCacheEntryV2') ?? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRequestMeta"])(req, 'onCacheEntry') : (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2d$meta$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getRequestMeta"])(req, 'onCacheEntry');
             if (onCacheEntry) {
                 const finished = await onCacheEntry(cacheEntry, {
@@ -9016,34 +9016,34 @@ async function handler(req, res, ctx) {
                     }
                 }
             }
-            // Add the cache tags header to the response if it exists and we're in
-            // minimal mode while rendering a static page.
+            
+            
             const tags = (_cachedData_headers = cachedData.headers) == null ? void 0 : _cachedData_headers[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$constants$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NEXT_CACHE_TAGS_HEADER"]];
             if (isMinimalMode && isSSG && tags && typeof tags === 'string') {
                 res.setHeader(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$constants$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NEXT_CACHE_TAGS_HEADER"], tags);
             }
-            // If the request is a data request, then we shouldn't set the status code
-            // from the response because it should always be 200. This should be gated
-            // behind the experimental PPR flag.
+            
+            
+            
             if (cachedData.status && (!isRSCRequest || !isRoutePPREnabled)) {
                 res.statusCode = cachedData.status;
             }
-            // Redirect information is encoded in RSC payload, so we don't need to use redirect status codes
+            
             if (!isMinimalMode && cachedData.status && __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$status$2d$code$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["RedirectStatusCode"][cachedData.status] && isRSCRequest) {
                 res.statusCode = 200;
             }
-            // Mark that the request did postpone.
+            
             if (didPostpone && !isDynamicRSCRequest) {
                 res.setHeader(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["NEXT_DID_POSTPONE_HEADER"], '1');
             }
-            // we don't go through this block when preview mode is true
-            // as preview mode is a dynamic request (bypasses cache) and doesn't
-            // generate both HTML and payloads in the same request so continue to just
-            // return the generated payload
+            
+            
+            
+            
             if (isRSCRequest && !isDraftMode) {
-                // If this is a dynamic RSC request, then stream the response.
+                
                 if (typeof cachedData.rscData === 'undefined') {
-                    // If the response is not an RSC response, then we can't serve it.
+                    
                     if (cachedData.html.contentType !== __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["RSC_CONTENT_TYPE_HEADER"]) {
                         if (nextConfig.cacheComponents) {
                             res.statusCode = 404;
@@ -9056,7 +9056,7 @@ async function handler(req, res, ctx) {
                                 cacheControl: cacheEntry.cacheControl
                             });
                         } else {
-                            // Otherwise this case is not expected.
+                            
                             throw Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$invariant$2d$error$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["InvariantError"](`Expected RSC response, got ${cachedData.html.contentType}`), "__NEXT_ERROR_CODE", {
                                 value: "E789",
                                 enumerable: false,
@@ -9073,8 +9073,8 @@ async function handler(req, res, ctx) {
                         cacheControl: cacheEntry.cacheControl
                     });
                 }
-                // As this isn't a prefetch request, we should serve the static flight
-                // data.
+                
+                
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$send$2d$payload$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["sendRenderResult"])({
                     req,
                     res,
@@ -9084,16 +9084,16 @@ async function handler(req, res, ctx) {
                     cacheControl: cacheEntry.cacheControl
                 });
             }
-            // This is a request for HTML data.
+            
             const body = cachedData.html;
-            // If there's no postponed state, we should just serve the HTML. This
-            // should also be the case for a resume request because it's completed
-            // as a server render (rather than a static render).
+            
+            
+            
             if (!didPostpone || isMinimalMode || isRSCRequest) {
-                // If we're in test mode, we should add a sentinel chunk to the response
-                // that's between the static and dynamic parts so we can compare the
-                // chunks and add assertions.
-                if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+                
+                
+                
+                if ("TURBOPACK compile-time falsy", 0) 
                 ;
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$send$2d$payload$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["sendRenderResult"])({
                     req,
@@ -9104,13 +9104,13 @@ async function handler(req, res, ctx) {
                     cacheControl: cacheEntry.cacheControl
                 });
             }
-            // If we're debugging the static shell or the dynamic API accesses, we
-            // should just serve the HTML without resuming the render. The returned
-            // HTML will be the static shell so all the Dynamic API's will be used
-            // during static generation.
+            
+            
+            
+            
             if (isDebugStaticShell || isDebugDynamicAccesses) {
-                // Since we're not resuming the render, we need to at least add the
-                // closing body and html tags to create valid HTML.
+                
+                
                 body.push(new ReadableStream({
                     start (controller) {
                         controller.enqueue(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$stream$2d$utils$2f$encoded$2d$tags$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ENCODED_TAGS"].CLOSED.BODY_AND_HTML);
@@ -9129,24 +9129,24 @@ async function handler(req, res, ctx) {
                     }
                 });
             }
-            // If we're in test mode, we should add a sentinel chunk to the response
-            // that's between the static and dynamic parts so we can compare the
-            // chunks and add assertions.
-            if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+            
+            
+            
+            if ("TURBOPACK compile-time falsy", 0) 
             ;
-            // This request has postponed, so let's create a new transformer that the
-            // dynamic data can pipe to that will attach the dynamic data to the end
-            // of the response.
+            
+            
+            
             const transformer = new TransformStream();
             body.push(transformer.readable);
-            // Perform the render again, but this time, provide the postponed state.
-            // We don't await because we want the result to start streaming now, and
-            // we've already chained the transformer's readable to the render result.
+            
+            
+            
             doRender({
                 span,
                 postponed: cachedData.postponed,
-                // This is a resume render, not a fallback render, so we don't need to
-                // set this.
+                
+                
                 fallbackRouteParams: null,
                 forceStaticRender: false
             }).then(async (result)=>{
@@ -9166,11 +9166,11 @@ async function handler(req, res, ctx) {
                         configurable: true
                     });
                 }
-                // Pipe the resume result to the transformer.
+                
                 await result.value.html.pipeTo(transformer.writable);
             }).catch((err)=>{
-                // An error occurred during piping or preparing the render, abort
-                // the transformers writer so we can terminate the stream.
+                
+                
                 transformer.writable.abort(err).catch((e)=>{
                     console.error("couldn't abort transformer", e);
                 });
@@ -9181,17 +9181,17 @@ async function handler(req, res, ctx) {
                 generateEtags: nextConfig.generateEtags,
                 poweredByHeader: nextConfig.poweredByHeader,
                 result: body,
-                // We don't want to cache the response if it has postponed data because
-                // the response being sent to the client it's dynamic parts are streamed
-                // to the client on the same request.
+                
+                
+                
                 cacheControl: {
                     revalidate: 0,
                     expire: undefined
                 }
             });
         };
-        // TODO: activeSpan code path is for when wrapped by
-        // next-server can be removed when this is no longer used
+        
+        
         if (activeSpan) {
             await handleResponse(activeSpan);
         } else {
@@ -9216,23 +9216,23 @@ async function handler(req, res, ctx) {
                 })
             }, routerServerContext);
         }
-        // rethrow so that we can handle serving error page
+        
         throw err;
     }
 }
-// TODO: omit this from production builds, only test builds should include it
-/**
- * Creates a readable stream that emits a PPR boundary sentinel.
- *
- * @returns A readable stream that emits a PPR boundary sentinel.
- */ function createPPRBoundarySentinel() {
+
+
+
+
+
+ function createPPRBoundarySentinel() {
     return new ReadableStream({
         start (controller) {
             controller.enqueue(new TextEncoder().encode('<!-- PPR_BOUNDARY_SENTINEL -->'));
             controller.close();
         }
     });
-} //# sourceMappingURL=app-page.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/build/templates/app-page.js?page=/(crm)/reels/page { GLOBAL_ERROR_MODULE => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_0 => \"[project]/Desktop/Projects/final-pixelate/dashboard/src/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_1 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_2 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_3 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_4 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/global-error.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_5 => \"[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_6 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_7 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_8 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_9 => \"[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/reels/page.tsx [app-rsc] (ecmascript, Next.js Server Component)\" } [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9319,4 +9319,3 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 }),
 ];
 
-//# sourceMappingURL=c729b_next_dist_508eead3._.js.map

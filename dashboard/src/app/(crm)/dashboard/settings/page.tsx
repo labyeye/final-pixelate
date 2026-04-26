@@ -38,16 +38,16 @@ interface ManagedUser {
   pagePermissions?: Record<string, { add?: boolean; view?: boolean; edit?: boolean; delete?: boolean }>;
 }
 
-/* ─────────────────────────────────────────────────────────────────── */
-/*  Sub-component: Staff permissions accordion                          */
-/* ─────────────────────────────────────────────────────────────────── */
+
+
+
 function StaffPermissions() {
   const { toast } = useToast();
   const { user: currentUser } = useAuth();
   const [staffUsers, setStaffUsers] = useState<ManagedUser[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState<string | null>(null);
-  // track expanded pages per staff: map userId -> Set of hrefs
+  
   const [openPages, setOpenPages] = useState<Record<string, Set<string>>>({});
 
   useEffect(() => {
@@ -59,7 +59,7 @@ function StaffPermissions() {
         setStaffUsers(
           data.map((u: any) => {
             const allowed = u.allowedPages?.length ? u.allowedPages : defaultStaffAllowed;
-            // If API provides pagePermissions use it, otherwise derive view-only permissions from allowedPages
+            
             const pagePermissions = u.pagePermissions || allowed.reduce((acc: any, href: string) => {
               acc[href] = { view: true };
               return acc;
@@ -83,7 +83,7 @@ function StaffPermissions() {
         perms[href] = perms[href] || { add: false, view: false, edit: false, delete: false };
         perms[href][perm] = !perms[href][perm];
 
-        // Update allowedPages: include href if any permission true, remove otherwise
+        
         const anyTrue = Object.values(perms[href]).some(Boolean);
         const allowedPages = anyTrue ? Array.from(new Set([...(u.allowedPages || []), href])) : (u.allowedPages || []).filter((p) => p !== href);
 
@@ -94,7 +94,7 @@ function StaffPermissions() {
   const save = async (staff: ManagedUser) => {
     setSaving(staff.id);
     try {
-      // derive allowedPages from pagePermissions (pages with any true)
+      
       const pagePerms = staff.pagePermissions || {};
       const derivedAllowed = Object.keys(pagePerms).filter((href) => {
         const p = pagePerms[href] || {};
@@ -122,7 +122,7 @@ function StaffPermissions() {
     }
   };
 
-  // Set a specific permission to a boolean value (used by Checkbox onCheckedChange)
+  
   const setPermission = (userId: string, href: string, perm: keyof NonNullable<ManagedUser['pagePermissions']>, value: boolean) =>
     setStaffUsers((prev) =>
       prev.map((u) => {
@@ -131,7 +131,7 @@ function StaffPermissions() {
         perms[href] = perms[href] || { add: false, view: false, edit: false, delete: false };
         perms[href][perm] = value;
 
-        // Update allowedPages: include href if any permission true, remove otherwise
+        
         const anyTrue = Object.values(perms[href]).some(Boolean);
         const allowedPages = anyTrue ? Array.from(new Set([...(u.allowedPages || []), href])) : (u.allowedPages || []).filter((p) => p !== href);
 
@@ -194,9 +194,9 @@ function StaffPermissions() {
           <AccordionContent className="px-4 pb-4 pt-2 border-t-2 border-black bg-muted/20">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 pt-4">
               {navGroups.map((group) => {
-                // Show all sidebar items here (include adminOnly items so admins
-                // can toggle visibility for staff). Previously we filtered out
-                // admin-only pages which hid some sidebar entries from this panel.
+                
+                
+                
                 const itemsToShow = group.items;
                 if (itemsToShow.length === 0) return null;
                 return (
@@ -281,9 +281,9 @@ function StaffPermissions() {
   );
 }
 
-/* ─────────────────────────────────────────────────────────────────── */
-/*  Sub-component: Client permissions — GLOBAL toggle panel             */
-/* ─────────────────────────────────────────────────────────────────── */
+
+
+
 function ClientPermissions() {
   const { toast } = useToast();
   const [allowedPages, setAllowedPages] = useState<string[]>([]);
@@ -338,7 +338,7 @@ function ClientPermissions() {
 
   return (
     <div className="space-y-6">
-      {/* Info banner */}
+      {}
       <div className="flex items-start gap-3 p-4 rounded-lg border-2 border-black bg-amber-50">
         <UserCheck className="w-5 h-5 mt-0.5 text-amber-600 shrink-0" />
         <p className="text-sm font-semibold text-amber-800">

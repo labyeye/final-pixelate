@@ -40,12 +40,12 @@ export async function POST(req: NextRequest) {
   }
 }
 
-/**
- * DELETE /api/whatsapp-optin
- *
- * Opt-out a client (e.g. when they reply STOP on WhatsApp).
- * Body: { clientId }
- */
+
+
+
+
+
+
 export async function DELETE(req: NextRequest) {
   let body: { clientId?: string; reason?: string };
   try {

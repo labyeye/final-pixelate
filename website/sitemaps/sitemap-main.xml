@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   
-  <!-- Homepage -->
+  
   <url>
     <loc>https://www.pixelatenest.com/</loc>
     <lastmod>2026-02-26</lastmod>
@@ -13,7 +13,7 @@
     <priority>1.0</priority>
   </url>
   
-  <!-- About -->
+  
   <url>
     <loc>https://www.pixelatenest.com/pages/about.html</loc>
     <lastmod>2026-04-08</lastmod>
@@ -21,7 +21,7 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- Services -->
+  
   <url>
     <loc>https://www.pixelatenest.com/services/web-development.html</loc>
     <lastmod>2026-04-08</lastmod>
@@ -50,7 +50,7 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- Photography -->
+  
   <url>
     <loc>https://www.pixelatenest.com/pages/photography.html</loc>
     <lastmod>2025-11-24</lastmod>
@@ -58,7 +58,7 @@
     <priority>0.9</priority>
   </url>
   
-  <!-- Technologies -->
+  
   <url>
     <loc>https://www.pixelatenest.com/pages/technologies.html</loc>
     <lastmod>2026-04-08</lastmod>
@@ -66,7 +66,7 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- Pricing -->
+  
   <url>
     <loc>https://www.pixelatenest.com/pages/pricing.html</loc>
     <lastmod>2026-04-08</lastmod>
@@ -74,7 +74,7 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- Blogs -->
+  
   <url>
     <loc>https://www.pixelatenest.com/blog/</loc>
     <lastmod>2026-04-08</lastmod>
@@ -96,7 +96,7 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- Careers -->
+  
   <url>
     <loc>https://www.pixelatenest.com/pages/careers.html</loc>
     <lastmod>2026-04-08</lastmod>
@@ -104,7 +104,7 @@
     <priority>0.7</priority>
   </url>
   
-  <!-- Locations Hub -->
+  
   <url>
     <loc>https://www.pixelatenest.com/pages/locations.html</loc>
     <lastmod>2026-04-08</lastmod>
@@ -119,7 +119,7 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- City Pages - Dynamic Location Pages -->
+  
   
   <url>
     <loc>https://www.pixelatenest.com/legal/privacy-policy.html</loc>

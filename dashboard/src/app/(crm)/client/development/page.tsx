@@ -41,7 +41,7 @@ export default function ClientDevelopmentPage() {
 
         setTasks(clientTasks);
 
-        // Calculate stats
+        
         const total = clientTasks.length;
         const completed = clientTasks.filter(
           (t) => t.status === "completed",
@@ -109,7 +109,7 @@ export default function ClientDevelopmentPage() {
 
   return (
     <div className="min-h-screen bg-background font-headline p-6 space-y-6">
-      {/* Header */}
+      {}
       <div>
         <h1 className="text-4xl font-black tracking-tighter">
           Development Progress
@@ -119,7 +119,7 @@ export default function ClientDevelopmentPage() {
         </p>
       </div>
 
-      {/* Progress Overview */}
+      {}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
           <CardHeader className="pb-3">
@@ -181,7 +181,7 @@ export default function ClientDevelopmentPage() {
         </div>
       </div>
 
-      {/* Tasks List */}
+      {}
       <Card className="border-2 border-black">
         <CardHeader>
           <CardTitle className="text-lg">Task List</CardTitle>
@@ -254,7 +254,7 @@ export default function ClientDevelopmentPage() {
         </CardContent>
       </Card>
 
-      {/* Info Card */}
+      {}
       <Card className="border-2 border-black bg-primary/5">
         <CardContent className="pt-6">
           <p className="text-sm">

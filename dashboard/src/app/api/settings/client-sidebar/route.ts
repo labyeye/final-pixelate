@@ -2,10 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { defaultClientAllowed } from "@/lib/nav-config";
 
-/**
- * GET /api/settings/client-sidebar
- * Returns the global list of pages visible to ALL clients.
- */
+
+
+
+
 export async function GET() {
   try {
     const col = await svc.getCollection("agencySettings");
@@ -22,11 +22,11 @@ export async function GET() {
   }
 }
 
-/**
- * POST /api/settings/client-sidebar
- * Saves the global list of pages visible to ALL clients.
- * Body: { allowedClientPages: string[] }
- */
+
+
+
+
+
 export async function POST(request: NextRequest) {
   try {
     const { allowedClientPages } = await request.json();

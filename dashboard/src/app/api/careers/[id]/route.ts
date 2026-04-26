@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getDb } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 
-// GET single job posting
+
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
@@ -26,7 +26,7 @@ export async function GET(
   }
 }
 
-// PUT update job posting
+
 export async function PUT(
   request: NextRequest,
   { params }: { params: { id: string } }
@@ -55,7 +55,7 @@ export async function PUT(
   }
 }
 
-// DELETE job posting
+
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { id: string } }

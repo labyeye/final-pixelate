@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/use-auth";
@@ -30,6 +31,8 @@ const statusBadge: Record<string, string> = {
 
 export default function SocialMediaPlannerPage() {
   const { user } = useAuth();
+  const searchParams = useSearchParams();
+  const [metaBanner, setMetaBanner] = useState<{ type: "success" | "error"; message: string } | null>(null);
   const [selectedClientId, setSelectedClientId] = useState<string>("");
   const [posts, setPosts] = useState<SocialMediaPost[]>([]);
   const [team, setTeam] = useState<any[]>([]);
@@ -50,7 +53,7 @@ export default function SocialMediaPlannerPage() {
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
 
-  // Load posts filtered by selected client and assigned user
+  
   const loadPosts = async (clientId: string) => {
     if (!clientId) {
       setPosts([]);
@@ -60,7 +63,7 @@ export default function SocialMediaPlannerPage() {
       const url = new URL("/api/social-media-posts", window.location.origin);
       url.searchParams.set("clientId", clientId);
 
-      // If user is not an admin, filter by their name to show only assigned posts
+      
       if (user && user.role !== "admin" && user.name) {
         url.searchParams.set("assignedTo", user.name);
       }
@@ -75,7 +78,24 @@ export default function SocialMediaPlannerPage() {
     }
   };
 
-  // Load team members
+  
+  useEffect(() => {
+    const connected = searchParams?.get("meta_connected");
+    const metaError = searchParams?.get("meta_error");
+    if (connected) {
+      setMetaBanner({
+        type: "success",
+        message: `Successfully connected ${connected} account(s) to Meta. You can now sync metrics from the Analytics page.`,
+      });
+    } else if (metaError) {
+      setMetaBanner({
+        type: "error",
+        message: `Meta connection failed: ${decodeURIComponent(metaError)}`,
+      });
+    }
+  }, [searchParams]);
+
+  
   useEffect(() => {
     (async () => {
       try {
@@ -89,7 +109,7 @@ export default function SocialMediaPlannerPage() {
     })();
   }, []);
 
-  // Reload posts when client changes
+  
   useEffect(() => {
     loadPosts(selectedClientId);
   }, [selectedClientId, user]);
@@ -131,7 +151,7 @@ export default function SocialMediaPlannerPage() {
 
   const savePost = async (post: SocialMediaPost) => {
     try {
-      // If post has an ID, it's an update (PUT), otherwise it's a create (POST)
+      
       const isUpdate = !!(post._id || post.id);
       const method = isUpdate ? "PUT" : "POST";
       const url = isUpdate
@@ -199,7 +219,7 @@ export default function SocialMediaPlannerPage() {
     post?: SocialMediaPost,
   ) => {
     if (status === "Posted" && post) {
-      // If multiple accounts, open modal to ask for links
+      
       const accountIds =
         post.socialAccountIds && post.socialAccountIds.length > 0
           ? post.socialAccountIds
@@ -212,7 +232,7 @@ export default function SocialMediaPlannerPage() {
         setIsPostLinksModalOpen(true);
         return;
       } else if (accountIds.length === 1) {
-        // Single account - use simple prompt
+        
         const accountId = accountIds[0];
         const link = window.prompt("Paste posted link (optional):", "") || "";
         const postedLinks = link && accountId ? { [accountId]: link } : {};
@@ -315,7 +335,26 @@ export default function SocialMediaPlannerPage() {
 
   return (
     <div className="space-y-6 font-headline">
-      {/* Header */}
+      {}
+      {metaBanner && (
+        <div
+          className={`rounded-lg border-2 px-4 py-3 text-sm font-medium flex items-center justify-between ${
+            metaBanner.type === "success"
+              ? "border-green-500 bg-green-50 text-green-900"
+              : "border-red-500 bg-red-50 text-red-900"
+          }`}
+        >
+          <span>{metaBanner.message}</span>
+          <button
+            className="ml-4 text-xs underline opacity-70 hover:opacity-100"
+            onClick={() => setMetaBanner(null)}
+          >
+            Dismiss
+          </button>
+        </div>
+      )}
+
+      {}
       <header className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-4xl font-black tracking-tighter">
@@ -347,12 +386,12 @@ export default function SocialMediaPlannerPage() {
         </div>
       </header>
 
-      {/* Client Picker */}
+      {}
       <section className="border-2 border-black rounded-lg p-4">
         <ClientPicker onClientSelected={setSelectedClientId} />
       </section>
 
-      {/* No Client Selected - Empty State */}
+      {}
       {!selectedClientId && (
         <section className="border-2 border-yellow-400 bg-yellow-50 rounded-lg p-6 text-center">
           <div className="text-lg font-semibold text-yellow-900">
@@ -613,14 +652,14 @@ export default function SocialMediaPlannerPage() {
         </section>
       )}
 
-      {/* Social Media Accounts Section */}
+      {}
       {selectedClientId && (
         <section className="border-2 border-black rounded-lg p-4">
           <SocialAccountsTable clientId={selectedClientId} />
         </section>
       )}
 
-      {/* Add/Edit Post Modal */}
+      {}
       <AddPostModal
         isOpen={isModalOpen}
         clientId={selectedClientId}
@@ -634,7 +673,7 @@ export default function SocialMediaPlannerPage() {
         editingPost={editingPost}
       />
 
-      {/* View Plan Modal */}
+      {}
       <ViewPlanModal
         isOpen={isViewPlanModalOpen}
         plan={viewingPlan}
@@ -661,9 +700,9 @@ export default function SocialMediaPlannerPage() {
         onSave={handleSavePostedLinks}
       />
 
-      {/* Filters Section - Only visible when client is selected */}
+      {}
 
-      {/* Posts Table - Only visible when client is selected */}
+      {}
     </div>
   );
 }

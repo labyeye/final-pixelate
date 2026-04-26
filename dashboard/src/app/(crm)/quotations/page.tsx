@@ -6,7 +6,7 @@ import jsPDF from "jspdf";
 import { Button } from "@/components/ui/button";
 import type { Quotation, Project } from "@/lib/data";
 import { cn } from "@/lib/utils";
-// Quick quotation dialog removed per request
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -36,7 +36,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-// This is a global state hack for demo purposes.
+
 if (typeof window !== "undefined" && !(window as any).__projectsStore) {
   (window as any).__projectsStore = [];
 }
@@ -56,7 +56,7 @@ export default function QuotationsPage() {
     let mounted = true;
     (async () => {
       try {
-        // If the logged-in user is a client, only fetch their own quotations
+        
         const url = isClient && myClientId
           ? `/api/quotations?clientId=${myClientId}`
           : "/api/quotations";
@@ -70,7 +70,7 @@ export default function QuotationsPage() {
       }
     })();
 
-    // also load clients once for display in the table (admins only)
+    
     if (!isClient) {
       (async () => {
         try {
@@ -84,7 +84,7 @@ export default function QuotationsPage() {
           }
           if (mounted) setClientsMap(map);
         } catch (e) {
-          // ignore
+          
         }
       })();
     }
@@ -94,7 +94,7 @@ export default function QuotationsPage() {
     };
   }, [isClient, myClientId]);
 
-  // Persist a status change to the server and update local state
+  
   const persistStatus = async (quote: Quotation, newStatus: string) => {
     const token = localStorage.getItem("auth_token") || "";
     try {
@@ -160,7 +160,7 @@ export default function QuotationsPage() {
   const createProjectFromQuote = (quote: Quotation) => {
     const servicesList = quote.services ?? [];
     const newProject: Project = {
-      id: new Date().getTime(), // simple unique id
+      id: new Date().getTime(), 
       title: `New Project for ${quote.clientName}`,
       client: quote.clientName,
       progress: 0,
@@ -169,7 +169,7 @@ export default function QuotationsPage() {
       }. Services: ${servicesList.map((s) => s.name).join(", ")}`,
     };
 
-    // This is a global state hack for demo purposes.
+    
     (window as any).__projectsStore.push(newProject);
 
     toast({
@@ -181,13 +181,13 @@ export default function QuotationsPage() {
   const generatePdf = (quote: Quotation) => {
     (async () => {
       try {
-        // try to fetch client data so the PDF has full client details
+        
         let client = undefined;
         if (quote.clientId) {
           const res = await fetch(`/api/clients/${quote.clientId}`);
           if (res.ok) client = await res.json();
         }
-        // Use A4 paper (portrait) in mm so the PDF fills the page properly
+        
         const doc = new jsPDF({
           unit: "mm",
           format: "a4",
@@ -260,7 +260,7 @@ export default function QuotationsPage() {
                   tfoot { display: table-footer-group; }
                 </style>
               `;
-              // fill the entire A4 page (210mm x 297mm)
+              
               styledHtml = `${fontDataFace}${fontLinkTag}<div style="width:794px;margin:0;padding:0;box-sizing:border-box;">${pdfBody}</div>`;
             } else {
               const localFontFace = `
@@ -296,16 +296,16 @@ export default function QuotationsPage() {
             };">${pdfBody}</div>`;
           }
 
-          // Replace rupee glyphs with ASCII 'Rs.' to avoid missing glyphs in PDFs
+          
           const finalHtml = styledHtml.replace(/₹/g, "Rs.");
 
-          // Render to occupy the full page. Use the document's page width so
-          // units are consistent with the jsPDF instance (we created with mm).
+          
+          
           const pageWidth = doc.internal.pageSize.getWidth();
           const pageHeight = doc.internal.pageSize.getHeight();
 
-          // windowWidth must match the actual rendered width of the component (210mm = ~794px at 96dpi)
-          // autoPaging: 'text' lets jsPDF slice the canvas at page boundaries without cutting content
+          
+          
           doc.html(finalHtml, {
             callback: function (doc) {
               doc.save(`Quotation-${quote.id}.pdf`);
@@ -318,7 +318,7 @@ export default function QuotationsPage() {
             margin: [0, 0, 0, 0],
           });
         } catch (e) {
-          // if font loading fails, fall back to rendering without explicit font
+          
           const pdfContent = renderToString(
             <QuotationPDF quote={quote} client={client} />
           );
@@ -344,7 +344,7 @@ export default function QuotationsPage() {
   };
 
   const getAuthorName = (authorId: number | undefined) => {
-    // we don't fetch users here for performance; return unknown when not provided
+    
     return "Unknown";
   };
 
@@ -405,8 +405,8 @@ export default function QuotationsPage() {
               </TableRow>
             ) : (
               quotations.map((quote, idx) => {
-                // Calculate total from services if available.
-                // Support multiple possible service shapes: { amount }, { total }, or { price, qty }
+                
+                
                 const servicesTotal = (quote.services || []).reduce(
                   (sum: number, item: any) => {
                     const fromAmount = Number(item?.amount ?? NaN);

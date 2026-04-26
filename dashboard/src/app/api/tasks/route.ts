@@ -7,10 +7,10 @@ export async function GET(req: NextRequest) {
   try {
     const db = await getDb();
     
-    // Get the current user ID from query parameters (passed by client)
+    
     const userId = req.nextUrl.searchParams.get("userId");
     
-    // Build query: only show tasks assigned to the current user
+    
     const query = userId ? { assigneeId: userId } : {};
     
     const tasks = await db
@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
       .sort({ createdAt: -1 })
       .toArray();
 
-    // Map _id to id for frontend compatibility if needed
+    
     const mappedTasks = tasks.map((t) => ({
       ...t,
       id: t._id.toString(),
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const db = await getDb();
 
-    // Basic validation
+    
     if (!body.title) {
       return NextResponse.json({ error: "Title is required" }, { status: 400 });
     }

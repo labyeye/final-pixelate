@@ -40,7 +40,7 @@ export function BulkWhatsAppMessenger() {
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState<"upload" | "template">("upload");
 
-  // Parse CSV data
+  
   const parseCSV = (csv: string): Contact[] => {
     const lines = csv.trim().split("\n");
     if (lines.length < 2) return [];
@@ -76,7 +76,7 @@ export function BulkWhatsAppMessenger() {
     return parsed;
   };
 
-  // Parse XLSX file
+  
   const parseXLSX = (buffer: ArrayBuffer): Contact[] => {
     const workbook = XLSX.read(new Uint8Array(buffer), { type: "array" });
     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
@@ -129,7 +129,7 @@ export function BulkWhatsAppMessenger() {
     return parsed;
   };
 
-  // Handle CSV paste
+  
   const handleCSVPaste = () => {
     if (!csvInput.trim()) {
       setError("Please paste CSV data");
@@ -147,14 +147,14 @@ export function BulkWhatsAppMessenger() {
     setCsvInput("");
   };
 
-  // Handle file upload (CSV or XLSX)
+  
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
     try {
       if (file.name.endsWith(".xlsx") || file.name.endsWith(".xls")) {
-        // Handle XLSX file
+        
         const buffer = await file.arrayBuffer();
         const parsed = parseXLSX(buffer);
 
@@ -166,7 +166,7 @@ export function BulkWhatsAppMessenger() {
         setContacts(parsed);
         setError("");
       } else if (file.name.endsWith(".csv")) {
-        // Handle CSV file
+        
         const text = await file.text();
         const parsed = parseCSV(text);
 
@@ -186,7 +186,7 @@ export function BulkWhatsAppMessenger() {
     }
   };
 
-  // Send bulk messages
+  
   const handleSendMessages = async () => {
     if (contacts.length === 0) {
       setError("No contacts to send messages to");
@@ -221,7 +221,7 @@ export function BulkWhatsAppMessenger() {
       setResults(data.details || []);
       setShowResults(true);
 
-      // Update contact statuses based on results
+      
       const updatedContacts = contacts.map((contact) => {
         const result = data.details?.find((r: SendResult) => r.phone === contact.phone);
         if (result) {
@@ -236,7 +236,7 @@ export function BulkWhatsAppMessenger() {
       });
       setContacts(updatedContacts);
 
-      // Show summary
+      
       alert(
         `Messages sent! Success: ${data.summary.successful}, Failed: ${data.summary.failed}`
       );
@@ -247,12 +247,12 @@ export function BulkWhatsAppMessenger() {
     }
   };
 
-  // Remove a contact
+  
   const removeContact = (index: number) => {
     setContacts(contacts.filter((_, i) => i !== index));
   };
 
-  // Add contact manually
+  
   const addContact = (name: string, phone: string, company?: string) => {
     if (!name || !phone) return;
     setContacts([...contacts, { name, phone, company }]);
@@ -268,7 +268,7 @@ export function BulkWhatsAppMessenger() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* Tabs */}
+          {}
           <div className="flex gap-2 border-b">
             <button
               onClick={() => setActiveTab("upload")}
@@ -292,10 +292,10 @@ export function BulkWhatsAppMessenger() {
             </button>
           </div>
 
-          {/* Upload Tab */}
+          {}
           {activeTab === "upload" && (
             <div className="space-y-4">
-              {/* CSV/XLSX Upload */}
+              {}
               <div className="space-y-2">
                 <label className="block text-sm font-semibold">
                   Option 1: Upload File (CSV or XLSX)
@@ -317,7 +317,7 @@ export function BulkWhatsAppMessenger() {
                 </p>
               </div>
 
-              {/* CSV Paste */}
+              {}
               <div className="space-y-2">
                 <label className="block text-sm font-semibold">
                   Option 2: Paste CSV Data
@@ -335,7 +335,7 @@ Jane Smith,9123456789,XYZ Ltd`}
                 </Button>
               </div>
 
-              {/* Error Display */}
+              {}
               {error && (
                 <div className="flex gap-2 rounded-lg bg-red-50 p-3 text-sm text-red-700">
                   <AlertCircle className="h-4 w-4 flex-shrink-0 mt-0.5" />
@@ -343,7 +343,7 @@ Jane Smith,9123456789,XYZ Ltd`}
                 </div>
               )}
 
-              {/* Contacts Preview */}
+              {}
               {contacts.length > 0 && (
                 <div className="space-y-2">
                   <label className="block text-sm font-semibold">
@@ -402,7 +402,7 @@ Jane Smith,9123456789,XYZ Ltd`}
                 </div>
               )}
 
-              {/* Send Button */}
+              {}
               {contacts.length > 0 && (
                 <Button
                   onClick={handleSendMessages}
@@ -419,7 +419,7 @@ Jane Smith,9123456789,XYZ Ltd`}
             </div>
           )}
 
-          {/* Template Tab */}
+          {}
           {activeTab === "template" && (
             <div className="space-y-4">
               <div className="rounded-lg bg-blue-50 p-4 border border-blue-200">
@@ -509,7 +509,7 @@ Khushij Jain,9182946509,Matrix Sports`}
             </div>
           )}
 
-          {/* Results */}
+          {}
           {showResults && results.length > 0 && (
             <div className="space-y-3">
               <h3 className="font-semibold">📊 Send Results</h3>

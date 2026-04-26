@@ -47,20 +47,20 @@ exports._ = _interop_require_wildcard;
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/scheduler/cjs/scheduler.development.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * @license React
- * scheduler.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+
+
+
+
+
+
+
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 'use strict';
 if ("TURBOPACK compile-time truthy", 1) {
     (function() {
         'use strict';
-        /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === 'function') {
+         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === 'function') {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
         }
         var enableSchedulerDebugging = false;
@@ -92,12 +92,12 @@ if ("TURBOPACK compile-time truthy", 1) {
                 var parentIndex = index - 1 >>> 1;
                 var parent = heap[parentIndex];
                 if (compare(parent, node) > 0) {
-                    // The parent is larger. Swap positions.
+                    
                     heap[parentIndex] = node;
                     heap[index] = parent;
                     index = parentIndex;
                 } else {
-                    // The parent is smaller. Exit.
+                    
                     return;
                 }
             }
@@ -110,7 +110,7 @@ if ("TURBOPACK compile-time truthy", 1) {
                 var leftIndex = (index + 1) * 2 - 1;
                 var left = heap[leftIndex];
                 var rightIndex = leftIndex + 1;
-                var right = heap[rightIndex]; // If the left or right node is smaller, swap with the smaller of those.
+                var right = heap[rightIndex]; 
                 if (compare(left, node) < 0) {
                     if (rightIndex < length && compare(right, left) < 0) {
                         heap[index] = right;
@@ -126,24 +126,24 @@ if ("TURBOPACK compile-time truthy", 1) {
                     heap[rightIndex] = node;
                     index = rightIndex;
                 } else {
-                    // Neither child is smaller. Exit.
+                    
                     return;
                 }
             }
         }
         function compare(a, b) {
-            // Compare sort index first, then task id.
+            
             var diff = a.sortIndex - b.sortIndex;
             return diff !== 0 ? diff : a.id - b.id;
         }
-        // TODO: Use symbols?
+        
         var ImmediatePriority = 1;
         var UserBlockingPriority = 2;
         var NormalPriority = 3;
         var LowPriority = 4;
         var IdlePriority = 5;
         function markTaskErrored(task, ms) {}
-        /* eslint-disable no-var */ var hasPerformanceNow = typeof performance === 'object' && typeof performance.now === 'function';
+         var hasPerformanceNow = typeof performance === 'object' && typeof performance.now === 'function';
         if (hasPerformanceNow) {
             var localPerformance = performance;
             exports.unstable_now = function() {
@@ -155,41 +155,41 @@ if ("TURBOPACK compile-time truthy", 1) {
             exports.unstable_now = function() {
                 return localDate.now() - initialTime;
             };
-        } // Max 31 bit integer. The max integer size in V8 for 32-bit systems.
-        // Math.pow(2, 30) - 1
-        // 0b111111111111111111111111111111
-        var maxSigned31BitInt = 1073741823; // Times out immediately
-        var IMMEDIATE_PRIORITY_TIMEOUT = -1; // Eventually times out
+        } 
+        
+        
+        var maxSigned31BitInt = 1073741823; 
+        var IMMEDIATE_PRIORITY_TIMEOUT = -1; 
         var USER_BLOCKING_PRIORITY_TIMEOUT = 250;
         var NORMAL_PRIORITY_TIMEOUT = 5000;
-        var LOW_PRIORITY_TIMEOUT = 10000; // Never times out
-        var IDLE_PRIORITY_TIMEOUT = maxSigned31BitInt; // Tasks are stored on a min heap
+        var LOW_PRIORITY_TIMEOUT = 10000; 
+        var IDLE_PRIORITY_TIMEOUT = maxSigned31BitInt; 
         var taskQueue = [];
-        var timerQueue = []; // Incrementing id counter. Used to maintain insertion order.
-        var taskIdCounter = 1; // Pausing the scheduler is useful for debugging.
+        var timerQueue = []; 
+        var taskIdCounter = 1; 
         var currentTask = null;
-        var currentPriorityLevel = NormalPriority; // This is set while performing work, to prevent re-entrance.
+        var currentPriorityLevel = NormalPriority; 
         var isPerformingWork = false;
         var isHostCallbackScheduled = false;
-        var isHostTimeoutScheduled = false; // Capture local references to native APIs, in case a polyfill overrides them.
+        var isHostTimeoutScheduled = false; 
         var localSetTimeout = typeof setTimeout === 'function' ? setTimeout : null;
         var localClearTimeout = typeof clearTimeout === 'function' ? clearTimeout : null;
-        var localSetImmediate = typeof setImmediate !== 'undefined' ? setImmediate : null; // IE and Node.js + jsdom
+        var localSetImmediate = typeof setImmediate !== 'undefined' ? setImmediate : null; 
         var isInputPending = typeof navigator !== 'undefined' && navigator.scheduling !== undefined && navigator.scheduling.isInputPending !== undefined ? navigator.scheduling.isInputPending.bind(navigator.scheduling) : null;
         function advanceTimers(currentTime) {
-            // Check for tasks that are no longer delayed and add them to the queue.
+            
             var timer = peek(timerQueue);
             while(timer !== null){
                 if (timer.callback === null) {
-                    // Timer was cancelled.
+                    
                     pop(timerQueue);
                 } else if (timer.startTime <= currentTime) {
-                    // Timer fired. Transfer to the task queue.
+                    
                     pop(timerQueue);
                     timer.sortIndex = timer.expirationTime;
                     push(taskQueue, timer);
                 } else {
-                    // Remaining timers are pending.
+                    
                     return;
                 }
                 timer = peek(timerQueue);
@@ -213,18 +213,18 @@ if ("TURBOPACK compile-time truthy", 1) {
         function flushWork(hasTimeRemaining, initialTime) {
             isHostCallbackScheduled = false;
             if (isHostTimeoutScheduled) {
-                // We scheduled a timeout but it's no longer needed. Cancel it.
+                
                 isHostTimeoutScheduled = false;
                 cancelHostTimeout();
             }
             isPerformingWork = true;
             var previousPriorityLevel = currentPriorityLevel;
             try {
-                if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+                if ("TURBOPACK compile-time falsy", 0) 
                 {
                     var currentTime;
                 } else {
-                    // No catch in prod code path.
+                    
                     return workLoop(hasTimeRemaining, initialTime);
                 }
             } finally{
@@ -260,7 +260,7 @@ if ("TURBOPACK compile-time truthy", 1) {
                     pop(taskQueue);
                 }
                 currentTask = peek(taskQueue);
-            } // Return whether there's additional work
+            } 
             if (currentTask !== null) {
                 return true;
             } else {
@@ -296,11 +296,11 @@ if ("TURBOPACK compile-time truthy", 1) {
                 case ImmediatePriority:
                 case UserBlockingPriority:
                 case NormalPriority:
-                    // Shift down to normal priority
+                    
                     priorityLevel = NormalPriority;
                     break;
                 default:
-                    // Anything lower than normal priority should remain at the current level.
+                    
                     priorityLevel = currentPriorityLevel;
                     break;
             }
@@ -315,7 +315,7 @@ if ("TURBOPACK compile-time truthy", 1) {
         function unstable_wrapCallback(callback) {
             var parentPriorityLevel = currentPriorityLevel;
             return function() {
-                // This is a fork of runWithPriority, inlined for performance.
+                
                 var previousPriorityLevel = currentPriorityLevel;
                 currentPriorityLevel = parentPriorityLevel;
                 try {
@@ -367,23 +367,23 @@ if ("TURBOPACK compile-time truthy", 1) {
                 sortIndex: -1
             };
             if (startTime > currentTime) {
-                // This is a delayed task.
+                
                 newTask.sortIndex = startTime;
                 push(timerQueue, newTask);
                 if (peek(taskQueue) === null && newTask === peek(timerQueue)) {
-                    // All tasks are delayed, and this is the task with the earliest delay.
+                    
                     if (isHostTimeoutScheduled) {
-                        // Cancel an existing timeout.
+                        
                         cancelHostTimeout();
                     } else {
                         isHostTimeoutScheduled = true;
-                    } // Schedule a timeout.
+                    } 
                     requestHostTimeout(handleTimeout, startTime - currentTime);
                 }
             } else {
                 newTask.sortIndex = expirationTime;
                 push(taskQueue, newTask);
-                // wait until the next time we yield.
+                
                 if (!isHostCallbackScheduled && !isPerformingWork) {
                     isHostCallbackScheduled = true;
                     requestHostCallback(flushWork);
@@ -402,8 +402,8 @@ if ("TURBOPACK compile-time truthy", 1) {
             return peek(taskQueue);
         }
         function unstable_cancelCallback(task) {
-            // remove from the queue because you can't remove arbitrary nodes from an
-            // array based heap, only the first one.)
+            
+            
             task.callback = null;
         }
         function unstable_getCurrentPriorityLevel() {
@@ -411,53 +411,53 @@ if ("TURBOPACK compile-time truthy", 1) {
         }
         var isMessageLoopRunning = false;
         var scheduledHostCallback = null;
-        var taskTimeoutID = -1; // Scheduler periodically yields in case there is other work on the main
-        // thread, like user events. By default, it yields multiple times per frame.
-        // It does not attempt to align with frame boundaries, since most tasks don't
-        // need to be frame aligned; for those that do, use requestAnimationFrame.
+        var taskTimeoutID = -1; 
+        
+        
+        
         var frameInterval = frameYieldMs;
         var startTime = -1;
         function shouldYieldToHost() {
             var timeElapsed = exports.unstable_now() - startTime;
             if (timeElapsed < frameInterval) {
-                // The main thread has only been blocked for a really short amount of time;
-                // smaller than a single frame. Don't yield yet.
+                
+                
                 return false;
-            } // The main thread has been blocked for a non-negligible amount of time. We
+            } 
             return true;
         }
         function requestPaint() {}
         function forceFrameRate(fps) {
             if (fps < 0 || fps > 125) {
-                // Using console['error'] to evade Babel and ESLint
+                
                 console['error']('forceFrameRate takes a positive int between 0 and 125, ' + 'forcing frame rates higher than 125 fps is not supported');
                 return;
             }
             if (fps > 0) {
                 frameInterval = Math.floor(1000 / fps);
             } else {
-                // reset the framerate
+                
                 frameInterval = frameYieldMs;
             }
         }
         var performWorkUntilDeadline = function() {
             if (scheduledHostCallback !== null) {
-                var currentTime = exports.unstable_now(); // Keep track of the start time so we can measure how long the main thread
-                // has been blocked.
+                var currentTime = exports.unstable_now(); 
+                
                 startTime = currentTime;
-                var hasTimeRemaining = true; // If a scheduler task throws, exit the current browser task so the
-                // error can be observed.
-                //
-                // Intentionally not using a try-catch, since that makes some debugging
-                // techniques harder. Instead, if `scheduledHostCallback` errors, then
-                // `hasMoreWork` will remain true, and we'll continue the work loop.
+                var hasTimeRemaining = true; 
+                
+                
+                
+                
+                
                 var hasMoreWork = true;
                 try {
                     hasMoreWork = scheduledHostCallback(hasTimeRemaining, currentTime);
                 } finally{
                     if (hasMoreWork) {
-                        // If there's more work, schedule the next message event at the end
-                        // of the preceding one.
+                        
+                        
                         schedulePerformWorkUntilDeadline();
                     } else {
                         isMessageLoopRunning = false;
@@ -466,27 +466,27 @@ if ("TURBOPACK compile-time truthy", 1) {
                 }
             } else {
                 isMessageLoopRunning = false;
-            } // Yielding to the browser will give it a chance to paint, so we can
+            } 
         };
         var schedulePerformWorkUntilDeadline;
         if (typeof localSetImmediate === 'function') {
-            // Node.js and old IE.
-            // There's a few reasons for why we prefer setImmediate.
-            //
-            // Unlike MessageChannel, it doesn't prevent a Node.js process from exiting.
-            // (Even though this is a DOM fork of the Scheduler, you could get here
-            // with a mix of Node.js 15+, which has a MessageChannel, and jsdom.)
-            // https://github.com/facebook/react/issues/20756
-            //
-            // But also, it runs earlier which is the semantic we want.
-            // If other browsers ever implement it, it's better to use it.
-            // Although both of these would be inferior to native scheduling.
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             schedulePerformWorkUntilDeadline = function() {
                 localSetImmediate(performWorkUntilDeadline);
             };
         } else if (typeof MessageChannel !== 'undefined') {
-            // DOM and Worker environments.
-            // We prefer MessageChannel because of the 4ms setTimeout clamping.
+            
+            
             var channel = new MessageChannel();
             var port = channel.port2;
             channel.port1.onmessage = performWorkUntilDeadline;
@@ -494,7 +494,7 @@ if ("TURBOPACK compile-time truthy", 1) {
                 port.postMessage(null);
             };
         } else {
-            // We should only fallback here in non-browser environments.
+            
             schedulePerformWorkUntilDeadline = function() {
                 localSetTimeout(performWorkUntilDeadline, 0);
             };
@@ -535,7 +535,7 @@ if ("TURBOPACK compile-time truthy", 1) {
         exports.unstable_scheduleCallback = unstable_scheduleCallback;
         exports.unstable_shouldYield = shouldYieldToHost;
         exports.unstable_wrapCallback = unstable_wrapCallback;
-        /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === 'function') {
+         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === 'function') {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
         }
     })();
@@ -544,9 +544,9 @@ if ("TURBOPACK compile-time truthy", 1) {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/scheduler/index.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 'use strict';
-if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+if ("TURBOPACK compile-time falsy", 0) 
 ;
 else {
     module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/scheduler/cjs/scheduler.development.js [client] (ecmascript)");
@@ -554,4 +554,3 @@ else {
 }),
 ]);
 
-//# sourceMappingURL=c729b_02f535e2._.js.map

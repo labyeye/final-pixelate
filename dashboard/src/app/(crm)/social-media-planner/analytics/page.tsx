@@ -60,6 +60,9 @@ export default function AnalyticsPage() {
   const [isMetricsModalOpen, setIsMetricsModalOpen] = useState(false);
   const [selectedPostForMetrics, setSelectedPostForMetrics] = useState<SocialMediaPost | null>(null);
 
+  const [syncingKey, setSyncingKey] = useState<{ postId: string; accountId: string } | null>(null);
+  const [syncError, setSyncError] = useState<string | null>(null);
+
   const [inlineEditingKey, setInlineEditingKey] = useState<{
     postId: string;
     accountId: string;
@@ -126,7 +129,7 @@ export default function AnalyticsPage() {
     });
   }, [posts, search, platformFilter, contentTypeFilter]);
 
-  // Expand each post into one row per account
+  
   const flatRows = useMemo(() => {
     return filteredPosts.flatMap((post) => {
       const accountIds =
@@ -144,7 +147,7 @@ export default function AnalyticsPage() {
     });
   }, [filteredPosts]);
 
-  // Summary: aggregate per-account metrics where available, else post-level
+  
   const summary = useMemo(() => {
     return posts.reduce(
       (acc, p) => {
@@ -187,6 +190,29 @@ export default function AnalyticsPage() {
       { totalViews: 0, totalLikes: 0, totalComments: 0, totalShares: 0, totalFollowersGained: 0 },
     );
   }, [posts]);
+
+  const handleSyncMetrics = async (post: SocialMediaPost, accountId: string) => {
+    const postId = (post._id || post.id) as string;
+    setSyncingKey({ postId, accountId });
+    setSyncError(null);
+    try {
+      const res = await fetch("/api/social-media-metrics/sync", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postId, accountId }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setSyncError(data.error || "Sync failed");
+      } else {
+        await loadPosts(selectedClientId);
+      }
+    } catch (e: any) {
+      setSyncError(e.message || "Sync failed");
+    } finally {
+      setSyncingKey(null);
+    }
+  };
 
   const handleStartInlineEdit = (post: SocialMediaPost, accountId: string) => {
     setInlineEditingKey({ postId: (post._id || post.id) as string, accountId });
@@ -240,7 +266,7 @@ export default function AnalyticsPage() {
 
   return (
     <div className="space-y-6 font-headline">
-      {/* Header */}
+      {}
       <header className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-4xl font-black tracking-tighter">SOCIAL MEDIA ANALYTICS</h1>
@@ -253,7 +279,7 @@ export default function AnalyticsPage() {
         </div>
       </header>
 
-      {/* Client Picker */}
+      {}
       <section className="border-2 border-black rounded-lg p-4">
         <ClientPicker onClientSelected={setSelectedClientId} />
       </section>
@@ -272,7 +298,7 @@ export default function AnalyticsPage() {
             Analytics for: <span className="text-black">{selectedClient?.name || "Selected Client"}</span>
           </div>
 
-          {/* Summary Cards */}
+          {}
           <section className="grid grid-cols-2 md:grid-cols-5 gap-4">
             <div className="border-2 border-black rounded-lg p-4 bg-blue-50">
               <div className="text-sm font-semibold text-gray-600">Total Views</div>
@@ -296,7 +322,15 @@ export default function AnalyticsPage() {
             </div>
           </section>
 
-          {/* Filters */}
+          {}
+          {syncError && (
+            <div className="rounded-lg border-2 border-red-400 bg-red-50 px-4 py-3 text-sm text-red-800 flex items-center justify-between">
+              <span>{syncError}</span>
+              <button className="ml-4 text-xs underline" onClick={() => setSyncError(null)}>Dismiss</button>
+            </div>
+          )}
+
+          {}
           <section className="border-2 border-black rounded-lg p-4">
             <h3 className="text-lg font-bold mb-4">Filters</h3>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
@@ -345,7 +379,7 @@ export default function AnalyticsPage() {
             </div>
           </section>
 
-          {/* Analytics Table */}
+          {}
           <section className="border-2 border-black rounded-lg overflow-hidden">
             {flatRows.length === 0 ? (
               <div className="p-6 text-center text-gray-600">
@@ -377,7 +411,7 @@ export default function AnalyticsPage() {
                         inlineEditingKey?.accountId === accountId;
                       const metrics = getAccountMetrics(post, accountId);
 
-                      // Alternate row background; group first rows get a top border
+                      
                       const bgClass = rowIdx % 2 === 0 ? "bg-gray-50" : "bg-white";
                       const borderClass = isFirst && rowIdx !== 0 ? "border-t-2 border-gray-300" : "";
 
@@ -386,7 +420,7 @@ export default function AnalyticsPage() {
                           key={`${postId}-${accountId}`}
                           className={`${bgClass} ${borderClass}`}
                         >
-                          {/* Title — show only on first account row of each post */}
+                          {}
                           <td className="px-4 py-3 font-semibold text-gray-900 max-w-[180px]">
                             {isFirst ? post.title : (
                               <span className="text-gray-400 text-xs italic">↳ {post.title}</span>
@@ -406,7 +440,7 @@ export default function AnalyticsPage() {
                             {isFirst ? post.scheduledDate : ""}
                           </td>
 
-                          {/* Views */}
+                          {}
                           <td className="px-4 py-3 text-right">
                             {isEditing ? (
                               <input
@@ -426,7 +460,7 @@ export default function AnalyticsPage() {
                             )}
                           </td>
 
-                          {/* Likes */}
+                          {}
                           <td className="px-4 py-3 text-right">
                             {isEditing ? (
                               <input
@@ -446,7 +480,7 @@ export default function AnalyticsPage() {
                             )}
                           </td>
 
-                          {/* Comments */}
+                          {}
                           <td className="px-4 py-3 text-right">
                             {isEditing ? (
                               <input
@@ -466,7 +500,7 @@ export default function AnalyticsPage() {
                             )}
                           </td>
 
-                          {/* Shares */}
+                          {}
                           <td className="px-4 py-3 text-right">
                             {isEditing ? (
                               <input
@@ -486,7 +520,7 @@ export default function AnalyticsPage() {
                             )}
                           </td>
 
-                          {/* Followers */}
+                          {}
                           <td className="px-4 py-3 text-right">
                             {isEditing ? (
                               <input
@@ -506,7 +540,7 @@ export default function AnalyticsPage() {
                             )}
                           </td>
 
-                          {/* Actions */}
+                          {}
                           <td className="px-4 py-3 text-center">
                             {isEditing ? (
                               <div className="flex gap-2 justify-center">
@@ -527,13 +561,30 @@ export default function AnalyticsPage() {
                                 </Button>
                               </div>
                             ) : (
-                              <Button
-                                size="sm"
-                                className="text-xs"
-                                onClick={() => handleStartInlineEdit(post, accountId)}
-                              >
-                                Edit Metrics
-                              </Button>
+                              <div className="flex gap-1 justify-center">
+                                {}
+                                {(post.platform === "Facebook" || post.platform === "Instagram") && accountId !== NO_ACCOUNT && (
+                                  <Button
+                                    size="sm"
+                                    variant="outline"
+                                    className="text-xs border-blue-500 text-blue-700 hover:bg-blue-50"
+                                    disabled={!!syncingKey}
+                                    onClick={() => handleSyncMetrics(post, accountId)}
+                                    title="Fetch live metrics from Meta Graph API"
+                                  >
+                                    {syncingKey?.postId === postId && syncingKey?.accountId === accountId
+                                      ? "Syncing…"
+                                      : "Sync"}
+                                  </Button>
+                                )}
+                                <Button
+                                  size="sm"
+                                  className="text-xs"
+                                  onClick={() => handleStartInlineEdit(post, accountId)}
+                                >
+                                  Edit
+                                </Button>
+                              </div>
                             )}
                           </td>
                         </tr>
@@ -547,7 +598,7 @@ export default function AnalyticsPage() {
         </>
       )}
 
-      {/* Update Metrics Modal (kept for potential future use) */}
+      {}
       {selectedPostForMetrics && (
         <UpdateMetricsModal
           isOpen={isMetricsModalOpen}

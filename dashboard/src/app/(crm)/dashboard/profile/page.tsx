@@ -41,7 +41,7 @@ export default function ProfilePage() {
   const [updatingPassword, setUpdatingPassword] = useState(false);
   const [updatingProfile, setUpdatingProfile] = useState(false);
 
-  // Load user data
+  
   useEffect(() => {
     if (!user) {
       router.push("/login");
@@ -54,7 +54,7 @@ export default function ProfilePage() {
       role: user.role || "",
     });
 
-    // Set profile picture from user data
+    
     const profilePic = (user as any)?.profilePicture || (user as any)?.avatarUrl || (user as any)?.avatar;
     if (profilePic) {
       setProfilePicture(profilePic);
@@ -62,12 +62,12 @@ export default function ProfilePage() {
     }
   }, [user, router]);
 
-  // Handle profile picture selection
+  
   const handleProfilePictureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Validate file type
+    
     if (!file.type.startsWith("image/")) {
       toast({
         title: "Invalid file type",
@@ -77,7 +77,7 @@ export default function ProfilePage() {
       return;
     }
 
-    // Validate file size (max 5MB)
+    
     if (file.size > 5 * 1024 * 1024) {
       toast({
         title: "File too large",
@@ -89,7 +89,7 @@ export default function ProfilePage() {
 
     setProfilePictureFile(file);
 
-    // Create preview
+    
     const reader = new FileReader();
     reader.onloadend = () => {
       setPreviewUrl(reader.result as string);
@@ -97,7 +97,7 @@ export default function ProfilePage() {
     reader.readAsDataURL(file);
   };
 
-  // Handle profile picture upload
+  
   const handleUploadProfilePicture = async () => {
     if (!profilePictureFile) {
       toast({
@@ -127,7 +127,7 @@ export default function ProfilePage() {
       const uploadData = await uploadRes.json();
       const imageUrl = uploadData.url || uploadData.path || uploadData.filename;
 
-      // Update user with new profile picture URL
+      
       const updateRes = await fetch(`/api/users/${user?.id || user?._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -158,7 +158,7 @@ export default function ProfilePage() {
     }
   };
 
-  // Handle password change
+  
   const handleChangePassword = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -220,7 +220,7 @@ export default function ProfilePage() {
         description: "Password changed successfully",
       });
 
-      // Clear password fields
+      
       setPasswordData({
         currentPassword: "",
         newPassword: "",
@@ -245,21 +245,21 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4 space-y-8">
-        {/* Page Header */}
+        {}
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Profile Settings</h1>
           <p className="text-gray-600 mt-2">Manage your account and security settings</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Profile Picture Section */}
+          {}
           <div className="lg:col-span-1">
             <Card>
               <CardHeader>
                 <CardTitle className="text-lg">Profile Picture</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {/* Current Profile Picture */}
+                {}
                 <div className="flex flex-col items-center">
                   <div className="w-32 h-32 rounded-full bg-gray-200 overflow-hidden flex items-center justify-center border-2 border-gray-300">
                     {previewUrl ? (
@@ -278,7 +278,7 @@ export default function ProfilePage() {
                   </div>
                 </div>
 
-                {/* File Input */}
+                {}
                 <div>
                   <label htmlFor="profile-picture" className="block text-sm font-medium text-gray-700 mb-2">
                     Choose Image
@@ -298,7 +298,7 @@ export default function ProfilePage() {
                   <p className="text-xs text-gray-500 mt-2">Max 5MB, JPG/PNG/GIF</p>
                 </div>
 
-                {/* Upload Button */}
+                {}
                 <Button
                   onClick={handleUploadProfilePicture}
                   disabled={!profilePictureFile || updatingProfile}
@@ -320,9 +320,9 @@ export default function ProfilePage() {
             </Card>
           </div>
 
-          {/* User Details & Password Section */}
+          {}
           <div className="lg:col-span-2 space-y-6">
-            {/* User Details */}
+            {}
             <Card>
               <CardHeader>
                 <CardTitle className="text-lg">Account Details</CardTitle>
@@ -372,7 +372,7 @@ export default function ProfilePage() {
               </CardContent>
             </Card>
 
-            {/* Change Password */}
+            {}
             <Card>
               <CardHeader>
                 <CardTitle className="text-lg">Change Password</CardTitle>
@@ -380,7 +380,7 @@ export default function ProfilePage() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleChangePassword} className="space-y-4">
-                  {/* Current Password */}
+                  {}
                   <div>
                     <Label htmlFor="current-password" className="text-sm font-medium text-gray-700">
                       Current Password
@@ -412,7 +412,7 @@ export default function ProfilePage() {
                     </div>
                   </div>
 
-                  {/* New Password */}
+                  {}
                   <div>
                     <Label htmlFor="new-password" className="text-sm font-medium text-gray-700">
                       New Password
@@ -445,7 +445,7 @@ export default function ProfilePage() {
                     <p className="text-xs text-gray-500 mt-1">At least 6 characters</p>
                   </div>
 
-                  {/* Confirm Password */}
+                  {}
                   <div>
                     <Label htmlFor="confirm-password" className="text-sm font-medium text-gray-700">
                       Confirm New Password
@@ -477,7 +477,7 @@ export default function ProfilePage() {
                     </div>
                   </div>
 
-                  {/* Submit Button */}
+                  {}
                   <Button type="submit" disabled={updatingPassword} className="w-full">
                     {updatingPassword ? (
                       <>

@@ -177,7 +177,7 @@ export function AddInvoiceDialog({
         }
       }
 
-      // generate PDF and download
+      
       const doc = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
       try {
         const { loadNotoSansForJsPDF } = await import("@/lib/pdf-fonts");

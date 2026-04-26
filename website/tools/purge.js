@@ -7,12 +7,12 @@ async function runPurge() {
   try {
     
 
-    // âœ… Scan all HTML + JS files
+    
     const contentFiles = await glob(["**/*.html", "js/**/*.js"], {
       ignore: ["node_modules/**", "purge-output/**"],
     });
 
-    // âœ… Include ALL CSS (including FontAwesome)
+    
     const cssFiles = await glob(["**/*.css"], {
       ignore: ["node_modules/**", "purge-output/**"],
     });
@@ -24,9 +24,9 @@ async function runPurge() {
       content: contentFiles,
       css: cssFiles,
 
-      // ðŸ”¥ STRONG safelist (FontAwesome + Webflow + dynamic classes)
+      
       safelist: [
-        // Webflow / layout
+        
         /^w-/,
         /^w--/,
         /^aria-/,
@@ -38,7 +38,7 @@ async function runPurge() {
         /has-/,
         /was-/,
 
-        // ðŸ”¥ FULL FontAwesome protection
+        
         /^fa-/,
         /^fas/,
         /^far/,
@@ -51,19 +51,19 @@ async function runPurge() {
         /^fa-duotone/,
         /fa$/,
 
-        // Generic UI states
+        
         "active",
         "hidden",
         "show",
         "open",
         "visible",
 
-        // Custom
+        
         /^icon-/,
       ],
     });
 
-    // âœ… Create output folder
+    
     if (!fs.existsSync("purge-output")) {
       fs.mkdirSync("purge-output", { recursive: true });
     }

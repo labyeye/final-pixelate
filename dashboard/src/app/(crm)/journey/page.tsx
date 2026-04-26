@@ -37,7 +37,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+
 
 export type JourneyEventType =
   | "meeting"
@@ -75,7 +75,7 @@ export interface JourneyEvent {
   createdAt?: string | Date;
 }
 
-// ─── Constants ────────────────────────────────────────────────────────────────
+
 
 const EVENT_TYPE_CONFIG: Record<
   JourneyEventType,
@@ -148,7 +148,7 @@ const STATUS_VARIANT: Record<string, string> = {
   Signed: "bg-purple-100 text-purple-800 border-purple-200",
 };
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+
 
 function formatTime(date: Date) {
   return date.toLocaleTimeString("en-IN", {
@@ -213,7 +213,7 @@ function groupByDate(events: JourneyEvent[]) {
   return groups;
 }
 
-// ─── Add Event Dialog ─────────────────────────────────────────────────────────
+
 
 interface AddEventDialogProps {
   open: boolean;
@@ -301,7 +301,7 @@ function AddEventDialog({
         </DialogHeader>
 
         <div className="space-y-4 py-2">
-          {/* Type */}
+          {}
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label className="font-bold">Event Type *</Label>
@@ -346,7 +346,7 @@ function AddEventDialog({
             </div>
           </div>
 
-          {/* Title */}
+          {}
           <div className="space-y-1.5">
             <Label className="font-bold">Title *</Label>
             <Input
@@ -357,7 +357,7 @@ function AddEventDialog({
             />
           </div>
 
-          {/* Description */}
+          {}
           <div className="space-y-1.5">
             <Label className="font-bold">Description</Label>
             <Textarea
@@ -369,7 +369,7 @@ function AddEventDialog({
             />
           </div>
 
-          {/* Row: performed by + date */}
+          {}
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label className="font-bold">Performed By</Label>
@@ -391,7 +391,7 @@ function AddEventDialog({
             </div>
           </div>
 
-          {/* Project (optional) */}
+          {}
           <div className="space-y-1.5">
             <Label className="font-bold">Project (optional)</Label>
             <Input
@@ -402,7 +402,7 @@ function AddEventDialog({
             />
           </div>
 
-          {/* File / Link */}
+          {}
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label className="font-bold">File URL (PDF etc.)</Label>
@@ -453,7 +453,7 @@ function AddEventDialog({
   );
 }
 
-// ─── Journey Event Card ───────────────────────────────────────────────────────
+
 
 function JourneyCard({ event }: { event: JourneyEvent }) {
   const config = EVENT_TYPE_CONFIG[event.type] ?? EVENT_TYPE_CONFIG.note;
@@ -466,7 +466,7 @@ function JourneyCard({ event }: { event: JourneyEvent }) {
 
   return (
     <div className="flex gap-3 group">
-      {/* Icon bubble */}
+      {}
       <div className="flex-shrink-0 mt-1">
         <div
           className={cn(
@@ -478,20 +478,20 @@ function JourneyCard({ event }: { event: JourneyEvent }) {
         </div>
       </div>
 
-      {/* Card body */}
+      {}
       <div
         className={cn(
           "flex-1 rounded-xl border-2 border-black bg-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-shadow group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
         )}
       >
-        {/* ── Collapsed header (always visible) ── */}
+        {}
         <div
           className={cn(
             "flex items-center justify-between gap-2 px-4 py-3",
             expanded && "border-b-2 border-dashed border-gray-200",
           )}
         >
-          {/* Left: type badge + status + title */}
+          {}
           <div className="flex flex-wrap items-center gap-2 min-w-0">
             <span
               className={cn(
@@ -519,7 +519,7 @@ function JourneyCard({ event }: { event: JourneyEvent }) {
             </h3>
           </div>
 
-          {/* Right: time + expand toggle */}
+          {}
           <div className="flex items-center gap-2 flex-shrink-0">
             <span className="text-xs font-bold text-muted-foreground whitespace-nowrap">
               {formatTime(date)}
@@ -545,10 +545,10 @@ function JourneyCard({ event }: { event: JourneyEvent }) {
           </div>
         </div>
 
-        {/* ── Expanded details ── */}
+        {}
         {expanded && (
           <div className="px-4 pb-4 pt-3 space-y-3">
-            {/* Project tag */}
+            {}
             {event.projectName && (
               <p className="text-xs font-bold text-indigo-600 flex items-center gap-1">
                 <Briefcase className="w-3 h-3" />
@@ -556,7 +556,7 @@ function JourneyCard({ event }: { event: JourneyEvent }) {
               </p>
             )}
 
-            {/* Description */}
+            {}
             {event.description && (
               <div className="text-sm text-muted-foreground font-medium space-y-1">
                 {event.description.split('\n\n').map((block, i) => (
@@ -574,7 +574,7 @@ function JourneyCard({ event }: { event: JourneyEvent }) {
               </div>
             )}
 
-            {/* Attachments */}
+            {}
             {(event.fileUrl || event.linkUrl) && (
               <div className="flex flex-wrap gap-2">
                 {event.fileUrl && (
@@ -602,7 +602,7 @@ function JourneyCard({ event }: { event: JourneyEvent }) {
               </div>
             )}
 
-            {/* Footer */}
+            {}
             <div className="flex items-center gap-1.5 pt-2 border-t border-dashed border-gray-200">
               <div className="w-5 h-5 rounded-full bg-primary/10 border border-black flex items-center justify-center text-[10px] font-black text-primary">
                 {(event.performedBy ?? "S").charAt(0).toUpperCase()}
@@ -618,7 +618,7 @@ function JourneyCard({ event }: { event: JourneyEvent }) {
   );
 }
 
-// ─── Date Separator ───────────────────────────────────────────────────────────
+
 
 function DateSeparator({ label, date }: { label: string; date: Date }) {
   return (
@@ -638,7 +638,7 @@ function DateSeparator({ label, date }: { label: string; date: Date }) {
   );
 }
 
-// ─── Empty State ──────────────────────────────────────────────────────────────
+
 
 function EmptyFeed({ clientSelected }: { clientSelected: boolean }) {
   return (
@@ -660,7 +660,7 @@ function EmptyFeed({ clientSelected }: { clientSelected: boolean }) {
   );
 }
 
-// ─── Main Page ────────────────────────────────────────────────────────────────
+
 
 export default function JourneyPage() {
   const [clients, setClients] = useState<{ id: string; name: string }[]>([]);
@@ -671,7 +671,7 @@ export default function JourneyPage() {
   const [addOpen, setAddOpen] = useState(false);
   const feedEndRef = useRef<HTMLDivElement>(null);
 
-  // Load clients
+  
   useEffect(() => {
     fetch("/api/clients")
       .then((r) => r.json())
@@ -686,7 +686,7 @@ export default function JourneyPage() {
       .catch(console.error);
   }, []);
 
-  // Load events when client changes
+  
   useEffect(() => {
     if (!selectedClientId) {
       setEvents([]);
@@ -700,7 +700,7 @@ export default function JourneyPage() {
       .finally(() => setLoading(false));
   }, [selectedClientId]);
 
-  // Auto-scroll to bottom when events load / new event added
+  
   useEffect(() => {
     if (events.length > 0) {
       feedEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -727,10 +727,10 @@ export default function JourneyPage() {
 
   return (
     <div className="flex flex-col h-full min-h-screen bg-background font-headline">
-      {/* ── Page Header ───────────────────────────────────────────────── */}
+      {}
       <div className="sticky top-0 z-20 bg-background border-b-2 border-black">
         <div className="px-6 py-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          {/* Title block */}
+          {}
           <div>
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-primary border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
@@ -743,9 +743,9 @@ export default function JourneyPage() {
             </p>
           </div>
 
-          {/* Controls */}
+          {}
           <div className="flex flex-wrap items-center gap-3">
-            {/* Client dropdown */}
+            {}
             <Select value={selectedClientId} onValueChange={handleClientChange}>
               <SelectTrigger className="w-56 border-2 border-black font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] bg-white">
                 <SelectValue placeholder="Select a client…" />
@@ -759,7 +759,7 @@ export default function JourneyPage() {
               </SelectContent>
             </Select>
 
-            {/* Add button */}
+            {}
             <Button
               disabled={!selectedClientId}
               onClick={() => setAddOpen(true)}
@@ -771,7 +771,7 @@ export default function JourneyPage() {
           </div>
         </div>
 
-        {/* Stats strip — only when a client is selected and events exist */}
+        {}
         {selectedClientId && events.length > 0 && (
           <div className="px-6 pb-3 flex flex-wrap gap-3">
             {(Object.keys(EVENT_TYPE_CONFIG) as JourneyEventType[]).map((t) => {
@@ -797,7 +797,7 @@ export default function JourneyPage() {
         )}
       </div>
 
-      {/* ── Feed Area ─────────────────────────────────────────────────── */}
+      {}
       <div className="flex-1 overflow-y-auto">
         <div className="max-w-3xl mx-auto px-4 py-6">
           {loading ? (
@@ -827,14 +827,14 @@ export default function JourneyPage() {
                   </div>
                 </div>
               ))}
-              {/* Scroll anchor */}
+              {}
               <div ref={feedEndRef} className="h-8" />
             </div>
           )}
         </div>
       </div>
 
-      {/* ── Add Event Dialog ───────────────────────────────────────────── */}
+      {}
       {addOpen && (
         <AddEventDialog
           open={addOpen}

@@ -57,10 +57,10 @@ export default function ReelsPage() {
 
   const onEntryFile = async (index: number, f: File | null) => {
     const data = f ? await toBase64(f) : ''
-    // Use getValues to obtain current entries safely, then replace the array
+    
     const current = getValues().entries || []
     const entriesCopy = [...current]
-    // ensure length
+    
     while (entriesCopy.length <= index) entriesCopy.push({ thumbnailBase64: '', link: '', title: '' })
     entriesCopy[index] = { ...(entriesCopy[index] || {}), thumbnailBase64: data }
     replace(entriesCopy)

@@ -53,10 +53,10 @@ export async function GET(request: NextRequest) {
   }
 }
 
-/**
- * Helper to generate a MongoDB query that matches a field against a date range,
- * handling both native Date objects and ISO string formats.
- */
+
+
+
+
 function getDateQuery(field: string, start: Date, end: Date) {
   return {
     $or: [
@@ -69,7 +69,7 @@ function getDateQuery(field: string, start: Date, end: Date) {
 async function getIncomeStatement(startDate: Date, endDate: Date) {
   const invoicesCol = await svc.getCollection("invoices");
 
-  // Incomes come from either payments made in this period OR invoices created in this period (without payments)
+  
   const invoices = await invoicesCol
     .find({
       $or: [
@@ -94,7 +94,7 @@ async function getIncomeStatement(startDate: Date, endDate: Date) {
     const totalAmount = Number(inv.amount || 0);
     const paidAmount = Number(inv.paidAmount || 0);
 
-    // 1. Process individual payments from history
+    
     if (inv.paymentHistory && inv.paymentHistory.length > 0) {
       inv.paymentHistory.forEach((payment: any) => {
         const pDate = new Date(payment.date);
@@ -119,7 +119,7 @@ async function getIncomeStatement(startDate: Date, endDate: Date) {
         }
       });
     } else if (paidAmount > 0) {
-      // 2. Fallback for legacy data (no history) - rely on invoice date
+      
       const iDate = new Date(inv.createdAt);
       if (iDate >= startDate && iDate <= endDate) {
         totalRevenue += paidAmount;
@@ -139,7 +139,7 @@ async function getIncomeStatement(startDate: Date, endDate: Date) {
       }
     }
 
-    // Pending for invoices CREATED in this period
+    
     const iDate = new Date(inv.createdAt);
     if (iDate >= startDate && iDate <= endDate) {
       totalPending += totalAmount - paidAmount;
@@ -269,9 +269,9 @@ async function getStaffReport(
   const tasksCol = await svc.getCollection("tasks");
   const dateQuery = getDateQuery("createdAt", startDate, endDate);
 
-  // If a specific staff member is selected, filter tasks by their ID or name
+  
   if (staffMemberId && staffMemberId !== "all") {
-    // Resolve their name from the team-members collection
+    
     let staffName: string | null = null;
     try {
       const member = await svc.findById("team-members", staffMemberId);
@@ -294,7 +294,7 @@ async function getStaffReport(
       else pending++;
     });
 
-    // ── Earnings: projects where this staff member is assigned ──
+    
     const projectsCol = await svc.getCollection("projects");
     const allProjects = await projectsCol.find({}).toArray();
 
@@ -328,7 +328,7 @@ async function getStaffReport(
       }
     });
 
-    // ── Payout history: salary expenses linked to this staff member ──
+    
     const expensesCol = await svc.getCollection("expenses");
     const salaryExpenses = await expensesCol
       .find({
@@ -376,7 +376,7 @@ async function getStaffReport(
     });
   }
 
-  // All staff summary
+  
   const tasks = await tasksCol.find(dateQuery).toArray();
 
   const stats: Record<string, any> = {};
@@ -408,21 +408,21 @@ async function getClientReport(
 
   let query: any = getDateQuery("createdAt", startDate, endDate);
 
-  // If specific client selected, we need to find all invoices where identity matches
+  
   if (clientId && clientId !== "all") {
-    // 1. Get client name to allow matching by name as well (for legacy records missing ID)
+    
     const client = await svc.findById("clients", clientId);
     const clientName = client?.name;
 
-    // 2. Wrap the query to require (DATE FILTER) AND (IDENTITY MATCH)
+    
     query = {
       $and: [
-        query, // The existing $or for dates
+        query, 
         {
           $or: [
             { clientId: clientId },
             ...(clientName ? [{ clientName: clientName }] : []),
-            // Handle cases where ID might be stored as ObjectId
+            
             ...(clientId.length === 24
               ? [{ clientId: new ObjectId(clientId) }]
               : []),
@@ -439,7 +439,7 @@ async function getClientReport(
     let received = 0;
     let pending = 0;
 
-    // Collect all payment transactions across all invoices
+    
     const paymentDetails: any[] = [];
 
     const details = invoices.map((inv: any) => {
@@ -450,11 +450,11 @@ async function getClientReport(
       received += paid;
       pending += amount - paid;
 
-      // Extract payment history for this invoice
+      
       if (inv.paymentHistory && inv.paymentHistory.length > 0) {
         inv.paymentHistory.forEach((payment: any) => {
           const pDate = new Date(payment.date);
-          // Only include payments within the selected date range
+          
           if (pDate >= startDate && pDate <= endDate) {
             paymentDetails.push({
               date: payment.date,
@@ -477,7 +477,7 @@ async function getClientReport(
       };
     });
 
-    // Sort payment details by date (newest first)
+    
     paymentDetails.sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
     );
@@ -493,11 +493,11 @@ async function getClientReport(
         invoiceCount: invoices.length,
       },
       details,
-      paymentDetails, // New field for payment receipts
+      paymentDetails, 
     });
   }
 
-  // Summary for all clients
+  
   const clientStats: Record<string, any> = {};
   invoices.forEach((inv: any) => {
     const client = inv.clientName || "Unknown Client";
@@ -564,7 +564,7 @@ async function getProjectReport(startDate: Date, endDate: Date) {
     .find(getDateQuery("createdAt", startDate, endDate))
     .toArray();
 
-  // Status breakdown
+  
   const statusStats: Record<string, number> = {};
   let totalAmount = 0;
   let completedAmount = 0;

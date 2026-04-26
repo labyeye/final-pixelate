@@ -21,7 +21,7 @@ export default function ClientCalendarPage() {
         const headers: Record<string, string> = { "Content-Type": "application/json" };
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
-        // Fetch social media posts and other scheduled content
+        
         const [plannerRes, tasksRes] = await Promise.all([
           fetch("/api/social-media-planner", { headers }),
           fetch("/api/tasks", { headers }),
@@ -71,7 +71,7 @@ export default function ClientCalendarPage() {
     fetchEvents();
   }, [user]);
 
-  // Filter events for current month
+  
   const monthStart = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1);
   const monthEnd = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0);
 
@@ -103,13 +103,13 @@ export default function ClientCalendarPage() {
 
   return (
     <div className="min-h-screen bg-background font-headline p-6 space-y-6">
-      {/* Header */}
+      {}
       <div>
         <h1 className="text-4xl font-black tracking-tighter">Calendar</h1>
         <p className="text-muted-foreground mt-1">View your scheduled posts and tasks</p>
       </div>
 
-      {/* Month Navigation */}
+      {}
       <Card className="border-2 border-black">
         <CardHeader className="flex flex-row items-center justify-between pb-3">
           <button
@@ -130,7 +130,7 @@ export default function ClientCalendarPage() {
         </CardHeader>
       </Card>
 
-      {/* Events List */}
+      {}
       <div>
         {loading ? (
           <div className="text-center text-muted-foreground">Loading calendar...</div>
@@ -186,7 +186,7 @@ export default function ClientCalendarPage() {
         )}
       </div>
 
-      {/* Info Card */}
+      {}
       <Card className="border-2 border-black bg-primary/5">
         <CardContent className="pt-6">
           <p className="text-sm">

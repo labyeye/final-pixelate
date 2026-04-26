@@ -36,7 +36,7 @@ const formSchema = z.object({
   gstCompanyName: z.string().optional(),
   gstNumber: z.string().optional(),
   gstAddress: z.string().optional(),
-  // Portal login credentials
+  
   loginEmail: z.string().email("Invalid login email.").optional().or(z.literal("")),
   loginPassword: z.string().min(6, "Password must be at least 6 characters.").optional().or(z.literal("")),
 }).refine(data => {
@@ -46,16 +46,16 @@ const formSchema = z.object({
     return true;
 }, {
     message: "GST details are required when toggled on.",
-    path: ["gstCompanyName"], // you can pick any of the dependent fields
+    path: ["gstCompanyName"], 
 });
 
 type AddClientDialogProps = {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   onAddClient?: (newClient: Omit<Client, 'id'>) => void | Promise<void | Client>;
-  // onSave is used when editing an existing client
+  
   onSave?: (id: string | number, update: Partial<Client>) => void | Promise<void | Client>;
-  // initialValues when editing
+  
   initialValues?: Partial<Client>;
   children: React.ReactNode;
 };
@@ -79,7 +79,7 @@ export function AddClientDialog({ isOpen, setIsOpen, onAddClient, onSave, initia
 
   const hasGst = form.watch("hasGst");
 
-  // When initialValues change (e.g. opening edit dialog), reset the form to show current values.
+  
   useEffect(() => {
     if (initialValues) {
       form.reset({
@@ -130,7 +130,7 @@ export function AddClientDialog({ isOpen, setIsOpen, onAddClient, onSave, initia
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <div className="space-y-6 max-h-[65vh] overflow-y-auto pr-2">
-                    {/* Client Info */}
+                    {}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <FormField control={form.control} name="name" render={({ field }) => (
                             <FormItem><FormLabel>Client Name</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage /></FormItem>
@@ -157,7 +157,7 @@ export function AddClientDialog({ isOpen, setIsOpen, onAddClient, onSave, initia
 
                     <Separator className="border-t-2 border-black" />
 
-                    {/* Portal Login Credentials */}
+                    {}
                     <div className="space-y-3">
                       <div>
                         <h4 className="text-base font-bold">Portal Login Credentials</h4>
@@ -175,7 +175,7 @@ export function AddClientDialog({ isOpen, setIsOpen, onAddClient, onSave, initia
 
                     <Separator className="border-t-2 border-black" />
 
-                    {/* GST */}
+                    {}
                     <div className="space-y-4">
                         <FormField control={form.control} name="hasGst" render={({ field }) => (
                             <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">

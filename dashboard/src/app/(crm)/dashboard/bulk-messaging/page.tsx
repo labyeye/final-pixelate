@@ -5,7 +5,7 @@ import { BulkWhatsAppMessenger } from "@/components/whatsapp/bulk-messenger";
 export default function BulkMessagingPage() {
   return (
     <div className="space-y-6 font-headline">
-      {/* Header */}
+      {}
       <header>
         <h1 className="text-4xl font-black tracking-tighter">
           📱 BULK WHATSAPP MESSAGING
@@ -16,10 +16,10 @@ export default function BulkMessagingPage() {
         </p>
       </header>
 
-      {/* Main Component */}
+      {}
       <BulkWhatsAppMessenger />
 
-      {/* Quick Stats */}
+      {}
       
     </div>
   );

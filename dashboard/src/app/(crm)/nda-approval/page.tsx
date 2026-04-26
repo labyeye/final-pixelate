@@ -65,14 +65,14 @@ export default function NdaApprovalPage() {
 
   const fetchNdaApprovals = async () => {
     try {
-      // For client role, only fetch their own NDAs
+      
       const url = isClient && myClientId
         ? `/api/nda-approvals?clientId=${myClientId}`
         : "/api/nda-approvals";
       const res = await fetch(url);
       if (res.ok) {
         const data = await res.json();
-        // sort by created date descending if possible, or reverse
+        
         setNdaApprovals(data.reverse());
       }
     } catch (e) {
@@ -97,7 +97,7 @@ export default function NdaApprovalPage() {
     return () => {
       mounted = false;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [isClient, myClientId]);
 
   useEffect(() => {
@@ -171,7 +171,7 @@ export default function NdaApprovalPage() {
   const saveAndGenerate = async () => {
     setLoading(true);
     try {
-      // Attach clientId so we can filter per client later
+      
       const payload = {
         ...form,
         clientId: selectedClientId || myClientId || undefined,

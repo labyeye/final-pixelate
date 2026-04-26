@@ -117,7 +117,7 @@ export default function NewsletterPage() {
         description: `Successfully delivered to ${data.sent} client${data.sent !== 1 ? "s" : ""}.`,
       });
 
-      // Reset form
+      
       setSubject("");
       setMessage("");
       removeBanner();
@@ -132,7 +132,7 @@ export default function NewsletterPage() {
     }
   };
 
-  // Generate HTML preview (same structure as the API)
+  
   const messageHtml = message
     .split(/\n\n+/)
     .map(
@@ -161,7 +161,7 @@ export default function NewsletterPage() {
 
   return (
     <div className="space-y-8 font-headline max-w-4xl mx-auto">
-      {/* Page Header */}
+      {}
       <header className="flex items-start justify-between gap-4 flex-wrap">
         <div>
           <h1 className="text-5xl font-black tracking-tighter flex items-center gap-3">
@@ -215,7 +215,7 @@ export default function NewsletterPage() {
       </header>
 
       <div className="grid grid-cols-1 gap-6">
-        {/* Info Banner */}
+        {}
         <div className="flex items-center gap-3 rounded-lg border-2 border-black bg-primary/10 px-5 py-4">
           <Users className="w-5 h-5 text-primary shrink-0" />
           <p className="text-sm font-bold">
@@ -225,7 +225,7 @@ export default function NewsletterPage() {
           </p>
         </div>
 
-        {/* Subject */}
+        {}
         <Card className="border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
           <CardHeader>
             <CardTitle className="text-xl font-black">Subject Line</CardTitle>
@@ -248,7 +248,7 @@ export default function NewsletterPage() {
           </CardContent>
         </Card>
 
-        {/* Banner Image */}
+        {}
         <Card className="border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
           <CardHeader>
             <CardTitle className="text-xl font-black">
@@ -305,7 +305,7 @@ export default function NewsletterPage() {
           </CardContent>
         </Card>
 
-        {/* Message */}
+        {}
         <Card className="border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
           <CardHeader>
             <CardTitle className="text-xl font-black">Message Body</CardTitle>
@@ -328,7 +328,7 @@ export default function NewsletterPage() {
           </CardContent>
         </Card>
 
-        {/* Send Button (bottom) */}
+        {}
         <div className="flex justify-end pb-4">
           <Button
             onClick={handleSend}

@@ -57,7 +57,7 @@ export function InvoicePDF({
             setClient(data as Client);
           }
         } catch (e) {
-          // ignore fetch errors for PDF render
+          
         }
       })();
     }
@@ -91,16 +91,16 @@ export function InvoicePDF({
   let status = "DUE";
   let statusColor = "#044bab";
 
-  // Check if explicitly marked as PAID or if paid amount covers the total (with small tolerance)
+  
   const isPaid =
     invoice?.status === "PAID" || (paidAmount >= total - 1 && total > 0);
 
   if (isPaid) {
     status = "PAID";
-    statusColor = "#16a34a"; // green
+    statusColor = "#16a34a"; 
   } else if (paidAmount > 0 && paidAmount < total) {
     status = "PARTIAL";
-    statusColor = "#f59e0b"; // amber
+    statusColor = "#f59e0b"; 
   }
 
   const effectiveClientName =
@@ -127,7 +127,7 @@ export function InvoicePDF({
         margin: "0 auto",
       }}
     >
-      {/* Header Section */}
+      {}
       <div
         style={{
           display: "flex",
@@ -180,7 +180,7 @@ export function InvoicePDF({
             TAX INVOICE
           </div>
 
-          {/* Improved Status Section with better centering */}
+          {}
           <div
             style={{
               display: "flex",
@@ -275,7 +275,7 @@ export function InvoicePDF({
         </div>
       </div>
 
-      {/* Company and Client Info */}
+      {}
       <div
         style={{
           display: "grid",
@@ -349,7 +349,7 @@ export function InvoicePDF({
         </div>
       </div>
 
-      {/* Items Table */}
+      {}
       <div style={{ marginBottom: 20 }}>
         <table
           style={{
@@ -491,9 +491,9 @@ export function InvoicePDF({
         </table>
       </div>
 
-      {/* Work / Job Details (optional) */}
+      {}
 
-      {/* Summary Section */}
+      {}
       <div
         style={{
           display: "flex",
@@ -631,7 +631,7 @@ export function InvoicePDF({
         </div>
       </div>
 
-      {/* Footer */}
+      {}
       <div
         style={{
           display: "grid",
@@ -709,7 +709,7 @@ export function InvoicePDF({
         </div>
       </div>
 
-      {/* Terms */}
+      {}
       <div
         style={{
           fontSize: 10,

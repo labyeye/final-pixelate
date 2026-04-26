@@ -97,7 +97,7 @@ export default function AnalyticsPage() {
     (s, inv) => s + Number(inv.amount || 0),
     0,
   );
-  // Collected should include partial payments: prefer paidAmount, fallback to full amount for PAID status
+  
   const collected = invoices.reduce((s, inv) => {
     const paid =
       Number(inv.paidAmount ?? (inv.status === "PAID" ? inv.amount : 0)) || 0;
@@ -125,7 +125,7 @@ export default function AnalyticsPage() {
     0,
   );
 
-  // Earnings for developers/editors: sum of payouts in project assignees where assignee matches team member role
+  
   const devEditorEarnings = useMemo(() => {
     const earnings: { developers: number; editors: number } = {
       developers: 0,

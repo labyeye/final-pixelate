@@ -170,7 +170,7 @@ iframe {
     transition: color 0.4s ease;
 }
 
-/* Offerings (types of app development) */
+
 .offerings-section {
     padding: 48px 20px;
     background: linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
@@ -246,7 +246,7 @@ iframe {
     font-weight: 700;
 }
 
-/* Offerings section styles (shared) */
+
 .offerings-section{padding:48px 0}
 .offerings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .offer-card{background:#fff;border:1px solid #eef2ff;padding:22px;border-radius:10px;display:flex;flex-direction:column;min-height:220px}
@@ -290,7 +290,7 @@ iframe {
     text-align: center;
 }
 
-/* FAQ (copied from pricing.css) */
+
 .faq-section {
     padding: 40px 20px;
     background: transparent;
@@ -367,7 +367,7 @@ iframe {
     }
 }
 
-/* Portfolio Card Buttons - Responsive */
+
 .portfolio-buttons-container {
   display: flex;
   gap: 8px;

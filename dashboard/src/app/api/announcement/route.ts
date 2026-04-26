@@ -5,7 +5,7 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET,PUT,OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, Authorization, Cache-Control, X-Requested-With',
-  // Prevent intermediate caching of announcement responses
+  
   'Cache-Control': 'no-store',
 };
 
@@ -19,14 +19,14 @@ export async function GET() {
     const announcement = await col.findOne({ _id: 'main' } as any);
     
     if (!announcement) {
-      // No announcement configured — return empty/disabled response
+      
       return NextResponse.json({
         text: '',
         enabled: false,
       }, { headers: CORS_HEADERS });
     }
 
-    // Only enable the announcement when text exists and enabled isn't false
+    
     const text = announcement.text ?? '';
     const enabled = (announcement.enabled !== false) && Boolean(text);
 
@@ -36,7 +36,7 @@ export async function GET() {
     }, { headers: CORS_HEADERS });
   } catch (e: any) {
     console.error('Error fetching announcement:', e);
-    // On error, return an empty/disabled announcement so clients hide the bar
+    
     return NextResponse.json({
       text: '',
       enabled: false,

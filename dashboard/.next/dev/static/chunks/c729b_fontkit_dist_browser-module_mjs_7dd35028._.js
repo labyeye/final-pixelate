@@ -85,11 +85,11 @@ let $d636bc798e7178db$export$42940898df819940 = 'en';
 function $d636bc798e7178db$export$5157e7780d44cc36(lang = 'en') {
     $d636bc798e7178db$export$42940898df819940 = lang;
 }
-/**
- * This decorator caches the results of a getter or method such that
- * the results are lazily computed once, and then cached.
- * @private
- */ function $e71565f2ce09cb6b$export$69a3209f1a06c04d(target, key, descriptor) {
+
+
+
+
+ function $e71565f2ce09cb6b$export$69a3209f1a06c04d(target, key, descriptor) {
     if (descriptor.get) {
         let get = descriptor.get;
         descriptor.get = function() {
@@ -259,7 +259,7 @@ var $f2612a29f92ac062$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module
     lowestRecPPEM: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     fontDirectionHint: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
     indexToLocFormat: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
-    glyphDataFormat: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"] // 0 for current format
+    glyphDataFormat: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"] 
 });
 var $2c179dd593583073$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     version: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int32"],
@@ -275,7 +275,7 @@ var $2c179dd593583073$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module
     caretOffset: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
     reserved: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Reserved$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Reserved"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"], 4),
     metricDataFormat: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
-    numberOfMetrics: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"] // Number of advance widths in 'hmtx' table
+    numberOfMetrics: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"] 
 });
 let $bdc9060542264b85$var$HmtxEntry = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     advance: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
@@ -300,12 +300,12 @@ var $dbf51cb3d3fe409d$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module
     maxStackElements: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     maxSizeOfInstructions: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     maxComponentElements: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
-    maxComponentDepth: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"] // Maximum levels of recursion; 1 for simple components
+    maxComponentDepth: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"] 
 });
-/**
- * Gets an encoding name from platform, encoding, and language ids.
- * Returned encoding names can be used in iconv-lite to decode text.
- */ function $e449ad78d50845fe$export$badc544e0651b6b1(platformID, encodingID, languageID = 0) {
+
+
+
+ function $e449ad78d50845fe$export$badc544e0651b6b1(platformID, encodingID, languageID = 0) {
     if (platformID === 1 && $e449ad78d50845fe$export$479e671907f486d1[languageID]) return $e449ad78d50845fe$export$479e671907f486d1[languageID];
     return $e449ad78d50845fe$export$6fef87b7618bdf0b[platformID][encodingID];
 }
@@ -329,7 +329,7 @@ const $e449ad78d50845fe$var$encodingCache = new Map();
 function $e449ad78d50845fe$export$1dceb3c14ed68bee(encoding) {
     let cached = $e449ad78d50845fe$var$encodingCache.get(encoding);
     if (cached) return cached;
-    // These encodings aren't supported by TextDecoder.
+    
     let mapping = $e449ad78d50845fe$var$MAC_ENCODINGS[encoding];
     if (mapping) {
         let res = new Map();
@@ -337,10 +337,10 @@ function $e449ad78d50845fe$export$1dceb3c14ed68bee(encoding) {
         $e449ad78d50845fe$var$encodingCache.set(encoding, res);
         return res;
     }
-    // Only single byte encodings can be mapped 1:1.
+    
     if ($e449ad78d50845fe$var$SINGLE_BYTE_ENCODINGS.has(encoding)) {
-        // TextEncoder only supports utf8, whereas TextDecoder supports legacy encodings.
-        // Use this to create a mapping of code points.
+        
+        
         let decoder = new TextDecoder(encoding);
         let mapping = new Uint8Array(0x80);
         for(let i = 0; i < 0x80; i++)mapping[i] = 0x80 + i;
@@ -352,7 +352,7 @@ function $e449ad78d50845fe$export$1dceb3c14ed68bee(encoding) {
     }
 }
 const $e449ad78d50845fe$export$6fef87b7618bdf0b = [
-    // unicode
+    
     [
         'utf-16be',
         'utf-16be',
@@ -362,25 +362,25 @@ const $e449ad78d50845fe$export$6fef87b7618bdf0b = [
         'utf-16be',
         'utf-16be'
     ],
-    // macintosh
-    // Mappings available at http://unicode.org/Public/MAPPINGS/VENDORS/APPLE/
-    // 0	Roman                 17	Malayalam
-    // 1	Japanese	            18	Sinhalese
-    // 2	Traditional Chinese	  19	Burmese
-    // 3	Korean	              20	Khmer
-    // 4	Arabic	              21	Thai
-    // 5	Hebrew	              22	Laotian
-    // 6	Greek	                23	Georgian
-    // 7	Russian	              24	Armenian
-    // 8	RSymbol	              25	Simplified Chinese
-    // 9	Devanagari	          26	Tibetan
-    // 10	Gurmukhi	            27	Mongolian
-    // 11	Gujarati	            28	Geez
-    // 12	Oriya	                29	Slavic
-    // 13	Bengali	              30	Vietnamese
-    // 14	Tamil	                31	Sindhi
-    // 15	Telugu	              32	(Uninterpreted)
-    // 16	Kannada
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     [
         'x-mac-roman',
         'shift-jis',
@@ -415,14 +415,14 @@ const $e449ad78d50845fe$export$6fef87b7618bdf0b = [
         'Vietnamese',
         'Sindhi'
     ],
-    // ISO (deprecated)
+    
     [
         'ascii',
         null,
         'iso-8859-1'
     ],
-    // windows
-    // Docs here: http://msdn.microsoft.com/en-us/library/system.text.encoding(v=vs.110).aspx
+    
+    
     [
         'symbol',
         'utf-16be',
@@ -455,7 +455,7 @@ const $e449ad78d50845fe$export$479e671907f486d1 = {
     146: 'x-mac-gaelic'
 };
 const $e449ad78d50845fe$export$2092376fd002e13 = [
-    // unicode
+    
     [],
     {
         0: 'en',
@@ -578,7 +578,7 @@ const $e449ad78d50845fe$export$2092376fd002e13 = [
         59: 'ps',
         89: 'sw'
     },
-    // ISO (deprecated)
+    
     [],
     {
         0x0436: 'af',
@@ -850,11 +850,11 @@ const $2bcf221753ec8e32$var$NAMES = [
 $2bcf221753ec8e32$var$NameTable.process = function(stream) {
     var records = {};
     for (let record of this.records){
-        // find out what language this is for
+        
         let language = (0, $e449ad78d50845fe$export$2092376fd002e13)[record.platformID][record.languageID];
         if (language == null && this.langTags != null && record.languageID >= 0x8000) language = this.langTags[record.languageID - 0x8000].tag;
         if (language == null) language = record.platformID + '-' + record.languageID;
-        // if the nameID is >= 256, it is a font feature record (AAT)
+        
         let key = record.nameID >= 256 ? 'fontFeatures' : $2bcf221753ec8e32$var$NAMES[record.nameID] || record.nameID;
         if (records[key] == null) records[key] = {};
         let obj = records[key];
@@ -935,9 +935,9 @@ var $84b272aa31b70606$var$OS2 = new __TURBOPACK__imported__module__$5b$project$5
             'oblique'
         ]),
         usFirstCharIndex: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
-        usLastCharIndex: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"] // The maximum Unicode index in this font
+        usLastCharIndex: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"] 
     },
-    // The Apple version of this table ends here, but the Microsoft one continues on...
+    
     0: {},
     1: {
         typoAscender: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
@@ -948,7 +948,7 @@ var $84b272aa31b70606$var$OS2 = new __TURBOPACK__imported__module__$5b$project$5
         codePageRange: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"], 2)
     },
     2: {
-        // these should be common with version 1 somehow
+        
         typoAscender: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
         typoDescender: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
         typoLineGap: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
@@ -989,7 +989,7 @@ var $32d9e2eb9565d93c$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module
         minMemType42: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"],
         maxMemType42: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"],
         minMemType1: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"],
-        maxMemType1: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"] // Maximum memory usage when a TrueType font is downloaded as a Type 1 font
+        maxMemType1: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"] 
     },
     1: {},
     2: {
@@ -1009,8 +1009,8 @@ var $32d9e2eb9565d93c$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module
 var $5202bd9d9ad8eaac$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     controlValues: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"])
 });
-var // These instructions are known as the font program. The main use of this table
-// is for the definition of functions that are used in many different glyph programs.
+var 
+
 $5c0f37ca5ffb1850$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     instructions: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"])
 });
@@ -1079,7 +1079,7 @@ class $43e9821ef3717eec$export$2e2bcd8739ae039 {
         let size = 2;
         if (arr.length === 0) return size;
         let type = this.type || new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Buffer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Buffer"];
-        // find maximum offset to detminine offset type
+        
         let offset = 1;
         for(let i = 0; i < arr.length; i++){
             let item = arr[i];
@@ -1099,7 +1099,7 @@ class $43e9821ef3717eec$export$2e2bcd8739ae039 {
         stream.writeUInt16BE(arr.length);
         if (arr.length === 0) return;
         let type = this.type || new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Buffer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Buffer"];
-        // find maximum offset to detminine offset type
+        
         let sizes = [];
         let offset = 1;
         for (let item of arr){
@@ -1113,9 +1113,9 @@ class $43e9821ef3717eec$export$2e2bcd8739ae039 {
         else if (offset <= 0xffffff) offsetType = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint24"];
         else if (offset <= 0xffffffff) offsetType = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"];
         else throw new Error("Bad offset in CFFIndex");
-        // write offset size
+        
         stream.writeUInt8(offsetType.size());
-        // write elements
+        
         offset = 1;
         offsetType.encode(stream, offset);
         for (let size of sizes){
@@ -1176,8 +1176,8 @@ class $c2d28e92708f99da$export$2e2bcd8739ae039 {
         return null;
     }
     static size(value) {
-        // if the value needs to be forced to the largest size (32 bit)
-        // e.g. for unknown pointers, set to 32768
+        
+        
         if (value.forceLarge) value = 32768;
         if ((value | 0) !== value) {
             let str = '' + value;
@@ -1188,8 +1188,8 @@ class $c2d28e92708f99da$export$2e2bcd8739ae039 {
         else return 5;
     }
     static encode(stream, value) {
-        // if the value needs to be forced to the largest size (32 bit)
-        // e.g. for unknown pointers, save the old value and set to 32768
+        
+        
         let val = Number(value);
         if (value.forceLarge) {
             stream.writeUInt8(29);
@@ -1261,7 +1261,7 @@ class $61aa549f16d58b9b$export$2e2bcd8739ae039 {
         let end = stream.pos + parent.length;
         let ret = {};
         let operands = [];
-        // define hidden properties
+        
         Object.defineProperties(ret, {
             parent: {
                 value: parent
@@ -1270,7 +1270,7 @@ class $61aa549f16d58b9b$export$2e2bcd8739ae039 {
                 value: stream.pos
             }
         });
-        // fill in defaults
+        
         for(let key in this.fields){
             let field = this.fields[key];
             ret[field[1]] = field[3];
@@ -1357,7 +1357,7 @@ class $0e34a43d05bde82c$export$2e2bcd8739ae039 extends __TURBOPACK__imported__mo
     }
     encode(stream, value, ctx) {
         if (!stream) {
-            // compute the size (so ctx.pointerSize is correct)
+            
             this.offsetType = {
                 size: ()=>0
             };
@@ -1392,13 +1392,13 @@ class $0e34a43d05bde82c$var$Ptr {
 class $6d59db2e29cc77b3$var$CFFBlendOp {
     static decode(stream, parent, operands) {
         let numBlends = operands.pop();
-        // TODO: actually blend. For now just consume the deltas
-        // since we don't use any of the values anyway.
+        
+        
         while(operands.length > numBlends)operands.pop();
     }
 }
 var $6d59db2e29cc77b3$export$2e2bcd8739ae039 = new (0, $61aa549f16d58b9b$export$2e2bcd8739ae039)([
-    // key       name                    type                                          default
+    
     [
         6,
         'BlueValues',
@@ -1549,8 +1549,8 @@ var $6d59db2e29cc77b3$export$2e2bcd8739ae039 = new (0, $61aa549f16d58b9b$export$
         null
     ]
 ]);
-// Automatically generated from Appendix A of the CFF specification; do
-// not edit. Length should be 391.
+
+
 var $229224aec43783c5$export$2e2bcd8739ae039 = [
     ".notdef",
     "space",
@@ -2943,9 +2943,9 @@ let $ef658f5c9a1488b2$export$dc28be11139d4120 = [
     'periodinferior',
     'commainferior'
 ];
-//########################
-// Scripts and Languages #
-//########################
+
+
+
 let $7cbbe4e24ef3cb75$var$LangSysTable = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     reserved: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Reserved$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Reserved"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"]),
     reqFeatureIndex: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
@@ -2970,9 +2970,9 @@ let $7cbbe4e24ef3cb75$var$ScriptRecord = new __TURBOPACK__imported__module__$5b$
     })
 });
 let $7cbbe4e24ef3cb75$export$3e15fc05ce864229 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($7cbbe4e24ef3cb75$var$ScriptRecord, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"]);
-//#######################
-// Features and Lookups #
-//#######################
+
+
+
 let $7cbbe4e24ef3cb75$var$FeatureParams = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     version: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     nameID: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"]
@@ -3009,9 +3009,9 @@ function $7cbbe4e24ef3cb75$export$df0008c6ff2da22a(SubTable) {
     });
     return new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$LazyArray$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["LazyArray"](new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], Lookup), __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"]);
 }
-//#################
-// Coverage Table #
-//#################
+
+
+
 let $7cbbe4e24ef3cb75$var$RangeRecord = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     start: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     end: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
@@ -3027,9 +3027,9 @@ let $7cbbe4e24ef3cb75$export$17608c3f81a6111 = new __TURBOPACK__imported__module
         rangeRecords: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($7cbbe4e24ef3cb75$var$RangeRecord, 'rangeCount')
     }
 });
-//#########################
-// Class Definition Table #
-//#########################
+
+
+
 let $7cbbe4e24ef3cb75$var$ClassRangeRecord = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     start: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     end: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
@@ -3051,9 +3051,9 @@ let $7cbbe4e24ef3cb75$export$8215d14a63d9fb10 = new __TURBOPACK__imported__modul
     b: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     deltaFormat: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"]
 });
-//#############################################
-// Contextual Substitution/Positioning Tables #
-//#############################################
+
+
+
 let $7cbbe4e24ef3cb75$var$LookupRecord = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     sequenceIndex: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     lookupListIndex: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"]
@@ -3091,9 +3091,9 @@ let $7cbbe4e24ef3cb75$export$841858b892ce1f4c = new __TURBOPACK__imported__modul
         lookupRecords: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($7cbbe4e24ef3cb75$var$LookupRecord, 'lookupCount')
     }
 });
-//######################################################
-// Chaining Contextual Substitution/Positioning Tables #
-//######################################################
+
+
+
 let $7cbbe4e24ef3cb75$var$ChainRule = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     backtrackGlyphCount: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     backtrack: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], 'backtrackGlyphCount'),
@@ -3130,9 +3130,9 @@ let $7cbbe4e24ef3cb75$export$5e6d09e6861162f6 = new __TURBOPACK__imported__modul
         lookupRecords: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($7cbbe4e24ef3cb75$var$LookupRecord, 'lookupCount')
     }
 });
-/*******************
- * Variation Store *
- *******************/ let $1a47b0c45c1c22fe$var$F2DOT14 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fixed"](16, 'BE', 14);
+
+
+ let $1a47b0c45c1c22fe$var$F2DOT14 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fixed"](16, 'BE', 14);
 let $1a47b0c45c1c22fe$var$RegionAxisCoordinates = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     startCoord: $1a47b0c45c1c22fe$var$F2DOT14,
     peakCoord: $1a47b0c45c1c22fe$var$F2DOT14,
@@ -3161,9 +3161,9 @@ let $1a47b0c45c1c22fe$export$fe1b122a2710f241 = new __TURBOPACK__imported__modul
     variationDataCount: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     itemVariationData: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"](new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"], $1a47b0c45c1c22fe$var$ItemVariationData), 'variationDataCount')
 });
-/**********************
- * Feature Variations *
- **********************/ let $1a47b0c45c1c22fe$var$ConditionTable = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$VersionedStruct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["VersionedStruct"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], {
+
+
+ let $1a47b0c45c1c22fe$var$ConditionTable = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$VersionedStruct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["VersionedStruct"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], {
     1: {
         axisIndex: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
         axisIndex: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
@@ -3200,8 +3200,8 @@ let $1a47b0c45c1c22fe$export$441b70b7971dd419 = new __TURBOPACK__imported__modul
     featureVariationRecordCount: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"],
     featureVariationRecords: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($1a47b0c45c1c22fe$var$FeatureVariationRecord, 'featureVariationRecordCount')
 });
-// Checks if an operand is an index of a predefined value,
-// otherwise delegates to the provided type.
+
+
 class $b84fd3dd9d8eddb2$var$PredefinedOp {
     decode(stream, parent, operands) {
         if (this.predefinedOps[operands[0]]) return this.predefinedOps[operands[0]];
@@ -3252,8 +3252,8 @@ let $b84fd3dd9d8eddb2$var$CFFEncoding = new $b84fd3dd9d8eddb2$var$PredefinedOp([
 ], new (0, $0e34a43d05bde82c$export$2e2bcd8739ae039)($b84fd3dd9d8eddb2$var$CFFCustomEncoding, {
     lazy: true
 }));
-// Decodes an array of ranges until the total
-// length is equal to the provided length.
+
+
 class $b84fd3dd9d8eddb2$var$RangeArray extends __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"] {
     decode(stream, parent) {
         let length = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$utils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["resolveLength"])(this.length, stream, parent);
@@ -3331,7 +3331,7 @@ class $b84fd3dd9d8eddb2$var$CFFPrivateOp {
     }
 }
 let $b84fd3dd9d8eddb2$var$FontDict = new (0, $61aa549f16d58b9b$export$2e2bcd8739ae039)([
-    // key       name                   type(s)                                 default
+    
     [
         18,
         'Private',
@@ -3374,7 +3374,7 @@ let $b84fd3dd9d8eddb2$var$FontDict = new (0, $61aa549f16d58b9b$export$2e2bcd8739
     ]
 ]);
 let $b84fd3dd9d8eddb2$var$CFFTopDict = new (0, $61aa549f16d58b9b$export$2e2bcd8739ae039)([
-    // key       name                   type(s)                                 default
+    
     [
         [
             12,
@@ -3589,7 +3589,7 @@ let $b84fd3dd9d8eddb2$var$CFFTopDict = new (0, $61aa549f16d58b9b$export$2e2bcd87
         'delta',
         null
     ],
-    // CID font specific
+    
     [
         [
             12,
@@ -3776,9 +3776,9 @@ class $822ac0d589e4e237$var$CFFFont {
         return this.stream.readBuffer(this.topDict.CharStrings[glyph].length);
     }
     getGlyphName(gid) {
-        // CFF2 glyph names are in the post table.
+        
         if (this.version >= 2) return null;
-        // CID-keyed fonts don't have glyph names
+        
         if (this.isCIDFont) return null;
         let { charset: charset } = this.topDict;
         if (Array.isArray(charset)) return charset[gid];
@@ -3878,8 +3878,8 @@ let $0941618dc22a946d$export$f1f5ddeb20d14f = new __TURBOPACK__imported__module_
         metrics: $0941618dc22a946d$export$62c53e75f69bfe12,
         data: $0941618dc22a946d$var$BitAligned
     },
-    // format 3 is deprecated
-    // format 4 is not supported by Microsoft
+    
+    
     5: {
         data: $0941618dc22a946d$var$BitAligned
     },
@@ -3995,8 +3995,8 @@ let $abb847051efd51b1$var$ImageTable = new __TURBOPACK__imported__module__$5b$pr
     resolution: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     imageOffsets: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"](new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"], 'void'), (t)=>t.parent.parent.maxp.numGlyphs + 1)
 });
-var // It includes several image tables with images for each bitmap glyph
-// of several different sizes.
+var 
+
 $abb847051efd51b1$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     version: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     flags: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Bitfield$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Bitfield"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], [
@@ -4007,16 +4007,16 @@ $abb847051efd51b1$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5
 });
 let $eb629188f3dfefdd$var$LayerRecord = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     gid: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
-    paletteIndex: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"] // Index value to use in the appropriate palette. This value must
-}); // be less than numPaletteEntries in the CPAL table, except for
-// the special case noted below. Each palette entry is 16 bits.
-// A palette index of 0xFFFF is a special case indicating that
-// the text foreground color should be used.
+    paletteIndex: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"] 
+}); 
+
+
+
 let $eb629188f3dfefdd$var$BaseGlyphRecord = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     gid: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
-    // and is not rendered for color.
+    
     firstLayerIndex: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
-    // There will be numLayers consecutive entries for this base glyph.
+    
     numLayers: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"]
 });
 var $eb629188f3dfefdd$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
@@ -4051,16 +4051,16 @@ var $08734b8e7dc64587$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module
 });
 let $497cef411d884e34$var$BaseCoord = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$VersionedStruct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["VersionedStruct"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], {
     1: {
-        coordinate: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"] // X or Y value, in design units
+        coordinate: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"] 
     },
     2: {
         coordinate: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
         referenceGlyph: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
-        baseCoordPoint: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"] // Index of contour point on the referenceGlyph
+        baseCoordPoint: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"] 
     },
     3: {
         coordinate: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
-        deviceTable: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], (0, $7cbbe4e24ef3cb75$export$8215d14a63d9fb10)) // Device table for X or Y value
+        deviceTable: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], (0, $7cbbe4e24ef3cb75$export$8215d14a63d9fb10)) 
     }
 });
 let $497cef411d884e34$var$BaseValues = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
@@ -4075,13 +4075,13 @@ let $497cef411d884e34$var$FeatMinMaxRecord = new __TURBOPACK__imported__module__
     }),
     maxCoord: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], $497cef411d884e34$var$BaseCoord, {
         type: 'parent'
-    }) // May be NULL
+    }) 
 });
 let $497cef411d884e34$var$MinMax = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     minCoord: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], $497cef411d884e34$var$BaseCoord),
     maxCoord: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], $497cef411d884e34$var$BaseCoord),
     featMinMaxCount: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
-    featMinMaxRecords: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($497cef411d884e34$var$FeatMinMaxRecord, 'featMinMaxCount') // In alphabetical order
+    featMinMaxRecords: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($497cef411d884e34$var$FeatMinMaxRecord, 'featMinMaxCount') 
 });
 let $497cef411d884e34$var$BaseLangSysRecord = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     tag: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$String$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["String"](4),
@@ -4093,7 +4093,7 @@ let $497cef411d884e34$var$BaseScript = new __TURBOPACK__imported__module__$5b$pr
     baseValues: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], $497cef411d884e34$var$BaseValues),
     defaultMinMax: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], $497cef411d884e34$var$MinMax),
     baseLangSysCount: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
-    baseLangSysRecords: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($497cef411d884e34$var$BaseLangSysRecord, 'baseLangSysCount') // in alphabetical order by BaseLangSysTag
+    baseLangSysRecords: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($497cef411d884e34$var$BaseLangSysRecord, 'baseLangSysCount') 
 });
 let $497cef411d884e34$var$BaseScriptRecord = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     tag: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$String$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["String"](4),
@@ -4102,7 +4102,7 @@ let $497cef411d884e34$var$BaseScriptRecord = new __TURBOPACK__imported__module__
     })
 });
 let $497cef411d884e34$var$BaseScriptList = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($497cef411d884e34$var$BaseScriptRecord, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"]);
-// Array of 4-byte baseline identification tags-must be in alphabetical order
+
 let $497cef411d884e34$var$BaseTagList = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"](new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$String$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["String"](4), __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"]);
 let $497cef411d884e34$var$Axis = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     baseTagList: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], $497cef411d884e34$var$BaseTagList),
@@ -4111,7 +4111,7 @@ let $497cef411d884e34$var$Axis = new __TURBOPACK__imported__module__$5b$project$
 var $497cef411d884e34$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$VersionedStruct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["VersionedStruct"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"], {
     header: {
         horizAxis: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], $497cef411d884e34$var$Axis),
-        vertAxis: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], $497cef411d884e34$var$Axis) // May be NULL
+        vertAxis: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], $497cef411d884e34$var$Axis) 
     },
     0x00010000: {},
     0x00010001: {
@@ -4336,7 +4336,7 @@ let $47e0e8ef515d9903$export$73a8cfb19cd43a0f = new __TURBOPACK__imported__modul
         extension: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Pointer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Pointer"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"], null)
     }
 });
-// Fix circular reference
+
 $47e0e8ef515d9903$export$73a8cfb19cd43a0f.versions[9].extension.type = $47e0e8ef515d9903$export$73a8cfb19cd43a0f;
 var $47e0e8ef515d9903$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$VersionedStruct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["VersionedStruct"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"], {
     header: {
@@ -4404,7 +4404,7 @@ let $d3f442064af66e06$var$GSUBLookup = new __TURBOPACK__imported__module__$5b$pr
         substitutes: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], 'glyphCount')
     }
 });
-// Fix circular reference
+
 $d3f442064af66e06$var$GSUBLookup.versions[7].extension.type = $d3f442064af66e06$var$GSUBLookup;
 var $d3f442064af66e06$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$VersionedStruct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["VersionedStruct"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"], {
     header: {
@@ -4452,7 +4452,7 @@ var $71cfb3c4767fbd0c$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module
     scriptCount: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     scriptList: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($71cfb3c4767fbd0c$var$JstfScriptRecord, 'scriptCount')
 });
-// TODO: add this to restructure
+
 class $d059a6bd2d3b5b63$var$VariableSizeNumber {
     decode(stream, parent) {
         switch(this.size(0, parent)){
@@ -4514,13 +4514,13 @@ let $8acd740a9435aad0$var$GaspRange = new __TURBOPACK__imported__module__$5b$pro
         'grayscale',
         'gridfit',
         'symmetricSmoothing',
-        'symmetricGridfit' // only in version 1, for ClearType
+        'symmetricGridfit' 
     ])
 });
 var $8acd740a9435aad0$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     version: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     numRanges: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
-    gaspRanges: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($8acd740a9435aad0$var$GaspRange, 'numRanges') // Sorted by ppem
+    gaspRanges: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($8acd740a9435aad0$var$GaspRange, 'numRanges') 
 });
 let $b5f380243c34d6a0$var$DeviceRecord = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     pixelSize: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"],
@@ -4590,7 +4590,7 @@ let $ca2df1256966e313$var$KernTable = new __TURBOPACK__imported__module__$5b$pro
             'horizontal',
             'minimum',
             'crossStream',
-            'override' // If set to 1 the value in this table replaces the accumulated value
+            'override' 
         ]),
         subtable: $ca2df1256966e313$var$KernSubtable,
         padding: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Reserved$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Reserved"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"], (t)=>t.length - t._currentOffset)
@@ -4605,7 +4605,7 @@ let $ca2df1256966e313$var$KernTable = new __TURBOPACK__imported__module__$5b$pro
             null,
             'variation',
             'crossStream',
-            'vertical' // Set if table has vertical kerning values
+            'vertical' 
         ]),
         format: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"],
         tupleIndex: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
@@ -4624,14 +4624,14 @@ var $ca2df1256966e313$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module
         tables: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($ca2df1256966e313$var$KernTable, 'nTables')
     }
 });
-var // Records the ppem for each glyph at which the scaling becomes linear again,
-// despite instructions effecting the advance width
+var 
+
 $7a9f92b0c46ebe33$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     version: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     numGlyphs: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     yPels: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"], 'numGlyphs')
 });
-var // NOTE: The PCLT table is strongly discouraged for OpenType fonts with TrueType outlines
+var 
 $2b2ccc419d152631$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     version: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     fontNumber: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"],
@@ -4649,24 +4649,24 @@ $2b2ccc419d152631$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5
     serifStyle: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"],
     reserved: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Reserved$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Reserved"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"])
 });
-// VDMX tables contain ascender/descender overrides for certain (usually small)
-// sizes. This is needed in order to match font metrics on Windows.
+
+
 let $ca5b40b9bcda9c9b$var$Ratio = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     bCharSet: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"],
     xRatio: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"],
     yStartRatio: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"],
-    yEndRatio: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"] // Ending y-Ratio value
+    yEndRatio: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"] 
 });
 let $ca5b40b9bcda9c9b$var$vTable = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     yPelHeight: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     yMax: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
-    yMin: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"] // Minimum value (in pels) for this yPelHeight
+    yMin: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"] 
 });
 let $ca5b40b9bcda9c9b$var$VdmxGroup = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     recs: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     startsz: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"],
     endsz: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"],
-    entries: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($ca5b40b9bcda9c9b$var$vTable, 'recs') // The VDMX records
+    entries: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($ca5b40b9bcda9c9b$var$vTable, 'recs') 
 });
 var $ca5b40b9bcda9c9b$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     version: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
@@ -4674,7 +4674,7 @@ var $ca5b40b9bcda9c9b$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module
     numRatios: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
     ratioRanges: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($ca5b40b9bcda9c9b$var$Ratio, 'numRatios'),
     offsets: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], 'numRatios'),
-    groups: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($ca5b40b9bcda9c9b$var$VdmxGroup, 'numRecs') // The actual VDMX groupings
+    groups: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"]($ca5b40b9bcda9c9b$var$VdmxGroup, 'numRecs') 
 });
 var $69530a3c40755af0$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     version: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
@@ -4690,11 +4690,11 @@ var $69530a3c40755af0$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module
     caretOffset: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
     reserved: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Reserved$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Reserved"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"], 4),
     metricDataFormat: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
-    numberOfMetrics: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"] // Number of advance heights in the Vertical Metrics table
+    numberOfMetrics: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"] 
 });
 let $344073dd270f0e62$var$VmtxEntry = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     advance: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
-    bearing: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"] // The top sidebearing of the glyph
+    bearing: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"] 
 });
 var $344073dd270f0e62$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     metrics: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$LazyArray$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["LazyArray"]($344073dd270f0e62$var$VmtxEntry, (t)=>t.parent.vhea.numberOfMetrics),
@@ -4744,7 +4744,7 @@ class $6cb7dd5f47d82580$export$c5af1eebc882e39a extends __TURBOPACK__imported__m
     }
 }
 let $6cb7dd5f47d82580$export$8351f8c2ae2f103c = function(ValueType = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"]) {
-    // Helper class that makes internal structures invisible to pointers
+    
     class Shadow {
         decode(stream, ctx) {
             ctx = ctx.parent.parent;
@@ -4788,7 +4788,7 @@ let $6cb7dd5f47d82580$export$8351f8c2ae2f103c = function(ValueType = __TURBOPACK
     });
     return new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$VersionedStruct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["VersionedStruct"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], {
         0: {
-            values: new $6cb7dd5f47d82580$export$c5af1eebc882e39a(ValueType) // length == number of glyphs maybe?
+            values: new $6cb7dd5f47d82580$export$c5af1eebc882e39a(ValueType) 
         },
         2: {
             binarySearchHeader: BinarySearchHeader,
@@ -4834,7 +4834,7 @@ function $6cb7dd5f47d82580$export$105027425199cc51(entryData = {}, lookupType = 
     });
     let entry = Object.assign({
         newStateOffset: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
-        // convert offset to stateArray index
+        
         newState: (t)=>(t.newStateOffset - (t.parent.stateArray.base - t.parent._startOffset)) / t.parent.nClasses,
         flags: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"]
     }, entryData);
@@ -4934,9 +4934,9 @@ var $e83fd065f00fcd01$export$2e2bcd8739ae039 = new __TURBOPACK__imported__module
 let $dbe33c8d3a7f131c$var$shortFrac = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fixed"](16, 'BE', 14);
 class $dbe33c8d3a7f131c$var$Offset {
     static decode(stream, parent) {
-        // In short format, offsets are multiplied by 2.
-        // This doesn't seem to be documented by Apple, but it
-        // is implemented this way in Freetype.
+        
+        
+        
         return parent.flags ? stream.readUInt32BE() : stream.readUInt16BE() * 2;
     }
 }
@@ -5211,7 +5211,7 @@ function $12727730ddfc8bfe$export$d02631cccf789723(index, end) {
     return range;
 }
 const $12727730ddfc8bfe$export$3d28c1996ced1f14 = new TextDecoder('ascii');
-// Based on https://github.com/niklasvh/base64-arraybuffer. MIT license.
+
 const $12727730ddfc8bfe$var$CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 const $12727730ddfc8bfe$var$LOOKUP = new Uint8Array(256);
 for(let i = 0; i < $12727730ddfc8bfe$var$CHARS.length; i++)$12727730ddfc8bfe$var$LOOKUP[$12727730ddfc8bfe$var$CHARS.charCodeAt(i)] = i;
@@ -5242,8 +5242,8 @@ class $f08dd41ef10b694c$export$2e2bcd8739ae039 {
         return null;
     }
     lookup(codepoint, variationSelector) {
-        // If there is no Unicode cmap in this font, we need to re-encode
-        // the codepoint in the encoding that the cmap supports.
+        
+        
         if (this.encoding) codepoint = this.encoding.get(codepoint) || codepoint;
         else if (variationSelector) {
             let gid = this.getVariationSelector(codepoint, variationSelector);
@@ -5396,10 +5396,10 @@ class $f08dd41ef10b694c$export$2e2bcd8739ae039 {
         }
     }
     constructor(cmapTable){
-        // Attempt to find a Unicode cmap first
+        
         this.encoding = null;
         this.cmap = this.findSubtable(cmapTable, [
-            // 32-bit subtables
+            
             [
                 3,
                 10
@@ -5412,7 +5412,7 @@ class $f08dd41ef10b694c$export$2e2bcd8739ae039 {
                 0,
                 4
             ],
-            // 16-bit subtables
+            
             [
                 3,
                 1
@@ -5434,7 +5434,7 @@ class $f08dd41ef10b694c$export$2e2bcd8739ae039 {
                 0
             ]
         ]);
-        // If not unicode cmap was found, take the first table with a supported encoding.
+        
         if (!this.cmap) for (let cmap of cmapTable.tables){
             let encoding = (0, $e449ad78d50845fe$export$badc544e0651b6b1)(cmap.platformID, cmap.encodingID, cmap.table.language - 1);
             let mapping = (0, $e449ad78d50845fe$export$1dceb3c14ed68bee)(encoding);
@@ -5505,8 +5505,8 @@ class $0bba3a9db57637f3$export$2e2bcd8739ae039 {
                 default:
                     throw new Error(`Unsupported kerning sub-table format ${table.format}`);
             }
-            // Microsoft supports the override flag, which resets the result
-            // Otherwise, the sum of the results from all subtables is returned
+            
+            
             if (table.coverage.override) res = val;
             else res += val;
         }
@@ -5518,7 +5518,7 @@ class $0bba3a9db57637f3$export$2e2bcd8739ae039 {
 }
 class $0a4bdfeb6dfd6f5e$export$2e2bcd8739ae039 {
     positionGlyphs(glyphs, positions) {
-        // find each base + mark cluster, and position the marks relative to the base
+        
         let clusterStart = 0;
         let clusterEnd = 0;
         for(let index = 0; index < glyphs.length; index++){
@@ -5535,12 +5535,12 @@ class $0a4bdfeb6dfd6f5e$export$2e2bcd8739ae039 {
     positionCluster(glyphs, positions, clusterStart, clusterEnd) {
         let base = glyphs[clusterStart];
         let baseBox = base.cbox.copy();
-        // adjust bounding box for ligature glyphs
+        
         if (base.codePoints.length > 1) baseBox.minX += (base.codePoints.length - 1) * baseBox.width / base.codePoints.length;
         let xOffset = -positions[clusterStart].xAdvance;
         let yOffset = 0;
         let yGap = this.font.unitsPerEm / 16;
-        // position each of the mark glyphs relative to the base glyph
+        
         for(let index = clusterStart + 1; index <= clusterEnd; index++){
             let mark = glyphs[index];
             let markBox = mark.cbox;
@@ -5548,30 +5548,30 @@ class $0a4bdfeb6dfd6f5e$export$2e2bcd8739ae039 {
             let combiningClass = this.getCombiningClass(mark.codePoints[0]);
             if (combiningClass !== 'Not_Reordered') {
                 position.xOffset = position.yOffset = 0;
-                // x positioning
+                
                 switch(combiningClass){
                     case 'Double_Above':
                     case 'Double_Below':
-                        // LTR. TODO: RTL support.
+                        
                         position.xOffset += baseBox.minX - markBox.width / 2 - markBox.minX;
                         break;
                     case 'Attached_Below_Left':
                     case 'Below_Left':
                     case 'Above_Left':
-                        // left align
+                        
                         position.xOffset += baseBox.minX - markBox.minX;
                         break;
                     case 'Attached_Above_Right':
                     case 'Below_Right':
                     case 'Above_Right':
-                        // right align
+                        
                         position.xOffset += baseBox.maxX - markBox.width - markBox.minX;
                         break;
                     default:
-                        // center align
+                        
                         position.xOffset += baseBox.minX + (baseBox.width - markBox.width) / 2 - markBox.minX;
                 }
-                // y positioning
+                
                 switch(combiningClass){
                     case 'Double_Below':
                     case 'Below_Left':
@@ -5579,7 +5579,7 @@ class $0a4bdfeb6dfd6f5e$export$2e2bcd8739ae039 {
                     case 'Below_Right':
                     case 'Attached_Below_Left':
                     case 'Attached_Below':
-                        // add a small gap between the glyphs if they are not attached
+                        
                         if (combiningClass === 'Attached_Below_Left' || combiningClass === 'Attached_Below') baseBox.minY += yGap;
                         position.yOffset = -baseBox.minY - markBox.maxY;
                         baseBox.minY += markBox.height;
@@ -5590,7 +5590,7 @@ class $0a4bdfeb6dfd6f5e$export$2e2bcd8739ae039 {
                     case 'Above_Right':
                     case 'Attached_Above':
                     case 'Attached_Above_Right':
-                        // add a small gap between the glyphs if they are not attached
+                        
                         if (combiningClass === 'Attached_Above' || combiningClass === 'Attached_Above_Right') baseBox.maxY += yGap;
                         position.yOffset = baseBox.maxY - markBox.minY;
                         baseBox.maxY += markBox.height;
@@ -5608,7 +5608,7 @@ class $0a4bdfeb6dfd6f5e$export$2e2bcd8739ae039 {
     }
     getCombiningClass(codePoint) {
         let combiningClass = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$unicode$2d$properties$2f$dist$2f$module$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCombiningClass"])(codePoint);
-        // Thai / Lao need some per-character work
+        
         if ((codePoint & -256) === 0x0e00) {
             if (combiningClass === 'Not_Reordered') switch(codePoint){
                 case 0x0e31:
@@ -5636,7 +5636,7 @@ class $0a4bdfeb6dfd6f5e$export$2e2bcd8739ae039 {
             else if (codePoint === 0x0e3a) return 'Below_Right';
         }
         switch(combiningClass){
-            // Hebrew
+            
             case 'CCC10':
             case 'CCC11':
             case 'CCC12':
@@ -5660,7 +5660,7 @@ class $0a4bdfeb6dfd6f5e$export$2e2bcd8739ae039 {
                 return 'Above';
             case 'CCC21':
                 break;
-            // Arabic and Syriac
+            
             case 'CCC27':
             case 'CCC28':
             case 'CCC30':
@@ -5673,17 +5673,17 @@ class $0a4bdfeb6dfd6f5e$export$2e2bcd8739ae039 {
             case 'CCC29':
             case 'CCC32':
                 return 'Below';
-            // Thai
+            
             case 'CCC103':
                 return 'Below_Right';
             case 'CCC107':
                 return 'Above_Right';
-            // Lao
+            
             case 'CCC118':
                 return 'Below';
             case 'CCC122':
                 return 'Above';
-            // Tibetan
+            
             case 'CCC129':
             case 'CCC132':
                 return 'Below';
@@ -5696,19 +5696,19 @@ class $0a4bdfeb6dfd6f5e$export$2e2bcd8739ae039 {
         this.font = font;
     }
 }
-/**
- * Represents a glyph bounding box
- */ class $f34600ab9d7f70d8$export$2e2bcd8739ae039 {
-    /**
-   * The width of the bounding box
-   * @type {number}
-   */ get width() {
+
+
+ class $f34600ab9d7f70d8$export$2e2bcd8739ae039 {
+    
+
+
+ get width() {
         return this.maxX - this.minX;
     }
-    /**
-   * The height of the bounding box
-   * @type {number}
-   */ get height() {
+    
+
+
+ get height() {
         return this.maxY - this.minY;
     }
     addPoint(x, y) {
@@ -5725,27 +5725,27 @@ class $0a4bdfeb6dfd6f5e$export$2e2bcd8739ae039 {
         return new $f34600ab9d7f70d8$export$2e2bcd8739ae039(this.minX, this.minY, this.maxX, this.maxY);
     }
     constructor(minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity){
-        /**
-     * The minimum X position in the bounding box
-     * @type {number}
-     */ this.minX = minX;
-        /**
-     * The minimum Y position in the bounding box
-     * @type {number}
-     */ this.minY = minY;
-        /**
-     * The maxmimum X position in the bounding box
-     * @type {number}
-     */ this.maxX = maxX;
-        /**
-     * The maxmimum Y position in the bounding box
-     * @type {number}
-     */ this.maxY = maxY;
+        
+
+
+ this.minX = minX;
+        
+
+
+ this.minY = minY;
+        
+
+
+ this.maxX = maxX;
+        
+
+
+ this.maxY = maxY;
     }
 }
-// This maps the Unicode Script property to an OpenType script tag
-// Data from http://www.microsoft.com/typography/otspec/scripttags.htm
-// and http://www.unicode.org/Public/UNIDATA/PropertyValueAliases.txt.
+
+
+
 const $130d1a642ebcd2b7$var$UNICODE_SCRIPTS = {
     Caucasian_Albanian: 'aghb',
     Arabic: 'arab',
@@ -5922,10 +5922,10 @@ function $130d1a642ebcd2b7$export$e5cb25e204fb8450(string) {
     let idx = 0;
     while(idx < len){
         let code = string.charCodeAt(idx++);
-        // Check if this is a high surrogate
+        
         if (0xd800 <= code && code <= 0xdbff && idx < len) {
             let next = string.charCodeAt(idx);
-            // Check if this is a low surrogate
+            
             if (0xdc00 <= next && next <= 0xdfff) {
                 idx++;
                 code = ((code & 0x3FF) << 10) + (next & 0x3FF) + 0x10000;
@@ -5944,7 +5944,7 @@ function $130d1a642ebcd2b7$export$16fab0757cfc223d(codePoints) {
     }
     return $130d1a642ebcd2b7$var$UNICODE_SCRIPTS.Unknown;
 }
-// The scripts in this map are written from right to left
+
 const $130d1a642ebcd2b7$var$RTL = {
     arab: true,
     hebr: true,
@@ -5965,39 +5965,39 @@ const $130d1a642ebcd2b7$var$RTL = {
     mand: true,
     merc: true,
     mero: true,
-    // Unicode 7.0 (not listed on http://www.microsoft.com/typography/otspec/scripttags.htm)
+    
     mani: true,
     mend: true,
     nbat: true,
     narb: true,
     palm: true,
-    phlp: true // Psalter Pahlavi
+    phlp: true 
 };
 function $130d1a642ebcd2b7$export$9fddb9d0dd7d8a54(script) {
     if ($130d1a642ebcd2b7$var$RTL[script]) return 'rtl';
     return 'ltr';
 }
 class $be07b3e97a42687a$export$2e2bcd8739ae039 {
-    /**
-   * The total advance width of the run.
-   * @type {number}
-   */ get advanceWidth() {
+    
+
+
+ get advanceWidth() {
         let width = 0;
         for (let position of this.positions)width += position.xAdvance;
         return width;
     }
-    /**
-  * The total advance height of the run.
-  * @type {number}
-  */ get advanceHeight() {
+    
+
+
+ get advanceHeight() {
         let height = 0;
         for (let position of this.positions)height += position.yAdvance;
         return height;
     }
-    /**
-  * The bounding box containing all glyphs in the run.
-  * @type {BBox}
-  */ get bbox() {
+    
+
+
+ get bbox() {
         let bbox = new (0, $f34600ab9d7f70d8$export$2e2bcd8739ae039);
         let x = 0;
         let y = 0;
@@ -6013,62 +6013,62 @@ class $be07b3e97a42687a$export$2e2bcd8739ae039 {
         return bbox;
     }
     constructor(glyphs, features, script, language, direction){
-        /**
-     * An array of Glyph objects in the run
-     * @type {Glyph[]}
-     */ this.glyphs = glyphs;
-        /**
-     * An array of GlyphPosition objects for each glyph in the run
-     * @type {GlyphPosition[]}
-     */ this.positions = null;
-        /**
-     * The script that was requested for shaping. This was either passed in or detected automatically.
-     * @type {string}
-     */ this.script = script;
-        /**
-     * The language requested for shaping, as passed in. If `null`, the default language for the
-     * script was used.
-     * @type {string}
-     */ this.language = language || null;
-        /**
-     * The direction requested for shaping, as passed in (either ltr or rtl).
-     * If `null`, the default direction of the script is used.
-     * @type {string}
-     */ this.direction = direction || $130d1a642ebcd2b7$export$9fddb9d0dd7d8a54(script);
-        /**
-     * The features requested during shaping. This is a combination of user
-     * specified features and features chosen by the shaper.
-     * @type {object}
-     */ this.features = {};
-        // Convert features to an object
+        
+
+
+ this.glyphs = glyphs;
+        
+
+
+ this.positions = null;
+        
+
+
+ this.script = script;
+        
+
+
+
+ this.language = language || null;
+        
+
+
+
+ this.direction = direction || $130d1a642ebcd2b7$export$9fddb9d0dd7d8a54(script);
+        
+
+
+
+ this.features = {};
+        
         if (Array.isArray(features)) for (let tag of features)this.features[tag] = true;
         else if (typeof features === 'object') this.features = features;
     }
 }
-/**
- * Represents positioning information for a glyph in a GlyphRun.
- */ class $1ac75d9a55b67f01$export$2e2bcd8739ae039 {
+
+
+ class $1ac75d9a55b67f01$export$2e2bcd8739ae039 {
     constructor(xAdvance = 0, yAdvance = 0, xOffset = 0, yOffset = 0){
-        /**
-     * The amount to move the virtual pen in the X direction after rendering this glyph.
-     * @type {number}
-     */ this.xAdvance = xAdvance;
-        /**
-     * The amount to move the virtual pen in the Y direction after rendering this glyph.
-     * @type {number}
-     */ this.yAdvance = yAdvance;
-        /**
-     * The offset from the pen position in the X direction at which to render this glyph.
-     * @type {number}
-     */ this.xOffset = xOffset;
-        /**
-     * The offset from the pen position in the Y direction at which to render this glyph.
-     * @type {number}
-     */ this.yOffset = yOffset;
+        
+
+
+ this.xAdvance = xAdvance;
+        
+
+
+ this.yAdvance = yAdvance;
+        
+
+
+ this.xOffset = xOffset;
+        
+
+
+ this.yOffset = yOffset;
     }
 }
-// see https://developer.apple.com/fonts/TrueType-Reference-Manual/RM09/AppendixF.html
-// and /System/Library/Frameworks/CoreText.framework/Versions/A/Headers/SFNTLayoutTypes.h on a Mac
+
+
 const $3b6302b64eccc32c$var$features = {
     allTypographicFeatures: {
         code: 0,
@@ -6081,7 +6081,7 @@ const $3b6302b64eccc32c$var$features = {
         requiredLigatures: 0,
         commonLigatures: 2,
         rareLigatures: 4,
-        // logos: 6
+        
         rebusPictures: 8,
         diphthongLigatures: 10,
         squaredLigatures: 12,
@@ -6101,12 +6101,12 @@ const $3b6302b64eccc32c$var$features = {
         code: 3,
         exclusive: true
     },
-    // upperAndLowerCase: 0          # deprecated
-    // allCaps: 1                    # deprecated
-    // allLowerCase: 2               # deprecated
-    // smallCaps: 3                  # deprecated
-    // initialCaps: 4                # deprecated
-    // initialCapsAndSmallCaps: 5    # deprecated
+    
+    
+    
+    
+    
+    
     verticalSubstitution: {
         code: 4,
         exclusive: false,
@@ -6130,8 +6130,8 @@ const $3b6302b64eccc32c$var$features = {
         exclusive: false,
         wordInitialSwashes: 0,
         wordFinalSwashes: 2,
-        // lineInitialSwashes: 4
-        // lineFinalSwashes: 6
+        
+        
         nonFinalSwashes: 8
     },
     diacritics: {
@@ -6165,21 +6165,21 @@ const $3b6302b64eccc32c$var$features = {
     typographicExtras: {
         code: 14,
         exclusive: false,
-        // hyphensToEmDash: 0
-        // hyphenToEnDash: 2
+        
+        
         slashedZero: 4
     },
-    // formInterrobang: 6
-    // smartQuotes: 8
-    // periodsToEllipsis: 10
+    
+    
+    
     mathematicalExtras: {
         code: 15,
         exclusive: false,
-        // hyphenToMinus: 0
-        // asteristoMultiply: 2
-        // slashToDivide: 4
-        // inequalityLigatures: 6
-        // exponents: 8
+        
+        
+        
+        
+        
         mathematicalGreek: 10
     },
     ornamentSets: {
@@ -6198,7 +6198,7 @@ const $3b6302b64eccc32c$var$features = {
         exclusive: true,
         noAlternates: 0
     },
-    // user defined options
+    
     designComplexity: {
         code: 18,
         exclusive: true,
@@ -6259,15 +6259,15 @@ const $3b6302b64eccc32c$var$features = {
         exclusive: true,
         noTransliteration: 0
     },
-    // hanjaToHangul: 1
-    // hiraganaToKatakana: 2
-    // katakanaToHiragana: 3
-    // kanaToRomanization: 4
-    // romanizationToHiragana: 5
-    // romanizationToKatakana: 6
-    // hanjaToHangulAltOne: 7
-    // hanjaToHangulAltTwo: 8
-    // hanjaToHangulAltThree: 9
+    
+    
+    
+    
+    
+    
+    
+    
+    
     annotation: {
         code: 24,
         exclusive: true,
@@ -6306,8 +6306,8 @@ const $3b6302b64eccc32c$var$features = {
     rubyKana: {
         code: 28,
         exclusive: false,
-        // noRubyKana: 0     # deprecated - use rubyKanaOff instead
-        // rubyKana: 1     # deprecated - use rubyKanaOn instead
+        
+        
         rubyKana: 2
     },
     CJKSymbolAlternatives: {
@@ -6339,8 +6339,8 @@ const $3b6302b64eccc32c$var$features = {
     italicCJKRoman: {
         code: 32,
         exclusive: false,
-        // noCJKItalicRoman: 0     # deprecated - use CJKItalicRomanOff instead
-        // CJKItalicRoman: 1     # deprecated - use CJKItalicRomanOn instead
+        
+        
         CJKItalicRoman: 2
     },
     caseSensitiveLayout: {
@@ -6431,15 +6431,15 @@ const $3b6302b64eccc32c$var$OTMapping = {
     dnom: $3b6302b64eccc32c$var$feature('fractions', 'diagonalFractions'),
     numr: $3b6302b64eccc32c$var$feature('fractions', 'diagonalFractions'),
     afrc: $3b6302b64eccc32c$var$feature('fractions', 'verticalFractions'),
-    // aalt
-    // abvf, abvm, abvs, akhn, blwf, blwm, blws, cfar, cjct, cpsp, falt, isol, jalt, ljmo, mset?
-    // ltra, ltrm, nukt, pref, pres, pstf, psts, rand, rkrf, rphf, rtla, rtlm, size, tjmo, tnum?
-    // unic, vatu, vhal, vjmo, vpal, vrt2
-    // dist -> trak table?
-    // kern, vkrn -> kern table
-    // lfbd + opbd + rtbd -> opbd table?
-    // mark, mkmk -> acnt table?
-    // locl -> languageTag + ltag table
+    
+    
+    
+    
+    
+    
+    
+    
+    
     case: $3b6302b64eccc32c$var$feature('caseSensitiveLayout', 'caseSensitiveLayout'),
     ccmp: $3b6302b64eccc32c$var$feature('unicodeDecomposition', 'canonicalComposition'),
     cpct: $3b6302b64eccc32c$var$feature('CJKVerticalRomanPlacement', 'CJKVerticalRomanCentered'),
@@ -6460,13 +6460,13 @@ const $3b6302b64eccc32c$var$OTMapping = {
     halt: $3b6302b64eccc32c$var$feature('textSpacing', 'altHalfWidthText'),
     hkna: $3b6302b64eccc32c$var$feature('alternateKana', 'alternateHorizKana'),
     vkna: $3b6302b64eccc32c$var$feature('alternateKana', 'alternateVertKana'),
-    // hngl: feature 'transliteration', 'hanjaToHangulSelector' # deprecated
+    
     ital: $3b6302b64eccc32c$var$feature('italicCJKRoman', 'CJKItalicRoman'),
     lnum: $3b6302b64eccc32c$var$feature('numberCase', 'upperCaseNumbers'),
     onum: $3b6302b64eccc32c$var$feature('numberCase', 'lowerCaseNumbers'),
     mgrk: $3b6302b64eccc32c$var$feature('mathematicalExtras', 'mathematicalGreek'),
-    // nalt: not enough info. what type of annotation?
-    // ornm: ditto, which ornament style?
+    
+    
     calt: $3b6302b64eccc32c$var$feature('contextualAlternates', 'contextualAlternates'),
     vrt2: $3b6302b64eccc32c$var$feature('verticalSubstitution', 'substituteVerticalForms'),
     vert: $3b6302b64eccc32c$var$feature('verticalSubstitution', 'substituteVerticalForms'),
@@ -6515,13 +6515,13 @@ const $3b6302b64eccc32c$var$OTMapping = {
     ss19: $3b6302b64eccc32c$var$feature('stylisticAlternatives', 'stylisticAltNineteen'),
     ss20: $3b6302b64eccc32c$var$feature('stylisticAlternatives', 'stylisticAltTwenty')
 };
-// salt: feature 'stylisticAlternatives', 'stylisticAltOne' # hmm, which one to choose
-// Add cv01-cv99 features
+
+
 for(let i = 1; i <= 99; i++)$3b6302b64eccc32c$var$OTMapping[`cv${`00${i}`.slice(-2)}`] = [
     $3b6302b64eccc32c$var$features.characterAlternatives.code,
     i
 ];
-// create inverse mapping
+
 let $3b6302b64eccc32c$var$AATMapping = {};
 for(let ot in $3b6302b64eccc32c$var$OTMapping){
     let aat = $3b6302b64eccc32c$var$OTMapping[ot];
@@ -6539,8 +6539,8 @@ function $3b6302b64eccc32c$export$b813f7d2a1677c16(features) {
     }
     return res;
 }
-// Maps strings in a [featureType, featureSetting]
-// to their equivalent number codes
+
+
 function $3b6302b64eccc32c$var$mapFeatureStrings(f) {
     let [type, setting] = f;
     if (isNaN(type)) var typeCode = $3b6302b64eccc32c$var$features[type] && $3b6302b64eccc32c$var$features[type].code;
@@ -6585,7 +6585,7 @@ class $ff5ce077dae0f144$export$2e2bcd8739ae039 {
                     while(min <= max){
                         var mid = min + max >> 1;
                         var seg = this.table.segments[mid];
-                        // special end of search value
+                        
                         if (seg.firstGlyph === 0xffff) return null;
                         if (glyph < seg.firstGlyph) max = mid - 1;
                         else if (glyph > seg.lastGlyph) min = mid + 1;
@@ -6603,7 +6603,7 @@ class $ff5ce077dae0f144$export$2e2bcd8739ae039 {
                     while(min <= max){
                         var mid = min + max >> 1;
                         var seg = this.table.segments[mid];
-                        // special end of search value
+                        
                         if (seg.glyph === 0xffff) return null;
                         if (glyph < seg.glyph) max = mid - 1;
                         else if (glyph > seg.glyph) min = mid + 1;
@@ -6654,7 +6654,7 @@ const $50c7aac9316f2948$var$END_OF_LINE_CLASS = 3;
 const $50c7aac9316f2948$var$DONT_ADVANCE = 0x4000;
 class $50c7aac9316f2948$export$2e2bcd8739ae039 {
     process(glyphs, reverse, processEntry) {
-        let currentState = $50c7aac9316f2948$var$START_OF_TEXT_STATE; // START_OF_LINE_STATE is used for kashida glyph insertions sometimes I think?
+        let currentState = $50c7aac9316f2948$var$START_OF_TEXT_STATE; 
         let index = reverse ? glyphs.length - 1 : 0;
         let dir = reverse ? -1 : 1;
         while(dir === 1 && index <= glyphs.length || dir === -1 && index >= -1){
@@ -6682,19 +6682,19 @@ class $50c7aac9316f2948$export$2e2bcd8739ae039 {
         }
         return glyphs;
     }
-    /**
-   * Performs a depth-first traversal of the glyph strings
-   * represented by the state machine.
-   */ traverse(opts, state = 0, visited = new Set) {
+    
+
+
+ traverse(opts, state = 0, visited = new Set) {
         if (visited.has(state)) return;
         visited.add(state);
         let { nClasses: nClasses, stateArray: stateArray, entryTable: entryTable } = this.stateTable;
         let row = stateArray.getItem(state);
-        // Skip predefined classes
+        
         for(let classCode = 4; classCode < nClasses; classCode++){
             let entryIndex = row[classCode];
             let entry = entryTable.getItem(entryIndex);
-            // Try all glyphs in the class
+            
             for (let glyph of this.lookupTable.glyphsForValue(classCode)){
                 if (opts.enter) opts.enter(glyph, entry);
                 if (entry.newState !== 0) this.traverse(opts, entry.newState, visited);
@@ -6707,23 +6707,23 @@ class $50c7aac9316f2948$export$2e2bcd8739ae039 {
         this.lookupTable = new (0, $ff5ce077dae0f144$export$2e2bcd8739ae039)(stateTable.classTable);
     }
 }
-// indic replacement flags
+
 const $55f71433a605c87d$var$MARK_FIRST = 0x8000;
 const $55f71433a605c87d$var$MARK_LAST = 0x2000;
 const $55f71433a605c87d$var$VERB = 0x000F;
-// contextual substitution and glyph insertion flag
+
 const $55f71433a605c87d$var$SET_MARK = 0x8000;
-// ligature entry flags
+
 const $55f71433a605c87d$var$SET_COMPONENT = 0x8000;
 const $55f71433a605c87d$var$PERFORM_ACTION = 0x2000;
-// ligature action masks
+
 const $55f71433a605c87d$var$LAST_MASK = 0x80000000;
 const $55f71433a605c87d$var$STORE_MASK = 0x40000000;
 const $55f71433a605c87d$var$OFFSET_MASK = 0x3FFFFFFF;
 const $55f71433a605c87d$var$VERTICAL_ONLY = 0x800000;
 const $55f71433a605c87d$var$REVERSE_DIRECTION = 0x400000;
 const $55f71433a605c87d$var$HORIZONTAL_AND_VERTICAL = 0x200000;
-// glyph insertion flags
+
 const $55f71433a605c87d$var$CURRENT_IS_KASHIDA_LIKE = 0x2000;
 const $55f71433a605c87d$var$MARKED_IS_KASHIDA_LIKE = 0x1000;
 const $55f71433a605c87d$var$CURRENT_INSERT_BEFORE = 0x0800;
@@ -6731,12 +6731,12 @@ const $55f71433a605c87d$var$MARKED_INSERT_BEFORE = 0x0400;
 const $55f71433a605c87d$var$CURRENT_INSERT_COUNT = 0x03E0;
 const $55f71433a605c87d$var$MARKED_INSERT_COUNT = 0x001F;
 class $55f71433a605c87d$export$2e2bcd8739ae039 {
-    // Processes an array of glyphs and applies the specified features
-    // Features should be in the form of {featureType:{featureSetting:boolean}}
+    
+    
     process(glyphs, features = {}) {
         for (let chain of this.morx.chains){
             let flags = chain.defaultFlags;
-            // enable/disable the requested features
+            
             for (let feature of chain.features){
                 let f;
                 if (f = features[feature.featureType]) {
@@ -6751,7 +6751,7 @@ class $55f71433a605c87d$export$2e2bcd8739ae039 {
             }
             for (let subtable of chain.subtables)if (subtable.subFeatureFlags & flags) this.processSubtable(subtable, glyphs);
         }
-        // remove deleted glyphs
+        
         let index = glyphs.length - 1;
         while(index >= 0){
             if (glyphs[index].id === 0xffff) glyphs.splice(index, 1);
@@ -6835,7 +6835,7 @@ class $55f71433a605c87d$export$2e2bcd8739ae039 {
                 let action = actions.getItem(actionIndex++);
                 last = !!(action & $55f71433a605c87d$var$LAST_MASK);
                 let store = !!(action & $55f71433a605c87d$var$STORE_MASK);
-                let offset = (action & $55f71433a605c87d$var$OFFSET_MASK) << 2 >> 2; // sign extend 30 to 32 bits
+                let offset = (action & $55f71433a605c87d$var$OFFSET_MASK) << 2 >> 2; 
                 offset += this.glyphs[componentGlyph].id;
                 let component = components.getItem(offset);
                 ligatureIndex += component;
@@ -6847,7 +6847,7 @@ class $55f71433a605c87d$export$2e2bcd8739ae039 {
                     codePoints = [];
                 } else this.glyphs[componentGlyph] = this.font.getGlyph(0xffff);
             }
-            // Put ligature glyph indexes back on the stack
+            
             this.ligatureStack.push(...ligatureGlyphs);
         }
     }
@@ -6903,7 +6903,7 @@ class $55f71433a605c87d$export$2e2bcd8739ae039 {
         }
     }
     generateInputsForSubtable(subtable) {
-        // Currently, only supporting ligature subtables.
+        
         if (subtable.type !== 2) return;
         let reverse = !!(subtable.coverage & $55f71433a605c87d$var$REVERSE_DIRECTION);
         if (reverse) throw new Error('Reverse subtable, not supported.');
@@ -6921,13 +6921,13 @@ class $55f71433a605c87d$export$2e2bcd8739ae039 {
                     glyphs: glyphs.slice(),
                     ligatureStack: this.ligatureStack.slice()
                 });
-                // Add glyph to input and glyphs to process.
+                
                 let g = this.font.getGlyph(glyph);
                 input.push(g);
                 glyphs.push(input[input.length - 1]);
-                // Process ligature substitution
+                
                 process(glyphs[glyphs.length - 1], entry, glyphs.length - 1);
-                // Add input to result if only one matching (non-deleted) glyph remains.
+                
                 let count = 0;
                 let found = 0;
                 for(let i = 0; i < glyphs.length && count <= 1; i++)if (glyphs[i].id !== 0xffff) {
@@ -6963,9 +6963,9 @@ class $55f71433a605c87d$export$2e2bcd8739ae039 {
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$tslib$2f$tslib$2e$es6$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$5f$_decorate__as__$5f3e$__["_"])([
     (0, $e71565f2ce09cb6b$export$69a3209f1a06c04d)
 ], $55f71433a605c87d$export$2e2bcd8739ae039.prototype, "getStateMachine", null);
-// swaps the glyphs in rangeA with those in rangeB
-// reverse the glyphs inside those ranges if specified
-// ranges are in [offset, length] format
+
+
+
 function $55f71433a605c87d$var$swap(glyphs, rangeA, rangeB, reverseA = false, reverseB = false) {
     let end = glyphs.splice(rangeB[0] - (rangeB[1] - 1), rangeB[1]);
     if (reverseB) end.reverse();
@@ -7105,8 +7105,8 @@ function $55f71433a605c87d$var$reorderGlyphs(glyphs, verb, firstGlyph, lastGlyph
 }
 class $ba6dd74203be8728$export$2e2bcd8739ae039 {
     substitute(glyphRun) {
-        // AAT expects the glyphs to be in visual order prior to morx processing,
-        // so reverse the glyphs if the script is right-to-left.
+        
+        
         if (glyphRun.direction === 'rtl') glyphRun.glyphs.reverse();
         this.morxProcessor.process(glyphRun.glyphs, $3b6302b64eccc32c$export$b813f7d2a1677c16(glyphRun.features));
     }
@@ -7134,10 +7134,10 @@ class $ba6dd74203be8728$export$2e2bcd8739ae039 {
     }
 }
 class $94d7a73bd2edfc9a$export$2e2bcd8739ae039 {
-    /**
-   * Adds the given features to the last stage.
-   * Ignores features that have already been applied.
-   */ _addFeatures(features, global) {
+    
+
+
+ _addFeatures(features, global) {
         let stageIndex = this.stages.length - 1;
         let stage = this.stages[stageIndex];
         for (let feature of features)if (this.allFeatures[feature] == null) {
@@ -7146,9 +7146,9 @@ class $94d7a73bd2edfc9a$export$2e2bcd8739ae039 {
             if (global) this.globalFeatures[feature] = true;
         }
     }
-    /**
-   * Add features to the last stage
-   */ add(arg, global = true) {
+    
+
+ add(arg, global = true) {
         if (this.stages.length === 0) this.stages.push([]);
         if (typeof arg === 'string') arg = [
             arg
@@ -7159,9 +7159,9 @@ class $94d7a73bd2edfc9a$export$2e2bcd8739ae039 {
             this._addFeatures(arg.local || [], false);
         } else throw new Error("Unsupported argument to ShapingPlan#add");
     }
-    /**
-   * Add a new stage
-   */ addStage(arg, global) {
+    
+
+ addStage(arg, global) {
         if (typeof arg === 'function') this.stages.push(arg, []);
         else {
             this.stages.push([]);
@@ -7180,14 +7180,14 @@ class $94d7a73bd2edfc9a$export$2e2bcd8739ae039 {
             }
         }
     }
-    /**
-   * Assigns the global features to the given glyphs
-   */ assignGlobalFeatures(glyphs) {
+    
+
+ assignGlobalFeatures(glyphs) {
         for (let glyph of glyphs)for(let feature in this.globalFeatures)glyph.features[feature] = true;
     }
-    /**
-   * Executes the planned stages using the given OTProcessor
-   */ process(processor, glyphs, positions) {
+    
+
+ process(processor, glyphs, positions) {
         for (let stage of this.stages){
             if (typeof stage === 'function') {
                 if (!positions) stage(this.font, glyphs, this);
@@ -7241,13 +7241,13 @@ const $649970d87335b30f$var$DIRECTIONAL_FEATURES = {
 };
 class $649970d87335b30f$export$2e2bcd8739ae039 {
     static plan(plan, glyphs, features) {
-        // Plan the features we want to apply
+        
         this.planPreprocessing(plan);
         this.planFeatures(plan);
         this.planPostprocessing(plan, features);
-        // Assign the global features to all the glyphs
+        
         plan.assignGlobalFeatures(glyphs);
-        // Assign local features to glyphs
+        
         this.assignFeatures(plan, glyphs);
     }
     static planPreprocessing(plan) {
@@ -7260,7 +7260,7 @@ class $649970d87335b30f$export$2e2bcd8739ae039 {
         });
     }
     static planFeatures(plan) {
-    // Do nothing by default. Let subclasses override this.
+    
     }
     static planPostprocessing(plan, userFeatures) {
         plan.add([
@@ -7270,25 +7270,25 @@ class $649970d87335b30f$export$2e2bcd8739ae039 {
         plan.setFeatureOverrides(userFeatures);
     }
     static assignFeatures(plan, glyphs) {
-        // Enable contextual fractions
+        
         for(let i = 0; i < glyphs.length; i++){
             let glyph = glyphs[i];
             if (glyph.codePoints[0] === 0x2044) {
                 let start = i;
                 let end = i + 1;
-                // Apply numerator
+                
                 while(start > 0 && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$unicode$2d$properties$2f$dist$2f$module$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isDigit"])(glyphs[start - 1].codePoints[0])){
                     glyphs[start - 1].features.numr = true;
                     glyphs[start - 1].features.frac = true;
                     start--;
                 }
-                // Apply denominator
+                
                 while(end < glyphs.length && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$unicode$2d$properties$2f$dist$2f$module$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isDigit"])(glyphs[end].codePoints[0])){
                     glyphs[end].features.dnom = true;
                     glyphs[end].features.frac = true;
                     end++;
                 }
-                // Apply fraction slash
+                
                 glyph.features.frac = true;
                 i = end - 1;
             }
@@ -7324,10 +7324,10 @@ const $764eb544bbe1ccf0$var$MEDI = 'medi';
 const $764eb544bbe1ccf0$var$MED2 = 'med2';
 const $764eb544bbe1ccf0$var$INIT = 'init';
 const $764eb544bbe1ccf0$var$NONE = null;
-// Each entry is [prevAction, curAction, nextState]
+
 const $764eb544bbe1ccf0$var$STATE_TABLE = [
-    //   Non_Joining,        Left_Joining,       Right_Joining,     Dual_Joining,           ALAPH,            DALATH RISH
-    // State 0: prev was U,  not willing to join.
+    
+    
     [
         [
             $764eb544bbe1ccf0$var$NONE,
@@ -7360,7 +7360,7 @@ const $764eb544bbe1ccf0$var$STATE_TABLE = [
             6
         ]
     ],
-    // State 1: prev was R or ISOL/ALAPH,  not willing to join.
+    
     [
         [
             $764eb544bbe1ccf0$var$NONE,
@@ -7393,7 +7393,7 @@ const $764eb544bbe1ccf0$var$STATE_TABLE = [
             6
         ]
     ],
-    // State 2: prev was D/L in ISOL form,  willing to join.
+    
     [
         [
             $764eb544bbe1ccf0$var$NONE,
@@ -7426,7 +7426,7 @@ const $764eb544bbe1ccf0$var$STATE_TABLE = [
             6
         ]
     ],
-    // State 3: prev was D in FINA form,  willing to join.
+    
     [
         [
             $764eb544bbe1ccf0$var$NONE,
@@ -7459,7 +7459,7 @@ const $764eb544bbe1ccf0$var$STATE_TABLE = [
             6
         ]
     ],
-    // State 4: prev was FINA ALAPH,  not willing to join.
+    
     [
         [
             $764eb544bbe1ccf0$var$NONE,
@@ -7492,7 +7492,7 @@ const $764eb544bbe1ccf0$var$STATE_TABLE = [
             6
         ]
     ],
-    // State 5: prev was FIN2/FIN3 ALAPH,  not willing to join.
+    
     [
         [
             $764eb544bbe1ccf0$var$NONE,
@@ -7525,7 +7525,7 @@ const $764eb544bbe1ccf0$var$STATE_TABLE = [
             6
         ]
     ],
-    // State 6: prev was DALATH/RISH,  not willing to join.
+    
     [
         [
             $764eb544bbe1ccf0$var$NONE,
@@ -7576,7 +7576,7 @@ class $764eb544bbe1ccf0$export$2e2bcd8739ae039 extends (0, $649970d87335b30f$exp
         let prev = -1;
         let state = 0;
         let actions = [];
-        // Apply the state machine to map glyphs to features
+        
         for(let i = 0; i < glyphs.length; i++){
             let curAction, prevAction;
             var glyph = glyphs[i];
@@ -7590,7 +7590,7 @@ class $764eb544bbe1ccf0$export$2e2bcd8739ae039 extends (0, $649970d87335b30f$exp
             actions[i] = curAction;
             prev = i;
         }
-        // Apply the chosen features to their respective glyphs
+        
         for(let index = 0; index < glyphs.length; index++){
             let feature;
             var glyph = glyphs[index];
@@ -7698,7 +7698,7 @@ class $a83b9c36aaa94fd3$export$2e2bcd8739ae039 {
             }
             changed = true;
         }
-        // Build a feature lookup table
+        
         if (changed) {
             this.features = {};
             if (this.language) for (let featureIndex of this.language.featureIndexes){
@@ -7782,13 +7782,13 @@ class $a83b9c36aaa94fd3$export$2e2bcd8739ae039 {
         let options = this.glyphIterator.options;
         let glyphIndex = this.glyphIterator.index;
         for (let lookupRecord of lookupRecords){
-            // Reset flags and find glyph index for this lookup record
+            
             this.glyphIterator.reset(options, glyphIndex);
             this.glyphIterator.increment(lookupRecord.sequenceIndex);
-            // Get the lookup and setup flags for subtables
+            
             let lookup = this.table.lookupList.get(lookupRecord.lookupListIndex);
             this.glyphIterator.reset(lookup.flags, this.glyphIterator.index);
-            // Apply lookup subtables until one matches
+            
             for (let table of lookup.subTables){
                 if (this.applyLookup(lookup.lookupType, table)) break;
             }
@@ -7827,7 +7827,7 @@ class $a83b9c36aaa94fd3$export$2e2bcd8739ae039 {
     }
     sequenceMatchIndices(sequenceIndex, sequence) {
         return this.match(sequenceIndex, sequence, (component, glyph)=>{
-            // If the current feature doesn't apply to this glyph,
+            
             if (!(this.currentFeature in glyph.features)) return false;
             return component === glyph.id;
         }, []);
@@ -7913,13 +7913,13 @@ class $a83b9c36aaa94fd3$export$2e2bcd8739ae039 {
         this.languageTag = null;
         this.features = {};
         this.lookups = {};
-        // Setup variation substitutions
+        
         this.variationsIndex = font._variationProcessor ? this.findVariationsIndex(font._variationProcessor.normalizedCoords) : -1;
-        // initialize to default script + language
+        
         this.selectScript();
-        // current context (set by applyFeatures)
+        
         this.glyphs = [];
-        this.positions = []; // only used by GPOS
+        this.positions = []; 
         this.ligatureID = 1;
         this.currentFeature = null;
     }
@@ -7933,7 +7933,7 @@ class $10e7b257e1a9a756$export$2e2bcd8739ae039 {
         this.substituted = true;
         let GDEF = this._font.GDEF;
         if (GDEF && GDEF.glyphClassDef) {
-            // TODO: clean this up
+            
             let classID = (0, $a83b9c36aaa94fd3$export$2e2bcd8739ae039).prototype.getClassID(id, GDEF.glyphClassDef);
             this.isBase = classID === 1;
             this.isLigature = classID === 2;
@@ -7988,19 +7988,19 @@ class $e1c6bbc8cb416f8c$export$2e2bcd8739ae039 extends (0, $649970d87335b30f$exp
             [action, state] = $e1c6bbc8cb416f8c$var$STATE_TABLE[state][type];
             switch(action){
                 case $e1c6bbc8cb416f8c$var$DECOMPOSE:
-                    // Decompose the composed syllable if it is not supported by the font.
+                    
                     if (!plan.font.hasGlyphForCodePoint(code)) i = $e1c6bbc8cb416f8c$var$decompose(glyphs, i, plan.font);
                     break;
                 case $e1c6bbc8cb416f8c$var$COMPOSE:
-                    // Found a decomposed syllable. Try to compose if supported by the font.
+                    
                     i = $e1c6bbc8cb416f8c$var$compose(glyphs, i, plan.font);
                     break;
                 case $e1c6bbc8cb416f8c$var$TONE_MARK:
-                    // Got a valid syllable, followed by a tone mark. Move the tone mark to the beginning of the syllable.
+                    
                     $e1c6bbc8cb416f8c$var$reorderToneMark(glyphs, i, plan.font);
                     break;
                 case $e1c6bbc8cb416f8c$var$INVALID:
-                    // Tone mark has no valid syllable to attach to, so insert a dotted circle
+                    
                     i = $e1c6bbc8cb416f8c$var$insertDottedCircle(glyphs, i, plan.font);
                     break;
             }
@@ -8012,9 +8012,9 @@ class $e1c6bbc8cb416f8c$export$2e2bcd8739ae039 extends (0, $649970d87335b30f$exp
 const $e1c6bbc8cb416f8c$var$HANGUL_BASE = 0xac00;
 const $e1c6bbc8cb416f8c$var$HANGUL_END = 0xd7a4;
 const $e1c6bbc8cb416f8c$var$HANGUL_COUNT = $e1c6bbc8cb416f8c$var$HANGUL_END - $e1c6bbc8cb416f8c$var$HANGUL_BASE + 1;
-const $e1c6bbc8cb416f8c$var$L_BASE = 0x1100; // lead
-const $e1c6bbc8cb416f8c$var$V_BASE = 0x1161; // vowel
-const $e1c6bbc8cb416f8c$var$T_BASE = 0x11a7; // trail
+const $e1c6bbc8cb416f8c$var$L_BASE = 0x1100; 
+const $e1c6bbc8cb416f8c$var$V_BASE = 0x1161; 
+const $e1c6bbc8cb416f8c$var$T_BASE = 0x11a7; 
 const $e1c6bbc8cb416f8c$var$L_COUNT = 19;
 const $e1c6bbc8cb416f8c$var$V_COUNT = 21;
 const $e1c6bbc8cb416f8c$var$T_COUNT = 28;
@@ -8031,15 +8031,15 @@ const $e1c6bbc8cb416f8c$var$isLV = (code)=>code - $e1c6bbc8cb416f8c$var$HANGUL_B
 const $e1c6bbc8cb416f8c$var$isCombiningL = (code)=>$e1c6bbc8cb416f8c$var$L_BASE <= code && code <= $e1c6bbc8cb416f8c$var$L_END;
 const $e1c6bbc8cb416f8c$var$isCombiningV = (code)=>$e1c6bbc8cb416f8c$var$V_BASE <= code && code <= $e1c6bbc8cb416f8c$var$V_END;
 const $e1c6bbc8cb416f8c$var$isCombiningT = (code)=>$e1c6bbc8cb416f8c$var$T_BASE + 1 && 1 <= code && code <= $e1c6bbc8cb416f8c$var$T_END;
-// Character categories
-const $e1c6bbc8cb416f8c$var$X = 0; // Other character
-const $e1c6bbc8cb416f8c$var$L = 1; // Leading consonant
-const $e1c6bbc8cb416f8c$var$V = 2; // Medial vowel
-const $e1c6bbc8cb416f8c$var$T = 3; // Trailing consonant
-const $e1c6bbc8cb416f8c$var$LV = 4; // Composed <LV> syllable
-const $e1c6bbc8cb416f8c$var$LVT = 5; // Composed <LVT> syllable
-const $e1c6bbc8cb416f8c$var$M = 6; // Tone mark
-// This function classifies a character using the above categories.
+
+const $e1c6bbc8cb416f8c$var$X = 0; 
+const $e1c6bbc8cb416f8c$var$L = 1; 
+const $e1c6bbc8cb416f8c$var$V = 2; 
+const $e1c6bbc8cb416f8c$var$T = 3; 
+const $e1c6bbc8cb416f8c$var$LV = 4; 
+const $e1c6bbc8cb416f8c$var$LVT = 5; 
+const $e1c6bbc8cb416f8c$var$M = 6; 
+
 function $e1c6bbc8cb416f8c$var$getType(code) {
     if ($e1c6bbc8cb416f8c$var$isL(code)) return $e1c6bbc8cb416f8c$var$L;
     if ($e1c6bbc8cb416f8c$var$isV(code)) return $e1c6bbc8cb416f8c$var$V;
@@ -8049,17 +8049,17 @@ function $e1c6bbc8cb416f8c$var$getType(code) {
     if ($e1c6bbc8cb416f8c$var$isTone(code)) return $e1c6bbc8cb416f8c$var$M;
     return $e1c6bbc8cb416f8c$var$X;
 }
-// State machine actions
+
 const $e1c6bbc8cb416f8c$var$NO_ACTION = 0;
 const $e1c6bbc8cb416f8c$var$DECOMPOSE = 1;
 const $e1c6bbc8cb416f8c$var$COMPOSE = 2;
 const $e1c6bbc8cb416f8c$var$TONE_MARK = 4;
 const $e1c6bbc8cb416f8c$var$INVALID = 5;
-// Build a state machine that accepts valid syllables, and applies actions along the way.
-// The logic this is implementing is documented at the top of the file.
+
+
 const $e1c6bbc8cb416f8c$var$STATE_TABLE = [
-    //       X                 L                 V                T                  LV                LVT               M
-    // State 0: start state
+    
+    
     [
         [
             $e1c6bbc8cb416f8c$var$NO_ACTION,
@@ -8090,7 +8090,7 @@ const $e1c6bbc8cb416f8c$var$STATE_TABLE = [
             0
         ]
     ],
-    // State 1: <L>
+    
     [
         [
             $e1c6bbc8cb416f8c$var$NO_ACTION,
@@ -8121,7 +8121,7 @@ const $e1c6bbc8cb416f8c$var$STATE_TABLE = [
             0
         ]
     ],
-    // State 2: <L,V> or <LV>
+    
     [
         [
             $e1c6bbc8cb416f8c$var$NO_ACTION,
@@ -8152,7 +8152,7 @@ const $e1c6bbc8cb416f8c$var$STATE_TABLE = [
             0
         ]
     ],
-    // State 3: <L,V,T> or <LVT>
+    
     [
         [
             $e1c6bbc8cb416f8c$var$NO_ACTION,
@@ -8197,10 +8197,10 @@ function $e1c6bbc8cb416f8c$var$decompose(glyphs, i, font) {
     s = s / $e1c6bbc8cb416f8c$var$T_COUNT | 0;
     let l = $e1c6bbc8cb416f8c$var$L_BASE + s / $e1c6bbc8cb416f8c$var$V_COUNT | 0;
     let v = $e1c6bbc8cb416f8c$var$V_BASE + s % $e1c6bbc8cb416f8c$var$V_COUNT;
-    // Don't decompose if all of the components are not available
+    
     if (!font.hasGlyphForCodePoint(l) || !font.hasGlyphForCodePoint(v) || t !== $e1c6bbc8cb416f8c$var$T_BASE && !font.hasGlyphForCodePoint(t)) return i;
-    // Replace the current glyph with decomposed L, V, and T glyphs,
-    // and apply the proper OpenType features to each component.
+    
+    
     let ljmo = $e1c6bbc8cb416f8c$var$getGlyph(font, l, glyph.features);
     ljmo.features.ljmo = true;
     let vjmo = $e1c6bbc8cb416f8c$var$getGlyph(font, v, glyph.features);
@@ -8223,47 +8223,47 @@ function $e1c6bbc8cb416f8c$var$compose(glyphs, i, font) {
     let type = $e1c6bbc8cb416f8c$var$getType(code);
     let prev = glyphs[i - 1].codePoints[0];
     let prevType = $e1c6bbc8cb416f8c$var$getType(prev);
-    // Figure out what type of syllable we're dealing with
+    
     let lv, ljmo, vjmo, tjmo;
     if (prevType === $e1c6bbc8cb416f8c$var$LV && type === $e1c6bbc8cb416f8c$var$T) {
-        // <LV,T>
+        
         lv = prev;
         tjmo = glyph;
     } else {
         if (type === $e1c6bbc8cb416f8c$var$V) {
-            // <L,V>
+            
             ljmo = glyphs[i - 1];
             vjmo = glyph;
         } else {
-            // <L,V,T>
+            
             ljmo = glyphs[i - 2];
             vjmo = glyphs[i - 1];
             tjmo = glyph;
         }
         let l = ljmo.codePoints[0];
         let v = vjmo.codePoints[0];
-        // Make sure L and V are combining characters
+        
         if ($e1c6bbc8cb416f8c$var$isCombiningL(l) && $e1c6bbc8cb416f8c$var$isCombiningV(v)) lv = $e1c6bbc8cb416f8c$var$HANGUL_BASE + ((l - $e1c6bbc8cb416f8c$var$L_BASE) * $e1c6bbc8cb416f8c$var$V_COUNT + (v - $e1c6bbc8cb416f8c$var$V_BASE)) * $e1c6bbc8cb416f8c$var$T_COUNT;
     }
     let t = tjmo && tjmo.codePoints[0] || $e1c6bbc8cb416f8c$var$T_BASE;
     if (lv != null && (t === $e1c6bbc8cb416f8c$var$T_BASE || $e1c6bbc8cb416f8c$var$isCombiningT(t))) {
         let s = lv + (t - $e1c6bbc8cb416f8c$var$T_BASE);
-        // Replace with a composed glyph if supported by the font,
-        // otherwise apply the proper OpenType features to each component.
+        
+        
         if (font.hasGlyphForCodePoint(s)) {
             let del = prevType === $e1c6bbc8cb416f8c$var$V ? 3 : 2;
             glyphs.splice(i - del + 1, del, $e1c6bbc8cb416f8c$var$getGlyph(font, s, glyph.features));
             return i - del + 1;
         }
     }
-    // Didn't compose (either a non-combining component or unsupported by font).
+    
     if (ljmo) ljmo.features.ljmo = true;
     if (vjmo) vjmo.features.vjmo = true;
     if (tjmo) tjmo.features.tjmo = true;
     if (prevType === $e1c6bbc8cb416f8c$var$LV) {
-        // Sequence was originally <L,V>, which got combined earlier.
-        // Either the T was non-combining, or the LVT glyph wasn't supported.
-        // Decompose the glyph again and apply OT features.
+        
+        
+        
         $e1c6bbc8cb416f8c$var$decompose(glyphs, i - 1, font);
         return i + 1;
     }
@@ -8283,7 +8283,7 @@ function $e1c6bbc8cb416f8c$var$getLength(code) {
 function $e1c6bbc8cb416f8c$var$reorderToneMark(glyphs, i, font) {
     let glyph = glyphs[i];
     let code = glyphs[i].codePoints[0];
-    // Move tone mark to the beginning of the previous syllable, unless it is zero width
+    
     if (font.glyphForCodePoint(code).advanceWidth === 0) return;
     let prev = glyphs[i - 1].codePoints[0];
     let len = $e1c6bbc8cb416f8c$var$getLength(prev);
@@ -8295,7 +8295,7 @@ function $e1c6bbc8cb416f8c$var$insertDottedCircle(glyphs, i, font) {
     let code = glyphs[i].codePoints[0];
     if (font.hasGlyphForCodePoint($e1c6bbc8cb416f8c$var$DOTTED_CIRCLE)) {
         let dottedCircle = $e1c6bbc8cb416f8c$var$getGlyph(font, $e1c6bbc8cb416f8c$var$DOTTED_CIRCLE, glyph.features);
-        // If the tone mark is zero width, insert the dotted circle before, otherwise after
+        
         let idx = font.glyphForCodePoint(code).advanceWidth === 0 ? i : i + 1;
         glyphs.splice(idx, 0, dottedCircle);
         i++;
@@ -8306,8 +8306,8 @@ var $4b0735ca6c692ea5$exports = {};
 $4b0735ca6c692ea5$exports = JSON.parse("{\"stateTable\":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,2,3,4,5,6,7,8,9,0,10,11,11,12,13,14,15,16,17],[0,0,0,18,19,20,21,22,23,0,24,0,0,25,26,0,0,27,0],[0,0,0,28,29,30,31,32,33,0,34,0,0,35,36,0,0,37,0],[0,0,0,38,5,7,7,8,9,0,10,0,0,0,13,0,0,16,0],[0,39,0,0,0,40,41,0,9,0,10,0,0,0,42,0,39,0,0],[0,0,0,0,43,44,44,8,9,0,0,0,0,12,43,0,0,0,0],[0,0,0,0,43,44,44,8,9,0,0,0,0,0,43,0,0,0,0],[0,0,0,45,46,47,48,49,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,0,0,50,0,0,51,0,10,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,52,0,0,0,0,0,0,0,0],[0,0,0,53,54,55,56,57,58,0,59,0,0,60,61,0,0,62,0],[0,0,0,4,5,7,7,8,9,0,10,0,0,0,13,0,0,16,0],[0,63,64,0,0,40,41,0,9,0,10,0,0,0,42,0,63,0,0],[0,2,3,4,5,6,7,8,9,0,10,11,11,12,13,0,2,16,0],[0,0,0,18,65,20,21,22,23,0,24,0,0,25,26,0,0,27,0],[0,0,0,0,66,67,67,8,9,0,10,0,0,0,68,0,0,0,0],[0,0,0,69,0,70,70,0,71,0,72,0,0,0,0,0,0,0,0],[0,0,0,73,19,74,74,22,23,0,24,0,0,0,26,0,0,27,0],[0,75,0,0,0,76,77,0,23,0,24,0,0,0,78,0,75,0,0],[0,0,0,0,79,80,80,22,23,0,0,0,0,25,79,0,0,0,0],[0,0,0,18,19,20,74,22,23,0,24,0,0,25,26,0,0,27,0],[0,0,0,81,82,83,84,85,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,0,0,86,0,0,87,0,24,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,88,0,0,0,0,0,0,0,0],[0,0,0,18,19,74,74,22,23,0,24,0,0,0,26,0,0,27,0],[0,89,90,0,0,76,77,0,23,0,24,0,0,0,78,0,89,0,0],[0,0,0,0,91,92,92,22,23,0,24,0,0,0,93,0,0,0,0],[0,0,0,94,29,95,31,32,33,0,34,0,0,0,36,0,0,37,0],[0,96,0,0,0,97,98,0,33,0,34,0,0,0,99,0,96,0,0],[0,0,0,0,100,101,101,32,33,0,0,0,0,35,100,0,0,0,0],[0,0,0,0,100,101,101,32,33,0,0,0,0,0,100,0,0,0,0],[0,0,0,102,103,104,105,106,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,0,0,107,0,0,108,0,34,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,109,0,0,0,0,0,0,0,0],[0,0,0,28,29,95,31,32,33,0,34,0,0,0,36,0,0,37,0],[0,110,111,0,0,97,98,0,33,0,34,0,0,0,99,0,110,0,0],[0,0,0,0,112,113,113,32,33,0,34,0,0,0,114,0,0,0,0],[0,0,0,0,5,7,7,8,9,0,10,0,0,0,13,0,0,16,0],[0,0,0,115,116,117,118,8,9,0,10,0,0,119,120,0,0,16,0],[0,0,0,0,0,121,121,0,9,0,10,0,0,0,42,0,0,0,0],[0,39,0,122,0,123,123,8,9,0,10,0,0,0,42,0,39,0,0],[0,124,64,0,0,0,0,0,0,0,0,0,0,0,0,0,124,0,0],[0,39,0,0,0,121,125,0,9,0,10,0,0,0,42,0,39,0,0],[0,0,0,0,0,126,126,8,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,46,47,48,49,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,0,0,47,47,49,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,0,0,127,127,49,9,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,128,127,127,49,9,0,0,0,0,0,0,0,0,0,0],[0,0,0,129,130,131,132,133,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0,0,0],[0,0,0,0,0,50,0,0,0,0,10,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,134,0,0,0,0,0,0,0,0],[0,0,0,135,54,56,56,57,58,0,59,0,0,0,61,0,0,62,0],[0,136,0,0,0,137,138,0,58,0,59,0,0,0,139,0,136,0,0],[0,0,0,0,140,141,141,57,58,0,0,0,0,60,140,0,0,0,0],[0,0,0,0,140,141,141,57,58,0,0,0,0,0,140,0,0,0,0],[0,0,0,142,143,144,145,146,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,0,0,147,0,0,148,0,59,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,149,0,0,0,0,0,0,0,0],[0,0,0,53,54,56,56,57,58,0,59,0,0,0,61,0,0,62,0],[0,150,151,0,0,137,138,0,58,0,59,0,0,0,139,0,150,0,0],[0,0,0,0,152,153,153,57,58,0,59,0,0,0,154,0,0,0,0],[0,0,0,155,116,156,157,8,9,0,10,0,0,158,120,0,0,16,0],[0,0,0,0,0,121,121,0,9,0,10,0,0,0,0,0,0,0,0],[0,75,3,4,5,159,160,8,161,0,162,0,11,12,163,0,75,16,0],[0,0,0,0,0,40,164,0,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,0,165,44,44,8,9,0,0,0,0,0,165,0,0,0,0],[0,124,64,0,0,40,164,0,9,0,10,0,0,0,42,0,124,0,0],[0,0,0,0,0,70,70,0,71,0,72,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,71,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,166,0,0,167,0,72,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,168,0,0,0,0,0,0,0,0],[0,0,0,0,19,74,74,22,23,0,24,0,0,0,26,0,0,27,0],[0,0,0,0,79,80,80,22,23,0,0,0,0,0,79,0,0,0,0],[0,0,0,169,170,171,172,22,23,0,24,0,0,173,174,0,0,27,0],[0,0,0,0,0,175,175,0,23,0,24,0,0,0,78,0,0,0,0],[0,75,0,176,0,177,177,22,23,0,24,0,0,0,78,0,75,0,0],[0,178,90,0,0,0,0,0,0,0,0,0,0,0,0,0,178,0,0],[0,75,0,0,0,175,179,0,23,0,24,0,0,0,78,0,75,0,0],[0,0,0,0,0,180,180,22,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,82,83,84,85,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,0,0,83,83,85,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,0,0,181,181,85,23,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,182,181,181,85,23,0,0,0,0,0,0,0,0,0,0],[0,0,0,183,184,185,186,187,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,24,0,0,0,0,0,0,0,0],[0,0,0,0,0,86,0,0,0,0,24,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,188,0,0,0,0,0,0,0,0],[0,0,0,189,170,190,191,22,23,0,24,0,0,192,174,0,0,27,0],[0,0,0,0,0,175,175,0,23,0,24,0,0,0,0,0,0,0,0],[0,0,0,0,0,76,193,0,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,0,194,80,80,22,23,0,0,0,0,0,194,0,0,0,0],[0,178,90,0,0,76,193,0,23,0,24,0,0,0,78,0,178,0,0],[0,0,0,0,29,95,31,32,33,0,34,0,0,0,36,0,0,37,0],[0,0,0,0,100,101,101,32,33,0,0,0,0,0,100,0,0,0,0],[0,0,0,195,196,197,198,32,33,0,34,0,0,199,200,0,0,37,0],[0,0,0,0,0,201,201,0,33,0,34,0,0,0,99,0,0,0,0],[0,96,0,202,0,203,203,32,33,0,34,0,0,0,99,0,96,0,0],[0,204,111,0,0,0,0,0,0,0,0,0,0,0,0,0,204,0,0],[0,96,0,0,0,201,205,0,33,0,34,0,0,0,99,0,96,0,0],[0,0,0,0,0,206,206,32,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,103,104,105,106,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,0,0,104,104,106,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,0,0,207,207,106,33,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,208,207,207,106,33,0,0,0,0,0,0,0,0,0,0],[0,0,0,209,210,211,212,213,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,34,0,0,0,0,0,0,0,0],[0,0,0,0,0,107,0,0,0,0,34,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,214,0,0,0,0,0,0,0,0],[0,0,0,215,196,216,217,32,33,0,34,0,0,218,200,0,0,37,0],[0,0,0,0,0,201,201,0,33,0,34,0,0,0,0,0,0,0,0],[0,0,0,0,0,97,219,0,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,0,220,101,101,32,33,0,0,0,0,0,220,0,0,0,0],[0,204,111,0,0,97,219,0,33,0,34,0,0,0,99,0,204,0,0],[0,0,0,221,116,222,222,8,9,0,10,0,0,0,120,0,0,16,0],[0,223,0,0,0,40,224,0,9,0,10,0,0,0,42,0,223,0,0],[0,0,0,0,225,44,44,8,9,0,0,0,0,119,225,0,0,0,0],[0,0,0,115,116,117,222,8,9,0,10,0,0,119,120,0,0,16,0],[0,0,0,115,116,222,222,8,9,0,10,0,0,0,120,0,0,16,0],[0,226,64,0,0,40,224,0,9,0,10,0,0,0,42,0,226,0,0],[0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0],[0,39,0,0,0,121,121,0,9,0,10,0,0,0,42,0,39,0,0],[0,0,0,0,0,44,44,8,9,0,0,0,0,0,0,0,0,0,0],[0,0,0,227,0,228,229,0,9,0,10,0,0,230,0,0,0,0,0],[0,39,0,122,0,121,121,0,9,0,10,0,0,0,42,0,39,0,0],[0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,231,231,49,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,232,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,130,131,132,133,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,0,0,131,131,133,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,0,0,233,233,133,9,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,234,233,233,133,9,0,0,0,0,0,0,0,0,0,0],[0,0,0,235,236,237,238,239,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,54,56,56,57,58,0,59,0,0,0,61,0,0,62,0],[0,0,0,240,241,242,243,57,58,0,59,0,0,244,245,0,0,62,0],[0,0,0,0,0,246,246,0,58,0,59,0,0,0,139,0,0,0,0],[0,136,0,247,0,248,248,57,58,0,59,0,0,0,139,0,136,0,0],[0,249,151,0,0,0,0,0,0,0,0,0,0,0,0,0,249,0,0],[0,136,0,0,0,246,250,0,58,0,59,0,0,0,139,0,136,0,0],[0,0,0,0,0,251,251,57,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,143,144,145,146,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,0,0,144,144,146,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,0,0,252,252,146,58,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,253,252,252,146,58,0,0,0,0,0,0,0,0,0,0],[0,0,0,254,255,256,257,258,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,59,0,0,0,0,0,0,0,0],[0,0,0,0,0,147,0,0,0,0,59,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,259,0,0,0,0,0,0,0,0],[0,0,0,260,241,261,262,57,58,0,59,0,0,263,245,0,0,62,0],[0,0,0,0,0,246,246,0,58,0,59,0,0,0,0,0,0,0,0],[0,0,0,0,0,137,264,0,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,0,265,141,141,57,58,0,0,0,0,0,265,0,0,0,0],[0,249,151,0,0,137,264,0,58,0,59,0,0,0,139,0,249,0,0],[0,0,0,221,116,222,222,8,9,0,10,0,0,0,120,0,0,16,0],[0,0,0,0,225,44,44,8,9,0,0,0,0,158,225,0,0,0,0],[0,0,0,155,116,156,222,8,9,0,10,0,0,158,120,0,0,16,0],[0,0,0,155,116,222,222,8,9,0,10,0,0,0,120,0,0,16,0],[0,0,0,0,43,266,266,8,161,0,24,0,0,12,267,0,0,0,0],[0,75,0,176,43,268,268,269,161,0,24,0,0,0,267,0,75,0,0],[0,0,0,0,0,270,0,0,271,0,162,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,272,0,0,0,0,0,0,0,0],[0,273,274,0,0,40,41,0,9,0,10,0,0,0,42,0,273,0,0],[0,0,0,40,0,123,123,8,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,0,0,121,275,0,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,72,0,0,0,0,0,0,0,0],[0,0,0,0,0,166,0,0,0,0,72,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,276,0,0,0,0,0,0,0,0],[0,0,0,277,170,278,278,22,23,0,24,0,0,0,174,0,0,27,0],[0,279,0,0,0,76,280,0,23,0,24,0,0,0,78,0,279,0,0],[0,0,0,0,281,80,80,22,23,0,0,0,0,173,281,0,0,0,0],[0,0,0,169,170,171,278,22,23,0,24,0,0,173,174,0,0,27,0],[0,0,0,169,170,278,278,22,23,0,24,0,0,0,174,0,0,27,0],[0,282,90,0,0,76,280,0,23,0,24,0,0,0,78,0,282,0,0],[0,0,0,0,0,0,0,0,23,0,0,0,0,0,0,0,0,0,0],[0,75,0,0,0,175,175,0,23,0,24,0,0,0,78,0,75,0,0],[0,0,0,0,0,80,80,22,23,0,0,0,0,0,0,0,0,0,0],[0,0,0,283,0,284,285,0,23,0,24,0,0,286,0,0,0,0,0],[0,75,0,176,0,175,175,0,23,0,24,0,0,0,78,0,75,0,0],[0,0,0,0,0,0,0,22,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,287,287,85,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,288,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,184,185,186,187,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,0,0,185,185,187,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,0,0,289,289,187,23,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,290,289,289,187,23,0,0,0,0,0,0,0,0,0,0],[0,0,0,291,292,293,294,295,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,277,170,278,278,22,23,0,24,0,0,0,174,0,0,27,0],[0,0,0,0,281,80,80,22,23,0,0,0,0,192,281,0,0,0,0],[0,0,0,189,170,190,278,22,23,0,24,0,0,192,174,0,0,27,0],[0,0,0,189,170,278,278,22,23,0,24,0,0,0,174,0,0,27,0],[0,0,0,76,0,177,177,22,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,0,0,175,296,0,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,297,196,298,298,32,33,0,34,0,0,0,200,0,0,37,0],[0,299,0,0,0,97,300,0,33,0,34,0,0,0,99,0,299,0,0],[0,0,0,0,301,101,101,32,33,0,0,0,0,199,301,0,0,0,0],[0,0,0,195,196,197,298,32,33,0,34,0,0,199,200,0,0,37,0],[0,0,0,195,196,298,298,32,33,0,34,0,0,0,200,0,0,37,0],[0,302,111,0,0,97,300,0,33,0,34,0,0,0,99,0,302,0,0],[0,0,0,0,0,0,0,0,33,0,0,0,0,0,0,0,0,0,0],[0,96,0,0,0,201,201,0,33,0,34,0,0,0,99,0,96,0,0],[0,0,0,0,0,101,101,32,33,0,0,0,0,0,0,0,0,0,0],[0,0,0,303,0,304,305,0,33,0,34,0,0,306,0,0,0,0,0],[0,96,0,202,0,201,201,0,33,0,34,0,0,0,99,0,96,0,0],[0,0,0,0,0,0,0,32,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,307,307,106,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,308,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,210,211,212,213,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,0,0,211,211,213,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,0,0,309,309,213,33,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,310,309,309,213,33,0,0,0,0,0,0,0,0,0,0],[0,0,0,311,312,313,314,315,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,297,196,298,298,32,33,0,34,0,0,0,200,0,0,37,0],[0,0,0,0,301,101,101,32,33,0,0,0,0,218,301,0,0,0,0],[0,0,0,215,196,216,298,32,33,0,34,0,0,218,200,0,0,37,0],[0,0,0,215,196,298,298,32,33,0,34,0,0,0,200,0,0,37,0],[0,0,0,97,0,203,203,32,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,0,0,201,316,0,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,0,116,222,222,8,9,0,10,0,0,0,120,0,0,16,0],[0,0,0,0,225,44,44,8,9,0,0,0,0,0,225,0,0,0,0],[0,0,0,317,318,319,320,8,9,0,10,0,0,321,322,0,0,16,0],[0,223,0,323,0,123,123,8,9,0,10,0,0,0,42,0,223,0,0],[0,223,0,0,0,121,324,0,9,0,10,0,0,0,42,0,223,0,0],[0,0,0,325,318,326,327,8,9,0,10,0,0,328,322,0,0,16,0],[0,0,0,64,0,121,121,0,9,0,10,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,9,0,0,0,0,230,0,0,0,0,0],[0,0,0,227,0,228,121,0,9,0,10,0,0,230,0,0,0,0,0],[0,0,0,227,0,121,121,0,9,0,10,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,49,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,46,0,0],[0,0,0,0,0,329,329,133,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,330,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,236,237,238,239,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,0,0,237,237,239,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,0,0,331,331,239,9,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,332,331,331,239,9,0,0,0,0,0,0,0,0,0,0],[0,0,0,333,40,121,334,0,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,335,241,336,336,57,58,0,59,0,0,0,245,0,0,62,0],[0,337,0,0,0,137,338,0,58,0,59,0,0,0,139,0,337,0,0],[0,0,0,0,339,141,141,57,58,0,0,0,0,244,339,0,0,0,0],[0,0,0,240,241,242,336,57,58,0,59,0,0,244,245,0,0,62,0],[0,0,0,240,241,336,336,57,58,0,59,0,0,0,245,0,0,62,0],[0,340,151,0,0,137,338,0,58,0,59,0,0,0,139,0,340,0,0],[0,0,0,0,0,0,0,0,58,0,0,0,0,0,0,0,0,0,0],[0,136,0,0,0,246,246,0,58,0,59,0,0,0,139,0,136,0,0],[0,0,0,0,0,141,141,57,58,0,0,0,0,0,0,0,0,0,0],[0,0,0,341,0,342,343,0,58,0,59,0,0,344,0,0,0,0,0],[0,136,0,247,0,246,246,0,58,0,59,0,0,0,139,0,136,0,0],[0,0,0,0,0,0,0,57,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,345,345,146,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,346,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,255,256,257,258,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,0,0,256,256,258,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,0,0,347,347,258,58,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,348,347,347,258,58,0,0,0,0,0,0,0,0,0,0],[0,0,0,349,350,351,352,353,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,335,241,336,336,57,58,0,59,0,0,0,245,0,0,62,0],[0,0,0,0,339,141,141,57,58,0,0,0,0,263,339,0,0,0,0],[0,0,0,260,241,261,336,57,58,0,59,0,0,263,245,0,0,62,0],[0,0,0,260,241,336,336,57,58,0,59,0,0,0,245,0,0,62,0],[0,0,0,137,0,248,248,57,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,0,0,246,354,0,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,0,0,126,126,8,23,0,0,0,0,0,0,0,0,0,0],[0,355,90,0,0,121,125,0,9,0,10,0,0,0,42,0,355,0,0],[0,0,0,0,0,356,356,269,23,0,0,0,0,0,0,0,0,0,0],[0,0,0,357,358,359,360,361,161,0,162,0,0,0,362,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,162,0,0,0,0,0,0,0,0],[0,0,0,0,0,270,0,0,0,0,162,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,363,0,0,0,0,0,0,0,0],[0,0,0,364,116,365,366,8,161,0,162,0,0,367,120,0,0,16,0],[0,0,0,0,0,368,368,0,161,0,162,0,0,0,0,0,0,0,0],[0,0,0,40,0,121,121,0,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,170,278,278,22,23,0,24,0,0,0,174,0,0,27,0],[0,0,0,0,281,80,80,22,23,0,0,0,0,0,281,0,0,0,0],[0,0,0,369,370,371,372,22,23,0,24,0,0,373,374,0,0,27,0],[0,279,0,375,0,177,177,22,23,0,24,0,0,0,78,0,279,0,0],[0,279,0,0,0,175,376,0,23,0,24,0,0,0,78,0,279,0,0],[0,0,0,377,370,378,379,22,23,0,24,0,0,380,374,0,0,27,0],[0,0,0,90,0,175,175,0,23,0,24,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,23,0,0,0,0,286,0,0,0,0,0],[0,0,0,283,0,284,175,0,23,0,24,0,0,286,0,0,0,0,0],[0,0,0,283,0,175,175,0,23,0,24,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,85,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,82,0,0],[0,0,0,0,0,381,381,187,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,382,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,292,293,294,295,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,0,0,293,293,295,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,0,0,383,383,295,23,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,384,383,383,295,23,0,0,0,0,0,0,0,0,0,0],[0,0,0,385,76,175,386,0,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,76,0,175,175,0,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,0,196,298,298,32,33,0,34,0,0,0,200,0,0,37,0],[0,0,0,0,301,101,101,32,33,0,0,0,0,0,301,0,0,0,0],[0,0,0,387,388,389,390,32,33,0,34,0,0,391,392,0,0,37,0],[0,299,0,393,0,203,203,32,33,0,34,0,0,0,99,0,299,0,0],[0,299,0,0,0,201,394,0,33,0,34,0,0,0,99,0,299,0,0],[0,0,0,395,388,396,397,32,33,0,34,0,0,398,392,0,0,37,0],[0,0,0,111,0,201,201,0,33,0,34,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,33,0,0,0,0,306,0,0,0,0,0],[0,0,0,303,0,304,201,0,33,0,34,0,0,306,0,0,0,0,0],[0,0,0,303,0,201,201,0,33,0,34,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,106,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,103,0,0],[0,0,0,0,0,399,399,213,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,400,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,312,313,314,315,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,0,0,313,313,315,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,0,0,401,401,315,33,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,402,401,401,315,33,0,0,0,0,0,0,0,0,0,0],[0,0,0,403,97,201,404,0,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,97,0,201,201,0,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,405,318,406,406,8,9,0,10,0,0,0,322,0,0,16,0],[0,407,0,0,0,40,408,0,9,0,10,0,0,0,42,0,407,0,0],[0,0,0,0,409,44,44,8,9,0,0,0,0,321,409,0,0,0,0],[0,0,0,317,318,319,406,8,9,0,10,0,0,321,322,0,0,16,0],[0,0,0,317,318,406,406,8,9,0,10,0,0,0,322,0,0,16,0],[0,410,64,0,0,40,408,0,9,0,10,0,0,0,42,0,410,0,0],[0,223,0,0,0,121,121,0,9,0,10,0,0,0,42,0,223,0,0],[0,223,0,323,0,121,121,0,9,0,10,0,0,0,42,0,223,0,0],[0,0,0,405,318,406,406,8,9,0,10,0,0,0,322,0,0,16,0],[0,0,0,0,409,44,44,8,9,0,0,0,0,328,409,0,0,0,0],[0,0,0,325,318,326,406,8,9,0,10,0,0,328,322,0,0,16,0],[0,0,0,325,318,406,406,8,9,0,10,0,0,0,322,0,0,16,0],[0,0,0,0,0,0,0,133,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,130,0,0],[0,0,0,0,0,411,411,239,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,412,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,40,121,334,0,9,0,10,0,0,0,42,0,0,0,0],[0,0,0,0,413,0,0,0,9,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,241,336,336,57,58,0,59,0,0,0,245,0,0,62,0],[0,0,0,0,339,141,141,57,58,0,0,0,0,0,339,0,0,0,0],[0,0,0,414,415,416,417,57,58,0,59,0,0,418,419,0,0,62,0],[0,337,0,420,0,248,248,57,58,0,59,0,0,0,139,0,337,0,0],[0,337,0,0,0,246,421,0,58,0,59,0,0,0,139,0,337,0,0],[0,0,0,422,415,423,424,57,58,0,59,0,0,425,419,0,0,62,0],[0,0,0,151,0,246,246,0,58,0,59,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,58,0,0,0,0,344,0,0,0,0,0],[0,0,0,341,0,342,246,0,58,0,59,0,0,344,0,0,0,0,0],[0,0,0,341,0,246,246,0,58,0,59,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,146,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,143,0,0],[0,0,0,0,0,426,426,258,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,427,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,350,351,352,353,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,0,0,351,351,353,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,0,0,428,428,353,58,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,429,428,428,353,58,0,0,0,0,0,0,0,0,0,0],[0,0,0,430,137,246,431,0,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,137,0,246,246,0,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,432,116,433,434,8,161,0,162,0,0,435,120,0,0,16,0],[0,0,0,0,0,180,180,269,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,358,359,360,361,161,0,162,0,0,0,362,0,0,0,0],[0,0,0,0,0,359,359,361,161,0,162,0,0,0,362,0,0,0,0],[0,0,0,0,0,436,436,361,161,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,437,436,436,361,161,0,0,0,0,0,0,0,0,0,0],[0,0,0,438,439,440,441,442,161,0,162,0,0,0,362,0,0,0,0],[0,443,274,0,0,0,0,0,0,0,0,0,0,0,0,0,443,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,444,116,445,445,8,161,0,162,0,0,0,120,0,0,16,0],[0,0,0,0,225,44,44,8,161,0,0,0,0,367,225,0,0,0,0],[0,0,0,364,116,365,445,8,161,0,162,0,0,367,120,0,0,16,0],[0,0,0,364,116,445,445,8,161,0,162,0,0,0,120,0,0,16,0],[0,0,0,0,0,0,0,0,161,0,0,0,0,0,0,0,0,0,0],[0,0,0,446,370,447,447,22,23,0,24,0,0,0,374,0,0,27,0],[0,448,0,0,0,76,449,0,23,0,24,0,0,0,78,0,448,0,0],[0,0,0,0,450,80,80,22,23,0,0,0,0,373,450,0,0,0,0],[0,0,0,369,370,371,447,22,23,0,24,0,0,373,374,0,0,27,0],[0,0,0,369,370,447,447,22,23,0,24,0,0,0,374,0,0,27,0],[0,451,90,0,0,76,449,0,23,0,24,0,0,0,78,0,451,0,0],[0,279,0,0,0,175,175,0,23,0,24,0,0,0,78,0,279,0,0],[0,279,0,375,0,175,175,0,23,0,24,0,0,0,78,0,279,0,0],[0,0,0,446,370,447,447,22,23,0,24,0,0,0,374,0,0,27,0],[0,0,0,0,450,80,80,22,23,0,0,0,0,380,450,0,0,0,0],[0,0,0,377,370,378,447,22,23,0,24,0,0,380,374,0,0,27,0],[0,0,0,377,370,447,447,22,23,0,24,0,0,0,374,0,0,27,0],[0,0,0,0,0,0,0,187,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0],[0,0,0,0,0,452,452,295,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,453,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,76,175,386,0,23,0,24,0,0,0,78,0,0,0,0],[0,0,0,0,454,0,0,0,23,0,0,0,0,0,0,0,0,0,0],[0,0,0,455,388,456,456,32,33,0,34,0,0,0,392,0,0,37,0],[0,457,0,0,0,97,458,0,33,0,34,0,0,0,99,0,457,0,0],[0,0,0,0,459,101,101,32,33,0,0,0,0,391,459,0,0,0,0],[0,0,0,387,388,389,456,32,33,0,34,0,0,391,392,0,0,37,0],[0,0,0,387,388,456,456,32,33,0,34,0,0,0,392,0,0,37,0],[0,460,111,0,0,97,458,0,33,0,34,0,0,0,99,0,460,0,0],[0,299,0,0,0,201,201,0,33,0,34,0,0,0,99,0,299,0,0],[0,299,0,393,0,201,201,0,33,0,34,0,0,0,99,0,299,0,0],[0,0,0,455,388,456,456,32,33,0,34,0,0,0,392,0,0,37,0],[0,0,0,0,459,101,101,32,33,0,0,0,0,398,459,0,0,0,0],[0,0,0,395,388,396,456,32,33,0,34,0,0,398,392,0,0,37,0],[0,0,0,395,388,456,456,32,33,0,34,0,0,0,392,0,0,37,0],[0,0,0,0,0,0,0,213,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,210,0,0],[0,0,0,0,0,461,461,315,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,462,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,97,201,404,0,33,0,34,0,0,0,99,0,0,0,0],[0,0,0,0,463,0,0,0,33,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,318,406,406,8,9,0,10,0,0,0,322,0,0,16,0],[0,0,0,0,409,44,44,8,9,0,0,0,0,0,409,0,0,0,0],[0,0,0,464,465,466,467,8,9,0,10,0,0,468,469,0,0,16,0],[0,407,0,470,0,123,123,8,9,0,10,0,0,0,42,0,407,0,0],[0,407,0,0,0,121,471,0,9,0,10,0,0,0,42,0,407,0,0],[0,0,0,472,465,473,474,8,9,0,10,0,0,475,469,0,0,16,0],[0,0,0,0,0,0,0,239,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,236,0,0],[0,0,0,0,0,0,476,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,477,415,478,478,57,58,0,59,0,0,0,419,0,0,62,0],[0,479,0,0,0,137,480,0,58,0,59,0,0,0,139,0,479,0,0],[0,0,0,0,481,141,141,57,58,0,0,0,0,418,481,0,0,0,0],[0,0,0,414,415,416,478,57,58,0,59,0,0,418,419,0,0,62,0],[0,0,0,414,415,478,478,57,58,0,59,0,0,0,419,0,0,62,0],[0,482,151,0,0,137,480,0,58,0,59,0,0,0,139,0,482,0,0],[0,337,0,0,0,246,246,0,58,0,59,0,0,0,139,0,337,0,0],[0,337,0,420,0,246,246,0,58,0,59,0,0,0,139,0,337,0,0],[0,0,0,477,415,478,478,57,58,0,59,0,0,0,419,0,0,62,0],[0,0,0,0,481,141,141,57,58,0,0,0,0,425,481,0,0,0,0],[0,0,0,422,415,423,478,57,58,0,59,0,0,425,419,0,0,62,0],[0,0,0,422,415,478,478,57,58,0,59,0,0,0,419,0,0,62,0],[0,0,0,0,0,0,0,258,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,0,0],[0,0,0,0,0,483,483,353,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,484,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,137,246,431,0,58,0,59,0,0,0,139,0,0,0,0],[0,0,0,0,485,0,0,0,58,0,0,0,0,0,0,0,0,0,0],[0,0,0,444,116,445,445,8,161,0,162,0,0,0,120,0,0,16,0],[0,0,0,0,225,44,44,8,161,0,0,0,0,435,225,0,0,0,0],[0,0,0,432,116,433,445,8,161,0,162,0,0,435,120,0,0,16,0],[0,0,0,432,116,445,445,8,161,0,162,0,0,0,120,0,0,16,0],[0,0,0,0,0,486,486,361,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,487,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,439,440,441,442,161,0,162,0,0,0,362,0,0,0,0],[0,0,0,0,0,440,440,442,161,0,162,0,0,0,362,0,0,0,0],[0,0,0,0,0,488,488,442,161,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,489,488,488,442,161,0,0,0,0,0,0,0,0,0,0],[0,0,0,490,491,492,493,494,161,0,162,0,0,0,362,0,0,0,0],[0,0,0,495,0,496,497,0,161,0,162,0,0,498,0,0,0,0,0],[0,0,0,0,116,445,445,8,161,0,162,0,0,0,120,0,0,16,0],[0,0,0,0,225,44,44,8,161,0,0,0,0,0,225,0,0,0,0],[0,0,0,0,370,447,447,22,23,0,24,0,0,0,374,0,0,27,0],[0,0,0,0,450,80,80,22,23,0,0,0,0,0,450,0,0,0,0],[0,0,0,499,500,501,502,22,23,0,24,0,0,503,504,0,0,27,0],[0,448,0,505,0,177,177,22,23,0,24,0,0,0,78,0,448,0,0],[0,448,0,0,0,175,506,0,23,0,24,0,0,0,78,0,448,0,0],[0,0,0,507,500,508,509,22,23,0,24,0,0,510,504,0,0,27,0],[0,0,0,0,0,0,0,295,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,292,0,0],[0,0,0,0,0,0,511,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,388,456,456,32,33,0,34,0,0,0,392,0,0,37,0],[0,0,0,0,459,101,101,32,33,0,0,0,0,0,459,0,0,0,0],[0,0,0,512,513,514,515,32,33,0,34,0,0,516,517,0,0,37,0],[0,457,0,518,0,203,203,32,33,0,34,0,0,0,99,0,457,0,0],[0,457,0,0,0,201,519,0,33,0,34,0,0,0,99,0,457,0,0],[0,0,0,520,513,521,522,32,33,0,34,0,0,523,517,0,0,37,0],[0,0,0,0,0,0,0,315,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,312,0,0],[0,0,0,0,0,0,524,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,525,465,526,526,8,9,0,10,0,0,0,469,0,0,16,0],[0,527,0,0,0,40,528,0,9,0,10,0,0,0,42,0,527,0,0],[0,0,0,0,529,44,44,8,9,0,0,0,0,468,529,0,0,0,0],[0,0,0,464,465,466,526,8,9,0,10,0,0,468,469,0,0,16,0],[0,0,0,464,465,526,526,8,9,0,10,0,0,0,469,0,0,16,0],[0,530,64,0,0,40,528,0,9,0,10,0,0,0,42,0,530,0,0],[0,407,0,0,0,121,121,0,9,0,10,0,0,0,42,0,407,0,0],[0,407,0,470,0,121,121,0,9,0,10,0,0,0,42,0,407,0,0],[0,0,0,525,465,526,526,8,9,0,10,0,0,0,469,0,0,16,0],[0,0,0,0,529,44,44,8,9,0,0,0,0,475,529,0,0,0,0],[0,0,0,472,465,473,526,8,9,0,10,0,0,475,469,0,0,16,0],[0,0,0,472,465,526,526,8,9,0,10,0,0,0,469,0,0,16,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,40,0,0],[0,0,0,0,415,478,478,57,58,0,59,0,0,0,419,0,0,62,0],[0,0,0,0,481,141,141,57,58,0,0,0,0,0,481,0,0,0,0],[0,0,0,531,532,533,534,57,58,0,59,0,0,535,536,0,0,62,0],[0,479,0,537,0,248,248,57,58,0,59,0,0,0,139,0,479,0,0],[0,479,0,0,0,246,538,0,58,0,59,0,0,0,139,0,479,0,0],[0,0,0,539,532,540,541,57,58,0,59,0,0,542,536,0,0,62,0],[0,0,0,0,0,0,0,353,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,350,0,0],[0,0,0,0,0,0,543,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,361,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,358,0,0],[0,0,0,0,0,544,544,442,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,545,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,491,492,493,494,161,0,162,0,0,0,362,0,0,0,0],[0,0,0,0,0,492,492,494,161,0,162,0,0,0,362,0,0,0,0],[0,0,0,0,0,546,546,494,161,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,547,546,546,494,161,0,0,0,0,0,0,0,0,0,0],[0,0,0,548,549,368,550,0,161,0,162,0,0,0,362,0,0,0,0],[0,0,0,274,0,368,368,0,161,0,162,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,161,0,0,0,0,498,0,0,0,0,0],[0,0,0,495,0,496,368,0,161,0,162,0,0,498,0,0,0,0,0],[0,0,0,495,0,368,368,0,161,0,162,0,0,0,0,0,0,0,0],[0,0,0,551,500,552,552,22,23,0,24,0,0,0,504,0,0,27,0],[0,553,0,0,0,76,554,0,23,0,24,0,0,0,78,0,553,0,0],[0,0,0,0,555,80,80,22,23,0,0,0,0,503,555,0,0,0,0],[0,0,0,499,500,501,552,22,23,0,24,0,0,503,504,0,0,27,0],[0,0,0,499,500,552,552,22,23,0,24,0,0,0,504,0,0,27,0],[0,556,90,0,0,76,554,0,23,0,24,0,0,0,78,0,556,0,0],[0,448,0,0,0,175,175,0,23,0,24,0,0,0,78,0,448,0,0],[0,448,0,505,0,175,175,0,23,0,24,0,0,0,78,0,448,0,0],[0,0,0,551,500,552,552,22,23,0,24,0,0,0,504,0,0,27,0],[0,0,0,0,555,80,80,22,23,0,0,0,0,510,555,0,0,0,0],[0,0,0,507,500,508,552,22,23,0,24,0,0,510,504,0,0,27,0],[0,0,0,507,500,552,552,22,23,0,24,0,0,0,504,0,0,27,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76,0,0],[0,0,0,557,513,558,558,32,33,0,34,0,0,0,517,0,0,37,0],[0,559,0,0,0,97,560,0,33,0,34,0,0,0,99,0,559,0,0],[0,0,0,0,561,101,101,32,33,0,0,0,0,516,561,0,0,0,0],[0,0,0,512,513,514,558,32,33,0,34,0,0,516,517,0,0,37,0],[0,0,0,512,513,558,558,32,33,0,34,0,0,0,517,0,0,37,0],[0,562,111,0,0,97,560,0,33,0,34,0,0,0,99,0,562,0,0],[0,457,0,0,0,201,201,0,33,0,34,0,0,0,99,0,457,0,0],[0,457,0,518,0,201,201,0,33,0,34,0,0,0,99,0,457,0,0],[0,0,0,557,513,558,558,32,33,0,34,0,0,0,517,0,0,37,0],[0,0,0,0,561,101,101,32,33,0,0,0,0,523,561,0,0,0,0],[0,0,0,520,513,521,558,32,33,0,34,0,0,523,517,0,0,37,0],[0,0,0,520,513,558,558,32,33,0,34,0,0,0,517,0,0,37,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,97,0,0],[0,0,0,0,465,526,526,8,9,0,10,0,0,0,469,0,0,16,0],[0,0,0,0,529,44,44,8,9,0,0,0,0,0,529,0,0,0,0],[0,0,0,563,66,564,565,8,9,0,10,0,0,566,68,0,0,16,0],[0,527,0,567,0,123,123,8,9,0,10,0,0,0,42,0,527,0,0],[0,527,0,0,0,121,568,0,9,0,10,0,0,0,42,0,527,0,0],[0,0,0,569,66,570,571,8,9,0,10,0,0,572,68,0,0,16,0],[0,0,0,573,532,574,574,57,58,0,59,0,0,0,536,0,0,62,0],[0,575,0,0,0,137,576,0,58,0,59,0,0,0,139,0,575,0,0],[0,0,0,0,577,141,141,57,58,0,0,0,0,535,577,0,0,0,0],[0,0,0,531,532,533,574,57,58,0,59,0,0,535,536,0,0,62,0],[0,0,0,531,532,574,574,57,58,0,59,0,0,0,536,0,0,62,0],[0,578,151,0,0,137,576,0,58,0,59,0,0,0,139,0,578,0,0],[0,479,0,0,0,246,246,0,58,0,59,0,0,0,139,0,479,0,0],[0,479,0,537,0,246,246,0,58,0,59,0,0,0,139,0,479,0,0],[0,0,0,573,532,574,574,57,58,0,59,0,0,0,536,0,0,62,0],[0,0,0,0,577,141,141,57,58,0,0,0,0,542,577,0,0,0,0],[0,0,0,539,532,540,574,57,58,0,59,0,0,542,536,0,0,62,0],[0,0,0,539,532,574,574,57,58,0,59,0,0,0,536,0,0,62,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,137,0,0],[0,0,0,0,0,0,0,442,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,439,0,0],[0,0,0,0,0,579,579,494,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,580,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,549,368,550,0,161,0,162,0,0,0,362,0,0,0,0],[0,0,0,0,0,368,368,0,161,0,162,0,0,0,362,0,0,0,0],[0,0,0,0,581,0,0,0,161,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,500,552,552,22,23,0,24,0,0,0,504,0,0,27,0],[0,0,0,0,555,80,80,22,23,0,0,0,0,0,555,0,0,0,0],[0,0,0,582,91,583,584,22,23,0,24,0,0,585,93,0,0,27,0],[0,553,0,586,0,177,177,22,23,0,24,0,0,0,78,0,553,0,0],[0,553,0,0,0,175,587,0,23,0,24,0,0,0,78,0,553,0,0],[0,0,0,588,91,589,590,22,23,0,24,0,0,591,93,0,0,27,0],[0,0,0,0,513,558,558,32,33,0,34,0,0,0,517,0,0,37,0],[0,0,0,0,561,101,101,32,33,0,0,0,0,0,561,0,0,0,0],[0,0,0,592,112,593,594,32,33,0,34,0,0,595,114,0,0,37,0],[0,559,0,596,0,203,203,32,33,0,34,0,0,0,99,0,559,0,0],[0,559,0,0,0,201,597,0,33,0,34,0,0,0,99,0,559,0,0],[0,0,0,598,112,599,600,32,33,0,34,0,0,601,114,0,0,37,0],[0,0,0,602,66,67,67,8,9,0,10,0,0,0,68,0,0,16,0],[0,0,0,0,165,44,44,8,9,0,0,0,0,566,165,0,0,0,0],[0,0,0,563,66,564,67,8,9,0,10,0,0,566,68,0,0,16,0],[0,0,0,563,66,67,67,8,9,0,10,0,0,0,68,0,0,16,0],[0,527,0,0,0,121,121,0,9,0,10,0,0,0,42,0,527,0,0],[0,527,0,567,0,121,121,0,9,0,10,0,0,0,42,0,527,0,0],[0,0,0,602,66,67,67,8,9,0,10,0,0,0,68,0,0,16,0],[0,0,0,0,165,44,44,8,9,0,0,0,0,572,165,0,0,0,0],[0,0,0,569,66,570,67,8,9,0,10,0,0,572,68,0,0,16,0],[0,0,0,569,66,67,67,8,9,0,10,0,0,0,68,0,0,16,0],[0,0,0,0,532,574,574,57,58,0,59,0,0,0,536,0,0,62,0],[0,0,0,0,577,141,141,57,58,0,0,0,0,0,577,0,0,0,0],[0,0,0,603,152,604,605,57,58,0,59,0,0,606,154,0,0,62,0],[0,575,0,607,0,248,248,57,58,0,59,0,0,0,139,0,575,0,0],[0,575,0,0,0,246,608,0,58,0,59,0,0,0,139,0,575,0,0],[0,0,0,609,152,610,611,57,58,0,59,0,0,612,154,0,0,62,0],[0,0,0,0,0,0,0,494,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,491,0,0],[0,0,0,0,0,0,613,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,614,91,92,92,22,23,0,24,0,0,0,93,0,0,27,0],[0,0,0,0,194,80,80,22,23,0,0,0,0,585,194,0,0,0,0],[0,0,0,582,91,583,92,22,23,0,24,0,0,585,93,0,0,27,0],[0,0,0,582,91,92,92,22,23,0,24,0,0,0,93,0,0,27,0],[0,553,0,0,0,175,175,0,23,0,24,0,0,0,78,0,553,0,0],[0,553,0,586,0,175,175,0,23,0,24,0,0,0,78,0,553,0,0],[0,0,0,614,91,92,92,22,23,0,24,0,0,0,93,0,0,27,0],[0,0,0,0,194,80,80,22,23,0,0,0,0,591,194,0,0,0,0],[0,0,0,588,91,589,92,22,23,0,24,0,0,591,93,0,0,27,0],[0,0,0,588,91,92,92,22,23,0,24,0,0,0,93,0,0,27,0],[0,0,0,615,112,113,113,32,33,0,34,0,0,0,114,0,0,37,0],[0,0,0,0,220,101,101,32,33,0,0,0,0,595,220,0,0,0,0],[0,0,0,592,112,593,113,32,33,0,34,0,0,595,114,0,0,37,0],[0,0,0,592,112,113,113,32,33,0,34,0,0,0,114,0,0,37,0],[0,559,0,0,0,201,201,0,33,0,34,0,0,0,99,0,559,0,0],[0,559,0,596,0,201,201,0,33,0,34,0,0,0,99,0,559,0,0],[0,0,0,615,112,113,113,32,33,0,34,0,0,0,114,0,0,37,0],[0,0,0,0,220,101,101,32,33,0,0,0,0,601,220,0,0,0,0],[0,0,0,598,112,599,113,32,33,0,34,0,0,601,114,0,0,37,0],[0,0,0,598,112,113,113,32,33,0,34,0,0,0,114,0,0,37,0],[0,0,0,0,66,67,67,8,9,0,10,0,0,0,68,0,0,16,0],[0,0,0,616,152,153,153,57,58,0,59,0,0,0,154,0,0,62,0],[0,0,0,0,265,141,141,57,58,0,0,0,0,606,265,0,0,0,0],[0,0,0,603,152,604,153,57,58,0,59,0,0,606,154,0,0,62,0],[0,0,0,603,152,153,153,57,58,0,59,0,0,0,154,0,0,62,0],[0,575,0,0,0,246,246,0,58,0,59,0,0,0,139,0,575,0,0],[0,575,0,607,0,246,246,0,58,0,59,0,0,0,139,0,575,0,0],[0,0,0,616,152,153,153,57,58,0,59,0,0,0,154,0,0,62,0],[0,0,0,0,265,141,141,57,58,0,0,0,0,612,265,0,0,0,0],[0,0,0,609,152,610,153,57,58,0,59,0,0,612,154,0,0,62,0],[0,0,0,609,152,153,153,57,58,0,59,0,0,0,154,0,0,62,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,549,0,0],[0,0,0,0,91,92,92,22,23,0,24,0,0,0,93,0,0,27,0],[0,0,0,0,112,113,113,32,33,0,34,0,0,0,114,0,0,37,0],[0,0,0,0,152,153,153,57,58,0,59,0,0,0,154,0,0,62,0]],\"accepting\":[false,true,true,true,true,true,false,false,true,true,true,true,true,true,true,true,true,true,true,true,false,true,true,true,true,true,true,true,true,true,false,true,true,true,true,true,true,true,true,true,true,true,false,true,false,true,true,false,false,true,true,true,true,true,true,false,false,true,true,true,true,true,true,true,true,true,true,false,true,true,false,true,true,true,false,true,true,true,false,true,false,true,true,false,false,true,true,true,true,true,true,true,false,true,true,false,true,true,true,false,true,false,true,true,false,false,true,true,true,true,true,true,true,false,true,true,true,false,true,true,true,false,true,false,true,true,false,false,false,true,true,false,false,true,true,true,true,true,true,false,true,false,true,true,false,false,true,true,true,true,true,true,true,false,true,true,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,false,true,true,true,false,true,false,true,true,false,false,false,true,true,false,false,true,true,true,false,true,true,true,true,true,true,false,true,true,true,false,true,false,true,true,false,false,false,true,true,false,false,true,true,true,false,true,true,true,true,true,false,true,true,true,true,true,false,true,true,false,false,false,false,true,true,false,false,true,true,true,false,true,true,true,false,true,false,true,true,false,false,false,true,true,false,false,true,true,true,false,true,true,true,true,false,true,false,true,true,true,true,true,true,true,true,true,false,true,true,true,true,true,false,true,true,false,false,false,false,true,true,false,false,true,true,true,false,true,true,true,true,true,false,true,true,false,false,false,false,true,true,false,false,true,true,true,true,false,true,true,true,true,true,true,false,true,true,false,false,false,false,true,false,true,false,true,true,true,true,true,false,true,true,false,false,false,false,true,true,false,false,true,true,true,false,true,true,false,false,true,false,true,true,false,true,true,false,true,true,false,true,true,true,true,true,true,false,true,true,false,false,false,false,true,false,true,true,false,true,true,true,true,true,true,false,true,true,false,false,false,false,true,false,true,false,true,true,true,true,false,false,false,true,true,false,true,true,true,true,true,true,false,true,true,false,false,false,false,true,false,true,false,true,true,false,false,true,true,false,false,true,true,true,false,true,false,true,true,true,true,false,false,false,true,false,true,true,true,true,false,false,false,true,true,false,true,true,true,true,true,true,false,true,true,false,true,false,true,true,true,true,false,false,false,false,false,false,false,true,true,false,false,true,true,false,true,true,true,true,false,true,true,true,true,true,true,false,true,true,false,true,true,false,true,true,true,true,true,true,false,true,true,false,true,false,true,true,true,true,true,true,false,true,true,true,true,true,true,false,true,true,false,false,false,false,false,true,true,false,true,false,true,true,true,true,true,false,true,true,true,true,true,false,true,true,true,true,true,false,true,true,true,false,true,true,true,true,false,false,false,true,false,true,true,true,true,true,false,true,true,true,false,true,true,true,true,true,false,true,true,true,true,false,true,true,true,true,true,false,true,true,false,true,true,true],\"tags\":[[],[\"broken_cluster\"],[\"consonant_syllable\"],[\"vowel_syllable\"],[\"broken_cluster\"],[\"broken_cluster\"],[],[],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"standalone_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"consonant_syllable\"],[\"broken_cluster\"],[\"symbol_cluster\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[],[],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"symbol_cluster\"],[],[\"symbol_cluster\"],[\"symbol_cluster\"],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"broken_cluster\"],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[],[],[],[\"broken_cluster\"],[\"broken_cluster\"],[],[],[\"broken_cluster\"],[\"broken_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"symbol_cluster\"],[\"symbol_cluster\"],[\"symbol_cluster\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[],[],[],[],[\"broken_cluster\"],[\"broken_cluster\"],[],[],[\"broken_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[\"broken_cluster\"],[],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[\"broken_cluster\"],[\"symbol_cluster\"],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[],[],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[],[],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"broken_cluster\"],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[],[],[],[],[\"broken_cluster\"],[],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[],[],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[],[],[\"consonant_syllable\",\"broken_cluster\"],[],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[],[],[],[\"consonant_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[],[],[],[\"vowel_syllable\"],[],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[],[],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[],[],[],[\"standalone_cluster\"],[],[\"consonant_syllable\",\"broken_cluster\"],[],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[],[],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[],[],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[],[],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[],[],[\"broken_cluster\"],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[],[],[],[],[],[],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[],[],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[],[],[],[],[\"consonant_syllable\",\"broken_cluster\"],[\"consonant_syllable\",\"broken_cluster\"],[],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[],[],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"consonant_syllable\"],[],[\"consonant_syllable\"],[\"consonant_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"vowel_syllable\"],[],[\"vowel_syllable\"],[\"vowel_syllable\"],[\"broken_cluster\"],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[\"standalone_cluster\"],[\"standalone_cluster\"],[],[\"consonant_syllable\"],[\"vowel_syllable\"],[\"standalone_cluster\"]]}");
 var $aa333a9607471296$exports = {};
 $aa333a9607471296$exports = JSON.parse("{\"categories\":[\"O\",\"IND\",\"S\",\"GB\",\"B\",\"FM\",\"CGJ\",\"VMAbv\",\"VMPst\",\"VAbv\",\"VPst\",\"CMBlw\",\"VPre\",\"VBlw\",\"H\",\"VMBlw\",\"CMAbv\",\"MBlw\",\"CS\",\"R\",\"SUB\",\"MPst\",\"MPre\",\"FAbv\",\"FPst\",\"FBlw\",\"null\",\"SMAbv\",\"SMBlw\",\"VMPre\",\"ZWNJ\",\"ZWJ\",\"WJ\",\"M\",\"VS\",\"N\",\"HN\",\"MAbv\"],\"decompositions\":{\"2507\":[2503,2494],\"2508\":[2503,2519],\"2888\":[2887,2902],\"2891\":[2887,2878],\"2892\":[2887,2903],\"3018\":[3014,3006],\"3019\":[3015,3006],\"3020\":[3014,3031],\"3144\":[3142,3158],\"3264\":[3263,3285],\"3271\":[3270,3285],\"3272\":[3270,3286],\"3274\":[3270,3266],\"3275\":[3270,3266,3285],\"3402\":[3398,3390],\"3403\":[3399,3390],\"3404\":[3398,3415],\"3546\":[3545,3530],\"3548\":[3545,3535],\"3549\":[3545,3535,3530],\"3550\":[3545,3551],\"3635\":[3661,3634],\"3763\":[3789,3762],\"3955\":[3953,3954],\"3957\":[3953,3956],\"3958\":[4018,3968],\"3959\":[4018,3953,3968],\"3960\":[4019,3968],\"3961\":[4019,3953,3968],\"3969\":[3953,3968],\"6971\":[6970,6965],\"6973\":[6972,6965],\"6976\":[6974,6965],\"6977\":[6975,6965],\"6979\":[6978,6965],\"69934\":[69937,69927],\"69935\":[69938,69927],\"70475\":[70471,70462],\"70476\":[70471,70487],\"70843\":[70841,70842],\"70844\":[70841,70832],\"70846\":[70841,70845],\"71098\":[71096,71087],\"71099\":[71097,71087]},\"stateTable\":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[2,2,3,4,4,5,0,6,7,8,9,10,11,12,13,14,15,16,0,17,18,11,19,20,21,22,0,0,0,23,0,0,2,0,0,24,0,25],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,26,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,27,28,0,0,0,0,0,27,0,0,0],[0,0,0,0,0,29,0,30,31,32,33,34,35,36,37,38,39,40,0,0,41,35,42,43,44,45,0,0,0,46,0,0,0,0,39,0,0,47],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,5,0,6,7,0,0,0,0,0,0,14,0,0,0,0,0,0,0,20,21,22,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,5,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,21,22,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,5,0,6,7,8,9,0,0,12,0,14,0,0,0,0,0,0,0,20,21,22,0,0,0,23,0,0,0,0,0,0,0,0],[0,0,0,0,0,5,0,6,7,0,9,0,0,0,0,14,0,0,0,0,0,0,0,20,21,22,0,0,0,23,0,0,0,0,0,0,0,0],[0,0,0,0,0,5,0,6,7,8,9,10,11,12,13,14,0,16,0,0,18,11,19,20,21,22,0,0,0,23,0,0,0,0,0,0,0,25],[0,0,0,0,0,5,0,6,7,8,9,0,11,12,0,14,0,0,0,0,0,0,0,20,21,22,0,0,0,23,0,0,0,0,0,0,0,0],[0,0,0,0,0,5,0,6,7,0,9,0,0,12,0,14,0,0,0,0,0,0,0,20,21,22,0,0,0,23,0,0,0,0,0,0,0,0],[0,0,0,0,18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,5,0,0,7,0,0,0,0,0,0,14,0,0,0,0,0,0,0,20,21,22,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,5,0,6,7,8,9,10,11,12,13,14,15,16,0,0,18,11,19,20,21,22,0,0,0,23,0,0,0,0,0,0,0,25],[0,0,0,0,0,5,0,6,7,8,9,0,11,12,0,14,0,0,0,0,0,11,0,20,21,22,0,0,0,23,0,0,0,0,0,0,0,0],[0,0,0,4,4,5,0,6,7,8,9,10,11,12,13,14,15,16,0,0,18,11,19,20,21,22,0,0,0,23,0,0,0,0,0,0,0,25],[0,0,0,0,0,5,0,6,7,8,9,48,11,12,13,14,48,16,0,0,18,11,19,20,21,22,0,0,0,23,0,0,0,0,49,0,0,25],[0,0,0,0,0,5,0,6,7,8,9,0,11,12,0,14,0,16,0,0,0,11,0,20,21,22,0,0,0,23,0,0,0,0,0,0,0,25],[0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,21,22,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,21,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,21,22,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,5,0,6,7,0,0,0,0,0,0,14,0,0,0,0,0,0,0,20,21,22,0,0,0,23,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,50,0,51,0],[0,0,0,0,0,5,0,6,7,8,9,0,11,12,0,14,0,16,0,0,0,11,0,20,21,22,0,0,0,23,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,27,28,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,28,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,29,0,30,31,0,0,0,0,0,0,38,0,0,0,0,0,0,0,43,44,45,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,29,0,0,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,43,44,45,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,29,0,30,31,32,33,0,0,36,0,38,0,0,0,0,0,0,0,43,44,45,0,0,0,46,0,0,0,0,0,0,0,0],[0,0,0,0,0,29,0,30,31,0,33,0,0,0,0,38,0,0,0,0,0,0,0,43,44,45,0,0,0,46,0,0,0,0,0,0,0,0],[0,0,0,0,0,29,0,30,31,32,33,34,35,36,37,38,0,40,0,0,41,35,42,43,44,45,0,0,0,46,0,0,0,0,0,0,0,47],[0,0,0,0,0,29,0,30,31,32,33,0,35,36,0,38,0,0,0,0,0,0,0,43,44,45,0,0,0,46,0,0,0,0,0,0,0,0],[0,0,0,0,0,29,0,30,31,0,33,0,0,36,0,38,0,0,0,0,0,0,0,43,44,45,0,0,0,46,0,0,0,0,0,0,0,0],[0,0,0,0,41,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,29,0,0,31,0,0,0,0,0,0,38,0,0,0,0,0,0,0,43,44,45,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,29,0,30,31,32,33,34,35,36,37,38,39,40,0,0,41,35,42,43,44,45,0,0,0,46,0,0,0,0,0,0,0,47],[0,0,0,0,0,29,0,30,31,32,33,0,35,36,0,38,0,0,0,0,0,35,0,43,44,45,0,0,0,46,0,0,0,0,0,0,0,0],[0,0,0,0,0,29,0,30,31,32,33,52,35,36,37,38,52,40,0,0,41,35,42,43,44,45,0,0,0,46,0,0,0,0,53,0,0,47],[0,0,0,0,0,29,0,30,31,32,33,0,35,36,0,38,0,40,0,0,0,35,0,43,44,45,0,0,0,46,0,0,0,0,0,0,0,47],[0,0,0,0,0,29,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,43,44,45,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,29,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,44,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,29,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,44,45,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,29,0,30,31,0,0,0,0,0,0,38,0,0,0,0,0,0,0,43,44,45,0,0,0,46,0,0,0,0,0,0,0,0],[0,0,0,0,0,29,0,30,31,32,33,0,35,36,0,38,0,40,0,0,0,35,0,43,44,45,0,0,0,46,0,0,0,0,0,0,0,0],[0,0,0,0,0,5,0,6,7,8,9,48,11,12,13,14,0,16,0,0,18,11,19,20,21,22,0,0,0,23,0,0,0,0,0,0,0,25],[0,0,0,0,0,5,0,6,7,8,9,48,11,12,13,14,48,16,0,0,18,11,19,20,21,22,0,0,0,23,0,0,0,0,0,0,0,25],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,51,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,54,0,0],[0,0,0,0,0,29,0,30,31,32,33,52,35,36,37,38,0,40,0,0,41,35,42,43,44,45,0,0,0,46,0,0,0,0,0,0,0,47],[0,0,0,0,0,29,0,30,31,32,33,52,35,36,37,38,52,40,0,0,41,35,42,43,44,45,0,0,0,46,0,0,0,0,0,0,0,47],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,50,0,51,0]],\"accepting\":[false,true,true,true,true,true,true,true,true,true,true,true,true,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],\"tags\":[[],[\"broken_cluster\"],[\"independent_cluster\"],[\"symbol_cluster\"],[\"standard_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"numeral_cluster\"],[\"broken_cluster\"],[\"independent_cluster\"],[\"symbol_cluster\"],[\"symbol_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"virama_terminated_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"broken_cluster\"],[\"broken_cluster\"],[\"numeral_cluster\"],[\"number_joiner_terminated_cluster\"],[\"standard_cluster\"],[\"standard_cluster\"],[\"numeral_cluster\"]]}");
-// Cateories used in the OpenType spec:
-// https://www.microsoft.com/typography/otfntdev/devanot/shaping.aspx
+
+
 const $90a9d3398ee54fe5$export$a513ea61a7bee91c = {
     X: 1,
     C: 2,
@@ -8327,7 +8327,7 @@ const $90a9d3398ee54fe5$export$a513ea61a7bee91c = {
     Repha: 32768,
     Ra: 65536,
     CM: 131072,
-    Symbol: 262144 // Avagraha, etc that take marks (SM,A,VD).
+    Symbol: 262144 
 };
 const $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0 = {
     Start: 1,
@@ -8431,15 +8431,15 @@ const $90a9d3398ee54fe5$export$e99d119da76a0fc5 = {
         rephMode: 'Log_Repha',
         blwfMode: 'Pre_And_Post'
     },
-    // Handled by UniversalShaper
-    // Sinhala: {
-    //   hasOldSpec: false,
-    //   virama: 0x0DCA,
-    //   basePos: 'Last_Sinhala',
-    //   rephPos: POSITIONS.After_Main,
-    //   rephMode: 'Explicit',
-    //   blwfMode: 'Pre_And_Post'
-    // },
+    
+    
+    
+    
+    
+    
+    
+    
+    
     Khmer: {
         hasOldSpec: false,
         virama: 0x17D2,
@@ -8450,7 +8450,7 @@ const $90a9d3398ee54fe5$export$e99d119da76a0fc5 = {
     }
 };
 const $90a9d3398ee54fe5$export$f647c9cfdd77d95a = {
-    // Khmer
+    
     0x17BE: [
         0x17C1,
         0x17BE
@@ -8472,9 +8472,9 @@ const $90a9d3398ee54fe5$export$f647c9cfdd77d95a = {
         0x17C5
     ]
 };
-const { decompositions: $7826f90f6f0cecc9$var$decompositions } = (0, /*@__PURE__*/ $parcel$interopDefault($aa333a9607471296$exports));
+const { decompositions: $7826f90f6f0cecc9$var$decompositions } = (0,  $parcel$interopDefault($aa333a9607471296$exports));
 const $7826f90f6f0cecc9$var$trie = new (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$unicode$2d$trie$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])((0, $12727730ddfc8bfe$export$94fdf11bafc8de6b)("AAARAAAAAABg2AAAAWYPmfDtnXuMXFUdx+/uzs7M7szudAtECGJRIMRQbUAithQWkGAKiVhNpFVRRAmIQVCDkDYICGotIA9BTCz8IeUviv7BQ2PBtBIRLBBQIWAUsKg1BKxRAqIgfs/cc+aeOXPej3tnZX7JJ/dxzj3nd36/8753Z5fUsuxgsAwcAU4Gp4BPgM+Cd4P3RjieDs4GXwLrHJ5bDy4DG8A14LvgZrAZbAF3gns0z18ALgY/B78C94NHwBPgabAE/AX8DbwM5sF/QX0yD5vFcU/wVnAgWAoOAyvAceBE8CGwBpwGzgJfAF8BXwXfAFeC68EmsBlsAXeCreA+8CB4DDwF/gh2gd3gFfAGmKxn2QzYC+wHDgRLweFgJTgWrKrnuq/GcQ04jV6fheN54EJwEbgcXAG+Q8O/j+Mt4DZwB9haz8t9Hz3a8iCN/xiOvwRP0evH6fE68AzOH+Ke2eWYhw3PcGnuxvkr4A3QaGRZB7wFLAEHg2XgiEZ/fHKcp/ceBh/A+cngFPCpRm6vM3E8l8a5gN67GMdvgqsbeX2ap9yI601gM7gN3AG20mfuo8cdOP6GpvdUg9oKxz839GV90RDO2/glxN1B790NXsN1rZll7WYRdw+c70uvTwIHNAfTO0RyL5TDmnnbc3lmRQI9UnM0dD5eovfz4FpJ/BNpXNYWV+N6Lfg0hY97JK1vn+Pur9DoQur2F7m436bHDUK8C5t5/8vruo4+97WmXG+GLmzEiBF+PDwEOowYMWLEiBEjRoxYeBw5BDqIPEfXut9yWN+vVNxfrnnmWqR/PdgENoMt4E5wD9gOHgCPgifBs2BXM99b2o3jP8F/wMRUlrXAHNgHvH0q3895J46HguXgWHAGLctmLv9VuL96qnp7jxgxYsSbCbJvuRZ97/tqxT59VVRtixEjRsThBG7OSt5zzoPT0M+cBc4T5noXOs79TqLHeZrHUeCSqeJ96gacXy2kecNU8V6Hh7yXuQlhtw7B/PO1RTkr52Aj8JNFZjYg3gOKuC/g/v6Ls2wNuAY8urg//PcIb+6RZXuDNeCS6SzbBrJWlh0DLiFHco8ed9IjzzvaWfa9sZzTcf6D9mCcnbg3PlNcH4fzS8F2MDaLdQG4dLZIJxbbaZqv4ri8k58f3+mPs66T6/TTzqDeI0aMGDGiHP5dcR8ce/xxYcWi6vOfr725uRzcjnngXVOD61Hync+9uL+Nmyfej/NHpvL56A5Jeuz7uyfo+pqcPz2Vf1NH0ttJ03pekt8SmuY/EPYy9zzbN319ym/9TL6ZIt9MHCXRdxJtoAkWTRdz472n87D9cTwYLJvuz++I6WIePo/zE8AHp4v8WLyP0nufnM6/+zoDx8+DL08P6r9+urheRtO+jD6/cdrsx3mqu8w+xH4PScKIXa5D2jeCm8Et4DbwI/BjcC/4BXgI/Bb8DuwEu8Bu8Ap4A9RaRZptnO8J9gUHgEPAoWA5OLY1qMO90GEV7q+mYWtxPBWcIYnL4p+DsPNbxfVFOP86uAr8DNc34HgTDb8Vx9sVaRFI/LtagzYjnCqpb908EX87eBA8Bh4Hf2jle/9/wvGFVv787rrZZy8h7qtgDOuFOmiBuXYRvg/O9wMHgXeB97SLspk4sq0OI/q9v13+ek+sh3zYSRp9jrYorw9ll1/GRzR+KotYZSHf8laVP2lvpA/8OGdPMk59hqtXZ+L8nHbxvWwqO65ryu+fT3VZz+l4dET7L0R072ljsMyzTpaJqQxsbL8M9WajY789DO85XMp/Dcp3Qztdn+9qf/a97ZWK8PXc3G+TpC/nv8Mncy7ZvICF302P5O+aNiOtLdTXd+D4Q7DVwfcvWvx9zTEJ/o5iG3R8YAjGNFseha5PGuZKz7b7xxXbOrXMcu5eJSo//rXdH/73Enz6L1q/X+fyIu8wZGtNBmkjkzNZNgP2AvuBg2bysKUzduXn/66JtNeN4PCZvO0/x7Ujdn4VnYOvRJzjZ/I+9sQZeftX2Tc1RPcPz/Tf4/si0g+t5Mq+kfZjZL34Mc5ul3PPnE7TOxvHK2qDaZ+L++db2HyYqMo/qVnb/P8uH8/rmnFxR0k6DCu/rjj/RxT7KGUSWgbd+LMQuEgYB1zsk2qtvJD8v5AhdfdttbEunSxbcJD9Zf7chqp1Hlbe7FK1/aPVTfp7FgtC1yGGiSncFK/DhZvi+epZta0WWjlsfDZMyPRdSPrryqSSKnXx1bkq/Ye9TlRpk7Lrjq1UrfdC9X+MtKqwP6+3a/4pJFUZF0pZZpv91MYjMBaRRXbxpho5zQmUY3F+Pt4o7rvQrBXPdm00TaE24uMadaM2meLSI7iu071t3er3b6ZLi8JEde3qw+6zGv+ycF5kaRBh/m1T/7Yl/mMyTuMwadP4xL9ifjJpNwbvDZRJ8G8vnqV/Wf12aa/kyOdl69+BspTsXzGueE6E+JfZnvmXIfNPW+FfXkjb1YmqPNpnLP3b61fHCj/X5tzGANf2y3yqvC7Jv7btV4TVbdammI9l/g0dS5lNxLrk2j9r8xjjxhBQnygg0lgg/bOrfyct+udJi/Yrk0lFnxC7f+5kRbsNmcexfrubt0X/rGvLqrGSnYv3ZPHEe8r7lvMvUfi2LOu/2dg8LrRtQt2yfcv8r5IU70VkIs6nbebUXf0M/o7Znl39Sdoz+X1oEb5N8ffF67qhPfPP6eoUbxf+GRf/6sRnvaSdmw+Bf1VxmbD+2sa//DU7t/Gv2PfKpKdrBP92Ojk+IvqX16ks/2qxbL8EZnc2HqsgYuqPuzZV+I3RbujbDm+T0PmWCVO/5jqftp1zy+wSA6s0JWtp2z5e1oZV+yMsjB3ZXolsv0Ulrv01v3/iKrF94Qtbt9siCnmeb6fjjf59KnLk1xaEbvtvFnFirGvEOqmycQrbm/IMsXd3P28uh4nM3swXRER717OiX8kc7K2qqyn2p3maFGU/aruP5VCv+PraoTYU8yUmmbDwcYo6pusnM486xdoga4dkPCb1pK7Sfc6ebvkd4qeAtQcd/N63bB3lU3dlUnUf38VyvqCqK7JxlNSd7lydrDlm+/uqHiRvl30Nrp/n9zpkZRjoJ3V1diyP05rIYXHYs+w+D5+WMS8b5gZtKcuX0KT5d/WwtB97VnyvY6rjMukI56HI0rFJPwt8PjT/1OXzSbcMeEmdh294qvKK4rNu7j4n3LNZg8TKXwafv025U+XvKjHsT8Q7/7LGaJt9lAh7Asz3uv0XEX6t0duDoWN/93wmh92XpUHmCKb9GALbG+rZP3AfNbQPKKv/jpF/bP0JXfuW1QYk7dhljcyvk5mw+933Hpo1g26PQ2ZP6zVmTJt47P25jncD9vPwGS+q9QS/V6RaY8j8K8LmvUr9HfYCpH5OWL9lZY+Sv6pesHCJHbtrf9k6etZvf0G1L0ja4cAe1UT/s3zdCe3/Q5/n372wMc97/E1Qh0Tbmfwh3m/V9On72tNnrCF1sJkVe1EyXMdBa7+lHMsk44zMF6St9e2djNnbm8ybpHkq+gbbemMaH0UZmD8obKGrk7r+nt+3bE7o83YZp/vqOKdv6PzJNN6mTJsI/51XR7i2ZrGA5B6zFwnjzxmqPjaGfW3tZNrz1eljq29mOOqeCfF/irRt87PNw0uXSVAvrmOMNT569MptsYaV0sic/wbY13e8hPrb9K2ySUJ0j6G/Lu0U4qpTrR23jMp6m5hU+YTaWCeh9aIsm/rqUHV4bFv42kgnZdfH1PUj1D7DVH9d8khRN1zFRl/+/TW//qxL1uH83+mk3H+SvRtS2TDU90nX2TpM6/1xzZpZtoYdK763dqlz0f6uNeFehcs+H/nbGP77MpX06n/ofpzP+tVmTUvRtVuX/cjS67OE5kRBrxyJ+w/dPo7r+9cO1160e3gqu0S2uW7PjN/L6ns/UfMf10Lai87frJ+3KndAfc8yTf1M3T4s6qm4/yh7/2GSkG8UMw//DvRLgbYZSEOxr0LCWvRdjfh9XGzfqN4NivfZd7rsmFp08zmbssrKJEuTfVMZopdpbuwSrhNv3/N2s+0PDG3KNB6RMrFvJHv6B85HXObAoWsd3zm3i+6uZYytv+5+pohbpo6+tpZJFfmGlrcMf4c8b1Pe2OUIsaXJrinCTfaxtZOt+NYnU3hIfQlN20Z/1+dt7JaqLsbIzycNWZmrlNg2Dc2/LJ1T+T6WrrYSml4Ku7ik7yIx2opJD51vU9UfVRmrqL8u/olZj0PyCLV5irxcdKoi/6rKb8qTrHsnhW9jyZH/nSpeWDzxd9769uQ016lgUuf2pAfKPhu2FpfZL2Yb9snLNl/fNIepXaUsj4vNXCXUZ75px8ojNP8UPvAta2g6fb+F1ckZuneshv1vGXXDeyRRrN/bBPS1Jul+l+7zW86R7Wv63WXyDpt/RxraRjvC+TC3O61/Sqj/prag8x372yQivn+XwudrI2X2E2KdtJEov52e0L+uv4FO3p/rvssgsL8F4d/z9PzlWS94m8fqS3361Fi+6qaVYHwi9Yz4iH2fobIj+45cpz/TUaarr/4+z+vaWtVtyAX2d1LG8W9C3f+F1mnf36/k4w3YPrLv+XBVXCJs3cr+n4MKJuLv/fN9GhNdXVP5pJMN9vFi3rpv3/r8Ywg3SYp66zNOsO8QGcxPpnmRS/1mvmJjju3v7absI2xspQrvs1dNbjOj/wP7h1RlZyKGy8occ408UL8En4v6xfC/K3z52XzJd62T8vuZGGsxo/6O46ntmNqqFb/jps2/hHV4rPKH0svT4pstU7t2tZ9u/ZdqbJL1MwP6O86Fyt4jYaIrGz9mjEt8lFL4PtVE6votG2P6fpdf/GZRse7s3bf4BtSl/DIbKMctx++Z+8o6K6z9FPOwKsRmXiaNl7C+6NYRpjlbqG1j72f49qsuY4brd/amb4ZVc8TQ+sSH985LrEe8iPWJnfPrJRbWbb+dwn4x6o+r/aS2S7w3qWt//LnYz2ntE0vH1uDcyKatx1rH+EiMPEN1SZG/iz6+9o01Rob6O7Q+xLZ1jHobK61U+pWVvo2EpuWqzzD6Poa+pvhli0wn8Zq/72Mzm2d90o5VN1x9ZKuzbTgvqWwUIin8FSpl1CXXvFRxU0iozVPYJDRtF3uFphn6XAyJUUdD7SjTJ8v6n9fVbVObkKWp001lc9VRlqdOf5v0ZM+bymdbfp1NfG0bq27Y5JMyfxeJkU6o/inKH8O2Zfgidb6h/g3VJ7QcVbWL0Pxt6rlrPqa4KfQ25a2zl4/E8GdM/4fK/wA="));
-const $7826f90f6f0cecc9$var$stateMachine = new (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$dfa$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])((0, /*@__PURE__*/ $parcel$interopDefault($4b0735ca6c692ea5$exports)));
+const $7826f90f6f0cecc9$var$stateMachine = new (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$dfa$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])((0,  $parcel$interopDefault($4b0735ca6c692ea5$exports)));
 class $7826f90f6f0cecc9$export$2e2bcd8739ae039 extends (0, $649970d87335b30f$export$2e2bcd8739ae039) {
     static planFeatures(plan) {
         plan.addStage($7826f90f6f0cecc9$var$setupSyllables);
@@ -8513,15 +8513,15 @@ class $7826f90f6f0cecc9$export$2e2bcd8739ae039 extends (0, $649970d87335b30f$exp
                 'clig'
             ]
         });
-        // Setup the indic config for the selected script
+        
         plan.unicodeScript = $130d1a642ebcd2b7$export$ce50e82f12a827a4(plan.script);
         plan.indicConfig = (0, $90a9d3398ee54fe5$export$e99d119da76a0fc5)[plan.unicodeScript] || (0, $90a9d3398ee54fe5$export$e99d119da76a0fc5).Default;
         plan.isOldSpec = plan.indicConfig.hasOldSpec && plan.script[plan.script.length - 1] !== '2';
-    // TODO: turn off kern (Khmer) and liga features.
+    
     }
     static assignFeatures(plan, glyphs) {
-        // Decompose split matras
-        // TODO: do this in a more general unicode normalizer
+        
+        
         for(let i = glyphs.length - 1; i >= 0; i--){
             let codepoint = glyphs[i].codePoints[0];
             let d = (0, $90a9d3398ee54fe5$export$f647c9cfdd77d95a)[codepoint] || $7826f90f6f0cecc9$var$decompositions[codepoint];
@@ -8561,7 +8561,7 @@ function $7826f90f6f0cecc9$var$setupSyllables(font, glyphs) {
             for(let i = last; i < start; i++)glyphs[i].shaperInfo = new $7826f90f6f0cecc9$var$IndicInfo((0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).X, (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).End, 'non_indic_cluster', syllable);
         }
         ++syllable;
-        // Create shaper info
+        
         for(let i = start; i <= end; i++)glyphs[i].shaperInfo = new $7826f90f6f0cecc9$var$IndicInfo(1 << $7826f90f6f0cecc9$var$indicCategory(glyphs[i]), $7826f90f6f0cecc9$var$indicPosition(glyphs[i]), tags[0], syllable);
         last = end + 1;
     }
@@ -8619,28 +8619,28 @@ function $7826f90f6f0cecc9$var$initialReordering(font, glyphs, plan) {
                 0x25cc
             ]);
             g.shaperInfo = new $7826f90f6f0cecc9$var$IndicInfo(1 << $7826f90f6f0cecc9$var$indicCategory(g), $7826f90f6f0cecc9$var$indicPosition(g), glyphs[start].shaperInfo.syllableType, glyphs[start].shaperInfo.syllable);
-            // Insert after possible Repha.
+            
             let i = start;
             while(i < end && glyphs[i].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).Repha)i++;
             glyphs.splice(i++, 0, g);
             end++;
         }
-        // 1. Find base consonant:
-        //
-        // The shaping engine finds the base consonant of the syllable, using the
-        // following algorithm: starting from the end of the syllable, move backwards
-        // until a consonant is found that does not have a below-base or post-base
-        // form (post-base forms have to follow below-base forms), or that is not a
-        // pre-base reordering Ra, or arrive at the first consonant. The consonant
-        // stopped at will be the base.
+        
+        
+        
+        
+        
+        
+        
+        
         let base = end;
         let limit = start;
         let hasReph = false;
-        // If the syllable starts with Ra + Halant (in a script that has Reph)
-        // and has more than one consonant, Ra is excluded from candidates for
-        // base consonants.
+        
+        
+        
         if (indicConfig.rephPos !== (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Ra_To_Become_Reph && features.rphf && start + 3 <= end && (indicConfig.rephMode === 'Implicit' && !$7826f90f6f0cecc9$var$isJoiner(glyphs[start + 2]) || indicConfig.rephMode === 'Explicit' && glyphs[start + 2].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).ZWJ)) {
-            // See if it matches the 'rphf' feature.
+            
             let g = [
                 glyphs[start].copy(),
                 glyphs[start + 1].copy(),
@@ -8661,28 +8661,28 @@ function $7826f90f6f0cecc9$var$initialReordering(font, glyphs, plan) {
         switch(indicConfig.basePos){
             case 'Last':
                 {
-                    // starting from the end of the syllable, move backwards
+                    
                     let i = end;
                     let seenBelow = false;
                     do {
                         let info = glyphs[--i].shaperInfo;
-                        // until a consonant is found
+                        
                         if ($7826f90f6f0cecc9$var$isConsonant(glyphs[i])) {
-                            // that does not have a below-base or post-base form
-                            // (post-base forms have to follow below-base forms),
+                            
+                            
                             if (info.position !== (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Below_C && (info.position !== (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Post_C || seenBelow)) {
                                 base = i;
                                 break;
                             }
-                            // or that is not a pre-base reordering Ra,
-                            //
-                            // IMPLEMENTATION NOTES:
-                            //
-                            // Our pre-base reordering Ra's are marked POS_POST_C, so will be skipped
-                            // by the logic above already.
-                            //
-                            // or arrive at the first consonant. The consonant stopped at will
-                            // be the base.
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                             if (info.position === (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Below_C) seenBelow = true;
                             base = i;
                         } else if (start < i && info.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).ZWJ && glyphs[i - 1].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).H) break;
@@ -8690,51 +8690,51 @@ function $7826f90f6f0cecc9$var$initialReordering(font, glyphs, plan) {
                     break;
                 }
             case 'First':
-                // The first consonant is always the base.
+                
                 base = start;
-                // Mark all subsequent consonants as below.
+                
                 for(let i = base + 1; i < end; i++)if ($7826f90f6f0cecc9$var$isConsonant(glyphs[i])) glyphs[i].shaperInfo.position = (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Below_C;
         }
-        // If the syllable starts with Ra + Halant (in a script that has Reph)
-        // and has more than one consonant, Ra is excluded from candidates for
-        // base consonants.
-        //
-        //  Only do this for unforced Reph. (ie. not for Ra,H,ZWJ)
+        
+        
+        
+        
+        
         if (hasReph && base === start && limit - base <= 2) hasReph = false;
-        // 2. Decompose and reorder Matras:
-        //
-        // Each matra and any syllable modifier sign in the cluster are moved to the
-        // appropriate position relative to the consonant(s) in the cluster. The
-        // shaping engine decomposes two- or three-part matras into their constituent
-        // parts before any repositioning. Matra characters are classified by which
-        // consonant in a conjunct they have affinity for and are reordered to the
-        // following positions:
-        //
-        //   o Before first half form in the syllable
-        //   o After subjoined consonants
-        //   o After post-form consonant
-        //   o After main consonant (for above marks)
-        //
-        // IMPLEMENTATION NOTES:
-        //
-        // The normalize() routine has already decomposed matras for us, so we don't
-        // need to worry about that.
-        // 3.  Reorder marks to canonical order:
-        //
-        // Adjacent nukta and halant or nukta and vedic sign are always repositioned
-        // if necessary, so that the nukta is first.
-        //
-        // IMPLEMENTATION NOTES:
-        //
-        // We don't need to do this: the normalize() routine already did this for us.
-        // Reorder characters
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         for(let i = start; i < base; i++){
             let info = glyphs[i].shaperInfo;
             info.position = Math.min((0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Pre_C, info.position);
         }
         if (base < end) glyphs[base].shaperInfo.position = (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Base_C;
-        // Mark final consonants.  A final consonant is one appearing after a matra,
-        // like in Khmer.
+        
+        
         for(let i = base + 1; i < end; i++)if (glyphs[i].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).M) {
             for(let j = i + 1; j < end; j++)if ($7826f90f6f0cecc9$var$isConsonant(glyphs[j])) {
                 glyphs[j].shaperInfo.position = (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Final_C;
@@ -8742,24 +8742,24 @@ function $7826f90f6f0cecc9$var$initialReordering(font, glyphs, plan) {
             }
             break;
         }
-        // Handle beginning Ra
+        
         if (hasReph) glyphs[start].shaperInfo.position = (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Ra_To_Become_Reph;
-        // For old-style Indic script tags, move the first post-base Halant after
-        // last consonant.
-        //
-        // Reports suggest that in some scripts Uniscribe does this only if there
-        // is *not* a Halant after last consonant already (eg. Kannada), while it
-        // does it unconditionally in other scripts (eg. Malayalam).  We don't
-        // currently know about other scripts, so we single out Malayalam for now.
-        //
-        // Kannada test case:
-        // U+0C9A,U+0CCD,U+0C9A,U+0CCD
-        // With some versions of Lohit Kannada.
-        // https://bugs.freedesktop.org/show_bug.cgi?id=59118
-        //
-        // Malayalam test case:
-        // U+0D38,U+0D4D,U+0D31,U+0D4D,U+0D31,U+0D4D
-        // With lohit-ttf-20121122/Lohit-Malayalam.ttf
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         if (plan.isOldSpec) {
             let disallowDoubleHalants = plan.unicodeScript !== 'Malayalam';
             for(let i = base + 1; i < end; i++)if (glyphs[i].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).H) {
@@ -8768,7 +8768,7 @@ function $7826f90f6f0cecc9$var$initialReordering(font, glyphs, plan) {
                     if ($7826f90f6f0cecc9$var$isConsonant(glyphs[j]) || disallowDoubleHalants && glyphs[j].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).H) break;
                 }
                 if (glyphs[j].shaperInfo.category !== (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).H && j > i) {
-                    // Move Halant to after last consonant.
+                    
                     let t = glyphs[i];
                     glyphs.splice(i, 0, ...glyphs.splice(i + 1, j - i));
                     glyphs[j] = t;
@@ -8776,20 +8776,20 @@ function $7826f90f6f0cecc9$var$initialReordering(font, glyphs, plan) {
                 break;
             }
         }
-        // Attach misc marks to previous char to move with them.
+        
         let lastPos = (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Start;
         for(let i = start; i < end; i++){
             let info = glyphs[i].shaperInfo;
             if (info.category & ((0, $90a9d3398ee54fe5$export$bbcd928767338e0d) | (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).N | (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).RS | (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).CM | (0, $90a9d3398ee54fe5$export$ca9599b2a300afc) & info.category)) {
                 info.position = lastPos;
                 if (info.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).H && info.position === (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Pre_M) {
-                    // Uniscribe doesn't move the Halant with Left Matra.
-                    // TEST: U+092B,U+093F,U+094DE
-                    // We follow.  This is important for the Sinhala
-                    // U+0DDA split matra since it decomposes to U+0DD9,U+0DCA
-                    // where U+0DD9 is a left matra and U+0DCA is the virama.
-                    // We don't want to move the virama with the left matra.
-                    // TEST: U+0D9A,U+0DDA
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     for(let j = i; j > start; j--)if (glyphs[j - 1].shaperInfo.position !== (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Pre_M) {
                         info.position = glyphs[j - 1].shaperInfo.position;
                         break;
@@ -8797,8 +8797,8 @@ function $7826f90f6f0cecc9$var$initialReordering(font, glyphs, plan) {
                 }
             } else if (info.position !== (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).SMVD) lastPos = info.position;
         }
-        // For post-base consonants let them own anything before them
-        // since the last consonant or matra.
+        
+        
         let last = base;
         for(let i = base + 1; i < end; i++){
             if ($7826f90f6f0cecc9$var$isConsonant(glyphs[i])) {
@@ -8809,44 +8809,44 @@ function $7826f90f6f0cecc9$var$initialReordering(font, glyphs, plan) {
         let arr = glyphs.slice(start, end);
         arr.sort((a, b)=>a.shaperInfo.position - b.shaperInfo.position);
         glyphs.splice(start, arr.length, ...arr);
-        // Find base again
+        
         for(let i = start; i < end; i++)if (glyphs[i].shaperInfo.position === (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Base_C) {
             base = i;
             break;
         }
-        // Setup features now
-        // Reph
+        
+        
         for(let i = start; i < end && glyphs[i].shaperInfo.position === (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Ra_To_Become_Reph; i++)glyphs[i].features.rphf = true;
-        // Pre-base
+        
         let blwf = !plan.isOldSpec && indicConfig.blwfMode === 'Pre_And_Post';
         for(let i = start; i < base; i++){
             glyphs[i].features.half = true;
             if (blwf) glyphs[i].features.blwf = true;
         }
-        // Post-base
+        
         for(let i = base + 1; i < end; i++){
             glyphs[i].features.abvf = true;
             glyphs[i].features.pstf = true;
             glyphs[i].features.blwf = true;
         }
         if (plan.isOldSpec && plan.unicodeScript === 'Devanagari') {
-            // Old-spec eye-lash Ra needs special handling.  From the
-            // spec:
-            //
-            // "The feature 'below-base form' is applied to consonants
-            // having below-base forms and following the base consonant.
-            // The exception is vattu, which may appear below half forms
-            // as well as below the base glyph. The feature 'below-base
-            // form' will be applied to all such occurrences of Ra as well."
-            //
-            // Test case: U+0924,U+094D,U+0930,U+094d,U+0915
-            // with Sanskrit 2003 font.
-            //
-            // However, note that Ra,Halant,ZWJ is the correct way to
-            // request eyelash form of Ra, so we wouldbn't inhibit it
-            // in that sequence.
-            //
-            // Test case: U+0924,U+094D,U+0930,U+094d,U+200D,U+0915
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             for(let i = start; i + 1 < base; i++)if (glyphs[i].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).Ra && glyphs[i + 1].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).H && (i + 1 === base || glyphs[i + 2].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).ZWJ)) {
                 glyphs[i].features.blwf = true;
                 glyphs[i + 1].features.blwf = true;
@@ -8860,25 +8860,25 @@ function $7826f90f6f0cecc9$var$initialReordering(font, glyphs, plan) {
             ];
             if ($7826f90f6f0cecc9$var$wouldSubstitute(g, 'pref')) {
                 for(let j = 0; j < prefLen; j++)glyphs[i++].features.pref = true;
-                // Mark the subsequent stuff with 'cfar'.  Used in Khmer.
-                // Read the feature spec.
-                // This allows distinguishing the following cases with MS Khmer fonts:
-                // U+1784,U+17D2,U+179A,U+17D2,U+1782
-                // U+1784,U+17D2,U+1782,U+17D2,U+179A
+                
+                
+                
+                
+                
                 if (features.cfar) for(; i < end; i++)glyphs[i].features.cfar = true;
                 break;
             }
         }
-        // Apply ZWJ/ZWNJ effects
+        
         for(let i = start + 1; i < end; i++)if ($7826f90f6f0cecc9$var$isJoiner(glyphs[i])) {
             let nonJoiner = glyphs[i].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).ZWNJ;
             let j = i;
             do {
                 j--;
-                // ZWJ/ZWNJ should disable CJCT.  They do that by simply
-                // being there, since we don't skip them for the CJCT
-                // feature (ie. F_MANUAL_ZWJ)
-                // A ZWNJ disables HALF.
+                
+                
+                
+                
                 if (nonJoiner) delete glyphs[j].features.half;
             }while (j > start && !$7826f90f6f0cecc9$var$isConsonant(glyphs[j]))
         }
@@ -8888,21 +8888,21 @@ function $7826f90f6f0cecc9$var$finalReordering(font, glyphs, plan) {
     let indicConfig = plan.indicConfig;
     let features = font._layoutEngine.engine.GSUBProcessor.features;
     for(let start = 0, end = $7826f90f6f0cecc9$var$nextSyllable(glyphs, 0); start < glyphs.length; start = end, end = $7826f90f6f0cecc9$var$nextSyllable(glyphs, start)){
-        // 4. Final reordering:
-        //
-        // After the localized forms and basic shaping forms GSUB features have been
-        // applied (see below), the shaping engine performs some final glyph
-        // reordering before applying all the remaining font features to the entire
-        // cluster.
+        
+        
+        
+        
+        
+        
         let tryPref = !!features.pref;
-        // Find base again
+        
         let base = start;
         for(; base < end; base++)if (glyphs[base].shaperInfo.position >= (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Base_C) {
             if (tryPref && base + 1 < end) {
                 for(let i = base + 1; i < end; i++)if (glyphs[i].features.pref) {
                     if (!(glyphs[i].substituted && glyphs[i].isLigated && !glyphs[i].isMultiplied)) {
-                        // Ok, this was a 'pref' candidate but didn't form any.
-                        // Base is around here...
+                        
+                        
                         base = i;
                         while(base < end && $7826f90f6f0cecc9$var$isHalantOrCoeng(glyphs[base]))base++;
                         glyphs[base].shaperInfo.position = (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).BASE_C;
@@ -8911,11 +8911,11 @@ function $7826f90f6f0cecc9$var$finalReordering(font, glyphs, plan) {
                     break;
                 }
             }
-            // For Malayalam, skip over unformed below- (but NOT post-) forms.
+            
             if (plan.unicodeScript === 'Malayalam') for(let i = base + 1; i < end; i++){
                 while(i < end && $7826f90f6f0cecc9$var$isJoiner(glyphs[i]))i++;
                 if (i === end || !$7826f90f6f0cecc9$var$isHalantOrCoeng(glyphs[i])) break;
-                i++; // Skip halant.
+                i++; 
                 while(i < end && $7826f90f6f0cecc9$var$isJoiner(glyphs[i]))i++;
                 if (i < end && $7826f90f6f0cecc9$var$isConsonant(glyphs[i]) && glyphs[i].shaperInfo.position === (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Below_C) {
                     base = i;
@@ -8927,32 +8927,32 @@ function $7826f90f6f0cecc9$var$finalReordering(font, glyphs, plan) {
         }
         if (base === end && start < base && glyphs[base - 1].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).ZWJ) base--;
         if (base < end) while(start < base && glyphs[base].shaperInfo.category & ((0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).N | (0, $90a9d3398ee54fe5$export$ca9599b2a300afc)))base--;
-        // o Reorder matras:
-        //
-        // If a pre-base matra character had been reordered before applying basic
-        // features, the glyph can be moved closer to the main consonant based on
-        // whether half-forms had been formed. Actual position for the matra is
-        // defined as “after last standalone halant glyph, after initial matra
-        // position and before the main consonant”. If ZWJ or ZWNJ follow this
-        // halant, position is moved after it.
-        //
+        
+        
+        
+        
+        
+        
+        
+        
+        
         if (start + 1 < end && start < base) {
-            // If we lost track of base, alas, position before last thingy.
+            
             let newPos = base === end ? base - 2 : base - 1;
-            // Malayalam / Tamil do not have "half" forms or explicit virama forms.
-            // The glyphs formed by 'half' are Chillus or ligated explicit viramas.
-            // We want to position matra after them.
+            
+            
+            
             if (plan.unicodeScript !== 'Malayalam' && plan.unicodeScript !== 'Tamil') {
                 while(newPos > start && !(glyphs[newPos].shaperInfo.category & ((0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).M | (0, $90a9d3398ee54fe5$export$ca9599b2a300afc))))newPos--;
-                // If we found no Halant we are done.
-                // Otherwise only proceed if the Halant does
-                // not belong to the Matra itself!
+                
+                
+                
                 if ($7826f90f6f0cecc9$var$isHalantOrCoeng(glyphs[newPos]) && glyphs[newPos].shaperInfo.position !== (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Pre_M) {
                     if (newPos + 1 < end && $7826f90f6f0cecc9$var$isJoiner(glyphs[newPos + 1])) newPos++;
-                } else newPos = start; // No move.
+                } else newPos = start; 
             }
             if (start < newPos && glyphs[newPos].shaperInfo.position !== (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Pre_M) {
-                // Now go see if there's actually any matras...
+                
                 for(let i = newPos; i > start; i--)if (glyphs[i - 1].shaperInfo.position === (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Pre_M) {
                     let oldPos = i - 1;
                     if (oldPos < base && base <= newPos) base--;
@@ -8963,90 +8963,90 @@ function $7826f90f6f0cecc9$var$finalReordering(font, glyphs, plan) {
                 }
             }
         }
-        // o Reorder reph:
-        //
-        // Reph’s original position is always at the beginning of the syllable,
-        // (i.e. it is not reordered at the character reordering stage). However,
-        // it will be reordered according to the basic-forms shaping results.
-        // Possible positions for reph, depending on the script, are; after main,
-        // before post-base consonant forms, and after post-base consonant forms.
-        // Two cases:
-        //
-        // - If repha is encoded as a sequence of characters (Ra,H or Ra,H,ZWJ), then
-        //   we should only move it if the sequence ligated to the repha form.
-        //
-        // - If repha is encoded separately and in the logical position, we should only
-        //   move it if it did NOT ligate.  If it ligated, it's probably the font trying
-        //   to make it work without the reordering.
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         if (start + 1 < end && glyphs[start].shaperInfo.position === (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Ra_To_Become_Reph && glyphs[start].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).Repha !== (glyphs[start].isLigated && !glyphs[start].isMultiplied)) {
             let newRephPos;
             let rephPos = indicConfig.rephPos;
             let found = false;
-            // 1. If reph should be positioned after post-base consonant forms,
-            //    proceed to step 5.
+            
+            
             if (rephPos !== (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).After_Post) {
-                //  2. If the reph repositioning class is not after post-base: target
-                //     position is after the first explicit halant glyph between the
-                //     first post-reph consonant and last main consonant. If ZWJ or ZWNJ
-                //     are following this halant, position is moved after it. If such
-                //     position is found, this is the target position. Otherwise,
-                //     proceed to the next step.
-                //
-                //     Note: in old-implementation fonts, where classifications were
-                //     fixed in shaping engine, there was no case where reph position
-                //     will be found on this step.
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 newRephPos = start + 1;
                 while(newRephPos < base && !$7826f90f6f0cecc9$var$isHalantOrCoeng(glyphs[newRephPos]))newRephPos++;
                 if (newRephPos < base && $7826f90f6f0cecc9$var$isHalantOrCoeng(glyphs[newRephPos])) {
-                    // ->If ZWJ or ZWNJ are following this halant, position is moved after it.
+                    
                     if (newRephPos + 1 < base && $7826f90f6f0cecc9$var$isJoiner(glyphs[newRephPos + 1])) newRephPos++;
                     found = true;
                 }
-                // 3. If reph should be repositioned after the main consonant: find the
-                //    first consonant not ligated with main, or find the first
-                //    consonant that is not a potential pre-base reordering Ra.
+                
+                
+                
                 if (!found && rephPos === (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).After_Main) {
                     newRephPos = base;
                     while(newRephPos + 1 < end && glyphs[newRephPos + 1].shaperInfo.position <= (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).After_Main)newRephPos++;
                     found = newRephPos < end;
                 }
-                // 4. If reph should be positioned before post-base consonant, find
-                //    first post-base classified consonant not ligated with main. If no
-                //    consonant is found, the target position should be before the
-                //    first matra, syllable modifier sign or vedic sign.
-                //
-                // This is our take on what step 4 is trying to say (and failing, BADLY).
+                
+                
+                
+                
+                
+                
                 if (!found && rephPos === (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).After_Sub) {
                     newRephPos = base;
                     while(newRephPos + 1 < end && !(glyphs[newRephPos + 1].shaperInfo.position & ((0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Post_C | (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).After_Post | (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).SMVD)))newRephPos++;
                     found = newRephPos < end;
                 }
             }
-            //  5. If no consonant is found in steps 3 or 4, move reph to a position
-            //     immediately before the first post-base matra, syllable modifier
-            //     sign or vedic sign that has a reordering class after the intended
-            //     reph position. For example, if the reordering position for reph
-            //     is post-main, it will skip above-base matras that also have a
-            //     post-main position.
+            
+            
+            
+            
+            
+            
             if (!found) {
-                // Copied from step 2.
+                
                 newRephPos = start + 1;
                 while(newRephPos < base && !$7826f90f6f0cecc9$var$isHalantOrCoeng(glyphs[newRephPos]))newRephPos++;
                 if (newRephPos < base && $7826f90f6f0cecc9$var$isHalantOrCoeng(glyphs[newRephPos])) {
-                    // ->If ZWJ or ZWNJ are following this halant, position is moved after it.
+                    
                     if (newRephPos + 1 < base && $7826f90f6f0cecc9$var$isJoiner(glyphs[newRephPos + 1])) newRephPos++;
                     found = true;
                 }
             }
-            // 6. Otherwise, reorder reph to the end of the syllable.
+            
             if (!found) {
                 newRephPos = end - 1;
                 while(newRephPos > start && glyphs[newRephPos].shaperInfo.position === (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).SMVD)newRephPos--;
-                // If the Reph is to be ending up after a Matra,Halant sequence,
-                // position it before that Halant so it can interact with the Matra.
-                // However, if it's a plain Consonant,Halant we shouldn't do that.
-                // Uniscribe doesn't do this.
-                // TEST: U+0930,U+094D,U+0915,U+094B,U+094D
+                
+                
+                
+                
+                
                 if ($7826f90f6f0cecc9$var$isHalantOrCoeng(glyphs[newRephPos])) {
                     for(let i = base + 1; i < newRephPos; i++)if (glyphs[i].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).M) newRephPos--;
                 }
@@ -9056,33 +9056,33 @@ function $7826f90f6f0cecc9$var$finalReordering(font, glyphs, plan) {
             glyphs[newRephPos] = reph;
             if (start < base && base <= newRephPos) base--;
         }
-        // o Reorder pre-base reordering consonants:
-        //
-        // If a pre-base reordering consonant is found, reorder it according to
-        // the following rules:
+        
+        
+        
+        
         if (tryPref && base + 1 < end) {
             for(let i = base + 1; i < end; i++)if (glyphs[i].features.pref) {
-                // 1. Only reorder a glyph produced by substitution during application
-                //    of the <pref> feature. (Note that a font may shape a Ra consonant with
-                //    the feature generally but block it in certain contexts.)
-                // Note: We just check that something got substituted.  We don't check that
-                // the <pref> feature actually did it...
-                //
-                // Reorder pref only if it ligated.
+                
+                
+                
+                
+                
+                
+                
                 if (glyphs[i].isLigated && !glyphs[i].isMultiplied) {
-                    // 2. Try to find a target position the same way as for pre-base matra.
-                    //    If it is found, reorder pre-base consonant glyph.
-                    //
-                    // 3. If position is not found, reorder immediately before main
-                    //    consonant.
+                    
+                    
+                    
+                    
+                    
                     let newPos = base;
-                    // Malayalam / Tamil do not have "half" forms or explicit virama forms.
-                    // The glyphs formed by 'half' are Chillus or ligated explicit viramas.
-                    // We want to position matra after them.
+                    
+                    
+                    
                     if (plan.unicodeScript !== 'Malayalam' && plan.unicodeScript !== 'Tamil') {
                         while(newPos > start && !(glyphs[newPos - 1].shaperInfo.category & ((0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).M | (0, $90a9d3398ee54fe5$export$ca9599b2a300afc))))newPos--;
-                        // In Khmer coeng model, a H,Ra can go *after* matras.  If it goes after a
-                        // split matra, it should be reordered to *before* the left part of such matra.
+                        
+                        
                         if (newPos > start && glyphs[newPos - 1].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).M) {
                             let oldPos = i;
                             for(let j = base + 1; j < oldPos; j++)if (glyphs[j].shaperInfo.category === (0, $90a9d3398ee54fe5$export$a513ea61a7bee91c).M) {
@@ -9103,7 +9103,7 @@ function $7826f90f6f0cecc9$var$finalReordering(font, glyphs, plan) {
                 break;
             }
         }
-        // Apply 'init' to the Left Matra if it's a word start.
+        
         if (glyphs[start].shaperInfo.position === (0, $90a9d3398ee54fe5$export$1a1f61c9c4dd9df0).Pre_M && (!start || !/Cf|Mn/.test((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$unicode$2d$properties$2f$dist$2f$module$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCategory"])(glyphs[start - 1].codePoints[0])))) glyphs[start].features.init = true;
     }
 }
@@ -9113,20 +9113,20 @@ function $7826f90f6f0cecc9$var$nextSyllable(glyphs, start) {
     while(++start < glyphs.length && glyphs[start].shaperInfo.syllable === syllable);
     return start;
 }
-const { categories: $7ab494fe977143c6$var$categories, decompositions: $7ab494fe977143c6$var$decompositions } = (0, /*@__PURE__*/ $parcel$interopDefault($aa333a9607471296$exports));
+const { categories: $7ab494fe977143c6$var$categories, decompositions: $7ab494fe977143c6$var$decompositions } = (0,  $parcel$interopDefault($aa333a9607471296$exports));
 const $7ab494fe977143c6$var$trie = new (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$unicode$2d$trie$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])((0, $12727730ddfc8bfe$export$94fdf11bafc8de6b)("AAACAAAAAAAQugAAAQUO+vHtnHuMX0UVx2d3u/t7bXe7FlqgvB+mpQhFmhikMRAg0ZQmakMU+cPWBzZisEGNjUpoiIYCEgmGUGOEGqOVNPUZUGNA+QNIBU2KREEFFSMBUYRISMXE+B3vnPzOzp553tcWfif5ZO5jnufMzJ2ZO/eumlDqFLAWnAMuBBvBZnC5uXZeBe4WsA1sBzs8/naCXcL1G8GtYDfYA74NvgfuAfcZHmT+fwEeBb8DTwvxPQWeAavACyZvq8z9VYxXwCGglijVBcvACnA8eCM4E6wHG8BF4BLwbvA+8AHwUbAd7AA7wS5wC9gN7gR7wX5wN7gXPAAeBr8Gvwd/Ac+CF8EhoCaV6oBZsBKcAE4FZ0wWeV8P9zxwoTnfCHczuBxsAdvAx8Gnzf1r4X4B3AxuA1+bHJb9m5PzdVGW/Yjv+xXHyfmxFfd9OH8Q/Ar8Bjw1WZT3GfACeAX8N5CfqSmlZsAKsGqqCH8K3DXgbHCuuXYB3HeAd4HLpgrdarbi+EPgY+CT4HPg8ybMTcb9MtyvghtYut/A+b4pf95+ELgfw08Qx/3gADgInjDl0veehPtX8A/wsrn2KtzxDuogWNoJx38k/BzXKeI8Ee5qcBZYD9aZtDbg+AwT19uMX83F7JizCdcvBZdZ97c6/BMfMWmfzfTm88/95aLj+DDSvApcDXZ04uPfaen3TMHPLvi5BezuFPVtD4t/qUcfe3FvP7gb3Ouwo9T+H+gMy/UIjh8DfwBPm7T08d/M8WMBe1Sh3xEjXo+M2s+IESNGjBgxYsSI1wLrOsM1gRsi/P+TzV3/Zc1jvxgR/j8IM9Et1mEGcJeDFeA4cJq5/ia467uF/w1wzwdvB+80998LdwvYZs63w90Bdnbd6Wp/uzz3R4wYMWJEvZzTMm2Xf8SIEfVQd/v+EsaPt3eL90J3wP2WMJ78Trd4t6+P77Hu37cIxp9/ny6YXqrUJeCR6TA74e/nll81MzxejeMtYA94HBwy91bPYow+O/S3A8d7oIM/gRN7CAP29Iqx/B1ThfuwOecM+vA3NmRjf6Gfm3BtH7v+PI7XDpS6EuwDz4O10+0/f9om1F4ehO4OmHp6EO7jxl56nvhsN/15ut+4Z0b657yYkZ7UJ0jhX0bcr3bn+6P87vekN4762QNzvWHZtL+jcH5srzg/uTf0f3pvfj5i+6tYW7rK9+aefO+tuL4BXAQ2gs3gPeBJc//9OL4CXAWuNvc/A64DN4Jbwe0s7jtxvBfsAz8EPwX3gwPgoJAHPQ9/Atf/bO7p/TTP4fglwS/5/zfujfWH5z0cz4Gj+8X5Sf1ib4m+vwbHZ/fdOtP+z+3LOnPp/QL4vxhsApeCy8BWk/a2ftFmYu22Hf4/Ba4B14Hrwc0sP7fh+Cvg6+Au8F1WthA/8pT7UeTxZ/12njkuXT8UyM9i6iur1EEb6f+yPz/eg0b3v4X7x365fMaW42lPu7PTv6vi8i/G+lWF/cvUk7bLl1r+5/rN5tu3j2qvWTd/qV+4h+AqjDGnBsX59GDo94iBXDa6v6Yjl6vu+h8itJcsZq/ZykHhHg/3tMHhUe9s/Yfuny7YNxTvQ8LYdrER2+/c0GBezhrMv3ZNRv7PmYirh7oOv4W1Y72/cwPOzx8U7X8d2295sfE3MPnbBPfSQbHv9nK4HxTqiK/trI7Yy5mLzvuVg/nX+N7V51A3r+gMy/4J434W7l2dYf5PZWGuNX6uh3uzEPetuLY7sZ20zTETY2oxyBhj3DrnfsidYPeXRGLHpxzX6pbFofGRkFBdGhcgW40L4cYtd9JAElO36q4LEzXHX7VMtZ2BEhJjy9dT25fazOtJxhwsBrHzwfu8w12kMYN9fLhIbp2RxlI59rX1dzjpsKl2Fxt3iu6rbofc9q5+KcRrXVzzDn6/Crvk6p/y1GFgGhs9/6maHjBLgv8/18fTxl1q0bPoW8ywsFTGWaazHosrNn/kP2eeqEroZYLZphsZl7L82eephMIqNT8dyT9JjH1Jpg32ubZvTB/SF665ymSnnaqjUHum+1Qn+NyOtz9f2r6y5OQ51b6hYy0D40r2tYXar30+Y/mbVX6JqY+hMC60XZapoh3S/HdOpT3DYu3rs0lKnquyb277JZvyPlqp+f1zVVK2/dJYNpQGf04uYyh1+PTPqfalZ2tO/xwSu+3bOrDzmWvfcTW/fLmibRx6lkvlcOlc8qsE/y5/rnSk67F1iAu1VT6+4jKt5tufn8e2b+n57JKcckhrsKG1Cd6Wu+Y8tf2l5DenPafqQZ/7xstKLeyr+XnInjSelvRgS9n27JPQM5n6Am7jmLG8VK6m7OvyS2L313XYV2r/tth5LWPfNxhyhI+1Up7HVbe/HMgeZE8brtNQ/7tcyX0cn//H2LTO9kpir5VI6yYp9szJW9W2jI1Tqfl5ic2v1GZ5XaG6RDZbyvxMO/DVh1SdUj5y1vraaHs+2/TYNXvtSRoXk4wrf9w6fEctnFt0zL2y+xFsfSrLza2zOTqMiZv8xOpbn8+xsL5ykdj6VsxNKb/Lvxb7nX8u48y1x6yuMW3V9tNxTlouzXslibVxndjC14xda8g2NIbg5x01XAP2lfeIBFSi/zrQEporTXru8fCueiy1CUnqrhspSM9SzbSS64tep9R1ZsZcOxKsUEUfNZeYtr0vjY5DeXW915hT8/PRV8MxlR1HV4DHZZc9R7dzajgWoXikdLtGr0uEfPigsGS/NvYjSHW87XejoXZehZ74XrcqpQ4d5T5f7Gu8f6g7fQmefoqOqk4/VarQv2o4/VDetPDnhjR2dc3BCBp/9NVw7KGfwStVMf6aZNAajj6224j9HCZbpZa/LvH1gU30i/q5WnUdSNEprxv2eIOwx2pcjjLMsmObo008k0J4u69P3d9QdbspW/dy080Nb8PXqcrmj0vsc7tu6qwD1A5oLYr3U3XWSxqj6/a10nCMkudJMyxvrvbK55jUrqU+Xlr/Iai98jY7mVAml5QNHxq31j2m5TrSdmp6z5p+9kpzQntdQbI1Pafr6I9C60gxrALHGtdF6tyhLTtxeBuW+hhqyzPMX931xl6rJ5f6n5h3blpsW7vKbvdBfL1gpYfjDLrvob1drrRT+mcuMf1OrJSdW/P+RfufdUB+pOtdTzhpL5t0jfKr46P3obQfQdPGt1jS+DEkx4MT2PmEg1j72OthqfZNWX+JuZ4at/2sTAmn5cSIMqZIjk0pnD0+aUI6YS9ekdaspWsp8cWEC62dS66UTkq+ypajyvXSlPz4xhQhm/ns6wpXBVI560jHN9aKkdT46spvWT916rONdHNsGSNtl6Hp8oakTVukpF9n3U3Jx0TNefbp3R4jltVfFfpvQkJpNaH/puyco++qbZPz7sE1L3DFGVovc4XPLUPO3ELyrzLiSpmPhaTJfqeJ+t60PiTh9snNW2656upDQ+Wtyg6ueJquB7HSVPspW9a28lDWJouhb6iyv7XjTfVL67j2vjDpvUfMt1Vl4GvctMaeq/vYcFWXIfV5Ku3XaxK951H6dsWFrhcxa3pU/pz3C1xc71tTcaXjGjtJbYIj7UHm7wxSyx+D/d7SfpfJ3wPpfSQp32tS2dt8V2tD7+Bce3rpPa3eC6Dr8Ulq+K+J3HFvbn312Zv2RdStr9g0pP0P/B04XbP3Q8cIT2dlRF6orkrhY/Rv27FqHfL1DP480ffo/V6V7aTHXLKDbTdXOOrnyG1ScvSv6xqve30lPzdpj36M8Pilb+L5vr0xE3dd30nWIfZ45uSSxK4x+CRmTUK6F/LrSsfnj+aOdYyvpXyMK7/OpHWjlDTsa0rJum5K7Ppnj7F9c+0q0qtr7pQji2X9oMwcVrJfmblwU2V2SV3rEk3YuO46XXf8MfrQz077G2zftyDkj/ZqhcZr9nldkOg5ykAt3GunJbR3NGYsUfWafd3ts853C4dLHppOM6WcfM5C+xSbaC/2HMa1H9v1vXdoXm/LKSVpYh5wqmr/X67SfwHtPc9a97p/k8bt0hpbW0j1Svr2m+7Rd98qIQ1pvSF273dKOjHYNmk6fd8/JX3tWIddblBqoU5p7zrZKnd9TppjVq0DSitWqkwz12b2exb7vwjaRvS/TFd/S+8AYvIo+Suri5TwvvZRdV1IQevQ1/8SA+UeH5eto7n/X1Oe86ptaafl8kPjcF7P7W93eD9d5n+oSvn7fFe7I/G9q1IBfylSR71N6fft94ZU18hOXKR+JqUO8f4+5dvLsmWlMQb/Vov+CUDlpTGUndeQlG3fdZWdRPoPgl3mmDlsLnaey/4X3tVuU+o6L3/Pym+qlLV/jk6rlBRd8394hZ6JdnuqIv2ykOh3pfq96Wkq/E8qu2xl88/tOJ4R3tfmpbGi3c5T859bzqr7MbsN03iI5itUNj5eaEKWqIX/KJCQ/iFWNZMmHXs8ovWk53JzFq5vPul6zDjLV36pX7bzvNzB0YlQOZephWtRS5T7eeSq8030R77/HvC1d7tN83Zt9yltrDdwSR0XxsZd5l+MvvvU1/M9jSnj+Nh6FPJbBld/w6XHXH5MZeXrOfS/65g9RTl1JCa8chzX2RZ9/3lXSh4/VqWfEBNq4b82Ytp6m+9Qqxir1jX+rfPdT1vvsWhM6bPbmON6E1LnPCZW7L0qqXswmtqf0MQelZj4myrzYtzvIYmURlvtqapyx+gzRfd0XPfahVSOquMoG+dibBdl46iyfdbV1qvUW9m8+KTudMvkzZe/pqTJ+pWTflX5zw1fVfox6ZTVc8hvHflOSb+OuG1JsZ0kufXAJf8D"));
-const $7ab494fe977143c6$var$stateMachine = new (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$dfa$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])((0, /*@__PURE__*/ $parcel$interopDefault($aa333a9607471296$exports)));
+const $7ab494fe977143c6$var$stateMachine = new (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$dfa$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])((0,  $parcel$interopDefault($aa333a9607471296$exports)));
 class $7ab494fe977143c6$export$2e2bcd8739ae039 extends (0, $649970d87335b30f$export$2e2bcd8739ae039) {
     static planFeatures(plan) {
         plan.addStage($7ab494fe977143c6$var$setupSyllables);
-        // Default glyph pre-processing group
+        
         plan.addStage([
             'locl',
             'ccmp',
             'nukt',
             'akhn'
         ]);
-        // Reordering group
+        
         plan.addStage($7ab494fe977143c6$var$clearSubstitutionFlags);
         plan.addStage([
             'rphf'
@@ -9137,7 +9137,7 @@ class $7ab494fe977143c6$export$2e2bcd8739ae039 extends (0, $649970d87335b30f$exp
             'pref'
         ]);
         plan.addStage($7ab494fe977143c6$var$recordPref);
-        // Orthographic unit shaping group
+        
         plan.addStage([
             'rkrf',
             'abvf',
@@ -9148,10 +9148,10 @@ class $7ab494fe977143c6$export$2e2bcd8739ae039 extends (0, $649970d87335b30f$exp
             'cjct'
         ]);
         plan.addStage($7ab494fe977143c6$var$reorder);
-        // Topographical features
-        // Scripts that need this are handled by the Arabic shaper, not implemented here for now.
-        // plan.addStage(['isol', 'init', 'medi', 'fina', 'med2', 'fin2', 'fin3'], false);
-        // Standard topographic presentation and positional feature application
+        
+        
+        
+        
         plan.addStage([
             'abvs',
             'blws',
@@ -9163,8 +9163,8 @@ class $7ab494fe977143c6$export$2e2bcd8739ae039 extends (0, $649970d87335b30f$exp
         ]);
     }
     static assignFeatures(plan, glyphs) {
-        // Decompose split vowels
-        // TODO: do this in a more general unicode normalizer
+        
+        
         for(let i = glyphs.length - 1; i >= 0; i--){
             let codepoint = glyphs[i].codePoints[0];
             if ($7ab494fe977143c6$var$decompositions[codepoint]) {
@@ -9194,9 +9194,9 @@ function $7ab494fe977143c6$var$setupSyllables(font, glyphs) {
     let syllable = 0;
     for (let [start, end, tags] of $7ab494fe977143c6$var$stateMachine.match(glyphs.map($7ab494fe977143c6$var$useCategory))){
         ++syllable;
-        // Create shaper info
+        
         for(let i = start; i <= end; i++)glyphs[i].shaperInfo = new $7ab494fe977143c6$var$USEInfo($7ab494fe977143c6$var$categories[$7ab494fe977143c6$var$useCategory(glyphs[i])], tags[0], syllable);
-        // Assign rphf feature
+        
         let limit = glyphs[start].shaperInfo.category === 'R' ? 1 : Math.min(3, end - start);
         for(let i = start; i < start + limit; i++)glyphs[i].features.rphf = true;
     }
@@ -9216,34 +9216,34 @@ function $7ab494fe977143c6$var$reorder(font, glyphs) {
         let i, j;
         let info = glyphs[start].shaperInfo;
         let type = info.syllableType;
-        // Only a few syllable types need reordering.
+        
         if (type !== 'virama_terminated_cluster' && type !== 'standard_cluster' && type !== 'broken_cluster') continue;
-        // Insert a dotted circle glyph in broken clusters.
+        
         if (type === 'broken_cluster' && dottedCircle) {
             let g = new (0, $10e7b257e1a9a756$export$2e2bcd8739ae039)(font, dottedCircle, [
                 0x25cc
             ]);
             g.shaperInfo = info;
-            // Insert after possible Repha.
+            
             for(i = start; i < end && glyphs[i].shaperInfo.category === 'R'; i++);
             glyphs.splice(++i, 0, g);
             end++;
         }
-        // Move things forward.
+        
         if (info.category === 'R' && end - start > 1) for(i = start + 1; i < end; i++){
             info = glyphs[i].shaperInfo;
             if ($7ab494fe977143c6$var$isBase(info) || $7ab494fe977143c6$var$isHalant(glyphs[i])) {
-                // If we hit a halant, move before it; otherwise it's a base: move to it's
-                // place, and shift things in between backward.
+                
+                
                 if ($7ab494fe977143c6$var$isHalant(glyphs[i])) i--;
                 glyphs.splice(start, 0, ...glyphs.splice(start + 1, i - start), glyphs[i]);
                 break;
             }
         }
-        // Move things back.
+        
         for(i = start, j = end; i < end; i++){
             info = glyphs[i].shaperInfo;
-            if ($7ab494fe977143c6$var$isBase(info) || $7ab494fe977143c6$var$isHalant(glyphs[i])) // place, and shift things in between backward.
+            if ($7ab494fe977143c6$var$isBase(info) || $7ab494fe977143c6$var$isHalant(glyphs[i])) 
             j = $7ab494fe977143c6$var$isHalant(glyphs[i]) ? i + 1 : i;
             else if ((info.category === 'VPre' || info.category === 'VMPre') && j < i) glyphs.splice(j, 1, glyphs[i], ...glyphs.splice(j, i - j));
         }
@@ -9310,15 +9310,15 @@ const $102b6fe50f1d50b4$var$SHAPERS = {
     lepc: (0, $7ab494fe977143c6$export$2e2bcd8739ae039),
     limb: (0, $7ab494fe977143c6$export$2e2bcd8739ae039),
     mahj: (0, $7ab494fe977143c6$export$2e2bcd8739ae039),
-    // mand: UniversalShaper, // Mandaic
-    // mani: UniversalShaper, // Manichaean
+    
+    
     mtei: (0, $7ab494fe977143c6$export$2e2bcd8739ae039),
     modi: (0, $7ab494fe977143c6$export$2e2bcd8739ae039),
-    // mong: UniversalShaper, // Mongolian
-    // 'nko ': UniversalShaper, // N’Ko
+    
+    
     hmng: (0, $7ab494fe977143c6$export$2e2bcd8739ae039),
-    // phag: UniversalShaper, // Phags-pa
-    // phlp: UniversalShaper, // Psalter Pahlavi
+    
+    
     rjng: (0, $7ab494fe977143c6$export$2e2bcd8739ae039),
     saur: (0, $7ab494fe977143c6$export$2e2bcd8739ae039),
     shrd: (0, $7ab494fe977143c6$export$2e2bcd8739ae039),
@@ -9336,7 +9336,7 @@ const $102b6fe50f1d50b4$var$SHAPERS = {
     tfng: (0, $7ab494fe977143c6$export$2e2bcd8739ae039),
     tirh: (0, $7ab494fe977143c6$export$2e2bcd8739ae039),
     latn: (0, $649970d87335b30f$export$2e2bcd8739ae039),
-    DFLT: (0, $649970d87335b30f$export$2e2bcd8739ae039 // Default
+    DFLT: (0, $649970d87335b30f$export$2e2bcd8739ae039 
     )
 };
 function $102b6fe50f1d50b4$export$7877a478dd30fd3d(script) {
@@ -9373,8 +9373,8 @@ class $0a876c45f1f7c41c$export$2e2bcd8739ae039 extends (0, $a83b9c36aaa94fd3$exp
                     if (index !== -1) {
                         let sequence = table.sequences.get(index);
                         if (sequence.length === 0) {
-                            // If the sequence length is zero, delete the glyph.
-                            // The OpenType spec disallows this, but seems like Harfbuzz and Uniscribe allow it.
+                            
+                            
                             this.glyphs.splice(this.glyphIterator.index, 1);
                             return true;
                         }
@@ -9400,7 +9400,7 @@ class $0a876c45f1f7c41c$export$2e2bcd8739ae039 extends (0, $a83b9c36aaa94fd3$exp
                 {
                     let index = this.coverageIndex(table.coverage);
                     if (index !== -1) {
-                        let USER_INDEX = 0; // TODO
+                        let USER_INDEX = 0; 
                         this.glyphIterator.cur.id = table.alternateSet.get(index)[USER_INDEX];
                         return true;
                     }
@@ -9414,38 +9414,38 @@ class $0a876c45f1f7c41c$export$2e2bcd8739ae039 extends (0, $a83b9c36aaa94fd3$exp
                         let matched = this.sequenceMatchIndices(1, ligature.components);
                         if (!matched) continue;
                         let curGlyph = this.glyphIterator.cur;
-                        // Concatenate all of the characters the new ligature will represent
+                        
                         let characters = curGlyph.codePoints.slice();
                         for (let index of matched)characters.push(...this.glyphs[index].codePoints);
-                        // Create the replacement ligature glyph
+                        
                         let ligatureGlyph = new (0, $10e7b257e1a9a756$export$2e2bcd8739ae039)(this.font, ligature.glyph, characters, curGlyph.features);
                         ligatureGlyph.shaperInfo = curGlyph.shaperInfo;
                         ligatureGlyph.isLigated = true;
                         ligatureGlyph.substituted = true;
-                        // From Harfbuzz:
-                        // - If it *is* a mark ligature, we don't allocate a new ligature id, and leave
-                        //   the ligature to keep its old ligature id.  This will allow it to attach to
-                        //   a base ligature in GPOS.  Eg. if the sequence is: LAM,LAM,SHADDA,FATHA,HEH,
-                        //   and LAM,LAM,HEH for a ligature, they will leave SHADDA and FATHA with a
-                        //   ligature id and component value of 2.  Then if SHADDA,FATHA form a ligature
-                        //   later, we don't want them to lose their ligature id/component, otherwise
-                        //   GPOS will fail to correctly position the mark ligature on top of the
-                        //   LAM,LAM,HEH ligature. See https://bugzilla.gnome.org/show_bug.cgi?id=676343
-                        //
-                        // - If a ligature is formed of components that some of which are also ligatures
-                        //   themselves, and those ligature components had marks attached to *their*
-                        //   components, we have to attach the marks to the new ligature component
-                        //   positions!  Now *that*'s tricky!  And these marks may be following the
-                        //   last component of the whole sequence, so we should loop forward looking
-                        //   for them and update them.
-                        //
-                        //   Eg. the sequence is LAM,LAM,SHADDA,FATHA,HEH, and the font first forms a
-                        //   'calt' ligature of LAM,HEH, leaving the SHADDA and FATHA with a ligature
-                        //   id and component == 1.  Now, during 'liga', the LAM and the LAM-HEH ligature
-                        //   form a LAM-LAM-HEH ligature.  We need to reassign the SHADDA and FATHA to
-                        //   the new ligature with a component value of 2.
-                        //
-                        //   This in fact happened to a font...  See https://bugzilla.gnome.org/show_bug.cgi?id=437633
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         let isMarkLigature = curGlyph.isMark;
                         for(let i = 0; i < matched.length && isMarkLigature; i++)isMarkLigature = this.glyphs[matched[i]].isMark;
                         ligatureGlyph.ligatureID = isMarkLigature ? null : this.ligatureID++;
@@ -9453,10 +9453,10 @@ class $0a876c45f1f7c41c$export$2e2bcd8739ae039 extends (0, $a83b9c36aaa94fd3$exp
                         let lastNumComps = curGlyph.codePoints.length;
                         let curComps = lastNumComps;
                         let idx = this.glyphIterator.index + 1;
-                        // Set ligatureID and ligatureComponent on glyphs that were skipped in the matched sequence.
-                        // This allows GPOS to attach marks to the correct ligature components.
+                        
+                        
                         for (let matchIndex of matched){
-                            // Don't assign new ligature components for mark ligatures (see above)
+                            
                             if (isMarkLigature) idx = matchIndex;
                             else while(idx < matchIndex){
                                 var ligatureComponent = curComps - lastNumComps + Math.min(this.glyphs[idx].ligatureComponent || 1, lastNumComps);
@@ -9467,16 +9467,16 @@ class $0a876c45f1f7c41c$export$2e2bcd8739ae039 extends (0, $a83b9c36aaa94fd3$exp
                             lastLigID = this.glyphs[idx].ligatureID;
                             lastNumComps = this.glyphs[idx].codePoints.length;
                             curComps += lastNumComps;
-                            idx++; // skip base glyph
+                            idx++; 
                         }
-                        // Adjust ligature components for any marks following
+                        
                         if (lastLigID && !isMarkLigature) for(let i = idx; i < this.glyphs.length; i++){
                             if (this.glyphs[i].ligatureID === lastLigID) {
                                 var ligatureComponent = curComps - lastNumComps + Math.min(this.glyphs[i].ligatureComponent || 1, lastNumComps);
                                 this.glyphs[i].ligatureComponent = ligatureComponent;
                             } else break;
                         }
-                        // Delete the matched glyphs, and replace the current glyph with the ligature glyph
+                        
                         for(let i = matched.length - 1; i >= 0; i--)this.glyphs.splice(matched[i], 1);
                         this.glyphs[this.glyphIterator.index] = ligatureGlyph;
                         return true;
@@ -9501,7 +9501,7 @@ class $c96c93587d49c14d$export$2e2bcd8739ae039 extends (0, $a83b9c36aaa94fd3$exp
         if (value.yAdvance != null) position.yAdvance += value.yAdvance;
         if (value.xPlacement != null) position.xOffset += value.xPlacement;
         if (value.yPlacement != null) position.yOffset += value.yPlacement;
-        // Adjustments for font variations
+        
         let variationProcessor = this.font._variationProcessor;
         let variationStore = this.font.GDEF && this.font.GDEF.itemVariationStore;
         if (variationProcessor && variationStore) {
@@ -9510,7 +9510,7 @@ class $c96c93587d49c14d$export$2e2bcd8739ae039 extends (0, $a83b9c36aaa94fd3$exp
             if (value.xAdvDevice) position.xAdvance += variationProcessor.getDelta(variationStore, value.xAdvDevice.a, value.xAdvDevice.b);
             if (value.yAdvDevice) position.yAdvance += variationProcessor.getDelta(variationStore, value.yAdvDevice.a, value.yAdvDevice.b);
         }
-    // TODO: device tables
+    
     }
     applyLookup(lookupType, table) {
         switch(lookupType){
@@ -9594,7 +9594,7 @@ class $c96c93587d49c14d$export$2e2bcd8739ae039 extends (0, $a83b9c36aaa94fd3$exp
                 {
                     let markIndex = this.coverageIndex(table.markCoverage);
                     if (markIndex === -1) return false;
-                    // search backward for a base glyph
+                    
                     let baseGlyphIndex = this.glyphIterator.index;
                     while(--baseGlyphIndex >= 0 && (this.glyphs[baseGlyphIndex].isMark || this.glyphs[baseGlyphIndex].ligatureComponent > 0));
                     if (baseGlyphIndex < 0) return false;
@@ -9609,7 +9609,7 @@ class $c96c93587d49c14d$export$2e2bcd8739ae039 extends (0, $a83b9c36aaa94fd3$exp
                 {
                     let markIndex = this.coverageIndex(table.markCoverage);
                     if (markIndex === -1) return false;
-                    // search backward for a base glyph
+                    
                     let baseGlyphIndex = this.glyphIterator.index;
                     while(--baseGlyphIndex >= 0 && this.glyphs[baseGlyphIndex].isMark);
                     if (baseGlyphIndex < 0) return false;
@@ -9628,17 +9628,17 @@ class $c96c93587d49c14d$export$2e2bcd8739ae039 extends (0, $a83b9c36aaa94fd3$exp
                 {
                     let mark1Index = this.coverageIndex(table.mark1Coverage);
                     if (mark1Index === -1) return false;
-                    // get the previous mark to attach to
+                    
                     let prevIndex = this.glyphIterator.peekIndex(-1);
                     let prev = this.glyphs[prevIndex];
                     if (!prev || !prev.isMark) return false;
                     let cur = this.glyphIterator.cur;
-                    // The following logic was borrowed from Harfbuzz
+                    
                     let good = false;
                     if (cur.ligatureID === prev.ligatureID) {
                         if (!cur.ligatureID) good = true;
                         else if (cur.ligatureComponent === prev.ligatureComponent) good = true;
-                    } else // itself is a ligature, in which case match.
+                    } else 
                     if (cur.ligatureID && !cur.ligatureComponent || prev.ligatureID && !prev.ligatureComponent) good = true;
                     if (!good) return false;
                     let mark2Index = this.coverageIndex(table.mark2Coverage, prev.id);
@@ -9668,10 +9668,10 @@ class $c96c93587d49c14d$export$2e2bcd8739ae039 extends (0, $a83b9c36aaa94fd3$exp
         this.glyphIterator.cur.markAttachment = baseGlyphIndex;
     }
     getAnchor(anchor) {
-        // TODO: contour point, device tables
+        
         let x = anchor.xCoordinate;
         let y = anchor.yCoordinate;
-        // Adjustments for font variations
+        
         let variationProcessor = this.font._variationProcessor;
         let variationStore = this.font.GDEF && this.font.GDEF.itemVariationStore;
         if (variationProcessor && variationStore) {
@@ -9718,27 +9718,27 @@ class $c96c93587d49c14d$export$2e2bcd8739ae039 extends (0, $a83b9c36aaa94fd3$exp
 }
 class $a62492810de27e3d$export$2e2bcd8739ae039 {
     setup(glyphRun) {
-        // Map glyphs to GlyphInfo objects so data can be passed between
-        // GSUB and GPOS without mutating the real (shared) Glyph objects.
+        
+        
         this.glyphInfos = glyphRun.glyphs.map((glyph)=>new (0, $10e7b257e1a9a756$export$2e2bcd8739ae039)(this.font, glyph.id, [
                 ...glyph.codePoints
             ]));
-        // Select a script based on what is available in GSUB/GPOS.
+        
         let script = null;
         if (this.GPOSProcessor) script = this.GPOSProcessor.selectScript(glyphRun.script, glyphRun.language, glyphRun.direction);
         if (this.GSUBProcessor) script = this.GSUBProcessor.selectScript(glyphRun.script, glyphRun.language, glyphRun.direction);
-        // Choose a shaper based on the script, and setup a shaping plan.
-        // This determines which features to apply to which glyphs.
+        
+        
         this.shaper = $102b6fe50f1d50b4$export$7877a478dd30fd3d(script);
         this.plan = new (0, $94d7a73bd2edfc9a$export$2e2bcd8739ae039)(this.font, script, glyphRun.direction);
         this.shaper.plan(this.plan, this.glyphInfos, glyphRun.features);
-        // Assign chosen features to output glyph run
+        
         for(let key in this.plan.allFeatures)glyphRun.features[key] = true;
     }
     substitute(glyphRun) {
         if (this.GSUBProcessor) {
             this.plan.process(this.GSUBProcessor, this.glyphInfos);
-            // Map glyph infos back to normal Glyph objects
+            
             glyphRun.glyphs = this.glyphInfos.map((glyphInfo)=>this.font.getGlyph(glyphInfo.id, glyphInfo.codePoints));
         }
     }
@@ -9746,7 +9746,7 @@ class $a62492810de27e3d$export$2e2bcd8739ae039 {
         if (this.shaper.zeroMarkWidths === 'BEFORE_GPOS') this.zeroMarkAdvances(glyphRun.positions);
         if (this.GPOSProcessor) this.plan.process(this.GPOSProcessor, this.glyphInfos, glyphRun.positions);
         if (this.shaper.zeroMarkWidths === 'AFTER_GPOS') this.zeroMarkAdvances(glyphRun.positions);
-        // Reverse the glyphs and positions if the script is right-to-left
+        
         if (glyphRun.direction === 'rtl') {
             glyphRun.glyphs.reverse();
             glyphRun.positions.reverse();
@@ -9789,20 +9789,20 @@ class $a62492810de27e3d$export$2e2bcd8739ae039 {
 }
 class $4c0a7fa5df7a9ab1$export$2e2bcd8739ae039 {
     layout(string, features, script, language, direction) {
-        // Make the features parameter optional
+        
         if (typeof features === 'string') {
             direction = language;
             language = script;
             script = features;
             features = [];
         }
-        // Map string to glyphs if needed
+        
         if (typeof string === 'string') {
-            // Attempt to detect the script from the string if not provided.
+            
             if (script == null) script = $130d1a642ebcd2b7$export$e5cb25e204fb8450(string);
             var glyphs = this.font.glyphsForString(string);
         } else {
-            // Attempt to detect the script from the glyph code points if not provided.
+            
             if (script == null) {
                 let codePoints = [];
                 for (let glyph of string)codePoints.push(...glyph.codePoints);
@@ -9811,37 +9811,37 @@ class $4c0a7fa5df7a9ab1$export$2e2bcd8739ae039 {
             var glyphs = string;
         }
         let glyphRun = new (0, $be07b3e97a42687a$export$2e2bcd8739ae039)(glyphs, features, script, language, direction);
-        // Return early if there are no glyphs
+        
         if (glyphs.length === 0) {
             glyphRun.positions = [];
             return glyphRun;
         }
-        // Setup the advanced layout engine
+        
         if (this.engine && this.engine.setup) this.engine.setup(glyphRun);
-        // Substitute and position the glyphs
+        
         this.substitute(glyphRun);
         this.position(glyphRun);
         this.hideDefaultIgnorables(glyphRun.glyphs, glyphRun.positions);
-        // Let the layout engine clean up any state it might have
+        
         if (this.engine && this.engine.cleanup) this.engine.cleanup();
         return glyphRun;
     }
     substitute(glyphRun) {
-        // Call the advanced layout engine to make substitutions
+        
         if (this.engine && this.engine.substitute) this.engine.substitute(glyphRun);
     }
     position(glyphRun) {
-        // Get initial glyph positions
+        
         glyphRun.positions = glyphRun.glyphs.map((glyph)=>new (0, $1ac75d9a55b67f01$export$2e2bcd8739ae039)(glyph.advanceWidth));
         let positioned = null;
-        // Call the advanced layout engine. Returns the features applied.
+        
         if (this.engine && this.engine.position) positioned = this.engine.position(glyphRun);
-        // if there is no GPOS table, use unicode properties to position marks.
+        
         if (!positioned && (!this.engine || this.engine.fallbackPosition)) {
             if (!this.unicodeLayoutEngine) this.unicodeLayoutEngine = new (0, $0a4bdfeb6dfd6f5e$export$2e2bcd8739ae039)(this.font);
             this.unicodeLayoutEngine.positionGlyphs(glyphRun.glyphs, glyphRun.positions);
         }
-        // if kerning is not supported by GPOS, do kerning with the TrueType/AAT kern table
+        
         if ((!positioned || !positioned.kern) && glyphRun.features.kern !== false && this.font.kern) {
             if (!this.kernProcessor) this.kernProcessor = new (0, $0bba3a9db57637f3$export$2e2bcd8739ae039)(this.font);
             this.kernProcessor.process(glyphRun.glyphs, glyphRun.positions);
@@ -9857,9 +9857,9 @@ class $4c0a7fa5df7a9ab1$export$2e2bcd8739ae039 {
         }
     }
     isDefaultIgnorable(ch) {
-        // From DerivedCoreProperties.txt in the Unicode database,
-        // minus U+115F, U+1160, U+3164 and U+FFA0, which is what
-        // Harfbuzz and Uniscribe do.
+        
+        
+        
         let plane = ch >> 16;
         if (plane === 0) switch(ch >> 8){
             case 0x00:
@@ -9907,8 +9907,8 @@ class $4c0a7fa5df7a9ab1$export$2e2bcd8739ae039 {
         this.font = font;
         this.unicodeLayoutEngine = null;
         this.kernProcessor = null;
-        // Choose an advanced layout engine. We try the AAT morx table first since more
-        // scripts are currently supported because the shaping logic is built into the font.
+        
+        
         if (this.font.morx) this.engine = new (0, $ba6dd74203be8728$export$2e2bcd8739ae039)(this.font);
         else if (this.font.GSUB || this.font.GPOS) this.engine = new (0, $a62492810de27e3d$export$2e2bcd8739ae039)(this.font);
     }
@@ -9921,34 +9921,34 @@ const $f43aec954cdfdf21$var$SVG_COMMANDS = {
     closePath: 'Z'
 };
 class $f43aec954cdfdf21$export$2e2bcd8739ae039 {
-    /**
-   * Compiles the path to a JavaScript function that can be applied with
-   * a graphics context in order to render the path.
-   * @return {string}
-   */ toFunction() {
+    
+
+
+
+ toFunction() {
         return (ctx)=>{
             this.commands.forEach((c)=>{
                 return ctx[c.command].apply(ctx, c.args);
             });
         };
     }
-    /**
-   * Converts the path to an SVG path data string
-   * @return {string}
-   */ toSVG() {
+    
+
+
+ toSVG() {
         let cmds = this.commands.map((c)=>{
             let args = c.args.map((arg)=>Math.round(arg * 100) / 100);
             return `${$f43aec954cdfdf21$var$SVG_COMMANDS[c.command]}${args.join(' ')}`;
         });
         return cmds.join('');
     }
-    /**
-   * Gets the "control box" of a path.
-   * This is like the bounding box, but it includes all points including
-   * control points of bezier segments and is much faster to compute than
-   * the real bounding box.
-   * @type {BBox}
-   */ get cbox() {
+    
+
+
+
+
+
+ get cbox() {
         if (!this._cbox) {
             let cbox = new (0, $f34600ab9d7f70d8$export$2e2bcd8739ae039);
             for (let command of this.commands)for(let i = 0; i < command.args.length; i += 2)cbox.addPoint(command.args[i], command.args[i + 1]);
@@ -9956,11 +9956,11 @@ class $f43aec954cdfdf21$export$2e2bcd8739ae039 {
         }
         return this._cbox;
     }
-    /**
-   * Gets the exact bounding box of the path by evaluating curve segments.
-   * Slower to compute than the control box, but more accurate.
-   * @type {BBox}
-   */ get bbox() {
+    
+
+
+
+ get bbox() {
         if (this._bbox) return this._bbox;
         let bbox = new (0, $f34600ab9d7f70d8$export$2e2bcd8739ae039);
         let cx = 0, cy = 0;
@@ -9976,14 +9976,14 @@ class $f43aec954cdfdf21$export$2e2bcd8739ae039 {
             case 'quadraticCurveTo':
             case 'bezierCurveTo':
                 if (c.command === 'quadraticCurveTo') {
-                    // http://fontforge.org/bezier.html
+                    
                     var [qp1x, qp1y, p3x, p3y] = c.args;
-                    var cp1x = cx + 2 / 3 * (qp1x - cx); // CP1 = QP0 + 2/3 * (QP1-QP0)
+                    var cp1x = cx + 2 / 3 * (qp1x - cx); 
                     var cp1y = cy + 2 / 3 * (qp1y - cy);
-                    var cp2x = p3x + 2 / 3 * (qp1x - p3x); // CP2 = QP2 + 2/3 * (QP1-QP2)
+                    var cp2x = p3x + 2 / 3 * (qp1x - p3x); 
                     var cp2y = p3y + 2 / 3 * (qp1y - p3y);
                 } else var [cp1x, cp1y, cp2x, cp2y, p3x, p3y] = c.args;
-                // http://blog.hackers-cafe.net/2009/06/how-to-calculate-bezier-curves-bounding.html
+                
                 bbox.addPoint(p3x, p3y);
                 var p0 = [
                     cx,
@@ -10033,11 +10033,11 @@ class $f43aec954cdfdf21$export$2e2bcd8739ae039 {
         }
         return this._bbox = Object.freeze(bbox);
     }
-    /**
-   * Applies a mapping function to each point in the path.
-   * @param {function} fn
-   * @return {Path}
-   */ mapPoints(fn) {
+    
+
+
+
+ mapPoints(fn) {
         let path = new $f43aec954cdfdf21$export$2e2bcd8739ae039;
         for (let c of this.commands){
             let args = [];
@@ -10049,9 +10049,9 @@ class $f43aec954cdfdf21$export$2e2bcd8739ae039 {
         }
         return path;
     }
-    /**
-   * Transforms the path by the given matrix.
-   */ transform(m0, m1, m2, m3, m4, m5) {
+    
+
+ transform(m0, m1, m2, m3, m4, m5) {
         return this.mapPoints((x, y)=>{
             const tx = m0 * x + m2 * y + m4;
             const ty = m1 * x + m3 * y + m5;
@@ -10061,21 +10061,21 @@ class $f43aec954cdfdf21$export$2e2bcd8739ae039 {
             ];
         });
     }
-    /**
-   * Translates the path by the given offset.
-   */ translate(x, y) {
+    
+
+ translate(x, y) {
         return this.transform(1, 0, 0, 1, x, y);
     }
-    /**
-   * Rotates the path by the given angle (in radians).
-   */ rotate(angle) {
+    
+
+ rotate(angle) {
         let cos = Math.cos(angle);
         let sin = Math.sin(angle);
         return this.transform(cos, sin, -sin, cos, 0, 0);
     }
-    /**
-   * Scales the path.
-   */ scale(scaleX, scaleY = scaleX) {
+    
+
+ scale(scaleX, scaleY = scaleX) {
         return this.transform(scaleX, 0, 0, scaleY, 0, 0);
     }
     constructor(){
@@ -10380,7 +10380,7 @@ class $f92906be28e61769$export$2e2bcd8739ae039 {
     _getMetrics(cbox) {
         if (this._metrics) return this._metrics;
         let { advance: advanceWidth, bearing: leftBearing } = this._getTableMetrics(this._font.hmtx);
-        // For vertical metrics, use vmtx if available, or fall back to global data from OS/2 or hhea
+        
         if (this._font.vmtx) var { advance: advanceHeight, bearing: topBearing } = this._getTableMetrics(this._font.vmtx);
         else {
             let os2;
@@ -10402,52 +10402,52 @@ class $f92906be28e61769$export$2e2bcd8739ae039 {
             topBearing: topBearing
         };
     }
-    /**
-   * The glyph’s control box.
-   * This is often the same as the bounding box, but is faster to compute.
-   * Because of the way bezier curves are defined, some of the control points
-   * can be outside of the bounding box. Where `bbox` takes this into account,
-   * `cbox` does not. Thus, cbox is less accurate, but faster to compute.
-   * See [here](http://www.freetype.org/freetype2/docs/glyphs/glyphs-6.html#section-2)
-   * for a more detailed description.
-   *
-   * @type {BBox}
-   */ get cbox() {
+    
+
+
+
+
+
+
+
+
+
+ get cbox() {
         return this._getCBox();
     }
-    /**
-   * The glyph’s bounding box, i.e. the rectangle that encloses the
-   * glyph outline as tightly as possible.
-   * @type {BBox}
-   */ get bbox() {
+    
+
+
+
+ get bbox() {
         return this._getBBox();
     }
-    /**
-   * A vector Path object representing the glyph outline.
-   * @type {Path}
-   */ get path() {
-        // Cache the path so we only decode it once
-        // Decoding is actually performed by subclasses
+    
+
+
+ get path() {
+        
+        
         return this._getPath();
     }
-    /**
-   * Returns a path scaled to the given font size.
-   * @param {number} size
-   * @return {Path}
-   */ getScaledPath(size) {
+    
+
+
+
+ getScaledPath(size) {
         let scale = 1 / this._font.unitsPerEm * size;
         return this.path.scale(scale);
     }
-    /**
-   * The glyph's advance width.
-   * @type {number}
-   */ get advanceWidth() {
+    
+
+
+ get advanceWidth() {
         return this._getMetrics().advanceWidth;
     }
-    /**
-   * The glyph's advance height.
-   * @type {number}
-   */ get advanceHeight() {
+    
+
+
+ get advanceHeight() {
         return this._getMetrics().advanceHeight;
     }
     get ligatureCaretPositions() {}
@@ -10467,17 +10467,17 @@ class $f92906be28e61769$export$2e2bcd8739ae039 {
                 return String.fromCharCode(post.map[this.id]);
         }
     }
-    /**
-   * The glyph's name
-   * @type {string}
-   */ get name() {
+    
+
+
+ get name() {
         return this._getName();
     }
-    /**
-   * Renders the glyph to the given graphics context, at the specified font size.
-   * @param {CanvasRenderingContext2d} ctx
-   * @param {number} size
-   */ render(ctx, size) {
+    
+
+
+
+ render(ctx, size) {
         ctx.save();
         let scale = 1 / this._font.head.unitsPerEm * size;
         ctx.scale(scale, scale);
@@ -10487,18 +10487,18 @@ class $f92906be28e61769$export$2e2bcd8739ae039 {
         ctx.restore();
     }
     constructor(id, codePoints, font){
-        /**
-     * The glyph id in the font
-     * @type {number}
-     */ this.id = id;
-        /**
-     * An array of unicode code points that are represented by this glyph.
-     * There can be multiple code points in the case of ligatures and other glyphs
-     * that represent multiple visual characters.
-     * @type {number[]}
-     */ this.codePoints = codePoints;
+        
+
+
+ this.id = id;
+        
+
+
+
+
+ this.codePoints = codePoints;
         this._font = font;
-        // TODO: get this info from GDEF if available
+        
         this.isMark = this.codePoints.length > 0 && this.codePoints.every((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$unicode$2d$properties$2f$dist$2f$module$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isMark"]));
         this.isLigature = this.codePoints.length > 1;
     }
@@ -10521,7 +10521,7 @@ class $f92906be28e61769$export$2e2bcd8739ae039 {
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$tslib$2f$tslib$2e$es6$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$5f$_decorate__as__$5f3e$__["_"])([
     (0, $e71565f2ce09cb6b$export$69a3209f1a06c04d)
 ], $f92906be28e61769$export$2e2bcd8739ae039.prototype, "name", null);
-// The header for both simple and composite glyphs
+
 let $69aac16029968692$var$GlyfHeader = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     numberOfContours: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
     xMin: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
@@ -10529,14 +10529,14 @@ let $69aac16029968692$var$GlyfHeader = new __TURBOPACK__imported__module__$5b$pr
     xMax: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"],
     yMax: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["int16"]
 });
-// Flags for simple glyphs
+
 const $69aac16029968692$var$ON_CURVE = 1;
 const $69aac16029968692$var$X_SHORT_VECTOR = 2;
 const $69aac16029968692$var$Y_SHORT_VECTOR = 4;
 const $69aac16029968692$var$REPEAT = 8;
 const $69aac16029968692$var$SAME_X = 16;
 const $69aac16029968692$var$SAME_Y = 32;
-// Flags for composite glyphs
+
 const $69aac16029968692$var$ARG_1_AND_2_ARE_WORDS = 1;
 const $69aac16029968692$var$ARGS_ARE_XY_VALUES = 2;
 const $69aac16029968692$var$ROUND_XY_TO_GRID = 4;
@@ -10560,7 +10560,7 @@ class $69aac16029968692$export$baf26146a414f24a {
         this.y = y;
     }
 }
-// Represents a component in a composite glyph
+
 class $69aac16029968692$var$Component {
     constructor(glyphID, dx, dy){
         this.glyphID = glyphID;
@@ -10572,10 +10572,10 @@ class $69aac16029968692$var$Component {
     }
 }
 class $69aac16029968692$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$export$2e2bcd8739ae039) {
-    // Parses just the glyph header and returns the bounding box
+    
     _getCBox(internal) {
-        // We need to decode the glyph if variation processing is requested,
-        // so it's easier just to recompute the path's cbox after decoding.
+        
+        
         if (this._font._variationProcessor && !internal) return this.path.cbox;
         let stream = this._font._getTableStream('glyf');
         stream.pos += this._font.loca.offsets[this.id];
@@ -10583,7 +10583,7 @@ class $69aac16029968692$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$exp
         let cbox = new (0, $f34600ab9d7f70d8$export$2e2bcd8739ae039)(glyph.xMin, glyph.yMin, glyph.xMax, glyph.yMax);
         return Object.freeze(cbox);
     }
-    // Parses a single glyph coordinate
+    
     _parseGlyphCoord(stream, prev, short, same) {
         if (short) {
             var val = stream.readUInt8();
@@ -10593,12 +10593,12 @@ class $69aac16029968692$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$exp
         else var val = prev + stream.readInt16BE();
         return val;
     }
-    // Decodes the glyph data into points for simple glyphs,
-    // or components for composite glyphs
+    
+    
     _decode() {
         let glyfPos = this._font.loca.offsets[this.id];
         let nextPos = this._font.loca.offsets[this.id + 1];
-        // Nothing to do if there is no data for this glyph
+        
         if (glyfPos === nextPos) return null;
         let stream = this._font._getTableStream('glyf');
         stream.pos += glyfPos;
@@ -10609,7 +10609,7 @@ class $69aac16029968692$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$exp
         return glyph;
     }
     _decodeSimple(glyph, stream) {
-        // this is a simple glyph
+        
         glyph.points = [];
         let endPtsOfContours = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"], glyph.numberOfContours).decode(stream);
         glyph.instructions = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Array$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Array"](__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint8"], __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"]).decode(stream);
@@ -10618,7 +10618,7 @@ class $69aac16029968692$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$exp
         while(flags.length < numCoords){
             var flag = stream.readUInt8();
             flags.push(flag);
-            // check for repeat flag
+            
             if (flag & $69aac16029968692$var$REPEAT) {
                 let count = stream.readUInt8();
                 for(let j = 0; j < count; j++)flags.push(flag);
@@ -10648,7 +10648,7 @@ class $69aac16029968692$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$exp
         return;
     }
     _decodeComposite(glyph, stream, offset = 0) {
-        // this is a composite glyph
+        
         glyph.components = [];
         let haveInstructions = false;
         let flags = $69aac16029968692$var$MORE_COMPONENTS;
@@ -10706,7 +10706,7 @@ class $69aac16029968692$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$exp
             new $69aac16029968692$export$baf26146a414f24a(false, true, 0, glyph.yMax + topBearing + advanceHeight)
         ];
     }
-    // Decodes font data, resolves composite glyphs, and returns an array of contours
+    
     _getContours() {
         let glyph = this._decode();
         if (!glyph) return [];
@@ -10724,7 +10724,7 @@ class $69aac16029968692$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$exp
             }
         }
         else points = glyph.points || [];
-        // Recompute and cache metrics if we performed variation processing, and don't have an HVAR table
+        
         if (glyph.phantomPoints && !this._font.directory.tables.HVAR) {
             this._metrics.advanceWidth = glyph.phantomPoints[1].x - glyph.phantomPoints[0].x;
             this._metrics.advanceHeight = glyph.phantomPoints[3].y - glyph.phantomPoints[2].y;
@@ -10750,7 +10750,7 @@ class $69aac16029968692$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$exp
         if (this._font._variationProcessor && !this._font.HVAR) this.path;
         return this._metrics;
     }
-    // Converts contours to a Path object that can be rendered
+    
     _getPath() {
         let contours = this._getContours();
         let path = new (0, $f43aec954cdfdf21$export$2e2bcd8739ae039);
@@ -10760,7 +10760,7 @@ class $69aac16029968692$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$exp
             let lastPt = contour[contour.length - 1];
             let start = 0;
             if (firstPt.onCurve) {
-                // The first point will be consumed by the moveTo command, so skip in the loop
+                
                 var curvePt = null;
                 start = 1;
             } else {
@@ -10784,7 +10784,7 @@ class $69aac16029968692$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$exp
                     var curvePt = null;
                 } else throw new Error("Unknown TTF path state");
             }
-            // Connect the first and last points
+            
             if (curvePt) path.quadraticCurveTo(curvePt.x, curvePt.y, firstPt.x, firstPt.y);
             path.closePath();
         }
@@ -11179,7 +11179,7 @@ class $62cc5109c6101893$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$exp
                                     }
                                     path.bezierCurveTo(...pts.slice(0, 6));
                                     path.bezierCurveTo(...pts.slice(6));
-                                    stack.shift(); // fd
+                                    stack.shift(); 
                                     break;
                                 case 36:
                                     c1x = x + stack.shift();
@@ -11252,14 +11252,14 @@ let $25d8f049c222084c$var$SBIXImage = new __TURBOPACK__imported__module__$5b$pro
     data: new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Buffer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Buffer"]((t)=>t.parent.buflen - t._currentOffset)
 });
 class $25d8f049c222084c$export$2e2bcd8739ae039 extends (0, $69aac16029968692$export$2e2bcd8739ae039) {
-    /**
-   * Returns an object representing a glyph image at the given point size.
-   * The object has a data property with a Buffer containing the actual image data,
-   * along with the image type, and origin.
-   *
-   * @param {number} size
-   * @return {object}
-   */ getImageForSize(size) {
+    
+
+
+
+
+
+
+ getImageForSize(size) {
         for(let i = 0; i < this._font.sbix.imageTables.length; i++){
             var table = this._font.sbix.imageTables[i];
             if (table.ppem >= size) break;
@@ -11307,11 +11307,11 @@ class $0d411f0165859681$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$exp
         }
         return bbox;
     }
-    /**
-   * Returns an array of objects containing the glyph and color for
-   * each layer in the composite color glyph.
-   * @type {object[]}
-   */ get layers() {
+    
+
+
+
+ get layers() {
         let cpal = this._font.CPAL;
         let colr = this._font.COLR;
         let low = 0;
@@ -11326,8 +11326,8 @@ class $0d411f0165859681$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$exp
                 break;
             }
         }
-        // if base glyph not found in COLR table,
-        // default to normal glyph from glyf or CFF
+        
+        
         if (baseLayer == null) {
             var g = this._font._getBaseGlyph(this.id);
             var color = {
@@ -11340,7 +11340,7 @@ class $0d411f0165859681$export$2e2bcd8739ae039 extends (0, $f92906be28e61769$exp
                 new $0d411f0165859681$var$COLRLayer(g, color)
             ];
         }
-        // otherwise, return an array of all the layers
+        
         let layers = [];
         for(let i = baseLayer.firstLayerIndex; i < baseLayer.firstLayerIndex + baseLayer.numLayers; i++){
             var rec = colr.layerRecords[i];
@@ -11379,16 +11379,16 @@ const $0bb840cac04e911b$var$DELTAS_ARE_WORDS = 0x40;
 const $0bb840cac04e911b$var$DELTA_RUN_COUNT_MASK = 0x3f;
 class $0bb840cac04e911b$export$2e2bcd8739ae039 {
     normalizeCoords(coords) {
-        // the default mapping is linear along each axis, in two segments:
-        // from the minValue to defaultValue, and from defaultValue to maxValue.
+        
+        
         let normalized = [];
         for(var i = 0; i < this.font.fvar.axis.length; i++){
             let axis = this.font.fvar.axis[i];
             if (coords[i] < axis.defaultValue) normalized.push((coords[i] - axis.defaultValue + Number.EPSILON) / (axis.defaultValue - axis.minValue + Number.EPSILON));
             else normalized.push((coords[i] - axis.defaultValue + Number.EPSILON) / (axis.maxValue - axis.defaultValue + Number.EPSILON));
         }
-        // if there is an avar table, the normalized value is calculated
-        // by interpolating between the two nearest mapped values.
+        
+        
         if (this.font.avar) for(var i = 0; i < this.font.avar.segment.length; i++){
             let segment = this.font.avar.segment[i];
             for(let j = 0; j < segment.correspondence.length; j++){
@@ -11408,7 +11408,7 @@ class $0bb840cac04e911b$export$2e2bcd8739ae039 {
         if (gid >= gvar.glyphCount) return;
         let offset = gvar.offsets[gid];
         if (offset === gvar.offsets[gid + 1]) return;
-        // Read the gvar data for this glyph
+        
         let { stream: stream } = this.font;
         stream.pos = offset;
         if (stream.pos >= stream.length) return;
@@ -11439,7 +11439,7 @@ class $0bb840cac04e911b$export$2e2bcd8739ae039 {
                 var endCoords = [];
                 for(let a = 0; a < gvar.axisCount; a++)endCoords.push(stream.readInt16BE() / 16384);
             }
-            // Get the factor at which to apply this tuple
+            
             let factor = this.tupleFactor(tupleIndex, tupleCoords, startCoords, endCoords);
             if (factor === 0) {
                 offsetToData += tupleDataSize;
@@ -11449,7 +11449,7 @@ class $0bb840cac04e911b$export$2e2bcd8739ae039 {
             stream.pos = offsetToData;
             if (tupleIndex & $0bb840cac04e911b$var$PRIVATE_POINT_NUMBERS) var points = this.decodePoints();
             else var points = sharedPoints;
-            // points.length = 0 means there are deltas for all points
+            
             let nPoints = points.length === 0 ? glyphPoints.length : points.length;
             let xDeltas = this.decodeDeltas(nPoints);
             let yDeltas = this.decodeDeltas(nPoints);
@@ -11533,36 +11533,36 @@ class $0bb840cac04e911b$export$2e2bcd8739ae039 {
         }
         return factor;
     }
-    // Interpolates points without delta values.
-    // Needed for the Ø and Q glyphs in Skia.
-    // Algorithm from Freetype.
+    
+    
+    
     interpolateMissingDeltas(points, inPoints, hasDelta) {
         if (points.length === 0) return;
         let point = 0;
         while(point < points.length){
             let firstPoint = point;
-            // find the end point of the contour
+            
             let endPoint = point;
             let pt = points[endPoint];
             while(!pt.endContour)pt = points[++endPoint];
-            // find the first point that has a delta
+            
             while(point <= endPoint && !hasDelta[point])point++;
             if (point > endPoint) continue;
             let firstDelta = point;
             let curDelta = point;
             point++;
             while(point <= endPoint){
-                // find the next point with a delta, and interpolate intermediate points
+                
                 if (hasDelta[point]) {
                     this.deltaInterpolate(curDelta + 1, point - 1, curDelta, point, inPoints, points);
                     curDelta = point;
                 }
                 point++;
             }
-            // shift contour if we only have a single delta
+            
             if (curDelta === firstDelta) this.deltaShift(firstPoint, endPoint, curDelta, inPoints, points);
             else {
-                // otherwise, handle the remaining points at the end and beginning of the contour
+                
                 this.deltaInterpolate(curDelta + 1, endPoint, curDelta, firstDelta, inPoints, points);
                 if (firstDelta > 0) this.deltaInterpolate(firstPoint, firstDelta - 1, curDelta, firstDelta, inPoints, points);
             }
@@ -11586,8 +11586,8 @@ class $0bb840cac04e911b$export$2e2bcd8739ae039 {
             let in2 = inPoints[ref2][k];
             let out1 = outPoints[ref1][k];
             let out2 = outPoints[ref2][k];
-            // If the reference points have the same coordinate but different
-            // delta, inferred delta is zero.  Otherwise interpolate.
+            
+            
             if (in1 !== in2 || out1 === out2) {
                 let scale = in1 === in2 ? 0 : (out2 - out1) / (in2 - in1);
                 for(let p = p1; p <= p2; p++){
@@ -11622,8 +11622,8 @@ class $0bb840cac04e911b$export$2e2bcd8739ae039 {
         }
         return this.getDelta(table.itemVariationStore, outerIndex, innerIndex);
     }
-    // See pseudo code from `Font Variations Overview'
-    // in the OpenType specification.
+    
+    
     getDelta(itemStore, outerIndex, innerIndex) {
         if (outerIndex >= itemStore.itemVariationData.length) return 0;
         let varData = itemStore.itemVariationData[outerIndex];
@@ -11639,17 +11639,17 @@ class $0bb840cac04e911b$export$2e2bcd8739ae039 {
         if (this.blendVectors.has(varData)) return this.blendVectors.get(varData);
         let normalizedCoords = this.normalizedCoords;
         let blendVector = [];
-        // outer loop steps through master designs to be blended
+        
         for(let master = 0; master < varData.regionIndexCount; master++){
             let scalar = 1;
             let regionIndex = varData.regionIndexes[master];
             let axes = itemStore.variationRegionList.variationRegions[regionIndex];
-            // inner loop steps through axes in this region
+            
             for(let j = 0; j < axes.length; j++){
                 let axis = axes[j];
                 let axisScalar;
-                // compute the scalar contribution of this axis
-                // ignore invalid ranges
+                
+                
                 if (axis.startCoord > axis.peakCoord || axis.peakCoord > axis.endCoord) axisScalar = 1;
                 else if (axis.startCoord < 0 && axis.endCoord > 0 && axis.peakCoord !== 0) axisScalar = 1;
                 else if (axis.peakCoord === 0) axisScalar = 1;
@@ -11659,7 +11659,7 @@ class $0bb840cac04e911b$export$2e2bcd8739ae039 {
                     else if (normalizedCoords[j] < axis.peakCoord) axisScalar = (normalizedCoords[j] - axis.startCoord + Number.EPSILON) / (axis.peakCoord - axis.startCoord + Number.EPSILON);
                     else axisScalar = (axis.endCoord - normalizedCoords[j] + Number.EPSILON) / (axis.endCoord - axis.peakCoord + Number.EPSILON);
                 }
-                // take product of all the axis scalars
+                
                 scalar *= axisScalar;
             }
             blendVector[master] = scalar;
@@ -11687,11 +11687,11 @@ class $5cc7476da92df375$export$2e2bcd8739ae039 {
         this.font = font;
         this.glyphs = [];
         this.mapping = {};
-        // always include the missing glyph
+        
         this.includeGlyph(0);
     }
 }
-// Flags for simple glyphs
+
 const $807e58506be70005$var$ON_CURVE = 1;
 const $807e58506be70005$var$X_SHORT_VECTOR = 2;
 const $807e58506be70005$var$Y_SHORT_VECTOR = 4;
@@ -11734,9 +11734,9 @@ class $807e58506be70005$export$2e2bcd8739ae039 {
                 let x = c.args[j];
                 let y = c.args[j + 1];
                 let flag = 0;
-                // If the ending point of a quadratic curve is the midpoint
-                // between the control point and the control point of the next
-                // quadratic curve, we can omit the ending point.
+                
+                
+                
                 if (c.command === 'quadraticCurveTo' && j === 2) {
                     let next = path.commands[i + 1];
                     if (next && next.command === 'quadraticCurveTo') {
@@ -11745,7 +11745,7 @@ class $807e58506be70005$export$2e2bcd8739ae039 {
                         if (x === midX && y === midY) continue;
                     }
                 }
-                // All points except control points are on curve.
+                
                 if (!(c.command === 'quadraticCurveTo' && j === 0)) flag |= $807e58506be70005$var$ON_CURVE;
                 flag = this._encodePoint(x, lastX, xPoints, flag, $807e58506be70005$var$X_SHORT_VECTOR, $807e58506be70005$var$SAME_X);
                 flag = this._encodePoint(y, lastY, yPoints, flag, $807e58506be70005$var$Y_SHORT_VECTOR, $807e58506be70005$var$SAME_Y);
@@ -11766,7 +11766,7 @@ class $807e58506be70005$export$2e2bcd8739ae039 {
             }
             if (c.command === 'closePath') endPtsOfContours.push(pointCount - 1);
         }
-        // Close the path if the last command didn't already
+        
         if (path.commands.length > 1 && path.commands[path.commands.length - 1].command !== 'closePath') endPtsOfContours.push(pointCount - 1);
         let bbox = path.bbox;
         let glyf = {
@@ -11785,7 +11785,7 @@ class $807e58506be70005$export$2e2bcd8739ae039 {
         let tail = 4 - size % 4;
         let stream = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$EncodeStream$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EncodeStream"](size + tail);
         $807e58506be70005$var$Glyf.encode(stream, glyf);
-        // Align to 4-byte length
+        
         if (tail !== 0) stream.fill(0, tail);
         return stream.buffer;
     }
@@ -11807,13 +11807,13 @@ class $4abbb6a5dbdc441a$export$2e2bcd8739ae039 extends (0, $5cc7476da92df375$exp
     _addGlyph(gid) {
         let glyph = this.font.getGlyph(gid);
         let glyf = glyph._decode();
-        // get the offset to the glyph from the loca table
+        
         let curOffset = this.font.loca.offsets[gid];
         let nextOffset = this.font.loca.offsets[gid + 1];
         let stream = this.font._getTableStream('glyf');
         stream.pos += curOffset;
         let buffer = stream.readBuffer(nextOffset - curOffset);
-        // if it is a compound glyph, include its components
+        
         if (glyf && glyf.numberOfContours < 0) {
             buffer = new Uint8Array(buffer);
             let view = new DataView(buffer.buffer);
@@ -11832,11 +11832,11 @@ class $4abbb6a5dbdc441a$export$2e2bcd8739ae039 extends (0, $5cc7476da92df375$exp
         return this.glyf.length - 1;
     }
     encode() {
-        // tables required by PDF spec:
-        //   head, hhea, loca, maxp, cvt , prep, glyf, hmtx, fpgm
-        //
-        // additional tables required for standalone fonts:
-        //   name, cmap, OS/2, post
+        
+        
+        
+        
+        
         this.glyf = [];
         this.offset = 0;
         this.loca = {
@@ -11847,9 +11847,9 @@ class $4abbb6a5dbdc441a$export$2e2bcd8739ae039 extends (0, $5cc7476da92df375$exp
             metrics: [],
             bearings: []
         };
-        // include all the glyphs
-        // not using a for loop because we need to support adding more
-        // glyphs to the array as we go, and CoffeeScript caches the length.
+        
+        
+        
         let i = 0;
         while(i < this.glyphs.length)this._addGlyph(this.glyphs[i++]);
         let maxp = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$fontkit$2f$node_modules$2f$clone$2f$clone$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(this.font.maxp);
@@ -11859,28 +11859,28 @@ class $4abbb6a5dbdc441a$export$2e2bcd8739ae039 extends (0, $5cc7476da92df375$exp
         head.indexToLocFormat = this.loca.version;
         let hhea = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$fontkit$2f$node_modules$2f$clone$2f$clone$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(this.font.hhea);
         hhea.numberOfMetrics = this.hmtx.metrics.length;
-        // map = []
-        // for index in [0...256]
-        //     if index < @numGlyphs
-        //         map[index] = index
-        //     else
-        //         map[index] = 0
-        //
-        // cmapTable =
-        //     version: 0
-        //     length: 262
-        //     language: 0
-        //     codeMap: map
-        //
-        // cmap =
-        //     version: 0
-        //     numSubtables: 1
-        //     tables: [
-        //         platformID: 1
-        //         encodingID: 0
-        //         table: cmapTable
-        //     ]
-        // TODO: subset prep, cvt, fpgm?
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         return (0, $816c07a04b6dba87$export$2e2bcd8739ae039).toBuffer({
             tables: {
                 head: head,
@@ -11907,7 +11907,7 @@ class $001d739428a71d5a$export$2e2bcd8739ae039 extends (0, $5cc7476da92df375$exp
         for (let gid of this.glyphs){
             this.charstrings.push(this.cff.getCharString(gid));
             let glyph = this.font.getGlyph(gid);
-            let path = glyph.path; // this causes the glyph to be parsed
+            let path = glyph.path; 
             for(let subr in glyph._usedGsubrs)gsubrs[subr] = true;
         }
         this.gsubrs = this.subsetSubrs(this.cff.globalSubrIndex, gsubrs);
@@ -11921,7 +11921,7 @@ class $001d739428a71d5a$export$2e2bcd8739ae039 extends (0, $5cc7476da92df375$exp
                 res.push(this.cff.stream.readBuffer(subr.length));
             } else res.push(new Uint8Array([
                 11
-            ])); // return
+            ])); 
         }
         return res;
     }
@@ -11945,7 +11945,7 @@ class $001d739428a71d5a$export$2e2bcd8739ae039 extends (0, $5cc7476da92df375$exp
             used_fds[fd] = true;
             topDict.FDSelect.fds.push(fd_select[fd]);
             let glyph = this.font.getGlyph(gid);
-            let path = glyph.path; // this causes the glyph to be parsed
+            let path = glyph.path; 
             for(let subr in glyph._usedSubrs)used_subrs[fd_select[fd]][subr] = true;
         }
         for(let i = 0; i < topDict.FDArray.length; i++){
@@ -11962,7 +11962,7 @@ class $001d739428a71d5a$export$2e2bcd8739ae039 extends (0, $5cc7476da92df375$exp
         let used_subrs = {};
         for (let gid of this.glyphs){
             let glyph = this.font.getGlyph(gid);
-            let path = glyph.path; // this causes the glyph to be parsed
+            let path = glyph.path; 
             for(let subr in glyph._usedSubrs)used_subrs[subr] = true;
         }
         let privateDict = Object.assign({}, this.cff.topDict.Private);
@@ -12059,7 +12059,7 @@ class $4c1709dee528ea76$export$2e2bcd8739ae039 {
         if (!(table.tag in this._tables)) try {
             this._tables[table.tag] = this._decodeTable(table);
         } catch (e) {
-            if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+            if ("TURBOPACK compile-time falsy", 0) 
             ;
         }
         return this._tables[table.tag];
@@ -12084,159 +12084,159 @@ class $4c1709dee528ea76$export$2e2bcd8739ae039 {
         this.stream.pos = pos;
         return result;
     }
-    /**
-   * Gets a string from the font's `name` table
-   * `lang` is a BCP-47 language code.
-   * @return {string}
-   */ getName(key, lang = this.defaultLanguage || $d636bc798e7178db$export$42940898df819940) {
+    
+
+
+
+ getName(key, lang = this.defaultLanguage || $d636bc798e7178db$export$42940898df819940) {
         let record = this.name && this.name.records[key];
-        if (record) return record[lang] || record[this.defaultLanguage] || record[$d636bc798e7178db$export$42940898df819940] || record['en'] || record[Object.keys(record)[0]] // Seriously, ANY language would be fine
+        if (record) return record[lang] || record[this.defaultLanguage] || record[$d636bc798e7178db$export$42940898df819940] || record['en'] || record[Object.keys(record)[0]] 
          || null;
         return null;
     }
-    /**
-   * The unique PostScript name for this font, e.g. "Helvetica-Bold"
-   * @type {string}
-   */ get postscriptName() {
+    
+
+
+ get postscriptName() {
         return this.getName('postscriptName');
     }
-    /**
-   * The font's full name, e.g. "Helvetica Bold"
-   * @type {string}
-   */ get fullName() {
+    
+
+
+ get fullName() {
         return this.getName('fullName');
     }
-    /**
-   * The font's family name, e.g. "Helvetica"
-   * @type {string}
-   */ get familyName() {
+    
+
+
+ get familyName() {
         return this.getName('fontFamily');
     }
-    /**
-   * The font's sub-family, e.g. "Bold".
-   * @type {string}
-   */ get subfamilyName() {
+    
+
+
+ get subfamilyName() {
         return this.getName('fontSubfamily');
     }
-    /**
-   * The font's copyright information
-   * @type {string}
-   */ get copyright() {
+    
+
+
+ get copyright() {
         return this.getName('copyright');
     }
-    /**
-   * The font's version number
-   * @type {string}
-   */ get version() {
+    
+
+
+ get version() {
         return this.getName('version');
     }
-    /**
-   * The font’s [ascender](https://en.wikipedia.org/wiki/Ascender_(typography))
-   * @type {number}
-   */ get ascent() {
+    
+
+
+ get ascent() {
         return this.hhea.ascent;
     }
-    /**
-   * The font’s [descender](https://en.wikipedia.org/wiki/Descender)
-   * @type {number}
-   */ get descent() {
+    
+
+
+ get descent() {
         return this.hhea.descent;
     }
-    /**
-   * The amount of space that should be included between lines
-   * @type {number}
-   */ get lineGap() {
+    
+
+
+ get lineGap() {
         return this.hhea.lineGap;
     }
-    /**
-   * The offset from the normal underline position that should be used
-   * @type {number}
-   */ get underlinePosition() {
+    
+
+
+ get underlinePosition() {
         return this.post.underlinePosition;
     }
-    /**
-   * The weight of the underline that should be used
-   * @type {number}
-   */ get underlineThickness() {
+    
+
+
+ get underlineThickness() {
         return this.post.underlineThickness;
     }
-    /**
-   * If this is an italic font, the angle the cursor should be drawn at to match the font design
-   * @type {number}
-   */ get italicAngle() {
+    
+
+
+ get italicAngle() {
         return this.post.italicAngle;
     }
-    /**
-   * The height of capital letters above the baseline.
-   * See [here](https://en.wikipedia.org/wiki/Cap_height) for more details.
-   * @type {number}
-   */ get capHeight() {
+    
+
+
+
+ get capHeight() {
         let os2 = this['OS/2'];
         return os2 ? os2.capHeight : this.ascent;
     }
-    /**
-   * The height of lower case letters in the font.
-   * See [here](https://en.wikipedia.org/wiki/X-height) for more details.
-   * @type {number}
-   */ get xHeight() {
+    
+
+
+
+ get xHeight() {
         let os2 = this['OS/2'];
         return os2 ? os2.xHeight : 0;
     }
-    /**
-   * The number of glyphs in the font.
-   * @type {number}
-   */ get numGlyphs() {
+    
+
+
+ get numGlyphs() {
         return this.maxp.numGlyphs;
     }
-    /**
-   * The size of the font’s internal coordinate grid
-   * @type {number}
-   */ get unitsPerEm() {
+    
+
+
+ get unitsPerEm() {
         return this.head.unitsPerEm;
     }
-    /**
-   * The font’s bounding box, i.e. the box that encloses all glyphs in the font.
-   * @type {BBox}
-   */ get bbox() {
+    
+
+
+ get bbox() {
         return Object.freeze(new (0, $f34600ab9d7f70d8$export$2e2bcd8739ae039)(this.head.xMin, this.head.yMin, this.head.xMax, this.head.yMax));
     }
     get _cmapProcessor() {
         return new (0, $f08dd41ef10b694c$export$2e2bcd8739ae039)(this.cmap);
     }
-    /**
-   * An array of all of the unicode code points supported by the font.
-   * @type {number[]}
-   */ get characterSet() {
+    
+
+
+ get characterSet() {
         return this._cmapProcessor.getCharacterSet();
     }
-    /**
-   * Returns whether there is glyph in the font for the given unicode code point.
-   *
-   * @param {number} codePoint
-   * @return {boolean}
-   */ hasGlyphForCodePoint(codePoint) {
+    
+
+
+
+
+ hasGlyphForCodePoint(codePoint) {
         return !!this._cmapProcessor.lookup(codePoint);
     }
-    /**
-   * Maps a single unicode code point to a Glyph object.
-   * Does not perform any advanced substitutions (there is no context to do so).
-   *
-   * @param {number} codePoint
-   * @return {Glyph}
-   */ glyphForCodePoint(codePoint) {
+    
+
+
+
+
+
+ glyphForCodePoint(codePoint) {
         return this.getGlyph(this._cmapProcessor.lookup(codePoint), [
             codePoint
         ]);
     }
-    /**
-   * Returns an array of Glyph objects for the given string.
-   * This is only a one-to-one mapping from characters to glyphs.
-   * For most uses, you should use font.layout (described below), which
-   * provides a much more advanced mapping supporting AAT and OpenType shaping.
-   *
-   * @param {string} string
-   * @return {Glyph[]}
-   */ glyphsForString(string) {
+    
+
+
+
+
+
+
+
+ glyphsForString(string) {
         let glyphs = [];
         let len = string.length;
         let idx = 0;
@@ -12246,7 +12246,7 @@ class $4c1709dee528ea76$export$2e2bcd8739ae039 {
             let code = 0;
             let nextState = 0;
             if (idx < len) {
-                // Decode the next codepoint from UTF 16
+                
                 code = string.charCodeAt(idx++);
                 if (0xd800 <= code && code <= 0xdbff && idx < len) {
                     let next = string.charCodeAt(idx);
@@ -12255,7 +12255,7 @@ class $4c1709dee528ea76$export$2e2bcd8739ae039 {
                         code = ((code & 0x3ff) << 10) + (next & 0x3ff) + 0x10000;
                     }
                 }
-                // Compute the next state: 1 if the next codepoint is a variation selector, 0 otherwise.
+                
                 nextState = 0xfe00 <= code && code <= 0xfe0f || 0xe0100 <= code && code <= 0xe01ef ? 1 : 0;
             } else idx++;
             if (state === 0 && nextState === 1) glyphs.push(this.getGlyph(this._cmapProcessor.lookup(last, code), [
@@ -12271,32 +12271,32 @@ class $4c1709dee528ea76$export$2e2bcd8739ae039 {
     get _layoutEngine() {
         return new (0, $4c0a7fa5df7a9ab1$export$2e2bcd8739ae039)(this);
     }
-    /**
-   * Returns a GlyphRun object, which includes an array of Glyphs and GlyphPositions for the given string.
-   *
-   * @param {string} string
-   * @param {string[]} [userFeatures]
-   * @param {string} [script]
-   * @param {string} [language]
-   * @param {string} [direction]
-   * @return {GlyphRun}
-   */ layout(string, userFeatures, script, language, direction) {
+    
+
+
+
+
+
+
+
+
+ layout(string, userFeatures, script, language, direction) {
         return this._layoutEngine.layout(string, userFeatures, script, language, direction);
     }
-    /**
-   * Returns an array of strings that map to the given glyph id.
-   * @param {number} gid - glyph id
-   */ stringsForGlyph(gid) {
+    
+
+
+ stringsForGlyph(gid) {
         return this._layoutEngine.stringsForGlyph(gid);
     }
-    /**
-   * An array of all [OpenType feature tags](https://www.microsoft.com/typography/otspec/featuretags.htm)
-   * (or mapped AAT tags) supported by the font.
-   * The features parameter is an array of OpenType feature tags to be applied in addition to the default set.
-   * If this is an AAT font, the OpenType feature tags are mapped to AAT features.
-   *
-   * @type {string[]}
-   */ get availableFeatures() {
+    
+
+
+
+
+
+
+ get availableFeatures() {
         return this._layoutEngine.getAvailableFeatures();
     }
     getAvailableFeatures(script, language) {
@@ -12309,15 +12309,15 @@ class $4c1709dee528ea76$export$2e2bcd8739ae039 {
         }
         return this._glyphs[glyph] || null;
     }
-    /**
-   * Returns a glyph object for the given glyph id.
-   * You can pass the array of code points this glyph represents for
-   * your use later, and it will be stored in the glyph object.
-   *
-   * @param {number} glyph
-   * @param {number[]} characters
-   * @return {Glyph}
-   */ getGlyph(glyph, characters = []) {
+    
+
+
+
+
+
+
+
+ getGlyph(glyph, characters = []) {
         if (!this._glyphs[glyph]) {
             if (this.directory.tables.sbix) this._glyphs[glyph] = new (0, $25d8f049c222084c$export$2e2bcd8739ae039)(glyph, characters, this);
             else if (this.directory.tables.COLR && this.directory.tables.CPAL) this._glyphs[glyph] = new (0, $0d411f0165859681$export$2e2bcd8739ae039)(glyph, characters, this);
@@ -12325,20 +12325,20 @@ class $4c1709dee528ea76$export$2e2bcd8739ae039 {
         }
         return this._glyphs[glyph] || null;
     }
-    /**
-   * Returns a Subset for this font.
-   * @return {Subset}
-   */ createSubset() {
+    
+
+
+ createSubset() {
         if (this.directory.tables['CFF ']) return new (0, $001d739428a71d5a$export$2e2bcd8739ae039)(this);
         return new (0, $4abbb6a5dbdc441a$export$2e2bcd8739ae039)(this);
     }
-    /**
-   * Returns an object describing the available variation axes
-   * that this font supports. Keys are setting tags, and values
-   * contain the axis name, range, and default value.
-   *
-   * @type {object}
-   */ get variationAxes() {
+    
+
+
+
+
+
+ get variationAxes() {
         let res = {};
         if (!this.fvar) return res;
         for (let axis of this.fvar.axis)res[axis.axisTag.trim()] = {
@@ -12349,13 +12349,13 @@ class $4c1709dee528ea76$export$2e2bcd8739ae039 {
         };
         return res;
     }
-    /**
-   * Returns an object describing the named variation instances
-   * that the font designer has specified. Keys are variation names
-   * and values are the variation settings for this instance.
-   *
-   * @type {object}
-   */ get namedVariations() {
+    
+
+
+
+
+
+ get namedVariations() {
         let res = {};
         if (!this.fvar) return res;
         for (let instance of this.fvar.instance){
@@ -12368,18 +12368,18 @@ class $4c1709dee528ea76$export$2e2bcd8739ae039 {
         }
         return res;
     }
-    /**
-   * Returns a new font with the given variation settings applied.
-   * Settings can either be an instance name, or an object containing
-   * variation tags as specified by the `variationAxes` property.
-   *
-   * @param {object} settings
-   * @return {TTFFont}
-   */ getVariation(settings) {
+    
+
+
+
+
+
+
+ getVariation(settings) {
         if (!(this.directory.tables.fvar && (this.directory.tables.gvar && this.directory.tables.glyf || this.directory.tables.CFF2))) throw new Error('Variations require a font with the fvar, gvar and glyf, or CFF2 tables.');
         if (typeof settings === 'string') settings = this.namedVariations[settings];
         if (typeof settings !== 'object') throw new Error('Variation settings must be either a variation name or settings object.');
-        // normalize the coordinates
+        
         let coords = this.fvar.axis.map((axis, i)=>{
             let axisTag = axis.axisTag.trim();
             if (axisTag in settings) return Math.max(axis.minValue, Math.min(axis.maxValue, settings[axisTag]));
@@ -12394,12 +12394,12 @@ class $4c1709dee528ea76$export$2e2bcd8739ae039 {
     get _variationProcessor() {
         if (!this.fvar) return null;
         let variationCoords = this.variationCoords;
-        // Ignore if no variation coords and not CFF2
+        
         if (!variationCoords && !this.CFF2) return null;
         if (!variationCoords) variationCoords = this.fvar.axis.map((axis)=>axis.defaultValue);
         return new (0, $0bb840cac04e911b$export$2e2bcd8739ae039)(this, variationCoords);
     }
-    // Standardized format plugin API
+    
     getFont(name) {
         return this.getVariation(name);
     }
@@ -12412,7 +12412,7 @@ class $4c1709dee528ea76$export$2e2bcd8739ae039 {
         this._tables = {};
         this._glyphs = {};
         this._decodeDirectory();
-        // define properties for each table to lazily parse
+        
         for(let tag in this.directory.tables){
             let table = this.directory.tables[tag];
             if ((0, $c3395722bea751e2$export$2e2bcd8739ae039)[tag] && table.length > 0) Object.defineProperty(this, tag, {
@@ -12487,7 +12487,7 @@ class $760785214b9fc52c$export$2e2bcd8739ae039 extends (0, $4c1709dee528ea76$exp
         if (table) {
             this.stream.pos = table.offset;
             if (table.compLength < table.length) {
-                this.stream.pos += 2; // skip deflate header
+                this.stream.pos += 2; 
                 let outBuffer = new Uint8Array(table.length);
                 let buf = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$tiny$2d$inflate$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(this.stream.readBuffer(table.compLength - 2), outBuffer);
                 return new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$DecodeStream$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DecodeStream"](buf);
@@ -12502,7 +12502,7 @@ class $760785214b9fc52c$export$2e2bcd8739ae039 extends (0, $4c1709dee528ea76$exp
 }
 class $8046190c9f1ad19e$export$2e2bcd8739ae039 extends (0, $69aac16029968692$export$2e2bcd8739ae039) {
     _decode() {
-        // We have to decode in advance (in WOFF2Font), so just return the pre-decoded data.
+        
         return this._font._transformedGlyphs[this.id];
     }
     _getCBox() {
@@ -12526,7 +12526,7 @@ const $c28ec7bbb3b8de3a$var$Base128 = {
         for(let j = 0; j < iterable.length; j++){
             let i = iterable[j];
             let code = stream.readUInt8();
-            // If any of the top seven bits are set then we're about to overflow.
+            
             if (result & 0xe0000000) throw new Error('Overflow');
             result = result << 7 | code & 0x7f;
             if ((code & 0x80) === 0) return result;
@@ -12643,7 +12643,7 @@ class $21ee218f84ac7f32$export$2e2bcd8739ae039 extends (0, $4c1709dee528ea76$exp
         this._dataPos = this.stream.pos;
     }
     _decompress() {
-        // decompress data and setup table offsets if we haven't already
+        
         if (!this._decompressed) {
             this.stream.pos = this._dataPos;
             let buffer = this.stream.readBuffer(this.directory.totalCompressedSize);
@@ -12663,8 +12663,8 @@ class $21ee218f84ac7f32$export$2e2bcd8739ae039 extends (0, $4c1709dee528ea76$exp
         this._decompress();
         return super._decodeTable(table);
     }
-    // Override this method to get a glyph and return our
-    // custom subclass if there is a glyf table.
+    
+    
     _getBaseGlyph(glyph, characters = []) {
         if (!this._glyphs[glyph]) {
             if (this.directory.tables.glyf && this.directory.tables.glyf.transformed) {
@@ -12708,7 +12708,7 @@ class $21ee218f84ac7f32$export$2e2bcd8739ae039 extends (0, $4c1709dee528ea76$exp
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$swc$2f$helpers$2f$esm$2f$_define_property$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["_"])(this, "type", 'WOFF2');
     }
 }
-// Special class that accepts a length and returns a sub-stream for that data
+
 class $21ee218f84ac7f32$var$Substream {
     decode(stream, parent) {
         return new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$DecodeStream$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DecodeStream"](this._buf.decode(stream, parent));
@@ -12718,7 +12718,7 @@ class $21ee218f84ac7f32$var$Substream {
         this._buf = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Buffer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Buffer"](length);
     }
 }
-// This struct represents the entire glyf table
+
 let $21ee218f84ac7f32$var$GlyfTable = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Struct$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Struct"]({
     version: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint32"],
     numGlyphs: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$restructure$2f$src$2f$Number$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uint16"],
@@ -12912,15 +12912,14 @@ class $05f49f930186144e$export$2e2bcd8739ae039 {
         }
     }
 }
-// Register font formats
+
 (0, $d636bc798e7178db$export$36b2f24e97d43be)((0, $4c1709dee528ea76$export$2e2bcd8739ae039));
 (0, $d636bc798e7178db$export$36b2f24e97d43be)((0, $760785214b9fc52c$export$2e2bcd8739ae039));
 (0, $d636bc798e7178db$export$36b2f24e97d43be)((0, $21ee218f84ac7f32$export$2e2bcd8739ae039));
 (0, $d636bc798e7178db$export$36b2f24e97d43be)((0, $cd5853a56c68fec7$export$2e2bcd8739ae039));
 (0, $d636bc798e7178db$export$36b2f24e97d43be)((0, $05f49f930186144e$export$2e2bcd8739ae039));
 ;
- //# sourceMappingURL=browser-module.mjs.map
+ 
 }),
 ]);
 
-//# sourceMappingURL=c729b_fontkit_dist_browser-module_mjs_7dd35028._.js.map

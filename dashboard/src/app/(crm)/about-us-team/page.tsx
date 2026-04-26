@@ -314,7 +314,7 @@ export default function AboutUsTeamPage() {
                           });
                         } finally {
                           setUploading(false);
-                          // Reset input
+                          
                           e.target.value = "";
                         }
                       }

@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
 import { getCollection } from '@/lib/services';
 
-// Cache for 5 minutes - ISR style
+
 export const revalidate = 300;
 
 export async function GET() {
 	try {
-		// Add CORS headers for public access
+		
 		const headers = {
 			'Access-Control-Allow-Origin': '*',
 			'Access-Control-Allow-Methods': 'GET',
@@ -20,13 +20,13 @@ export async function GET() {
 			.find()
 			.sort({ order: 1 })
 			.project({
-				// Only return necessary fields for public consumption
+				
 				name: 1,
 				designation: 1,
 				imageUrl: 1,
 				socialLinks: 1,
 				order: 1,
-				_id: 0, // Exclude _id from public API
+				_id: 0, 
 			})
 			.toArray();
 
@@ -48,7 +48,7 @@ export async function GET() {
 	}
 }
 
-// Handle OPTIONS for CORS preflight
+
 export async function OPTIONS() {
 	return new NextResponse(null, {
 		status: 200,

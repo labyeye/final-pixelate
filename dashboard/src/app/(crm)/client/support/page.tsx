@@ -17,7 +17,7 @@ export default function ClientSupportPage() {
   const [loading, setLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Form state
+  
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [category, setCategory] = useState("general");
@@ -102,7 +102,7 @@ export default function ClientSupportPage() {
       const newTicket = await res.json();
       setTickets([newTicket, ...tickets]);
 
-      // Reset form
+      
       setSubject("");
       setMessage("");
       setCategory("general");
@@ -153,13 +153,13 @@ export default function ClientSupportPage() {
 
   return (
     <div className="min-h-screen bg-background font-headline p-6 space-y-6">
-      {/* Header */}
+      {}
       <div>
         <h1 className="text-4xl font-black tracking-tighter">Support</h1>
         <p className="text-muted-foreground mt-1">Get help from our team</p>
       </div>
 
-      {/* Create Ticket Form */}
+      {}
       <Card className="border-2 border-black">
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
@@ -215,7 +215,7 @@ export default function ClientSupportPage() {
         </CardContent>
       </Card>
 
-      {/* Tickets History */}
+      {}
       <Card className="border-2 border-black">
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
@@ -287,7 +287,7 @@ export default function ClientSupportPage() {
         </CardContent>
       </Card>
 
-      {/* Info Card */}
+      {}
       <Card className="border-2 border-black bg-primary/5">
         <CardContent className="pt-6">
           <p className="text-sm">

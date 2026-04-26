@@ -5,4 +5,3 @@ module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixel
 }),
 ]);
 
-//# sourceMappingURL=c729b_next_error_acce3c65.js.map

@@ -49,7 +49,7 @@ export function PostLinksModal({
           .filter(Boolean) as SocialAccount[];
         setAccounts(loaded);
 
-        // Initialize links object with empty strings
+        
         const initialLinks: Record<string, string> = {};
         loaded.forEach((account) => {
           initialLinks[account._id || account.id || ""] = "";
@@ -92,7 +92,7 @@ export function PostLinksModal({
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] flex flex-col shadow-xl">
-        {/* Header */}
+        {}
         <div className="border-b-2 border-black p-4 flex items-center justify-between flex-shrink-0">
           <h2 className="text-2xl font-black">Posted Links</h2>
           <button
@@ -104,7 +104,7 @@ export function PostLinksModal({
           </button>
         </div>
 
-        {/* Scrollable Content */}
+        {}
         <div className="overflow-y-auto flex-1 p-6 space-y-4">
           <p className="text-sm text-gray-600">
             Enter the posted link for each account:
@@ -152,7 +152,7 @@ export function PostLinksModal({
           )}
         </div>
 
-        {/* Footer */}
+        {}
         <div className="border-t-2 border-black p-4 flex justify-end gap-2 flex-shrink-0">
           <Button
             variant="outline"

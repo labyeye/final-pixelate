@@ -47,7 +47,7 @@ export function TeamMembersSection({
             return sum + Number(memberAssignment?.payout || 0);
           }, 0);
 
-          // Calculate completed tasks for this member
+          
           const completedTasks = projects.filter((project) => {
             const assignees = project.assignees || [];
             const isAssigned = assignees.some((a: any) => {
@@ -64,7 +64,7 @@ export function TeamMembersSection({
             return isAssigned && project.status === "COMPLETED";
           }).length;
 
-          // Resolve profile image
+          
           const profileImage =
             member.profileImage ||
             member.image ||
@@ -78,7 +78,7 @@ export function TeamMembersSection({
             >
               <CardContent className="p-4">
                 <div className="flex flex-col items-center text-center space-y-3">
-                  {/* Profile Image */}
+                  {}
                   <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden">
                     {profileImage ? (
                       <img
@@ -97,7 +97,7 @@ export function TeamMembersSection({
                     )}
                   </div>
 
-                  {/* Name */}
+                  {}
                   <div>
                     <h3 className="text-lg font-black tracking-tight">
                       {member.name}
@@ -107,7 +107,7 @@ export function TeamMembersSection({
                     </p>
                   </div>
 
-                  {/* Contact Info */}
+                  {}
                   <div className="w-full space-y-1 text-xs">
                     <div className="flex items-center justify-center gap-1 text-muted-foreground">
                       <span className="font-mono">{member.phone || "N/A"}</span>
@@ -120,7 +120,7 @@ export function TeamMembersSection({
                     </div>
                   </div>
 
-                  {/* Earnings */}
+                  {}
                   <div className="text-muted-foreground text-xs">
                     Earned:{" "}
                     <span className="font-bold text-foreground">
@@ -128,7 +128,7 @@ export function TeamMembersSection({
                     </span>
                   </div>
 
-                  {/* Tasks Completed */}
+                  {}
                   <div className="w-full">
                     <div className="bg-primary text-primary-foreground rounded-lg py-3 px-2">
                       <div className="text-3xl font-black">

@@ -29,8 +29,8 @@ export async function PUT(request: Request, { params }: { params: { id: string }
     console.debug('[api/work-gallery/[id]] PUT body:', body);
     const updated = await svc.updateById('workGallery', id, { ...body, updatedAt: new Date() });
     console.debug('[api/work-gallery/[id]] updated doc from DB:', updated);
-    // Return merged object (DB doc plus incoming body) so the client can immediately
-    // see any fields the client sent even if the DB read path omits them.
+    
+    
     const merged = { ...(updated || {}), ...(body || {}) };
     return NextResponse.json(merged, { headers: CORS_HEADERS });
   } catch (e: any) {
@@ -41,8 +41,8 @@ export async function PUT(request: Request, { params }: { params: { id: string }
 export async function DELETE(_request: Request, { params }: { params: { id: string } }) {
   try {
     const { id } = await params;
-    // enforce auth & admin-only deletion
-    // read auth header from the request (Next.js Request isn't strongly typed for headers here)
+    
+    
     const auth = _request.headers.get('authorization') || '';
     const token = auth.replace('Bearer ', '');
     const { verifyToken } = await import('@/lib/auth');

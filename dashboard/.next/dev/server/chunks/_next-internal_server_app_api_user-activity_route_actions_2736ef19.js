@@ -4,4 +4,3 @@ module.exports = [
 }),
 ];
 
-//# sourceMappingURL=_next-internal_server_app_api_user-activity_route_actions_2736ef19.js.map

@@ -1,10 +1,10 @@
-/**
- * journey-helpers.ts
- *
- * Shared utility: given a fully-fetched quotation document and its client,
- * inserts one `journey_events` record.  Called after a quotation is saved
- * so the event always reflects the real persisted data.
- */
+
+
+
+
+
+
+
 
 import { Db, ObjectId } from 'mongodb';
 
@@ -32,10 +32,10 @@ export function parseJourneyOccurredAt(
 
 export async function createQuotationJourneyEvent(
   db: Db,
-  quotationId: string,          // MongoDB _id string of the saved quotation
-  quotationDoc: Record<string, any>, // The complete quotation as stored in DB
+  quotationId: string,          
+  quotationDoc: Record<string, any>, 
 ) {
-  // ── 1. Fetch client by the quotation's clientId ─────────────────────────
+  
   const rawClientId = quotationDoc.clientId;
   let clientDoc: any = null;
   try {
@@ -49,7 +49,7 @@ export async function createQuotationJourneyEvent(
     clientDoc?.name ?? clientDoc?.businessName ?? '';
   const clientId: string = String(rawClientId);
 
-  // ── 2. Map quotation status → journey status badge ───────────────────────
+  
   const statusMap: Record<string, string> = {
     SENT:      'Sent',
     APPROVED:  'Approved',
@@ -59,7 +59,7 @@ export async function createQuotationJourneyEvent(
   };
   const journeyStatus = statusMap[quotationDoc.status] ?? 'Pending';
 
-  // ── 3. Compute grand total from the real services array ──────────────────
+  
   const services: any[]    = quotationDoc.services    ?? [];
   const timeline: any[]    = quotationDoc.timeline    ?? [];
   const modules:  any[]    = quotationDoc.modules     ?? [];
@@ -71,7 +71,7 @@ export async function createQuotationJourneyEvent(
     0,
   );
 
-  // ── 4. Build the description from the real quotation fields ──────────────
+  
   const parts: string[] = [];
 
   parts.push(`📄 Quote ID: ${quotationDoc.quoteId}`);
@@ -119,7 +119,7 @@ export async function createQuotationJourneyEvent(
   if (quotationDoc.notes)
     parts.push(`📌 Notes: ${quotationDoc.notes}`);
 
-  // ── 5. Insert the journey event ──────────────────────────────────────────
+  
   await db.collection('journey_events').insertOne({
     clientId,
     clientName,

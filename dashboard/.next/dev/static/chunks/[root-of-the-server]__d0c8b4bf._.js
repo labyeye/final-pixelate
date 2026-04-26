@@ -2,10 +2,10 @@
 "[turbopack]/browser/dev/hmr-client/hmr-client.ts [client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/// <reference path="../../../shared/runtime-types.d.ts" />
-/// <reference path="../../runtime/base/dev-globals.d.ts" />
-/// <reference path="../../runtime/base/dev-protocol.d.ts" />
-/// <reference path="../../runtime/base/dev-extensions.ts" />
+
+
+
+
 __turbopack_context__.s([
     "connect",
     ()=>connect,
@@ -80,7 +80,7 @@ function handleSocketConnected(sendMessage) {
         subscribeToUpdates(sendMessage, JSON.parse(key));
     }
 }
-// we aggregate all pending updates until the issues are resolved
+
 const chunkListsWithPendingUpdates = new Map();
 function aggregateUpdates(msg) {
     const key = resourceKey(msg.resource);
@@ -116,10 +116,10 @@ function mergeChunkListUpdates(updateA, updateB) {
         if (updateB.merged == null) {
             merged = updateA.merged;
         } else {
-            // Since `merged` is an array of updates, we need to merge them all into
-            // one, consistent update.
-            // Since there can only be `EcmascriptMergeUpdates` in the array, there is
-            // no need to key on the `type` field.
+            
+            
+            
+            
             let update = updateA.merged[0];
             for(let i = 1; i < updateA.merged.length; i++){
                 update = mergeChunkListEcmascriptMergedUpdates(update, updateA.merged[i]);
@@ -218,7 +218,7 @@ function mergeEcmascriptChunksUpdates(chunksA, chunksB) {
 }
 function mergeEcmascriptChunkUpdates(updateA, updateB) {
     if (updateA.type === 'added' && updateB.type === 'deleted') {
-        // These two completely cancel each other out.
+        
         return undefined;
     }
     if (updateA.type === 'deleted' && updateB.type === 'added') {
@@ -290,8 +290,8 @@ function mergeEcmascriptChunkUpdates(updateA, updateB) {
         };
     }
     if (updateA.type === 'partial' && updateB.type === 'deleted') {
-        // We could eagerly return `updateB` here, but this would potentially be
-        // incorrect if `updateA` has added modules.
+        
+        
         const modules = new Set(updateB.modules ?? []);
         if (updateA.added != null) {
             for (const moduleId of updateA.added){
@@ -305,7 +305,7 @@ function mergeEcmascriptChunkUpdates(updateA, updateB) {
             ]
         };
     }
-    // Any other update combination is invalid.
+    
     return undefined;
 }
 function invariant(_, message) {
@@ -390,11 +390,11 @@ function handleSocketMessage(msg) {
         case 'issues':
             break;
         case 'partial':
-            // aggregate updates
+            
             aggregateUpdates(msg);
             break;
         default:
-            // run single update
+            
             const runHooks = chunkListsWithPendingUpdates.size === 0;
             if (runHooks) hooks.beforeRefresh();
             triggerUpdate(msg);
@@ -405,9 +405,9 @@ function handleSocketMessage(msg) {
 function finalizeUpdate() {
     hooks.refresh();
     hooks.buildOk();
-    // This is used by the Next.js integration test suite to notify it when HMR
-    // updates have been completed.
-    // TODO: Only run this in test environments (gate by `process.env.__NEXT_TEST_MODE`)
+    
+    
+    
     if (globalThis.__NEXT_HMR_CB) {
         globalThis.__NEXT_HMR_CB();
         globalThis.__NEXT_HMR_CB = null;
@@ -452,12 +452,12 @@ function triggerUpdate(msg) {
         callback(msg);
     }
     if (msg.type === 'notFound') {
-        // This indicates that the resource which we subscribed to either does not exist or
-        // has been deleted. In either case, we should clear all update callbacks, so if a
-        // new subscription is created for the same resource, it will send a new "subscribe"
-        // message to the server.
-        // No need to send an "unsubscribe" message to the server, it will have already
-        // dropped the update stream before sending the "notFound" message.
+        
+        
+        
+        
+        
+        
         updateCallbackSets.delete(key);
     }
 }
@@ -469,4 +469,3 @@ __turbopack_context__.r("[next]/entry/page-loader.ts { PAGE => \"[project]/Deskt
 }),
 ]);
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__d0c8b4bf._.js.map

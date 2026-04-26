@@ -8533,16 +8533,16 @@ function $parcel$interopDefault(a) {
 }
 var $f4087201da764553$exports = {};
 $f4087201da764553$exports = JSON.parse('{"categories":["Cc","Zs","Po","Sc","Ps","Pe","Sm","Pd","Nd","Lu","Sk","Pc","Ll","So","Lo","Pi","Cf","No","Pf","Lt","Lm","Mn","Me","Mc","Nl","Zl","Zp","Cs","Co"],"combiningClasses":["Not_Reordered","Above","Above_Right","Below","Attached_Above_Right","Attached_Below","Overlay","Iota_Subscript","Double_Below","Double_Above","Below_Right","Above_Left","CCC10","CCC11","CCC12","CCC13","CCC14","CCC15","CCC16","CCC17","CCC18","CCC19","CCC20","CCC21","CCC22","CCC23","CCC24","CCC25","CCC30","CCC31","CCC32","CCC27","CCC28","CCC29","CCC33","CCC34","CCC35","CCC36","Nukta","Virama","CCC84","CCC91","CCC103","CCC107","CCC118","CCC122","CCC129","CCC130","CCC132","Attached_Above","Below_Left","Left","Kana_Voicing","CCC26","Right"],"scripts":["Common","Latin","Bopomofo","Inherited","Greek","Coptic","Cyrillic","Armenian","Hebrew","Arabic","Syriac","Thaana","Nko","Samaritan","Mandaic","Devanagari","Bengali","Gurmukhi","Gujarati","Oriya","Tamil","Telugu","Kannada","Malayalam","Sinhala","Thai","Lao","Tibetan","Myanmar","Georgian","Hangul","Ethiopic","Cherokee","Canadian_Aboriginal","Ogham","Runic","Tagalog","Hanunoo","Buhid","Tagbanwa","Khmer","Mongolian","Limbu","Tai_Le","New_Tai_Lue","Buginese","Tai_Tham","Balinese","Sundanese","Batak","Lepcha","Ol_Chiki","Braille","Glagolitic","Tifinagh","Han","Hiragana","Katakana","Yi","Lisu","Vai","Bamum","Syloti_Nagri","Phags_Pa","Saurashtra","Kayah_Li","Rejang","Javanese","Cham","Tai_Viet","Meetei_Mayek","null","Linear_B","Lycian","Carian","Old_Italic","Gothic","Old_Permic","Ugaritic","Old_Persian","Deseret","Shavian","Osmanya","Osage","Elbasan","Caucasian_Albanian","Linear_A","Cypriot","Imperial_Aramaic","Palmyrene","Nabataean","Hatran","Phoenician","Lydian","Meroitic_Hieroglyphs","Meroitic_Cursive","Kharoshthi","Old_South_Arabian","Old_North_Arabian","Manichaean","Avestan","Inscriptional_Parthian","Inscriptional_Pahlavi","Psalter_Pahlavi","Old_Turkic","Old_Hungarian","Hanifi_Rohingya","Old_Sogdian","Sogdian","Elymaic","Brahmi","Kaithi","Sora_Sompeng","Chakma","Mahajani","Sharada","Khojki","Multani","Khudawadi","Grantha","Newa","Tirhuta","Siddham","Modi","Takri","Ahom","Dogra","Warang_Citi","Nandinagari","Zanabazar_Square","Soyombo","Pau_Cin_Hau","Bhaiksuki","Marchen","Masaram_Gondi","Gunjala_Gondi","Makasar","Cuneiform","Egyptian_Hieroglyphs","Anatolian_Hieroglyphs","Mro","Bassa_Vah","Pahawh_Hmong","Medefaidrin","Miao","Tangut","Nushu","Duployan","SignWriting","Nyiakeng_Puachue_Hmong","Wancho","Mende_Kikakui","Adlam"],"eaw":["N","Na","A","W","H","F"]}');
-const $747425b437e121da$var$trie = new (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$unicode$2d$trie$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$base64$2d$js$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]).toByteArray("AAARAAAAAADwfAEAZXl5ONRt+/5bPVFZimRfKoTQJNm37CGE7Iw0j3UsTWKsoyI7kwyyTiEUzSD7NiEzhWYijH0wMVkHE4Mx49fzfo+3nuP4/fdZjvv+XNd5n/d9nef1WZvmKhTxiZndzDQBSEYQqxqKwnsKvGQucFh+6t6cJ792ePQBZv5S9yXSwkyjf/P4T7mTNnIAv1dOVhMlR9lflbUL9JeJguqsjvG9NTj/wLb566VAURnLo2vvRi89S3gW/33ihh2eXpDn40BIW7REl/7coRKIhAFlAiOtbLDTt6mMb4GzMF1gNnvX/sBxtbsAIjfztCNcQjcNDtLThRvuXu5M5g/CBjaLBE4lJm4qy/oZD97+IJryApcXfgWYlkvWbhfXgujOJKVu8B+ozqTLbxyJ5kNiR75CxDqfBM9eOlDMmGeoZ0iQbbS5VUplIwI+ZNXEKQVJxlwqjhOY7w3XwPesbLK5JZE+Tt4X8q8km0dzInsPPzbscrjBMVjF5mOHSeRdJVgKUjLTHiHqXSPkep8N/zFk8167KLp75f6RndkvzdfB6Uz3MmqvRArzdCbs1/iRZjYPLLF3U8Qs+H+Rb8iK51a6NIV2V9+07uJsTGFWpPz8J++7iRu2B6eAKlK/kujrLthwaD/7a6J5w90TusnH1JMAc+gNrql4aspOUG/RrsxUKmPzhHgP4Bleru+6Vfc/MBjgXVx7who94nPn7MPFrnwQP7g0k0Dq0h2GSKO6fTZ8nLodN1SiOUj/5EL/Xo1DBvRm0wmrh3x6phcJ20/9CuMr5h8WPqXMSasLoLHoufTmE7mzYrs6B0dY7KjuCogKqsvxnxAwXWvd9Puc9PnE8DOHT2INHxRlIyVHrqZahtfV2E/A2PDdtA3ewlRHMtFIBKO/T4IozWTQZ+mb+gdKuk/ZHrqloucKdsOSJmlWTSntWjcxVMjUmroXLM10I6TwDLnBq4LP69TxgVeyGsd8yHvhF8ydPlrNRSNs9EP7WmeuSE7Lu10JbOuQcJw/63sDp68wB9iwP5AO+mBpV0R5VDDeyQUFCel1G+4KHBgEVFS0YK+m2sXLWLuGTlkVAd97WwKKdacjWElRCuDRauf33l/yVcDF6sVPKeTes99FC1NpNWcpieGSV/IbO8PCTy5pbUR1U8lxzf4T+y6fZMxOz3LshkQLeeDSd0WmUrQgajmbktrxsb2AZ0ACw2Vgni+gV/m+KvCRWLg08Clx7uhql+v9XySGcjjOHlsp8vBw/e8HS7dtiqF6T/XcSXuaMW66GF1g4q9YyBadHqy3Y5jin1c7yZos6BBr6dsomSHxiUHanYtcYQwnMMZhRhOnaYJeyJzaRuukyCUh48+e/BUvk/aEfDp8ag+jD64BHxNnQ5v/E7WRk7eLjGV13I3oqy45YNONi/1op1oDr7rPjkhPsTXgUpQtGDPlIs55KhQaic9kSGs/UrZ2QKQOflB8MTEQxRF9pullToWO7Eplan6mcMRFnUu2441yxi23x+KqKlr7RWWsi9ZXMWlr8vfP3llk1m2PRj0yudccxBuoa7VfIgRmnFPGX6Pm1WIfMm/Rm4n/xTn8IGqA0GWuqgu48pEUO0U9nN+ZdIvFpPb7VDPphIfRZxznlHeVFebkd9l+raXy9BpTMcIUIvBfgHEb6ndGo8VUkxpief14KjzFOcaANfgvFpvyY8lE8lE4raHizLpluPzMks1hx/e1Hok5yV0p7qQH7GaYeMzzZTFvRpv6k6iaJ4yNqzBvN8J7B430h2wFm1IBPcqbou33G7/NWPgopl4Mllla6e24L3TOTVNkza2zv3QKuDWTeDpClCEYgTQ+5vEBSQZs/rMF50+sm4jofTgWLqgX1x3TkrDEVaRqfY/xZizFZ3Y8/DFEFD31VSfBQ5raEB6nHnZh6ddehtclQJ8fBrldyIh99LNnV32HzKEej04hk6SYjdauCa4aYW0ru/QxvQRGzLKOAQszf3ixJypTW3WWL6BLSF2EMCMIw7OUvWBC6A/gDc2D1jvBapMCc7ztx6jYczwTKsRLL6dMNXb83HS8kdD0pTMMj161zbVHkU0mhSHo9SlBDDXdN6hDvRGizmohtIyR3ot8tF5iUG4GLNcXeGvBudSFrHu+bVZb9jirNVG+rQPI51A7Hu8/b0UeaIaZ4UgDO68PkYx3PE2HWpKapJ764Kxt5TFYpywMy4DLQqVRy11I7SOLhxUFmqiEK52NaijWArIfCg6qG8q5eSiwRCJb1R7GDJG74TrYgx/lVq7w9++Kh929xSJEaoSse5fUOQg9nMAnIZv+7fwVRcNv3gOHI46Vb5jYUC66PYHO6lS+TOmvEQjuYmx4RkffYGxqZIp/DPWNHAixbRBc+XKE3JEOgs4jIwu/dSAwhydruOGF39co91aTs85JJ3Z/LpXoF43hUwJsb/M1Chzdn8HX8vLXnqWUKvRhNLpfAF4PTFqva1sBQG0J+59HyYfmQ3oa4/sxZdapVLlo/fooxSXi/dOEQWIWq8E0FkttEyTFXR2aNMPINMIzZwCNEheYTVltsdaLkMyKoEUluPNAYCM2IG3br0DLy0fVNWKHtbSKbBjfiw7Lu06gQFalC7RC9BwRMSpLYDUo9pDtDfzwUiPJKLJ2LGcSphWBadOI/iJjNqUHV7ucG8yC6+iNM9QYElqBR7ECFXrcTgWQ3eG/tCWacT9bxIkfmxPmi3vOd36KxihAJA73vWNJ+Y9oapXNscVSVqS5g15xOWND/WuUCcA9YAAg6WFbjHamrblZ5c0L6Zx1X58ZittGcfDKU697QRSqW/g+RofNRyvrWMrBn44cPvkRe2HdTu/Cq01C5/riWPHZyXPKHuSDDdW8c1XPgd6ogvLh20qEIu8c19sqr4ufyHrwh37ZN5MkvY1dsGmEz9pUBTxWrvvhNyODyX2Q1k/fbX/T/vbHNcBrmjgDtvBdtZrVtiIg5iXQuzO/DEMvRX8Mi1zymSlt92BGILeKItjoShJXE/H7xwnf0Iewb8BFieJ9MflEBCQYEDm8eZniiEPfGoaYiiEdhQxHQNr2AuRdmbL9mcl18Kumh+HEZLp6z+j35ML9zTbUwahUZCyQQOgQrGfdfQtaR/OYJ/9dYXb2TWZFMijfCA8Nov4sa5FFDUe1T68h4q08WDE7JbbDiej4utRMR9ontevxlXv6LuJTXt1YEv8bDzEt683PuSsIN0afvu0rcBu9AbXZbkOG3K3AhtqQ28N23lXm7S3Yn6KXmAhBhz+GeorJJ4XxO/b3vZk2LXp42+QvsVxGSNVpfSctIFMTR1bD9t70i6sfNF3WKz/uKDEDCpzzztwhL45lsw89H2IpWN10sXHRlhDse9KCdpP5qNNpU84cTY+aiqswqR8XZ9ea0KbVRwRuOGQU3csAtV2fSbnq47U6es6rKlWLWhg3s/B9C9g+oTyp6RtIldR51OOkP5/6nSy6itUVPcMNOp4M/hDdKOz3uK6srbdxOrc2cJgr1Sg02oBxxSky6V7JaG+ziNwlfqnjnvh2/uq1lKfbp+qpwq/D/5OI5gkFl5CejKGxfc2YVJfGqc4E0x5e9PHK2ukbHNI7/RZV6LNe65apbTGjoCaQls0txPPbmQbCQn+/upCoXRZy9yzorWJvZ0KWcbXlBxU/d5I4ERUTxMuVWhSMmF677LNN7NnLwsmKawXkCgbrpcluOl0WChR1qhtSrxGXHu251dEItYhYX3snvn1gS2uXuzdTxCJjZtjsip0iT2sDC0qMS7Bk9su2NyXjFK5/f5ZoWwofg3DtTyjaFqspnOOTSh8xK/CKUFS57guVEkw9xoQuRCwwEO9Lu9z2vYxSa9NFV8DvSxv2C4WYLYF8Nrc4DzWkzNsk81JJOlZ/LYJrGCoj4MmZpnf3AXmzxT4rtl9jsqljEyedz468SGKdBiQzyz/qWKEhFg45ZczlZZ3KGL3l6sn+3TTa3zMVMhPa1obGp/z+fvY0QXTrJTf1XAT3EtQdUfYYlmWZyvPZ/6rWwU7UOQei7pVE0osgN94Iy+T1+omE6z4Rh2O20FjgBeK2y1mcoFiMDOJvuZPn5Moy9fmFH3wyfKvn4+TwfLvt/lHTTVnvrtoUWRBiQXhiNM8nE6ZoWeux/Z0b2unRcdUzdDpmL7CAgd1ToRXwgmHTZOgiGtVT+xr1QH9ObebRTT4NzL+XSpLuuWp62GqQvJVTPoZOeJCb6gIwd9XHMftQ+Kc08IKKdKQANSJ1a2gve3JdRhO0+tNiYzWAZfd7isoeBu67W7xuK8WX7nhJURld98Inb0t/dWOSau/kDvV4DJo/cImw9AO2Gvq0F2n0M7yIZKL8amMbjYld+qFls7hq8Acvq97K2PrCaomuUiesu7qNanGupEl6J/iem8lyr/NMnsTr6o41PO0yhQh3hPFN0wJP7S830je9iTBLzUNgYH+gUZpROo3rN2qgCI+6GewpX8w8CH+ro6QrWiStqmcMzVa3vEel+3/dDxMp0rDv1Q6wTMS3K64zTT6RWzK1y643im25Ja7X2ePCV2mTswd/4jshZPo4bLnerqIosq/hy2bKUAmVn9n4oun1+a0DIZ56UhVwmZHdUNpLa8gmPvxS1eNvCF1T0wo1wKPdCJi0qOrWz7oYRTzgTtkzEzZn308XSLwUog4OWGKJzCn/3FfF9iA32dZHSv30pRCM3KBY9WZoRhtdK/ChHk6DEQBsfV6tN2o1Cn0mLtPBfnkS+qy1L2xfFe9TQPtDE1Be44RTl82E9hPT2rS2+93LFbzhQQO3C/hD2jRFH3BWWbasAfuMhRJFcTri73eE835y016s22DjoFJ862WvLj69fu2TgSF3RHia9D5DSitlQAXYCnbdqjPkR287Lh6dCHDapos+eFDvcZPP2edPmTFxznJE/EBLoQQ0Qmn9EkZOyJmHxMbvKYb8o21ZHmv5YLqgsEPk9gWZwYQY9wLqGXuax/8QlV5qDaPbq9pLPT1yp+zOWKmraEy1OUJI7zdEcEmvBpbdwLrDCgEb2xX8S/nxZgjK4bRi+pbOmbh8bEeoPvU/L9ndx9kntlDALbdAvp0O8ZC3zSUnFg4cePsw7jxewWvL7HRSBLUn6J7vTH9uld5N76JFPgBCdXGF221oEJk++XfRwXplLSyrVO7HFWBEs99nTazKveW3HpbD4dH/YmdAl+lwbSt8BQWyTG7jAsACI7bPPUU9hI9XUHWqQOuezHzUjnx5Qqs6T1qNHfTTHleDtmqK7flA9a0gz2nycIpz1FHBuWxKNtUeTdqP29Fb3tv+tl5JyBqXoR+vCsdzZwZUhf6Lu8bvkB9yQP4x7GGegB0ym0Lpl03Q7e+C0cDsm9GSDepCDji7nUslLyYyluPfvLyKaDSX4xpR+nVYQjQQn5F8KbY1gbIVLiK1J3mW90zTyR1bqApX2BlWh7KG8LAY9/S9nWC0XXh9pZZo6xuir12T43rkaGfQssbQyIslA7uJnSHOV22NhlNtUo0czxPAsXhh8tIQYaTM4l/yAlZlydTcXhlG22Gs/n3BxKBd/3ZjYwg3NaUurVXhNB+afVnFfNr9TbC9ksNdvwpNfeHanyJ8M6GrIVfLlYAPv0ILe4dn0Z+BJSbJkN7eZY/c6+6ttDYcIDeUKIDXqUSE42Xdh5nRbuaObozjht0HJ5H1e+em+NJi/+8kQlyjCbJpPckwThZeIF9/u7lrVIKNeJLCN/TpPAeXxvd31/CUDWHK9MuP1V1TJgngzi4V0qzS3SW3Qy5UiGHqg02wQa5tsEl9s/X9nNMosgLlUgZSfCBj1DiypLfhr9/r0nR0XY2tmhDOcUS4E7cqa4EJBhzqvpbZa35Q5Iz5EqmhYiOGDAYk606Tv74+KGfPjKVuP15rIzgW0I7/niOu9el/sn2bRye0gV+GrePDRDMHjwO1lEdeXH8N+UTO3IoN18kpI3tPxz+fY+n2MGMSGFHAx/83tKeJOl+2i+f1O9v6FfEDBbqrw+lpM8Anav7zHNr7hE78nXUtPNodMbCnITWA7Ma/IHlZ50F9hWge/wzOvSbtqFVFtkS8Of2nssjZwbSFdU+VO8z6tCEc9UA9ACxT5zIUeSrkBB/v1krOpm7bVMrGxEKfI6LcnpB4D8bvn2hDKGqKrJaVAJuDaBEY3F7eXyqnFWlOoFV/8ZLspZiZd7orXLhd4mhHQgbuKbHjJWUzrnm0Dxw/LJLzXCkh7slMxKo8uxZIWZfdKHlfI7uj3LP6ARAuWdF7ZmZ7daOKqKGbz5LxOggTgS39oEioYmrqkCeUDvbxkBYKeHhcLmMN8dMF01ZMb32IpL/cH8R7VHQSI5I0YfL14g9d7P/6cjB1JXXxbozEDbsrPdmL8ph7QW10jio+v7YsqHKQ6xrBbOVtxU0/nFfzUGZwIBLwyUvg49ii+54nv9FyECBpURnQK4Ox6N7lw5fsjdd5l/2SwBcAHMJoyjO1Pifye2dagaOwCVMqdJWAo77pvBe0zdJcTWu5fdzPNfV2p1pc7/JKQ8zhKkwsOELUDhXygPJ5oR8Vpk2lsCen3D3QOQp2zdrSZHjVBstDF/wWO98rrkQ6/7zt/Drip7OHIug1lomNdmRaHRrjmqeodn22sesQQPgzimPOMqC60a5+i/UYh51uZm+ijWkkaI2xjrBO2558DZNZMiuDQlaVAvBy2wLn/bR3FrNzfnO/9oDztYqxZrr7JMIhqmrochbqmQnKowxW29bpqTaJu7kW1VotC72QkYX8OoDDdMDwV1kJRk3mufgJBzf+iwFRJ7XWQwO5ujVglgFgHtycWiMLx5N+6XU+TulLabWjOzoao03fniUW0xvIJNPbk7CQlFZd/RCOPvgQbLjh5ITE8NVJeKt3HGr6JTnFdIzcVOlEtwqbIIX0IM7saC+4N5047MTJ9+Wn11EhyEPIlwsHE5utCeXRjQzlrR+R1Cf/qDzcNbqLXdk3J7gQ39VUrrEkS/VMWjjg+t2oYrqB0tUZClcUF6+LBC3EQ7KnGIwm/qjZX4GKPtjTX1zQKV6nPAb2t/Rza5IqKRf8i2DFEhV/YSifX0YwsiF6TQnp48Gr65TFq0zUe6LGjiY7fq0LSGKL1VnC6ESI2yxvt3XqBx53B3gSlGFeJcPbUbonW1E9E9m4NfuwPh+t5QjRxX34lvBPVxwQd7aeTd+r9dw5CiP1pt8wMZoMdni7GapYdo6KPgeQKcmlFfq4UYhvV0IBgeiR3RnTMBaqDqpZrTRyLdsp4l0IXZTdErfH0sN3dqBG5vRIx3VgCYcHmmkqJ8Hyu3s9K9uBD1d8cZUEx3qYcF5vsqeRpF1GOg8emeWM2OmBlWPdZ6qAXwm3nENFyh+kvXk132PfWAlN0kb7yh4fz2T7VWUY/hEXX5DvxGABC03XRpyOG8t/u3Gh5tZdpsSV9AWaxJN7zwhVglgII1gV28tUViyqn4UMdIh5t+Ea2zo7PO48oba0TwQbiSZOH4YhD578kPF3reuaP7LujPMsjHmaDuId9XEaZBCJhbXJbRg5VCk3KJpryH/+8S3wdhR47pdFcmpZG2p0Bpjp/VbvalgIZMllYX5L31aMPdt1J7r/7wbixt0Mnz2ZvNGTARHPVD+2O1D8SGpWXlVnP2ekgon55YiinADDynyaXtZDXueVqbuTi8z8cHHK325pgqM+mWZwzHeEreMvhZopAScXM14SJHpGwZyRljMlDvcMm9FZ/1e9+r/puOnpXOtc9Iu2fmgBfEP9cGW1Fzb1rGlfJ08pACtq1ZW18bf2cevebzVeHbaA50G9qoUp39JWdPHbYkPCRXjt4gzlq3Cxge28Mky8MoS/+On72kc+ZI2xBtgJytpAQHQ1zrEddMIVyR5urX6yBNu8v5lKC8eLdGKTJtbgIZ3ZyTzSfWmx9f+cvcJe8yM39K/djkp2aUTE/9m2Lj5jg7b8vdRAer7DO3SyLNHs1CAm5x5iAdh2yGJYivArZbCBNY88Tw+w+C1Tbt7wK3zl2rzTHo/D8/gb3c3mYrnEIEipYqPUcdWjnTsSw471O3EUN7Gtg4NOAs9PJrxm03VuZKa5xwXAYCjt7Gs01Km6T2DhOYUMoFcCSu7Hk1p3yP1eG+M3v3Q5luAze6WwBnZIYO0TCucPWK+UJ36KoJ8Y+vpavhLO8g5ed704IjlQdfemrMu//EvPYXTQSGIPPfiagJS9nMqP5IvkxN9pvuJz7h8carPXTKMq8jnTeL0STan6dnLTAqwIswcIwWDR2KwbGddAVN8SYWRB7kfBfBRkSXzvHlIF8D6jo64kUzYk5o/n8oLjKqat0rdXvQ86MkwQGMnnlcasqPPT2+mVtUGb32KuH6cyZQenrRG11TArcAl27+nvOMBDe++EKHf4YdyGf7mznzOz33cFFGEcv329p4qG2hoaQ8ULiMyVz6ENcxhoqGnFIdupcn7GICQWuw3yO3W8S33mzCcMYJ8ywc7U7rmaQf/W5K63Gr4bVTpXOyOp4tbaPyIaatBNpXqlmQUTSZXjxPr19+73PSaT+QnI35YsWn6WpfJjRtK8vlJZoTSgjaRU39AGCkWOZtifJrnefCrqwTKDFmuWUCukEsYcRrMzCoit28wYpP7kSVjMD8WJYQiNc2blMjuqYegmf6SsfC1jqz8XzghMlOX+gn/MKZmgljszrmehEa4V98VreJDxYvHr3j7IeJB9/sBZV41BWT/AZAjuC5XorlIPnZgBAniBEhanp0/0+qZmEWDpu8ige1hUPIyTo6T6gDEcFhWSoduNh8YSu65KgMOGBw7VlNYzNIgwHtq9KP2yyTVysqX5v12sf7D+vQUdR2dRDvCV40rIInXSLWT/yrC6ExOQxBJwIDbeZcl3z1yR5Rj3l8IGpxspapnvBL+fwupA3b6fkFceID9wgiM1ILB0cHVdvo/R4xg8yqKXT8efl0GnGX1/27FUYeUW2L/GNRGGWVGp3i91oaJkb4rybENHre9a2P5viz/yqk8ngWUUS+Kv+fu+9BLFnfLiLXOFcIeBJLhnayCiuDRSqcx0Qu68gVsGYc6EHD500Fkt+gpDj6gvr884n8wZ5o6q7xtL5wA0beXQnffWYkZrs2NGIRgQbsc5NB302SVx+R4ROvmgZaR8wBcji128BMfJ9kcvJ4DC+bQ57kRmv5yxgU4ngZfn0/JNZ8JBwxjTqS+s9kjJFG1unGUGLwMiIuXUD9EFhNIJuyCEAmVZSIGKH4G6v1gRR1LyzQKH2ZqiI1DnHMoDEZspbDjTeaFIAbSvjSq3A+n46y9hhVM8wIpnARSXyzmOD96d9UXvFroSPgGw1dq2vdEqDq9fJN1EbL2WulNmHkFDvxSO9ZT/RX/Bw2gA/BrF90XrJACereVfbV/YXaKfp77Nmx5NjEIUlxojsy7iN7nBHSZigfsbFyVOX1ZTeCCxvqnRSExP4lk5ZeYlRu9caaa743TWNdchRIhEWwadsBIe245C8clpaZ4zrPsk+OwXzxWCvRRumyNSLW5KWaSJyJU95cwheK76gr7228spZ3hmTtLyrfM2QRFqZFMR8/Q6yWfVgwTdfX2Ry4w3+eAO/5VT5nFb5NlzXPvBEAWrNZ6Q3jbH0RF4vcbp+fDngf/ywpoyNQtjrfvcq93AVb1RDWRghvyqgI2BkMr1rwYi8gizZ0G9GmPpMeqPerAQ0dJbzx+KAFM4IBq6iSLpZHUroeyfd9o5o+4fR2EtsZBoJORQEA4SW0CmeXSnblx2e9QkCHIodyqV6+g5ETEpZsLqnd/Na60EKPX/tQpPEcO+COIBPcQdszDzSiHGyQFPly/7KciUh1u+mFfxTCHGv9nn2WqndGgeGjQ/kr02qmTBX7Hc1qiEvgiSz1Tz/sy7Es29wvn6FrDGPP7asXlhOaiHxOctPvTptFA1kHFUk8bME7SsTSnGbFbUrssxrq70LhoSh5OwvQna+w84XdXhZb2sloJ4ZsCg3j+PrjJL08/JBi5zGd6ud/ZxhmcGKLOXPcNunQq5ESW92iJvfsuRrNYtawWwSmNhPYoFj2QqWNF0ffLpGt/ad24RJ8vkb5sXkpyKXmvFG5Vcdzf/44k3PBL/ojJ52+kWGzOArnyp5f969oV3J2c4Li27Nkova9VwRNVKqN0V+gV+mTHitgkXV30aWd3A1RSildEleiNPA+5cp+3+T7X+xfHiRZXQ1s4FA9TxIcnveQs9JSZ5r5qNmgqlW4zMtZ6rYNvgmyVcywKtu8ZxnSbS5vXlBV+NXdIfi3+xzrnJ0TkFL+Un8v1PWOC2PPFCjVPq7qTH7mOpzOYj/b4h0ceT+eHgr97Jqhb1ziVfeANzfN8bFUhPKBi7hJBCukQnB0aGjFTYLJPXL26lQ2b80xrOD5cFWgA8hz3St0e69kwNnD3+nX3gy12FjrjO+ddRvvvfyV3SWbXcxqNHfmsb9u1TV+wHTb9B07/L2sB8WUHJ9eeNomDyysEWZ0deqEhH/oWI2oiEh526gvAK1Nx2kIhNvkYR+tPYHEa9j+nd1VBpQP1uzSjIDO+fDDB7uy029rRjDC5Sk6aKczyz1D5uA9Lu+Rrrapl8JXNL3VRllNQH2K1ZFxOpX8LprttfqQ56MbPM0IttUheXWD/mROOeFqGUbL+kUOVlXLTFX/525g4faLEFO4qWWdmOXMNvVjpIVTWt650HfQjX9oT3Dg5Au6+v1/Ci78La6ZOngYCFPT1AUwxQuZ0yt5xKdNXLaDTISMTeCj16XTryhM36K2mfGRIgot71voWs8tTpL/f1rvcwv3LSDf+/G8THCT7NpfHWcW+lsF/ol8q9Bi6MezNTqp0rpp/kJRiVfNrX/w27cRRTu8RIIqtUblBMkxy4jwAVqCjUJkiPBj2cAoVloG8B2/N5deLdMhDb7xs5nhd3dubJhuj8WbaFRyu1L678DHhhA+rMimNo4C1kGpp0tD/qnCfCFHejpf0LJX43OTr578PY0tnIIrlWyNYyuR/ie6j2xNb1OV6u0dOX/1Dtcd7+ya9W+rY2LmnyQMtk8SMLTon8RAdwOaN2tNg5zVnDKlmVeOxPV2vhHIo9QEPV7jc3f+zVDquiNg1OaHX3cZXJDRY5MJpo+VanAcmqp4oasYLG+wrXUL5vJU0kqk2hGEskhP+Jjigrz1l6QnEwp6n8PMVeJp70Ii6ppeaK9GhF6fJE00ceLyxv08tKiPat4QdxZFgSbQknnEiCLD8Qc1rjazVKM3r3gXnnMeONgdz/yFV1q+haaN+wnF3Fn4uYCI9XsKOuVwDD0LsCO/f0gj5cmxCFcr7sclIcefWjvore+3aSU474cyqDVxH7w1RX3CHsaqsMRX17ZLgjsDXws3kLm2XJdM3Ku383UXqaHqsywzPhx7NFir0Fqjym/w6cxD2U9ypa3dx7Z12w/fi3Jps8sqJ8f8Ah8aZAvkHXvIRyrsxK7rrFaNNdNvjI8+3Emri195DCNa858anj2Qdny6Czshkn4N2+1m+k5S8sunX3Ja7I+JutRzg1mc2e9Yc0Zv9PZn1SwhxIdU9sXwZRTd/J5FoUm0e+PYREeHg3oc2YYzGf2xfJxXExt4pT3RfDRHvMXLUmoXOy63xv5pLuhOEax0dRgSywZ/GH+YBXFgCeTU0hZ8SPEFsn8punp1Kurd1KgXxUZ+la3R5+4ePGR4ZF5UQtOa83+Vj8zh80dfzbhxWCeoJnQ4dkZJM4drzknZOOKx2n3WrvJnzFIS8p0xeic+M3ZRVXIp10tV2DyYKwRxLzulPwzHcLlYTxl4PF7v8l106Azr+6wBFejbq/3P72C/0j78cepY9990/d4eAurn2lqdGKLU8FffnMw7cY7pVeXJRMU73Oxwi2g2vh/+4gX8dvbjfojn/eLVhhYl8GthwCQ50KcZq4z2JeW5eeOnJWFQEnVxDoG459TaC4zXybECEoJ0V5q1tXrQbDMtUxeTV6Pdt1/zJuc7TJoV/9YZFWxUtCf6Ou3Vd/vR/vG0138hJQrHkNeoep5dLe+6umcSquKvMaFpm3EZHDBOvCi0XYyIFHMgX7Cqp3JVXlxJFwQfHSaIUEbI2u1lBVUdlNw4Qa9UsLPEK94Qiln3pyKxQVCeNlx8yd7EegVNQBkFLabKvnietYVB4IPZ1fSor82arbgYec8aSdFMaIluYTYuNx32SxfrjKUdPGq+UNp5YpydoEG3xVLixtmHO9zXxKAnHnPuH2fPGrjx0GcuCDEU+yXUtXh6nfUL+cykws1gJ5vkfYFaFBr9PdCXvVf35OJQxzUMmWjv0W6uGJK11uAGDqSpOwCf6rouSIjPVgw57cJCOQ4b9tkI/Y5WNon9Swe72aZryKo8d+HyHBEdWJKrkary0LIGczA4Irq353Wc0Zga3om7UQiAGCvIl8GGyaqz5zH+1gMP5phWUCpKtttWIyicz09vXg76GxkmiGSMQ06Z9X8BUwqOtauDbPIf4rpK/yYoeAHxJ9soXS9VDe1Aw+awOOxaN8foLrif0TXBvQ55dtRtulRq9emFDBxlQcqKCaD8NeTSE7FOHvcjf/+oKbbtRqz9gbofoc2EzQ3pL6W5JdfJzAWmOk8oeoECe90lVMruwl/ltM015P/zIPazqvdvFmLNVHMIZrwiQ2tIKtGh6PDVH+85ew3caqVt2BsDv5rOcu3G9srQWd7NmgtzCRUXLYknYRSwtH9oUtkqyN3CfP20xQ1faXQl4MEmjQehWR6GmGnkdpYNQYeIG408yAX7uCZmYUic9juOfb+Re28+OVOB+scYK4DaPcBe+5wmji9gymtkMpKo4UKqCz7yxzuN8VIlx9yNozpRJpNaWHtaZVEqP45n2JemTlYBSmNIK1FuSYAUQ1yBLnKxevrjayd+h2i8PjdB3YY6b0nr3JuOXGpPMyh4V2dslpR3DFEvgpsBLqhqLDOWP4yEvIL6f21PpA7/8B"));
+const $747425b437e121da$var$trie = new (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$unicode$2d$trie$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$base64$2d$js$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]).toByteArray("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
 const $747425b437e121da$var$log2 = Math.log2 || ((n)=>Math.log(n) / Math.LN2);
 const $747425b437e121da$var$bits = (n)=>$747425b437e121da$var$log2(n) + 1 | 0;
-// compute the number of bits stored for each field
-const $747425b437e121da$var$CATEGORY_BITS = $747425b437e121da$var$bits((0, /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports)).categories.length - 1);
-const $747425b437e121da$var$COMBINING_BITS = $747425b437e121da$var$bits((0, /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports)).combiningClasses.length - 1);
-const $747425b437e121da$var$SCRIPT_BITS = $747425b437e121da$var$bits((0, /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports)).scripts.length - 1);
-const $747425b437e121da$var$EAW_BITS = $747425b437e121da$var$bits((0, /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports)).eaw.length - 1);
+
+const $747425b437e121da$var$CATEGORY_BITS = $747425b437e121da$var$bits((0,  $parcel$interopDefault($f4087201da764553$exports)).categories.length - 1);
+const $747425b437e121da$var$COMBINING_BITS = $747425b437e121da$var$bits((0,  $parcel$interopDefault($f4087201da764553$exports)).combiningClasses.length - 1);
+const $747425b437e121da$var$SCRIPT_BITS = $747425b437e121da$var$bits((0,  $parcel$interopDefault($f4087201da764553$exports)).scripts.length - 1);
+const $747425b437e121da$var$EAW_BITS = $747425b437e121da$var$bits((0,  $parcel$interopDefault($f4087201da764553$exports)).eaw.length - 1);
 const $747425b437e121da$var$NUMBER_BITS = 10;
-// compute shift and mask values for each field
+
 const $747425b437e121da$var$CATEGORY_SHIFT = $747425b437e121da$var$COMBINING_BITS + $747425b437e121da$var$SCRIPT_BITS + $747425b437e121da$var$EAW_BITS + $747425b437e121da$var$NUMBER_BITS;
 const $747425b437e121da$var$COMBINING_SHIFT = $747425b437e121da$var$SCRIPT_BITS + $747425b437e121da$var$EAW_BITS + $747425b437e121da$var$NUMBER_BITS;
 const $747425b437e121da$var$SCRIPT_SHIFT = $747425b437e121da$var$EAW_BITS + $747425b437e121da$var$NUMBER_BITS;
@@ -8554,19 +8554,19 @@ const $747425b437e121da$var$EAW_MASK = (1 << $747425b437e121da$var$EAW_BITS) - 1
 const $747425b437e121da$var$NUMBER_MASK = (1 << $747425b437e121da$var$NUMBER_BITS) - 1;
 function $747425b437e121da$export$410364bbb673ddbc(codePoint) {
     const val = $747425b437e121da$var$trie.get(codePoint);
-    return (0, /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports)).categories[val >> $747425b437e121da$var$CATEGORY_SHIFT & $747425b437e121da$var$CATEGORY_MASK];
+    return (0,  $parcel$interopDefault($f4087201da764553$exports)).categories[val >> $747425b437e121da$var$CATEGORY_SHIFT & $747425b437e121da$var$CATEGORY_MASK];
 }
 function $747425b437e121da$export$c03b919c6651ed55(codePoint) {
     const val = $747425b437e121da$var$trie.get(codePoint);
-    return (0, /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports)).combiningClasses[val >> $747425b437e121da$var$COMBINING_SHIFT & $747425b437e121da$var$COMBINING_MASK];
+    return (0,  $parcel$interopDefault($f4087201da764553$exports)).combiningClasses[val >> $747425b437e121da$var$COMBINING_SHIFT & $747425b437e121da$var$COMBINING_MASK];
 }
 function $747425b437e121da$export$941569448d136665(codePoint) {
     const val = $747425b437e121da$var$trie.get(codePoint);
-    return (0, /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports)).scripts[val >> $747425b437e121da$var$SCRIPT_SHIFT & $747425b437e121da$var$SCRIPT_MASK];
+    return (0,  $parcel$interopDefault($f4087201da764553$exports)).scripts[val >> $747425b437e121da$var$SCRIPT_SHIFT & $747425b437e121da$var$SCRIPT_MASK];
 }
 function $747425b437e121da$export$92f6187db8ca6d26(codePoint) {
     const val = $747425b437e121da$var$trie.get(codePoint);
-    return (0, /*@__PURE__*/ $parcel$interopDefault($f4087201da764553$exports)).eaw[val >> $747425b437e121da$var$EAW_SHIFT & $747425b437e121da$var$EAW_MASK];
+    return (0,  $parcel$interopDefault($f4087201da764553$exports)).eaw[val >> $747425b437e121da$var$EAW_SHIFT & $747425b437e121da$var$EAW_MASK];
 }
 function $747425b437e121da$export$7d1258ebb7625a0d(codePoint) {
     let val = $747425b437e121da$var$trie.get(codePoint);
@@ -8644,26 +8644,26 @@ var $747425b437e121da$export$2e2bcd8739ae039 = {
     isMark: $747425b437e121da$export$e33ad6871e762338
 };
 ;
- //# sourceMappingURL=module.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/dfa/index.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
 var INITIAL_STATE = 1;
 var FAIL_STATE = 0;
-/**
- * A StateMachine represents a deterministic finite automaton.
- * It can perform matches over a sequence of values, similar to a regular expression.
- */ class StateMachine {
+
+
+
+ class StateMachine {
     constructor(dfa){
         this.stateTable = dfa.stateTable;
         this.accepting = dfa.accepting;
         this.tags = dfa.tags;
     }
-    /**
-   * Returns an iterable object that yields pattern matches over the input sequence.
-   * Matches are of the form [startIndex, endIndex, tags].
-   */ match(str) {
+    
+
+
+ match(str) {
         var self = this;
         return {
             *[Symbol.iterator] () {
@@ -8676,27 +8676,27 @@ var FAIL_STATE = 0;
                     lastState = state;
                     state = self.stateTable[state][c];
                     if (state === FAIL_STATE) {
-                        // yield the last match if any
+                        
                         if (startRun != null && lastAccepting != null && lastAccepting >= startRun) {
                             yield [
                                 startRun,
                                 lastAccepting,
                                 self.tags[lastState]
                             ];
-                        } // reset the state as if we started over from the initial state
+                        } 
                         state = self.stateTable[INITIAL_STATE][c];
                         startRun = null;
-                    } // start a run if not in the failure state
+                    } 
                     if (state !== FAIL_STATE && startRun == null) {
                         startRun = p;
-                    } // if accepting, mark the potential match end
+                    } 
                     if (self.accepting[state]) {
                         lastAccepting = p;
-                    } // reset the state to the initial state if we get into the failure state
+                    } 
                     if (state === FAIL_STATE) {
                         state = INITIAL_STATE;
                     }
-                } // yield the last match if any
+                } 
                 if (startRun != null && lastAccepting != null && lastAccepting >= startRun) {
                     yield [
                         startRun,
@@ -8707,11 +8707,11 @@ var FAIL_STATE = 0;
             }
         };
     }
-    /**
-   * For each match over the input sequence, action functions matching
-   * the tag definitions in the input pattern are called with the startIndex,
-   * endIndex, and sub-match sequence.
-   */ apply(str, actions) {
+    
+
+
+
+ apply(str, actions) {
         for (var [start, end, tags] of this.match(str)){
             for (var tag of tags){
                 if (typeof actions[tag] === 'function') {
@@ -8721,11 +8721,11 @@ var FAIL_STATE = 0;
         }
     }
 }
-module.exports = StateMachine; //# sourceMappingURL=index.js.map
+module.exports = StateMachine; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/fontkit/node_modules/clone/clone.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/buffer/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/buffer/index.js [app-client] (ecmascript)");
 var clone = function() {
     'use strict';
     function _instanceof(obj, type) {
@@ -8735,8 +8735,8 @@ var clone = function() {
     try {
         nativeMap = Map;
     } catch (_) {
-        // maybe a reference error because no `Map`. Give it a dummy value that no
-        // value will ever be an instanceof.
+        
+        
         nativeMap = function() {};
     }
     var nativeSet;
@@ -8751,43 +8751,43 @@ var clone = function() {
     } catch (_) {
         nativePromise = function() {};
     }
-    /**
- * Clones (copies) an Object using deep copying.
- *
- * This function supports circular references by default, but if you are certain
- * there are no circular references in your object, you can save some CPU time
- * by calling clone(obj, false).
- *
- * Caution: if `circular` is false and `parent` contains circular references,
- * your program may enter an infinite loop and crash.
- *
- * @param `parent` - the object to be cloned
- * @param `circular` - set to true if the object to be cloned may contain
- *    circular references. (optional - true by default)
- * @param `depth` - set to a number if the object is only to be cloned to
- *    a particular depth. (optional - defaults to Infinity)
- * @param `prototype` - sets the prototype to be used when cloning an object.
- *    (optional - defaults to parent prototype).
- * @param `includeNonEnumerable` - set to true if the non-enumerable properties
- *    should be cloned as well. Non-enumerable properties on the prototype
- *    chain will be ignored. (optional - false by default)
-*/ function clone(parent, circular, depth, prototype, includeNonEnumerable) {
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ function clone(parent, circular, depth, prototype, includeNonEnumerable) {
         if (typeof circular === 'object') {
             depth = circular.depth;
             prototype = circular.prototype;
             includeNonEnumerable = circular.includeNonEnumerable;
             circular = circular.circular;
         }
-        // maintain two arrays for circular references, where corresponding parents
-        // and children have the same index
+        
+        
         var allParents = [];
         var allChildren = [];
         var useBuffer = typeof __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Buffer"] != 'undefined';
         if (typeof circular == 'undefined') circular = true;
         if (typeof depth == 'undefined') depth = Infinity;
-        // recurse this function so we don't reset allParents and allChildren
+        
         function _clone(parent, depth) {
-            // cloning null always returns null
+            
             if (parent === null) return null;
             if (depth === 0) return parent;
             var child;
@@ -8816,10 +8816,10 @@ var clone = function() {
                 child = new Date(parent.getTime());
             } else if (useBuffer && __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Buffer"].isBuffer(parent)) {
                 if (__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Buffer"].allocUnsafe) {
-                    // Node.js >= 4.5.0
+                    
                     child = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Buffer"].allocUnsafe(parent.length);
                 } else {
-                    // Older Node.js versions
+                    
                     child = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Buffer"](parent.length);
                 }
                 parent.copy(child);
@@ -8869,8 +8869,8 @@ var clone = function() {
             if (Object.getOwnPropertySymbols) {
                 var symbols = Object.getOwnPropertySymbols(parent);
                 for(var i = 0; i < symbols.length; i++){
-                    // Don't need to worry about cloning a symbol because it is a primitive,
-                    // like a number or string.
+                    
+                    
                     var symbol = symbols[i];
                     var descriptor = Object.getOwnPropertyDescriptor(parent, symbol);
                     if (descriptor && !descriptor.enumerable && !includeNonEnumerable) {
@@ -8902,19 +8902,19 @@ var clone = function() {
         }
         return _clone(parent, depth);
     }
-    /**
- * Simple flat clone using prototype, accepts only objects, usefull for property
- * override on FLAT configuration object (no nested props).
- *
- * USE WITH CAUTION! This may not behave as you wish if you do not know how this
- * works.
- */ clone.clonePrototype = function clonePrototype(parent) {
+    
+
+
+
+
+
+ clone.clonePrototype = function clonePrototype(parent) {
         if (parent === null) return null;
         var c = function() {};
         c.prototype = parent;
         return new c();
     };
-    // private utility functions
+    
     function __objToStr(o) {
         return Object.prototype.toString.call(o);
     }
@@ -8958,56 +8958,56 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 var $557adaaeb0c7885f$exports = {};
 "use strict";
-const $1627905f8be2ef3f$export$af862512e23cb54 = 0; // Opening punctuation
-const $1627905f8be2ef3f$export$9bf3043cb7503aa1 = 1; // Closing punctuation
-const $1627905f8be2ef3f$export$6d0b2a5dd774590a = 2; // Closing parenthesis
-const $1627905f8be2ef3f$export$bf0b2277bd569ea1 = 3; // Ambiguous quotation
-const $1627905f8be2ef3f$export$bad2a840ccda93b6 = 4; // Glue
-const $1627905f8be2ef3f$export$fb4028874a74450 = 5; // Non-starters
-const $1627905f8be2ef3f$export$463bd1ce0149c55e = 6; // Exclamation/Interrogation
-const $1627905f8be2ef3f$export$2e8caadc521d7cbb = 7; // Symbols allowing break after
-const $1627905f8be2ef3f$export$bfe27467c1de9413 = 8; // Infix separator
-const $1627905f8be2ef3f$export$af5f8d68aad3cd3a = 9; // Prefix
-const $1627905f8be2ef3f$export$6b7e017d6825d38f = 10; // Postfix
-const $1627905f8be2ef3f$export$8227ca023eb0daaa = 11; // Numeric
-const $1627905f8be2ef3f$export$1bb1140fe1358b00 = 12; // Alphabetic
-const $1627905f8be2ef3f$export$f3e416a182673355 = 13; // Hebrew Letter
-const $1627905f8be2ef3f$export$8be180ec26319f9f = 14; // Ideographic
-const $1627905f8be2ef3f$export$70824c8942178d60 = 15; // Inseparable characters
-const $1627905f8be2ef3f$export$24aa617c849a894a = 16; // Hyphen
-const $1627905f8be2ef3f$export$a73c4d14459b698d = 17; // Break after
-const $1627905f8be2ef3f$export$921068d8846a1559 = 18; // Break before
-const $1627905f8be2ef3f$export$8b85a4f193482778 = 19; // Break on either side (but not pair)
-const $1627905f8be2ef3f$export$b2fd9c01d360241f = 20; // Zero-width space
-const $1627905f8be2ef3f$export$dcd191669c0a595f = 21; // Combining marks
-const $1627905f8be2ef3f$export$9e5d732f3676a9ba = 22; // Word joiner
-const $1627905f8be2ef3f$export$cb94397127ac9363 = 23; // Hangul LV
-const $1627905f8be2ef3f$export$746be9e3a3dfff1f = 24; // Hangul LVT
-const $1627905f8be2ef3f$export$96e3e682276c47cf = 25; // Hangul L Jamo
-const $1627905f8be2ef3f$export$fc2ff69ee2cb01bf = 26; // Hangul V Jamo
-const $1627905f8be2ef3f$export$8999624a7bae9d04 = 27; // Hangul T Jamo
-const $1627905f8be2ef3f$export$1dff41d5c0caca01 = 28; // Regional Indicator
-const $1627905f8be2ef3f$export$ddb7a6c76d9d93eb = 29; // Emoji Base
-const $1627905f8be2ef3f$export$7e93eb3105e4786d = 30; // Emoji Modifier
-const $1627905f8be2ef3f$export$30a74a373318dec6 = 31; // Zero Width Joiner
-const $1627905f8be2ef3f$export$54caeea5e6dab1f = 32; // Contingent break
-const $1627905f8be2ef3f$export$d710c5f50fc7496a = 33; // Ambiguous (Alphabetic or Ideograph)
-const $1627905f8be2ef3f$export$66498d28055820a9 = 34; // Break (mandatory)
-const $1627905f8be2ef3f$export$eb6c6d0b7c8826f2 = 35; // Conditional Japanese Starter
-const $1627905f8be2ef3f$export$de92be486109a1df = 36; // Carriage return
-const $1627905f8be2ef3f$export$606cfc2a8896c91f = 37; // Line feed
-const $1627905f8be2ef3f$export$e51d3c675bb0140d = 38; // Next line
-const $1627905f8be2ef3f$export$da51c6332ad11d7b = 39; // South-East Asian
-const $1627905f8be2ef3f$export$bea437c40441867d = 40; // Surrogates
-const $1627905f8be2ef3f$export$c4c7eecbfed13dc9 = 41; // Space
-const $1627905f8be2ef3f$export$98e1f8a379849661 = 42; // Unknown
-const $32627af916ac1b00$export$98f50d781a474745 = 0; // Direct break opportunity
-const $32627af916ac1b00$export$12ee1f8f5315ca7e = 1; // Indirect break opportunity
-const $32627af916ac1b00$export$e4965ce242860454 = 2; // Indirect break opportunity for combining marks
-const $32627af916ac1b00$export$8f14048969dcd45e = 3; // Prohibited break for combining marks
-const $32627af916ac1b00$export$133eb141bf58aff4 = 4; // Prohibited break
+const $1627905f8be2ef3f$export$af862512e23cb54 = 0; 
+const $1627905f8be2ef3f$export$9bf3043cb7503aa1 = 1; 
+const $1627905f8be2ef3f$export$6d0b2a5dd774590a = 2; 
+const $1627905f8be2ef3f$export$bf0b2277bd569ea1 = 3; 
+const $1627905f8be2ef3f$export$bad2a840ccda93b6 = 4; 
+const $1627905f8be2ef3f$export$fb4028874a74450 = 5; 
+const $1627905f8be2ef3f$export$463bd1ce0149c55e = 6; 
+const $1627905f8be2ef3f$export$2e8caadc521d7cbb = 7; 
+const $1627905f8be2ef3f$export$bfe27467c1de9413 = 8; 
+const $1627905f8be2ef3f$export$af5f8d68aad3cd3a = 9; 
+const $1627905f8be2ef3f$export$6b7e017d6825d38f = 10; 
+const $1627905f8be2ef3f$export$8227ca023eb0daaa = 11; 
+const $1627905f8be2ef3f$export$1bb1140fe1358b00 = 12; 
+const $1627905f8be2ef3f$export$f3e416a182673355 = 13; 
+const $1627905f8be2ef3f$export$8be180ec26319f9f = 14; 
+const $1627905f8be2ef3f$export$70824c8942178d60 = 15; 
+const $1627905f8be2ef3f$export$24aa617c849a894a = 16; 
+const $1627905f8be2ef3f$export$a73c4d14459b698d = 17; 
+const $1627905f8be2ef3f$export$921068d8846a1559 = 18; 
+const $1627905f8be2ef3f$export$8b85a4f193482778 = 19; 
+const $1627905f8be2ef3f$export$b2fd9c01d360241f = 20; 
+const $1627905f8be2ef3f$export$dcd191669c0a595f = 21; 
+const $1627905f8be2ef3f$export$9e5d732f3676a9ba = 22; 
+const $1627905f8be2ef3f$export$cb94397127ac9363 = 23; 
+const $1627905f8be2ef3f$export$746be9e3a3dfff1f = 24; 
+const $1627905f8be2ef3f$export$96e3e682276c47cf = 25; 
+const $1627905f8be2ef3f$export$fc2ff69ee2cb01bf = 26; 
+const $1627905f8be2ef3f$export$8999624a7bae9d04 = 27; 
+const $1627905f8be2ef3f$export$1dff41d5c0caca01 = 28; 
+const $1627905f8be2ef3f$export$ddb7a6c76d9d93eb = 29; 
+const $1627905f8be2ef3f$export$7e93eb3105e4786d = 30; 
+const $1627905f8be2ef3f$export$30a74a373318dec6 = 31; 
+const $1627905f8be2ef3f$export$54caeea5e6dab1f = 32; 
+const $1627905f8be2ef3f$export$d710c5f50fc7496a = 33; 
+const $1627905f8be2ef3f$export$66498d28055820a9 = 34; 
+const $1627905f8be2ef3f$export$eb6c6d0b7c8826f2 = 35; 
+const $1627905f8be2ef3f$export$de92be486109a1df = 36; 
+const $1627905f8be2ef3f$export$606cfc2a8896c91f = 37; 
+const $1627905f8be2ef3f$export$e51d3c675bb0140d = 38; 
+const $1627905f8be2ef3f$export$da51c6332ad11d7b = 39; 
+const $1627905f8be2ef3f$export$bea437c40441867d = 40; 
+const $1627905f8be2ef3f$export$c4c7eecbfed13dc9 = 41; 
+const $1627905f8be2ef3f$export$98e1f8a379849661 = 42; 
+const $32627af916ac1b00$export$98f50d781a474745 = 0; 
+const $32627af916ac1b00$export$12ee1f8f5315ca7e = 1; 
+const $32627af916ac1b00$export$e4965ce242860454 = 2; 
+const $32627af916ac1b00$export$8f14048969dcd45e = 3; 
+const $32627af916ac1b00$export$133eb141bf58aff4 = 4; 
 const $32627af916ac1b00$export$5bdb8ccbf5c57afc = [
-    //OP   , CL    , CP    , QU    , GL    , NS    , EX    , SY    , IS    , PR    , PO    , NU    , AL    , HL    , ID    , IN    , HY    , BA    , BB    , B2    , ZW    , CM    , WJ    , H2    , H3    , JL    , JV    , JT    , RI    , EB    , EM    , ZWJ   , CB
+    
     [
         $32627af916ac1b00$export$133eb141bf58aff4,
         $32627af916ac1b00$export$133eb141bf58aff4,
@@ -10162,7 +10162,7 @@ const $32627af916ac1b00$export$5bdb8ccbf5c57afc = [
         $32627af916ac1b00$export$98f50d781a474745,
         $32627af916ac1b00$export$12ee1f8f5315ca7e,
         $32627af916ac1b00$export$98f50d781a474745
-    ] // CB
+    ] 
 ];
 const $557adaaeb0c7885f$var$data = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$linebreak$2f$node_modules$2f$base64$2d$js$2f$lib$2f$b64$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].toByteArray("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");
 const $557adaaeb0c7885f$var$classTrie = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$unicode$2d$trie$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]($557adaaeb0c7885f$var$data);
@@ -10201,7 +10201,7 @@ class $557adaaeb0c7885f$var$LineBreaker {
     nextCodePoint() {
         const code = this.string.charCodeAt(this.pos++);
         const next = this.string.charCodeAt(this.pos);
-        // If a surrogate pair
+        
         if (0xd800 <= code && code <= 0xdbff && 0xdc00 <= next && next <= 0xdfff) {
             this.pos++;
             return (code - 0xd800) * 0x400 + (next - 0xdc00) + 0x10000;
@@ -10212,7 +10212,7 @@ class $557adaaeb0c7885f$var$LineBreaker {
         return $557adaaeb0c7885f$var$mapClass($557adaaeb0c7885f$var$classTrie.get(this.nextCodePoint()));
     }
     getSimpleBreak() {
-        // handle classes not handled by the pair table
+        
         switch(this.nextClass){
             case $1627905f8be2ef3f$export$c4c7eecbfed13dc9:
                 return false;
@@ -10228,7 +10228,7 @@ class $557adaaeb0c7885f$var$LineBreaker {
         return null;
     }
     getPairTableBreak(lastClass) {
-        // if not handled already, use the pair table
+        
         let shouldBreak = false;
         switch($32627af916ac1b00$export$5bdb8ccbf5c57afc[this.curClass][this.nextClass]){
             case $32627af916ac1b00$export$98f50d781a474745:
@@ -10251,12 +10251,12 @@ class $557adaaeb0c7885f$var$LineBreaker {
                 break;
         }
         if (this.LB8a) shouldBreak = false;
-        // Rule LB21a
+        
         if (this.LB21a && (this.curClass === $1627905f8be2ef3f$export$24aa617c849a894a || this.curClass === $1627905f8be2ef3f$export$a73c4d14459b698d)) {
             shouldBreak = false;
             this.LB21a = false;
         } else this.LB21a = this.curClass === $1627905f8be2ef3f$export$f3e416a182673355;
-        // Rule LB30a
+        
         if (this.curClass === $1627905f8be2ef3f$export$1dff41d5c0caca01) {
             this.LB30a++;
             if (this.LB30a == 2 && this.nextClass === $1627905f8be2ef3f$export$1dff41d5c0caca01) {
@@ -10268,7 +10268,7 @@ class $557adaaeb0c7885f$var$LineBreaker {
         return shouldBreak;
     }
     nextBreak() {
-        // get the first char if we're at the beginning of the string
+        
         if (this.curClass == null) {
             let firstClass = this.nextCharClass();
             this.curClass = $557adaaeb0c7885f$var$mapFirst(firstClass);
@@ -10280,14 +10280,14 @@ class $557adaaeb0c7885f$var$LineBreaker {
             this.lastPos = this.pos;
             const lastClass = this.nextClass;
             this.nextClass = this.nextCharClass();
-            // explicit newline
+            
             if (this.curClass === $1627905f8be2ef3f$export$66498d28055820a9 || this.curClass === $1627905f8be2ef3f$export$de92be486109a1df && this.nextClass !== $1627905f8be2ef3f$export$606cfc2a8896c91f) {
                 this.curClass = $557adaaeb0c7885f$var$mapFirst($557adaaeb0c7885f$var$mapClass(this.nextClass));
                 return new $557adaaeb0c7885f$var$Break(this.lastPos, true);
             }
             let shouldBreak = this.getSimpleBreak();
             if (shouldBreak === null) shouldBreak = this.getPairTableBreak(lastClass);
-            // Rule LB8a
+            
             this.LB8a = this.nextClass === $1627905f8be2ef3f$export$30a74a373318dec6;
             if (shouldBreak) return new $557adaaeb0c7885f$var$Break(this.lastPos);
         }
@@ -10310,7 +10310,7 @@ class $557adaaeb0c7885f$var$LineBreaker {
 }
 $557adaaeb0c7885f$exports = $557adaaeb0c7885f$var$LineBreaker;
 ;
- //# sourceMappingURL=module.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/jay-peg/src/markers/dac.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -10982,7 +10982,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-// @ts-expect-error ts being silly
+
 const STANDARD_FONTS = [
     'Courier',
     'Courier-Bold',
@@ -11074,18 +11074,18 @@ class StandardFont {
             isLigature: false,
             name: this.src.font.characterToGlyph(id),
             _font: this.src,
-            // @ts-expect-error assign proper value
+            
             advanceWidth: undefined
         };
     }
     hasGlyphForCodePoint(codePoint) {
         return this.src.font.characterToGlyph(codePoint) !== '.notdef';
     }
-    // Based on empirical observation
+    
     get ascent() {
         return 900;
     }
-    // Based on empirical observation
+    
     get capHeight() {
         switch(this.name){
             case 'Times-Roman':
@@ -11102,7 +11102,7 @@ class StandardFont {
                 return 690;
         }
     }
-    // Based on empirical observation
+    
     get xHeight() {
         switch(this.name){
             case 'Times-Roman':
@@ -11119,7 +11119,7 @@ class StandardFont {
                 return 490;
         }
     }
-    // Based on empirical observation
+    
     get descent() {
         switch(this.name){
             case 'Times-Roman':
@@ -11267,7 +11267,7 @@ class FontFamily {
         const styleSources = this.sources.filter((s)=>s.fontStyle === fontStyle);
         const exactFit = styleSources.find((s)=>s.fontWeight === fontWeight);
         if (exactFit) return exactFit;
-        // Weight resolution. https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Fallback_weights
+        
         let font = null;
         const numericFontWeight = resolveFontWeight(fontWeight);
         if (numericFontWeight >= 400 && numericFontWeight <= 500) {
@@ -11369,7 +11369,7 @@ class FontStore {
                 }
             ]
         });
-        // For backwards compatibility
+        
         this.register({
             family: 'Helvetica-Bold',
             src: 'Helvetica-Bold'
@@ -11406,7 +11406,7 @@ class FontStore {
             family: 'Times-BoldItalic',
             src: 'Times-BoldItalic'
         });
-        // Load default fonts
+        
         this.load({
             fontFamily: 'Helvetica',
             fontStyle: 'normal',
@@ -11434,7 +11434,7 @@ class FontStore {
         if (!this.fontFamilies[family]) {
             this.fontFamilies[family] = FontFamily.create(family);
         }
-        // Bulk loading
+        
         if ('fonts' in data) {
             for(let i = 0; i < data.fonts.length; i += 1){
                 const { src, fontStyle, fontWeight, ...options } = data.fonts[i];
@@ -11495,14 +11495,14 @@ class FontStore {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/fns/lib/index.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Applies a function to the value at the given index of an array
- *
- * @param index
- * @param fn
- * @param collection
- * @returns Copy of the array with the element at the given index replaced with the result of the function application.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "adjust",
     ()=>adjust,
     "asyncCompose",
@@ -11550,12 +11550,12 @@ const adjust = (index, fn, collection)=>{
         [i]: fn(collection[i])
     });
 };
-/* eslint-disable no-await-in-loop */ /**
- * Performs right-to-left function composition with async functions support
- *
- * @param fns - Functions
- * @returns Composed function
- */ const asyncCompose = (...fns)=>async (value, ...args)=>{
+ 
+
+
+
+
+ const asyncCompose = (...fns)=>async (value, ...args)=>{
         let result = value;
         const reversedFns = fns.slice().reverse();
         for(let i = 0; i < reversedFns.length; i += 1){
@@ -11564,32 +11564,32 @@ const adjust = (index, fn, collection)=>{
         }
         return result;
     };
-/**
- * Capitalize first letter of each word
- *
- * @param value - Any string
- * @returns Capitalized string
- */ const capitalize = (value)=>{
+
+
+
+
+
+ const capitalize = (value)=>{
     if (!value) return value;
     return value.replace(/(^|\s)\S/g, (l)=>l.toUpperCase());
 };
-/**
- * Casts value to array
- *
- * @template T - The type of the value.
- * @param value - The value to cast into an array.
- * @returns An array containing the given value.
- */ const castArray = (value)=>{
+
+
+
+
+
+
+ const castArray = (value)=>{
     return Array.isArray(value) ? value : [
         value
     ];
 };
-/**
- * Performs right-to-left function composition
- *
- * @param fns - Functions
- * @returns Composed function
- */ const compose = (...fns)=>(value, ...args)=>{
+
+
+
+
+
+ const compose = (...fns)=>(value, ...args)=>{
         let result = value;
         const reversedFns = fns.slice().reverse();
         for(let i = 0; i < reversedFns.length; i += 1){
@@ -11598,21 +11598,21 @@ const adjust = (index, fn, collection)=>{
         }
         return result;
     };
-/**
- * Drops the last element from an array.
- *
- * @template T
- * @param  array - The array to drop the last element from
- * @returns - The new array with the last element dropped
- */ const dropLast = (array)=>array.slice(0, array.length - 1);
-/**
- * Applies a set of transformations to an object and returns a new object with the transformed values.
- *
- * @template T
- * @param transformations - The transformations to apply.
- * @param object - The object to transform.
- * @returns The transformed object.
- */ function evolve(transformations, object) {
+
+
+
+
+
+
+ const dropLast = (array)=>array.slice(0, array.length - 1);
+
+
+
+
+
+
+
+ function evolve(transformations, object) {
     const result = {};
     const keys = Object.keys(object);
     for(let i = 0; i < keys.length; i += 1){
@@ -11626,21 +11626,21 @@ const adjust = (index, fn, collection)=>{
     }
     return result;
 }
-/**
- * Checks if a value is null or undefined.
- *
- * @template T - The type of the value.
- * @param value - The value to check
- * @returns True if the value is null or undefined, false otherwise
- */ const isNil = (value)=>value === null || value === undefined;
-/**
- * Retrieves the value at a given path from an object.
- *
- * @param target - The object to retrieve the value from.
- * @param path - The path of the value to retrieve.
- * @param defaultValue - The default value to return if the path does not exist.
- * @returns The value at the given path, or the default value if the path does not exist.
- */ const get = (target, path, defaultValue)=>{
+
+
+
+
+
+
+ const isNil = (value)=>value === null || value === undefined;
+
+
+
+
+
+
+
+ const get = (target, path, defaultValue)=>{
     if (isNil(target)) return defaultValue;
     const _path = castArray(path);
     let result = target;
@@ -11653,13 +11653,13 @@ const adjust = (index, fn, collection)=>{
 function last(value) {
     return value === '' ? '' : value[value.length - 1];
 }
-/**
- * Maps over the values of an object and applies a function to each value.
- *
- * @param object - The object to map over
- * @param fn - The function to apply to each value
- * @returns A new object with the mapped values
- */ const mapValues = (object, fn)=>{
+
+
+
+
+
+
+ const mapValues = (object, fn)=>{
     const entries = Object.entries(object);
     const acc = {};
     return entries.reduce((acc, [key, value], index)=>{
@@ -11668,12 +11668,12 @@ function last(value) {
     }, acc);
 };
 const isPercent = (value)=>/((-)?\d+\.?\d*)%/g.exec(`${value}`);
-/**
- * Get percentage value of input
- *
- * @param value
- * @returns Percent value (if matches)
- */ const matchPercent = (value)=>{
+
+
+
+
+
+ const matchPercent = (value)=>{
     const match = isPercent(value);
     if (match) {
         const f = parseFloat(match[1]);
@@ -11685,13 +11685,13 @@ const isPercent = (value)=>/((-)?\d+\.?\d*)%/g.exec(`${value}`);
     }
     return null;
 };
-/**
- * Creates a new object by omitting specified keys from the original object.
- *
- * @param keys - The key or keys to omit
- * @param object - The original object
- * @returns The new object without the omitted keys
- */ const omit = (keys, object)=>{
+
+
+
+
+
+
+ const omit = (keys, object)=>{
     const _keys = castArray(keys);
     const copy = Object.assign({}, object);
     _keys.forEach((key)=>{
@@ -11699,13 +11699,13 @@ const isPercent = (value)=>/((-)?\d+\.?\d*)%/g.exec(`${value}`);
     });
     return copy;
 };
-/**
- * Picks the specified keys from an object and returns a new object with only those keys.
- *
- * @param keys - The keys to pick from the object
- * @param object - The object to pick the keys from
- * @returns A new object with only the picked keys
- */ const pick = (keys, obj)=>{
+
+
+
+
+
+
+ const pick = (keys, obj)=>{
     const result = {};
     for(let i = 0; i < keys.length; i += 1){
         const key = keys[i];
@@ -11713,43 +11713,43 @@ const isPercent = (value)=>/((-)?\d+\.?\d*)%/g.exec(`${value}`);
     }
     return result;
 };
-/**
- * Repeats an element a specified number of times.
- *
- * @template T
- * @param element - Element to be repeated
- * @param length - Number of times to repeat element
- * @returns Repeated elements
- */ const repeat = (element, length = 0)=>{
+
+
+
+
+
+
+
+ const repeat = (element, length = 0)=>{
     const result = new Array(length);
     for(let i = 0; i < length; i += 1){
         result[i] = element;
     }
     return result;
 };
-/**
- * Reverses the list
- *
- * @template T
- * @param list - List to be reversed
- * @returns Reversed list
- */ const reverse = (list)=>Array.prototype.slice.call(list, 0).reverse();
-/**
- * Capitalize first letter of string
- *
- * @param value - String
- * @returns Capitalized string
- */ const upperFirst = (value)=>{
+
+
+
+
+
+
+ const reverse = (list)=>Array.prototype.slice.call(list, 0).reverse();
+
+
+
+
+
+ const upperFirst = (value)=>{
     if (!value) return value;
     return value.charAt(0).toUpperCase() + value.slice(1);
 };
-/**
- * Returns a new array with all the values from the original array that are not present in the keys array.
- *
- * @param keys - The keys to pick from the object
- * @param array - Array to filter the values from
- * @returns A new array with without the omitted values
- */ const without = (keys, array)=>{
+
+
+
+
+
+
+ const without = (keys, array)=>{
     const result = [];
     for(let i = 0; i < array.length; i += 1){
         const value = array[i];
@@ -11757,12 +11757,12 @@ const isPercent = (value)=>/((-)?\d+\.?\d*)%/g.exec(`${value}`);
     }
     return result;
 };
-/**
- * Parse a string or number to a float
- *
- * @param value - String or number
- * @returns Parsed float
- */ const parseFloat$1 = (value)=>{
+
+
+
+
+
+ const parseFloat$1 = (value)=>{
     return typeof value === 'string' ? Number.parseFloat(value) : value;
 };
 ;
@@ -11770,12 +11770,12 @@ const isPercent = (value)=>/((-)?\d+\.?\d*)%/g.exec(`${value}`);
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/abs-svg-path/index.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 module.exports = absolutize;
-/**
- * redefine `path` with absolute coordinates
- *
- * @param {Array} path
- * @return {Array}
- */ function absolutize(path) {
+
+
+
+
+
+ function absolutize(path) {
     var startX = 0;
     var startY = 0;
     var x = 0;
@@ -11784,7 +11784,7 @@ module.exports = absolutize;
         seg = seg.slice();
         var type = seg[0];
         var command = type.toUpperCase();
-        // is relative
+        
         if (type != command) {
             seg[0] = command;
             switch(type){
@@ -11805,7 +11805,7 @@ module.exports = absolutize;
                     }
             }
         }
-        // update cursor state
+        
         switch(command){
             case 'Z':
                 x = startX;
@@ -11832,10 +11832,10 @@ module.exports = absolutize;
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/parse-svg-path/index.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 module.exports = parse;
-/**
- * expected argument lengths
- * @type {Object}
- */ var length = {
+
+
+
+ var length = {
     a: 7,
     c: 6,
     h: 1,
@@ -11847,23 +11847,23 @@ module.exports = parse;
     v: 1,
     z: 0
 };
-/**
- * segment pattern
- * @type {RegExp}
- */ var segment = /([astvzqmhlc])([^astvzqmhlc]*)/ig;
-/**
- * parse an svg path data string. Generates an Array
- * of commands where each command is an Array of the
- * form `[command, arg1, arg2, ...]`
- *
- * @param {String} path
- * @return {Array}
- */ function parse(path) {
+
+
+
+ var segment = /([astvzqmhlc])([^astvzqmhlc]*)/ig;
+
+
+
+
+
+
+
+ function parse(path) {
     var data = [];
     path.replace(segment, function(_, command, args) {
         var type = command.toLowerCase();
         args = parseValues(args);
-        // overloaded moveTo
+        
         if (type == 'm' && args.length > 2) {
             data.push([
                 command
@@ -11943,8 +11943,8 @@ var mapToEllipse = function mapToEllipse(_ref, rx, ry, cosphi, sinphi, centerx, 
     };
 };
 var approxUnitArc = function approxUnitArc(ang1, ang2) {
-    // If 90 degree circular arc, use a constant
-    // as derived from http://spencermortensen.com/articles/bezier-circle
+    
+    
     var a = ang2 === 1.5707963267948966 ? 0.551915024494 : ang2 === -1.5707963267948966 ? -0.551915024494 : 4 / 3 * Math.tan(ang2 / 4);
     var x1 = Math.cos(ang1);
     var y1 = Math.sin(ang1);
@@ -12031,10 +12031,10 @@ var arcToBezier = function arcToBezier(_ref2) {
         ry *= Math.sqrt(lambda);
     }
     var _getArcCenter = getArcCenter(px, py, cx, cy, rx, ry, largeArcFlag, sweepFlag, sinphi, cosphi, pxp, pyp), _getArcCenter2 = _slicedToArray(_getArcCenter, 4), centerx = _getArcCenter2[0], centery = _getArcCenter2[1], ang1 = _getArcCenter2[2], ang2 = _getArcCenter2[3];
-    // If 'ang2' == 90.0000000001, then `ratio` will evaluate to
-    // 1.0000000001. This causes `segments` to be greater than one, which is an
-    // unecessary split, and adds extra points to the bezier curve. To alleviate
-    // this issue, we round to 1.0 when the ratio is close to 1.0.
+    
+    
+    
+    
     var ratio = Math.abs(ang2) / (TAU / 4);
     if (Math.abs(1.0 - ratio) < 0.0000001) {
         ratio = 1.0;
@@ -12071,7 +12071,7 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$svg$2d$arc$2d$to$2d$cubic$2d$bezier$2f$modules$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/svg-arc-to-cubic-bezier/modules/index.js [app-client] (ecmascript)");
 ;
 function normalize(path) {
-    // init state
+    
     var prev;
     var result = [];
     var bezierX = 0;
@@ -12102,7 +12102,7 @@ function normalize(path) {
                     largeArcFlag: seg[4],
                     sweepFlag: seg[5]
                 });
-                // null-curves
+                
                 if (!curves.length) continue;
                 for(var j = 0, c; j < curves.length; j++){
                     c = curves[j];
@@ -12119,12 +12119,12 @@ function normalize(path) {
                 }
                 break;
             case 'S':
-                // default control point
+                
                 var cx = x;
                 var cy = y;
                 if (prev == 'C' || prev == 'S') {
-                    cx += cx - bezierX; // reflect the previous command's control
-                    cy += cy - bezierY; // point relative to the current point
+                    cx += cx - bezierX; 
+                    cy += cy - bezierY; 
                 }
                 seg = [
                     'C',
@@ -12138,7 +12138,7 @@ function normalize(path) {
                 break;
             case 'T':
                 if (prev == 'Q' || prev == 'T') {
-                    quadX = x * 2 - quadX; // as with 'S' reflect previous control point
+                    quadX = x * 2 - quadX; 
                     quadY = y * 2 - quadY;
                 } else {
                     quadX = x;
@@ -12164,7 +12164,7 @@ function normalize(path) {
                 seg = line(x, y, startX, startY);
                 break;
         }
-        // update state
+        
         prev = command;
         x = seg[seg.length - 2];
         y = seg[seg.length - 1];
@@ -12968,7 +12968,7 @@ var swizzle = module.exports = function swizzle(args) {
     for(var i = 0, len = args.length; i < len; i++){
         var arg = args[i];
         if (isArrayish(arg)) {
-            // http://jsperf.com/javascript-array-concat-vs-push/98
+            
             results = concat.call(results, slice.call(arg));
         } else {
             results.push(arg);
@@ -12984,11 +12984,11 @@ swizzle.wrap = function(fn) {
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/color-string/index.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-/* MIT license */ var colorNames = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/color-name/index.js [app-client] (ecmascript)");
+ var colorNames = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/color-name/index.js [app-client] (ecmascript)");
 var swizzle = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/simple-swizzle/index.js [app-client] (ecmascript)");
 var hasOwnProperty = Object.hasOwnProperty;
 var reverseNames = Object.create(null);
-// create a list of reverse color names
+
 for(var name in colorNames){
     if (hasOwnProperty.call(colorNames, name)) {
         reverseNames[colorNames[name]] = name;
@@ -13046,7 +13046,7 @@ cs.get.rgb = function(string) {
         hexAlpha = match[2];
         match = match[1];
         for(i = 0; i < 3; i++){
-            // https://jsperf.com/slice-vs-substr-vs-substring-methods-long-string/19
+            
             var i2 = i * 2;
             rgb[i] = parseInt(match.slice(i2, i2 + 2), 16);
         }
@@ -13169,8 +13169,8 @@ cs.to.hsl = function() {
     var hsla = swizzle(arguments);
     return hsla.length < 4 || hsla[3] === 1 ? 'hsl(' + hsla[0] + ', ' + hsla[1] + '%, ' + hsla[2] + '%)' : 'hsla(' + hsla[0] + ', ' + hsla[1] + '%, ' + hsla[2] + '%, ' + hsla[3] + ')';
 };
-// hwb is a bit different than rgb(a) & hsl(a) since there is no alpha specific syntax
-// (hwb have alpha optional & 1 is default value)
+
+
 cs.to.hwb = function() {
     var hwba = swizzle(arguments);
     var a = '';
@@ -13182,7 +13182,7 @@ cs.to.hwb = function() {
 cs.to.keyword = function(rgb) {
     return reverseNames[rgb.slice(0, 3)];
 };
-// helpers
+
 function clamp(num, min, max) {
     return Math.min(Math.max(min, num), max);
 }
@@ -13249,7 +13249,7 @@ const renderLine$1 = (ctx, node)=>{
     ctx.lineTo(x2, y2);
 };
 const renderGroup = ()=>{
-// noop
+
 };
 const KAPPA$2 = 4.0 * ((Math.sqrt(2) - 1.0) / 3.0);
 const drawEllipse = (ctx, rx, ry, cx = 0, cy = 0)=>{
@@ -13278,7 +13278,7 @@ const renderCircle = (ctx, node)=>{
     const r = node.props?.r;
     drawEllipse(ctx, r, r, cx, cy);
 };
-/* eslint-disable no-return-assign */ const number = (n)=>{
+ const number = (n)=>{
     if (n > -1e21 && n < 1e21) {
         return Math.round(n * 1e6) / 1e6;
     }
@@ -13291,20 +13291,20 @@ const _renderGlyphs = (ctx, encoded, positions, x, y)=>{
     let last = 0;
     let hadOffset = false;
     ctx.save();
-    // flip coordinate system
+    
     ctx.transform(1, 0, 0, -1, 0, ctx.page.height);
     y = ctx.page.height - y;
-    // add current font to page if necessary
+    
     if (ctx.page.fonts[ctx._font.id] == null) {
         ctx.page.fonts[ctx._font.id] = ctx._font.ref();
     }
-    // begin the text object
+    
     ctx.addContent('BT');
-    // text position
+    
     ctx.addContent(`1 0 0 1 ${number(x)} ${number(y)} Tm`);
-    // font and font size
+    
     ctx.addContent(`/${ctx._font.id} ${number(ctx._fontSize)} Tf`);
-    // Adds a segment of text to the TJ command buffer
+    
     const addSegment = (cur)=>{
         if (last < cur) {
             const hex = encoded.slice(last, cur).join('');
@@ -13313,7 +13313,7 @@ const _renderGlyphs = (ctx, encoded, positions, x, y)=>{
         }
         return last = cur;
     };
-    // Flushes the current TJ commands to the output stream
+    
     const flush = (s)=>{
         addSegment(s);
         if (commands.length > 0) {
@@ -13322,41 +13322,41 @@ const _renderGlyphs = (ctx, encoded, positions, x, y)=>{
         }
     };
     for(i = 0; i < positions.length; i += 1){
-        // If we have an x or y offset, we have to break out of the current TJ command
-        // so we can move the text position.
+        
+        
         const pos = positions[i];
         if (pos.xOffset || pos.yOffset) {
-            // Flush the current buffer
+            
             flush(i);
-            // Move the text position and flush just the current character
+            
             ctx.addContent(`1 0 0 1 ${number(x + pos.xOffset * scale)} ${number(y + pos.yOffset * scale)} Tm`);
             flush(i + 1);
             hadOffset = true;
         } else {
-            // If the last character had an offset, reset the text position
+            
             if (hadOffset) {
                 ctx.addContent(`1 0 0 1 ${number(x)} ${number(y)} Tm`);
                 hadOffset = false;
             }
-            // Group segments that don't have any advance adjustments
+            
             if (pos.xAdvance - pos.advanceWidth !== 0) {
                 addSegment(i + 1);
             }
         }
         x += pos.xAdvance * scale;
     }
-    // Flush any remaining commands
+    
     flush(i);
-    // end the text object
+    
     ctx.addContent('ET');
-    // restore flipped coordinate system
+    
     return ctx.restore();
 };
 const renderGlyphs = (ctx, glyphs, positions, x, y)=>{
     const scale = 1000 / ctx._fontSize;
     const unitsPerEm = ctx._font.font.unitsPerEm || 1000;
     const advanceWidthScale = 1000 / unitsPerEm;
-    // Glyph encoding and positioning
+    
     const encodedGlyphs = ctx._font.encodeGlyphs(glyphs);
     const encodedPositions = positions.map((pos, i)=>({
             xAdvance: pos.xAdvance * scale,
@@ -13449,12 +13449,12 @@ const pairs = (values)=>{
     }
     return result;
 };
-/**
- * Parse svg-like points into number arrays
- *
- * @param points string ex. "20,30 50,60"
- * @returns points array ex. [[20, 30], [50, 60]]
- */ const parsePoints = (points)=>{
+
+
+
+
+
+ const parsePoints = (points)=>{
     let values = (points || '').trim().replace(/,/g, ' ').replace(/(\d)-(\d)/g, '$1 -$2').split(/\s+/);
     if (values.length % 2 !== 0) {
         values = values.slice(0, -1);
@@ -13499,35 +13499,35 @@ const renderImage$1 = (ctx, node)=>{
     });
     ctx.restore();
 };
-// This constant is used to approximate a symmetrical arc using a cubic
-// Bezier curve.
+
+
 const KAPPA$1 = 4.0 * ((Math.sqrt(2) - 1.0) / 3.0);
 const clipNode = (ctx, node)=>{
     if (!node.box) return;
     if (!node.style) return;
     const { top, left, width, height } = node.box;
     const { borderTopLeftRadius = 0, borderTopRightRadius = 0, borderBottomRightRadius = 0, borderBottomLeftRadius = 0 } = node.style;
-    // Border top
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
+    
     const rtr = Math.min(borderTopRightRadius, 0.5 * width, 0.5 * height);
     const ctr = rtr * (1.0 - KAPPA$1);
     ctx.moveTo(left + rtr, top);
     ctx.lineTo(left + width - rtr, top);
     ctx.bezierCurveTo(left + width - ctr, top, left + width, top + ctr, left + width, top + rtr);
-    // Border right
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
+    
     const rbr = Math.min(borderBottomRightRadius, 0.5 * width, 0.5 * height);
     const cbr = rbr * (1.0 - KAPPA$1);
     ctx.lineTo(left + width, top + height - rbr);
     ctx.bezierCurveTo(left + width, top + height - cbr, left + width - cbr, top + height, left + width - rbr, top + height);
-    // Border bottom
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
+    
     const rbl = Math.min(borderBottomLeftRadius, 0.5 * width, 0.5 * height);
     const cbl = rbl * (1.0 - KAPPA$1);
     ctx.lineTo(left + rbl, top + height);
     ctx.bezierCurveTo(left + cbl, top + height, left, top + height - cbl, left, top + height - rbl);
-    // Border left
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
+    
     const rtl = Math.min(borderTopLeftRadius, 0.5 * width, 0.5 * height);
     const ctl = rtl * (1.0 - KAPPA$1);
     ctx.lineTo(left, top + rtl);
@@ -13605,7 +13605,7 @@ const applyTransformations = (ctx, node)=>{
         applySingleTransformation(ctx, operation, origin);
     });
 };
-// From https://github.com/dy/svg-path-bounds/blob/master/index.js
+
 const getPathBoundingBox = (node)=>{
     const path = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$normalize$2d$svg$2d$path$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$abs$2d$svg$2d$path$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$parse$2d$svg$2d$path$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(node.props?.d || '')));
     if (!path.length) return [
@@ -13755,7 +13755,7 @@ const setLineDash = (ctx, node)=>{
     if (!node.props) return;
     if (!('strokeDasharray' in node.props)) return;
     const value = node.props?.strokeDasharray || null;
-    // @ts-expect-error check this works as expected
+    
     if (value) ctx.dash(value.split(/[\s,]+/).map(Number));
 };
 const hasLinearGradientFill = (node)=>{
@@ -13884,7 +13884,7 @@ const transformGradient = (grad, transforms, bbox, units)=>{
     ]);
     grad.setTransform(...matrix);
 };
-// Math simplified from https://github.com/devongovett/svgkit/blob/master/src/elements/SVGGradient.js#L104
+
 const setLinearGradientFill = (ctx, node)=>{
     if (!node.props) return;
     if (!('fill' in node.props)) return;
@@ -13914,7 +13914,7 @@ const setLinearGradientFill = (ctx, node)=>{
     });
     ctx.fill(grad);
 };
-// Math simplified from https://github.com/devongovett/svgkit/blob/master/src/elements/SVGGradient.js#L155
+
 const setRadialGradientFill = (ctx, node)=>{
     if (!node.props) return;
     if (!('fill' in node.props)) return;
@@ -14101,7 +14101,7 @@ const black = {
     value: '#000',
     opacity: 1
 };
-// TODO: parse to number[] in layout to avoid this step
+
 const parseColor = (hex)=>{
     if (!hex) return black;
     const parsed = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$color$2d$string$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get(hex);
@@ -14167,7 +14167,7 @@ const renderRun = (ctx, run)=>{
             ctx.link(0, -height - descent, xAdvance, height, link);
         }
     }
-    // Copy glyphs to avoid mutating the original array
+    
     const glyphs = [
         ...run.glyphs
     ];
@@ -14201,7 +14201,7 @@ const renderDecorationLine = (ctx, decorationLine)=>{
         const dist = Math.max(2, decorationLine.rect.height);
         let step = 1.1 * dist;
         const stepCount = Math.floor(decorationLine.rect.width / (2 * step));
-        // Adjust step to fill entire width
+        
         const remainingWidth = decorationLine.rect.width - stepCount * 2 * step;
         const adjustment = remainingWidth / stepCount / 2;
         step += adjustment;
@@ -14460,7 +14460,7 @@ const renderImage = (ctx, node, options)=>{
 const CONTENT_COLOR = '#a1c6e7';
 const PADDING_COLOR = '#c4deb9';
 const MARGIN_COLOR = '#f8cca1';
-// TODO: Draw debug boxes using clipping to enhance quality
+
 const debugContent = (ctx, node)=>{
     if (!node.box) return;
     const { left, top, width, height, paddingLeft = 0, paddingTop = 0, paddingRight = 0, paddingBottom = 0, borderLeftWidth = 0, borderTopWidth = 0, borderRightWidth = 0, borderBottomWidth = 0 } = node.box;
@@ -14470,13 +14470,13 @@ const debugPadding = (ctx, node)=>{
     if (!node.box) return;
     const { left, top, width, height, paddingLeft = 0, paddingTop = 0, paddingRight = 0, paddingBottom = 0, borderLeftWidth = 0, borderTopWidth = 0, borderRightWidth = 0, borderBottomWidth = 0 } = node.box;
     ctx.fillColor(PADDING_COLOR).opacity(0.5);
-    // Padding top
+    
     ctx.rect(left + paddingLeft + borderLeftWidth, top + borderTopWidth, width - paddingRight - paddingLeft - borderLeftWidth - borderRightWidth, paddingTop).fill();
-    // Padding left
+    
     ctx.rect(left + borderLeftWidth, top + borderTopWidth, paddingLeft, height - borderTopWidth - borderBottomWidth).fill();
-    // Padding right
+    
     ctx.rect(left + width - paddingRight - borderRightWidth, top + borderTopWidth, paddingRight, height - borderTopWidth - borderBottomWidth).fill();
-    // Padding bottom
+    
     ctx.rect(left + paddingLeft + borderLeftWidth, top + height - paddingBottom - borderBottomWidth, width - paddingRight - paddingLeft - borderLeftWidth - borderRightWidth, paddingBottom).fill();
 };
 const debugMargin = (ctx, node)=>{
@@ -14484,13 +14484,13 @@ const debugMargin = (ctx, node)=>{
     const { left, top, width, height } = node.box;
     const { marginLeft = 0, marginTop = 0, marginRight = 0, marginBottom = 0 } = node.box;
     ctx.fillColor(MARGIN_COLOR).opacity(0.5);
-    // Margin top
+    
     ctx.rect(left, top - marginTop, width, marginTop).fill();
-    // Margin left
+    
     ctx.rect(left - marginLeft, top - marginTop, marginLeft, height + marginTop + marginBottom).fill();
-    // Margin right
+    
     ctx.rect(left + width, top - marginTop, marginRight, height + marginTop + marginBottom).fill();
-    // Margin bottom
+    
     ctx.rect(left, top + height, width, marginBottom).fill();
 };
 const debugText = (ctx, node)=>{
@@ -14559,7 +14559,7 @@ const painter = (ctx)=>{
     const p = availableMethods.reduce((acc, prop)=>({
             ...acc,
             [prop]: (...args)=>{
-                // @ts-expect-error ctx[prop] is a function
+                
                 ctx[prop](...args);
                 return p;
             }
@@ -14584,51 +14584,51 @@ const renderCanvas = (ctx, node)=>{
     }
     ctx.restore();
 };
-// Ref: https://www.w3.org/TR/css-backgrounds-3/#borders
-// This constant is used to approximate a symmetrical arc using a cubic Bezier curve.
+
+
 const KAPPA = 4.0 * ((Math.sqrt(2) - 1.0) / 3.0);
 const clipBorderTop = (ctx, layout, style, rtr, rtl)=>{
     const { top, left, width, height } = layout;
     const { borderTopWidth, borderRightWidth, borderLeftWidth } = style;
-    // Clip outer top border edge
+    
     ctx.moveTo(left + rtl, top);
     ctx.lineTo(left + width - rtr, top);
-    // Ellipse coefficients outer top right cap
+    
     const c0 = rtr * (1.0 - KAPPA);
-    // Clip outer top right cap
+    
     ctx.bezierCurveTo(left + width - c0, top, left + width, top + c0, left + width, top + rtr);
-    // Move down in case the margin exceedes the radius
+    
     const topRightYCoord = top + Math.max(borderTopWidth, rtr);
     ctx.lineTo(left + width, topRightYCoord);
-    // Clip inner top right cap
+    
     ctx.lineTo(left + width - borderRightWidth, topRightYCoord);
-    // Ellipse coefficients inner top right cap
+    
     const innerTopRightRadiusX = Math.max(rtr - borderRightWidth, 0);
     const innerTopRightRadiusY = Math.max(rtr - borderTopWidth, 0);
     const c1 = innerTopRightRadiusX * (1.0 - KAPPA);
     const c2 = innerTopRightRadiusY * (1.0 - KAPPA);
-    // Clip inner top right cap
+    
     ctx.bezierCurveTo(left + width - borderRightWidth, top + borderTopWidth + c2, left + width - borderRightWidth - c1, top + borderTopWidth, left + width - borderRightWidth - innerTopRightRadiusX, top + borderTopWidth);
-    // Clip inner top border edge
+    
     ctx.lineTo(left + Math.max(rtl, borderLeftWidth), top + borderTopWidth);
-    // Ellipse coefficients inner top left cap
+    
     const innerTopLeftRadiusX = Math.max(rtl - borderLeftWidth, 0);
     const innerTopLeftRadiusY = Math.max(rtl - borderTopWidth, 0);
     const c3 = innerTopLeftRadiusX * (1.0 - KAPPA);
     const c4 = innerTopLeftRadiusY * (1.0 - KAPPA);
     const topLeftYCoord = top + Math.max(borderTopWidth, rtl);
-    // Clip inner top left cap
+    
     ctx.bezierCurveTo(left + borderLeftWidth + c3, top + borderTopWidth, left + borderLeftWidth, top + borderTopWidth + c4, left + borderLeftWidth, topLeftYCoord);
     ctx.lineTo(left, topLeftYCoord);
-    // Move down in case the margin exceedes the radius
+    
     ctx.lineTo(left, top + rtl);
-    // Ellipse coefficients outer top left cap
+    
     const c5 = rtl * (1.0 - KAPPA);
-    // Clip outer top left cap
+    
     ctx.bezierCurveTo(left, top + c5, left + c5, top, left + rtl, top);
     ctx.closePath();
     ctx.clip();
-    // Clip border top cap joins
+    
     if (borderRightWidth) {
         const trSlope = -borderTopWidth / borderRightWidth;
         ctx.moveTo(left + width / 2, trSlope * (-width / 2) + top);
@@ -14674,45 +14674,45 @@ const fillBorderTop = (ctx, layout, style, rtr, rtl)=>{
 const clipBorderRight = (ctx, layout, style, rtr, rbr)=>{
     const { top, left, width, height } = layout;
     const { borderTopWidth, borderRightWidth, borderBottomWidth } = style;
-    // Clip outer right border edge
+    
     ctx.moveTo(left + width, top + rtr);
     ctx.lineTo(left + width, top + height - rbr);
-    // Ellipse coefficients outer bottom right cap
+    
     const c0 = rbr * (1.0 - KAPPA);
-    // Clip outer top right cap
+    
     ctx.bezierCurveTo(left + width, top + height - c0, left + width - c0, top + height, left + width - rbr, top + height);
-    // Move left in case the margin exceedes the radius
+    
     const topBottomXCoord = left + width - Math.max(borderRightWidth, rbr);
     ctx.lineTo(topBottomXCoord, top + height);
-    // Clip inner bottom right cap
+    
     ctx.lineTo(topBottomXCoord, top + height - borderBottomWidth);
-    // Ellipse coefficients inner bottom right cap
+    
     const innerBottomRightRadiusX = Math.max(rbr - borderRightWidth, 0);
     const innerBottomRightRadiusY = Math.max(rbr - borderBottomWidth, 0);
     const c1 = innerBottomRightRadiusX * (1.0 - KAPPA);
     const c2 = innerBottomRightRadiusY * (1.0 - KAPPA);
-    // Clip inner top right cap
+    
     ctx.bezierCurveTo(left + width - borderRightWidth - c1, top + height - borderBottomWidth, left + width - borderRightWidth, top + height - borderBottomWidth - c2, left + width - borderRightWidth, top + height - Math.max(rbr, borderBottomWidth));
-    // Clip inner right border edge
+    
     ctx.lineTo(left + width - borderRightWidth, top + Math.max(rtr, borderTopWidth));
-    // Ellipse coefficients inner top right cap
+    
     const innerTopRightRadiusX = Math.max(rtr - borderRightWidth, 0);
     const innerTopRightRadiusY = Math.max(rtr - borderTopWidth, 0);
     const c3 = innerTopRightRadiusX * (1.0 - KAPPA);
     const c4 = innerTopRightRadiusY * (1.0 - KAPPA);
     const topRightXCoord = left + width - Math.max(rtr, borderRightWidth);
-    // Clip inner top left cap
+    
     ctx.bezierCurveTo(left + width - borderRightWidth, top + borderTopWidth + c4, left + width - borderRightWidth - c3, top + borderTopWidth, topRightXCoord, top + borderTopWidth);
     ctx.lineTo(topRightXCoord, top);
-    // Move right in case the margin exceedes the radius
+    
     ctx.lineTo(left + width - rtr, top);
-    // Ellipse coefficients outer top right cap
+    
     const c5 = rtr * (1.0 - KAPPA);
-    // Clip outer top right cap
+    
     ctx.bezierCurveTo(left + width - c5, top, left + width, top + c5, left + width, top + rtr);
     ctx.closePath();
     ctx.clip();
-    // Clip border right cap joins
+    
     if (borderTopWidth) {
         const trSlope = -borderTopWidth / borderRightWidth;
         ctx.moveTo(left + width / 2, trSlope * (-width / 2) + top);
@@ -14758,45 +14758,45 @@ const fillBorderRight = (ctx, layout, style, rtr, rbr)=>{
 const clipBorderBottom = (ctx, layout, style, rbl, rbr)=>{
     const { top, left, width, height } = layout;
     const { borderBottomWidth, borderRightWidth, borderLeftWidth } = style;
-    // Clip outer top border edge
+    
     ctx.moveTo(left + width - rbr, top + height);
     ctx.lineTo(left + rbl, top + height);
-    // Ellipse coefficients outer top right cap
+    
     const c0 = rbl * (1.0 - KAPPA);
-    // Clip outer top right cap
+    
     ctx.bezierCurveTo(left + c0, top + height, left, top + height - c0, left, top + height - rbl);
-    // Move up in case the margin exceedes the radius
+    
     const bottomLeftYCoord = top + height - Math.max(borderBottomWidth, rbl);
     ctx.lineTo(left, bottomLeftYCoord);
-    // Clip inner bottom left cap
+    
     ctx.lineTo(left + borderLeftWidth, bottomLeftYCoord);
-    // Ellipse coefficients inner top right cap
+    
     const innerBottomLeftRadiusX = Math.max(rbl - borderLeftWidth, 0);
     const innerBottomLeftRadiusY = Math.max(rbl - borderBottomWidth, 0);
     const c1 = innerBottomLeftRadiusX * (1.0 - KAPPA);
     const c2 = innerBottomLeftRadiusY * (1.0 - KAPPA);
-    // Clip inner bottom left cap
+    
     ctx.bezierCurveTo(left + borderLeftWidth, top + height - borderBottomWidth - c2, left + borderLeftWidth + c1, top + height - borderBottomWidth, left + borderLeftWidth + innerBottomLeftRadiusX, top + height - borderBottomWidth);
-    // Clip inner bottom border edge
+    
     ctx.lineTo(left + width - Math.max(rbr, borderRightWidth), top + height - borderBottomWidth);
-    // Ellipse coefficients inner top left cap
+    
     const innerBottomRightRadiusX = Math.max(rbr - borderRightWidth, 0);
     const innerBottomRightRadiusY = Math.max(rbr - borderBottomWidth, 0);
     const c3 = innerBottomRightRadiusX * (1.0 - KAPPA);
     const c4 = innerBottomRightRadiusY * (1.0 - KAPPA);
     const bottomRightYCoord = top + height - Math.max(borderBottomWidth, rbr);
-    // Clip inner top left cap
+    
     ctx.bezierCurveTo(left + width - borderRightWidth - c3, top + height - borderBottomWidth, left + width - borderRightWidth, top + height - borderBottomWidth - c4, left + width - borderRightWidth, bottomRightYCoord);
     ctx.lineTo(left + width, bottomRightYCoord);
-    // Move down in case the margin exceedes the radius
+    
     ctx.lineTo(left + width, top + height - rbr);
-    // Ellipse coefficients outer top left cap
+    
     const c5 = rbr * (1.0 - KAPPA);
-    // Clip outer top left cap
+    
     ctx.bezierCurveTo(left + width, top + height - c5, left + width - c5, top + height, left + width - rbr, top + height);
     ctx.closePath();
     ctx.clip();
-    // Clip border bottom cap joins
+    
     if (borderRightWidth) {
         const brSlope = borderBottomWidth / borderRightWidth;
         ctx.moveTo(left + width / 2, brSlope * (-width / 2) + top + height);
@@ -14842,45 +14842,45 @@ const fillBorderBottom = (ctx, layout, style, rbl, rbr)=>{
 const clipBorderLeft = (ctx, layout, style, rbl, rtl)=>{
     const { top, left, width, height } = layout;
     const { borderTopWidth, borderLeftWidth, borderBottomWidth } = style;
-    // Clip outer left border edge
+    
     ctx.moveTo(left, top + height - rbl);
     ctx.lineTo(left, top + rtl);
-    // Ellipse coefficients outer top left cap
+    
     const c0 = rtl * (1.0 - KAPPA);
-    // Clip outer top left cap
+    
     ctx.bezierCurveTo(left, top + c0, left + c0, top, left + rtl, top);
-    // Move right in case the margin exceedes the radius
+    
     const topLeftCoordX = left + Math.max(borderLeftWidth, rtl);
     ctx.lineTo(topLeftCoordX, top);
-    // Clip inner top left cap
+    
     ctx.lineTo(topLeftCoordX, top + borderTopWidth);
-    // Ellipse coefficients inner top left cap
+    
     const innerTopLeftRadiusX = Math.max(rtl - borderLeftWidth, 0);
     const innerTopLeftRadiusY = Math.max(rtl - borderTopWidth, 0);
     const c1 = innerTopLeftRadiusX * (1.0 - KAPPA);
     const c2 = innerTopLeftRadiusY * (1.0 - KAPPA);
-    // Clip inner top right cap
+    
     ctx.bezierCurveTo(left + borderLeftWidth + c1, top + borderTopWidth, left + borderLeftWidth, top + borderTopWidth + c2, left + borderLeftWidth, top + Math.max(rtl, borderTopWidth));
-    // Clip inner left border edge
+    
     ctx.lineTo(left + borderLeftWidth, top + height - Math.max(rbl, borderBottomWidth));
-    // Ellipse coefficients inner bottom left cap
+    
     const innerBottomLeftRadiusX = Math.max(rbl - borderLeftWidth, 0);
     const innerBottomLeftRadiusY = Math.max(rbl - borderBottomWidth, 0);
     const c3 = innerBottomLeftRadiusX * (1.0 - KAPPA);
     const c4 = innerBottomLeftRadiusY * (1.0 - KAPPA);
     const bottomLeftXCoord = left + Math.max(rbl, borderLeftWidth);
-    // Clip inner top left cap
+    
     ctx.bezierCurveTo(left + borderLeftWidth, top + height - borderBottomWidth - c4, left + borderLeftWidth + c3, top + height - borderBottomWidth, bottomLeftXCoord, top + height - borderBottomWidth);
     ctx.lineTo(bottomLeftXCoord, top + height);
-    // Move left in case the margin exceedes the radius
+    
     ctx.lineTo(left + rbl, top + height);
-    // Ellipse coefficients outer top right cap
+    
     const c5 = rbl * (1.0 - KAPPA);
-    // Clip outer top right cap
+    
     ctx.bezierCurveTo(left + c5, top + height, left, top + height - c5, left, top + height - rbl);
     ctx.closePath();
     ctx.clip();
-    // Clip border right cap joins
+    
     if (borderBottomWidth) {
         const trSlope = -borderBottomWidth / borderLeftWidth;
         ctx.moveTo(left + width / 2, trSlope * (width / 2) + top + height);
@@ -14929,13 +14929,13 @@ const renderBorders = (ctx, node)=>{
     if (!shouldRenderBorders(node)) return;
     const { width, height, borderTopWidth = 0, borderLeftWidth = 0, borderRightWidth = 0, borderBottomWidth = 0 } = node.box;
     const { opacity = 1, borderTopColor = 'black', borderTopStyle = 'solid', borderLeftColor = 'black', borderLeftStyle = 'solid', borderRightColor = 'black', borderRightStyle = 'solid', borderBottomColor = 'black', borderBottomStyle = 'solid' } = node.style;
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
     const borderTopLeftRadius = node.style.borderTopLeftRadius || 0;
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
     const borderTopRightRadius = node.style.borderTopRightRadius || 0;
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
     const borderBottomLeftRadius = node.style.borderBottomLeftRadius || 0;
-    // @ts-expect-error this is always a number due to resolve border radius step
+    
     const borderBottomRightRadius = node.style.borderBottomRightRadius || 0;
     const style = {
         borderTopColor,
@@ -15026,7 +15026,7 @@ const clean = (options)=>{
     const opt = {
         ...options
     };
-    // We need to ensure the elements are no present if not true
+    
     Object.entries(opt).forEach((pair)=>{
         if (!pair[1]) {
             delete opt[pair[0]];
@@ -15035,7 +15035,7 @@ const clean = (options)=>{
     return opt;
 };
 const parseCommonFormOptions = (node)=>{
-    // Common Options
+    
     return {
         required: node.props?.required || false,
         noExport: node.props?.noExport || false,
@@ -15132,7 +15132,7 @@ const parseCheckboxOptions = (ctx, node, fieldSet)=>{
 const renderTextInput = (ctx, node, options)=>{
     if (!node.box) return;
     const { top, left, width, height } = node.box;
-    // Element's name
+    
     const name = node.props?.name || '';
     const fieldSetOptions = options.fieldSets?.at(0);
     if (!ctx._root.data.AcroForm) {
@@ -15143,7 +15143,7 @@ const renderTextInput = (ctx, node, options)=>{
 const renderSelect = (ctx, node)=>{
     if (!node.box) return;
     const { top, left, width, height } = node.box;
-    // Element's name
+    
     const name = node.props?.name || '';
     if (!ctx._root.data.AcroForm) {
         ctx.initForm();
@@ -15171,7 +15171,7 @@ const cleanUpFieldSet = (_ctx, _node, options)=>{
 const renderList = (ctx, node)=>{
     if (!node.box) return;
     const { top, left, width, height } = node.box || {};
-    // Element's name
+    
     const name = 'name' in node.props ? node.props.name || '' : '';
     if (!ctx._root.data.AcroForm) {
         ctx.initForm();
@@ -15181,7 +15181,7 @@ const renderList = (ctx, node)=>{
 const renderCheckbox = (ctx, node, options)=>{
     if (!node.box) return;
     const { top, left, width, height } = node.box;
-    // Element's name
+    
     const name = node.props?.name || '';
     const fieldSetOptions = options.fieldSets?.at(0);
     if (!ctx._root.data.AcroForm) {
@@ -15493,11 +15493,11 @@ module.exports = function(queries, options) {
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/hsl-to-rgb-for-reals/converter.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-// expected hue range: [0, 360)
-// expected saturation range: [0, 1]
-// expected lightness range: [0, 1]
+
+
+
 var hslToRgb = function(hue, saturation, lightness) {
-    // based on algorithm from http://en.wikipedia.org/wiki/HSL_and_HSV#Converting_to_RGB
+    
     if (hue == undefined) {
         return [
             0,
@@ -15551,13 +15551,13 @@ module.exports = hslToRgb;
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/hsl-to-hex/index.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-// In our case, there's only one dependency
+
 var toRgb = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/hsl-to-rgb-for-reals/converter.js [app-client] (ecmascript)");
-// Typically all dependencies should be declared at the top of the file.
-// Now let's define an API for our module, we're taking hue, saturation and luminosity values and outputting a CSS compatible hex string.
-// Hue is in degrees, between 0 and 359. Since degrees a cyclical in nature, we'll support numbers greater than 359 or less than 0 by "spinning" them around until they fall within the 0 to 359 range.
-// Saturation and luminosity are both percentages, we'll represent these percentages with whole numbers between 0 and 100. For these numbers we'll need to enforce a maximum and a minimum, anything below 0 will become 0, anything above 100 will become 100.
-// Let's write some utility functions to handle this logic:
+
+
+
+
+
 function max(val, n) {
     return val > n ? n : val;
 }
@@ -15565,10 +15565,10 @@ function min(val, n) {
     return val < n ? n : val;
 }
 function cycle(val) {
-    // for safety:
+    
     val = max(val, 1e7);
     val = min(val, -1e7);
-    // cycle value:
+    
     while(val < 0){
         val += 360;
     }
@@ -15577,26 +15577,26 @@ function cycle(val) {
     }
     return val;
 }
-// Now for the main piece, the `hsl` function:
+
 function hsl(hue, saturation, luminosity) {
-    // resolve degrees to 0 - 359 range
+    
     hue = cycle(hue);
-    // enforce constraints
+    
     saturation = min(max(saturation, 100), 0);
     luminosity = min(max(luminosity, 100), 0);
-    // convert to 0 to 1 range used by hsl-to-rgb-for-reals
+    
     saturation /= 100;
     luminosity /= 100;
-    // let hsl-to-rgb-for-reals do the hard work
+    
     var rgb = toRgb(hue, saturation, luminosity);
-    // convert each value in the returned RGB array
-    // to a 2 character hex value, join the array into
-    // a string, prefixed with a hash
+    
+    
+    
     return '#' + rgb.map(function(n) {
         return (256 + n).toString(16).substr(-2);
     }).join('');
 }
-// In order to make our code into a bona fide module we have to export it:
+
 module.exports = hsl;
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/postcss-value-parser/lib/parse.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
@@ -22378,15 +22378,15 @@ const resolveImage = (src, { cache = true } = {})=>{
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/reconciler/node_modules/scheduler/cjs/scheduler.development.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * @license React
- * scheduler.development.js
- *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+
+
+
+
+
+
+
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 "use strict";
 "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function performWorkUntilDeadline() {
@@ -22633,9 +22633,9 @@ const resolveImage = (src, { cache = true } = {})=>{
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/reconciler/node_modules/scheduler/index.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 'use strict';
-if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+if ("TURBOPACK compile-time falsy", 0) 
 ;
 else {
     module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/reconciler/node_modules/scheduler/cjs/scheduler.development.js [app-client] (ecmascript)");
@@ -22676,7 +22676,7 @@ __turbopack_context__.s([
     "version",
     ()=>version
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/primitives/lib/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$queue$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/queue/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
@@ -22720,8 +22720,8 @@ const appendChild = (parent, child)=>{
     const isParentText = parent.type === 'TEXT' || parent.type === 'LINK' || parent.type === 'TSPAN' || parent.type === 'NOTE';
     const isChildTextInstance = child.type === 'TEXT_INSTANCE';
     const isOrphanTextInstance = isChildTextInstance && !isParentText;
-    // Ignore orphan text instances.
-    // Caused by cases such as <>{name && <Text>{name}</Text>}</>
+    
+    
     if (isOrphanTextInstance) {
         console.warn(`Invalid '${child.value}' string child outside <Text> component`);
         return;
@@ -22782,10 +22782,10 @@ var packageJson = {
 };
 const { version } = packageJson;
 const fontStore = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$font$2f$lib$2f$index$2e$browser$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]();
-// We must keep a single renderer instance, otherwise React will complain
+
 let renderer;
-// The pdf instance acts as an event emitter for DOM usage.
-// We only want to trigger an update when PDF content changes
+
+
 const events = {};
 const pdf = (initialValue)=>{
     const onChange = ()=>{
@@ -22872,7 +22872,7 @@ const pdf = (initialValue)=>{
             });
         });
     };
-    // TODO: rename this method to `toStream` in next major release, because it return stream not a buffer
+    
     const toBuffer = async ()=>{
         const { layout: _INTERNAL__LAYOUT__DATA_, fileStream } = await render();
         callOnRender({
@@ -22880,17 +22880,17 @@ const pdf = (initialValue)=>{
         });
         return fileStream;
     };
-    /*
-   * TODO: remove this method in next major release. it is buggy
-   * see
-   * - https://github.com/diegomura/react-pdf/issues/2112
-   * - https://github.com/diegomura/react-pdf/issues/2095
-   */ const toString = async ()=>{
+    
+
+
+
+
+ const toString = async ()=>{
         if ("TURBOPACK compile-time truthy", 1) {
             console.warn('`toString` is deprecated and will be removed in next major release');
         }
         let result = '';
-        const { fileStream: instance } = await render(false); // For some reason, when rendering to string if compress=true the document is blank
+        const { fileStream: instance } = await render(false); 
         return new Promise((resolve, reject)=>{
             try {
                 instance.on('data', (buffer)=>{
@@ -22928,12 +22928,12 @@ const Font = fontStore;
 const StyleSheet = {
     create: (s)=>s
 };
-/**
- * PDF hook
- *
- * @param {Object} [options] hook options
- * @returns {[Object, Function]} pdf state and update function
- */ const usePDF = function(_temp) {
+
+
+
+
+
+ const usePDF = function(_temp) {
     let { document } = _temp === void 0 ? {} : _temp;
     const pdfInstance = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const [state, setState] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
@@ -22942,7 +22942,7 @@ const StyleSheet = {
         error: null,
         loading: !!document
     });
-    // Setup rendering queue
+    
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "usePDF.useEffect": ()=>{
             const renderQueue = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$queue$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])({
@@ -22999,7 +22999,7 @@ const StyleSheet = {
             })["usePDF.useEffect"];
         }
     }["usePDF.useEffect"], []);
-    // Revoke old unused url instances
+    
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "usePDF.useEffect": ()=>{
             return ({
@@ -23032,7 +23032,7 @@ const PDFViewer = (_ref)=>{
         children
     ]);
     const src = instance.url ? `${instance.url}#toolbar=${showToolbar ? 1 : 0}` : null;
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("iframe", {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("iframe", {
         src: src,
         title: title,
         ref: innerRef,
@@ -23069,7 +23069,7 @@ const PDFDownloadLinkBase = (_ref, ref)=>{
     }
     const handleDownloadIE = ()=>{
         if (instance && window.navigator.msSaveBlob) {
-            // IE
+            
             window.navigator.msSaveBlob(instance.blob, fileName);
         }
     };
@@ -23077,7 +23077,7 @@ const PDFDownloadLinkBase = (_ref, ref)=>{
         handleDownloadIE();
         if (typeof onClick === 'function') onClick(event, instance);
     };
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("a", {
+    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])("a", {
         href: instance.url,
         download: fileName,
         onClick: handleClick,
@@ -23086,7 +23086,7 @@ const PDFDownloadLinkBase = (_ref, ref)=>{
         children: typeof children === 'function' ? children(instance) : children
     });
 };
-const PDFDownloadLink = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"])(PDFDownloadLinkBase);
+const PDFDownloadLink =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"])(PDFDownloadLinkBase);
 const throwEnvironmentError = (name)=>{
     throw new Error(`${name} is a Node specific API. You're either using this method in a browser, or your bundler is not loading react-pdf from the appropriate web build.`);
 };
@@ -23105,7 +23105,7 @@ const renderToFile = ()=>{
 const render = ()=>{
     throwEnvironmentError('render');
 };
-// TODO: remove this default export in next major release because it breaks tree-shacking
+
 var index = {
     pdf,
     usePDF,
@@ -23122,8 +23122,7 @@ var index = {
     ...__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__
 };
 ;
- //# sourceMappingURL=react-pdf.browser.js.map
+ 
 }),
 ]);
 
-//# sourceMappingURL=c729b_d00c4777._.js.map

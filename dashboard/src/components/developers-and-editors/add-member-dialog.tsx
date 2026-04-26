@@ -35,7 +35,7 @@ import { Textarea } from "../ui/textarea";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name is required." }),
-  // login fields requested: email, password, role (staff/admin)
+  
   email: z.string().email({ message: "A valid email is required." }),
   password: z
     .string()
@@ -44,7 +44,7 @@ const formSchema = z.object({
   loginRole: z.union([z.literal("staff"), z.literal("admin")]).optional(),
   phone: z.string().min(10, { message: "A valid phone number is required." }),
   address: z.string().min(5, { message: "Address is required." }),
-  // include founder roles and standard roles for display/position
+  
   role: z.union([
     z.literal("Founder"),
     z.literal("Co-Founder"),
@@ -59,7 +59,7 @@ const formSchema = z.object({
   secondaryPhone: z.string().optional(),
   secondaryEmail: z.string().email().optional().or(z.literal("")),
   salary: z.coerce.number().optional(),
-  // Payment Account fields
+  
   paymentAccountType: z.union([z.literal("UPI"), z.literal("Bank"), z.literal("None")]).optional(),
   upiId: z.string().optional(),
   bankAccountHolderName: z.string().optional(),
@@ -71,12 +71,12 @@ const formSchema = z.object({
 type AddMemberDialogProps = {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
-  // allow onAddMember to return a Promise or sync value
+  
   onAddMember?: (
     newMember: Omit<TeamMember, "id">,
   ) => void | Promise<void | TeamMember>;
   onCreated?: (created: any) => void;
-  // Support edit mode
+  
   onSave?: (
     id: string | number,
     update: Partial<TeamMember>,
@@ -109,7 +109,7 @@ export function AddMemberDialog({
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     console.debug("AddMemberDialog onSubmit values:", values);
-    // Build the team member payload
+    
     const memberPayload: any = {
       name: values.name,
       email: values.email,
@@ -123,7 +123,7 @@ export function AddMemberDialog({
       secondaryPhone: values.secondaryPhone,
       secondaryEmail: values.secondaryEmail,
       salary: values.salary,
-      // Payment Account fields
+      
       paymentAccountType: values.paymentAccountType,
       upiId: values.upiId,
       bankAccountHolderName: values.bankAccountHolderName,
@@ -133,11 +133,11 @@ export function AddMemberDialog({
     };
 
     if (initialValues && (initialValues._id || initialValues.id)) {
-      // Edit existing member
+      
       const id = initialValues._id ?? initialValues.id;
       if (onSave) {
         try {
-          // Normalize fields for update: keep job role (jobRole) separate from auth role (role)
+          
           const updatePayload: any = { ...memberPayload };
           if (updatePayload.role) {
             updatePayload.jobRole = updatePayload.role;
@@ -157,7 +157,7 @@ export function AddMemberDialog({
         }
       }
     } else {
-      // Create team member and optionally a login user record
+      
       let createdMember: any = null;
       let parentCreated = false;
       if (onAddMember) {
@@ -168,11 +168,11 @@ export function AddMemberDialog({
         } catch (e) {
           console.error("onAddMember failed", e);
           parentCreated = false;
-          // fallthrough to fallback POST
+          
         }
       }
 
-      // Fallback: if parent didn't create or threw, call API directly to create a single user document
+      
       if (!parentCreated) {
         try {
           const userBody: any = {
@@ -180,9 +180,9 @@ export function AddMemberDialog({
             jobRole: memberPayload.role,
             role: values.loginRole ?? "staff",
           };
-          // include password if present so server can hash it
+          
           if (values.password) userBody.password = values.password;
-          delete userBody.role; // keep jobRole separately for display
+          delete userBody.role; 
           console.debug(
             "Posting consolidated userBody to /api/users",
             userBody,
@@ -215,7 +215,7 @@ export function AddMemberDialog({
     setIsOpen(false);
   }
 
-  // Reset form when editing an existing member
+  
   React.useEffect(() => {
     if (initialValues) {
       form.reset({
@@ -231,7 +231,7 @@ export function AddMemberDialog({
         secondaryPhone: initialValues.secondaryPhone ?? undefined,
         secondaryEmail: initialValues.secondaryEmail ?? undefined,
         salary: initialValues.salary ?? undefined,
-        // Payment Account fields
+        
         paymentAccountType: (initialValues as any).paymentAccountType ?? undefined,
         upiId: (initialValues as any).upiId ?? undefined,
         bankAccountHolderName: (initialValues as any).bankAccountHolderName ?? undefined,
@@ -283,7 +283,7 @@ export function AddMemberDialog({
                   </FormItem>
                 )}
               />
-              {/* Sign-in password and auth role for login-capable team members */}
+              {}
               <FormField
                 control={form.control}
                 name="password"
@@ -457,7 +457,7 @@ export function AddMemberDialog({
               />
             </div>
 
-            {/* Payment Account Section */}
+            {}
             <div className="border-t pt-6 mt-6">
               <h3 className="text-lg font-semibold mb-4">Payment Account Details (Optional)</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -487,7 +487,7 @@ export function AddMemberDialog({
                   )}
                 />
 
-                {/* UPI Fields */}
+                {}
                 {form.watch("paymentAccountType") === "UPI" && (
                   <FormField
                     control={form.control}
@@ -504,7 +504,7 @@ export function AddMemberDialog({
                   />
                 )}
 
-                {/* Bank Account Fields */}
+                {}
                 {form.watch("paymentAccountType") === "Bank" && (
                   <>
                     <FormField

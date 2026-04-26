@@ -9,10 +9,5 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  <!-- Note: Dynamic city pages with query parameters are crawled but may not be indexed.
-       To improve indexing of location pages:
-       1. Ensure unique, valuable content on each page
-       2. Add proper hreflang tags for location-specific content
-       3. Use rel="canonical" tags appropriately
-       4. Consider creating static pages for major cities -->
+  
 </urlset>

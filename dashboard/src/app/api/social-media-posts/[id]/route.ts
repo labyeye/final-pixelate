@@ -9,7 +9,7 @@ const CORS = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
-// Helper function to log events to ERP console
+
 async function logErpEvent(
   type: string,
   target: string,
@@ -72,7 +72,7 @@ export async function PUT(request: Request, { params }: RouteContext) {
     const body = await request.json();
     const col = await svc.getCollection("socialMediaPosts");
 
-    // Get the old post for comparison
+    
     const oldPost = await col.findOne({ _id: new ObjectId(id) });
     
     if (!oldPost) {
@@ -82,7 +82,7 @@ export async function PUT(request: Request, { params }: RouteContext) {
       );
     }
 
-    // Remove immutable fields from the update
+    
     const { _id, createdAt, ...updateData } = body;
 
     const updates = {
@@ -104,7 +104,7 @@ export async function PUT(request: Request, { params }: RouteContext) {
 
     const updated = await col.findOne({ _id: new ObjectId(id) });
 
-    // Log the update event to ERP
+    
     await logErpEvent(
       "post_updated",
       "socialMediaPost",
@@ -146,7 +146,7 @@ export async function PATCH(request: Request, { params }: RouteContext) {
     const body = await request.json();
     const col = await svc.getCollection("socialMediaPosts");
 
-    // Find the post and verify it belongs to the client
+    
     const post = await col.findOne({ _id: new ObjectId(id) });
 
     if (!post) {
@@ -156,7 +156,7 @@ export async function PATCH(request: Request, { params }: RouteContext) {
       );
     }
 
-    // Verify this post belongs to the client's company
+    
     if (post.clientId !== decoded.clientId) {
       return NextResponse.json(
         { error: "Unauthorized - This post does not belong to you" },
@@ -164,7 +164,7 @@ export async function PATCH(request: Request, { params }: RouteContext) {
       );
     }
 
-    // Only allow approval status and rejection reason updates
+    
     const updateData: any = {
       updatedAt: new Date(),
     };
@@ -203,12 +203,12 @@ export async function DELETE(request: Request, { params }: RouteContext) {
   try {
     const { id } = await params;
 
-    // Extract user info from Authorization header or request body
+    
     const body = await request.json().catch(() => ({}));
     let userId: string | null = body?.userId || null;
     let email: string | null = body?.email || null;
 
-    // Try to extract from JWT token if not provided in body
+    
     if (!userId || !email) {
       const auth = request.headers.get("authorization") || "";
       const token = auth.replace("Bearer ", "");
@@ -221,7 +221,7 @@ export async function DELETE(request: Request, { params }: RouteContext) {
       }
     }
 
-    // Get the post before deletion to capture details for logging
+    
     const col = await svc.getCollection("socialMediaPosts");
     const postBefore = await col.findOne({ _id: new ObjectId(id) });
 
@@ -233,7 +233,7 @@ export async function DELETE(request: Request, { params }: RouteContext) {
       );
     }
 
-    // Log the post deletion event to ERP console
+    
     if (postBefore) {
       await logErpEvent(
         "post_deleted",

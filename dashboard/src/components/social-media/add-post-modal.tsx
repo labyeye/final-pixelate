@@ -61,19 +61,19 @@ export function AddPostModal({
   useEffect(() => {
     if (isOpen) {
       if (editingPost) {
-        // Edit mode: populate with existing post data
+        
         setForm(editingPost);
-        // Determine if it's multi or single mode based on existing data
+        
         setIsMultipleMode((editingPost.socialAccountIds?.length ?? 0) > 1 || (editingPost.socialAccountIds?.length ?? 0) === 0);
       } else {
-        // Add mode: reset to initial form
+        
         setForm({ ...initialForm, clientId });
-        setIsMultipleMode(true); // Default to multiple mode for new posts
+        setIsMultipleMode(true); 
       }
     }
   }, [isOpen, clientId, editingPost]);
 
-  // Load accounts for single mode
+  
   useEffect(() => {
     if (!isMultipleMode || !clientId || !form.platform) return;
     
@@ -103,7 +103,7 @@ export function AddPostModal({
     setForm((prev) => ({ 
       ...prev, 
       socialAccountIds: accountIds,
-      socialAccountId: accountIds[0] || "", // Keep first ID for backward compatibility
+      socialAccountId: accountIds[0] || "", 
     }));
   };
 
@@ -117,7 +117,7 @@ export function AddPostModal({
 
   const toggleMode = () => {
     setIsMultipleMode(!isMultipleMode);
-    // Clear selections when toggling
+    
     setForm((prev) => ({
       ...prev,
       socialAccountId: "",
@@ -131,7 +131,7 @@ export function AddPostModal({
       return;
     }
 
-    // Check if at least one account is selected (works for both single and multiple mode)
+    
     const hasAccount = isMultipleMode 
       ? (form.socialAccountIds && form.socialAccountIds.length > 0)
       : form.socialAccountId;
@@ -182,7 +182,7 @@ export function AddPostModal({
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-        {/* Header */}
+        {}
         <div className="sticky top-0 bg-white border-b p-4 flex items-center justify-between">
           <h2 className="text-xl font-bold">
             {isEditing ? "Edit Social Post" : "Add New Social Post"}
@@ -196,9 +196,9 @@ export function AddPostModal({
           </button>
         </div>
 
-        {/* Body */}
+        {}
         <div className="p-6 space-y-4">
-          {/* Row 1: Title, Platform, Content Type */}
+          {}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div>
               <label className="block text-sm font-semibold mb-1">Post Title *</label>
@@ -229,7 +229,7 @@ export function AddPostModal({
             </div>
           </div>
 
-          {/* Row 1.5: Social Accounts with Toggle */}
+          {}
           <div>
             <div className="flex items-center justify-between mb-2">
               <label className="block text-sm font-semibold">Social Accounts *</label>
@@ -260,7 +260,7 @@ export function AddPostModal({
                 onChange={(accountIds) => handleAccountsChange(accountIds)}
               />
             ) : (
-              // Single account selector
+              
               <select
                 value={form.socialAccountId || ""}
                 onChange={(e) => handleSingleAccountChange(e.target.value)}
@@ -276,7 +276,7 @@ export function AddPostModal({
             )}
           </div>
 
-          {/* Row 2: Date, Time, Assigned Staff */}
+          {}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div>
               <label className="block text-sm font-semibold mb-1">Schedule Date *</label>
@@ -311,7 +311,7 @@ export function AddPostModal({
             </div>
           </div>
 
-          {/* Row 3: Status */}
+          {}
           <div className="grid grid-cols-1 gap-3">
             <div>
               <label className="block text-sm font-semibold mb-1">Approval Status</label>
@@ -327,7 +327,7 @@ export function AddPostModal({
             </div>
           </div>
 
-          {/* Caption */}
+          {}
           <div>
             <label className="block text-sm font-semibold mb-1">Caption</label>
             <Textarea
@@ -338,7 +338,7 @@ export function AddPostModal({
             />
           </div>
 
-          {/* Hashtags & Media */}
+          {}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
               <label className="block text-sm font-semibold mb-1">Hashtags</label>
@@ -358,7 +358,7 @@ export function AddPostModal({
             </div>
           </div>
 
-          {/* File Upload */}
+          {}
           <div>
             <label className="block text-sm font-semibold mb-1">Upload Media File</label>
             <Input
@@ -372,7 +372,7 @@ export function AddPostModal({
             />
           </div>
 
-          {/* Media Preview */}
+          {}
           {form.mediaFile && (
             <div className="border rounded p-3 bg-gray-50">
               <div className="text-xs font-semibold text-muted-foreground mb-2">Media</div>
@@ -397,7 +397,7 @@ export function AddPostModal({
             </div>
           )}
 
-          {/* Notes */}
+          {}
           <div>
             <label className="block text-sm font-semibold mb-1">Notes</label>
             <Textarea
@@ -409,7 +409,7 @@ export function AddPostModal({
           </div>
         </div>
 
-        {/* Footer */}
+        {}
         <div className="border-t p-4 flex gap-2 justify-end bg-gray-50">
           <Button
             variant="outline"

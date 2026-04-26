@@ -1,7 +1,7 @@
-/**
- * Enhanced Quotation System Models for Next.js
- * Professional structure with all required fields
- */
+
+
+
+
 
 export type AgencySettings = {
   _id?: string;
@@ -75,30 +75,30 @@ export type QuotationModule = {
 export type Quotation = {
   _id?: string;
   id?: string;
-  quoteId: string; // e.g. PXL-2025-001
+  quoteId: string; 
   title: string;
   subtitle?: string;
   date: Date | string;
   clientId: string;
 
-  // Project details
+  
   objective: string;
   purpose: string;
   scope: string[];
   deliverables: string[];
 
-  // Timeline & pricing
+  
   timeline: QuotationTimeline[];
   lineItems: QuotationLineItem[];
   services: QuotationService[];
   modules: QuotationModule[];
 
-  // Additional info
+  
   notes?: string;
   paymentTerms?: string;
   customTerms?: string[];
 
-  // Optional onboarding-compatible fields
+  
   projectId?: string;
   clientDisplayId?: string;
   projectTitle?: string;
@@ -116,14 +116,14 @@ export type Quotation = {
   paymentMilestones?: string[] | string;
   paymentMethod?: string;
 
-  // Metadata
+  
   status: "DRAFT" | "PENDING" | "APPROVED" | "REJECTED" | "CONVERTED";
   authorId?: string | number;
   createdAt?: Date | string;
   updatedAt?: Date | string;
 };
 
-// Helper to calculate totals
+
 export function calculateQuotationTotals(quotation: Quotation) {
   const lineItemsTotal = quotation.lineItems.reduce(
     (sum, item) => sum + item.total,
@@ -143,7 +143,7 @@ export function calculateQuotationTotals(quotation: Quotation) {
   return { subtotal, taxAmount, grandTotal };
 }
 
-// Generate next quotation ID
+
 export function generateQuotationId(lastId?: string): string {
   const year = new Date().getFullYear();
   const prefix = `PXL-${year}-`;

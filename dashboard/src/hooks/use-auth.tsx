@@ -14,10 +14,10 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Define public routes that don't require authentication
+
 const publicRoutes = ['/login'];
 
-// Routes accessible only to clients (kept for reference, no longer enforced as exclusive)
+
 const clientRoutes = ['/client-portal'];
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     (async () => {
       try {
         const storedUserId = sessionStorage.getItem('userId');
-        // fetch users from the API instead of importing server-only modules
+        
         const res = await fetch('/api/users');
         const allUsers = (await res.json()) as User[];
         if (!mounted) return;
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
     })();
     return () => { mounted = false; };
-  }, [pathname]); // Re-check on path change could be useful
+  }, [pathname]); 
 
   useEffect(() => {
     if (!loading) {
@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         if (!user && !isPublic) {
             router.push('/login');
         }
-        // Non-clients cannot access client portal
+        
         if (user && user.role !== 'client' && clientRoutes.some(r => pathname.startsWith(r))) {
             router.push('/dashboard');
         }
@@ -70,32 +70,32 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, [loading, user, pathname, router]);
 
   const login = (userId: string | number) => {
-    // synchronous behavior retained: set the id in sessionStorage and rely on the
-    // next checkUser cycle to refresh the user. We optimistically set the user
-    // if the list is already loaded.
+    
+    
+    
   sessionStorage.setItem('userId', String(userId));
-    // Try to find user in currently loaded list (fast path)
-    // Note: getUsers() is async so we don't await here to keep login sync.
-    // If the user isn't loaded yet, the effect will pick them up.
+    
+    
+    
     (async () => {
       try {
         const res = await fetch('/api/users');
         const allUsers = (await res.json()) as User[];
         const normalized = allUsers.find(u => {
           const candidate = u.id ?? (u._id as any);
-          // compare strings and numbers equivalently
+          
           return String(candidate) === String(userId);
         });
         if (normalized) setUser(normalized);
       } catch (e) {
-        // ignore
+        
       }
     })();
     return true;
   };
 
   const logout = () => {
-    // Log logout event BEFORE clearing state (so we can capture user name)
+    
     try {
       if (user) {
         (async () => {
@@ -112,20 +112,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
               }),
             });
           } catch (e) {
-            // ignore
+            
           }
         })();
       }
     } catch (e) {}
-    // Clear in-memory state and any persisted auth/session data
+    
     setUser(null);
     try { sessionStorage.removeItem('userId'); } catch (e) {}
     try { localStorage.removeItem('auth_token'); } catch (e) {}
-    // Redirect to the login page and refresh navigation state
+    
     try {
       router.replace('/login');
-      // ensure any server-side props / caches are refreshed
-      // router.refresh is available in app-router
+      
+      
       try { (router as any).refresh(); } catch (e) {}
     } catch (e) {
       try { router.push('/login'); } catch (er) {}
@@ -133,11 +133,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
   
   if (loading) {
-    return null; // Don't render anything until client-side check is complete
+    return null; 
   }
 
   if (!user && !publicRoutes.includes(pathname)) {
-    // While redirecting, render nothing to prevent flashing of content
+    
     return null;
   }
 

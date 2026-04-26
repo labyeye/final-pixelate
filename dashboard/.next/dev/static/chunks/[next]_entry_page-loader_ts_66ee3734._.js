@@ -8,9 +8,9 @@ const PAGE_PATH = "/_error";
         return __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/error.js [client] (ecmascript)");
     }
 ]);
-// @ts-expect-error module.hot exists
+
 if (module.hot) {
-    // @ts-expect-error module.hot exists
+    
     module.hot.dispose(function() {
         window.__NEXT_P.push([
             PAGE_PATH
@@ -20,4 +20,3 @@ if (module.hot) {
 }),
 ]);
 
-//# sourceMappingURL=%5Bnext%5D_entry_page-loader_ts_66ee3734._.js.map

@@ -101,7 +101,7 @@ export function EditInvoiceDialog({
         includeVenueAddress: Boolean(invoice.venueAddress),
       });
 
-      // Load line items from invoice
+      
       if (Array.isArray(invoice.lineItems) && invoice.lineItems.length) {
         setLineItems(
           invoice.lineItems.map((it: any) => ({
@@ -213,7 +213,7 @@ export function EditInvoiceDialog({
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(handleSave)} className="space-y-6">
-            {/* ── Basic Info ── */}
+            {}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <FormField
                 name="invoiceNo"
@@ -305,7 +305,7 @@ export function EditInvoiceDialog({
               />
             </div>
 
-            {/* ── Line Items ── */}
+            {}
             <div>
               <div className="flex items-center justify-between mb-3">
                 <h3 className="font-semibold text-base">Services / Line Items</h3>
@@ -314,7 +314,7 @@ export function EditInvoiceDialog({
                 </Button>
               </div>
 
-              {/* Table Header */}
+              {}
               <div className="grid grid-cols-[2fr_1fr_80px_100px_100px_40px] gap-2 text-xs font-semibold text-muted-foreground border-b pb-1 mb-1 px-1">
                 <span>Description</span>
                 <span>HSN Code</span>
@@ -381,7 +381,7 @@ export function EditInvoiceDialog({
                 })}
               </div>
 
-              {/* Totals summary */}
+              {}
               <div className="mt-4 flex flex-col items-end gap-1 text-sm border-t pt-3">
                 <div className="flex gap-8">
                   <span className="text-muted-foreground">Subtotal</span>
@@ -404,7 +404,7 @@ export function EditInvoiceDialog({
               </div>
             </div>
 
-            {/* ── Venue (optional) ── */}
+            {}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex flex-col gap-2">
                 <FormField

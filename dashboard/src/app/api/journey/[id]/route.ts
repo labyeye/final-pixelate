@@ -2,10 +2,10 @@ import { NextResponse } from 'next/server';
 import { getDb } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 
-/**
- * PATCH /api/journey/[id]  – update a journey event
- * DELETE /api/journey/[id] – delete a journey event
- */
+
+
+
+
 
 export async function PATCH(
   request: Request,

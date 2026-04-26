@@ -22,17 +22,17 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    // Basic payload size protection: estimate total size of base64 fields
+    
     const entries = Array.isArray(body?.entries) ? body.entries : []
     let totalBase64Chars = 0
     for (const e of entries) {
       if (typeof e?.thumbnailBase64 === 'string') totalBase64Chars += e.thumbnailBase64.length
     }
-    // also include brandLogoBase64 if present
+    
     if (typeof body?.brandLogoBase64 === 'string') totalBase64Chars += body.brandLogoBase64.length
-    // Convert chars to bytes (rough) and reject if exceeding 16MB Mongo document limit
-    const approxBytes = Math.ceil(totalBase64Chars * 0.75) // base64 -> binary estimate
-    const MAX_BYTES = 16 * 1024 * 1024 - 1024 // leave small headroom
+    
+    const approxBytes = Math.ceil(totalBase64Chars * 0.75) 
+    const MAX_BYTES = 16 * 1024 * 1024 - 1024 
     if (approxBytes > MAX_BYTES) {
       return NextResponse.json({ error: 'Payload too large for a single document. Reduce image sizes or upload fewer images.' }, { status: 413, headers: CORS })
     }

@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 const { MongoClient } = require('mongodb');
 
-// Migration script to assign friendly invoice IDs like PN-00001
-// Usage:
-// 1) Dry run (default):
-//    $env:MONGODB_URI = "<your uri>"; node .\assign-invoice-ids.js
-// 2) Apply changes:
-//    $env:MONGODB_URI = "<your uri>"; node .\assign-invoice-ids.js --yes
-// 3) Skip invoices that already have an `id` (assign only to missing):
-//    $env:MONGODB_URI = "<your uri>"; node .\assign-invoice-ids.js --yes --skip-existing
+
+
+
+
+
+
+
+
 
 const uri = process.env.MONGODB_URI || process.env.MONGO_URI;
 if (!uri) {
@@ -38,7 +38,7 @@ async function run() {
     const col = db.collection('invoices');
 
     if (skipExisting) {
-      // Compute the next sequence number based on existing PN-xxxxx ids
+      
       const existing = await col.find({ id: { $type: 'string', $regex: '^PN-\\d{5}$' } }).project({ id: 1 }).toArray();
       let max = 0;
       for (const e of existing) {
@@ -73,7 +73,7 @@ async function run() {
       return;
     }
 
-    // Default behavior: assign sequential PN-xxxxx to every document in createdAt order
+    
     const cursor = col.find({}).sort({ createdAt: 1, _id: 1 });
     let counter = 1;
     let wouldUpdate = 0;

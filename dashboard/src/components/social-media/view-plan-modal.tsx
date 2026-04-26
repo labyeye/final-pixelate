@@ -48,7 +48,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] flex flex-col shadow-xl">
-        {/* Header */}
+        {}
         <div className="border-b-2 border-black p-4 flex items-center justify-between flex-shrink-0">
           <h2 className="text-2xl font-black">View Plan Details</h2>
           <button
@@ -59,12 +59,12 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
           </button>
         </div>
 
-        {/* Scrollable Content */}
+        {}
         <div
           onScroll={handleScroll}
           className="overflow-y-auto flex-1 p-6 space-y-6"
         >
-          {/* Title & Status Section */}
+          {}
           <div className="space-y-3">
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -101,7 +101,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
             </div>
           </div>
 
-          {/* Platform & Content Info */}
+          {}
           <div className="grid grid-cols-2 gap-4">
             <div className="border rounded-lg p-3 space-y-1">
               <label className="text-xs font-bold text-gray-500">PLATFORM</label>
@@ -113,7 +113,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
             </div>
           </div>
 
-          {/* Account & Scheduling */}
+          {}
           <div className="grid grid-cols-2 gap-4">
             <div className="border rounded-lg p-3 space-y-1">
               <label className="text-xs font-bold text-gray-500">ACCOUNT(S)</label>
@@ -133,7 +133,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
             </div>
           </div>
 
-          {/* Assignment & Media */}
+          {}
           <div className="grid grid-cols-2 gap-4">
             <div className="border rounded-lg p-3 space-y-1">
               <label className="text-xs font-bold text-gray-500">ASSIGNED TO</label>
@@ -145,7 +145,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
             </div>
           </div>
 
-          {/* Hashtags */}
+          {}
           {plan.hashtags && (
             <div className="border rounded-lg p-3 space-y-1">
               <label className="text-xs font-bold text-gray-500">HASHTAGS</label>
@@ -153,7 +153,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
             </div>
           )}
 
-          {/* Media File */}
+          {}
           {plan.mediaFile && (
             <div className="border rounded-lg p-3 space-y-2">
               <label className="text-xs font-bold text-gray-500">MEDIA</label>
@@ -168,7 +168,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
             </div>
           )}
 
-          {/* Posted Links */}
+          {}
           {(plan.postedLinks && Object.keys(plan.postedLinks).length > 0) ? (
             <div className="border rounded-lg p-3 space-y-2">
               <label className="text-xs font-bold text-gray-500">POSTED LINKS</label>
@@ -200,7 +200,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
             </div>
           ) : null}
 
-          {/* Notes */}
+          {}
           {plan.notes && (
             <div className="border rounded-lg p-3 space-y-1 bg-amber-50">
               <label className="text-xs font-bold text-gray-500">NOTES</label>
@@ -208,7 +208,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
             </div>
           )}
 
-          {/* Analytics (if posted) */}
+          {}
           {plan.status === "Posted" && (
             <div className="border-2 border-green-300 bg-green-50 rounded-lg p-4">
               <h4 className="font-bold text-green-900 mb-3">📊 Analytics</h4>
@@ -239,7 +239,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
             </div>
           )}
 
-          {/* Metadata */}
+          {}
           <div className="text-xs text-gray-500 p-3 bg-gray-50 rounded-lg border">
             <p>Created: {new Date(plan.createdAt || "").toLocaleString()}</p>
             {plan.updatedAt && (
@@ -248,7 +248,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
           </div>
         </div>
 
-        {/* Footer */}
+        {}
         <div className={`border-t-2 border-black p-4 flex justify-end gap-2 flex-shrink-0 transition-colors ${isScrolledDown ? "bg-gray-50" : ""}`}>
           <Button
             onClick={onClose}

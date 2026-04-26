@@ -21,7 +21,7 @@ import {
   CheckCircle2, AlertCircle, Clock, TrendingDown, Wallet, CalendarDays,
 } from 'lucide-react';
 
-// ─── Constants ───────────────────────────────────────────────────────────────
+
 
 const EMI_CATEGORIES = [
   { value: 'equipment', label: '🛠️ Equipment & Hardware' },
@@ -41,7 +41,7 @@ const PAYMENT_METHODS = [
   { value: 'cheque', label: 'Cheque' },
 ];
 
-// ─── Zod Schema ──────────────────────────────────────────────────────────────
+
 
 const emiSchema = z.object({
   itemName: z.string().min(1, 'Item name is required'),
@@ -58,7 +58,7 @@ const emiSchema = z.object({
 });
 type EmiForm = z.infer<typeof emiSchema>;
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+
 
 function getCategoryLabel(val: string) {
   return EMI_CATEGORIES.find(c => c.value === val)?.label || val;
@@ -104,7 +104,7 @@ function EmiStatusBadge({ status }: { status: string }) {
   );
 }
 
-// ─── Add EMI Dialog ───────────────────────────────────────────────────────────
+
 
 function AddEmiDialog({ onCreated }: { onCreated: () => void }) {
   const [open, setOpen] = useState(false);
@@ -120,7 +120,7 @@ function AddEmiDialog({ onCreated }: { onCreated: () => void }) {
     },
   });
 
-  // Auto-calculate EMI when total, down payment, months, rate change
+  
   const totalAmount = form.watch('totalAmount');
   const downPayment = form.watch('downPayment');
   const totalMonths = form.watch('totalMonths');
@@ -289,7 +289,7 @@ function AddEmiDialog({ onCreated }: { onCreated: () => void }) {
               </FormItem>
             )} />
 
-            {/* Summary preview */}
+            {}
             {totalAmount > 0 && (
               <div className="rounded-lg border-2 border-primary/20 bg-primary/5 p-4 grid grid-cols-3 gap-3 text-center">
                 <div>
@@ -320,7 +320,7 @@ function AddEmiDialog({ onCreated }: { onCreated: () => void }) {
   );
 }
 
-// ─── EMI Schedule Row / Panel ─────────────────────────────────────────────────
+
 
 function EmiCard({ emi, onRefresh }: { emi: any; onRefresh: () => void }) {
   const [expanded, setExpanded] = useState(false);
@@ -396,7 +396,7 @@ function EmiCard({ emi, onRefresh }: { emi: any; onRefresh: () => void }) {
 
   return (
     <Card className="border-2 border-black overflow-hidden">
-      {/* Card Header */}
+      {}
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1 min-w-0">
@@ -442,7 +442,7 @@ function EmiCard({ emi, onRefresh }: { emi: any; onRefresh: () => void }) {
       </CardHeader>
 
       <CardContent className="pt-0 space-y-4">
-        {/* Stats row */}
+        {}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           <div className="bg-muted rounded-lg p-3 text-center">
             <p className="text-xs text-muted-foreground font-semibold uppercase">Total Price</p>
@@ -462,7 +462,7 @@ function EmiCard({ emi, onRefresh }: { emi: any; onRefresh: () => void }) {
           </div>
         </div>
 
-        {/* Progress bar */}
+        {}
         <div className="space-y-1.5">
           <div className="flex justify-between text-xs font-semibold text-muted-foreground">
             <span>{paidCount} of {emi.totalMonths} EMIs paid</span>
@@ -483,7 +483,7 @@ function EmiCard({ emi, onRefresh }: { emi: any; onRefresh: () => void }) {
           )}
         </div>
 
-        {/* Expanded schedule */}
+        {}
         {expanded && (
           <div className="border-t border-border pt-4">
             <p className="text-sm font-black mb-3 uppercase tracking-wide text-muted-foreground">EMI Schedule</p>
@@ -551,7 +551,7 @@ function EmiCard({ emi, onRefresh }: { emi: any; onRefresh: () => void }) {
   );
 }
 
-// ─── Main Page ────────────────────────────────────────────────────────────────
+
 
 export default function EmiPage() {
   const [emis, setEmis] = useState<any[]>([]);
@@ -573,7 +573,7 @@ export default function EmiPage() {
 
   useEffect(() => { load(); }, [load]);
 
-  // Summary stats
+  
   const stats = useMemo(() => {
     const active = emis.filter(e => e.status === 'active' || !e.status);
     const totalOutstanding = active.reduce((s, e) => {
@@ -598,7 +598,7 @@ export default function EmiPage() {
 
   return (
     <div className="space-y-6 font-headline">
-      {/* Header */}
+      {}
       <header className="flex items-center justify-between">
         <div>
           <h1 className="text-5xl font-black">EMI TRACKER</h1>
@@ -607,7 +607,7 @@ export default function EmiPage() {
         <AddEmiDialog onCreated={load} />
       </header>
 
-      {/* Summary Cards */}
+      {}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <Card className="border-2 border-black">
           <CardContent className="pt-4 pb-4">
@@ -670,7 +670,7 @@ export default function EmiPage() {
         </Card>
       </div>
 
-      {/* Filter tabs */}
+      {}
       <div className="flex gap-2">
         {(['all', 'active', 'completed'] as const).map(s => (
           <Button
@@ -685,7 +685,7 @@ export default function EmiPage() {
         ))}
       </div>
 
-      {/* EMI Cards */}
+      {}
       {loading ? (
         <div className="flex items-center justify-center h-48 text-muted-foreground">Loading EMI plans...</div>
       ) : filtered.length === 0 ? (

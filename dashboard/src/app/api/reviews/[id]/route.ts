@@ -24,7 +24,7 @@ export async function GET(request: Request, context: any) {
       return NextResponse.json({ error: 'Review not found' }, { status: 404, headers: CORS_HEADERS });
     }
 
-    // Ensure _id is a string for JSON consumers
+    
     (review as any)._id = String((review as any)._id);
     return NextResponse.json(review, { headers: CORS_HEADERS });
   } catch (e: any) {

@@ -12,18 +12,18 @@ exports._ = _interop_require_default;
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/modern-browserslist-target.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-// Note: This file is JS because it's used by the taskfile-swc.js file, which is JS.
-// Keep file changes in sync with the corresponding `.d.ts` files.
-/**
- * These are the minimum browser versions that we consider "modern" and thus compile for by default.
- * This list was generated using `pnpm browserslist "baseline widely available"` on 2025-10-01.
- */ const MODERN_BROWSERSLIST_TARGET = [
+
+
+
+
+
+ const MODERN_BROWSERSLIST_TARGET = [
     'chrome 111',
     'edge 111',
     'firefox 111',
     'safari 16.4'
 ];
-module.exports = MODERN_BROWSERSLIST_TARGET; //# sourceMappingURL=modern-browserslist-target.js.map
+module.exports = MODERN_BROWSERSLIST_TARGET; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/entry-constants.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -60,7 +60,7 @@ _export(exports, {
 const UNDERSCORE_NOT_FOUND_ROUTE = '/_not-found';
 const UNDERSCORE_NOT_FOUND_ROUTE_ENTRY = `${UNDERSCORE_NOT_FOUND_ROUTE}/page`;
 const UNDERSCORE_GLOBAL_ERROR_ROUTE = '/_global-error';
-const UNDERSCORE_GLOBAL_ERROR_ROUTE_ENTRY = `${UNDERSCORE_GLOBAL_ERROR_ROUTE}/page`; //# sourceMappingURL=entry-constants.js.map
+const UNDERSCORE_GLOBAL_ERROR_ROUTE_ENTRY = `${UNDERSCORE_GLOBAL_ERROR_ROUTE}/page`; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/constants.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -351,7 +351,7 @@ _export(exports, {
     }
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [ssr] (ecmascript)");
-const _modernbrowserslisttarget = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/modern-browserslist-target.js [ssr] (ecmascript)"));
+const _modernbrowserslisttarget =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/modern-browserslist-target.js [ssr] (ecmascript)"));
 const _entryconstants = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/entry-constants.js [ssr] (ecmascript)");
 const COMPILER_NAMES = {
     client: 'client',
@@ -363,31 +363,31 @@ const COMPILER_INDEXES = {
     [COMPILER_NAMES.server]: 1,
     [COMPILER_NAMES.edgeServer]: 2
 };
-var AdapterOutputType = /*#__PURE__*/ function(AdapterOutputType) {
-    /**
-   * `PAGES` represents all the React pages that are under `pages/`.
-   */ AdapterOutputType["PAGES"] = "PAGES";
-    /**
-   * `PAGES_API` represents all the API routes under `pages/api/`.
-   */ AdapterOutputType["PAGES_API"] = "PAGES_API";
-    /**
-   * `APP_PAGE` represents all the React pages that are under `app/` with the
-   * filename of `page.{j,t}s{,x}`.
-   */ AdapterOutputType["APP_PAGE"] = "APP_PAGE";
-    /**
-   * `APP_ROUTE` represents all the API routes and metadata routes that are under `app/` with the
-   * filename of `route.{j,t}s{,x}`.
-   */ AdapterOutputType["APP_ROUTE"] = "APP_ROUTE";
-    /**
-   * `PRERENDER` represents an ISR enabled route that might
-   * have a seeded cache entry or fallback generated during build
-   */ AdapterOutputType["PRERENDER"] = "PRERENDER";
-    /**
-   * `STATIC_FILE` represents a static file (ie /_next/static)
-   */ AdapterOutputType["STATIC_FILE"] = "STATIC_FILE";
-    /**
-   * `MIDDLEWARE` represents the middleware output if present
-   */ AdapterOutputType["MIDDLEWARE"] = "MIDDLEWARE";
+var AdapterOutputType =  function(AdapterOutputType) {
+    
+
+ AdapterOutputType["PAGES"] = "PAGES";
+    
+
+ AdapterOutputType["PAGES_API"] = "PAGES_API";
+    
+
+
+ AdapterOutputType["APP_PAGE"] = "APP_PAGE";
+    
+
+
+ AdapterOutputType["APP_ROUTE"] = "APP_ROUTE";
+    
+
+
+ AdapterOutputType["PRERENDER"] = "PRERENDER";
+    
+
+ AdapterOutputType["STATIC_FILE"] = "STATIC_FILE";
+    
+
+ AdapterOutputType["MIDDLEWARE"] = "MIDDLEWARE";
     return AdapterOutputType;
 }({});
 const PHASE_EXPORT = 'phase-export';
@@ -421,8 +421,8 @@ const CONFIG_FILES = [
     'next.config.js',
     'next.config.mjs',
     'next.config.ts',
-    // process.features can be undefined on Edge runtime
-    // TODO: Remove `as any` once we bump @types/node to v22.10.0+
+    
+    
     ...process?.features?.typescript ? [
         'next.config.mts'
     ] : []
@@ -505,7 +505,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=constants.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/sorted-routes.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -589,15 +589,15 @@ class UrlNode {
                 configurable: true
             });
         }
-        // The next segment in the urlPaths list
+        
         let nextSegment = urlPaths[0];
-        // Check if the segment matches `[something]`
+        
         if (nextSegment.startsWith('[') && nextSegment.endsWith(']')) {
-            // Strip `[` and `]`, leaving only `something`
+            
             let segmentName = nextSegment.slice(1, -1);
             let isOptional = false;
             if (segmentName.startsWith('[') && segmentName.endsWith(']')) {
-                // Strip optional `[` and `]`, leaving only `something`
+                
                 segmentName = segmentName.slice(1, -1);
                 isOptional = true;
             }
@@ -609,7 +609,7 @@ class UrlNode {
                 });
             }
             if (segmentName.startsWith('...')) {
-                // Strip `...`, leaving only `something`
+                
                 segmentName = segmentName.substring(3);
                 isCatchAll = true;
             }
@@ -629,13 +629,13 @@ class UrlNode {
             }
             function handleSlug(previousSlug, nextSlug) {
                 if (previousSlug !== null) {
-                    // If the specific segment already has a slug but the slug is not `something`
-                    // This prevents collisions like:
-                    // pages/[post]/index.js
-                    // pages/[id]/index.js
-                    // Because currently multiple dynamic params on the same segment level are not supported
+                    
+                    
+                    
+                    
+                    
                     if (previousSlug !== nextSlug) {
-                        // TODO: This error seems to be confusing for users, needs an error link, the description can be based on above comment.
+                        
                         throw Object.defineProperty(new Error(`You cannot use different slug names for the same dynamic path ('${previousSlug}' !== '${nextSlug}').`), "__NEXT_ERROR_CODE", {
                             value: "E337",
                             enumerable: false,
@@ -671,9 +671,9 @@ class UrlNode {
                         });
                     }
                     handleSlug(this.optionalRestSlugName, segmentName);
-                    // slugName is kept as it can only be one particular slugName
+                    
                     this.optionalRestSlugName = segmentName;
-                    // nextSegment is overwritten to [[...]] so that it can later be sorted specifically
+                    
                     nextSegment = '[[...]]';
                 } else {
                     if (this.optionalRestSlugName != null) {
@@ -684,9 +684,9 @@ class UrlNode {
                         });
                     }
                     handleSlug(this.restSlugName, segmentName);
-                    // slugName is kept as it can only be one particular slugName
+                    
                     this.restSlugName = segmentName;
-                    // nextSegment is overwritten to [...] so that it can later be sorted specifically
+                    
                     nextSegment = '[...]';
                 }
             } else {
@@ -698,13 +698,13 @@ class UrlNode {
                     });
                 }
                 handleSlug(this.slugName, segmentName);
-                // slugName is kept as it can only be one particular slugName
+                
                 this.slugName = segmentName;
-                // nextSegment is overwritten to [] so that it can later be sorted specifically
+                
                 nextSegment = '[]';
             }
         }
-        // If this UrlNode doesn't have the nextSegment yet we create a new child UrlNode
+        
         if (!this.children.has(nextSegment)) {
             this.children.set(nextSegment, new UrlNode());
         }
@@ -719,25 +719,25 @@ class UrlNode {
     }
 }
 function getSortedRoutes(normalizedPages) {
-    // First the UrlNode is created, and every UrlNode can have only 1 dynamic segment
-    // Eg you can't have pages/[post]/abc.js and pages/[hello]/something-else.js
-    // Only 1 dynamic segment per nesting level
-    // So in the case that is test/integration/dynamic-routing it'll be this:
-    // pages/[post]/comments.js
-    // pages/blog/[post]/comment/[id].js
-    // Both are fine because `pages/[post]` and `pages/blog` are on the same level
-    // So in this case `UrlNode` created here has `this.slugName === 'post'`
-    // And since your PR passed through `slugName` as an array basically it'd including it in too many possibilities
-    // Instead what has to be passed through is the upwards path's dynamic names
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     const root = new UrlNode();
-    // Here the `root` gets injected multiple paths, and insert will break them up into sublevels
+    
     normalizedPages.forEach((pagePath)=>root.insert(pagePath));
-    // Smoosh will then sort those sublevels up to the point where you get the correct route definition priority
+    
     return root.smoosh();
 }
 function getSortedRouteObjects(objects, getter) {
-    // We're assuming here that all the pathnames are unique, that way we can
-    // sort the list and use the index as the key.
+    
+    
     const indexes = {};
     const pathnames = [];
     for(let i = 0; i < objects.length; i++){
@@ -745,20 +745,20 @@ function getSortedRouteObjects(objects, getter) {
         indexes[pathname] = i;
         pathnames[i] = pathname;
     }
-    // Sort the pathnames.
+    
     const sorted = getSortedRoutes(pathnames);
-    // Map the sorted pathnames back to the original objects using the new sorted
-    // index.
+    
+    
     return sorted.map((pathname)=>objects[indexes[pathname]]);
-} //# sourceMappingURL=sorted-routes.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/page-path/ensure-leading-slash.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * For a given page path, this function ensures that there is a leading slash.
- * If there is not a leading slash, one is added, otherwise it is noop.
- */ Object.defineProperty(exports, "__esModule", {
+
+
+
+ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 Object.defineProperty(exports, "ensureLeadingSlash", {
@@ -769,7 +769,7 @@ Object.defineProperty(exports, "ensureLeadingSlash", {
 });
 function ensureLeadingSlash(path) {
     return path.startsWith('/') ? path : `/${path}`;
-} //# sourceMappingURL=ensure-leading-slash.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -823,7 +823,7 @@ function getSegmentValue(segment) {
     return Array.isArray(segment) ? segment[1] : segment;
 }
 function isGroupSegment(segment) {
-    // Use array[0] for performant purpose
+    
     return segment[0] === '(' && segment.endsWith(')');
 }
 function isParallelRouteSegment(segment) {
@@ -841,19 +841,19 @@ function computeSelectedLayoutSegment(segments, parallelRouteKey) {
     if (!segments || segments.length === 0) {
         return null;
     }
-    // For 'children', use first segment; for other parallel routes, use last segment
+    
     const rawSegment = parallelRouteKey === 'children' ? segments[0] : segments[segments.length - 1];
-    // If the default slot is showing, return null since it's not technically "selected" (it's a fallback)
-    // Returning an internal value like `__DEFAULT__` would be confusing
+    
+    
     return rawSegment === DEFAULT_SEGMENT_KEY ? null : rawSegment;
 }
 function getSelectedLayoutSegmentPath(tree, parallelRouteKey, first = true, segmentPath = []) {
     let node;
     if (first) {
-        // Use the provided parallel route key on the first parallel route
+        
         node = tree[1][parallelRouteKey];
     } else {
-        // After first parallel route prefer children, if there's no children pick the first parallel route.
+        
         const parallelRoutes = tree[1];
         node = parallelRoutes.children ?? Object.values(parallelRoutes)[0];
     }
@@ -867,7 +867,7 @@ function getSelectedLayoutSegmentPath(tree, parallelRouteKey, first = true, segm
     return getSelectedLayoutSegmentPath(node, parallelRouteKey, false, segmentPath);
 }
 const PAGE_SEGMENT_KEY = '__PAGE__';
-const DEFAULT_SEGMENT_KEY = '__DEFAULT__'; //# sourceMappingURL=segment.js.map
+const DEFAULT_SEGMENT_KEY = '__DEFAULT__'; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/app-paths.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -897,19 +897,19 @@ const _ensureleadingslash = __turbopack_context__.r("[project]/Desktop/Projects/
 const _segment = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment.js [ssr] (ecmascript)");
 function normalizeAppPath(route) {
     return (0, _ensureleadingslash.ensureLeadingSlash)(route.split('/').reduce((pathname, segment, index, segments)=>{
-        // Empty segments are ignored.
+        
         if (!segment) {
             return pathname;
         }
-        // Groups are ignored.
+        
         if ((0, _segment.isGroupSegment)(segment)) {
             return pathname;
         }
-        // Parallel segments are ignored.
+        
         if (segment[0] === '@') {
             return pathname;
         }
-        // The last segment (if it's a leaf) should be ignored.
+        
         if ((segment === 'page' || segment === 'route') && index === segments.length - 1) {
             return pathname;
         }
@@ -918,7 +918,7 @@ function normalizeAppPath(route) {
 }
 function normalizeRscURL(url) {
     return url.replace(/\.rsc($|\?)/, '$1');
-} //# sourceMappingURL=app-paths.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/interception-routes.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -956,7 +956,7 @@ const INTERCEPTION_ROUTE_MARKERS = [
     '(...)'
 ];
 function isInterceptionRouteAppPath(path) {
-    // TODO-APP: add more serious validation
+    
     return path.split('/').find((segment)=>INTERCEPTION_ROUTE_MARKERS.find((m)=>segment.startsWith(m))) !== undefined;
 }
 function extractInterceptionRouteInformation(path) {
@@ -978,11 +978,11 @@ function extractInterceptionRouteInformation(path) {
             configurable: true
         });
     }
-    interceptingRoute = (0, _apppaths.normalizeAppPath)(interceptingRoute) // normalize the path, e.g. /(blog)/feed -> /feed
+    interceptingRoute = (0, _apppaths.normalizeAppPath)(interceptingRoute) 
     ;
     switch(marker){
         case '(.)':
-            // (.) indicates that we should match with sibling routes, so we just need to append the intercepted route to the intercepting route
+            
             if (interceptingRoute === '/') {
                 interceptedRoute = `/${interceptedRoute}`;
             } else {
@@ -990,7 +990,7 @@ function extractInterceptionRouteInformation(path) {
             }
             break;
         case '(..)':
-            // (..) indicates that we should match at one level up, so we need to remove the last segment of the intercepting route
+            
             if (interceptingRoute === '/') {
                 throw Object.defineProperty(new Error(`Invalid interception route: ${path}. Cannot use (..) marker at the root level, use (.) instead.`), "__NEXT_ERROR_CODE", {
                     value: "E207",
@@ -1001,11 +1001,11 @@ function extractInterceptionRouteInformation(path) {
             interceptedRoute = interceptingRoute.split('/').slice(0, -1).concat(interceptedRoute).join('/');
             break;
         case '(...)':
-            // (...) will match the route segment in the root directory, so we need to use the root directory to prepend the intercepted route
+            
             interceptedRoute = '/' + interceptedRoute;
             break;
         case '(..)(..)':
-            // (..)(..) indicates that we should match at two levels up, so we need to remove the last two segments of the intercepting route
+            
             const splitInterceptingRoute = interceptingRoute.split('/');
             if (splitInterceptingRoute.length <= 2) {
                 throw Object.defineProperty(new Error(`Invalid interception route: ${path}. Cannot use (..)(..) marker at the root level or one level up.`), "__NEXT_ERROR_CODE", {
@@ -1027,7 +1027,7 @@ function extractInterceptionRouteInformation(path) {
         interceptingRoute,
         interceptedRoute
     };
-} //# sourceMappingURL=interception-routes.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/is-dynamic.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1042,9 +1042,9 @@ Object.defineProperty(exports, "isDynamicRoute", {
     }
 });
 const _interceptionroutes = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/interception-routes.js [ssr] (ecmascript)");
-// Identify /.*[param].*/ in route string
+
 const TEST_ROUTE = /\/[^/]*\[[^/]+\][^/]*(?=\/|$)/;
-// Identify /[param]/ in route string
+
 const TEST_STRICT_ROUTE = /\/\[[^/]+\](?=\/|$)/;
 function isDynamicRoute(route, strict = true) {
     if ((0, _interceptionroutes.isInterceptionRouteAppPath)(route)) {
@@ -1054,7 +1054,7 @@ function isDynamicRoute(route, strict = true) {
         return TEST_STRICT_ROUTE.test(route);
     }
     return TEST_ROUTE.test(route);
-} //# sourceMappingURL=is-dynamic.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/index.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1085,16 +1085,16 @@ _export(exports, {
     }
 });
 const _sortedroutes = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/sorted-routes.js [ssr] (ecmascript)");
-const _isdynamic = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/is-dynamic.js [ssr] (ecmascript)"); //# sourceMappingURL=index.js.map
+const _isdynamic = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router/utils/is-dynamic.js [ssr] (ecmascript)"); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/page-path/normalize-path-sep.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * For a given page path, this function ensures that there is no backslash
- * escaping slashes in the path. Example:
- *  - `foo\/bar\/baz` -> `foo/bar/baz`
- */ Object.defineProperty(exports, "__esModule", {
+
+
+
+
+ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 Object.defineProperty(exports, "normalizePathSep", {
@@ -1105,7 +1105,7 @@ Object.defineProperty(exports, "normalizePathSep", {
 });
 function normalizePathSep(path) {
     return path.replace(/\\/g, '/');
-} //# sourceMappingURL=normalize-path-sep.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/page-path/denormalize-page-path.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1124,7 +1124,7 @@ const _normalizepathsep = __turbopack_context__.r("[project]/Desktop/Projects/fi
 function denormalizePagePath(page) {
     let _page = (0, _normalizepathsep.normalizePathSep)(page);
     return _page.startsWith('/index/') && !(0, _utils.isDynamicRoute)(_page) ? _page.slice(6) : _page !== '/index' ? _page : '/';
-} //# sourceMappingURL=denormalize-page-path.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1229,8 +1229,8 @@ function execOnce(fn) {
         return result;
     };
 }
-// Scheme: https://tools.ietf.org/html/rfc3986#section-3.1
-// Absolute URL: https://tools.ietf.org/html/rfc3986#section-4.3
+
+
 const ABSOLUTE_URL_REGEX = /^[a-zA-Z][a-zA-Z\d+\-.]*?:/;
 const isAbsoluteUrl = (url)=>ABSOLUTE_URL_REGEX.test(url);
 function getLocationOrigin() {
@@ -1251,8 +1251,8 @@ function isResSent(res) {
 function normalizeRepeatedSlashes(url) {
     const urlParts = url.split('?');
     const urlNoQuery = urlParts[0];
-    return urlNoQuery // first we replace any non-encoded backslashes with forward
-    // then normalize repeated forward slashes
+    return urlNoQuery 
+    
     .replace(/\\/g, '/').replace(/\/\/+/g, '/') + (urlParts[1] ? `?${urlParts.slice(1).join('?')}` : '');
 }
 async function loadGetInitialProps(App, ctx) {
@@ -1266,11 +1266,11 @@ async function loadGetInitialProps(App, ctx) {
             });
         }
     }
-    // when called from _app `ctx` is nested in `ctx`
+    
     const res = ctx.res || ctx.ctx && ctx.ctx.res;
     if (!App.getInitialProps) {
         if (ctx.ctx && ctx.Component) {
-            // @ts-ignore pageProps default
+            
             return {
                 pageProps: await loadGetInitialProps(ctx.Component, ctx.ctx)
             };
@@ -1332,7 +1332,7 @@ function stringifyError(error) {
         message: error.message,
         stack: error.stack
     });
-} //# sourceMappingURL=utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/page-path/normalize-page-path.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1359,7 +1359,7 @@ function normalizePagePath(page) {
         }
     }
     return normalized;
-} //# sourceMappingURL=normalize-page-path.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/get-page-files.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1383,13 +1383,13 @@ function getPageFiles(buildManifest, page) {
         return [];
     }
     return files;
-} //# sourceMappingURL=get-page-files.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/htmlescape.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-// This utility is based on https://github.com/zertosh/htmlescape
-// License: https://github.com/zertosh/htmlescape/blob/0527ca7156a524d256101bb310a9f970f63078ad/LICENSE
+
+
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -1421,7 +1421,7 @@ const ESCAPE_LOOKUP = {
 const ESCAPE_REGEX = /[&><\u2028\u2029]/g;
 function htmlEscapeJsonString(str) {
     return str.replace(ESCAPE_REGEX, (match)=>ESCAPE_LOOKUP[match]);
-} //# sourceMappingURL=htmlescape.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/is-plain-object.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1455,16 +1455,16 @@ function isPlainObject(value) {
         return false;
     }
     const prototype = Object.getPrototypeOf(value);
-    /**
-   * this used to be previously:
-   *
-   * `return prototype === null || prototype === Object.prototype`
-   *
-   * but Edge Runtime expose Object from vm, being that kind of type-checking wrongly fail.
-   *
-   * It was changed to the current implementation since it's resilient to serialization.
-   */ return prototype === null || prototype.hasOwnProperty('isPrototypeOf');
-} //# sourceMappingURL=is-plain-object.js.map
+    
+
+
+
+
+
+
+
+ return prototype === null || prototype.hasOwnProperty('isPrototypeOf');
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1483,10 +1483,10 @@ function _export(target, all) {
     });
 }
 _export(exports, {
-    /**
- * Checks whether the given value is a NextError.
- * This can be used to print a more detailed error message with properties like `code` & `digest`.
- */ default: function() {
+    
+
+
+ default: function() {
         return isError;
     },
     getProperError: function() {
@@ -1494,16 +1494,16 @@ _export(exports, {
     }
 });
 const _isplainobject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/is-plain-object.js [ssr] (ecmascript)");
-/**
- * This is a safe stringify function that handles circular references.
- * We're using a simpler version here to avoid introducing
- * the dependency `safe-stable-stringify` into production bundle.
- *
- * This helper is used both in development and production.
- */ function safeStringifyLite(obj) {
+
+
+
+
+
+
+ function safeStringifyLite(obj) {
     const seen = new WeakSet();
     return JSON.stringify(obj, (_key, value)=>{
-        // If value is an object and already seen, replace with "[Circular]"
+        
         if (typeof value === 'object' && value !== null) {
             if (seen.has(value)) {
                 return '[Circular]';
@@ -1521,8 +1521,8 @@ function getProperError(err) {
         return err;
     }
     if ("TURBOPACK compile-time truthy", 1) {
-        // provide better error for case where `throw undefined`
-        // is called in development
+        
+        
         if (typeof err === 'undefined') {
             return Object.defineProperty(new Error('An undefined error was thrown, ' + 'see here for more info: https://nextjs.org/docs/messages/threw-undefined'), "__NEXT_ERROR_CODE", {
                 value: "E98",
@@ -1543,27 +1543,27 @@ function getProperError(err) {
         enumerable: false,
         configurable: true
     });
-} //# sourceMappingURL=is-error.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/pages/module.compiled.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+if ("TURBOPACK compile-time falsy", 0) 
 ;
 else {
     if ("TURBOPACK compile-time truthy", 1) {
         if ("TURBOPACK compile-time truthy", 1) {
             module.exports = __turbopack_context__.r("[externals]/next/dist/compiled/next-server/pages-turbo.runtime.dev.js [external] (next/dist/compiled/next-server/pages-turbo.runtime.dev.js, cjs)");
-        } else //TURBOPACK unreachable
+        } else 
         ;
-    } else //TURBOPACK unreachable
+    } else 
     ;
-} //# sourceMappingURL=module.compiled.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/pages/vendored/contexts/html-context.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/pages/module.compiled.js [ssr] (ecmascript)").vendored['contexts'].HtmlContext; //# sourceMappingURL=html-context.js.map
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/pages/module.compiled.js [ssr] (ecmascript)").vendored['contexts'].HtmlContext; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/encode-uri-path.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1579,17 +1579,17 @@ Object.defineProperty(exports, "encodeURIPath", {
 });
 function encodeURIPath(file) {
     return file.split('/').map((p)=>encodeURIComponent(p)).join('/');
-} //# sourceMappingURL=encode-uri-path.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/lib/trace/constants.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * Contains predefined constants for the trace span name in next/server.
- *
- * Currently, next/server/tracer is internal implementation only for tracking
- * next.js's implementation only with known span names defined here.
- **/ // eslint typescript has a bug with TS enums
+
+
+
+
+
+ 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -1659,7 +1659,7 @@ _export(exports, {
         return StartServerSpan;
     }
 });
-var BaseServerSpan = /*#__PURE__*/ function(BaseServerSpan) {
+var BaseServerSpan =  function(BaseServerSpan) {
     BaseServerSpan["handleRequest"] = "BaseServer.handleRequest";
     BaseServerSpan["run"] = "BaseServer.run";
     BaseServerSpan["pipe"] = "BaseServer.pipe";
@@ -1674,12 +1674,12 @@ var BaseServerSpan = /*#__PURE__*/ function(BaseServerSpan) {
     BaseServerSpan["render404"] = "BaseServer.render404";
     return BaseServerSpan;
 }(BaseServerSpan || {});
-var LoadComponentsSpan = /*#__PURE__*/ function(LoadComponentsSpan) {
+var LoadComponentsSpan =  function(LoadComponentsSpan) {
     LoadComponentsSpan["loadDefaultErrorComponents"] = "LoadComponents.loadDefaultErrorComponents";
     LoadComponentsSpan["loadComponents"] = "LoadComponents.loadComponents";
     return LoadComponentsSpan;
 }(LoadComponentsSpan || {});
-var NextServerSpan = /*#__PURE__*/ function(NextServerSpan) {
+var NextServerSpan =  function(NextServerSpan) {
     NextServerSpan["getRequestHandler"] = "NextServer.getRequestHandler";
     NextServerSpan["getRequestHandlerWithMetadata"] = "NextServer.getRequestHandlerWithMetadata";
     NextServerSpan["getServer"] = "NextServer.getServer";
@@ -1687,7 +1687,7 @@ var NextServerSpan = /*#__PURE__*/ function(NextServerSpan) {
     NextServerSpan["createServer"] = "createServer.createServer";
     return NextServerSpan;
 }(NextServerSpan || {});
-var NextNodeServerSpan = /*#__PURE__*/ function(NextNodeServerSpan) {
+var NextNodeServerSpan =  function(NextNodeServerSpan) {
     NextNodeServerSpan["compression"] = "NextNodeServer.compression";
     NextNodeServerSpan["getBuildId"] = "NextNodeServer.getBuildId";
     NextNodeServerSpan["createComponentTree"] = "NextNodeServer.createComponentTree";
@@ -1714,18 +1714,18 @@ var NextNodeServerSpan = /*#__PURE__*/ function(NextNodeServerSpan) {
     NextNodeServerSpan["renderErrorToHTML"] = "NextNodeServer.renderErrorToHTML";
     NextNodeServerSpan["render404"] = "NextNodeServer.render404";
     NextNodeServerSpan["startResponse"] = "NextNodeServer.startResponse";
-    // nested inner span, does not require parent scope name
+    
     NextNodeServerSpan["route"] = "route";
     NextNodeServerSpan["onProxyReq"] = "onProxyReq";
     NextNodeServerSpan["apiResolver"] = "apiResolver";
     NextNodeServerSpan["internalFetch"] = "internalFetch";
     return NextNodeServerSpan;
 }(NextNodeServerSpan || {});
-var StartServerSpan = /*#__PURE__*/ function(StartServerSpan) {
+var StartServerSpan =  function(StartServerSpan) {
     StartServerSpan["startServer"] = "startServer.startServer";
     return StartServerSpan;
 }(StartServerSpan || {});
-var RenderSpan = /*#__PURE__*/ function(RenderSpan) {
+var RenderSpan =  function(RenderSpan) {
     RenderSpan["getServerSideProps"] = "Render.getServerSideProps";
     RenderSpan["getStaticProps"] = "Render.getStaticProps";
     RenderSpan["renderToString"] = "Render.renderToString";
@@ -1733,31 +1733,31 @@ var RenderSpan = /*#__PURE__*/ function(RenderSpan) {
     RenderSpan["createBodyResult"] = "Render.createBodyResult";
     return RenderSpan;
 }(RenderSpan || {});
-var AppRenderSpan = /*#__PURE__*/ function(AppRenderSpan) {
+var AppRenderSpan =  function(AppRenderSpan) {
     AppRenderSpan["renderToString"] = "AppRender.renderToString";
     AppRenderSpan["renderToReadableStream"] = "AppRender.renderToReadableStream";
     AppRenderSpan["getBodyResult"] = "AppRender.getBodyResult";
     AppRenderSpan["fetch"] = "AppRender.fetch";
     return AppRenderSpan;
 }(AppRenderSpan || {});
-var RouterSpan = /*#__PURE__*/ function(RouterSpan) {
+var RouterSpan =  function(RouterSpan) {
     RouterSpan["executeRoute"] = "Router.executeRoute";
     return RouterSpan;
 }(RouterSpan || {});
-var NodeSpan = /*#__PURE__*/ function(NodeSpan) {
+var NodeSpan =  function(NodeSpan) {
     NodeSpan["runHandler"] = "Node.runHandler";
     return NodeSpan;
 }(NodeSpan || {});
-var AppRouteRouteHandlersSpan = /*#__PURE__*/ function(AppRouteRouteHandlersSpan) {
+var AppRouteRouteHandlersSpan =  function(AppRouteRouteHandlersSpan) {
     AppRouteRouteHandlersSpan["runHandler"] = "AppRouteRouteHandlers.runHandler";
     return AppRouteRouteHandlersSpan;
 }(AppRouteRouteHandlersSpan || {});
-var ResolveMetadataSpan = /*#__PURE__*/ function(ResolveMetadataSpan) {
+var ResolveMetadataSpan =  function(ResolveMetadataSpan) {
     ResolveMetadataSpan["generateMetadata"] = "ResolveMetadata.generateMetadata";
     ResolveMetadataSpan["generateViewport"] = "ResolveMetadata.generateViewport";
     return ResolveMetadataSpan;
 }(ResolveMetadataSpan || {});
-var MiddlewareSpan = /*#__PURE__*/ function(MiddlewareSpan) {
+var MiddlewareSpan =  function(MiddlewareSpan) {
     MiddlewareSpan["execute"] = "Middleware.execute";
     return MiddlewareSpan;
 }(MiddlewareSpan || {});
@@ -1783,17 +1783,17 @@ const LogSpanAllowList = new Set([
     "NextNodeServer.findPageComponents",
     "NextNodeServer.createComponentTree",
     "NextNodeServer.clientComponentLoading"
-]); //# sourceMappingURL=constants.js.map
+]); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/is-thenable.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * Check to see if a value is Thenable.
- *
- * @param promise the maybe-thenable value
- * @returns true if the value is thenable
- */ Object.defineProperty(exports, "__esModule", {
+
+
+
+
+
+ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 Object.defineProperty(exports, "isThenable", {
@@ -1804,47 +1804,47 @@ Object.defineProperty(exports, "isThenable", {
 });
 function isThenable(promise) {
     return promise !== null && typeof promise === 'object' && 'then' in promise && typeof promise.then === 'function';
-} //# sourceMappingURL=is-thenable.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/context/context.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ /** Get a key to uniquely identify a context value */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  __turbopack_context__.s([
     "ROOT_CONTEXT",
     ()=>ROOT_CONTEXT,
     "createContextKey",
     ()=>createContextKey
 ]);
 function createContextKey(description) {
-    // The specification states that for the same input, multiple calls should
-    // return different keys. Due to the nature of the JS dependency management
-    // system, this creates problems where multiple versions of some package
-    // could hold different keys for the same property.
-    //
-    // Therefore, we use Symbol.for which returns the same key for the same input.
+    
+    
+    
+    
+    
+    
     return Symbol.for(description);
 }
 var BaseContext = function() {
-    /**
-     * Construct a new context which inherits values from an optional parent context.
-     *
-     * @param parentContext a context from which to inherit values
-     */ function BaseContext(parentContext) {
-        // for minification
+    
+
+
+
+ function BaseContext(parentContext) {
+        
         var self = this;
         self._currentContext = parentContext ? new Map(parentContext) : new Map();
         self.getValue = function(key) {
@@ -1863,26 +1863,26 @@ var BaseContext = function() {
     }
     return BaseContext;
 }();
-var ROOT_CONTEXT = new BaseContext(); //# sourceMappingURL=context.js.map
+var ROOT_CONTEXT = new BaseContext(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/context/NoopContextManager.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "NoopContextManager",
     ()=>NoopContextManager
 ]);
@@ -1942,74 +1942,74 @@ var NoopContextManager = function() {
     return NoopContextManager;
 }();
 ;
- //# sourceMappingURL=NoopContextManager.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/platform/node/globalThis.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ /** only globals that common to node and browsers are allowed */ // eslint-disable-next-line node/no-unsupported-features/es-builtins
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 __turbopack_context__.s([
     "_globalThis",
     ()=>_globalThis
 ]);
-var _globalThis = typeof globalThis === 'object' ? globalThis : /*TURBOPACK member replacement*/ __turbopack_context__.g; //# sourceMappingURL=globalThis.js.map
+var _globalThis = typeof globalThis === 'object' ? globalThis :  __turbopack_context__.g; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/version.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ // this is autogenerated file, see scripts/version-update.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 __turbopack_context__.s([
     "VERSION",
     ()=>VERSION
 ]);
-var VERSION = '1.9.0'; //# sourceMappingURL=version.js.map
+var VERSION = '1.9.0'; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/internal/semver.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "_makeCompatibilityCheck",
     ()=>_makeCompatibilityCheck,
     "isCompatible",
@@ -2025,7 +2025,7 @@ function _makeCompatibilityCheck(ownVersion) {
     var rejectedVersions = new Set();
     var myVersionMatch = ownVersion.match(re);
     if (!myVersionMatch) {
-        // we cannot guarantee compatibility so we always return noop
+        
         return function() {
             return false;
         };
@@ -2036,7 +2036,7 @@ function _makeCompatibilityCheck(ownVersion) {
         patch: +myVersionMatch[3],
         prerelease: myVersionMatch[4]
     };
-    // if ownVersion has a prerelease tag, versions must match exactly
+    
     if (ownVersionParsed.prerelease != null) {
         return function isExactmatch(globalVersion) {
             return globalVersion === ownVersion;
@@ -2059,8 +2059,8 @@ function _makeCompatibilityCheck(ownVersion) {
         }
         var globalVersionMatch = globalVersion.match(re);
         if (!globalVersionMatch) {
-            // cannot parse other version
-            // we cannot guarantee compatibility so we always noop
+            
+            
             return _reject(globalVersion);
         }
         var globalVersionParsed = {
@@ -2069,11 +2069,11 @@ function _makeCompatibilityCheck(ownVersion) {
             patch: +globalVersionMatch[3],
             prerelease: globalVersionMatch[4]
         };
-        // if globalVersion has a prerelease tag, versions must match exactly
+        
         if (globalVersionParsed.prerelease != null) {
             return _reject(globalVersion);
         }
-        // major versions must match
+        
         if (ownVersionParsed.major !== globalVersionParsed.major) {
             return _reject(globalVersion);
         }
@@ -2089,26 +2089,26 @@ function _makeCompatibilityCheck(ownVersion) {
         return _reject(globalVersion);
     };
 }
-var isCompatible = _makeCompatibilityCheck(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$version$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["VERSION"]); //# sourceMappingURL=semver.js.map
+var isCompatible = _makeCompatibilityCheck(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$version$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["VERSION"]); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/internal/global-utils.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "getGlobal",
     ()=>getGlobal,
     "registerGlobal",
@@ -2134,13 +2134,13 @@ function registerGlobal(type, instance, diag, allowOverride) {
         version: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$version$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["VERSION"]
     };
     if (!allowOverride && api[type]) {
-        // already registered an API of this type
+        
         var err = new Error("@opentelemetry/api: Attempted duplicate registration of API: " + type);
         diag.error(err.stack || err.message);
         return false;
     }
     if (api.version !== __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$version$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["VERSION"]) {
-        // All registered APIs must be of the same version exactly
+        
         var err = new Error("@opentelemetry/api: Registration of version v" + api.version + " for " + type + " does not match previously registered API v" + __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$version$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["VERSION"]);
         diag.error(err.stack || err.message);
         return false;
@@ -2163,26 +2163,26 @@ function unregisterGlobal(type, diag) {
     if (api) {
         delete api[type];
     }
-} //# sourceMappingURL=global-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/diag/ComponentLogger.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "DiagComponentLogger",
     ()=>DiagComponentLogger
 ]);
@@ -2216,15 +2216,15 @@ var __spreadArray = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK comp
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 ;
-/**
- * Component Logger which is meant to be used as part of any component which
- * will add automatically additional namespace in front of the log message.
- * It will then forward all message to global diag logger
- * @example
- * const cLogger = diag.createComponentLogger({ namespace: '@opentelemetry/instrumentation-http' });
- * cLogger.debug('test');
- * // @opentelemetry/instrumentation-http test
- */ var DiagComponentLogger = function() {
+
+
+
+
+
+
+
+
+ var DiagComponentLogger = function() {
     function DiagComponentLogger(props) {
         this._namespace = props.namespace || 'DiagComponentLogger';
     }
@@ -2268,71 +2268,71 @@ var __spreadArray = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK comp
 ;
 function logProxy(funcName, namespace, args) {
     var logger = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["getGlobal"])('diag');
-    // shortcut if logger not set
+    
     if (!logger) {
         return;
     }
     args.unshift(namespace);
     return logger[funcName].apply(logger, __spreadArray([], __read(args), false));
-} //# sourceMappingURL=ComponentLogger.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/diag/types.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ /**
- * Defines the available internal logging levels for the diagnostic logger, the numeric values
- * of the levels are defined to match the original values from the initial LogLevel to avoid
- * compatibility/migration issues for any implementation that assume the numeric ordering.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ __turbopack_context__.s([
     "DiagLogLevel",
     ()=>DiagLogLevel
 ]);
 var DiagLogLevel;
 (function(DiagLogLevel) {
-    /** Diagnostic Logging level setting to disable all logging (except and forced logs) */ DiagLogLevel[DiagLogLevel["NONE"] = 0] = "NONE";
-    /** Identifies an error scenario */ DiagLogLevel[DiagLogLevel["ERROR"] = 30] = "ERROR";
-    /** Identifies a warning scenario */ DiagLogLevel[DiagLogLevel["WARN"] = 50] = "WARN";
-    /** General informational log message */ DiagLogLevel[DiagLogLevel["INFO"] = 60] = "INFO";
-    /** General debug log message */ DiagLogLevel[DiagLogLevel["DEBUG"] = 70] = "DEBUG";
-    /**
-     * Detailed trace level logging should only be used for development, should only be set
-     * in a development environment.
-     */ DiagLogLevel[DiagLogLevel["VERBOSE"] = 80] = "VERBOSE";
-    /** Used to set the logging level to include all logging */ DiagLogLevel[DiagLogLevel["ALL"] = 9999] = "ALL";
-})(DiagLogLevel || (DiagLogLevel = {})); //# sourceMappingURL=types.js.map
+     DiagLogLevel[DiagLogLevel["NONE"] = 0] = "NONE";
+     DiagLogLevel[DiagLogLevel["ERROR"] = 30] = "ERROR";
+     DiagLogLevel[DiagLogLevel["WARN"] = 50] = "WARN";
+     DiagLogLevel[DiagLogLevel["INFO"] = 60] = "INFO";
+     DiagLogLevel[DiagLogLevel["DEBUG"] = 70] = "DEBUG";
+    
+
+
+ DiagLogLevel[DiagLogLevel["VERBOSE"] = 80] = "VERBOSE";
+     DiagLogLevel[DiagLogLevel["ALL"] = 9999] = "ALL";
+})(DiagLogLevel || (DiagLogLevel = {})); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/diag/internal/logLevelLogger.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "createLogLevelDiagLogger",
     ()=>createLogLevelDiagLogger
 ]);
@@ -2344,7 +2344,7 @@ function createLogLevelDiagLogger(maxLevel, logger) {
     } else if (maxLevel > __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagLogLevel"].ALL) {
         maxLevel = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagLogLevel"].ALL;
     }
-    // In case the logger is null or undefined
+    
     logger = logger || {};
     function _filterFunc(funcName, theLevel) {
         var theFunc = logger[funcName];
@@ -2360,26 +2360,26 @@ function createLogLevelDiagLogger(maxLevel, logger) {
         debug: _filterFunc('debug', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagLogLevel"].DEBUG),
         verbose: _filterFunc('verbose', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagLogLevel"].VERBOSE)
     };
-} //# sourceMappingURL=logLevelLogger.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/diag.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "DiagAPI",
     ()=>DiagAPI
 ]);
@@ -2420,14 +2420,14 @@ var __spreadArray = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK comp
 ;
 ;
 var API_NAME = 'diag';
-/**
- * Singleton object which represents the entry point to the OpenTelemetry internal
- * diagnostic API
- */ var DiagAPI = function() {
-    /**
-     * Private internal constructor
-     * @private
-     */ function DiagAPI() {
+
+
+
+ var DiagAPI = function() {
+    
+
+
+ function DiagAPI() {
         function _logProxy(funcName) {
             return function() {
                 var args = [];
@@ -2435,14 +2435,14 @@ var API_NAME = 'diag';
                     args[_i] = arguments[_i];
                 }
                 var logger = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["getGlobal"])('diag');
-                // shortcut if logger not set
+                
                 if (!logger) return;
                 return logger[funcName].apply(logger, __spreadArray([], __read(args), false));
             };
         }
-        // Using self local variable for minification purposes as 'this' cannot be minified
+        
         var self = this;
-        // DiagAPI specific functions
+        
         var setLogger = function(logger, optionsOrLogLevel) {
             var _a, _b, _c;
             if (optionsOrLogLevel === void 0) {
@@ -2451,9 +2451,9 @@ var API_NAME = 'diag';
                 };
             }
             if (logger === self) {
-                // There isn't much we can do here.
-                // Logging to the console might break the user application.
-                // Try to log to self. If a logger was previously registered it will receive the log.
+                
+                
+                
                 var err = new Error('Cannot use diag as the logger for itself. Please use a DiagLogger implementation like ConsoleDiagLogger or a custom implementation');
                 self.error((_a = err.stack) !== null && _a !== void 0 ? _a : err.message);
                 return false;
@@ -2465,7 +2465,7 @@ var API_NAME = 'diag';
             }
             var oldLogger = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["getGlobal"])('diag');
             var newLogger = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$internal$2f$logLevelLogger$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["createLogLevelDiagLogger"])((_b = optionsOrLogLevel.logLevel) !== null && _b !== void 0 ? _b : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2f$types$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagLogLevel"].INFO, logger);
-            // There already is an logger registered. We'll let it know before overwriting it.
+            
             if (oldLogger && !optionsOrLogLevel.suppressOverrideMessage) {
                 var stack = (_c = new Error().stack) !== null && _c !== void 0 ? _c : '<failed to generate stacktrace>';
                 oldLogger.warn("Current logger will be overwritten from " + stack);
@@ -2486,7 +2486,7 @@ var API_NAME = 'diag';
         self.warn = _logProxy('warn');
         self.error = _logProxy('error');
     }
-    /** Get the singleton instance of the DiagAPI API */ DiagAPI.instance = function() {
+     DiagAPI.instance = function() {
         if (!this._instance) {
             this._instance = new DiagAPI();
         }
@@ -2495,26 +2495,26 @@ var API_NAME = 'diag';
     return DiagAPI;
 }();
 ;
- //# sourceMappingURL=diag.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/context.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "ContextAPI",
     ()=>ContextAPI
 ]);
@@ -2554,36 +2554,36 @@ var __spreadArray = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK comp
 ;
 var API_NAME = 'context';
 var NOOP_CONTEXT_MANAGER = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$NoopContextManager$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["NoopContextManager"]();
-/**
- * Singleton object which represents the entry point to the OpenTelemetry Context API
- */ var ContextAPI = function() {
-    /** Empty private constructor prevents end users from constructing a new instance of the API */ function ContextAPI() {}
-    /** Get the singleton instance of the Context API */ ContextAPI.getInstance = function() {
+
+
+ var ContextAPI = function() {
+     function ContextAPI() {}
+     ContextAPI.getInstance = function() {
         if (!this._instance) {
             this._instance = new ContextAPI();
         }
         return this._instance;
     };
-    /**
-     * Set the current context manager.
-     *
-     * @returns true if the context manager was successfully registered, else false
-     */ ContextAPI.prototype.setGlobalContextManager = function(contextManager) {
+    
+
+
+
+ ContextAPI.prototype.setGlobalContextManager = function(contextManager) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["registerGlobal"])(API_NAME, contextManager, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
     };
-    /**
-     * Get the currently active context
-     */ ContextAPI.prototype.active = function() {
+    
+
+ ContextAPI.prototype.active = function() {
         return this._getContextManager().active();
     };
-    /**
-     * Execute a function with an active context
-     *
-     * @param context context to be active during function execution
-     * @param fn function to execute in a context
-     * @param thisArg optional receiver to be used for calling fn
-     * @param args optional arguments forwarded to fn
-     */ ContextAPI.prototype.with = function(context, fn, thisArg) {
+    
+
+
+
+
+
+
+ ContextAPI.prototype.with = function(context, fn, thisArg) {
         var _a;
         var args = [];
         for(var _i = 3; _i < arguments.length; _i++){
@@ -2595,98 +2595,98 @@ var NOOP_CONTEXT_MANAGER = new __TURBOPACK__imported__module__$5b$project$5d2f$D
             thisArg
         ], __read(args), false));
     };
-    /**
-     * Bind a context to a target function or event emitter
-     *
-     * @param context context to bind to the event emitter or function. Defaults to the currently active context
-     * @param target function or event emitter to bind
-     */ ContextAPI.prototype.bind = function(context, target) {
+    
+
+
+
+
+ ContextAPI.prototype.bind = function(context, target) {
         return this._getContextManager().bind(context, target);
     };
     ContextAPI.prototype._getContextManager = function() {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["getGlobal"])(API_NAME) || NOOP_CONTEXT_MANAGER;
     };
-    /** Disable and remove the global context manager */ ContextAPI.prototype.disable = function() {
+     ContextAPI.prototype.disable = function() {
         this._getContextManager().disable();
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["unregisterGlobal"])(API_NAME, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
     };
     return ContextAPI;
 }();
 ;
- //# sourceMappingURL=context.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/context-api.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ // Split module-level variable definition into separate files to allow
-// tree-shaking on each api instance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 __turbopack_context__.s([
     "context",
     ()=>context
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/context.js [ssr] (ecmascript)");
 ;
-var context = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["ContextAPI"].getInstance(); //# sourceMappingURL=context-api.js.map
+var context = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["ContextAPI"].getInstance(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/diag-api.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ // Split module-level variable definition into separate files to allow
-// tree-shaking on each api instance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 __turbopack_context__.s([
     "diag",
     ()=>diag
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/diag.js [ssr] (ecmascript)");
 ;
-var diag = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagAPI"].instance(); //# sourceMappingURL=diag-api.js.map
+var diag = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagAPI"].instance(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/metrics/NoopMeter.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "NOOP_COUNTER_METRIC",
     ()=>NOOP_COUNTER_METRIC,
     "NOOP_GAUGE_METRIC",
@@ -2746,52 +2746,52 @@ var __extends = ("TURBOPACK compile-time value", void 0) && ("TURBOPACK compile-
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 }();
-/**
- * NoopMeter is a noop implementation of the {@link Meter} interface. It reuses
- * constant NoopMetrics for all of its methods.
- */ var NoopMeter = function() {
+
+
+
+ var NoopMeter = function() {
     function NoopMeter() {}
-    /**
-     * @see {@link Meter.createGauge}
-     */ NoopMeter.prototype.createGauge = function(_name, _options) {
+    
+
+ NoopMeter.prototype.createGauge = function(_name, _options) {
         return NOOP_GAUGE_METRIC;
     };
-    /**
-     * @see {@link Meter.createHistogram}
-     */ NoopMeter.prototype.createHistogram = function(_name, _options) {
+    
+
+ NoopMeter.prototype.createHistogram = function(_name, _options) {
         return NOOP_HISTOGRAM_METRIC;
     };
-    /**
-     * @see {@link Meter.createCounter}
-     */ NoopMeter.prototype.createCounter = function(_name, _options) {
+    
+
+ NoopMeter.prototype.createCounter = function(_name, _options) {
         return NOOP_COUNTER_METRIC;
     };
-    /**
-     * @see {@link Meter.createUpDownCounter}
-     */ NoopMeter.prototype.createUpDownCounter = function(_name, _options) {
+    
+
+ NoopMeter.prototype.createUpDownCounter = function(_name, _options) {
         return NOOP_UP_DOWN_COUNTER_METRIC;
     };
-    /**
-     * @see {@link Meter.createObservableGauge}
-     */ NoopMeter.prototype.createObservableGauge = function(_name, _options) {
+    
+
+ NoopMeter.prototype.createObservableGauge = function(_name, _options) {
         return NOOP_OBSERVABLE_GAUGE_METRIC;
     };
-    /**
-     * @see {@link Meter.createObservableCounter}
-     */ NoopMeter.prototype.createObservableCounter = function(_name, _options) {
+    
+
+ NoopMeter.prototype.createObservableCounter = function(_name, _options) {
         return NOOP_OBSERVABLE_COUNTER_METRIC;
     };
-    /**
-     * @see {@link Meter.createObservableUpDownCounter}
-     */ NoopMeter.prototype.createObservableUpDownCounter = function(_name, _options) {
+    
+
+ NoopMeter.prototype.createObservableUpDownCounter = function(_name, _options) {
         return NOOP_OBSERVABLE_UP_DOWN_COUNTER_METRIC;
     };
-    /**
-     * @see {@link Meter.addBatchObservableCallback}
-     */ NoopMeter.prototype.addBatchObservableCallback = function(_callback, _observables) {};
-    /**
-     * @see {@link Meter.removeBatchObservableCallback}
-     */ NoopMeter.prototype.removeBatchObservableCallback = function(_callback) {};
+    
+
+ NoopMeter.prototype.addBatchObservableCallback = function(_callback, _observables) {};
+    
+
+ NoopMeter.prototype.removeBatchObservableCallback = function(_callback) {};
     return NoopMeter;
 }();
 ;
@@ -2877,26 +2877,26 @@ var NOOP_OBSERVABLE_GAUGE_METRIC = new NoopObservableGaugeMetric();
 var NOOP_OBSERVABLE_UP_DOWN_COUNTER_METRIC = new NoopObservableUpDownCounterMetric();
 function createNoopMeter() {
     return NOOP_METER;
-} //# sourceMappingURL=NoopMeter.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/metrics/NoopMeterProvider.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "NOOP_METER_PROVIDER",
     ()=>NOOP_METER_PROVIDER,
     "NoopMeterProvider",
@@ -2904,10 +2904,10 @@ function createNoopMeter() {
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$metrics$2f$NoopMeter$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/metrics/NoopMeter.js [ssr] (ecmascript)");
 ;
-/**
- * An implementation of the {@link MeterProvider} which returns an impotent Meter
- * for all calls to `getMeter`
- */ var NoopMeterProvider = function() {
+
+
+
+ var NoopMeterProvider = function() {
     function NoopMeterProvider() {}
     NoopMeterProvider.prototype.getMeter = function(_name, _version, _options) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$metrics$2f$NoopMeter$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["NOOP_METER"];
@@ -2915,26 +2915,26 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
     return NoopMeterProvider;
 }();
 ;
-var NOOP_METER_PROVIDER = new NoopMeterProvider(); //# sourceMappingURL=NoopMeterProvider.js.map
+var NOOP_METER_PROVIDER = new NoopMeterProvider(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/metrics.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "MetricsAPI",
     ()=>MetricsAPI
 ]);
@@ -2945,94 +2945,94 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 var API_NAME = 'metrics';
-/**
- * Singleton object which represents the entry point to the OpenTelemetry Metrics API
- */ var MetricsAPI = function() {
-    /** Empty private constructor prevents end users from constructing a new instance of the API */ function MetricsAPI() {}
-    /** Get the singleton instance of the Metrics API */ MetricsAPI.getInstance = function() {
+
+
+ var MetricsAPI = function() {
+     function MetricsAPI() {}
+     MetricsAPI.getInstance = function() {
         if (!this._instance) {
             this._instance = new MetricsAPI();
         }
         return this._instance;
     };
-    /**
-     * Set the current global meter provider.
-     * Returns true if the meter provider was successfully registered, else false.
-     */ MetricsAPI.prototype.setGlobalMeterProvider = function(provider) {
+    
+
+
+ MetricsAPI.prototype.setGlobalMeterProvider = function(provider) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["registerGlobal"])(API_NAME, provider, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
     };
-    /**
-     * Returns the global meter provider.
-     */ MetricsAPI.prototype.getMeterProvider = function() {
+    
+
+ MetricsAPI.prototype.getMeterProvider = function() {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["getGlobal"])(API_NAME) || __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$metrics$2f$NoopMeterProvider$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["NOOP_METER_PROVIDER"];
     };
-    /**
-     * Returns a meter from the global meter provider.
-     */ MetricsAPI.prototype.getMeter = function(name, version, options) {
+    
+
+ MetricsAPI.prototype.getMeter = function(name, version, options) {
         return this.getMeterProvider().getMeter(name, version, options);
     };
-    /** Remove the global meter provider */ MetricsAPI.prototype.disable = function() {
+     MetricsAPI.prototype.disable = function() {
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["unregisterGlobal"])(API_NAME, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
     };
     return MetricsAPI;
 }();
 ;
- //# sourceMappingURL=metrics.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/metrics-api.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ // Split module-level variable definition into separate files to allow
-// tree-shaking on each api instance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 __turbopack_context__.s([
     "metrics",
     ()=>metrics
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$metrics$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/metrics.js [ssr] (ecmascript)");
 ;
-var metrics = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$metrics$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["MetricsAPI"].getInstance(); //# sourceMappingURL=metrics-api.js.map
+var metrics = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$metrics$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["MetricsAPI"].getInstance(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/propagation/NoopTextMapPropagator.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ /**
- * No-op implementations of {@link TextMapPropagator}.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ __turbopack_context__.s([
     "NoopTextMapPropagator",
     ()=>NoopTextMapPropagator
 ]);
 var NoopTextMapPropagator = function() {
     function NoopTextMapPropagator() {}
-    /** Noop inject function does nothing */ NoopTextMapPropagator.prototype.inject = function(_context, _carrier) {};
-    /** Noop extract function does nothing and returns the input context */ NoopTextMapPropagator.prototype.extract = function(context, _carrier) {
+     NoopTextMapPropagator.prototype.inject = function(_context, _carrier) {};
+     NoopTextMapPropagator.prototype.extract = function(context, _carrier) {
         return context;
     };
     NoopTextMapPropagator.prototype.fields = function() {
@@ -3041,26 +3041,26 @@ var NoopTextMapPropagator = function() {
     return NoopTextMapPropagator;
 }();
 ;
- //# sourceMappingURL=NoopTextMapPropagator.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/propagation/TextMapPropagator.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "defaultTextMapGetter",
     ()=>defaultTextMapGetter,
     "defaultTextMapSetter",
@@ -3087,26 +3087,26 @@ var defaultTextMapSetter = {
         }
         carrier[key] = value;
     }
-}; //# sourceMappingURL=TextMapPropagator.js.map
+}; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/baggage/context-helpers.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "deleteBaggage",
     ()=>deleteBaggage,
     "getActiveBaggage",
@@ -3120,9 +3120,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/context/context.js [ssr] (ecmascript)");
 ;
 ;
-/**
- * Baggage key
- */ var BAGGAGE_KEY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["createContextKey"])('OpenTelemetry Baggage Key');
+
+
+ var BAGGAGE_KEY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["createContextKey"])('OpenTelemetry Baggage Key');
 function getBaggage(context) {
     return context.getValue(BAGGAGE_KEY) || undefined;
 }
@@ -3134,26 +3134,26 @@ function setBaggage(context, baggage) {
 }
 function deleteBaggage(context) {
     return context.deleteValue(BAGGAGE_KEY);
-} //# sourceMappingURL=context-helpers.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/baggage/internal/baggage-impl.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "BaggageImpl",
     ()=>BaggageImpl
 ]);
@@ -3251,51 +3251,51 @@ var BaggageImpl = function() {
     return BaggageImpl;
 }();
 ;
- //# sourceMappingURL=baggage-impl.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/baggage/internal/symbol.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ /**
- * Symbol used to make BaggageEntryMetadata an opaque type
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ __turbopack_context__.s([
     "baggageEntryMetadataSymbol",
     ()=>baggageEntryMetadataSymbol
 ]);
-var baggageEntryMetadataSymbol = Symbol('BaggageEntryMetadata'); //# sourceMappingURL=symbol.js.map
+var baggageEntryMetadataSymbol = Symbol('BaggageEntryMetadata'); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/baggage/utils.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "baggageEntryMetadataFromString",
     ()=>baggageEntryMetadataFromString,
     "createBaggage",
@@ -3325,26 +3325,26 @@ function baggageEntryMetadataFromString(str) {
             return str;
         }
     };
-} //# sourceMappingURL=utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/propagation.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "PropagationAPI",
     ()=>PropagationAPI
 ]);
@@ -3362,59 +3362,59 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 var API_NAME = 'propagation';
 var NOOP_TEXT_MAP_PROPAGATOR = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$propagation$2f$NoopTextMapPropagator$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["NoopTextMapPropagator"]();
-/**
- * Singleton object which represents the entry point to the OpenTelemetry Propagation API
- */ var PropagationAPI = function() {
-    /** Empty private constructor prevents end users from constructing a new instance of the API */ function PropagationAPI() {
+
+
+ var PropagationAPI = function() {
+     function PropagationAPI() {
         this.createBaggage = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$baggage$2f$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["createBaggage"];
         this.getBaggage = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$baggage$2f$context$2d$helpers$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["getBaggage"];
         this.getActiveBaggage = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$baggage$2f$context$2d$helpers$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["getActiveBaggage"];
         this.setBaggage = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$baggage$2f$context$2d$helpers$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["setBaggage"];
         this.deleteBaggage = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$baggage$2f$context$2d$helpers$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["deleteBaggage"];
     }
-    /** Get the singleton instance of the Propagator API */ PropagationAPI.getInstance = function() {
+     PropagationAPI.getInstance = function() {
         if (!this._instance) {
             this._instance = new PropagationAPI();
         }
         return this._instance;
     };
-    /**
-     * Set the current propagator.
-     *
-     * @returns true if the propagator was successfully registered, else false
-     */ PropagationAPI.prototype.setGlobalPropagator = function(propagator) {
+    
+
+
+
+ PropagationAPI.prototype.setGlobalPropagator = function(propagator) {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["registerGlobal"])(API_NAME, propagator, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
     };
-    /**
-     * Inject context into a carrier to be propagated inter-process
-     *
-     * @param context Context carrying tracing data to inject
-     * @param carrier carrier to inject context into
-     * @param setter Function used to set values on the carrier
-     */ PropagationAPI.prototype.inject = function(context, carrier, setter) {
+    
+
+
+
+
+
+ PropagationAPI.prototype.inject = function(context, carrier, setter) {
         if (setter === void 0) {
             setter = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$propagation$2f$TextMapPropagator$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["defaultTextMapSetter"];
         }
         return this._getGlobalPropagator().inject(context, carrier, setter);
     };
-    /**
-     * Extract context from a carrier
-     *
-     * @param context Context which the newly created context will inherit from
-     * @param carrier Carrier to extract context from
-     * @param getter Function used to extract keys from a carrier
-     */ PropagationAPI.prototype.extract = function(context, carrier, getter) {
+    
+
+
+
+
+
+ PropagationAPI.prototype.extract = function(context, carrier, getter) {
         if (getter === void 0) {
             getter = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$propagation$2f$TextMapPropagator$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["defaultTextMapGetter"];
         }
         return this._getGlobalPropagator().extract(context, carrier, getter);
     };
-    /**
-     * Return a list of all fields which may be used by the propagator.
-     */ PropagationAPI.prototype.fields = function() {
+    
+
+ PropagationAPI.prototype.fields = function() {
         return this._getGlobalPropagator().fields();
     };
-    /** Remove the global propagator */ PropagationAPI.prototype.disable = function() {
+     PropagationAPI.prototype.disable = function() {
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["unregisterGlobal"])(API_NAME, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
     };
     PropagationAPI.prototype._getGlobalPropagator = function() {
@@ -3423,80 +3423,80 @@ var NOOP_TEXT_MAP_PROPAGATOR = new __TURBOPACK__imported__module__$5b$project$5d
     return PropagationAPI;
 }();
 ;
- //# sourceMappingURL=propagation.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/propagation-api.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ // Split module-level variable definition into separate files to allow
-// tree-shaking on each api instance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 __turbopack_context__.s([
     "propagation",
     ()=>propagation
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$propagation$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/propagation.js [ssr] (ecmascript)");
 ;
-var propagation = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$propagation$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["PropagationAPI"].getInstance(); //# sourceMappingURL=propagation-api.js.map
+var propagation = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$propagation$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["PropagationAPI"].getInstance(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/trace_flags.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "TraceFlags",
     ()=>TraceFlags
 ]);
 var TraceFlags;
 (function(TraceFlags) {
-    /** Represents no flag set. */ TraceFlags[TraceFlags["NONE"] = 0] = "NONE";
-    /** Bit to represent whether trace is sampled in trace flags. */ TraceFlags[TraceFlags["SAMPLED"] = 1] = "SAMPLED";
-})(TraceFlags || (TraceFlags = {})); //# sourceMappingURL=trace_flags.js.map
+     TraceFlags[TraceFlags["NONE"] = 0] = "NONE";
+     TraceFlags[TraceFlags["SAMPLED"] = 1] = "SAMPLED";
+})(TraceFlags || (TraceFlags = {})); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/invalid-span-constants.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "INVALID_SPANID",
     ()=>INVALID_SPANID,
     "INVALID_SPAN_CONTEXT",
@@ -3512,55 +3512,55 @@ var INVALID_SPAN_CONTEXT = {
     traceId: INVALID_TRACEID,
     spanId: INVALID_SPANID,
     traceFlags: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$trace_flags$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["TraceFlags"].NONE
-}; //# sourceMappingURL=invalid-span-constants.js.map
+}; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/NonRecordingSpan.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "NonRecordingSpan",
     ()=>NonRecordingSpan
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$invalid$2d$span$2d$constants$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/invalid-span-constants.js [ssr] (ecmascript)");
 ;
-/**
- * The NonRecordingSpan is the default {@link Span} that is used when no Span
- * implementation is available. All operations are no-op including context
- * propagation.
- */ var NonRecordingSpan = function() {
+
+
+
+
+ var NonRecordingSpan = function() {
     function NonRecordingSpan(_spanContext) {
         if (_spanContext === void 0) {
             _spanContext = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$invalid$2d$span$2d$constants$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["INVALID_SPAN_CONTEXT"];
         }
         this._spanContext = _spanContext;
     }
-    // Returns a SpanContext.
+    
     NonRecordingSpan.prototype.spanContext = function() {
         return this._spanContext;
     };
-    // By default does nothing
+    
     NonRecordingSpan.prototype.setAttribute = function(_key, _value) {
         return this;
     };
-    // By default does nothing
+    
     NonRecordingSpan.prototype.setAttributes = function(_attributes) {
         return this;
     };
-    // By default does nothing
+    
     NonRecordingSpan.prototype.addEvent = function(_name, _attributes) {
         return this;
     };
@@ -3570,45 +3570,45 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
     NonRecordingSpan.prototype.addLinks = function(_links) {
         return this;
     };
-    // By default does nothing
+    
     NonRecordingSpan.prototype.setStatus = function(_status) {
         return this;
     };
-    // By default does nothing
+    
     NonRecordingSpan.prototype.updateName = function(_name) {
         return this;
     };
-    // By default does nothing
+    
     NonRecordingSpan.prototype.end = function(_endTime) {};
-    // isRecording always returns false for NonRecordingSpan.
+    
     NonRecordingSpan.prototype.isRecording = function() {
         return false;
     };
-    // By default does nothing
+    
     NonRecordingSpan.prototype.recordException = function(_exception, _time) {};
     return NonRecordingSpan;
 }();
 ;
- //# sourceMappingURL=NonRecordingSpan.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/context-utils.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "deleteSpan",
     ()=>deleteSpan,
     "getActiveSpan",
@@ -3628,9 +3628,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-/**
- * span key
- */ var SPAN_KEY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["createContextKey"])('OpenTelemetry Context Key SPAN');
+
+
+ var SPAN_KEY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["createContextKey"])('OpenTelemetry Context Key SPAN');
 function getSpan(context) {
     return context.getValue(SPAN_KEY) || undefined;
 }
@@ -3649,26 +3649,26 @@ function setSpanContext(context, spanContext) {
 function getSpanContext(context) {
     var _a;
     return (_a = getSpan(context)) === null || _a === void 0 ? void 0 : _a.spanContext();
-} //# sourceMappingURL=context-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/spancontext-utils.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "isSpanContextValid",
     ()=>isSpanContextValid,
     "isValidSpanId",
@@ -3695,26 +3695,26 @@ function isSpanContextValid(spanContext) {
 }
 function wrapSpanContext(spanContext) {
     return new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NonRecordingSpan$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["NonRecordingSpan"](spanContext);
-} //# sourceMappingURL=spancontext-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "NoopTracer",
     ()=>NoopTracer
 ]);
@@ -3727,11 +3727,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 var contextApi = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$context$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["ContextAPI"].getInstance();
-/**
- * No-op implementations of {@link Tracer}.
- */ var NoopTracer = function() {
+
+
+ var NoopTracer = function() {
     function NoopTracer() {}
-    // startSpan starts a noop span.
+    
     NoopTracer.prototype.startSpan = function(name, options, context) {
         if (context === void 0) {
             context = contextApi.active();
@@ -3773,35 +3773,35 @@ var contextApi = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proj
 ;
 function isSpanContext(spanContext) {
     return typeof spanContext === 'object' && typeof spanContext['spanId'] === 'string' && typeof spanContext['traceId'] === 'string' && typeof spanContext['traceFlags'] === 'number';
-} //# sourceMappingURL=NoopTracer.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/ProxyTracer.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "ProxyTracer",
     ()=>ProxyTracer
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracer$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js [ssr] (ecmascript)");
 ;
 var NOOP_TRACER = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracer$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["NoopTracer"]();
-/**
- * Proxy tracer provided by the proxy tracer provider
- */ var ProxyTracer = function() {
+
+
+ var ProxyTracer = function() {
     function ProxyTracer(_provider, name, version, options) {
         this._provider = _provider;
         this.name = name;
@@ -3815,10 +3815,10 @@ var NOOP_TRACER = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f
         var tracer = this._getTracer();
         return Reflect.apply(tracer.startActiveSpan, tracer, arguments);
     };
-    /**
-     * Try to get a tracer from the proxy tracer provider.
-     * If the proxy tracer provider has no delegate, return a noop tracer.
-     */ ProxyTracer.prototype._getTracer = function() {
+    
+
+
+ ProxyTracer.prototype._getTracer = function() {
         if (this._delegate) {
             return this._delegate;
         }
@@ -3832,37 +3832,37 @@ var NOOP_TRACER = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f
     return ProxyTracer;
 }();
 ;
- //# sourceMappingURL=ProxyTracer.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/NoopTracerProvider.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "NoopTracerProvider",
     ()=>NoopTracerProvider
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracer$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js [ssr] (ecmascript)");
 ;
-/**
- * An implementation of the {@link TracerProvider} which returns an impotent
- * Tracer for all calls to `getTracer`.
- *
- * All operations are no-op.
- */ var NoopTracerProvider = function() {
+
+
+
+
+
+ var NoopTracerProvider = function() {
     function NoopTracerProvider() {}
     NoopTracerProvider.prototype.getTracer = function(_name, _version, _options) {
         return new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracer$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["NoopTracer"]();
@@ -3870,26 +3870,26 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
     return NoopTracerProvider;
 }();
 ;
- //# sourceMappingURL=NoopTracerProvider.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/ProxyTracerProvider.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "ProxyTracerProvider",
     ()=>ProxyTracerProvider
 ]);
@@ -3898,18 +3898,18 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 var NOOP_TRACER_PROVIDER = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$NoopTracerProvider$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["NoopTracerProvider"]();
-/**
- * Tracer provider which provides {@link ProxyTracer}s.
- *
- * Before a delegate is set, tracers provided are NoOp.
- *   When a delegate is set, traces are provided from the delegate.
- *   When a delegate is set after tracers have already been provided,
- *   all tracers already provided will use the provided delegate implementation.
- */ var ProxyTracerProvider = function() {
+
+
+
+
+
+
+
+ var ProxyTracerProvider = function() {
     function ProxyTracerProvider() {}
-    /**
-     * Get a {@link ProxyTracer}
-     */ ProxyTracerProvider.prototype.getTracer = function(name, version, options) {
+    
+
+ ProxyTracerProvider.prototype.getTracer = function(name, version, options) {
         var _a;
         return (_a = this.getDelegateTracer(name, version, options)) !== null && _a !== void 0 ? _a : new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$ProxyTracer$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["ProxyTracer"](this, name, version, options);
     };
@@ -3917,9 +3917,9 @@ var NOOP_TRACER_PROVIDER = new __TURBOPACK__imported__module__$5b$project$5d2f$D
         var _a;
         return (_a = this._delegate) !== null && _a !== void 0 ? _a : NOOP_TRACER_PROVIDER;
     };
-    /**
-     * Set the delegate tracer provider
-     */ ProxyTracerProvider.prototype.setDelegate = function(delegate) {
+    
+
+ ProxyTracerProvider.prototype.setDelegate = function(delegate) {
         this._delegate = delegate;
     };
     ProxyTracerProvider.prototype.getDelegateTracer = function(name, version, options) {
@@ -3929,26 +3929,26 @@ var NOOP_TRACER_PROVIDER = new __TURBOPACK__imported__module__$5b$project$5d2f$D
     return ProxyTracerProvider;
 }();
 ;
- //# sourceMappingURL=ProxyTracerProvider.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/trace.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "TraceAPI",
     ()=>TraceAPI
 ]);
@@ -3963,10 +3963,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 var API_NAME = 'trace';
-/**
- * Singleton object which represents the entry point to the OpenTelemetry Tracing API
- */ var TraceAPI = function() {
-    /** Empty private constructor prevents end users from constructing a new instance of the API */ function TraceAPI() {
+
+
+ var TraceAPI = function() {
+     function TraceAPI() {
         this._proxyTracerProvider = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$ProxyTracerProvider$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["ProxyTracerProvider"]();
         this.wrapSpanContext = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$spancontext$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["wrapSpanContext"];
         this.isSpanContextValid = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$spancontext$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["isSpanContextValid"];
@@ -3977,92 +3977,92 @@ var API_NAME = 'trace';
         this.setSpan = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$context$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["setSpan"];
         this.setSpanContext = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$context$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["setSpanContext"];
     }
-    /** Get the singleton instance of the Trace API */ TraceAPI.getInstance = function() {
+     TraceAPI.getInstance = function() {
         if (!this._instance) {
             this._instance = new TraceAPI();
         }
         return this._instance;
     };
-    /**
-     * Set the current global tracer.
-     *
-     * @returns true if the tracer provider was successfully registered, else false
-     */ TraceAPI.prototype.setGlobalTracerProvider = function(provider) {
+    
+
+
+
+ TraceAPI.prototype.setGlobalTracerProvider = function(provider) {
         var success = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["registerGlobal"])(API_NAME, this._proxyTracerProvider, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
         if (success) {
             this._proxyTracerProvider.setDelegate(provider);
         }
         return success;
     };
-    /**
-     * Returns the global tracer provider.
-     */ TraceAPI.prototype.getTracerProvider = function() {
+    
+
+ TraceAPI.prototype.getTracerProvider = function() {
         return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["getGlobal"])(API_NAME) || this._proxyTracerProvider;
     };
-    /**
-     * Returns a tracer from the global tracer provider.
-     */ TraceAPI.prototype.getTracer = function(name, version) {
+    
+
+ TraceAPI.prototype.getTracer = function(name, version) {
         return this.getTracerProvider().getTracer(name, version);
     };
-    /** Remove the global tracer provider */ TraceAPI.prototype.disable = function() {
+     TraceAPI.prototype.disable = function() {
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$internal$2f$global$2d$utils$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["unregisterGlobal"])(API_NAME, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$diag$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["DiagAPI"].instance());
         this._proxyTracerProvider = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$ProxyTracerProvider$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["ProxyTracerProvider"]();
     };
     return TraceAPI;
 }();
 ;
- //# sourceMappingURL=trace.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace-api.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ // Split module-level variable definition into separate files to allow
-// tree-shaking on each api instance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 __turbopack_context__.s([
     "trace",
     ()=>trace
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$trace$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/api/trace.js [ssr] (ecmascript)");
 ;
-var trace = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$trace$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["TraceAPI"].getInstance(); //# sourceMappingURL=trace-api.js.map
+var trace = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$api$2f$trace$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["TraceAPI"].getInstance(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/index.js [ssr] (ecmascript) <locals>", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "default",
     ()=>__TURBOPACK__default__export__
 ]);
-// Split module-level variable definition into separate files to allow
-// tree-shaking on each api instance.
+
+
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$context$2d$api$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/context-api.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$diag$2d$api$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/diag-api.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$metrics$2d$api$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/metrics-api.js [ssr] (ecmascript)");
@@ -4097,26 +4097,26 @@ const __TURBOPACK__default__export__ = {
     propagation: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$propagation$2d$api$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["propagation"],
     trace: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2d$api$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["trace"]
 };
- //# sourceMappingURL=index.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/diag/consoleLogger.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "DiagConsoleLogger",
     ()=>DiagConsoleLogger
 ]);
@@ -4142,11 +4142,11 @@ var consoleMap = [
         c: 'trace'
     }
 ];
-/**
- * A simple Immutable Console based diagnostic logger which will output any messages to the Console.
- * If you want to limit the amount of logging to a specific level or lower use the
- * {@link createLogLevelDiagLogger}
- */ var DiagConsoleLogger = function() {
+
+
+
+
+ var DiagConsoleLogger = function() {
     function DiagConsoleLogger() {
         function _consoleFunc(funcName) {
             return function() {
@@ -4155,15 +4155,15 @@ var consoleMap = [
                     args[_i] = arguments[_i];
                 }
                 if (console) {
-                    // Some environments only expose the console when the F12 developer console is open
-                    // eslint-disable-next-line no-console
+                    
+                    
                     var theFunc = console[funcName];
                     if (typeof theFunc !== 'function') {
-                        // Not all environments support all functions
-                        // eslint-disable-next-line no-console
+                        
+                        
                         theFunc = console.log;
                     }
-                    // One last final check
+                    
                     if (typeof theFunc === 'function') {
                         return theFunc.apply(console, args);
                     }
@@ -4177,26 +4177,26 @@ var consoleMap = [
     return DiagConsoleLogger;
 }();
 ;
- //# sourceMappingURL=consoleLogger.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/metrics/Metric.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ /** The Type of value. It describes how the data is reported. */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  __turbopack_context__.s([
     "ValueType",
     ()=>ValueType
 ]);
@@ -4204,134 +4204,134 @@ var ValueType;
 (function(ValueType) {
     ValueType[ValueType["INT"] = 0] = "INT";
     ValueType[ValueType["DOUBLE"] = 1] = "DOUBLE";
-})(ValueType || (ValueType = {})); //# sourceMappingURL=Metric.js.map
+})(ValueType || (ValueType = {})); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/SamplingResult.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ /**
- * @deprecated use the one declared in @opentelemetry/sdk-trace-base instead.
- * A sampling decision that determines how a {@link Span} will be recorded
- * and collected.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ __turbopack_context__.s([
     "SamplingDecision",
     ()=>SamplingDecision
 ]);
 var SamplingDecision;
 (function(SamplingDecision) {
-    /**
-     * `Span.isRecording() === false`, span will not be recorded and all events
-     * and attributes will be dropped.
-     */ SamplingDecision[SamplingDecision["NOT_RECORD"] = 0] = "NOT_RECORD";
-    /**
-     * `Span.isRecording() === true`, but `Sampled` flag in {@link TraceFlags}
-     * MUST NOT be set.
-     */ SamplingDecision[SamplingDecision["RECORD"] = 1] = "RECORD";
-    /**
-     * `Span.isRecording() === true` AND `Sampled` flag in {@link TraceFlags}
-     * MUST be set.
-     */ SamplingDecision[SamplingDecision["RECORD_AND_SAMPLED"] = 2] = "RECORD_AND_SAMPLED";
-})(SamplingDecision || (SamplingDecision = {})); //# sourceMappingURL=SamplingResult.js.map
+    
+
+
+ SamplingDecision[SamplingDecision["NOT_RECORD"] = 0] = "NOT_RECORD";
+    
+
+
+ SamplingDecision[SamplingDecision["RECORD"] = 1] = "RECORD";
+    
+
+
+ SamplingDecision[SamplingDecision["RECORD_AND_SAMPLED"] = 2] = "RECORD_AND_SAMPLED";
+})(SamplingDecision || (SamplingDecision = {})); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/span_kind.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "SpanKind",
     ()=>SpanKind
 ]);
 var SpanKind;
 (function(SpanKind) {
-    /** Default value. Indicates that the span is used internally. */ SpanKind[SpanKind["INTERNAL"] = 0] = "INTERNAL";
-    /**
-     * Indicates that the span covers server-side handling of an RPC or other
-     * remote request.
-     */ SpanKind[SpanKind["SERVER"] = 1] = "SERVER";
-    /**
-     * Indicates that the span covers the client-side wrapper around an RPC or
-     * other remote request.
-     */ SpanKind[SpanKind["CLIENT"] = 2] = "CLIENT";
-    /**
-     * Indicates that the span describes producer sending a message to a
-     * broker. Unlike client and server, there is no direct critical path latency
-     * relationship between producer and consumer spans.
-     */ SpanKind[SpanKind["PRODUCER"] = 3] = "PRODUCER";
-    /**
-     * Indicates that the span describes consumer receiving a message from a
-     * broker. Unlike client and server, there is no direct critical path latency
-     * relationship between producer and consumer spans.
-     */ SpanKind[SpanKind["CONSUMER"] = 4] = "CONSUMER";
-})(SpanKind || (SpanKind = {})); //# sourceMappingURL=span_kind.js.map
+     SpanKind[SpanKind["INTERNAL"] = 0] = "INTERNAL";
+    
+
+
+ SpanKind[SpanKind["SERVER"] = 1] = "SERVER";
+    
+
+
+ SpanKind[SpanKind["CLIENT"] = 2] = "CLIENT";
+    
+
+
+
+ SpanKind[SpanKind["PRODUCER"] = 3] = "PRODUCER";
+    
+
+
+
+ SpanKind[SpanKind["CONSUMER"] = 4] = "CONSUMER";
+})(SpanKind || (SpanKind = {})); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/status.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * An enumeration of status codes.
- */ __turbopack_context__.s([
+
+
+ __turbopack_context__.s([
     "SpanStatusCode",
     ()=>SpanStatusCode
 ]);
 var SpanStatusCode;
 (function(SpanStatusCode) {
-    /**
-     * The default status.
-     */ SpanStatusCode[SpanStatusCode["UNSET"] = 0] = "UNSET";
-    /**
-     * The operation has been validated by an Application developer or
-     * Operator to have completed successfully.
-     */ SpanStatusCode[SpanStatusCode["OK"] = 1] = "OK";
-    /**
-     * The operation contains an error.
-     */ SpanStatusCode[SpanStatusCode["ERROR"] = 2] = "ERROR";
-})(SpanStatusCode || (SpanStatusCode = {})); //# sourceMappingURL=status.js.map
+    
+
+ SpanStatusCode[SpanStatusCode["UNSET"] = 0] = "UNSET";
+    
+
+
+ SpanStatusCode[SpanStatusCode["OK"] = 1] = "OK";
+    
+
+ SpanStatusCode[SpanStatusCode["ERROR"] = 2] = "ERROR";
+})(SpanStatusCode || (SpanStatusCode = {})); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-validators.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "validateKey",
     ()=>validateKey,
     "validateValue",
@@ -4348,26 +4348,26 @@ function validateKey(key) {
 }
 function validateValue(value) {
     return VALID_VALUE_BASE_REGEX.test(value) && !INVALID_VALUE_COMMA_EQUAL_REGEX.test(value);
-} //# sourceMappingURL=tracestate-validators.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-impl.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "TraceStateImpl",
     ()=>TraceStateImpl
 ]);
@@ -4377,22 +4377,22 @@ var MAX_TRACE_STATE_ITEMS = 32;
 var MAX_TRACE_STATE_LEN = 512;
 var LIST_MEMBERS_SEPARATOR = ',';
 var LIST_MEMBER_KEY_VALUE_SPLITTER = '=';
-/**
- * TraceState must be a class and not a simple object type because of the spec
- * requirement (https://www.w3.org/TR/trace-context/#tracestate-field).
- *
- * Here is the list of allowed mutations:
- * - New key-value pair should be added into the beginning of the list
- * - The value of any key can be updated. Modified keys MUST be moved to the
- * beginning of the list.
- */ var TraceStateImpl = function() {
+
+
+
+
+
+
+
+
+ var TraceStateImpl = function() {
     function TraceStateImpl(rawTraceState) {
         this._internalState = new Map();
         if (rawTraceState) this._parse(rawTraceState);
     }
     TraceStateImpl.prototype.set = function(key, value) {
-        // TODO: Benchmark the different approaches(map vs list) and
-        // use the faster one.
+        
+        
         var traceState = this._clone();
         if (traceState._internalState.has(key)) {
             traceState._internalState.delete(key);
@@ -4417,9 +4417,9 @@ var LIST_MEMBER_KEY_VALUE_SPLITTER = '=';
     };
     TraceStateImpl.prototype._parse = function(rawTraceState) {
         if (rawTraceState.length > MAX_TRACE_STATE_LEN) return;
-        this._internalState = rawTraceState.split(LIST_MEMBERS_SEPARATOR).reverse() // Store in reverse so new keys (.set(...)) will be placed at the beginning
+        this._internalState = rawTraceState.split(LIST_MEMBERS_SEPARATOR).reverse() 
         .reduce(function(agg, part) {
-            var listMember = part.trim(); // Optional Whitespace (OWS) handling
+            var listMember = part.trim(); 
             var i = listMember.indexOf(LIST_MEMBER_KEY_VALUE_SPLITTER);
             if (i !== -1) {
                 var key = listMember.slice(0, i);
@@ -4427,14 +4427,14 @@ var LIST_MEMBER_KEY_VALUE_SPLITTER = '=';
                 if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$internal$2f$tracestate$2d$validators$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["validateKey"])(key) && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$internal$2f$tracestate$2d$validators$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["validateValue"])(value)) {
                     agg.set(key, value);
                 } else {
-                // TODO: Consider to add warning log
+                
                 }
             }
             return agg;
         }, new Map());
-        // Because of the reverse() requirement, trunc must be done after map is created
+        
         if (this._internalState.size > MAX_TRACE_STATE_ITEMS) {
-            this._internalState = new Map(Array.from(this._internalState.entries()).reverse() // Use reverse same as original tracestate parse chain
+            this._internalState = new Map(Array.from(this._internalState.entries()).reverse() 
             .slice(0, MAX_TRACE_STATE_ITEMS));
         }
     };
@@ -4449,26 +4449,26 @@ var LIST_MEMBER_KEY_VALUE_SPLITTER = '=';
     return TraceStateImpl;
 }();
 ;
- //# sourceMappingURL=tracestate-impl.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/trace/internal/utils.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*
- * Copyright The OpenTelemetry Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "createTraceState",
     ()=>createTraceState
 ]);
@@ -4476,7 +4476,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 function createTraceState(rawTraceState) {
     return new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$opentelemetry$2f$api$2f$build$2f$esm$2f$trace$2f$internal$2f$tracestate$2d$impl$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["TraceStateImpl"](rawTraceState);
-} //# sourceMappingURL=utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@opentelemetry/api/build/esm/index.js [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -5354,7 +5354,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
                 value: true
             });
             t._globalThis = void 0;
-            t._globalThis = typeof globalThis === "object" ? globalThis : /*TURBOPACK member replacement*/ __turbopack_context__.g;
+            t._globalThis = typeof globalThis === "object" ? globalThis :  __turbopack_context__.g;
         },
         46: function(e, t, r) {
             var n = this && this.__createBinding || (Object.create ? function(e, t, r, n) {
@@ -6087,14 +6087,14 @@ const _constants = __turbopack_context__.r("[project]/Desktop/Projects/final-pix
 const _isthenable = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/is-thenable.js [ssr] (ecmascript)");
 const NEXT_OTEL_PERFORMANCE_PREFIX = process.env.NEXT_OTEL_PERFORMANCE_PREFIX;
 let api;
-// we want to allow users to use their own version of @opentelemetry/api if they
-// want to, so we try to require it first, and if it fails we fall back to the
-// version that is bundled with Next.js
-// this is because @opentelemetry/api has to be synced with the version of
-// @opentelemetry/tracing that is used, and we don't want to force users to use
-// the version that is bundled with Next.js.
-// the API is ~stable, so this should be fine
-if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+
+
+
+
+
+
+
+if ("TURBOPACK compile-time falsy", 0) 
 ;
 else {
     try {
@@ -6128,7 +6128,7 @@ const closeSpanWithError = (span, error)=>{
     }
     span.end();
 };
-/** we use this map to propagate attributes from nested spans to the top span */ const rootSpanAttributesStore = new Map();
+ const rootSpanAttributesStore = new Map();
 const rootSpanIdKey = api.createContextKey('next.rootSpanId');
 let lastSpanId = 0;
 const getSpanId = ()=>lastSpanId++;
@@ -6141,11 +6141,11 @@ const clientTraceDataSetter = {
     }
 };
 class NextTracerImpl {
-    /**
-   * Returns an instance to the trace with configured name.
-   * Since wrap / trace can be defined in any place prior to actual trace subscriber initialization,
-   * This should be lazily evaluated.
-   */ getTracerInstance() {
+    
+
+
+
+ getTracerInstance() {
         return trace.getTracer('next.js', '0.0.1');
     }
     getContext() {
@@ -6163,7 +6163,7 @@ class NextTracerImpl {
     withPropagatedContext(carrier, fn, getter) {
         const activeContext = context.active();
         if (trace.getSpanContext(activeContext)) {
-            // Active span is already set, too late to propagate.
+            
             return fn();
         }
         const remoteContext = propagation.extract(activeContext, carrier, getter);
@@ -6171,7 +6171,7 @@ class NextTracerImpl {
     }
     trace(...args) {
         const [type, fnOrOptions, fnOrEmpty] = args;
-        // coerce options form overload
+        
         const { fn, options } = typeof fnOrOptions === 'function' ? {
             fn: fnOrOptions,
             options: {}
@@ -6185,15 +6185,15 @@ class NextTracerImpl {
         if (!_constants.NextVanillaSpanAllowlist.has(type) && process.env.NEXT_OTEL_VERBOSE !== '1' || options.hideSpan) {
             return fn();
         }
-        // Trying to get active scoped span to assign parent. If option specifies parent span manually, will try to use it.
+        
         let spanContext = this.getSpanContext((options == null ? void 0 : options.parentSpan) ?? this.getActiveScopeSpan());
         if (!spanContext) {
             spanContext = (context == null ? void 0 : context.active()) ?? ROOT_CONTEXT;
         }
-        // Check if there's already a root span in the store for this trace
-        // We are intentionally not checking whether there is an active context
-        // from outside of nextjs to ensure that we can provide the same level
-        // of telemetry when using a custom server
+        
+        
+        
+        
         const existingRootSpanId = spanContext.getValue(rootSpanIdKey);
         const isRootSpan = typeof existingRootSpanId !== 'number' || !rootSpanAttributesStore.has(existingRootSpanId);
         const spanId = getSpanId();
@@ -6235,11 +6235,11 @@ class NextTracerImpl {
                 try {
                     const result = fn(span);
                     if ((0, _isthenable.isThenable)(result)) {
-                        // If there's error make sure it throws
+                        
                         return result.then((res)=>{
                             span.end();
-                            // Need to pass down the promise result,
-                            // it could be react stream response with error { error, stream }
+                            
+                            
                             return res;
                         }).catch((err)=>{
                             closeSpanWithError(span, err);
@@ -6312,7 +6312,7 @@ class NextTracerImpl {
 const getTracer = (()=>{
     const tracer = new NextTracerImpl();
     return ()=>tracer;
-})(); //# sourceMappingURL=tracer.js.map
+})(); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/lib/trace/utils.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -6329,22 +6329,22 @@ Object.defineProperty(exports, "getTracedMetadata", {
 function getTracedMetadata(traceData, clientTraceMetadata) {
     if (!clientTraceMetadata) return undefined;
     return traceData.filter(({ key })=>clientTraceMetadata.includes(key));
-} //# sourceMappingURL=utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/pretty-bytes.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/*
-MIT License
 
-Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/ Object.defineProperty(exports, "__esModule", {
+
+
+
+
+
+
+ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 Object.defineProperty(exports, "default", {
@@ -6364,12 +6364,12 @@ const UNITS = [
     'ZB',
     'YB'
 ];
-/*
-Formats the given number using `Number#toLocaleString`.
-- If locale is a string, the value is expected to be a locale-key (for example: `de`).
-- If locale is true, the system default locale is used for translation.
-- If no value for locale is specified, the number is returned unmodified.
-*/ const toLocaleString = (number, locale)=>{
+
+
+
+
+
+ const toLocaleString = (number, locale)=>{
     let result = number;
     if (typeof locale === 'string') {
         result = number.toLocaleString(locale);
@@ -6404,12 +6404,12 @@ function prettyBytes(number, options) {
     const numberString = toLocaleString(number, options.locale);
     const unit = UNITS[exponent];
     return prefix + numberString + ' ' + unit;
-} //# sourceMappingURL=pretty-bytes.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/pages/_document.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/// <reference types="webpack/module.d.ts" />
+
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -6439,19 +6439,19 @@ _export(exports, {
     NextScript: function() {
         return NextScript;
     },
-    /**
- * `Document` component handles the initial `document` markup and renders only on the server side.
- * Commonly used for implementing server side rendering for `css-in-js` libraries.
- */ default: function() {
+    
+
+
+ default: function() {
         return Document;
     }
 });
 const _jsxruntime = __turbopack_context__.r("[externals]/react/jsx-runtime [external] (react/jsx-runtime, cjs)");
-const _react = /*#__PURE__*/ _interop_require_wildcard(__turbopack_context__.r("[externals]/react [external] (react, cjs)"));
+const _react =  _interop_require_wildcard(__turbopack_context__.r("[externals]/react [external] (react, cjs)"));
 const _constants = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/constants.js [ssr] (ecmascript)");
 const _getpagefiles = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/get-page-files.js [ssr] (ecmascript)");
 const _htmlescape = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/htmlescape.js [ssr] (ecmascript)");
-const _iserror = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [ssr] (ecmascript)"));
+const _iserror =  _interop_require_default(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [ssr] (ecmascript)"));
 const _htmlcontextsharedruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/pages/vendored/contexts/html-context.js [ssr] (ecmascript)");
 const _encodeuripath = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/encode-uri-path.js [ssr] (ecmascript)");
 const _tracer = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/lib/trace/tracer.js [ssr] (ecmascript)");
@@ -6502,7 +6502,7 @@ function _interop_require_wildcard(obj, nodeInterop) {
     }
     return newObj;
 }
-/** Set of pages that have triggered a large data warning on production mode. */ const largePageDataWarnings = new Set();
+ const largePageDataWarnings = new Set();
 function getDocumentFiles(buildManifest, pathname) {
     const sharedFiles = (0, _getpagefiles.getPageFiles)(buildManifest, '/_app');
     const pageFiles = (0, _getpagefiles.getPageFiles)(buildManifest, pathname);
@@ -6518,10 +6518,10 @@ function getDocumentFiles(buildManifest, pathname) {
     };
 }
 function getPolyfillScripts(context, props) {
-    // polyfills.js has to be rendered as nomodule without async
-    // It also has to be the first script to load
+    
+    
     const { assetPrefix, buildManifest, assetQueryString, disableOptimizedLoading, crossOrigin } = context;
-    return buildManifest.polyfillFiles.filter((polyfill)=>polyfill.endsWith('.js') && !polyfill.endsWith('.module.js')).map((polyfill)=>/*#__PURE__*/ (0, _jsxruntime.jsx)("script", {
+    return buildManifest.polyfillFiles.filter((polyfill)=>polyfill.endsWith('.js') && !polyfill.endsWith('.module.js')).map((polyfill)=> (0, _jsxruntime.jsx)("script", {
             defer: !disableOptimizedLoading,
             nonce: props.nonce,
             crossOrigin: props.crossOrigin || crossOrigin,
@@ -6536,7 +6536,7 @@ function getDynamicChunks(context, props, files) {
     const { dynamicImports, assetPrefix, isDevelopment, assetQueryString, disableOptimizedLoading, crossOrigin } = context;
     return dynamicImports.map((file)=>{
         if (!file.endsWith('.js') || files.allFiles.includes(file)) return null;
-        return /*#__PURE__*/ (0, _jsxruntime.jsx)("script", {
+        return  (0, _jsxruntime.jsx)("script", {
             async: !isDevelopment && disableOptimizedLoading,
             defer: !disableOptimizedLoading,
             src: `${assetPrefix}/_next/${(0, _encodeuripath.encodeURIPath)(file)}${assetQueryString}`,
@@ -6554,7 +6554,7 @@ function getScripts(context, props, files) {
         ...normalScripts,
         ...lowPriorityScripts
     ].map((file)=>{
-        return /*#__PURE__*/ (0, _jsxruntime.jsx)("script", {
+        return  (0, _jsxruntime.jsx)("script", {
             src: `${assetPrefix}/_next/${(0, _encodeuripath.encodeURIPath)(file)}${assetQueryString}`,
             nonce: props.nonce,
             async: !isDevelopment && disableOptimizedLoading,
@@ -6565,22 +6565,22 @@ function getScripts(context, props, files) {
 }
 function getPreNextWorkerScripts(context, props) {
     const { assetPrefix, scriptLoader, crossOrigin, nextScriptWorkers } = context;
-    // disable `nextScriptWorkers` in edge runtime
+    
     if (!nextScriptWorkers || ("TURBOPACK compile-time value", "nodejs") === 'edge') return null;
     try {
-        // @ts-expect-error: Prevent webpack from processing this require
+        
         let { partytownSnippet } = __non_webpack_require__('@builder.io/partytown/integration');
         const children = Array.isArray(props.children) ? props.children : [
             props.children
         ];
-        // Check to see if the user has defined their own Partytown configuration
+        
         const userDefinedConfig = children.find((child)=>{
             var _child_props_dangerouslySetInnerHTML, _child_props;
             return hasComponentProps(child) && (child == null ? void 0 : (_child_props = child.props) == null ? void 0 : (_child_props_dangerouslySetInnerHTML = _child_props.dangerouslySetInnerHTML) == null ? void 0 : _child_props_dangerouslySetInnerHTML.__html.length) && 'data-partytown-config' in child.props;
         });
-        return /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+        return  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
             children: [
-                !userDefinedConfig && /*#__PURE__*/ (0, _jsxruntime.jsx)("script", {
+                !userDefinedConfig &&  (0, _jsxruntime.jsx)("script", {
                     "data-partytown-config": "",
                     dangerouslySetInnerHTML: {
                         __html: `
@@ -6590,7 +6590,7 @@ function getPreNextWorkerScripts(context, props) {
           `
                     }
                 }),
-                /*#__PURE__*/ (0, _jsxruntime.jsx)("script", {
+                 (0, _jsxruntime.jsx)("script", {
                     "data-partytown": "",
                     dangerouslySetInnerHTML: {
                         __html: partytownSnippet()
@@ -6600,15 +6600,15 @@ function getPreNextWorkerScripts(context, props) {
                     const { strategy, src, children: scriptChildren, dangerouslySetInnerHTML, ...scriptProps } = file;
                     let srcProps = {};
                     if (src) {
-                        // Use external src if provided
+                        
                         srcProps.src = src;
                     } else if (dangerouslySetInnerHTML && dangerouslySetInnerHTML.__html) {
-                        // Embed inline script if provided with dangerouslySetInnerHTML
+                        
                         srcProps.dangerouslySetInnerHTML = {
                             __html: dangerouslySetInnerHTML.__html
                         };
                     } else if (scriptChildren) {
-                        // Embed inline script if provided with children
+                        
                         srcProps.dangerouslySetInnerHTML = {
                             __html: typeof scriptChildren === 'string' ? scriptChildren : Array.isArray(scriptChildren) ? scriptChildren.join('') : ''
                         };
@@ -6619,7 +6619,7 @@ function getPreNextWorkerScripts(context, props) {
                             configurable: true
                         });
                     }
-                    return /*#__PURE__*/ (0, _react.createElement)("script", {
+                    return  (0, _react.createElement)("script", {
                         ...srcProps,
                         ...scriptProps,
                         type: "text/partytown",
@@ -6643,7 +6643,7 @@ function getPreNextScripts(context, props) {
     const webWorkerScripts = getPreNextWorkerScripts(context, props);
     const beforeInteractiveScripts = (scriptLoader.beforeInteractive || []).filter((script)=>script.src).map((file, index)=>{
         const { strategy, ...scriptProps } = file;
-        return /*#__PURE__*/ (0, _react.createElement)("script", {
+        return  (0, _react.createElement)("script", {
             ...scriptProps,
             key: scriptProps.src || index,
             defer: scriptProps.defer ?? !disableOptimizedLoading,
@@ -6652,7 +6652,7 @@ function getPreNextScripts(context, props) {
             crossOrigin: props.crossOrigin || crossOrigin
         });
     });
-    return /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+    return  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
         children: [
             webWorkerScripts,
             beforeInteractiveScripts
@@ -6661,7 +6661,7 @@ function getPreNextScripts(context, props) {
 }
 function getHeadHTMLProps(props) {
     const { crossOrigin, nonce, ...restProps } = props;
-    // This assignment is necessary for additional type checking to avoid unsupported attributes in <head>
+    
     const headProps = restProps;
     return headProps;
 }
@@ -6678,10 +6678,10 @@ function getNextFontLinkTags(nextFontManifest, dangerousAsPath, assetPrefix = ''
         ...appFontsEntry ?? [],
         ...pageFontsEntry ?? []
     ]));
-    // If no font files should preload but there's an entry for the path, add a preconnect tag.
+    
     const preconnectToSelf = !!(preloadedFontFiles.length === 0 && (appFontsEntry || pageFontsEntry));
     return {
-        preconnect: preconnectToSelf ? /*#__PURE__*/ (0, _jsxruntime.jsx)("link", {
+        preconnect: preconnectToSelf ?  (0, _jsxruntime.jsx)("link", {
             "data-next-font": nextFontManifest.pagesUsingSizeAdjust ? 'size-adjust' : '',
             rel: "preconnect",
             href: "/",
@@ -6689,7 +6689,7 @@ function getNextFontLinkTags(nextFontManifest, dangerousAsPath, assetPrefix = ''
         }) : null,
         preload: preloadedFontFiles ? preloadedFontFiles.map((fontFile)=>{
             const ext = /\.(woff|woff2|eot|ttf|otf)$/.exec(fontFile)[1];
-            return /*#__PURE__*/ (0, _jsxruntime.jsx)("link", {
+            return  (0, _jsxruntime.jsx)("link", {
                 rel: "preload",
                 href: `${assetPrefix}/_next/${(0, _encodeuripath.encodeURIPath)(fontFile)}`,
                 as: "font",
@@ -6706,8 +6706,8 @@ class Head extends _react.default.Component {
         const { assetPrefix, assetQueryString, dynamicImports, dynamicCssManifest, crossOrigin, optimizeCss } = this.context;
         const cssFiles = files.allFiles.filter((f)=>f.endsWith('.css'));
         const sharedFiles = new Set(files.sharedFiles);
-        // Unmanaged files are CSS files that will be handled directly by the
-        // webpack runtime (`mini-css-extract-plugin`).
+        
+        
         let unmanagedFiles = new Set([]);
         let localDynamicCssFiles = Array.from(new Set(dynamicImports.filter((file)=>file.endsWith('.css'))));
         if (localDynamicCssFiles.length) {
@@ -6722,7 +6722,7 @@ class Head extends _react.default.Component {
             const isUnmanagedFile = unmanagedFiles.has(file);
             const isFileInDynamicCssManifest = dynamicCssManifest.has(file);
             if (!optimizeCss) {
-                cssLinkElements.push(/*#__PURE__*/ (0, _jsxruntime.jsx)("link", {
+                cssLinkElements.push( (0, _jsxruntime.jsx)("link", {
                     nonce: this.props.nonce,
                     rel: "preload",
                     href: `${assetPrefix}/_next/${(0, _encodeuripath.encodeURIPath)(file)}${assetQueryString}`,
@@ -6730,7 +6730,7 @@ class Head extends _react.default.Component {
                     crossOrigin: this.props.crossOrigin || crossOrigin
                 }, `${file}-preload`));
             }
-            cssLinkElements.push(/*#__PURE__*/ (0, _jsxruntime.jsx)("link", {
+            cssLinkElements.push( (0, _jsxruntime.jsx)("link", {
                 nonce: this.props.nonce,
                 rel: "stylesheet",
                 href: `${assetPrefix}/_next/${(0, _encodeuripath.encodeURIPath)(file)}${assetQueryString}`,
@@ -6747,14 +6747,14 @@ class Head extends _react.default.Component {
             if (!file.endsWith('.js')) {
                 return null;
             }
-            return /*#__PURE__*/ (0, _jsxruntime.jsx)("link", {
+            return  (0, _jsxruntime.jsx)("link", {
                 rel: "preload",
                 href: `${assetPrefix}/_next/${(0, _encodeuripath.encodeURIPath)(file)}${assetQueryString}`,
                 as: "script",
                 nonce: this.props.nonce,
                 crossOrigin: this.props.crossOrigin || crossOrigin
             }, file);
-        }) // Filter out nulled scripts
+        }) 
         .filter(Boolean);
     }
     getPreloadMainLinks(files) {
@@ -6763,14 +6763,14 @@ class Head extends _react.default.Component {
             return file.endsWith('.js');
         });
         return [
-            ...(scriptLoader.beforeInteractive || []).map((file)=>/*#__PURE__*/ (0, _jsxruntime.jsx)("link", {
+            ...(scriptLoader.beforeInteractive || []).map((file)=> (0, _jsxruntime.jsx)("link", {
                     nonce: this.props.nonce,
                     rel: "preload",
                     href: file.src,
                     as: "script",
                     crossOrigin: this.props.crossOrigin || crossOrigin
                 }, file.src)),
-            ...preloadFiles.map((file)=>/*#__PURE__*/ (0, _jsxruntime.jsx)("link", {
+            ...preloadFiles.map((file)=> (0, _jsxruntime.jsx)("link", {
                     nonce: this.props.nonce,
                     rel: "preload",
                     href: `${assetPrefix}/_next/${(0, _encodeuripath.encodeURIPath)(file)}${assetQueryString}`,
@@ -6790,7 +6790,7 @@ class Head extends _react.default.Component {
             } else if (children) {
                 html = typeof children === 'string' ? children : Array.isArray(children) ? children.join('') : '';
             }
-            return /*#__PURE__*/ (0, _react.createElement)("script", {
+            return  (0, _react.createElement)("script", {
                 ...scriptProps,
                 dangerouslySetInnerHTML: {
                     __html: html
@@ -6828,7 +6828,7 @@ class Head extends _react.default.Component {
                     cssPreloads.push(child);
                 } else {
                     if (child) {
-                        otherHeadElements.push(/*#__PURE__*/ _react.default.cloneElement(child, {
+                        otherHeadElements.push( _react.default.cloneElement(child, {
                             'data-next-head': ''
                         }));
                     }
@@ -6837,7 +6837,7 @@ class Head extends _react.default.Component {
             head = cssPreloads.concat(otherHeadElements);
         }
         let children = _react.default.Children.toArray(this.props.children).filter(Boolean);
-        // show a warning if Head contains <title> (only in development)
+        
         if ("TURBOPACK compile-time truthy", 1) {
             children = _react.default.Children.map(children, (child)=>{
                 var _child_props;
@@ -6851,31 +6851,31 @@ class Head extends _react.default.Component {
                     }
                 }
                 return child;
-            // @types/react bug. Returned value from .map will not be `null` if you pass in `[null]`
+            
             });
             if (this.props.crossOrigin) console.warn('Warning: `Head` attribute `crossOrigin` is deprecated. https://nextjs.org/docs/messages/doc-crossorigin-deprecated');
         }
         const files = getDocumentFiles(this.context.buildManifest, this.context.__NEXT_DATA__.page);
         const nextFontLinkTags = getNextFontLinkTags(nextFontManifest, dangerousAsPath, assetPrefix);
         const tracingMetadata = (0, _utils.getTracedMetadata)((0, _tracer.getTracer)().getTracePropagationData(), this.context.experimentalClientTraceMetadata);
-        const traceMetaTags = (tracingMetadata || []).map(({ key, value }, index)=>/*#__PURE__*/ (0, _jsxruntime.jsx)("meta", {
+        const traceMetaTags = (tracingMetadata || []).map(({ key, value }, index)=> (0, _jsxruntime.jsx)("meta", {
                 name: key,
                 content: value
             }, `next-trace-data-${index}`));
-        return /*#__PURE__*/ (0, _jsxruntime.jsxs)("head", {
+        return  (0, _jsxruntime.jsxs)("head", {
             ...getHeadHTMLProps(this.props),
             children: [
-                this.context.isDevelopment && /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+                this.context.isDevelopment &&  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
                     children: [
-                        /*#__PURE__*/ (0, _jsxruntime.jsx)("style", {
+                         (0, _jsxruntime.jsx)("style", {
                             "data-next-hide-fouc": true,
                             dangerouslySetInnerHTML: {
                                 __html: `body{display:none}`
                             }
                         }),
-                        /*#__PURE__*/ (0, _jsxruntime.jsx)("noscript", {
+                         (0, _jsxruntime.jsx)("noscript", {
                             "data-next-hide-fouc": true,
-                            children: /*#__PURE__*/ (0, _jsxruntime.jsx)("style", {
+                            children:  (0, _jsxruntime.jsx)("style", {
                                 dangerouslySetInnerHTML: {
                                     __html: `body{display:block}`
                                 }
@@ -6889,7 +6889,7 @@ class Head extends _react.default.Component {
                 nextFontLinkTags.preload,
                 this.getBeforeInteractiveInlineScripts(),
                 !optimizeCss && this.getCssLinks(files),
-                !optimizeCss && /*#__PURE__*/ (0, _jsxruntime.jsx)("noscript", {
+                !optimizeCss &&  (0, _jsxruntime.jsx)("noscript", {
                     "data-n-css": this.props.nonce ?? ''
                 }),
                 !disableRuntimeJS && !disableJsPreload && this.getPreloadDynamicChunks(),
@@ -6899,18 +6899,18 @@ class Head extends _react.default.Component {
                 !disableOptimizedLoading && !disableRuntimeJS && this.getDynamicChunks(files),
                 !disableOptimizedLoading && !disableRuntimeJS && this.getScripts(files),
                 optimizeCss && this.getCssLinks(files),
-                optimizeCss && /*#__PURE__*/ (0, _jsxruntime.jsx)("noscript", {
+                optimizeCss &&  (0, _jsxruntime.jsx)("noscript", {
                     "data-n-css": this.props.nonce ?? ''
                 }),
-                this.context.isDevelopment && // this element is used to mount development styles so the
-                // ordering matches production
-                // (by default, style-loader injects at the bottom of <head />)
-                /*#__PURE__*/ (0, _jsxruntime.jsx)("noscript", {
+                this.context.isDevelopment && 
+                
+                
+                 (0, _jsxruntime.jsx)("noscript", {
                     id: "__next_css__DO_NOT_USE__"
                 }),
                 traceMetaTags,
                 styles || null,
-                /*#__PURE__*/ _react.default.createElement(_react.default.Fragment, {}, ...headTags || [])
+                 _react.default.createElement(_react.default.Fragment, {}, ...headTags || [])
             ]
         });
     }
@@ -6924,7 +6924,7 @@ function handleDocumentScriptLoaderItems(scriptLoader, __NEXT_DATA__, props) {
     ];
     const headChildren = (_children_find = children.find((child)=>child.type === Head)) == null ? void 0 : (_children_find_props = _children_find.props) == null ? void 0 : _children_find_props.children;
     const bodyChildren = (_children_find1 = children.find((child)=>child.type === 'body')) == null ? void 0 : (_children_find_props1 = _children_find1.props) == null ? void 0 : _children_find_props1.children;
-    // Scripts with beforeInteractive can be placed inside Head or <body> so children of both needs to be traversed
+    
     const combinedChildren = [
         ...Array.isArray(headChildren) ? headChildren : [
             headChildren
@@ -6936,7 +6936,7 @@ function handleDocumentScriptLoaderItems(scriptLoader, __NEXT_DATA__, props) {
     _react.default.Children.forEach(combinedChildren, (child)=>{
         var _child_type;
         if (!child) return;
-        // When using the `next/script` component, register it in script loader.
+        
         if ((_child_type = child.type) == null ? void 0 : _child_type.__nextScript) {
             if (child.props.strategy === 'beforeInteractive') {
                 scriptLoader.beforeInteractive = (scriptLoader.beforeInteractive || []).concat([
@@ -6987,7 +6987,7 @@ class NextScript extends _react.default.Component {
             const bytes = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : Buffer.from(data).byteLength;
             const prettyBytes = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/pretty-bytes.js [ssr] (ecmascript)").default;
             if (largePageDataBytes && bytes > largePageDataBytes) {
-                if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+                if ("TURBOPACK compile-time falsy", 0) 
                 ;
                 console.warn(`Warning: data for page "${__NEXT_DATA__.page}"${__NEXT_DATA__.page === context.dangerousAsPath ? '' : ` (path "${context.dangerousAsPath}")`} is ${prettyBytes(bytes)} which exceeds the threshold of ${prettyBytes(largePageDataBytes)}, this amount of data can reduce performance.\nSee more info here: https://nextjs.org/docs/messages/large-page-data`);
             }
@@ -7011,14 +7011,14 @@ class NextScript extends _react.default.Component {
             if (this.props.crossOrigin) console.warn('Warning: `NextScript` attribute `crossOrigin` is deprecated. https://nextjs.org/docs/messages/doc-crossorigin-deprecated');
         }
         const files = getDocumentFiles(this.context.buildManifest, this.context.__NEXT_DATA__.page);
-        return /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+        return  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
             children: [
-                !disableRuntimeJS && buildManifest.devFiles ? buildManifest.devFiles.map((file)=>/*#__PURE__*/ (0, _jsxruntime.jsx)("script", {
+                !disableRuntimeJS && buildManifest.devFiles ? buildManifest.devFiles.map((file)=> (0, _jsxruntime.jsx)("script", {
                         src: `${assetPrefix}/_next/${(0, _encodeuripath.encodeURIPath)(file)}${assetQueryString}`,
                         nonce: this.props.nonce,
                         crossOrigin: this.props.crossOrigin || crossOrigin
                     }, file)) : null,
-                disableRuntimeJS ? null : /*#__PURE__*/ (0, _jsxruntime.jsx)("script", {
+                disableRuntimeJS ? null :  (0, _jsxruntime.jsx)("script", {
                     id: "__NEXT_DATA__",
                     type: "application/json",
                     nonce: this.props.nonce,
@@ -7039,7 +7039,7 @@ function Html(props) {
     const { docComponentsRendered, locale, scriptLoader, __NEXT_DATA__ } = (0, _htmlcontextsharedruntime.useHtmlContext)();
     docComponentsRendered.Html = true;
     handleDocumentScriptLoaderItems(scriptLoader, __NEXT_DATA__, props);
-    return /*#__PURE__*/ (0, _jsxruntime.jsx)("html", {
+    return  (0, _jsxruntime.jsx)("html", {
         ...props,
         lang: props.lang || locale || undefined
     });
@@ -7047,26 +7047,26 @@ function Html(props) {
 function Main() {
     const { docComponentsRendered } = (0, _htmlcontextsharedruntime.useHtmlContext)();
     docComponentsRendered.Main = true;
-    // @ts-ignore
-    return /*#__PURE__*/ (0, _jsxruntime.jsx)("next-js-internal-body-render-target", {});
+    
+    return  (0, _jsxruntime.jsx)("next-js-internal-body-render-target", {});
 }
 class Document extends _react.default.Component {
-    /**
-   * `getInitialProps` hook returns the context object with the addition of `renderPage`.
-   * `renderPage` callback executes `React` rendering logic synchronously to support server-rendering wrappers
-   */ static getInitialProps(ctx) {
+    
+
+
+ static getInitialProps(ctx) {
         return ctx.defaultGetInitialProps(ctx);
     }
     render() {
-        return /*#__PURE__*/ (0, _jsxruntime.jsxs)(Html, {
+        return  (0, _jsxruntime.jsxs)(Html, {
             children: [
-                /*#__PURE__*/ (0, _jsxruntime.jsx)(Head, {
+                 (0, _jsxruntime.jsx)(Head, {
                     nonce: this.props.nonce
                 }),
-                /*#__PURE__*/ (0, _jsxruntime.jsxs)("body", {
+                 (0, _jsxruntime.jsxs)("body", {
                     children: [
-                        /*#__PURE__*/ (0, _jsxruntime.jsx)(Main, {}),
-                        /*#__PURE__*/ (0, _jsxruntime.jsx)(NextScript, {
+                         (0, _jsxruntime.jsx)(Main, {}),
+                         (0, _jsxruntime.jsx)(NextScript, {
                             nonce: this.props.nonce
                         })
                     ]
@@ -7075,22 +7075,22 @@ class Document extends _react.default.Component {
         });
     }
 }
-// Add a special property to the built-in `Document` component so later we can
-// identify if a user customized `Document` is used or not.
+
+
 const InternalFunctionDocument = function InternalFunctionDocument() {
-    return /*#__PURE__*/ (0, _jsxruntime.jsxs)(Html, {
+    return  (0, _jsxruntime.jsxs)(Html, {
         children: [
-            /*#__PURE__*/ (0, _jsxruntime.jsx)(Head, {}),
-            /*#__PURE__*/ (0, _jsxruntime.jsxs)("body", {
+             (0, _jsxruntime.jsx)(Head, {}),
+             (0, _jsxruntime.jsxs)("body", {
                 children: [
-                    /*#__PURE__*/ (0, _jsxruntime.jsx)(Main, {}),
-                    /*#__PURE__*/ (0, _jsxruntime.jsx)(NextScript, {})
+                     (0, _jsxruntime.jsx)(Main, {}),
+                     (0, _jsxruntime.jsx)(NextScript, {})
                 ]
             })
         ]
     });
 };
-Document[_constants.NEXT_BUILTIN_DOCUMENT] = InternalFunctionDocument; //# sourceMappingURL=_document.js.map
+Document[_constants.NEXT_BUILTIN_DOCUMENT] = InternalFunctionDocument; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/document.js [ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
@@ -7098,4 +7098,3 @@ module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixel
 }),
 ];
 
-//# sourceMappingURL=c729b_8f39ea2a._.js.map

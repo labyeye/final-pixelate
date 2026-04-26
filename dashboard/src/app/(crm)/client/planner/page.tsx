@@ -47,7 +47,7 @@ export default function ClientPlannerPage() {
         if (!res.ok) throw new Error("Failed to fetch posts");
 
         const data: any[] = await res.json();
-        // Filter by client ID (server should already filter, but just in case)
+        
         const clientPosts = Array.isArray(data)
           ? data.filter((p) => p.clientId === user.clientId)
           : [];
@@ -87,7 +87,7 @@ export default function ClientPlannerPage() {
         description: "Your team will be notified.",
       });
 
-      // Refresh posts
+      
       const url = new URL("/api/social-media-posts", window.location.origin);
       url.searchParams.set("clientId", user?.clientId || "");
       const allRes = await fetch(url.toString(), { headers });
@@ -143,14 +143,14 @@ export default function ClientPlannerPage() {
         description: "Your team will be notified with the reason.",
       });
 
-      // Clear rejection reason
+      
       setRejectionReason((prev) => {
         const newState = { ...prev };
         delete newState[postId];
         return newState;
       });
 
-      // Refresh posts
+      
       const url = new URL("/api/social-media-posts", window.location.origin);
       url.searchParams.set("clientId", user?.clientId || "");
       const allRes = await fetch(url.toString(), { headers });
@@ -186,20 +186,20 @@ export default function ClientPlannerPage() {
     );
   }
 
-  // Group posts by approval status
+  
   const pendingPosts = posts.filter((p) => p.approvalStatus === "Pending" || !p.approvalStatus);
   const approvedPosts = posts.filter((p) => p.approvalStatus === "Approved");
   const rejectedPosts = posts.filter((p) => p.approvalStatus === "Rejected");
 
   return (
     <div className="min-h-screen bg-background font-headline p-6 space-y-6">
-      {/* Header */}
+      {}
       <div>
         <h1 className="text-4xl font-black tracking-tighter">Social Media Posts</h1>
         <p className="text-muted-foreground mt-1">Review and approve social media content created by your team</p>
       </div>
 
-      {/* Stats */}
+      {}
       <div className="grid grid-cols-3 gap-4">
         <Card className="border-2 border-black">
           <CardContent className="pt-6 text-center">
@@ -225,7 +225,7 @@ export default function ClientPlannerPage() {
         <div className="text-center text-muted-foreground">Loading posts...</div>
       ) : (
         <>
-          {/* Pending Posts */}
+          {}
           {pendingPosts.length > 0 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-black">⏳ Pending Review</h2>
@@ -263,7 +263,7 @@ export default function ClientPlannerPage() {
                         {post.scheduledTime || "00:00"}
                       </div>
 
-                      {/* Rejection Reason Input */}
+                      {}
                       <div className="space-y-2">
                         <p className="text-xs text-muted-foreground font-bold">
                           Rejection Reason (if needed)
@@ -282,7 +282,7 @@ export default function ClientPlannerPage() {
                         />
                       </div>
 
-                      {/* Action Buttons */}
+                      {}
                       <div className="flex gap-2">
                         <Button
                           onClick={() => handleApprove(post._id || "")}
@@ -309,7 +309,7 @@ export default function ClientPlannerPage() {
             </div>
           )}
 
-          {/* Approved Posts */}
+          {}
           {approvedPosts.length > 0 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-black">✅ Approved Posts</h2>
@@ -345,7 +345,7 @@ export default function ClientPlannerPage() {
             </div>
           )}
 
-          {/* Rejected Posts */}
+          {}
           {rejectedPosts.length > 0 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-black">❌ Rejected Posts</h2>
@@ -399,7 +399,7 @@ export default function ClientPlannerPage() {
         </>
       )}
 
-      {/* Info Card */}
+      {}
       <Card className="border-2 border-black bg-primary/5">
         <CardContent className="pt-6">
           <p className="text-sm">

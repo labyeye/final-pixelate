@@ -9,7 +9,7 @@ import {
   User,
   Briefcase,
   Check,
-} from "lucide-react"; // Renamed Calendar to CalendarIcon to avoid conflict
+} from "lucide-react"; 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
@@ -33,18 +33,18 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 export function TaskCreationModal() {
   const [open, setOpen] = useState(false);
 
-  // Form State
+  
   const [title, setTitle] = useState("");
   const [status, setStatus] = useState("not-started");
   const [priority, setPriority] = useState("medium");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState<Date | undefined>(undefined);
 
-  // Selection State
+  
   const [selectedProjectId, setSelectedProjectId] = useState<string>("none");
   const [selectedAssigneeId, setSelectedAssigneeId] = useState<string>("none");
 
-  // Data Options
+  
   const [projects, setProjects] = useState<any[]>([]);
   const [staffMembers, setStaffMembers] = useState<any[]>([]);
   const [clients, setClients] = useState<any[]>([]);
@@ -52,7 +52,7 @@ export function TaskCreationModal() {
 
   useEffect(() => {
     if (open) {
-      // Fetch options when modal opens
+      
       Promise.all([
         fetch("/api/projects").then((res) => res.json()),
         fetch("/api/users").then((res) => res.json()),
@@ -77,7 +77,7 @@ export function TaskCreationModal() {
     setLoading(true);
 
     try {
-      // Find full objects for denormalization if needed
+      
       const project = projects.find(
         (p) => (p.id || p._id) === selectedProjectId,
       );
@@ -107,7 +107,7 @@ export function TaskCreationModal() {
 
       if (res.ok) {
         setOpen(false);
-        // Reset form
+        
         setTitle("");
         setDescription("");
         setStatus("not-started");
@@ -116,7 +116,7 @@ export function TaskCreationModal() {
         setSelectedAssigneeId("none");
         setDueDate(undefined);
 
-        // Dispatch event to refresh list
+        
         window.dispatchEvent(new Event("task:created"));
       }
     } catch (e) {
@@ -137,13 +137,13 @@ export function TaskCreationModal() {
           New Task
         </Button>
       </DialogTrigger>
-      {/* Notion-style minimal modal */}
+      {}
       <DialogContent className="sm:max-w-[700px] p-0 gap-0 overflow-hidden shadow-2xl border-none">
-        {/* Cover Image Placeholder (Optional visual flair) */}
+        {}
         <div className="h-32 bg-gradient-to-r from-pink-100 to-blue-100 w-full opacity-30" />
 
         <div className="px-8 pb-8 -mt-8 relative z-10 bg-background pt-6 rounded-t-3xl">
-          {/* Icon Picker Placeholder */}
+          {}
           <div className="mb-6 group cursor-pointer inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
             <Smile className="w-6 h-6" />
             <span className="text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
@@ -151,7 +151,7 @@ export function TaskCreationModal() {
             </span>
           </div>
 
-          {/* Title Input */}
+          {}
           <Input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -160,9 +160,9 @@ export function TaskCreationModal() {
             autoFocus
           />
 
-          {/* Properties Grid */}
+          {}
           <div className="grid gap-3 mt-6 mb-8 text-sm">
-            {/* Status Property */}
+            {}
             <div className="flex items-center gap-4 group">
               <div className="w-32 flex items-center gap-2 text-muted-foreground">
                 <Layout className="w-4 h-4" />
@@ -189,7 +189,7 @@ export function TaskCreationModal() {
               </Select>
             </div>
 
-            {/* Priority Property */}
+            {}
             <div className="flex items-center gap-4 group">
               <div className="w-32 flex items-center gap-2 text-muted-foreground">
                 <Flag className="w-4 h-4" />
@@ -207,7 +207,7 @@ export function TaskCreationModal() {
               </Select>
             </div>
 
-            {/* Assignee Property */}
+            {}
             <div className="flex items-center gap-4 group">
               <div className="w-32 flex items-center gap-2 text-muted-foreground">
                 <User className="w-4 h-4" />
@@ -242,7 +242,7 @@ export function TaskCreationModal() {
               </Select>
             </div>
 
-            {/* Project Property */}
+            {}
             <div className="flex items-center gap-4 group">
               <div className="w-32 flex items-center gap-2 text-muted-foreground">
                 <Briefcase className="w-4 h-4" />
@@ -258,9 +258,9 @@ export function TaskCreationModal() {
                 <SelectContent>
                   <SelectItem value="none">Empty</SelectItem>
                   {projects.map((p) => {
-                    // Find the client name.
-                    // The project object has a `clientId`.
-                    // The clients have `id` or `_id`.
+                    
+                    
+                    
                     const client = clients.find(
                       (c) =>
                         String(c.id || c._id) ===
@@ -278,7 +278,7 @@ export function TaskCreationModal() {
               </Select>
             </div>
 
-            {/* Date Property */}
+            {}
             <div className="flex items-center gap-4 group">
               <div className="w-32 flex items-center gap-2 text-muted-foreground">
                 <CalendarIcon className="w-4 h-4" />
@@ -310,7 +310,7 @@ export function TaskCreationModal() {
 
           <div className="h-[1px] bg-border w-full mb-6" />
 
-          {/* Description / Content Body */}
+          {}
           <Textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}

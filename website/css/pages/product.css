@@ -155,7 +155,7 @@
   }
 }
 
-/* Remove default underline from product cards and keep a subtle focus ring */
+
 .product-card-link {
   text-decoration: none;
   color: var(--tertiary-900);

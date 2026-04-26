@@ -37,13 +37,13 @@ export async function POST(request: NextRequest, context: RouteContext) {
       );
     }
 
-    // Get the user
+    
     const user = await svc.findById("users", id);
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    // Verify current password
+    
     if (!user.password) {
       return NextResponse.json(
         { error: "User account has no password set" },
@@ -59,10 +59,10 @@ export async function POST(request: NextRequest, context: RouteContext) {
       );
     }
 
-    // Hash new password
+    
     const hashedPassword = await bcryptjs.hash(newPassword, 10);
 
-    // Update user with new password
+    
     const updated = await svc.updateById("users", id, {
       password: hashedPassword,
     });

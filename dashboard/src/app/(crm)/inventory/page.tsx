@@ -13,7 +13,7 @@ export default function InventoryPage() {
           <p className="text-muted-foreground text-lg">Manage stock, vendors and pricing.</p>
         </div>
         <div>
-          <InventoryModal onSaved={() => { /* handled by list refresh */ }} />
+          <InventoryModal onSaved={() => {  }} />
         </div>
       </header>
 

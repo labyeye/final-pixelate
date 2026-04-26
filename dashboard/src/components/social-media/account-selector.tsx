@@ -8,7 +8,7 @@ import { PlatformLogo } from "./platform-logo";
 interface AccountSelectorProps {
   clientId: string;
   platform: SocialPlatform;
-  value: string; // account handle or ID
+  value: string; 
   onChange: (accountId: string, handle: string) => void;
   onCreateNew?: (handle: string) => void;
   disabled?: boolean;
@@ -30,7 +30,7 @@ export function AccountSelector({
   const inputRef = useRef<HTMLInputElement>(null);
   const suggestionsRef = useRef<HTMLDivElement>(null);
 
-  // Load accounts for this client and platform
+  
   useEffect(() => {
     if (!clientId || !platform) return;
 
@@ -55,12 +55,12 @@ export function AccountSelector({
     loadAccounts();
   }, [clientId, platform]);
 
-  // Normalize handle (remove @, lowercase)
+  
   const normalizeHandle = (h: string): string => {
     return (h || "").toLowerCase().replace(/^@+/, "").trim();
   };
 
-  // Handle input change and filter suggestions
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     setInput(val);
@@ -68,15 +68,15 @@ export function AccountSelector({
 
     const normalized = normalizeHandle(val);
 
-    // Filter existing accounts that match
+    
     const matching = accounts.filter((acc) =>
       acc.handle.includes(normalized)
     );
 
-    // Prepare suggestions
+    
     const suggestions = [
       ...matching,
-      // Add "create new" option if input is not empty and doesn't match existing
+      
       ...(val.trim() && !matching.some((acc) => acc.handle === normalized)
         ? [
             {
@@ -94,10 +94,10 @@ export function AccountSelector({
     setFilteredAccounts(suggestions);
   };
 
-  // Handle selection of an account or create new
+  
   const handleSelectAccount = async (account: SocialAccount | any) => {
     if (account.handle === "NEW" || account._id === "NEW") {
-      // Create new account
+      
       try {
         const res = await fetch("/api/social-media-accounts", {
           method: "POST",
@@ -116,7 +116,7 @@ export function AccountSelector({
           onChange(newAccount._id || newAccount.id || "", newAccount.handle);
           setInput("");
           setShowSuggestions(false);
-          // Add to accounts list
+          
           setAccounts((prev) => [...prev, newAccount]);
         }
       } catch (e) {
@@ -124,7 +124,7 @@ export function AccountSelector({
         alert("Failed to create new account");
       }
     } else {
-      // Select existing account
+      
       setSelectedHandle(account.handle);
       onChange(account._id || account.id || "", account.handle);
       setInput("");
@@ -132,7 +132,7 @@ export function AccountSelector({
     }
   };
 
-  // Handle clicking outside to close suggestions
+  
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
@@ -149,7 +149,7 @@ export function AccountSelector({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Reset when platform changes
+  
   useEffect(() => {
     setInput("");
     setSelectedHandle("");
@@ -174,7 +174,7 @@ export function AccountSelector({
         className="relative z-10"
       />
 
-      {/* Suggestions Dropdown */}
+      {}
       {showSuggestions && (filteredAccounts.length > 0 || input) && (
         <div
           ref={suggestionsRef}

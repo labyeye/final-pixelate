@@ -3,7 +3,7 @@
 "use strict";
 
 var _global_process, _global_process1;
-module.exports = ((_global_process = /*TURBOPACK member replacement*/ __turbopack_context__.g.process) == null ? void 0 : _global_process.env) && typeof ((_global_process1 = /*TURBOPACK member replacement*/ __turbopack_context__.g.process) == null ? void 0 : _global_process1.env) === 'object' ? /*TURBOPACK member replacement*/ __turbopack_context__.g.process : __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/process/browser.js [client] (ecmascript)"); //# sourceMappingURL=process.js.map
+module.exports = ((_global_process =  __turbopack_context__.g.process) == null ? void 0 : _global_process.env) && typeof ((_global_process1 =  __turbopack_context__.g.process) == null ? void 0 : _global_process1.env) === 'object' ?  __turbopack_context__.g.process : __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/process/browser.js [client] (ecmascript)"); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/polyfill-module.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
@@ -50,7 +50,7 @@ module.exports = ((_global_process = /*TURBOPACK member replacement*/ __turbopac
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/deployment-id.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -62,10 +62,10 @@ Object.defineProperty(exports, "getDeploymentIdQueryOrEmptyString", {
     }
 });
 function getDeploymentIdQueryOrEmptyString() {
-    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    if ("TURBOPACK compile-time falsy", 0) 
     ;
     return '';
-} //# sourceMappingURL=deployment-id.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/route-pattern-normalizer.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -110,14 +110,14 @@ _export(exports, {
 const PARAM_SEPARATOR = '_NEXTSEP_';
 function hasAdjacentParameterIssues(route) {
     if (typeof route !== 'string') return false;
-    // Check for interception route markers followed immediately by parameters
-    // Pattern: /(.):param, /(..):param, /(...):param, /(.)(.):param etc.
-    // These patterns cause "Must have text between two parameters" errors
+    
+    
+    
     if (/\/\(\.{1,3}\):[^/\s]+/.test(route)) {
         return true;
     }
-    // Check for basic adjacent parameters without separators
-    // Pattern: :param1:param2 (but not :param* or other URL patterns)
+    
+    
     if (/:[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*/.test(route)) {
         return true;
     }
@@ -125,26 +125,26 @@ function hasAdjacentParameterIssues(route) {
 }
 function normalizeAdjacentParameters(route) {
     let normalized = route;
-    // Handle interception route patterns: (.):param -> (.)_NEXTSEP_:param
+    
     normalized = normalized.replace(/(\([^)]*\)):([^/\s]+)/g, `$1${PARAM_SEPARATOR}:$2`);
-    // Handle other adjacent parameter patterns: :param1:param2 -> :param1_NEXTSEP_:param2
+    
     normalized = normalized.replace(/:([^:/\s)]+)(?=:)/g, `:$1${PARAM_SEPARATOR}`);
     return normalized;
 }
 function normalizeTokensForRegexp(tokens) {
     return tokens.map((token)=>{
-        // Token union type: Token = string | TokenObject
-        // Literal path segments are strings, parameters/wildcards are objects
-        if (typeof token === 'object' && token !== null && // Not all token objects have 'modifier' property (e.g., simple text tokens)
-        'modifier' in token && // Only repeating modifiers (* or +) cause the validation error
-        // Other modifiers like '?' (optional) are fine
-        (token.modifier === '*' || token.modifier === '+') && // Token objects can have different shapes depending on route pattern
-        'prefix' in token && 'suffix' in token && // Both prefix and suffix must be empty strings
-        // This is what causes the validation error in path-to-regexp
+        
+        
+        if (typeof token === 'object' && token !== null && 
+        'modifier' in token && 
+        
+        (token.modifier === '*' || token.modifier === '+') && 
+        'prefix' in token && 'suffix' in token && 
+        
         token.prefix === '' && token.suffix === '') {
-            // Add minimal prefix to satisfy path-to-regexp validation
-            // We use '/' as it's the most common path delimiter and won't break route matching
-            // The prefix gets used in regex generation but doesn't affect parameter extraction
+            
+            
+            
             return {
                 ...token,
                 prefix: '/'
@@ -154,26 +154,26 @@ function normalizeTokensForRegexp(tokens) {
     });
 }
 function stripNormalizedSeparators(pathname) {
-    // Remove separator after interception route markers
-    // Pattern: (.)_NEXTSEP_ -> (.), (..)_NEXTSEP_ -> (..), etc.
-    // The separator appears after the closing paren of interception markers
+    
+    
+    
     return pathname.replace(new RegExp(`\\)${PARAM_SEPARATOR}`, 'g'), ')');
 }
 function stripParameterSeparators(params) {
     const cleaned = {};
     for (const [key, value] of Object.entries(params)){
         if (typeof value === 'string') {
-            // Remove the separator if it appears at the start of parameter values
+            
             cleaned[key] = value.replace(new RegExp(`^${PARAM_SEPARATOR}`), '');
         } else if (Array.isArray(value)) {
-            // Handle array parameters (from repeated route segments)
+            
             cleaned[key] = value.map((item)=>typeof item === 'string' ? item.replace(new RegExp(`^${PARAM_SEPARATOR}`), '') : item);
         } else {
             cleaned[key] = value;
         }
     }
     return cleaned;
-} //# sourceMappingURL=route-pattern-normalizer.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/constants.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -494,50 +494,50 @@ const SERVER_RUNTIME = {
     nodejs: 'nodejs'
 };
 const WEB_SOCKET_MAX_RECONNECTIONS = 12;
-/**
- * The names of the webpack layers. These layers are the primitives for the
- * webpack chunks.
- */ const WEBPACK_LAYERS_NAMES = {
-    /**
-   * The layer for the shared code between the client and server bundles.
-   */ shared: 'shared',
-    /**
-   * The layer for server-only runtime and picking up `react-server` export conditions.
-   * Including app router RSC pages and app router custom routes and metadata routes.
-   */ reactServerComponents: 'rsc',
-    /**
-   * Server Side Rendering layer for app (ssr).
-   */ serverSideRendering: 'ssr',
-    /**
-   * The browser client bundle layer for actions.
-   */ actionBrowser: 'action-browser',
-    /**
-   * The Node.js bundle layer for the API routes.
-   */ apiNode: 'api-node',
-    /**
-   * The Edge Lite bundle layer for the API routes.
-   */ apiEdge: 'api-edge',
-    /**
-   * The layer for the middleware code.
-   */ middleware: 'middleware',
-    /**
-   * The layer for the instrumentation hooks.
-   */ instrument: 'instrument',
-    /**
-   * The layer for assets on the edge.
-   */ edgeAsset: 'edge-asset',
-    /**
-   * The browser client bundle layer for App directory.
-   */ appPagesBrowser: 'app-pages-browser',
-    /**
-   * The browser client bundle layer for Pages directory.
-   */ pagesDirBrowser: 'pages-dir-browser',
-    /**
-   * The Edge Lite bundle layer for Pages directory.
-   */ pagesDirEdge: 'pages-dir-edge',
-    /**
-   * The Node.js bundle layer for Pages directory.
-   */ pagesDirNode: 'pages-dir-node'
+
+
+
+ const WEBPACK_LAYERS_NAMES = {
+    
+
+ shared: 'shared',
+    
+
+
+ reactServerComponents: 'rsc',
+    
+
+ serverSideRendering: 'ssr',
+    
+
+ actionBrowser: 'action-browser',
+    
+
+ apiNode: 'api-node',
+    
+
+ apiEdge: 'api-edge',
+    
+
+ middleware: 'middleware',
+    
+
+ instrument: 'instrument',
+    
+
+ edgeAsset: 'edge-asset',
+    
+
+ appPagesBrowser: 'app-pages-browser',
+    
+
+ pagesDirBrowser: 'pages-dir-browser',
+    
+
+ pagesDirEdge: 'pages-dir-edge',
+    
+
+ pagesDirNode: 'pages-dir-node'
 };
 const WEBPACK_LAYERS = {
     ...WEBPACK_LAYERS_NAMES,
@@ -553,7 +553,7 @@ const WEBPACK_LAYERS = {
             WEBPACK_LAYERS_NAMES.middleware
         ],
         neutralTarget: [
-            // pages api
+            
             WEBPACK_LAYERS_NAMES.apiNode,
             WEBPACK_LAYERS_NAMES.apiEdge
         ],
@@ -571,7 +571,7 @@ const WEBPACK_LAYERS = {
             WEBPACK_LAYERS_NAMES.middleware
         ],
         appPages: [
-            // app router pages and layouts
+            
             WEBPACK_LAYERS_NAMES.reactServerComponents,
             WEBPACK_LAYERS_NAMES.serverSideRendering,
             WEBPACK_LAYERS_NAMES.appPagesBrowser,
@@ -584,12 +584,12 @@ const WEBPACK_RESOURCE_QUERIES = {
     metadata: '__next_metadata__',
     metadataRoute: '__next_metadata_route__',
     metadataImageMeta: '__next_metadata_image_meta__'
-}; //# sourceMappingURL=constants.js.map
+}; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -605,10 +605,10 @@ function _export(target, all) {
     });
 }
 _export(exports, {
-    /**
- * Checks whether the given value is a NextError.
- * This can be used to print a more detailed error message with properties like `code` & `digest`.
- */ default: function() {
+    
+
+
+ default: function() {
         return isError;
     },
     getProperError: function() {
@@ -616,16 +616,16 @@ _export(exports, {
     }
 });
 const _isplainobject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/is-plain-object.js [client] (ecmascript)");
-/**
- * This is a safe stringify function that handles circular references.
- * We're using a simpler version here to avoid introducing
- * the dependency `safe-stable-stringify` into production bundle.
- *
- * This helper is used both in development and production.
- */ function safeStringifyLite(obj) {
+
+
+
+
+
+
+ function safeStringifyLite(obj) {
     const seen = new WeakSet();
     return JSON.stringify(obj, (_key, value)=>{
-        // If value is an object and already seen, replace with "[Circular]"
+        
         if (typeof value === 'object' && value !== null) {
             if (seen.has(value)) {
                 return '[Circular]';
@@ -643,8 +643,8 @@ function getProperError(err) {
         return err;
     }
     if ("TURBOPACK compile-time truthy", 1) {
-        // provide better error for case where `throw undefined`
-        // is called in development
+        
+        
         if (typeof err === 'undefined') {
             return Object.defineProperty(new Error('An undefined error was thrown, ' + 'see here for more info: https://nextjs.org/docs/messages/threw-undefined'), "__NEXT_ERROR_CODE", {
                 value: "E98",
@@ -665,7 +665,7 @@ function getProperError(err) {
         enumerable: false,
         configurable: true
     });
-} //# sourceMappingURL=is-error.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-api-route.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -681,35 +681,35 @@ Object.defineProperty(exports, "isAPIRoute", {
 });
 function isAPIRoute(value) {
     return value === '/api' || Boolean(value == null ? void 0 : value.startsWith('/api/'));
-} //# sourceMappingURL=is-api-route.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/require-instrumentation-client.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * This module imports the client instrumentation hook from the project root.
- *
- * The `private-next-instrumentation-client` module is automatically aliased to
- * the `instrumentation-client.ts` file in the project root by webpack or turbopack.
- */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+
+
+
+
+
+ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 if ("TURBOPACK compile-time truthy", 1) {
     const measureName = 'Client Instrumentation Hook';
     const startTime = performance.now();
-    // eslint-disable-next-line @next/internal/typechecked-require -- Not a module.
+    
     module.exports = {};
     const endTime = performance.now();
     const duration = endTime - startTime;
-    // Using 16ms threshold as it represents one frame (1000ms/60fps)
-    // This helps identify if the instrumentation hook initialization
-    // could potentially cause frame drops during development.
+    
+    
+    
     const THRESHOLD = 16;
     if (duration > THRESHOLD) {
         console.log(`[${measureName}] Slow execution detected: ${duration.toFixed(0)}ms (Note: Code download overhead is not included in this measurement)`);
     }
-} else //TURBOPACK unreachable
+} else 
 ;
- //# sourceMappingURL=require-instrumentation-client.js.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/errors/stitched-error.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -748,8 +748,8 @@ _export(exports, {
     }
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
-const _iserror = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [client] (ecmascript)"));
+const _react =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
+const _iserror =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [client] (ecmascript)"));
 const ownerStacks = new WeakMap();
 function getOwnerStack(error) {
     return ownerStacks.get(error);
@@ -765,7 +765,7 @@ function coerceError(value) {
     });
 }
 function setOwnerStackIfAvailable(error) {
-    // React 18 and prod does not have `captureOwnerStack`
+    
     if ('captureOwnerStack' in _react.default) {
         setOwnerStack(error, _react.default.captureOwnerStack());
     }
@@ -781,7 +781,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=stitched-error.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/shared/react-18-hydration-error.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -812,14 +812,14 @@ _export(exports, {
     }
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _iserror = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [client] (ecmascript)"));
+const _iserror =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/is-error.js [client] (ecmascript)"));
 function isHydrationError(error) {
     return (0, _iserror.default)(error) && (error.message === 'Hydration failed because the initial UI does not match what was rendered on the server.' || error.message === 'Text content does not match server-rendered HTML.');
 }
 function isHydrationWarning(message) {
     return isHtmlTagsWarning(message) || isTextInTagsMismatchWarning(message) || isTextWarning(message);
 }
-// https://github.com/facebook/react/blob/main/packages/react-dom/src/__tests__/ReactDOMHydrationDiff-test.js used as a reference
+
 const htmlTagsWarnings = new Set([
     'Warning: Expected server HTML to contain a matching <%s> in <%s>.%s',
     'Warning: Did not expect server HTML to contain a <%s> in <%s>.%s'
@@ -833,8 +833,8 @@ const textWarnings = new Set([
 ]);
 const getHydrationWarningType = (message)=>{
     if (typeof message !== 'string') {
-        // TODO: Doesn't make sense to treat no message as a hydration error message.
-        // We should bail out somewhere earlier.
+        
+        
         return 'text';
     }
     const normalizedMessage = message.startsWith('Warning: ') ? message : `Warning: ${message}`;
@@ -851,7 +851,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=react-18-hydration-error.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/shared/react-19-hydration-error.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -891,9 +891,9 @@ _export(exports, {
 });
 const REACT_HYDRATION_ERROR_LINK = 'https://react.dev/link/hydration-mismatch';
 const NEXTJS_HYDRATION_ERROR_LINK = 'https://nextjs.org/docs/messages/react-hydration-error';
-/**
- * Only React 19+ contains component stack diff in the error message
- */ const errorMessagesWithComponentStackDiff = [
+
+
+ const errorMessagesWithComponentStackDiff = [
     /^In HTML, (.+?) cannot be a child of <(.+?)>\.(.*)\nThis will cause a hydration error\.(.*)/,
     /^In HTML, (.+?) cannot be a descendant of <(.+?)>\.\nThis will cause a hydration error\.(.*)/,
     /^In HTML, text nodes cannot be a child of <(.+?)>\.\nThis will cause a hydration error\./,
@@ -994,17 +994,17 @@ function attachHydrationErrorState(error) {
     }
     let parsedHydrationErrorState = {};
     // If there's any extra information in the error message to display,
-    // append it to the error message details property
+    
     if (hydrationErrorState.warning) {
-        // The patched console.error found hydration errors logged by React
-        // Append the logged warning to the error message
+        
+        
         parsedHydrationErrorState = {
-            // It contains the warning, component stack, server and client tag names
+            
             ...hydrationErrorState
         };
-        // Consume the cached hydration diff.
-        // This is only required for now when we still squashed the hydration diff log into hydration error.
-        // Once the all error is logged to dev overlay in order, this will go away.
+        
+        
+        
         if (hydrationErrorState.reactOutputComponentDiff) {
             parsedHydrationErrorState.reactOutputComponentDiff = hydrationErrorState.reactOutputComponentDiff;
         }
@@ -1014,64 +1014,64 @@ function attachHydrationErrorState(error) {
 function storeHydrationErrorStateFromConsoleArgs(...args) {
     let [message, firstContent, secondContent, ...rest] = args;
     if ((0, _react18hydrationerror.isHydrationWarning)(message)) {
-        // Some hydration warnings has 4 arguments, some has 3, fallback to the last argument
-        // when the 3rd argument is not the component stack but an empty string
-        // For some warnings, there's only 1 argument for template.
-        // The second argument is the diff or component stack.
+        
+        
+        
+        
         if (args.length === 3) {
             secondContent = '';
         }
-        const warning = message.replace(/Warning: /, '').replace('%s', firstContent).replace('%s', secondContent) // remove the last %s from the message
+        const warning = message.replace(/Warning: /, '').replace('%s', firstContent).replace('%s', secondContent) 
         .replace(/%s/g, '');
         const lastArg = (rest[rest.length - 1] || '').trim();
         hydrationErrorState.reactOutputComponentDiff = generateHydrationDiffReact18(message, firstContent, secondContent, lastArg);
         hydrationErrorState.warning = warning;
     } else if ((0, _react19hydrationerror.isErrorMessageWithComponentStackDiff)(message)) {
-        // Some hydration warnings has 4 arguments, some has 3, fallback to the last argument
-        // when the 3rd argument is not the component stack but an empty string
-        // For some warnings, there's only 1 argument for template.
-        // The second argument is the diff or component stack.
+        
+        
+        
+        
         if (args.length === 3) {
             secondContent = '';
         }
-        const warning = message.replace('%s', firstContent).replace('%s', secondContent) // remove the last %s from the message
+        const warning = message.replace('%s', firstContent).replace('%s', secondContent) 
         .replace(/%s/g, '');
         const lastArg = (args[args.length - 1] || '').trim();
         hydrationErrorState.reactOutputComponentDiff = lastArg;
         hydrationErrorState.warning = warning;
     }
 }
-/*
- * Some hydration errors in React 18 does not have the diff in the error message.
- * Instead it has the error stack trace which is component stack that we can leverage.
- * Will parse the diff from the error stack trace
- *  e.g.
- *  Warning: Expected server HTML to contain a matching <div> in <p>.
- *    at div
- *    at p
- *    at div
- *    at div
- *    at Page
- *  output:
- *    <Page>
- *      <div>
- *        <p>
- *  >       <div>
- *
- */ function generateHydrationDiffReact18(message, firstContent, secondContent, lastArg) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ function generateHydrationDiffReact18(message, firstContent, secondContent, lastArg) {
     const componentStack = lastArg;
     let firstIndex = -1;
     let secondIndex = -1;
     const hydrationWarningType = (0, _react18hydrationerror.getHydrationWarningType)(message);
-    // at div\n at Foo\n at Bar (....)\n -> [div, Foo]
-    const components = componentStack.split('\n') // .reverse()
+    
+    const components = componentStack.split('\n') 
     .map((line, index)=>{
-        // `<space>at <component> (<location>)` -> `at <component> (<location>)`
+        
         line = line.trim();
-        // extract `<space>at <component>` to `<<component>>`
-        // e.g. `  at Foo` -> `<Foo>`
+        
+        
         const [, component, location] = /at (\w+)( \((.*)\))?/.exec(line) || [];
-        // If there's no location then it's user-land stack frame
+        
         if (!location) {
             if (component === firstContent && firstIndex === -1) {
                 firstIndex = index;
@@ -1111,7 +1111,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=hydration-error-state.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-error-boundary.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1126,16 +1126,16 @@ Object.defineProperty(exports, "PagesDevOverlayErrorBoundary", {
     }
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
-const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
+const _react =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
 class PagesDevOverlayErrorBoundary extends _react.default.PureComponent {
     static getDerivedStateFromError(error) {
         return {
             error
         };
     }
-    // Explicit type is needed to avoid the generated `.d.ts` having a wide return type that could be specific to the `@types/react` version.
+    
     render() {
-        // The component has to be unmounted or else it would continue to error
+        
         return this.state.error ? null : this.props.children;
     }
     constructor(...args){
@@ -1150,12 +1150,12 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=pages-dev-overlay-error-boundary.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/terminal-logging-config.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -1195,7 +1195,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=terminal-logging-config.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/shared/forward-logs-shared.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1253,7 +1253,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=forward-logs-shared.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/forward-logs-utils.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1350,12 +1350,12 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=forward-logs-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/forward-logs.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -1395,7 +1395,7 @@ const _errorsource = __turbopack_context__.r("[project]/Desktop/Projects/final-p
 const _terminalloggingconfig = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/terminal-logging-config.js [client] (ecmascript)");
 const _forwardlogsshared = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/shared/forward-logs-shared.js [client] (ecmascript)");
 const _forwardlogsutils = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/app/forward-logs-utils.js [client] (ecmascript)");
-// Client-side file logger for browser logs
+
 class ClientFileLogger {
     formatTimestamp() {
         const now = new Date();
@@ -1409,13 +1409,13 @@ class ClientFileLogger {
         if (isReactServerReplayedLog(args)) {
             return;
         }
-        // Format the args into a message string
+        
         const message = args.map((arg)=>{
             if (typeof arg === 'string') return arg;
             if (typeof arg === 'number' || typeof arg === 'boolean') return String(arg);
             if (arg === null) return 'null';
             if (arg === undefined) return 'undefined';
-            // Handle DOM nodes - only log the tag name to avoid React proxied elements
+            
             if (arg instanceof Element) {
                 return `<${arg.tagName.toLowerCase()}>`;
             }
@@ -1427,7 +1427,7 @@ class ClientFileLogger {
             message
         };
         this.logEntries.push(logEntry);
-        // Schedule flush when new log is added
+        
         scheduleLogFlush();
     }
     getLogs() {
@@ -1443,7 +1443,7 @@ class ClientFileLogger {
     }
 }
 const clientFileLogger = new ClientFileLogger();
-// Set up flush-based sending of client file logs
+
 let logFlushTimeout = null;
 let heartbeatInterval = null;
 const scheduleLogFlush = ()=>{
@@ -1453,7 +1453,7 @@ const scheduleLogFlush = ()=>{
     logFlushTimeout = setTimeout(()=>{
         sendClientFileLogs();
         logFlushTimeout = null;
-    }, 100) // Send after 100ms (much faster with debouncing)
+    }, 100) 
     ;
 };
 const cancelLogFlush = ()=>{
@@ -1467,18 +1467,18 @@ const startHeartbeat = ()=>{
     heartbeatInterval = setInterval(()=>{
         if (logQueue.socket && logQueue.socket.readyState === WebSocket.OPEN) {
             try {
-                // Send a ping to keep the connection alive
+                
                 logQueue.socket.send(JSON.stringify({
                     event: 'ping'
                 }));
             } catch (error) {
-                // Connection might be closed, stop heartbeat
+                
                 stopHeartbeat();
             }
         } else {
             stopHeartbeat();
         }
-    }, 5000) // Send ping every 5 seconds
+    }, 5000) 
     ;
 };
 const stopHeartbeat = ()=>{
@@ -1535,7 +1535,7 @@ const serializeEntries = (entries)=>entries.map((clientEntry)=>{
                 }
         }
     });
-// Function to send client file logs to server
+
 const sendClientFileLogs = ()=>{
     if (!logQueue.socket || logQueue.socket.readyState !== WebSocket.OPEN) {
         return;
@@ -1553,7 +1553,7 @@ const sendClientFileLogs = ()=>{
     } catch (error) {
         console.error(error);
     } finally{
-        // Clear logs regardless of send success to prevent memory leaks
+        
         clientFileLogger.clear();
     }
 };
@@ -1569,53 +1569,53 @@ const logQueue = {
         if (logQueue.flushScheduled) {
             return;
         }
-        // safe to deref and use in setTimeout closure since we cancel on new socket
+        
         const socket = logQueue.socket;
         if (!socket) {
             return;
         }
-        // we probably dont need this
+        
         logQueue.flushScheduled = true;
-        // non blocking log flush, runs at most once per frame
+        
         logQueue.cancelFlush = afterThisFrame(()=>{
             logQueue.flushScheduled = false;
-            // just incase
+            
             try {
                 const payload = JSON.stringify({
                     event: 'browser-logs',
                     entries: serializeEntries(logQueue.entries),
                     router: logQueue.router,
-                    // needed for source mapping, we just assign the sourceType from the last error for the whole batch
+                    
                     sourceType: logQueue.sourceType
                 });
                 socket.send(payload);
                 logQueue.entries = [];
                 logQueue.sourceType = undefined;
-                // Also send client file logs
+                
                 sendClientFileLogs();
             } catch  {
-            // error (make sure u don't infinite loop)
-            /* noop */ }
+            
+             }
         });
     },
     onSocketReady: (socket)=>{
-        // When MCP or terminal logging is enabled, we enable the socket connection,
-        // otherwise it will not proceed.
-        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        
+        
+        if ("TURBOPACK compile-time falsy", 0) 
         ;
         if (socket.readyState !== WebSocket.OPEN) {
-            // invariant
+            
             return;
         }
-        // incase an existing timeout was going to run with a stale socket
+        
         logQueue.cancelFlush?.();
         logQueue.socket = socket;
-        // Add socket event listeners to track connection state
+        
         socket.addEventListener('close', ()=>{
             cancelLogFlush();
             stopHeartbeat();
         });
-        // Only send terminal logs if enabled
+        
         if (isTerminalLoggingEnabled) {
             try {
                 const payload = JSON.stringify({
@@ -1628,11 +1628,11 @@ const logQueue = {
                 logQueue.entries = [];
                 logQueue.sourceType = undefined;
             } catch  {
-            /** noop just incase */ }
+             }
         }
-        // Always send client file logs when socket is ready
+        
         sendClientFileLogs();
-        // Start heartbeat to keep connection alive
+        
         startHeartbeat();
     }
 };
@@ -1654,17 +1654,17 @@ const createErrorArg = (error)=>{
     };
 };
 const createLogEntry = (level, args)=>{
-    // Always log to client file logger with args (formatting done inside log method)
+    
     clientFileLogger.log(level, args);
-    // Only forward to terminal if enabled
+    
     if (!isTerminalLoggingEnabled) {
         return;
     }
-    // do not abstract this, it implicitly relies on which functions call it. forcing the inlined implementation makes you think about callers
-    // error capture stack trace maybe
+    
+    
     const stack = stackWithOwners(new Error());
     const stackLines = stack?.split('\n');
-    const cleanStack = stackLines?.slice(3).join('\n') // this is probably ignored anyways
+    const cleanStack = stackLines?.slice(3).join('\n') 
     ;
     const entry = {
         kind: 'console',
@@ -1683,9 +1683,9 @@ const createLogEntry = (level, args)=>{
     logQueue.scheduleLogSend(entry);
 };
 const forwardErrorLog = (args)=>{
-    // Always log to client file logger with args (formatting done inside log method)
+    
     clientFileLogger.log('error', args);
-    // Only forward to terminal if enabled
+    
     if (!isTerminalLoggingEnabled) {
         return;
     }
@@ -1697,11 +1697,11 @@ const forwardErrorLog = (args)=>{
             logQueue.sourceType = source;
         }
     }
-    /**
-   * browser shows stack regardless of type of data passed to console.error, so we should do the same
-   *
-   * do not abstract this, it implicitly relies on which functions call it. forcing the inlined implementation makes you think about callers
-   */ const stack = stackWithOwners(new Error());
+    
+
+
+
+ const stack = stackWithOwners(new Error());
     const stackLines = stack?.split('\n');
     const cleanStack = stackLines?.slice(3).join('\n');
     const entry = {
@@ -1737,12 +1737,12 @@ const stackWithOwners = (error)=>{
     return stack;
 };
 function logUnhandledRejection(reason) {
-    // Always log to client file logger
+    
     const message = reason instanceof Error ? `${reason.name}: ${reason.message}` : JSON.stringify(reason);
     clientFileLogger.log('error', [
         `unhandledRejection: ${message}`
     ]);
-    // Only forward to terminal if enabled
+    
     if (!isTerminalLoggingEnabled) {
         return;
     }
@@ -1768,7 +1768,7 @@ const createUnhandledRejectionErrorEntry = (error, fullStack)=>{
 const createUnhandledRejectionNonErrorEntry = (reason)=>{
     const entry = {
         kind: 'any-logged-error',
-        // we can't access the stack since the event is dispatched async and creating an inline error would be meaningless
+        
         consoleErrorStack: '',
         method: 'error',
         args: [
@@ -1798,9 +1798,9 @@ const isHMR = (args)=>{
     }
     return false;
 };
-/**
- * Matches the format of logs arguments React replayed from the RSC.
- */ const isReactServerReplayedLog = (args)=>{
+
+
+ const isReactServerReplayedLog = (args)=>{
     if (args.length < 3) {
         return false;
     }
@@ -1811,26 +1811,26 @@ const isHMR = (args)=>{
     return format.startsWith('%c%s%c') && styles.includes('background:');
 };
 function forwardUnhandledError(error) {
-    // Always log to client file logger
+    
     clientFileLogger.log('error', [
         `uncaughtError: ${error.name}: ${error.message}`
     ]);
-    // Only forward to terminal if enabled
+    
     if (!isTerminalLoggingEnabled) {
         return;
     }
     createUncaughtErrorEntry(error.name, error.message, stackWithOwners(error));
 }
 const initializeDebugLogForwarding = (router)=>{
-    // probably don't need this
+    
     if (isPatched) {
         return;
     }
-    // TODO(rob): why does this break rendering on server, important to know incase the same bug appears in browser
+    
     if (typeof window === 'undefined') {
         return;
     }
-    // better to be safe than sorry
+    
     try {
         methods.forEach((method)=>(0, _forwardlogsshared.patchConsoleMethod)(method, (_, ...args)=>{
                 if (isHMR(args)) {
@@ -1844,11 +1844,11 @@ const initializeDebugLogForwarding = (router)=>{
     } catch  {}
     logQueue.router = router;
     isPatched = true;
-    // Cleanup on page unload
+    
     window.addEventListener('beforeunload', ()=>{
         cancelLogFlush();
         stopHeartbeat();
-        // Send any remaining logs before page unloads
+        
         sendClientFileLogs();
     });
 };
@@ -1858,12 +1858,12 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=forward-logs.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -1888,7 +1888,7 @@ _export(exports, {
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/jsx-runtime.js [client] (ecmascript)");
-const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
+const _react =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
 const _nextdevtools = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/next-devtools/index.js (raw)");
 const _hydrationerrorstate = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/userspace/pages/hydration-error-state.js [client] (ecmascript)");
 const _router = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/router.js [client] (ecmascript)");
@@ -1899,8 +1899,8 @@ const _forwardlogs = __turbopack_context__.r("[project]/Desktop/Projects/final-p
 const usePagesDevOverlayBridge = ()=>{
     _react.default.useInsertionEffect({
         "usePagesDevOverlayBridge.useInsertionEffect": ()=>{
-            // NDT uses a different React instance so it's not technically a state update
-            // scheduled from useInsertionEffect.
+            
+            
             (0, _nextdevtools.renderPagesDevOverlay)(_stitchederror.getOwnerStack, _hydrationerrorstate.getSquashedHydrationErrorDetails, _onrecoverableerror.isRecoverableError);
         }
     }["usePagesDevOverlayBridge.useInsertionEffect"], []);
@@ -1918,29 +1918,29 @@ const usePagesDevOverlayBridge = ()=>{
 };
 function PagesDevOverlayBridge({ children }) {
     usePagesDevOverlayBridge();
-    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_pagesdevoverlayerrorboundary.PagesDevOverlayErrorBoundary, {
+    return  (0, _jsxruntime.jsx)(_pagesdevoverlayerrorboundary.PagesDevOverlayErrorBoundary, {
         children: children
     });
 }
 let isRegistered = false;
 function handleError(error) {
     if (!error || !(error instanceof Error) || typeof error.stack !== 'string') {
-        // A non-error was thrown, we don't have anything to show. :-(
+        
         return;
     }
     (0, _hydrationerrorstate.attachHydrationErrorState)(error);
-    // Skip ModuleBuildError and ModuleNotFoundError, as it will be sent through onBuildError callback.
-    // This is to avoid same error as different type showing up on client to cause flashing.
+    
+    
     if (error.name !== 'ModuleBuildError' && error.name !== 'ModuleNotFoundError') {
         _nextdevtools.dispatcher.onUnhandledError(error);
     }
 }
 let origConsoleError = console.error;
 function nextJsHandleConsoleError(...args) {
-    // See https://github.com/facebook/react/blob/d50323eb845c5fde0d720cae888bf35dedd05506/packages/react-reconciler/src/ReactFiberErrorLogger.js#L78
+    
     const maybeError = ("TURBOPACK compile-time truthy", 1) ? args[1] : "TURBOPACK unreachable";
     (0, _hydrationerrorstate.storeHydrationErrorStateFromConsoleArgs)(...args);
-    // TODO: Surfaces non-errors logged via `console.error`.
+    
     handleError(maybeError);
     (0, _forwardlogs.forwardErrorLog)(args);
     origConsoleError.apply(window.console, args);
@@ -1955,7 +1955,7 @@ function onUnhandledError(event) {
 function onUnhandledRejection(ev) {
     const reason = ev?.reason;
     if (!reason || !(reason instanceof Error) || typeof reason.stack !== 'string') {
-        // A non-error was thrown, we don't have anything to show. :-(
+        
         return;
     }
     _nextdevtools.dispatcher.onUnhandledRejection(reason);
@@ -1980,7 +1980,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=pages-dev-overlay-setup.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/dev/hot-reloader-types.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2006,8 +2006,8 @@ _export(exports, {
         return HMR_MESSAGE_SENT_TO_SERVER;
     }
 });
-var HMR_MESSAGE_SENT_TO_BROWSER = /*#__PURE__*/ function(HMR_MESSAGE_SENT_TO_BROWSER) {
-    // JSON messages:
+var HMR_MESSAGE_SENT_TO_BROWSER =  function(HMR_MESSAGE_SENT_TO_BROWSER) {
+    
     HMR_MESSAGE_SENT_TO_BROWSER["ADDED_PAGE"] = "addedPage";
     HMR_MESSAGE_SENT_TO_BROWSER["REMOVED_PAGE"] = "removedPage";
     HMR_MESSAGE_SENT_TO_BROWSER["RELOAD_PAGE"] = "reloadPage";
@@ -2028,17 +2028,17 @@ var HMR_MESSAGE_SENT_TO_BROWSER = /*#__PURE__*/ function(HMR_MESSAGE_SENT_TO_BRO
     HMR_MESSAGE_SENT_TO_BROWSER["DEVTOOLS_CONFIG"] = "devtoolsConfig";
     HMR_MESSAGE_SENT_TO_BROWSER["REQUEST_CURRENT_ERROR_STATE"] = "requestCurrentErrorState";
     HMR_MESSAGE_SENT_TO_BROWSER["REQUEST_PAGE_METADATA"] = "requestPageMetadata";
-    // Binary messages:
+    
     HMR_MESSAGE_SENT_TO_BROWSER[HMR_MESSAGE_SENT_TO_BROWSER["REACT_DEBUG_CHUNK"] = 0] = "REACT_DEBUG_CHUNK";
     return HMR_MESSAGE_SENT_TO_BROWSER;
 }({});
-var HMR_MESSAGE_SENT_TO_SERVER = /*#__PURE__*/ function(HMR_MESSAGE_SENT_TO_SERVER) {
-    // JSON messages:
+var HMR_MESSAGE_SENT_TO_SERVER =  function(HMR_MESSAGE_SENT_TO_SERVER) {
+    
     HMR_MESSAGE_SENT_TO_SERVER["MCP_ERROR_STATE_RESPONSE"] = "mcp-error-state-response";
     HMR_MESSAGE_SENT_TO_SERVER["MCP_PAGE_METADATA_RESPONSE"] = "mcp-page-metadata-response";
     HMR_MESSAGE_SENT_TO_SERVER["PING"] = "ping";
     return HMR_MESSAGE_SENT_TO_SERVER;
-}({}); //# sourceMappingURL=hot-reloader-types.js.map
+}({}); 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/dev/node-stack-frames.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2059,8 +2059,8 @@ function getFilesystemFrame(frame) {
         ...frame
     };
     if (typeof f.file === 'string') {
-        if (f.file.startsWith('/') || // Win32:
-        /^[a-z]:\\/i.test(f.file) || // Win32 UNC:
+        if (f.file.startsWith('/') || 
+        /^[a-z]:\\/i.test(f.file) || 
         f.file.startsWith('\\\\')) {
             f.file = `file://${f.file}`;
         }
@@ -2070,7 +2070,7 @@ function getFilesystemFrame(frame) {
 function getServerError(error, type) {
     if (error.name === 'TurbopackInternalError') {
         // If this is an internal Turbopack error we shouldn't show internal details
-        // to the user. These are written to a log file instead.
+        
         const turbopackInternalError = Object.defineProperty(new Error('An unexpected Turbopack error occurred. Please see the output of `next dev` for more details.'), "__NEXT_ERROR_CODE", {
             value: "E167",
             enumerable: false,
@@ -2110,7 +2110,7 @@ function getServerError(error, type) {
     }
     (0, _errorsource.decorateServerError)(n, type);
     return n;
-} //# sourceMappingURL=node-stack-frames.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/request-meta.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2166,7 +2166,7 @@ function removeRequestMeta(request, key) {
     const meta = getRequestMeta(request);
     delete meta[key];
     return setRequestMeta(request, meta);
-} //# sourceMappingURL=request-meta.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/pages/_error.js [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2174,9 +2174,9 @@ function removeRequestMeta(request, key) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-Object.defineProperty(exports, /**
- * `Error` component used for handling errors.
- */ "default", {
+Object.defineProperty(exports, 
+
+ "default", {
     enumerable: true,
     get: function() {
         return Error;
@@ -2184,8 +2184,8 @@ Object.defineProperty(exports, /**
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/jsx-runtime.js [client] (ecmascript)");
-const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
-const _head = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/head.js [client] (ecmascript)"));
+const _react =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/react/index.js [client] (ecmascript)"));
+const _head =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/head.js [client] (ecmascript)"));
 const statusCodes = {
     400: 'Bad Request',
     404: 'This page could not be found',
@@ -2212,7 +2212,7 @@ function _getInitialProps({ req, res, err }) {
 }
 const styles = {
     error: {
-        // https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css#L38-L52
+        
         fontFamily: 'system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
         height: '100vh',
         textAlign: 'center',
@@ -2254,53 +2254,53 @@ class Error extends _react.default.Component {
     render() {
         const { statusCode, withDarkMode = true } = this.props;
         const title = this.props.title || statusCodes[statusCode] || 'An unexpected error has occurred';
-        return /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+        return  (0, _jsxruntime.jsxs)("div", {
             style: styles.error,
             children: [
-                /*#__PURE__*/ (0, _jsxruntime.jsx)(_head.default, {
-                    children: /*#__PURE__*/ (0, _jsxruntime.jsx)("title", {
+                 (0, _jsxruntime.jsx)(_head.default, {
+                    children:  (0, _jsxruntime.jsx)("title", {
                         children: statusCode ? `${statusCode}: ${title}` : 'Application error: a client-side exception has occurred'
                     })
                 }),
-                /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+                 (0, _jsxruntime.jsxs)("div", {
                     style: styles.desc,
                     children: [
-                        /*#__PURE__*/ (0, _jsxruntime.jsx)("style", {
+                         (0, _jsxruntime.jsx)("style", {
                             dangerouslySetInnerHTML: {
-                                /* CSS minified from
-                body { margin: 0; color: #000; background: #fff; }
-                .next-error-h1 {
-                  border-right: 1px solid rgba(0, 0, 0, .3);
-                }
+                                
 
-                ${
-                  withDarkMode
-                    ? `@media (prefers-color-scheme: dark) {
-                  body { color: #fff; background: #000; }
-                  .next-error-h1 {
-                    border-right: 1px solid rgba(255, 255, 255, .3);
-                  }
-                }`
-                    : ''
-                }
-               */ __html: `body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}${withDarkMode ? '@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}' : ''}`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __html: `body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}${withDarkMode ? '@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}' : ''}`
                             }
                         }),
-                        statusCode ? /*#__PURE__*/ (0, _jsxruntime.jsx)("h1", {
+                        statusCode ?  (0, _jsxruntime.jsx)("h1", {
                             className: "next-error-h1",
                             style: styles.h1,
                             children: statusCode
                         }) : null,
-                        /*#__PURE__*/ (0, _jsxruntime.jsx)("div", {
+                         (0, _jsxruntime.jsx)("div", {
                             style: styles.wrap,
-                            children: /*#__PURE__*/ (0, _jsxruntime.jsxs)("h2", {
+                            children:  (0, _jsxruntime.jsxs)("h2", {
                                 style: styles.h2,
                                 children: [
-                                    this.props.title || statusCode ? title : /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+                                    this.props.title || statusCode ? title :  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
                                         children: [
                                             "Application error: a client-side exception has occurred",
                                             ' ',
-                                            Boolean(this.props.hostname) && /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+                                            Boolean(this.props.hostname) &&  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
                                                 children: [
                                                     "while loading ",
                                                     this.props.hostname
@@ -2326,8 +2326,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=_error.js.map
+} 
 }),
 ]);
 
-//# sourceMappingURL=c729b_next_dist_95225539._.js.map

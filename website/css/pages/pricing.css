@@ -217,7 +217,7 @@ iframe {
   }
 }
 
-/* Grid Glass Pricing Cards Styles */ .pricing-cards-section {
+ .pricing-cards-section {
   position: relative;
   overflow: hidden;
 }
@@ -427,7 +427,7 @@ iframe {
   box-shadow: 0 4px 15px rgba(7, 51, 171, 0.5);
   position: relative;
   overflow: hidden;
-  margin-top: auto; /* push to bottom of card */
+  margin-top: auto; 
 }
 
 .card-cta-btn::before {
@@ -465,7 +465,7 @@ iframe {
   transform: translateX(5px);
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .pricing-cards-grid {
     grid-template-columns: 1fr !important;

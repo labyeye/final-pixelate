@@ -1,15 +1,15 @@
-/**
- * useWhatsAppInvoice
- *
- * A React hook that:
- *   1. Generates the invoice PDF as a Blob (via @react-pdf/renderer)
- *   2. Uploads the Blob to /api/upload-whatsapp-media → gets media_id
- *   3. Calls /api/send-invoice-whatsapp with the media_id + template vars
- *
- * Usage:
- *   const { send, sending, status } = useWhatsAppInvoice();
- *   await send({ invoice, client, phone });
- */
+
+
+
+
+
+
+
+
+
+
+
+
 
 "use client";
 
@@ -29,41 +29,41 @@ export type WhatsAppSendStatus =
 export interface WhatsAppInvoiceOptions {
   invoice: any;
   client: any;
-  /** E.164 phone number without +, e.g. "919876543210" */
+  
   phone: string;
-  /**
-   * Optional: pass a public HTTPS PDF URL to skip the upload step entirely.
-   * Useful when the PDF is already hosted (e.g. Firebase Storage public URL).
-   */
+  
+
+
+
   publicPdfUrl?: string;
-  /**
-   * Optional: MongoDB _id of the client.
-   * When provided, the send API enforces the opt-in guard.
-   */
+  
+
+
+
   clientId?: string;
-  /**
-   * Optional: MongoDB _id (or invoiceNo) of the invoice.
-   * When provided, the send API enforces the idempotency guard
-   * (prevents sending the same invoice twice).
-   */
+  
+
+
+
+
   invoiceId?: string;
 }
 
 export interface WhatsAppInvoiceResult {
-  /** Call this to trigger the full send flow */
+  
   send: (opts: WhatsAppInvoiceOptions) => Promise<void>;
-  /** True while any async step is in progress */
+  
   sending: boolean;
   status: WhatsAppSendStatus;
-  /** Human-readable status message (for UI toasts / labels) */
+  
   statusMessage: string;
-  /** Populated on error */
+  
   error: string | null;
-  /** Populated on success */
+  
   messageId: string | null;
 }
 
-/** Build human-readable status strings */
+
 const statusLabel: Record<WhatsAppSendStatus, string> = {
   idle: "Ready",
   "generating-pdf": "Generating PDF…",
@@ -87,7 +87,7 @@ function getInvoiceItems(invoice: any) {
 function calculateTotal(invoice: any): number {
   if (!invoice) return 0;
 
-  // Prefer a pre-computed total field (avoids line-item mismatch bugs)
+  
   const precomputed =
     invoice.totalAmount ??
     invoice.grandTotal ??
@@ -100,12 +100,12 @@ function calculateTotal(invoice: any): number {
     if (!isNaN(n) && n > 0) return n;
   }
 
-  // Fall back to summing line items.
-  // IMPORTANT: match the invoicing page logic — items store a pre-computed
-  // `amount` field (not quantity × unitPrice). Use item.amount directly.
+  
+  
+  
   const items = getInvoiceItems(invoice);
   const subtotal = items.reduce((s: number, it: any) => {
-    // item.amount is the line total; fall back to qty × price if absent
+    
     const lineTotal =
       it?.amount !== undefined
         ? Number(it.amount)
@@ -116,11 +116,11 @@ function calculateTotal(invoice: any): number {
   return subtotal - Number(invoice?.discount ?? 0) + Number(invoice?.tax ?? 0);
 }
 
-/**
- * Strips characters that are illegal in filenames across all platforms.
- * In particular, forward slashes in invoice numbers like "KTS/2025-2026/00021"
- * MUST be removed — WhatsApp Cloud API rejects filenames containing "/".
- */
+
+
+
+
+
 function sanitiseFilename(name: string): string {
   return name
     .replace(/[/\\:*?"<>|]/g, "-") // replace path separators & illegal chars

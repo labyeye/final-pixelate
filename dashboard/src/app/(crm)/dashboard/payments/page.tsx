@@ -48,21 +48,21 @@ export default function PaymentsPage() {
   const [invoices, setInvoices] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
-  // Payment Form State
+  
   const [paymentAmount, setPaymentAmount] = useState<string>("");
   const [paymentDate, setPaymentDate] = useState<string>(
     new Date().toISOString().split("T")[0],
   );
   const [paymentMode, setPaymentMode] = useState<string>("Bank Transfer");
   const [paymentRemarks, setPaymentRemarks] = useState<string>("");
-  const [activeInvoice, setActiveInvoice] = useState<any>(null); // The invoice being paid
+  const [activeInvoice, setActiveInvoice] = useState<any>(null); 
 
-  // UI State
+  
   const [expandedInvoices, setExpandedInvoices] = useState<
     Record<string, boolean>
   >({});
 
-  // Edit Payment State
+  
   const [editingPayment, setEditingPayment] = useState<{
     invoice: any;
     index: number;
@@ -76,12 +76,12 @@ export default function PaymentsPage() {
     setExpandedInvoices((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  // Calculate client summary
+  
   const clientSummary = invoices.reduce(
     (acc, inv) => {
       const baseAmount = Number(inv.amount || 0);
       const taxAmount = Number(inv.tax || 0);
-      const totalAmount = baseAmount + taxAmount; // Include 18% tax in billed amount
+      const totalAmount = baseAmount + taxAmount; 
       acc.billed += totalAmount;
       acc.received += Number(inv.paidAmount || 0);
       return acc;
@@ -90,10 +90,10 @@ export default function PaymentsPage() {
   );
   const outstanding = clientSummary.billed - clientSummary.received;
 
-  // Fetch clients on mount
+  
   useEffect(() => {
     if (isClient) {
-      // Client users: auto-select their own account, no need to fetch all clients
+      
       if (myClientId) setSelectedClient(String(myClientId));
       return;
     }
@@ -103,7 +103,7 @@ export default function PaymentsPage() {
       .catch(console.error);
   }, [isClient, myClientId]);
 
-  // Fetch invoices when client changes
+  
   useEffect(() => {
     if (!selectedClient) {
       setInvoices([]);
@@ -123,7 +123,7 @@ export default function PaymentsPage() {
   const handlePayClick = (invoice: any) => {
     setActiveInvoice(invoice);
     const remaining = (invoice.amount || 0) - (invoice.paidAmount || 0);
-    // Include 18% GST in the payment amount
+    
     const amountWithTax = remaining > 0 ? remaining * 1.18 : 0;
     setPaymentAmount(amountWithTax > 0 ? amountWithTax.toString() : "0");
   };
@@ -154,14 +154,14 @@ export default function PaymentsPage() {
         description: `Successfully recorded payment of ₹${paymentAmount} for invoice ${activeInvoice.invoiceNo}`,
       });
 
-      // Refresh invoices
+      
       const updatedRes = await fetch(
         `/api/invoices?clientId=${selectedClient}`,
       );
       const updatedData = await updatedRes.json();
       setInvoices(updatedData);
 
-      // Reset form
+      
       setActiveInvoice(null);
       setPaymentAmount("");
       setPaymentRemarks("");
@@ -218,14 +218,14 @@ export default function PaymentsPage() {
         description: "Payment details have been updated successfully",
       });
 
-      // Refresh invoices
+      
       const updatedRes = await fetch(
         `/api/invoices?clientId=${selectedClient}`,
       );
       const updatedData = await updatedRes.json();
       setInvoices(updatedData);
 
-      // Reset edit form
+      
       setEditingPayment(null);
       setEditAmount("");
       setEditDate("");
@@ -268,7 +268,7 @@ export default function PaymentsPage() {
         description: "Payment entry has been removed successfully",
       });
 
-      // Refresh invoices
+      
       const updatedRes = await fetch(
         `/api/invoices?clientId=${selectedClient}`,
       );
@@ -318,7 +318,7 @@ export default function PaymentsPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        {/* Left Side: Client Selector & Stats */}
+        {}
         <div className="lg:col-span-1 space-y-6">
           {!isClient && (
           <Card className="border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
@@ -378,7 +378,7 @@ export default function PaymentsPage() {
           )}
         </div>
 
-        {/* Right Side: Invoice List & History */}
+        {}
         <div className="lg:col-span-3 space-y-6">
           {!selectedClient ? (
             <div className="flex flex-col items-center justify-center p-12 border-2 border-dashed border-neutral-300 rounded-xl bg-neutral-50/50 opacity-60">
@@ -417,7 +417,7 @@ export default function PaymentsPage() {
                   {invoices.map((inv) => {
                     const baseAmount = Number(inv.amount || 0);
                     const taxAmount = Number(inv.tax || 0);
-                    const total = baseAmount + taxAmount; // Total includes 18% tax
+                    const total = baseAmount + taxAmount; 
                     const paid = Number(inv.paidAmount || 0);
                     const balance = total - paid;
                     const status = (inv.status || "PENDING").toUpperCase();
@@ -664,7 +664,7 @@ export default function PaymentsPage() {
         </div>
       </div>
 
-      {/* Floating Payment Modal Overly-ish card */}
+      {}
       {activeInvoice && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <Card className="max-w-md w-full border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white animate-in zoom-in-95 duration-300">
@@ -785,7 +785,7 @@ export default function PaymentsPage() {
         </div>
       )}
 
-      {/* Edit Payment Modal */}
+      {}
       {editingPayment && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <Card className="max-w-md w-full border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white animate-in zoom-in-95 duration-300">

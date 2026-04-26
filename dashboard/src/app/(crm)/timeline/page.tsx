@@ -6,7 +6,7 @@ import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautif
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import type { Project, ProjectStatus, TeamMember } from '@/lib/data';
 
-// Local copy of project statuses to avoid importing value exports from server-side modules
+
 const projectStatuses: ProjectStatus[] = ['BACKLOG', 'IN PROGRESS', 'IN REVIEW', 'COMPLETED'];
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -16,7 +16,7 @@ import { CalendarIcon, PlusCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
-// Helper to reorder lists
+
 const reorder = (list: any[], startIndex: number, endIndex: number) => {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
@@ -24,7 +24,7 @@ const reorder = (list: any[], startIndex: number, endIndex: number) => {
   return result;
 };
 
-// Helper to move items between lists
+
 const move = (source: any[], destination: any[], droppableSource: any, droppableDestination: any) => {
   const sourceClone = Array.from(source);
   const destClone = Array.from(destination);
@@ -105,7 +105,7 @@ export default function TimelinePage() {
         if (projectIndex !== -1) {
             const project = newProjectData[status as ProjectStatus][projectIndex];
       const currentAssignees = project.assignees || [];
-      // assignees are objects { id, payout }
+      
     if (currentAssignees.some((a:any) => String(a.id ?? a) === String(memberId))) {
     project.assignees = currentAssignees.filter((a:any) => String(a.id ?? a) !== String(memberId));
       } else {
@@ -199,7 +199,7 @@ export default function TimelinePage() {
                                           <DropdownMenuCheckboxItem
                                             key={member.id}
                                             checked={project.assignees?.some((a:any) => String(a.id ?? a) === String(member.id))}
-                                            onSelect={(e) => e.preventDefault()} // prevent closing
+                                            onSelect={(e) => e.preventDefault()} 
                                             onCheckedChange={() => project.id != null && handleAssigneeChange(project.id, member.id)}
                                           >
                                             {member.name}

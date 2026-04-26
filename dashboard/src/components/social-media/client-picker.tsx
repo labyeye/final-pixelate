@@ -34,7 +34,7 @@ export function ClientPicker({ onClientSelected, onClientsLoaded }: ClientPicker
         setClients(clientList);
         onClientsLoaded?.(clientList);
 
-        // Auto-select previously selected client
+        
         const stored = typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
         if (stored && clientList.some((c) => (c._id || c.id) === stored)) {
           setSelectedId(stored);

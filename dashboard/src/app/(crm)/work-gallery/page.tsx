@@ -77,16 +77,16 @@ export default function WorkGalleryPage() {
   const onSubmit = async (values: FormValues) => {
     try {
       const payload = { ...values } as any;
-      // sanitize accidental literal "undefined" strings (happens if a field
-      // value was coerced incorrectly somewhere). Convert them to empty string
-      // so we don't persist the literal word "undefined" into the DB.
+      
+      
+      
       Object.keys(payload).forEach((k) => {
         if (payload[k] === 'undefined') payload[k] = '';
       });
-      // helpful debugging: show what we're about to send
+      
       console.debug('work-gallery: submitting payload', payload);
       if (editingId) {
-        // update
+        
         const res = await fetch(`/api/work-gallery/${editingId}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
         if (!res.ok) throw new Error('Failed to update');
         const updated = await res.json();
@@ -111,7 +111,7 @@ export default function WorkGalleryPage() {
     }
   };
 
-  // handle file input separately to attach base64 into form
+  
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0] ?? null;
     const data = f ? await onFile(f) : null;
@@ -141,7 +141,7 @@ export default function WorkGalleryPage() {
 
   const startEdit = (it: any) => {
     setEditingId(String(it._id ?? it.id));
-    // populate form
+    
     form.reset({
       title: it.title || '',
       link: it.link || '',

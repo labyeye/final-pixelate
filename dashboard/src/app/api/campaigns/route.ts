@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
       .sort({ createdAt: -1 })
       .toArray();
 
-    // Fetch whatsapp messages to get REAL delivery status from webhook
+    
     const messages = await db
       .collection("whatsapp_messages")
       .find({})
@@ -38,7 +38,7 @@ export async function GET(request: NextRequest) {
 
     console.log(`[Campaign Insights] Total messages in webhook: ${messages.length}`);
     
-    // Group messages by delivery status
+    
     const messagesByStatus = {
       sent: messages.filter((m: any) => m.deliveryStatus === "sent" || (m.status === "sent" && !m.deliveryStatus)).length,
       delivered: messages.filter((m: any) => m.deliveryStatus === "delivered" || m.status === "delivered").length,
@@ -49,7 +49,7 @@ export async function GET(request: NextRequest) {
     console.log(`[Campaign Insights] Messages by status:`, messagesByStatus);
     console.log(`[Campaign Insights] Sample messages:`, messages.slice(0, 3));
 
-    // Calculate insights - SUM from campaigns collection
+    
     const campaignInsights = campaigns.reduce(
       (acc: any, campaign: any) => ({
         totalInitiated: acc.totalInitiated + (campaign.totalContacts || 0),
@@ -69,15 +69,15 @@ export async function GET(request: NextRequest) {
       }
     );
 
-    // =============== REAL DELIVERY STATUS FROM WEBHOOK ===============
-    // This is the ACTUAL truth from Meta's webhook - what REALLY happened
+    
+    
     const deliveredCount = messagesByStatus.delivered;
     const failedCount = messagesByStatus.failed;
     const sentCount = messagesByStatus.sent + messagesByStatus.delivered + messagesByStatus.read + messagesByStatus.failed;
     const readCount = messagesByStatus.read;
     const pendingCount = messagesByStatus.sent;
 
-    // =============== MESSAGE CATEGORIES FOR PRICING ===============
+    
     const byCategory: Record<string, number> = {};
 
     messages.forEach((msg: any) => {
@@ -85,7 +85,7 @@ export async function GET(request: NextRequest) {
       byCategory[category] = (byCategory[category] || 0) + 1;
     });
 
-    // =============== DELIVERY STATUS BREAKDOWN ===============
+    
     const deliveredMessages = messages.filter(
       (m: any) => m.deliveryStatus === "delivered" || m.status === "delivered"
     );
@@ -94,14 +94,14 @@ export async function GET(request: NextRequest) {
       (m: any) => m.deliveryStatus === "failed" || m.status === "failed"
     );
 
-    // Group failures by reason for diagnostics
+    
     const failureReasons: Record<string, number> = {};
     failedMessages.forEach((msg: any) => {
       const reason = msg.failureReason || msg.error_reason || msg.errorCode || "Unknown";
       failureReasons[reason] = (failureReasons[reason] || 0) + 1;
     });
 
-    // =============== PRICING CALCULATION ===============
+    
     const chargesPerCategory: Record<string, number> = {
       marketing: 0.25,
       "marketing-lite": 0.15,
@@ -124,19 +124,19 @@ export async function GET(request: NextRequest) {
     });
 
     const insights = {
-      // Webhook data is the SOURCE OF TRUTH
+      
       totalInitiated: sentCount + pendingCount,
       totalSent: sentCount,
       totalDelivered: deliveredCount,
       totalRead: readCount,
-      totalReplied: readCount, // Approximation - Meta doesn't clearly distinguish replies
+      totalReplied: readCount, 
       totalFailed: failedCount,
       
-      // Category breakdown
+      
       byCategory,
       deliveredByCategory,
       
-      // Delivery status breakdown from webhook - REAL DATA
+      
       deliveryStatus: {
         delivered: deliveredCount,
         failed: failedCount,
@@ -144,13 +144,13 @@ export async function GET(request: NextRequest) {
         read: readCount,
       },
       
-      // Failure diagnostics
+      
       failureReasons,
       
-      // Estimated charges (only for delivered)
+      
       estimatedCharges: parseFloat(estimatedCharges.toFixed(2)),
       
-      // Additional metrics for insights
+      
       metrics: {
         deliveryRate: sentCount > 0 
           ? ((deliveredCount / sentCount) * 100).toFixed(1) 

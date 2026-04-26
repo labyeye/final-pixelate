@@ -106,7 +106,7 @@ export default function ApplicationsPage() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {}
       <div className="flex items-center gap-4">
         <Link href="/careers">
           <Button variant="outline" size="sm">
@@ -122,7 +122,7 @@ export default function ApplicationsPage() {
         </div>
       </div>
 
-      {/* Stats */}
+      {}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <CardHeader className="pb-3">
@@ -169,7 +169,7 @@ export default function ApplicationsPage() {
         </Card>
       </div>
 
-      {/* Filter */}
+      {}
       <div className="flex gap-2 flex-wrap">
         <Button
           variant={filter === 'all' ? 'default' : 'outline'}
@@ -197,7 +197,7 @@ export default function ApplicationsPage() {
         </Button>
       </div>
 
-      {/* Applications List */}
+      {}
       {filteredApplications.length === 0 ? (
         <Card>
           <CardContent className="py-12 text-center">
@@ -238,13 +238,13 @@ export default function ApplicationsPage() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                {/* Cover Letter */}
+                {}
                 <div>
                   <h4 className="font-semibold text-sm mb-2">Cover Letter</h4>
                   <p className="text-sm text-muted-foreground">{app.coverLetter}</p>
                 </div>
 
-                {/* Links */}
+                {}
                 <div className="flex flex-wrap gap-2">
                   <a href={app.resumeUrl} target="_blank" rel="noopener noreferrer">
                     <Button variant="outline" size="sm">
@@ -270,7 +270,7 @@ export default function ApplicationsPage() {
                   )}
                 </div>
 
-                {/* Status Actions */}
+                {}
                 <div className="flex gap-2 pt-2 border-t">
                   <select
                     value={app.status}

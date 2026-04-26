@@ -38,33 +38,33 @@ module.exports = mod;
 "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/api/upload-whatsapp-media/route.ts [app-route] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * POST /api/upload-whatsapp-media
- *
- * Accepts a multipart/form-data upload with a PDF file, uploads it to the
- * WhatsApp Cloud API /media endpoint, and returns the WhatsApp media_id.
- *
- * This route runs entirely server-side – the browser never sees the access token.
- *
- * FIXES APPLIED:
- *  - API version defaults to v21.0 (matches send route)
- *  - Explicit MIME type enforcement on the FormData blob sent to WhatsApp
- *  - Full error logging including fbtrace_id for Meta support
- *  - File size logged for debugging oversized PDF issues
- *
- * Form fields expected:
- *   file  – the PDF file (Blob / File)
- *
- * Environment variables required (same as send-invoice-whatsapp):
- *   WHATSAPP_ACCESS_TOKEN
- *   WHATSAPP_PHONE_NUMBER_ID
- *   WHATSAPP_API_VERSION        (default: "v21.0")
- *   INTERNAL_API_SECRET         (optional, same as send route)
- *
- * IMPORTANT: WhatsApp media_id is tied to the WABA (phone number ID) that
- * uploaded it. Always use the SAME WHATSAPP_PHONE_NUMBER_ID in both routes.
- * Media IDs expire after 30 days (much less in practice — use immediately).
- */ __turbopack_context__.s([
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __turbopack_context__.s([
     "GET",
     ()=>GET,
     "POST",
@@ -73,7 +73,7 @@ module.exports = mod;
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/server.js [app-route] (ecmascript)");
 ;
 async function POST(req) {
-    // ── Auth ───────────────────────────────────────────────────────────────────
+    
     const internalSecret = process.env.INTERNAL_API_SECRET;
     if (internalSecret) {
         const header = req.headers.get("x-internal-secret");
@@ -85,10 +85,10 @@ async function POST(req) {
             });
         }
     }
-    // ── Env ────────────────────────────────────────────────────────────────────
+    
     const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
     const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
-    // FIX: must match the API version in send-invoice-whatsapp route
+    
     const apiVersion = process.env.WHATSAPP_API_VERSION ?? "v21.0";
     if (!accessToken || !phoneNumberId) {
         console.error("[WhatsApp Media] Missing WHATSAPP_ACCESS_TOKEN or WHATSAPP_PHONE_NUMBER_ID");
@@ -98,7 +98,7 @@ async function POST(req) {
             status: 500
         });
     }
-    // ── Parse form data ────────────────────────────────────────────────────────
+    
     let formData;
     try {
         formData = await req.formData();
@@ -117,7 +117,7 @@ async function POST(req) {
             status: 400
         });
     }
-    // Validate MIME type – WhatsApp accepts application/pdf for documents
+    
     if (file.type !== "application/pdf") {
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             error: `Invalid file type "${file.type}". Only application/pdf is accepted.`
@@ -125,7 +125,7 @@ async function POST(req) {
             status: 400
         });
     }
-    // Max file size: WhatsApp allows up to 100 MB for documents
+    
     const MAX_BYTES = 100 * 1024 * 1024;
     if (file.size > MAX_BYTES) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
@@ -134,11 +134,11 @@ async function POST(req) {
             status: 400
         });
     }
-    // ── Build multipart upload for WhatsApp /media ─────────────────────────────
-    // FIX: explicitly construct a new Blob with type "application/pdf" to
-    // guarantee the MIME type is set correctly regardless of how the browser
-    // sent the file. Some environments send "application/octet-stream" which
-    // WhatsApp rejects with a cryptic error.
+    
+    
+    
+    
+    
     const fileBuffer = await file.arrayBuffer();
     const pdfBlob = new Blob([
         fileBuffer
@@ -206,4 +206,3 @@ async function GET() {
 }),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__9d933ff5._.js.map

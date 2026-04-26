@@ -11,12 +11,12 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS })
 }
 
-// Public endpoint for Pixy chatbot leads (no auth required)
+
 export async function POST(request: Request) {
   try {
     const body = await request.json()
 
-    // Validate required fields
+    
     if (!body.name || !body.email) {
       return NextResponse.json(
         { error: 'Name and email are required' },
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 
     const col = await svc.getCollection('leads')
 
-    // Check if lead already exists
+    
     const existingLead = await col.findOne({
       $or: [
         { email: body.email },
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
     }
 
     if (existingLead) {
-      // Update existing lead with new conversation
+      
       const existingHistory = existingLead.conversationHistory || []
       const newHistory = [...existingHistory, ...(body.conversation_history || [])]
       
@@ -87,7 +87,7 @@ export async function POST(request: Request) {
         { headers: CORS }
       )
     } else {
-      // Create new lead
+      
       const result = await col.insertOne(leadData)
 
       return NextResponse.json(

@@ -9,8 +9,8 @@ export function ClientPortalWrapper({ children }: { children: React.ReactNode })
 
   const isClient = user?.role === "client";
 
-  // Both clients and staff/admin get the same sidebar + header shell.
-  // The Sidebar component itself decides which nav items to show per role.
+  
+  
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
       <div className="print:hidden">

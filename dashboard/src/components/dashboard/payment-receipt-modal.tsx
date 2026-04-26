@@ -73,13 +73,13 @@ export function PaymentReceiptModal({
   const [paymentMethod, setPaymentMethod] = useState<string>("bank_transfer");
   const [clientOpen, setClientOpen] = useState(false);
 
-  // Filter invoices for the selected client that are not paid
+  
   const clientPendingInvoices = useMemo(() => {
     if (!selectedClient) return [];
     return invoices.filter(
       (inv) =>
         (String(inv.clientId) === String(selectedClient.id) ||
-          String(inv.clientId) === String((selectedClient as any)._id)) && // Handle _id vs id discrepancy
+          String(inv.clientId) === String((selectedClient as any)._id)) && 
         inv.status !== "PAID",
     );
   }, [selectedClient, invoices]);
@@ -95,7 +95,7 @@ export function PaymentReceiptModal({
       });
     }
     setOpen(false);
-    // Reset form
+    
     setSelectedClient(null);
     setSelectedInvoice(null);
     setAmount("");
@@ -124,7 +124,7 @@ export function PaymentReceiptModal({
         </DialogHeader>
 
         <div className="grid gap-6 py-4">
-          {/* Client Selection */}
+          {}
           <div className="grid gap-2">
             <Label htmlFor="client" className="font-bold text-muted-foreground">
               Client
@@ -176,7 +176,7 @@ export function PaymentReceiptModal({
             </Popover>
           </div>
 
-          {/* Invoice/Booking Selection (Dependent on Client) */}
+          {}
           <div className="grid gap-2">
             <Label
               htmlFor="invoice"
@@ -218,7 +218,7 @@ export function PaymentReceiptModal({
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            {/* Amount */}
+            {}
             <div className="grid gap-2">
               <Label
                 htmlFor="amount"
@@ -241,7 +241,7 @@ export function PaymentReceiptModal({
               </div>
             </div>
 
-            {/* Payment Method */}
+            {}
             <div className="grid gap-2">
               <Label className="font-bold text-muted-foreground">Method</Label>
               <Select value={paymentMethod} onValueChange={setPaymentMethod}>
@@ -258,7 +258,7 @@ export function PaymentReceiptModal({
             </div>
           </div>
 
-          {/* Date Picker */}
+          {}
           <div className="grid gap-2">
             <Label className="font-bold text-muted-foreground">
               Payment Date

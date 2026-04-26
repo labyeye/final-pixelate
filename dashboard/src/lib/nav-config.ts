@@ -46,11 +46,11 @@ export const defaultStaffAllowed = [
   "/quotations/create",
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Staff navigation — organised by department for future RBAC support
-// ─────────────────────────────────────────────────────────────────────────────
+
+
+
 export const navGroups = [
-  // ── 1. MANAGEMENT ──────────────────────────────────────────────────────────
+  
   {
     title: "Management",
     items: [
@@ -93,7 +93,7 @@ export const navGroups = [
     ],
   },
 
-  // ── 2. MARKETING ───────────────────────────────────────────────────────────
+  
   {
     title: "Marketing",
     items: [
@@ -183,7 +183,7 @@ export const navGroups = [
     ],
   },
 
-  // ── 3. SALES ───────────────────────────────────────────────────────────────
+  
   {
     title: "Sales",
     items: [
@@ -214,7 +214,7 @@ export const navGroups = [
     ],
   },
 
-  // ── 4. OPERATIONS ──────────────────────────────────────────────────────────
+  
   {
     title: "Operations",
     items: [
@@ -251,7 +251,7 @@ export const navGroups = [
     ],
   },
 
-  // ── 5. FINANCE ─────────────────────────────────────────────────────────────
+  
   {
     title: "Finance",
     items: [
@@ -288,7 +288,7 @@ export const navGroups = [
     ],
   },
 
-  // ── 6. HR & SUPPORT ────────────────────────────────────────────────────────
+  
   {
     title: "HR & Support",
     items: [
@@ -320,11 +320,11 @@ export const navGroups = [
   },
 ];
 
-/**
- * All possible navigation items that can be shown to a client in their portal.
- * These mirror the department-based navGroups — admin can toggle any of these
- * on/off globally from Settings → Client Portal.
- */
+
+
+
+
+
 export const clientPortalGroups = [
   {
     title: "Management",
@@ -383,21 +383,21 @@ export const clientPortalGroups = [
   },
 ];
 
-/**
- * Flat list of all client-facing nav items (derived from clientPortalGroups).
- * Used by the sidebar to render client navigation.
- */
+
+
+
+
 export const clientNavItems = clientPortalGroups.flatMap((g) => g.items);
 
-/**
- * Default pages shown to a client when no allowedPages are configured.
- */
+
+
+
 export const defaultClientAllowed = ["/invoicing", "/projects", "/support"];
 
-/**
- * Client-specific navigation items (new /client routes)
- * These pages are read-only for clients and filter data by their clientId
- */
+
+
+
+
 export const clientSpecificNavItems = [
   { href: "/client/planner", label: "Planner", icon: CalendarDays },
   { href: "/client/calendar", label: "Calendar", icon: CalendarDays },

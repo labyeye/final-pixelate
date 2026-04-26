@@ -41,7 +41,7 @@ import {
 
 type Invoice = any;
 
-// Helper function to get invoice items
+
 const getInvoiceItems = (invoice: any) => {
   if (!invoice) return [];
   if (Array.isArray(invoice.items) && invoice.items.length)
@@ -61,7 +61,7 @@ const getInvoiceItems = (invoice: any) => {
   return [];
 };
 
-// Helper function to calculate totals
+
 const calculateInvoiceTotals = (invoice: any) => {
   const items = getInvoiceItems(invoice);
   const subtotal = items.reduce(
@@ -131,8 +131,8 @@ export default function InvoicingPage() {
     return () => {
       mounted = false;
     };
-  // Re-fetch whenever auth resolves so a client sees only their invoices
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  
+  
   }, [isClient, myClientId]);
 
   const refresh = async () => {
@@ -161,7 +161,7 @@ export default function InvoicingPage() {
   };
 
   const handleDeleteInvoice = async (invoiceId: string, invoiceNo: string) => {
-    // Guard: already deleting this invoice
+    
     if (deletingInvoices.has(invoiceId)) return;
     if (!window.confirm("Delete this invoice? This cannot be undone.")) return;
 
@@ -172,7 +172,7 @@ export default function InvoicingPage() {
         const errJson = await res.json().catch(() => ({}));
         throw new Error(errJson.error || "Delete failed");
       }
-      // Update local state directly — no optimistic pre-removal race
+      
       setInvoices((prev) =>
         prev.filter((inv) => String(inv._id ?? inv.id ?? "") !== invoiceId),
       );
@@ -221,7 +221,7 @@ export default function InvoicingPage() {
 
       console.log("Generating PDF with @react-pdf/renderer...");
 
-      // Generate PDF using @react-pdf/renderer
+      
       const blob = await pdf(
         <InvoicePDFDocument invoice={invoice} client={client} />,
       ).toBlob();
@@ -239,14 +239,14 @@ export default function InvoicingPage() {
     } catch (error) {
       console.error("PDF generation failed:", error);
 
-      // Try a different approach - use the preview HTML
+      
       try {
         console.log("Trying alternative PDF generation...");
 
-        // Create a print-friendly version of the preview
+        
         const printWindow = window.open("", "_blank");
         if (printWindow) {
-          // Get the invoice preview HTML from the preview dialog
+          
           const previewContent = document.querySelector(
             ".invoice-preview-content",
           );
@@ -486,7 +486,7 @@ export default function InvoicingPage() {
           printWindow.document.write(htmlContent);
           printWindow.document.close();
 
-          // Wait for content to load, then print
+          
           printWindow.onload = function () {
             printWindow.print();
             setTimeout(() => {
@@ -499,7 +499,7 @@ export default function InvoicingPage() {
       } catch (fallbackError) {
         console.error("Fallback also failed:", fallbackError);
 
-        // Last resort: Simple alert with download link
+        
         const { total, paidAmount } = calculateInvoiceTotals(invoice);
         const simpleText =
           `Invoice #: ${invoice.invoiceNo || invoice.id}\n` +
@@ -542,12 +542,12 @@ export default function InvoicingPage() {
     try {
       setGmailSending((prev) => ({ ...prev, [id]: true }));
 
-      // Generate PDF blob
+      
       const blob = await pdf(
         <InvoicePDFDocument invoice={invoice} client={clientObj} />,
       ).toBlob();
 
-      // Convert blob to base64
+      
       const arrayBuffer = await blob.arrayBuffer();
       const uint8Array = new Uint8Array(arrayBuffer);
       let binary = "";
@@ -815,7 +815,7 @@ export default function InvoicingPage() {
                     </Button>
                     {!isClient && (
                       <>
-                        {/* WhatsApp opt-in toggle — small toggle so user can consent existing clients */}
+                        {}
                         <WhatsAppOptInToggle
                           client={clients.find(
                             (c) => String(c.id ?? c._id) === String(invoice.clientId),
@@ -823,7 +823,7 @@ export default function InvoicingPage() {
                           onClientUpdate={refreshClients}
                         />
 
-                        {/* WhatsApp send button — self-contained, no modal state needed */}
+                        {}
                         <WhatsAppInvoiceSendButton
                           invoice={invoice}
                           client={clients.find(
@@ -832,7 +832,7 @@ export default function InvoicingPage() {
                           onClientUpdate={refreshClients}
                         />
 
-                        {/* Gmail icon button */}
+                        {}
                         <Button
                           size="sm"
                           variant="outline"
@@ -847,7 +847,7 @@ export default function InvoicingPage() {
                               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
                             </svg>
                           ) : (
-                            /* Gmail M logo SVG */
+                            
                             <svg viewBox="0 0 24 24" className="w-4 h-4" xmlns="http://www.w3.org/2000/svg">
                               <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.272H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.908 1.528-1.148C21.69 2.28 24 3.434 24 5.457z" fill="currentColor"/>
                             </svg>
@@ -879,7 +879,7 @@ export default function InvoicingPage() {
           </TableBody>
         </Table>
       </div>
-      {/* Preview Dialog */}
+      {}
       <Dialog
         open={!!previewInvoice}
         onOpenChange={(open) => {

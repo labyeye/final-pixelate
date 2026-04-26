@@ -151,7 +151,7 @@ export default function ProfilePage() {
                   {role}
                 </SelectItem>
               ))}
-              {/* Ensure current role is shown even if not in standard list */}
+              {}
               {profile.jobRole &&
                 ![
                   "Camera Man",

@@ -59,7 +59,7 @@ export default function InventoryModal({
         vendorGstNumber: editItem.vendorGstNumber || "",
         gstPercentage: editItem.gstPercentage ?? 0,
       });
-      // open dialog when an edit item is provided programmatically
+      
       setOpen(true);
     }
   }, [editItem]);
@@ -115,7 +115,7 @@ export default function InventoryModal({
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-            {/* Row 1: Item Name + Category */}
+            {}
             <div className="grid grid-cols-2 gap-4">
               <FormField
                 name="itemName"
@@ -143,7 +143,7 @@ export default function InventoryModal({
               />
             </div>
 
-            {/* Row 2: Quantity + Unit + Price */}
+            {}
             <div className="grid grid-cols-3 gap-4">
               <FormField
                 name="quantityAvailable"
@@ -183,7 +183,7 @@ export default function InventoryModal({
               />
             </div>
 
-            {/* Row 3: Vendor Name + Vendor Contact */}
+            {}
             <div className="grid grid-cols-2 gap-4">
               <FormField
                 name="vendorName"
@@ -211,7 +211,7 @@ export default function InventoryModal({
               />
             </div>
 
-            {/* GST Section */}
+            {}
             <div className="border-2 border-black p-4 space-y-3">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input

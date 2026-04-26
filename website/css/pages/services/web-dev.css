@@ -30,7 +30,7 @@
 
 @media (min-width: 768px) {
   .portfolio-grid {
-    grid-template-columns: repeat(4, 1fr); /* medium / laptop: 4 cards */
+    grid-template-columns: repeat(4, 1fr); 
   }
 }
 
@@ -53,13 +53,13 @@
   justify-content: center;
   gap: 12px;
   text-align: center;
-  min-height: 550px; /* increased so tags/description don't get cut */
+  min-height: 550px; 
   border: 1px solid rgba(4, 75, 171, 0.06);
   overflow: hidden;
 }
 .portfolio-card {
   position: relative;
-  padding-bottom: 190px; /* reserve space for the fixed button */
+  padding-bottom: 190px; 
 }
 
 .portfolio-card:hover {
@@ -172,7 +172,7 @@
   color: var(--primary-900);
 }
 
-/* Portfolio Card Buttons - Responsive */
+
 .portfolio-buttons-container {
   display: flex;
   gap: 8px;
@@ -307,7 +307,7 @@
   height: auto !important;
   gap: 14px !important;
   padding: 14px !important;
-  /* keep layout overrides but use translucent glass background */
+  
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.04),
@@ -338,7 +338,7 @@
   position: relative !important;
   transform: none !important;
   background: transparent !important;
-  padding: 12px 0 40px 0 !important; /* reserve inner bottom space so description isn't overlapped by button */
+  padding: 12px 0 40px 0 !important; 
   color: var(--white) !important;
 }
 
@@ -376,7 +376,7 @@
   transform: scale(1.04) rotate(-0.6deg);
 }
 
-/* Offerings (types of web development) */
+
 .offerings-section {
   padding: 48px 20px;
   background: linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
@@ -402,7 +402,7 @@
   gap: 14px;
 }
 
-/* Offerings section styles (shared) */
+
 .offerings-section {
   padding: 48px 0;
 }
@@ -550,7 +550,7 @@ offerings-container .offer-card {
   text-align: center;
 }
 
-/* FAQ styles copied from pricing.css */
+
 .faq-section {
   padding: 40px 20px;
   background: transparent;
@@ -627,9 +627,9 @@ offerings-container .offer-card {
   }
 }
 
-/* Request Custom Quote CTA used after FAQ */
 
-/* Card CTA anchoring helper (used across service pages) */
+
+
 .card-body {
   display: flex;
   flex-direction: column;

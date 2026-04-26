@@ -2,15 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { generateQuotationId } from "@/lib/quotation-models";
 
-/**
- * GET /api/settings - Fetch agency settings
- */
+
+
+
 export async function GET() {
   try {
     const col = await svc.getCollection("agencySettings");
     const settings = await col.findOne({});
 
-    // Return defaults if no settings exist
+    
     if (!settings) {
       return NextResponse.json({
         name: "Pixelate Nest",
@@ -53,9 +53,9 @@ export async function GET() {
   }
 }
 
-/**
- * PUT /api/settings - Update agency settings
- */
+
+
+
 export async function PUT(request: NextRequest) {
   try {
     const body = await request.json();

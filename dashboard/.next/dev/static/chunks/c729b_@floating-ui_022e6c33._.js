@@ -2,10 +2,10 @@
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Custom positioning reference element.
- * @see https://floating-ui.com/docs/virtual-elements
- */ __turbopack_context__.s([
+
+
+
+ __turbopack_context__.s([
     "alignments",
     ()=>alignments,
     "clamp",
@@ -65,7 +65,7 @@ const alignments = [
     'start',
     'end'
 ];
-const placements = /*#__PURE__*/ sides.reduce((acc, side)=>acc.concat(side, side + "-" + alignments[0], side + "-" + alignments[1]), []);
+const placements =  sides.reduce((acc, side)=>acc.concat(side, side + "-" + alignments[0], side + "-" + alignments[1]), []);
 const min = Math.min;
 const max = Math.max;
 const round = Math.round;
@@ -102,7 +102,7 @@ function getOppositeAxis(axis) {
 function getAxisLength(axis) {
     return axis === 'y' ? 'height' : 'width';
 }
-const yAxisSides = /*#__PURE__*/ new Set([
+const yAxisSides =  new Set([
     'top',
     'bottom'
 ]);
@@ -266,9 +266,9 @@ function getNodeName(node) {
     if (isNode(node)) {
         return (node.nodeName || '').toLowerCase();
     }
-    // Mocked nodes in testing environments may not be instances of Node. By
-    // returning `#document` an infinite loop won't occur.
-    // https://github.com/floating-ui/floating-ui/issues/2317
+    
+    
+    
     return '#document';
 }
 function getWindow(node) {
@@ -303,7 +303,7 @@ function isShadowRoot(value) {
     }
     return value instanceof ShadowRoot || value instanceof getWindow(value).ShadowRoot;
 }
-const invalidOverflowDisplayValues = /*#__PURE__*/ new Set([
+const invalidOverflowDisplayValues =  new Set([
     'inline',
     'contents'
 ]);
@@ -311,7 +311,7 @@ function isOverflowElement(element) {
     const { overflow, overflowX, overflowY, display } = getComputedStyle(element);
     return /auto|scroll|overlay|hidden|clip/.test(overflow + overflowY + overflowX) && !invalidOverflowDisplayValues.has(display);
 }
-const tableElements = /*#__PURE__*/ new Set([
+const tableElements =  new Set([
     'table',
     'td',
     'th'
@@ -356,8 +356,8 @@ const containValues = [
 function isContainingBlock(elementOrCss) {
     const webkit = isWebKit();
     const css = isElement(elementOrCss) ? getComputedStyle(elementOrCss) : elementOrCss;
-    // https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block
-    // https://drafts.csswg.org/css-transforms-2/#individual-transforms
+    
+    
     return transformProperties.some((value)=>css[value] ? css[value] !== 'none' : false) || (css.containerType ? css.containerType !== 'normal' : false) || !webkit && (css.backdropFilter ? css.backdropFilter !== 'none' : false) || !webkit && (css.filter ? css.filter !== 'none' : false) || willChangeValues.some((value)=>(css.willChange || '').includes(value)) || containValues.some((value)=>(css.contain || '').includes(value));
 }
 function getContainingBlock(element) {
@@ -376,7 +376,7 @@ function isWebKit() {
     if (typeof CSS === 'undefined' || !CSS.supports) return false;
     return CSS.supports('-webkit-backdrop-filter', 'none');
 }
-const lastTraversableNodeNames = /*#__PURE__*/ new Set([
+const lastTraversableNodeNames =  new Set([
     'html',
     'body',
     '#document'
@@ -403,10 +403,10 @@ function getParentNode(node) {
     if (getNodeName(node) === 'html') {
         return node;
     }
-    const result = // Step into the shadow DOM of the parent of a slotted node.
-    node.assignedSlot || // DOM Element detected.
-    node.parentNode || // ShadowRoot detected.
-    isShadowRoot(node) && node.host || // Fallback.
+    const result = 
+    node.assignedSlot || 
+    node.parentNode || 
+    isShadowRoot(node) && node.host || 
     getDocumentElement(node);
     return isShadowRoot(result) ? result.host : result;
 }
@@ -524,13 +524,13 @@ function computeCoordsFromPlacement(_ref, placement, rtl) {
     }
     return coords;
 }
-/**
- * Computes the `x` and `y` coordinates that will place the floating element
- * next to a given reference element.
- *
- * This export does not have any `platform` interface logic. You will need to
- * write one for the platform you are using Floating UI with.
- */ const computePosition = async (reference, floating, config)=>{
+
+
+
+
+
+
+ const computePosition = async (reference, floating, config)=>{
     const { placement = 'bottom', strategy = 'absolute', middleware = [], platform } = config;
     const validMiddleware = middleware.filter(Boolean);
     const rtl = await (platform.isRTL == null ? void 0 : platform.isRTL(floating));
@@ -594,14 +594,14 @@ function computeCoordsFromPlacement(_ref, placement, rtl) {
         middlewareData
     };
 };
-/**
- * Resolves with an object of overflow side offsets that determine how much the
- * element is overflowing a given clipping boundary on each side.
- * - positive = overflowing the boundary by that number of pixels
- * - negative = how many pixels left before it will overflow
- * - 0 = lies flush with the boundary
- * @see https://floating-ui.com/docs/detectOverflow
- */ async function detectOverflow(state, options) {
+
+
+
+
+
+
+
+ async function detectOverflow(state, options) {
     var _await$platform$isEle;
     if (options === void 0) {
         options = {};
@@ -644,16 +644,16 @@ function computeCoordsFromPlacement(_ref, placement, rtl) {
         right: (elementClientRect.right - clippingClientRect.right + paddingObject.right) / offsetScale.x
     };
 }
-/**
- * Provides data to position an inner element of the floating element so that it
- * appears centered to the reference element.
- * @see https://floating-ui.com/docs/arrow
- */ const arrow = (options)=>({
+
+
+
+
+ const arrow = (options)=>({
         name: 'arrow',
         options,
         async fn (state) {
             const { x, y, placement, rects, platform, elements, middlewareData } = state;
-            // Since `element` is required, we don't Partial<> the type.
+            
             const { element, padding = 0 } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["evaluate"])(options, state) || {};
             if (element == null) {
                 return {};
@@ -674,26 +674,26 @@ function computeCoordsFromPlacement(_ref, placement, rtl) {
             const startDiff = coords[axis] - rects.reference[axis];
             const arrowOffsetParent = await (platform.getOffsetParent == null ? void 0 : platform.getOffsetParent(element));
             let clientSize = arrowOffsetParent ? arrowOffsetParent[clientProp] : 0;
-            // DOM platform can return `window` as the `offsetParent`.
+            
             if (!clientSize || !await (platform.isElement == null ? void 0 : platform.isElement(arrowOffsetParent))) {
                 clientSize = elements.floating[clientProp] || rects.floating[length];
             }
             const centerToReference = endDiff / 2 - startDiff / 2;
-            // If the padding is large enough that it causes the arrow to no longer be
-            // centered, modify the padding so that it is centered.
+            
+            
             const largestPossiblePadding = clientSize / 2 - arrowDimensions[length] / 2 - 1;
             const minPadding = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["min"])(paddingObject[minProp], largestPossiblePadding);
             const maxPadding = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["min"])(paddingObject[maxProp], largestPossiblePadding);
-            // Make sure the arrow doesn't overflow the floating element if the center
-            // point is outside the floating element's bounds.
+            
+            
             const min$1 = minPadding;
             const max = clientSize - arrowDimensions[length] - maxPadding;
             const center = clientSize / 2 - arrowDimensions[length] / 2 + centerToReference;
             const offset = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clamp"])(min$1, center, max);
-            // If the reference is small enough that the arrow's padding causes it to
-            // to point to nothing for an aligned placement, adjust the offset of the
-            // floating element itself. To ensure `shift()` continues to take action,
-            // a single reset is performed when this is true.
+            
+            
+            
+            
             const shouldAddOffset = !middlewareData.arrow && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAlignment"])(placement) != null && center !== offset && rects.reference[length] / 2 - (center < min$1 ? minPadding : maxPadding) - arrowDimensions[length] / 2 < 0;
             const alignmentOffset = shouldAddOffset ? center < min$1 ? center - min$1 : center - max : 0;
             return {
@@ -721,12 +721,12 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
         return true;
     });
 }
-/**
- * Optimizes the visibility of the floating element by choosing the placement
- * that has the most space available automatically, without needing to specify a
- * preferred placement. Alternative to `flip`.
- * @see https://floating-ui.com/docs/autoPlacement
- */ const autoPlacement = function(options) {
+
+
+
+
+
+ const autoPlacement = function(options) {
     if (options === void 0) {
         options = {};
     }
@@ -745,7 +745,7 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
                 return {};
             }
             const alignmentSides = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAlignmentSides"])(currentPlacement, rects, await (platform.isRTL == null ? void 0 : platform.isRTL(elements.floating)));
-            // Make `computeCoords` start from the right place.
+            
             if (placement !== currentPlacement) {
                 return {
                     reset: {
@@ -766,7 +766,7 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
                 }
             ];
             const nextPlacement = placements$1[currentIndex + 1];
-            // There are more placements to check.
+            
             if (nextPlacement) {
                 return {
                     data: {
@@ -782,14 +782,14 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
                 const alignment = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAlignment"])(d.placement);
                 return [
                     d.placement,
-                    alignment && crossAxis ? // Check along the mainAxis and main crossAxis side.
-                    d.overflows.slice(0, 2).reduce((acc, v)=>acc + v, 0) : // Check only the mainAxis.
+                    alignment && crossAxis ? 
+                    d.overflows.slice(0, 2).reduce((acc, v)=>acc + v, 0) : 
                     d.overflows[0],
                     d.overflows
                 ];
             }).sort((a, b)=>a[1] - b[1]);
-            const placementsThatFitOnEachSide = placementsSortedByMostSpace.filter((d)=>d[2].slice(0, // Aligned placements should not check their opposite crossAxis
-                // side.
+            const placementsThatFitOnEachSide = placementsSortedByMostSpace.filter((d)=>d[2].slice(0, 
+                
                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAlignment"])(d[0]) ? 2 : 3).every((v)=>v <= 0));
             const resetPlacement = ((_placementsThatFitOnE = placementsThatFitOnEachSide[0]) == null ? void 0 : _placementsThatFitOnE[0]) || placementsSortedByMostSpace[0][0];
             if (resetPlacement !== placement) {
@@ -807,12 +807,12 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
         }
     };
 };
-/**
- * Optimizes the visibility of the floating element by flipping the `placement`
- * in order to keep it in view when the preferred placement(s) will overflow the
- * clipping boundary. Alternative to `autoPlacement`.
- * @see https://floating-ui.com/docs/flip
- */ const flip = function(options) {
+
+
+
+
+
+ const flip = function(options) {
     if (options === void 0) {
         options = {};
     }
@@ -823,10 +823,10 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
             var _middlewareData$arrow, _middlewareData$flip;
             const { placement, middlewareData, rects, initialPlacement, platform, elements } = state;
             const { mainAxis: checkMainAxis = true, crossAxis: checkCrossAxis = true, fallbackPlacements: specifiedFallbackPlacements, fallbackStrategy = 'bestFit', fallbackAxisSideDirection = 'none', flipAlignment = true, ...detectOverflowOptions } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["evaluate"])(options, state);
-            // If a reset by the arrow was caused due to an alignment offset being
-            // added, we should skip any logic now since `flip()` has already done its
-            // work.
-            // https://github.com/floating-ui/floating-ui/issues/2549#issuecomment-1719601643
+            
+            
+            
+            
             if ((_middlewareData$arrow = middlewareData.arrow) != null && _middlewareData$arrow.alignmentOffset) {
                 return {};
             }
@@ -862,17 +862,17 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
                     overflows
                 }
             ];
-            // One or more sides is overflowing.
+            
             if (!overflows.every((side)=>side <= 0)) {
                 var _middlewareData$flip2, _overflowsData$filter;
                 const nextIndex = (((_middlewareData$flip2 = middlewareData.flip) == null ? void 0 : _middlewareData$flip2.index) || 0) + 1;
                 const nextPlacement = placements[nextIndex];
                 if (nextPlacement) {
                     const ignoreCrossAxisOverflow = checkCrossAxis === 'alignment' ? initialSideAxis !== (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getSideAxis"])(nextPlacement) : false;
-                    if (!ignoreCrossAxisOverflow || // We leave the current main axis only if every placement on that axis
-                    // overflows the main axis.
+                    if (!ignoreCrossAxisOverflow || 
+                    
                     overflowsData.every((d)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getSideAxis"])(d.placement) === initialSideAxis ? d.overflows[0] > 0 : true)) {
-                        // Try next placement and re-run the lifecycle.
+                        
                         return {
                             data: {
                                 index: nextIndex,
@@ -884,10 +884,10 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
                         };
                     }
                 }
-                // First, find the candidates that fit on the mainAxis side of overflow,
-                // then find the placement that fits the best on the main crossAxis side.
+                
+                
                 let resetPlacement = (_overflowsData$filter = overflowsData.filter((d)=>d.overflows[0] <= 0).sort((a, b)=>a.overflows[1] - b.overflows[1])[0]) == null ? void 0 : _overflowsData$filter.placement;
-                // Otherwise fallback.
+                
                 if (!resetPlacement) {
                     switch(fallbackStrategy){
                         case 'bestFit':
@@ -896,8 +896,8 @@ function getPlacementList(alignment, autoAlignment, allowedPlacements) {
                                 const placement = (_overflowsData$filter2 = overflowsData.filter((d)=>{
                                     if (hasFallbackAxisSideDirection) {
                                         const currentSideAxis = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getSideAxis"])(d.placement);
-                                        return currentSideAxis === initialSideAxis || // Create a bias to the `y` side axis due to horizontal
-                                        // reading directions favoring greater width.
+                                        return currentSideAxis === initialSideAxis || 
+                                        
                                         currentSideAxis === 'y';
                                     }
                                     return true;
@@ -938,11 +938,11 @@ function getSideOffsets(overflow, rect) {
 function isAnySideFullyClipped(overflow) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["sides"].some((side)=>overflow[side] >= 0);
 }
-/**
- * Provides data to hide the floating element in applicable situations, such as
- * when it is not in the same clipping context as the reference element.
- * @see https://floating-ui.com/docs/hide
- */ const hide = function(options) {
+
+
+
+
+ const hide = function(options) {
     if (options === void 0) {
         options = {};
     }
@@ -1018,11 +1018,11 @@ function getRectsByLine(rects) {
     }
     return groups.map((rect)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["rectToClientRect"])(getBoundingRect(rect)));
 }
-/**
- * Provides improved positioning for inline reference elements that can span
- * over multiple lines, such as hyperlinks or range selections.
- * @see https://floating-ui.com/docs/inline
- */ const inline = function(options) {
+
+
+
+
+ const inline = function(options) {
     if (options === void 0) {
         options = {};
     }
@@ -1031,21 +1031,21 @@ function getRectsByLine(rects) {
         options,
         async fn (state) {
             const { placement, elements, rects, platform, strategy } = state;
-            // A MouseEvent's client{X,Y} coords can be up to 2 pixels off a
-            // ClientRect's bounds, despite the event listener being triggered. A
-            // padding of 2 seems to handle this issue.
+            
+            
+            
             const { padding = 2, x, y } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["evaluate"])(options, state);
             const nativeClientRects = Array.from(await (platform.getClientRects == null ? void 0 : platform.getClientRects(elements.reference)) || []);
             const clientRects = getRectsByLine(nativeClientRects);
             const fallback = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["rectToClientRect"])(getBoundingRect(nativeClientRects));
             const paddingObject = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getPaddingObject"])(padding);
             function getBoundingClientRect() {
-                // There are two rects and they are disjoined.
+                
                 if (clientRects.length === 2 && clientRects[0].left > clientRects[1].right && x != null && y != null) {
-                    // Find the first rect in which the point is fully inside.
+                    
                     return clientRects.find((rect)=>x > rect.left - paddingObject.left && x < rect.right + paddingObject.right && y > rect.top - paddingObject.top && y < rect.bottom + paddingObject.bottom) || fallback;
                 }
-                // There are 2 or more connected rects.
+                
                 if (clientRects.length >= 2) {
                     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getSideAxis"])(placement) === 'y') {
                         const firstRect = clientRects[0];
@@ -1109,12 +1109,12 @@ function getRectsByLine(rects) {
         }
     };
 };
-const originSides = /*#__PURE__*/ new Set([
+const originSides =  new Set([
     'left',
     'top'
 ]);
-// For type backwards-compatibility, the `OffsetOptions` type was also
-// Derivable.
+
+
 async function convertValueToCoords(state, options) {
     const { placement, platform, elements } = state;
     const rtl = await (platform.isRTL == null ? void 0 : platform.isRTL(elements.floating));
@@ -1124,7 +1124,7 @@ async function convertValueToCoords(state, options) {
     const mainAxisMulti = originSides.has(side) ? -1 : 1;
     const crossAxisMulti = rtl && isVertical ? -1 : 1;
     const rawValue = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["evaluate"])(options, state);
-    // eslint-disable-next-line prefer-const
+    
     let { mainAxis, crossAxis, alignmentAxis } = typeof rawValue === 'number' ? {
         mainAxis: rawValue,
         crossAxis: 0,
@@ -1145,13 +1145,13 @@ async function convertValueToCoords(state, options) {
         y: crossAxis * crossAxisMulti
     };
 }
-/**
- * Modifies the placement by translating the floating element along the
- * specified axes.
- * A number (shorthand for `mainAxis` or distance), or an axes configuration
- * object may be passed.
- * @see https://floating-ui.com/docs/offset
- */ const offset = function(options) {
+
+
+
+
+
+
+ const offset = function(options) {
     if (options === void 0) {
         options = 0;
     }
@@ -1162,8 +1162,8 @@ async function convertValueToCoords(state, options) {
             var _middlewareData$offse, _middlewareData$arrow;
             const { x, y, placement, middlewareData } = state;
             const diffCoords = await convertValueToCoords(state, options);
-            // If the placement is the same and the arrow caused an alignment offset
-            // then we don't need to change the positioning coordinates.
+            
+            
             if (placement === ((_middlewareData$offse = middlewareData.offset) == null ? void 0 : _middlewareData$offse.placement) && (_middlewareData$arrow = middlewareData.arrow) != null && _middlewareData$arrow.alignmentOffset) {
                 return {};
             }
@@ -1178,11 +1178,11 @@ async function convertValueToCoords(state, options) {
         }
     };
 };
-/**
- * Optimizes the visibility of the floating element by shifting it in order to
- * keep it in view when it will overflow the clipping boundary.
- * @see https://floating-ui.com/docs/shift
- */ const shift = function(options) {
+
+
+
+
+ const shift = function(options) {
     if (options === void 0) {
         options = {};
     }
@@ -1242,9 +1242,9 @@ async function convertValueToCoords(state, options) {
         }
     };
 };
-/**
- * Built-in `limiter` that will stop `shift()` at a certain point.
- */ const limitShift = function(options) {
+
+
+ const limitShift = function(options) {
     if (options === void 0) {
         options = {};
     }
@@ -1299,12 +1299,12 @@ async function convertValueToCoords(state, options) {
         }
     };
 };
-/**
- * Provides data that allows you to change the size of the floating element —
- * for instance, prevent it from overflowing the clipping boundary or match the
- * width of the reference element.
- * @see https://floating-ui.com/docs/size
- */ const size = function(options) {
+
+
+
+
+
+ const size = function(options) {
     if (options === void 0) {
         options = {};
     }
@@ -1412,8 +1412,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 function getCssDimensions(element) {
     const css = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getComputedStyle"])(element);
-    // In testing environments, the `width` and `height` properties are empty
-    // strings for SVG elements, returning NaN. Fallback to `0` in this case.
+    
+    
     let width = parseFloat(css.width) || 0;
     let height = parseFloat(css.height) || 0;
     const hasOffset = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isHTMLElement"])(element);
@@ -1442,7 +1442,7 @@ function getScale(element) {
     const { width, height, $ } = getCssDimensions(domElement);
     let x = ($ ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["round"])(rect.width) : rect.width) / width;
     let y = ($ ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["round"])(rect.height) : rect.height) / height;
-    // 0, NaN, or Infinity should always fallback to 1.
+    
     if (!x || !Number.isFinite(x)) {
         x = 1;
     }
@@ -1454,7 +1454,7 @@ function getScale(element) {
         y
     };
 }
-const noOffsets = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createCoords"])(0);
+const noOffsets =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createCoords"])(0);
 function getVisualOffsets(element) {
     const win = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getWindow"])(element);
     if (!(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isWebKit"])() || !win.visualViewport) {
@@ -1526,8 +1526,8 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetPar
         y
     });
 }
-// If <html> has a CSS width greater than the viewport, then this will be
-// incorrect for RTL.
+
+
 function getWindowScrollBarX(element, rect) {
     const leftScroll = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getNodeScroll"])(element).scrollLeft;
     if (!rect) {
@@ -1581,8 +1581,8 @@ function convertOffsetParentRelativeRectToViewportRelativeRect(_ref) {
 function getClientRects(element) {
     return Array.from(element.getClientRects());
 }
-// Gets the entire size of the scrollable document area, even extending outside
-// of the `<html>` and `<body>` rect bounds if horizontally scrollable.
+
+
 function getDocumentRect(element) {
     const html = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDocumentElement"])(element);
     const scroll = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getNodeScroll"])(element);
@@ -1601,9 +1601,9 @@ function getDocumentRect(element) {
         y
     };
 }
-// Safety check: ensure the scrollbar space is reasonable in case this
-// calculation is affected by unusual styles.
-// Most scrollbars leave 15-18px of space.
+
+
+
 const SCROLLBAR_MAX = 25;
 function getViewportRect(element, strategy) {
     const win = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getWindow"])(element);
@@ -1623,9 +1623,9 @@ function getViewportRect(element, strategy) {
         }
     }
     const windowScrollbarX = getWindowScrollBarX(html);
-    // <html> `overflow: hidden` + `scrollbar-gutter: stable` reduces the
-    // visual width of the <html> but this is not considered in the size
-    // of `html.clientWidth`.
+    
+    
+    
     if (windowScrollbarX <= 0) {
         const doc = html.ownerDocument;
         const body = doc.body;
@@ -1636,8 +1636,8 @@ function getViewportRect(element, strategy) {
             width -= clippingStableScrollbarWidth;
         }
     } else if (windowScrollbarX <= SCROLLBAR_MAX) {
-        // If the <body> scrollbar is on the left, the width needs to be extended
-        // by the scrollbar amount so there isn't extra space on the right.
+        
+        
         width += windowScrollbarX;
     }
     return {
@@ -1647,11 +1647,11 @@ function getViewportRect(element, strategy) {
         y
     };
 }
-const absoluteOrFixed = /*#__PURE__*/ new Set([
+const absoluteOrFixed =  new Set([
     'absolute',
     'fixed'
 ]);
-// Returns the inner client rect, subtracting scrollbars if present.
+
 function getInnerBoundingClientRect(element, strategy) {
     const clientRect = getBoundingClientRect(element, true, strategy === 'fixed');
     const top = clientRect.top + element.clientTop;
@@ -1694,9 +1694,9 @@ function hasFixedPositionAncestor(element, stopNode) {
     }
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getComputedStyle"])(parentNode).position === 'fixed' || hasFixedPositionAncestor(parentNode, stopNode);
 }
-// A "clipping ancestor" is an `overflow` element with the characteristic of
-// clipping (or hiding) child elements. This returns all clipping ancestors
-// of the given element up the tree.
+
+
+
 function getClippingElementAncestors(element, cache) {
     const cachedResult = cache.get(element);
     if (cachedResult) {
@@ -1706,7 +1706,7 @@ function getClippingElementAncestors(element, cache) {
     let currentContainingBlockComputedStyle = null;
     const elementIsFixed = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getComputedStyle"])(element).position === 'fixed';
     let currentNode = elementIsFixed ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getParentNode"])(element) : element;
-    // https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block
+    
     while((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isElement"])(currentNode) && !(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isLastTraversableNode"])(currentNode)){
         const computedStyle = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getComputedStyle"])(currentNode);
         const currentNodeIsContaining = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isContainingBlock"])(currentNode);
@@ -1715,10 +1715,10 @@ function getClippingElementAncestors(element, cache) {
         }
         const shouldDropCurrentNode = elementIsFixed ? !currentNodeIsContaining && !currentContainingBlockComputedStyle : !currentNodeIsContaining && computedStyle.position === 'static' && !!currentContainingBlockComputedStyle && absoluteOrFixed.has(currentContainingBlockComputedStyle.position) || (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isOverflowElement"])(currentNode) && !currentNodeIsContaining && hasFixedPositionAncestor(element, currentNode);
         if (shouldDropCurrentNode) {
-            // Drop non-containing blocks.
+            
             result = result.filter((ancestor)=>ancestor !== currentNode);
         } else {
-            // Record last containing block for next iteration.
+            
             currentContainingBlockComputedStyle = computedStyle;
         }
         currentNode = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getParentNode"])(currentNode);
@@ -1726,8 +1726,8 @@ function getClippingElementAncestors(element, cache) {
     cache.set(element, result);
     return result;
 }
-// Gets the maximum area that the element is visible in due to any number of
-// clipping ancestors.
+
+
 function getClippingRect(_ref) {
     let { element, boundary, rootBoundary, strategy } = _ref;
     const elementClippingAncestors = boundary === 'clippingAncestors' ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isTopLayer"])(element) ? [] : getClippingElementAncestors(element, this._c) : [].concat(boundary);
@@ -1768,8 +1768,8 @@ function getRectRelativeToOffsetParent(element, offsetParent, strategy) {
         scrollTop: 0
     };
     const offsets = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createCoords"])(0);
-    // If the <body> scrollbar appears on the left (e.g. RTL systems). Use
-    // Firefox with layout.scrollbar.side = 3 in about:config to test this.
+    
+    
     function setLeftRTLScrollbarOffset() {
         offsets.x = getWindowScrollBarX(documentElement);
     }
@@ -1809,17 +1809,17 @@ function getTrueOffsetParent(element, polyfill) {
         return polyfill(element);
     }
     let rawOffsetParent = element.offsetParent;
-    // Firefox returns the <html> element as the offsetParent if it's non-static,
-    // while Chrome and Safari return the <body> element. The <body> element must
-    // be used to perform the correct calculations even if the <html> element is
-    // non-static.
+    
+    
+    
+    
     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getDocumentElement"])(element) === rawOffsetParent) {
         rawOffsetParent = rawOffsetParent.ownerDocument.body;
     }
     return rawOffsetParent;
 }
-// Gets the closest ancestor positioned element. Handles some edge cases,
-// such as table ancestors and cross browser bugs.
+
+
 function getOffsetParent(element, polyfill) {
     const win = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getWindow"])(element);
     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$utils$2f$dist$2f$floating$2d$ui$2e$utils$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isTopLayer"])(element)) {
@@ -1876,7 +1876,7 @@ const platform = {
 function rectsAreEqual(a, b) {
     return a.x === b.x && a.y === b.y && a.width === b.width && a.height === b.height;
 }
-// https://samthor.au/2021/observing-dom/
+
 function observeMove(element, onMove) {
     let io = null;
     let timeoutId;
@@ -1920,8 +1920,8 @@ function observeMove(element, onMove) {
                     return refresh();
                 }
                 if (!ratio) {
-                    // If the reference is clipped, the ratio is 0. Throttle the refresh
-                    // to prevent an infinite loop of updates.
+                    
+                    
                     timeoutId = setTimeout(()=>{
                         refresh(false, 1e-7);
                     }, 1000);
@@ -1930,23 +1930,23 @@ function observeMove(element, onMove) {
                 }
             }
             if (ratio === 1 && !rectsAreEqual(elementRectForRootMargin, element.getBoundingClientRect())) {
-                // It's possible that even though the ratio is reported as 1, the
-                // element is not actually fully within the IntersectionObserver's root
-                // area anymore. This can happen under performance constraints. This may
-                // be a bug in the browser's IntersectionObserver implementation. To
-                // work around this, we compare the element's bounding rect now with
-                // what it was at the time we created the IntersectionObserver. If they
-                // are not equal then the element moved, so we refresh.
+                
+                
+                
+                
+                
+                
+                
                 refresh();
             }
             isFirstUpdate = false;
         }
-        // Older browsers don't support a `document` as the root and will throw an
-        // error.
+        
+        
         try {
             io = new IntersectionObserver(handleObserve, {
                 ...options,
-                // Handle <iframe>s
+                
                 root: root.ownerDocument
             });
         } catch (_e) {
@@ -1957,14 +1957,14 @@ function observeMove(element, onMove) {
     refresh(true);
     return cleanup;
 }
-/**
- * Automatically updates the position of the floating element when necessary.
- * Should only be called when the floating element is mounted on the DOM or
- * visible on the screen.
- * @returns cleanup function that should be invoked when the floating element is
- * removed from the DOM or hidden from the screen.
- * @see https://floating-ui.com/docs/autoUpdate
- */ function autoUpdate(reference, floating, update, options) {
+
+
+
+
+
+
+
+ function autoUpdate(reference, floating, update, options) {
     if (options === void 0) {
         options = {};
     }
@@ -1987,8 +1987,8 @@ function observeMove(element, onMove) {
         resizeObserver = new ResizeObserver((_ref)=>{
             let [firstEntry] = _ref;
             if (firstEntry && firstEntry.target === referenceEl && resizeObserver) {
-                // Prevent update loops when using the `size` middleware.
-                // https://github.com/floating-ui/floating-ui/issues/1740
+                
+                
                 resizeObserver.unobserve(floating);
                 cancelAnimationFrame(reobserveFrame);
                 reobserveFrame = requestAnimationFrame(()=>{
@@ -2031,69 +2031,69 @@ function observeMove(element, onMove) {
         }
     };
 }
-/**
- * Resolves with an object of overflow side offsets that determine how much the
- * element is overflowing a given clipping boundary on each side.
- * - positive = overflowing the boundary by that number of pixels
- * - negative = how many pixels left before it will overflow
- * - 0 = lies flush with the boundary
- * @see https://floating-ui.com/docs/detectOverflow
- */ const detectOverflow = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["detectOverflow"];
-/**
- * Modifies the placement by translating the floating element along the
- * specified axes.
- * A number (shorthand for `mainAxis` or distance), or an axes configuration
- * object may be passed.
- * @see https://floating-ui.com/docs/offset
- */ const offset = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["offset"];
-/**
- * Optimizes the visibility of the floating element by choosing the placement
- * that has the most space available automatically, without needing to specify a
- * preferred placement. Alternative to `flip`.
- * @see https://floating-ui.com/docs/autoPlacement
- */ const autoPlacement = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["autoPlacement"];
-/**
- * Optimizes the visibility of the floating element by shifting it in order to
- * keep it in view when it will overflow the clipping boundary.
- * @see https://floating-ui.com/docs/shift
- */ const shift = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["shift"];
-/**
- * Optimizes the visibility of the floating element by flipping the `placement`
- * in order to keep it in view when the preferred placement(s) will overflow the
- * clipping boundary. Alternative to `autoPlacement`.
- * @see https://floating-ui.com/docs/flip
- */ const flip = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["flip"];
-/**
- * Provides data that allows you to change the size of the floating element —
- * for instance, prevent it from overflowing the clipping boundary or match the
- * width of the reference element.
- * @see https://floating-ui.com/docs/size
- */ const size = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["size"];
-/**
- * Provides data to hide the floating element in applicable situations, such as
- * when it is not in the same clipping context as the reference element.
- * @see https://floating-ui.com/docs/hide
- */ const hide = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["hide"];
-/**
- * Provides data to position an inner element of the floating element so that it
- * appears centered to the reference element.
- * @see https://floating-ui.com/docs/arrow
- */ const arrow = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["arrow"];
-/**
- * Provides improved positioning for inline reference elements that can span
- * over multiple lines, such as hyperlinks or range selections.
- * @see https://floating-ui.com/docs/inline
- */ const inline = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["inline"];
-/**
- * Built-in `limiter` that will stop `shift()` at a certain point.
- */ const limitShift = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["limitShift"];
-/**
- * Computes the `x` and `y` coordinates that will place the floating element
- * next to a given reference element.
- */ const computePosition = (reference, floating, options)=>{
-    // This caches the expensive `getClippingElementAncestors` function so that
-    // multiple lifecycle resets re-use the same result. It only lives for a
-    // single call. If other functions become expensive, we can add them as well.
+
+
+
+
+
+
+
+ const detectOverflow = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["detectOverflow"];
+
+
+
+
+
+
+ const offset = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["offset"];
+
+
+
+
+
+ const autoPlacement = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["autoPlacement"];
+
+
+
+
+ const shift = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["shift"];
+
+
+
+
+
+ const flip = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["flip"];
+
+
+
+
+
+ const size = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["size"];
+
+
+
+
+ const hide = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["hide"];
+
+
+
+
+ const arrow = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["arrow"];
+
+
+
+
+ const inline = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["inline"];
+
+
+ const limitShift = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$core$2f$dist$2f$floating$2d$ui$2e$core$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["limitShift"];
+
+
+
+ const computePosition = (reference, floating, options)=>{
+    
+    
+    
     const cache = new Map();
     const mergedOptions = {
         platform,
@@ -2146,8 +2146,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var isClient = typeof document !== 'undefined';
 var noop = function noop() {};
 var index = isClient ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useLayoutEffect"] : noop;
-// Fork of `fast-deep-equal` that only does the comparisons we need and compares
-// functions
+
+
 function deepEqual(a, b) {
     if (a === b) {
         return true;
@@ -2213,10 +2213,10 @@ function useLatestRef(value) {
     });
     return ref;
 }
-/**
- * Provides data to position a floating element.
- * @see https://floating-ui.com/docs/useFloating
- */ function useFloating(options) {
+
+
+
+ function useFloating(options) {
     if (options === void 0) {
         options = {};
     }
@@ -2277,10 +2277,10 @@ function useLatestRef(value) {
                 "useFloating.useCallback[update]": (data)=>{
                     const fullData = {
                         ...data,
-                        // The floating element's position may be recomputed while it's closed
-                        // but still mounted (such as when transitioning out). To ensure
-                        // `isPositioned` will be `false` initially on the next open, avoid
-                        // setting it to `true` when `open === false` (must be specified).
+                        
+                        
+                        
+                        
                         isPositioned: openRef.current !== false
                     };
                     if (isMountedRef.current && !deepEqual(dataRef.current, fullData)) {
@@ -2405,12 +2405,12 @@ function useLatestRef(value) {
         floatingStyles
     ]);
 }
-/**
- * Provides data to position an inner element of the floating element so that it
- * appears centered to the reference element.
- * This wraps the core `arrow` middleware to allow React refs as the element.
- * @see https://floating-ui.com/docs/arrow
- */ const arrow$1 = (options)=>{
+
+
+
+
+
+ const arrow$1 = (options)=>{
     function isRef(value) {
         return ({}).hasOwnProperty.call(value, 'current');
     }
@@ -2438,103 +2438,103 @@ function useLatestRef(value) {
         }
     };
 };
-/**
- * Modifies the placement by translating the floating element along the
- * specified axes.
- * A number (shorthand for `mainAxis` or distance), or an axes configuration
- * object may be passed.
- * @see https://floating-ui.com/docs/offset
- */ const offset = (options, deps)=>({
+
+
+
+
+
+
+ const offset = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["offset"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Optimizes the visibility of the floating element by shifting it in order to
- * keep it in view when it will overflow the clipping boundary.
- * @see https://floating-ui.com/docs/shift
- */ const shift = (options, deps)=>({
+
+
+
+
+ const shift = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["shift"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Built-in `limiter` that will stop `shift()` at a certain point.
- */ const limitShift = (options, deps)=>({
+
+
+ const limitShift = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["limitShift"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Optimizes the visibility of the floating element by flipping the `placement`
- * in order to keep it in view when the preferred placement(s) will overflow the
- * clipping boundary. Alternative to `autoPlacement`.
- * @see https://floating-ui.com/docs/flip
- */ const flip = (options, deps)=>({
+
+
+
+
+
+ const flip = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["flip"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Provides data that allows you to change the size of the floating element —
- * for instance, prevent it from overflowing the clipping boundary or match the
- * width of the reference element.
- * @see https://floating-ui.com/docs/size
- */ const size = (options, deps)=>({
+
+
+
+
+
+ const size = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["size"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Optimizes the visibility of the floating element by choosing the placement
- * that has the most space available automatically, without needing to specify a
- * preferred placement. Alternative to `flip`.
- * @see https://floating-ui.com/docs/autoPlacement
- */ const autoPlacement = (options, deps)=>({
+
+
+
+
+
+ const autoPlacement = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["autoPlacement"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Provides data to hide the floating element in applicable situations, such as
- * when it is not in the same clipping context as the reference element.
- * @see https://floating-ui.com/docs/hide
- */ const hide = (options, deps)=>({
+
+
+
+
+ const hide = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["hide"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Provides improved positioning for inline reference elements that can span
- * over multiple lines, such as hyperlinks or range selections.
- * @see https://floating-ui.com/docs/inline
- */ const inline = (options, deps)=>({
+
+
+
+
+ const inline = (options, deps)=>({
         ...(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$floating$2d$ui$2f$dom$2f$dist$2f$floating$2d$ui$2e$dom$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["inline"])(options),
         options: [
             options,
             deps
         ]
     });
-/**
- * Provides data to position an inner element of the floating element so that it
- * appears centered to the reference element.
- * This wraps the core `arrow` middleware to allow React refs as the element.
- * @see https://floating-ui.com/docs/arrow
- */ const arrow = (options, deps)=>({
+
+
+
+
+
+ const arrow = (options, deps)=>({
         ...arrow$1(options),
         options: [
             options,
@@ -2545,4 +2545,3 @@ function useLatestRef(value) {
 }),
 ]);
 
-//# sourceMappingURL=c729b_%40floating-ui_022e6c33._.js.map

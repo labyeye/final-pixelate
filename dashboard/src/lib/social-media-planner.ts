@@ -35,17 +35,22 @@ export type SocialPlatform = (typeof SOCIAL_PLATFORMS)[number];
 export type ContentType = (typeof CONTENT_TYPES)[number];
 export type PostStatus = (typeof POST_STATUSES)[number];
 
-/**
- * Represents a social media account linked to a client
- * Each client can have multiple accounts per platform
- */
+
+
+
+
 export type SocialAccount = {
   _id?: string;
   id?: string;
   clientId: string;
   platform: SocialPlatform;
-  handle: string; // normalized: lowercase, no @ symbol
-  displayName?: string; // optional: display name or account name
+  handle: string; 
+  displayName?: string; 
+  
+  platformAccountId?: string; 
+  igAccountId?: string;       
+  connectedPageName?: string; 
+  isConnected?: boolean;      
   createdAt?: string | Date;
   updatedAt?: string | Date;
 };
@@ -54,8 +59,8 @@ export type SocialMediaPost = {
   _id?: string;
   id?: string;
   clientId?: string;
-  socialAccountId?: string; // deprecated: use socialAccountIds instead
-  socialAccountIds?: string[]; // multiple account IDs for collaboration
+  socialAccountId?: string; 
+  socialAccountIds?: string[]; 
   title: string;
   platform: SocialPlatform;
   contentType: ContentType;
@@ -99,10 +104,10 @@ export const isSameDate = (a: Date, b: Date) =>
   a.getMonth() === b.getMonth() &&
   a.getDate() === b.getDate();
 
-/**
- * Hook to fetch a social account by ID
- * Returns the account or null if not found
- */
+
+
+
+
 export const fetchSocialAccount = async (accountId: string): Promise<SocialAccount | null> => {
   try {
     const res = await fetch(`/api/social-media-accounts?id=${accountId}`, {
@@ -118,17 +123,17 @@ export const fetchSocialAccount = async (accountId: string): Promise<SocialAccou
   return null;
 };
 
-/**
- * Format account display: @handle or fallback to displayName
- */
+
+
+
 export const formatAccountDisplay = (account?: SocialAccount | null): string => {
   if (!account) return "(No Account)";
   return `@${account.handle}`;
 };
 
-/**
- * Get platform icon label fallback
- */
+
+
+
 export const getPlatformIcon = (platform: SocialPlatform): string => {
   const icons: Record<SocialPlatform, string> = {
     Instagram: "IG",

@@ -12,23 +12,23 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
 }
 
-/**
- * Normalize social account handle
- * - Convert to lowercase
- * - Remove @ symbol if present
- * - Trim whitespace
- */
+
+
+
+
+
+
 function normalizeHandle(handle: string): string {
   return (handle || "").toLowerCase().replace(/^@+/, "").trim();
 }
 
-/**
- * GET /api/social-media-accounts
- * Query params:
- * - clientId: filter by client
- * - platform: filter by platform
- * - id: filter by account ID (returns array with single item if found)
- */
+
+
+
+
+
+
+
 export async function GET(request: NextRequest) {
   try {
     const col = await svc.getCollection("socialMediaAccounts");
@@ -44,7 +44,7 @@ export async function GET(request: NextRequest) {
       try {
         query._id = new ObjectId(id);
       } catch (e) {
-        // If id is not a valid ObjectId, just search by id field
+        
         query.id = id;
       }
     }
@@ -54,7 +54,13 @@ export async function GET(request: NextRequest) {
       .sort({ platform: 1, handle: 1 })
       .toArray();
 
-    return NextResponse.json(accounts, { headers: CORS });
+    
+    const safe = accounts.map(({ accessToken, ...rest }) => ({
+      ...rest,
+      isConnected: !!accessToken,
+    }));
+
+    return NextResponse.json(safe, { headers: CORS });
   } catch (e: any) {
     return NextResponse.json(
       { error: e.message || String(e) },
@@ -63,10 +69,10 @@ export async function GET(request: NextRequest) {
   }
 }
 
-/**
- * POST /api/social-media-accounts
- * Create a new social account or return existing if already exists
- */
+
+
+
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -98,7 +104,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Check if account already exists
+    
     const existing = await col.findOne({
       clientId,
       platform,
@@ -109,7 +115,7 @@ export async function POST(request: Request) {
       return NextResponse.json(existing, { status: 200, headers: CORS });
     }
 
-    // Create new account
+    
     const toInsert = {
       clientId,
       platform,
@@ -132,10 +138,10 @@ export async function POST(request: Request) {
   }
 }
 
-/**
- * PUT /api/social-media-accounts/[id]
- * Update account details (displayName, etc.)
- */
+
+
+
+
 export async function PUT(request: Request) {
   try {
     const body = await request.json();
@@ -175,10 +181,10 @@ export async function PUT(request: Request) {
   }
 }
 
-/**
- * DELETE /api/social-media-accounts/[id]
- * Delete an account
- */
+
+
+
+
 export async function DELETE(request: Request) {
   try {
     const { searchParams } = new URL(request.url);

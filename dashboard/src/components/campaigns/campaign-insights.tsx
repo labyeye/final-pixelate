@@ -92,7 +92,7 @@ export function CampaignInsights() {
         throw new Error(data.error || "Failed to delete campaign");
       }
 
-      // Refresh campaigns after deletion
+      
       await fetchCampaigns();
       alert("Campaign deleted successfully!");
     } catch (err: any) {
@@ -127,7 +127,7 @@ export function CampaignInsights() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {}
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-3xl font-bold text-gray-900">Campaign Insights</h2>
@@ -141,9 +141,9 @@ export function CampaignInsights() {
         </Button>
       </div>
 
-      {/* Main KPI Cards */}
+      {}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Initiated */}
+        {}
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium text-gray-600 flex items-center gap-2">
@@ -164,7 +164,7 @@ export function CampaignInsights() {
           </CardContent>
         </Card>
 
-        {/* Sent */}
+        {}
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium text-gray-600 flex items-center gap-2">
@@ -188,7 +188,7 @@ export function CampaignInsights() {
           </CardContent>
         </Card>
 
-        {/* Delivered */}
+        {}
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium text-gray-600 flex items-center gap-2">
@@ -212,7 +212,7 @@ export function CampaignInsights() {
           </CardContent>
         </Card>
 
-        {/* Failed */}
+        {}
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium text-gray-600 flex items-center gap-2">
@@ -237,9 +237,9 @@ export function CampaignInsights() {
         </Card>
       </div>
 
-      {/* Secondary KPI Cards */}
+      {}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {/* Read */}
+        {}
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium text-gray-600 flex items-center gap-2">
@@ -257,7 +257,7 @@ export function CampaignInsights() {
           </CardContent>
         </Card>
 
-        {/* Replied */}
+        {}
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium text-gray-600 flex items-center gap-2">
@@ -283,7 +283,7 @@ export function CampaignInsights() {
           </CardContent>
         </Card>
 
-        {/* Overall Success Rate */}
+        {}
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium text-gray-600 flex items-center gap-2">
@@ -309,9 +309,9 @@ export function CampaignInsights() {
         </Card>
       </div>
 
-      {/* Message Breakdown Charts */}
+      {}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {/* All Messages Breakdown */}
+        {}
         <Card>
           <CardHeader>
             <CardTitle className="text-sm font-medium">All Messages</CardTitle>
@@ -334,7 +334,7 @@ export function CampaignInsights() {
           </CardContent>
         </Card>
 
-        {/* Messages Delivered by Category */}
+        {}
         <Card>
           <CardHeader>
             <CardTitle className="text-sm font-medium">Messages Sent by Category</CardTitle>
@@ -356,7 +356,7 @@ export function CampaignInsights() {
           </CardContent>
         </Card>
 
-        {/* Charges Breakdown - Only for DELIVERED messages */}
+        {}
         <Card>
           <CardHeader>
             <CardTitle className="text-sm font-medium">💰 Charges (Delivered Only)</CardTitle>
@@ -385,9 +385,9 @@ export function CampaignInsights() {
         </Card>
       </div>
 
-      {/* Delivery Diagnostics */}
+      {}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {/* Delivery Status Summary */}
+        {}
         <Card>
           <CardHeader>
             <CardTitle className="text-sm font-medium flex items-center gap-2">
@@ -430,7 +430,7 @@ export function CampaignInsights() {
           </CardContent>
         </Card>
 
-        {/* Failure Reasons Breakdown */}
+        {}
         <Card>
           <CardHeader>
             <CardTitle className="text-sm font-medium flex items-center gap-2">
@@ -459,7 +459,7 @@ export function CampaignInsights() {
         </Card>
       </div>
 
-      {/* Campaigns List */}
+      {}
       <Card>
         <CardHeader>
           <CardTitle>Recent Campaigns</CardTitle>

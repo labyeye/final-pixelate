@@ -50,7 +50,7 @@ export default function SocialMediaCalendarPage() {
       const url = new URL("/api/social-media-posts", window.location.origin);
       url.searchParams.set("clientId", clientId);
       
-      // If user is not an admin, filter by their name to show only assigned posts
+      
       if (user && user.role !== "admin" && user.name) {
         url.searchParams.set("assignedTo", user.name);
       }
@@ -93,23 +93,23 @@ export default function SocialMediaCalendarPage() {
     const map = new Map<string, SocialMediaPost[]>();
     filtered.forEach((item) => {
       if (!item.scheduledDate) return;
-      // Normalize the date to YYYY-MM-DD format
+      
       let normalizedDate = item.scheduledDate;
       
-      // If it's a full ISO string, extract just the date part
+      
       if (normalizedDate.includes('T')) {
         normalizedDate = normalizedDate.split('T')[0];
       }
       
-      // If it has spaces or other formatting, try to parse it
+      
       if (normalizedDate.includes('-') && normalizedDate.length === 10) {
-        // Already in YYYY-MM-DD format
+        
         const key = normalizedDate;
         const arr = map.get(key) || [];
         arr.push(item);
         map.set(key, arr);
       } else {
-        // Try to parse the date and reformat
+        
         try {
           const dateObj = new Date(normalizedDate);
           if (!Number.isNaN(dateObj.getTime())) {

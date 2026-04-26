@@ -135,7 +135,7 @@ export default function SupportPage() {
         .then(setUsers)
         .catch(console.error);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [isClient, myClientId]);
 
   const createTicket = async () => {
@@ -328,7 +328,7 @@ export default function SupportPage() {
     resolved: getTicketsByStatus("resolved").length,
   };
 
-  // ─── Shared Detail Modal (role-aware) ──────────────────────────────────────
+  
   const TicketDetailModal = () => (
     <Dialog open={isDetailModalOpen} onOpenChange={setIsDetailModalOpen}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
@@ -417,7 +417,7 @@ export default function SupportPage() {
                       Status
                     </label>
                     {isClient ? (
-                      /* Clients see read-only status badge */
+                      
                       <div className="mt-2">
                         <Badge
                           variant="outline"
@@ -430,7 +430,7 @@ export default function SupportPage() {
                         </Badge>
                       </div>
                     ) : (
-                      /* Admins/staff can change status */
+                      
                       <Select
                         value={selectedTicket.status}
                         onValueChange={(v) =>
@@ -521,11 +521,11 @@ export default function SupportPage() {
     </Dialog>
   );
 
-  // ─── CLIENT VIEW ───────────────────────────────────────────────────────────
+  
   if (isClient) {
     return (
       <div className="p-6 space-y-6 max-w-5xl mx-auto">
-        {/* Header */}
+        {}
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-4xl font-black tracking-tight flex items-center gap-3">
@@ -549,7 +549,7 @@ export default function SupportPage() {
           </Button>
         </div>
 
-        {/* Stats row */}
+        {}
         <div className="grid grid-cols-3 gap-4">
           {(["new", "in_progress", "resolved"] as const).map((s) => (
             <Card
@@ -594,7 +594,7 @@ export default function SupportPage() {
           ))}
         </div>
 
-        {/* Search + filter */}
+        {}
         <div className="flex gap-3 items-center">
           <div className="relative flex-1 max-w-sm">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -622,7 +622,7 @@ export default function SupportPage() {
           </Select>
         </div>
 
-        {/* Ticket list */}
+        {}
         <div className="space-y-3">
           {filteredTickets.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 text-center border-2 border-dashed border-gray-200 rounded-xl">
@@ -711,7 +711,7 @@ export default function SupportPage() {
           )}
         </div>
 
-        {/* Client — Create Ticket Modal */}
+        {}
         <Dialog open={isCreateModalOpen} onOpenChange={setIsCreateModalOpen}>
           <DialogContent className="max-w-lg">
             <DialogHeader>
@@ -807,7 +807,7 @@ export default function SupportPage() {
     );
   }
 
-  // ─── ADMIN / STAFF KANBAN VIEW ─────────────────────────────────────────────
+  
   const TicketCard = ({ ticket }: { ticket: Ticket }) => (
     <div
       className="bg-white rounded-lg border border-gray-200 p-4 mb-3 cursor-pointer hover:shadow-md transition-shadow"
@@ -853,7 +853,7 @@ export default function SupportPage() {
 
   return (
     <div className="flex h-screen bg-gray-50">
-      {/* Sidebar */}
+      {}
       <div className="w-64 bg-white border-r border-gray-200 p-4 shrink-0">
         <div className="mb-8">
           <h2 className="text-lg font-bold text-gray-900">Support Tickets</h2>
@@ -889,9 +889,9 @@ export default function SupportPage() {
         </nav>
       </div>
 
-      {/* Main Content */}
+      {}
       <div className="flex-1 overflow-hidden flex flex-col">
-        {/* Header */}
+        {}
         <div className="bg-white border-b border-gray-200 px-6 py-4 shrink-0">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -938,7 +938,7 @@ export default function SupportPage() {
           </div>
         </div>
 
-        {/* Kanban Board */}
+        {}
         <div className="p-6 overflow-auto flex-1">
           <div className="grid grid-cols-3 gap-6">
             {(["new", "in_progress", "resolved"] as const).map((status) => (
@@ -980,7 +980,7 @@ export default function SupportPage() {
         </div>
       </div>
 
-      {/* Admin — Create Ticket Modal */}
+      {}
       <Dialog open={isCreateModalOpen} onOpenChange={setIsCreateModalOpen}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>

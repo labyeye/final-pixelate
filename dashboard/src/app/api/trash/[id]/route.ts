@@ -12,9 +12,9 @@ async function getRouteId(context: RouteContext) {
   return normalized;
 }
 
-/**
- * PATCH /api/trash/[id] — restore a trashed item back to its original collection
- */
+
+
+
 export async function PATCH(
   _request: Request,
   context: RouteContext,
@@ -37,9 +37,9 @@ export async function PATCH(
   }
 }
 
-/**
- * DELETE /api/trash/[id] — permanently destroy a trashed item (no recovery)
- */
+
+
+
 export async function DELETE(
   _request: Request,
   context: RouteContext,

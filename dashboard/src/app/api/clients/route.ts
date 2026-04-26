@@ -16,11 +16,11 @@ export async function POST(request: Request) {
 		const body = await request.json();
 		const { loginEmail, loginPassword, ...clientData } = body;
 
-		// Create the client document first
+		
 		const created = await svc.createClient(clientData);
 		const clientId = String(created._id ?? created.id);
 
-		// If login credentials were provided, create a linked user with role 'client'
+		
 		if (loginEmail && loginPassword) {
 			const userPayload = {
 				name: clientData.name,
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 				clientId,
 			};
 			const createdUser = await svc.createUser(userPayload);
-			// Store the linked userId back on the client doc
+			
 			const userId = String(createdUser._id ?? createdUser.id);
 			await svc.updateById('clients', clientId, { userId, loginEmail });
 			return NextResponse.json({ ...created, userId, loginEmail }, { status: 201 });

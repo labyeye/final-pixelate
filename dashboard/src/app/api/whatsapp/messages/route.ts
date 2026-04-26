@@ -42,7 +42,7 @@ export async function GET(request: NextRequest) {
       .limit(100)
       .toArray();
 
-    // Get conversation threads
+    
     const conversations = await db
       .collection("whatsapp_messages")
       .aggregate([

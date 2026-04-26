@@ -50,7 +50,7 @@ function getPaymentLabel(value: string | undefined) {
 function CategoryCell({ category }: { category: string }) {
   const known = EXPENSE_CATEGORIES.find(c => c.value === category);
   if (known) return <span className="text-sm">{known.label}</span>;
-  // Legacy / custom category — show as-is with a subtle pill
+  
   return (
     <span className="text-sm px-2 py-0.5 rounded-md bg-muted text-muted-foreground border border-border">
       {category || '—'}
@@ -105,11 +105,11 @@ export default function ExpensesPage() {
     }
   };
 
-  // Helper: treat missing/null status as 'paid' (legacy records)
+  
   const isPaid = (e: any) => !e.status || e.status === 'paid';
   const isPending = (e: any) => e.status === 'pending';
 
-  // Summary stats
+  
   const stats = useMemo(() => {
     const now = new Date();
     const thisMonth = expenses.filter(e => {
@@ -133,7 +133,7 @@ export default function ExpensesPage() {
     return { total, thisMonthTotal, pendingTotal, count: expenses.length, topCategory };
   }, [expenses]);
 
-  // Unique months for filter
+  
   const months = useMemo(() => {
     const set = new Set<string>();
     expenses.forEach(e => {
@@ -143,7 +143,7 @@ export default function ExpensesPage() {
     return Array.from(set).sort().reverse();
   }, [expenses]);
 
-  // Filtered expenses
+  
   const filtered = useMemo(() => {
     return expenses.filter(e => {
       const matchSearch = !search || e.title?.toLowerCase().includes(search.toLowerCase()) || e.vendor?.toLowerCase().includes(search.toLowerCase()) || e.reference?.toLowerCase().includes(search.toLowerCase());
@@ -165,7 +165,7 @@ export default function ExpensesPage() {
 
   return (
     <div className="space-y-6 font-headline">
-      {/* Header */}
+      {}
       <header className="flex items-center justify-between">
         <div>
           <h1 className="text-5xl font-black">EXPENSES</h1>
@@ -174,7 +174,7 @@ export default function ExpensesPage() {
         <AddExpenseDialog onCreated={load} />
       </header>
 
-      {/* Summary Cards */}
+      {}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <Card className="border-2 border-black">
           <CardContent className="pt-4 pb-4">
@@ -241,7 +241,7 @@ export default function ExpensesPage() {
         </Card>
       </div>
 
-      {/* Category Tabs */}
+      {}
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <div className="overflow-x-auto pb-1">
           <TabsList className="inline-flex h-auto gap-1 bg-transparent p-0 flex-wrap">
@@ -256,7 +256,7 @@ export default function ExpensesPage() {
           </TabsList>
         </div>
 
-        {/* Filters */}
+        {}
         <div className="flex flex-wrap gap-3 mt-4">
           <div className="relative flex-1 min-w-[200px]">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -293,7 +293,7 @@ export default function ExpensesPage() {
           </Select>
         </div>
 
-        {/* Table for every tab */}
+        {}
         {(['all', ...EXPENSE_CATEGORIES.map(c => c.value)] as string[]).map(tabVal => (
           <TabsContent key={tabVal} value={tabVal} className="mt-4">
             <Card className="border-2 border-black">
@@ -338,6 +338,8 @@ export default function ExpensesPage() {
                           <TableRow key={e._id ?? e.id} className="hover:bg-muted/30 transition-colors">
                             <TableCell>
                               <div className="font-bold">{e.title}</div>
+                              {e.staffName && <div className="text-xs text-blue-600 font-semibold">Staff: {e.staffName}</div>}
+                              {e.linkedProjectTitle && <div className="text-xs text-purple-600 font-semibold">Project: {e.linkedProjectTitle}</div>}
                               {e.reference && <div className="text-xs text-muted-foreground">Ref: {e.reference}</div>}
                               {e.note && <div className="text-xs text-muted-foreground italic truncate max-w-[180px]">{e.note}</div>}
                             </TableCell>

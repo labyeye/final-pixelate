@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-// eslint-disable-next-line @typescript-eslint/no-deprecated
+
 import { Twitter, MessageCircle } from "lucide-react";
 import instagramIcon from "@/assets/images/social/Instagram_icon.png";
 import facebookIcon from "@/assets/images/social/facebook-logo-icon-fb-app-transparent-background-premium-social-media-design-for-digital-download-free-png.webp";

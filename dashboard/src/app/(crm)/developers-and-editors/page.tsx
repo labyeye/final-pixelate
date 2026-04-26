@@ -104,7 +104,7 @@ export default function DevelopersAndEditorsPage() {
 
   const handleAddMember = async (newMemberData: any) => {
     try {
-      // create as a user with jobRole and auth role
+      
       const payload = {
         ...newMemberData,
         jobRole: newMemberData.role,
@@ -126,7 +126,7 @@ export default function DevelopersAndEditorsPage() {
     }
   };
 
-  // removed team-members specific delete/save; use user endpoints below
+  
 
   const handleDeleteUser = async (u: any) => {
     try {
@@ -196,7 +196,7 @@ export default function DevelopersAndEditorsPage() {
           setIsOpen={setIsEditDialogOpen}
           initialValues={editingMember ?? undefined}
           onSave={async (id, update) => {
-            // when editing a member, update via users endpoint
+            
             await handleSaveUser(id as string, update as any);
           }}
         >
@@ -315,7 +315,7 @@ export default function DevelopersAndEditorsPage() {
         </Table>
       </div>
 
-      {/* single combined users/team-members table shown above; edit dialog uses editingMember/isEditDialogOpen */}
+      {}
       {editingMember && (
         <EditUserDialog
           isOpen={isEditDialogOpen}

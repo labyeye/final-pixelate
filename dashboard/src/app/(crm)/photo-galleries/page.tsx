@@ -38,7 +38,7 @@ export default function PhotoGalleriesPage() {
   const { user } = useAuth();
   const { toast } = useToast();
 
-  // Load photos
+  
   useEffect(() => {
     const loadPhotos = async () => {
       try {
@@ -55,7 +55,7 @@ export default function PhotoGalleriesPage() {
         const data = await response.json();
         setPhotos(data);
 
-        // Extract unique categories
+        
         const uniqueCategories = [...new Set(data.map((p: Photo) => p.category).filter(Boolean))];
         setCategories(uniqueCategories as string[]);
       } catch (error) {
@@ -73,16 +73,16 @@ export default function PhotoGalleriesPage() {
     loadPhotos();
   }, [toast]);
 
-  // Filter photos based on search and category
+  
   useEffect(() => {
     let filtered = photos;
 
-    // Filter by category
+    
     if (selectedCategory !== 'all') {
       filtered = filtered.filter(p => p.category === selectedCategory);
     }
 
-    // Filter by search term
+    
     if (searchTerm) {
       filtered = filtered.filter(p =>
         p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -146,7 +146,7 @@ export default function PhotoGalleriesPage() {
 
   return (
     <div className="space-y-8">
-      {/* Header */}
+      {}
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-bold flex items-center gap-2">
           <Image className="w-8 h-8" />
@@ -157,7 +157,7 @@ export default function PhotoGalleriesPage() {
         </p>
       </div>
 
-      {/* Stats Cards */}
+      {}
       <div className="grid gap-4 md:grid-cols-3">
         <Card>
           <CardHeader className="pb-3">
@@ -190,14 +190,14 @@ export default function PhotoGalleriesPage() {
         </Card>
       </div>
 
-      {/* Filters and Controls */}
+      {}
       <Card>
         <CardHeader>
           <CardTitle>Browse Gallery</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex flex-col gap-4">
-            {/* Search and View Toggle */}
+            {}
             <div className="flex gap-4 flex-col md:flex-row md:items-center md:justify-between">
               <Input
                 placeholder="Search photos by title, description, or category..."
@@ -225,7 +225,7 @@ export default function PhotoGalleriesPage() {
               </div>
             </div>
 
-            {/* Category Filter */}
+            {}
             <div className="flex flex-wrap gap-2">
               <Button
                 variant={selectedCategory === 'all' ? 'default' : 'outline'}
@@ -249,7 +249,7 @@ export default function PhotoGalleriesPage() {
         </CardContent>
       </Card>
 
-      {/* Photos Display */}
+      {}
       {filteredPhotos.length === 0 ? (
         <Card className="text-center py-12">
           <CardContent className="space-y-3">
@@ -267,14 +267,14 @@ export default function PhotoGalleriesPage() {
       ) : (
         <>
           {viewMode === 'grid' ? (
-            // Grid View
+            
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {filteredPhotos.map(photo => (
                 <div
                   key={photo._id}
                   className="group relative overflow-hidden rounded-lg border bg-card hover:shadow-lg transition-shadow"
                 >
-                  {/* Image */}
+                  {}
                   <div className="aspect-square overflow-hidden bg-muted">
                     <img
                       src={getImageUrl(photo)}
@@ -283,7 +283,7 @@ export default function PhotoGalleriesPage() {
                     />
                   </div>
 
-                  {/* Overlay */}
+                  {}
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                     <Button
                       size="sm"
@@ -307,7 +307,7 @@ export default function PhotoGalleriesPage() {
                     )}
                   </div>
 
-                  {/* Info */}
+                  {}
                   <div className="p-3 space-y-1">
                     <h3 className="font-semibold text-sm line-clamp-1">{photo.title}</h3>
                     {photo.category && (
@@ -325,7 +325,7 @@ export default function PhotoGalleriesPage() {
               ))}
             </div>
           ) : (
-            // List View
+            
             <Card>
               <CardContent className="divide-y pt-6">
                 {filteredPhotos.map(photo => (
@@ -333,7 +333,7 @@ export default function PhotoGalleriesPage() {
                     key={photo._id}
                     className="flex items-center gap-4 py-4 first:pt-0 last:pb-0"
                   >
-                    {/* Thumbnail */}
+                    {}
                     <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden bg-muted">
                       <img
                         src={getImageUrl(photo)}
@@ -342,7 +342,7 @@ export default function PhotoGalleriesPage() {
                       />
                     </div>
 
-                    {/* Info */}
+                    {}
                     <div className="flex-1 min-w-0">
                       <h3 className="font-semibold text-sm">{photo.title}</h3>
                       {photo.description && (
@@ -364,7 +364,7 @@ export default function PhotoGalleriesPage() {
                       </div>
                     </div>
 
-                    {/* Actions */}
+                    {}
                     <div className="flex gap-2">
                       <Button
                         size="sm"
@@ -394,7 +394,7 @@ export default function PhotoGalleriesPage() {
         </>
       )}
 
-      {/* Preview Dialog */}
+      {}
       <Dialog open={showPreview} onOpenChange={setShowPreview}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>

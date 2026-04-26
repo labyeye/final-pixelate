@@ -33,7 +33,7 @@ export default function BlogsAdminPage() {
         setPosts(JSON.parse(raw));
       } catch (e) {}
     }
-    // fetch server posts
+    
     (async () => {
       try {
         const res = await fetch("/api/blogs");
@@ -42,7 +42,7 @@ export default function BlogsAdminPage() {
           setServerPosts(Array.isArray(data) ? data : []);
         }
       } catch (e) {
-        // ignore
+        
       }
     })();
   }, []);
@@ -74,7 +74,7 @@ export default function BlogsAdminPage() {
       createdAt: new Date().toISOString(),
     };
 
-    // try to POST to server API first (dashboard dev server runs on 9002)
+    
     const API_BASE =
       window.location.hostname === "localhost" ||
       window.location.hostname === "127.0.0.1"
@@ -88,7 +88,7 @@ export default function BlogsAdminPage() {
       });
       if (res.ok) {
         const saved = await res.json();
-        // server returns the saved object (may include _id); keep our id for compatibility
+        
         const toUse = { ...newPost, ...saved };
         const p = [toUse, ...posts];
         setPosts(p);
@@ -101,10 +101,10 @@ export default function BlogsAdminPage() {
         return;
       }
     } catch (e) {
-      // ignore and fallback to localStorage below
+      
     }
 
-    // fallback: persist to localStorage so website can still show the post locally
+    
     const p = [newPost, ...posts];
     setPosts(p);
     persist(p);
@@ -124,7 +124,7 @@ export default function BlogsAdminPage() {
           ? "https://backend.pixelatenest.com"
           : "";
       try {
-        // try to delete from server by numeric id or _id if present
+        
         const res = await fetch(`${API_BASE}/api/blogs/${id}`, {
           method: "DELETE",
         });
@@ -135,17 +135,17 @@ export default function BlogsAdminPage() {
           return;
         }
       } catch (e) {
-        // ignore and fallback to local delete
+        
       }
 
-      // fallback to local removal
+      
       const p = posts.filter((x) => x.id !== id);
       setPosts(p);
       persist(p);
     })();
   }
 
-  // Publish posts from localStorage to server API
+  
   async function publishLocalPosts() {
     const raw = localStorage.getItem("pn_posts");
     if (!raw) return alert("No local posts found");
@@ -174,7 +174,7 @@ export default function BlogsAdminPage() {
           const saved = await res.json();
           published.unshift({ ...post, ...saved });
         } else {
-          // keep locally if server fails for this post
+          
           published.unshift(post);
         }
       } catch (e) {
@@ -186,7 +186,7 @@ export default function BlogsAdminPage() {
     alert("Publish attempt finished. Check public site or API to confirm.");
   }
 
-  // Import JSON text (from paste) and publish each entry
+  
   async function importJsonAndPublish() {
     if (!importText) return alert("Paste JSON into the import box first");
     let parsed: BlogPost[] | BlogPost;

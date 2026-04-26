@@ -41,7 +41,7 @@ export async function PATCH(
     const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
     const filter = hex24 ? { _id: new ObjectId(id) } : { id };
 
-    // If activity is being added, push it to the activity array
+    
     if (updates.activity) {
       const currentTicket = await col.findOne(filter);
       const existingActivity = currentTicket?.activity || [];

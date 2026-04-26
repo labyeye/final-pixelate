@@ -2,12 +2,12 @@ import { NextResponse } from 'next/server';
 import { getDb } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 
-/**
- * Journey API – stores chronological activity events per client.
- *
- * GET  /api/journey?clientId=<id>   – fetch all events for a client
- * POST /api/journey                 – create a new journey event
- */
+
+
+
+
+
+
 
 export async function GET(request: Request) {
   try {
@@ -53,15 +53,15 @@ export async function POST(request: Request) {
       clientName,
       projectId,
       projectName,
-      type,       // meeting | quotation | nda | onboarding | project_update | payment | note
+      type,       
       title,
       description,
       performedBy,
-      status,     // optional badge: Sent | Approved | Completed | Pending | Rejected
+      status,     
       fileUrl,
       linkUrl,
-      occurredAt, // ISO string – defaults to now
-      metadata,   // free-form additional data for future automation
+      occurredAt, 
+      metadata,   
     } = body;
 
     if (!clientId || !type || !title) {

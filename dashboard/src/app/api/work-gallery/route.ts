@@ -5,7 +5,7 @@ import * as svc from '@/lib/services';
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
-  // Include Cache-Control and common X- headers so browser preflight allows the client-set headers
+  
   'Access-Control-Allow-Headers': 'Content-Type, Authorization, Cache-Control, X-Requested-With',
 };
 
@@ -17,7 +17,7 @@ export async function GET() {
   try {
     const col = await svc.getCollection('workGallery');
     const items = await col.find().toArray();
-    // Log and normalize items so consumers always see `description` (fallback to `note`).
+    
     try {
       console.debug('[api/work-gallery] GET items count:', Array.isArray(items) ? items.length : 0, 'sample description:', items && items[0] ? items[0].description : null, 'sample note:', items && items[0] ? items[0].note : null);
     } catch (e) {}

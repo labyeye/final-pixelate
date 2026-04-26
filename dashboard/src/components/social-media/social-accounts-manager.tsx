@@ -25,7 +25,7 @@ export function SocialAccountsManager({
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editingDisplayName, setEditingDisplayName] = useState("");
 
-  // Load accounts when modal opens
+  
   useEffect(() => {
     if (!isOpen || !clientId) return;
     loadAccounts();
@@ -138,7 +138,7 @@ export function SocialAccountsManager({
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        {/* Header */}
+        {}
         <div className="sticky top-0 bg-white border-b p-4 flex items-center justify-between">
           <h2 className="text-xl font-bold">Manage Social Accounts</h2>
           <button
@@ -149,9 +149,9 @@ export function SocialAccountsManager({
           </button>
         </div>
 
-        {/* Body */}
+        {}
         <div className="p-6 space-y-6">
-          {/* Add New Account Form */}
+          {}
           <div className="border rounded-lg p-4 bg-gray-50">
             <h3 className="font-semibold mb-3">Add New Account</h3>
             <div className="space-y-3">
@@ -198,7 +198,7 @@ export function SocialAccountsManager({
             </div>
           </div>
 
-          {/* Accounts List */}
+          {}
           <div>
             <h3 className="font-semibold mb-3">Linked Accounts</h3>
             {loading ? (
@@ -279,7 +279,7 @@ export function SocialAccountsManager({
           </div>
         </div>
 
-        {/* Footer */}
+        {}
         <div className="border-t p-4 flex gap-2 justify-end bg-gray-50">
           <Button variant="outline" onClick={onClose}>
             Close

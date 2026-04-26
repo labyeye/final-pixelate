@@ -39,7 +39,7 @@ export default function ReportsPage() {
 
   const [reportType, setReportType] = useState<ReportType>("income");
   const [date, setDate] = useState<{ from: Date; to: Date } | undefined>({
-    from: new Date(new Date().getFullYear(), new Date().getMonth(), 1), // Start of month
+    from: new Date(new Date().getFullYear(), new Date().getMonth(), 1), 
     to: new Date(),
   });
   const [reportData, setReportData] = useState<any>(null);
@@ -50,7 +50,7 @@ export default function ReportsPage() {
   const [staffMemberId, setStaffMemberId] = useState<string>("all");
   const reportRef = useRef<HTMLDivElement>(null);
 
-  // For client role: auto-set report type to "client" and lock to their clientId
+  
   useEffect(() => {
     if (isClient && myClientId) {
       setReportType("client");
@@ -58,7 +58,7 @@ export default function ReportsPage() {
     }
   }, [isClient, myClientId]);
 
-  // Fetch clients on mount
+  
   useEffect(() => {
     fetch("/api/clients")
       .then((res) => res.json())
@@ -66,7 +66,7 @@ export default function ReportsPage() {
       .catch(console.error);
   }, []);
 
-  // Fetch team members on mount
+  
   useEffect(() => {
     fetch("/api/team-members")
       .then((res) => res.json())
@@ -74,7 +74,7 @@ export default function ReportsPage() {
       .catch(console.error);
   }, []);
 
-  // Helper to format currency
+  
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat("en-IN", {
       style: "currency",
@@ -115,7 +115,7 @@ export default function ReportsPage() {
     }
 
     try {
-      // Capture the report as canvas
+      
       const canvas = await html2canvas(reportRef.current, {
         scale: 2,
         useCORS: true,
@@ -124,14 +124,14 @@ export default function ReportsPage() {
         allowTaint: true,
       });
 
-      // Convert canvas to blob
+      
       canvas.toBlob((blob) => {
         if (!blob) {
           alert("Failed to generate PDF");
           return;
         }
 
-        // Create download link
+        
         const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = url;
@@ -147,7 +147,7 @@ export default function ReportsPage() {
     }
   };
 
-  // Non-admin, non-client users: deny access
+  
   if (user && user.role !== "admin" && user.role !== "client") {
     return (
       <div className="flex h-[50vh] items-center justify-center">
@@ -180,7 +180,7 @@ export default function ReportsPage() {
         </div>
       </div>
 
-      {/* Filters */}
+      {}
       <Card className="print:hidden">
         <CardContent className="pt-6">
           <div className="flex flex-col md:flex-row gap-4 items-end">
@@ -312,7 +312,7 @@ export default function ReportsPage() {
         </CardContent>
       </Card>
 
-      {/* Report Display - Tally Format */}
+      {}
       {reportData && (
         <Card
           ref={reportRef}
@@ -349,7 +349,7 @@ export default function ReportsPage() {
               </div>
             </div>
 
-            {/* Summary Section */}
+            {}
             {reportType === "income" && (
               <div className="grid grid-cols-3 gap-4 mt-4 text-left border-t border-b border-gray-200 py-4 font-mono text-sm">
                 <div>
@@ -431,7 +431,7 @@ export default function ReportsPage() {
             )}
           </CardHeader>
           <CardContent className="pt-6 font-mono text-sm overflow-x-auto">
-            {/* Income / Expense Table */}
+            {}
             {(reportType === "income" || reportType === "expense") && (
               <Table>
                 <TableHeader>
@@ -480,7 +480,7 @@ export default function ReportsPage() {
                       </TableCell>
                     </TableRow>
                   ))}
-                  {/* Footer Total */}
+                  {}
                   <TableRow className="bg-muted/30 font-bold border-t-2 border-black">
                     <TableCell colSpan={4} className="text-right uppercase">
                       Total
@@ -497,7 +497,7 @@ export default function ReportsPage() {
               </Table>
             )}
 
-            {/* Client Table */}
+            {}
             {reportType === "client" &&
               (reportData.isSingleClient ? (
                 <>
@@ -535,7 +535,7 @@ export default function ReportsPage() {
                           </TableCell>
                         </TableRow>
                       ))}
-                      {/* Summary Rows */}
+                      {}
                       <TableRow className="bg-muted/30 font-bold border-t-2 border-black">
                         <TableCell colSpan={4} className="text-right uppercase">
                           Total Billed
@@ -569,7 +569,7 @@ export default function ReportsPage() {
                     </TableBody>
                   </Table>
 
-                  {/* Payment Receipts Table - Tally Style */}
+                  {}
                   {reportData.paymentDetails &&
                     reportData.paymentDetails.length > 0 && (
                       <div className="mt-8 pt-6 border-t-4 border-black">
@@ -629,7 +629,7 @@ export default function ReportsPage() {
                                 </TableRow>
                               ),
                             )}
-                            {/* Total Received Row */}
+                            {}
                             <TableRow className="bg-green-50 font-bold border-t-2 border-black">
                               <TableCell
                                 colSpan={3}
@@ -696,12 +696,12 @@ export default function ReportsPage() {
                 </Table>
               ))}
 
-            {/* Staff Table */}
+            {}
             {reportType === "staff" && (
               reportData.isSingleStaff ? (
-                // Detailed task list for a specific staff member
+                
                 <>
-                  {/* Summary cards */}
+                  {}
                   <div className="grid grid-cols-3 gap-4 mb-6">
                     <div className="border-2 border-black p-4">
                       <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Total Tasks</p>
@@ -763,7 +763,7 @@ export default function ReportsPage() {
                     </TableBody>
                   </Table>
 
-                  {/* ── Earnings by Booking / Project ── */}
+                  {}
                   <div className="mt-8 pt-6 border-t-4 border-black">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-xl font-black uppercase tracking-tight">Earnings by Booking</h3>
@@ -841,7 +841,7 @@ export default function ReportsPage() {
                     )}
                   </div>
 
-                  {/* ── Payout History ── */}
+                  {}
                   <div className="mt-8 pt-6 border-t-4 border-black">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-xl font-black uppercase tracking-tight">Payout History</h3>
@@ -913,7 +913,7 @@ export default function ReportsPage() {
                   </div>
                 </>
               ) : (
-                // Summary table for all staff
+                
                 <Table>
                   <TableHeader>
                     <TableRow className="border-b-2 border-black">
@@ -951,7 +951,7 @@ export default function ReportsPage() {
               )
             )}
 
-            {/* Task Table */}
+            {}
             {reportType === "task" && (
               <Table>
                 <TableHeader>
@@ -997,7 +997,7 @@ export default function ReportsPage() {
               </Table>
             )}
 
-            {/* Project Summary Cards */}
+            {}
             {reportType === "project" && reportData?.summary && (
               <>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
@@ -1019,7 +1019,7 @@ export default function ReportsPage() {
                   </div>
                 </div>
 
-                {/* Status breakdown pills */}
+                {}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {reportData.summary.byStatus.map((s: any) => {
                     const colors: Record<string, string> = {
@@ -1037,7 +1037,7 @@ export default function ReportsPage() {
                   })}
                 </div>
 
-                {/* Project details table */}
+                {}
                 <Table>
                   <TableHeader>
                     <TableRow className="border-b-2 border-black">
@@ -1098,7 +1098,7 @@ export default function ReportsPage() {
                         </TableRow>
                       );
                     })}
-                    {/* Total row */}
+                    {}
                     <TableRow className="bg-muted/30 font-bold border-t-2 border-black">
                       <TableCell colSpan={5} className="text-right uppercase">Total Project Value</TableCell>
                       <TableCell className="text-right">{formatCurrency(reportData.summary.totalAmount)}</TableCell>
@@ -1109,7 +1109,7 @@ export default function ReportsPage() {
               </>
             )}
 
-            {/* Dues Table */}
+            {}
             {reportType === "dues" && (
               <Table>
                 <TableHeader>

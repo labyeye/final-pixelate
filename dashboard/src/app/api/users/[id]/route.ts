@@ -51,11 +51,11 @@ export async function DELETE(request: Request, context: RouteContext) {
 		const ok = await svc.deleteById('users', id);
 		if (!ok) return NextResponse.json({ error: 'Not found' }, { status: 404 });
 
-		// Cascade cleanup: remove this user from project assignees, unset lead assignments, and clear quotation author references
+		
 		try {
 			const projectsCol = await svc.getCollection('projects');
-			// Remove any assignee entries that reference this user id (string or ObjectId)
-							// Find projects that reference this user as an assignee and remove those entries
+			
+							
 							const affected = await projectsCol.find({ 'assignees.id': { $exists: true } }).toArray();
 							for (const p of affected) {
 								const before = Array.isArray(p.assignees) ? p.assignees : [];

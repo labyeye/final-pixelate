@@ -48,7 +48,7 @@ export function Sidebar() {
   const userAllowedPages =
     user.allowedPages !== undefined ? user.allowedPages : defaultStaffAllowed;
 
-  // Visible client nav items based on global setting
+  
   const visibleClientNavItems = clientNavItems.filter((item) =>
     globalClientPages.includes(item.href),
   );
@@ -73,7 +73,7 @@ export function Sidebar() {
         aria-label="Primary navigation"
       >
         {isClient ? (
-          // ── Client nav ─────────────────────────────────────────────────
+          
           <>
             <div className="space-y-2">
               <h3 className="px-2 text-xs font-black text-muted-foreground uppercase tracking-widest">
@@ -122,7 +122,7 @@ export function Sidebar() {
             </div>
           </>
         ) : (
-          // ── Admin / Staff nav ───────────────────────────────────────────
+          
           navGroups.map((group) => {
             const filteredItems = group.items.filter((item) => {
               if (isStaff) {
@@ -162,7 +162,7 @@ export function Sidebar() {
         )}
       </nav>
 
-      {/* User Footer */}
+      {}
       <div className="p-4 border-t-2 border-black bg-muted/30">
         <div className="flex items-center gap-3">
           <Avatar className="h-10 w-10 border-2 border-black rounded-lg">

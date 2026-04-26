@@ -27,7 +27,7 @@ import {
 import { Trash2, RotateCcw, AlertTriangle, Inbox, Search, Filter } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+
 
 type TrashItem = {
   _id: string;
@@ -38,7 +38,7 @@ type TrashItem = {
   deletedAt: string;
 };
 
-// ─── Collection config: display name, badge colour, summary field ──────────
+
 
 const COLLECTION_META: Record<
   string,
@@ -72,7 +72,7 @@ const getMeta = (col: string) =>
     summary: (d: any) => d.title ?? d.name ?? d._id ?? "—",
   };
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+
 
 const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString("en-IN", {
@@ -83,7 +83,7 @@ const fmtDate = (iso: string) =>
     minute: "2-digit",
   });
 
-// ─── Component ───────────────────────────────────────────────────────────────
+
 
 export default function TrashPage() {
   const { user } = useAuth();
@@ -97,7 +97,7 @@ export default function TrashPage() {
   const [restoringIds, setRestoringIds] = useState<Set<string>>(new Set());
   const [deletingIds, setDeletingIds]   = useState<Set<string>>(new Set());
 
-  // ── Fetch ──────────────────────────────────────────────────────────────────
+  
   const fetchTrash = async () => {
     setLoading(true);
     try {
@@ -111,9 +111,9 @@ export default function TrashPage() {
     }
   };
 
-  useEffect(() => { fetchTrash(); }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { fetchTrash(); }, []); 
 
-  // ── Derived data ───────────────────────────────────────────────────────────
+  
   const collectionOptions = useMemo(() => {
     const cols = Array.from(new Set(items.map((i) => i.originalCollection))).sort();
     return cols;
@@ -137,7 +137,7 @@ export default function TrashPage() {
     return list;
   }, [items, filterCol, search]);
 
-  // ── Actions ────────────────────────────────────────────────────────────────
+  
   const handleRestore = async (item: TrashItem) => {
     const id = String(item._id);
     if (restoringIds.has(id)) return;
@@ -183,7 +183,7 @@ export default function TrashPage() {
     }
   };
 
-  // ── Access guard ───────────────────────────────────────────────────────────
+  
   if (!isAdmin) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4 text-center">
@@ -196,10 +196,10 @@ export default function TrashPage() {
     );
   }
 
-  // ── Render ─────────────────────────────────────────────────────────────────
+  
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {}
       <div className="border-b-2 border-black pb-4 flex items-start justify-between gap-4 flex-wrap">
         <div className="flex items-center gap-3">
           <Trash2 className="w-7 h-7 shrink-0" />
@@ -215,7 +215,7 @@ export default function TrashPage() {
         </span>
       </div>
 
-      {/* Warning banner */}
+      {}
       <div className="flex items-start gap-3 border-2 border-amber-400 bg-amber-50 rounded-lg p-4">
         <AlertTriangle className="w-5 h-5 text-amber-600 mt-0.5 shrink-0" />
         <p className="text-sm font-semibold text-amber-800">
@@ -224,7 +224,7 @@ export default function TrashPage() {
         </p>
       </div>
 
-      {/* Filters */}
+      {}
       <div className="flex flex-wrap items-center gap-3">
         <div className="relative flex-1 min-w-[220px]">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -252,7 +252,7 @@ export default function TrashPage() {
         </div>
       </div>
 
-      {/* Table */}
+      {}
       {loading ? (
         <div className="py-20 text-center text-muted-foreground font-semibold animate-pulse">
           Loading trash…
@@ -290,7 +290,7 @@ export default function TrashPage() {
                 const isDeleting  = deletingIds.has(id);
                 const doc         = item.document;
 
-                // Build a short detail string (secondary info)
+                
                 const detail =
                   doc.clientName ?? doc.client ?? doc.email ?? doc.status ?? doc.amount
                     ? [
@@ -308,7 +308,7 @@ export default function TrashPage() {
                     key={id}
                     className="border-b-2 border-black/10 last:border-b-0 hover:bg-muted/30 transition-colors"
                   >
-                    {/* Type badge */}
+                    {}
                     <TableCell className="py-3">
                       <span
                         className={cn(
@@ -320,22 +320,22 @@ export default function TrashPage() {
                       </span>
                     </TableCell>
 
-                    {/* Primary summary */}
+                    {}
                     <TableCell className="py-3 font-bold text-sm max-w-[200px] truncate">
                       {summary}
                     </TableCell>
 
-                    {/* Secondary detail */}
+                    {}
                     <TableCell className="py-3 text-sm text-muted-foreground hidden md:table-cell max-w-[240px] truncate">
                       {detail}
                     </TableCell>
 
-                    {/* Deleted at */}
+                    {}
                     <TableCell className="py-3 text-xs text-muted-foreground hidden lg:table-cell whitespace-nowrap">
                       {item.deletedAt ? fmtDate(item.deletedAt) : "—"}
                     </TableCell>
 
-                    {/* Actions */}
+                    {}
                     <TableCell className="py-3 text-right">
                       <div className="flex items-center justify-end gap-2">
                         <Button

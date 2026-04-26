@@ -247,7 +247,7 @@ details.faq-item[open] .faq-answer {
   border-radius: 30px;
 }
 
-/* ── Left: Image ── */
+
 .features-image-side {
   flex: 0 0 420px;
   position: relative;
@@ -303,7 +303,7 @@ details.faq-item[open] .faq-answer {
     padding-left: 50px !important;
   }
 }
-/* ── Right: Content ── */
+
 .features-content {
   flex: 1;
   min-width: 0;
@@ -338,7 +338,7 @@ details.faq-item[open] .faq-answer {
   line-height: 1.6;
 }
 
-/* ── 2-column Feature Grid ── */
+
 .features-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -408,7 +408,7 @@ details.faq-item[open] .faq-answer {
   line-height: 1.5;
 }
 
-/* ── Responsive ── */
+
 @media (max-width: 768px) {
   .features-section {
     flex-direction: column;

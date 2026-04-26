@@ -53,7 +53,7 @@ const schema = z.object({
   reference: z.string().optional(),
   date: z.string().min(1, 'Date is required'),
   note: z.string().optional(),
-  // Salary-specific fields
+  
   staffMemberId: z.string().optional(),
   linkedProjectId: z.string().optional(),
 });
@@ -114,25 +114,25 @@ export function AddExpenseDialog({ onCreated, editData, editId, trigger }: AddEx
     defaultValues: EMPTY_DEFAULTS,
   });
 
-  // Watch category to conditionally show salary fields
+  
   const watchedCategory = form.watch('category');
   const watchedStaffId = form.watch('staffMemberId');
   const isSalary = watchedCategory === 'salary';
 
-  // Every time the dialog opens, reset with latest editData (or clean empty for add)
+  
   React.useEffect(() => {
     if (open) {
       form.reset(buildDefaults(editData));
-      // Fetch team members and projects when dialog opens
+      
       fetch('/api/team-members').then(r => r.json()).then(d => setTeamMembers(Array.isArray(d) ? d : [])).catch(() => {});
       fetch('/api/projects').then(r => r.json()).then(d => setProjects(Array.isArray(d) ? d : [])).catch(() => {});
     }
-  }, [open]); // intentionally only on `open` change
+  }, [open]); 
 
   const handleOpenChange = (val: boolean) => {
     setOpen(val);
     if (!val) {
-      // Give the closing animation time, then reset to avoid flash of stale data
+      
       setTimeout(() => form.reset(EMPTY_DEFAULTS), 200);
     }
   };
@@ -141,14 +141,14 @@ export function AddExpenseDialog({ onCreated, editData, editId, trigger }: AddEx
     try {
       setSaving(true);
 
-      // Find staff name for salary expenses
+      
       let staffName = '';
       if (values.staffMemberId) {
         const member = teamMembers.find(m => String(m._id || m.id) === values.staffMemberId);
         staffName = member?.name || '';
       }
 
-      // Find linked project title
+      
       let linkedProjectTitle = '';
       if (values.linkedProjectId) {
         const proj = projects.find(p => String(p._id || p.id) === values.linkedProjectId);
@@ -208,7 +208,7 @@ export function AddExpenseDialog({ onCreated, editData, editId, trigger }: AddEx
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(handleSave)} className="space-y-4">
-            {/* Title */}
+            {}
             <FormField name="title" control={form.control} render={({ field }) => (
               <FormItem>
                 <FormLabel className="font-bold">Expense Title *</FormLabel>
@@ -220,7 +220,7 @@ export function AddExpenseDialog({ onCreated, editData, editId, trigger }: AddEx
             )} />
 
             <div className="grid grid-cols-2 gap-4">
-              {/* Amount */}
+              {}
               <FormField name="amount" control={form.control} render={({ field }) => (
                 <FormItem>
                   <FormLabel className="font-bold">Amount (₹) *</FormLabel>
@@ -231,7 +231,7 @@ export function AddExpenseDialog({ onCreated, editData, editId, trigger }: AddEx
                 </FormItem>
               )} />
 
-              {/* Date */}
+              {}
               <FormField name="date" control={form.control} render={({ field }) => (
                 <FormItem>
                   <FormLabel className="font-bold">Date *</FormLabel>
@@ -244,7 +244,7 @@ export function AddExpenseDialog({ onCreated, editData, editId, trigger }: AddEx
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              {/* Category */}
+              {}
               <FormField name="category" control={form.control} render={({ field }) => (
                 <FormItem>
                   <FormLabel className="font-bold">Category *</FormLabel>
@@ -264,7 +264,7 @@ export function AddExpenseDialog({ onCreated, editData, editId, trigger }: AddEx
                 </FormItem>
               )} />
 
-              {/* Status */}
+              {}
               <FormField name="status" control={form.control} render={({ field }) => (
                 <FormItem>
                   <FormLabel className="font-bold">Status *</FormLabel>
@@ -285,7 +285,7 @@ export function AddExpenseDialog({ onCreated, editData, editId, trigger }: AddEx
               )} />
             </div>
 
-            {/* Payment Method */}
+            {}
             <FormField name="paymentMethod" control={form.control} render={({ field }) => (
               <FormItem>
                 <FormLabel className="font-bold">Payment Method *</FormLabel>
@@ -305,7 +305,7 @@ export function AddExpenseDialog({ onCreated, editData, editId, trigger }: AddEx
               </FormItem>
             )} />
 
-            {/* Salary-specific: Staff Member + Linked Project */}
+            {}
             {isSalary && (
               <div className="border-2 border-black p-4 space-y-4 rounded-sm bg-amber-50/60">
                 <div className="flex items-center gap-2 mb-1">
@@ -313,7 +313,7 @@ export function AddExpenseDialog({ onCreated, editData, editId, trigger }: AddEx
                   <span className="text-sm font-black text-amber-800 uppercase tracking-widest">Salary Details</span>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  {/* Staff Member */}
+                  {}
                   <FormField name="staffMemberId" control={form.control} render={({ field }) => (
                     <FormItem>
                       <FormLabel className="font-bold">Staff Member *</FormLabel>
@@ -336,12 +336,12 @@ export function AddExpenseDialog({ onCreated, editData, editId, trigger }: AddEx
                     </FormItem>
                   )} />
 
-                  {/* Linked Project (filtered to projects where staff is assignee) */}
+                  {}
                   <FormField name="linkedProjectId" control={form.control} render={({ field }) => {
-                    // Find the staff name for filtering
+                    
                     const staffMember = teamMembers.find(m => String(m._id || m.id) === watchedStaffId);
                     const staffName = staffMember?.name || '';
-                    // Filter projects where this staff is assigned
+                    
                     const assignedProjects = watchedStaffId && watchedStaffId !== 'none'
                       ? projects.filter(p => {
                           const assignees = Array.isArray(p.assignees) ? p.assignees : [];
@@ -379,7 +379,7 @@ export function AddExpenseDialog({ onCreated, editData, editId, trigger }: AddEx
             )}
 
             <div className="grid grid-cols-2 gap-4">
-              {/* Vendor */}
+              {}
               <FormField name="vendor" control={form.control} render={({ field }) => (
                 <FormItem>
                   <FormLabel className="font-bold">Vendor / Paid To</FormLabel>
@@ -390,7 +390,7 @@ export function AddExpenseDialog({ onCreated, editData, editId, trigger }: AddEx
                 </FormItem>
               )} />
 
-              {/* Reference */}
+              {}
               <FormField name="reference" control={form.control} render={({ field }) => (
                 <FormItem>
                   <FormLabel className="font-bold">Reference / Invoice No.</FormLabel>
@@ -402,7 +402,7 @@ export function AddExpenseDialog({ onCreated, editData, editId, trigger }: AddEx
               )} />
             </div>
 
-            {/* Note */}
+            {}
             <FormField name="note" control={form.control} render={({ field }) => (
               <FormItem>
                 <FormLabel className="font-bold">Notes</FormLabel>

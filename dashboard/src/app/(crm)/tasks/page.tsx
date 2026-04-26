@@ -24,7 +24,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-// No MOCK_TASKS array needed anymore
+
 
 export default function TasksPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -50,7 +50,7 @@ export default function TasksPage() {
   };
 
   useEffect(() => {
-    // Get userId from session storage
+    
     const storedUserId = typeof window !== "undefined" ? sessionStorage.getItem("userId") : null;
     setUserId(storedUserId);
     fetchTasks(storedUserId);
@@ -93,7 +93,7 @@ export default function TasksPage() {
 
   return (
     <div className="h-[calc(100vh-2rem)] flex flex-col font-sans text-foreground">
-      {/* Notion-like Header */}
+      {}
       <div className="flex flex-col gap-4 mb-6">
         <div className="flex items-center gap-3 group">
           <div className="p-2 rounded hover:bg-muted/50 transition-colors cursor-pointer">
@@ -104,7 +104,7 @@ export default function TasksPage() {
           </h1>
         </div>
 
-        {/* Toolbar */}
+        {}
         <div className="flex items-center justify-between border-b pb-4">
           <div className="flex items-center gap-2">
             <div className="relative w-64">
@@ -135,7 +135,7 @@ export default function TasksPage() {
             </Button>
           </div>
           <div className="flex items-center gap-2">
-            {/* Wrapped in a div to prevent the modal trigger button from stretching excessively if it was full-width */}
+            {}
             <div className="w-auto">
               <TaskCreationModal />
             </div>
@@ -146,10 +146,10 @@ export default function TasksPage() {
         </div>
       </div>
 
-      {/* Kanban Board */}
+      {}
       <div className="flex-1 overflow-x-auto overflow-y-hidden">
         <div className="flex h-full gap-8 min-w-[800px]">
-          {/* Column: Not Started */}
+          {}
           <TaskColumn
             title="Not Started"
             count={getTasksByStatus("not-started").length}
@@ -158,7 +158,7 @@ export default function TasksPage() {
             onStatusChange={updateTaskStatus}
           />
 
-          {/* Column: In Progress */}
+          {}
           <TaskColumn
             title="In Progress"
             count={getTasksByStatus("in-progress").length}
@@ -168,7 +168,7 @@ export default function TasksPage() {
             onStatusChange={updateTaskStatus}
           />
 
-          {/* Column: Done */}
+          {}
           <TaskColumn
             title="Done"
             count={getTasksByStatus("done").length}
@@ -178,7 +178,7 @@ export default function TasksPage() {
             onStatusChange={updateTaskStatus}
           />
 
-          {/* Add Group Placeholder */}
+          {}
           <div className="w-[300px] opacity-0 hover:opacity-50 transition-opacity flex items-start pt-2">
             <Button variant="ghost" className="gap-2">
               <Plus className="w-4 h-4" /> Add Group
@@ -207,7 +207,7 @@ function TaskColumn({
 }) {
   return (
     <div className="w-[300px] flex flex-col h-full">
-      {/* Column Header */}
+      {}
       <div className="flex items-center gap-2 mb-3 px-1">
         <span className={`px-2 py-0.5 rounded text-xs font-bold ${color} ${textColor}`}>
           {title}
@@ -223,7 +223,7 @@ function TaskColumn({
         </div>
       </div>
 
-      {/* Tasks List */}
+      {}
       <div className="flex-1 flex flex-col gap-2 pb-4 overflow-y-auto">
         {tasks.map((task) => (
           <TaskCard key={task.id} task={task} onStatusChange={onStatusChange} />
@@ -251,10 +251,10 @@ function TaskCard({
 
   return (
     <div className="bg-card hover:bg-accent/10 border border-transparent hover:border-border transition-all rounded-md shadow-sm p-3 group cursor-pointer flex flex-col gap-2 relative">
-      {/* Title */}
+      {}
       <span className="font-medium text-sm text-foreground/90">{task.title}</span>
 
-      {/* Properties (only show if present) */}
+      {}
       <div className="flex flex-wrap gap-2 mt-1">
         {task.projectTitle && (
           <span className="px-1.5 py-0.5 rounded-sm bg-blue-100 text-blue-700 text-[10px] font-medium border border-blue-200 truncate max-w-[100px]">
@@ -301,7 +301,7 @@ function TaskCard({
         </div>
       )}
 
-      {/* Status Change Dropdown */}
+      {}
       <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

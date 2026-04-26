@@ -31,7 +31,7 @@
   color: #444;
 }
 
-/* Pricing card styles copied/adapted from pricing.css to match site look */
+
 .pricing-cards-section {
   position: relative;
   overflow: hidden;
@@ -58,7 +58,7 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  min-height: 420px; /* ensures card has height so CTA sits at bottom */
+  min-height: 420px; 
 }
 
 .pricing-card::before {

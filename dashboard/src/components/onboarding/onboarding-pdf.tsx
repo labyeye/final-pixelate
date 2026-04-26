@@ -11,7 +11,7 @@ import logo from "../../assets/images/Logo_White_Name_Large.png";
 import sign from "../../assets/sign.png"
 const signsrc = typeof sign === "string" ? sign : sign.src;
 const logoSrc = typeof logo === "string" ? logo : logo.src;
-// ─── Brand colours ───────────────────────────────────────────────────────────
+
 const DARK = "#0449A9";
 const CREAM = "#FA7319";
 const CREAM_LIGHT = "#F4F7FC";
@@ -21,7 +21,7 @@ const MUTED = "#666667";
 const WHITE = "#ffffff";
 const TEXT = "#000000";
 
-// ─── Shared helpers ───────────────────────────────────────────────────────────
+
 const displayValue = (value?: string | number | null): string => {
   if (value === null || value === undefined) return "—";
   const text = String(value).trim();
@@ -49,9 +49,9 @@ const formatDate = (value?: string | Date | number | null): string => {
   });
 };
 
-// ─── Styles ───────────────────────────────────────────────────────────────────
+
 const styles = StyleSheet.create({
-  // ── Pages ──
+  
   page: {
     paddingTop: 44,
     paddingBottom: 52,
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     backgroundColor: DARK,
   },
 
-  // ── Cover internals ──
+  
   coverTop: {
     flex: 1,
     alignItems: "center",
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     letterSpacing: 1.5,
   },
 
-  // ── Page header / footer ──
+  
   pageHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     color: MUTED,
   },
 
-  // ── Section heading ──
+  
   sectionHeading: {
     fontSize: 15,
     fontFamily: "Helvetica-Bold",
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 
-  // ── Cards ──
+  
   card: {
     backgroundColor: CREAM_LIGHT,
     borderRadius: 5,
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
 
-  // ── Field rows ──
+  
   fieldRow: {
     flexDirection: "row",
     marginBottom: 7,
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
     color: TEXT,
   },
 
-  // ── Layout helpers ──
+  
   row: {
     flexDirection: "row",
     gap: 14,
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  // ── Bullet list ──
+  
   bulletRow: {
     flexDirection: "row",
     marginBottom: 5,
@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
 
-  // ── Deliverable checklist ──
+  
   deliverableRow: {
     flexDirection: "row",
     alignItems: "flex-start",
@@ -333,7 +333,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
 
-  // ── Timeline ──
+  
   timelineItem: {
     flexDirection: "row",
     marginBottom: 12,
@@ -371,7 +371,7 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica-Bold",
   },
 
-  // ── Payment milestone ──
+  
   milestoneRow: {
     flexDirection: "row",
     alignItems: "center",
@@ -403,7 +403,7 @@ const styles = StyleSheet.create({
     color: DARK,
   },
 
-  // ── Terms block ──
+  
   termHeading: {
     fontSize: 10,
     fontFamily: "Helvetica-Bold",
@@ -417,7 +417,7 @@ const styles = StyleSheet.create({
     lineHeight: 1.6,
   },
 
-  // ── Signature ──
+  
   signatureBox: {
     borderTop: `1 solid ${DARK}`,
     paddingTop: 8,
@@ -441,7 +441,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
 
-  // ── Misc ──
+  
   briefText: {
     fontSize: 10,
     color: TEXT,
@@ -470,7 +470,7 @@ const styles = StyleSheet.create({
   },
 });
 
-// ─── Reusable Primitives ───────────────────────────────────────────────────────
+
 
 function PageHeader({ section, pageNum }: { section: string; pageNum: string }) {
   return (
@@ -518,7 +518,7 @@ function SectionHeading({ title }: { title: string }) {
   return <Text style={styles.sectionHeading}>{title}</Text>;
 }
 
-// ─── PDF Document ─────────────────────────────────────────────────────────────
+
 
 export function OnboardingPDF({ data }: { data: any }) {
   const clientName = data?.clientName ?? data?.client ?? data?.company;
@@ -664,9 +664,9 @@ export function OnboardingPDF({ data }: { data: any }) {
       creator="Pixelate Nest CRM"
       subject="Client Onboarding Document"
     >
-      {/* ═══════════════════════════════════════════════════════════════
-          PAGE 1 — COVER
-      ═══════════════════════════════════════════════════════════════ */}
+      {
+
+}
       <Page size="A4" style={[styles.page, styles.coverPage]}>
         <View style={styles.coverTop}>
           <Image src={logoSrc} style={{ width: 400, marginBottom: 120 }} />
@@ -676,7 +676,7 @@ export function OnboardingPDF({ data }: { data: any }) {
             {displayValue(projectTitle || "New Project")}
           </Text>
 
-          {/* Info box */}
+          {}
           <View style={styles.coverInfoBox}>
             <View style={styles.coverInfoRow}>
               <Text style={styles.coverInfoLabel}>Client</Text>
@@ -692,7 +692,7 @@ export function OnboardingPDF({ data }: { data: any }) {
             </View>
           </View>
 
-          {/* Tagline */}
+          {}
           <Text style={{ fontSize: 9, color: WHITE, textAlign: "center", marginTop: 8 }}>
             This document is confidential and prepared exclusively for the above-named client.
           </Text>
@@ -705,9 +705,9 @@ export function OnboardingPDF({ data }: { data: any }) {
         </View>
       </Page>
 
-      {/* ═══════════════════════════════════════════════════════════════
-          PAGE 2 — CLIENT DETAILS
-      ═══════════════════════════════════════════════════════════════ */}
+      {
+
+}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Client Details" pageNum="2" />
 
@@ -730,9 +730,9 @@ export function OnboardingPDF({ data }: { data: any }) {
         <PageFooter data={data} />
       </Page>
 
-      {/* ═══════════════════════════════════════════════════════════════
-          PAGE 3 — PROJECT OVERVIEW
-      ═══════════════════════════════════════════════════════════════ */}
+      {
+
+}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Project Overview" pageNum="3" />
 
@@ -774,9 +774,9 @@ export function OnboardingPDF({ data }: { data: any }) {
         <PageFooter data={data} />
       </Page>
 
-      {/* ═══════════════════════════════════════════════════════════════
-          PAGE 4 — PROJECT SCOPE
-      ═══════════════════════════════════════════════════════════════ */}
+      {
+
+}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Project Scope" pageNum="4" />
 
@@ -825,15 +825,15 @@ export function OnboardingPDF({ data }: { data: any }) {
         <PageFooter data={data} />
       </Page>
 
-      {/* ═══════════════════════════════════════════════════════════════
-          PAGE 5 — PROJECT TIMELINE
-      ═══════════════════════════════════════════════════════════════ */}
+      {
+
+}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Project Timeline" pageNum="5" />
 
         <SectionHeading title="Project Timeline" />
 
-        {/* Key dates */}
+        {}
         <View style={styles.row}>
           <View style={[styles.col, styles.card]}>
             <Text style={styles.subHeading}>Start Date</Text>
@@ -849,7 +849,7 @@ export function OnboardingPDF({ data }: { data: any }) {
           </View>
         </View>
 
-        {/* Milestones */}
+        {}
         {milestones.length > 0 && (
           <>
             <Text style={styles.subHeading}>Project Milestones</Text>
@@ -872,9 +872,9 @@ export function OnboardingPDF({ data }: { data: any }) {
         <PageFooter data={data} />
       </Page>
 
-      {/* ═══════════════════════════════════════════════════════════════
-          PAGE 6 — FINANCIAL DETAILS
-      ═══════════════════════════════════════════════════════════════ */}
+      {
+
+}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Financial Details" pageNum="6" />
 
@@ -916,9 +916,9 @@ export function OnboardingPDF({ data }: { data: any }) {
         <PageFooter data={data} />
       </Page>
 
-      {/* ═══════════════════════════════════════════════════════════════
-          PAGE 7 — DELIVERABLES
-      ═══════════════════════════════════════════════════════════════ */}
+      {
+
+}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Deliverables" pageNum="7" />
 
@@ -942,9 +942,9 @@ export function OnboardingPDF({ data }: { data: any }) {
         <PageFooter data={data} />
       </Page>
 
-      {/* ═══════════════════════════════════════════════════════════════
-          PAGE 8 — TERMS & CONDITIONS
-      ═══════════════════════════════════════════════════════════════ */}
+      {
+
+}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Terms & Conditions" pageNum="8" />
 
@@ -977,9 +977,9 @@ export function OnboardingPDF({ data }: { data: any }) {
         <PageFooter data={data} />
       </Page>
 
-      {/* ═══════════════════════════════════════════════════════════════
-          PAGE 9 — APPROVAL & SIGNATURES
-      ═══════════════════════════════════════════════════════════════ */}
+      {
+
+}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Approval & Signatures" pageNum="9" />
 
@@ -989,7 +989,7 @@ export function OnboardingPDF({ data }: { data: any }) {
           By signing below, both parties confirm that they have read, understood, and agreed to the terms and conditions outlined in this onboarding document. This document constitutes a formal agreement between the client and Pixelate Nest for the project described herein.
         </Text>
 
-        {/* Summary strip */}
+        {}
         <View style={[styles.cardDark, { marginBottom: 28 }]}>
           <View style={styles.row}>
             <View style={styles.col}>
@@ -1007,9 +1007,9 @@ export function OnboardingPDF({ data }: { data: any }) {
           </View>
         </View>
 
-        {/* Signature blocks */}
+        {}
         <View style={[styles.row, { marginTop: 8 }]}>
-          {/* Client */}
+          {}
           <View style={styles.col}>
             <Text style={styles.subHeading}>Client Signature</Text>
             <Text style={{ fontSize: 9, color: MUTED, marginBottom: 40 }}>
@@ -1028,10 +1028,10 @@ export function OnboardingPDF({ data }: { data: any }) {
             </View>
           </View>
 
-          {/* Vertical divider */}
+          {}
           <View style={{ width: 1, backgroundColor: RULE, marginHorizontal: 16 }} />
 
-          {/* Agency */}
+          {}
           <View style={styles.col}>
             <Text style={styles.subHeading}>Pixelate Nest — Agency Signature</Text>
             <Text style={{ fontSize: 9, color: MUTED, marginBottom: 40 }}>

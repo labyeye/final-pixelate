@@ -26,3 +26,10 @@
 [00:47:04.134] Server  ERROR   [WhatsApp Media] Upload failed — HTTP 401, code: 190, fbtrace_id: AbT5cCTjIqB3qBYbKSC0nRk: "{\n  \"error\": {\n    \"message\": \"Authentication Error\",\n    \"code\": 190,\n    \"type\": \"OAuthException\",\n    \"fbtrace_id\": \"AbT5cCTjIqB3qBYbKSC0nRk\"\n  }\n}"
 [00:47:04.238] Browser ERROR   [useWhatsAppInvoice] {}
 [00:52:13.233] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:03:07.943] Server  LOG      ✓ Compiled in 59ms
+[01:03:17.593] Server  LOG      ✓ Compiled in 39ms
+[01:03:24.168] Server  LOG      ✓ Compiled in 51ms
+[01:03:35.116] Server  LOG      ✓ Compiled in 29ms
+[01:03:41.396] Server  LOG      ✓ Compiled in 45ms
+[01:04:07.822] Server  LOG        Reload env: .env
+[01:05:57.152] Browser WARN    Image with src "http://localhost:9002/_next/static/media/google-my-business-logo.7aa38aa9.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.

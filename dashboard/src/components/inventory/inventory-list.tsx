@@ -49,7 +49,7 @@ export default function InventoryList() {
 
   return (
     <div className="space-y-4">
-      {/* Search & Sort Bar */}
+      {}
       <div className="flex items-center gap-3">
         <div className="relative flex-1 max-w-sm">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -74,7 +74,7 @@ export default function InventoryList() {
         </div>
       </div>
 
-      {/* Table */}
+      {}
       <div className="border-2 border-black rounded-none overflow-hidden">
         <Table>
           <TableHeader>
@@ -188,7 +188,7 @@ export default function InventoryList() {
         </Table>
       </div>
 
-      {/* Hidden modal used for editing rows; opens when `editingItem` is set */}
+      {}
       {editingItem && (
         <InventoryModal
           key={String(editingItem._id ?? editingItem.id)}
