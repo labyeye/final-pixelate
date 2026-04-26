@@ -20,7 +20,7 @@ module.exports = mod;
 "[project]/Desktop/Projects/final-pixelate/dashboard/postcss.config.mjs [postcss] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/** @type {import('postcss-load-config').Config} */ __turbopack_context__.s([
+__turbopack_context__.s([
     "default",
     ()=>__TURBOPACK__default__export__
 ]);

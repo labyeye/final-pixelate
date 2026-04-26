@@ -123,7 +123,7 @@ function calculateTotal(invoice: any): number {
 
 function sanitiseFilename(name: string): string {
   return name
-    .replace(/[/\\:*?"<>|]/g, "-") // replace path separators & illegal chars
+    .replace(/[\/\\:*?"<>|]/g, "-") // replace path separators & illegal chars
     .replace(/-{2,}/g, "-")          // collapse multiple dashes
     .replace(/^-|-$/g, "")           // trim leading/trailing dashes
     .trim();
