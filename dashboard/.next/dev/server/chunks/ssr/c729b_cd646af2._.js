@@ -2,41 +2,41 @@ module.exports = [
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-if ("TURBOPACK compile-time falsy", 0) 
+if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
 ;
 else {
-    if ("TURBOPACK compile-time falsy", 0) 
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
     ;
     else {
         if ("TURBOPACK compile-time truthy", 1) {
             if ("TURBOPACK compile-time truthy", 1) {
                 module.exports = __turbopack_context__.r("[externals]/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js [external] (next/dist/compiled/next-server/app-page-turbo.runtime.dev.js, cjs)");
-            } else 
+            } else //TURBOPACK unreachable
             ;
-        } else 
+        } else //TURBOPACK unreachable
         ;
     }
-} 
+} //# sourceMappingURL=module.compiled.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['react-ssr'].ReactJsxDevRuntime; 
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['react-ssr'].ReactJsxDevRuntime; //# sourceMappingURL=react-jsx-dev-runtime.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['react-ssr'].React; 
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['react-ssr'].React; //# sourceMappingURL=react.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-dom.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['react-ssr'].ReactDOM; 
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['react-ssr'].ReactDOM; //# sourceMappingURL=react-dom.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/primitive/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
+// src/primitive.tsx
 __turbopack_context__.s([
     "canUseDOM",
     ()=>canUseDOM,
@@ -95,12 +95,12 @@ function isFrame(element) {
     return element.tagName === "IFRAME";
 }
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-compose-refs/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
+// packages/react/compose-refs/src/compose-refs.tsx
 __turbopack_context__.s([
     "composeRefs",
     ()=>composeRefs,
@@ -144,17 +144,17 @@ function useComposedRefs(...refs) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"](composeRefs(...refs), refs);
 }
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-runtime.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['react-ssr'].ReactJsxRuntime; 
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['react-ssr'].ReactJsxRuntime; //# sourceMappingURL=react-jsx-runtime.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-context/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
+// packages/react/context/src/create-context.tsx
 __turbopack_context__.s([
     "createContext",
     ()=>createContext2,
@@ -170,7 +170,7 @@ function createContext2(rootComponentName, defaultContext) {
     const Provider = (props)=>{
         const { children, ...context } = props;
         const value = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"](()=>context, Object.values(context));
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Context.Provider, {
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Context.Provider, {
             value,
             children
         });
@@ -200,7 +200,7 @@ function createContextScope(scopeName, createContextScopeDeps = []) {
             const { scope, children, ...context } = props;
             const Context = scope?.[scopeName]?.[index] || BaseContext;
             const value = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"](()=>context, Object.values(context));
-            return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Context.Provider, {
+            return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Context.Provider, {
                 value,
                 children
             });
@@ -269,12 +269,12 @@ function composeContextScopes(...scopes) {
     return createScope;
 }
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-collection/node_modules/@radix-ui/react-slot/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
+// src/slot.tsx
 __turbopack_context__.s([
     "Root",
     ()=>Slot,
@@ -293,9 +293,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-
+// @__NO_SIDE_EFFECTS__
 function createSlot(ownerName) {
-    const SlotClone =  createSlotClone(ownerName);
+    const SlotClone = /* @__PURE__ */ createSlotClone(ownerName);
     const Slot2 = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
         const { children, ...slotProps } = props;
         const childrenArray = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Children"].toArray(children);
@@ -310,13 +310,13 @@ function createSlot(ownerName) {
                     return child;
                 }
             });
-            return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+            return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
                 ...slotProps,
                 ref: forwardedRef,
                 children: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isValidElement"](newElement) ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cloneElement"](newElement, void 0, newChildren) : null
             });
         }
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
             ...slotProps,
             ref: forwardedRef,
             children
@@ -325,8 +325,8 @@ function createSlot(ownerName) {
     Slot2.displayName = `${ownerName}.Slot`;
     return Slot2;
 }
-var Slot =  createSlot("Slot");
-
+var Slot = /* @__PURE__ */ createSlot("Slot");
+// @__NO_SIDE_EFFECTS__
 function createSlotClone(ownerName) {
     const SlotClone = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
         const { children, ...slotProps } = props;
@@ -344,10 +344,10 @@ function createSlotClone(ownerName) {
     return SlotClone;
 }
 var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-
+// @__NO_SIDE_EFFECTS__
 function createSlottable(ownerName) {
     const Slottable2 = ({ children })=>{
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
             children
         });
     };
@@ -355,7 +355,7 @@ function createSlottable(ownerName) {
     Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
     return Slottable2;
 }
-var Slottable =  createSlottable("Slottable");
+var Slottable = /* @__PURE__ */ createSlottable("Slottable");
 function isSlottable(child) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isValidElement"](child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER;
 }
@@ -408,7 +408,7 @@ function getElementRef(element) {
     return element.props.ref || element.ref;
 }
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-collection/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -419,7 +419,7 @@ __turbopack_context__.s([
     "unstable_createCollection",
     ()=>createCollection2
 ]);
-
+// src/collection-legacy.tsx
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$context$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-context/dist/index.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-compose-refs/dist/index.mjs [app-ssr] (ecmascript)");
@@ -438,13 +438,13 @@ function createCollection(name) {
         collectionRef: {
             current: null
         },
-        itemMap:  new Map()
+        itemMap: /* @__PURE__ */ new Map()
     });
     const CollectionProvider = (props)=>{
         const { scope, children } = props;
         const ref = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useRef(null);
-        const itemMap = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useRef( new Map()).current;
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionProviderImpl, {
+        const itemMap = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useRef(/* @__PURE__ */ new Map()).current;
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionProviderImpl, {
             scope,
             itemMap,
             collectionRef: ref,
@@ -458,7 +458,7 @@ function createCollection(name) {
         const { scope, children } = props;
         const context = useCollectionContext(COLLECTION_SLOT_NAME, scope);
         const composedRefs = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useComposedRefs"])(forwardedRef, context.collectionRef);
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionSlotImpl, {
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionSlotImpl, {
             ref: composedRefs,
             children
         });
@@ -479,7 +479,7 @@ function createCollection(name) {
             });
             return ()=>void context.itemMap.delete(ref);
         });
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionItemSlotImpl, {
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionItemSlotImpl, {
             ...{
                 [ITEM_DATA_ATTR]: ""
             },
@@ -517,8 +517,8 @@ function createCollection(name) {
 ;
 ;
 ;
-
-var __instanciated =  new WeakMap();
+// src/ordered-dictionary.ts
+var __instanciated = /* @__PURE__ */ new WeakMap();
 var OrderedDict = class _OrderedDict extends Map {
     #keys;
     constructor(entries){
@@ -594,9 +594,9 @@ var OrderedDict = class _OrderedDict extends Map {
         }
         return this.entryAt(index);
     }
-    
-
- setBefore(key, newKey, value) {
+    /**
+   * Sets a new key-value pair at the position before the given key.
+   */ setBefore(key, newKey, value) {
         const index = this.#keys.indexOf(key);
         if (index === -1) {
             return this;
@@ -611,9 +611,9 @@ var OrderedDict = class _OrderedDict extends Map {
         }
         return this.entryAt(index);
     }
-    
-
- setAfter(key, newKey, value) {
+    /**
+   * Sets a new key-value pair at the position after the given key.
+   */ setAfter(key, newKey, value) {
         const index = this.#keys.indexOf(key);
         if (index === -1) {
             return this;
@@ -883,17 +883,17 @@ function createCollection2(name) {
         setItemMap: ()=>void 0
     });
     const CollectionProvider = ({ state, ...props })=>{
-        return state ?  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionProviderImpl, {
+        return state ? /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionProviderImpl, {
             ...props,
             state
-        }) :  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionInit, {
+        }) : /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionInit, {
             ...props
         });
     };
     CollectionProvider.displayName = PROVIDER_NAME;
     const CollectionInit = (props)=>{
         const state = useInitCollection();
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionProviderImpl, {
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionProviderImpl, {
             ...props,
             state
         });
@@ -918,7 +918,7 @@ function createCollection2(name) {
         }, [
             collectionElement
         ]);
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionContextProvider, {
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionContextProvider, {
             scope,
             itemMap,
             setItemMap,
@@ -935,7 +935,7 @@ function createCollection2(name) {
         const { scope, children } = props;
         const context = useCollectionContext(COLLECTION_SLOT_NAME, scope);
         const composedRefs = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useComposedRefs"])(forwardedRef, context.collectionRef);
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionSlotImpl, {
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionSlotImpl, {
             ref: composedRefs,
             children
         });
@@ -988,7 +988,7 @@ function createCollection2(name) {
             memoizedItemData,
             setItemMap
         ]);
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionItemSlotImpl, {
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(CollectionItemSlotImpl, {
             ...{
                 [ITEM_DATA_ATTR]: ""
             },
@@ -1049,12 +1049,12 @@ function getChildListObserver(callback) {
     return observer;
 }
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
+// src/slot.tsx
 __turbopack_context__.s([
     "Root",
     ()=>Slot,
@@ -1073,9 +1073,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-
+// @__NO_SIDE_EFFECTS__
 function createSlot(ownerName) {
-    const SlotClone =  createSlotClone(ownerName);
+    const SlotClone = /* @__PURE__ */ createSlotClone(ownerName);
     const Slot2 = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
         const { children, ...slotProps } = props;
         const childrenArray = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Children"].toArray(children);
@@ -1090,13 +1090,13 @@ function createSlot(ownerName) {
                     return child;
                 }
             });
-            return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+            return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
                 ...slotProps,
                 ref: forwardedRef,
                 children: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isValidElement"](newElement) ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cloneElement"](newElement, void 0, newChildren) : null
             });
         }
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
             ...slotProps,
             ref: forwardedRef,
             children
@@ -1105,8 +1105,8 @@ function createSlot(ownerName) {
     Slot2.displayName = `${ownerName}.Slot`;
     return Slot2;
 }
-var Slot =  createSlot("Slot");
-
+var Slot = /* @__PURE__ */ createSlot("Slot");
+// @__NO_SIDE_EFFECTS__
 function createSlotClone(ownerName) {
     const SlotClone = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
         const { children, ...slotProps } = props;
@@ -1124,10 +1124,10 @@ function createSlotClone(ownerName) {
     return SlotClone;
 }
 var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-
+// @__NO_SIDE_EFFECTS__
 function createSlottable(ownerName) {
     const Slottable2 = ({ children })=>{
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
             children
         });
     };
@@ -1135,7 +1135,7 @@ function createSlottable(ownerName) {
     Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
     return Slottable2;
 }
-var Slottable =  createSlottable("Slottable");
+var Slottable = /* @__PURE__ */ createSlottable("Slottable");
 function isSlottable(child) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isValidElement"](child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER;
 }
@@ -1188,12 +1188,12 @@ function getElementRef(element) {
     return element.props.ref || element.ref;
 }
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-primitive/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
+// src/primitive.tsx
 __turbopack_context__.s([
     "Primitive",
     ()=>Primitive,
@@ -1234,9 +1234,9 @@ var Primitive = NODES.reduce((primitive, node)=>{
     const Node = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
         const { asChild, ...primitiveProps } = props;
         const Comp = asChild ? Slot : node;
-        if ("TURBOPACK compile-time falsy", 0) 
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
         ;
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Comp, {
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Comp, {
             ...primitiveProps,
             ref: forwardedRef
         });
@@ -1252,12 +1252,12 @@ function dispatchDiscreteCustomEvent(target, event) {
 }
 var Root = Primitive;
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-callback-ref/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
+// packages/react/use-callback-ref/src/use-callback-ref.tsx
 __turbopack_context__.s([
     "useCallbackRef",
     ()=>useCallbackRef
@@ -1272,12 +1272,12 @@ function useCallbackRef(callback) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"](()=>(...args)=>callbackRef.current?.(...args), []);
 }
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-escape-keydown/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
+// packages/react/use-escape-keydown/src/use-escape-keydown.tsx
 __turbopack_context__.s([
     "useEscapeKeydown",
     ()=>useEscapeKeydown
@@ -1306,7 +1306,7 @@ function useEscapeKeydown(onEscapeKeyDownProp, ownerDocument = globalThis?.docum
     ]);
 }
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -1321,7 +1321,7 @@ __turbopack_context__.s([
     "Root",
     ()=>Root
 ]);
-
+// src/dismissable-layer.tsx
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/primitive/dist/index.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-primitive/dist/index.mjs [app-ssr] (ecmascript)");
@@ -1343,9 +1343,9 @@ var POINTER_DOWN_OUTSIDE = "dismissableLayer.pointerDownOutside";
 var FOCUS_OUTSIDE = "dismissableLayer.focusOutside";
 var originalBodyPointerEvents;
 var DismissableLayerContext = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"]({
-    layers:  new Set(),
-    layersWithOutsidePointerEventsDisabled:  new Set(),
-    branches:  new Set()
+    layers: /* @__PURE__ */ new Set(),
+    layersWithOutsidePointerEventsDisabled: /* @__PURE__ */ new Set(),
+    branches: /* @__PURE__ */ new Set()
 });
 var DismissableLayer = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { disableOutsidePointerEvents = false, onEscapeKeyDown, onPointerDownOutside, onFocusOutside, onInteractOutside, onDismiss, ...layerProps } = props;
@@ -1429,7 +1429,7 @@ var DismissableLayer = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2
         document.addEventListener(CONTEXT_UPDATE, handleUpdate);
         return ()=>document.removeEventListener(CONTEXT_UPDATE, handleUpdate);
     }, []);
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].div, {
+    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].div, {
         ...layerProps,
         ref: composedRefs,
         style: {
@@ -1458,7 +1458,7 @@ var DismissableLayerBranch = __TURBOPACK__imported__module__$5b$project$5d2f$Des
     }, [
         context.branches
     ]);
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].div, {
+    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].div, {
         ...props,
         ref: composedRefs
     });
@@ -1507,7 +1507,7 @@ function usePointerDownOutside(onPointerDownOutside, ownerDocument = globalThis?
         handlePointerDownOutside
     ]);
     return {
-        
+        // ensures we check React component tree (not just DOM tree)
         onPointerDownCapture: ()=>isPointerInsideReactTreeRef.current = true
     };
 }
@@ -1559,12 +1559,12 @@ function handleAndDispatchCustomEvent(name, handler, detail, { discrete }) {
 var Root = DismissableLayer;
 var Branch = DismissableLayerBranch;
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
+// packages/react/use-layout-effect/src/use-layout-effect.tsx
 __turbopack_context__.s([
     "useLayoutEffect",
     ()=>useLayoutEffect2
@@ -1573,7 +1573,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 var useLayoutEffect2 = globalThis?.document ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useLayoutEffect"] : ()=>{};
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-portal/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -1584,7 +1584,7 @@ __turbopack_context__.s([
     "Root",
     ()=>Root
 ]);
-
+// src/portal.tsx
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$dom$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-dom.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-primitive/dist/index.mjs [app-ssr] (ecmascript)");
@@ -1602,7 +1602,7 @@ var Portal = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects
     const [mounted, setMounted] = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"](false);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$use$2d$layout$2d$effect$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useLayoutEffect"])(()=>setMounted(true), []);
     const container = containerProp || mounted && globalThis?.document?.body;
-    return container ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$dom$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].createPortal( (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].div, {
+    return container ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$dom$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].createPortal(/* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].div, {
         ...portalProps,
         ref: forwardedRef
     }), container) : null;
@@ -1610,7 +1610,7 @@ var Portal = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects
 Portal.displayName = PORTAL_NAME;
 var Root = Portal;
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-presence/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -1621,7 +1621,7 @@ __turbopack_context__.s([
     "Root",
     ()=>Root
 ]);
-
+// src/presence.tsx
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-compose-refs/dist/index.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$use$2d$layout$2d$effect$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs [app-ssr] (ecmascript)");
@@ -1636,7 +1636,7 @@ function useStateMachine(initialState, machine) {
         return nextState ?? state;
     }, initialState);
 }
-
+// src/presence.tsx
 var Presence = (props)=>{
     const { present, children } = props;
     const presence = usePresence(present);
@@ -1770,12 +1770,12 @@ function getElementRef(element) {
 }
 var Root = Presence;
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-effect-event/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
+// src/use-effect-event.tsx
 __turbopack_context__.s([
     "useEffectEvent",
     ()=>useEffectEvent
@@ -1805,12 +1805,12 @@ function useEffectEvent(callback) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.useMemo(()=>(...args)=>ref.current?.(...args), []);
 }
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-use-controllable-state/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
+// src/use-controllable-state.tsx
 __turbopack_context__.s([
     "useControllableState",
     ()=>useControllableState,
@@ -1982,12 +1982,12 @@ function useControllableStateReducer(reducer, userArgs, initialArg, init) {
     ];
 }
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-visually-hidden/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
+// src/visually-hidden.tsx
 __turbopack_context__.s([
     "Root",
     ()=>Root,
@@ -2003,7 +2003,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 var VISUALLY_HIDDEN_STYLES = Object.freeze({
-    
+    // See: https://github.com/twbs/bootstrap/blob/main/scss/mixins/_visually-hidden.scss
     position: "absolute",
     border: 0,
     width: 1,
@@ -2017,7 +2017,7 @@ var VISUALLY_HIDDEN_STYLES = Object.freeze({
 });
 var NAME = "VisuallyHidden";
 var VisuallyHidden = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].span, {
+    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].span, {
         ...props,
         ref: forwardedRef,
         style: {
@@ -2029,7 +2029,7 @@ var VisuallyHidden = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$
 VisuallyHidden.displayName = NAME;
 var Root = VisuallyHidden;
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-toast/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -2066,7 +2066,7 @@ __turbopack_context__.s([
     "createToastScope",
     ()=>createToastScope
 ]);
-
+// src/toast.tsx
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$dom$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-dom.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/primitive/dist/index.mjs [app-ssr] (ecmascript)");
@@ -2113,9 +2113,9 @@ var ToastProvider = (props)=>{
     if (!label.trim()) {
         console.error(`Invalid prop \`label\` supplied to \`${PROVIDER_NAME}\`. Expected non-empty \`string\`.`);
     }
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Collection.Provider, {
+    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Collection.Provider, {
         scope: __scopeToast,
-        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ToastProviderProvider, {
+        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ToastProviderProvider, {
             scope: __scopeToast,
             label,
             duration,
@@ -2252,7 +2252,7 @@ var ToastViewport = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$P
         getItems,
         getSortedTabbableCandidates
     ]);
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dismissable$2d$layer$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Branch"], {
+    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dismissable$2d$layer$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Branch"], {
         ref: wrapperRef,
         role: "region",
         "aria-label": label.replace("{hotkey}", hotkeyLabel),
@@ -2261,7 +2261,7 @@ var ToastViewport = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$P
             pointerEvents: hasToasts ? void 0 : "none"
         },
         children: [
-            hasToasts &&  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(FocusProxy, {
+            hasToasts && /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(FocusProxy, {
                 ref: headFocusProxyRef,
                 onFocusFromOutsideViewport: ()=>{
                     const tabbableCandidates = getSortedTabbableCandidates({
@@ -2270,15 +2270,15 @@ var ToastViewport = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$P
                     focusFirst(tabbableCandidates);
                 }
             }),
-             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Collection.Slot, {
+            /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Collection.Slot, {
                 scope: __scopeToast,
-                children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].ol, {
+                children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].ol, {
                     tabIndex: -1,
                     ...viewportProps,
                     ref: composedRefs
                 })
             }),
-            hasToasts &&  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(FocusProxy, {
+            hasToasts && /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(FocusProxy, {
                 ref: tailFocusProxyRef,
                 onFocusFromOutsideViewport: ()=>{
                     const tabbableCandidates = getSortedTabbableCandidates({
@@ -2295,7 +2295,7 @@ var FOCUS_PROXY_NAME = "ToastFocusProxy";
 var FocusProxy = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeToast, onFocusFromOutsideViewport, ...proxyProps } = props;
     const context = useToastProviderContext(FOCUS_PROXY_NAME, __scopeToast);
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$visually$2d$hidden$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VisuallyHidden"], {
+    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$visually$2d$hidden$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VisuallyHidden"], {
         tabIndex: 0,
         ...proxyProps,
         ref: forwardedRef,
@@ -2323,9 +2323,9 @@ var Toast = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$
         onChange: onOpenChange,
         caller: TOAST_NAME
     });
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$presence$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Presence"], {
+    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$presence$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Presence"], {
         present: forceMount || open,
-        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ToastImpl, {
+        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ToastImpl, {
             open,
             ...toastProps,
             ref: forwardedRef,
@@ -2384,7 +2384,7 @@ var ToastImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje
     const startTimer = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"]((duration2)=>{
         if (!duration2 || duration2 === Infinity) return;
         window.clearTimeout(closeTimerRef.current);
-        closeTimerStartTimeRef.current =  new Date().getTime();
+        closeTimerStartTimeRef.current = /* @__PURE__ */ new Date().getTime();
         closeTimerRef.current = window.setTimeout(handleClose, duration2);
     }, [
         handleClose
@@ -2397,7 +2397,7 @@ var ToastImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje
                 onResume?.();
             };
             const handlePause = ()=>{
-                const elapsedTime =  new Date().getTime() - closeTimerStartTimeRef.current;
+                const elapsedTime = /* @__PURE__ */ new Date().getTime() - closeTimerStartTimeRef.current;
                 closeTimerRemainingTimeRef.current = closeTimerRemainingTimeRef.current - elapsedTime;
                 window.clearTimeout(closeTimerRef.current);
                 onPause?.();
@@ -2437,26 +2437,26 @@ var ToastImpl = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proje
         node
     ]);
     if (!context.viewport) return null;
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
-            announceTextContent &&  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ToastAnnounce, {
+            announceTextContent && /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ToastAnnounce, {
                 __scopeToast,
                 role: "status",
                 "aria-live": type === "foreground" ? "assertive" : "polite",
                 children: announceTextContent
             }),
-             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ToastInteractiveProvider, {
+            /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ToastInteractiveProvider, {
                 scope: __scopeToast,
                 onClose: handleClose,
-                children: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$dom$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createPortal"]( (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Collection.ItemSlot, {
+                children: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$dom$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createPortal"](/* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Collection.ItemSlot, {
                     scope: __scopeToast,
-                    children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dismissable$2d$layer$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Root"], {
+                    children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dismissable$2d$layer$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Root"], {
                         asChild: true,
                         onEscapeKeyDown: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["composeEventHandlers"])(onEscapeKeyDown, ()=>{
                             if (!context.isFocusedToastEscapeKeyDownRef.current) handleClose();
                             context.isFocusedToastEscapeKeyDownRef.current = false;
                         }),
-                        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].li, {
+                        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].li, {
                             tabIndex: 0,
                             "data-state": open ? "open" : "closed",
                             "data-swipe-direction": context.swipeDirection,
@@ -2566,11 +2566,11 @@ var ToastAnnounce = (props)=>{
         const timer = window.setTimeout(()=>setIsAnnounced(true), 1e3);
         return ()=>window.clearTimeout(timer);
     }, []);
-    return isAnnounced ? null :  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$portal$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Portal"], {
+    return isAnnounced ? null : /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$portal$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Portal"], {
         asChild: true,
-        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$visually$2d$hidden$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VisuallyHidden"], {
+        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$visually$2d$hidden$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VisuallyHidden"], {
             ...announceProps,
-            children: renderAnnounceText &&  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+            children: renderAnnounceText && /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                 children: [
                     context.label,
                     " ",
@@ -2583,7 +2583,7 @@ var ToastAnnounce = (props)=>{
 var TITLE_NAME = "ToastTitle";
 var ToastTitle = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeToast, ...titleProps } = props;
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].div, {
+    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].div, {
         ...titleProps,
         ref: forwardedRef
     });
@@ -2592,7 +2592,7 @@ ToastTitle.displayName = TITLE_NAME;
 var DESCRIPTION_NAME = "ToastDescription";
 var ToastDescription = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeToast, ...descriptionProps } = props;
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].div, {
+    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].div, {
         ...descriptionProps,
         ref: forwardedRef
     });
@@ -2605,10 +2605,10 @@ var ToastAction = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Pro
         console.error(`Invalid prop \`altText\` supplied to \`${ACTION_NAME}\`. Expected non-empty \`string\`.`);
         return null;
     }
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ToastAnnounceExclude, {
+    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ToastAnnounceExclude, {
         altText,
         asChild: true,
-        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ToastClose, {
+        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ToastClose, {
             ...actionProps,
             ref: forwardedRef
         })
@@ -2619,9 +2619,9 @@ var CLOSE_NAME = "ToastClose";
 var ToastClose = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeToast, ...closeProps } = props;
     const interactiveContext = useToastInteractiveContext(CLOSE_NAME, __scopeToast);
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ToastAnnounceExclude, {
+    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ToastAnnounceExclude, {
         asChild: true,
-        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].button, {
+        children: /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].button, {
             type: "button",
             ...closeProps,
             ref: forwardedRef,
@@ -2632,7 +2632,7 @@ var ToastClose = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proj
 ToastClose.displayName = CLOSE_NAME;
 var ToastAnnounceExclude = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"]((props, forwardedRef)=>{
     const { __scopeToast, altText, ...announceExcludeProps } = props;
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].div, {
+    return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$primitive$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Primitive"].div, {
         "data-radix-toast-announce-exclude": "",
         "data-radix-toast-announce-alt": altText || void 0,
         ...announceExcludeProps,
@@ -2730,7 +2730,7 @@ var Description = ToastDescription;
 var Action = ToastAction;
 var Close = ToastClose;
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/clsx/dist/clsx.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -2759,21 +2759,21 @@ const __TURBOPACK__default__export__ = clsx;
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/class-variance-authority/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- __turbopack_context__.s([
+/**
+ * Copyright 2022 Joe Bell. All rights reserved.
+ *
+ * This file is licensed to you under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR REPRESENTATIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */ __turbopack_context__.s([
     "cva",
     ()=>cva,
     "cx",
@@ -2825,12 +2825,12 @@ const cva = (base, config)=>(props)=>{
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/shared/src/utils.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-
- __turbopack_context__.s([
+/**
+ * @license lucide-react v0.475.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ __turbopack_context__.s([
     "mergeClasses",
     ()=>mergeClasses,
     "toKebabCase",
@@ -2841,17 +2841,17 @@ const mergeClasses = (...classes)=>classes.filter((className, index, array)=>{
         return Boolean(className) && className.trim() !== "" && array.indexOf(className) === index;
     }).join(" ").trim();
 ;
- 
+ //# sourceMappingURL=utils.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/defaultAttributes.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-
- __turbopack_context__.s([
+/**
+ * @license lucide-react v0.475.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ __turbopack_context__.s([
     "default",
     ()=>defaultAttributes
 ]);
@@ -2867,17 +2867,17 @@ var defaultAttributes = {
     strokeLinejoin: "round"
 };
 ;
- 
+ //# sourceMappingURL=defaultAttributes.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/Icon.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-
- __turbopack_context__.s([
+/**
+ * @license lucide-react v0.475.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ __turbopack_context__.s([
     "default",
     ()=>Icon
 ]);
@@ -2905,17 +2905,17 @@ const Icon = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Proj
     ]);
 });
 ;
- 
+ //# sourceMappingURL=Icon.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/createLucideIcon.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-
- __turbopack_context__.s([
+/**
+ * @license lucide-react v0.475.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ __turbopack_context__.s([
     "default",
     ()=>createLucideIcon
 ]);
@@ -2936,17 +2936,17 @@ const createLucideIcon = (iconName, iconNode)=>{
     return Component;
 };
 ;
- 
+ //# sourceMappingURL=createLucideIcon.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/x.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-
- __turbopack_context__.s([
+/**
+ * @license lucide-react v0.475.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ __turbopack_context__.s([
     "__iconNode",
     ()=>__iconNode,
     "default",
@@ -2972,7 +2972,7 @@ const __iconNode = [
 ];
 const X = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])("X", __iconNode);
 ;
- 
+ //# sourceMappingURL=x.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/x.js [app-ssr] (ecmascript) <export default as X>", ((__turbopack_context__) => {
 "use strict";
@@ -2986,9 +2986,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/tailwind-merge/dist/bundle-mjs.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
- __turbopack_context__.s([
+/**
+ * Concatenates two arrays faster than the array spread operator.
+ */ __turbopack_context__.s([
     "createTailwindMerge",
     ()=>createTailwindMerge,
     "extendTailwindMerge",
@@ -3007,7 +3007,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
     ()=>validators
 ]);
 const concatArrays = (array1, array2)=>{
-    
+    // Pre-allocate for better V8 optimization
     const combinedArray = new Array(array1.length + array2.length);
     for(let i = 0; i < array1.length; i++){
         combinedArray[i] = array1[i];
@@ -3017,12 +3017,12 @@ const concatArrays = (array1, array2)=>{
     }
     return combinedArray;
 };
-
+// Factory function ensures consistent object shapes
 const createClassValidatorObject = (classGroupId, validator)=>({
         classGroupId,
         validator
     });
-
+// Factory ensures consistent ClassPartObject shape
 const createClassPartObject = (nextPart = new Map(), validators = null, classGroupId)=>({
         nextPart,
         validators,
@@ -3030,7 +3030,7 @@ const createClassPartObject = (nextPart = new Map(), validators = null, classGro
     });
 const CLASS_PART_SEPARATOR = '-';
 const EMPTY_CONFLICTS = [];
-
+// I use two dots here because one dot is used as prefix for class groups in plugins
 const ARBITRARY_PROPERTY_PREFIX = 'arbitrary..';
 const createClassGroupUtils = (config)=>{
     const classMap = createClassMap(config);
@@ -3040,7 +3040,7 @@ const createClassGroupUtils = (config)=>{
             return getGroupIdForArbitraryProperty(className);
         }
         const classParts = className.split(CLASS_PART_SEPARATOR);
-        
+        // Classes like `-inset-1` produce an empty string as first classPart. We assume that classes for negative values are used correctly and skip it.
         const startIndex = classParts[0] === '' && classParts.length > 1 ? 1 : 0;
         return getGroupRecursive(classParts, startIndex, classMap);
     };
@@ -3050,13 +3050,13 @@ const createClassGroupUtils = (config)=>{
             const baseConflicts = conflictingClassGroups[classGroupId];
             if (modifierConflicts) {
                 if (baseConflicts) {
-                    
+                    // Merge base conflicts with modifier conflicts
                     return concatArrays(baseConflicts, modifierConflicts);
                 }
-                
+                // Only modifier conflicts
                 return modifierConflicts;
             }
-            
+            // Fall back to without postfix if no modifier conflicts
             return baseConflicts || EMPTY_CONFLICTS;
         }
         return conflictingClassGroups[classGroupId] || EMPTY_CONFLICTS;
@@ -3081,7 +3081,7 @@ const getGroupRecursive = (classParts, startIndex, classPartObject)=>{
     if (validators === null) {
         return undefined;
     }
-    
+    // Build classRest string efficiently by joining from startIndex onwards
     const classRest = startIndex === 0 ? classParts.join(CLASS_PART_SEPARATOR) : classParts.slice(startIndex).join(CLASS_PART_SEPARATOR);
     const validatorsLength = validators.length;
     for(let i = 0; i < validatorsLength; i++){
@@ -3092,23 +3092,23 @@ const getGroupRecursive = (classParts, startIndex, classPartObject)=>{
     }
     return undefined;
 };
-
-
-
-
- const getGroupIdForArbitraryProperty = (className)=>className.slice(1, -1).indexOf(':') === -1 ? undefined : (()=>{
+/**
+ * Get the class group ID for an arbitrary property.
+ *
+ * @param className - The class name to get the group ID for. Is expected to be string starting with `[` and ending with `]`.
+ */ const getGroupIdForArbitraryProperty = (className)=>className.slice(1, -1).indexOf(':') === -1 ? undefined : (()=>{
         const content = className.slice(1, -1);
         const colonIndex = content.indexOf(':');
         const property = content.slice(0, colonIndex);
         return property ? ARBITRARY_PROPERTY_PREFIX + property : undefined;
     })();
-
-
- const createClassMap = (config)=>{
+/**
+ * Exported for testing only
+ */ const createClassMap = (config)=>{
     const { theme, classGroups } = config;
     return processClassGroups(classGroups, theme);
 };
-
+// Split into separate functions to maintain monomorphic call sites
 const processClassGroups = (classGroups, theme)=>{
     const classMap = createClassPartObject();
     for(const classGroupId in classGroups){
@@ -3124,7 +3124,7 @@ const processClassesRecursively = (classGroup, classPartObject, classGroupId, th
         processClassDefinition(classDefinition, classPartObject, classGroupId, theme);
     }
 };
-
+// Split into separate functions for each type to maintain monomorphic call sites
 const processClassDefinition = (classDefinition, classPartObject, classGroupId, theme)=>{
     if (typeof classDefinition === 'string') {
         processStringDefinition(classDefinition, classPartObject, classGroupId);
@@ -3173,9 +3173,9 @@ const getPart = (classPartObject, path)=>{
     }
     return current;
 };
-
+// Type guard maintains monomorphic check
 const isThemeGetter = (func)=>'isThemeGetter' in func && func.isThemeGetter === true;
-
+// LRU cache implementation using plain objects for simplicity
 const createLruCache = (maxCacheSize)=>{
     if (maxCacheSize < 1) {
         return {
@@ -3218,7 +3218,7 @@ const createLruCache = (maxCacheSize)=>{
 const IMPORTANT_MODIFIER = '!';
 const MODIFIER_SEPARATOR = ':';
 const EMPTY_MODIFIERS = [];
-
+// Pre-allocated result object shape for consistency
 const createResultObject = (modifiers, hasImportantModifier, baseClassName, maybePostfixModifierPosition, isExternal)=>({
         modifiers,
         hasImportantModifier,
@@ -3228,13 +3228,13 @@ const createResultObject = (modifiers, hasImportantModifier, baseClassName, mayb
     });
 const createParseClassName = (config)=>{
     const { prefix, experimentalParseClassName } = config;
-    
-
-
-
-
- let parseClassName = (className)=>{
-        
+    /**
+   * Parse class name into parts.
+   *
+   * Inspired by `splitAtTopLevelOnly` used in Tailwind CSS
+   * @see https://github.com/tailwindlabs/tailwindcss/blob/v3.2.2/src/util/splitAtTopLevelOnly.js
+   */ let parseClassName = (className)=>{
+        // Use simple array with push for better performance
         const modifiers = [];
         let bracketDepth = 0;
         let parenDepth = 0;
@@ -3260,16 +3260,16 @@ const createParseClassName = (config)=>{
             else if (currentCharacter === ')') parenDepth--;
         }
         const baseClassNameWithImportantModifier = modifiers.length === 0 ? className : className.slice(modifierStart);
-        
+        // Inline important modifier check
         let baseClassName = baseClassNameWithImportantModifier;
         let hasImportantModifier = false;
         if (baseClassNameWithImportantModifier.endsWith(IMPORTANT_MODIFIER)) {
             baseClassName = baseClassNameWithImportantModifier.slice(0, -1);
             hasImportantModifier = true;
-        } else if (
-
-
- baseClassNameWithImportantModifier.startsWith(IMPORTANT_MODIFIER)) {
+        } else if (/**
+     * In Tailwind CSS v3 the important modifier was at the start of the base class name. This is still supported for legacy reasons.
+     * @see https://github.com/dcastil/tailwind-merge/issues/513#issuecomment-2614029864
+     */ baseClassNameWithImportantModifier.startsWith(IMPORTANT_MODIFIER)) {
             baseClassName = baseClassNameWithImportantModifier.slice(1);
             hasImportantModifier = true;
         }
@@ -3290,28 +3290,28 @@ const createParseClassName = (config)=>{
     }
     return parseClassName;
 };
-
-
-
-
- const createSortModifiers = (config)=>{
-    
+/**
+ * Sorts modifiers according to following schema:
+ * - Predefined modifiers are sorted alphabetically
+ * - When an arbitrary variant appears, it must be preserved which modifiers are before and after it
+ */ const createSortModifiers = (config)=>{
+    // Pre-compute weights for all known modifiers for O(1) comparison
     const modifierWeights = new Map();
-    
+    // Assign weights to sensitive modifiers (highest priority, but preserve order)
     config.orderSensitiveModifiers.forEach((mod, index)=>{
-        modifierWeights.set(mod, 1000000 + index); 
+        modifierWeights.set(mod, 1000000 + index); // High weights for sensitive mods
     });
     return (modifiers)=>{
         const result = [];
         let currentSegment = [];
-        
+        // Process modifiers in one pass
         for(let i = 0; i < modifiers.length; i++){
             const modifier = modifiers[i];
-            
+            // Check if modifier is sensitive (starts with '[' or in orderSensitiveModifiers)
             const isArbitrary = modifier[0] === '[';
             const isOrderSensitive = modifierWeights.has(modifier);
             if (isArbitrary || isOrderSensitive) {
-                
+                // Sort and flush current segment alphabetically
                 if (currentSegment.length > 0) {
                     currentSegment.sort();
                     result.push(...currentSegment);
@@ -3319,11 +3319,11 @@ const createParseClassName = (config)=>{
                 }
                 result.push(modifier);
             } else {
-                
+                // Regular modifier - add to current segment for batch sorting
                 currentSegment.push(modifier);
             }
         }
-        
+        // Sort and add any remaining segment items
         if (currentSegment.length > 0) {
             currentSegment.sort();
             result.push(...currentSegment);
@@ -3340,13 +3340,13 @@ const createConfigUtils = (config)=>({
 const SPLIT_CLASSES_REGEX = /\s+/;
 const mergeClassList = (classList, configUtils)=>{
     const { parseClassName, getClassGroupId, getConflictingClassGroupIds, sortModifiers } = configUtils;
-    
-
-
-
-
-
- const classGroupsInConflict = [];
+    /**
+   * Set of classGroupIds in following format:
+   * `{importantModifier}{variantModifiers}{classGroupId}`
+   * @example 'float'
+   * @example 'hover:focus:bg-color'
+   * @example 'md:!pr'
+   */ const classGroupsInConflict = [];
     const classNames = classList.trim().split(SPLIT_CLASSES_REGEX);
     let result = '';
     for(let index = classNames.length - 1; index >= 0; index -= 1){
@@ -3360,19 +3360,19 @@ const mergeClassList = (classList, configUtils)=>{
         let classGroupId = getClassGroupId(hasPostfixModifier ? baseClassName.substring(0, maybePostfixModifierPosition) : baseClassName);
         if (!classGroupId) {
             if (!hasPostfixModifier) {
-                
+                // Not a Tailwind class
                 result = originalClassName + (result.length > 0 ? ' ' + result : result);
                 continue;
             }
             classGroupId = getClassGroupId(baseClassName);
             if (!classGroupId) {
-                
+                // Not a Tailwind class
                 result = originalClassName + (result.length > 0 ? ' ' + result : result);
                 continue;
             }
             hasPostfixModifier = false;
         }
-        
+        // Fast path: skip sorting for empty or single modifier
         const variantModifier = modifiers.length === 0 ? '' : modifiers.length === 1 ? modifiers[0] : sortModifiers(modifiers).join(':');
         const modifierId = hasImportantModifier ? variantModifier + IMPORTANT_MODIFIER : variantModifier;
         const classId = modifierId + classGroupId;
@@ -3385,20 +3385,20 @@ const mergeClassList = (classList, configUtils)=>{
             const group = conflictGroups[i];
             classGroupsInConflict.push(modifierId + group);
         }
-        
+        // Tailwind class not in conflict
         result = originalClassName + (result.length > 0 ? ' ' + result : result);
     }
     return result;
 };
-
-
-
-
-
-
-
-
- const twJoin = (...classLists)=>{
+/**
+ * The code in this file is copied from https://github.com/lukeed/clsx and modified to suit the needs of tailwind-merge better.
+ *
+ * Specifically:
+ * - Runtime code from https://github.com/lukeed/clsx/blob/v1.2.1/src/index.js
+ * - TypeScript types from https://github.com/lukeed/clsx/blob/v1.2.1/clsx.d.ts
+ *
+ * Original code has MIT license: Copyright (c) Luke Edwards <luke.edwards05@gmail.com> (lukeed.com)
+ */ const twJoin = (...classLists)=>{
     let index = 0;
     let argument;
     let resolvedValue;
@@ -3414,7 +3414,7 @@ const mergeClassList = (classList, configUtils)=>{
     return string;
 };
 const toValue = (mix)=>{
-    
+    // Fast path for strings
     if (typeof mix === 'string') {
         return mix;
     }
@@ -3467,7 +3467,7 @@ const fractionRegex = /^\d+\/\d+$/;
 const tshirtUnitRegex = /^(\d+(\.\d+)?)?(xs|sm|md|lg|xl)$/;
 const lengthUnitRegex = /\d+(%|px|r?em|[sdl]?v([hwib]|min|max)|pt|pc|in|cm|mm|cap|ch|ex|r?lh|cq(w|h|i|b|min|max))|\b(calc|min|max|clamp)\(.+\)|^0$/;
 const colorFunctionRegex = /^(rgba?|hsla?|hwb|(ok)?(lab|lch)|color-mix)\(.+\)$/;
-
+// Shadow always begins with x and y offset separated by underscore optionally prepended by inset
 const shadowRegex = /^(inset_)?-?((\d+)?\.?(\d+)[a-z]+|0)_-?((\d+)?\.?(\d+)[a-z]+|0)/;
 const imageRegex = /^(url|image|image-set|cross-fade|element|(repeating-)?(linear|radial|conic)-gradient)\(.+\)$/;
 const isFraction = (value)=>fractionRegex.test(value);
@@ -3476,9 +3476,9 @@ const isInteger = (value)=>!!value && Number.isInteger(Number(value));
 const isPercent = (value)=>value.endsWith('%') && isNumber(value.slice(0, -1));
 const isTshirtSize = (value)=>tshirtUnitRegex.test(value);
 const isAny = ()=>true;
-const isLengthOnly = (value)=>
-    
-    
+const isLengthOnly = (value)=>// `colorFunctionRegex` check is necessary because color functions can have percentages in them which which would be incorrectly classified as lengths.
+    // For example, `hsl(0 0% 0%)` would be classified as a length without this check.
+    // I could also use lookbehind assertion in `lengthUnitRegex` but that isn't supported widely enough.
     lengthUnitRegex.test(value) && !colorFunctionRegex.test(value);
 const isNever = ()=>false;
 const isShadow = (value)=>shadowRegex.test(value);
@@ -3498,7 +3498,7 @@ const isArbitraryVariablePosition = (value)=>getIsArbitraryVariable(value, isLab
 const isArbitraryVariableSize = (value)=>getIsArbitraryVariable(value, isLabelSize);
 const isArbitraryVariableImage = (value)=>getIsArbitraryVariable(value, isLabelImage);
 const isArbitraryVariableShadow = (value)=>getIsArbitraryVariable(value, isLabelShadow, true);
-
+// Helpers
 const getIsArbitraryValue = (value, testLabel, testValue)=>{
     const result = arbitraryValueRegex.exec(value);
     if (result) {
@@ -3519,7 +3519,7 @@ const getIsArbitraryVariable = (value, testLabel, shouldMatchNoLabel = false)=>{
     }
     return false;
 };
-
+// Labels
 const isLabelPosition = (label)=>label === 'position' || label === 'percentage';
 const isLabelImage = (label)=>label === 'image' || label === 'url';
 const isLabelSize = (label)=>label === 'length' || label === 'size' || label === 'bg-size';
@@ -3527,7 +3527,7 @@ const isLabelLength = (label)=>label === 'length';
 const isLabelNumber = (label)=>label === 'number';
 const isLabelFamilyName = (label)=>label === 'family-name';
 const isLabelShadow = (label)=>label === 'shadow';
-const validators =  Object.defineProperty({
+const validators = /*#__PURE__*/ Object.defineProperty({
     __proto__: null,
     isAny,
     isAnyNonArbitrary,
@@ -3554,10 +3554,10 @@ const validators =  Object.defineProperty({
     value: 'Module'
 });
 const getDefaultConfig = ()=>{
-    
-
-
-  const themeColor = fromTheme('color');
+    /**
+   * Theme getters for theme variable namespaces
+   * @see https://tailwindcss.com/docs/theme#theme-variable-namespaces
+   */ /***/ const themeColor = fromTheme('color');
     const themeFont = fromTheme('font');
     const themeText = fromTheme('text');
     const themeFontWeight = fromTheme('font-weight');
@@ -3576,12 +3576,12 @@ const getDefaultConfig = ()=>{
     const themeAspect = fromTheme('aspect');
     const themeEase = fromTheme('ease');
     const themeAnimate = fromTheme('animate');
-    
-
-
-
-
-  const scaleBreak = ()=>[
+    /**
+   * Helpers to avoid repeating the same scales
+   *
+   * We use functions that create a new array every time they're called instead of static arrays.
+   * This ensures that users who modify any scale by mutating the array (e.g. with `array.push(element)`) don't accidentally mutate arrays in other parts of the config.
+   */ /***/ const scaleBreak = ()=>[
             'auto',
             'avoid',
             'all',
@@ -3598,16 +3598,16 @@ const getDefaultConfig = ()=>{
             'left',
             'right',
             'top-left',
-            
+            // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
             'left-top',
             'top-right',
-            
+            // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
             'right-top',
             'bottom-right',
-            
+            // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
             'right-bottom',
             'bottom-left',
-            
+            // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
             'left-bottom'
         ];
     const scalePositionWithArbitrary = ()=>[
@@ -3759,7 +3759,7 @@ const getDefaultConfig = ()=>{
             isArbitraryLength
         ];
     const scaleRadius = ()=>[
-            
+            // Deprecated since Tailwind CSS v4.0.0
             '',
             'none',
             'full',
@@ -3804,7 +3804,7 @@ const getDefaultConfig = ()=>{
             isArbitraryPosition
         ];
     const scaleBlur = ()=>[
-            
+            // Deprecated since Tailwind CSS v4.0.0
             '',
             'none',
             themeBlur,
@@ -3924,13 +3924,13 @@ const getDefaultConfig = ()=>{
             ]
         },
         classGroups: {
-            
-            
-            
-            
-
-
- aspect: [
+            // --------------
+            // --- Layout ---
+            // --------------
+            /**
+       * Aspect Ratio
+       * @see https://tailwindcss.com/docs/aspect-ratio
+       */ aspect: [
                 {
                     aspect: [
                         'auto',
@@ -3942,17 +3942,17 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
-
- container: [
+            /**
+       * Container
+       * @see https://tailwindcss.com/docs/container
+       * @deprecated since Tailwind CSS v4.0.0
+       */ container: [
                 'container'
             ],
-            
-
-
- columns: [
+            /**
+       * Columns
+       * @see https://tailwindcss.com/docs/columns
+       */ columns: [
                 {
                     columns: [
                         isNumber,
@@ -3962,26 +3962,26 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'break-after': [
+            /**
+       * Break After
+       * @see https://tailwindcss.com/docs/break-after
+       */ 'break-after': [
                 {
                     'break-after': scaleBreak()
                 }
             ],
-            
-
-
- 'break-before': [
+            /**
+       * Break Before
+       * @see https://tailwindcss.com/docs/break-before
+       */ 'break-before': [
                 {
                     'break-before': scaleBreak()
                 }
             ],
-            
-
-
- 'break-inside': [
+            /**
+       * Break Inside
+       * @see https://tailwindcss.com/docs/break-inside
+       */ 'break-inside': [
                 {
                     'break-inside': [
                         'auto',
@@ -3991,10 +3991,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'box-decoration': [
+            /**
+       * Box Decoration Break
+       * @see https://tailwindcss.com/docs/box-decoration-break
+       */ 'box-decoration': [
                 {
                     'box-decoration': [
                         'slice',
@@ -4002,10 +4002,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- box: [
+            /**
+       * Box Sizing
+       * @see https://tailwindcss.com/docs/box-sizing
+       */ box: [
                 {
                     box: [
                         'border',
@@ -4013,10 +4013,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- display: [
+            /**
+       * Display
+       * @see https://tailwindcss.com/docs/display
+       */ display: [
                 'block',
                 'inline-block',
                 'inline',
@@ -4039,17 +4039,17 @@ const getDefaultConfig = ()=>{
                 'list-item',
                 'hidden'
             ],
-            
-
-
- sr: [
+            /**
+       * Screen Reader Only
+       * @see https://tailwindcss.com/docs/display#screen-reader-only
+       */ sr: [
                 'sr-only',
                 'not-sr-only'
             ],
-            
-
-
- float: [
+            /**
+       * Floats
+       * @see https://tailwindcss.com/docs/float
+       */ float: [
                 {
                     float: [
                         'right',
@@ -4060,10 +4060,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- clear: [
+            /**
+       * Clear
+       * @see https://tailwindcss.com/docs/clear
+       */ clear: [
                 {
                     clear: [
                         'left',
@@ -4075,17 +4075,17 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- isolation: [
+            /**
+       * Isolation
+       * @see https://tailwindcss.com/docs/isolation
+       */ isolation: [
                 'isolate',
                 'isolation-auto'
             ],
-            
-
-
- 'object-fit': [
+            /**
+       * Object Fit
+       * @see https://tailwindcss.com/docs/object-fit
+       */ 'object-fit': [
                 {
                     object: [
                         'contain',
@@ -4096,156 +4096,156 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'object-position': [
+            /**
+       * Object Position
+       * @see https://tailwindcss.com/docs/object-position
+       */ 'object-position': [
                 {
                     object: scalePositionWithArbitrary()
                 }
             ],
-            
-
-
- overflow: [
+            /**
+       * Overflow
+       * @see https://tailwindcss.com/docs/overflow
+       */ overflow: [
                 {
                     overflow: scaleOverflow()
                 }
             ],
-            
-
-
- 'overflow-x': [
+            /**
+       * Overflow X
+       * @see https://tailwindcss.com/docs/overflow
+       */ 'overflow-x': [
                 {
                     'overflow-x': scaleOverflow()
                 }
             ],
-            
-
-
- 'overflow-y': [
+            /**
+       * Overflow Y
+       * @see https://tailwindcss.com/docs/overflow
+       */ 'overflow-y': [
                 {
                     'overflow-y': scaleOverflow()
                 }
             ],
-            
-
-
- overscroll: [
+            /**
+       * Overscroll Behavior
+       * @see https://tailwindcss.com/docs/overscroll-behavior
+       */ overscroll: [
                 {
                     overscroll: scaleOverscroll()
                 }
             ],
-            
-
-
- 'overscroll-x': [
+            /**
+       * Overscroll Behavior X
+       * @see https://tailwindcss.com/docs/overscroll-behavior
+       */ 'overscroll-x': [
                 {
                     'overscroll-x': scaleOverscroll()
                 }
             ],
-            
-
-
- 'overscroll-y': [
+            /**
+       * Overscroll Behavior Y
+       * @see https://tailwindcss.com/docs/overscroll-behavior
+       */ 'overscroll-y': [
                 {
                     'overscroll-y': scaleOverscroll()
                 }
             ],
-            
-
-
- position: [
+            /**
+       * Position
+       * @see https://tailwindcss.com/docs/position
+       */ position: [
                 'static',
                 'fixed',
                 'absolute',
                 'relative',
                 'sticky'
             ],
-            
-
-
- inset: [
+            /**
+       * Top / Right / Bottom / Left
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */ inset: [
                 {
                     inset: scaleInset()
                 }
             ],
-            
-
-
- 'inset-x': [
+            /**
+       * Right / Left
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */ 'inset-x': [
                 {
                     'inset-x': scaleInset()
                 }
             ],
-            
-
-
- 'inset-y': [
+            /**
+       * Top / Bottom
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */ 'inset-y': [
                 {
                     'inset-y': scaleInset()
                 }
             ],
-            
-
-
- start: [
+            /**
+       * Start
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */ start: [
                 {
                     start: scaleInset()
                 }
             ],
-            
-
-
- end: [
+            /**
+       * End
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */ end: [
                 {
                     end: scaleInset()
                 }
             ],
-            
-
-
- top: [
+            /**
+       * Top
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */ top: [
                 {
                     top: scaleInset()
                 }
             ],
-            
-
-
- right: [
+            /**
+       * Right
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */ right: [
                 {
                     right: scaleInset()
                 }
             ],
-            
-
-
- bottom: [
+            /**
+       * Bottom
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */ bottom: [
                 {
                     bottom: scaleInset()
                 }
             ],
-            
-
-
- left: [
+            /**
+       * Left
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */ left: [
                 {
                     left: scaleInset()
                 }
             ],
-            
-
-
- visibility: [
+            /**
+       * Visibility
+       * @see https://tailwindcss.com/docs/visibility
+       */ visibility: [
                 'visible',
                 'invisible',
                 'collapse'
             ],
-            
-
-
- z: [
+            /**
+       * Z-Index
+       * @see https://tailwindcss.com/docs/z-index
+       */ z: [
                 {
                     z: [
                         isInteger,
@@ -4255,13 +4255,13 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-            
-            
-            
-
-
- basis: [
+            // ------------------------
+            // --- Flexbox and Grid ---
+            // ------------------------
+            /**
+       * Flex Basis
+       * @see https://tailwindcss.com/docs/flex-basis
+       */ basis: [
                 {
                     basis: [
                         isFraction,
@@ -4272,10 +4272,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'flex-direction': [
+            /**
+       * Flex Direction
+       * @see https://tailwindcss.com/docs/flex-direction
+       */ 'flex-direction': [
                 {
                     flex: [
                         'row',
@@ -4285,10 +4285,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'flex-wrap': [
+            /**
+       * Flex Wrap
+       * @see https://tailwindcss.com/docs/flex-wrap
+       */ 'flex-wrap': [
                 {
                     flex: [
                         'nowrap',
@@ -4297,10 +4297,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- flex: [
+            /**
+       * Flex
+       * @see https://tailwindcss.com/docs/flex
+       */ flex: [
                 {
                     flex: [
                         isNumber,
@@ -4312,10 +4312,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- grow: [
+            /**
+       * Flex Grow
+       * @see https://tailwindcss.com/docs/flex-grow
+       */ grow: [
                 {
                     grow: [
                         '',
@@ -4325,10 +4325,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- shrink: [
+            /**
+       * Flex Shrink
+       * @see https://tailwindcss.com/docs/flex-shrink
+       */ shrink: [
                 {
                     shrink: [
                         '',
@@ -4338,10 +4338,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- order: [
+            /**
+       * Order
+       * @see https://tailwindcss.com/docs/order
+       */ order: [
                 {
                     order: [
                         isInteger,
@@ -4353,74 +4353,74 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'grid-cols': [
+            /**
+       * Grid Template Columns
+       * @see https://tailwindcss.com/docs/grid-template-columns
+       */ 'grid-cols': [
                 {
                     'grid-cols': scaleGridTemplateColsRows()
                 }
             ],
-            
-
-
- 'col-start-end': [
+            /**
+       * Grid Column Start / End
+       * @see https://tailwindcss.com/docs/grid-column
+       */ 'col-start-end': [
                 {
                     col: scaleGridColRowStartAndEnd()
                 }
             ],
-            
-
-
- 'col-start': [
+            /**
+       * Grid Column Start
+       * @see https://tailwindcss.com/docs/grid-column
+       */ 'col-start': [
                 {
                     'col-start': scaleGridColRowStartOrEnd()
                 }
             ],
-            
-
-
- 'col-end': [
+            /**
+       * Grid Column End
+       * @see https://tailwindcss.com/docs/grid-column
+       */ 'col-end': [
                 {
                     'col-end': scaleGridColRowStartOrEnd()
                 }
             ],
-            
-
-
- 'grid-rows': [
+            /**
+       * Grid Template Rows
+       * @see https://tailwindcss.com/docs/grid-template-rows
+       */ 'grid-rows': [
                 {
                     'grid-rows': scaleGridTemplateColsRows()
                 }
             ],
-            
-
-
- 'row-start-end': [
+            /**
+       * Grid Row Start / End
+       * @see https://tailwindcss.com/docs/grid-row
+       */ 'row-start-end': [
                 {
                     row: scaleGridColRowStartAndEnd()
                 }
             ],
-            
-
-
- 'row-start': [
+            /**
+       * Grid Row Start
+       * @see https://tailwindcss.com/docs/grid-row
+       */ 'row-start': [
                 {
                     'row-start': scaleGridColRowStartOrEnd()
                 }
             ],
-            
-
-
- 'row-end': [
+            /**
+       * Grid Row End
+       * @see https://tailwindcss.com/docs/grid-row
+       */ 'row-end': [
                 {
                     'row-end': scaleGridColRowStartOrEnd()
                 }
             ],
-            
-
-
- 'grid-flow': [
+            /**
+       * Grid Auto Flow
+       * @see https://tailwindcss.com/docs/grid-auto-flow
+       */ 'grid-flow': [
                 {
                     'grid-flow': [
                         'row',
@@ -4431,50 +4431,50 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'auto-cols': [
+            /**
+       * Grid Auto Columns
+       * @see https://tailwindcss.com/docs/grid-auto-columns
+       */ 'auto-cols': [
                 {
                     'auto-cols': scaleGridAutoColsRows()
                 }
             ],
-            
-
-
- 'auto-rows': [
+            /**
+       * Grid Auto Rows
+       * @see https://tailwindcss.com/docs/grid-auto-rows
+       */ 'auto-rows': [
                 {
                     'auto-rows': scaleGridAutoColsRows()
                 }
             ],
-            
-
-
- gap: [
+            /**
+       * Gap
+       * @see https://tailwindcss.com/docs/gap
+       */ gap: [
                 {
                     gap: scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'gap-x': [
+            /**
+       * Gap X
+       * @see https://tailwindcss.com/docs/gap
+       */ 'gap-x': [
                 {
                     'gap-x': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'gap-y': [
+            /**
+       * Gap Y
+       * @see https://tailwindcss.com/docs/gap
+       */ 'gap-y': [
                 {
                     'gap-y': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'justify-content': [
+            /**
+       * Justify Content
+       * @see https://tailwindcss.com/docs/justify-content
+       */ 'justify-content': [
                 {
                     justify: [
                         ...scaleAlignPrimaryAxis(),
@@ -4482,10 +4482,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'justify-items': [
+            /**
+       * Justify Items
+       * @see https://tailwindcss.com/docs/justify-items
+       */ 'justify-items': [
                 {
                     'justify-items': [
                         ...scaleAlignSecondaryAxis(),
@@ -4493,10 +4493,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'justify-self': [
+            /**
+       * Justify Self
+       * @see https://tailwindcss.com/docs/justify-self
+       */ 'justify-self': [
                 {
                     'justify-self': [
                         'auto',
@@ -4504,10 +4504,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'align-content': [
+            /**
+       * Align Content
+       * @see https://tailwindcss.com/docs/align-content
+       */ 'align-content': [
                 {
                     content: [
                         'normal',
@@ -4515,10 +4515,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'align-items': [
+            /**
+       * Align Items
+       * @see https://tailwindcss.com/docs/align-items
+       */ 'align-items': [
                 {
                     items: [
                         ...scaleAlignSecondaryAxis(),
@@ -4531,10 +4531,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'align-self': [
+            /**
+       * Align Self
+       * @see https://tailwindcss.com/docs/align-self
+       */ 'align-self': [
                 {
                     self: [
                         'auto',
@@ -4548,18 +4548,18 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'place-content': [
+            /**
+       * Place Content
+       * @see https://tailwindcss.com/docs/place-content
+       */ 'place-content': [
                 {
                     'place-content': scaleAlignPrimaryAxis()
                 }
             ],
-            
-
-
- 'place-items': [
+            /**
+       * Place Items
+       * @see https://tailwindcss.com/docs/place-items
+       */ 'place-items': [
                 {
                     'place-items': [
                         ...scaleAlignSecondaryAxis(),
@@ -4567,10 +4567,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'place-self': [
+            /**
+       * Place Self
+       * @see https://tailwindcss.com/docs/place-self
+       */ 'place-self': [
                 {
                     'place-self': [
                         'auto',
@@ -4578,194 +4578,194 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-            
-
-
- p: [
+            // Spacing
+            /**
+       * Padding
+       * @see https://tailwindcss.com/docs/padding
+       */ p: [
                 {
                     p: scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- px: [
+            /**
+       * Padding X
+       * @see https://tailwindcss.com/docs/padding
+       */ px: [
                 {
                     px: scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- py: [
+            /**
+       * Padding Y
+       * @see https://tailwindcss.com/docs/padding
+       */ py: [
                 {
                     py: scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- ps: [
+            /**
+       * Padding Start
+       * @see https://tailwindcss.com/docs/padding
+       */ ps: [
                 {
                     ps: scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- pe: [
+            /**
+       * Padding End
+       * @see https://tailwindcss.com/docs/padding
+       */ pe: [
                 {
                     pe: scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- pt: [
+            /**
+       * Padding Top
+       * @see https://tailwindcss.com/docs/padding
+       */ pt: [
                 {
                     pt: scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- pr: [
+            /**
+       * Padding Right
+       * @see https://tailwindcss.com/docs/padding
+       */ pr: [
                 {
                     pr: scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- pb: [
+            /**
+       * Padding Bottom
+       * @see https://tailwindcss.com/docs/padding
+       */ pb: [
                 {
                     pb: scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- pl: [
+            /**
+       * Padding Left
+       * @see https://tailwindcss.com/docs/padding
+       */ pl: [
                 {
                     pl: scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- m: [
+            /**
+       * Margin
+       * @see https://tailwindcss.com/docs/margin
+       */ m: [
                 {
                     m: scaleMargin()
                 }
             ],
-            
-
-
- mx: [
+            /**
+       * Margin X
+       * @see https://tailwindcss.com/docs/margin
+       */ mx: [
                 {
                     mx: scaleMargin()
                 }
             ],
-            
-
-
- my: [
+            /**
+       * Margin Y
+       * @see https://tailwindcss.com/docs/margin
+       */ my: [
                 {
                     my: scaleMargin()
                 }
             ],
-            
-
-
- ms: [
+            /**
+       * Margin Start
+       * @see https://tailwindcss.com/docs/margin
+       */ ms: [
                 {
                     ms: scaleMargin()
                 }
             ],
-            
-
-
- me: [
+            /**
+       * Margin End
+       * @see https://tailwindcss.com/docs/margin
+       */ me: [
                 {
                     me: scaleMargin()
                 }
             ],
-            
-
-
- mt: [
+            /**
+       * Margin Top
+       * @see https://tailwindcss.com/docs/margin
+       */ mt: [
                 {
                     mt: scaleMargin()
                 }
             ],
-            
-
-
- mr: [
+            /**
+       * Margin Right
+       * @see https://tailwindcss.com/docs/margin
+       */ mr: [
                 {
                     mr: scaleMargin()
                 }
             ],
-            
-
-
- mb: [
+            /**
+       * Margin Bottom
+       * @see https://tailwindcss.com/docs/margin
+       */ mb: [
                 {
                     mb: scaleMargin()
                 }
             ],
-            
-
-
- ml: [
+            /**
+       * Margin Left
+       * @see https://tailwindcss.com/docs/margin
+       */ ml: [
                 {
                     ml: scaleMargin()
                 }
             ],
-            
-
-
- 'space-x': [
+            /**
+       * Space Between X
+       * @see https://tailwindcss.com/docs/margin#adding-space-between-children
+       */ 'space-x': [
                 {
                     'space-x': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'space-x-reverse': [
+            /**
+       * Space Between X Reverse
+       * @see https://tailwindcss.com/docs/margin#adding-space-between-children
+       */ 'space-x-reverse': [
                 'space-x-reverse'
             ],
-            
-
-
- 'space-y': [
+            /**
+       * Space Between Y
+       * @see https://tailwindcss.com/docs/margin#adding-space-between-children
+       */ 'space-y': [
                 {
                     'space-y': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'space-y-reverse': [
+            /**
+       * Space Between Y Reverse
+       * @see https://tailwindcss.com/docs/margin#adding-space-between-children
+       */ 'space-y-reverse': [
                 'space-y-reverse'
             ],
-            
-            
-            
-            
-
-
- size: [
+            // --------------
+            // --- Sizing ---
+            // --------------
+            /**
+       * Size
+       * @see https://tailwindcss.com/docs/width#setting-both-width-and-height
+       */ size: [
                 {
                     size: scaleSizing()
                 }
             ],
-            
-
-
- w: [
+            /**
+       * Width
+       * @see https://tailwindcss.com/docs/width
+       */ w: [
                 {
                     w: [
                         themeContainer,
@@ -4774,30 +4774,30 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'min-w': [
+            /**
+       * Min-Width
+       * @see https://tailwindcss.com/docs/min-width
+       */ 'min-w': [
                 {
                     'min-w': [
                         themeContainer,
                         'screen',
-                         'none',
+                        /** Deprecated. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */ 'none',
                         ...scaleSizing()
                     ]
                 }
             ],
-            
-
-
- 'max-w': [
+            /**
+       * Max-Width
+       * @see https://tailwindcss.com/docs/max-width
+       */ 'max-w': [
                 {
                     'max-w': [
                         themeContainer,
                         'screen',
                         'none',
-                         'prose',
-                         {
+                        /** Deprecated since Tailwind CSS v4.0.0. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */ 'prose',
+                        /** Deprecated since Tailwind CSS v4.0.0. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */ {
                             screen: [
                                 themeBreakpoint
                             ]
@@ -4806,10 +4806,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- h: [
+            /**
+       * Height
+       * @see https://tailwindcss.com/docs/height
+       */ h: [
                 {
                     h: [
                         'screen',
@@ -4818,10 +4818,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'min-h': [
+            /**
+       * Min-Height
+       * @see https://tailwindcss.com/docs/min-height
+       */ 'min-h': [
                 {
                     'min-h': [
                         'screen',
@@ -4831,10 +4831,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'max-h': [
+            /**
+       * Max-Height
+       * @see https://tailwindcss.com/docs/max-height
+       */ 'max-h': [
                 {
                     'max-h': [
                         'screen',
@@ -4843,13 +4843,13 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-            
-            
-            
-
-
- 'font-size': [
+            // ------------------
+            // --- Typography ---
+            // ------------------
+            /**
+       * Font Size
+       * @see https://tailwindcss.com/docs/font-size
+       */ 'font-size': [
                 {
                     text: [
                         'base',
@@ -4859,24 +4859,24 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'font-smoothing': [
+            /**
+       * Font Smoothing
+       * @see https://tailwindcss.com/docs/font-smoothing
+       */ 'font-smoothing': [
                 'antialiased',
                 'subpixel-antialiased'
             ],
-            
-
-
- 'font-style': [
+            /**
+       * Font Style
+       * @see https://tailwindcss.com/docs/font-style
+       */ 'font-style': [
                 'italic',
                 'not-italic'
             ],
-            
-
-
- 'font-weight': [
+            /**
+       * Font Weight
+       * @see https://tailwindcss.com/docs/font-weight
+       */ 'font-weight': [
                 {
                     font: [
                         themeFontWeight,
@@ -4885,10 +4885,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'font-stretch': [
+            /**
+       * Font Stretch
+       * @see https://tailwindcss.com/docs/font-stretch
+       */ 'font-stretch': [
                 {
                     'font-stretch': [
                         'ultra-condensed',
@@ -4905,10 +4905,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'font-family': [
+            /**
+       * Font Family
+       * @see https://tailwindcss.com/docs/font-family
+       */ 'font-family': [
                 {
                     font: [
                         isArbitraryVariableFamilyName,
@@ -4917,49 +4917,49 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'fvn-normal': [
+            /**
+       * Font Variant Numeric
+       * @see https://tailwindcss.com/docs/font-variant-numeric
+       */ 'fvn-normal': [
                 'normal-nums'
             ],
-            
-
-
- 'fvn-ordinal': [
+            /**
+       * Font Variant Numeric
+       * @see https://tailwindcss.com/docs/font-variant-numeric
+       */ 'fvn-ordinal': [
                 'ordinal'
             ],
-            
-
-
- 'fvn-slashed-zero': [
+            /**
+       * Font Variant Numeric
+       * @see https://tailwindcss.com/docs/font-variant-numeric
+       */ 'fvn-slashed-zero': [
                 'slashed-zero'
             ],
-            
-
-
- 'fvn-figure': [
+            /**
+       * Font Variant Numeric
+       * @see https://tailwindcss.com/docs/font-variant-numeric
+       */ 'fvn-figure': [
                 'lining-nums',
                 'oldstyle-nums'
             ],
-            
-
-
- 'fvn-spacing': [
+            /**
+       * Font Variant Numeric
+       * @see https://tailwindcss.com/docs/font-variant-numeric
+       */ 'fvn-spacing': [
                 'proportional-nums',
                 'tabular-nums'
             ],
-            
-
-
- 'fvn-fraction': [
+            /**
+       * Font Variant Numeric
+       * @see https://tailwindcss.com/docs/font-variant-numeric
+       */ 'fvn-fraction': [
                 'diagonal-fractions',
                 'stacked-fractions'
             ],
-            
-
-
- tracking: [
+            /**
+       * Letter Spacing
+       * @see https://tailwindcss.com/docs/letter-spacing
+       */ tracking: [
                 {
                     tracking: [
                         themeTracking,
@@ -4968,10 +4968,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'line-clamp': [
+            /**
+       * Line Clamp
+       * @see https://tailwindcss.com/docs/line-clamp
+       */ 'line-clamp': [
                 {
                     'line-clamp': [
                         isNumber,
@@ -4981,21 +4981,21 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- leading: [
+            /**
+       * Line Height
+       * @see https://tailwindcss.com/docs/line-height
+       */ leading: [
                 {
                     leading: [
-                         themeLeading,
+                        /** Deprecated since Tailwind CSS v4.0.0. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */ themeLeading,
                         ...scaleUnambiguousSpacing()
                     ]
                 }
             ],
-            
-
-
- 'list-image': [
+            /**
+       * List Style Image
+       * @see https://tailwindcss.com/docs/list-style-image
+       */ 'list-image': [
                 {
                     'list-image': [
                         'none',
@@ -5004,10 +5004,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'list-style-position': [
+            /**
+       * List Style Position
+       * @see https://tailwindcss.com/docs/list-style-position
+       */ 'list-style-position': [
                 {
                     list: [
                         'inside',
@@ -5015,10 +5015,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'list-style-type': [
+            /**
+       * List Style Type
+       * @see https://tailwindcss.com/docs/list-style-type
+       */ 'list-style-type': [
                 {
                     list: [
                         'disc',
@@ -5029,10 +5029,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'text-alignment': [
+            /**
+       * Text Alignment
+       * @see https://tailwindcss.com/docs/text-align
+       */ 'text-alignment': [
                 {
                     text: [
                         'left',
@@ -5044,36 +5044,36 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
-
- 'placeholder-color': [
+            /**
+       * Placeholder Color
+       * @deprecated since Tailwind CSS v3.0.0
+       * @see https://v3.tailwindcss.com/docs/placeholder-color
+       */ 'placeholder-color': [
                 {
                     placeholder: scaleColor()
                 }
             ],
-            
-
-
- 'text-color': [
+            /**
+       * Text Color
+       * @see https://tailwindcss.com/docs/text-color
+       */ 'text-color': [
                 {
                     text: scaleColor()
                 }
             ],
-            
-
-
- 'text-decoration': [
+            /**
+       * Text Decoration
+       * @see https://tailwindcss.com/docs/text-decoration
+       */ 'text-decoration': [
                 'underline',
                 'overline',
                 'line-through',
                 'no-underline'
             ],
-            
-
-
- 'text-decoration-style': [
+            /**
+       * Text Decoration Style
+       * @see https://tailwindcss.com/docs/text-decoration-style
+       */ 'text-decoration-style': [
                 {
                     decoration: [
                         ...scaleLineStyle(),
@@ -5081,10 +5081,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'text-decoration-thickness': [
+            /**
+       * Text Decoration Thickness
+       * @see https://tailwindcss.com/docs/text-decoration-thickness
+       */ 'text-decoration-thickness': [
                 {
                     decoration: [
                         isNumber,
@@ -5095,18 +5095,18 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'text-decoration-color': [
+            /**
+       * Text Decoration Color
+       * @see https://tailwindcss.com/docs/text-decoration-color
+       */ 'text-decoration-color': [
                 {
                     decoration: scaleColor()
                 }
             ],
-            
-
-
- 'underline-offset': [
+            /**
+       * Text Underline Offset
+       * @see https://tailwindcss.com/docs/text-underline-offset
+       */ 'underline-offset': [
                 {
                     'underline-offset': [
                         isNumber,
@@ -5116,27 +5116,27 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'text-transform': [
+            /**
+       * Text Transform
+       * @see https://tailwindcss.com/docs/text-transform
+       */ 'text-transform': [
                 'uppercase',
                 'lowercase',
                 'capitalize',
                 'normal-case'
             ],
-            
-
-
- 'text-overflow': [
+            /**
+       * Text Overflow
+       * @see https://tailwindcss.com/docs/text-overflow
+       */ 'text-overflow': [
                 'truncate',
                 'text-ellipsis',
                 'text-clip'
             ],
-            
-
-
- 'text-wrap': [
+            /**
+       * Text Wrap
+       * @see https://tailwindcss.com/docs/text-wrap
+       */ 'text-wrap': [
                 {
                     text: [
                         'wrap',
@@ -5146,18 +5146,18 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- indent: [
+            /**
+       * Text Indent
+       * @see https://tailwindcss.com/docs/text-indent
+       */ indent: [
                 {
                     indent: scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'vertical-align': [
+            /**
+       * Vertical Alignment
+       * @see https://tailwindcss.com/docs/vertical-align
+       */ 'vertical-align': [
                 {
                     align: [
                         'baseline',
@@ -5173,10 +5173,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- whitespace: [
+            /**
+       * Whitespace
+       * @see https://tailwindcss.com/docs/whitespace
+       */ whitespace: [
                 {
                     whitespace: [
                         'normal',
@@ -5188,10 +5188,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- break: [
+            /**
+       * Word Break
+       * @see https://tailwindcss.com/docs/word-break
+       */ break: [
                 {
                     break: [
                         'normal',
@@ -5201,10 +5201,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- wrap: [
+            /**
+       * Overflow Wrap
+       * @see https://tailwindcss.com/docs/overflow-wrap
+       */ wrap: [
                 {
                     wrap: [
                         'break-word',
@@ -5213,10 +5213,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- hyphens: [
+            /**
+       * Hyphens
+       * @see https://tailwindcss.com/docs/hyphens
+       */ hyphens: [
                 {
                     hyphens: [
                         'none',
@@ -5225,10 +5225,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- content: [
+            /**
+       * Content
+       * @see https://tailwindcss.com/docs/content
+       */ content: [
                 {
                     content: [
                         'none',
@@ -5237,13 +5237,13 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-            
-            
-            
-
-
- 'bg-attachment': [
+            // -------------------
+            // --- Backgrounds ---
+            // -------------------
+            /**
+       * Background Attachment
+       * @see https://tailwindcss.com/docs/background-attachment
+       */ 'bg-attachment': [
                 {
                     bg: [
                         'fixed',
@@ -5252,10 +5252,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'bg-clip': [
+            /**
+       * Background Clip
+       * @see https://tailwindcss.com/docs/background-clip
+       */ 'bg-clip': [
                 {
                     'bg-clip': [
                         'border',
@@ -5265,10 +5265,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'bg-origin': [
+            /**
+       * Background Origin
+       * @see https://tailwindcss.com/docs/background-origin
+       */ 'bg-origin': [
                 {
                     'bg-origin': [
                         'border',
@@ -5277,34 +5277,34 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'bg-position': [
+            /**
+       * Background Position
+       * @see https://tailwindcss.com/docs/background-position
+       */ 'bg-position': [
                 {
                     bg: scaleBgPosition()
                 }
             ],
-            
-
-
- 'bg-repeat': [
+            /**
+       * Background Repeat
+       * @see https://tailwindcss.com/docs/background-repeat
+       */ 'bg-repeat': [
                 {
                     bg: scaleBgRepeat()
                 }
             ],
-            
-
-
- 'bg-size': [
+            /**
+       * Background Size
+       * @see https://tailwindcss.com/docs/background-size
+       */ 'bg-size': [
                 {
                     bg: scaleBgSize()
                 }
             ],
-            
-
-
- 'bg-image': [
+            /**
+       * Background Image
+       * @see https://tailwindcss.com/docs/background-image
+       */ 'bg-image': [
                 {
                     bg: [
                         'none',
@@ -5342,289 +5342,289 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'bg-color': [
+            /**
+       * Background Color
+       * @see https://tailwindcss.com/docs/background-color
+       */ 'bg-color': [
                 {
                     bg: scaleColor()
                 }
             ],
-            
-
-
- 'gradient-from-pos': [
+            /**
+       * Gradient Color Stops From Position
+       * @see https://tailwindcss.com/docs/gradient-color-stops
+       */ 'gradient-from-pos': [
                 {
                     from: scaleGradientStopPosition()
                 }
             ],
-            
-
-
- 'gradient-via-pos': [
+            /**
+       * Gradient Color Stops Via Position
+       * @see https://tailwindcss.com/docs/gradient-color-stops
+       */ 'gradient-via-pos': [
                 {
                     via: scaleGradientStopPosition()
                 }
             ],
-            
-
-
- 'gradient-to-pos': [
+            /**
+       * Gradient Color Stops To Position
+       * @see https://tailwindcss.com/docs/gradient-color-stops
+       */ 'gradient-to-pos': [
                 {
                     to: scaleGradientStopPosition()
                 }
             ],
-            
-
-
- 'gradient-from': [
+            /**
+       * Gradient Color Stops From
+       * @see https://tailwindcss.com/docs/gradient-color-stops
+       */ 'gradient-from': [
                 {
                     from: scaleColor()
                 }
             ],
-            
-
-
- 'gradient-via': [
+            /**
+       * Gradient Color Stops Via
+       * @see https://tailwindcss.com/docs/gradient-color-stops
+       */ 'gradient-via': [
                 {
                     via: scaleColor()
                 }
             ],
-            
-
-
- 'gradient-to': [
+            /**
+       * Gradient Color Stops To
+       * @see https://tailwindcss.com/docs/gradient-color-stops
+       */ 'gradient-to': [
                 {
                     to: scaleColor()
                 }
             ],
-            
-            
-            
-            
-
-
- rounded: [
+            // ---------------
+            // --- Borders ---
+            // ---------------
+            /**
+       * Border Radius
+       * @see https://tailwindcss.com/docs/border-radius
+       */ rounded: [
                 {
                     rounded: scaleRadius()
                 }
             ],
-            
-
-
- 'rounded-s': [
+            /**
+       * Border Radius Start
+       * @see https://tailwindcss.com/docs/border-radius
+       */ 'rounded-s': [
                 {
                     'rounded-s': scaleRadius()
                 }
             ],
-            
-
-
- 'rounded-e': [
+            /**
+       * Border Radius End
+       * @see https://tailwindcss.com/docs/border-radius
+       */ 'rounded-e': [
                 {
                     'rounded-e': scaleRadius()
                 }
             ],
-            
-
-
- 'rounded-t': [
+            /**
+       * Border Radius Top
+       * @see https://tailwindcss.com/docs/border-radius
+       */ 'rounded-t': [
                 {
                     'rounded-t': scaleRadius()
                 }
             ],
-            
-
-
- 'rounded-r': [
+            /**
+       * Border Radius Right
+       * @see https://tailwindcss.com/docs/border-radius
+       */ 'rounded-r': [
                 {
                     'rounded-r': scaleRadius()
                 }
             ],
-            
-
-
- 'rounded-b': [
+            /**
+       * Border Radius Bottom
+       * @see https://tailwindcss.com/docs/border-radius
+       */ 'rounded-b': [
                 {
                     'rounded-b': scaleRadius()
                 }
             ],
-            
-
-
- 'rounded-l': [
+            /**
+       * Border Radius Left
+       * @see https://tailwindcss.com/docs/border-radius
+       */ 'rounded-l': [
                 {
                     'rounded-l': scaleRadius()
                 }
             ],
-            
-
-
- 'rounded-ss': [
+            /**
+       * Border Radius Start Start
+       * @see https://tailwindcss.com/docs/border-radius
+       */ 'rounded-ss': [
                 {
                     'rounded-ss': scaleRadius()
                 }
             ],
-            
-
-
- 'rounded-se': [
+            /**
+       * Border Radius Start End
+       * @see https://tailwindcss.com/docs/border-radius
+       */ 'rounded-se': [
                 {
                     'rounded-se': scaleRadius()
                 }
             ],
-            
-
-
- 'rounded-ee': [
+            /**
+       * Border Radius End End
+       * @see https://tailwindcss.com/docs/border-radius
+       */ 'rounded-ee': [
                 {
                     'rounded-ee': scaleRadius()
                 }
             ],
-            
-
-
- 'rounded-es': [
+            /**
+       * Border Radius End Start
+       * @see https://tailwindcss.com/docs/border-radius
+       */ 'rounded-es': [
                 {
                     'rounded-es': scaleRadius()
                 }
             ],
-            
-
-
- 'rounded-tl': [
+            /**
+       * Border Radius Top Left
+       * @see https://tailwindcss.com/docs/border-radius
+       */ 'rounded-tl': [
                 {
                     'rounded-tl': scaleRadius()
                 }
             ],
-            
-
-
- 'rounded-tr': [
+            /**
+       * Border Radius Top Right
+       * @see https://tailwindcss.com/docs/border-radius
+       */ 'rounded-tr': [
                 {
                     'rounded-tr': scaleRadius()
                 }
             ],
-            
-
-
- 'rounded-br': [
+            /**
+       * Border Radius Bottom Right
+       * @see https://tailwindcss.com/docs/border-radius
+       */ 'rounded-br': [
                 {
                     'rounded-br': scaleRadius()
                 }
             ],
-            
-
-
- 'rounded-bl': [
+            /**
+       * Border Radius Bottom Left
+       * @see https://tailwindcss.com/docs/border-radius
+       */ 'rounded-bl': [
                 {
                     'rounded-bl': scaleRadius()
                 }
             ],
-            
-
-
- 'border-w': [
+            /**
+       * Border Width
+       * @see https://tailwindcss.com/docs/border-width
+       */ 'border-w': [
                 {
                     border: scaleBorderWidth()
                 }
             ],
-            
-
-
- 'border-w-x': [
+            /**
+       * Border Width X
+       * @see https://tailwindcss.com/docs/border-width
+       */ 'border-w-x': [
                 {
                     'border-x': scaleBorderWidth()
                 }
             ],
-            
-
-
- 'border-w-y': [
+            /**
+       * Border Width Y
+       * @see https://tailwindcss.com/docs/border-width
+       */ 'border-w-y': [
                 {
                     'border-y': scaleBorderWidth()
                 }
             ],
-            
-
-
- 'border-w-s': [
+            /**
+       * Border Width Start
+       * @see https://tailwindcss.com/docs/border-width
+       */ 'border-w-s': [
                 {
                     'border-s': scaleBorderWidth()
                 }
             ],
-            
-
-
- 'border-w-e': [
+            /**
+       * Border Width End
+       * @see https://tailwindcss.com/docs/border-width
+       */ 'border-w-e': [
                 {
                     'border-e': scaleBorderWidth()
                 }
             ],
-            
-
-
- 'border-w-t': [
+            /**
+       * Border Width Top
+       * @see https://tailwindcss.com/docs/border-width
+       */ 'border-w-t': [
                 {
                     'border-t': scaleBorderWidth()
                 }
             ],
-            
-
-
- 'border-w-r': [
+            /**
+       * Border Width Right
+       * @see https://tailwindcss.com/docs/border-width
+       */ 'border-w-r': [
                 {
                     'border-r': scaleBorderWidth()
                 }
             ],
-            
-
-
- 'border-w-b': [
+            /**
+       * Border Width Bottom
+       * @see https://tailwindcss.com/docs/border-width
+       */ 'border-w-b': [
                 {
                     'border-b': scaleBorderWidth()
                 }
             ],
-            
-
-
- 'border-w-l': [
+            /**
+       * Border Width Left
+       * @see https://tailwindcss.com/docs/border-width
+       */ 'border-w-l': [
                 {
                     'border-l': scaleBorderWidth()
                 }
             ],
-            
-
-
- 'divide-x': [
+            /**
+       * Divide Width X
+       * @see https://tailwindcss.com/docs/border-width#between-children
+       */ 'divide-x': [
                 {
                     'divide-x': scaleBorderWidth()
                 }
             ],
-            
-
-
- 'divide-x-reverse': [
+            /**
+       * Divide Width X Reverse
+       * @see https://tailwindcss.com/docs/border-width#between-children
+       */ 'divide-x-reverse': [
                 'divide-x-reverse'
             ],
-            
-
-
- 'divide-y': [
+            /**
+       * Divide Width Y
+       * @see https://tailwindcss.com/docs/border-width#between-children
+       */ 'divide-y': [
                 {
                     'divide-y': scaleBorderWidth()
                 }
             ],
-            
-
-
- 'divide-y-reverse': [
+            /**
+       * Divide Width Y Reverse
+       * @see https://tailwindcss.com/docs/border-width#between-children
+       */ 'divide-y-reverse': [
                 'divide-y-reverse'
             ],
-            
-
-
- 'border-style': [
+            /**
+       * Border Style
+       * @see https://tailwindcss.com/docs/border-style
+       */ 'border-style': [
                 {
                     border: [
                         ...scaleLineStyle(),
@@ -5633,10 +5633,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'divide-style': [
+            /**
+       * Divide Style
+       * @see https://tailwindcss.com/docs/border-style#setting-the-divider-style
+       */ 'divide-style': [
                 {
                     divide: [
                         ...scaleLineStyle(),
@@ -5645,90 +5645,90 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'border-color': [
+            /**
+       * Border Color
+       * @see https://tailwindcss.com/docs/border-color
+       */ 'border-color': [
                 {
                     border: scaleColor()
                 }
             ],
-            
-
-
- 'border-color-x': [
+            /**
+       * Border Color X
+       * @see https://tailwindcss.com/docs/border-color
+       */ 'border-color-x': [
                 {
                     'border-x': scaleColor()
                 }
             ],
-            
-
-
- 'border-color-y': [
+            /**
+       * Border Color Y
+       * @see https://tailwindcss.com/docs/border-color
+       */ 'border-color-y': [
                 {
                     'border-y': scaleColor()
                 }
             ],
-            
-
-
- 'border-color-s': [
+            /**
+       * Border Color S
+       * @see https://tailwindcss.com/docs/border-color
+       */ 'border-color-s': [
                 {
                     'border-s': scaleColor()
                 }
             ],
-            
-
-
- 'border-color-e': [
+            /**
+       * Border Color E
+       * @see https://tailwindcss.com/docs/border-color
+       */ 'border-color-e': [
                 {
                     'border-e': scaleColor()
                 }
             ],
-            
-
-
- 'border-color-t': [
+            /**
+       * Border Color Top
+       * @see https://tailwindcss.com/docs/border-color
+       */ 'border-color-t': [
                 {
                     'border-t': scaleColor()
                 }
             ],
-            
-
-
- 'border-color-r': [
+            /**
+       * Border Color Right
+       * @see https://tailwindcss.com/docs/border-color
+       */ 'border-color-r': [
                 {
                     'border-r': scaleColor()
                 }
             ],
-            
-
-
- 'border-color-b': [
+            /**
+       * Border Color Bottom
+       * @see https://tailwindcss.com/docs/border-color
+       */ 'border-color-b': [
                 {
                     'border-b': scaleColor()
                 }
             ],
-            
-
-
- 'border-color-l': [
+            /**
+       * Border Color Left
+       * @see https://tailwindcss.com/docs/border-color
+       */ 'border-color-l': [
                 {
                     'border-l': scaleColor()
                 }
             ],
-            
-
-
- 'divide-color': [
+            /**
+       * Divide Color
+       * @see https://tailwindcss.com/docs/divide-color
+       */ 'divide-color': [
                 {
                     divide: scaleColor()
                 }
             ],
-            
-
-
- 'outline-style': [
+            /**
+       * Outline Style
+       * @see https://tailwindcss.com/docs/outline-style
+       */ 'outline-style': [
                 {
                     outline: [
                         ...scaleLineStyle(),
@@ -5737,10 +5737,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'outline-offset': [
+            /**
+       * Outline Offset
+       * @see https://tailwindcss.com/docs/outline-offset
+       */ 'outline-offset': [
                 {
                     'outline-offset': [
                         isNumber,
@@ -5749,10 +5749,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'outline-w': [
+            /**
+       * Outline Width
+       * @see https://tailwindcss.com/docs/outline-width
+       */ 'outline-w': [
                 {
                     outline: [
                         '',
@@ -5762,24 +5762,24 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'outline-color': [
+            /**
+       * Outline Color
+       * @see https://tailwindcss.com/docs/outline-color
+       */ 'outline-color': [
                 {
                     outline: scaleColor()
                 }
             ],
-            
-            
-            
-            
-
-
- shadow: [
+            // ---------------
+            // --- Effects ---
+            // ---------------
+            /**
+       * Box Shadow
+       * @see https://tailwindcss.com/docs/box-shadow
+       */ shadow: [
                 {
                     shadow: [
-                        
+                        // Deprecated since Tailwind CSS v4.0.0
                         '',
                         'none',
                         themeShadow,
@@ -5788,18 +5788,18 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'shadow-color': [
+            /**
+       * Box Shadow Color
+       * @see https://tailwindcss.com/docs/box-shadow#setting-the-shadow-color
+       */ 'shadow-color': [
                 {
                     shadow: scaleColor()
                 }
             ],
-            
-
-
- 'inset-shadow': [
+            /**
+       * Inset Box Shadow
+       * @see https://tailwindcss.com/docs/box-shadow#adding-an-inset-shadow
+       */ 'inset-shadow': [
                 {
                     'inset-shadow': [
                         'none',
@@ -5809,44 +5809,44 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'inset-shadow-color': [
+            /**
+       * Inset Box Shadow Color
+       * @see https://tailwindcss.com/docs/box-shadow#setting-the-inset-shadow-color
+       */ 'inset-shadow-color': [
                 {
                     'inset-shadow': scaleColor()
                 }
             ],
-            
-
-
- 'ring-w': [
+            /**
+       * Ring Width
+       * @see https://tailwindcss.com/docs/box-shadow#adding-a-ring
+       */ 'ring-w': [
                 {
                     ring: scaleBorderWidth()
                 }
             ],
-            
-
-
-
-
- 'ring-w-inset': [
+            /**
+       * Ring Width Inset
+       * @see https://v3.tailwindcss.com/docs/ring-width#inset-rings
+       * @deprecated since Tailwind CSS v4.0.0
+       * @see https://github.com/tailwindlabs/tailwindcss/blob/v4.0.0/packages/tailwindcss/src/utilities.ts#L4158
+       */ 'ring-w-inset': [
                 'ring-inset'
             ],
-            
-
-
- 'ring-color': [
+            /**
+       * Ring Color
+       * @see https://tailwindcss.com/docs/box-shadow#setting-the-ring-color
+       */ 'ring-color': [
                 {
                     ring: scaleColor()
                 }
             ],
-            
-
-
-
-
- 'ring-offset-w': [
+            /**
+       * Ring Offset Width
+       * @see https://v3.tailwindcss.com/docs/ring-offset-width
+       * @deprecated since Tailwind CSS v4.0.0
+       * @see https://github.com/tailwindlabs/tailwindcss/blob/v4.0.0/packages/tailwindcss/src/utilities.ts#L4158
+       */ 'ring-offset-w': [
                 {
                     'ring-offset': [
                         isNumber,
@@ -5854,36 +5854,36 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
-
-
- 'ring-offset-color': [
+            /**
+       * Ring Offset Color
+       * @see https://v3.tailwindcss.com/docs/ring-offset-color
+       * @deprecated since Tailwind CSS v4.0.0
+       * @see https://github.com/tailwindlabs/tailwindcss/blob/v4.0.0/packages/tailwindcss/src/utilities.ts#L4158
+       */ 'ring-offset-color': [
                 {
                     'ring-offset': scaleColor()
                 }
             ],
-            
-
-
- 'inset-ring-w': [
+            /**
+       * Inset Ring Width
+       * @see https://tailwindcss.com/docs/box-shadow#adding-an-inset-ring
+       */ 'inset-ring-w': [
                 {
                     'inset-ring': scaleBorderWidth()
                 }
             ],
-            
-
-
- 'inset-ring-color': [
+            /**
+       * Inset Ring Color
+       * @see https://tailwindcss.com/docs/box-shadow#setting-the-inset-ring-color
+       */ 'inset-ring-color': [
                 {
                     'inset-ring': scaleColor()
                 }
             ],
-            
-
-
- 'text-shadow': [
+            /**
+       * Text Shadow
+       * @see https://tailwindcss.com/docs/text-shadow
+       */ 'text-shadow': [
                 {
                     'text-shadow': [
                         'none',
@@ -5893,18 +5893,18 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'text-shadow-color': [
+            /**
+       * Text Shadow Color
+       * @see https://tailwindcss.com/docs/text-shadow#setting-the-shadow-color
+       */ 'text-shadow-color': [
                 {
                     'text-shadow': scaleColor()
                 }
             ],
-            
-
-
- opacity: [
+            /**
+       * Opacity
+       * @see https://tailwindcss.com/docs/opacity
+       */ opacity: [
                 {
                     opacity: [
                         isNumber,
@@ -5913,10 +5913,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'mix-blend': [
+            /**
+       * Mix Blend Mode
+       * @see https://tailwindcss.com/docs/mix-blend-mode
+       */ 'mix-blend': [
                 {
                     'mix-blend': [
                         ...scaleBlendMode(),
@@ -5925,18 +5925,18 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'bg-blend': [
+            /**
+       * Background Blend Mode
+       * @see https://tailwindcss.com/docs/background-blend-mode
+       */ 'bg-blend': [
                 {
                     'bg-blend': scaleBlendMode()
                 }
             ],
-            
-
-
- 'mask-clip': [
+            /**
+       * Mask Clip
+       * @see https://tailwindcss.com/docs/mask-clip
+       */ 'mask-clip': [
                 {
                     'mask-clip': [
                         'border',
@@ -5949,10 +5949,10 @@ const getDefaultConfig = ()=>{
                 },
                 'mask-no-clip'
             ],
-            
-
-
- 'mask-composite': [
+            /**
+       * Mask Composite
+       * @see https://tailwindcss.com/docs/mask-composite
+       */ 'mask-composite': [
                 {
                     mask: [
                         'add',
@@ -5962,10 +5962,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'mask-image-linear-pos': [
+            /**
+       * Mask Image
+       * @see https://tailwindcss.com/docs/mask-image
+       */ 'mask-image-linear-pos': [
                 {
                     'mask-linear': [
                         isNumber
@@ -6196,10 +6196,10 @@ const getDefaultConfig = ()=>{
                     'mask-conic-to': scaleColor()
                 }
             ],
-            
-
-
- 'mask-mode': [
+            /**
+       * Mask Mode
+       * @see https://tailwindcss.com/docs/mask-mode
+       */ 'mask-mode': [
                 {
                     mask: [
                         'alpha',
@@ -6208,10 +6208,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'mask-origin': [
+            /**
+       * Mask Origin
+       * @see https://tailwindcss.com/docs/mask-origin
+       */ 'mask-origin': [
                 {
                     'mask-origin': [
                         'border',
@@ -6223,34 +6223,34 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'mask-position': [
+            /**
+       * Mask Position
+       * @see https://tailwindcss.com/docs/mask-position
+       */ 'mask-position': [
                 {
                     mask: scaleBgPosition()
                 }
             ],
-            
-
-
- 'mask-repeat': [
+            /**
+       * Mask Repeat
+       * @see https://tailwindcss.com/docs/mask-repeat
+       */ 'mask-repeat': [
                 {
                     mask: scaleBgRepeat()
                 }
             ],
-            
-
-
- 'mask-size': [
+            /**
+       * Mask Size
+       * @see https://tailwindcss.com/docs/mask-size
+       */ 'mask-size': [
                 {
                     mask: scaleBgSize()
                 }
             ],
-            
-
-
- 'mask-type': [
+            /**
+       * Mask Type
+       * @see https://tailwindcss.com/docs/mask-type
+       */ 'mask-type': [
                 {
                     'mask-type': [
                         'alpha',
@@ -6258,10 +6258,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'mask-image': [
+            /**
+       * Mask Image
+       * @see https://tailwindcss.com/docs/mask-image
+       */ 'mask-image': [
                 {
                     mask: [
                         'none',
@@ -6270,16 +6270,16 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-            
-            
-            
-
-
- filter: [
+            // ---------------
+            // --- Filters ---
+            // ---------------
+            /**
+       * Filter
+       * @see https://tailwindcss.com/docs/filter
+       */ filter: [
                 {
                     filter: [
-                        
+                        // Deprecated since Tailwind CSS v3.0.0
                         '',
                         'none',
                         isArbitraryVariable,
@@ -6287,18 +6287,18 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- blur: [
+            /**
+       * Blur
+       * @see https://tailwindcss.com/docs/blur
+       */ blur: [
                 {
                     blur: scaleBlur()
                 }
             ],
-            
-
-
- brightness: [
+            /**
+       * Brightness
+       * @see https://tailwindcss.com/docs/brightness
+       */ brightness: [
                 {
                     brightness: [
                         isNumber,
@@ -6307,10 +6307,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- contrast: [
+            /**
+       * Contrast
+       * @see https://tailwindcss.com/docs/contrast
+       */ contrast: [
                 {
                     contrast: [
                         isNumber,
@@ -6319,13 +6319,13 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'drop-shadow': [
+            /**
+       * Drop Shadow
+       * @see https://tailwindcss.com/docs/drop-shadow
+       */ 'drop-shadow': [
                 {
                     'drop-shadow': [
-                        
+                        // Deprecated since Tailwind CSS v4.0.0
                         '',
                         'none',
                         themeDropShadow,
@@ -6334,18 +6334,18 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'drop-shadow-color': [
+            /**
+       * Drop Shadow Color
+       * @see https://tailwindcss.com/docs/filter-drop-shadow#setting-the-shadow-color
+       */ 'drop-shadow-color': [
                 {
                     'drop-shadow': scaleColor()
                 }
             ],
-            
-
-
- grayscale: [
+            /**
+       * Grayscale
+       * @see https://tailwindcss.com/docs/grayscale
+       */ grayscale: [
                 {
                     grayscale: [
                         '',
@@ -6355,10 +6355,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'hue-rotate': [
+            /**
+       * Hue Rotate
+       * @see https://tailwindcss.com/docs/hue-rotate
+       */ 'hue-rotate': [
                 {
                     'hue-rotate': [
                         isNumber,
@@ -6367,10 +6367,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- invert: [
+            /**
+       * Invert
+       * @see https://tailwindcss.com/docs/invert
+       */ invert: [
                 {
                     invert: [
                         '',
@@ -6380,10 +6380,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- saturate: [
+            /**
+       * Saturate
+       * @see https://tailwindcss.com/docs/saturate
+       */ saturate: [
                 {
                     saturate: [
                         isNumber,
@@ -6392,10 +6392,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- sepia: [
+            /**
+       * Sepia
+       * @see https://tailwindcss.com/docs/sepia
+       */ sepia: [
                 {
                     sepia: [
                         '',
@@ -6405,13 +6405,13 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'backdrop-filter': [
+            /**
+       * Backdrop Filter
+       * @see https://tailwindcss.com/docs/backdrop-filter
+       */ 'backdrop-filter': [
                 {
                     'backdrop-filter': [
-                        
+                        // Deprecated since Tailwind CSS v3.0.0
                         '',
                         'none',
                         isArbitraryVariable,
@@ -6419,18 +6419,18 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'backdrop-blur': [
+            /**
+       * Backdrop Blur
+       * @see https://tailwindcss.com/docs/backdrop-blur
+       */ 'backdrop-blur': [
                 {
                     'backdrop-blur': scaleBlur()
                 }
             ],
-            
-
-
- 'backdrop-brightness': [
+            /**
+       * Backdrop Brightness
+       * @see https://tailwindcss.com/docs/backdrop-brightness
+       */ 'backdrop-brightness': [
                 {
                     'backdrop-brightness': [
                         isNumber,
@@ -6439,10 +6439,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'backdrop-contrast': [
+            /**
+       * Backdrop Contrast
+       * @see https://tailwindcss.com/docs/backdrop-contrast
+       */ 'backdrop-contrast': [
                 {
                     'backdrop-contrast': [
                         isNumber,
@@ -6451,10 +6451,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'backdrop-grayscale': [
+            /**
+       * Backdrop Grayscale
+       * @see https://tailwindcss.com/docs/backdrop-grayscale
+       */ 'backdrop-grayscale': [
                 {
                     'backdrop-grayscale': [
                         '',
@@ -6464,10 +6464,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'backdrop-hue-rotate': [
+            /**
+       * Backdrop Hue Rotate
+       * @see https://tailwindcss.com/docs/backdrop-hue-rotate
+       */ 'backdrop-hue-rotate': [
                 {
                     'backdrop-hue-rotate': [
                         isNumber,
@@ -6476,10 +6476,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'backdrop-invert': [
+            /**
+       * Backdrop Invert
+       * @see https://tailwindcss.com/docs/backdrop-invert
+       */ 'backdrop-invert': [
                 {
                     'backdrop-invert': [
                         '',
@@ -6489,10 +6489,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'backdrop-opacity': [
+            /**
+       * Backdrop Opacity
+       * @see https://tailwindcss.com/docs/backdrop-opacity
+       */ 'backdrop-opacity': [
                 {
                     'backdrop-opacity': [
                         isNumber,
@@ -6501,10 +6501,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'backdrop-saturate': [
+            /**
+       * Backdrop Saturate
+       * @see https://tailwindcss.com/docs/backdrop-saturate
+       */ 'backdrop-saturate': [
                 {
                     'backdrop-saturate': [
                         isNumber,
@@ -6513,10 +6513,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'backdrop-sepia': [
+            /**
+       * Backdrop Sepia
+       * @see https://tailwindcss.com/docs/backdrop-sepia
+       */ 'backdrop-sepia': [
                 {
                     'backdrop-sepia': [
                         '',
@@ -6526,13 +6526,13 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-            
-            
-            
-
-
- 'border-collapse': [
+            // --------------
+            // --- Tables ---
+            // --------------
+            /**
+       * Border Collapse
+       * @see https://tailwindcss.com/docs/border-collapse
+       */ 'border-collapse': [
                 {
                     border: [
                         'collapse',
@@ -6540,34 +6540,34 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'border-spacing': [
+            /**
+       * Border Spacing
+       * @see https://tailwindcss.com/docs/border-spacing
+       */ 'border-spacing': [
                 {
                     'border-spacing': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'border-spacing-x': [
+            /**
+       * Border Spacing X
+       * @see https://tailwindcss.com/docs/border-spacing
+       */ 'border-spacing-x': [
                 {
                     'border-spacing-x': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'border-spacing-y': [
+            /**
+       * Border Spacing Y
+       * @see https://tailwindcss.com/docs/border-spacing
+       */ 'border-spacing-y': [
                 {
                     'border-spacing-y': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'table-layout': [
+            /**
+       * Table Layout
+       * @see https://tailwindcss.com/docs/table-layout
+       */ 'table-layout': [
                 {
                     table: [
                         'auto',
@@ -6575,10 +6575,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- caption: [
+            /**
+       * Caption Side
+       * @see https://tailwindcss.com/docs/caption-side
+       */ caption: [
                 {
                     caption: [
                         'top',
@@ -6586,13 +6586,13 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-            
-            
-            
-
-
- transition: [
+            // ---------------------------------
+            // --- Transitions and Animation ---
+            // ---------------------------------
+            /**
+       * Transition Property
+       * @see https://tailwindcss.com/docs/transition-property
+       */ transition: [
                 {
                     transition: [
                         '',
@@ -6607,10 +6607,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'transition-behavior': [
+            /**
+       * Transition Behavior
+       * @see https://tailwindcss.com/docs/transition-behavior
+       */ 'transition-behavior': [
                 {
                     transition: [
                         'normal',
@@ -6618,10 +6618,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- duration: [
+            /**
+       * Transition Duration
+       * @see https://tailwindcss.com/docs/transition-duration
+       */ duration: [
                 {
                     duration: [
                         isNumber,
@@ -6631,10 +6631,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- ease: [
+            /**
+       * Transition Timing Function
+       * @see https://tailwindcss.com/docs/transition-timing-function
+       */ ease: [
                 {
                     ease: [
                         'linear',
@@ -6645,10 +6645,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- delay: [
+            /**
+       * Transition Delay
+       * @see https://tailwindcss.com/docs/transition-delay
+       */ delay: [
                 {
                     delay: [
                         isNumber,
@@ -6657,10 +6657,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- animate: [
+            /**
+       * Animation
+       * @see https://tailwindcss.com/docs/animation
+       */ animate: [
                 {
                     animate: [
                         'none',
@@ -6670,13 +6670,13 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-            
-            
-            
-
-
- backface: [
+            // ------------------
+            // --- Transforms ---
+            // ------------------
+            /**
+       * Backface Visibility
+       * @see https://tailwindcss.com/docs/backface-visibility
+       */ backface: [
                 {
                     backface: [
                         'hidden',
@@ -6684,10 +6684,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- perspective: [
+            /**
+       * Perspective
+       * @see https://tailwindcss.com/docs/perspective
+       */ perspective: [
                 {
                     perspective: [
                         themePerspective,
@@ -6696,112 +6696,112 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'perspective-origin': [
+            /**
+       * Perspective Origin
+       * @see https://tailwindcss.com/docs/perspective-origin
+       */ 'perspective-origin': [
                 {
                     'perspective-origin': scalePositionWithArbitrary()
                 }
             ],
-            
-
-
- rotate: [
+            /**
+       * Rotate
+       * @see https://tailwindcss.com/docs/rotate
+       */ rotate: [
                 {
                     rotate: scaleRotate()
                 }
             ],
-            
-
-
- 'rotate-x': [
+            /**
+       * Rotate X
+       * @see https://tailwindcss.com/docs/rotate
+       */ 'rotate-x': [
                 {
                     'rotate-x': scaleRotate()
                 }
             ],
-            
-
-
- 'rotate-y': [
+            /**
+       * Rotate Y
+       * @see https://tailwindcss.com/docs/rotate
+       */ 'rotate-y': [
                 {
                     'rotate-y': scaleRotate()
                 }
             ],
-            
-
-
- 'rotate-z': [
+            /**
+       * Rotate Z
+       * @see https://tailwindcss.com/docs/rotate
+       */ 'rotate-z': [
                 {
                     'rotate-z': scaleRotate()
                 }
             ],
-            
-
-
- scale: [
+            /**
+       * Scale
+       * @see https://tailwindcss.com/docs/scale
+       */ scale: [
                 {
                     scale: scaleScale()
                 }
             ],
-            
-
-
- 'scale-x': [
+            /**
+       * Scale X
+       * @see https://tailwindcss.com/docs/scale
+       */ 'scale-x': [
                 {
                     'scale-x': scaleScale()
                 }
             ],
-            
-
-
- 'scale-y': [
+            /**
+       * Scale Y
+       * @see https://tailwindcss.com/docs/scale
+       */ 'scale-y': [
                 {
                     'scale-y': scaleScale()
                 }
             ],
-            
-
-
- 'scale-z': [
+            /**
+       * Scale Z
+       * @see https://tailwindcss.com/docs/scale
+       */ 'scale-z': [
                 {
                     'scale-z': scaleScale()
                 }
             ],
-            
-
-
- 'scale-3d': [
+            /**
+       * Scale 3D
+       * @see https://tailwindcss.com/docs/scale
+       */ 'scale-3d': [
                 'scale-3d'
             ],
-            
-
-
- skew: [
+            /**
+       * Skew
+       * @see https://tailwindcss.com/docs/skew
+       */ skew: [
                 {
                     skew: scaleSkew()
                 }
             ],
-            
-
-
- 'skew-x': [
+            /**
+       * Skew X
+       * @see https://tailwindcss.com/docs/skew
+       */ 'skew-x': [
                 {
                     'skew-x': scaleSkew()
                 }
             ],
-            
-
-
- 'skew-y': [
+            /**
+       * Skew Y
+       * @see https://tailwindcss.com/docs/skew
+       */ 'skew-y': [
                 {
                     'skew-y': scaleSkew()
                 }
             ],
-            
-
-
- transform: [
+            /**
+       * Transform
+       * @see https://tailwindcss.com/docs/transform
+       */ transform: [
                 {
                     transform: [
                         isArbitraryVariable,
@@ -6813,18 +6813,18 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'transform-origin': [
+            /**
+       * Transform Origin
+       * @see https://tailwindcss.com/docs/transform-origin
+       */ 'transform-origin': [
                 {
                     origin: scalePositionWithArbitrary()
                 }
             ],
-            
-
-
- 'transform-style': [
+            /**
+       * Transform Style
+       * @see https://tailwindcss.com/docs/transform-style
+       */ 'transform-style': [
                 {
                     transform: [
                         '3d',
@@ -6832,59 +6832,59 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- translate: [
+            /**
+       * Translate
+       * @see https://tailwindcss.com/docs/translate
+       */ translate: [
                 {
                     translate: scaleTranslate()
                 }
             ],
-            
-
-
- 'translate-x': [
+            /**
+       * Translate X
+       * @see https://tailwindcss.com/docs/translate
+       */ 'translate-x': [
                 {
                     'translate-x': scaleTranslate()
                 }
             ],
-            
-
-
- 'translate-y': [
+            /**
+       * Translate Y
+       * @see https://tailwindcss.com/docs/translate
+       */ 'translate-y': [
                 {
                     'translate-y': scaleTranslate()
                 }
             ],
-            
-
-
- 'translate-z': [
+            /**
+       * Translate Z
+       * @see https://tailwindcss.com/docs/translate
+       */ 'translate-z': [
                 {
                     'translate-z': scaleTranslate()
                 }
             ],
-            
-
-
- 'translate-none': [
+            /**
+       * Translate None
+       * @see https://tailwindcss.com/docs/translate
+       */ 'translate-none': [
                 'translate-none'
             ],
-            
-            
-            
-            
-
-
- accent: [
+            // ---------------------
+            // --- Interactivity ---
+            // ---------------------
+            /**
+       * Accent Color
+       * @see https://tailwindcss.com/docs/accent-color
+       */ accent: [
                 {
                     accent: scaleColor()
                 }
             ],
-            
-
-
- appearance: [
+            /**
+       * Appearance
+       * @see https://tailwindcss.com/docs/appearance
+       */ appearance: [
                 {
                     appearance: [
                         'none',
@@ -6892,18 +6892,18 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'caret-color': [
+            /**
+       * Caret Color
+       * @see https://tailwindcss.com/docs/just-in-time-mode#caret-color-utilities
+       */ 'caret-color': [
                 {
                     caret: scaleColor()
                 }
             ],
-            
-
-
- 'color-scheme': [
+            /**
+       * Color Scheme
+       * @see https://tailwindcss.com/docs/color-scheme
+       */ 'color-scheme': [
                 {
                     scheme: [
                         'normal',
@@ -6915,10 +6915,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- cursor: [
+            /**
+       * Cursor
+       * @see https://tailwindcss.com/docs/cursor
+       */ cursor: [
                 {
                     cursor: [
                         'auto',
@@ -6962,10 +6962,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'field-sizing': [
+            /**
+       * Field Sizing
+       * @see https://tailwindcss.com/docs/field-sizing
+       */ 'field-sizing': [
                 {
                     'field-sizing': [
                         'fixed',
@@ -6973,10 +6973,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'pointer-events': [
+            /**
+       * Pointer Events
+       * @see https://tailwindcss.com/docs/pointer-events
+       */ 'pointer-events': [
                 {
                     'pointer-events': [
                         'auto',
@@ -6984,10 +6984,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- resize: [
+            /**
+       * Resize
+       * @see https://tailwindcss.com/docs/resize
+       */ resize: [
                 {
                     resize: [
                         'none',
@@ -6997,10 +6997,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'scroll-behavior': [
+            /**
+       * Scroll Behavior
+       * @see https://tailwindcss.com/docs/scroll-behavior
+       */ 'scroll-behavior': [
                 {
                     scroll: [
                         'auto',
@@ -7008,154 +7008,154 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'scroll-m': [
+            /**
+       * Scroll Margin
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */ 'scroll-m': [
                 {
                     'scroll-m': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-mx': [
+            /**
+       * Scroll Margin X
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */ 'scroll-mx': [
                 {
                     'scroll-mx': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-my': [
+            /**
+       * Scroll Margin Y
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */ 'scroll-my': [
                 {
                     'scroll-my': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-ms': [
+            /**
+       * Scroll Margin Start
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */ 'scroll-ms': [
                 {
                     'scroll-ms': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-me': [
+            /**
+       * Scroll Margin End
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */ 'scroll-me': [
                 {
                     'scroll-me': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-mt': [
+            /**
+       * Scroll Margin Top
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */ 'scroll-mt': [
                 {
                     'scroll-mt': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-mr': [
+            /**
+       * Scroll Margin Right
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */ 'scroll-mr': [
                 {
                     'scroll-mr': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-mb': [
+            /**
+       * Scroll Margin Bottom
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */ 'scroll-mb': [
                 {
                     'scroll-mb': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-ml': [
+            /**
+       * Scroll Margin Left
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */ 'scroll-ml': [
                 {
                     'scroll-ml': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-p': [
+            /**
+       * Scroll Padding
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */ 'scroll-p': [
                 {
                     'scroll-p': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-px': [
+            /**
+       * Scroll Padding X
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */ 'scroll-px': [
                 {
                     'scroll-px': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-py': [
+            /**
+       * Scroll Padding Y
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */ 'scroll-py': [
                 {
                     'scroll-py': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-ps': [
+            /**
+       * Scroll Padding Start
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */ 'scroll-ps': [
                 {
                     'scroll-ps': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-pe': [
+            /**
+       * Scroll Padding End
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */ 'scroll-pe': [
                 {
                     'scroll-pe': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-pt': [
+            /**
+       * Scroll Padding Top
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */ 'scroll-pt': [
                 {
                     'scroll-pt': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-pr': [
+            /**
+       * Scroll Padding Right
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */ 'scroll-pr': [
                 {
                     'scroll-pr': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-pb': [
+            /**
+       * Scroll Padding Bottom
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */ 'scroll-pb': [
                 {
                     'scroll-pb': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'scroll-pl': [
+            /**
+       * Scroll Padding Left
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */ 'scroll-pl': [
                 {
                     'scroll-pl': scaleUnambiguousSpacing()
                 }
             ],
-            
-
-
- 'snap-align': [
+            /**
+       * Scroll Snap Align
+       * @see https://tailwindcss.com/docs/scroll-snap-align
+       */ 'snap-align': [
                 {
                     snap: [
                         'start',
@@ -7165,10 +7165,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'snap-stop': [
+            /**
+       * Scroll Snap Stop
+       * @see https://tailwindcss.com/docs/scroll-snap-stop
+       */ 'snap-stop': [
                 {
                     snap: [
                         'normal',
@@ -7176,10 +7176,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'snap-type': [
+            /**
+       * Scroll Snap Type
+       * @see https://tailwindcss.com/docs/scroll-snap-type
+       */ 'snap-type': [
                 {
                     snap: [
                         'none',
@@ -7189,10 +7189,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'snap-strictness': [
+            /**
+       * Scroll Snap Type Strictness
+       * @see https://tailwindcss.com/docs/scroll-snap-type
+       */ 'snap-strictness': [
                 {
                     snap: [
                         'mandatory',
@@ -7200,10 +7200,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- touch: [
+            /**
+       * Touch Action
+       * @see https://tailwindcss.com/docs/touch-action
+       */ touch: [
                 {
                     touch: [
                         'auto',
@@ -7212,10 +7212,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'touch-x': [
+            /**
+       * Touch Action X
+       * @see https://tailwindcss.com/docs/touch-action
+       */ 'touch-x': [
                 {
                     'touch-pan': [
                         'x',
@@ -7224,10 +7224,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'touch-y': [
+            /**
+       * Touch Action Y
+       * @see https://tailwindcss.com/docs/touch-action
+       */ 'touch-y': [
                 {
                     'touch-pan': [
                         'y',
@@ -7236,16 +7236,16 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'touch-pz': [
+            /**
+       * Touch Action Pinch Zoom
+       * @see https://tailwindcss.com/docs/touch-action
+       */ 'touch-pz': [
                 'touch-pinch-zoom'
             ],
-            
-
-
- select: [
+            /**
+       * User Select
+       * @see https://tailwindcss.com/docs/user-select
+       */ select: [
                 {
                     select: [
                         'none',
@@ -7255,10 +7255,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'will-change': [
+            /**
+       * Will Change
+       * @see https://tailwindcss.com/docs/will-change
+       */ 'will-change': [
                 {
                     'will-change': [
                         'auto',
@@ -7270,13 +7270,13 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-            
-            
-            
-
-
- fill: [
+            // -----------
+            // --- SVG ---
+            // -----------
+            /**
+       * Fill
+       * @see https://tailwindcss.com/docs/fill
+       */ fill: [
                 {
                     fill: [
                         'none',
@@ -7284,10 +7284,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- 'stroke-w': [
+            /**
+       * Stroke Width
+       * @see https://tailwindcss.com/docs/stroke-width
+       */ 'stroke-w': [
                 {
                     stroke: [
                         isNumber,
@@ -7297,10 +7297,10 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-
-
- stroke: [
+            /**
+       * Stroke
+       * @see https://tailwindcss.com/docs/stroke
+       */ stroke: [
                 {
                     stroke: [
                         'none',
@@ -7308,13 +7308,13 @@ const getDefaultConfig = ()=>{
                     ]
                 }
             ],
-            
-            
-            
-            
-
-
- 'forced-color-adjust': [
+            // ---------------------
+            // --- Accessibility ---
+            // ---------------------
+            /**
+       * Forced Color Adjust
+       * @see https://tailwindcss.com/docs/forced-color-adjust
+       */ 'forced-color-adjust': [
                 {
                     'forced-color-adjust': [
                         'auto',
@@ -7591,10 +7591,10 @@ const getDefaultConfig = ()=>{
         ]
     };
 };
-
-
-
- const mergeConfigs = (baseConfig, { cacheSize, prefix, experimentalParseClassName, extend = {}, override = {} })=>{
+/**
+ * @param baseConfig Config where other config will be merged into. This object will be mutated.
+ * @param configExtension Partial config to merge into the `baseConfig`.
+ */ const mergeConfigs = (baseConfig, { cacheSize, prefix, experimentalParseClassName, extend = {}, override = {} })=>{
     overrideProperty(baseConfig, 'cacheSize', cacheSize);
     overrideProperty(baseConfig, 'prefix', prefix);
     overrideProperty(baseConfig, 'experimentalParseClassName', experimentalParseClassName);
@@ -7636,9 +7636,9 @@ const mergeArrayProperties = (baseObject, mergeObject, key)=>{
     }
 };
 const extendTailwindMerge = (configExtension, ...createConfig)=>typeof configExtension === 'function' ? createTailwindMerge(getDefaultConfig, configExtension, ...createConfig) : createTailwindMerge(()=>mergeConfigs(getDefaultConfig(), configExtension), ...createConfig);
-const twMerge =  createTailwindMerge(getDefaultConfig);
+const twMerge = /*#__PURE__*/ createTailwindMerge(getDefaultConfig);
 ;
- 
+ //# sourceMappingURL=bundle-mjs.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/router-reducer/router-reducer-types.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7665,22 +7665,22 @@ const ACTION_RESTORE = 'restore';
 const ACTION_SERVER_PATCH = 'server-patch';
 const ACTION_HMR_REFRESH = 'hmr-refresh';
 const ACTION_SERVER_ACTION = 'server-action';
-var PrefetchKind =  function(PrefetchKind) {
+var PrefetchKind = /*#__PURE__*/ function(PrefetchKind) {
     PrefetchKind["AUTO"] = "auto";
     PrefetchKind["FULL"] = "full";
     PrefetchKind["TEMPORARY"] = "temporary";
     return PrefetchKind;
-}({}); 
+}({}); //# sourceMappingURL=router-reducer-types.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/app-router-context.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].AppRouterContext; 
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].AppRouterContext; //# sourceMappingURL=app-router-context.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-server-dom-turbopack-client.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['react-ssr'].ReactServerDOMTurbopackClient; 
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['react-ssr'].ReactServerDOMTurbopackClient; //# sourceMappingURL=react-server-dom-turbopack-client.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/app-router-headers.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7749,23 +7749,23 @@ const NEXT_REWRITTEN_QUERY_HEADER = 'x-nextjs-rewritten-query';
 const NEXT_IS_PRERENDER_HEADER = 'x-nextjs-prerender';
 const NEXT_ACTION_NOT_FOUND_HEADER = 'x-nextjs-action-not-found';
 const NEXT_REQUEST_ID_HEADER = 'x-nextjs-request-id';
-const NEXT_HTML_REQUEST_ID_HEADER = 'x-nextjs-html-request-id'; 
+const NEXT_HTML_REQUEST_ID_HEADER = 'x-nextjs-html-request-id'; //# sourceMappingURL=app-router-headers.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/is-thenable.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-
- __turbopack_context__.s([
+/**
+ * Check to see if a value is Thenable.
+ *
+ * @param promise the maybe-thenable value
+ * @returns true if the value is thenable
+ */ __turbopack_context__.s([
     "isThenable",
     ()=>isThenable
 ]);
 function isThenable(promise) {
     return promise !== null && typeof promise === 'object' && 'then' in promise && typeof promise.then === 'function';
-} 
+} //# sourceMappingURL=is-thenable.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/next-devtools/dev-overlay.shim.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -7826,7 +7826,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} 
+} //# sourceMappingURL=dev-overlay.shim.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/next-devtools/userspace/use-app-dev-rendering-indicator.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7852,7 +7852,7 @@ const useAppDevRenderingIndicator = ()=>{
         isPending
     ]);
     return startTransition;
-}; 
+}; //# sourceMappingURL=use-app-dev-rendering-indicator.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/use-action-queue.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7867,9 +7867,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$is$2d$thenable$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/is-thenable.js [app-ssr] (ecmascript)");
 ;
 ;
-
-
-
+// The app router state lives outside of React, so we can import the dispatch
+// method directly wherever we need it, rather than passing it around via props
+// or context.
 let dispatch = null;
 function dispatchAppRouterAction(action) {
     if (dispatch === null) {
@@ -7885,35 +7885,35 @@ const __DEV__ = ("TURBOPACK compile-time value", "development") !== 'production'
 const promisesWithDebugInfo = ("TURBOPACK compile-time truthy", 1) ? new WeakMap() : "TURBOPACK unreachable";
 function useActionQueue(actionQueue) {
     const [state, setState] = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useState(actionQueue.state);
-    
-    
-    
-    
-    
-    
-    
+    // Because of a known issue that requires to decode Flight streams inside the
+    // render phase, we have to be a bit clever and assign the dispatch method to
+    // a module-level variable upon initialization. The useState hook in this
+    // module only exists to synchronize state that lives outside of React.
+    // Ideally, what we'd do instead is pass the state as a prop to root.render;
+    // this is conceptually how we're modeling the app router state, despite the
+    // weird implementation details.
     if ("TURBOPACK compile-time truthy", 1) {
         const { useAppDevRenderingIndicator } = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/next-devtools/userspace/use-app-dev-rendering-indicator.js [app-ssr] (ecmascript)");
-        
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         const appDevRenderingIndicator = useAppDevRenderingIndicator();
         dispatch = (action)=>{
             appDevRenderingIndicator(()=>{
                 actionQueue.dispatch(action, setState);
             });
         };
-    } else 
+    } else //TURBOPACK unreachable
     ;
-    
-    
-    
-    
-    
+    // When navigating to a non-prefetched route, then App Router state will be
+    // blocked until the server responds. We need to transfer the `_debugInfo`
+    // from the underlying Flight response onto the top-level promise that is
+    // passed to React (via `use`) so that the latency is accurately represented
+    // in the React DevTools.
     const stateWithDebugInfo = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
-        if ("TURBOPACK compile-time falsy", 0) 
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
         ;
         if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$is$2d$thenable$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isThenable"])(state)) {
-            
-            
+            // useMemo can't be used to cache a Promise since the memoized value is thrown
+            // away when we suspend. So we use a WeakMap to cache the Promise with debug info.
             let promiseWithDebugInfo = promisesWithDebugInfo.get(state);
             if (promiseWithDebugInfo === undefined) {
                 const debugInfo = [];
@@ -7933,7 +7933,7 @@ function useActionQueue(actionQueue) {
         state
     ]);
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$is$2d$thenable$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isThenable"])(stateWithDebugInfo) ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["use"])(stateWithDebugInfo) : stateWithDebugInfo;
-} 
+} //# sourceMappingURL=use-action-queue.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/app-call-server.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7960,7 +7960,7 @@ async function callServer(actionId, actionArgs) {
             });
         });
     });
-} 
+} //# sourceMappingURL=app-call-server.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/app-find-source-map-url.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -7976,19 +7976,19 @@ const findSourceMapURL = ("TURBOPACK compile-time truthy", 1) ? function findSou
         return null;
     }
     if (filename.startsWith(document.location.origin) && filename.includes('/_next/static')) {
-        
-        
-        
-        
-        
-        
-        
+        // This is a request for a client chunk. This can only happen when
+        // using Turbopack. In this case, since we control how those source
+        // maps are generated, we can safely assume that the sourceMappingURL
+        // is relative to the filename, with an added `.map` extension. The
+        // browser can just request this file, and it gets served through the
+        // normal dev server, without the need to route this through
+        // the `/__nextjs_source-map` dev middleware.
         return `${filename}.map`;
     }
     const url = new URL(pathname, document.location.origin);
     url.searchParams.set('filename', filename);
     return url.href;
-} : "TURBOPACK unreachable"; 
+} : "TURBOPACK unreachable"; //# sourceMappingURL=app-find-source-map-url.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/segment.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -8015,7 +8015,7 @@ function getSegmentValue(segment) {
     return Array.isArray(segment) ? segment[1] : segment;
 }
 function isGroupSegment(segment) {
-    
+    // Use array[0] for performant purpose
     return segment[0] === '(' && segment.endsWith(')');
 }
 function isParallelRouteSegment(segment) {
@@ -8033,19 +8033,19 @@ function computeSelectedLayoutSegment(segments, parallelRouteKey) {
     if (!segments || segments.length === 0) {
         return null;
     }
-    
+    // For 'children', use first segment; for other parallel routes, use last segment
     const rawSegment = parallelRouteKey === 'children' ? segments[0] : segments[segments.length - 1];
-    
-    
+    // If the default slot is showing, return null since it's not technically "selected" (it's a fallback)
+    // Returning an internal value like `__DEFAULT__` would be confusing
     return rawSegment === DEFAULT_SEGMENT_KEY ? null : rawSegment;
 }
 function getSelectedLayoutSegmentPath(tree, parallelRouteKey, first = true, segmentPath = []) {
     let node;
     if (first) {
-        
+        // Use the provided parallel route key on the first parallel route
         node = tree[1][parallelRouteKey];
     } else {
-        
+        // After first parallel route prefer children, if there's no children pick the first parallel route.
         const parallelRoutes = tree[1];
         node = parallelRoutes.children ?? Object.values(parallelRoutes)[0];
     }
@@ -8059,7 +8059,7 @@ function getSelectedLayoutSegmentPath(tree, parallelRouteKey, first = true, segm
     return getSelectedLayoutSegmentPath(node, parallelRouteKey, false, segmentPath);
 }
 const PAGE_SEGMENT_KEY = '__PAGE__';
-const DEFAULT_SEGMENT_KEY = '__DEFAULT__'; 
+const DEFAULT_SEGMENT_KEY = '__DEFAULT__'; //# sourceMappingURL=segment.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/segment-cache/segment-value-encoding.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -8083,22 +8083,22 @@ const HEAD_REQUEST_KEY = '/_head';
 function createSegmentRequestKeyPart(segment) {
     if (typeof segment === 'string') {
         if (segment.startsWith(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PAGE_SEGMENT_KEY"])) {
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            // The Flight Router State type sometimes includes the search params in
+            // the page segment. However, the Segment Cache tracks this as a separate
+            // key. So, we strip the search params here, and then add them back when
+            // the cache entry is turned back into a FlightRouterState. This is an
+            // unfortunate consequence of the FlightRouteState being used both as a
+            // transport type and as a cache key; we'll address this once more of the
+            // Segment Cache implementation has settled.
+            // TODO: We should hoist the search params out of the FlightRouterState
+            // type entirely, This is our plan for dynamic route params, too.
             return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PAGE_SEGMENT_KEY"];
         }
-        const safeName = 
-        
+        const safeName = // But params typically don't include the leading slash. We should use
+        // a different encoding to avoid this special case.
         segment === '/_not-found' ? '_not-found' : encodeToFilesystemAndURLSafeString(segment);
-        
-        
+        // Since this is not a dynamic segment, it's fully encoded. It does not
+        // need to be "hydrated" with a param value.
         return safeName;
     }
     const name = segment[0];
@@ -8108,37 +8108,37 @@ function createSegmentRequestKeyPart(segment) {
     return encodedName;
 }
 function appendSegmentRequestKeyPart(parentRequestKey, parallelRouteKey, childRequestKeyPart) {
-    
-    
-    
-    
-    
-    
-    
+    // Aside from being filesystem safe, segment keys are also designed so that
+    // each segment and parallel route creates its own subdirectory. Roughly in
+    // the same shape as the source app directory. This is mostly just for easier
+    // debugging (you can open up the build folder and navigate the output); if
+    // we wanted to do we could just use a flat structure.
+    // Omit the parallel route key for children, since this is the most
+    // common case. Saves some bytes (and it's what the app directory does).
     const slotKey = parallelRouteKey === 'children' ? childRequestKeyPart : `@${encodeToFilesystemAndURLSafeString(parallelRouteKey)}/${childRequestKeyPart}`;
     return parentRequestKey + '/' + slotKey;
 }
-
-
-
-
-
+// Define a regex pattern to match the most common characters found in a route
+// param. It excludes anything that might not be cross-platform filesystem
+// compatible, like |. It does not need to be precise because the fallback is to
+// just base64url-encode the whole parameter, which is fine; we just don't do it
+// by default for compactness, and for easier debugging.
 const simpleParamValueRegex = /^[a-zA-Z0-9\-_@]+$/;
 function encodeToFilesystemAndURLSafeString(value) {
     if (simpleParamValueRegex.test(value)) {
         return value;
     }
-    
-    
-    const base64url = btoa(value).replace(/\+/g, '-') 
-    .replace(/\
-    .replace(/=+$/, '') 
+    // If there are any unsafe characters, base64url-encode the entire value.
+    // We also add a ! prefix so it doesn't collide with the simple case.
+    const base64url = btoa(value).replace(/\+/g, '-') // Replace '+' with '-'
+    .replace(/\//g, '_') // Replace '/' with '_'
+    .replace(/=+$/, '') // Remove trailing '='
     ;
     return '!' + base64url;
 }
 function convertSegmentPathToStaticExportFilename(segmentPath) {
     return `__next${segmentPath.replace(/\//g, '.')}.txt`;
-} 
+} //# sourceMappingURL=segment-value-encoding.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/route-params.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -8168,35 +8168,35 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 function getRenderedSearch(response) {
-    
-    
-    
+    // If the server performed a rewrite, the search params used to render the
+    // page will be different from the params in the request URL. In this case,
+    // the response will include a header that gives the rewritten search query.
     const rewrittenQuery = response.headers.get(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NEXT_REWRITTEN_QUERY_HEADER"]);
     if (rewrittenQuery !== null) {
         return rewrittenQuery === '' ? '' : '?' + rewrittenQuery;
     }
-    
-    
+    // If the header is not present, there was no rewrite, so we use the search
+    // query of the response URL.
     return urlToUrlWithoutFlightMarker(new URL(response.url)).search;
 }
 function getRenderedPathname(response) {
-    
-    
-    
+    // If the server performed a rewrite, the pathname used to render the
+    // page will be different from the pathname in the request URL. In this case,
+    // the response will include a header that gives the rewritten pathname.
     const rewrittenPath = response.headers.get(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NEXT_REWRITTEN_PATH_HEADER"]);
     return rewrittenPath ?? urlToUrlWithoutFlightMarker(new URL(response.url)).pathname;
 }
 function parseDynamicParamFromURLPart(paramType, pathnameParts, partIndex) {
-    
+    // This needs to match the behavior in get-dynamic-param.ts.
     switch(paramType){
-        
+        // Catchalls
         case 'c':
             {
-                
-                
+                // Catchalls receive all the remaining URL parts. If there are no
+                // remaining pathname parts, return an empty array.
                 return partIndex < pathnameParts.length ? pathnameParts.slice(partIndex).map((s)=>encodeURIComponent(s)) : [];
             }
-        
+        // Catchall intercepted
         case 'ci(..)(..)':
         case 'ci(.)':
         case 'ci(..)':
@@ -8210,29 +8210,29 @@ function parseDynamicParamFromURLPart(paramType, pathnameParts, partIndex) {
                     return encodeURIComponent(s);
                 }) : [];
             }
-        
+        // Optional catchalls
         case 'oc':
             {
-                
-                
+                // Optional catchalls receive all the remaining URL parts, unless this is
+                // the end of the pathname, in which case they return null.
                 return partIndex < pathnameParts.length ? pathnameParts.slice(partIndex).map((s)=>encodeURIComponent(s)) : null;
             }
-        
+        // Dynamic
         case 'd':
             {
                 if (partIndex >= pathnameParts.length) {
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    // The route tree expected there to be more parts in the URL than there
+                    // actually are. This could happen if the x-nextjs-rewritten-path header
+                    // is incorrectly set, or potentially due to bug in Next.js. TODO:
+                    // Should this be a hard error? During a prefetch, we can just abort.
+                    // During a client navigation, we could trigger a hard refresh. But if
+                    // it happens during initial render, we don't really have any
+                    // recovery options.
                     return '';
                 }
                 return encodeURIComponent(pathnameParts[partIndex]);
             }
-        
+        // Dynamic intercepted
         case 'di(..)(..)':
         case 'di(.)':
         case 'di(..)':
@@ -8240,13 +8240,13 @@ function parseDynamicParamFromURLPart(paramType, pathnameParts, partIndex) {
             {
                 const prefix = paramType.length - 2;
                 if (partIndex >= pathnameParts.length) {
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    // The route tree expected there to be more parts in the URL than there
+                    // actually are. This could happen if the x-nextjs-rewritten-path header
+                    // is incorrectly set, or potentially due to bug in Next.js. TODO:
+                    // Should this be a hard error? During a prefetch, we can just abort.
+                    // During a client navigation, we could trigger a hard refresh. But if
+                    // it happens during initial render, we don't really have any
+                    // recovery options.
                     return '';
                 }
                 return encodeURIComponent(pathnameParts[partIndex].slice(prefix));
@@ -8257,34 +8257,34 @@ function parseDynamicParamFromURLPart(paramType, pathnameParts, partIndex) {
     }
 }
 function doesStaticSegmentAppearInURL(segment) {
-    
-    
-    
-    
-    
-    
-    
-    if (segment === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2d$cache$2f$segment$2d$value$2d$encoding$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ROOT_SEGMENT_REQUEST_KEY"] || 
-    
-    
-    
-    
-    segment.startsWith(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PAGE_SEGMENT_KEY"]) || 
+    // This is not a parameterized segment; however, we need to determine
+    // whether or not this segment appears in the URL. For example, this route
+    // groups do not appear in the URL, so they should be skipped. Any other
+    // special cases must be handled here.
+    // TODO: Consider encoding this directly into the router tree instead of
+    // inferring it on the client based on the segment type. Something like
+    // a `doesAppearInURL` flag in FlightRouterState.
+    if (segment === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2d$cache$2f$segment$2d$value$2d$encoding$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ROOT_SEGMENT_REQUEST_KEY"] || // For some reason, the loader tree sometimes includes extra __PAGE__
+    // "layouts" when part of a parallel route. But it's not a leaf node.
+    // Otherwise, we wouldn't need this special case because pages are
+    // always leaf nodes.
+    // TODO: Investigate why the loader produces these fake page segments.
+    segment.startsWith(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PAGE_SEGMENT_KEY"]) || // Route groups.
     segment[0] === '(' && segment.endsWith(')') || segment === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DEFAULT_SEGMENT_KEY"] || segment === '/_not-found') {
         return false;
     } else {
-        
+        // All other segment types appear in the URL
         return true;
     }
 }
 function getCacheKeyForDynamicParam(paramValue, renderedSearch) {
-    
-    
-    
+    // This needs to match the logic in get-dynamic-param.ts, until we're able to
+    // unify the various implementations so that these are always computed on
+    // the client.
     if (typeof paramValue === 'string') {
-        
-        
-        
+        // TODO: Refactor or remove this helper function to accept a string rather
+        // than the whole segment type. Also we can probably just append the
+        // search string instead of turning it into JSON.
         const pageSegmentWithSearchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addSearchParamsIfPageSegment"])(paramValue, Object.fromEntries(new URLSearchParams(renderedSearch)));
         return pageSegmentWithSearchParams;
     } else if (paramValue === null) {
@@ -8296,29 +8296,29 @@ function getCacheKeyForDynamicParam(paramValue, renderedSearch) {
 function urlToUrlWithoutFlightMarker(url) {
     const urlWithoutFlightParameters = new URL(url);
     urlWithoutFlightParameters.searchParams.delete(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NEXT_RSC_UNION_QUERY"]);
-    if ("TURBOPACK compile-time falsy", 0) 
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
     ;
     return urlWithoutFlightParameters;
 }
 function getParamValueFromCacheKey(paramCacheKey, paramType) {
-    
-    
+    // Turn the cache key string sent by the server (as part of FlightRouterState)
+    // into a value that can be passed to `useParams` and client components.
     const isCatchAll = paramType === 'c' || paramType === 'oc';
     if (isCatchAll) {
-        
-        
-        
-        
-        
-        
+        // Catch-all param keys are a concatenation of the path segments.
+        // See equivalent logic in `getSelectedParams`.
+        // TODO: We should just pass the array directly, rather than concatenate
+        // it to a string and then split it back to an array. It needs to be an
+        // array in some places, like when passing a key React, but we can convert
+        // it at runtime in those places.
         return paramCacheKey.split('/');
     }
     return paramCacheKey;
 }
 function urlSearchParamsToParsedUrlQuery(searchParams) {
-    
-    
-    
+    // Converts a URLSearchParams object to the same type used by the server when
+    // creating search params props, i.e. the type returned by Node's
+    // "querystring" module.
     const result = {};
     for (const [key, value] of searchParams.entries()){
         if (result[key] === undefined) {
@@ -8333,7 +8333,7 @@ function urlSearchParamsToParsedUrlQuery(searchParams) {
         }
     }
     return result;
-} 
+} //# sourceMappingURL=route-params.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/router-reducer/create-href-from-url.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -8344,7 +8344,7 @@ __turbopack_context__.s([
 ]);
 function createHrefFromUrl(url, includeHash = true) {
     return url.pathname + url.search + (includeHash ? url.hash : '');
-} 
+} //# sourceMappingURL=create-href-from-url.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/flight-data-helpers.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -8368,20 +8368,20 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 function getFlightDataPartsFromPath(flightDataPath) {
-    
+    // Pick the last 4 items from the `FlightDataPath` to get the [tree, seedData, viewport, isHeadPartial].
     const flightDataPathLength = 4;
-    
+    // tree, seedData, and head are *always* the last three items in the `FlightDataPath`.
     const [tree, seedData, head, isHeadPartial] = flightDataPath.slice(-flightDataPathLength);
-    
+    // The `FlightSegmentPath` is everything except the last three items. For a root render, it won't be present.
     const segmentPath = flightDataPath.slice(0, -flightDataPathLength);
     return {
-        
-        
-        
+        // TODO: Unify these two segment path helpers. We are inconsistently pushing an empty segment ("")
+        // to the start of the segment path in some places which makes it hard to use solely the segment path.
+        // Look for "// TODO-APP: remove ''" in the codebase.
         pathToSegment: segmentPath.slice(0, -1),
         segmentPath,
-        
-        
+        // if the `FlightDataPath` corresponds with the root, there'll be no segment path,
+        // in which case we default to ''.
         segment: segmentPath[segmentPath.length - 1] ?? '',
         tree,
         seedData,
@@ -8391,27 +8391,27 @@ function getFlightDataPartsFromPath(flightDataPath) {
     };
 }
 function createInitialRSCPayloadFromFallbackPrerender(response, fallbackInitialRSCPayload) {
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // This is a static fallback page. In order to hydrate the page, we need to
+    // parse the client params from the URL, but to account for the possibility
+    // that the page was rewritten, we need to check the response headers
+    // for x-nextjs-rewritten-path or x-nextjs-rewritten-query headers. Since
+    // we can't access the headers of the initial document response, the client
+    // performs a fetch request to the current location. Since it's possible that
+    // the fetch request will be dynamically rewritten to a different path than
+    // the initial document, this fetch request delivers _all_ the hydration data
+    // for the page; it was not inlined into the document, like it normally
+    // would be.
+    //
+    // TODO: Consider treating the case where fetch is rewritten to a different
+    // path from the document as a special deopt case. We should optimistically
+    // assume this won't happen, inline the data into the document, and perform
+    // a minimal request (like a HEAD or range request) to verify that the
+    // response matches. Tricky to get right because we need to account for
+    // all the different deployment environments we support, like output:
+    // "export" mode, where we currently don't assume that custom response
+    // headers are present.
+    // Patch the Flight data sent by the server with the correct params parsed
+    // from the URL + response object.
     const renderedPathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$route$2d$params$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRenderedPathname"])(response);
     const renderedSearch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$route$2d$params$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRenderedSearch"])(response);
     const canonicalUrl = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$router$2d$reducer$2f$create$2d$href$2d$from$2d$url$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createHrefFromUrl"])(new URL(location.href));
@@ -8459,8 +8459,8 @@ function fillInFallbackFlightRouterStateImpl(flightRouterState, renderedSearch, 
         ];
         doesAppearInURL = true;
     }
-    
-    
+    // Only increment the index if the segment appears in the URL. If it's a
+    // "virtual" segment, like a route group, it remains the same.
     const childPathnamePartsIndex = doesAppearInURL ? pathnamePartsIndex + 1 : pathnamePartsIndex;
     const children = flightRouterState[1];
     const newChildren = {};
@@ -8478,34 +8478,34 @@ function fillInFallbackFlightRouterStateImpl(flightRouterState, renderedSearch, 
     return newState;
 }
 function getNextFlightSegmentPath(flightSegmentPath) {
-    
-    
+    // Since `FlightSegmentPath` is a repeated tuple of `Segment` and `ParallelRouteKey`, we slice off two items
+    // to get the next segment path.
     return flightSegmentPath.slice(2);
 }
 function normalizeFlightData(flightData) {
-    
-    
+    // FlightData can be a string when the server didn't respond with a proper flight response,
+    // or when a redirect happens, to signal to the client that it needs to perform an MPA navigation.
     if (typeof flightData === 'string') {
         return flightData;
     }
     return flightData.map((flightDataPath)=>getFlightDataPartsFromPath(flightDataPath));
 }
 function prepareFlightRouterStateForRequest(flightRouterState, isHmrRefresh) {
-    
+    // HMR requests need the complete, unmodified state for proper functionality
     if (isHmrRefresh) {
         return encodeURIComponent(JSON.stringify(flightRouterState));
     }
     return encodeURIComponent(JSON.stringify(stripClientOnlyDataFromFlightRouterState(flightRouterState)));
 }
-
-
-
- function stripClientOnlyDataFromFlightRouterState(flightRouterState) {
+/**
+ * Recursively strips client-only data from FlightRouterState while preserving
+ * server-needed information for proper rendering decisions.
+ */ function stripClientOnlyDataFromFlightRouterState(flightRouterState) {
     const [segment, parallelRoutes, _url, refreshMarker, isRootLayout, hasLoadingBoundary] = flightRouterState;
-    
-    
+    // __PAGE__ segments are always fetched from the server, so there's
+    // no need to send them up
     const cleanedSegment = stripSearchParamsFromPageSegment(segment);
-    
+    // Recursively process parallel routes
     const cleanedParallelRoutes = {};
     for (const [key, childState] of Object.entries(parallelRoutes)){
         cleanedParallelRoutes[key] = stripClientOnlyDataFromFlightRouterState(childState);
@@ -8516,7 +8516,7 @@ function prepareFlightRouterStateForRequest(flightRouterState, isHmrRefresh) {
         null,
         shouldPreserveRefreshMarker(refreshMarker) ? refreshMarker : null
     ];
-    
+    // Append optional fields if present
     if (isRootLayout !== undefined) {
         result[4] = isRootLayout;
     }
@@ -8525,38 +8525,38 @@ function prepareFlightRouterStateForRequest(flightRouterState, isHmrRefresh) {
     }
     return result;
 }
-
-
-
- function stripSearchParamsFromPageSegment(segment) {
+/**
+ * Strips search parameters from __PAGE__ segments to prevent sensitive
+ * client-side data from being sent to the server.
+ */ function stripSearchParamsFromPageSegment(segment) {
     if (typeof segment === 'string' && segment.startsWith(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PAGE_SEGMENT_KEY"] + '?')) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PAGE_SEGMENT_KEY"];
     }
     return segment;
 }
-
-
-
-
- function shouldPreserveRefreshMarker(refreshMarker) {
+/**
+ * Determines whether the refresh marker should be sent to the server
+ * Client-only markers like 'refresh' are stripped, while server-needed markers
+ * like 'refetch' and 'inside-shared-layout' are preserved.
+ */ function shouldPreserveRefreshMarker(refreshMarker) {
     return Boolean(refreshMarker && refreshMarker !== 'refresh');
-} 
+} //# sourceMappingURL=flight-data-helpers.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/app-build-id.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-
-
-
-
-
-
-
-
+// This gets assigned as a side-effect during app initialization. Because it
+// represents the build used to create the JS bundle, it should never change
+// after being set, so we store it in a global variable.
+//
+// When performing RSC requests, if the incoming data has a different build ID,
+// we perform an MPA navigation/refresh to load the updated build and ensure
+// that the client and server in sync.
+// Starts as an empty string. In practice, because setAppBuildId is called
+// during initialization before hydration starts, this will always get
+// reassigned to the actual build ID before it's ever needed by a navigation.
+// If for some reasons it didn't, due to a bug or race condition, then on
+// navigation the build comparision would fail and trigger an MPA navigation.
 __turbopack_context__.s([
     "getAppBuildId",
     ()=>getAppBuildId,
@@ -8569,18 +8569,18 @@ function setAppBuildId(buildId) {
 }
 function getAppBuildId() {
     return globalBuildId;
-} 
+} //# sourceMappingURL=app-build-id.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/hash.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-
-
-
+// http://www.cse.yorku.ca/~oz/hash.html
+// More specifically, 32-bit hash via djbxor
+// (ref: https://gist.github.com/eplawless/52813b1d8ad9af510d85?permalink_comment_id=3367765#gistcomment-3367765)
+// This is due to number type differences between rust for turbopack to js number types,
+// where rust does not have easy way to repreesnt js's 53-bit float number type for the matching
+// overflow behavior. This is more `correct` in terms of having canonical hash across different runtime / implementation
+// as can gaurantee determinstic output from 32bit hash.
 __turbopack_context__.s([
     "djb2Hash",
     ()=>djb2Hash,
@@ -8597,7 +8597,7 @@ function djb2Hash(str) {
 }
 function hexHash(str) {
     return djb2Hash(str).toString(36).slice(0, 5);
-} 
+} //# sourceMappingURL=hash.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/cache-busting-search-param.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -8618,7 +8618,7 @@ function computeCacheBustingSearchParam(prefetchHeader, segmentPrefetchHeader, s
         stateTreeHeader || '0',
         nextUrlHeader || '0'
     ].join(','));
-} 
+} //# sourceMappingURL=cache-busting-search-param.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/router-reducer/set-cache-busting-search-param.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -8639,20 +8639,20 @@ const setCacheBustingSearchParam = (url, headers)=>{
     setCacheBustingSearchParamWithHash(url, uniqueCacheKey);
 };
 const setCacheBustingSearchParamWithHash = (url, hash)=>{
-    
-
-
-
-
-
-
-
-
-
- const existingSearch = url.search;
+    /**
+   * Note that we intentionally do not use `url.searchParams.set` here:
+   *
+   * const url = new URL('https://example.com/search?q=custom%20spacing');
+   * url.searchParams.set('_rsc', 'abc123');
+   * console.log(url.toString()); // Outputs: https://example.com/search?q=custom+spacing&_rsc=abc123
+   *                                                                             ^ <--- this is causing confusion
+   * This is in fact intended based on https://url.spec.whatwg.org/#interface-urlsearchparams, but
+   * we want to preserve the %20 as %20 if that's what the user passed in, hence the custom
+   * logic below.
+   */ const existingSearch = url.search;
     const rawQuery = existingSearch.startsWith('?') ? existingSearch.slice(1) : existingSearch;
-    
-    
+    // Always remove any existing cache busting param and add a fresh one to ensure
+    // we have the correct value based on current request headers
     const pairs = rawQuery.split('&').filter((pair)=>pair && !pair.startsWith(`${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NEXT_RSC_UNION_QUERY"]}=`));
     if (hash.length > 0) {
         pairs.push(`${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NEXT_RSC_UNION_QUERY"]}=${hash}`);
@@ -8660,7 +8660,7 @@ const setCacheBustingSearchParamWithHash = (url, hash)=>{
         pairs.push(`${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NEXT_RSC_UNION_QUERY"]}`);
     }
     url.search = pairs.length ? `?${pairs.join('&')}` : '';
-}; 
+}; //# sourceMappingURL=set-cache-busting-search-param.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/router-reducer/fetch-server-response.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -8673,8 +8673,8 @@ __turbopack_context__.s([
     "fetchServerResponse",
     ()=>fetchServerResponse
 ]);
-
-
+// TODO: Explicitly import from client.browser
+// eslint-disable-next-line import/no-extraneous-dependencies
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$server$2d$dom$2d$turbopack$2d$client$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-server-dom-turbopack-client.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/app-router-headers.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$app$2d$call$2d$server$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/app-call-server.js [app-ssr] (ecmascript)");
@@ -8697,28 +8697,28 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 const createFromReadableStream = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$server$2d$dom$2d$turbopack$2d$client$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createFromReadableStream"];
 const createFromFetch = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$server$2d$dom$2d$turbopack$2d$client$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createFromFetch"];
 let createDebugChannel;
-if ("TURBOPACK compile-time falsy", 0) 
+if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
 ;
 function doMpaNavigation(url) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$route$2d$params$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["urlToUrlWithoutFlightMarker"])(new URL(url, location.origin)).toString();
 }
 let isPageUnloading = false;
-if ("TURBOPACK compile-time falsy", 0) 
+if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
 ;
 async function fetchServerResponse(url, options) {
     const { flightRouterState, nextUrl, prefetchKind } = options;
     const headers = {
-        
+        // Enable flight response
         [__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RSC_HEADER"]]: '1',
-        
+        // Provide the current router state
         [__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NEXT_ROUTER_STATE_TREE_HEADER"]]: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$flight$2d$data$2d$helpers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["prepareFlightRouterStateForRequest"])(flightRouterState, options.isHmrRefresh)
     };
-    
-
-
-
-
- if (prefetchKind === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$router$2d$reducer$2f$router$2d$reducer$2d$types$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PrefetchKind"].AUTO) {
+    /**
+   * Three cases:
+   * - `prefetchKind` is `undefined`, it means it's a normal navigation, so we want to prefetch the page data fully
+   * - `prefetchKind` is `full` - we want to prefetch the whole page so same as above
+   * - `prefetchKind` is `auto` - if the page is dynamic, prefetch the page data partially, if static prefetch the page data fully
+   */ if (prefetchKind === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$router$2d$reducer$2f$router$2d$reducer$2d$types$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PrefetchKind"].AUTO) {
         headers[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NEXT_ROUTER_PREFETCH_HEADER"]] = '1';
     }
     if (("TURBOPACK compile-time value", "development") === 'development' && options.isHmrRefresh) {
@@ -8727,20 +8727,20 @@ async function fetchServerResponse(url, options) {
     if (nextUrl) {
         headers[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NEXT_URL"]] = nextUrl;
     }
-    
-    
+    // In static export mode, we need to modify the URL to request the .txt file,
+    // but we should preserve the original URL for the canonical URL and error handling.
     const originalUrl = url;
     try {
-        
-        
-        
-        
+        // When creating a "temporary" prefetch (the "on-demand" prefetch that gets created on navigation, if one doesn't exist)
+        // we send the request with a "high" priority as it's in response to a user interaction that could be blocking a transition.
+        // Otherwise, all other prefetches are sent with a "low" priority.
+        // We use "auto" for in all other cases to match the existing default, as this function is shared outside of prefetching.
         const fetchPriority = prefetchKind ? prefetchKind === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$router$2d$reducer$2f$router$2d$reducer$2d$types$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PrefetchKind"].TEMPORARY ? 'high' : 'low' : 'auto';
-        if ("TURBOPACK compile-time falsy", 0) 
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
         ;
-        
-        
-        
+        // Typically, during a navigation, we decode the response using Flight's
+        // `createFromFetch` API, which accepts a `fetch` promise.
+        // TODO: Remove this check once the old PPR flag is removed
         const isLegacyPPR = ("TURBOPACK compile-time value", false) && !("TURBOPACK compile-time value", false);
         const shouldImmediatelyDecode = !isLegacyPPR;
         const res = await createFetch(url, headers, fetchPriority, shouldImmediatelyDecode);
@@ -8752,33 +8752,33 @@ async function fetchServerResponse(url, options) {
         const staleTimeHeaderSeconds = res.headers.get(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NEXT_ROUTER_STALE_TIME_HEADER"]);
         const staleTime = staleTimeHeaderSeconds !== null ? parseInt(staleTimeHeaderSeconds, 10) * 1000 : -1;
         let isFlightResponse = contentType.startsWith(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RSC_CONTENT_TYPE_HEADER"]);
-        if ("TURBOPACK compile-time falsy", 0) 
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
         ;
-        
-        
+        // If fetch returns something different than flight response handle it like a mpa navigation
+        // If the fetch was not 200, we also handle it like a mpa navigation
         if (!isFlightResponse || !res.ok || !res.body) {
-            
+            // in case the original URL came with a hash, preserve it before redirecting to the new URL
             if (url.hash) {
                 responseUrl.hash = url.hash;
             }
             return doMpaNavigation(responseUrl.toString());
         }
-        
-        
-        
-        
-        
-        
-        
-        if ("TURBOPACK compile-time falsy", 0) 
+        // We may navigate to a page that requires a different Webpack runtime.
+        // In prod, every page will have the same Webpack runtime.
+        // In dev, the Webpack runtime is minimal for each page.
+        // We need to ensure the Webpack runtime is updated before executing client-side JS of the new page.
+        // TODO: This needs to happen in the Flight Client.
+        // Or Webpack needs to include the runtime update in the Flight response as
+        // a blocking script.
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
         ;
         let flightResponsePromise = res.flightResponse;
         if (flightResponsePromise === null) {
-            
-            
-            
-            
-            
+            // Typically, `createFetch` would have already started decoding the
+            // Flight response. If it hasn't, though, we need to decode it now.
+            // TODO: This should only be reachable if legacy PPR is enabled (i.e. PPR
+            // without Cache Components). Remove this branch once legacy PPR
+            // is deleted.
             const flightStream = postponed ? createUnclosingPrefetchStream(res.body) : res.body;
             flightResponsePromise = createFromNextReadableStream(flightStream, headers);
         }
@@ -8804,99 +8804,99 @@ async function fetchServerResponse(url, options) {
         if (!isPageUnloading) {
             console.error(`Failed to fetch RSC payload for ${originalUrl}. Falling back to browser navigation.`, err);
         }
-        
-        
-        
+        // If fetch fails handle it like a mpa navigation
+        // TODO-APP: Add a test for the case where a CORS request fails, e.g. external url redirect coming from the response.
+        // See https://github.com/vercel/next.js/issues/43605#issuecomment-1451617521 for a reproduction.
         return originalUrl.toString();
     }
 }
 async function createFetch(url, headers, fetchPriority, shouldImmediatelyDecode, signal) {
-    
-    
-    
-    if ("TURBOPACK compile-time falsy", 0) 
+    // TODO: In output: "export" mode, the headers do nothing. Omit them (and the
+    // cache busting search param) from the request so they're
+    // maximally cacheable.
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
     ;
-    if ("TURBOPACK compile-time falsy", 0) 
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
     ;
     if ("TURBOPACK compile-time truthy", 1) {
         if (self.__next_r) {
             headers[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NEXT_HTML_REQUEST_ID_HEADER"]] = self.__next_r;
         }
-        
-        
-        
+        // Create a new request ID for the server action request. The server uses
+        // this to tag debug information sent via WebSocket to the client, which
+        // then routes those chunks to the debug channel associated with this ID.
         headers[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NEXT_REQUEST_ID_HEADER"]] = crypto.getRandomValues(new Uint32Array(1))[0].toString(16);
     }
     const fetchOptions = {
-        
+        // Backwards compat for older browsers. `same-origin` is the default in modern browsers.
         credentials: 'same-origin',
         headers,
         priority: fetchPriority || undefined,
         signal
     };
-    
-    
-    
+    // `fetchUrl` is slightly different from `url` because we add a cache-busting
+    // search param to it. This should not leak outside of this function, so we
+    // track them separately.
     let fetchUrl = new URL(url);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$router$2d$reducer$2f$set$2d$cache$2d$busting$2d$search$2d$param$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["setCacheBustingSearchParam"])(fetchUrl, headers);
     let fetchPromise = fetch(fetchUrl, fetchOptions);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // Immediately pass the fetch promise to the Flight client so that the debug
+    // info includes the latency from the client to the server. The internal timer
+    // in React starts as soon as `createFromFetch` is called.
+    //
+    // The only case where we don't do this is during a prefetch, because we have
+    // to do some extra processing of the response stream (see
+    // `createUnclosingPrefetchStream`). But this is fine, because a top-level
+    // prefetch response never blocks a navigation; if it hasn't already been
+    // written into the cache by the time the navigation happens, the router will
+    // go straight to a dynamic request.
     let flightResponsePromise = shouldImmediatelyDecode ? createFromNextFetch(fetchPromise, headers) : null;
     let browserResponse = await fetchPromise;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // If the server responds with a redirect (e.g. 307), and the redirected
+    // location does not contain the cache busting search param set in the
+    // original request, the response is likely invalid — when following the
+    // redirect, the browser forwards the request headers, but since the cache
+    // busting search param is missing, the server will reject the request due to
+    // a mismatch.
+    //
+    // Ideally, we would be able to intercept the redirect response and perform it
+    // manually, instead of letting the browser automatically follow it, but this
+    // is not allowed by the fetch API.
+    //
+    // So instead, we must "replay" the redirect by fetching the new location
+    // again, but this time we'll append the cache busting search param to prevent
+    // a mismatch.
+    //
+    // TODO: We can optimize Next.js's built-in middleware APIs by returning a
+    // custom status code, to prevent the browser from automatically following it.
+    //
+    // This does not affect Server Action-based redirects; those are encoded
+    // differently, as part of the Flight body. It only affects redirects that
+    // occur in a middleware or a third-party proxy.
     let redirected = browserResponse.redirected;
-    if ("TURBOPACK compile-time falsy", 0) 
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
     ;
-    
-    
+    // Remove the cache busting search param from the response URL, to prevent it
+    // from leaking outside of this function.
     const responseUrl = new URL(browserResponse.url, fetchUrl);
     responseUrl.searchParams.delete(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$app$2d$router$2d$headers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NEXT_RSC_UNION_QUERY"]);
     const rscResponse = {
         url: responseUrl.href,
-        
-        
-        
-        
+        // This is true if any redirects occurred, either automatically by the
+        // browser, or manually by us. So it's different from
+        // `browserResponse.redirected`, which only tells us whether the browser
+        // followed a redirect, and only for the last response in the chain.
         redirected,
-        
-        
-        
+        // These can be copied from the last browser response we received. We
+        // intentionally only expose the subset of fields that are actually used
+        // elsewhere in the codebase.
         ok: browserResponse.ok,
         headers: browserResponse.headers,
         body: browserResponse.body,
         status: browserResponse.status,
-        
-        
-        
+        // This is the exact promise returned by `createFromFetch`. It contains
+        // debug information that we need to transfer to any derived promises that
+        // are later rendered by React.
         flightResponse: flightResponsePromise
     };
     return rscResponse;
@@ -8916,53 +8916,53 @@ function createFromNextFetch(promiseForResponse, requestHeaders) {
     });
 }
 function createUnclosingPrefetchStream(originalFlightStream) {
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // When PPR is enabled, prefetch streams may contain references that never
+    // resolve, because that's how we encode dynamic data access. In the decoded
+    // object returned by the Flight client, these are reified into hanging
+    // promises that suspend during render, which is effectively what we want.
+    // The UI resolves when it switches to the dynamic data stream
+    // (via useDeferredValue(dynamic, static)).
+    //
+    // However, the Flight implementation currently errors if the server closes
+    // the response before all the references are resolved. As a cheat to work
+    // around this, we wrap the original stream in a new stream that never closes,
+    // and therefore doesn't error.
     const reader = originalFlightStream.getReader();
     return new ReadableStream({
         async pull (controller) {
             while(true){
                 const { done, value } = await reader.read();
                 if (!done) {
-                    
-                    
+                    // Pass to the target stream and keep consuming the Flight response
+                    // from the server.
                     controller.enqueue(value);
                     continue;
                 }
-                
-                
+                // The server stream has closed. Exit, but intentionally do not close
+                // the target stream.
                 return;
             }
         }
     });
-} 
+} //# sourceMappingURL=fetch-server-response.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/unresolved-thenable.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
- __turbopack_context__.s([
+/**
+ * Create a "Thenable" that does not resolve. This is used to suspend indefinitely when data is not available yet.
+ */ __turbopack_context__.s([
     "unresolvedThenable",
     ()=>unresolvedThenable
 ]);
 const unresolvedThenable = {
     then: ()=>{}
-}; 
+}; //# sourceMappingURL=unresolved-thenable.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/hooks-client-context.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].HooksClientContext; 
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].HooksClientContext; //# sourceMappingURL=hooks-client-context.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/navigation-untracked.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -8975,15 +8975,15 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/hooks-client-context.js [app-ssr] (ecmascript)");
 ;
 ;
-
-
-
-
-
-
- function hasFallbackRouteParams() {
+/**
+ * This checks to see if the current render has any unknown route parameters that
+ * would cause the pathname to be dynamic. It's used to trigger a different
+ * render path in the error boundary.
+ *
+ * @returns true if there are any unknown route parameters, false otherwise
+ */ function hasFallbackRouteParams() {
     if ("TURBOPACK compile-time truthy", 1) {
-        
+        // AsyncLocalStorage should not be included in the client bundle.
         const { workUnitAsyncStorage } = __turbopack_context__.r("[externals]/next/dist/server/app-render/work-unit-async-storage.external.js [external] (next/dist/server/app-render/work-unit-async-storage.external.js, cjs)");
         const workUnitStore = workUnitAsyncStorage.getStore();
         if (!workUnitStore) return false;
@@ -9005,22 +9005,22 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
         }
         return false;
     }
-    
+    //TURBOPACK unreachable
     ;
 }
 function useUntrackedPathname() {
-    
-    
-    
-    
+    // If there are any unknown route parameters we would typically throw
+    // an error, but this internal method allows us to return a null value instead
+    // for components that do not propagate the pathname to the static shell (like
+    // the error boundary).
     if (hasFallbackRouteParams()) {
         return null;
     }
-    
-    
-    
+    // This shouldn't cause any issues related to conditional rendering because
+    // the environment will be consistent for the render.
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PathnameContext"]);
-} 
+} //# sourceMappingURL=navigation-untracked.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/http-access-fallback/http-access-fallback.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9066,7 +9066,7 @@ function getAccessFallbackErrorTypeByStatus(status) {
         default:
             return;
     }
-} 
+} //# sourceMappingURL=http-access-fallback.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/redirect-status-code.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9075,12 +9075,12 @@ __turbopack_context__.s([
     "RedirectStatusCode",
     ()=>RedirectStatusCode
 ]);
-var RedirectStatusCode =  function(RedirectStatusCode) {
+var RedirectStatusCode = /*#__PURE__*/ function(RedirectStatusCode) {
     RedirectStatusCode[RedirectStatusCode["SeeOther"] = 303] = "SeeOther";
     RedirectStatusCode[RedirectStatusCode["TemporaryRedirect"] = 307] = "TemporaryRedirect";
     RedirectStatusCode[RedirectStatusCode["PermanentRedirect"] = 308] = "PermanentRedirect";
     return RedirectStatusCode;
-}({}); 
+}({}); //# sourceMappingURL=redirect-status-code.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/redirect-error.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9096,7 +9096,7 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$status$2d$code$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/redirect-status-code.js [app-ssr] (ecmascript)");
 ;
 const REDIRECT_ERROR_CODE = 'NEXT_REDIRECT';
-var RedirectType =  function(RedirectType) {
+var RedirectType = /*#__PURE__*/ function(RedirectType) {
     RedirectType["push"] = "push";
     RedirectType["replace"] = "replace";
     return RedirectType;
@@ -9111,7 +9111,7 @@ function isRedirectError(error) {
     const status = digest.at(-2);
     const statusCode = Number(status);
     return errorCode === REDIRECT_ERROR_CODE && (type === 'replace' || type === 'push') && typeof destination === 'string' && !isNaN(statusCode) && statusCode in __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$status$2d$code$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RedirectStatusCode"];
-} 
+} //# sourceMappingURL=redirect-error.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/is-next-router-error.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9126,7 +9126,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 function isNextRouterError(error) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$error$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isRedirectError"])(error) || (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isHTTPAccessFallbackError"])(error);
-} 
+} //# sourceMappingURL=is-next-router-error.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/nav-failure-handler.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9142,14 +9142,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 function handleHardNavError(error) {
-    if (error && ("TURBOPACK compile-time value", "undefined") !== 'undefined' && window.next.__pendingUrl && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$router$2d$reducer$2f$create$2d$href$2d$from$2d$url$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createHrefFromUrl"])(new URL(window.location.href)) !== (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$router$2d$reducer$2f$create$2d$href$2d$from$2d$url$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createHrefFromUrl"])(window.next.__pendingUrl)) 
+    if (error && ("TURBOPACK compile-time value", "undefined") !== 'undefined' && window.next.__pendingUrl && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$router$2d$reducer$2f$create$2d$href$2d$from$2d$url$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createHrefFromUrl"])(new URL(window.location.href)) !== (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$router$2d$reducer$2f$create$2d$href$2d$from$2d$url$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createHrefFromUrl"])(window.next.__pendingUrl)) //TURBOPACK unreachable
     ;
     return false;
 }
 function useNavFailureHandler() {
-    if ("TURBOPACK compile-time falsy", 0) 
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
     ;
-} 
+} //# sourceMappingURL=nav-failure-handler.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/handle-isr-error.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9170,20 +9170,20 @@ function HandleISRError({ error }) {
         }
     }
     return null;
-} 
+} //# sourceMappingURL=handle-isr-error.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/html-bots.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
+// This regex contains the bots that we need to do a blocking render for and can't safely stream the response
+// due to how they parse the DOM. For example, they might explicitly check for metadata in the `head` tag, so we can't stream metadata tags after the `head` was sent.
+// Note: The pattern [\w-]+-Google captures all Google crawlers with "-Google" suffix (e.g., Mediapartners-Google, AdsBot-Google, Storebot-Google)
+// as well as crawlers starting with "Google-" (e.g., Google-PageRenderer, Google-InspectionTool)
 __turbopack_context__.s([
     "HTML_LIMITED_BOT_UA_RE",
     ()=>HTML_LIMITED_BOT_UA_RE
 ]);
-const HTML_LIMITED_BOT_UA_RE = /[\w-]+-Google|Google-[\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight/i; 
+const HTML_LIMITED_BOT_UA_RE = /[\w-]+-Google|Google-[\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight/i; //# sourceMappingURL=html-bots.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/is-bot.js [app-ssr] (ecmascript) <locals>", ((__turbopack_context__) => {
 "use strict";
@@ -9198,10 +9198,10 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$html$2d$bots$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/html-bots.js [app-ssr] (ecmascript)");
 ;
-
-
-
-
+// Bot crawler that will spin up a headless browser and execute JS.
+// Only the main Googlebot search crawler executes JavaScript, not other Google crawlers.
+// x-ref: https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers
+// This regex specifically matches "Googlebot" but NOT "Mediapartners-Google", "AdsBot-Google", etc.
 const HEADLESS_BROWSER_BOT_UA_RE = /Googlebot(?!-)|Googlebot$/i;
 const HTML_LIMITED_BOT_UA_RE_STRING = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$html$2d$bots$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HTML_LIMITED_BOT_UA_RE"].source;
 ;
@@ -9222,7 +9222,7 @@ function getBotType(userAgent) {
         return 'html';
     }
     return undefined;
-} 
+} //# sourceMappingURL=is-bot.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/error-boundary.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9263,8 +9263,8 @@ class ErrorBoundaryHandler extends __TURBOPACK__imported__module__$5b$project$5d
     }
     static getDerivedStateFromError(error) {
         if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$is$2d$next$2d$router$2d$error$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isNextRouterError"])(error)) {
-            
-            
+            // Re-throw if an expected internal Next.js router error occurs
+            // this means it should be handled by a different boundary (such as a NotFound boundary in a parent segment)
             throw error;
         }
         return {
@@ -9273,18 +9273,18 @@ class ErrorBoundaryHandler extends __TURBOPACK__imported__module__$5b$project$5d
     }
     static getDerivedStateFromProps(props, state) {
         const { error } = state;
-        
-        
-        
-        
-        if ("TURBOPACK compile-time falsy", 0) 
+        // if we encounter an error while
+        // a navigation is pending we shouldn't render
+        // the error boundary and instead should fallback
+        // to a hard navigation to attempt recovering
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
         ;
-        
-
-
-
-
- if (props.pathname !== state.previousPathname && state.error) {
+        /**
+     * Handles reset of the error boundary when a navigation happens.
+     * Ensures the error boundary does not stay enabled when navigating to a new page.
+     * Approach of setState in render is safe as it checks the previous pathname and then overrides
+     * it as outlined in https://react.dev/reference/react/useState#storing-information-from-previous-renders
+     */ if (props.pathname !== state.previousPathname && state.error) {
             return {
                 error: null,
                 previousPathname: props.pathname
@@ -9295,19 +9295,19 @@ class ErrorBoundaryHandler extends __TURBOPACK__imported__module__$5b$project$5d
             previousPathname: props.pathname
         };
     }
-    
+    // Explicit type is needed to avoid the generated `.d.ts` having a wide return type that could be specific to the `@types/react` version.
     render() {
-        
-        
+        //When it's bot request, segment level error boundary will keep rendering the children,
+        // the final error will be caught by the root error boundary and determine wether need to apply graceful degrade.
         if (this.state.error && !isBotUserAgent) {
-            return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                 children: [
-                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$handle$2d$isr$2d$error$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HandleISRError"], {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$handle$2d$isr$2d$error$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HandleISRError"], {
                         error: this.state.error
                     }),
                     this.props.errorStyles,
                     this.props.errorScripts,
-                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(this.props.errorComponent, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(this.props.errorComponent, {
                         error: this.state.error,
                         reset: this.reset
                     })
@@ -9318,13 +9318,13 @@ class ErrorBoundaryHandler extends __TURBOPACK__imported__module__$5b$project$5d
     }
 }
 function ErrorBoundary({ errorComponent, errorStyles, errorScripts, children }) {
-    
-    
-    
-    
+    // When we're rendering the missing params shell, this will return null. This
+    // is because we won't be rendering any not found boundaries or error
+    // boundaries for the missing params shell. When this runs on the client
+    // (where these errors can occur), we will get the correct pathname.
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$navigation$2d$untracked$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useUntrackedPathname"])();
     if (errorComponent) {
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ErrorBoundaryHandler, {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ErrorBoundaryHandler, {
             pathname: pathname,
             errorComponent: errorComponent,
             errorStyles: errorStyles,
@@ -9332,10 +9332,10 @@ function ErrorBoundary({ errorComponent, errorStyles, errorScripts, children }) 
             children: children
         });
     }
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: children
     });
-} 
+} //# sourceMappingURL=error-boundary.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/match-segments.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9345,10 +9345,10 @@ __turbopack_context__.s([
     ()=>matchSegment
 ]);
 const matchSegment = (existingSegment, segment)=>{
-    
+    // segment is either Array or string
     if (typeof existingSegment === 'string') {
         if (typeof segment === 'string') {
-            
+            // Common case: segment is just a string
             return existingSegment === segment;
         }
         return false;
@@ -9357,7 +9357,7 @@ const matchSegment = (existingSegment, segment)=>{
         return false;
     }
     return existingSegment[0] === segment[0] && existingSegment[1] === segment[1];
-}; 
+}; //# sourceMappingURL=match-segments.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/utils/warn-once.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9377,7 +9377,7 @@ if ("TURBOPACK compile-time truthy", 1) {
     };
 }
 ;
- 
+ //# sourceMappingURL=warn-once.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/disable-smooth-scroll.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9389,8 +9389,8 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$utils$2f$warn$2d$once$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/utils/warn-once.js [app-ssr] (ecmascript)");
 ;
 function disableSmoothScrollDuringRouteTransition(fn, options = {}) {
-    
-    
+    // if only the hash is changed, we don't need to disable smooth scrolling
+    // we only care to prevent smooth scrolling when navigating to a new page to avoid jarring UX
     if (options.onlyHashChange) {
         fn();
         return;
@@ -9398,35 +9398,35 @@ function disableSmoothScrollDuringRouteTransition(fn, options = {}) {
     const htmlElement = document.documentElement;
     const hasDataAttribute = htmlElement.dataset.scrollBehavior === 'smooth';
     if (!hasDataAttribute) {
-        
+        // Warn if smooth scrolling is detected but no data attribute is present
         if (("TURBOPACK compile-time value", "development") === 'development' && getComputedStyle(htmlElement).scrollBehavior === 'smooth') {
             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$utils$2f$warn$2d$once$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["warnOnce"])('Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, ' + 'add `data-scroll-behavior="smooth"` to your <html> element. ' + 'Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior');
         }
-        
+        // No smooth scrolling configured, run directly without style manipulation
         fn();
         return;
     }
-    
+    // Proceed with temporarily disabling smooth scrolling
     const existing = htmlElement.style.scrollBehavior;
     htmlElement.style.scrollBehavior = 'auto';
     if (!options.dontForceLayout) {
-        
-        
-        
+        // In Chrome-based browsers we need to force reflow before calling `scrollTo`.
+        // Otherwise it will not pickup the change in scrollBehavior
+        // More info here: https://github.com/vercel/next.js/issues/40719#issuecomment-1336248042
         htmlElement.getClientRects();
     }
     fn();
     htmlElement.style.scrollBehavior = existing;
-} 
+} //# sourceMappingURL=disable-smooth-scroll.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/readonly-url-search-params.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-  __turbopack_context__.s([
+/**
+ * ReadonlyURLSearchParams implementation shared between client and server.
+ * This file is intentionally not marked as 'use client' or 'use server'
+ * so it can be imported by both environments.
+ */ /** @internal */ __turbopack_context__.s([
     "ReadonlyURLSearchParams",
     ()=>ReadonlyURLSearchParams
 ]);
@@ -9436,24 +9436,24 @@ class ReadonlyURLSearchParamsError extends Error {
     }
 }
 class ReadonlyURLSearchParams extends URLSearchParams {
-     append() {
+    /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ append() {
         throw new ReadonlyURLSearchParamsError();
     }
-     delete() {
+    /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ delete() {
         throw new ReadonlyURLSearchParamsError();
     }
-     set() {
+    /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ set() {
         throw new ReadonlyURLSearchParamsError();
     }
-     sort() {
+    /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ sort() {
         throw new ReadonlyURLSearchParamsError();
     }
-} 
+} //# sourceMappingURL=readonly-url-search-params.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/server-inserted-html.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].ServerInsertedHtml; 
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].ServerInsertedHtml; //# sourceMappingURL=server-inserted-html.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/unrecognized-action-error.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9472,7 +9472,7 @@ class UnrecognizedActionError extends Error {
 }
 function unstable_isUnrecognizedActionError(error) {
     return !!(error && typeof error === 'object' && error instanceof UnrecognizedActionError);
-} 
+} //# sourceMappingURL=unrecognized-action-error.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/redirect.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9505,17 +9505,17 @@ function getRedirectError(url, type, statusCode = __TURBOPACK__imported__module_
     error.digest = `${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$error$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["REDIRECT_ERROR_CODE"]};${type};${url};${statusCode};`;
     return error;
 }
-function redirect( url, type) {
+function redirect(/** The URL to redirect to */ url, type) {
     type ??= actionAsyncStorage?.getStore()?.isAction ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$error$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RedirectType"].push : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$error$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RedirectType"].replace;
     throw getRedirectError(url, type, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$status$2d$code$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RedirectStatusCode"].TemporaryRedirect);
 }
-function permanentRedirect( url, type = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$error$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RedirectType"].replace) {
+function permanentRedirect(/** The URL to redirect to */ url, type = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$error$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RedirectType"].replace) {
     throw getRedirectError(url, type, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$status$2d$code$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RedirectStatusCode"].PermanentRedirect);
 }
 function getURLFromRedirectError(error) {
     if (!(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$error$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isRedirectError"])(error)) return null;
-    
-    
+    // Slices off the beginning of the digest that contains the code and the
+    // separating ';'.
     return error.digest.split(';').slice(2, -2).join(';');
 }
 function getRedirectTypeFromError(error) {
@@ -9537,7 +9537,7 @@ function getRedirectStatusCodeFromError(error) {
         });
     }
     return Number(error.digest.split(';').at(-2));
-} 
+} //# sourceMappingURL=redirect.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/not-found.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9548,20 +9548,20 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/http-access-fallback/http-access-fallback.js [app-ssr] (ecmascript)");
 ;
-
-
-
-
-
-
-
-
-
-
-
-
-
- const DIGEST = `${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HTTP_ERROR_FALLBACK_ERROR_CODE"]};404`;
+/**
+ * This function allows you to render the [not-found.js file](https://nextjs.org/docs/app/api-reference/file-conventions/not-found)
+ * within a route segment as well as inject a tag.
+ *
+ * `notFound()` can be used in
+ * [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components),
+ * [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers), and
+ * [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations).
+ *
+ * - In a Server Component, this will insert a `<meta name="robots" content="noindex" />` meta tag and set the status code to 404.
+ * - In a Route Handler or Server Action, it will serve a 404 to the caller.
+ *
+ * Read more: [Next.js Docs: `notFound`](https://nextjs.org/docs/app/api-reference/functions/not-found)
+ */ const DIGEST = `${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HTTP_ERROR_FALLBACK_ERROR_CODE"]};404`;
 function notFound() {
     const error = Object.defineProperty(new Error(DIGEST), "__NEXT_ERROR_CODE", {
         value: "E394",
@@ -9570,7 +9570,7 @@ function notFound() {
     });
     error.digest = DIGEST;
     throw error;
-} 
+} //# sourceMappingURL=not-found.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/forbidden.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9581,19 +9581,19 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/http-access-fallback/http-access-fallback.js [app-ssr] (ecmascript)");
 ;
-
-
-
-
-
-
-
-
-
-
-
-
- const DIGEST = `${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HTTP_ERROR_FALLBACK_ERROR_CODE"]};403`;
+// TODO: Add `forbidden` docs
+/**
+ * @experimental
+ * This function allows you to render the [forbidden.js file](https://nextjs.org/docs/app/api-reference/file-conventions/forbidden)
+ * within a route segment as well as inject a tag.
+ *
+ * `forbidden()` can be used in
+ * [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components),
+ * [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers), and
+ * [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations).
+ *
+ * Read more: [Next.js Docs: `forbidden`](https://nextjs.org/docs/app/api-reference/functions/forbidden)
+ */ const DIGEST = `${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HTTP_ERROR_FALLBACK_ERROR_CODE"]};403`;
 function forbidden() {
     if ("TURBOPACK compile-time truthy", 1) {
         throw Object.defineProperty(new Error(`\`forbidden()\` is experimental and only allowed to be enabled when \`experimental.authInterrupts\` is enabled.`), "__NEXT_ERROR_CODE", {
@@ -9609,7 +9609,7 @@ function forbidden() {
     });
     error.digest = DIGEST;
     throw error;
-} 
+} //# sourceMappingURL=forbidden.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/unauthorized.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9620,20 +9620,20 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/http-access-fallback/http-access-fallback.js [app-ssr] (ecmascript)");
 ;
-
-
-
-
-
-
-
-
-
-
-
-
-
- const DIGEST = `${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HTTP_ERROR_FALLBACK_ERROR_CODE"]};401`;
+// TODO: Add `unauthorized` docs
+/**
+ * @experimental
+ * This function allows you to render the [unauthorized.js file](https://nextjs.org/docs/app/api-reference/file-conventions/unauthorized)
+ * within a route segment as well as inject a tag.
+ *
+ * `unauthorized()` can be used in
+ * [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components),
+ * [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers), and
+ * [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations).
+ *
+ *
+ * Read more: [Next.js Docs: `unauthorized`](https://nextjs.org/docs/app/api-reference/functions/unauthorized)
+ */ const DIGEST = `${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HTTP_ERROR_FALLBACK_ERROR_CODE"]};401`;
 function unauthorized() {
     if ("TURBOPACK compile-time truthy", 1) {
         throw Object.defineProperty(new Error(`\`unauthorized()\` is experimental and only allowed to be used when \`experimental.authInterrupts\` is enabled.`), "__NEXT_ERROR_CODE", {
@@ -9649,7 +9649,7 @@ function unauthorized() {
     });
     error.digest = DIGEST;
     throw error;
-} 
+} //# sourceMappingURL=unauthorized.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/dynamic-rendering-utils.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9698,9 +9698,9 @@ function makeHangingPromise(signal, route, expression) {
                 });
             }
         });
-        
-        
-        
+        // We are fine if no one actually awaits this promise. We shouldn't consider this an unhandled rejection so
+        // we attach a noop catch handler here to suppress this warning. If you actually await somewhere or construct
+        // your own promise out of it you'll need to ensure you handle the error when it rejects.
         hangingPromise.catch(ignoreReject);
         return hangingPromise;
     }
@@ -9708,18 +9708,18 @@ function makeHangingPromise(signal, route, expression) {
 function ignoreReject() {}
 function makeDevtoolsIOAwarePromise(underlying, requestStore, stage) {
     if (requestStore.stagedRendering) {
-        
+        // We resolve each stage in a timeout, so React DevTools will pick this up as IO.
         return requestStore.stagedRendering.delayUntilStage(stage, undefined, underlying);
     }
-    
-    
+    // in React DevTools if we resolve in a setTimeout we will observe
+    // the promise resolution as something that can suspend a boundary or root.
     return new Promise((resolve)=>{
-        
+        // Must use setTimeout to be considered IO React DevTools. setImmediate will not work.
         setTimeout(()=>{
             resolve(underlying);
         }, 0);
     });
-} 
+} //# sourceMappingURL=dynamic-rendering-utils.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/lib/router-utils/is-postpone.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9731,12 +9731,12 @@ __turbopack_context__.s([
 const REACT_POSTPONE_TYPE = Symbol.for('react.postpone');
 function isPostpone(error) {
     return typeof error === 'object' && error !== null && error.$$typeof === REACT_POSTPONE_TYPE;
-} 
+} //# sourceMappingURL=is-postpone.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/lazy-dynamic/bailout-to-csr.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
+// This has to be a shared module which is shared between client component error boundary and dynamic component
 __turbopack_context__.s([
     "BailoutToCSRError",
     ()=>BailoutToCSRError,
@@ -9754,7 +9754,7 @@ function isBailoutToCSRError(err) {
         return false;
     }
     return err.digest === BAILOUT_TO_CSR;
-} 
+} //# sourceMappingURL=bailout-to-csr.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/hooks-server-context.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9776,7 +9776,7 @@ function isDynamicServerError(err) {
         return false;
     }
     return err.digest === DYNAMIC_ERROR_CODE;
-} 
+} //# sourceMappingURL=hooks-server-context.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/static-generation-bailout.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9798,7 +9798,7 @@ function isStaticGenBailoutError(error) {
         return false;
     }
     return error.code === NEXT_STATIC_GEN_BAILOUT;
-} 
+} //# sourceMappingURL=static-generation-bailout.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/lib/framework/boundary-constants.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9816,17 +9816,17 @@ __turbopack_context__.s([
 const METADATA_BOUNDARY_NAME = '__next_metadata_boundary__';
 const VIEWPORT_BOUNDARY_NAME = '__next_viewport_boundary__';
 const OUTLET_BOUNDARY_NAME = '__next_outlet_boundary__';
-const ROOT_LAYOUT_BOUNDARY_NAME = '__next_root_layout_boundary__'; 
+const ROOT_LAYOUT_BOUNDARY_NAME = '__next_root_layout_boundary__'; //# sourceMappingURL=boundary-constants.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/lib/scheduler.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-
- __turbopack_context__.s([
+/**
+ * Schedules a function to be called on the next tick after the other promises
+ * have been resolved.
+ *
+ * @param cb the function to schedule
+ */ __turbopack_context__.s([
     "atLeastOneTask",
     ()=>atLeastOneTask,
     "scheduleImmediate",
@@ -9837,14 +9837,14 @@ const ROOT_LAYOUT_BOUNDARY_NAME = '__next_root_layout_boundary__';
     ()=>waitAtLeastOneReactRenderTask
 ]);
 const scheduleOnNextTick = (cb)=>{
-    
-    
-    
-    
-    
-    
+    // We use Promise.resolve().then() here so that the operation is scheduled at
+    // the end of the promise job queue, we then add it to the next process tick
+    // to ensure it's evaluated afterwards.
+    //
+    // This was inspired by the implementation of the DataLoader interface: https://github.com/graphql/dataloader/blob/d336bd15282664e0be4b4a657cb796f09bafbc6b/src/index.js#L213-L255
+    //
     Promise.resolve().then(()=>{
-        if ("TURBOPACK compile-time falsy", 0) 
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
         ;
         else {
             process.nextTick(cb);
@@ -9852,7 +9852,7 @@ const scheduleOnNextTick = (cb)=>{
     });
 };
 const scheduleImmediate = (cb)=>{
-    if ("TURBOPACK compile-time falsy", 0) 
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
     ;
     else {
         setImmediate(cb);
@@ -9862,12 +9862,12 @@ function atLeastOneTask() {
     return new Promise((resolve)=>scheduleImmediate(resolve));
 }
 function waitAtLeastOneReactRenderTask() {
-    if ("TURBOPACK compile-time falsy", 0) 
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
     ;
     else {
         return new Promise((r)=>setImmediate(r));
     }
-} 
+} //# sourceMappingURL=scheduler.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/invariant-error.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9881,7 +9881,7 @@ class InvariantError extends Error {
         super(`Invariant: ${message.endsWith('.') ? message : message + '.'} This is a bug in Next.js.`, options);
         this.name = 'InvariantError';
     }
-} 
+} //# sourceMappingURL=invariant-error.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/promise-with-resolvers.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9891,7 +9891,7 @@ __turbopack_context__.s([
     ()=>createPromiseWithResolvers
 ]);
 function createPromiseWithResolvers() {
-    
+    // Shim of Stage 4 Promise.withResolvers proposal
     let resolve;
     let reject;
     const promise = new Promise((res, rej)=>{
@@ -9903,7 +9903,7 @@ function createPromiseWithResolvers() {
         reject: reject,
         promise
     };
-} 
+} //# sourceMappingURL=promise-with-resolvers.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/staged-rendering.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -9918,7 +9918,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$promise$2d$with$2d$resolvers$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/promise-with-resolvers.js [app-ssr] (ecmascript)");
 ;
 ;
-var RenderStage =  function(RenderStage) {
+var RenderStage = /*#__PURE__*/ function(RenderStage) {
     RenderStage[RenderStage["Static"] = 1] = "Static";
     RenderStage[RenderStage["Runtime"] = 2] = "Runtime";
     RenderStage[RenderStage["Dynamic"] = 3] = "Dynamic";
@@ -9934,12 +9934,12 @@ class StagedRenderingController {
             abortSignal.addEventListener('abort', ()=>{
                 const { reason } = abortSignal;
                 if (this.currentStage < 2) {
-                    this.runtimeStagePromise.promise.catch(ignoreReject) 
+                    this.runtimeStagePromise.promise.catch(ignoreReject) // avoid unhandled rejections
                     ;
                     this.runtimeStagePromise.reject(reason);
                 }
                 if (this.currentStage < 3) {
-                    this.dynamicStagePromise.promise.catch(ignoreReject) 
+                    this.dynamicStagePromise.promise.catch(ignoreReject) // avoid unhandled rejections
                     ;
                     this.dynamicStagePromise.reject(reason);
                 }
@@ -9949,14 +9949,14 @@ class StagedRenderingController {
         }
     }
     advanceStage(stage) {
-        
-        
+        // If we're already at the target stage or beyond, do nothing.
+        // (this can happen e.g. if sync IO advanced us to the dynamic stage)
         if (this.currentStage >= stage) {
             return;
         }
         this.currentStage = stage;
-        
-        
+        // Note that we might be going directly from Static to Dynamic,
+        // so we need to resolve the runtime stage as well.
         if (stage >= 2) {
             this.runtimeStagePromise.resolve();
         }
@@ -9991,9 +9991,9 @@ class StagedRenderingController {
     delayUntilStage(stage, displayName, resolvedValue) {
         const ioTriggerPromise = this.getStagePromise(stage);
         const promise = makeDevtoolsIOPromiseFromIOTrigger(ioTriggerPromise, displayName, resolvedValue);
-        
-        
-        
+        // Analogously to `makeHangingPromise`, we might reject this promise if the signal is invoked.
+        // (e.g. in the case where we don't want want the render to proceed to the dynamic stage and abort it).
+        // We shouldn't consider this an unhandled rejection, so we attach a noop catch handler here to suppress this warning.
         if (this.abortSignal) {
             promise.catch(ignoreReject);
         }
@@ -10001,49 +10001,49 @@ class StagedRenderingController {
     }
 }
 function ignoreReject() {}
-
-
-
+// TODO(restart-on-cache-miss): the layering of `delayUntilStage`,
+// `makeDevtoolsIOPromiseFromIOTrigger` and and `makeDevtoolsIOAwarePromise`
+// is confusing, we should clean it up.
 function makeDevtoolsIOPromiseFromIOTrigger(ioTrigger, displayName, resolvedValue) {
-    
-    
-    
-    
-    
+    // If we create a `new Promise` and give it a displayName
+    // (with no userspace code above us in the stack)
+    // React Devtools will use it as the IO cause when determining "suspended by".
+    // In particular, it should shadow any inner IO that resolved/rejected the promise
+    // (in case of staged rendering, this will be the `setTimeout` that triggers the relevant stage)
     const promise = new Promise((resolve, reject)=>{
         ioTrigger.then(resolve.bind(null, resolvedValue), reject);
     });
     if (displayName !== undefined) {
-        
+        // @ts-expect-error
         promise.displayName = displayName;
     }
     return promise;
-} 
+} //# sourceMappingURL=staged-rendering.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/app-render/dynamic-rendering.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+/**
+ * The functions provided by this module are used to communicate certain properties
+ * about the currently running code so that Next.js can make decisions on how to handle
+ * the current execution in different rendering modes such as pre-rendering, resuming, and SSR.
+ *
+ * Today Next.js treats all code as potentially static. Certain APIs may only make sense when dynamically rendering.
+ * Traditionally this meant deopting the entire render to dynamic however with PPR we can now deopt parts
+ * of a React tree as dynamic while still keeping other parts static. There are really two different kinds of
+ * Dynamic indications.
+ *
+ * The first is simply an intention to be dynamic. unstable_noStore is an example of this where
+ * the currently executing code simply declares that the current scope is dynamic but if you use it
+ * inside unstable_cache it can still be cached. This type of indication can be removed if we ever
+ * make the default dynamic to begin with because the only way you would ever be static is inside
+ * a cache scope which this indication does not affect.
+ *
+ * The second is an indication that a dynamic data source was read. This is a stronger form of dynamic
+ * because it means that it is inappropriate to cache this at all. using a dynamic data source inside
+ * unstable_cache should error. If you want to use some dynamic data inside unstable_cache you should
+ * read that data outside the cache and pass it in as an argument to the cached function.
+ */ // Once postpone is in stable we should switch to importing the postpone export directly
 __turbopack_context__.s([
     "Postpone",
     ()=>Postpone,
@@ -10146,13 +10146,13 @@ function markCurrentScopeAsDynamic(store, workUnitStore, expression) {
         switch(workUnitStore.type){
             case 'cache':
             case 'unstable-cache':
-                
-                
-                
-                
+                // Inside cache scopes, marking a scope as dynamic has no effect,
+                // because the outer cache scope creates a cache boundary. This is
+                // subtly different from reading a dynamic data source, which is
+                // forbidden inside a cache scope.
                 return;
             case 'private-cache':
-                
+                // A private cache scope is already dynamic by definition.
                 return;
             case 'prerender-legacy':
             case 'prerender-ppr':
@@ -10162,9 +10162,9 @@ function markCurrentScopeAsDynamic(store, workUnitStore, expression) {
                 workUnitStore;
         }
     }
-    
-    
-    
+    // If we're forcing dynamic rendering or we're forcing static rendering, we
+    // don't need to do anything here because the entire page is already dynamic
+    // or it's static and it should not throw or postpone here.
     if (store.forceDynamic || store.forceStatic) return;
     if (store.dynamicShouldError) {
         throw Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$static$2d$generation$2d$bailout$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["StaticGenBailoutError"](`Route ${store.route} with \`dynamic = "error"\` couldn't be rendered statically because it used \`${expression}\`. See more info here: https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic#dynamic-rendering`), "__NEXT_ERROR_CODE", {
@@ -10179,8 +10179,8 @@ function markCurrentScopeAsDynamic(store, workUnitStore, expression) {
                 return postponeWithTracking(store.route, expression, workUnitStore.dynamicTracking);
             case 'prerender-legacy':
                 workUnitStore.revalidate = 0;
-                
-                
+                // We aren't prerendering, but we are generating a static page. We need
+                // to bail out of static generation.
                 const err = Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$hooks$2d$server$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DynamicServerError"](`Route ${store.route} couldn't be rendered statically because it used ${expression}. See more info here: https://nextjs.org/docs/messages/dynamic-server-error`), "__NEXT_ERROR_CODE", {
                     value: "E550",
                     enumerable: false,
@@ -10200,7 +10200,7 @@ function markCurrentScopeAsDynamic(store, workUnitStore, expression) {
     }
 }
 function throwToInterruptStaticGeneration(expression, store, prerenderStore) {
-    
+    // We aren't prerendering but we are generating a static page. We need to bail out of static generation
     const err = Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$hooks$2d$server$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DynamicServerError"](`Route ${store.route} couldn't be rendered statically because it used \`${expression}\`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error`), "__NEXT_ERROR_CODE", {
         value: "E558",
         enumerable: false,
@@ -10215,13 +10215,13 @@ function trackDynamicDataInDynamicRender(workUnitStore) {
     switch(workUnitStore.type){
         case 'cache':
         case 'unstable-cache':
-            
-            
-            
-            
+            // Inside cache scopes, marking a scope as dynamic has no effect,
+            // because the outer cache scope creates a cache boundary. This is
+            // subtly different from reading a dynamic data source, which is
+            // forbidden inside a cache scope.
             return;
         case 'private-cache':
-            
+            // A private cache scope is already dynamic by definition.
             return;
         case 'prerender':
         case 'prerender-runtime':
@@ -10245,8 +10245,8 @@ function abortOnSynchronousDynamicDataAccess(route, expression, prerenderStore) 
     const dynamicTracking = prerenderStore.dynamicTracking;
     if (dynamicTracking) {
         dynamicTracking.dynamicAccesses.push({
-            
-            
+            // When we aren't debugging, we don't need to create another error for the
+            // stack trace.
             stack: dynamicTracking.isDebugDynamicAccesses ? new Error().stack : undefined,
             expression
         });
@@ -10255,10 +10255,10 @@ function abortOnSynchronousDynamicDataAccess(route, expression, prerenderStore) 
 function abortOnSynchronousPlatformIOAccess(route, expression, errorWithStack, prerenderStore) {
     const dynamicTracking = prerenderStore.dynamicTracking;
     abortOnSynchronousDynamicDataAccess(route, expression, prerenderStore);
-    
-    
-    
-    
+    // It is important that we set this tracking value after aborting. Aborts are executed
+    // synchronously except for the case where you abort during render itself. By setting this
+    // value late we can use it to determine if any of the aborted tasks are the task that
+    // called the sync IO expression in the first place.
     if (dynamicTracking) {
         if (dynamicTracking.syncDynamicErrorWithStack === null) {
             dynamicTracking.syncDynamicErrorWithStack = errorWithStack;
@@ -10266,27 +10266,27 @@ function abortOnSynchronousPlatformIOAccess(route, expression, errorWithStack, p
     }
 }
 function trackSynchronousPlatformIOAccessInDev(requestStore) {
-    
-    
+    // We don't actually have a controller to abort but we do the semantic equivalent by
+    // advancing the request store out of the prerender stage
     if (requestStore.stagedRendering) {
-        
-        
+        // TODO: error for sync IO in the runtime stage
+        // (which is not currently covered by the validation render in `spawnDynamicValidationInDev`)
         requestStore.stagedRendering.advanceStage(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$staged$2d$rendering$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RenderStage"].Dynamic);
     }
 }
 function abortAndThrowOnSynchronousRequestDataAccess(route, expression, errorWithStack, prerenderStore) {
     const prerenderSignal = prerenderStore.controller.signal;
     if (prerenderSignal.aborted === false) {
-        
-        
-        
-        
-        
+        // TODO it would be better to move this aborted check into the callsite so we can avoid making
+        // the error object when it isn't relevant to the aborting of the prerender however
+        // since we need the throw semantics regardless of whether we abort it is easier to land
+        // this way. See how this was handled with `abortOnSynchronousPlatformIOAccess` for a closer
+        // to ideal implementation
         abortOnSynchronousDynamicDataAccess(route, expression, prerenderStore);
-        
-        
-        
-        
+        // It is important that we set this tracking value after aborting. Aborts are executed
+        // synchronously except for the case where you abort during render itself. By setting this
+        // value late we can use it to determine if any of the aborted tasks are the task that
+        // called the sync IO expression in the first place.
         const dynamicTracking = prerenderStore.dynamicTracking;
         if (dynamicTracking) {
             if (dynamicTracking.syncDynamicErrorWithStack === null) {
@@ -10305,8 +10305,8 @@ function postponeWithTracking(route, expression, dynamicTracking) {
     assertPostpone();
     if (dynamicTracking) {
         dynamicTracking.dynamicAccesses.push({
-            
-            
+            // When we aren't debugging, we don't need to create another error for the
+            // stack trace.
             stack: dynamicTracking.isDebugDynamicAccesses ? new Error().stack : undefined,
             expression
         });
@@ -10349,27 +10349,27 @@ function accessedDynamicData(dynamicAccesses) {
     return dynamicAccesses.length > 0;
 }
 function consumeDynamicAccess(serverDynamic, clientDynamic) {
-    
-    
-    
+    // We mutate because we only call this once we are no longer writing
+    // to the dynamicTrackingState and it's more efficient than creating a new
+    // array.
     serverDynamic.dynamicAccesses.push(...clientDynamic.dynamicAccesses);
     return serverDynamic.dynamicAccesses;
 }
 function formatDynamicAPIAccesses(dynamicAccesses) {
     return dynamicAccesses.filter((access)=>typeof access.stack === 'string' && access.stack.length > 0).map(({ expression, stack })=>{
-        stack = stack.split('\n') 
-        
-        
+        stack = stack.split('\n') // Remove the "Error: " prefix from the first line of the stack trace as
+        // well as the first 4 lines of the stack trace which is the distance
+        // from the user code and the `new Error().stack` call.
         .slice(4).filter((line)=>{
-            
+            // Exclude Next.js internals from the stack trace.
             if (line.includes('node_modules/next/')) {
                 return false;
             }
-            
+            // Exclude anonymous functions from the stack trace.
             if (line.includes(' (<anonymous>)')) {
                 return false;
             }
-            
+            // Exclude Node.js internals from the stack trace.
             if (line.includes(' (node:')) {
                 return false;
             }
@@ -10402,25 +10402,25 @@ function createHangingInputAbortSignal(workUnitStore) {
         case 'prerender-runtime':
             const controller = new AbortController();
             if (workUnitStore.cacheSignal) {
-                
-                
-                
+                // If we have a cacheSignal it means we're in a prospective render. If
+                // the input we're waiting on is coming from another cache, we do want
+                // to wait for it so that we can resolve this cache entry too.
                 workUnitStore.cacheSignal.inputReady().then(()=>{
                     controller.abort();
                 });
             } else {
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                // Otherwise we're in the final render and we should already have all
+                // our caches filled.
+                // If the prerender uses stages, we have wait until the runtime stage,
+                // at which point all runtime inputs will be resolved.
+                // (otherwise, a runtime prerender might consider `cookies()` hanging
+                //  even though they'd resolve in the next task.)
+                //
+                // We might still be waiting on some microtasks so we
+                // wait one tick before giving up. When we give up, we still want to
+                // render the content of this cache as deeply as we can so that we can
+                // suspend as deeply as possible in the tree or not at all if we don't
+                // end up waiting for the input.
                 const runtimeStagePromise = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$next$2f$dist$2f$server$2f$app$2d$render$2f$work$2d$unit$2d$async$2d$storage$2e$external$2e$js__$5b$external$5d$__$28$next$2f$dist$2f$server$2f$app$2d$render$2f$work$2d$unit$2d$async$2d$storage$2e$external$2e$js$2c$__cjs$29$__["getRuntimeStagePromise"])(workUnitStore);
                 if (runtimeStagePromise) {
                     runtimeStagePromise.then(()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$scheduler$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["scheduleOnNextTick"])(()=>controller.abort()));
@@ -10460,9 +10460,9 @@ function useDynamicRouteParams(expression) {
                 {
                     const fallbackParams = workUnitStore.fallbackRouteParams;
                     if (fallbackParams && fallbackParams.size > 0) {
-                        
-                        
-                        
+                        // We are in a prerender with cacheComponents semantics. We are going to
+                        // hang here and never resolve. This will cause the currently
+                        // rendering component to effectively be a dynamic hole.
                         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].use((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$dynamic$2d$rendering$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["makeHangingPromise"])(workUnitStore.renderSignal, workStore.route, expression));
                     }
                     break;
@@ -10501,7 +10501,7 @@ function useDynamicSearchParams(expression) {
     const workStore = __TURBOPACK__imported__module__$5b$externals$5d2f$next$2f$dist$2f$server$2f$app$2d$render$2f$work$2d$async$2d$storage$2e$external$2e$js__$5b$external$5d$__$28$next$2f$dist$2f$server$2f$app$2d$render$2f$work$2d$async$2d$storage$2e$external$2e$js$2c$__cjs$29$__["workAsyncStorage"].getStore();
     const workUnitStore = __TURBOPACK__imported__module__$5b$externals$5d2f$next$2f$dist$2f$server$2f$app$2d$render$2f$work$2d$unit$2d$async$2d$storage$2e$external$2e$js__$5b$external$5d$__$28$next$2f$dist$2f$server$2f$app$2d$render$2f$work$2d$unit$2d$async$2d$storage$2e$external$2e$js$2c$__cjs$29$__["workUnitAsyncStorage"].getStore();
     if (!workStore) {
-        
+        // We assume pages router context and just return
         return;
     }
     if (!workUnitStore) {
@@ -10547,27 +10547,27 @@ function useDynamicSearchParams(expression) {
     }
 }
 const hasSuspenseRegex = /\n\s+at Suspense \(<anonymous>\)/;
-
+// Common implicit body tags that React will treat as body when placed directly in html
 const bodyAndImplicitTags = 'body|div|main|section|article|aside|header|footer|nav|form|p|span|h1|h2|h3|h4|h5|h6';
-
-
-
-
-
-
-
-
-
-
-
-
+// Detects when RootLayoutBoundary (our framework marker component) appears
+// after Suspense in the component stack, indicating the root layout is wrapped
+// within a Suspense boundary. Ensures no body/html/implicit-body components are in between.
+//
+// Example matches:
+//   at Suspense (<anonymous>)
+//   at __next_root_layout_boundary__ (<anonymous>)
+//
+// Or with other components in between (but not body/html/implicit-body):
+//   at Suspense (<anonymous>)
+//   at SomeComponent (<anonymous>)
+//   at __next_root_layout_boundary__ (<anonymous>)
 const hasSuspenseBeforeRootLayoutWithoutBodyOrImplicitBodyRegex = new RegExp(`\\n\\s+at Suspense \\(<anonymous>\\)(?:(?!\\n\\s+at (?:${bodyAndImplicitTags}) \\(<anonymous>\\))[\\s\\S])*?\\n\\s+at ${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ROOT_LAYOUT_BOUNDARY_NAME"]} \\([^\\n]*\\)`);
 const hasMetadataRegex = new RegExp(`\\n\\s+at ${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["METADATA_BOUNDARY_NAME"]}[\\n\\s]`);
 const hasViewportRegex = new RegExp(`\\n\\s+at ${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VIEWPORT_BOUNDARY_NAME"]}[\\n\\s]`);
 const hasOutletRegex = new RegExp(`\\n\\s+at ${__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["OUTLET_BOUNDARY_NAME"]}[\\n\\s]`);
 function trackAllowedDynamicAccess(workStore, componentStack, dynamicValidation, clientDynamic) {
     if (hasOutletRegex.test(componentStack)) {
-        
+        // We don't need to track that this is dynamic. It is only so when something else is also dynamic.
         return;
     } else if (hasMetadataRegex.test(componentStack)) {
         dynamicValidation.hasDynamicMetadata = true;
@@ -10576,19 +10576,19 @@ function trackAllowedDynamicAccess(workStore, componentStack, dynamicValidation,
         dynamicValidation.hasDynamicViewport = true;
         return;
     } else if (hasSuspenseBeforeRootLayoutWithoutBodyOrImplicitBodyRegex.test(componentStack)) {
-        
-        
-        
+        // For Suspense within body, the prelude wouldn't be empty so it wouldn't violate the empty static shells rule.
+        // But if you have Suspense above body, the prelude is empty but we allow that because having Suspense
+        // is an explicit signal from the user that they acknowledge the empty shell and want dynamic rendering.
         dynamicValidation.hasAllowedDynamic = true;
         dynamicValidation.hasSuspenseAboveBody = true;
         return;
     } else if (hasSuspenseRegex.test(componentStack)) {
-        
-        
+        // this error had a Suspense boundary above it so we don't need to report it as a source
+        // of disallowed
         dynamicValidation.hasAllowedDynamic = true;
         return;
     } else if (clientDynamic.syncDynamicErrorWithStack) {
-        
+        // This task was the task that called the sync error.
         dynamicValidation.dynamicErrors.push(clientDynamic.syncDynamicErrorWithStack);
         return;
     } else {
@@ -10598,10 +10598,10 @@ function trackAllowedDynamicAccess(workStore, componentStack, dynamicValidation,
         return;
     }
 }
-
-
-
- function createErrorWithComponentOrOwnerStack(message, componentStack) {
+/**
+ * In dev mode, we prefer using the owner stack, otherwise the provided
+ * component stack is used.
+ */ function createErrorWithComponentOrOwnerStack(message, componentStack) {
     const ownerStack = ("TURBOPACK compile-time value", "development") !== 'production' && __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].captureOwnerStack ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].captureOwnerStack() : null;
     const error = Object.defineProperty(new Error(message), "__NEXT_ERROR_CODE", {
         value: "E394",
@@ -10611,7 +10611,7 @@ function trackAllowedDynamicAccess(workStore, componentStack, dynamicValidation,
     error.stack = error.name + ': ' + message + (ownerStack ?? componentStack);
     return error;
 }
-var PreludeState =  function(PreludeState) {
+var PreludeState = /*#__PURE__*/ function(PreludeState) {
     PreludeState[PreludeState["Full"] = 0] = "Full";
     PreludeState[PreludeState["Empty"] = 1] = "Empty";
     PreludeState[PreludeState["Errored"] = 2] = "Errored";
@@ -10636,14 +10636,14 @@ function throwIfDisallowedDynamic(workStore, prelude, dynamicValidation, serverD
     }
     if (prelude !== 0) {
         if (dynamicValidation.hasSuspenseAboveBody) {
-            
-            
-            
+            // This route has opted into allowing fully dynamic rendering
+            // by including a Suspense boundary above the body. In this case
+            // a lack of a shell is not considered disallowed so we simply return
             return;
         }
-        
-        
-        
+        // We didn't have any sync bailouts but there may be user code which
+        // blocked the root. We would have captured these during the prerender
+        // and can log them here and then terminate the build/validating render
         const dynamicErrors = dynamicValidation.dynamicErrors;
         if (dynamicErrors.length > 0) {
             for(let i = 0; i < dynamicErrors.length; i++){
@@ -10651,18 +10651,18 @@ function throwIfDisallowedDynamic(workStore, prelude, dynamicValidation, serverD
             }
             throw new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$static$2d$generation$2d$bailout$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["StaticGenBailoutError"]();
         }
-        
-        
-        
-        
+        // If we got this far then the only other thing that could be blocking
+        // the root is dynamic Viewport. If this is dynamic then
+        // you need to opt into that by adding a Suspense boundary above the body
+        // to indicate your are ok with fully dynamic rendering.
         if (dynamicValidation.hasDynamicViewport) {
             console.error(`Route "${workStore.route}" has a \`generateViewport\` that depends on Request data (\`cookies()\`, etc...) or uncached external data (\`fetch(...)\`, etc...) without explicitly allowing fully dynamic rendering. See more info here: https://nextjs.org/docs/messages/next-prerender-dynamic-viewport`);
             throw new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$static$2d$generation$2d$bailout$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["StaticGenBailoutError"]();
         }
         if (prelude === 1) {
-            
-            
-            
+            // If we ever get this far then we messed up the tracking of invalid dynamic.
+            // We still adhere to the constraint that you must produce a shell but invite the
+            // user to report this as a bug in Next.js.
             console.error(`Route "${workStore.route}" did not produce a static shell and Next.js was unable to determine a reason. This is a bug in Next.js.`);
             throw new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$static$2d$generation$2d$bailout$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["StaticGenBailoutError"]();
         }
@@ -10678,7 +10678,7 @@ function delayUntilRuntimeStage(prerenderStore, result) {
         return prerenderStore.runtimeStagePromise.then(()=>result);
     }
     return result;
-} 
+} //# sourceMappingURL=dynamic-rendering.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/unstable-rethrow.server.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -10706,22 +10706,22 @@ function unstable_rethrow(error) {
     if (error instanceof Error && 'cause' in error) {
         unstable_rethrow(error.cause);
     }
-} 
+} //# sourceMappingURL=unstable-rethrow.server.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/unstable-rethrow.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-
-
- __turbopack_context__.s([
+/**
+ * This function should be used to rethrow internal Next.js errors so that they can be handled by the framework.
+ * When wrapping an API that uses errors to interrupt control flow, you should use this function before you do any error handling.
+ * This function will rethrow the error if it is a Next.js error so it can be handled, otherwise it will do nothing.
+ *
+ * Read more: [Next.js Docs: `unstable_rethrow`](https://nextjs.org/docs/app/api-reference/functions/unstable_rethrow)
+ */ __turbopack_context__.s([
     "unstable_rethrow",
     ()=>unstable_rethrow
 ]);
-const unstable_rethrow = ("TURBOPACK compile-time truthy", 1) ? __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/unstable-rethrow.server.js [app-ssr] (ecmascript)").unstable_rethrow : "TURBOPACK unreachable"; 
+const unstable_rethrow = ("TURBOPACK compile-time truthy", 1) ? __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/unstable-rethrow.server.js [app-ssr] (ecmascript)").unstable_rethrow : "TURBOPACK unreachable"; //# sourceMappingURL=unstable-rethrow.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/navigation.react-server.js [app-ssr] (ecmascript) <locals>", ((__turbopack_context__) => {
 "use strict";
@@ -10752,7 +10752,7 @@ function unstable_isUnrecognizedActionError() {
 ;
 ;
 ;
- 
+ //# sourceMappingURL=navigation.react-server.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/navigation.js [app-ssr] (ecmascript) <locals>", ((__turbopack_context__) => {
 "use strict";
@@ -10776,11 +10776,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/hooks-client-context.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/segment.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$readonly$2d$url$2d$search$2d$params$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/readonly-url-search-params.js [app-ssr] (ecmascript)");
-
+// Client components API
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$server$2d$inserted$2d$html$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/server-inserted-html.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$unrecognized$2d$action$2d$error$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/unrecognized-action-error.js [app-ssr] (ecmascript)");
-
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$navigation$2e$react$2d$server$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/navigation.react-server.js [app-ssr] (ecmascript) <locals>"); 
+// Shared components APIs
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$navigation$2e$react$2d$server$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/navigation.react-server.js [app-ssr] (ecmascript) <locals>"); //# sourceMappingURL=navigation.js.map
 ;
 ;
 ;
@@ -10791,20 +10791,20 @@ const useDynamicSearchParams = ("TURBOPACK compile-time truthy", 1) ? __turbopac
 function useSearchParams() {
     useDynamicSearchParams?.('useSearchParams()');
     const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SearchParamsContext"]);
-    
-    
-    
+    // In the case where this is `null`, the compat types added in
+    // `next-env.d.ts` will add a new overload that changes the return type to
+    // include `null`.
     const readonlySearchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
         if (!searchParams) {
-            
-            
+            // When the router is not ready in pages, we won't have the search params
+            // available.
             return null;
         }
         return new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$readonly$2d$url$2d$search$2d$params$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ReadonlyURLSearchParams"](searchParams);
     }, [
         searchParams
     ]);
-    
+    // Instrument with Suspense DevTools (dev-only)
     if (("TURBOPACK compile-time value", "development") !== 'production' && 'use' in __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"]) {
         const navigationPromises = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["use"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavigationPromisesContext"]);
         if (navigationPromises) {
@@ -10815,10 +10815,10 @@ function useSearchParams() {
 }
 function usePathname() {
     useDynamicRouteParams?.('usePathname()');
-    
-    
+    // In the case where this is `null`, the compat types added in `next-env.d.ts`
+    // will add a new overload that changes the return type to include `null`.
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PathnameContext"]);
-    
+    // Instrument with Suspense DevTools (dev-only)
     if (("TURBOPACK compile-time value", "development") !== 'production' && 'use' in __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"]) {
         const navigationPromises = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["use"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavigationPromisesContext"]);
         if (navigationPromises) {
@@ -10842,7 +10842,7 @@ function useRouter() {
 function useParams() {
     useDynamicRouteParams?.('useParams()');
     const params = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PathParamsContext"]);
-    
+    // Instrument with Suspense DevTools (dev-only)
     if (("TURBOPACK compile-time value", "development") !== 'production' && 'use' in __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"]) {
         const navigationPromises = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["use"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavigationPromisesContext"]);
         if (navigationPromises) {
@@ -10854,16 +10854,16 @@ function useParams() {
 function useSelectedLayoutSegments(parallelRouteKey = 'children') {
     useDynamicRouteParams?.('useSelectedLayoutSegments()');
     const context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$app$2d$router$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["LayoutRouterContext"]);
-    
+    // @ts-expect-error This only happens in `pages`. Type is overwritten in navigation.d.ts
     if (!context) return null;
-    
+    // Instrument with Suspense DevTools (dev-only)
     if (("TURBOPACK compile-time value", "development") !== 'production' && 'use' in __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"]) {
         const navigationPromises = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["use"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavigationPromisesContext"]);
         if (navigationPromises) {
             const promise = navigationPromises.selectedLayoutSegmentsPromises?.get(parallelRouteKey);
             if (promise) {
-                
-                
+                // We should always have a promise here, but if we don't, it's not worth erroring over.
+                // We just won't be able to instrument it, but can still provide the value.
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["use"])(promise);
             }
         }
@@ -10874,12 +10874,12 @@ function useSelectedLayoutSegment(parallelRouteKey = 'children') {
     useDynamicRouteParams?.('useSelectedLayoutSegment()');
     const navigationPromises = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavigationPromisesContext"]);
     const selectedLayoutSegments = useSelectedLayoutSegments(parallelRouteKey);
-    
+    // Instrument with Suspense DevTools (dev-only)
     if (("TURBOPACK compile-time value", "development") !== 'production' && navigationPromises && 'use' in __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"]) {
         const promise = navigationPromises.selectedLayoutSegmentPromises?.get(parallelRouteKey);
         if (promise) {
-            
-            
+            // We should always have a promise here, but if we don't, it's not worth erroring over.
+            // We just won't be able to instrument it, but can still provide the value.
             return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["use"])(promise);
         }
     }
@@ -10940,9 +10940,9 @@ class RedirectErrorBoundary extends __TURBOPACK__imported__module__$5b$project$5
             const url = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getURLFromRedirectError"])(error);
             const redirectType = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getRedirectTypeFromError"])(error);
             if ('handled' in error) {
-                
-                
-                
+                // The redirect was already handled. We'll still catch the redirect error
+                // so that we can remount the subtree, but we don't actually need to trigger the
+                // router.push.
                 return {
                     redirect: null,
                     redirectType: null
@@ -10953,14 +10953,14 @@ class RedirectErrorBoundary extends __TURBOPACK__imported__module__$5b$project$5
                 redirectType
             };
         }
-        
+        // Re-throw if error is not for redirect
         throw error;
     }
-    
+    // Explicit type is needed to avoid the generated `.d.ts` having a wide return type that could be specific to the `@types/react` version.
     render() {
         const { redirect, redirectType } = this.state;
         if (redirect !== null && redirectType !== null) {
-            return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(HandleRedirect, {
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(HandleRedirect, {
                 redirect: redirect,
                 redirectType: redirectType,
                 reset: ()=>this.setState({
@@ -10973,11 +10973,11 @@ class RedirectErrorBoundary extends __TURBOPACK__imported__module__$5b$project$5
 }
 function RedirectBoundary({ children }) {
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["useRouter"])();
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(RedirectErrorBoundary, {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(RedirectErrorBoundary, {
         router: router,
         children: children
     });
-} 
+} //# sourceMappingURL=redirect-boundary.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/http-access-fallback/error-boundary.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -10987,16 +10987,16 @@ __turbopack_context__.s([
     ()=>HTTPAccessFallbackBoundary
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-runtime.js [app-ssr] (ecmascript)");
-
-
-
-
-
-
-
-
-
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+/**
+ * HTTPAccessFallbackBoundary is a boundary that catches errors and renders a
+ * fallback component for HTTP errors.
+ *
+ * It receives the status code, and determine if it should render fallbacks for few HTTP 4xx errors.
+ *
+ * e.g. 404
+ * 404 represents not found, and the fallback component pair contains the component and its styles.
+ *
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$navigation$2d$untracked$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/navigation-untracked.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/http-access-fallback/http-access-fallback.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$utils$2f$warn$2d$once$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/utils/warn-once.js [app-ssr] (ecmascript)");
@@ -11017,7 +11017,7 @@ class HTTPAccessFallbackErrorBoundary extends __TURBOPACK__imported__module__$5b
         };
     }
     componentDidCatch() {
-        if (("TURBOPACK compile-time value", "development") === 'development' && this.props.missingSlots && this.props.missingSlots.size > 0 && 
+        if (("TURBOPACK compile-time value", "development") === 'development' && this.props.missingSlots && this.props.missingSlots.size > 0 && // A missing children slot is the typical not-found case, so no need to warn
         !this.props.missingSlots.has('children')) {
             let warningMessage = 'No default component was found for a parallel route rendered on this page. Falling back to nearest NotFound boundary.\n' + 'Learn more: https://nextjs.org/docs/app/building-your-application/routing/parallel-routes#defaultjs\n\n';
             const formattedSlots = Array.from(this.props.missingSlots).sort((a, b)=>a.localeCompare(b)).map((slot)=>`@${slot}`).join(', ');
@@ -11032,16 +11032,16 @@ class HTTPAccessFallbackErrorBoundary extends __TURBOPACK__imported__module__$5b
                 triggeredStatus: httpStatus
             };
         }
-        
+        // Re-throw if error is not for 404
         throw error;
     }
     static getDerivedStateFromProps(props, state) {
-        
-
-
-
-
- if (props.pathname !== state.previousPathname && state.triggeredStatus) {
+        /**
+     * Handles reset of the error boundary when a navigation happens.
+     * Ensures the error boundary does not stay enabled when navigating to a new page.
+     * Approach of setState in render is safe as it checks the previous pathname and then overrides
+     * it as outlined in https://react.dev/reference/react/useState#storing-information-from-previous-renders
+     */ if (props.pathname !== state.previousPathname && state.triggeredStatus) {
             return {
                 triggeredStatus: undefined,
                 previousPathname: props.pathname
@@ -11064,17 +11064,17 @@ class HTTPAccessFallbackErrorBoundary extends __TURBOPACK__imported__module__$5b
             const isNotFound = triggeredStatus === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HTTPAccessErrorStatus"].NOT_FOUND && notFound;
             const isForbidden = triggeredStatus === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HTTPAccessErrorStatus"].FORBIDDEN && forbidden;
             const isUnauthorized = triggeredStatus === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HTTPAccessErrorStatus"].UNAUTHORIZED && unauthorized;
-            
+            // If there's no matched boundary in this layer, keep throwing the error by rendering the children
             if (!(isNotFound || isForbidden || isUnauthorized)) {
                 return children;
             }
-            return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                 children: [
-                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])("meta", {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])("meta", {
                         name: "robots",
                         content: "noindex"
                     }),
-                    ("TURBOPACK compile-time value", "development") === 'development' &&  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])("meta", {
+                    ("TURBOPACK compile-time value", "development") === 'development' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])("meta", {
                         name: "boundary-next-error",
                         content: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$http$2d$access$2d$fallback$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAccessFallbackErrorTypeByStatus"])(triggeredStatus)
                     }),
@@ -11086,15 +11086,15 @@ class HTTPAccessFallbackErrorBoundary extends __TURBOPACK__imported__module__$5b
     }
 }
 function HTTPAccessFallbackBoundary({ notFound, forbidden, unauthorized, children }) {
-    
-    
-    
-    
+    // When we're rendering the missing params shell, this will return null. This
+    // is because we won't be rendering any not found boundaries or error
+    // boundaries for the missing params shell. When this runs on the client
+    // (where these error can occur), we will get the correct pathname.
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$navigation$2d$untracked$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useUntrackedPathname"])();
     const missingSlots = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$app$2d$router$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["MissingSlotContext"]);
     const hasErrorFallback = !!(notFound || forbidden || unauthorized);
     if (hasErrorFallback) {
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(HTTPAccessFallbackErrorBoundary, {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(HTTPAccessFallbackErrorBoundary, {
             pathname: pathname,
             notFound: notFound,
             forbidden: forbidden,
@@ -11103,10 +11103,10 @@ function HTTPAccessFallbackBoundary({ notFound, forbidden, unauthorized, childre
             children: children
         });
     }
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: children
     });
-} 
+} //# sourceMappingURL=error-boundary.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/router-reducer/create-router-cache-key.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11118,32 +11118,32 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/segment.js [app-ssr] (ecmascript)");
 ;
 function createRouterCacheKey(segment, withoutSearchParameters = false) {
-    
-    
+    // if the segment is an array, it means it's a dynamic segment
+    // for example, ['lang', 'en', 'd']. We need to convert it to a string to store it as a cache node key.
     if (Array.isArray(segment)) {
         return `${segment[0]}|${segment[1]}|${segment[2]}`;
     }
-    
-    
+    // Page segments might have search parameters, ie __PAGE__?foo=bar
+    // When `withoutSearchParameters` is true, we only want to return the page segment
     if (withoutSearchParameters && segment.startsWith(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PAGE_SEGMENT_KEY"])) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PAGE_SEGMENT_KEY"];
     }
     return segment;
-} 
+} //# sourceMappingURL=create-router-cache-key.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/page-path/ensure-leading-slash.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
- __turbopack_context__.s([
+/**
+ * For a given page path, this function ensures that there is a leading slash.
+ * If there is not a leading slash, one is added, otherwise it is noop.
+ */ __turbopack_context__.s([
     "ensureLeadingSlash",
     ()=>ensureLeadingSlash
 ]);
 function ensureLeadingSlash(path) {
     return path.startsWith('/') ? path : `/${path}`;
-} 
+} //# sourceMappingURL=ensure-leading-slash.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/app-paths.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11160,19 +11160,19 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 function normalizeAppPath(route) {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$page$2d$path$2f$ensure$2d$leading$2d$slash$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ensureLeadingSlash"])(route.split('/').reduce((pathname, segment, index, segments)=>{
-        
+        // Empty segments are ignored.
         if (!segment) {
             return pathname;
         }
-        
+        // Groups are ignored.
         if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isGroupSegment"])(segment)) {
             return pathname;
         }
-        
+        // Parallel segments are ignored.
         if (segment[0] === '@') {
             return pathname;
         }
-        
+        // The last segment (if it's a leaf) should be ignored.
         if ((segment === 'page' || segment === 'route') && index === segments.length - 1) {
             return pathname;
         }
@@ -11181,7 +11181,7 @@ function normalizeAppPath(route) {
 }
 function normalizeRscURL(url) {
     return url.replace(/\.rsc($|\?)/, '$1');
-} 
+} //# sourceMappingURL=app-paths.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/interception-routes.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11203,7 +11203,7 @@ const INTERCEPTION_ROUTE_MARKERS = [
     '(...)'
 ];
 function isInterceptionRouteAppPath(path) {
-    
+    // TODO-APP: add more serious validation
     return path.split('/').find((segment)=>INTERCEPTION_ROUTE_MARKERS.find((m)=>segment.startsWith(m))) !== undefined;
 }
 function extractInterceptionRouteInformation(path) {
@@ -11225,11 +11225,11 @@ function extractInterceptionRouteInformation(path) {
             configurable: true
         });
     }
-    interceptingRoute = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$app$2d$paths$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["normalizeAppPath"])(interceptingRoute) 
+    interceptingRoute = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$app$2d$paths$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["normalizeAppPath"])(interceptingRoute) // normalize the path, e.g. /(blog)/feed -> /feed
     ;
     switch(marker){
         case '(.)':
-            
+            // (.) indicates that we should match with sibling routes, so we just need to append the intercepted route to the intercepting route
             if (interceptingRoute === '/') {
                 interceptedRoute = `/${interceptedRoute}`;
             } else {
@@ -11237,7 +11237,7 @@ function extractInterceptionRouteInformation(path) {
             }
             break;
         case '(..)':
-            
+            // (..) indicates that we should match at one level up, so we need to remove the last segment of the intercepting route
             if (interceptingRoute === '/') {
                 throw Object.defineProperty(new Error(`Invalid interception route: ${path}. Cannot use (..) marker at the root level, use (.) instead.`), "__NEXT_ERROR_CODE", {
                     value: "E207",
@@ -11248,11 +11248,11 @@ function extractInterceptionRouteInformation(path) {
             interceptedRoute = interceptingRoute.split('/').slice(0, -1).concat(interceptedRoute).join('/');
             break;
         case '(...)':
-            
+            // (...) will match the route segment in the root directory, so we need to use the root directory to prepend the intercepted route
             interceptedRoute = '/' + interceptedRoute;
             break;
         case '(..)(..)':
-            
+            // (..)(..) indicates that we should match at two levels up, so we need to remove the last two segments of the intercepting route
             const splitInterceptingRoute = interceptingRoute.split('/');
             if (splitInterceptingRoute.length <= 2) {
                 throw Object.defineProperty(new Error(`Invalid interception route: ${path}. Cannot use (..)(..) marker at the root level or one level up.`), "__NEXT_ERROR_CODE", {
@@ -11274,7 +11274,7 @@ function extractInterceptionRouteInformation(path) {
         interceptingRoute,
         interceptedRoute
     };
-} 
+} //# sourceMappingURL=interception-routes.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/router-reducer/reducers/has-interception-route-in-current-tree.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11286,15 +11286,15 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$interception$2d$routes$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/router/utils/interception-routes.js [app-ssr] (ecmascript)");
 ;
 function hasInterceptionRouteInCurrentTree([segment, parallelRoutes]) {
-    
+    // If we have a dynamic segment, it's marked as an interception route by the presence of the `i` suffix.
     if (Array.isArray(segment) && (segment[2] === 'di(..)(..)' || segment[2] === 'ci(..)(..)' || segment[2] === 'di(.)' || segment[2] === 'ci(.)' || segment[2] === 'di(..)' || segment[2] === 'ci(..)' || segment[2] === 'di(...)' || segment[2] === 'ci(...)')) {
         return true;
     }
-    
+    // If segment is not an array, apply the existing string-based check
     if (typeof segment === 'string' && (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$interception$2d$routes$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["isInterceptionRouteAppPath"])(segment)) {
         return true;
     }
-    
+    // Iterate through parallelRoutes if they exist
     if (parallelRoutes) {
         for(const key in parallelRoutes){
             if (hasInterceptionRouteInCurrentTree(parallelRoutes[key])) {
@@ -11303,7 +11303,7 @@ function hasInterceptionRouteInCurrentTree([segment, parallelRoutes]) {
         }
     }
     return false;
-} 
+} //# sourceMappingURL=has-interception-route-in-current-tree.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/bfcache.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11314,18 +11314,18 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 ;
-
+// When the flag is disabled, only track the currently active tree
 const MAX_BF_CACHE_ENTRIES = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : 1;
 function useRouterBFCache(activeTree, activeStateKey) {
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // The currently active entry. The entries form a linked list, sorted in
+    // order of most recently active. This allows us to reuse parts of the list
+    // without cloning, unless there's a reordering or removal.
+    // TODO: Once we start tracking back/forward history at each route level,
+    // we should use the history order instead. In other words, when traversing
+    // to an existing entry as a result of a popstate event, we should maintain
+    // the existing order instead of moving it to the front of the list. I think
+    // an initial implementation of this could be to pass an incrementing id
+    // to history.pushState/replaceState, then use that here for ordering.
     const [prevActiveEntry, setPrevActiveEntry] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(()=>{
         const initialEntry = {
             tree: activeTree,
@@ -11335,42 +11335,42 @@ function useRouterBFCache(activeTree, activeStateKey) {
         return initialEntry;
     });
     if (prevActiveEntry.tree === activeTree) {
-        
-        
+        // Fast path. The active tree hasn't changed, so we can reuse the
+        // existing state.
         return prevActiveEntry;
     }
-    
-    
-    
-    
-    
-    
-    
-    
+    // The route tree changed. Note that this doesn't mean that the tree changed
+    // *at this level* — the change may be due to a child route. Either way, we
+    // need to either add or update the router tree in the bfcache.
+    //
+    // The rest of the code looks more complicated than it actually is because we
+    // can't mutate the state in place; we have to copy-on-write.
+    // Create a new entry for the active cache key. This is the head of the new
+    // linked list.
     const newActiveEntry = {
         tree: activeTree,
         stateKey: activeStateKey,
         next: null
     };
-    
-    
-    
+    // We need to append the old list onto the new list. If the head of the new
+    // list was already present in the cache, then we'll need to clone everything
+    // that came before it. Then we can reuse the rest.
     let n = 1;
     let oldEntry = prevActiveEntry;
     let clonedEntry = newActiveEntry;
     while(oldEntry !== null && n < MAX_BF_CACHE_ENTRIES){
         if (oldEntry.stateKey === activeStateKey) {
-            
-            
-            
-            
-            
-            
-            
+            // Fast path. This entry in the old list that corresponds to the key that
+            // is now active. We've already placed a clone of this entry at the front
+            // of the new list. We can reuse the rest of the old list without cloning.
+            // NOTE: We don't need to worry about eviction in this case because we
+            // haven't increased the size of the cache, and we assume the max size
+            // is constant across renders. If we were to change it to a dynamic limit,
+            // then the implementation would need to account for that.
             clonedEntry.next = oldEntry.next;
             break;
         } else {
-            
+            // Clone the entry and append it to the list.
             n++;
             const entry = {
                 tree: oldEntry.tree,
@@ -11384,7 +11384,7 @@ function useRouterBFCache(activeTree, activeStateKey) {
     }
     setPrevActiveEntry(newActiveEntry);
     return newActiveEntry;
-} 
+} //# sourceMappingURL=bfcache.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/navigation-devtools.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11405,20 +11405,20 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 const layoutSegmentPromisesCache = new WeakMap();
 function createLayoutSegmentPromises(tree) {
-    if ("TURBOPACK compile-time falsy", 0) 
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
     ;
-    
+    // Check if we already have cached promises for this tree
     const cached = layoutSegmentPromisesCache.get(tree);
     if (cached) {
         return cached;
     }
-    
+    // Create new promises and cache them
     const segmentPromises = new Map();
     const segmentsPromises = new Map();
     const parallelRoutes = tree[1];
     for (const parallelRouteKey of Object.keys(parallelRoutes)){
         const segments = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getSelectedLayoutSegmentPath"])(tree, parallelRouteKey);
-        
+        // Use the shared logic to compute the segment value
         const segment = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$segment$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["computeSelectedLayoutSegment"])(segments, parallelRouteKey);
         segmentPromises.set(parallelRouteKey, (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createDevToolsInstrumentedPromise"])('useSelectedLayoutSegment', segment));
         segmentsPromises.set(parallelRouteKey, (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createDevToolsInstrumentedPromise"])('useSelectedLayoutSegments', segments));
@@ -11427,25 +11427,25 @@ function createLayoutSegmentPromises(tree) {
         selectedLayoutSegmentPromises: segmentPromises,
         selectedLayoutSegmentsPromises: segmentsPromises
     };
-    
+    // Cache the result for future renders
     layoutSegmentPromisesCache.set(tree, result);
     return result;
 }
 const rootNavigationPromisesCache = new WeakMap();
 function createRootNavigationPromises(tree, pathname, searchParams, pathParams) {
-    if ("TURBOPACK compile-time falsy", 0) 
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
     ;
-    
+    // Create stable cache keys from the values
     const searchParamsString = searchParams.toString();
     const pathParamsString = JSON.stringify(pathParams);
     const cacheKey = `${pathname}:${searchParamsString}:${pathParamsString}`;
-    
+    // Get or create the cache for this tree
     let treeCache = rootNavigationPromisesCache.get(tree);
     if (!treeCache) {
         treeCache = new Map();
         rootNavigationPromisesCache.set(tree, treeCache);
     }
-    
+    // Check if we have cached promises for this combination
     const cached = treeCache.get(cacheKey);
     if (cached) {
         return cached;
@@ -11463,26 +11463,26 @@ function createRootNavigationPromises(tree, pathname, searchParams, pathParams) 
 }
 const nestedLayoutPromisesCache = new WeakMap();
 function createNestedLayoutNavigationPromises(tree, parentNavPromises) {
-    if ("TURBOPACK compile-time falsy", 0) 
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
     ;
     const parallelRoutes = tree[1];
     const parallelRouteKeys = Object.keys(parallelRoutes);
-    
+    // Only create promises if there are parallel routes at this level
     if (parallelRouteKeys.length === 0) {
         return null;
     }
-    
+    // Get or create the cache for this tree
     let treeCache = nestedLayoutPromisesCache.get(tree);
     if (!treeCache) {
         treeCache = new Map();
         nestedLayoutPromisesCache.set(tree, treeCache);
     }
-    
+    // Check if we have cached promises for this parent combination
     const cached = treeCache.get(parentNavPromises);
     if (cached) {
         return cached;
     }
-    
+    // Create merged promises
     const layoutSegmentPromises = createLayoutSegmentPromises(tree);
     const promises = {
         ...parentNavPromises,
@@ -11490,7 +11490,7 @@ function createNestedLayoutNavigationPromises(tree, parentNavPromises) {
     };
     treeCache.set(parentNavPromises, promises);
     return promises;
-} 
+} //# sourceMappingURL=navigation-devtools.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/next-devtools/userspace/app/segment-explorer-node.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11535,8 +11535,8 @@ function SegmentTrieNode({ type, pagePath }) {
         boundaryType,
         setBoundaryType
     ]);
-    
-    
+    // Use `useLayoutEffect` to ensure the state is updated during suspense.
+    // `useEffect` won't work as the state is preserved during suspense.
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useLayoutEffect"])(()=>{
         __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$next$2d$devtools$2f$dev$2d$overlay$2e$shim$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["dispatcher"].segmentExplorerNodeAdd(nodeState);
         return ()=>{
@@ -11577,27 +11577,27 @@ function SegmentBoundaryTriggerNode() {
     const { boundaryType } = useSegmentState();
     let segmentNode = null;
     if (boundaryType === 'loading') {
-        segmentNode =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(LoadingSegmentNode, {});
+        segmentNode = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(LoadingSegmentNode, {});
     } else if (boundaryType === 'not-found') {
-        segmentNode =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(NotFoundSegmentNode, {});
+        segmentNode = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(NotFoundSegmentNode, {});
     } else if (boundaryType === 'error') {
-        segmentNode =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ErrorSegmentNode, {});
+        segmentNode = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(ErrorSegmentNode, {});
     }
     return segmentNode;
 }
 function SegmentViewNode({ type, pagePath, children }) {
-    const segmentNode =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SegmentTrieNode, {
+    const segmentNode = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SegmentTrieNode, {
         type: type,
         pagePath: pagePath
     }, type);
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             segmentNode,
             children
         ]
     });
 }
-const SegmentStateContext =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])({
+const SegmentStateContext = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])({
     boundaryType: null,
     setBoundaryType: ()=>{}
 });
@@ -11613,7 +11613,7 @@ function SegmentStateProvider({ children }) {
     }, [
         reloadBoundary
     ]);
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SegmentStateContext.Provider, {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SegmentStateContext.Provider, {
         value: {
             boundaryType,
             setBoundaryType: setBoundaryTypeAndReload
@@ -11623,7 +11623,7 @@ function SegmentStateProvider({ children }) {
 }
 function useSegmentState() {
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(SegmentStateContext);
-} 
+} //# sourceMappingURL=segment-explorer-node.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/layout-router.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -11671,10 +11671,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-
-
-
- function walkAddRefetch(segmentPathToWalk, treeToRecreate) {
+/**
+ * Add refetch marker to router state at the point of the current layout segment.
+ * This ensures the response returned is not further down than the current layout segment.
+ */ function walkAddRefetch(segmentPathToWalk, treeToRecreate) {
     if (segmentPathToWalk) {
         const [segment, parallelRouteKey] = segmentPathToWalk;
         const isLast = segmentPathToWalk.length === 2;
@@ -11708,16 +11708,16 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
     return treeToRecreate;
 }
 const __DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$dom$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
-
-
-
- function findDOMNode(instance) {
-    
+// TODO-APP: Replace with new React API for finding dom nodes without a `ref` when available
+/**
+ * Wraps ReactDOM.findDOMNode with additional logic to hide React Strict Mode warning
+ */ function findDOMNode(instance) {
+    // Tree-shake for server bundle
     if ("TURBOPACK compile-time truthy", 1) return null;
-    
+    //TURBOPACK unreachable
     ;
-    
-    
+    // __DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE.findDOMNode is null during module init.
+    // We need to lazily reference it.
     const internal_reactDOMfindDOMNode = undefined;
 }
 const rectProperties = [
@@ -11730,41 +11730,41 @@ const rectProperties = [
     'x',
     'y'
 ];
-
-
- function shouldSkipElement(element) {
-    
-    
-    
+/**
+ * Check if a HTMLElement is hidden or fixed/sticky position
+ */ function shouldSkipElement(element) {
+    // we ignore fixed or sticky positioned elements since they'll likely pass the "in-viewport" check
+    // and will result in a situation we bail on scroll because of something like a fixed nav,
+    // even though the actual page content is offscreen
     if ([
         'sticky',
         'fixed'
     ].includes(getComputedStyle(element).position)) {
         return true;
     }
-    
-    
+    // Uses `getBoundingClientRect` to check if the element is hidden instead of `offsetParent`
+    // because `offsetParent` doesn't consider document/body
     const rect = element.getBoundingClientRect();
     return rectProperties.every((item)=>rect[item] === 0);
 }
-
-
- function topOfElementInViewport(element, viewportHeight) {
+/**
+ * Check if the top corner of the HTMLElement is in the viewport.
+ */ function topOfElementInViewport(element, viewportHeight) {
     const rect = element.getBoundingClientRect();
     return rect.top >= 0 && rect.top <= viewportHeight;
 }
-
-
-
-
-
- function getHashFragmentDomNode(hashFragment) {
-    
+/**
+ * Find the DOM node for a hash fragment.
+ * If `top` the page has to scroll to the top of the page. This mirrors the browser's behavior.
+ * If the hash fragment is an id, the page has to scroll to the element with that id.
+ * If the hash fragment is a name, the page has to scroll to the first element with that name.
+ */ function getHashFragmentDomNode(hashFragment) {
+    // If the hash fragment is `top` the page has to scroll to the top of the page.
     if (hashFragment === 'top') {
         return document.body;
     }
-    
-    return document.getElementById(hashFragment) ?? 
+    // If the hash fragment is an id, the page has to scroll to the element with that id.
+    return document.getElementById(hashFragment) ?? // If the hash fragment is a name, the page has to scroll to the first element with that name.
     document.getElementsByName(hashFragment)[0];
 }
 class InnerScrollAndFocusHandler extends __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].Component {
@@ -11772,7 +11772,7 @@ class InnerScrollAndFocusHandler extends __TURBOPACK__imported__module__$5b$proj
         this.handlePotentialScroll();
     }
     componentDidUpdate() {
-        
+        // Because this property is overwritten in handlePotentialScroll it's fine to always run it when true as it'll be set to false for subsequent renders.
         if (this.props.focusAndScrollRef.apply) {
             this.handlePotentialScroll();
         }
@@ -11782,12 +11782,12 @@ class InnerScrollAndFocusHandler extends __TURBOPACK__imported__module__$5b$proj
     }
     constructor(...args){
         super(...args), this.handlePotentialScroll = ()=>{
-            
+            // Handle scroll and focus, it's only applied once in the first useEffect that triggers that changed.
             const { focusAndScrollRef, segmentPath } = this.props;
             if (focusAndScrollRef.apply) {
-                
-                
-                
+                // segmentPaths is an array of segment paths that should be scrolled to
+                // if the current segment path is not in the array, the scroll is not applied
+                // unless the array is empty, in which case the scroll is always applied
                 if (focusAndScrollRef.segmentPaths.length !== 0 && !focusAndScrollRef.segmentPaths.some((scrollRefSegmentPath)=>segmentPath.every((segment, index)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$match$2d$segments$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["matchSegment"])(segment, scrollRefSegmentPath[index])))) {
                     return;
                 }
@@ -11796,69 +11796,69 @@ class InnerScrollAndFocusHandler extends __TURBOPACK__imported__module__$5b$proj
                 if (hashFragment) {
                     domNode = getHashFragmentDomNode(hashFragment);
                 }
-                
-                
+                // `findDOMNode` is tricky because it returns just the first child if the component is a fragment.
+                // This already caused a bug where the first child was a <link/> in head.
                 if (!domNode) {
                     domNode = findDOMNode(this);
                 }
-                
+                // If there is no DOM node this layout-router level is skipped. It'll be handled higher-up in the tree.
                 if (!(domNode instanceof Element)) {
                     return;
                 }
-                
-                
+                // Verify if the element is a HTMLElement and if we want to consider it for scroll behavior.
+                // If the element is skipped, try to select the next sibling and try again.
                 while(!(domNode instanceof HTMLElement) || shouldSkipElement(domNode)){
                     if ("TURBOPACK compile-time truthy", 1) {
                         if (domNode.parentElement?.localName === 'head') {
-                        
-                        
-                        
+                        // TODO: We enter this state when metadata was rendered as part of the page or via Next.js.
+                        // This is always a bug in Next.js and caused by React hoisting metadata.
+                        // We need to replace `findDOMNode` in favor of Fragment Refs (when available) so that we can skip over metadata.
                         }
                     }
-                    
+                    // No siblings found that match the criteria are found, so handle scroll higher up in the tree instead.
                     if (domNode.nextElementSibling === null) {
                         return;
                     }
                     domNode = domNode.nextElementSibling;
                 }
-                
+                // State is mutated to ensure that the focus and scroll is applied only once.
                 focusAndScrollRef.apply = false;
                 focusAndScrollRef.hashFragment = null;
                 focusAndScrollRef.segmentPaths = [];
                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$disable$2d$smooth$2d$scroll$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["disableSmoothScrollDuringRouteTransition"])(()=>{
-                    
+                    // In case of hash scroll, we only need to scroll the element into view
                     if (hashFragment) {
                         ;
                         domNode.scrollIntoView();
                         return;
                     }
-                    
-                    
+                    // Store the current viewport height because reading `clientHeight` causes a reflow,
+                    // and it won't change during this function.
                     const htmlElement = document.documentElement;
                     const viewportHeight = htmlElement.clientHeight;
-                    
+                    // If the element's top edge is already in the viewport, exit early.
                     if (topOfElementInViewport(domNode, viewportHeight)) {
                         return;
                     }
-                    
-                    
-                    
-                    
+                    // Otherwise, try scrolling go the top of the document to be backward compatible with pages
+                    // scrollIntoView() called on `<html/>` element scrolls horizontally on chrome and firefox (that shouldn't happen)
+                    // We could use it to scroll horizontally following RTL but that also seems to be broken - it will always scroll left
+                    // scrollLeft = 0 also seems to ignore RTL and manually checking for RTL is too much hassle so we will scroll just vertically
                     htmlElement.scrollTop = 0;
-                    
+                    // Scroll to domNode if domNode is not in viewport when scrolled to top of document
                     if (!topOfElementInViewport(domNode, viewportHeight)) {
-                        
+                        // Scroll into view doesn't scroll horizontally by default when not needed
                         ;
                         domNode.scrollIntoView();
                     }
                 }, {
-                    
+                    // We will force layout by querying domNode position
                     dontForceLayout: true,
                     onlyHashChange: focusAndScrollRef.onlyHashChange
                 });
-                
+                // Mutate after scrolling so that it can be read by `disableSmoothScrollDuringRouteTransition`
                 focusAndScrollRef.onlyHashChange = false;
-                
+                // Set focus on the element
                 domNode.focus();
             }
         };
@@ -11873,15 +11873,15 @@ function ScrollAndFocusHandler({ segmentPath, children }) {
             configurable: true
         });
     }
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(InnerScrollAndFocusHandler, {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(InnerScrollAndFocusHandler, {
         segmentPath: segmentPath,
         focusAndScrollRef: context.focusAndScrollRef,
         children: children
     });
 }
-
-
- function InnerLayoutRouter({ tree, segmentPath, debugNameContext, cacheNode, params, url, isActive }) {
+/**
+ * InnerLayoutRouter handles rendering the provided segment based on the cache.
+ */ function InnerLayoutRouter({ tree, segmentPath, debugNameContext, cacheNode, params, url, isActive }) {
     const context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$app$2d$router$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["GlobalLayoutRouterContext"]);
     const parentNavPromises = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavigationPromisesContext"]);
     if (!context) {
@@ -11892,35 +11892,35 @@ function ScrollAndFocusHandler({ segmentPath, children }) {
         });
     }
     const { tree: fullTree } = context;
-    
-    
-    
-    
-    
-    
+    // `rsc` represents the renderable node for this segment.
+    // If this segment has a `prefetchRsc`, it's the statically prefetched data.
+    // We should use that on initial render instead of `rsc`. Then we'll switch
+    // to `rsc` when the dynamic response streams in.
+    //
+    // If no prefetch data is available, then we go straight to rendering `rsc`.
     const resolvedPrefetchRsc = cacheNode.prefetchRsc !== null ? cacheNode.prefetchRsc : cacheNode.rsc;
-    
-    
-    
+    // We use `useDeferredValue` to handle switching between the prefetched and
+    // final values. The second argument is returned on initial render, then it
+    // re-renders with the first argument.
     const rsc = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useDeferredValue"])(cacheNode.rsc, resolvedPrefetchRsc);
-    
-    
-    
-    
+    // `rsc` is either a React node or a promise for a React node, except we
+    // special case `null` to represent that this segment's data is missing. If
+    // it's a promise, we need to unwrap it so we can determine whether or not the
+    // data is missing.
     const resolvedRsc = typeof rsc === 'object' && rsc !== null && typeof rsc.then === 'function' ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["use"])(rsc) : rsc;
     if (!resolvedRsc) {
-        
-        
-        
-        
-        
+        // The data for this segment is not available, and there's no pending
+        // navigation that will be able to fulfill it. We need to fetch more from
+        // the server and patch the cache.
+        // Only fetch data for the active segment. Inactive segments (rendered
+        // offscreen for bfcache) should not trigger fetches.
         if (isActive) {
-            
+            // Check if there's already a pending request.
             let lazyData = cacheNode.lazyData;
             if (lazyData === null) {
-                
-
- 
+                /**
+         * Router state with refetch marker added
+         */ // TODO-APP: remove ''
                 const refetchTree = walkAddRefetch([
                     '',
                     ...segmentPath
@@ -11929,9 +11929,9 @@ function ScrollAndFocusHandler({ segmentPath, children }) {
                 const navigatedAt = Date.now();
                 cacheNode.lazyData = lazyData = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$router$2d$reducer$2f$fetch$2d$server$2d$response$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["fetchServerResponse"])(new URL(url, location.origin), {
                     flightRouterState: refetchTree,
-                    nextUrl: includeNextUrl ? 
-                    
-                    
+                    nextUrl: includeNextUrl ? // the next-url after a navigation, but we want the same
+                    // interception route to be matched that used the last
+                    // next-url.
                     context.previousNextUrl || context.nextUrl : null
                 }).then((serverResponse)=>{
                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["startTransition"])(()=>{
@@ -11944,58 +11944,58 @@ function ScrollAndFocusHandler({ segmentPath, children }) {
                     });
                     return serverResponse;
                 });
-                
+                // Suspend while waiting for lazyData to resolve
                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["use"])(lazyData);
             }
         }
-        
-        
+        // Suspend infinitely as `changeByServerResponse` will cause a different part of the tree to be rendered.
+        // A falsey `resolvedRsc` indicates missing data -- we should not commit that branch, and we need to wait for the data to arrive.
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["use"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$unresolved$2d$thenable$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["unresolvedThenable"]);
     }
-    
+    // If we get to this point, then we know we have something we can render.
     let content = resolvedRsc;
-    
-    
-    
+    // In dev, we create a NavigationPromisesContext containing the instrumented promises that provide
+    // `useSelectedLayoutSegment` and `useSelectedLayoutSegments`.
+    // Promises are cached outside of render to survive suspense retries.
     let navigationPromises = null;
     if ("TURBOPACK compile-time truthy", 1) {
         const { createNestedLayoutNavigationPromises } = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/navigation-devtools.js [app-ssr] (ecmascript)");
         navigationPromises = createNestedLayoutNavigationPromises(tree, parentNavPromises);
     }
     if (navigationPromises) {
-        content =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavigationPromisesContext"].Provider, {
+        content = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NavigationPromisesContext"].Provider, {
             value: navigationPromises,
             children: resolvedRsc
         });
     }
-    const subtree =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$app$2d$router$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["LayoutRouterContext"].Provider, {
+    const subtree = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$app$2d$router$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["LayoutRouterContext"].Provider, {
         value: {
             parentTree: tree,
             parentCacheNode: cacheNode,
             parentSegmentPath: segmentPath,
             parentParams: params,
             debugNameContext: debugNameContext,
-            
+            // TODO-APP: overriding of url for parallel routes
             url: url,
             isActive: isActive
         },
         children: content
     });
-    
+    // Ensure root layout is not wrapped in a div as the root layout renders `<html>`
     return subtree;
 }
-
-
-
- function LoadingBoundary({ name, loading, children }) {
-    
-    
-    
-    
-    
-    
-    
-    
+/**
+ * Renders suspense boundary with the provided "loading" property as the fallback.
+ * If no loading property is provided it renders the children without a suspense boundary.
+ */ function LoadingBoundary({ name, loading, children }) {
+    // If loading is a promise, unwrap it. This happens in cases where we haven't
+    // yet received the loading data from the server — which includes whether or
+    // not this layout has a loading component at all.
+    //
+    // It's OK to suspend here instead of inside the fallback because this
+    // promise will resolve simultaneously with the data for the segment itself.
+    // So it will never suspend for longer than it would have if we didn't use
+    // a Suspense fallback at all.
     let loadingModuleData;
     if (typeof loading === 'object' && loading !== null && typeof loading.then === 'function') {
         const promiseForLoading = loading;
@@ -12007,9 +12007,9 @@ function ScrollAndFocusHandler({ segmentPath, children }) {
         const loadingRsc = loadingModuleData[0];
         const loadingStyles = loadingModuleData[1];
         const loadingScripts = loadingModuleData[2];
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Suspense"], {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Suspense"], {
             name: name,
-            fallback:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+            fallback: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                 children: [
                     loadingStyles,
                     loadingScripts,
@@ -12019,7 +12019,7 @@ function ScrollAndFocusHandler({ segmentPath, children }) {
             children: children
         });
     }
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: children
     });
 }
@@ -12033,44 +12033,44 @@ function OuterLayoutRouter({ parallelRouterKey, error, errorStyles, errorScripts
         });
     }
     const { parentTree, parentCacheNode, parentSegmentPath, parentParams, url, isActive, debugNameContext } = context;
-    
-    
+    // Get the CacheNode for this segment by reading it from the parent segment's
+    // child map.
     const parentParallelRoutes = parentCacheNode.parallelRoutes;
     let segmentMap = parentParallelRoutes.get(parallelRouterKey);
-    
-    
+    // If the parallel router cache node does not exist yet, create it.
+    // This writes to the cache when there is no item in the cache yet. It never *overwrites* existing cache items which is why it's safe in concurrent mode.
     if (!segmentMap) {
         segmentMap = new Map();
         parentParallelRoutes.set(parallelRouterKey, segmentMap);
     }
     const parentTreeSegment = parentTree[0];
-    const segmentPath = parentSegmentPath === null ? 
+    const segmentPath = parentSegmentPath === null ? // the code. We should clean this up.
     [
         parallelRouterKey
     ] : parentSegmentPath.concat([
         parentTreeSegment,
         parallelRouterKey
     ]);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // The "state" key of a segment is the one passed to React — it represents the
+    // identity of the UI tree. Whenever the state key changes, the tree is
+    // recreated and the state is reset. In the App Router model, search params do
+    // not cause state to be lost, so two segments with the same segment path but
+    // different search params should have the same state key.
+    //
+    // The "cache" key of a segment, however, *does* include the search params, if
+    // it's possible that the segment accessed the search params on the server.
+    // (This only applies to page segments; layout segments cannot access search
+    // params on the server.)
     const activeTree = parentTree[1][parallelRouterKey];
     const activeSegment = activeTree[0];
-    const activeStateKey = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$router$2d$reducer$2f$create$2d$router$2d$cache$2d$key$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createRouterCacheKey"])(activeSegment, true) 
+    const activeStateKey = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$router$2d$reducer$2f$create$2d$router$2d$cache$2d$key$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createRouterCacheKey"])(activeSegment, true) // no search params
     ;
-    
-    
-    
-    
-    
-    
+    // At each level of the route tree, not only do we render the currently
+    // active segment — we also render the last N segments that were active at
+    // this level inside a hidden <Activity> boundary, to preserve their state
+    // if or when the user navigates to them again.
+    //
+    // bfcacheEntry is a linked list of FlightRouterStates.
     let bfcacheEntry = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$bfcache$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouterBFCache"])(activeTree, activeStateKey);
     let children = [];
     do {
@@ -12078,11 +12078,11 @@ function OuterLayoutRouter({ parallelRouterKey, error, errorStyles, errorScripts
         const stateKey = bfcacheEntry.stateKey;
         const segment = tree[0];
         const cacheKey = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$router$2d$reducer$2f$create$2d$router$2d$cache$2d$key$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createRouterCacheKey"])(segment);
-        
+        // Read segment path from the parallel router cache node.
         let cacheNode = segmentMap.get(cacheKey);
         if (cacheNode === undefined) {
-            
-            
+            // When data is not available during rendering client-side we need to fetch
+            // it from the server.
             const newLazyCacheNode = {
                 lazyData: null,
                 rsc: null,
@@ -12093,36 +12093,36 @@ function OuterLayoutRouter({ parallelRouterKey, error, errorStyles, errorScripts
                 loading: null,
                 navigatedAt: -1
             };
-            
+            // Flight data fetch kicked off during render and put into the cache.
             cacheNode = newLazyCacheNode;
             segmentMap.set(cacheKey, newLazyCacheNode);
         }
-        
-
-
-
-
-
-
-
-
- let segmentBoundaryTriggerNode = null;
+        /*
+    - Error boundary
+      - Only renders error boundary if error component is provided.
+      - Rendered for each segment to ensure they have their own error state.
+      - When gracefully degrade for bots, skip rendering error boundary.
+    - Loading boundary
+      - Only renders suspense boundary if loading components is provided.
+      - Rendered for each segment to ensure they have their own loading state.
+      - Passed to the router during rendering to ensure it can be immediately rendered when suspending on a Flight fetch.
+  */ let segmentBoundaryTriggerNode = null;
         let segmentViewStateNode = null;
         if ("TURBOPACK compile-time truthy", 1) {
             const { SegmentBoundaryTriggerNode, SegmentViewStateNode } = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/next-devtools/userspace/app/segment-explorer-node.js [app-ssr] (ecmascript)");
             const pagePrefix = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$router$2f$utils$2f$app$2d$paths$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["normalizeAppPath"])(url);
-            segmentViewStateNode =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SegmentViewStateNode, {
+            segmentViewStateNode = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SegmentViewStateNode, {
                 page: pagePrefix
             }, pagePrefix);
-            segmentBoundaryTriggerNode =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
-                children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SegmentBoundaryTriggerNode, {})
+            segmentBoundaryTriggerNode = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SegmentBoundaryTriggerNode, {})
             });
         }
         let params = parentParams;
         if (Array.isArray(segment)) {
-            
-            
-            
+            // This segment contains a route param. Accumulate these as we traverse
+            // down the router tree. The result represents the set of params that
+            // the layout/page components are permitted to access below this point.
             const paramName = segment[0];
             const paramCacheKey = segment[1];
             const paramType = segment[2];
@@ -12135,47 +12135,47 @@ function OuterLayoutRouter({ parallelRouterKey, error, errorStyles, errorScripts
             }
         }
         const debugName = getBoundaryDebugNameFromSegment(segment);
-        
-        
-        
+        // `debugNameContext` represents the nearest non-"virtual" parent segment.
+        // `getBoundaryDebugNameFromSegment` returns undefined for virtual segments.
+        // So if `debugName` is undefined, the context is passed through unchanged.
         const childDebugNameContext = debugName ?? debugNameContext;
-        
-        
-        
-        
-        
-        
-        
-        
+        // In practical terms, clicking this name in the Suspense DevTools
+        // should select the child slots of that layout.
+        //
+        // So the name we apply to the Activity boundary is actually based on
+        // the nearest parent segments.
+        //
+        // We skip over "virtual" parents, i.e. ones inserted by Next.js that
+        // don't correspond to application-defined code.
         const isVirtual = debugName === undefined;
         const debugNameToDisplay = isVirtual ? undefined : debugNameContext;
-        
-        
-        
-        
-        
-        
-        
-        
+        // TODO: The loading module data for a segment is stored on the parent, then
+        // applied to each of that parent segment's parallel route slots. In the
+        // simple case where there's only one parallel route (the `children` slot),
+        // this is no different from if the loading module data where stored on the
+        // child directly. But I'm not sure this actually makes sense when there are
+        // multiple parallel routes. It's not a huge issue because you always have
+        // the option to define a narrower loading boundary for a particular slot. But
+        // this sort of smells like an implementation accident to me.
         const loadingModuleData = parentCacheNode.loading;
-        let child =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$app$2d$router$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TemplateContext"].Provider, {
-            value:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(ScrollAndFocusHandler, {
+        let child = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$app$2d$router$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TemplateContext"].Provider, {
+            value: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(ScrollAndFocusHandler, {
                 segmentPath: segmentPath,
                 children: [
-                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$error$2d$boundary$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ErrorBoundary"], {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$error$2d$boundary$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ErrorBoundary"], {
                         errorComponent: error,
                         errorStyles: errorStyles,
                         errorScripts: errorScripts,
-                        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(LoadingBoundary, {
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(LoadingBoundary, {
                             name: debugNameToDisplay,
                             loading: loadingModuleData,
-                            children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$error$2d$boundary$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HTTPAccessFallbackBoundary"], {
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$http$2d$access$2d$fallback$2f$error$2d$boundary$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HTTPAccessFallbackBoundary"], {
                                 notFound: notFound,
                                 forbidden: forbidden,
                                 unauthorized: unauthorized,
-                                children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$boundary$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RedirectBoundary"], {
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$components$2f$redirect$2d$boundary$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RedirectBoundary"], {
                                     children: [
-                                         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(InnerLayoutRouter, {
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(InnerLayoutRouter, {
                                             url: url,
                                             tree: tree,
                                             params: params,
@@ -12201,14 +12201,14 @@ function OuterLayoutRouter({ parallelRouterKey, error, errorStyles, errorScripts
         }, stateKey);
         if ("TURBOPACK compile-time truthy", 1) {
             const { SegmentStateProvider } = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/next-devtools/userspace/app/segment-explorer-node.js [app-ssr] (ecmascript)");
-            child =  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(SegmentStateProvider, {
+            child = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxs"])(SegmentStateProvider, {
                 children: [
                     child,
                     segmentViewBoundaries
                 ]
             }, stateKey);
         }
-        if ("TURBOPACK compile-time falsy", 0) 
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
         ;
         children.push(child);
         bfcacheEntry = bfcacheEntry.next;
@@ -12217,7 +12217,7 @@ function OuterLayoutRouter({ parallelRouterKey, error, errorStyles, errorScripts
 }
 function getBoundaryDebugNameFromSegment(segment) {
     if (segment === '/') {
-        
+        // Reached the root
         return '/';
     }
     if (typeof segment === 'string') {
@@ -12231,10 +12231,10 @@ function getBoundaryDebugNameFromSegment(segment) {
     return paramCacheKey + '/';
 }
 function isVirtualLayout(segment) {
-    return(
-    
+    return(// in a more special way instead of checking the name, to distinguish them
+    // from app-defined groups.
     segment === '(slot)');
-} 
+} //# sourceMappingURL=layout-router.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/render-from-template-context.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -12252,10 +12252,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 function RenderFromTemplateContext() {
     const children = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$app$2d$router$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TemplateContext"]);
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: children
     });
-} 
+} //# sourceMappingURL=render-from-template-context.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/web/spec-extension/adapters/reflect.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -12281,7 +12281,7 @@ class ReflectAdapter {
     static deleteProperty(target, prop) {
         return Reflect.deleteProperty(target, prop);
     }
-} 
+} //# sourceMappingURL=reflect.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/create-deduped-by-callsite-server-error-logger.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -12295,14 +12295,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 const errorRef = {
     current: null
 };
-
+// React.cache is currently only available in canary/experimental React channels.
 const cache = typeof __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cache"] === 'function' ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cache"] : (fn)=>fn;
-
-
-
+// When Cache Components is enabled, we record these as errors so that they
+// are captured by the dev overlay as it's more critical to fix these
+// when enabled.
 const logErrorOrWarn = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : console.warn;
-
-
+// We don't want to dedupe across requests.
+// The developer might've just attempted to fix the warning so we should warn again if it still happens.
 const flushCurrentErrorIfNew = cache((key)=>{
     try {
         logErrorOrWarn(errorRef.current);
@@ -12319,28 +12319,28 @@ function createDedupedByCallsiteServerErrorLoggerDev(getMessage) {
             if (callStackFrames === undefined || callStackFrames.length < 4) {
                 logErrorOrWarn(message);
             } else {
-                
-                
-                
-                
-                
+                // Error:
+                //   logDedupedError
+                //   asyncApiBeingAccessedSynchronously
+                //   <userland callsite>
+                // TODO: This breaks if sourcemaps with ignore lists are enabled.
                 const key = callStackFrames[4];
                 errorRef.current = message;
                 flushCurrentErrorIfNew(key);
             }
-        } else 
+        } else //TURBOPACK unreachable
         ;
     };
-} 
+} //# sourceMappingURL=create-deduped-by-callsite-server-error-logger.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/shared/lib/utils/reflect-utils.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-
+// This regex will have fast negatives meaning valid identifiers may not pass
+// this test. However this is only used during static generation to provide hints
+// about why a page bailed out of some or all prerendering and we can use bracket notation
+// for example while `ಠ_ಠ` is a valid identifier it's ok to print `searchParams['ಠ_ಠ']`
+// even if this would have been fine too `searchParams.ಠ_ಠ`
 __turbopack_context__.s([
     "describeHasCheckingStringProperty",
     ()=>describeHasCheckingStringProperty,
@@ -12367,22 +12367,22 @@ const wellKnownProperties = new Set([
     'toString',
     'valueOf',
     'toLocaleString',
-    
+    // Promise prototype
     'then',
     'catch',
     'finally',
-    
+    // React Promise extension
     'status',
-    
-    
-    
+    // 'value',
+    // 'error',
+    // React introspection
     'displayName',
     '_debugInfo',
-    
+    // Common tested properties
     'toJSON',
     '$$typeof',
     '__esModule'
-]); 
+]); //# sourceMappingURL=reflect-utils.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/request/utils.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -12419,7 +12419,7 @@ function throwForSearchParamsAccessInUseCache(workStore, constructorOpt) {
 function isRequestAPICallableInsideAfter() {
     const afterTaskStore = __TURBOPACK__imported__module__$5b$externals$5d2f$next$2f$dist$2f$server$2f$app$2d$render$2f$after$2d$task$2d$async$2d$storage$2e$external$2e$js__$5b$external$5d$__$28$next$2f$dist$2f$server$2f$app$2d$render$2f$after$2d$task$2d$async$2d$storage$2e$external$2e$js$2c$__cjs$29$__["afterTaskAsyncStorage"].getStore();
     return (afterTaskStore == null ? void 0 : afterTaskStore.rootTaskSpawnPhase) === 'action';
-} 
+} //# sourceMappingURL=utils.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/request/search-params.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -12515,8 +12515,8 @@ function createServerSearchParamsForServerPage(underlyingSearchParams, workStore
 }
 function createPrerenderSearchParamsForClientPage(workStore) {
     if (workStore.forceStatic) {
-        
-        
+        // When using forceStatic we override all other logic and always just return an empty
+        // dictionary object.
         return Promise.resolve({});
     }
     const workUnitStore = __TURBOPACK__imported__module__$5b$externals$5d2f$next$2f$dist$2f$server$2f$app$2d$render$2f$work$2d$unit$2d$async$2d$storage$2e$external$2e$js__$5b$external$5d$__$28$next$2f$dist$2f$server$2f$app$2d$render$2f$work$2d$unit$2d$async$2d$storage$2e$external$2e$js$2c$__cjs$29$__["workUnitAsyncStorage"].getStore();
@@ -12524,8 +12524,8 @@ function createPrerenderSearchParamsForClientPage(workStore) {
         switch(workUnitStore.type){
             case 'prerender':
             case 'prerender-client':
-                
-                
+                // We're prerendering in a mode that aborts (cacheComponents) and should stall
+                // the promise to ensure the RSC side is considered dynamic
                 return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$dynamic$2d$rendering$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["makeHangingPromise"])(workUnitStore.renderSignal, workStore.route, '`searchParams`');
             case 'prerender-runtime':
                 throw Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$invariant$2d$error$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["InvariantError"]('createPrerenderSearchParamsForClientPage should not be called in a runtime prerender.'), "__NEXT_ERROR_CODE", {
@@ -12553,19 +12553,19 @@ function createPrerenderSearchParamsForClientPage(workStore) {
 }
 function createStaticPrerenderSearchParams(workStore, prerenderStore) {
     if (workStore.forceStatic) {
-        
-        
+        // When using forceStatic we override all other logic and always just return an empty
+        // dictionary object.
         return Promise.resolve({});
     }
     switch(prerenderStore.type){
         case 'prerender':
         case 'prerender-client':
-            
+            // We are in a cacheComponents (PPR or otherwise) prerender
             return makeHangingSearchParams(workStore, prerenderStore);
         case 'prerender-ppr':
         case 'prerender-legacy':
-            
-            
+            // We are in a legacy static generation and need to interrupt the
+            // prerender when search params are accessed.
             return makeErroringSearchParams(workStore, prerenderStore);
         default:
             return prerenderStore;
@@ -12576,16 +12576,16 @@ function createRuntimePrerenderSearchParams(underlyingSearchParams, workUnitStor
 }
 function createRenderSearchParams(underlyingSearchParams, workStore, requestStore) {
     if (workStore.forceStatic) {
-        
-        
+        // When using forceStatic we override all other logic and always just return an empty
+        // dictionary object.
         return Promise.resolve({});
     } else {
         if ("TURBOPACK compile-time truthy", 1) {
-            
-            
-            
+            // Semantically we only need the dev tracking when running in `next dev`
+            // but since you would never use next dev with production NODE_ENV we use this
+            // as a proxy so we can statically exclude this code from production builds.
             return makeUntrackedSearchParamsWithDevWarnings(underlyingSearchParams, workStore, requestStore);
-        } else 
+        } else //TURBOPACK unreachable
         ;
     }
 }
@@ -12600,9 +12600,9 @@ function makeHangingSearchParams(workStore, prerenderStore) {
     const proxiedPromise = new Proxy(promise, {
         get (target, prop, receiver) {
             if (Object.hasOwn(promise, prop)) {
-                
-                
-                
+                // The promise has this property directly. we must return it.
+                // We know it isn't a dynamic access because it can only be something
+                // that was previously written to the promise and thus not an underlying searchParam value
                 return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ReflectAdapter"].get(target, prop, receiver);
             }
             switch(prop){
@@ -12634,16 +12634,16 @@ function makeErroringSearchParams(workStore, prerenderStore) {
         return cachedSearchParams;
     }
     const underlyingSearchParams = {};
-    
-    
-    
+    // For search params we don't construct a ReactPromise because we want to interrupt
+    // rendering on any property access that was not set from outside and so we only want
+    // to have properties like value and status if React sets them.
     const promise = Promise.resolve(underlyingSearchParams);
     const proxiedPromise = new Proxy(promise, {
         get (target, prop, receiver) {
             if (Object.hasOwn(promise, prop)) {
-                
-                
-                
+                // The promise has this property directly. we must return it.
+                // We know it isn't a dynamic access because it can only be something
+                // that was previously written to the promise and thus not an underlying searchParam value
                 return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ReflectAdapter"].get(target, prop, receiver);
             }
             if (typeof prop === 'string' && prop === 'then') {
@@ -12651,10 +12651,10 @@ function makeErroringSearchParams(workStore, prerenderStore) {
                 if (workStore.dynamicShouldError) {
                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2f$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["throwWithStaticGenerationBailoutErrorWithDynamicError"])(workStore.route, expression);
                 } else if (prerenderStore.type === 'prerender-ppr') {
-                    
+                    // PPR Prerender (no cacheComponents)
                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$dynamic$2d$rendering$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["postponeWithTracking"])(workStore.route, expression, prerenderStore.dynamicTracking);
                 } else {
-                    
+                    // Legacy Prerender
                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$dynamic$2d$rendering$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["throwToInterruptStaticGeneration"])(expression, workStore, prerenderStore);
                 }
             }
@@ -12673,10 +12673,10 @@ function makeErroringSearchParamsForUseCache(workStore) {
     const proxiedPromise = new Proxy(promise, {
         get: function get(target, prop, receiver) {
             if (Object.hasOwn(promise, prop)) {
-                
-                
-                
-                
+                // The promise has this property directly. we must return it. We know it
+                // isn't a dynamic access because it can only be something that was
+                // previously written to the promise and thus not an underlying
+                // searchParam value
                 return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$adapters$2f$reflect$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ReflectAdapter"].get(target, prop, receiver);
             }
             if (typeof prop === 'string' && (prop === 'then' || !__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$utils$2f$reflect$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["wellKnownProperties"].has(prop))) {
@@ -12699,8 +12699,8 @@ function makeUntrackedSearchParams(underlyingSearchParams) {
 }
 function makeUntrackedSearchParamsWithDevWarnings(underlyingSearchParams, workStore, requestStore) {
     if (requestStore.asyncApiPromises) {
-        
-        
+        // Do not cache the resulting promise. If we do, we'll only show the first "awaited at"
+        // across all segments that receive searchParams.
         return makeUntrackedSearchParamsWithDevWarningsImpl(underlyingSearchParams, workStore, requestStore);
     } else {
         const cachedSearchParams = CachedSearchParams.get(underlyingSearchParams);
@@ -12719,38 +12719,38 @@ function makeUntrackedSearchParamsWithDevWarningsImpl(underlyingSearchParams, wo
     const proxiedUnderlying = instrumentSearchParamsObjectWithDevWarnings(underlyingSearchParams, workStore, promiseInitialized);
     let promise;
     if (requestStore.asyncApiPromises) {
-        
-        
-        
+        // We wrap each instance of searchParams in a `new Promise()`.
+        // This is important when all awaits are in third party which would otherwise
+        // track all the way to the internal params.
         const sharedSearchParamsParent = requestStore.asyncApiPromises.sharedSearchParamsParent;
         promise = new Promise((resolve, reject)=>{
             sharedSearchParamsParent.then(()=>resolve(proxiedUnderlying), reject);
         });
-        
+        // @ts-expect-error
         promise.displayName = 'searchParams';
     } else {
         promise = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$dynamic$2d$rendering$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["makeDevtoolsIOAwarePromise"])(proxiedUnderlying, requestStore, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$staged$2d$rendering$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RenderStage"].Runtime);
     }
     promise.then(()=>{
         promiseInitialized.current = true;
-    }, 
-    
-    
-    
-    
-    
-    
+    }, // is aborted before it can reach the runtime stage.
+    // In that case, we have to prevent an unhandled rejection from the promise
+    // created by this `.then()` call.
+    // This does not affect the `promiseInitialized` logic above,
+    // because `proxiedUnderlying` will not be used to resolve the promise,
+    // so there's no risk of any of its properties being accessed and triggering
+    // an undesireable warning.
     ignoreReject);
     return instrumentSearchParamsPromiseWithDevWarnings(underlyingSearchParams, promise, workStore);
 }
 function ignoreReject() {}
 function instrumentSearchParamsObjectWithDevWarnings(underlyingSearchParams, workStore, promiseInitialized) {
-    
-    
-    
-    
-    
-    
+    // We have an unfortunate sequence of events that requires this initialization logic. We want to instrument the underlying
+    // searchParams object to detect if you are accessing values in dev. This is used for warnings and for things like the static prerender
+    // indicator. However when we pass this proxy to our Promise.resolve() below the VM checks if the resolved value is a promise by looking
+    // at the `.then` property. To our dynamic tracking logic this is indistinguishable from a `then` searchParam and so we would normally trigger
+    // dynamic tracking. However we know that this .then is not real dynamic access, it's just how thenables resolve in sequence. So we introduce
+    // this initialization concept so we omit the dynamic check until after we've constructed our resolved promise.
     return new Proxy(underlyingSearchParams, {
         get (target, prop, receiver) {
             if (typeof prop === 'string' && promiseInitialized.current) {
@@ -12780,12 +12780,12 @@ function instrumentSearchParamsObjectWithDevWarnings(underlyingSearchParams, wor
     });
 }
 function instrumentSearchParamsPromiseWithDevWarnings(underlyingSearchParams, promise, workStore) {
-    
+    // Track which properties we should warn for.
     const proxiedProperties = new Set();
     Object.keys(underlyingSearchParams).forEach((prop)=>{
         if (__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$utils$2f$reflect$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["wellKnownProperties"].has(prop)) {
-        
-        
+        // These properties cannot be shadowed because they need to be the
+        // true underlying value for Promises to work correctly at runtime
         } else {
             proxiedProperties.add(prop);
         }
@@ -12797,8 +12797,8 @@ function instrumentSearchParamsPromiseWithDevWarnings(underlyingSearchParams, pr
                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$request$2f$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["throwWithStaticGenerationBailoutErrorWithDynamicError"])(workStore.route, expression);
             }
             if (typeof prop === 'string') {
-                if (!__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$utils$2f$reflect$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["wellKnownProperties"].has(prop) && (proxiedProperties.has(prop) || 
-                
+                if (!__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$utils$2f$reflect$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["wellKnownProperties"].has(prop) && (proxiedProperties.has(prop) || // We are accessing a property that doesn't exist on the promise nor
+                // the underlying searchParams.
                 Reflect.has(target, prop) === false)) {
                     const expression = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$utils$2f$reflect$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["describeStringPropertyAccess"])('searchParams', prop);
                     warnForSyncAccess(workStore.route, expression);
@@ -12814,8 +12814,8 @@ function instrumentSearchParamsPromiseWithDevWarnings(underlyingSearchParams, pr
         },
         has (target, prop) {
             if (typeof prop === 'string') {
-                if (!__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$utils$2f$reflect$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["wellKnownProperties"].has(prop) && (proxiedProperties.has(prop) || 
-                
+                if (!__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$utils$2f$reflect$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["wellKnownProperties"].has(prop) && (proxiedProperties.has(prop) || // We are accessing a property that doesn't exist on the promise nor
+                // the underlying searchParams.
                 Reflect.has(target, prop) === false)) {
                     const expression = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$utils$2f$reflect$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["describeHasCheckingStringProperty"])('searchParams', prop);
                     warnForSyncAccess(workStore.route, expression);
@@ -12838,7 +12838,7 @@ function createSearchAccessError(route, expression) {
         enumerable: false,
         configurable: true
     });
-} 
+} //# sourceMappingURL=search-params.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/request/params.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -12900,12 +12900,12 @@ function createParamsFromClient(underlyingParams, workStore) {
                 });
             case 'request':
                 if ("TURBOPACK compile-time truthy", 1) {
-                    
-                    
-                    
+                    // Semantically we only need the dev tracking when running in `next dev`
+                    // but since you would never use next dev with production NODE_ENV we use this
+                    // as a proxy so we can statically exclude this code from production builds.
                     const devFallbackParams = workUnitStore.devFallbackParams;
                     return createRenderParamsInDev(underlyingParams, devFallbackParams, workStore, workUnitStore);
-                } else 
+                } else //TURBOPACK unreachable
                 ;
             default:
                 workUnitStore;
@@ -12935,12 +12935,12 @@ function createServerParamsForRoute(underlyingParams, workStore) {
                 return createRuntimePrerenderParams(underlyingParams, workUnitStore);
             case 'request':
                 if ("TURBOPACK compile-time truthy", 1) {
-                    
-                    
-                    
+                    // Semantically we only need the dev tracking when running in `next dev`
+                    // but since you would never use next dev with production NODE_ENV we use this
+                    // as a proxy so we can statically exclude this code from production builds.
                     const devFallbackParams = workUnitStore.devFallbackParams;
                     return createRenderParamsInDev(underlyingParams, devFallbackParams, workStore, workUnitStore);
-                } else 
+                } else //TURBOPACK unreachable
                 ;
             default:
                 workUnitStore;
@@ -12969,12 +12969,12 @@ function createServerParamsForServerSegment(underlyingParams, workStore) {
                 return createRuntimePrerenderParams(underlyingParams, workUnitStore);
             case 'request':
                 if ("TURBOPACK compile-time truthy", 1) {
-                    
-                    
-                    
+                    // Semantically we only need the dev tracking when running in `next dev`
+                    // but since you would never use next dev with production NODE_ENV we use this
+                    // as a proxy so we can statically exclude this code from production builds.
                     const devFallbackParams = workUnitStore.devFallbackParams;
                     return createRenderParamsInDev(underlyingParams, devFallbackParams, workStore, workUnitStore);
-                } else 
+                } else //TURBOPACK unreachable
                 ;
             default:
                 workUnitStore;
@@ -13000,10 +13000,10 @@ function createPrerenderParamsForClientSegment(underlyingParams) {
                 if (fallbackParams) {
                     for(let key in underlyingParams){
                         if (fallbackParams.has(key)) {
-                            
-                            
-                            
-                            
+                            // This params object has one or more fallback params, so we need
+                            // to consider the awaiting of this params object "dynamic". Since
+                            // we are in cacheComponents mode we encode this as a promise that never
+                            // resolves.
                             return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$dynamic$2d$rendering$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["makeHangingPromise"])(workUnitStore.renderSignal, workStore.route, '`params`');
                         }
                     }
@@ -13026,9 +13026,9 @@ function createPrerenderParamsForClientSegment(underlyingParams) {
                 workUnitStore;
         }
     }
-    
-    
-    
+    // We're prerendering in a mode that does not abort. We resolve the promise without
+    // any tracking because we're just transporting a value from server to client where the tracking
+    // will be applied.
     return Promise.resolve(underlyingParams);
 }
 function createStaticPrerenderParams(underlyingParams, workStore, prerenderStore) {
@@ -13040,10 +13040,10 @@ function createStaticPrerenderParams(underlyingParams, workStore, prerenderStore
                 if (fallbackParams) {
                     for(const key in underlyingParams){
                         if (fallbackParams.has(key)) {
-                            
-                            
-                            
-                            
+                            // This params object has one or more fallback params, so we need
+                            // to consider the awaiting of this params object "dynamic". Since
+                            // we are in cacheComponents mode we encode this as a promise that never
+                            // resolves.
                             return makeHangingParams(underlyingParams, workStore, prerenderStore);
                         }
                     }
@@ -13126,31 +13126,31 @@ function makeErroringParams(underlyingParams, fallbackParams, workStore, prerend
     const augmentedUnderlying = {
         ...underlyingParams
     };
-    
-    
-    
+    // We don't use makeResolvedReactPromise here because params
+    // supports copying with spread and we don't want to unnecessarily
+    // instrument the promise with spreadable properties of ReactPromise.
     const promise = Promise.resolve(augmentedUnderlying);
     CachedParams.set(underlyingParams, promise);
     Object.keys(underlyingParams).forEach((prop)=>{
         if (__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$utils$2f$reflect$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["wellKnownProperties"].has(prop)) {
-        
-        
+        // These properties cannot be shadowed because they need to be the
+        // true underlying value for Promises to work correctly at runtime
         } else {
             if (fallbackParams.has(prop)) {
                 Object.defineProperty(augmentedUnderlying, prop, {
                     get () {
                         const expression = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$utils$2f$reflect$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["describeStringPropertyAccess"])('params', prop);
-                        
-                        
-                        
-                        
-                        
-                        
+                        // In most dynamic APIs we also throw if `dynamic = "error"` however
+                        // for params is only dynamic when we're generating a fallback shell
+                        // and even when `dynamic = "error"` we still support generating dynamic
+                        // fallback shells
+                        // TODO remove this comment when cacheComponents is the default since there
+                        // will be no `dynamic = "error"`
                         if (prerenderStore.type === 'prerender-ppr') {
-                            
+                            // PPR Prerender (no cacheComponents)
                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$dynamic$2d$rendering$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["postponeWithTracking"])(workStore.route, expression, prerenderStore.dynamicTracking);
                         } else {
-                            
+                            // Legacy Prerender
                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$dynamic$2d$rendering$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["throwToInterruptStaticGeneration"])(expression, workStore, prerenderStore);
                         }
                     },
@@ -13172,16 +13172,16 @@ function makeUntrackedParams(underlyingParams) {
 }
 function makeDynamicallyTrackedParamsWithDevWarnings(underlyingParams, hasFallbackParams, workStore, requestStore) {
     if (requestStore.asyncApiPromises && hasFallbackParams) {
-        
-        
-        
-        
-        
+        // We wrap each instance of params in a `new Promise()`, because deduping
+        // them across requests doesn't work anyway and this let us show each
+        // await a different set of values. This is important when all awaits
+        // are in third party which would otherwise track all the way to the
+        // internal params.
         const sharedParamsParent = requestStore.asyncApiPromises.sharedParamsParent;
         const promise = new Promise((resolve, reject)=>{
             sharedParamsParent.then(()=>resolve(underlyingParams), reject);
         });
-        
+        // @ts-expect-error
         promise.displayName = 'params';
         return instrumentParamsPromiseWithDevWarnings(underlyingParams, promise, workStore);
     }
@@ -13189,21 +13189,21 @@ function makeDynamicallyTrackedParamsWithDevWarnings(underlyingParams, hasFallba
     if (cachedParams) {
         return cachedParams;
     }
-    
-    
-    
+    // We don't use makeResolvedReactPromise here because params
+    // supports copying with spread and we don't want to unnecessarily
+    // instrument the promise with spreadable properties of ReactPromise.
     const promise = hasFallbackParams ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$dynamic$2d$rendering$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["makeDevtoolsIOAwarePromise"])(underlyingParams, requestStore, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$app$2d$render$2f$staged$2d$rendering$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RenderStage"].Runtime) : Promise.resolve(underlyingParams);
     const proxiedPromise = instrumentParamsPromiseWithDevWarnings(underlyingParams, promise, workStore);
     CachedParams.set(underlyingParams, proxiedPromise);
     return proxiedPromise;
 }
 function instrumentParamsPromiseWithDevWarnings(underlyingParams, promise, workStore) {
-    
+    // Track which properties we should warn for.
     const proxiedProperties = new Set();
     Object.keys(underlyingParams).forEach((prop)=>{
         if (__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$utils$2f$reflect$2d$utils$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["wellKnownProperties"].has(prop)) {
-        
-        
+        // These properties cannot be shadowed because they need to be the
+        // true underlying value for Promises to work correctly at runtime
         } else {
             proxiedProperties.add(prop);
         }
@@ -13239,7 +13239,7 @@ function createParamsAccessError(route, expression) {
         enumerable: false,
         configurable: true
     });
-} 
+} //# sourceMappingURL=params.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/client-page.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -13268,23 +13268,23 @@ function ClientPageRoot({ Component, serverProvidedParams }) {
         searchParams = serverProvidedParams.searchParams;
         params = serverProvidedParams.params;
     } else {
-        
-        
+        // When Cache Components is enabled, the server does not pass the params as
+        // props; they are parsed on the client and passed via context.
         const layoutRouterContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["use"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$app$2d$router$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["LayoutRouterContext"]);
         params = layoutRouterContext !== null ? layoutRouterContext.parentParams : {};
-        
-        
-        
-        
-        
+        // This is an intentional behavior change: when Cache Components is enabled,
+        // client segments receive the "canonical" search params, not the
+        // rewritten ones. Users should either call useSearchParams directly or pass
+        // the rewritten ones in from a Server Component.
+        // TODO: Log a deprecation error when this object is accessed
         searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$client$2f$route$2d$params$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["urlSearchParamsToParsedUrlQuery"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["use"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$hooks$2d$client$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SearchParamsContext"]));
     }
     if ("TURBOPACK compile-time truthy", 1) {
         const { workAsyncStorage } = __turbopack_context__.r("[externals]/next/dist/server/app-render/work-async-storage.external.js [external] (next/dist/server/app-render/work-async-storage.external.js, cjs)");
         let clientSearchParams;
         let clientParams;
-        
-        
+        // We are going to instrument the searchParams prop with tracking for the
+        // appropriate context. We wrap differently in prerendering vs rendering
         const store = workAsyncStorage.getStore();
         if (!store) {
             throw Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$invariant$2d$error$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["InvariantError"]('Expected workStore to exist when handling searchParams in a client Page.'), "__NEXT_ERROR_CODE", {
@@ -13297,13 +13297,13 @@ function ClientPageRoot({ Component, serverProvidedParams }) {
         clientSearchParams = createSearchParamsFromClient(searchParams, store);
         const { createParamsFromClient } = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/request/params.js [app-ssr] (ecmascript)");
         clientParams = createParamsFromClient(params, store);
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Component, {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Component, {
             params: clientParams,
             searchParams: clientSearchParams
         });
-    } else 
+    } else //TURBOPACK unreachable
     ;
-} 
+} //# sourceMappingURL=client-page.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/client/components/client-segment.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -13326,16 +13326,16 @@ function ClientSegmentRoot({ Component, slots, serverProvidedParams }) {
     if (serverProvidedParams !== null) {
         params = serverProvidedParams.params;
     } else {
-        
-        
+        // When Cache Components is enabled, the server does not pass the params
+        // as props; they are parsed on the client and passed via context.
         const layoutRouterContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["use"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$contexts$2f$app$2d$router$2d$context$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["LayoutRouterContext"]);
         params = layoutRouterContext !== null ? layoutRouterContext.parentParams : {};
     }
     if ("TURBOPACK compile-time truthy", 1) {
         const { workAsyncStorage } = __turbopack_context__.r("[externals]/next/dist/server/app-render/work-async-storage.external.js [external] (next/dist/server/app-render/work-async-storage.external.js, cjs)");
         let clientParams;
-        
-        
+        // We are going to instrument the searchParams prop with tracking for the
+        // appropriate context. We wrap differently in prerendering vs rendering
         const store = workAsyncStorage.getStore();
         if (!store) {
             throw Object.defineProperty(new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$shared$2f$lib$2f$invariant$2d$error$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["InvariantError"]('Expected workStore to exist when handling params in a client segment such as a Layout or Template.'), "__NEXT_ERROR_CODE", {
@@ -13346,13 +13346,13 @@ function ClientSegmentRoot({ Component, slots, serverProvidedParams }) {
         }
         const { createParamsFromClient } = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/server/request/params.js [app-ssr] (ecmascript)");
         clientParams = createParamsFromClient(params, store);
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Component, {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(Component, {
             ...slots,
             params: clientParams
         });
-    } else 
+    } else //TURBOPACK unreachable
     ;
-} 
+} //# sourceMappingURL=client-segment.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/lib/metadata/generate/icon-mark.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -13365,12 +13365,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 'use client';
 ;
 const IconMark = ()=>{
-    if ("TURBOPACK compile-time falsy", 0) 
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
     ;
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])("meta", {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])("meta", {
         name: "\xabnxt-icon\xbb"
     });
-}; 
+}; //# sourceMappingURL=icon-mark.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/lib/framework/boundary-components.js [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -13388,8 +13388,8 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/lib/framework/boundary-constants.js [app-ssr] (ecmascript)");
 'use client';
 ;
-
-
+// We use a namespace object to allow us to recover the name of the function
+// at runtime even when production bundling/minification is used.
 const NameSpace = {
     [__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["METADATA_BOUNDARY_NAME"]]: function({ children }) {
         return children;
@@ -13404,14 +13404,14 @@ const NameSpace = {
         return children;
     }
 };
-const MetadataBoundary = 
+const MetadataBoundary = // so it retains the name inferred from the namespace object
 NameSpace[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["METADATA_BOUNDARY_NAME"].slice(0)];
-const ViewportBoundary = 
+const ViewportBoundary = // so it retains the name inferred from the namespace object
 NameSpace[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VIEWPORT_BOUNDARY_NAME"].slice(0)];
-const OutletBoundary = 
+const OutletBoundary = // so it retains the name inferred from the namespace object
 NameSpace[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["OUTLET_BOUNDARY_NAME"].slice(0)];
-const RootLayoutBoundary = 
-NameSpace[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ROOT_LAYOUT_BOUNDARY_NAME"].slice(0)]; 
+const RootLayoutBoundary = // so it retains the name inferred from the namespace object
+NameSpace[__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$esm$2f$lib$2f$framework$2f$boundary$2d$constants$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ROOT_LAYOUT_BOUNDARY_NAME"].slice(0)]; //# sourceMappingURL=boundary-components.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/handle-isr-error.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -13444,7 +13444,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} 
+} //# sourceMappingURL=handle-isr-error.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/global-error.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -13452,7 +13452,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-Object.defineProperty(exports, 
+Object.defineProperty(exports, // supplied custom global error signatures.
 "default", {
     enumerable: true,
     get: function() {
@@ -13463,7 +13463,7 @@ const _jsxruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pi
 const _handleisrerror = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/handle-isr-error.js [app-ssr] (ecmascript)");
 const styles = {
     error: {
-        
+        // https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css#L38-L52
         fontFamily: 'system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
         height: '100vh',
         textAlign: 'center',
@@ -13481,20 +13481,20 @@ const styles = {
 };
 function DefaultGlobalError({ error }) {
     const digest = error?.digest;
-    return  (0, _jsxruntime.jsxs)("html", {
+    return /*#__PURE__*/ (0, _jsxruntime.jsxs)("html", {
         id: "__next_error__",
         children: [
-             (0, _jsxruntime.jsx)("head", {}),
-             (0, _jsxruntime.jsxs)("body", {
+            /*#__PURE__*/ (0, _jsxruntime.jsx)("head", {}),
+            /*#__PURE__*/ (0, _jsxruntime.jsxs)("body", {
                 children: [
-                     (0, _jsxruntime.jsx)(_handleisrerror.HandleISRError, {
+                    /*#__PURE__*/ (0, _jsxruntime.jsx)(_handleisrerror.HandleISRError, {
                         error: error
                     }),
-                     (0, _jsxruntime.jsx)("div", {
+                    /*#__PURE__*/ (0, _jsxruntime.jsx)("div", {
                         style: styles.error,
-                        children:  (0, _jsxruntime.jsxs)("div", {
+                        children: /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
                             children: [
-                                 (0, _jsxruntime.jsxs)("h2", {
+                                /*#__PURE__*/ (0, _jsxruntime.jsxs)("h2", {
                                     style: styles.text,
                                     children: [
                                         "Application error: a ",
@@ -13507,7 +13507,7 @@ function DefaultGlobalError({ error }) {
                                         " for more information)."
                                     ]
                                 }),
-                                digest ?  (0, _jsxruntime.jsx)("p", {
+                                digest ? /*#__PURE__*/ (0, _jsxruntime.jsx)("p", {
                                     style: styles.text,
                                     children: `Digest: ${digest}`
                                 }) : null
@@ -13526,7 +13526,8 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} 
+} //# sourceMappingURL=global-error.js.map
 }),
 ];
 
+//# sourceMappingURL=c729b_cd646af2._.js.map

@@ -14,7 +14,7 @@ Object.defineProperty(exports, "default", {
 const _jsxruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-runtime.js [app-rsc] (ecmascript)");
 const _errorfallback = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/error-fallback.js [app-rsc] (ecmascript)");
 function Unauthorized() {
-    return  (0, _jsxruntime.jsx)(_errorfallback.HTTPAccessErrorFallback, {
+    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_errorfallback.HTTPAccessErrorFallback, {
         status: 401,
         message: "You're not authorized to access this page."
     });
@@ -25,7 +25,8 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} 
+} //# sourceMappingURL=unauthorized.js.map
 }),
 ];
 
+//# sourceMappingURL=c729b_next_dist_client_components_builtin_unauthorized_8ff04975.js.map

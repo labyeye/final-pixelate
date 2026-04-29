@@ -5,6 +5,12 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { PostAccountDisplay } from "./post-account-display";
 import { MultiAccountDisplay } from "./multi-account-display";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHourglassHalf, faCircleCheck, faCircleXmark,
+  faFileLines, faMapPin, faChartBar, faLink,
+  faArrowRotateLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 interface ViewPlanModalProps {
   isOpen: boolean;
@@ -146,6 +152,14 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
           </div>
 
           {}
+          {plan.campaign && (
+            <div className="border rounded-lg p-3 space-y-1">
+              <label className="text-xs font-bold text-gray-500">CAMPAIGN / PROJECT</label>
+              <p className="text-lg font-semibold">{plan.campaign}</p>
+            </div>
+          )}
+
+          {}
           {plan.hashtags && (
             <div className="border rounded-lg p-3 space-y-1">
               <label className="text-xs font-bold text-gray-500">HASHTAGS</label>
@@ -163,7 +177,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
               >
-                🔗 Open Media
+                <FontAwesomeIcon icon={faLink} className="w-3.5 h-3.5" /> Open Media
               </a>
             </div>
           )}
@@ -181,7 +195,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
                     rel="noopener noreferrer"
                     className="inline-flex w-fit items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold"
                   >
-                    🔗 View Post ({accountId.slice(-6)})
+                    <FontAwesomeIcon icon={faLink} className="w-3.5 h-3.5" /> View Post ({accountId.slice(-6)})
                   </a>
                 ))}
               </div>
@@ -195,7 +209,7 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold"
               >
-                🔗 View Posted Post
+                <FontAwesomeIcon icon={faLink} className="w-3.5 h-3.5" /> View Posted Post
               </a>
             </div>
           ) : null}
@@ -209,9 +223,90 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
           )}
 
           {}
+          {(plan as any).internalComments && (
+            <div className="border rounded-lg p-3 space-y-1 bg-gray-50 border-dashed">
+              <label className="text-xs font-bold text-gray-500">INTERNAL COMMENTS <span className="font-normal italic">(staff only)</span></label>
+              <p className="text-sm whitespace-pre-wrap break-words">{(plan as any).internalComments}</p>
+            </div>
+          )}
+
+          {}
+          {(plan as any).rejectionReason && (
+            <div className="border-2 border-red-300 rounded-lg p-3 space-y-1 bg-red-50">
+              <label className="text-xs font-bold text-red-600">CLIENT REJECTION REASON</label>
+              <p className="text-sm whitespace-pre-wrap break-words text-red-800">{(plan as any).rejectionReason}</p>
+            </div>
+          )}
+
+          {}
+          {(plan as any).clientRemarks && (
+            <div className="border-2 border-blue-300 rounded-lg p-3 space-y-1 bg-blue-50">
+              <label className="text-xs font-bold text-blue-600">CLIENT REMARKS</label>
+              <p className="text-sm whitespace-pre-wrap break-words text-blue-800">{(plan as any).clientRemarks}</p>
+            </div>
+          )}
+
+          {}
+          {(() => {
+            const fmt = (d: string | Date | undefined) =>
+              d ? new Date(d).toLocaleString("en-IN", { day: "2-digit", month: "short", year: "2-digit", hour: "2-digit", minute: "2-digit" }) : "";
+
+            type TEntry = { dot: string; icon: any; iconColor: string; label: string; sub?: string; date?: string; italic?: string };
+            const entries: TEntry[] = [];
+
+            if (plan.createdAt) {
+              entries.push({ dot: "bg-blue-500", icon: faFileLines, iconColor: "text-white", label: "Plan Created", sub: (plan as any).createdBy ? `by ${(plan as any).createdBy}` : undefined, date: fmt(plan.createdAt) });
+            }
+
+            if ((plan as any).statusHistory?.length) {
+              for (const e of (plan as any).statusHistory as any[]) {
+                const cfg: Record<string, { dot: string; icon: any; iconColor: string; label: string }> = {
+                  Approved: { dot: "bg-green-500", icon: faCircleCheck,  iconColor: "text-white", label: "Client Approved" },
+                  Rejected: { dot: "bg-red-500",   icon: faCircleXmark,  iconColor: "text-white", label: "Client Rejected" },
+                  Pending:  { dot: "bg-yellow-400", icon: faArrowRotateLeft, iconColor: "text-white", label: "Re-opened for Review" },
+                };
+                const c = cfg[e.approvalStatus] || { dot: "bg-gray-400", icon: faHourglassHalf, iconColor: "text-white", label: e.approvalStatus };
+                entries.push({ ...c, sub: e.changedBy, date: fmt(e.changedAt), italic: e.remarks });
+              }
+            }
+
+            if ((plan as any).postedAt) {
+              entries.push({ dot: "bg-green-600", icon: faMapPin, iconColor: "text-white", label: "Post Published", date: fmt((plan as any).postedAt) });
+            }
+
+            if (entries.length === 0) return null;
+
+            return (
+              <div className="border-2 border-gray-200 rounded-xl p-4">
+                <h4 className="text-xs font-black text-gray-500 mb-4 tracking-wider uppercase">Post Timeline</h4>
+                <div className="relative pl-5">
+                  <div className="absolute left-[9px] top-2 bottom-2 w-0.5 bg-gray-200" />
+                  <div className="space-y-5">
+                    {entries.map((e, i) => (
+                      <div key={i} className="relative flex gap-3 items-start">
+                        <div className={`absolute -left-5 top-0.5 w-4 h-4 rounded-full ${e.dot} flex-shrink-0 shadow-sm flex items-center justify-center`}>
+                          <FontAwesomeIcon icon={e.icon} className={`w-2 h-2 ${e.iconColor}`} />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-xs font-bold text-gray-800">{e.label}</p>
+                          {e.sub && <p className="text-xs text-gray-500">{e.sub}</p>}
+                          {e.italic && <p className="text-xs text-gray-600 italic mt-0.5">"{e.italic}"</p>}
+                          {e.date && <p className="text-xs text-gray-400 mt-0.5">{e.date}</p>}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
+
+          {}
           {plan.status === "Posted" && (
             <div className="border-2 border-green-300 bg-green-50 rounded-lg p-4">
-              <h4 className="font-bold text-green-900 mb-3">📊 Analytics</h4>
+              <h4 className="font-bold text-green-900 mb-3 flex items-center gap-2">
+                <FontAwesomeIcon icon={faChartBar} className="w-4 h-4" /> Analytics
+              </h4>
               <div className="grid grid-cols-3 gap-3">
                 <div className="text-center">
                   <p className="text-2xl font-bold text-green-700">{plan.views || 0}</p>
@@ -239,13 +334,6 @@ export function ViewPlanModal({ isOpen, plan, onClose }: ViewPlanModalProps) {
             </div>
           )}
 
-          {}
-          <div className="text-xs text-gray-500 p-3 bg-gray-50 rounded-lg border">
-            <p>Created: {new Date(plan.createdAt || "").toLocaleString()}</p>
-            {plan.updatedAt && (
-              <p>Updated: {new Date(plan.updatedAt).toLocaleString()}</p>
-            )}
-          </div>
         </div>
 
         {}

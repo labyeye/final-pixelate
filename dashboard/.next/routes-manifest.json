@@ -109,6 +109,14 @@
       "namedRegex": "^/api/leads/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/leads/[id]/activity",
+      "regex": "^/api/leads/([^/]+?)/activity(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/leads/(?<nxtPid>[^/]+?)/activity(?:/)?$"
+    },
+    {
       "page": "/api/onboarding/[id]",
       "regex": "^/api/onboarding/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -259,6 +267,22 @@
         "nxtPid": "nxtPid"
       },
       "namedRegex": "^/careers/(?<nxtPid>[^/]+?)/applications(?:/)?$"
+    },
+    {
+      "page": "/clients/[id]",
+      "regex": "^/clients/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/clients/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/leads/[id]",
+      "regex": "^/leads/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/leads/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
       "page": "/quotations/[id]/view",

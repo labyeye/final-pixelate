@@ -18,11 +18,16 @@ export interface Client {
   gstCompanyName?: string;
   gstNumber?: string;
   gstAddress?: string;
-  // Portal login credentials (optional – set when creating/editing client)
   loginEmail?: string;
   loginPassword?: string;
-  // Reference to the linked user document id
   userId?: string;
+  // New CRM fields
+  status?: "active" | "inactive" | "prospect" | "churned";
+  tags?: string[];
+  industry?: string;
+  notes?: string;
+  convertedFromLeadId?: string;
+  createdAt?: Date | string;
 }
 
 export const clients: Client[] = [];
@@ -66,6 +71,16 @@ export async function addUser(user: Omit<User, "id" | "_id">) {
   return svc.createUser(user);
 }
 
+export interface LeadActivity {
+  _id?: string | any;
+  leadId: string;
+  type: "note" | "call" | "email" | "meeting" | "status_change" | "conversion";
+  content: string;
+  createdBy?: string;
+  createdByName?: string;
+  createdAt?: Date | string;
+}
+
 export interface Lead {
   id?: number;
   _id?: string | any;
@@ -73,9 +88,7 @@ export interface Lead {
   project?: string;
   value?: number;
   category?: string;
-  // when staff/admin marks a lead as non-deletable
   doNotDelete?: boolean;
-  // optional free-form reason/note about the lead
   reason?: string;
   status?:
     | "not called"
@@ -84,22 +97,29 @@ export interface Lead {
     | "meeting booked"
     | "interested"
     | "call back later"
+    | "converted"
     | "other";
-  // reason for the current status (saved when status changes)
   statusReason?: string;
   phone?: string;
   email?: string;
-  assignedTo?: string | any; // team member id
+  assignedTo?: string | any;
   assignedToName?: string;
-  // Fields from IndiaMART/Contact Form
   subject?: string;
   message?: string;
   projectType?: string;
   budget?: string | number | null;
   selectedPlan?: string | null;
-  source?: string; // "Website Form", "IndiaMART", etc.
+  source?: string;
   indiamrtSynced?: boolean;
   indiamrtResponse?: any;
+  // New CRM fields
+  priority?: "low" | "medium" | "high";
+  followUpDate?: Date | string | null;
+  tags?: string[];
+  score?: number;
+  convertedToClientId?: string | null;
+  city?: string;
+  notes?: string;
   createdAt?: Date | string;
   updatedAt?: Date | string;
 }

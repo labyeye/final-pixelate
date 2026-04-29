@@ -59,8 +59,8 @@ export type SocialMediaPost = {
   _id?: string;
   id?: string;
   clientId?: string;
-  socialAccountId?: string; 
-  socialAccountIds?: string[]; 
+  socialAccountId?: string;
+  socialAccountIds?: string[];
   title: string;
   platform: SocialPlatform;
   contentType: ContentType;
@@ -72,6 +72,17 @@ export type SocialMediaPost = {
   assignedTo: string;
   status: PostStatus;
   approvalStatus?: "Pending" | "Approved" | "Rejected";
+  rejectionReason?: string;
+  clientRemarks?: string;
+  postedAt?: string | Date;
+  statusHistory?: {
+    approvalStatus: "Pending" | "Approved" | "Rejected";
+    remarks?: string;
+    changedAt: string | Date;
+    changedBy?: string;
+  }[];
+  campaign?: string;
+  internalComments?: string;
   notes?: string;
   postedLink?: string;
   postedLinks?: Record<string, string>;

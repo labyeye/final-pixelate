@@ -24,6 +24,16 @@ interface AddPostModalProps {
   editingPost?: SocialMediaPost | null;
 }
 
+const CAPTION_LIMITS: Partial<Record<string, number>> = {
+  "Instagram": 2200,
+  "Facebook": 63206,
+  "X / Twitter": 280,
+  "LinkedIn": 3000,
+  "YouTube Shorts": 5000,
+  "WhatsApp Channel": 1024,
+  "Google My Business": 1500,
+};
+
 const initialForm: SocialMediaPost = {
   clientId: "",
   socialAccountId: "",
@@ -39,6 +49,8 @@ const initialForm: SocialMediaPost = {
   assignedTo: "",
   status: "Draft",
   approvalStatus: "Pending",
+  campaign: "",
+  internalComments: "",
   notes: "",
 };
 
@@ -231,6 +243,16 @@ export function AddPostModal({
 
           {}
           <div>
+            <label className="block text-sm font-semibold mb-1">Campaign / Project</label>
+            <Input
+              placeholder="e.g. Summer Launch, Diwali 2025"
+              value={form.campaign || ""}
+              onChange={(e) => handleChange("campaign", e.target.value)}
+            />
+          </div>
+
+          {}
+          <div>
             <div className="flex items-center justify-between mb-2">
               <label className="block text-sm font-semibold">Social Accounts *</label>
               <div className="flex items-center gap-2">
@@ -329,7 +351,21 @@ export function AddPostModal({
 
           {}
           <div>
-            <label className="block text-sm font-semibold mb-1">Caption</label>
+            <div className="flex items-center justify-between mb-1">
+              <label className="block text-sm font-semibold">Caption</label>
+              {(() => {
+                const limit = CAPTION_LIMITS[form.platform];
+                const len = (form.caption || "").length;
+                if (!limit) return null;
+                const pct = len / limit;
+                const color = pct >= 1 ? "text-red-600 font-bold" : pct >= 0.9 ? "text-orange-500 font-semibold" : "text-gray-400";
+                return (
+                  <span className={`text-xs ${color}`}>
+                    {len.toLocaleString()} / {limit.toLocaleString()}
+                  </span>
+                );
+              })()}
+            </div>
             <Textarea
               placeholder="Enter post caption/copy"
               value={form.caption}
@@ -391,7 +427,7 @@ export function AddPostModal({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm"
                 >
-                  🔗 Link
+                  Open Link
                 </a>
               )}
             </div>
@@ -399,9 +435,20 @@ export function AddPostModal({
 
           {}
           <div>
-            <label className="block text-sm font-semibold mb-1">Notes</label>
+            <label className="block text-sm font-semibold mb-1">Internal Comments <span className="text-xs text-gray-400 font-normal">(staff only, not visible to client)</span></label>
             <Textarea
-              placeholder="Internal notes for this post"
+              placeholder="Team notes, revision requests, internal feedback..."
+              value={form.internalComments || ""}
+              onChange={(e) => handleChange("internalComments", e.target.value)}
+              className="h-20"
+            />
+          </div>
+
+          {}
+          <div>
+            <label className="block text-sm font-semibold mb-1">Notes <span className="text-xs text-gray-400 font-normal">(visible to client)</span></label>
+            <Textarea
+              placeholder="Notes visible to the client"
               value={form.notes || ""}
               onChange={(e) => handleChange("notes", e.target.value)}
               className="h-20"

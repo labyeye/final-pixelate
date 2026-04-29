@@ -2,5 +2,5 @@ var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/user-act
 R.c("server/chunks/[root-of-the-server]__1b1efbe2._.js")
 R.c("server/chunks/[root-of-the-server]__d3683952._.js")
 R.c("server/chunks/09130_dashboard__next-internal_server_app_api_user-activity_route_actions_b70779f4.js")
-R.m(61136)
-module.exports=R.m(61136).exports
+R.m(361136)
+module.exports=R.m(361136).exports

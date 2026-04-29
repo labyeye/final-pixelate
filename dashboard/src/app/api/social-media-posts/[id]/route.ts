@@ -85,10 +85,14 @@ export async function PUT(request: Request, { params }: RouteContext) {
     
     const { _id, createdAt, ...updateData } = body;
 
-    const updates = {
+    const updates: any = {
       ...updateData,
       updatedAt: new Date(),
     };
+
+    if (updateData.status === "Posted" && oldPost.status !== "Posted") {
+      updates.postedAt = new Date();
+    }
 
     const result = await col.updateOne(
       { _id: new ObjectId(id) },
@@ -164,7 +168,13 @@ export async function PATCH(request: Request, { params }: RouteContext) {
       );
     }
 
-    
+    if (post.approvalStatus === "Approved") {
+      return NextResponse.json(
+        { error: "This post has already been approved and cannot be changed." },
+        { status: 400, headers: CORS },
+      );
+    }
+
     const updateData: any = {
       updatedAt: new Date(),
     };
@@ -177,9 +187,23 @@ export async function PATCH(request: Request, { params }: RouteContext) {
       updateData.rejectionReason = body.rejectionReason;
     }
 
+    if (body.clientRemarks !== undefined) {
+      updateData.clientRemarks = body.clientRemarks;
+    }
+
+    const historyEntry = {
+      approvalStatus: body.approvalStatus || "Pending",
+      remarks: body.clientRemarks || body.rejectionReason || "",
+      changedAt: new Date(),
+      changedBy: decoded.email || "client",
+    };
+
     const result = await col.updateOne(
       { _id: new ObjectId(id) },
-      { $set: updateData },
+      {
+        $set: updateData,
+        $push: { statusHistory: historyEntry } as any,
+      },
     );
 
     if (result.modifiedCount === 0) {

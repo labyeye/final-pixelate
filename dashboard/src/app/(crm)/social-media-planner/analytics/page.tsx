@@ -244,6 +244,40 @@ export default function AnalyticsPage() {
     }
   };
 
+  const engagementRate = (m: AccountMetrics): string => {
+    if (!m.views) return "—";
+    const rate = ((m.likes + m.comments + m.shares) / m.views) * 100;
+    return `${rate.toFixed(2)}%`;
+  };
+
+  const handleExportCSV = () => {
+    const headers = ["Title", "Platform", "Account ID", "Date", "Views", "Likes", "Comments", "Shares", "Followers", "Eng. Rate"];
+    const rows = flatRows.map(({ post, accountId }) => {
+      const m = getAccountMetrics(post, accountId);
+      const er = m.views ? (((m.likes + m.comments + m.shares) / m.views) * 100).toFixed(2) + "%" : "—";
+      return [
+        `"${post.title.replace(/"/g, '""')}"`,
+        post.platform,
+        accountId === NO_ACCOUNT ? "" : accountId,
+        post.scheduledDate,
+        m.views,
+        m.likes,
+        m.comments,
+        m.shares,
+        m.followers_gained,
+        er,
+      ].join(",");
+    });
+    const csv = [headers.join(","), ...rows].join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `analytics-${selectedClient?.name || "export"}-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   const handleSaveMetrics = async (metrics: AccountMetrics) => {
     if (!selectedPostForMetrics) return;
     try {
@@ -381,6 +415,18 @@ export default function AnalyticsPage() {
 
           {}
           <section className="border-2 border-black rounded-lg overflow-hidden">
+            {flatRows.length > 0 && (
+              <div className="flex justify-end px-4 pt-3 pb-1">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="text-xs font-semibold border-black"
+                  onClick={handleExportCSV}
+                >
+                  Export CSV
+                </Button>
+              </div>
+            )}
             {flatRows.length === 0 ? (
               <div className="p-6 text-center text-gray-600">
                 <p className="text-lg">📊 No analytics data available for this client</p>
@@ -400,6 +446,7 @@ export default function AnalyticsPage() {
                       <th className="px-4 py-2 text-right font-bold">Comments</th>
                       <th className="px-4 py-2 text-right font-bold">Shares</th>
                       <th className="px-4 py-2 text-right font-bold">Followers</th>
+                      <th className="px-4 py-2 text-right font-bold">Eng. Rate</th>
                       <th className="px-4 py-2 text-center font-bold">Actions</th>
                     </tr>
                   </thead>
@@ -538,6 +585,11 @@ export default function AnalyticsPage() {
                             ) : (
                               <span className="font-semibold">{metrics.followers_gained.toLocaleString()}</span>
                             )}
+                          </td>
+
+                          {}
+                          <td className="px-4 py-3 text-right text-sm font-semibold text-indigo-700">
+                            {isEditing ? "—" : engagementRate(metrics)}
                           </td>
 
                           {}
