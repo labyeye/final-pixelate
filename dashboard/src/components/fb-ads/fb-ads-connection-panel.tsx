@@ -205,13 +205,13 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
     );
   }
 
-  async function syncNow() {
+  async function syncNow(fullSync = false) {
     setSyncing(true);
     try {
       const res = await fetch("/api/fb-ads-connection/sync", {
         method: "POST",
         headers: authH(),
-        body: JSON.stringify({ clientId }),
+        body: JSON.stringify({ clientId, fullSync }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Sync failed");
@@ -254,6 +254,8 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
       );
     }
 
+    const formsReady = (conn.selectedFormIds?.length || 0) > 0;
+
     return (
       <Card className="border-2 border-black">
         <CardContent className="pt-5">
@@ -266,21 +268,24 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
                   <Badge className="bg-green-100 text-green-700 border-green-300 font-bold text-xs">Connected</Badge>
                 </div>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  {conn.selectedFormIds?.length || 0} form(s) synced ·{" "}
-                  {conn.totalImported || 0} total leads imported ·{" "}
-                  Last sync: {timeAgo(conn.lastSyncAt)}
+                  {formsReady
+                    ? <>{conn.selectedFormIds!.length} form(s) active · {conn.totalImported || 0} leads imported · Last sync: {timeAgo(conn.lastSyncAt)}</>
+                    : "Forms not configured yet — ask your account manager to select Lead Ad forms"
+                  }
                 </p>
               </div>
             </div>
-            <Button
-              size="sm"
-              onClick={syncNow}
-              disabled={syncing}
-              className="border-2 border-black font-bold"
-            >
-              {syncing ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <RefreshCw className="w-4 h-4 mr-2" />}
-              Sync Now
-            </Button>
+            {formsReady && (
+              <Button
+                size="sm"
+                onClick={syncNow}
+                disabled={syncing}
+                className="border-2 border-black font-bold"
+              >
+                {syncing ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <RefreshCw className="w-4 h-4 mr-2" />}
+                Sync Now
+              </Button>
+            )}
           </div>
         </CardContent>
       </Card>
@@ -510,7 +515,7 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
       {/* Sync Controls */}
       {conn?.isConnected && (conn.selectedFormIds?.length || 0) > 0 && (
         <Card className="border-2 border-black">
-          <CardContent className="pt-5">
+          <CardContent className="pt-5 space-y-3">
             <div className="flex items-center justify-between flex-wrap gap-3">
               <div>
                 <p className="font-bold text-sm">Sync Leads from Facebook</p>
@@ -519,19 +524,35 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
                   {conn.totalImported || 0} total leads imported
                 </p>
               </div>
-              <Button
-                size="sm"
-                onClick={syncNow}
-                disabled={syncing}
-                className="border-2 border-black font-bold"
-              >
-                {syncing ? (
-                  <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                ) : (
+              <div className="flex gap-2">
+                <Button
+                  size="sm"
+                  onClick={() => syncNow(false)}
+                  disabled={syncing}
+                  className="border-2 border-black font-bold"
+                >
+                  {syncing ? (
+                    <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                  ) : (
+                    <RefreshCw className="w-4 h-4 mr-2" />
+                  )}
+                  {syncing ? "Syncing..." : "Sync New"}
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => {
+                    if (confirm("This will re-import ALL leads from the beginning (duplicates are skipped). Continue?")) {
+                      syncNow(true);
+                    }
+                  }}
+                  disabled={syncing}
+                  className="border-2 border-black font-bold"
+                >
                   <RefreshCw className="w-4 h-4 mr-2" />
-                )}
-                {syncing ? "Syncing..." : "Sync Now"}
-              </Button>
+                  Full Sync (Sab Leads)
+                </Button>
+              </div>
             </div>
           </CardContent>
         </Card>

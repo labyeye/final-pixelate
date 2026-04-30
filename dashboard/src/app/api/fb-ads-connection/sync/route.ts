@@ -76,6 +76,8 @@ export async function POST(request: NextRequest) {
 
   const body = await request.json().catch(() => ({}));
   let clientId: string = body.clientId || "";
+  // fullSync=true ignores lastSyncAt and fetches ALL leads from beginning (admin only)
+  const fullSync: boolean = decoded.role === "admin" && body.fullSync === true;
   if (decoded.role === "client") clientId = decoded.clientId;
   if (!clientId) return NextResponse.json({ error: "clientId required" }, { status: 400, headers: CORS });
 
@@ -96,7 +98,8 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const since = conn.lastSyncAt
+  // fullSync: ignore lastSyncAt and fetch everything from the beginning
+  const since = (!fullSync && conn.lastSyncAt)
     ? Math.floor(new Date(conn.lastSyncAt).getTime() / 1000)
     : undefined;
 
