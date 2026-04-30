@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
@@ -9,8 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEye, faCircleCheck, faCircleXmark, faArrowRotateLeft,
   faLock, faFileLines, faMapPin, faLink, faChartBar,
-  faCommentDots, faHourglassHalf, faTriangleExclamation,
-  faFilter, faXmark,
+  faHourglassHalf, faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 interface Post {
@@ -54,6 +52,8 @@ const approvalColors: Record<string, string> = {
   Rejected: "bg-red-100 text-red-700 border-red-300",
 };
 
+type ActionType = "Approve" | "Reject" | "MarkPending";
+
 function PostDetailModal({ post, onClose }: { post: Post; onClose: () => void }) {
   return (
     <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
@@ -69,6 +69,28 @@ function PostDetailModal({ post, onClose }: { post: Post; onClose: () => void })
         </div>
 
         <div className="p-6 space-y-5">
+          {post.mediaFile && (
+            <div className="border-2 border-black rounded-xl overflow-hidden">
+              <img
+                src={post.mediaFile}
+                alt={post.title}
+                className="w-full max-h-80 object-contain bg-gray-50"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).style.display = "none";
+                  (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = "flex";
+                }}
+              />
+              <a
+                href={post.mediaFile}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden items-center gap-2 p-3 bg-blue-50 text-blue-700 text-sm font-semibold hover:bg-blue-100"
+              >
+                <FontAwesomeIcon icon={faLink} className="w-3 h-3" /> View Media File
+              </a>
+            </div>
+          )}
+
           <div>
             <h3 className="text-2xl font-black break-words">{post.title}</h3>
             <div className="flex flex-wrap gap-2 mt-2">
@@ -130,14 +152,14 @@ function PostDetailModal({ post, onClose }: { post: Post; onClose: () => void })
 
           {post.mediaFile && (
             <div className="border rounded-lg p-3">
-              <p className="text-xs font-bold text-gray-500 mb-2">MEDIA</p>
+              <p className="text-xs font-bold text-gray-500 mb-2">MEDIA LINK</p>
               <a
                 href={post.mediaFile}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700"
               >
-                <FontAwesomeIcon icon={faLink} className="w-3 h-3" /> View Media
+                <FontAwesomeIcon icon={faLink} className="w-3 h-3" /> Open Media
               </a>
             </div>
           )}
@@ -268,8 +290,6 @@ function PostDetailModal({ post, onClose }: { post: Post; onClose: () => void })
   );
 }
 
-type ActionType = "Approve" | "Reject" | "MarkPending";
-
 function ActionModal({
   post,
   action,
@@ -350,6 +370,168 @@ function ActionModal({
   );
 }
 
+function PendingPostCard({
+  post,
+  onAction,
+}: {
+  post: Post;
+  onAction: (postId: string, actionType: ActionType, remarks: string) => Promise<void>;
+}) {
+  const [rejectionReason, setRejectionReason] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [imgError, setImgError] = useState(false);
+  const { toast } = useToast();
+
+  const handleApprove = async () => {
+    try {
+      setIsSubmitting(true);
+      await onAction(post._id || "", "Approve", "");
+      toast({ title: "Post Approved ✅", description: "Your team will be notified." });
+    } catch {
+      toast({ title: "Error", description: "Failed to approve post.", variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleReject = async () => {
+    if (!rejectionReason.trim()) return;
+    try {
+      setIsSubmitting(true);
+      await onAction(post._id || "", "Reject", rejectionReason);
+      toast({ title: "Post Rejected ❌", description: "Your team will be notified with the reason." });
+    } catch {
+      toast({ title: "Error", description: "Failed to reject post.", variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="border-2 border-black rounded-xl overflow-hidden shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+      {post.mediaFile && !imgError && (
+        <div className="bg-gray-100 border-b-2 border-black">
+          <img
+            src={post.mediaFile}
+            alt={post.title}
+            className="w-full max-h-72 object-contain"
+            onError={() => setImgError(true)}
+          />
+        </div>
+      )}
+
+      <div className="p-4 space-y-4">
+        <div>
+          <h3 className="font-black text-lg leading-snug">{post.title}</h3>
+          <div className="flex flex-wrap gap-2 mt-2">
+            <span className="px-2.5 py-0.5 rounded-full bg-white border-2 border-black text-xs font-bold">
+              {post.platform}
+            </span>
+            <span className={`px-2.5 py-0.5 rounded-full border text-xs font-bold ${statusColors[post.status] || "bg-gray-100"}`}>
+              {post.status}
+            </span>
+          </div>
+        </div>
+
+        <div>
+          <p className="text-xs font-bold text-gray-500 mb-1.5">Caption</p>
+          <div className="border-2 border-black rounded-lg p-3 bg-white text-sm whitespace-pre-wrap leading-relaxed max-h-52 overflow-y-auto">
+            {post.caption}
+          </div>
+          {post.hashtags && (
+            <p className="text-xs text-blue-600 font-mono mt-1.5 break-words">{post.hashtags}</p>
+          )}
+        </div>
+
+        {post.mediaFile && (
+          <div className="flex items-center gap-2">
+            <a
+              href={post.mediaFile}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-700 border-2 border-blue-200 rounded-lg text-xs font-bold hover:bg-blue-100 transition-colors"
+            >
+              <FontAwesomeIcon icon={faLink} className="w-3 h-3" />
+              {imgError ? "View Media File" : "Open Full Size Media"}
+            </a>
+          </div>
+        )}
+
+        <p className="text-xs text-gray-500">
+          📅 {post.scheduledDate}{post.scheduledTime ? ` at ${post.scheduledTime}` : ""}
+        </p>
+
+        <div>
+          <label className="text-xs font-bold text-gray-500 mb-1.5 block">
+            Rejection Reason (if needed)
+          </label>
+          <Textarea
+            placeholder="Explain why you're rejecting this post..."
+            value={rejectionReason}
+            onChange={(e) => setRejectionReason(e.target.value)}
+            className="border-2 border-black text-sm"
+            rows={3}
+          />
+        </div>
+
+        <div className="flex gap-3">
+          <Button
+            className="flex-1 bg-green-600 hover:bg-green-700 text-white border-2 border-black font-bold"
+            onClick={handleApprove}
+            disabled={isSubmitting}
+          >
+            <FontAwesomeIcon icon={faCircleCheck} className="w-4 h-4 mr-2" />
+            {isSubmitting ? "Submitting..." : "Approve"}
+          </Button>
+          <Button
+            className="flex-1 bg-red-600 hover:bg-red-700 text-white border-2 border-black font-bold"
+            onClick={handleReject}
+            disabled={isSubmitting || !rejectionReason.trim()}
+          >
+            <FontAwesomeIcon icon={faCircleXmark} className="w-4 h-4 mr-2" />
+            {isSubmitting ? "Submitting..." : "Reject"}
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MediaCell({ url }: { url?: string }) {
+  const [imgError, setImgError] = useState(false);
+  if (!url) return <span className="text-xs text-gray-400">—</span>;
+  if (!imgError) {
+    return (
+      <div className="flex flex-col gap-1">
+        <img
+          src={url}
+          alt="media"
+          className="w-16 h-16 object-cover rounded border border-gray-200"
+          onError={() => setImgError(true)}
+        />
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs text-blue-600 hover:underline flex items-center gap-1"
+        >
+          <FontAwesomeIcon icon={faLink} className="w-2.5 h-2.5" /> View
+        </a>
+      </div>
+    );
+  }
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 text-blue-700 border border-blue-200 rounded text-xs font-semibold hover:bg-blue-100"
+    >
+      <FontAwesomeIcon icon={faLink} className="w-3 h-3" /> View Media
+    </a>
+  );
+}
+
 export default function ClientPlannerPage() {
   const { user } = useAuth();
   const { toast } = useToast();
@@ -390,49 +572,43 @@ export default function ClientPlannerPage() {
     fetchPosts();
   }, [user]);
 
-  const handleAction = async (remarks: string) => {
-    if (!actionPost || !actionType) return;
-    const postId = actionPost._id || "";
-    if (!postId) return;
+  const doAction = async (postId: string, actionType: ActionType, remarks: string) => {
+    const token = typeof window !== "undefined" ? localStorage.getItem("auth_token") : null;
+    const headers: Record<string, string> = { "Content-Type": "application/json" };
+    if (token) headers["Authorization"] = `Bearer ${token}`;
 
+    const newStatus = actionType === "Approve" ? "Approved" : actionType === "Reject" ? "Rejected" : "Pending";
+    const body: any = { approvalStatus: newStatus };
+    if (actionType === "Reject") body.rejectionReason = remarks;
+    if (remarks.trim()) body.clientRemarks = remarks;
+
+    const res = await fetch(`/api/social-media-posts/${postId}`, {
+      method: "PATCH",
+      headers,
+      body: JSON.stringify(body),
+    });
+
+    if (!res.ok) throw new Error(`Failed to ${actionType.toLowerCase()} post`);
+    await fetchPosts();
+  };
+
+  const handleModalAction = async (remarks: string) => {
+    if (!actionPost || !actionType) return;
     try {
       setIsSubmitting(true);
-      const token = typeof window !== "undefined" ? localStorage.getItem("auth_token") : null;
-      const headers: Record<string, string> = { "Content-Type": "application/json" };
-      if (token) headers["Authorization"] = `Bearer ${token}`;
+      await doAction(actionPost._id || "", actionType, remarks);
 
-      const newStatus =
-        actionType === "Approve" ? "Approved" : actionType === "Reject" ? "Rejected" : "Pending";
-      const body: any = { approvalStatus: newStatus };
-      if (actionType === "Reject") body.rejectionReason = remarks;
-      if (remarks.trim()) body.clientRemarks = remarks;
-
-      const res = await fetch(`/api/social-media-posts/${postId}`, {
-        method: "PATCH",
-        headers,
-        body: JSON.stringify(body),
-      });
-
-      if (!res.ok) throw new Error(`Failed to ${actionType.toLowerCase()} post`);
-
-      const toastMessages: Record<string, { title: string; description: string }> = {
+      const msgs: Record<string, { title: string; description: string }> = {
         Approve: { title: "Post Approved ✅", description: "Your team will be notified." },
         Reject: { title: "Post Rejected ❌", description: "Your team will be notified with the reason." },
         MarkPending: { title: "Re-opened for Review ⏳", description: "Your team will be notified." },
       };
-      const msg = toastMessages[actionType!] || { title: "Updated", description: "" };
+      const msg = msgs[actionType] || { title: "Updated", description: "" };
       toast({ title: msg.title, description: msg.description });
-
       setActionPost(null);
       setActionType(null);
-      await fetchPosts();
     } catch (err) {
-      console.error(`Error performing action on post`, err);
-      toast({
-        title: "Error",
-        description: "Failed to update post status.",
-        variant: "destructive",
-      });
+      toast({ title: "Error", description: "Failed to update post status.", variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }
@@ -454,7 +630,7 @@ export default function ClientPlannerPage() {
   const rejectedPosts = posts.filter((p) => p.approvalStatus === "Rejected");
 
   return (
-    <div className="min-h-screen bg-background font-headline p-6 space-y-6">
+    <div className="min-h-screen bg-background font-headline p-6 space-y-8">
       <div className="border-b-2 border-black pb-4">
         <h1 className="text-4xl font-black tracking-tighter">Social Media Posts</h1>
         <p className="text-muted-foreground mt-1">
@@ -463,15 +639,15 @@ export default function ClientPlannerPage() {
       </div>
 
       <div className="grid grid-cols-3 gap-4">
-        <div className="border-2 border-yellow-400 bg-yellow-50 rounded-xl p-4 text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-          <div className="text-3xl font-black text-yellow-700">{pendingPosts.length}</div>
+        <div className="border-2 border-black bg-yellow-50 rounded-xl p-4 text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+          <div className="text-3xl font-black">{pendingPosts.length}</div>
           <p className="text-sm font-semibold text-yellow-600 mt-1">⏳ Pending Review</p>
         </div>
-        <div className="border-2 border-green-500 bg-green-50 rounded-xl p-4 text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+        <div className="border-2 border-black bg-green-50 rounded-xl p-4 text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
           <div className="text-3xl font-black text-green-700">{approvedPosts.length}</div>
           <p className="text-sm font-semibold text-green-600 mt-1">✅ Approved</p>
         </div>
-        <div className="border-2 border-red-500 bg-red-50 rounded-xl p-4 text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+        <div className="border-2 border-black bg-red-50 rounded-xl p-4 text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
           <div className="text-3xl font-black text-red-700">{rejectedPosts.length}</div>
           <p className="text-sm font-semibold text-red-600 mt-1">❌ Rejected</p>
         </div>
@@ -489,140 +665,214 @@ export default function ClientPlannerPage() {
           </p>
         </div>
       ) : (
-        <div className="border-2 border-black rounded-xl overflow-hidden shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-          <div className="p-4 border-b-2 border-black bg-gray-50 flex items-center justify-between">
-            <h2 className="text-xl font-black">All Posts</h2>
-            <span className="text-sm text-muted-foreground">{posts.length} total</span>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead className="bg-muted/30">
-                <tr>
-                  <th className="text-left p-3 border-b font-bold">Title</th>
-                  <th className="text-left p-3 border-b font-bold">Platform</th>
-                  <th className="text-left p-3 border-b font-bold">Content Type</th>
-                  <th className="text-left p-3 border-b font-bold">Schedule</th>
-                  <th className="text-left p-3 border-b font-bold">Status</th>
-                  <th className="text-left p-3 border-b font-bold">Approval</th>
-                  <th className="text-left p-3 border-b font-bold">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {posts.map((post) => {
-                  const postId = post._id || "";
-                  const isPending = !post.approvalStatus || post.approvalStatus === "Pending";
-                  const isApproved = post.approvalStatus === "Approved";
-                  const isRejected = post.approvalStatus === "Rejected";
+        <>
+          {/* ── Pending Review ── */}
+          <section className="space-y-4">
+            <h2 className="text-2xl font-black flex items-center gap-2">
+              ⏳ Pending Review
+              {pendingPosts.length > 0 && (
+                <span className="text-base font-bold text-yellow-600 bg-yellow-100 border border-yellow-300 px-2 py-0.5 rounded-full">
+                  {pendingPosts.length}
+                </span>
+              )}
+            </h2>
+            {pendingPosts.length === 0 ? (
+              <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center text-muted-foreground">
+                No posts pending review right now 🎉
+              </div>
+            ) : (
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {pendingPosts.map((post) => (
+                  <PendingPostCard key={post._id} post={post} onAction={doAction} />
+                ))}
+              </div>
+            )}
+          </section>
 
-                  return (
-                    <tr
-                      key={postId}
-                      className={`border-b hover:bg-muted/20 transition-colors ${
-                        isPending
-                          ? "bg-yellow-50/40"
-                          : isApproved
-                            ? "bg-green-50/30"
-                            : "bg-red-50/30"
-                      }`}
-                    >
-                      <td className="p-3 align-top">
-                        <div className="font-semibold">{post.title}</div>
-                        <div className="text-xs text-muted-foreground line-clamp-1 mt-0.5">
-                          {post.caption}
-                        </div>
-                      </td>
-                      <td className="p-3 align-top">
-                        <span className="px-2 py-1 rounded bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
-                          {post.platform}
-                        </span>
-                      </td>
-                      <td className="p-3 align-top text-muted-foreground">
-                        {post.contentType || "—"}
-                      </td>
-                      <td className="p-3 align-top">
-                        <div className="font-semibold text-xs">{post.scheduledDate}</div>
-                        {post.scheduledTime && (
-                          <div className="text-xs text-muted-foreground">{post.scheduledTime}</div>
-                        )}
-                      </td>
-                      <td className="p-3 align-top">
-                        <span
-                          className={`px-2 py-1 rounded text-xs font-bold ${
-                            statusColors[post.status] || "bg-gray-100"
-                          }`}
-                        >
-                          {post.status}
-                        </span>
-                      </td>
-                      <td className="p-3 align-top">
-                        <div className="space-y-1">
-                          <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-bold border ${approvalColors[post.approvalStatus || "Pending"]}`}>
-                            <FontAwesomeIcon
-                              icon={isApproved ? faCircleCheck : isRejected ? faCircleXmark : faHourglassHalf}
-                              className="w-2.5 h-2.5"
-                            />
-                            {isApproved ? "Approved" : isRejected ? "Rejected" : "Pending"}
-                          </span>
-                          {isRejected && post.rejectionReason && (
-                            <div
-                              className="text-xs text-red-600 max-w-[140px] line-clamp-2"
-                              title={post.rejectionReason}
-                            >
-                              💬 {post.rejectionReason}
+          {/* ── Approved Posts ── */}
+          <section className="space-y-4">
+            <h2 className="text-2xl font-black flex items-center gap-2">
+              ✅ Approved Posts
+              {approvedPosts.length > 0 && (
+                <span className="text-base font-bold text-green-700 bg-green-100 border border-green-300 px-2 py-0.5 rounded-full">
+                  {approvedPosts.length}
+                </span>
+              )}
+            </h2>
+            {approvedPosts.length === 0 ? (
+              <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center text-muted-foreground">
+                No approved posts yet
+              </div>
+            ) : (
+              <div className="border-2 border-black rounded-xl overflow-hidden shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead className="bg-green-50">
+                      <tr>
+                        <th className="text-left p-3 border-b-2 border-black font-bold">Title & Caption</th>
+                        <th className="text-left p-3 border-b-2 border-black font-bold">Platform</th>
+                        <th className="text-left p-3 border-b-2 border-black font-bold">Content Type</th>
+                        <th className="text-left p-3 border-b-2 border-black font-bold">Schedule</th>
+                        <th className="text-left p-3 border-b-2 border-black font-bold">Status</th>
+                        <th className="text-left p-3 border-b-2 border-black font-bold">Media</th>
+                        <th className="text-left p-3 border-b-2 border-black font-bold">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {approvedPosts.map((post) => (
+                        <tr key={post._id} className="border-b hover:bg-green-50/30 transition-colors">
+                          <td className="p-3 align-top max-w-xs">
+                            <div className="font-semibold">{post.title}</div>
+                            <div className="text-xs text-muted-foreground mt-1 whitespace-pre-wrap break-words leading-relaxed">
+                              {post.caption}
                             </div>
-                          )}
-                        </div>
-                      </td>
-                      <td className="p-3 align-top">
-                        <div className="flex gap-1.5 flex-wrap items-center">
-                          <Button size="sm" variant="outline" className="border-black text-xs h-7" onClick={() => setViewingPost(post)}>
-                            <FontAwesomeIcon icon={faEye} className="w-3 h-3 mr-1" /> View
-                          </Button>
-                          {isPending && (
-                            <>
-                              <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white border-2 border-black text-xs h-7 font-bold" onClick={() => { setActionPost(post); setActionType("Approve"); }}>
+                            {post.hashtags && (
+                              <div className="text-xs text-blue-600 font-mono mt-1 break-words">{post.hashtags}</div>
+                            )}
+                          </td>
+                          <td className="p-3 align-top">
+                            <span className="px-2 py-1 rounded bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
+                              {post.platform}
+                            </span>
+                          </td>
+                          <td className="p-3 align-top text-muted-foreground text-xs">
+                            {post.contentType || "—"}
+                          </td>
+                          <td className="p-3 align-top">
+                            <div className="font-semibold text-xs">{post.scheduledDate}</div>
+                            {post.scheduledTime && (
+                              <div className="text-xs text-muted-foreground">{post.scheduledTime}</div>
+                            )}
+                          </td>
+                          <td className="p-3 align-top">
+                            <span className={`px-2 py-1 rounded text-xs font-bold ${statusColors[post.status] || "bg-gray-100"}`}>
+                              {post.status}
+                            </span>
+                          </td>
+                          <td className="p-3 align-top">
+                            <MediaCell url={post.mediaFile} />
+                          </td>
+                          <td className="p-3 align-top">
+                            <div className="flex flex-col gap-1.5">
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                className="border-black text-xs h-7"
+                                onClick={() => setViewingPost(post)}
+                              >
+                                <FontAwesomeIcon icon={faEye} className="w-3 h-3 mr-1" /> View
+                              </Button>
+                              <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-green-100 text-green-700 border border-green-300 text-xs font-bold">
+                                <FontAwesomeIcon icon={faLock} className="w-2.5 h-2.5" /> Approved
+                              </span>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+          </section>
+
+          {/* ── Rejected Posts ── */}
+          {rejectedPosts.length > 0 && (
+            <section className="space-y-4">
+              <h2 className="text-2xl font-black flex items-center gap-2">
+                ❌ Rejected Posts
+                <span className="text-base font-bold text-red-700 bg-red-100 border border-red-300 px-2 py-0.5 rounded-full">
+                  {rejectedPosts.length}
+                </span>
+              </h2>
+              <div className="border-2 border-black rounded-xl overflow-hidden shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead className="bg-red-50">
+                      <tr>
+                        <th className="text-left p-3 border-b-2 border-black font-bold">Title & Caption</th>
+                        <th className="text-left p-3 border-b-2 border-black font-bold">Platform</th>
+                        <th className="text-left p-3 border-b-2 border-black font-bold">Schedule</th>
+                        <th className="text-left p-3 border-b-2 border-black font-bold">Media</th>
+                        <th className="text-left p-3 border-b-2 border-black font-bold">Your Reason</th>
+                        <th className="text-left p-3 border-b-2 border-black font-bold">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {rejectedPosts.map((post) => (
+                        <tr key={post._id} className="border-b hover:bg-red-50/20 transition-colors">
+                          <td className="p-3 align-top max-w-xs">
+                            <div className="font-semibold">{post.title}</div>
+                            <div className="text-xs text-muted-foreground mt-1 whitespace-pre-wrap break-words leading-relaxed">
+                              {post.caption}
+                            </div>
+                          </td>
+                          <td className="p-3 align-top">
+                            <span className="px-2 py-1 rounded bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
+                              {post.platform}
+                            </span>
+                          </td>
+                          <td className="p-3 align-top">
+                            <div className="font-semibold text-xs">{post.scheduledDate}</div>
+                            {post.scheduledTime && (
+                              <div className="text-xs text-muted-foreground">{post.scheduledTime}</div>
+                            )}
+                          </td>
+                          <td className="p-3 align-top">
+                            <MediaCell url={post.mediaFile} />
+                          </td>
+                          <td className="p-3 align-top max-w-[180px]">
+                            {post.rejectionReason ? (
+                              <p className="text-xs text-red-700 whitespace-pre-wrap break-words">
+                                {post.rejectionReason}
+                              </p>
+                            ) : (
+                              <span className="text-xs text-gray-400">—</span>
+                            )}
+                          </td>
+                          <td className="p-3 align-top">
+                            <div className="flex flex-col gap-1.5">
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                className="border-black text-xs h-7"
+                                onClick={() => setViewingPost(post)}
+                              >
+                                <FontAwesomeIcon icon={faEye} className="w-3 h-3 mr-1" /> View
+                              </Button>
+                              <Button
+                                size="sm"
+                                className="bg-green-600 hover:bg-green-700 text-white border-2 border-black text-xs h-7 font-bold"
+                                onClick={() => { setActionPost(post); setActionType("Approve"); }}
+                              >
                                 <FontAwesomeIcon icon={faCircleCheck} className="w-3 h-3 mr-1" /> Approve
                               </Button>
-                              <Button size="sm" variant="destructive" className="border-2 border-black text-xs h-7 font-bold" onClick={() => { setActionPost(post); setActionType("Reject"); }}>
-                                <FontAwesomeIcon icon={faCircleXmark} className="w-3 h-3 mr-1" /> Reject
-                              </Button>
-                            </>
-                          )}
-                          {isRejected && (
-                            <>
-                              <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white border-2 border-black text-xs h-7 font-bold" onClick={() => { setActionPost(post); setActionType("Approve"); }}>
-                                <FontAwesomeIcon icon={faCircleCheck} className="w-3 h-3 mr-1" /> Approve
-                              </Button>
-                              <Button size="sm" variant="outline" className="border-2 border-yellow-400 text-yellow-700 text-xs h-7 font-bold hover:bg-yellow-50" onClick={() => { setActionPost(post); setActionType("MarkPending"); }}>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                className="border-2 border-yellow-400 text-yellow-700 text-xs h-7 font-bold hover:bg-yellow-50"
+                                onClick={() => { setActionPost(post); setActionType("MarkPending"); }}
+                              >
                                 <FontAwesomeIcon icon={faArrowRotateLeft} className="w-3 h-3 mr-1" /> Re-open
                               </Button>
-                              <Button size="sm" variant="destructive" className="border-2 border-black text-xs h-7 font-bold" onClick={() => { setActionPost(post); setActionType("Reject"); }}>
-                                <FontAwesomeIcon icon={faCircleXmark} className="w-3 h-3 mr-1" /> Re-reject
-                              </Button>
-                            </>
-                          )}
-                          {isApproved && (
-                            <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-green-100 text-green-700 border border-green-300 text-xs font-bold">
-                              <FontAwesomeIcon icon={faLock} className="w-2.5 h-2.5" /> Approved (Final)
-                            </span>
-                          )}
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+          )}
+        </>
       )}
 
       <div className="border-2 border-black rounded-xl p-4 bg-primary/5">
         <p className="text-sm">
           <span className="font-bold">💡 How it works:</span> Your team creates social media posts
           and sends them here for your review. Click{" "}
-          <strong>View</strong> to see full post details, then{" "}
-          <strong>Approve</strong> or <strong>Reject</strong> with your remarks.
+          <strong>Approve</strong> or fill in a reason and click <strong>Reject</strong> on each pending card.
         </p>
       </div>
 
@@ -638,7 +888,7 @@ export default function ClientPlannerPage() {
             setActionPost(null);
             setActionType(null);
           }}
-          onConfirm={handleAction}
+          onConfirm={handleModalAction}
           isSubmitting={isSubmitting}
         />
       )}

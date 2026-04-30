@@ -56,27 +56,16 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/mongodb [external] (mongodb, cjs)");
 ;
-
-
-
-
-
-
- const uri = process.env.MONGODB_URI || process.env.MONGO_URI || "";
+const uri = process.env.MONGODB_URI || process.env.MONGO_URI || "";
 const defaultDbFromEnv = process.env.MONGODB_DB || process.env.MONGO_DB;
 if (!uri) {
-    
-    
-    
     console.warn("MONGODB_URI is not set. MongoDB operations will fail until it's provided.");
 }
 let client = global._mongoClient;
 let clientPromise = global._mongoClientPromise;
 function parseDbNameFromUri(connectionString) {
     if (!connectionString) return undefined;
-    
     const withoutQuery = connectionString.split("?")[0];
-    
     const lastSlash = withoutQuery.lastIndexOf("/");
     if (lastSlash === -1) return undefined;
     const db = withoutQuery.substring(lastSlash + 1);
@@ -89,15 +78,11 @@ function ensureClientInitialized() {
         }
         client = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["MongoClient"](uri);
         clientPromise = client.connect();
-        
         try {
             global._mongoClient = client;
             global._mongoClientPromise = clientPromise;
-        } catch (e) {
-        
-        }
+        } catch (e) {}
     }
-    
     return clientPromise;
 }
 async function getMongoClient() {
@@ -105,7 +90,6 @@ async function getMongoClient() {
 }
 async function getDb(dbName) {
     const conn = await ensureClientInitialized();
-    
     const dbFromUri = parseDbNameFromUri(uri);
     const name = dbName || defaultDbFromEnv || dbFromUri || "admin";
     return conn.db(name);
@@ -120,9 +104,7 @@ async function closeMongoClient() {
         try {
             global._mongoClient = undefined;
             global._mongoClientPromise = undefined;
-        } catch (e) {
-        
-        }
+        } catch (e) {}
     }
 }
 const __TURBOPACK__default__export__ = getDb;
@@ -194,3 +176,4 @@ async function GET() {
 }),
 ];
 
+//# sourceMappingURL=%5Broot-of-the-server%5D__ad926205._.js.map
