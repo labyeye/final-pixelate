@@ -415,6 +415,24 @@
       "namedRegex": "^/api/expenses(?:/)?$"
     },
     {
+      "page": "/api/fb-ads-connection",
+      "regex": "^/api/fb\\-ads\\-connection(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/fb\\-ads\\-connection(?:/)?$"
+    },
+    {
+      "page": "/api/fb-ads-connection/forms",
+      "regex": "^/api/fb\\-ads\\-connection/forms(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/fb\\-ads\\-connection/forms(?:/)?$"
+    },
+    {
+      "page": "/api/fb-ads-connection/sync",
+      "regex": "^/api/fb\\-ads\\-connection/sync(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/fb\\-ads\\-connection/sync(?:/)?$"
+    },
+    {
       "page": "/api/inventory",
       "regex": "^/api/inventory(?:/)?$",
       "routeKeys": {},

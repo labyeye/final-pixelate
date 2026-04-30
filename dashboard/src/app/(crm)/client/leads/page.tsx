@@ -17,6 +17,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/hooks/use-auth";
 import { TrendingUp, Users, Trophy, Zap } from "lucide-react";
+import { FbAdsConnectionPanel } from "@/components/fb-ads/fb-ads-connection-panel";
 
 type LeadStatus = typeof leadStatuses[number];
 
@@ -132,11 +133,15 @@ export default function ClientLeadsPage() {
 
   return (
     <div className="min-h-screen bg-background font-headline p-6 space-y-6">
-      {}
       <div>
         <h1 className="text-4xl font-black tracking-tighter">Your Leads</h1>
         <p className="text-muted-foreground mt-1">Track the performance and status of your leads</p>
       </div>
+
+      {/* Facebook Lead Ads sync banner */}
+      {user?.clientId && (
+        <FbAdsConnectionPanel clientId={user.clientId} readOnly />
+      )}
 
       {}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">

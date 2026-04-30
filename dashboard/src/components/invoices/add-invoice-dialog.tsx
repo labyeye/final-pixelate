@@ -30,6 +30,7 @@ const HSN_OPTIONS = [
   { value: "998314", label: "998314 – IT/Creative Services" },
   { value: "999612", label: "999612 – Photography/Video" },
   { value: "998315", label: "998315 – Hosting/Maintenance" },
+  { value: "998361", label: "998361 – Advertising Services" },
 ];
 
 type LineItem = {

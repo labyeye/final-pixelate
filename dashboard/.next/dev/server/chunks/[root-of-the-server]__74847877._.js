@@ -56,27 +56,16 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/mongodb [external] (mongodb, cjs)");
 ;
-
-
-
-
-
-
- const uri = process.env.MONGODB_URI || process.env.MONGO_URI || "";
+const uri = process.env.MONGODB_URI || process.env.MONGO_URI || "";
 const defaultDbFromEnv = process.env.MONGODB_DB || process.env.MONGO_DB;
 if (!uri) {
-    
-    
-    
     console.warn("MONGODB_URI is not set. MongoDB operations will fail until it's provided.");
 }
 let client = global._mongoClient;
 let clientPromise = global._mongoClientPromise;
 function parseDbNameFromUri(connectionString) {
     if (!connectionString) return undefined;
-    
     const withoutQuery = connectionString.split("?")[0];
-    
     const lastSlash = withoutQuery.lastIndexOf("/");
     if (lastSlash === -1) return undefined;
     const db = withoutQuery.substring(lastSlash + 1);
@@ -89,15 +78,11 @@ function ensureClientInitialized() {
         }
         client = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["MongoClient"](uri);
         clientPromise = client.connect();
-        
         try {
             global._mongoClient = client;
             global._mongoClientPromise = clientPromise;
-        } catch (e) {
-        
-        }
+        } catch (e) {}
     }
-    
     return clientPromise;
 }
 async function getMongoClient() {
@@ -105,7 +90,6 @@ async function getMongoClient() {
 }
 async function getDb(dbName) {
     const conn = await ensureClientInitialized();
-    
     const dbFromUri = parseDbNameFromUri(uri);
     const name = dbName || defaultDbFromEnv || dbFromUri || "admin";
     return conn.db(name);
@@ -120,9 +104,7 @@ async function closeMongoClient() {
         try {
             global._mongoClient = undefined;
             global._mongoClientPromise = undefined;
-        } catch (e) {
-        
-        }
+        } catch (e) {}
     }
 }
 const __TURBOPACK__default__export__ = getDb;
@@ -270,12 +252,10 @@ var __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$_
 ;
 function getFinancialYear(date = new Date()) {
     const year = date.getFullYear();
-    const month = date.getMonth() + 1; 
+    const month = date.getMonth() + 1;
     if (month >= 4) {
-        
         return `${year}-${year + 1}`;
     } else {
-        
         return `${year - 1}-${year}`;
     }
 }
@@ -379,7 +359,6 @@ async function softDeleteById(collectionName, id, collectionLabel) {
     const col = await getCollection(collectionName);
     const trash = await getCollection("_trash");
     const hex24 = /^[a-fA-F0-9]{24}$/.test(normalizedId);
-    
     let doc = null;
     let filter = null;
     if (hex24) {
@@ -393,7 +372,6 @@ async function softDeleteById(collectionName, id, collectionLabel) {
         } catch (_) {}
     }
     if (!doc) {
-        
         doc = await col.findOne({
             _id: normalizedId
         });
@@ -402,7 +380,6 @@ async function softDeleteById(collectionName, id, collectionLabel) {
         };
     }
     if (!doc) {
-        
         doc = await col.findOne({
             id: normalizedId
         });
@@ -419,7 +396,6 @@ async function softDeleteById(collectionName, id, collectionLabel) {
         };
     }
     if (!doc || !filter) return false;
-    
     if (collectionName === "invoices") {
         if (Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
             try {
@@ -454,7 +430,6 @@ async function softDeleteById(collectionName, id, collectionLabel) {
         teamMembers: "Team Member",
         careers: "Career"
     };
-    
     await trash.insertOne({
         _originalId: String(doc._id),
         originalCollection: collectionName,
@@ -462,7 +437,6 @@ async function softDeleteById(collectionName, id, collectionLabel) {
         document: doc,
         deletedAt: new Date()
     });
-    
     const res = await col.deleteOne(filter);
     return res.deletedCount === 1;
 }
@@ -490,11 +464,9 @@ async function restoreFromTrash(trashId) {
     const doc = {
         ...trashDoc.document
     };
-    
     if (trashDoc._originalId && /^[a-fA-F0-9]{24}$/.test(trashDoc._originalId)) {
         doc._id = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](trashDoc._originalId);
     }
-    
     if (trashDoc.originalCollection === "invoices") {
         if (Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
             try {
@@ -511,7 +483,6 @@ async function restoreFromTrash(trashId) {
     try {
         await originalCol.insertOne(doc);
     } catch (e) {
-        
         if (e?.code === 11000) {
             delete doc._id;
             await originalCol.insertOne(doc);
@@ -548,7 +519,6 @@ async function permanentlyDestroyTrashItem(trashId) {
     }
     return (res?.deletedCount ?? 0) === 1;
 }
-
 async function adjustInventoryQuantities(items, direction) {
     if (!Array.isArray(items) || items.length === 0) return;
     const col = await getCollection("inventory");
@@ -581,7 +551,6 @@ async function adjustInventoryQuantities(items, direction) {
     }
 }
 async function getTeamMembers() {
-    
     const col = await getCollection("users");
     return col.find({
         jobRole: {
@@ -590,7 +559,6 @@ async function getTeamMembers() {
     }).toArray();
 }
 async function createTeamMember(member) {
-    
     const usersCol = await getCollection("users");
     const toInsert = {
         ...member,
@@ -598,11 +566,9 @@ async function createTeamMember(member) {
         role: member.authRole ?? "staff",
         createdAt: new Date()
     };
-    
-    delete toInsert.role; 
+    delete toInsert.role;
     const authRole = member.loginRole ?? member.authRole ?? "staff";
     toInsert.role = authRole;
-    
     if (member.password) {
         toInsert.password = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["hashPassword"])(member.password);
     }
@@ -636,12 +602,10 @@ async function createUser(user) {
 async function findById(collectionName, id) {
     const col = await getCollection(collectionName);
     if (!id) return null;
-    
     const byRawId = await col.findOne({
         _id: id
     });
     if (byRawId) return byRawId;
-    
     const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
     if (hex24) {
         try {
@@ -649,17 +613,14 @@ async function findById(collectionName, id) {
                 _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
             });
             if (byObjectId) return byObjectId;
-        } catch (e) {
-         }
+        } catch (e) {}
     }
-    
     if (collectionName === "invoices") {
         const byInvoiceNo = await col.findOne({
             invoiceNo: id
         });
         if (byInvoiceNo) return byInvoiceNo;
     }
-    
     const byCustomId = await col.findOne({
         id: id
     });
@@ -667,13 +628,10 @@ async function findById(collectionName, id) {
 }
 async function updateById(collectionName, id, update) {
     const col = await getCollection(collectionName);
-    
     const updateDoc = {
         ...update || {}
     };
-    
     if (updateDoc._id) delete updateDoc._id;
-    
     if (updateDoc && updateDoc.password) {
         updateDoc.password = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$auth$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["hashPassword"])(updateDoc.password);
     }
@@ -686,7 +644,6 @@ async function updateById(collectionName, id, update) {
         });
         return findById(collectionName, id);
     }
-    
     if (collectionName === "invoices") {
         const byInvoiceNo = await col.findOne({
             invoiceNo: id
@@ -716,7 +673,6 @@ async function getInvoices() {
 }
 async function renumberInvoices(financialYear) {
     const col = await getCollection("invoices");
-    
     const invoices = await col.find({}).sort({
         createdAt: 1
     }).toArray();
@@ -743,10 +699,8 @@ async function renumberInvoices(financialYear) {
 }
 async function createInvoice(invoice) {
     const col = await getCollection("invoices");
-    
     try {
         const fy = getFinancialYear(new Date());
-        
         const regex = new RegExp(`^KTS/${fy}/(\\d+)$`);
         const docs = await col.find({
             invoiceNo: {
@@ -780,7 +734,6 @@ async function createInvoice(invoice) {
             invoiceNo,
             _id: res.insertedId
         };
-        
         if (Array.isArray(invoice.inventoryItems) && invoice.inventoryItems.length) {
             const items = invoice.inventoryItems.map((r)=>({
                     inventoryId: r.inventoryId,
@@ -806,7 +759,6 @@ async function getQuotations() {
 }
 async function createQuotation(q) {
     const col = await getCollection("quotations");
-    
     try {
         const last = await col.find({}).sort({
             createdAt: -1
@@ -993,3 +945,4 @@ async function DELETE(req) {
 }),
 ];
 
+//# sourceMappingURL=%5Broot-of-the-server%5D__74847877._.js.map

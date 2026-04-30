@@ -776,6 +776,33 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../src/app/api/fb-ads-connection/forms/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/fb-ads-connection/forms">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/fb-ads-connection/forms/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/app/api/fb-ads-connection/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/fb-ads-connection">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/fb-ads-connection/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/app/api/fb-ads-connection/sync/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/fb-ads-connection/sync">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/fb-ads-connection/sync/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../src/app/api/inventory/[id]/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/inventory/[id]">> = Specific

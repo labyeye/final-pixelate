@@ -370,8 +370,7 @@ export function InvoicePDFDocument({
   client?: any;
 }) {
   const items = getItems(invoice);
-  const selectedHsnCode =
-    String(invoice?.hsnCode || "998314") === "999612" ? "999612" : "998314";
+  const selectedHsnCode = String(invoice?.hsnCode || "998314");
 
   
   const subtotal = items.reduce((s: number, it: any) => {

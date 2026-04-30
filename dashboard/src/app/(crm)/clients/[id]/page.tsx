@@ -17,6 +17,7 @@ import {
   FolderOpen, Zap, ChevronRight, Calendar
 } from "lucide-react";
 import Link from "next/link";
+import { FbAdsConnectionPanel } from "@/components/fb-ads/fb-ads-connection-panel";
 
 function formatDate(date?: Date | string | null) {
   if (!date) return "—";
@@ -310,10 +311,11 @@ export default function ClientDetailPage() {
         {/* Right column: Tabs */}
         <div className="lg:col-span-2">
           <Tabs defaultValue="projects">
-            <TabsList className="border-2 border-black mb-4 w-full justify-start">
+            <TabsList className="border-2 border-black mb-4 w-full justify-start flex-wrap">
               <TabsTrigger value="projects" className="font-bold">Projects ({projects.length})</TabsTrigger>
               <TabsTrigger value="invoices" className="font-bold">Invoices ({invoices.length})</TabsTrigger>
               <TabsTrigger value="leads" className="font-bold">Leads ({leads.length})</TabsTrigger>
+              <TabsTrigger value="fb-leads" className="font-bold">FB Lead Ads</TabsTrigger>
             </TabsList>
 
             {/* Projects */}
@@ -425,6 +427,11 @@ export default function ClientDetailPage() {
                   </Link>
                 );
               })}
+            </TabsContent>
+
+            {/* FB Lead Ads */}
+            <TabsContent value="fb-leads">
+              <FbAdsConnectionPanel clientId={clientId} />
             </TabsContent>
           </Tabs>
         </div>

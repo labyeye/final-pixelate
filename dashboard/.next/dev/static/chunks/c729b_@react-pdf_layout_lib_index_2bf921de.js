@@ -6,7 +6,7 @@ __turbopack_context__.s([
     "default",
     ()=>layout
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/buffer/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$buffer$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/buffer/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/fns/lib/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/primitives/lib/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$stylesheet$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/stylesheet/lib/index.js [app-client] (ecmascript)");
@@ -23,13 +23,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 ;
-
-
-
-
-
-
- const transformText = (text, transformation)=>{
+/**
+ * Apply transformation to text string
+ *
+ * @param {string} text
+ * @param {string} transformation type
+ * @returns {string} transformed text
+ */ const transformText = (text, transformation)=>{
     switch(transformation){
         case 'uppercase':
             return text.toUpperCase();
@@ -69,7 +69,7 @@ const getFragments$1 = (fontStore, instance)=>{
     ] : [
         ...fontFamily || []
     ];
-    
+    // Fallback font
     fontFamilies.push('Helvetica');
     const font = fontFamilies.map((fontFamilyName)=>{
         const opts = {
@@ -131,7 +131,7 @@ const layoutTspan = (fontStore)=>(node, xOffset)=>{
             lines
         });
     };
-
+// Consecutive TSpan elements should be joined with a space
 const joinTSpanLines = (node)=>{
     const children = node.children.map((child, index)=>{
         if (!isTspan(child)) return child;
@@ -277,7 +277,7 @@ const BASE_SVG_INHERITED_PROPS = [
     'visibility',
     'wordSpacing'
 ];
-
+// Do not inherit "x" for <tspan> elements from <text> parent
 const TEXT_SVG_INHERITED_PROPS = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["without"])([
     'x'
 ], BASE_SVG_INHERITED_PROPS);
@@ -482,7 +482,7 @@ const buildXLinksIndex = (node)=>{
 const replaceXLinks = (node, idIndex)=>{
     if (node.props && 'xlinkHref' in node.props) {
         const linkedNode = idIndex[node.props.xlinkHref.replace(/^#/, '')];
-        
+        // No node to extend from
         if (!linkedNode) return node;
         const newProps = Object.assign({}, linkedNode.props, node.props);
         delete newProps.xlinkHref;
@@ -503,13 +503,13 @@ const resolveSvgRoot = (node, fontStore)=>{
     const container = getContainer$1(node);
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["compose"])(replaceDefs, parseText(fontStore), parseSvgProps, pickStyleProps, inheritProps, resolveChildren(container), resolveXLinks)(node);
 };
-
-
-
-
-
-
- const resolveSvg = (node, fontStore)=>{
+/**
+ * Pre-process SVG nodes so they can be rendered in the next steps
+ *
+ * @param node - Root node
+ * @param fontStore - Font store
+ * @returns Root node
+ */ const resolveSvg = (node, fontStore)=>{
     if (!('children' in node)) return node;
     const resolveChild = (child)=>resolveSvg(child, fontStore);
     const root = isSvg$3(node) ? resolveSvgRoot(node, fontStore) : node;
@@ -520,8 +520,8 @@ const resolveSvgRoot = (node, fontStore)=>{
 };
 let instancePromise;
 const loadYoga = async ()=>{
-    
-    
+    // Yoga WASM binaries must be asynchronously compiled and loaded
+    // to prevent Event emitter memory leak warnings, Yoga must be loaded only once
     const instance = await (instancePromise ??= (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$load$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["loadYoga"])());
     const config = instance.Config.create();
     config.setPointScaleFactor(0);
@@ -548,12 +548,12 @@ const sortZIndex = (a, b)=>{
     if (!zb) return -1;
     return zb - za;
 };
-
-
-
-
-
- const resolveNodeZIndex = (node)=>{
+/**
+ * Sort children by zIndex value
+ *
+ * @param node
+ * @returns Node
+ */ const resolveNodeZIndex = (node)=>{
     if (!node.children) return node;
     const sortedChildren = shouldSort(node) ? node.children.sort(sortZIndex) : node.children;
     const children = sortedChildren.map(resolveNodeZIndex);
@@ -561,25 +561,25 @@ const sortZIndex = (a, b)=>{
         children
     });
 };
-
-
-
-
-
- const resolveZIndex = (root)=>resolveNodeZIndex(root);
- 
+/**
+ * Sort children by zIndex value
+ *
+ * @param node
+ * @returns Node
+ */ const resolveZIndex = (root)=>resolveNodeZIndex(root);
+/* eslint-disable no-console */ // Caches emoji images data
 const emojis = {};
 const regex = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$emoji$2d$regex$2d$xs$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])();
-
-
-
-
-
-
-
-
-
- const removeVariationSelectors = (x)=>x !== '️';
+/**
+ * When an emoji as no variations, it might still have 2 parts,
+ * the canonical emoji and an empty string.
+ * ex.
+ *   (no color) Array.from('❤️') => ["❤", "️"]
+ *   (w/ color) Array.from('👍🏿') => ["👍", "🏿"]
+ *
+ * The empty string needs to be removed otherwise the generated
+ * url will be incorect.
+ */ const removeVariationSelectors = (x)=>x !== '️';
 const getCodePoints = (string, withVariationSelectors = false)=>Array.from(string).filter(withVariationSelectors ? ()=>true : removeVariationSelectors).map((char)=>char.codePointAt(0).toString(16)).join('-');
 const buildEmojiUrl = (emoji, source)=>{
     if ('builder' in source) {
@@ -621,8 +621,8 @@ const embedEmojis = (fragments)=>{
             const emoji = match[0];
             const emojiSize = fragment.attributes.fontSize;
             const chunk = fragment.string.slice(lastIndex, index + match[0].length);
-            
-            
+            // If emoji image was found, we create a new fragment with the
+            // correct attachment and object substitution character;
             if (emojis[emoji] && emojis[emoji].data) {
                 result.push({
                     string: chunk.replace(match[0], String.fromCharCode(0xfffc)),
@@ -637,7 +637,7 @@ const embedEmojis = (fragments)=>{
                     }
                 });
             } else {
-                
+                // If no emoji data, we try to use emojis in the font
                 result.push({
                     string: chunk,
                     attributes: fragment.attributes
@@ -654,34 +654,34 @@ const embedEmojis = (fragments)=>{
     }
     return result;
 };
-
-
-
-
-
- const getSource = (node)=>{
+/**
+ * Get image source
+ *
+ * @param node - Image node
+ * @returns Image src
+ */ const getSource = (node)=>{
     if (node.props.src) return node.props.src;
     if (node.props.source) return node.props.source;
 };
-
-
-
-
-
-
-
- const resolveSource = async (src)=>{
+/**
+ * Resolves `src` to `@react-pdf/image` interface.
+ *
+ * Also it handles factories and async sources.
+ *
+ * @param src
+ * @returns Resolved src
+ */ const resolveSource = async (src)=>{
     const source = typeof src === 'function' ? await src() : await src;
     return typeof source === 'string' ? {
         uri: source
     } : source;
 };
-
-
-
-
-
- const fetchImage = async (node)=>{
+/**
+ * Fetches image and append data to node
+ * Ideally this fn should be immutable.
+ *
+ * @param node
+ */ const fetchImage = async (node)=>{
     const src = getSource(node);
     const { cache } = node.props;
     if (!src) {
@@ -703,13 +703,13 @@ const embedEmojis = (fragments)=>{
     }
 };
 const isImage$2 = (node)=>node.type === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Image"];
-
-
-
-
-
-
- const fetchAssets = (fontStore, node)=>{
+/**
+ * Get all asset promises that need to be resolved
+ *
+ * @param fontStore - Font store
+ * @param node - Root node
+ * @returns Asset promises
+ */ const fetchAssets = (fontStore, node)=>{
     const promises = [];
     const listToExplore = node.children?.slice(0) || [];
     const emojiSource = fontStore ? fontStore.getEmojiSource() : null;
@@ -740,14 +740,14 @@ const isImage$2 = (node)=>node.type === __TURBOPACK__imported__module__$5b$proje
     }
     return promises;
 };
-
-
-
-
-
-
-
- const resolveAssets = async (node, fontStore)=>{
+/**
+ * Fetch image, font and emoji assets in parallel.
+ * Layout process will not be resumed until promise resolves.
+ *
+ * @param node root node
+ * @param fontStore font store
+ * @returns Root node
+ */ const resolveAssets = async (node, fontStore)=>{
     const promises = fetchAssets(fontStore, node);
     await Promise.all(promises);
     return node;
@@ -757,13 +757,13 @@ const DEFAULT_LINK_STYLES = {
     color: 'blue',
     textDecoration: 'underline'
 };
-
-
-
-
-
-
- const computeStyle = (container, node)=>{
+/**
+ * Computes styles using stylesheet
+ *
+ * @param container
+ * @param node - Document node
+ * @returns Computed styles
+ */ const computeStyle = (container, node)=>{
     let baseStyle = [
         node.style
     ];
@@ -778,12 +778,12 @@ const DEFAULT_LINK_STYLES = {
     }
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$stylesheet$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(container, baseStyle);
 };
-
-
-
-
-
- const resolveNodeStyles = (container)=>(node)=>{
+/**
+ * Resolves node styles
+ *
+ * @param container
+ * @returns Resolve node styles
+ */ const resolveNodeStyles = (container)=>(node)=>{
         const style = computeStyle(container, node);
         if (!node.children) return Object.assign({}, node, {
             style
@@ -794,12 +794,12 @@ const DEFAULT_LINK_STYLES = {
             children
         });
     };
-
-
-
-
-
- const resolvePageStyles = (page)=>{
+/**
+ * Resolves page styles
+ *
+ * @param page Document page
+ * @returns Document page with resolved styles
+ */ const resolvePageStyles = (page)=>{
     const dpi = page.props?.dpi || 72;
     const style = page.style;
     const width = page.box?.width || style.width;
@@ -815,12 +815,12 @@ const DEFAULT_LINK_STYLES = {
     };
     return resolveNodeStyles(container)(page);
 };
-
-
-
-
-
- const resolveStyles = (root)=>{
+/**
+ * Resolves document styles
+ *
+ * @param root - Document root
+ * @returns Document root with resolved styles
+ */ const resolveStyles = (root)=>{
     if (!root.children) return root;
     const children = root.children.map(resolvePageStyles);
     return Object.assign({}, root, {
@@ -828,12 +828,12 @@ const DEFAULT_LINK_STYLES = {
     });
 };
 const getTransformStyle = (s)=>(node)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(node.style?.[s]) ? '50%' : node.style?.[s] ?? null;
-
-
-
-
-
- const getOrigin = (node)=>{
+/**
+ * Get node origin
+ *
+ * @param node
+ * @returns {{ left?: number, top?: number }} node origin
+ */ const getOrigin = (node)=>{
     if (!node.box) return null;
     const { left, top, width, height } = node.box;
     const transformOriginX = getTransformStyle('transformOriginX')(node);
@@ -849,12 +849,12 @@ const getTransformStyle = (s)=>(node)=>(0, __TURBOPACK__imported__module__$5b$pr
         top: top + offsetY
     };
 };
-
-
-
-
-
- const resolveNodeOrigin = (node)=>{
+/**
+ * Resolve node origin
+ *
+ * @param node
+ * @returns Node with origin attribute
+ */ const resolveNodeOrigin = (node)=>{
     const origin = getOrigin(node);
     const newNode = Object.assign({}, node, {
         origin
@@ -865,12 +865,12 @@ const getTransformStyle = (s)=>(node)=>(0, __TURBOPACK__imported__module__$5b$pr
         children
     });
 };
-
-
-
-
-
- const resolveOrigin = (root)=>{
+/**
+ * Resolve document origins
+ *
+ * @param root - Document root
+ * @returns Document root
+ */ const resolveOrigin = (root)=>{
     if (!root.children) return root;
     const children = root.children.map(resolveNodeOrigin);
     return Object.assign({}, root, {
@@ -922,22 +922,22 @@ const VALID_ORIENTATIONS = [
     'portrait',
     'landscape'
 ];
-
-
-
-
-
- const getOrientation = (page)=>{
+/**
+ * Get page orientation. Defaults to portrait
+ *
+ * @param page - Page object
+ * @returns Page orientation
+ */ const getOrientation = (page)=>{
     const value = page.props?.orientation || 'portrait';
     return VALID_ORIENTATIONS.includes(value) ? value : 'portrait';
 };
-
-
-
-
-
- const isLandscape = (page)=>getOrientation(page) === 'landscape';
-
+/**
+ * Return true if page is landscape
+ *
+ * @param page - Page instance
+ * @returns Is page landscape
+ */ const isLandscape = (page)=>getOrientation(page) === 'landscape';
+// Page sizes for 72dpi. 72dpi is used internally by pdfkit.
 const PAGE_SIZES = {
     '4A0': [
         4767.87,
@@ -1144,12 +1144,12 @@ const PAGE_SIZES = {
         243
     ]
 };
-
-
-
-
-
- const parseValue = (value)=>{
+/**
+ * Parses scalar value in value and unit pairs
+ *
+ * @param value - Scalar value
+ * @returns Parsed value
+ */ const parseValue = (value)=>{
     if (typeof value === 'number') return {
         value,
         unit: undefined
@@ -1163,13 +1163,13 @@ const PAGE_SIZES = {
         unit: undefined
     };
 };
-
-
-
-
-
-
- const transformUnit = (value, inputDpi)=>{
+/**
+ * Transform given scalar value to 72dpi equivalent of size
+ *
+ * @param value - Styles value
+ * @param inputDpi - User defined dpi
+ * @returns Transformed value
+ */ const transformUnit = (value, inputDpi)=>{
     if (!value) return 0;
     const scalar = parseValue(value);
     const outputDpi = 72;
@@ -1193,47 +1193,47 @@ const transformUnits = ({ width, height }, dpi)=>({
         width: transformUnit(width, dpi),
         height: transformUnit(height, dpi)
     });
-
-
-
-
-
- const toSizeObject = (v)=>({
+/**
+ * Transforms array into size object
+ *
+ * @param v - Values array
+ * @returns Size object with width and height
+ */ const toSizeObject = (v)=>({
         width: v[0],
         height: v[1]
     });
-
-
-
-
-
- const flipSizeObject = (v)=>({
+/**
+ * Flip size object
+ *
+ * @param v - Size object
+ * @returns Flipped size object
+ */ const flipSizeObject = (v)=>({
         width: v.height,
         height: v.width
     });
-
-
-
-
-
- const getStringSize = (v)=>{
+/**
+ * Returns size object from a given string
+ *
+ * @param v - Page size string
+ * @returns Size object with width and height
+ */ const getStringSize = (v)=>{
     return toSizeObject(PAGE_SIZES[v.toUpperCase()]);
 };
-
-
-
-
-
- const getNumberSize = (n)=>toSizeObject([
+/**
+ * Returns size object from a single number
+ *
+ * @param n - Page size number
+ * @returns Size object with width and height
+ */ const getNumberSize = (n)=>toSizeObject([
         n,
         n
     ]);
-
-
-
-
-
- const getSize = (page)=>{
+/**
+ * Return page size in an object { width, height }
+ *
+ * @param page - Page node
+ * @returns Size object with width and height
+ */ const getSize = (page)=>{
     const value = page.props?.size || 'A4';
     const dpi = page.props?.dpi || 72;
     let size;
@@ -1248,12 +1248,12 @@ const transformUnits = ({ width, height }, dpi)=>({
     }
     return isLandscape(page) ? flipSizeObject(size) : size;
 };
-
-
-
-
-
- const resolvePageSize = (page)=>{
+/**
+ * Resolves page size
+ *
+ * @param page
+ * @returns Page with resolved size in style attribute
+ */ const resolvePageSize = (page)=>{
     const size = getSize(page);
     const style = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$stylesheet$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["flatten"])(page.style || {});
     return {
@@ -1264,12 +1264,12 @@ const transformUnits = ({ width, height }, dpi)=>({
         }
     };
 };
-
-
-
-
-
- const resolvePageSizes = (root)=>{
+/**
+ * Resolves page sizes
+ *
+ * @param root  -Document root
+ * @returns Document root with resolved page sizes
+ */ const resolvePageSizes = (root)=>{
     if (!root.children) return root;
     const children = root.children.map(resolvePageSize);
     return Object.assign({}, root, {
@@ -1280,12 +1280,12 @@ const isFixed = (node)=>{
     if (!node.props) return false;
     return 'fixed' in node.props ? node.props.fixed === true : false;
 };
-
-
-
-
-
- const lineIndexAtHeight = (node, height)=>{
+/**
+ * Get line index at given height
+ *
+ * @param node
+ * @param height
+ */ const lineIndexAtHeight = (node, height)=>{
     let y = 0;
     if (!node.lines) return 0;
     for(let i = 0; i < node.lines.length; i += 1){
@@ -1295,12 +1295,12 @@ const isFixed = (node)=>{
     }
     return node.lines.length;
 };
-
-
-
-
-
- const heightAtLineIndex = (node, index)=>{
+/**
+ * Get height for given text line index
+ *
+ * @param node
+ * @param index
+ */ const heightAtLineIndex = (node, index)=>{
     let counter = 0;
     if (!node.lines) return counter;
     for(let i = 0; i < index; i += 1){
@@ -1333,7 +1333,7 @@ const getLineBreak = (node, height)=>{
     }
     return slicedLine;
 };
-
+// Also receives contentArea in case it's needed
 const splitText = (node, height)=>{
     const slicedLineIndex = getLineBreak(node, height);
     const currentHeight = heightAtLineIndex(node, slicedLineIndex);
@@ -1442,12 +1442,12 @@ const getComputedPadding = (node, edge)=>{
     const { yogaNode } = node;
     return yogaNode ? yogaNode.getComputedPadding(edge) : null;
 };
-
-
-
-
-
- const getPadding = (node)=>{
+/**
+ * Get Yoga computed paddings. Zero otherwise
+ *
+ * @param  node
+ * @returns paddings
+ */ const getPadding = (node)=>{
     const { style, box } = node;
     const paddingTop = getComputedPadding(node, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Top) || box?.paddingTop || style?.paddingTop || 0;
     const paddingRight = getComputedPadding(node, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Right) || box?.paddingRight || style?.paddingRight || 0;
@@ -1474,14 +1474,14 @@ const isString = (value)=>typeof value === 'string';
 const isNumber = (value)=>typeof value === 'number';
 const isBoolean = (value)=>typeof value === 'boolean';
 const isFragment = (value)=>value && value.type === Symbol.for('react.fragment');
-
-
-
-
-
-
-
- const createInstances = (element)=>{
+/**
+ * Transforms a react element instance to internal element format.
+ *
+ * Can return multiple instances in the case of arrays or fragments.
+ *
+ * @param element - React element
+ * @returns Parsed React elements
+ */ const createInstances = (element)=>{
     if (!element) return [];
     if (Array.isArray(element)) {
         return element.reduce((acc, el)=>acc.concat(createInstances(el)), []);
@@ -1498,11 +1498,11 @@ const isFragment = (value)=>value && value.type === Symbol.for('react.fragment')
         ];
     }
     if (isFragment(element)) {
-        
+        // @ts-expect-error figure out why this is complains
         return createInstances(element.props.children);
     }
     if (!isString(element.type)) {
-        
+        // @ts-expect-error figure out why this is complains
         return createInstances(element.type(element.props));
     }
     const { type, props: { style = {}, children, ...props } } = element;
@@ -1531,10 +1531,10 @@ const shouldBreak = (child, futureElements, height, previousElements)=>{
     if ('fixed' in child.props) return false;
     const shouldSplit = height < child.box.top + child.box.height;
     const canWrap = getWrap(child);
-    
+    // Calculate the y coordinate where the desired presence of the child ends
     const endOfPresence = getEndOfPresence(child, futureElements);
-    
-    
+    // If the child is already at the top of the page, breaking won't improve its presence
+    // (as long as react-pdf does not support breaking into differently sized containers)
     const breakingImprovesPresence = previousElements.filter((node)=>!isFixed(node)).length > 0;
     return getBreak(child) || shouldSplit && !canWrap || !shouldSplit && endOfPresence > height && breakingImprovesPresence;
 };
@@ -1565,15 +1565,15 @@ const PREPROCESSORS = [
 ];
 const isImage$1 = (node)=>node.type === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Image"];
 const isTextInstance$2 = (node)=>node.type === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TextInstance"];
-
-
-
-
-
-
-
-
- const getFragments = (fontStore, instance, parentLink = null, level = 0)=>{
+/**
+ * Get textkit fragments of given node object
+ *
+ * @param fontStore - Font store
+ * @param instance - Node
+ * @param parentLink - Parent link
+ * @param level - Fragment level
+ * @returns Text fragments
+ */ const getFragments = (fontStore, instance, parentLink = null, level = 0)=>{
     if (!instance) return [
         {
             string: ''
@@ -1586,7 +1586,7 @@ const isTextInstance$2 = (node)=>node.type === __TURBOPACK__imported__module__$5
     ] : [
         ...fontFamily || []
     ];
-    
+    // Fallback font
     fontFamilies.push('Helvetica');
     const font = fontFamilies.map((fontFamilyName)=>{
         const opts = {
@@ -1597,7 +1597,7 @@ const isTextInstance$2 = (node)=>node.type === __TURBOPACK__imported__module__$5
         const obj = fontStore.getFont(opts);
         return obj?.data;
     });
-    
+    // Don't pass main background color to textkit. Will be rendered by the render package instead
     const backgroundColor = level === 0 ? null : instance.style.backgroundColor;
     const attributes = {
         font,
@@ -1616,7 +1616,7 @@ const isTextInstance$2 = (node)=>node.type === __TURBOPACK__imported__module__$5
         strike: textDecoration === 'line-through' || textDecoration === 'underline line-through' || textDecoration === 'line-through underline',
         strikeColor: textDecorationColor || color,
         underlineColor: textDecorationColor || color,
-        
+        // @ts-expect-error allow this props access
         link: parentLink || instance.props?.src || instance.props?.href,
         align: textAlign || (direction === 'rtl' ? 'right' : 'left')
     };
@@ -1649,13 +1649,13 @@ const isTextInstance$2 = (node)=>node.type === __TURBOPACK__imported__module__$5
     }
     return fragments;
 };
-
-
-
-
-
-
- const getAttributedString = (fontStore, instance)=>{
+/**
+ * Get textkit attributed string from text node
+ *
+ * @param fontStore - Font store
+ * @param instance Node
+ * @returns Attributed string
+ */ const getAttributedString = (fontStore, instance)=>{
     const fragments = getFragments(fontStore, instance);
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$textkit$2f$lib$2f$textkit$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["fromFragments"])(fragments);
 };
@@ -1671,14 +1671,14 @@ const engines = {
 const engine = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$textkit$2f$lib$2f$textkit$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(engines);
 const getMaxLines = (node)=>node.style?.maxLines;
 const getTextOverflow = (node)=>node.style?.textOverflow;
-
-
-
-
-
-
-
- const getContainer = (width, height, node)=>{
+/**
+ * Get layout container for specific text node
+ *
+ * @param {number} width
+ * @param {number} height
+ * @param {Object} node
+ * @returns {Object} layout container
+ */ const getContainer = (width, height, node)=>{
     const maxLines = getMaxLines(node);
     const textOverflow = getTextOverflow(node);
     return {
@@ -1690,12 +1690,12 @@ const getTextOverflow = (node)=>node.style?.textOverflow;
         truncateMode: textOverflow
     };
 };
-
-
-
-
-
- const getLayoutOptions = (fontStore, node)=>({
+/**
+ * Get text layout options for specific text node
+ *
+ * @param {Object} node instance
+ * @returns {Object} layout options
+ */ const getLayoutOptions = (fontStore, node)=>({
         hyphenationPenalty: node.props.hyphenationPenalty,
         shrinkWhitespaceFactor: {
             before: -0.5,
@@ -1703,15 +1703,15 @@ const getTextOverflow = (node)=>node.style?.textOverflow;
         },
         hyphenationCallback: node.props.hyphenationCallback || fontStore?.getHyphenationCallback() || null
     });
-
-
-
-
-
-
-
-
- const layoutText = (node, width, height, fontStore)=>{
+/**
+ * Get text lines for given node
+ *
+ * @param node - Node
+ * @param width - Container width
+ * @param height - Container height
+ * @param fontStore - Font store
+ * @returns Layout lines
+ */ const layoutText = (node, width, height, fontStore)=>{
     const attributedString = getAttributedString(fontStore, node);
     const container = getContainer(width, height, node);
     const options = getLayoutOptions(fontStore, node);
@@ -1725,14 +1725,14 @@ const isSvg$2 = (node)=>node.type === __TURBOPACK__imported__module__$5b$project
 const isText$4 = (node)=>node.type === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Text"];
 const shouldIterate = (node)=>!isSvg$2(node) && !isText$4(node);
 const shouldLayoutText = (node)=>isText$4(node) && !node.lines;
-
-
-
-
-
-
-
- const resolveTextLayout = (node, fontStore)=>{
+/**
+ * Performs text layout on text node if wasn't calculated before.
+ * Text layout is usually performed on Yoga's layout process (via setMeasureFunc),
+ * but we need to layout those nodes with fixed width and height.
+ *
+ * @param node
+ * @returns Layout node
+ */ const resolveTextLayout = (node, fontStore)=>{
     if (shouldLayoutText(node)) {
         const width = node.box.width - (node.box.paddingRight + node.box.paddingLeft);
         const height = node.box.height - (node.box.paddingTop + node.box.paddingBottom);
@@ -1770,12 +1770,12 @@ const TEXT_INHERITABLE_PROPERTIES = [
 const isType$2 = (type)=>(node)=>node.type === type;
 const isSvg$1 = isType$2(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Svg"]);
 const isText$3 = isType$2(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Text"]);
-
+// Merge style values
 const mergeValues = (styleName, value, inheritedValue)=>{
     switch(styleName){
         case 'textDecoration':
             {
-                
+                // merge not none and not false textDecoration values to one rule
                 return [
                     inheritedValue,
                     value
@@ -1785,7 +1785,7 @@ const mergeValues = (styleName, value, inheritedValue)=>{
             return value;
     }
 };
-
+// Merge inherited and node styles
 const merge = (inheritedStyles, style)=>{
     const mergedStyles = {
         ...inheritedStyles
@@ -1795,24 +1795,24 @@ const merge = (inheritedStyles, style)=>{
     });
     return mergedStyles;
 };
-
-
-
-
-
- const mergeStyles = (inheritedStyles)=>(node)=>{
+/**
+ * Merges styles with node
+ *
+ * @param inheritedStyles - Style object
+ * @returns Merge styles function
+ */ const mergeStyles = (inheritedStyles)=>(node)=>{
         const style = merge(inheritedStyles, node.style || {});
         return Object.assign({}, node, {
             style
         });
     };
-
-
-
-
-
-
- const resolveInheritance = (node)=>{
+/**
+ * Inherit style values from the root to the leafs
+ *
+ * @param node - Document root
+ * @returns Document root with inheritance
+ *
+ */ const resolveInheritance = (node)=>{
     if (isSvg$1(node)) return node;
     if (!('children' in node)) return node;
     const inheritableProperties = isText$3(node) ? TEXT_INHERITABLE_PROPERTIES : BASE_INHERITABLE_PROPERTIES;
@@ -1827,12 +1827,12 @@ const getComputedMargin = (node, edge)=>{
     const { yogaNode } = node;
     return yogaNode ? yogaNode.getComputedMargin(edge) : null;
 };
-
-
-
-
-
- const getMargin = (node)=>{
+/**
+ * Get Yoga computed magins. Zero otherwise
+ *
+ * @param node
+ * @returns Margins
+ */ const getMargin = (node)=>{
     const { style, box } = node;
     const marginTop = getComputedMargin(node, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Top) || box?.marginTop || style?.marginTop || 0;
     const marginRight = getComputedMargin(node, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Right) || box?.marginRight || style?.marginRight || 0;
@@ -1845,12 +1845,12 @@ const getComputedMargin = (node, edge)=>{
         marginLeft
     };
 };
-
-
-
-
-
- const getPosition = (node)=>{
+/**
+ * Get Yoga computed position. Zero otherwise
+ *
+ * @param node
+ * @returns Position
+ */ const getPosition = (node)=>{
     const { yogaNode } = node;
     return {
         top: yogaNode?.getComputedTop() || 0,
@@ -1863,12 +1863,12 @@ const DEFAULT_DIMENSION = {
     width: 0,
     height: 0
 };
-
-
-
-
-
- const getDimension = (node)=>{
+/**
+ * Get Yoga computed dimensions. Zero otherwise
+ *
+ * @param node
+ * @returns Dimensions
+ */ const getDimension = (node)=>{
     const { yogaNode } = node;
     if (!yogaNode) return DEFAULT_DIMENSION;
     return {
@@ -1877,12 +1877,12 @@ const DEFAULT_DIMENSION = {
     };
 };
 const getComputedBorder = (yogaNode, edge)=>yogaNode ? yogaNode.getComputedBorder(edge) : 0;
-
-
-
-
-
- const getBorderWidth = (node)=>{
+/**
+ * Get Yoga computed border width. Zero otherwise
+ *
+ * @param node
+ * @returns Border widths
+ */ const getBorderWidth = (node)=>{
     const { yogaNode } = node;
     return {
         borderTopWidth: getComputedBorder(yogaNode, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Top),
@@ -1891,12 +1891,12 @@ const getComputedBorder = (yogaNode, edge)=>yogaNode ? yogaNode.getComputedBorde
         borderLeftWidth: getComputedBorder(yogaNode, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Left)
     };
 };
-
-
-
-
-
- const setDisplay = (value)=>(node)=>{
+/**
+ * Set display attribute to node's Yoga instance
+ *
+ * @param value - Display
+ * @returns Node instance wrapper
+ */ const setDisplay = (value)=>(node)=>{
         const { yogaNode } = node;
         if (yogaNode) {
             yogaNode.setDisplay(value === 'none' ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Display"].None : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Display"].Flex);
@@ -1907,12 +1907,12 @@ const OVERFLOW = {
     hidden: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Overflow"].Hidden,
     scroll: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Overflow"].Scroll
 };
-
-
-
-
-
- const setOverflow = (value)=>(node)=>{
+/**
+ * Set overflow attribute to node's Yoga instance
+ *
+ * @param value - Overflow value
+ * @returns Node instance wrapper
+ */ const setOverflow = (value)=>(node)=>{
         const { yogaNode } = node;
         if (!(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(value) && yogaNode) {
             const overflow = OVERFLOW[value] || __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Overflow"].Visible;
@@ -1924,12 +1924,12 @@ const FLEX_WRAP = {
     wrap: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Wrap"].Wrap,
     'wrap-reverse': __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Wrap"].WrapReverse
 };
-
-
-
-
-
- const setFlexWrap = (value)=>(node)=>{
+/**
+ * Set flex wrap attribute to node's Yoga instance
+ *
+ * @param value - Flex wrap value
+ * @returns Node instance wrapper
+ */ const setFlexWrap = (value)=>(node)=>{
         const { yogaNode } = node;
         if (yogaNode) {
             const flexWrap = FLEX_WRAP[value] || __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Wrap"].NoWrap;
@@ -1937,13 +1937,13 @@ const FLEX_WRAP = {
         }
         return node;
     };
-
-
-
-
-
-
- const setYogaValue = (attr, edge)=>(value)=>(node)=>{
+/**
+ * Set generic yoga attribute to node's Yoga instance, handing `auto`, edges and percentage cases
+ *
+ * @param attr - Property
+ * @param edge - Edge
+ * @returns Node instance wrapper
+ */ const setYogaValue = (attr, edge)=>(value)=>(node)=>{
             const { yogaNode } = node;
             if (!(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(value) && yogaNode) {
                 const hasEdge = !(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(edge);
@@ -1974,21 +1974,21 @@ const FLEX_WRAP = {
             }
             return node;
         };
-
-
-
-
-
- const setFlexGrow = (value)=>(node)=>{
+/**
+ * Set flex grow attribute to node's Yoga instance
+ *
+ * @param  value - Flex grow value
+ * @returns Node instance wrapper
+ */ const setFlexGrow = (value)=>(node)=>{
         return setYogaValue('flexGrow')(value || 0)(node);
     };
-
-
-
-
-
-
- const setFlexBasis = setYogaValue('flexBasis');
+/**
+ * Set flex basis attribute to node's Yoga instance
+ *
+ * @param flex - Basis value
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setFlexBasis = setYogaValue('flexBasis');
 const ALIGN = {
     'flex-start': __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Align"].FlexStart,
     center: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Align"].Center,
@@ -1999,14 +1999,14 @@ const ALIGN = {
     'space-around': __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Align"].SpaceAround,
     'space-evenly': __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Align"].SpaceEvenly
 };
-
-
-
-
-
-
-
- const setAlign = (attr)=>(value)=>(node)=>{
+/**
+ * Set generic align attribute to node's Yoga instance
+ *
+ * @param attr - Specific align property
+ * @param value - Specific align value
+ * @param node - Node
+ * @returns Node
+ */ const setAlign = (attr)=>(value)=>(node)=>{
             const { yogaNode } = node;
             const defaultValue = attr === 'items' ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Align"].Stretch : __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Align"].Auto;
             if (yogaNode) {
@@ -2015,58 +2015,58 @@ const ALIGN = {
             }
             return node;
         };
-
-
-
-
-
-
- const setAlignSelf = setAlign('self');
-
-
-
-
-
-
- const setAlignItems = setAlign('items');
-
-
-
-
-
- const setFlexShrink = (value)=>(node)=>{
+/**
+ * Set align self attribute to node's Yoga instance
+ *
+ * @param align - Value
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setAlignSelf = setAlign('self');
+/**
+ * Set align items attribute to node's Yoga instance
+ *
+ * @param align - Value
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setAlignItems = setAlign('items');
+/**
+ * Set flex shrink attribute to node's Yoga instance
+ *
+ * @param value - Flex shrink value
+ * @returns Node instance wrapper
+ */ const setFlexShrink = (value)=>(node)=>{
         return setYogaValue('flexShrink')(value || 1)(node);
     };
-
-
-
-
-
- const setAspectRatio = (value)=>(node)=>{
+/**
+ * Set aspect ratio attribute to node's Yoga instance
+ *
+ * @param value - Ratio
+ * @returns Node instance
+ */ const setAspectRatio = (value)=>(node)=>{
         const { yogaNode } = node;
         if (!(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(value) && yogaNode) {
             yogaNode.setAspectRatio(value);
         }
         return node;
     };
-
-
-
-
-
-
- const setAlignContent = setAlign('content');
+/**
+ * Set align content attribute to node's Yoga instance
+ *
+ * @param align - Value
+ * @param node - Instance
+ * @returns Node instance
+ */ const setAlignContent = setAlign('content');
 const POSITION = {
     absolute: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PositionType"].Absolute,
     relative: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PositionType"].Relative,
     static: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PositionType"].Static
 };
-
-
-
-
-
- const setPositionType = (value)=>(node)=>{
+/**
+ * Set position type attribute to node's Yoga instance
+ *
+ * @param value - Position position type
+ * @returns Node instance
+ */ const setPositionType = (value)=>(node)=>{
         const { yogaNode } = node;
         if (!(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(value) && yogaNode) {
             yogaNode.setPositionType(POSITION[value]);
@@ -2078,12 +2078,12 @@ const FLEX_DIRECTIONS = {
     'row-reverse': __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FlexDirection"].RowReverse,
     'column-reverse': __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FlexDirection"].ColumnReverse
 };
-
-
-
-
-
- const setFlexDirection = (value)=>(node)=>{
+/**
+ * Set flex direction attribute to node's Yoga instance
+ *
+ * @param value - Flex direction value
+ * @returns Node instance wrapper
+ */ const setFlexDirection = (value)=>(node)=>{
         const { yogaNode } = node;
         if (yogaNode) {
             const flexDirection = FLEX_DIRECTIONS[value] || __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FlexDirection"].Column;
@@ -2098,12 +2098,12 @@ const JUSTIFY_CONTENT = {
     'space-around': __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Justify"].SpaceAround,
     'space-evenly': __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Justify"].SpaceEvenly
 };
-
-
-
-
-
- const setJustifyContent = (value)=>(node)=>{
+/**
+ * Set justify content attribute to node's Yoga instance
+ *
+ * @param value - Justify content value
+ * @returns Node instance wrapper
+ */ const setJustifyContent = (value)=>(node)=>{
         const { yogaNode } = node;
         if (!(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(value) && yogaNode) {
             const justifyContent = JUSTIFY_CONTENT[value] || __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Justify"].FlexStart;
@@ -2111,184 +2111,184 @@ const JUSTIFY_CONTENT = {
         }
         return node;
     };
-
-
-
-
-
-
- const setMarginTop = setYogaValue('margin', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Top);
-
-
-
-
-
-
- const setMarginRight = setYogaValue('margin', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Right);
-
-
-
-
-
-
- const setMarginBottom = setYogaValue('margin', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Bottom);
-
-
-
-
-
-
- const setMarginLeft = setYogaValue('margin', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Left);
-
-
-
-
-
-
- const setPaddingTop = setYogaValue('padding', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Top);
-
-
-
-
-
-
- const setPaddingRight = setYogaValue('padding', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Right);
-
-
-
-
-
-
- const setPaddingBottom = setYogaValue('padding', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Bottom);
-
-
-
-
-
-
- const setPaddingLeft = setYogaValue('padding', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Left);
-
-
-
-
-
-
- const setBorderTop = setYogaValue('border', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Top);
-
-
-
-
-
-
- const setBorderRight = setYogaValue('border', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Right);
-
-
-
-
-
-
- const setBorderBottom = setYogaValue('border', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Bottom);
-
-
-
-
-
-
- const setBorderLeft = setYogaValue('border', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Left);
-
-
-
-
-
-
- const setPositionTop = setYogaValue('position', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Top);
-
-
-
-
-
-
- const setPositionRight = setYogaValue('position', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Right);
-
-
-
-
-
-
- const setPositionBottom = setYogaValue('position', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Bottom);
-
-
-
-
-
-
- const setPositionLeft = setYogaValue('position', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Left);
-
-
-
-
-
-
- const setWidth = setYogaValue('width');
-
-
-
-
-
-
- const setMinWidth = setYogaValue('minWidth');
-
-
-
-
-
-
- const setMaxWidth = setYogaValue('maxWidth');
-
-
-
-
-
-
- const setHeight = setYogaValue('height');
-
-
-
-
-
-
- const setMinHeight = setYogaValue('minHeight');
-
-
-
-
-
-
- const setMaxHeight = setYogaValue('maxHeight');
-
-
-
-
-
- const setRowGap = setYogaValue('gap', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Gutter"].Row);
-
-
-
-
-
- const setColumnGap = setYogaValue('gap', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Gutter"].Column);
+/**
+ * Set margin top attribute to node's Yoga instance
+ *
+ * @param margin - Margin top
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setMarginTop = setYogaValue('margin', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Top);
+/**
+ * Set margin right attribute to node's Yoga instance
+ *
+ * @param margin - Margin right
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setMarginRight = setYogaValue('margin', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Right);
+/**
+ * Set margin bottom attribute to node's Yoga instance
+ *
+ * @param margin - Margin bottom
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setMarginBottom = setYogaValue('margin', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Bottom);
+/**
+ * Set margin left attribute to node's Yoga instance
+ *
+ * @param margin - Margin left
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setMarginLeft = setYogaValue('margin', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Left);
+/**
+ * Set padding top attribute to node's Yoga instance
+ *
+ * @param padding - Padding top
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setPaddingTop = setYogaValue('padding', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Top);
+/**
+ * Set padding right attribute to node's Yoga instance
+ *
+ * @param padding - Padding right
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setPaddingRight = setYogaValue('padding', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Right);
+/**
+ * Set padding bottom attribute to node's Yoga instance
+ *
+ * @param padding - Padding bottom
+ * @param node Node instance
+ * @returns Node instance
+ */ const setPaddingBottom = setYogaValue('padding', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Bottom);
+/**
+ * Set padding left attribute to node's Yoga instance
+ *
+ * @param padding - Padding left
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setPaddingLeft = setYogaValue('padding', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Left);
+/**
+ * Set border top attribute to node's Yoga instance
+ *
+ * @param border - Border top width
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setBorderTop = setYogaValue('border', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Top);
+/**
+ * Set border right attribute to node's Yoga instance
+ *
+ * @param border - Border right width
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setBorderRight = setYogaValue('border', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Right);
+/**
+ * Set border bottom attribute to node's Yoga instance
+ *
+ * @param border - Border bottom width
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setBorderBottom = setYogaValue('border', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Bottom);
+/**
+ * Set border left attribute to node's Yoga instance
+ *
+ * @param border - Border left width
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setBorderLeft = setYogaValue('border', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Left);
+/**
+ * Set position top attribute to node's Yoga instance
+ *
+ * @param position - Position top
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setPositionTop = setYogaValue('position', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Top);
+/**
+ * Set position right attribute to node's Yoga instance
+ *
+ * @param position - Position right
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setPositionRight = setYogaValue('position', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Right);
+/**
+ * Set position bottom attribute to node's Yoga instance
+ *
+ * @param position - Position bottom
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setPositionBottom = setYogaValue('position', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Bottom);
+/**
+ * Set position left attribute to node's Yoga instance
+ *
+ * @param position - Position left
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setPositionLeft = setYogaValue('position', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Edge"].Left);
+/**
+ * Set width to node's Yoga instance
+ *
+ * @param width - Width
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setWidth = setYogaValue('width');
+/**
+ * Set min width to node's Yoga instance
+ *
+ * @param min - Width
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setMinWidth = setYogaValue('minWidth');
+/**
+ * Set max width to node's Yoga instance
+ *
+ * @param max - Width
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setMaxWidth = setYogaValue('maxWidth');
+/**
+ * Set height to node's Yoga instance
+ *
+ * @param height - Height
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setHeight = setYogaValue('height');
+/**
+ * Set min height to node's Yoga instance
+ *
+ * @param min - Height
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setMinHeight = setYogaValue('minHeight');
+/**
+ * Set max height to node's Yoga instance
+ *
+ * @param max - Height
+ * @param node - Node instance
+ * @returns Node instance
+ */ const setMaxHeight = setYogaValue('maxHeight');
+/**
+ * Set rowGap value to node's Yoga instance
+ *
+ * @param value - Gap value
+ * @returns Node instance wrapper
+ */ const setRowGap = setYogaValue('gap', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Gutter"].Row);
+/**
+ * Set columnGap value to node's Yoga instance
+ *
+ * @param value - Gap value
+ * @returns Node instance wrapper
+ */ const setColumnGap = setYogaValue('gap', __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Gutter"].Column);
 const getAspectRatio = (viewbox)=>{
     if (!viewbox) return null;
     if (typeof viewbox === 'string') return null;
     return (viewbox.maxX - viewbox.minX) / (viewbox.maxY - viewbox.minY);
 };
-
-
-
-
-
-
- const measureCanvas$1 = (page, node)=>(width, widthMode, height, heightMode)=>{
+/**
+ * Yoga svg measure function
+ *
+ * @param page
+ * @param node
+ * @returns Measure svg
+ */ const measureCanvas$1 = (page, node)=>(width, widthMode, height, heightMode)=>{
         const aspectRatio = getAspectRatio(node.props.viewBox) || 1;
         if (widthMode === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MeasureMode"].Exactly || widthMode === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MeasureMode"].AtMost) {
             return {
@@ -2303,21 +2303,21 @@ const getAspectRatio = (viewbox)=>{
         }
         return {};
     };
-
-
-
-
-
- const linesWidth = (node)=>{
+/**
+ * Get lines width (if any)
+ *
+ * @param node
+ * @returns Lines width
+ */ const linesWidth = (node)=>{
     if (!node.lines) return 0;
     return Math.max(0, ...node.lines.map((line)=>line.xAdvance));
 };
-
-
-
-
-
- const linesHeight = (node)=>{
+/**
+ * Get lines height (if any)
+ *
+ * @param node
+ * @returns Lines height
+ */ const linesHeight = (node)=>{
     if (!node.lines) return -1;
     return node.lines.reduce((acc, line)=>acc + line.box.height, 0);
 };
@@ -2325,14 +2325,14 @@ const ALIGNMENT_FACTORS = {
     center: 0.5,
     right: 1
 };
-
-
-
-
-
-
-
- const measureText = (page, node, fontStore)=>(width, widthMode, height)=>{
+/**
+ * Yoga text measure function
+ *
+ * @param page
+ * @param node
+ * @param fontStore
+ * @returns {MeasureText} measure text function
+ */ const measureText = (page, node, fontStore)=>(width, widthMode, height)=>{
         if (widthMode === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$yoga$2d$layout$2f$dist$2f$src$2f$generated$2f$YGEnums$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MeasureMode"].Exactly) {
             if (!node.lines) node.lines = layoutText(node, width, height, fontStore);
             return {
@@ -2344,7 +2344,7 @@ const ALIGNMENT_FACTORS = {
             const alignFactor = ALIGNMENT_FACTORS[node.style?.textAlign] || 0;
             if (!node.lines) {
                 node.lines = layoutText(node, width, height, fontStore);
-                node.alignOffset = (width - linesWidth(node)) * alignFactor; 
+                node.alignOffset = (width - linesWidth(node)) * alignFactor; // Compensate align in variable width containers
             }
             return {
                 height: linesHeight(node),
@@ -2353,34 +2353,34 @@ const ALIGNMENT_FACTORS = {
         }
         return {};
     };
-
-
-
-
-
- const getRatio = (node)=>{
+/**
+ * Get image ratio
+ *
+ * @param node - Image node
+ * @returns Image ratio
+ */ const getRatio = (node)=>{
     return node.image?.data ? node.image.width / node.image.height : 1;
 };
-
-
-
-
-
- const isHeightAuto = (page)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(page.box?.height);
+/**
+ * Checks if page has auto height
+ *
+ * @param page
+ * @returns Is page height auto
+ */ const isHeightAuto = (page)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(page.box?.height);
 const SAFETY_HEIGHT$1 = 10;
-
-
-
-
-
-
- const measureImage = (page, node)=>(width, widthMode, height, heightMode)=>{
+/**
+ * Yoga image measure function
+ *
+ * @param page - Page
+ * @param node - Node
+ * @returns Measure image
+ */ const measureImage = (page, node)=>(width, widthMode, height, heightMode)=>{
         const imageRatio = getRatio(node);
         const imageMargin = getMargin(node);
         const pagePadding = getPadding(page);
-        
+        // TODO: Check image percentage margins
         const pageArea = isHeightAuto(page) ? Infinity : (page.box?.height || 0) - pagePadding.paddingTop - pagePadding.paddingBottom - imageMargin.marginTop - imageMargin.marginBottom - SAFETY_HEIGHT$1;
-        
+        // Skip measure if image data not present yet
         if (!node.image) return {
             width: 0,
             height: 0
@@ -2421,10 +2421,10 @@ const SAFETY_HEIGHT$1 = 10;
     };
 const SAFETY_HEIGHT = 10;
 const getMax = (values)=>Math.max(-Infinity, ...values);
-
-
-
- const measureCtx = ()=>{
+/**
+ * Helper object to predict canvas size
+ * TODO: Implement remaining functions (as close as possible);
+ */ const measureCtx = ()=>{
     const ctx = {};
     const points = [];
     const nil = ()=>ctx;
@@ -2455,7 +2455,7 @@ const getMax = (values)=>Math.max(-Infinity, ...values);
         points.push(...pts);
         return ctx;
     };
-    
+    // Change dimensions
     ctx.rect = rect;
     ctx.moveTo = moveTo;
     ctx.lineTo = moveTo;
@@ -2463,7 +2463,7 @@ const getMax = (values)=>Math.max(-Infinity, ...values);
     ctx.polygon = polygon;
     ctx.ellipse = ellipse;
     ctx.roundedRect = rect;
-    
+    // To be implemented
     ctx.text = nil;
     ctx.path = nil;
     ctx.lineWidth = nil;
@@ -2472,7 +2472,7 @@ const getMax = (values)=>Math.max(-Infinity, ...values);
     ctx.scale = nil;
     ctx.rotate = nil;
     ctx.translate = nil;
-    
+    // These don't change dimensions
     ctx.dash = nil;
     ctx.clip = nil;
     ctx.save = nil;
@@ -2495,19 +2495,19 @@ const getMax = (values)=>Math.max(-Infinity, ...values);
     ctx.getHeight = ()=>getMax(points.map((p)=>p[1]));
     return ctx;
 };
-
-
-
- 
-
-
-
-
-
- const measureCanvas = (page, node)=>()=>{
+/**
+ * @typedef {Function} MeasureCanvas
+ * @returns {{ width: number, height: number }} canvas width and height
+ */ /**
+ * Yoga canvas measure function
+ *
+ * @param {Object} page
+ * @param {Object} node
+ * @returns {MeasureCanvas} measure canvas
+ */ const measureCanvas = (page, node)=>()=>{
         const imageMargin = getMargin(node);
         const pagePadding = getPadding(page);
-        
+        // TODO: Check image percentage margins
         const pageArea = isHeightAuto(page) ? Infinity : (page.box?.height || 0) - pagePadding.paddingTop - pagePadding.paddingBottom - imageMargin.marginTop - imageMargin.marginBottom - SAFETY_HEIGHT;
         const ctx = measureCtx();
         node.props.paint(ctx);
@@ -2530,19 +2530,19 @@ const setNodeHeight = (node)=>{
     const value = isPage(node) ? node.box?.height : node.style?.height;
     return setHeight(value);
 };
-
-
-
-
- const setYogaValues = (node)=>{
+/**
+ * Set styles valeus into yoga node before layout calculation
+ *
+ * @param node
+ */ const setYogaValues = (node)=>{
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["compose"])(setNodeHeight(node), setWidth(node.style.width), setMinWidth(node.style.minWidth), setMaxWidth(node.style.maxWidth), setMinHeight(node.style.minHeight), setMaxHeight(node.style.maxHeight), setMarginTop(node.style.marginTop), setMarginRight(node.style.marginRight), setMarginBottom(node.style.marginBottom), setMarginLeft(node.style.marginLeft), setPaddingTop(node.style.paddingTop), setPaddingRight(node.style.paddingRight), setPaddingBottom(node.style.paddingBottom), setPaddingLeft(node.style.paddingLeft), setPositionType(node.style.position), setPositionTop(node.style.top), setPositionRight(node.style.right), setPositionBottom(node.style.bottom), setPositionLeft(node.style.left), setBorderTop(node.style.borderTopWidth), setBorderRight(node.style.borderRightWidth), setBorderBottom(node.style.borderBottomWidth), setBorderLeft(node.style.borderLeftWidth), setDisplay(node.style.display), setFlexDirection(node.style.flexDirection), setAlignSelf(node.style.alignSelf), setAlignContent(node.style.alignContent), setAlignItems(node.style.alignItems), setJustifyContent(node.style.justifyContent), setFlexWrap(node.style.flexWrap), setOverflow(node.style.overflow), setAspectRatio(node.style.aspectRatio), setFlexBasis(node.style.flexBasis), setFlexGrow(node.style.flexGrow), setFlexShrink(node.style.flexShrink), setRowGap(node.style.rowGap), setColumnGap(node.style.columnGap))(node);
 };
-
-
-
-
-
- const insertYogaNodes = (parent)=>(child)=>{
+/**
+ * Inserts child into parent' yoga node
+ *
+ * @param parent parent
+ * @returns Insert yoga nodes
+ */ const insertYogaNodes = (parent)=>(child)=>{
         parent.insertChild(child.yogaNode, parent.getChildCount());
         return child;
     };
@@ -2563,16 +2563,16 @@ const setMeasureFunc = (node, page, fontStore)=>{
     return node;
 };
 const isLayoutElement = (node)=>!isText$2(node) && !isNote(node) && !isSvg(node);
-
-
-
-
- 
-
-
-
-
- const createYogaNodes = (page, fontStore, yoga)=>(node)=>{
+/**
+ * @typedef {Function} CreateYogaNodes
+ * @param {Object} node
+ * @returns {Object} node with appended yoga node
+ */ /**
+ * Creates and add yoga node to document tree
+ * Handles measure function for text and image nodes
+ *
+ * @returns Create yoga nodes
+ */ const createYogaNodes = (page, fontStore, yoga)=>(node)=>{
         const yogaNode = yoga.node.create();
         const result = Object.assign({}, node, {
             yogaNode
@@ -2585,21 +2585,21 @@ const isLayoutElement = (node)=>!isText$2(node) && !isNote(node) && !isSvg(node)
         setMeasureFunc(result, page, fontStore);
         return result;
     };
-
-
-
-
-
- const calculateLayout = (page)=>{
+/**
+ * Performs yoga calculation
+ *
+ * @param page - Page node
+ * @returns Page node
+ */ const calculateLayout = (page)=>{
     page.yogaNode.calculateLayout();
     return page;
 };
-
-
-
-
-
- const persistDimensions = (node)=>{
+/**
+ * Saves Yoga layout result into 'box' attribute of node
+ *
+ * @param node
+ * @returns Node with box data
+ */ const persistDimensions = (node)=>{
     if (isTextInstance$1(node)) return node;
     const box = Object.assign(getPadding(node), getMargin(node), getBorderWidth(node), getPosition(node), getDimension(node));
     const newNode = Object.assign({}, node, {
@@ -2611,12 +2611,12 @@ const isLayoutElement = (node)=>!isText$2(node) && !isNote(node) && !isSvg(node)
         children
     });
 };
-
-
-
-
-
- const destroyYogaNodes = (node)=>{
+/**
+ * Removes yoga node from document tree
+ *
+ * @param node
+ * @returns Node without yoga node
+ */ const destroyYogaNodes = (node)=>{
     const newNode = Object.assign({}, node);
     delete newNode.yogaNode;
     if (!node.children) return newNode;
@@ -2625,33 +2625,33 @@ const isLayoutElement = (node)=>!isText$2(node) && !isNote(node) && !isSvg(node)
         children
     });
 };
-
-
-
-
-
- const freeYogaNodes = (node)=>{
+/**
+ * Free yoga node from document tree
+ *
+ * @param node
+ * @returns Node without yoga node
+ */ const freeYogaNodes = (node)=>{
     if (node.yogaNode) node.yogaNode.freeRecursive();
     return node;
 };
-
-
-
-
-
-
-
- const resolvePageDimensions = (page, fontStore, yoga)=>{
+/**
+ * Calculates page object layout using Yoga.
+ * Takes node values from 'box' and 'style' attributes, and persist them back into 'box'
+ * Destroy yoga values at the end.
+ *
+ * @param page - Object
+ * @returns Page object with correct 'box' layout attributes
+ */ const resolvePageDimensions = (page, fontStore, yoga)=>{
     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(page)) return null;
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["compose"])(destroyYogaNodes, freeYogaNodes, persistDimensions, calculateLayout, createYogaNodes(page, fontStore, yoga))(page);
 };
-
-
-
-
-
-
- const resolveDimensions = (node, fontStore)=>{
+/**
+ * Calculates root object layout using Yoga.
+ *
+ * @param node - Root object
+ * @param fontStore - Font store
+ * @returns Root object with correct 'box' layout attributes
+ */ const resolveDimensions = (node, fontStore)=>{
     if (!node.children) return node;
     const resolveChild = (child)=>resolvePageDimensions(child, fontStore, node.yoga);
     const children = node.children.map(resolveChild);
@@ -2660,7 +2660,7 @@ const isLayoutElement = (node)=>!isText$2(node) && !isNote(node) && !isSvg(node)
     });
 };
 const isText$1 = (node)=>node.type === __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Text"];
-
+// Prevent splitting elements by low decimal numbers
 const SAFETY_THRESHOLD = 0.001;
 const assingChildren = (children, node)=>Object.assign({}, node, {
         children
@@ -2725,9 +2725,9 @@ const splitNodes = (height, contentArea, nodes)=>{
         }
         if (shouldSplit) {
             const [currentChild, nextChild] = split(child, height, contentArea);
-            
+            // All children are moved to the next page, it doesn't make sense to show the parent on the current page
             if (child.children.length > 0 && currentChild.children.length === 0) {
-                
+                // But if the current page is empty then we can just include the parent on the current page
                 if (currentChildren.length === 0) {
                     currentChildren.push(child, ...futureFixedNodes);
                     nextChildren.push(...futureNodes);
@@ -2774,23 +2774,23 @@ const shouldResolveDynamicNodes = (node)=>{
 };
 const resolveDynamicNodes = (props, node)=>{
     const isNodeDynamic = isDynamic(node);
-    
+    // Call render prop on dynamic nodes and append result to children
     const resolveChildren = (children = [])=>{
         if (isNodeDynamic) {
             const res = node.props.render(props);
-            return createInstances(res).filter(Boolean)
+            return createInstances(res).filter(Boolean)// @ts-expect-error rework dynamic nodes. conflicting types
             .map((n)=>resolveDynamicNodes(props, n));
         }
         return children.map((c)=>resolveDynamicNodes(props, c));
     };
-    
+    // We reset dynamic text box so it can be computed again later on
     const resetHeight = isNodeDynamic && isText$1(node);
     const box = resetHeight ? {
         ...node.box,
         height: 0
     } : node.box;
     const children = resolveChildren(node.children);
-    
+    // @ts-expect-error handle text here specifically
     const lines = isNodeDynamic ? null : node.lines;
     return Object.assign({}, node, {
         box,
@@ -2813,7 +2813,7 @@ const splitPage = (page, pageNumber, fontStore, yoga)=>{
     }, page, fontStore, yoga);
     const height = page.style.height;
     const [currentChilds, nextChilds] = splitNodes(wrapArea, contentArea, dynamicPage.children);
-    const relayout = (node)=>
+    const relayout = (node)=>// @ts-expect-error rework pagination
         relayoutPage(node, fontStore, yoga);
     const currentBox = {
         ...page.box,
@@ -2879,14 +2879,14 @@ const paginate = (page, pageNumber, fontStore, yoga)=>{
     }
     return pages;
 };
-
-
-
-
-
-
-
- const resolvePagination = (root, fontStore)=>{
+/**
+ * Performs pagination. This is the step responsible of breaking the whole document
+ * into pages following pagiation rules, such as `fixed`, `break` and dynamic nodes.
+ *
+ * @param root - Document node
+ * @param fontStore - Font store
+ * @returns Layout node
+ */ const resolvePagination = (root, fontStore)=>{
     let pages = [];
     let pageNumber = 1;
     for(let i = 0; i < root.children.length; i += 1){
@@ -2899,32 +2899,32 @@ const paginate = (page, pageNumber, fontStore, yoga)=>{
     pages = pages.map((...args)=>dissocSubPageData(resolvePageIndices(fontStore, root.yoga, ...args)));
     return assingChildren(pages, root);
 };
-
-
-
-
-
- const resolvePageHorizontalPadding = (container)=>(value)=>{
+/**
+ * Translates page percentage horizontal paddings in fixed ones
+ *
+ * @param container - Page container
+ * @returns Resolve page horizontal padding
+ */ const resolvePageHorizontalPadding = (container)=>(value)=>{
         const match = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["matchPercent"])(value);
         const width = container.width;
         return match ? match.percent * width : value;
     };
-
-
-
-
-
- const resolvePageVerticalPadding = (container)=>(value)=>{
+/**
+ * Translates page percentage vertical paddings in fixed ones
+ *
+ * @param container - Page container
+ * @returns Resolve page vertical padding
+ */ const resolvePageVerticalPadding = (container)=>(value)=>{
         const match = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["matchPercent"])(value);
         const height = container.height;
         return match ? match.percent * height : value;
     };
-
-
-
-
-
- const resolvePagePaddings = (page)=>{
+/**
+ * Translates page percentage paddings in fixed ones
+ *
+ * @param page
+ * @returns Page with fixed paddings
+ */ const resolvePagePaddings = (page)=>{
     const container = page.style;
     const style = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["evolve"])({
         paddingTop: resolvePageVerticalPadding(container),
@@ -2936,14 +2936,14 @@ const paginate = (page, pageNumber, fontStore, yoga)=>{
         style
     });
 };
-
-
-
-
-
-
-
- const resolvePagesPaddings = (root)=>{
+/**
+ * Translates all pages percentage paddings in fixed ones
+ * This has to be computed from pages calculated size and not by Yoga
+ * because at this point we didn't performed pagination yet.
+ *
+ * @param root - Document root
+ * @returns Document root with translated page paddings
+ */ const resolvePagesPaddings = (root)=>{
     if (!root.children) return root;
     const children = root.children.map(resolvePagePaddings);
     return Object.assign({}, root, {
@@ -2955,12 +2955,12 @@ const resolveRadius = (box)=>(value)=>{
         const match = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["matchPercent"])(value);
         return match ? match.percent * Math.min(box.width, box.height) : value;
     };
-
-
-
-
-
- const resolvePercentRadius = (node)=>{
+/**
+ * Transforms percent border radius into fixed values
+ *
+ * @param node
+ * @returns Node
+ */ const resolvePercentRadius = (node)=>{
     const style = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["evolve"])({
         borderTopLeftRadius: resolveRadius(node.box),
         borderTopRightRadius: resolveRadius(node.box),
@@ -2976,33 +2976,33 @@ const resolveRadius = (box)=>(value)=>{
         children
     });
 };
-
-
-
-
-
- const transformHeight = (pageArea, height)=>{
+/**
+ * Transform percent height into fixed
+ *
+ * @param height
+ * @returns Height
+ */ const transformHeight = (pageArea, height)=>{
     const match = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["matchPercent"])(height);
     return match ? match.percent * pageArea : height;
 };
-
-
-
-
-
- const getPageArea = (page)=>{
+/**
+ * Get page area (height minus paddings)
+ *
+ * @param page
+ * @returns Page area
+ */ const getPageArea = (page)=>{
     const pageHeight = page.style.height;
     const pagePaddingTop = page.style?.paddingTop || 0;
     const pagePaddingBottom = page.style?.paddingBottom || 0;
     return pageHeight - pagePaddingTop - pagePaddingBottom;
 };
-
-
-
-
-
-
- const resolveNodePercentHeight = (page, node)=>{
+/**
+ * Transform node percent height to fixed
+ *
+ * @param page
+ * @param node
+ * @returns Transformed node
+ */ const resolveNodePercentHeight = (page, node)=>{
     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(page.style?.height)) return node;
     if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isNil"])(node.style?.height)) return node;
     const pageArea = getPageArea(page);
@@ -3014,12 +3014,12 @@ const resolveRadius = (box)=>(value)=>{
         style
     });
 };
-
-
-
-
-
- const resolvePagePercentHeight = (page)=>{
+/**
+ * Transform page immediate children with percent height to fixed
+ *
+ * @param page
+ * @returns Transformed page
+ */ const resolvePagePercentHeight = (page)=>{
     if (!page.children) return page;
     const resolveChild = (child)=>resolveNodePercentHeight(page, child);
     const children = page.children.map(resolveChild);
@@ -3027,13 +3027,13 @@ const resolveRadius = (box)=>(value)=>{
         children
     });
 };
-
-
-
-
-
-
- const resolvePercentHeight = (root)=>{
+/**
+ * Transform all page immediate children with percent height to fixed.
+ * This is needed for computing correct dimensions on pre-pagination layout.
+ *
+ * @param root - Document root
+ * @returns Transformed document root
+ */ const resolvePercentHeight = (root)=>{
     if (!root.children) return root;
     const children = root.children.map(resolvePagePercentHeight);
     return Object.assign({}, root, {
@@ -3044,37 +3044,37 @@ const isType = (type)=>(node)=>node.type === type;
 const isLink = isType(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Link"]);
 const isText = isType(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Text"]);
 const isTextInstance = isType(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TextInstance"]);
-
-
-
-
-
- const hasRenderProp = (node)=>'render' in node.props;
-
-
-
-
-
- const isTextType = (node)=>isText(node) || isTextInstance(node);
-
-
-
-
-
- const isTextLink = (node)=>{
+/**
+ * Checks if node has render prop
+ *
+ * @param node
+ * @returns Has render prop?
+ */ const hasRenderProp = (node)=>'render' in node.props;
+/**
+ * Checks if node is text type (Text or TextInstance)
+ *
+ * @param node
+ * @returns Are all children text instances?
+ */ const isTextType = (node)=>isText(node) || isTextInstance(node);
+/**
+ * Checks if is tet link that needs to be wrapped in Text
+ *
+ * @param node
+ * @returns Are all children text instances?
+ */ const isTextLink = (node)=>{
     const children = node.children || [];
-    
+    // Text string inside a Link
     if (children.every(isTextInstance)) return true;
-    
+    // Text node inside a Link
     if (children.every(isText)) return false;
     return children.every(isTextType);
 };
-
-
-
-
-
- const wrapText = (node)=>{
+/**
+ * Wraps node children inside Text node
+ *
+ * @param node
+ * @returns Node with intermediate Text child
+ */ const wrapText = (node)=>{
     const textElement = {
         type: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Text"],
         props: {},
@@ -3090,22 +3090,22 @@ const isTextInstance = isType(__TURBOPACK__imported__module__$5b$project$5d2f$De
 };
 const transformLink = (node)=>{
     if (!isLink(node)) return node;
-    
-    
+    // If has render prop substitute the instance by a Text, that will
+    // ultimately render the inline Link via the textkit PDF renderer.
     if (hasRenderProp(node)) return Object.assign({}, node, {
         type: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$primitives$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Text"]
     });
-    
-    
+    // If is a text link (either contains Text or TextInstance), wrap it
+    // inside a Text element so styles are applied correctly
     if (isTextLink(node)) return wrapText(node);
     return node;
 };
-
-
-
-
-
- const resolveLinkSubstitution = (node)=>{
+/**
+ * Transforms Link layout to correctly render text and dynamic rendered links
+ *
+ * @param node
+ * @returns Node with link substitution
+ */ const resolveLinkSubstitution = (node)=>{
     if (!node.children) return node;
     const resolveChild = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$fns$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["compose"])(transformLink, resolveLinkSubstitution);
     const children = node.children.map(resolveChild);
@@ -3118,3 +3118,4 @@ const layout = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Pr
 }),
 ]);
 
+//# sourceMappingURL=c729b_%40react-pdf_layout_lib_index_2bf921de.js.map

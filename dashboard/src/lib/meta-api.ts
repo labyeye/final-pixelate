@@ -1,3 +1,5 @@
+import { createHash } from "crypto";
+
 const META_GRAPH_API = "https://graph.facebook.com/v19.0";
 
 export type MetaPostMetrics = {
@@ -191,6 +193,131 @@ async function resolveIgMediaId(
 
   return null;
 }
+
+// ─── Lead Ads ──────────────────────────────────────────────────────────────
+
+export interface LeadAdForm {
+  id: string;
+  name: string;
+  status: string;
+  created_time: string;
+  leads_count?: number;
+}
+
+export interface FbLeadField {
+  name: string;
+  values: string[];
+}
+
+export interface FbLead {
+  id: string; // 15–17 digit Meta lead ID
+  created_time: string;
+  field_data: FbLeadField[];
+}
+
+/** List all Lead Ad forms under an Ad Account (e.g. act_123456789) */
+export async function getLeadAdForms(
+  adAccountId: string,
+  accessToken: string,
+): Promise<LeadAdForm[]> {
+  const url = new URL(`${META_GRAPH_API}/${adAccountId}/leadgen_forms`);
+  url.searchParams.set("fields", "id,name,status,created_time,leads_count");
+  url.searchParams.set("access_token", accessToken);
+  const res = await fetch(url.toString());
+  if (!res.ok) throw new Error(`Failed to fetch lead forms: ${await res.text()}`);
+  const data = await res.json();
+  if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
+  return data.data || [];
+}
+
+/** Fetch all leads from a specific Lead Ad form (handles pagination) */
+export async function getFormLeads(
+  formId: string,
+  accessToken: string,
+  since?: number,
+): Promise<FbLead[]> {
+  const leads: FbLead[] = [];
+  const initialUrl = new URL(`${META_GRAPH_API}/${formId}/leads`);
+  initialUrl.searchParams.set("fields", "id,created_time,field_data");
+  initialUrl.searchParams.set("limit", "100");
+  initialUrl.searchParams.set("access_token", accessToken);
+  if (since) {
+    initialUrl.searchParams.set(
+      "filtering",
+      JSON.stringify([{ field: "time_created", operator: "GREATER_THAN", value: since }]),
+    );
+  }
+
+  let nextUrl: string | null = initialUrl.toString();
+  while (nextUrl) {
+    const url = nextUrl;
+    // eslint-disable-next-line no-await-in-loop
+    const response: Response = await fetch(url);
+    if (!response.ok) break;
+    // eslint-disable-next-line no-await-in-loop
+    const pageData: { data?: FbLead[]; error?: unknown; paging?: { next?: string } } = await response.json();
+    if (pageData.error) break;
+    leads.push(...(pageData.data || []));
+    nextUrl = pageData.paging?.next || null;
+  }
+  return leads;
+}
+
+// ─── Conversions API (Conversion Leads) ────────────────────────────────────
+
+/** SHA-256 hash a value (lowercase+trim) as required by Meta */
+export function hashForMeta(value: string): string {
+  return createHash("sha256").update(value.trim().toLowerCase()).digest("hex");
+}
+
+export interface ConversionEvent {
+  event_name: string;       // e.g. "Lead", "interested", "meeting booked"
+  event_time: number;       // Unix timestamp
+  hashed_email?: string;    // already SHA-256 hashed
+  hashed_phone?: string;    // already SHA-256 hashed
+  lead_id?: string;         // Meta's lead ID stored on the lead
+  lead_event_source?: string;
+}
+
+/**
+ * Send CRM stage-change events to Meta's Conversions API.
+ * datasetId comes from the client's fbAdsConnections.datasetId field.
+ */
+export async function sendConversionEvents(
+  datasetId: string,
+  accessToken: string,
+  events: ConversionEvent[],
+): Promise<any> {
+  const url = `https://graph.facebook.com/v25.0/${datasetId}/events`;
+  const payload = {
+    access_token: accessToken,
+    data: events.map((e) => ({
+      action_source: "system_generated",
+      event_name: e.event_name,
+      event_time: e.event_time,
+      custom_data: {
+        event_source: "crm",
+        lead_event_source: e.lead_event_source || "Pixelate CRM",
+      },
+      user_data: {
+        ...(e.hashed_email ? { em: [e.hashed_email] } : {}),
+        ...(e.hashed_phone ? { ph: [e.hashed_phone] } : {}),
+        ...(e.lead_id ? { lead_id: e.lead_id } : {}),
+      },
+    })),
+  };
+
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  const result = await res.json();
+  if (!res.ok) throw new Error(`Conversions API error: ${JSON.stringify(result)}`);
+  return result;
+}
+
+// ─── Instagram metrics ──────────────────────────────────────────────────────
 
 export async function fetchIgMediaMetrics(
   postUrl: string,

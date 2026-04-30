@@ -5,10 +5,10 @@ module.exports = [
 var check = function(it) {
     return it && it.Math === Math && it;
 };
-
-module.exports = 
-check(typeof globalThis == 'object' && globalThis) || check(("TURBOPACK compile-time value", "undefined") == 'object' && window) || 
-check(typeof self == 'object' && self) || check(("TURBOPACK compile-time value", "object") == 'object' &&  __turbopack_context__.g) || check(typeof  __turbopack_context__.e == 'object' &&  __turbopack_context__.e) || 
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+module.exports = // eslint-disable-next-line es/no-global-this -- safe
+check(typeof globalThis == 'object' && globalThis) || check(("TURBOPACK compile-time value", "undefined") == 'object' && window) || // eslint-disable-next-line no-restricted-globals -- safe
+check(typeof self == 'object' && self) || check(("TURBOPACK compile-time value", "object") == 'object' && /*TURBOPACK member replacement*/ __turbopack_context__.g) || check(typeof /*TURBOPACK member replacement*/ __turbopack_context__.e == 'object' && /*TURBOPACK member replacement*/ __turbopack_context__.e) || // eslint-disable-next-line no-new-func -- fallback
 function() {
     return this;
 }() || Function('return this')();
@@ -28,9 +28,9 @@ module.exports = function(exec) {
 "use strict";
 
 var fails = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fails.js [app-ssr] (ecmascript)");
-
+// Detect IE8's incomplete defineProperty implementation
 module.exports = !fails(function() {
-    
+    // eslint-disable-next-line es/no-object-defineproperty -- required for testing
     return Object.defineProperty({}, 1, {
         get: function() {
             return 7;
@@ -43,9 +43,9 @@ module.exports = !fails(function() {
 
 var fails = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fails.js [app-ssr] (ecmascript)");
 module.exports = !fails(function() {
-    
+    // eslint-disable-next-line es/no-function-prototype-bind -- safe
     var test = (function() {}).bind();
-    
+    // eslint-disable-next-line no-prototype-builtins -- safe
     return typeof test != 'function' || test.hasOwnProperty('prototype');
 });
 }),
@@ -54,7 +54,7 @@ module.exports = !fails(function() {
 
 var NATIVE_BIND = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-bind-native.js [app-ssr] (ecmascript)");
 var call = Function.prototype.call;
-
+// eslint-disable-next-line es/no-function-prototype-bind -- safe
 module.exports = NATIVE_BIND ? call.bind(call) : function() {
     return call.apply(call, arguments);
 };
@@ -63,14 +63,14 @@ module.exports = NATIVE_BIND ? call.bind(call) : function() {
 "use strict";
 
 var $propertyIsEnumerable = {}.propertyIsEnumerable;
-
+// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
 var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
-
+// Nashorn ~ JDK8 bug
 var NASHORN_BUG = getOwnPropertyDescriptor && !$propertyIsEnumerable.call({
     1: 2
 }, 1);
-
-
+// `Object.prototype.propertyIsEnumerable` method implementation
+// https://tc39.es/ecma262/#sec-object.prototype.propertyisenumerable
 exports.f = NASHORN_BUG ? function propertyIsEnumerable(V) {
     var descriptor = getOwnPropertyDescriptor(this, V);
     return !!descriptor && descriptor.enumerable;
@@ -94,7 +94,7 @@ module.exports = function(bitmap, value) {
 var NATIVE_BIND = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-bind-native.js [app-ssr] (ecmascript)");
 var FunctionPrototype = Function.prototype;
 var call = FunctionPrototype.call;
-
+// eslint-disable-next-line es/no-function-prototype-bind -- safe
 var uncurryThisWithBind = NATIVE_BIND && FunctionPrototype.bind.bind(call, call);
 module.exports = NATIVE_BIND ? uncurryThisWithBind : function(fn) {
     return function() {
@@ -120,10 +120,10 @@ var fails = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/d
 var classof = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/classof-raw.js [app-ssr] (ecmascript)");
 var $Object = Object;
 var split = uncurryThis(''.split);
-
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
 module.exports = fails(function() {
-    
-    
+    // throws an error in rhino, see https://github.com/mozilla/rhino/issues/346
+    // eslint-disable-next-line no-prototype-builtins -- safe
     return !$Object('z').propertyIsEnumerable(0);
 }) ? function(it) {
     return classof(it) === 'String' ? split(it, '') : $Object(it);
@@ -132,8 +132,8 @@ module.exports = fails(function() {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-null-or-undefined.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
-
+// we can't use just `it == null` since of `document.all` special case
+// https://tc39.es/ecma262/#sec-IsHTMLDDA-internal-slot-aec
 module.exports = function(it) {
     return it === null || it === undefined;
 };
@@ -143,8 +143,8 @@ module.exports = function(it) {
 
 var isNullOrUndefined = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-null-or-undefined.js [app-ssr] (ecmascript)");
 var $TypeError = TypeError;
-
-
+// `RequireObjectCoercible` abstract operation
+// https://tc39.es/ecma262/#sec-requireobjectcoercible
 module.exports = function(it) {
     if (isNullOrUndefined(it)) throw new $TypeError("Can't call method on " + it);
     return it;
@@ -153,7 +153,7 @@ module.exports = function(it) {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-indexed-object.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
+// toObject with fallback for non-array-like ES3 strings
 var IndexedObject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/indexed-object.js [app-ssr] (ecmascript)");
 var requireObjectCoercible = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/require-object-coercible.js [app-ssr] (ecmascript)");
 module.exports = function(it) {
@@ -163,11 +163,11 @@ module.exports = function(it) {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-callable.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
+// https://tc39.es/ecma262/#sec-IsHTMLDDA-internal-slot
 var documentAll = typeof document == 'object' && document.all;
-
-
-
+// `IsCallable` abstract operation
+// https://tc39.es/ecma262/#sec-iscallable
+// eslint-disable-next-line unicorn/no-typeof-undefined -- required for testing
 module.exports = typeof documentAll == 'undefined' && documentAll !== undefined ? function(argument) {
     return typeof argument == 'function' || argument === documentAll;
 } : function(argument) {
@@ -220,12 +220,12 @@ var v8 = versions && versions.v8;
 var match, version;
 if (v8) {
     match = v8.split('.');
-    
-    
+    // in old Chrome, versions of V8 isn't V8 = Chrome / 10
+    // but their correct versions are not interesting for us
     version = match[0] > 0 && match[0] < 4 ? 1 : +(match[0] + match[1]);
 }
-
-
+// BrowserFS NodeJS `process` polyfill incorrectly set `.v8` to `0.0`
+// so check `userAgent` even if `.v8` exists, but 0
 if (!version && userAgent) {
     match = userAgent.match(/Edge\/(\d+)/);
     if (!match || match[1] >= 74) {
@@ -238,25 +238,25 @@ module.exports = version;
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/symbol-constructor-detection.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
- var V8_VERSION = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/environment-v8-version.js [app-ssr] (ecmascript)");
+/* eslint-disable es/no-symbol -- required for testing */ var V8_VERSION = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/environment-v8-version.js [app-ssr] (ecmascript)");
 var fails = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fails.js [app-ssr] (ecmascript)");
 var globalThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-ssr] (ecmascript)");
 var $String = globalThis.String;
-
+// eslint-disable-next-line es/no-object-getownpropertysymbols -- required for testing
 module.exports = !!Object.getOwnPropertySymbols && !fails(function() {
     var symbol = Symbol('symbol detection');
-    
-    
-    
-    
-    return !$String(symbol) || !(Object(symbol) instanceof Symbol) || 
+    // Chrome 38 Symbol has incorrect toString conversion
+    // `get-own-property-symbols` polyfill symbols converted to object are not Symbol instances
+    // nb: Do not call `String` directly to avoid this being optimized out to `symbol+''` which will,
+    // of course, fail.
+    return !$String(symbol) || !(Object(symbol) instanceof Symbol) || // Chrome 38-40 symbols are not inherited from DOM collections prototypes to instances
     !Symbol.sham && V8_VERSION && V8_VERSION < 41;
 });
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/use-symbol-as-uid.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
- var NATIVE_SYMBOL = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/symbol-constructor-detection.js [app-ssr] (ecmascript)");
+/* eslint-disable es/no-symbol -- required for testing */ var NATIVE_SYMBOL = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/symbol-constructor-detection.js [app-ssr] (ecmascript)");
 module.exports = NATIVE_SYMBOL && !Symbol.sham && typeof Symbol.iterator == 'symbol';
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-symbol.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
@@ -292,7 +292,7 @@ module.exports = function(argument) {
 var isCallable = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-callable.js [app-ssr] (ecmascript)");
 var tryToString = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/try-to-string.js [app-ssr] (ecmascript)");
 var $TypeError = TypeError;
-
+// `Assert: IsCallable(argument) is true`
 module.exports = function(argument) {
     if (isCallable(argument)) return argument;
     throw new $TypeError(tryToString(argument) + ' is not a function');
@@ -303,8 +303,8 @@ module.exports = function(argument) {
 
 var aCallable = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/a-callable.js [app-ssr] (ecmascript)");
 var isNullOrUndefined = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-null-or-undefined.js [app-ssr] (ecmascript)");
-
-
+// `GetMethod` abstract operation
+// https://tc39.es/ecma262/#sec-getmethod
 module.exports = function(V, P) {
     var func = V[P];
     return isNullOrUndefined(func) ? undefined : aCallable(func);
@@ -317,8 +317,8 @@ var call = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/da
 var isCallable = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-callable.js [app-ssr] (ecmascript)");
 var isObject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-object.js [app-ssr] (ecmascript)");
 var $TypeError = TypeError;
-
-
+// `OrdinaryToPrimitive` abstract operation
+// https://tc39.es/ecma262/#sec-ordinarytoprimitive
 module.exports = function(input, pref) {
     var fn, val;
     if (pref === 'string' && isCallable(fn = input.toString) && !isObject(val = call(fn, input))) return val;
@@ -336,7 +336,7 @@ module.exports = false;
 "use strict";
 
 var globalThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-ssr] (ecmascript)");
-
+// eslint-disable-next-line es/no-object-defineproperty -- safe
 var defineProperty = Object.defineProperty;
 module.exports = function(key, value) {
     try {
@@ -380,8 +380,8 @@ module.exports = function(key, value) {
 
 var requireObjectCoercible = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/require-object-coercible.js [app-ssr] (ecmascript)");
 var $Object = Object;
-
-
+// `ToObject` abstract operation
+// https://tc39.es/ecma262/#sec-toobject
 module.exports = function(argument) {
     return $Object(requireObjectCoercible(argument));
 };
@@ -392,9 +392,9 @@ module.exports = function(argument) {
 var uncurryThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-uncurry-this.js [app-ssr] (ecmascript)");
 var toObject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-object.js [app-ssr] (ecmascript)");
 var hasOwnProperty = uncurryThis({}.hasOwnProperty);
-
-
-
+// `HasOwnProperty` abstract operation
+// https://tc39.es/ecma262/#sec-hasownproperty
+// eslint-disable-next-line es/no-object-hasown -- safe
 module.exports = Object.hasOwn || function hasOwn(it, key) {
     return hasOwnProperty(toObject(it), key);
 };
@@ -440,8 +440,8 @@ var ordinaryToPrimitive = __turbopack_context__.r("[project]/Desktop/Projects/fi
 var wellKnownSymbol = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/well-known-symbol.js [app-ssr] (ecmascript)");
 var $TypeError = TypeError;
 var TO_PRIMITIVE = wellKnownSymbol('toPrimitive');
-
-
+// `ToPrimitive` abstract operation
+// https://tc39.es/ecma262/#sec-toprimitive
 module.exports = function(input, pref) {
     if (!isObject(input) || isSymbol(input)) return input;
     var exoticToPrim = getMethod(input, TO_PRIMITIVE);
@@ -461,8 +461,8 @@ module.exports = function(input, pref) {
 
 var toPrimitive = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-primitive.js [app-ssr] (ecmascript)");
 var isSymbol = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-symbol.js [app-ssr] (ecmascript)");
-
-
+// `ToPropertyKey` abstract operation
+// https://tc39.es/ecma262/#sec-topropertykey
 module.exports = function(argument) {
     var key = toPrimitive(argument, 'string');
     return isSymbol(key) ? key : key + '';
@@ -474,7 +474,7 @@ module.exports = function(argument) {
 var globalThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-ssr] (ecmascript)");
 var isObject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-object.js [app-ssr] (ecmascript)");
 var document = globalThis.document;
-
+// typeof document.createElement is 'object' in old IE
 var EXISTS = isObject(document) && isObject(document.createElement);
 module.exports = function(it) {
     return EXISTS ? document.createElement(it) : {};
@@ -486,9 +486,9 @@ module.exports = function(it) {
 var DESCRIPTORS = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/descriptors.js [app-ssr] (ecmascript)");
 var fails = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fails.js [app-ssr] (ecmascript)");
 var createElement = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/document-create-element.js [app-ssr] (ecmascript)");
-
+// Thanks to IE8 for its funny defineProperty
 module.exports = !DESCRIPTORS && !fails(function() {
-    
+    // eslint-disable-next-line es/no-object-defineproperty -- required for testing
     return Object.defineProperty(createElement('div'), 'a', {
         get: function() {
             return 7;
@@ -507,10 +507,10 @@ var toIndexedObject = __turbopack_context__.r("[project]/Desktop/Projects/final-
 var toPropertyKey = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-property-key.js [app-ssr] (ecmascript)");
 var hasOwn = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/has-own-property.js [app-ssr] (ecmascript)");
 var IE8_DOM_DEFINE = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/ie8-dom-define.js [app-ssr] (ecmascript)");
-
+// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
 var $getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
-
-
+// `Object.getOwnPropertyDescriptor` method
+// https://tc39.es/ecma262/#sec-object.getownpropertydescriptor
 exports.f = DESCRIPTORS ? $getOwnPropertyDescriptor : function getOwnPropertyDescriptor(O, P) {
     O = toIndexedObject(O);
     P = toPropertyKey(P);
@@ -525,10 +525,10 @@ exports.f = DESCRIPTORS ? $getOwnPropertyDescriptor : function getOwnPropertyDes
 
 var DESCRIPTORS = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/descriptors.js [app-ssr] (ecmascript)");
 var fails = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fails.js [app-ssr] (ecmascript)");
-
-
+// V8 ~ Chrome 36-
+// https://bugs.chromium.org/p/v8/issues/detail?id=3334
 module.exports = DESCRIPTORS && fails(function() {
-    
+    // eslint-disable-next-line es/no-object-defineproperty -- required for testing
     return Object.defineProperty(function() {}, 'prototype', {
         value: 42,
         writable: false
@@ -541,7 +541,7 @@ module.exports = DESCRIPTORS && fails(function() {
 var isObject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-object.js [app-ssr] (ecmascript)");
 var $String = String;
 var $TypeError = TypeError;
-
+// `Assert: Type(argument) is Object`
 module.exports = function(argument) {
     if (isObject(argument)) return argument;
     throw new $TypeError($String(argument) + ' is not an object');
@@ -556,15 +556,15 @@ var V8_PROTOTYPE_DEFINE_BUG = __turbopack_context__.r("[project]/Desktop/Project
 var anObject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/an-object.js [app-ssr] (ecmascript)");
 var toPropertyKey = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-property-key.js [app-ssr] (ecmascript)");
 var $TypeError = TypeError;
-
+// eslint-disable-next-line es/no-object-defineproperty -- safe
 var $defineProperty = Object.defineProperty;
-
+// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
 var $getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 var ENUMERABLE = 'enumerable';
 var CONFIGURABLE = 'configurable';
 var WRITABLE = 'writable';
-
-
+// `Object.defineProperty` method
+// https://tc39.es/ecma262/#sec-object.defineproperty
 exports.f = DESCRIPTORS ? V8_PROTOTYPE_DEFINE_BUG ? function defineProperty(O, P, Attributes) {
     anObject(O);
     P = toPropertyKey(P);
@@ -612,10 +612,10 @@ module.exports = DESCRIPTORS ? function(object, key, value) {
 var DESCRIPTORS = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/descriptors.js [app-ssr] (ecmascript)");
 var hasOwn = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/has-own-property.js [app-ssr] (ecmascript)");
 var FunctionPrototype = Function.prototype;
-
+// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
 var getDescriptor = DESCRIPTORS && Object.getOwnPropertyDescriptor;
 var EXISTS = hasOwn(FunctionPrototype, 'name');
-
+// additional protection from minified / mangled / dropped function names
 var PROPER = EXISTS && (function something() {}).name === 'something';
 var CONFIGURABLE = EXISTS && (!DESCRIPTORS || DESCRIPTORS && getDescriptor(FunctionPrototype, 'name').configurable);
 module.exports = {
@@ -631,7 +631,7 @@ var uncurryThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixe
 var isCallable = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-callable.js [app-ssr] (ecmascript)");
 var store = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/shared-store.js [app-ssr] (ecmascript)");
 var functionToString = uncurryThis(Function.toString);
-
+// this helper broken in `core-js@3.4.1-3.4.4`, so we can't use `shared` helper
 if (!isCallable(store.inspectSource)) {
     store.inspectSource = function(it) {
         return functionToString(it);
@@ -691,10 +691,10 @@ var getterFor = function(TYPE) {
 };
 if (NATIVE_WEAK_MAP || shared.state) {
     var store = shared.state || (shared.state = new WeakMap());
-     store.get = store.get;
+    /* eslint-disable no-self-assign -- prototype methods protection */ store.get = store.get;
     store.has = store.has;
     store.set = store.set;
-     set = function(it, metadata) {
+    /* eslint-enable no-self-assign -- prototype methods protection */ set = function(it, metadata) {
         if (store.has(it)) throw new TypeError(OBJECT_ALREADY_INITIALIZED);
         metadata.facade = it;
         store.set(it, metadata);
@@ -744,7 +744,7 @@ var InternalStateModule = __turbopack_context__.r("[project]/Desktop/Projects/fi
 var enforceInternalState = InternalStateModule.enforce;
 var getInternalState = InternalStateModule.get;
 var $String = String;
-
+// eslint-disable-next-line es/no-object-defineproperty -- safe
 var defineProperty = Object.defineProperty;
 var stringSlice = uncurryThis(''.slice);
 var replace = uncurryThis(''.replace);
@@ -778,7 +778,7 @@ var makeBuiltIn = module.exports = function(value, name, options) {
             if (DESCRIPTORS) defineProperty(value, 'prototype', {
                 writable: false
             });
-        
+        // in V8 ~ Chrome 53, prototypes of some methods, like `Array.prototype.values`, are non-writable
         } else if (value.prototype) value.prototype = undefined;
     } catch (error) {}
     var state = enforceInternalState(value);
@@ -787,8 +787,8 @@ var makeBuiltIn = module.exports = function(value, name, options) {
     }
     return value;
 };
-
-
+// add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
+// eslint-disable-next-line no-extend-native -- required
 Function.prototype.toString = makeBuiltIn(function toString() {
     return isCallable(this) && getInternalState(this).source || inspectSource(this);
 }, 'toString');
@@ -829,9 +829,9 @@ module.exports = function(O, key, value, options) {
 
 var ceil = Math.ceil;
 var floor = Math.floor;
-
-
-
+// `Math.trunc` method
+// https://tc39.es/ecma262/#sec-math.trunc
+// eslint-disable-next-line es/no-math-trunc -- safe
 module.exports = Math.trunc || function trunc(x) {
     var n = +x;
     return (n > 0 ? floor : ceil)(n);
@@ -841,11 +841,11 @@ module.exports = Math.trunc || function trunc(x) {
 "use strict";
 
 var trunc = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/math-trunc.js [app-ssr] (ecmascript)");
-
-
+// `ToIntegerOrInfinity` abstract operation
+// https://tc39.es/ecma262/#sec-tointegerorinfinity
 module.exports = function(argument) {
     var number = +argument;
-    
+    // eslint-disable-next-line no-self-compare -- NaN check
     return number !== number || number === 0 ? 0 : trunc(number);
 };
 }),
@@ -855,9 +855,9 @@ module.exports = function(argument) {
 var toIntegerOrInfinity = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-integer-or-infinity.js [app-ssr] (ecmascript)");
 var max = Math.max;
 var min = Math.min;
-
-
-
+// Helper for a popular repeating case of the spec:
+// Let integer be ? ToInteger(index).
+// If integer < 0, let result be max((length + integer), 0); else let result be min(integer, length).
 module.exports = function(index, length) {
     var integer = toIntegerOrInfinity(index);
     return integer < 0 ? max(integer + length, 0) : min(integer, length);
@@ -868,19 +868,19 @@ module.exports = function(index, length) {
 
 var toIntegerOrInfinity = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-integer-or-infinity.js [app-ssr] (ecmascript)");
 var min = Math.min;
-
-
+// `ToLength` abstract operation
+// https://tc39.es/ecma262/#sec-tolength
 module.exports = function(argument) {
     var len = toIntegerOrInfinity(argument);
-    return len > 0 ? min(len, 0x1FFFFFFFFFFFFF) : 0; 
+    return len > 0 ? min(len, 0x1FFFFFFFFFFFFF) : 0; // 2 ** 53 - 1 == 9007199254740991
 };
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/length-of-array-like.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
 var toLength = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-length.js [app-ssr] (ecmascript)");
-
-
+// `LengthOfArrayLike` abstract operation
+// https://tc39.es/ecma262/#sec-lengthofarraylike
 module.exports = function(obj) {
     return toLength(obj.length);
 };
@@ -891,7 +891,7 @@ module.exports = function(obj) {
 var toIndexedObject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-indexed-object.js [app-ssr] (ecmascript)");
 var toAbsoluteIndex = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-absolute-index.js [app-ssr] (ecmascript)");
 var lengthOfArrayLike = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/length-of-array-like.js [app-ssr] (ecmascript)");
-
+// `Array.prototype.{ indexOf, includes }` methods implementation
 var createMethod = function(IS_INCLUDES) {
     return function($this, el, fromIndex) {
         var O = toIndexedObject($this);
@@ -899,13 +899,13 @@ var createMethod = function(IS_INCLUDES) {
         if (length === 0) return !IS_INCLUDES && -1;
         var index = toAbsoluteIndex(fromIndex, length);
         var value;
-        
-        
+        // Array#includes uses SameValueZero equality algorithm
+        // eslint-disable-next-line no-self-compare -- NaN check
         if (IS_INCLUDES && el !== el) while(length > index){
             value = O[index++];
-            
+            // eslint-disable-next-line no-self-compare -- NaN check
             if (value !== value) return true;
-        
+        // Array#indexOf ignores holes, Array#includes - not
         }
         else for(; length > index; index++){
             if ((IS_INCLUDES || index in O) && O[index] === el) return IS_INCLUDES || index || 0;
@@ -914,11 +914,11 @@ var createMethod = function(IS_INCLUDES) {
     };
 };
 module.exports = {
-    
-    
+    // `Array.prototype.includes` method
+    // https://tc39.es/ecma262/#sec-array.prototype.includes
     includes: createMethod(true),
-    
-    
+    // `Array.prototype.indexOf` method
+    // https://tc39.es/ecma262/#sec-array.prototype.indexof
     indexOf: createMethod(false)
 };
 }),
@@ -937,7 +937,7 @@ module.exports = function(object, names) {
     var result = [];
     var key;
     for(key in O)!hasOwn(hiddenKeys, key) && hasOwn(O, key) && push(result, key);
-    
+    // Don't enum bug & hidden keys
     while(names.length > i)if (hasOwn(O, key = names[i++])) {
         ~indexOf(result, key) || push(result, key);
     }
@@ -947,7 +947,7 @@ module.exports = function(object, names) {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/enum-bug-keys.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
+// IE8- don't enum bug keys
 module.exports = [
     'constructor',
     'hasOwnProperty',
@@ -964,9 +964,9 @@ module.exports = [
 var internalObjectKeys = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/object-keys-internal.js [app-ssr] (ecmascript)");
 var enumBugKeys = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/enum-bug-keys.js [app-ssr] (ecmascript)");
 var hiddenKeys = enumBugKeys.concat('length', 'prototype');
-
-
-
+// `Object.getOwnPropertyNames` method
+// https://tc39.es/ecma262/#sec-object.getownpropertynames
+// eslint-disable-next-line es/no-object-getownpropertynames -- safe
 exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
     return internalObjectKeys(O, hiddenKeys);
 };
@@ -974,7 +974,7 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/object-get-own-property-symbols.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
+// eslint-disable-next-line es/no-object-getownpropertysymbols -- safe
 exports.f = Object.getOwnPropertySymbols;
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/own-keys.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
@@ -986,7 +986,7 @@ var getOwnPropertyNamesModule = __turbopack_context__.r("[project]/Desktop/Proje
 var getOwnPropertySymbolsModule = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/object-get-own-property-symbols.js [app-ssr] (ecmascript)");
 var anObject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/an-object.js [app-ssr] (ecmascript)");
 var concat = uncurryThis([].concat);
-
+// all object keys, includes non-enumerable and symbols
 module.exports = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
     var keys = getOwnPropertyNamesModule.f(anObject(it));
     var getOwnPropertySymbols = getOwnPropertySymbolsModule.f;
@@ -1040,21 +1040,21 @@ var defineBuiltIn = __turbopack_context__.r("[project]/Desktop/Projects/final-pi
 var defineGlobalProperty = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/define-global-property.js [app-ssr] (ecmascript)");
 var copyConstructorProperties = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/copy-constructor-properties.js [app-ssr] (ecmascript)");
 var isForced = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-forced.js [app-ssr] (ecmascript)");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- module.exports = function(options, source) {
+/*
+  options.target         - name of the target object
+  options.global         - target is the global object
+  options.stat           - export as static methods of target
+  options.proto          - export as prototype methods of target
+  options.real           - real prototype method for the `pure` version
+  options.forced         - export even if the native feature is available
+  options.bind           - bind methods to the target, required for the `pure` version
+  options.wrap           - wrap constructors to preventing global pollution, required for the `pure` version
+  options.unsafe         - use the simple assignment of property instead of delete + defineProperty
+  options.sham           - add a flag to not completely full polyfills
+  options.enumerable     - export as enumerable property
+  options.dontCallGetSet - prevent calling a getter on target
+  options.name           - the .name of the function if it does not match the key
+*/ module.exports = function(options, source) {
     var TARGET = options.target;
     var GLOBAL = options.global;
     var STATIC = options.stat;
@@ -1073,12 +1073,12 @@ var isForced = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelat
             targetProperty = descriptor && descriptor.value;
         } else targetProperty = target[key];
         FORCED = isForced(GLOBAL ? key : TARGET + (STATIC ? '.' : '#') + key, options.forced);
-        
+        // contained in target
         if (!FORCED && targetProperty !== undefined) {
             if (typeof sourceProperty == typeof targetProperty) continue;
             copyConstructorProperties(sourceProperty, targetProperty);
         }
-        
+        // add a flag to not completely full polyfills
         if (options.sham || targetProperty && targetProperty.sham) {
             createNonEnumerableProperty(sourceProperty, 'sham', true);
         }
@@ -1089,7 +1089,7 @@ var isForced = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelat
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/environment.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
- var globalThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-ssr] (ecmascript)");
+/* global Bun, Deno -- detection */ var globalThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-ssr] (ecmascript)");
 var userAgent = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/environment-user-agent.js [app-ssr] (ecmascript)");
 var classof = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/classof-raw.js [app-ssr] (ecmascript)");
 var userAgentStartsWith = function(string) {
@@ -1126,7 +1126,7 @@ var uncurryThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixe
 var aCallable = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/a-callable.js [app-ssr] (ecmascript)");
 module.exports = function(object, key, method) {
     try {
-        
+        // eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
         return uncurryThis(aCallable(Object.getOwnPropertyDescriptor(object, key)[method]));
     } catch (error) {}
 };
@@ -1153,14 +1153,14 @@ module.exports = function(argument) {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/object-set-prototype-of.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
- var uncurryThisAccessor = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-uncurry-this-accessor.js [app-ssr] (ecmascript)");
+/* eslint-disable no-proto -- safe */ var uncurryThisAccessor = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-uncurry-this-accessor.js [app-ssr] (ecmascript)");
 var isObject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-object.js [app-ssr] (ecmascript)");
 var requireObjectCoercible = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/require-object-coercible.js [app-ssr] (ecmascript)");
 var aPossiblePrototype = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/a-possible-prototype.js [app-ssr] (ecmascript)");
-
-
-
-
+// `Object.setPrototypeOf` method
+// https://tc39.es/ecma262/#sec-object.setprototypeof
+// Works with __proto__ only. Old v8 can't work with null proto objects.
+// eslint-disable-next-line es/no-object-setprototypeof -- safe
 module.exports = Object.setPrototypeOf || ('__proto__' in {} ? function() {
     var CORRECT_SETTER = false;
     var test = {};
@@ -1248,7 +1248,7 @@ module.exports = function(it, Prototype) {
 var wellKnownSymbol = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/well-known-symbol.js [app-ssr] (ecmascript)");
 var TO_STRING_TAG = wellKnownSymbol('toStringTag');
 var test = {};
-
+// eslint-disable-next-line unicorn/no-immediate-mutation -- ES3 syntax limitation
 test[TO_STRING_TAG] = 'z';
 module.exports = String(test) === '[object z]';
 }),
@@ -1261,17 +1261,17 @@ var classofRaw = __turbopack_context__.r("[project]/Desktop/Projects/final-pixel
 var wellKnownSymbol = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/well-known-symbol.js [app-ssr] (ecmascript)");
 var TO_STRING_TAG = wellKnownSymbol('toStringTag');
 var $Object = Object;
-
+// ES3 wrong here
 var CORRECT_ARGUMENTS = classofRaw(function() {
     return arguments;
 }()) === 'Arguments';
-
+// fallback for IE11 Script Access Denied error
 var tryGet = function(it, key) {
     try {
         return it[key];
     } catch (error) {}
 };
-
+// getting tag from ES6+ `Object.prototype.toString`
 module.exports = TO_STRING_TAG_SUPPORT ? classofRaw : function(it) {
     var O, tag, result;
     return it === undefined ? 'Undefined' : it === null ? 'Null' : typeof (tag = tryGet(O = $Object(it), TO_STRING_TAG)) == 'string' ? tag : CORRECT_ARGUMENTS ? classofRaw(O) : (result = classofRaw(O)) === 'Object' && isCallable(O.callee) ? 'Arguments' : result;
@@ -1309,17 +1309,17 @@ var isConstructorLegacy = function isConstructor(argument) {
             return false;
     }
     try {
-        
-        
-        
+        // we can't check .prototype since constructors produced by .bind haven't it
+        // `Function#toString` throws on some built-it function in some legacy engines
+        // (for example, `DOMQuad` and similar in FF41-)
         return INCORRECT_TO_STRING || !!exec(constructorRegExp, inspectSource(argument));
     } catch (error) {
         return true;
     }
 };
 isConstructorLegacy.sham = true;
-
-
+// `IsConstructor` abstract operation
+// https://tc39.es/ecma262/#sec-isconstructor
 module.exports = !construct || fails(function() {
     var called;
     return isConstructorModern(isConstructorModern.call) || !isConstructorModern(Object) || !isConstructorModern(function() {
@@ -1333,7 +1333,7 @@ module.exports = !construct || fails(function() {
 var isConstructor = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-constructor.js [app-ssr] (ecmascript)");
 var tryToString = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/try-to-string.js [app-ssr] (ecmascript)");
 var $TypeError = TypeError;
-
+// `Assert: IsConstructor(argument) is true`
 module.exports = function(argument) {
     if (isConstructor(argument)) return argument;
     throw new $TypeError(tryToString(argument) + ' is not a constructor');
@@ -1347,8 +1347,8 @@ var aConstructor = __turbopack_context__.r("[project]/Desktop/Projects/final-pix
 var isNullOrUndefined = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-null-or-undefined.js [app-ssr] (ecmascript)");
 var wellKnownSymbol = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/well-known-symbol.js [app-ssr] (ecmascript)");
 var SPECIES = wellKnownSymbol('species');
-
-
+// `SpeciesConstructor` abstract operation
+// https://tc39.es/ecma262/#sec-speciesconstructor
 module.exports = function(O, defaultConstructor) {
     var C = anObject(O).constructor;
     var S;
@@ -1362,7 +1362,7 @@ var NATIVE_BIND = __turbopack_context__.r("[project]/Desktop/Projects/final-pixe
 var FunctionPrototype = Function.prototype;
 var apply = FunctionPrototype.apply;
 var call = FunctionPrototype.call;
-
+// eslint-disable-next-line es/no-function-prototype-bind, es/no-reflect -- safe
 module.exports = typeof Reflect == 'object' && Reflect.apply || (NATIVE_BIND ? call.bind(apply) : function() {
     return call.apply(apply, arguments);
 });
@@ -1373,9 +1373,9 @@ module.exports = typeof Reflect == 'object' && Reflect.apply || (NATIVE_BIND ? c
 var classofRaw = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/classof-raw.js [app-ssr] (ecmascript)");
 var uncurryThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-uncurry-this.js [app-ssr] (ecmascript)");
 module.exports = function(fn) {
-    
-    
-    
+    // Nashorn bug:
+    //   https://github.com/zloirock/core-js/issues/1128
+    //   https://github.com/zloirock/core-js/issues/1130
     if (classofRaw(fn) === 'Function') return uncurryThis(fn);
 };
 }),
@@ -1386,7 +1386,7 @@ var uncurryThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixe
 var aCallable = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/a-callable.js [app-ssr] (ecmascript)");
 var NATIVE_BIND = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-bind-native.js [app-ssr] (ecmascript)");
 var bind = uncurryThis(uncurryThis.bind);
-
+// optional / simple context binding
 module.exports = function(fn, that) {
     aCallable(fn);
     return that === undefined ? fn : NATIVE_BIND ? bind(fn, that) : function() {
@@ -1419,7 +1419,7 @@ module.exports = function(passed, required) {
 "use strict";
 
 var userAgent = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/environment-user-agent.js [app-ssr] (ecmascript)");
-
+// eslint-disable-next-line redos/no-vulnerable -- safe
 module.exports = /(?:ipad|iphone|ipod).*applewebkit/i.test(userAgent);
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/task.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
@@ -1449,7 +1449,7 @@ var queue = {};
 var ONREADYSTATECHANGE = 'onreadystatechange';
 var $location, defer, channel, port;
 fails(function() {
-    
+    // Deno throws a ReferenceError on `location` access without `--location` flag
     $location = globalThis.location;
 });
 var run = function(id) {
@@ -1468,10 +1468,10 @@ var eventListener = function(event) {
     run(event.data);
 };
 var globalPostMessageDefer = function(id) {
-    
+    // old engines have not location.origin
     globalThis.postMessage(String(id), $location.protocol + '//' + $location.host);
 };
-
+// Node.js 0.9+ & IE10+ has setImmediate, otherwise:
 if (!set || !clear) {
     set = function setImmediate(handler) {
         validateArgumentsLength(arguments.length, 1);
@@ -1486,29 +1486,29 @@ if (!set || !clear) {
     clear = function clearImmediate(id) {
         delete queue[id];
     };
-    
+    // Node.js 0.8-
     if (IS_NODE) {
         defer = function(id) {
             process.nextTick(runner(id));
         };
-    
+    // Sphere (JS game engine) Dispatch API
     } else if (Dispatch && Dispatch.now) {
         defer = function(id) {
             Dispatch.now(runner(id));
         };
-    
-    
+    // Browsers with MessageChannel, includes WebWorkers
+    // except iOS - https://github.com/zloirock/core-js/issues/624
     } else if (MessageChannel && !IS_IOS) {
         channel = new MessageChannel();
         port = channel.port2;
         channel.port1.onmessage = eventListener;
         defer = bind(port.postMessage, port);
-    
-    
+    // Browsers with postMessage, skip WebWorkers
+    // IE8 has postMessage, but it's sync & typeof its postMessage is 'object'
     } else if (globalThis.addEventListener && isCallable(globalThis.postMessage) && !globalThis.importScripts && $location && $location.protocol !== 'file:' && !fails(globalPostMessageDefer)) {
         defer = globalPostMessageDefer;
         globalThis.addEventListener('message', eventListener, false);
-    
+    // IE8-
     } else if (ONREADYSTATECHANGE in createElement('script')) {
         defer = function(id) {
             html.appendChild(createElement('script'))[ONREADYSTATECHANGE] = function() {
@@ -1516,7 +1516,7 @@ if (!set || !clear) {
                 run(id);
             };
         };
-    
+    // Rest old browsers
     } else {
         defer = function(id) {
             setTimeout(runner(id), 0);
@@ -1533,9 +1533,9 @@ module.exports = {
 
 var globalThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-ssr] (ecmascript)");
 var DESCRIPTORS = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/descriptors.js [app-ssr] (ecmascript)");
-
+// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
 var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
-
+// Avoid NodeJS experimental warning
 module.exports = function(name) {
     if (!DESCRIPTORS) return globalThis[name];
     var descriptor = getOwnPropertyDescriptor(globalThis, name);
@@ -1601,7 +1601,7 @@ var process = globalThis.process;
 var Promise = globalThis.Promise;
 var microtask = safeGetBuiltIn('queueMicrotask');
 var notify, toggle, node, promise, then;
-
+// modern engines have queueMicrotask method
 if (!microtask) {
     var queue = new Queue();
     var flush = function() {
@@ -1615,8 +1615,8 @@ if (!microtask) {
         }
         if (parent) parent.enter();
     };
-    
-    
+    // browsers with MutationObserver, except iOS - https://github.com/zloirock/core-js/issues/339
+    // also except WebOS Webkit https://github.com/zloirock/core-js/issues/898
     if (!IS_IOS && !IS_NODE && !IS_WEBOS_WEBKIT && MutationObserver && document) {
         toggle = true;
         node = document.createTextNode('');
@@ -1626,29 +1626,29 @@ if (!microtask) {
         notify = function() {
             node.data = toggle = !toggle;
         };
-    
+    // environments with maybe non-completely correct, but existent Promise
     } else if (!IS_IOS_PEBBLE && Promise && Promise.resolve) {
-        
+        // Promise.resolve without an argument throws an error in LG WebOS 2
         promise = Promise.resolve(undefined);
-        
+        // workaround of WebKit ~ iOS Safari 10.1 bug
         promise.constructor = Promise;
         then = bind(promise.then, promise);
         notify = function() {
             then(flush);
         };
-    
+    // Node.js without promises
     } else if (IS_NODE) {
         notify = function() {
             process.nextTick(flush);
         };
-    
-    
-    
-    
-    
-    
+    // for other environments - macrotask based on:
+    // - setImmediate
+    // - MessageChannel
+    // - window.postMessage
+    // - onreadystatechange
+    // - setTimeout
     } else {
-        
+        // `webpack` dev server bug on IE global methods - use bind(fn, global)
         macrotask = bind(macrotask, globalThis);
         notify = function() {
             macrotask(flush);
@@ -1666,7 +1666,7 @@ module.exports = microtask;
 
 module.exports = function(a, b) {
     try {
-        
+        // eslint-disable-next-line no-console -- safe
         arguments.length === 1 ? console.error(a) : console.error(a, b);
     } catch (error) {}
 };
@@ -1713,17 +1713,17 @@ var NATIVE_PROMISE_REJECTION_EVENT = isCallable(globalThis.PromiseRejectionEvent
 var FORCED_PROMISE_CONSTRUCTOR = isForced('Promise', function() {
     var PROMISE_CONSTRUCTOR_SOURCE = inspectSource(NativePromiseConstructor);
     var GLOBAL_CORE_JS_PROMISE = PROMISE_CONSTRUCTOR_SOURCE !== String(NativePromiseConstructor);
-    
-    
-    
+    // V8 6.6 (Node 10 and Chrome 66) have a bug with resolving custom thenables
+    // https://bugs.chromium.org/p/chromium/issues/detail?id=830565
+    // We can't detect it synchronously, so just check versions
     if (!GLOBAL_CORE_JS_PROMISE && V8_VERSION === 66) return true;
-    
+    // We need Promise#{ catch, finally } in the pure version for preventing prototype pollution
     if (IS_PURE && !(NativePromisePrototype['catch'] && NativePromisePrototype['finally'])) return true;
-    
-    
-    
+    // We can't use @@species feature detection in V8 since it causes
+    // deoptimization and performance degradation
+    // https://github.com/zloirock/core-js/issues/679
     if (!V8_VERSION || V8_VERSION < 51 || !/native code/.test(PROMISE_CONSTRUCTOR_SOURCE)) {
-        
+        // Detect correctness of subclassing with @@species support
         var promise = new NativePromiseConstructor(function(resolve) {
             resolve(1);
         });
@@ -1734,7 +1734,7 @@ var FORCED_PROMISE_CONSTRUCTOR = isForced('Promise', function() {
         constructor[SPECIES] = FakePromise;
         SUBCLASSING = promise.then(function() {}) instanceof FakePromise;
         if (!SUBCLASSING) return true;
-    
+    // Unhandled rejections tracking support, NodeJS Promise without it fails @@species test
     }
     return !GLOBAL_CORE_JS_PROMISE && (ENVIRONMENT === 'BROWSER' || ENVIRONMENT === 'DENO') && !NATIVE_PROMISE_REJECTION_EVENT;
 });
@@ -1759,8 +1759,8 @@ var PromiseCapability = function(C) {
     this.resolve = aCallable(resolve);
     this.reject = aCallable(reject);
 };
-
-
+// `NewPromiseCapability` abstract operation
+// https://tc39.es/ecma262/#sec-newpromisecapability
 module.exports.f = function(C) {
     return new PromiseCapability(C);
 };
@@ -1815,7 +1815,7 @@ var REJECTED = 2;
 var HANDLED = 1;
 var UNHANDLED = 2;
 var Internal, OwnPromiseCapability, PromiseWrapper, nativeThen;
-
+// helpers
 var isThenable = function(it) {
     var then;
     return isObject(it) && isCallable(then = it.then) ? then : false;
@@ -1837,7 +1837,7 @@ var callReaction = function(reaction, state) {
             if (handler === true) result = value;
             else {
                 if (domain) domain.enter();
-                result = handler(value); 
+                result = handler(value); // can throw
                 if (domain) {
                     domain.exit();
                     exited = true;
@@ -1894,7 +1894,7 @@ var onUnhandled = function(state) {
                     process.emit('unhandledRejection', value, promise);
                 } else dispatchEvent(UNHANDLED_REJECTION, promise, value);
             });
-            
+            // Browsers should not trigger `rejectionHandled` event if it was handled here, NodeJS - should
             state.rejection = IS_NODE || isUnhandled(state) ? UNHANDLED : HANDLED;
             if (result.error) throw result.value;
         }
@@ -1953,9 +1953,9 @@ var internalResolve = function(state, value, unwrap) {
         }, error, state);
     }
 };
-
+// constructor polyfill
 if (FORCED_PROMISE_CONSTRUCTOR) {
-    
+    // 25.4.3.1 Promise(executor)
     PromiseConstructor = function Promise(executor) {
         anInstance(this, PromisePrototype);
         aCallable(executor);
@@ -1968,7 +1968,7 @@ if (FORCED_PROMISE_CONSTRUCTOR) {
         }
     };
     PromisePrototype = PromiseConstructor.prototype;
-    
+    // eslint-disable-next-line no-unused-vars -- required for `.length`
     Internal = function Promise(executor) {
         setInternalState(this, {
             type: PROMISE,
@@ -1981,8 +1981,8 @@ if (FORCED_PROMISE_CONSTRUCTOR) {
             value: null
         });
     };
-    
-    
+    // `Promise.prototype.then` method
+    // https://tc39.es/ecma262/#sec-promise.prototype.then
     Internal.prototype = defineBuiltIn(PromisePrototype, 'then', function then(onFulfilled, onRejected) {
         var state = getInternalPromiseState(this);
         var reaction = newPromiseCapability(speciesConstructor(this, PromiseConstructor));
@@ -2009,29 +2009,29 @@ if (FORCED_PROMISE_CONSTRUCTOR) {
     if (!IS_PURE && isCallable(NativePromiseConstructor) && NativePromisePrototype !== Object.prototype) {
         nativeThen = NativePromisePrototype.then;
         if (!NATIVE_PROMISE_SUBCLASSING) {
-            
+            // make `Promise#then` return a polyfilled `Promise` for native promise-based APIs
             defineBuiltIn(NativePromisePrototype, 'then', function then(onFulfilled, onRejected) {
                 var that = this;
                 return new PromiseConstructor(function(resolve, reject) {
                     call(nativeThen, that, resolve, reject);
                 }).then(onFulfilled, onRejected);
-            
+            // https://github.com/zloirock/core-js/issues/640
             }, {
                 unsafe: true
             });
         }
-        
+        // make `.constructor === Promise` work for native promise-based APIs
         try {
             delete NativePromisePrototype.constructor;
         } catch (error) {}
-        
+        // make `instanceof Promise` work for native promise-based APIs
         if (setPrototypeOf) {
             setPrototypeOf(NativePromisePrototype, PromisePrototype);
         }
     }
 }
-
-
+// `Promise` constructor
+// https://tc39.es/ecma262/#sec-promise-executor
 $({
     global: true,
     constructor: true,
@@ -2056,7 +2056,7 @@ var wellKnownSymbol = __turbopack_context__.r("[project]/Desktop/Projects/final-
 var Iterators = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/iterators.js [app-ssr] (ecmascript)");
 var ITERATOR = wellKnownSymbol('iterator');
 var ArrayPrototype = Array.prototype;
-
+// check on default Array iterator
 module.exports = function(it) {
     return it !== undefined && (Iterators.Array === it || ArrayPrototype[ITERATOR] === it);
 };
@@ -2160,7 +2160,7 @@ module.exports = function(iterable, unboundFunction, options) {
     } else {
         iterFn = getIteratorMethod(iterable);
         if (!iterFn) throw new $TypeError(tryToString(iterable) + ' is not iterable');
-        
+        // optimisation for array iterators
         if (isArrayIteratorMethod(iterFn)) {
             for(index = 0, length = lengthOfArrayLike(iterable); length > index; index++){
                 result = callFn(iterable[index]);
@@ -2200,11 +2200,11 @@ try {
             SAFE_CLOSING = true;
         }
     };
-    
+    // eslint-disable-next-line unicorn/no-immediate-mutation -- ES3 syntax limitation
     iteratorWithReturn[ITERATOR] = function() {
         return this;
     };
-    
+    // eslint-disable-next-line es/no-array-from, no-throw-literal -- required for testing
     Array.from(iteratorWithReturn, function() {
         throw 2;
     });
@@ -2214,11 +2214,11 @@ module.exports = function(exec, SKIP_CLOSING) {
         if (!SKIP_CLOSING && !SAFE_CLOSING) return false;
     } catch (error) {
         return false;
-    } 
+    } // workaround of old WebKit + `eval` bug
     var ITERATION_SUPPORT = false;
     try {
         var object = {};
-        
+        // eslint-disable-next-line unicorn/no-immediate-mutation -- ES3 syntax limitation
         object[ITERATOR] = function() {
             return {
                 next: function() {
@@ -2253,8 +2253,8 @@ var newPromiseCapabilityModule = __turbopack_context__.r("[project]/Desktop/Proj
 var perform = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/perform.js [app-ssr] (ecmascript)");
 var iterate = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/iterate.js [app-ssr] (ecmascript)");
 var PROMISE_STATICS_INCORRECT_ITERATION = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/promise-statics-incorrect-iteration.js [app-ssr] (ecmascript)");
-
-
+// `Promise.all` method
+// https://tc39.es/ecma262/#sec-promise.all
 $({
     target: 'Promise',
     stat: true,
@@ -2299,8 +2299,8 @@ var getBuiltIn = __turbopack_context__.r("[project]/Desktop/Projects/final-pixel
 var isCallable = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/is-callable.js [app-ssr] (ecmascript)");
 var defineBuiltIn = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/define-built-in.js [app-ssr] (ecmascript)");
 var NativePromisePrototype = NativePromiseConstructor && NativePromiseConstructor.prototype;
-
-
+// `Promise.prototype.catch` method
+// https://tc39.es/ecma262/#sec-promise.prototype.catch
 $({
     target: 'Promise',
     proto: true,
@@ -2311,7 +2311,7 @@ $({
         return this.then(undefined, onRejected);
     }
 });
-
+// makes sure that native promise-based APIs `Promise#catch` properly works with patched `Promise#then`
 if (!IS_PURE && isCallable(NativePromiseConstructor)) {
     var method = getBuiltIn('Promise').prototype['catch'];
     if (NativePromisePrototype['catch'] !== method) {
@@ -2331,8 +2331,8 @@ var newPromiseCapabilityModule = __turbopack_context__.r("[project]/Desktop/Proj
 var perform = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/perform.js [app-ssr] (ecmascript)");
 var iterate = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/iterate.js [app-ssr] (ecmascript)");
 var PROMISE_STATICS_INCORRECT_ITERATION = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/promise-statics-incorrect-iteration.js [app-ssr] (ecmascript)");
-
-
+// `Promise.race` method
+// https://tc39.es/ecma262/#sec-promise.race
 $({
     target: 'Promise',
     stat: true,
@@ -2359,8 +2359,8 @@ $({
 var $ = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/export.js [app-ssr] (ecmascript)");
 var newPromiseCapabilityModule = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/new-promise-capability.js [app-ssr] (ecmascript)");
 var FORCED_PROMISE_CONSTRUCTOR = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/promise-constructor-detection.js [app-ssr] (ecmascript)").CONSTRUCTOR;
-
-
+// `Promise.reject` method
+// https://tc39.es/ecma262/#sec-promise.reject
 $({
     target: 'Promise',
     stat: true,
@@ -2400,8 +2400,8 @@ var FORCED_PROMISE_CONSTRUCTOR = __turbopack_context__.r("[project]/Desktop/Proj
 var promiseResolve = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/promise-resolve.js [app-ssr] (ecmascript)");
 var PromiseConstructorWrapper = getBuiltIn('Promise');
 var CHECK_WRAPPER = IS_PURE && !FORCED_PROMISE_CONSTRUCTOR;
-
-
+// `Promise.resolve` method
+// https://tc39.es/ecma262/#sec-promise.resolve
 $({
     target: 'Promise',
     stat: true,
@@ -2415,7 +2415,7 @@ $({
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/modules/es.promise.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
+// TODO: Remove this module from `core-js@4` since it's split to modules listed below
 __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/modules/es.promise.constructor.js [app-ssr] (ecmascript)");
 __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/modules/es.promise.all.js [app-ssr] (ecmascript)");
 __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/modules/es.promise.catch.js [app-ssr] (ecmascript)");
@@ -2464,8 +2464,8 @@ module.exports = function(argument) {
 "use strict";
 
 var anObject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/an-object.js [app-ssr] (ecmascript)");
-
-
+// `RegExp.prototype.flags` getter implementation
+// https://tc39.es/ecma262/#sec-get-regexp.prototype.flags
 module.exports = function() {
     var that = anObject(this);
     var result = '';
@@ -2485,20 +2485,20 @@ module.exports = function() {
 
 var fails = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fails.js [app-ssr] (ecmascript)");
 var globalThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-ssr] (ecmascript)");
-
+// babel-minify and Closure Compiler transpiles RegExp('a', 'y') -> /a/y and it causes SyntaxError
 var $RegExp = globalThis.RegExp;
 var UNSUPPORTED_Y = fails(function() {
     var re = $RegExp('a', 'y');
     re.lastIndex = 2;
     return re.exec('abcd') !== null;
 });
-
-
+// UC Browser bug
+// https://github.com/zloirock/core-js/issues/1008
 var MISSED_STICKY = UNSUPPORTED_Y || fails(function() {
     return !$RegExp('a', 'y').sticky;
 });
 var BROKEN_CARET = UNSUPPORTED_Y || fails(function() {
-    
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=773687
     var re = $RegExp('^r', 'gy');
     re.lastIndex = 2;
     return re.exec('str') !== null;
@@ -2514,9 +2514,9 @@ module.exports = {
 
 var internalObjectKeys = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/object-keys-internal.js [app-ssr] (ecmascript)");
 var enumBugKeys = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/enum-bug-keys.js [app-ssr] (ecmascript)");
-
-
-
+// `Object.keys` method
+// https://tc39.es/ecma262/#sec-object.keys
+// eslint-disable-next-line es/no-object-keys -- safe
 module.exports = Object.keys || function keys(O) {
     return internalObjectKeys(O, enumBugKeys);
 };
@@ -2530,9 +2530,9 @@ var definePropertyModule = __turbopack_context__.r("[project]/Desktop/Projects/f
 var anObject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/an-object.js [app-ssr] (ecmascript)");
 var toIndexedObject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-indexed-object.js [app-ssr] (ecmascript)");
 var objectKeys = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/object-keys.js [app-ssr] (ecmascript)");
-
-
-
+// `Object.defineProperties` method
+// https://tc39.es/ecma262/#sec-object.defineproperties
+// eslint-disable-next-line es/no-object-defineproperties -- safe
 exports.f = DESCRIPTORS && !V8_PROTOTYPE_DEFINE_BUG ? Object.defineProperties : function defineProperties(O, Properties) {
     anObject(O);
     var props = toIndexedObject(Properties);
@@ -2547,7 +2547,7 @@ exports.f = DESCRIPTORS && !V8_PROTOTYPE_DEFINE_BUG ? Object.defineProperties : 
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/object-create.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
- var anObject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/an-object.js [app-ssr] (ecmascript)");
+/* global ActiveXObject -- old IE, WSH */ var anObject = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/an-object.js [app-ssr] (ecmascript)");
 var definePropertiesModule = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/object-define-properties.js [app-ssr] (ecmascript)");
 var enumBugKeys = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/enum-bug-keys.js [app-ssr] (ecmascript)");
 var hiddenKeys = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/hidden-keys.js [app-ssr] (ecmascript)");
@@ -2563,24 +2563,24 @@ var EmptyConstructor = function() {};
 var scriptTag = function(content) {
     return LT + SCRIPT + GT + content + LT + '/' + SCRIPT + GT;
 };
-
+// Create object with fake `null` prototype: use ActiveX Object with cleared prototype
 var NullProtoObjectViaActiveX = function(activeXDocument) {
     activeXDocument.write(scriptTag(''));
     activeXDocument.close();
     var temp = activeXDocument.parentWindow.Object;
-    
+    // eslint-disable-next-line no-useless-assignment -- avoid memory leak
     activeXDocument = null;
     return temp;
 };
-
+// Create object with fake `null` prototype: use iframe Object with cleared prototype
 var NullProtoObjectViaIFrame = function() {
-    
+    // Thrash, waste and sodomy: IE GC bug
     var iframe = documentCreateElement('iframe');
     var JS = 'java' + SCRIPT + ':';
     var iframeDocument;
     iframe.style.display = 'none';
     html.appendChild(iframe);
-    
+    // https://github.com/zloirock/core-js/issues/475
     iframe.src = String(JS);
     iframeDocument = iframe.contentWindow.document;
     iframeDocument.open();
@@ -2588,33 +2588,33 @@ var NullProtoObjectViaIFrame = function() {
     iframeDocument.close();
     return iframeDocument.F;
 };
-
-
-
-
-
+// Check for document.domain and active x support
+// No need to use active x approach when document.domain is not set
+// see https://github.com/es-shims/es5-shim/issues/150
+// variation of https://github.com/kitcambridge/es5-shim/commit/4f738ac066346
+// avoid IE GC bug
 var activeXDocument;
 var NullProtoObject = function() {
     try {
         activeXDocument = new ActiveXObject('htmlfile');
     } catch (error) {}
-    NullProtoObject = typeof document != 'undefined' ? document.domain && activeXDocument ? NullProtoObjectViaActiveX(activeXDocument) 
-     : NullProtoObjectViaIFrame() : NullProtoObjectViaActiveX(activeXDocument); 
+    NullProtoObject = typeof document != 'undefined' ? document.domain && activeXDocument ? NullProtoObjectViaActiveX(activeXDocument) // old IE
+     : NullProtoObjectViaIFrame() : NullProtoObjectViaActiveX(activeXDocument); // WSH
     var length = enumBugKeys.length;
     while(length--)delete NullProtoObject[PROTOTYPE][enumBugKeys[length]];
     return NullProtoObject();
 };
 hiddenKeys[IE_PROTO] = true;
-
-
-
+// `Object.create` method
+// https://tc39.es/ecma262/#sec-object.create
+// eslint-disable-next-line es/no-object-create -- safe
 module.exports = Object.create || function create(O, Properties) {
     var result;
     if (O !== null) {
         EmptyConstructor[PROTOTYPE] = anObject(O);
         result = new EmptyConstructor();
         EmptyConstructor[PROTOTYPE] = null;
-        
+        // add "__proto__" for Object.getPrototypeOf polyfill
         result[IE_PROTO] = O;
     } else result = NullProtoObject();
     return Properties === undefined ? result : definePropertiesModule.f(result, Properties);
@@ -2625,7 +2625,7 @@ module.exports = Object.create || function create(O, Properties) {
 
 var fails = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fails.js [app-ssr] (ecmascript)");
 var globalThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-ssr] (ecmascript)");
-
+// babel-minify and Closure Compiler transpiles RegExp('.', 's') -> /./s and it causes SyntaxError
 var $RegExp = globalThis.RegExp;
 module.exports = fails(function() {
     var re = $RegExp('.', 's');
@@ -2637,7 +2637,7 @@ module.exports = fails(function() {
 
 var fails = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fails.js [app-ssr] (ecmascript)");
 var globalThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-ssr] (ecmascript)");
-
+// babel-minify and Closure Compiler transpiles RegExp('(?<a>b)', 'g') -> /(?<a>b)/g and it causes SyntaxError
 var $RegExp = globalThis.RegExp;
 module.exports = fails(function() {
     var re = $RegExp('(?<a>b)', 'g');
@@ -2647,7 +2647,7 @@ module.exports = fails(function() {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/regexp-exec.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-  var call = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-call.js [app-ssr] (ecmascript)");
+/* eslint-disable regexp/no-empty-capturing-group, regexp/no-empty-group, regexp/no-lazy-ends -- testing */ /* eslint-disable regexp/no-useless-quantifier -- testing */ var call = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-call.js [app-ssr] (ecmascript)");
 var uncurryThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-uncurry-this.js [app-ssr] (ecmascript)");
 var toString = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/to-string.js [app-ssr] (ecmascript)");
 var regexpFlags = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/regexp-flags.js [app-ssr] (ecmascript)");
@@ -2672,7 +2672,7 @@ var UPDATES_LAST_INDEX_WRONG = function() {
     return re1.lastIndex !== 0 || re2.lastIndex !== 0;
 }();
 var UNSUPPORTED_Y = stickyHelpers.BROKEN_CARET;
-
+// nonparticipating capturing group, copied from es5-shim's String#split patch.
 var NPCG_INCLUDED = /()??/.exec('')[1] !== undefined;
 var PATCH = UPDATES_LAST_INDEX_WRONG || NPCG_INCLUDED || UNSUPPORTED_Y || UNSUPPORTED_DOT_ALL || UNSUPPORTED_NCG;
 if (PATCH) {
@@ -2700,14 +2700,14 @@ if (PATCH) {
                 flags += 'g';
             }
             strCopy = stringSlice(str, re.lastIndex);
-            
+            // Support anchored sticky behavior.
             if (re.lastIndex > 0 && (!re.multiline || re.multiline && charAt(str, re.lastIndex - 1) !== '\n')) {
                 source = '(?: ' + source + ')';
                 strCopy = ' ' + strCopy;
                 charsAdded++;
             }
-            
-            
+            // ^(? + rx + ) is needed, in combination with some str slicing, to
+            // simulate the 'y' flag.
             reCopy = new RegExp('^(?:' + source + ')', flags);
         }
         if (NPCG_INCLUDED) {
@@ -2726,8 +2726,8 @@ if (PATCH) {
             re.lastIndex = re.global ? match.index + match[0].length : lastIndex;
         }
         if (NPCG_INCLUDED && match && match.length > 1) {
-            
-            
+            // Fix browsers whose `exec` methods don't consistently return `undefined`
+            // for NPCG, like IE8. NOTE: This doesn't work for /(.?)?/
             call(nativeReplace, match[0], reCopy, function() {
                 for(i = 1; i < arguments.length - 2; i++){
                     if (arguments[i] === undefined) match[i] = undefined;
@@ -2751,8 +2751,8 @@ module.exports = patchedExec;
 
 var $ = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/export.js [app-ssr] (ecmascript)");
 var exec = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/regexp-exec.js [app-ssr] (ecmascript)");
-
-
+// `RegExp.prototype.exec` method
+// https://tc39.es/ecma262/#sec-regexp.prototype.exec
 $({
     target: 'RegExp',
     proto: true,
@@ -2764,7 +2764,7 @@ $({
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fix-regexp-well-known-symbol-logic.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
+// TODO: Remove from `core-js@4` since it's moved to entry points
 __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/modules/es.regexp.exec.js [app-ssr] (ecmascript)");
 var call = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/function-call.js [app-ssr] (ecmascript)");
 var defineBuiltIn = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/define-built-in.js [app-ssr] (ecmascript)");
@@ -2777,26 +2777,26 @@ var RegExpPrototype = RegExp.prototype;
 module.exports = function(KEY, exec, FORCED, SHAM) {
     var SYMBOL = wellKnownSymbol(KEY);
     var DELEGATES_TO_SYMBOL = !fails(function() {
-        
+        // String methods call symbol-named RegExp methods
         var O = {};
-        
+        // eslint-disable-next-line unicorn/no-immediate-mutation -- ES3 syntax limitation
         O[SYMBOL] = function() {
             return 7;
         };
         return ''[KEY](O) !== 7;
     });
     var DELEGATES_TO_EXEC = DELEGATES_TO_SYMBOL && !fails(function() {
-        
+        // Symbol-named RegExp methods call .exec
         var execCalled = false;
         var re = /a/;
         if (KEY === 'split') {
-            
-            
-            
-            
-            
+            // We can't use real regex here since it causes deoptimization
+            // and serious performance degradation in V8
+            // https://github.com/zloirock/core-js/issues/306
+            // RegExp[@@split] doesn't call the regex's exec method, but first creates
+            // a new one. We need to return the patched regex when creating the new one.
             var constructor = {};
-            
+            // eslint-disable-next-line unicorn/no-immediate-mutation -- ES3 syntax limitation
             constructor[SPECIES] = function() {
                 return re;
             };
@@ -2804,7 +2804,7 @@ module.exports = function(KEY, exec, FORCED, SHAM) {
                 constructor: constructor,
                 flags: ''
             };
-            
+            // eslint-disable-next-line unicorn/no-immediate-mutation -- ES3 syntax limitation
             re[SYMBOL] = /./[SYMBOL];
         }
         re.exec = function() {
@@ -2820,9 +2820,9 @@ module.exports = function(KEY, exec, FORCED, SHAM) {
             var $exec = regexp.exec;
             if ($exec === regexpExec || $exec === RegExpPrototype.exec) {
                 if (DELEGATES_TO_SYMBOL && !forceStringMethod) {
-                    
-                    
-                    
+                    // The native String method already delegates to @@method (this
+                    // polyfilled function), leasing to infinite recursion.
+                    // We avoid it by directly calling the native @@method method.
                     return {
                         done: true,
                         value: call(nativeRegExpMethod, regexp, str, arg2)
@@ -2865,11 +2865,11 @@ var createMethod = function(CONVERT_TO_STRING) {
     };
 };
 module.exports = {
-    
-    
+    // `String.prototype.codePointAt` method
+    // https://tc39.es/ecma262/#sec-string.prototype.codepointat
     codeAt: createMethod(false),
-    
-    
+    // `String.prototype.at` method
+    // https://github.com/mathiasbynens/String.prototype.at
     charAt: createMethod(true)
 };
 }),
@@ -2877,8 +2877,8 @@ module.exports = {
 "use strict";
 
 var charAt = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/string-multibyte.js [app-ssr] (ecmascript)").charAt;
-
-
+// `AdvanceStringIndex` abstract operation
+// https://tc39.es/ecma262/#sec-advancestringindex
 module.exports = function(S, index, unicode) {
     return index + (unicode ? charAt(S, index).length : 1);
 };
@@ -2888,7 +2888,7 @@ module.exports = function(S, index, unicode) {
 
 var globalThis = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/global-this.js [app-ssr] (ecmascript)");
 var fails = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/fails.js [app-ssr] (ecmascript)");
-
+// babel-minify and Closure Compiler transpiles RegExp('.', 'd') -> /./d and it causes SyntaxError
 var RegExp = globalThis.RegExp;
 var FLAGS_GETTER_IS_CORRECT = !fails(function() {
     var INDICES_SUPPORT = true;
@@ -2898,11 +2898,11 @@ var FLAGS_GETTER_IS_CORRECT = !fails(function() {
         INDICES_SUPPORT = false;
     }
     var O = {};
-    
+    // modern V8 bug
     var calls = '';
     var expected = INDICES_SUPPORT ? 'dgimsy' : 'gimsy';
     var addGetter = function(key, chr) {
-        
+        // eslint-disable-next-line es/no-object-defineproperty -- safe
         Object.defineProperty(O, key, {
             get: function() {
                 calls += chr;
@@ -2919,7 +2919,7 @@ var FLAGS_GETTER_IS_CORRECT = !fails(function() {
     };
     if (INDICES_SUPPORT) pairs.hasIndices = 'd';
     for(var key in pairs)addGetter(key, pairs[key]);
-    
+    // eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
     var result = Object.getOwnPropertyDescriptor(RegExp.prototype, 'flags').get.call(O);
     return result !== expected || calls !== expected;
 });
@@ -2951,8 +2951,8 @@ var isCallable = __turbopack_context__.r("[project]/Desktop/Projects/final-pixel
 var classof = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/classof-raw.js [app-ssr] (ecmascript)");
 var regexpExec = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/regexp-exec.js [app-ssr] (ecmascript)");
 var $TypeError = TypeError;
-
-
+// `RegExpExec` abstract operation
+// https://tc39.es/ecma262/#sec-regexpexec
 module.exports = function(R, S) {
     var exec = R.exec;
     if (isCallable(exec)) {
@@ -2980,18 +2980,18 @@ var advanceStringIndex = __turbopack_context__.r("[project]/Desktop/Projects/fin
 var getRegExpFlags = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/regexp-get-flags.js [app-ssr] (ecmascript)");
 var regExpExec = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/core-js/internals/regexp-exec-abstract.js [app-ssr] (ecmascript)");
 var stringIndexOf = uncurryThis(''.indexOf);
-
+// @@match logic
 fixRegExpWellKnownSymbolLogic('match', function(MATCH, nativeMatch, maybeCallNative) {
     return [
-        
-        
+        // `String.prototype.match` method
+        // https://tc39.es/ecma262/#sec-string.prototype.match
         function match(regexp) {
             var O = requireObjectCoercible(this);
             var matcher = isObject(regexp) ? getMethod(regexp, MATCH) : undefined;
             return matcher ? call(matcher, regexp, O) : new RegExp(regexp)[MATCH](toString(O));
         },
-        
-        
+        // `RegExp.prototype[@@match]` method
+        // https://tc39.es/ecma262/#sec-regexp.prototype-@@match
         function(string) {
             var rx = anObject(this);
             var S = toString(string);
@@ -3024,7 +3024,7 @@ var floor = Math.floor;
 var charAt = uncurryThis(''.charAt);
 var replace = uncurryThis(''.replace);
 var stringSlice = uncurryThis(''.slice);
-
+// eslint-disable-next-line redos/no-vulnerable -- safe
 var SUBSTITUTION_SYMBOLS = /\$([$&'`]|\d{1,2}|<[^>]*>)/g;
 var SUBSTITUTION_SYMBOLS_NO_NAMED = /\$([$&'`]|\d{1,2})/g;
 // `GetSubstitution` abstract operation
@@ -7720,11 +7720,11 @@ function wrapFontFamily(fontFamily) {
 function prepareFontFamily(fontFamily) {
     return typeof process === 'undefined' ? fontFamily : fontFamily.trim().split(',').map(wrapFontFamily).join(',');
 }
-
-
-
-
- function prepareFontStyle(fontStyle) {
+/**
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/font-style
+ * @param fontStyle
+ * @returns CSS font style.
+ */ function prepareFontStyle(fontStyle) {
     if (!fontStyle) {
         return '';
     }
@@ -7744,11 +7744,11 @@ function prepareFontFamily(fontFamily) {
             return '';
     }
 }
-
-
-
-
- function prepareFontWeight(fontWeight) {
+/**
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
+ * @param fontWeight
+ * @returns CSS font weight.
+ */ function prepareFontWeight(fontWeight) {
     if (!fontWeight) {
         return '';
     }
@@ -7960,10 +7960,10 @@ class BoundingBox {
         this.bezierCurveAdd(false, p0y, p1y, p2y, p3y);
     }
     addQuadraticCurve(p0x, p0y, p1x, p1y, p2x, p2y) {
-        var cp1x = p0x + 2 / 3 * (p1x - p0x); 
-        var cp1y = p0y + 2 / 3 * (p1y - p0y); 
-        var cp2x = cp1x + 1 / 3 * (p2x - p0x); 
-        var cp2y = cp1y + 1 / 3 * (p2y - p0y); 
+        var cp1x = p0x + 2 / 3 * (p1x - p0x); // CP1 = QP0 + 2/3 *(QP1-QP0)
+        var cp1y = p0y + 2 / 3 * (p1y - p0y); // CP1 = QP0 + 2/3 *(QP1-QP0)
+        var cp2x = cp1x + 1 / 3 * (p2x - p0x); // CP2 = CP1 + 1/3 *(QP2-QP0)
+        var cp2y = cp1y + 1 / 3 * (p2y - p0y); // CP2 = CP1 + 1/3 *(QP2-QP0)
         this.addBezierCurve(p0x, p0y, cp1x, cp2x, cp1y, cp2y, p2x, p2y);
     }
     isPointInBox(x, y) {
@@ -7973,8 +7973,8 @@ class BoundingBox {
 }
 class PathParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$svg$2d$pathdata$2f$lib$2f$SVGPathData$2e$module$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SVGPathData"] {
     constructor(path){
-        super(path 
-        .replace(/([+\-.])\s+/gm, '$1') 
+        super(path // Fix spaces after signs.
+        .replace(/([+\-.])\s+/gm, '$1') // Remove invalid part.
         .replace(/[^MmZzLlHhVvCcSsQqTtAae\d\s.,+-].*/g, ''));
         this.control = null;
         this.start = null;
@@ -8026,7 +8026,7 @@ class PathParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Desktop
         var previousCommand = this.previousCommand.type;
         if (previousCommand !== __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$svg$2d$pathdata$2f$lib$2f$SVGPathData$2e$module$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SVGPathData"].CURVE_TO && previousCommand !== __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$svg$2d$pathdata$2f$lib$2f$SVGPathData$2e$module$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SVGPathData"].SMOOTH_CURVE_TO && previousCommand !== __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$svg$2d$pathdata$2f$lib$2f$SVGPathData$2e$module$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SVGPathData"].QUAD_TO && previousCommand !== __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$svg$2d$pathdata$2f$lib$2f$SVGPathData$2e$module$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SVGPathData"].SMOOTH_QUAD_TO) {
             return this.current;
-        } 
+        } // reflect point
         var { current: { x: cx, y: cy }, control: { x: ox, y: oy } } = this;
         var point = new Point(2 * cx - ox, 2 * cy - oy);
         return point;
@@ -8040,7 +8040,7 @@ class PathParser extends __TURBOPACK__imported__module__$5b$project$5d2f$Desktop
         return point;
     }
     addMarker(point, from, priorTo) {
-        var { points, angles } = this; 
+        var { points, angles } = this; // if the last angle isn't filled in because we didn't have this point yet ...
         if (priorTo && angles.length > 0 && !angles[angles.length - 1]) {
             angles[angles.length - 1] = points[points.length - 1].angleTo(priorTo);
         }
@@ -8075,10 +8075,10 @@ class RenderedElement extends Element {
         this.modifiedEmSizeStack = false;
     }
     calculateOpacity() {
-        var opacity = 1.0; 
+        var opacity = 1.0; // eslint-disable-next-line @typescript-eslint/no-this-alias, consistent-this
         var element = this;
         while(element){
-            var opacityStyle = element.getStyle('opacity', false, true); 
+            var opacityStyle = element.getStyle('opacity', false, true); // no ancestors on style call
             if (opacityStyle.hasValue(true)) {
                 opacity *= opacityStyle.getNumber();
             }
@@ -8089,8 +8089,8 @@ class RenderedElement extends Element {
     setContext(ctx) {
         var fromMeasure = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
         if (!fromMeasure) {
-            
-            
+            // causes stack overflow when measuring text with gradients
+            // fill
             var fillStyleProp = this.getStyle('fill');
             var fillOpacityStyleProp = this.getStyle('fill-opacity');
             var strokeStyleProp = this.getStyle('stroke');
@@ -8112,7 +8112,7 @@ class RenderedElement extends Element {
             if (fillOpacityStyleProp.hasValue()) {
                 var _fillStyle2 = new Property(this.document, 'fill', ctx.fillStyle).addOpacity(fillOpacityStyleProp).getColor();
                 ctx.fillStyle = _fillStyle2;
-            } 
+            } // stroke
             if (strokeStyleProp.isUrlDefinition()) {
                 var strokeStyle = strokeStyleProp.getFillStyleDefinition(this, strokeOpacityProp);
                 if (strokeStyle) {
@@ -8134,13 +8134,13 @@ class RenderedElement extends Element {
             var strokeWidthStyleProp = this.getStyle('stroke-width');
             if (strokeWidthStyleProp.hasValue()) {
                 var newLineWidth = strokeWidthStyleProp.getPixels();
-                ctx.lineWidth = !newLineWidth ? PSEUDO_ZERO 
+                ctx.lineWidth = !newLineWidth ? PSEUDO_ZERO // browsers don't respect 0 (or node-canvas? :-)
                  : newLineWidth;
             }
             var strokeLinecapStyleProp = this.getStyle('stroke-linecap');
             var strokeLinejoinStyleProp = this.getStyle('stroke-linejoin');
-            var strokeMiterlimitProp = this.getStyle('stroke-miterlimit'); 
-            
+            var strokeMiterlimitProp = this.getStyle('stroke-miterlimit'); // NEED TEST
+            // const pointOrderStyleProp = this.getStyle('paint-order');
             var strokeDasharrayStyleProp = this.getStyle('stroke-dasharray');
             var strokeDashoffsetProp = this.getStyle('stroke-dashoffset');
             if (strokeLinecapStyleProp.hasValue()) {
@@ -8151,34 +8151,34 @@ class RenderedElement extends Element {
             }
             if (strokeMiterlimitProp.hasValue()) {
                 ctx.miterLimit = strokeMiterlimitProp.getNumber();
-            } 
-            
-            
-            
-            
+            } // NEED TEST
+            // if (pointOrderStyleProp.hasValue()) {
+            // 	// ?
+            // 	ctx.paintOrder = pointOrderStyleProp.getValue();
+            // }
             if (strokeDasharrayStyleProp.hasValue() && strokeDasharrayStyleProp.getString() !== 'none') {
                 var gaps = toNumbers(strokeDasharrayStyleProp.getString());
                 if (typeof ctx.setLineDash !== 'undefined') {
                     ctx.setLineDash(gaps);
                 } else if (typeof ctx.webkitLineDash !== 'undefined') {
-                    
+                    // @ts-expect-error Handle browser prefix.
                     ctx.webkitLineDash = gaps;
                 } else if (typeof ctx.mozDash !== 'undefined' && !(gaps.length === 1 && gaps[0] === 0)) {
-                    
+                    // @ts-expect-error Handle browser prefix.
                     ctx.mozDash = gaps;
                 }
                 var offset = strokeDashoffsetProp.getPixels();
                 if (typeof ctx.lineDashOffset !== 'undefined') {
                     ctx.lineDashOffset = offset;
                 } else if (typeof ctx.webkitLineDashOffset !== 'undefined') {
-                    
+                    // @ts-expect-error Handle browser prefix.
                     ctx.webkitLineDashOffset = offset;
                 } else if (typeof ctx.mozDashOffset !== 'undefined') {
-                    
+                    // @ts-expect-error Handle browser prefix.
                     ctx.mozDashOffset = offset;
                 }
             }
-        } 
+        } // font
         this.modifiedEmSizeStack = false;
         if (typeof ctx.font !== 'undefined') {
             var fontStyleProp = this.getStyle('font');
@@ -8200,8 +8200,8 @@ class RenderedElement extends Element {
             }
         }
         if (!fromMeasure) {
-            
-            this.applyEffects(ctx); 
+            // effects
+            this.applyEffects(ctx); // opacity
             ctx.globalAlpha = this.calculateOpacity();
         }
     }
@@ -8479,29 +8479,29 @@ class PathElement extends RenderedElement {
         var { current, command } = pathParser;
         var { rX, rY, xRot, lArcFlag, sweepFlag } = command;
         var xAxisRotation = xRot * (Math.PI / 180.0);
-        var currentPoint = pathParser.getAsCurrentPoint(); 
-        
-        
-        var currp = new Point(Math.cos(xAxisRotation) * (current.x - currentPoint.x) / 2.0 + Math.sin(xAxisRotation) * (current.y - currentPoint.y) / 2.0, -Math.sin(xAxisRotation) * (current.x - currentPoint.x) / 2.0 + Math.cos(xAxisRotation) * (current.y - currentPoint.y) / 2.0); 
+        var currentPoint = pathParser.getAsCurrentPoint(); // Conversion from endpoint to center parameterization
+        // http://www.w3.org/TR/SVG11/implnote.html#ArcImplementationNotes
+        // x1', y1'
+        var currp = new Point(Math.cos(xAxisRotation) * (current.x - currentPoint.x) / 2.0 + Math.sin(xAxisRotation) * (current.y - currentPoint.y) / 2.0, -Math.sin(xAxisRotation) * (current.x - currentPoint.x) / 2.0 + Math.cos(xAxisRotation) * (current.y - currentPoint.y) / 2.0); // adjust radii
         var l = Math.pow(currp.x, 2) / Math.pow(rX, 2) + Math.pow(currp.y, 2) / Math.pow(rY, 2);
         if (l > 1) {
             rX *= Math.sqrt(l);
             rY *= Math.sqrt(l);
-        } 
+        } // cx', cy'
         var s = (lArcFlag === sweepFlag ? -1 : 1) * Math.sqrt((Math.pow(rX, 2) * Math.pow(rY, 2) - Math.pow(rX, 2) * Math.pow(currp.y, 2) - Math.pow(rY, 2) * Math.pow(currp.x, 2)) / (Math.pow(rX, 2) * Math.pow(currp.y, 2) + Math.pow(rY, 2) * Math.pow(currp.x, 2)));
         if (isNaN(s)) {
             s = 0;
         }
-        var cpp = new Point(s * rX * currp.y / rY, s * -rY * currp.x / rX); 
-        var centp = new Point((current.x + currentPoint.x) / 2.0 + Math.cos(xAxisRotation) * cpp.x - Math.sin(xAxisRotation) * cpp.y, (current.y + currentPoint.y) / 2.0 + Math.sin(xAxisRotation) * cpp.x + Math.cos(xAxisRotation) * cpp.y); 
+        var cpp = new Point(s * rX * currp.y / rY, s * -rY * currp.x / rX); // cx, cy
+        var centp = new Point((current.x + currentPoint.x) / 2.0 + Math.cos(xAxisRotation) * cpp.x - Math.sin(xAxisRotation) * cpp.y, (current.y + currentPoint.y) / 2.0 + Math.sin(xAxisRotation) * cpp.x + Math.cos(xAxisRotation) * cpp.y); // initial angle
         var a1 = vectorsAngle([
             1,
             0
         ], [
             (currp.x - cpp.x) / rX,
             (currp.y - cpp.y) / rY
-        ]); 
-        
+        ]); // θ1
+        // angle delta
         var u = [
             (currp.x - cpp.x) / rX,
             (currp.y - cpp.y) / rY
@@ -8510,7 +8510,7 @@ class PathElement extends RenderedElement {
             (-currp.x - cpp.x) / rX,
             (-currp.y - cpp.y) / rY
         ];
-        var ad = vectorsAngle(u, v); 
+        var ad = vectorsAngle(u, v); // Δθ
         if (vectorsRatio(u, v) <= -1) {
             ad = Math.PI;
         }
@@ -8530,13 +8530,13 @@ class PathElement extends RenderedElement {
     }
     pathA(ctx, boundingBox) {
         var { pathParser } = this;
-        var { currentPoint, rX, rY, sweepFlag, xAxisRotation, centp, a1, ad } = PathElement.pathA(pathParser); 
+        var { currentPoint, rX, rY, sweepFlag, xAxisRotation, centp, a1, ad } = PathElement.pathA(pathParser); // for markers
         var dir = 1 - sweepFlag ? 1.0 : -1.0;
         var ah = a1 + dir * (ad / 2.0);
         var halfWay = new Point(centp.x + rX * Math.cos(ah), centp.y + rY * Math.sin(ah));
         pathParser.addMarkerAngle(halfWay, ah - dir * Math.PI / 2);
         pathParser.addMarkerAngle(currentPoint, ah - dir * Math.PI);
-        boundingBox.addPoint(currentPoint.x, currentPoint.y); 
+        boundingBox.addPoint(currentPoint.x, currentPoint.y); // TODO: this is too naive, make it better
         if (ctx && !isNaN(a1) && !isNaN(ad)) {
             var r = rX > rY ? rX : rY;
             var sx = rX > rY ? 1 : rX / rY;
@@ -8556,7 +8556,7 @@ class PathElement extends RenderedElement {
     pathZ(ctx, boundingBox) {
         PathElement.pathZ(this.pathParser);
         if (ctx) {
-            
+            // only close path if it is not a straight line
             if (boundingBox.x1 !== boundingBox.x2 && boundingBox.y1 !== boundingBox.y2) {
                 ctx.closePath();
             }
@@ -8599,10 +8599,10 @@ class TextElement extends RenderedElement {
     getBoundingBox(ctx) {
         if (this.type !== 'text') {
             return this.getTElementBoundingBox(ctx);
-        } 
+        } // first, calculate child positions
         this.initializeCoordinates();
         this.adjustChildCoordinatesRecursive(ctx);
-        var boundingBox = null; 
+        var boundingBox = null; // then calculate bounding box
         this.children.forEach((_, i)=>{
             var childBoundingBox = this.getChildBoundingBox(ctx, this, this, i);
             if (!boundingBox) {
@@ -8641,7 +8641,7 @@ class TextElement extends RenderedElement {
                 arabicForm = 'initial';
             }
             if (typeof font.glyphs[char] !== 'undefined') {
-                
+                // NEED TEST
                 var maybeGlyph = font.glyphs[char];
                 glyph = maybeGlyph instanceof GlyphElement ? maybeGlyph : maybeGlyph[arabicForm];
             }
@@ -8661,7 +8661,7 @@ class TextElement extends RenderedElement {
         var childNodes = Array.from(textNode.parentNode.childNodes);
         var index = childNodes.indexOf(textNode);
         var lastIndex = childNodes.length - 1;
-        var text = compressSpaces(
+        var text = compressSpaces(// || textNode.text
         textNode.textContent || '');
         if (index === 0) {
             text = trimLeft(text);
@@ -8675,13 +8675,13 @@ class TextElement extends RenderedElement {
         if (this.type !== 'text') {
             this.renderTElementChildren(ctx);
             return;
-        } 
+        } // first, calculate child positions
         this.initializeCoordinates();
-        this.adjustChildCoordinatesRecursive(ctx); 
+        this.adjustChildCoordinatesRecursive(ctx); // then render
         this.children.forEach((_, i)=>{
             this.renderChild(ctx, this, this, i);
         });
-        var { mouse } = this.document.screen; 
+        var { mouse } = this.document.screen; // Do not calc bounding box if mouse is not working.
         if (mouse.isWorking()) {
             mouse.checkBoundingBox(this, this.getBoundingBox(ctx));
         }
@@ -8722,31 +8722,31 @@ class TextElement extends RenderedElement {
             }
             return;
         }
-        var { x, y } = this; 
-        
-        
-        
-        
-        
-        
-        
-        
+        var { x, y } = this; // NEED TEST
+        // if (ctx.paintOrder === 'stroke') {
+        // 	if (ctx.strokeStyle) {
+        // 		ctx.strokeText(renderText, x, y);
+        // 	}
+        // 	if (ctx.fillStyle) {
+        // 		ctx.fillText(renderText, x, y);
+        // 	}
+        // } else {
         if (ctx.fillStyle) {
             ctx.fillText(renderText, x, y);
         }
         if (ctx.strokeStyle) {
             ctx.strokeText(renderText, x, y);
-        } 
+        } // }
     }
     applyAnchoring() {
         if (this.textChunkStart >= this.leafTexts.length) {
             return;
-        } 
-        
-        
+        } // This is basically the "Apply anchoring" part of https://www.w3.org/TR/SVG2/text.html#TextLayoutAlgorithm.
+        // The difference is that we apply the anchoring as soon as a chunk is finished. This saves some extra looping.
+        // Vertical text is not supported.
         var firstElement = this.leafTexts[this.textChunkStart];
         var textAnchor = firstElement.getStyle('text-anchor').getString('start');
-        var isRTL = false; 
+        var isRTL = false; // we treat RTL like LTR
         var shift = 0;
         if (textAnchor === 'start' && !isRTL || textAnchor === 'end' && isRTL) {
             shift = firstElement.x - this.minX;
@@ -8757,7 +8757,7 @@ class TextElement extends RenderedElement {
         }
         for(var i = this.textChunkStart; i < this.leafTexts.length; i++){
             this.leafTexts[i].x += shift;
-        } 
+        } // start new chunk
         this.minX = Number.POSITIVE_INFINITY;
         this.maxX = Number.NEGATIVE_INFINITY;
         this.textChunkStart = this.leafTexts.length;
@@ -8775,7 +8775,7 @@ class TextElement extends RenderedElement {
                 textParent.adjustChildCoordinatesRecursiveCore(ctx, textParent, child, i);
             });
         } else {
-            
+            // only leafs are relevant
             this.adjustChildCoordinates(ctx, textParent, parent, i);
         }
     }
@@ -8793,8 +8793,8 @@ class TextElement extends RenderedElement {
         var customFont = child.getStyle('font-family').getDefinition();
         var isRTL = Boolean(customFont) && customFont.isRTL;
         if (i === 0) {
-            
-            
+            // First children inherit attributes from parent(s). Positional attributes
+            // are only inherited from a parent to it's first child.
             if (!xAttr.hasValue()) {
                 xAttr.setValue(child.getInheritedAttribute('x'));
             }
@@ -8813,7 +8813,7 @@ class TextElement extends RenderedElement {
             textParent.x -= width;
         }
         if (xAttr.hasValue()) {
-            
+            // an "x" attribute marks the start of a new chunk
             textParent.applyAnchoring();
             child.x = xAttr.getPixels('x');
             if (dxAttr.hasValue()) {
@@ -8840,7 +8840,7 @@ class TextElement extends RenderedElement {
             }
             child.y = textParent.y;
         }
-        textParent.y = child.y; 
+        textParent.y = child.y; // update the current chunk and it's bounds
         textParent.leafTexts.push(child);
         textParent.minX = Math.min(textParent.minX, child.x, child.x + width);
         textParent.maxX = Math.max(textParent.maxX, child.x, child.x + width);
@@ -8849,7 +8849,7 @@ class TextElement extends RenderedElement {
         return child;
     }
     getChildBoundingBox(ctx, textParent, parent, i) {
-        var child = parent.children[i]; 
+        var child = parent.children[i]; // not a text node?
         if (typeof child.getBoundingBox !== 'function') {
             return null;
         }
@@ -8911,13 +8911,13 @@ class TextElement extends RenderedElement {
         ctx.restore();
         return measure;
     }
-    
-
-
-
-
- getInheritedAttribute(name) {
-        
+    /**
+   * Inherits positional attributes from {@link TextElement} parent(s). Attributes
+   * are only inherited from a parent to its first child.
+   * @param name - The attribute name.
+   * @returns The attribute value or null.
+   */ getInheritedAttribute(name) {
+        // eslint-disable-next-line @typescript-eslint/no-this-alias,consistent-this
         var current = this;
         while(current instanceof TextElement && current.isFirstChild()){
             var parentAttr = current.parent.getAttribute(name);
@@ -8932,7 +8932,7 @@ class TextElement extends RenderedElement {
 class TSpanElement extends TextElement {
     constructor(document1, node, captureTextNodes){
         super(document1, node, new.target === TSpanElement ? true : captureTextNodes);
-        this.type = 'tspan'; 
+        this.type = 'tspan'; // if this node has children, then they own the text
         this.text = this.children.length > 0 ? '' : this.getTextFromNode();
     }
     getText() {
@@ -8964,7 +8964,7 @@ class SVGElement extends RenderedElement {
                 document1.rootEmSize = fontSizeProp.getPixels('y');
                 document1.emSize = document1.rootEmSize;
             }
-        } 
+        } // create new view port
         if (!this.getAttribute('x').hasValue()) {
             this.getAttribute('x', true).setValue(0);
         }
@@ -9004,9 +9004,9 @@ class SVGElement extends RenderedElement {
                 minY = 0;
             }
         }
-        screen.viewPort.setCurrent(width, height); 
-        
-        if (this.node 
+        screen.viewPort.setCurrent(width, height); // Default value of transform-origin is center only for root SVG elements
+        // https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform-origin
+        if (this.node // is not temporary SVGElement
          && (!this.parent || ((_this$node$parentNode = this.node.parentNode) === null || _this$node$parentNode === void 0 ? void 0 : _this$node$parentNode.nodeName) === 'foreignObject') && this.getStyle('transform', false, true).hasValue() && !this.getStyle('transform-origin', false, true).hasValue()) {
             this.getStyle('transform-origin', true, true).setValue('50% 50%');
         }
@@ -9040,12 +9040,12 @@ class SVGElement extends RenderedElement {
         super.clearContext(ctx);
         this.document.screen.viewPort.removeCurrent();
     }
-    
-
-
-
-
- resize(width) {
+    /**
+   * Resize SVG to fit in given size.
+   * @param width
+   * @param height
+   * @param preserveAspectRatio
+   */ resize(width) {
         var height = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : width;
         var preserveAspectRatio = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
         var widthAttr = this.getAttribute('width', true);
@@ -9105,7 +9105,7 @@ class RectElement extends PathElement {
         ry = Math.min(ry, height / 2.0);
         if (ctx) {
             var KAPPA = 4 * ((Math.sqrt(2) - 1) / 3);
-            ctx.beginPath(); 
+            ctx.beginPath(); // always start the path so we don't fill prior paths
             if (height > 0 && width > 0) {
                 ctx.moveTo(x + rx, y);
                 ctx.lineTo(x + width - rx, y);
@@ -9274,7 +9274,7 @@ class PatternElement extends Element {
     }
     createPattern(ctx, _, parentOpacityProp) {
         var width = this.getStyle('width').getPixels('x', true);
-        var height = this.getStyle('height').getPixels('y', true); 
+        var height = this.getStyle('height').getPixels('y', true); // render me using a temporary svg element
         var patternSvg = new SVGElement(this.document, null);
         patternSvg.attributes.viewBox = new Property(this.document, 'viewBox', this.getAttribute('viewBox').getValue());
         patternSvg.attributes.width = new Property(this.document, 'width', "".concat(width, "px"));
@@ -9292,7 +9292,7 @@ class PatternElement extends Element {
             this.styles['fill-opacity'] = parentOpacityProp;
         } else {
             Reflect.deleteProperty(this.styles, 'fill-opacity');
-        } 
+        } // render 3x3 grid so when we transform there's no white space on edges
         for(var x = -1; x <= 1; x++){
             for(var y = -1; y <= 1; y++){
                 patternCtx.save();
@@ -9325,7 +9325,7 @@ class MarkerElement extends Element {
         if (markerUnits === 'strokeWidth') {
             ctx.scale(ctx.lineWidth, ctx.lineWidth);
         }
-        ctx.save(); 
+        ctx.save(); // render me using a temporary svg element
         var markerSvg = new SVGElement(this.document, null);
         markerSvg.type = this.type;
         markerSvg.attributes.viewBox = new Property(this.document, 'viewBox', this.getAttribute('viewBox').getValue());
@@ -9386,7 +9386,7 @@ class GradientElement extends Element {
         return this.getAttribute('gradientUnits').getString('objectBoundingBox');
     }
     createGradient(ctx, element, parentOpacityProp) {
-        
+        // eslint-disable-next-line @typescript-eslint/no-this-alias, consistent-this
         var stopsContainer = this;
         if (this.getHrefAttribute().hasValue()) {
             stopsContainer = this.getHrefAttribute().getDefinition();
@@ -9401,7 +9401,7 @@ class GradientElement extends Element {
             gradient.addColorStop(stop.offset, this.addParentOpacity(parentOpacityProp, stop.color));
         });
         if (this.getAttribute('gradientTransform').hasValue()) {
-            
+            // render as transformed pattern on temporary canvas
             var { document: document1 } = this;
             var { MAX_VIRTUAL_PIXELS, viewPort } = document1.screen;
             var [rootView] = viewPort.viewPorts;
@@ -9557,22 +9557,22 @@ class AnimateElement extends Element {
     }
     calcValue() {
         var { initialUnits } = this;
-        var { progress, from, to } = this.getProgress(); 
+        var { progress, from, to } = this.getProgress(); // tween value linearly
         var newValue = from.getNumber() + (to.getNumber() - from.getNumber()) * progress;
         if (initialUnits === '%') {
-            newValue *= 100.0; 
+            newValue *= 100.0; // numValue() returns 0-1 whereas properties are 0-100
         }
         return "".concat(newValue).concat(initialUnits);
     }
     update(delta) {
         var { parent } = this;
-        var prop = this.getProperty(); 
+        var prop = this.getProperty(); // set initial value
         if (!this.initialValue) {
             this.initialValue = prop.getString();
             this.initialUnits = prop.getUnits();
-        } 
+        } // if we're past the end time
         if (this.duration > this.maxDuration) {
-            var fill = this.getAttribute('fill').getString('remove'); 
+            var fill = this.getAttribute('fill').getString('remove'); // loop for indefinitely repeating animations
             if (this.getAttribute('repeatCount').getString() === 'indefinite' || this.getAttribute('repeatDur').getString() === 'indefinite') {
                 this.duration = 0;
             } else if (fill === 'freeze' && !this.frozen) {
@@ -9586,13 +9586,13 @@ class AnimateElement extends Element {
             }
             return false;
         }
-        this.duration += delta; 
+        this.duration += delta; // if we're past the begin time
         var updated = false;
         if (this.begin < this.duration) {
-            var newValue = this.calcValue(); 
+            var newValue = this.calcValue(); // tween
             var typeAttr = this.getAttribute('type');
             if (typeAttr.hasValue()) {
-                
+                // for transform, etc.
                 var type = typeAttr.getString();
                 newValue = "".concat(type, "(").concat(newValue, ")");
             }
@@ -9630,10 +9630,10 @@ class AnimateColorElement extends AnimateElement {
         var colorFrom = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$rgbcolor$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"](from.getColor());
         var colorTo = new __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$rgbcolor$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"](to.getColor());
         if (colorFrom.ok && colorTo.ok) {
-            
+            // tween color linearly
             var r = colorFrom.r + (colorTo.r - colorFrom.r) * progress;
             var g = colorFrom.g + (colorTo.g - colorFrom.g) * progress;
-            var b = colorFrom.b + (colorTo.b - colorFrom.b) * progress; 
+            var b = colorFrom.b + (colorTo.b - colorFrom.b) * progress; // ? alpha
             return "rgb(".concat(Math.floor(r), ", ").concat(Math.floor(g), ", ").concat(Math.floor(b), ")");
         }
         return this.getAttribute('from').getColor();
@@ -9645,7 +9645,7 @@ class AnimateTransformElement extends AnimateElement {
         this.type = 'animateTransform';
     }
     calcValue() {
-        var { progress, from, to } = this.getProgress(); 
+        var { progress, from, to } = this.getProgress(); // tween value linearly
         var transformFrom = toNumbers(from.getString());
         var transformTo = toNumbers(to.getString());
         var newValue = transformFrom.map((from, i)=>{
@@ -9744,16 +9744,16 @@ class AElement extends TextElement {
     }
     renderChildren(ctx) {
         if (this.hasText) {
-            
+            // render as text element
             super.renderChildren(ctx);
             var { document: document1, x, y } = this;
             var { mouse } = document1.screen;
-            var fontSize = new Property(document1, 'fontSize', Font.parse(document1.ctx.font).fontSize); 
+            var fontSize = new Property(document1, 'fontSize', Font.parse(document1.ctx.font).fontSize); // Do not calc bounding box if mouse is not working.
             if (mouse.isWorking()) {
                 mouse.checkBoundingBox(this, new BoundingBox(x, y - fontSize.getPixels('y'), x + this.measureText(ctx), y));
             }
         } else if (this.children.length > 0) {
-            
+            // render as temporary group
             var g = new GElement(this.document, null);
             g.children = this.children;
             g.parent = this;
@@ -9903,17 +9903,17 @@ class TextPathElement extends TextElement {
                     ctx.moveTo(p0.x, p0.y + fontSize / 8);
                 }
                 ctx.lineTo(p1.x, p1.y + fontSize / 5);
-            } 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+            } // // To assist with debugging visually, uncomment following
+        //
+        // ctx.beginPath();
+        // if (i % 2)
+        // 	ctx.strokeStyle = 'red';
+        // else
+        // 	ctx.strokeStyle = 'green';
+        // ctx.moveTo(p0.x, p0.y);
+        // ctx.lineTo(p1.x, p1.y);
+        // ctx.stroke();
+        // ctx.closePath();
         });
         if (textDecoration === 'underline') {
             ctx.lineWidth = fontSize / 20;
@@ -9973,8 +9973,8 @@ class TextPathElement extends TextElement {
         measuresCache.set(targetText, measure);
         return measure;
     }
-    
-    
+    // If some font will be loaded after this method call, <textPath> will not be rendered correctly.
+    // You need to call this method manually to update glyphs cache.
     setTextData(ctx) {
         if (this.glyphInfo) {
             return;
@@ -9994,7 +9994,7 @@ class TextPathElement extends TextElement {
             if (thisSpacing.getValue() !== 'initial' && thisSpacing.getValue() !== 'unset') {
                 letterSpacing = thisSpacing.getPixels();
             }
-        } 
+        } // fill letter-spacing cache
         var letterSpacingCache = [];
         var textLen = renderText.length;
         this.letterSpacingCache = letterSpacingCache;
@@ -10018,29 +10018,29 @@ class TextPathElement extends TextElement {
         }
         offset += startOffset;
         chars.forEach((char, i)=>{
-            
+            // Find such segment what distance between p0 and p1 is approx. width of glyph
             var { offset: nextOffset, segment, rotation } = this.findSegmentToFitChar(ctx, anchor, textFullWidth, fullPathWidth, spacesNumber, offset, dy, char, i);
             offset = nextOffset;
             if (!segment.p0 || !segment.p1) {
                 return;
-            } 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            } // const width = this.getLineLength(
+            // 	segment.p0.x,
+            // 	segment.p0.y,
+            // 	segment.p1.x,
+            // 	segment.p1.y
+            // );
+            // Note: Since glyphs are rendered one at a time, any kerning pair data built into the font will not be used.
+            // Can foresee having a rough pair table built in that the developer can override as needed.
+            // Or use "dx" attribute of the <text> node as a naive replacement
+            // const kern = 0;
+            // placeholder for future implementation
+            // const midpoint = this.getPointOnLine(
+            // 	kern + width / 2.0,
+            // 	segment.p0.x, segment.p0.y, segment.p1.x, segment.p1.y
+            // );
             this.glyphInfo.push({
-                
-                
+                // transposeX: midpoint.x,
+                // transposeY: midpoint.y,
                 text: chars[i],
                 p0: segment.p0,
                 p1: segment.p1,
@@ -10049,13 +10049,13 @@ class TextPathElement extends TextElement {
         });
     }
     parsePathData(path) {
-        this.pathLength = -1; 
+        this.pathLength = -1; // reset path length
         if (!path) {
             return [];
         }
         var pathCommands = [];
         var { pathParser } = path;
-        pathParser.reset(); 
+        pathParser.reset(); // convert l, H, h, V, and v to L
         while(!pathParser.isEnd()){
             var { current } = pathParser;
             var startX = current ? current.x : 0;
@@ -10180,7 +10180,7 @@ class TextPathElement extends TextElement {
             case PathParser.LINE_TO:
                 return this.getLineLength(x, y, points[0], points[1]);
             case PathParser.CURVE_TO:
-                
+                // Approximates by breaking curve into 100 line segments
                 len = 0.0;
                 p1 = this.getPointOnCubicBezier(0, x, y, points[0], points[1], points[2], points[3], points[4], points[5]);
                 for(t = 0.01; t <= 1; t += 0.01){
@@ -10190,7 +10190,7 @@ class TextPathElement extends TextElement {
                 }
                 return len;
             case PathParser.QUAD_TO:
-                
+                // Approximates by breaking curve into 100 line segments
                 len = 0.0;
                 p1 = this.getPointOnQuadraticBezier(0, x, y, points[0], points[1], points[2], points[3]);
                 for(t = 0.01; t <= 1; t += 0.01){
@@ -10201,25 +10201,25 @@ class TextPathElement extends TextElement {
                 return len;
             case PathParser.ARC:
                 {
-                    
+                    // Approximates by breaking curve into line segments
                     len = 0.0;
-                    var start = points[4]; 
-                    var dTheta = points[5]; 
+                    var start = points[4]; // 4 = theta
+                    var dTheta = points[5]; // 5 = dTheta
                     var end = points[4] + dTheta;
-                    var inc = Math.PI / 180.0; 
+                    var inc = Math.PI / 180.0; // 1 degree resolution
                     if (Math.abs(start - end) < inc) {
                         inc = Math.abs(start - end);
-                    } 
+                    } // Note: for purpose of calculating arc length, not going to worry about rotating X-axis by angle psi
                     p1 = this.getPointOnEllipticalArc(points[0], points[1], points[2], points[3], start, 0);
                     if (dTheta < 0) {
-                        
+                        // clockwise
                         for(t = start - inc; t > end; t -= inc){
                             p2 = this.getPointOnEllipticalArc(points[0], points[1], points[2], points[3], t, 0);
                             len += this.getLineLength(p1.x, p1.y, p2.x, p2.y);
                             p1 = p2;
                         }
                     } else {
-                        
+                        // counter-clockwise
                         for(t = start + inc; t < end; t += inc){
                             p2 = this.getPointOnEllipticalArc(points[0], points[1], points[2], points[3], t, 0);
                             len += this.getLineLength(p1.x, p1.y, p2.x, p2.y);
@@ -10244,7 +10244,7 @@ class TextPathElement extends TextElement {
         var rise = m * run;
         var pt = null;
         if (p2x === p1x) {
-            
+            // vertical line
             pt = {
                 x: fromX,
                 y: fromY + rise
@@ -10300,8 +10300,8 @@ class TextPathElement extends TextElement {
                     break;
                 case PathParser.ARC:
                     {
-                        var start = command.points[4]; 
-                        var dTheta = command.points[5]; 
+                        var start = command.points[4]; // 4 = theta
+                        var dTheta = command.points[5]; // 5 = dTheta
                         var end = command.points[4] + dTheta;
                         currentT = start + delta / command.pathLength * dTheta;
                         if (dTheta < 0 && currentT < end || dTheta >= 0 && currentT > end) {
@@ -10371,15 +10371,15 @@ class TextPathElement extends TextElement {
     }
     buildEquidistantCache(inputStep, inputPrecision) {
         var fullLen = this.getPathLength();
-        var precision = inputPrecision || 0.25; 
+        var precision = inputPrecision || 0.25; // accuracy vs performance
         var step = inputStep || fullLen / 100;
         if (!this.equidistantCache || this.equidistantCache.step !== step || this.equidistantCache.precision !== precision) {
-            
+            // Prepare cache
             this.equidistantCache = {
                 step,
                 precision,
                 points: []
-            }; 
+            }; // Calculate points
             var s = 0;
             for(var l = 0; l <= fullLen; l += precision){
                 var p0 = this.getPointOnPath(l);
@@ -10547,9 +10547,9 @@ class StyleElement extends Element {
     constructor(document1, node, captureTextNodes){
         super(document1, node, captureTextNodes);
         this.type = 'style';
-        var css = compressSpaces(Array.from(node.childNodes) 
-        .map((_)=>_.textContent).join('').replace(/(\/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+\/)|(^[\s]*\/\/.*)/gm, '') 
-        .replace(/@import.*;/g, '') 
+        var css = compressSpaces(Array.from(node.childNodes) // NEED TEST
+        .map((_)=>_.textContent).join('').replace(/(\/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+\/)|(^[\s]*\/\/.*)/gm, '') // remove comments
+        .replace(/@import.*;/g, '') // remove imports
         );
         var cssDefs = css.split('}');
         cssDefs.forEach((_)=>{
@@ -10577,7 +10577,7 @@ class StyleElement extends Element {
                 document1.styles[cssClass] = props;
                 document1.stylesSpecificity[cssClass] = getSelectorSpecificity(cssClass);
                 if (cssClass === '@font-face') {
-                    
+                    //  && !nodeEnv
                     var fontFamily = props['font-family'].getString().replace(/"|'/g, '');
                     var srcs = props.src.getString().split(',');
                     srcs.forEach((src)=>{

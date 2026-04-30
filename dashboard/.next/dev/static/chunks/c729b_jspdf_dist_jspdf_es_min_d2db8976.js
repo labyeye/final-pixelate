@@ -2,55 +2,55 @@
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/jspdf/dist/jspdf.es.min.js [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- __turbopack_context__.s([
+/** @license
+ *
+ * jsPDF - PDF Document creation from JavaScript
+ * Version 2.5.2 Built on 2024-09-17T13:29:57.859Z
+ *                      CommitID 00000000
+ *
+ * Copyright (c) 2010-2021 James Hall <james@parall.ax>, https://github.com/MrRio/jsPDF
+ *               2015-2021 yWorks GmbH, http://www.yworks.com
+ *               2015-2021 Lukas Holländer <lukas.hollaender@yworks.com>, https://github.com/HackbrettXXX
+ *               2016-2018 Aras Abbasi <aras.abbasi@gmail.com>
+ *               2010 Aaron Spike, https://github.com/acspike
+ *               2012 Willow Systems Corporation, https://github.com/willowsystems
+ *               2012 Pablo Hess, https://github.com/pablohess
+ *               2012 Florian Jenett, https://github.com/fjenett
+ *               2013 Warren Weckesser, https://github.com/warrenweckesser
+ *               2013 Youssef Beddad, https://github.com/lifof
+ *               2013 Lee Driscoll, https://github.com/lsdriscoll
+ *               2013 Stefan Slonevskiy, https://github.com/stefslon
+ *               2013 Jeremy Morel, https://github.com/jmorel
+ *               2013 Christoph Hartmann, https://github.com/chris-rock
+ *               2014 Juan Pablo Gaviria, https://github.com/juanpgaviria
+ *               2014 James Makes, https://github.com/dollaruw
+ *               2014 Diego Casorran, https://github.com/diegocr
+ *               2014 Steven Spungin, https://github.com/Flamenco
+ *               2014 Kenneth Glassey, https://github.com/Gavvers
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * Contributor(s):
+ *    siefkenj, ahwolf, rickygu, Midnith, saintclair, eaparango,
+ *    kim3er, mfo, alnorth, Flamenco
+ */ __turbopack_context__.s([
     "AcroForm",
     ()=>St,
     "AcroFormAppearance",
@@ -91,7 +91,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 ;
 ;
 var n = function() {
-    return "undefined" != typeof window ? window : ("TURBOPACK compile-time truthy", 1) ?  __turbopack_context__.g : "TURBOPACK unreachable";
+    return "undefined" != typeof window ? window : ("TURBOPACK compile-time truthy", 1) ? /*TURBOPACK member replacement*/ __turbopack_context__.g : "TURBOPACK unreachable";
 }();
 function i() {
     n.console && "function" == typeof n.console.log && n.console.log.apply(n.console, arguments);
@@ -172,12 +172,12 @@ var u, h, l = n.saveAs || ("object" !== ("undefined" == typeof window ? "undefin
         }, 4e4);
     }
 });
-
-
-
-
-
- function f(t) {
+/**
+ * A class to parse color values
+ * @author Stoyan Stefanov <sstoo@gmail.com>
+ * {@link   http://www.phpied.com/rgb-color-parser-in-javascript/}
+ * @license Use it if you like it
+ */ function f(t) {
     var e;
     t = t || "", this.ok = !1, "#" == t.charAt(0) && (t = t.substr(1, 6));
     t = ({
@@ -379,15 +379,15 @@ var u, h, l = n.saveAs || ("object" !== ("undefined" == typeof window ? "undefin
         return 1 == t.length && (t = "0" + t), 1 == e.length && (e = "0" + e), 1 == r.length && (r = "0" + r), "#" + t + e + r;
     };
 }
-
-
-
-
-
-
-
-
- function d(t, e) {
+/**
+ * @license
+ * Joseph Myers does not specify a particular license for his work.
+ *
+ * Author: Joseph Myers
+ * Accessed from: http://www.myersdaily.org/joseph/javascript/md5.js
+ *
+ * Modified by: Owen Leong
+ */ function d(t, e) {
     var r = t[0], n = t[1], i = t[2], a = t[3];
     r = g(r, n, i, a, e[0], 7, -680876936), a = g(a, r, n, i, e[1], 12, -389564586), i = g(i, a, r, n, e[2], 17, 606105819), n = g(n, i, a, r, e[3], 22, -1044525330), r = g(r, n, i, a, e[4], 7, -176418897), a = g(a, r, n, i, e[5], 12, 1200080426), i = g(i, a, r, n, e[6], 17, -1473231341), n = g(n, i, a, r, e[7], 22, -45705983), r = g(r, n, i, a, e[8], 7, 1770035416), a = g(a, r, n, i, e[9], 12, -1958414417), i = g(i, a, r, n, e[10], 17, -42063), n = g(n, i, a, r, e[11], 22, -1990404162), r = g(r, n, i, a, e[12], 7, 1804603682), a = g(a, r, n, i, e[13], 12, -40341101), i = g(i, a, r, n, e[14], 17, -1502002290), r = m(r, n = g(n, i, a, r, e[15], 22, 1236535329), i, a, e[1], 5, -165796510), a = m(a, r, n, i, e[6], 9, -1069501632), i = m(i, a, r, n, e[11], 14, 643717713), n = m(n, i, a, r, e[0], 20, -373897302), r = m(r, n, i, a, e[5], 5, -701558691), a = m(a, r, n, i, e[10], 9, 38016083), i = m(i, a, r, n, e[15], 14, -660478335), n = m(n, i, a, r, e[4], 20, -405537848), r = m(r, n, i, a, e[9], 5, 568446438), a = m(a, r, n, i, e[14], 9, -1019803690), i = m(i, a, r, n, e[3], 14, -187363961), n = m(n, i, a, r, e[8], 20, 1163531501), r = m(r, n, i, a, e[13], 5, -1444681467), a = m(a, r, n, i, e[2], 9, -51403784), i = m(i, a, r, n, e[7], 14, 1735328473), r = v(r, n = m(n, i, a, r, e[12], 20, -1926607734), i, a, e[5], 4, -378558), a = v(a, r, n, i, e[8], 11, -2022574463), i = v(i, a, r, n, e[11], 16, 1839030562), n = v(n, i, a, r, e[14], 23, -35309556), r = v(r, n, i, a, e[1], 4, -1530992060), a = v(a, r, n, i, e[4], 11, 1272893353), i = v(i, a, r, n, e[7], 16, -155497632), n = v(n, i, a, r, e[10], 23, -1094730640), r = v(r, n, i, a, e[13], 4, 681279174), a = v(a, r, n, i, e[0], 11, -358537222), i = v(i, a, r, n, e[3], 16, -722521979), n = v(n, i, a, r, e[6], 23, 76029189), r = v(r, n, i, a, e[9], 4, -640364487), a = v(a, r, n, i, e[12], 11, -421815835), i = v(i, a, r, n, e[15], 16, 530742520), r = b(r, n = v(n, i, a, r, e[2], 23, -995338651), i, a, e[0], 6, -198630844), a = b(a, r, n, i, e[7], 10, 1126891415), i = b(i, a, r, n, e[14], 15, -1416354905), n = b(n, i, a, r, e[5], 21, -57434055), r = b(r, n, i, a, e[12], 6, 1700485571), a = b(a, r, n, i, e[3], 10, -1894986606), i = b(i, a, r, n, e[10], 15, -1051523), n = b(n, i, a, r, e[1], 21, -2054922799), r = b(r, n, i, a, e[8], 6, 1873313359), a = b(a, r, n, i, e[15], 10, -30611744), i = b(i, a, r, n, e[6], 15, -1560198380), n = b(n, i, a, r, e[13], 21, 1309151649), r = b(r, n, i, a, e[4], 6, -145523070), a = b(a, r, n, i, e[11], 10, -1120210379), i = b(i, a, r, n, e[2], 15, 718787259), n = b(n, i, a, r, e[9], 21, -343485551), t[0] = _(r, t[0]), t[1] = _(n, t[1]), t[2] = _(i, t[2]), t[3] = _(a, t[3]);
 }
@@ -465,14 +465,14 @@ function _(t, e) {
     }
     return t + e & 4294967295;
 }
-
-
-
-
-
-
-
- function P(t, e) {
+/**
+ * @license
+ * FPDF is released under a permissive license: there is no usage restriction.
+ * You may embed it freely in your application (commercial or not), with or
+ * without modifications.
+ *
+ * Reference: http://www.fpdf.org/en/script/script37.php
+ */ function P(t, e) {
     var r, n, i, a;
     if (t !== r) {
         for(var o = (i = t, a = 1 + (256 / t.length >> 0), new Array(a + 1).join(i)), s = [], c = 0; c < 256; c++)s[c] = c;
@@ -487,17 +487,17 @@ function _(t, e) {
     for(c = 0; c < l; c++)d = (d + (h = s[f = (f + 1) % 256])) % 256, s[f] = s[d], s[d] = h, o = s[(s[f] + s[d]) % 256], p += String.fromCharCode(e.charCodeAt(c) ^ o);
     return p;
 }
-
-
-
-
-
-
-
-
-
-
- var k = {
+/**
+ * @license
+ * Licensed under the MIT License.
+ * http://opensource.org/licenses/mit-license
+ * Author: Owen Leong (@owenl131)
+ * Date: 15 Oct 2020
+ * References:
+ * https://www.cs.cmu.edu/~dst/Adobe/Gallery/anon21jul01-pdf-encryption.txt
+ * https://github.com/foliojs/pdfkit/blob/master/lib/security.js
+ * http://www.fpdf.org/en/script/script37.php
+ */ var k = {
     print: 4,
     modify: 8,
     copy: 16,
@@ -1807,7 +1807,7 @@ function E(e) {
                 return "data:application/pdf;filename=" + e.filename + ";base64," + r;
             case "pdfobjectnewwindow":
                 if ("[object Window]" === Object.prototype.toString.call(n)) {
-                    var o = "https:
+                    var o = "https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js", s = ' integrity="sha512-4ze/a9/4jqu+tX9dfOqJYSvyYd5M6qum/3HpCLr+/Jqf0whc37VUbkpNGHR7/8pSnCFw47T1fmIpwBV7UySh3g==" crossorigin="anonymous"';
                     e.pdfObjectUrl && (o = e.pdfObjectUrl, s = "");
                     var c = '<html><style>html, body { padding: 0; margin: 0; } iframe { width: 100%; height: 100%; border: 0;}  </style><body><script src="' + o + '"' + s + '><\/script><script >PDFObject.embed("' + this.output("dataurlstring") + '", ' + JSON.stringify(e) + ");<\/script></body></html>", u = n.open();
                     return null !== u && u.document.write(c), u;
@@ -4521,13 +4521,13 @@ function _t(t) {
         if (!A() || t instanceof Uint8Array || (t = S(t)), !(n = this["process" + a.toUpperCase()](t))) throw new Error("An unknown error occurred whilst processing the image");
         return n.fileType = a, n;
     };
-}(E.API), 
-
-
-
-
-
- function(t) {
+}(E.API), /**
+ * @license
+ * Copyright (c) 2014 Steven Spungin (TwelveTone LLC)  steven@twelvetone.tv
+ *
+ * Licensed under the MIT License.
+ * http://opensource.org/licenses/mit-license
+ */ function(t) {
     var e = function(t) {
         if (void 0 !== t && "" != t) return !0;
     };
@@ -4631,13 +4631,13 @@ function _t(t) {
         var e = this.internal.getFontSize();
         return this.getStringUnitWidth(t) * e / this.internal.scaleFactor;
     };
-}(E.API), 
-
-
-
-
-
- function(t) {
+}(E.API), /**
+ * @license
+ * Copyright (c) 2017 Aras Abbasi
+ *
+ * Licensed under the MIT License.
+ * http://opensource.org/licenses/mit-license
+ */ function(t) {
     var e = {
         1569: [
             65152
@@ -5144,13 +5144,13 @@ function _t(t) {
             });
     }
     return this;
-}, 
-
-
-
-
-
- function(t) {
+}, /**
+ * @license
+ * Copyright (c) 2014 Steven Spungin (TwelveTone LLC)  steven@twelvetone.tv
+ *
+ * Licensed under the MIT License.
+ * http://opensource.org/licenses/mit-license
+ */ function(t) {
     var e = function() {
         var t = void 0;
         Object.defineProperty(this, "pdf", {
@@ -16101,7 +16101,7 @@ function ee(t) {
  * ====================================================================
  */ function(t) {
     var e = function() {
-        var t = '<rdf:RDF xmlns:rdf="http:
+        var t = '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><rdf:Description rdf:about="" xmlns:jspdf="' + this.internal.__metadata__.namespaceuri + '"><jspdf:metadata>', e = unescape(encodeURIComponent('<x:xmpmeta xmlns:x="adobe:ns:meta/">')), r = unescape(encodeURIComponent(t)), n = unescape(encodeURIComponent(this.internal.__metadata__.metadata)), i = unescape(encodeURIComponent("</jspdf:metadata></rdf:Description></rdf:RDF>")), a = unescape(encodeURIComponent("</x:xmpmeta>")), o = r.length + n.length + i.length + e.length + a.length;
         this.internal.__metadata__.metadata_object_number = this.internal.newObject(), this.internal.write("<< /Type /Metadata /Subtype /XML /Length " + o + " >>"), this.internal.write("stream"), this.internal.write(e + r + n + i + a), this.internal.write("endstream"), this.internal.write("endobj");
     }, r = function() {
         this.internal.__metadata__.metadata_object_number && this.internal.write("/Metadata " + this.internal.__metadata__.metadata_object_number + " 0 R");
@@ -16238,13 +16238,13 @@ function ee(t) {
             })).text;
         }
     ]);
-}(E), 
-
-
-
-
-
- function(t) {
+}(E), /**
+ * @license
+ * jsPDF virtual FileSystem functionality
+ *
+ * Licensed under the MIT License.
+ * http://opensource.org/licenses/mit-license
+ */ function(t) {
     var e = function() {
         return void 0 === this.internal.vFS && (this.internal.vFS = {}), !0;
     };
@@ -16255,11 +16255,11 @@ function ee(t) {
     }, t.getFileFromVFS = function(t) {
         return e.call(this), void 0 !== this.internal.vFS[t] ? this.internal.vFS[t] : null;
     };
-}(E.API), 
-
-
-
- function(t) {
+}(E.API), /**
+ * @license
+ * Unicode Bidi Engine based on the work of Alex Shensis (@asthensis)
+ * MIT License
+ */ function(t) {
     t.__bidiEngine__ = t.prototype.__bidiEngine__ = function(t) {
         var r, n, i, a, o, s, c, u = e, h = [
             [
@@ -19104,7 +19104,8 @@ E.API.PDFObject = function() {
 }();
 const __TURBOPACK__default__export__ = E;
 ;
- 
+ //# sourceMappingURL=jspdf.es.min.js.map
 }),
 ]);
 
+//# sourceMappingURL=c729b_jspdf_dist_jspdf_es_min_d2db8976.js.map

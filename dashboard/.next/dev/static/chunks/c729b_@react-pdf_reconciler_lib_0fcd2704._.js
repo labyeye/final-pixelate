@@ -6,7 +6,7 @@ __turbopack_context__.s([
     "default",
     ()=>k
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$reconciler$2f$node_modules$2f$scheduler$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/reconciler/node_modules/scheduler/index.js [app-client] (ecmascript)");
 ;
@@ -43,15 +43,15 @@ var l, a = {
 var i, s, c = {
     exports: {}
 };
-
-
-
-
-
-
-
-
- ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : a.exports = function() {
+/**
+ * @license React
+ * react-reconciler.development.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : a.exports = function() {
     return i || (i = 1, n = c, "production" !== ("TURBOPACK compile-time value", "development") && (n.exports = function(n) {
         function t(e, n, t, r) {
             return new sa(e, n, t, r);
@@ -5338,7 +5338,7 @@ var i, s, c = {
     }, n.exports.default = n.exports, Object.defineProperty(n.exports, "__esModule", {
         value: !0
     }))), c.exports;
-    
+    //TURBOPACK unreachable
     ;
     var n;
 }();
@@ -5346,15 +5346,15 @@ var f, d = t(a.exports), p = {
     exports: {}
 }, m = {};
 var h, g = {};
-
-
-
-
-
-
-
-
- ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : p.exports = (h || (h = 1, "production" !== ("TURBOPACK compile-time value", "development") && (g.ConcurrentRoot = 1, g.ContinuousEventPriority = 8, g.DefaultEventPriority = 32, g.DiscreteEventPriority = 2, g.IdleEventPriority = 268435456, g.LegacyRoot = 0, g.NoEventPriority = 0)), g);
+/**
+ * @license React
+ * react-reconciler-constants.development.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : p.exports = (h || (h = 1, "production" !== ("TURBOPACK compile-time value", "development") && (g.ConcurrentRoot = 1, g.ContinuousEventPriority = 8, g.DefaultEventPriority = 32, g.DiscreteEventPriority = 2, g.IdleEventPriority = 268435456, g.LegacyRoot = 0, g.NoEventPriority = 0)), g);
 var y = p.exports;
 const b = (e, n)=>{
     const t = Object.keys(e), r = Object.keys(n);
@@ -5417,7 +5417,7 @@ __turbopack_context__.s([
     "default",
     ()=>k
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$reconciler$2f$node_modules$2f$scheduler$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/reconciler/node_modules/scheduler/index.js [app-client] (ecmascript)");
 ;
@@ -5454,15 +5454,15 @@ var l, a = {
 var i, s, c = {
     exports: {}
 };
-
-
-
-
-
-
-
-
- ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : a.exports = function() {
+/**
+ * @license React
+ * react-reconciler.development.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : a.exports = function() {
     return i || (i = 1, n = c, "production" !== ("TURBOPACK compile-time value", "development") && (n.exports = function(n) {
         function t(e, n, t, r) {
             return new eo(e, n, t, r);
@@ -11602,7 +11602,7 @@ var i, s, c = {
     }, n.exports.default = n.exports, Object.defineProperty(n.exports, "__esModule", {
         value: !0
     }))), c.exports;
-    
+    //TURBOPACK unreachable
     ;
     var n;
 }();
@@ -11610,15 +11610,15 @@ var d, f = t(a.exports), p = {
     exports: {}
 }, m = {};
 var h, g = {};
-
-
-
-
-
-
-
-
- ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : p.exports = (h || (h = 1, "production" !== ("TURBOPACK compile-time value", "development") && (g.ConcurrentRoot = 1, g.ContinuousEventPriority = 8, g.DefaultEventPriority = 32, g.DiscreteEventPriority = 2, g.IdleEventPriority = 268435456, g.LegacyRoot = 0, g.NoEventPriority = 0)), g);
+/**
+ * @license React
+ * react-reconciler-constants.development.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : p.exports = (h || (h = 1, "production" !== ("TURBOPACK compile-time value", "development") && (g.ConcurrentRoot = 1, g.ContinuousEventPriority = 8, g.DefaultEventPriority = 32, g.DiscreteEventPriority = 2, g.IdleEventPriority = 268435456, g.LegacyRoot = 0, g.NoEventPriority = 0)), g);
 var y = p.exports;
 const b = (e, n)=>{
     const t = Object.keys(e), r = Object.keys(n);
@@ -11717,14 +11717,14 @@ function l(e) {
 var i, a = {
     exports: {}
 }, u = l(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$reconciler$2f$node_modules$2f$scheduler$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__);
-(
-
-
-
-
-
-
- i = a).exports = function n(r) {
+(/** @license React v0.23.0
+ * react-reconciler.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ i = a).exports = function n(r) {
     var l = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$object$2d$assign$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], a = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], o = u;
     function f(e) {
         for(var t = "https://reactjs.org/docs/error-decoder.html?invariant=" + e, n = 1; n < arguments.length; n++)t += "&args[]=" + encodeURIComponent(arguments[n]);
@@ -14505,13 +14505,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final
 const [major, minor] = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].version.split('.').map((v)=>parseInt(v, 10));
 let renderer;
 if (major >= 20 || major === 19 && minor >= 2) {
-    
+    // Use the reconciler built for 19.2, assuming it's compatible with later versions.
     renderer = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$reconciler$2f$lib$2f$reconciler$2d$33$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"];
 } else if (major === 19) {
-    
+    // Use the older 19.x reconciler (for 19.0.x and 19.1.x)
     renderer = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$reconciler$2f$lib$2f$reconciler$2d$31$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"];
 } else {
-    
+    // Fallback for React 18.x and previous versions.
     renderer = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$react$2d$pdf$2f$reconciler$2f$lib$2f$reconciler$2d$23$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"];
 }
 var renderer$1 = renderer;
@@ -14519,3 +14519,4 @@ var renderer$1 = renderer;
 }),
 ]);
 
+//# sourceMappingURL=c729b_%40react-pdf_reconciler_lib_0fcd2704._.js.map
