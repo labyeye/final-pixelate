@@ -23,7 +23,7 @@ export async function POST(request: Request) {
         { error: "invalid credentials" },
         { status: 401 },
       );
-    const token = signToken({ id: u._id, email: u.email, role: u.role });
+    const token = signToken({ id: u._id, email: u.email, role: u.role, clientId: u.clientId });
     
     try {
       const db = await getDb();
