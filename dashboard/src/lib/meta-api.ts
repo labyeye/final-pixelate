@@ -1,4 +1,4 @@
-import { createHash } from "crypto";
+import { createHash } from "node:crypto";
 
 const META_GRAPH_API = "https://graph.facebook.com/v19.0";
 
@@ -220,14 +220,29 @@ export async function getLeadAdForms(
   adAccountId: string,
   accessToken: string,
 ): Promise<LeadAdForm[]> {
-  const url = new URL(`${META_GRAPH_API}/${adAccountId}/leadgen_forms`);
+  // Ensure act_ prefix
+  const accountId = adAccountId.startsWith("act_") ? adAccountId : `act_${adAccountId}`;
+  const url = new URL(`${META_GRAPH_API}/${accountId}/leadgen_forms`);
   url.searchParams.set("fields", "id,name,status,created_time,leads_count");
   url.searchParams.set("access_token", accessToken);
-  const res = await fetch(url.toString());
-  if (!res.ok) throw new Error(`Failed to fetch lead forms: ${await res.text()}`);
-  const data = await res.json();
-  if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
-  return data.data || [];
+
+  let rawText = "";
+  try {
+    const res = await fetch(url.toString());
+    rawText = await res.text();
+    const data = JSON.parse(rawText);
+    if (data.error) {
+      // Return friendly FB error: code + message
+      const fbMsg = data.error.message || JSON.stringify(data.error);
+      const fbCode = data.error.code ? ` (code ${data.error.code})` : "";
+      throw new Error(`Facebook API: ${fbMsg}${fbCode}`);
+    }
+    return data.data || [];
+  } catch (e: any) {
+    // Re-throw FB errors as-is; wrap unexpected errors
+    if (e.message?.startsWith("Facebook API:")) throw e;
+    throw new Error(`Failed to fetch lead forms: ${rawText || e.message}`);
+  }
 }
 
 /** Fetch all leads from a specific Lead Ad form (handles pagination) */

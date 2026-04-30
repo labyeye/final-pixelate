@@ -165,14 +165,23 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
     setShowForms(true);
     try {
       const res = await fetch(`/api/fb-ads-connection/forms?clientId=${clientId}`, { headers: authH() });
+      const json = await res.json();
       if (!res.ok) {
-        const err = await res.json();
-        throw new Error(err.error || "Failed to load forms");
+        toast({
+          title: json.error || "Failed to load forms",
+          description: json.hint || undefined,
+          variant: "destructive",
+        });
+        setShowForms(false);
+        return;
       }
-      const data = await res.json();
-      setForms(data || []);
-      if ((data || []).length === 0) {
-        toast({ title: "No Lead Ad forms found in this Ad Account", variant: "destructive" });
+      setForms(json || []);
+      if ((json || []).length === 0) {
+        toast({
+          title: "No Lead Ad forms found in this Ad Account",
+          description: "Make sure the token has access to this ad account and it has Lead Ad campaigns.",
+          variant: "destructive",
+        });
       }
     } catch (e: any) {
       toast({ title: e.message || "Failed to load forms", variant: "destructive" });

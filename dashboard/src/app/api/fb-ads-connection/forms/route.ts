@@ -41,6 +41,20 @@ export async function GET(request: NextRequest) {
     const forms = await getLeadAdForms(conn.adAccountId, conn.accessToken);
     return NextResponse.json(forms, { headers: CORS });
   } catch (e: any) {
-    return NextResponse.json({ error: e.message || String(e) }, { status: 500, headers: CORS });
+    const msg = e.message || String(e);
+    console.error("[fb-ads-connection/forms] Error for clientId", clientId, ":", msg);
+    return NextResponse.json(
+      {
+        error: msg,
+        hint: msg.includes("190")
+          ? "Token is expired or invalid. Generate a new System User token in Meta Business Manager."
+          : msg.includes("200") || msg.includes("permission")
+          ? "Token is missing 'ads_management' or 'leads_retrieval' permission. Re-generate with correct scopes."
+          : msg.includes("100") || msg.includes("Invalid")
+          ? "Ad Account ID is wrong. Use the numeric ID from Ads Manager (e.g. act_123456789)."
+          : "Check that the access token has ads_management + leads_retrieval permissions.",
+      },
+      { status: 500, headers: CORS },
+    );
   }
 }
