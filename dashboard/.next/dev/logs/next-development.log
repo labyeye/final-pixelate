@@ -1,21 +1,7 @@
-[00:00:00.968] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.049] Server  LOG      ✓ Ready in 780ms
-[00:00:04.714] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:28.524] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:00:28.524] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:02:05.915] Browser DEBUG   #1 0ms Starting document clone with size 1512x1123 scrolled to 0,0
-[00:02:10.072] Browser DEBUG   #1 196ms Document cloned, element located at -100000,0 with size 1200x1122.515625 using computed rendering
-[00:02:10.073] Browser DEBUG   #1 196ms Starting DOM parsing
-[00:02:10.073] Browser DEBUG   #1 201ms Added image http://localhost:9002/_next/static/media/logo-transparent.2aba66e8.png
-[00:02:10.073] Browser DEBUG   #1 213ms Added image http://localhost:9002/_next/static/media/sign.d135599b.png
-[00:02:10.073] Browser DEBUG   #1 214ms Starting renderer for element at -100000,0 with size 1200x1123
-[00:02:10.073] Browser DEBUG   #1 214ms Canvas renderer initialized (1200x1123) with scale 0.17500129629629627
-[00:02:10.073] Browser DEBUG   #1 4067ms Finished rendering
-[00:02:15.345] Server  INFO    [WhatsApp Opt-In] Client 68e6b754d5f58f82267a82ae opted in via manual_toggle for invoice N/A
-[00:09:10.357] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:09:10.358] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:09:22.353] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:09:22.353] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:21:19.894] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:21:19.894] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[01:22:33.449] Server  LOG      ✓ Compiled in 116ms
+[00:00:01.150] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.291] Server  LOG      ✓ Ready in 992ms
+[00:00:04.863] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:22.067] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-0002
+[00:00:22.212] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. PN-0002
+[00:00:32.511] Server  ERROR   [fb-ads-connection/forms] Error for clientId "68e6b754d5f58f82267a82ae" ":" "No Facebook Pages found for this token. The token must belong to a user who manages at least one Page."
+[00:01:42.091] Server  ERROR   [fb-ads-connection/forms] Error for clientId "68e6b754d5f58f82267a82ae" ":" "Could not fetch Facebook Pages: Failed to get pages: {\"error\":{\"message\":\"Error validating access token: The session has been invalidated because the user changed their password or Facebook has changed the session for security reasons.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":460,\"fbtrace_id\":\"AsPSDcNVZDFi3rRaBrgYym8\"}}. Make sure the token has pages_show_list permission."

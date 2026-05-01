@@ -370,10 +370,10 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
                 <div>
                   <p className="font-bold mb-1">How to get these values:</p>
                   <ol className="list-decimal list-inside space-y-1">
-                    <li>Go to <strong>Meta Business Manager → System Users</strong></li>
-                    <li>Generate a <strong>System User Token</strong> with <code>ads_management</code> + <code>leads_retrieval</code> permissions</li>
-                    <li>Copy the Ad Account ID from <strong>Ads Manager → Account Settings</strong> (e.g. <code>act_123456789</code>)</li>
-                    <li>For the Dataset ID: go to <strong>Events Manager → your pixel → Settings</strong> and copy the ID</li>
+                    <li>Go to <strong>Meta Business Manager → Settings → System Users</strong> (or use a User token)</li>
+                    <li>Generate token with permissions: <code>ads_management</code>, <code>leads_retrieval</code>, <code>pages_show_list</code>, <code>pages_read_engagement</code></li>
+                    <li><strong>Ad Account ID</strong>: copy from <strong>Ads Manager → Account Settings</strong> (e.g. <code>act_123456789</code>). This field is optional — forms are fetched via your Pages.</li>
+                    <li><strong>Dataset ID</strong> (optional): from <strong>Events Manager → your pixel → Settings</strong></li>
                   </ol>
                 </div>
               </div>

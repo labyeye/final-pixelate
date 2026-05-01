@@ -46,13 +46,13 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(
       {
         error: msg,
-        hint: msg.includes("190")
-          ? "Token is expired or invalid. Generate a new System User token in Meta Business Manager."
+        hint: msg.includes("190") || msg.includes("Invalid OAuth")
+          ? "Token is expired or invalid. Generate a new User Access Token from Meta Business Manager."
+          : msg.includes("Pages") || msg.includes("pages_show_list")
+          ? "Token needs 'pages_show_list' permission. Re-generate with that scope."
           : msg.includes("200") || msg.includes("permission")
-          ? "Token is missing 'ads_management' or 'leads_retrieval' permission. Re-generate with correct scopes."
-          : msg.includes("100") || msg.includes("Invalid")
-          ? "Ad Account ID is wrong. Use the numeric ID from Ads Manager (e.g. act_123456789)."
-          : "Check that the access token has ads_management + leads_retrieval permissions.",
+          ? "Token is missing permissions. Re-generate with: ads_management, leads_retrieval, pages_show_list, pages_read_engagement."
+          : "Check that the token has: ads_management + leads_retrieval + pages_show_list permissions.",
       },
       { status: 500, headers: CORS },
     );

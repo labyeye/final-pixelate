@@ -215,34 +215,51 @@ export interface FbLead {
   field_data: FbLeadField[];
 }
 
-/** List all Lead Ad forms under an Ad Account (e.g. act_123456789) */
+/**
+ * List all Lead Ad forms across all Pages the token has access to.
+ * Uses GET /{page-id}/leadgen_forms per page — this is the correct approach.
+ * Falls back gracefully if a page has no forms or token lacks access.
+ */
 export async function getLeadAdForms(
-  adAccountId: string,
+  _adAccountId: string,  // kept for API compatibility, no longer used
   accessToken: string,
 ): Promise<LeadAdForm[]> {
-  // Ensure act_ prefix
-  const accountId = adAccountId.startsWith("act_") ? adAccountId : `act_${adAccountId}`;
-  const url = new URL(`${META_GRAPH_API}/${accountId}/leadgen_forms`);
-  url.searchParams.set("fields", "id,name,status,created_time,leads_count");
-  url.searchParams.set("access_token", accessToken);
-
-  let rawText = "";
+  // Step 1: get all pages this token can access
+  let pages: MetaPage[] = [];
   try {
-    const res = await fetch(url.toString());
-    rawText = await res.text();
-    const data = JSON.parse(rawText);
-    if (data.error) {
-      // Return friendly FB error: code + message
-      const fbMsg = data.error.message || JSON.stringify(data.error);
-      const fbCode = data.error.code ? ` (code ${data.error.code})` : "";
-      throw new Error(`Facebook API: ${fbMsg}${fbCode}`);
-    }
-    return data.data || [];
+    pages = await getUserPages(accessToken);
   } catch (e: any) {
-    // Re-throw FB errors as-is; wrap unexpected errors
-    if (e.message?.startsWith("Facebook API:")) throw e;
-    throw new Error(`Failed to fetch lead forms: ${rawText || e.message}`);
+    throw new Error(`Could not fetch Facebook Pages: ${e.message}. Make sure the token has pages_show_list permission.`);
   }
+
+  if (pages.length === 0) {
+    throw new Error("No Facebook Pages found for this token. The token must belong to a user who manages at least one Page.");
+  }
+
+  // Step 2: for each page, fetch its leadgen_forms using the page access token
+  const allForms: (LeadAdForm & { pageName?: string })[] = [];
+
+  for (const page of pages) {
+    const pageToken = page.access_token || accessToken;
+    const url = new URL(`${META_GRAPH_API}/${page.id}/leadgen_forms`);
+    url.searchParams.set("fields", "id,name,status,created_time,leads_count");
+    url.searchParams.set("access_token", pageToken);
+
+    try {
+      const res = await fetch(url.toString());
+      const data = await res.json();
+      if (!data.error && Array.isArray(data.data)) {
+        for (const form of data.data) {
+          allForms.push({ ...form, pageName: page.name });
+        }
+      }
+      // silently skip pages with no forms or permission errors
+    } catch {
+      // skip unreachable pages
+    }
+  }
+
+  return allForms;
 }
 
 /** Fetch all leads from a specific Lead Ad form (handles pagination) */
