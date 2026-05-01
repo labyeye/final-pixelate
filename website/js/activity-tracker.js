@@ -47,6 +47,7 @@
         activityId = data.id;
       }
     } catch (error) {
+      // Silently ignore tracking errors
     }
   }
 

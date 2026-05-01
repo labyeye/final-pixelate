@@ -86,7 +86,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.google.co.in https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdn.prod.website-files.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; connect-src 'self' http://localhost:* https://www.facebook.com https://facebook.com https://connect.facebook.net https://www.google-analytics.com https://*.google.com https://*.google.co.in https://backend.pixelatenest.com https://cdn.prod.website-files.com https://overbridgenet.com https://ap.stape.info https://googleads.g.doubleclick.net; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'; attribution-reporting-eligible 'src'; attribution-src 'self' https://www.facebook.com https://connect.facebook.net;"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://www.google.co.in https://www.gstatic.com https://ajax.googleapis.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://connect.facebook.net https://d3e54v103j8qbb.cloudfront.net https://cdn.prod.website-files.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdn.prod.website-files.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; connect-src 'self' http://localhost:* https://www.facebook.com https://facebook.com https://connect.facebook.net https://www.google-analytics.com https://*.google.com https://*.google.co.in https://backend.pixelatenest.com https://cdn.prod.website-files.com https://overbridgenet.com https://ap.stape.info https://googleads.g.doubleclick.net; frame-src 'self' https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
@@ -3054,14 +3054,13 @@
                 body: JSON.stringify(data),
               });
             } catch (emailErr) {
-              console.warn("Dashboard email send failed", emailErr);
+              // Silently ignore email sending errors
             }
 
             form.reset();
             if (successEl) successEl.hidden = false;
             setTimeout(closeModal, 1100);
           } catch (err) {
-            console.error(err);
             if (errorEl) errorEl.hidden = false;
           } finally {
             submitButton.value = "Submit";
@@ -3149,9 +3148,8 @@
           // 6. Set up the Filtering functionality
           setupFiltering(allFetchedProjects);
         } catch (error) {
-          console.error("Error fetching portfolio data:", error);
           gridContainer.innerHTML =
-            '<p style="text-align:center; grid-column: 1 / -1; color: red;">Failed to load portfolio items. Please check console.</p>';
+            '<p style="text-align:center; grid-column: 1 / -1; color: red;">Failed to load portfolio items.</p>';
         }
 
         // --- Filtering Logic ---
@@ -3285,9 +3283,8 @@
             });
           });
         } catch (error) {
-          console.error("Error loading masonry grid:", error);
           grid.innerHTML =
-            '<p style="text-align:center; grid-column: 1 / -1; color: red;">Failed to load portfolio items. Please check console.</p>';
+            '<p style="text-align:center; grid-column: 1 / -1; color: red;">Failed to load portfolio items.</p>';
         }
       });
     </script>
