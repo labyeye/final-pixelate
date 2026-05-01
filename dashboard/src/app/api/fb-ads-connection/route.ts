@@ -12,12 +12,12 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
 }
 
-/**
- * GET /api/fb-ads-connection?clientId=xxx
- * Admin: fetch connection for any client
- * Client: fetch own connection (clientId from token)
- * Returns connection with accessToken masked (isConnected boolean instead)
- */
+
+
+
+
+
+
 export async function GET(request: NextRequest) {
   const auth = request.headers.get("authorization") || "";
   const token = auth.replace("Bearer ", "");
@@ -33,16 +33,16 @@ export async function GET(request: NextRequest) {
   const conn = await col.findOne({ clientId });
   if (!conn) return NextResponse.json(null, { headers: CORS });
 
-  // Never expose the access token to the frontend
+  
   const { accessToken: _tok, ...safe } = conn as any;
   return NextResponse.json({ ...safe, isConnected: !!_tok }, { headers: CORS });
 }
 
-/**
- * POST /api/fb-ads-connection
- * Admin only: create or update a client's FB Ads connection.
- * Body: { clientId, accessToken, adAccountId, datasetId?, selectedFormIds? }
- */
+
+
+
+
+
 export async function POST(request: NextRequest) {
   const auth = request.headers.get("authorization") || "";
   const token = auth.replace("Bearer ", "");
@@ -80,11 +80,11 @@ export async function POST(request: NextRequest) {
   return NextResponse.json({ success: true }, { headers: CORS });
 }
 
-/**
- * PATCH /api/fb-ads-connection
- * Admin only: update selectedFormIds or datasetId without changing the token.
- * Body: { clientId, selectedFormIds?, datasetId? }
- */
+
+
+
+
+
 export async function PATCH(request: NextRequest) {
   const auth = request.headers.get("authorization") || "";
   const token = auth.replace("Bearer ", "");
@@ -105,10 +105,10 @@ export async function PATCH(request: NextRequest) {
   return NextResponse.json({ success: true }, { headers: CORS });
 }
 
-/**
- * DELETE /api/fb-ads-connection?clientId=xxx
- * Admin only: remove a client's FB Ads connection entirely.
- */
+
+
+
+
 export async function DELETE(request: NextRequest) {
   const auth = request.headers.get("authorization") || "";
   const token = auth.replace("Bearer ", "");

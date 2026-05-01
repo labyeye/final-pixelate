@@ -36,7 +36,7 @@ export default function EnquiriesPage() {
         method: 'DELETE',
       })
       if (!res.ok) throw new Error('delete failed')
-      // remove from state
+      
       setItems((prev) => prev.filter((p) => String(p._id || p.id) !== String(id)))
       showSuccess("Enquiry deleted!")
     } catch (e) {

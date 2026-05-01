@@ -922,4 +922,3 @@ async function DELETE(request, { params }) {
 }),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__9eec4d7a._.js.map

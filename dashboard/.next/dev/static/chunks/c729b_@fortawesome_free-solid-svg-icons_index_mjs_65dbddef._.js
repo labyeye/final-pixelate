@@ -2,11 +2,11 @@
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@fortawesome/free-solid-svg-icons/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/*!
- * Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com
- * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
- * Copyright 2026 Fonticons, Inc.
- */ __turbopack_context__.s([
+
+
+
+
+ __turbopack_context__.s([
     "fa0",
     ()=>fa0,
     "fa1",
@@ -24160,4 +24160,3 @@ var icons = {
 }),
 ]);
 
-//# sourceMappingURL=c729b_%40fortawesome_free-solid-svg-icons_index_mjs_65dbddef._.js.map

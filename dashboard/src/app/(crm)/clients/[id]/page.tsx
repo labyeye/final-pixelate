@@ -58,7 +58,7 @@ export default function ClientDetailPage() {
     ]).then(([clientData, allLeads, allProjects, allInvoices]) => {
       setClient(clientData);
       setEditForm(clientData);
-      // Filter by clientId
+      
       setLeads(Array.isArray(allLeads) ? allLeads.filter((l: any) =>
         String(l.clientId) === clientId || String(l.convertedToClientId) === clientId
       ) : []);
@@ -96,7 +96,7 @@ export default function ClientDetailPage() {
     }
   }
 
-  // Revenue calculations
+  
   const totalInvoiced = invoices.reduce((sum, inv) => sum + (Number(inv.amount) || 0), 0);
   const totalPaid = invoices.filter(inv => inv.status === "paid").reduce((sum, inv) => sum + (Number(inv.amount) || 0), 0);
   const outstanding = totalInvoiced - totalPaid;
@@ -123,7 +123,7 @@ export default function ClientDetailPage() {
 
   return (
     <div className="space-y-6 max-w-6xl mx-auto font-headline">
-      {/* Header */}
+      {}
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <div className="flex items-start gap-4">
           <Link href="/clients">
@@ -179,7 +179,7 @@ export default function ClientDetailPage() {
         </div>
       </div>
 
-      {/* Revenue summary cards */}
+      {}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
           { label: "Total Invoiced", value: `₹${totalInvoiced.toLocaleString("en-IN")}`, color: "bg-blue-50 border-blue-300" },
@@ -195,9 +195,9 @@ export default function ClientDetailPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left column */}
+        {}
         <div className="space-y-4">
-          {/* Contact */}
+          {}
           <Card className="border-2 border-black">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-bold uppercase tracking-wide">Contact Info</CardTitle>
@@ -229,7 +229,7 @@ export default function ClientDetailPage() {
             </CardContent>
           </Card>
 
-          {/* CRM Info */}
+          {}
           <Card className="border-2 border-black">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-bold uppercase tracking-wide">CRM Info</CardTitle>
@@ -277,7 +277,7 @@ export default function ClientDetailPage() {
             </CardContent>
           </Card>
 
-          {/* GST */}
+          {}
           {(client.hasGst || isEditing) && (
             <Card className="border-2 border-black">
               <CardHeader className="pb-2">
@@ -308,7 +308,7 @@ export default function ClientDetailPage() {
           )}
         </div>
 
-        {/* Right column: Tabs */}
+        {}
         <div className="lg:col-span-2">
           <Tabs defaultValue="projects">
             <TabsList className="border-2 border-black mb-4 w-full justify-start flex-wrap">
@@ -318,7 +318,7 @@ export default function ClientDetailPage() {
               <TabsTrigger value="fb-leads" className="font-bold">FB Lead Ads</TabsTrigger>
             </TabsList>
 
-            {/* Projects */}
+            {}
             <TabsContent value="projects" className="space-y-3">
               {projects.length === 0 && (
                 <div className="text-center py-12 border-2 border-dashed border-gray-200 rounded-xl text-muted-foreground">
@@ -364,7 +364,7 @@ export default function ClientDetailPage() {
               })}
             </TabsContent>
 
-            {/* Invoices */}
+            {}
             <TabsContent value="invoices" className="space-y-3">
               {invoices.length === 0 && (
                 <div className="text-center py-12 border-2 border-dashed border-gray-200 rounded-xl text-muted-foreground">
@@ -398,7 +398,7 @@ export default function ClientDetailPage() {
               })}
             </TabsContent>
 
-            {/* Leads */}
+            {}
             <TabsContent value="leads" className="space-y-3">
               {leads.length === 0 && (
                 <div className="text-center py-12 border-2 border-dashed border-gray-200 rounded-xl text-muted-foreground">
@@ -429,7 +429,7 @@ export default function ClientDetailPage() {
               })}
             </TabsContent>
 
-            {/* FB Lead Ads */}
+            {}
             <TabsContent value="fb-leads">
               <FbAdsConnectionPanel clientId={clientId} />
             </TabsContent>

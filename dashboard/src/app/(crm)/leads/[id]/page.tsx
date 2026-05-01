@@ -150,7 +150,7 @@ export default function LeadDetailPage() {
         body: JSON.stringify({ status: newStatus, updatedAt: new Date() }),
       });
       setLead(prev => prev ? { ...prev, status: newStatus as any } : prev);
-      // log status change activity
+      
       const res = await fetch(`/api/leads/${leadId}/activity`, {
         method: "POST",
         headers: authHeaders(),
@@ -187,7 +187,7 @@ export default function LeadDetailPage() {
       const newClient = await res.json();
       const clientId = String(newClient._id || newClient.id);
 
-      // Update lead as converted
+      
       await fetch(`/api/leads/${leadId}`, {
         method: "PATCH",
         headers: authHeaders(),
@@ -195,7 +195,7 @@ export default function LeadDetailPage() {
       });
       setLead(prev => prev ? { ...prev, status: "converted", convertedToClientId: clientId } : prev);
 
-      // Log conversion activity
+      
       const actRes = await fetch(`/api/leads/${leadId}/activity`, {
         method: "POST",
         headers: authHeaders(),
@@ -236,7 +236,7 @@ export default function LeadDetailPage() {
 
   return (
     <div className="space-y-6 max-w-6xl mx-auto">
-      {/* Header */}
+      {}
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-start gap-4">
           <Link href="/leads">
@@ -305,10 +305,10 @@ export default function LeadDetailPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left column: Lead info */}
+        {}
         <div className="lg:col-span-1 space-y-4">
 
-          {/* Quick Status Change */}
+          {}
           <Card className="border-2 border-black">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-bold uppercase tracking-wide">Pipeline Stage</CardTitle>
@@ -331,7 +331,7 @@ export default function LeadDetailPage() {
             </CardContent>
           </Card>
 
-          {/* Contact Info */}
+          {}
           <Card className="border-2 border-black">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-bold uppercase tracking-wide">Contact Info</CardTitle>
@@ -369,7 +369,7 @@ export default function LeadDetailPage() {
             </CardContent>
           </Card>
 
-          {/* Deal Info */}
+          {}
           <Card className="border-2 border-black">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-bold uppercase tracking-wide">Deal Info</CardTitle>
@@ -437,7 +437,7 @@ export default function LeadDetailPage() {
             </CardContent>
           </Card>
 
-          {/* Tags */}
+          {}
           {isEditing && (
             <Card className="border-2 border-black">
               <CardHeader className="pb-2">
@@ -455,7 +455,7 @@ export default function LeadDetailPage() {
           )}
         </div>
 
-        {/* Right column: Tabs */}
+        {}
         <div className="lg:col-span-2">
           <Tabs defaultValue="activity">
             <TabsList className="border-2 border-black mb-4 w-full justify-start">
@@ -464,7 +464,7 @@ export default function LeadDetailPage() {
             </TabsList>
 
             <TabsContent value="activity" className="space-y-4">
-              {/* Log new activity */}
+              {}
               <Card className="border-2 border-black">
                 <CardContent className="pt-4 space-y-3">
                   <div className="flex gap-2">
@@ -505,7 +505,7 @@ export default function LeadDetailPage() {
                 </CardContent>
               </Card>
 
-              {/* Activity timeline */}
+              {}
               <div className="space-y-3">
                 {activities.length === 0 && (
                   <div className="text-center py-12 text-muted-foreground border-2 border-dashed border-gray-200 rounded-xl">

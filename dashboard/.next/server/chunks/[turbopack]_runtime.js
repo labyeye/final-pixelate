@@ -1,24 +1,24 @@
 const RUNTIME_PUBLIC_PATH = "server/chunks/[turbopack]_runtime.js";
 const RELATIVE_ROOT_PATH = "../../../../..";
 const ASSET_PREFIX = "/";
-/**
- * This file contains runtime types and functions that are shared between all
- * TurboPack ECMAScript runtimes.
- *
- * It will be prepended to the runtime code of each runtime.
- */ /* eslint-disable @typescript-eslint/no-unused-vars */ /// <reference path="./runtime-types.d.ts" />
+
+
+
+
+
+  
 const REEXPORTED_OBJECTS = new WeakMap();
-/**
- * Constructs the `__turbopack_context__` object for a module.
- */ function Context(module, exports) {
+
+
+ function Context(module, exports) {
     this.m = module;
-    // We need to store this here instead of accessing it from the module object to:
-    // 1. Make it available to factories directly, since we rewrite `this` to
-    //    `__turbopack_context__.e` in CJS modules.
-    // 2. Support async modules which rewrite `module.exports` to a promise, so we
-    //    can still access the original exports object from functions like
-    //    `esmExport`
-    // Ideally we could find a new approach for async modules and drop this property altogether.
+    
+    
+    
+    
+    
+    
+    
     this.e = exports;
 }
 const contextPrototype = Context.prototype;
@@ -30,16 +30,16 @@ function defineProp(obj, name, options) {
 function getOverwrittenModule(moduleCache, id) {
     let module = moduleCache[id];
     if (!module) {
-        // This is invoked when a module is merged into another module, thus it wasn't invoked via
-        // instantiateModule and the cache entry wasn't created yet.
+        
+        
         module = createModuleObject(id);
         moduleCache[id] = module;
     }
     return module;
 }
-/**
- * Creates the module object. Only done here to ensure all module objects have the same shape.
- */ function createModuleObject(id) {
+
+
+ function createModuleObject(id) {
     return {
         exports: {},
         error: undefined,
@@ -48,9 +48,9 @@ function getOverwrittenModule(moduleCache, id) {
     };
 }
 const BindingTag_Value = 0;
-/**
- * Adds the getters to the exports object.
- */ function esm(exports, bindings) {
+
+
+ function esm(exports, bindings) {
     defineProp(exports, '__esModule', {
         value: true
     });
@@ -90,9 +90,9 @@ const BindingTag_Value = 0;
     }
     Object.seal(exports);
 }
-/**
- * Makes the module an ESM with exports
- */ function esmExport(bindings, id) {
+
+
+ function esmExport(bindings, id) {
     let module;
     let exports;
     if (id != null) {
@@ -134,9 +134,9 @@ function ensureDynamicExports(module, exports) {
     }
     return reexportedObjects;
 }
-/**
- * Dynamically exports properties from an object
- */ function dynamicExport(object, id) {
+
+
+ function dynamicExport(object, id) {
     let module;
     let exports;
     if (id != null) {
@@ -175,22 +175,22 @@ contextPrototype.n = exportNamespace;
 function createGetter(obj, key) {
     return ()=>obj[key];
 }
-/**
- * @returns prototype of the object
- */ const getProto = Object.getPrototypeOf ? (obj)=>Object.getPrototypeOf(obj) : (obj)=>obj.__proto__;
-/** Prototypes that are not expanded for exports */ const LEAF_PROTOTYPES = [
+
+
+ const getProto = Object.getPrototypeOf ? (obj)=>Object.getPrototypeOf(obj) : (obj)=>obj.__proto__;
+ const LEAF_PROTOTYPES = [
     null,
     getProto({}),
     getProto([]),
     getProto(getProto)
 ];
-/**
- * @param raw
- * @param ns
- * @param allowExportDefault
- *   * `false`: will have the raw module as default export
- *   * `true`: will have the default property as default export
- */ function interopEsm(raw, ns, allowExportDefault) {
+
+
+
+
+
+
+ function interopEsm(raw, ns, allowExportDefault) {
     const bindings = [];
     let defaultLocation = -1;
     for(let current = raw; (typeof current === 'object' || typeof current === 'function') && !LEAF_PROTOTYPES.includes(current); current = getProto(current)){
@@ -201,12 +201,12 @@ function createGetter(obj, key) {
             }
         }
     }
-    // this is not really correct
-    // we should set the `default` getter if the imported module is a `.cjs file`
+    
+    
     if (!(allowExportDefault && defaultLocation >= 0)) {
-        // Replace the binding with one for the namespace itself in order to preserve iteration order.
+        
         if (defaultLocation >= 0) {
-            // Replace the getter with the value
+            
             bindings.splice(defaultLocation, 1, BindingTag_Value, raw);
         } else {
             bindings.push('default', BindingTag_Value, raw);
@@ -226,9 +226,9 @@ function createNS(raw) {
 }
 function esmImport(id) {
     const module = getOrInstantiateModuleFromParent(id, this.m);
-    // any ES module has to have `module.namespaceObject` defined.
+    
     if (module.namespaceObject) return module.namespaceObject;
-    // only ESM can be an async module, so we don't need to worry about exports being a promise here.
+    
     const raw = module.exports;
     return module.namespaceObject = interopEsm(raw, createNS(raw), raw && raw.__esModule);
 }
@@ -238,9 +238,9 @@ function asyncLoader(moduleId) {
     return loader(esmImport.bind(this));
 }
 contextPrototype.A = asyncLoader;
-// Add a simple runtime require so that environments without one can still pass
-// `typeof require` CommonJS checks so that exports are correctly registered.
-const runtimeRequire = // @ts-ignore
+
+
+const runtimeRequire = 
 typeof require === 'function' ? require : function require1() {
     throw new Error('Unexpected use of runtime require');
 };
@@ -249,9 +249,9 @@ function commonJsRequire(id) {
     return getOrInstantiateModuleFromParent(id, this.m).exports;
 }
 contextPrototype.r = commonJsRequire;
-/**
- * `require.context` and require/import expression runtime.
- */ function moduleContext(map) {
+
+
+ function moduleContext(map) {
     function moduleContext(id) {
         if (hasOwnProperty.call(map, id)) {
             return map[id].module();
@@ -277,9 +277,9 @@ contextPrototype.r = commonJsRequire;
     return moduleContext;
 }
 contextPrototype.f = moduleContext;
-/**
- * Returns the path of a chunk defined by its data.
- */ function getChunkPath(chunkData) {
+
+
+ function getChunkPath(chunkData) {
     return typeof chunkData === 'string' ? chunkData : chunkData.path;
 }
 function isPromise(maybePromise) {
@@ -301,26 +301,26 @@ function createPromise() {
         reject: reject
     };
 }
-// Load the CompressedmoduleFactories of a chunk into the `moduleFactories` Map.
-// The CompressedModuleFactories format is
-// - 1 or more module ids
-// - a module factory function
-// So walking this is a little complex but the flat structure is also fast to
-// traverse, we can use `typeof` operators to distinguish the two cases.
+
+
+
+
+
+
 function installCompressedModuleFactories(chunkModules, offset, moduleFactories, newModuleId) {
     let i = offset;
     while(i < chunkModules.length){
         let moduleId = chunkModules[i];
         let end = i + 1;
-        // Find our factory function
+        
         while(end < chunkModules.length && typeof chunkModules[end] !== 'function'){
             end++;
         }
         if (end === chunkModules.length) {
             throw new Error('malformed chunk format, expected a factory function');
         }
-        // Each chunk item has a 'primary id' and optional additional ids. If the primary id is already
-        // present we know all the additional ids are also present, so we don't need to check.
+        
+        
         if (!moduleFactories.has(moduleId)) {
             const moduleFactoryFn = chunkModules[end];
             applyModuleFactoryName(moduleFactoryFn);
@@ -330,11 +330,11 @@ function installCompressedModuleFactories(chunkModules, offset, moduleFactories,
                 moduleFactories.set(moduleId, moduleFactoryFn);
             }
         }
-        i = end + 1; // end is pointing at the last factory advance to the next id or the end of the array.
+        i = end + 1; 
     }
 }
-// everything below is adapted from webpack
-// https://github.com/webpack/webpack/blob/6be4065ade1e252c1d8dcba4af0f43e32af1bdc1/lib/runtime/AsyncModuleRuntimeModule.js#L13
+
+
 const turbopackQueues = Symbol('turbopack queues');
 const turbopackExports = Symbol('turbopack exports');
 const turbopackError = Symbol('turbopack error');
@@ -393,7 +393,7 @@ function asyncModule(body, hasAwait) {
             return promise;
         },
         set (v) {
-            // Calling `esmExport` leads to this.
+            
             if (v !== promise) {
                 promise[turbopackExports] = v;
             }
@@ -437,16 +437,16 @@ function asyncModule(body, hasAwait) {
     }
 }
 contextPrototype.a = asyncModule;
-/**
- * A pseudo "fake" URL object to resolve to its relative path.
- *
- * When UrlRewriteBehavior is set to relative, calls to the `new URL()` will construct url without base using this
- * runtime function to generate context-agnostic urls between different rendering context, i.e ssr / client to avoid
- * hydration mismatch.
- *
- * This is based on webpack's existing implementation:
- * https://github.com/webpack/webpack/blob/87660921808566ef3b8796f8df61bd79fc026108/lib/runtime/RelativeUrlRuntimeModule.js
- */ const relativeURL = function relativeURL(inputUrl) {
+
+
+
+
+
+
+
+
+
+ const relativeURL = function relativeURL(inputUrl) {
     const realUrl = new URL(inputUrl, 'x:/');
     const values = {};
     for(const key in realUrl)values[key] = realUrl[key];
@@ -462,38 +462,38 @@ contextPrototype.a = asyncModule;
 };
 relativeURL.prototype = URL.prototype;
 contextPrototype.U = relativeURL;
-/**
- * Utility function to ensure all variants of an enum are handled.
- */ function invariant(never, computeMessage) {
+
+
+ function invariant(never, computeMessage) {
     throw new Error(`Invariant: ${computeMessage(never)}`);
 }
-/**
- * A stub function to make `require` available but non-functional in ESM.
- */ function requireStub(_moduleId) {
+
+
+ function requireStub(_moduleId) {
     throw new Error('dynamic usage of require is not supported');
 }
 contextPrototype.z = requireStub;
-// Make `globalThis` available to the module in a way that cannot be shadowed by a local variable.
+
 contextPrototype.g = globalThis;
 function applyModuleFactoryName(factory) {
-    // Give the module factory a nice name to improve stack traces.
+    
     Object.defineProperty(factory, 'name', {
         value: 'module evaluation'
     });
 }
-/// <reference path="../shared/runtime-utils.ts" />
-/// A 'base' utilities to support runtime can have externals.
-/// Currently this is for node.js / edge runtime both.
-/// If a fn requires node.js specific behavior, it should be placed in `node-external-utils` instead.
+
+
+
+
 async function externalImport(id) {
     let raw;
     try {
         raw = await import(id);
     } catch (err) {
-        // TODO(alexkirsz) This can happen when a client-side module tries to load
-        // an external module we don't provide a shim for (e.g. querystring, url).
-        // For now, we fail semi-silently, but in the future this should be a
-        // compilation error.
+        
+        
+        
+        
         throw new Error(`Failed to load external module ${id}: ${err}`);
     }
     if (raw && raw.__esModule && raw.default && 'default' in raw.default) {
@@ -507,10 +507,10 @@ function externalRequire(id, thunk, esm = false) {
     try {
         raw = thunk();
     } catch (err) {
-        // TODO(alexkirsz) This can happen when a client-side module tries to load
-        // an external module we don't provide a shim for (e.g. querystring, url).
-        // For now, we fail semi-silently, but in the future this should be a
-        // compilation error.
+        
+        
+        
+        
         throw new Error(`Failed to load external module ${id}: ${err}`);
     }
     if (!esm || raw.__esModule) {
@@ -522,33 +522,33 @@ externalRequire.resolve = (id, options)=>{
     return require.resolve(id, options);
 };
 contextPrototype.x = externalRequire;
-/* eslint-disable @typescript-eslint/no-unused-vars */ const path = require('path');
+ const path = require('path');
 const relativePathToRuntimeRoot = path.relative(RUNTIME_PUBLIC_PATH, '.');
-// Compute the relative path to the `distDir`.
+
 const relativePathToDistRoot = path.join(relativePathToRuntimeRoot, RELATIVE_ROOT_PATH);
 const RUNTIME_ROOT = path.resolve(__filename, relativePathToRuntimeRoot);
-// Compute the absolute path to the root, by stripping distDir from the absolute path to this file.
+
 const ABSOLUTE_ROOT = path.resolve(__filename, relativePathToDistRoot);
-/**
- * Returns an absolute path to the given module path.
- * Module path should be relative, either path to a file or a directory.
- *
- * This fn allows to calculate an absolute path for some global static values, such as
- * `__dirname` or `import.meta.url` that Turbopack will not embeds in compile time.
- * See ImportMetaBinding::code_generation for the usage.
- */ function resolveAbsolutePath(modulePath) {
+
+
+
+
+
+
+
+ function resolveAbsolutePath(modulePath) {
     if (modulePath) {
         return path.join(ABSOLUTE_ROOT, modulePath);
     }
     return ABSOLUTE_ROOT;
 }
 Context.prototype.P = resolveAbsolutePath;
-/* eslint-disable @typescript-eslint/no-unused-vars */ /// <reference path="../shared/runtime-utils.ts" />
+ 
 function readWebAssemblyAsResponse(path) {
     const { createReadStream } = require('fs');
     const { Readable } = require('stream');
     const stream = createReadStream(path);
-    // @ts-ignore unfortunately there's a slight type mismatch with the stream.
+    
     return new Response(Readable.toWeb(stream), {
         headers: {
             'content-type': 'application/wasm'
@@ -564,20 +564,20 @@ async function instantiateWebAssemblyFromPath(path, importsObj) {
     const { instance } = await WebAssembly.instantiateStreaming(response, importsObj);
     return instance.exports;
 }
-/* eslint-disable @typescript-eslint/no-unused-vars */ /// <reference path="../shared/runtime-utils.ts" />
-/// <reference path="../shared-node/base-externals-utils.ts" />
-/// <reference path="../shared-node/node-externals-utils.ts" />
-/// <reference path="../shared-node/node-wasm-utils.ts" />
-var SourceType = /*#__PURE__*/ function(SourceType) {
-    /**
-   * The module was instantiated because it was included in an evaluated chunk's
-   * runtime.
-   * SourceData is a ChunkPath.
-   */ SourceType[SourceType["Runtime"] = 0] = "Runtime";
-    /**
-   * The module was instantiated because a parent module imported it.
-   * SourceData is a ModuleId.
-   */ SourceType[SourceType["Parent"] = 1] = "Parent";
+ 
+
+
+
+var SourceType =  function(SourceType) {
+    
+
+
+
+ SourceType[SourceType["Runtime"] = 0] = "Runtime";
+    
+
+
+ SourceType[SourceType["Parent"] = 1] = "Parent";
     return SourceType;
 }(SourceType || {});
 process.env.TURBOPACK = '1';
@@ -587,9 +587,9 @@ const moduleFactories = new Map();
 nodeContextPrototype.M = moduleFactories;
 const moduleCache = Object.create(null);
 nodeContextPrototype.c = moduleCache;
-/**
- * Returns an absolute path to the given module's id.
- */ function resolvePathFromModule(moduleId) {
+
+
+ function resolvePathFromModule(moduleId) {
     const exported = this.r(moduleId);
     const exportedPath = exported?.default ?? exported;
     if (typeof exportedPath !== 'string') {
@@ -616,8 +616,8 @@ function clearChunkCache() {
 }
 function loadRuntimeChunkPath(sourcePath, chunkPath) {
     if (!isJs(chunkPath)) {
-        // We only support loading JS chunks in Node.js.
-        // This branch can be hit when trying to load a CSS chunk.
+        
+        
         return;
     }
     if (loadedChunks.has(chunkPath)) {
@@ -641,30 +641,30 @@ function loadRuntimeChunkPath(sourcePath, chunkPath) {
 function loadChunkAsync(chunkData) {
     const chunkPath = typeof chunkData === 'string' ? chunkData : chunkData.path;
     if (!isJs(chunkPath)) {
-        // We only support loading JS chunks in Node.js.
-        // This branch can be hit when trying to load a CSS chunk.
+        
+        
         return unsupportedLoadChunk;
     }
     let entry = chunkCache.get(chunkPath);
     if (entry === undefined) {
         try {
-            // resolve to an absolute path to simplify `require` handling
+            
             const resolved = path.resolve(RUNTIME_ROOT, chunkPath);
-            // TODO: consider switching to `import()` to enable concurrent chunk loading and async file io
-            // However this is incompatible with hot reloading (since `import` doesn't use the require cache)
+            
+            
             const chunkModules = require(resolved);
             installCompressedModuleFactories(chunkModules, 0, moduleFactories);
             entry = loadedChunk;
         } catch (e) {
             const errorMessage = `Failed to load chunk ${chunkPath} from module ${this.m.id}`;
-            // Cache the failure promise, future requests will also get this same rejection
+            
             entry = Promise.reject(new Error(errorMessage, {
                 cause: e
             }));
         }
         chunkCache.set(chunkPath, entry);
     }
-    // TODO: Return an instrumented Promise that React can use instead of relying on referential equality.
+    
     return entry;
 }
 contextPrototype.l = loadChunkAsync;
@@ -690,9 +690,9 @@ nodeContextPrototype.b = getWorkerBlobURL;
 function instantiateModule(id, sourceType, sourceData) {
     const moduleFactory = moduleFactories.get(id);
     if (typeof moduleFactory !== 'function') {
-        // This can happen if modules incorrectly handle HMR disposes/updates,
-        // e.g. when they keep a `setTimeout` around which still executes old code
-        // and contains e.g. a `require("something")` call.
+        
+        
+        
         let instantiationReason;
         switch(sourceType){
             case 0:
@@ -710,7 +710,7 @@ function instantiateModule(id, sourceType, sourceData) {
     const exports = module1.exports;
     moduleCache[id] = module1;
     const context = new Context(module1, exports);
-    // NOTE(alexkirsz) This can fail when the module encounters a runtime error.
+    
     try {
         moduleFactory(context, module1, exports);
     } catch (error) {
@@ -719,14 +719,14 @@ function instantiateModule(id, sourceType, sourceData) {
     }
     module1.loaded = true;
     if (module1.namespaceObject && module1.exports !== module1.namespaceObject) {
-        // in case of a circular dependency: cjs1 -> esm2 -> cjs1
+        
         interopEsm(module1.exports, module1.namespaceObject);
     }
     return module1;
 }
-/**
- * Retrieves a module from the cache, or instantiate it if it is not cached.
- */ // @ts-ignore
+
+
+ 
 function getOrInstantiateModuleFromParent(id, sourceModule) {
     const module1 = moduleCache[id];
     if (module1) {
@@ -737,14 +737,14 @@ function getOrInstantiateModuleFromParent(id, sourceModule) {
     }
     return instantiateModule(id, 1, sourceModule.id);
 }
-/**
- * Instantiates a runtime module.
- */ function instantiateRuntimeModule(chunkPath, moduleId) {
+
+
+ function instantiateRuntimeModule(chunkPath, moduleId) {
     return instantiateModule(moduleId, 0, chunkPath);
 }
-/**
- * Retrieves a module from the cache, or instantiate it as a runtime module if it is not cached.
- */ // @ts-ignore TypeScript doesn't separate this module space from the browser runtime
+
+
+ 
 function getOrInstantiateRuntimeModule(chunkPath, moduleId) {
     const module1 = moduleCache[moduleId];
     if (module1) {
@@ -756,9 +756,9 @@ function getOrInstantiateRuntimeModule(chunkPath, moduleId) {
     return instantiateRuntimeModule(chunkPath, moduleId);
 }
 const regexJsUrl = /\.js(?:\?[^#]*)?(?:#.*)?$/;
-/**
- * Checks if a given path/URL ends with .js, optionally followed by ?query or #fragment.
- */ function isJs(chunkUrlOrPath) {
+
+
+ function isJs(chunkUrlOrPath) {
     return regexJsUrl.test(chunkUrlOrPath);
 }
 module.exports = (sourcePath)=>({
@@ -767,4 +767,3 @@ module.exports = (sourcePath)=>({
     });
 
 
-//# sourceMappingURL=%5Bturbopack%5D_runtime.js.map

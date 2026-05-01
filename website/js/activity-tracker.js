@@ -47,7 +47,7 @@
         activityId = data.id;
       }
     } catch (error) {
-      // Silently ignore tracking errors
+      
     }
   }
 
@@ -71,17 +71,18 @@
         keepalive: true,
         body: JSON.stringify(payload),
       });
-      if (!resp.ok) {
-        const txt = await resp.text().catch(() => "");
-      }
-    } catch (error) {}
+      
+    } catch (error) {
+      
+    }
   }
 
-  trackPageView();
+  
+  
 
-  setInterval(sendPing, 5000);
+  
 
-  window.addEventListener("beforeunload", () => {
-    sendPing();
-  });
+  
+  
+  
 })();

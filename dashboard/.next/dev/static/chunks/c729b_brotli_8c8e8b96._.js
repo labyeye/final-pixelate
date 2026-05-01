@@ -28,22 +28,22 @@ exports.BrotliOutput = BrotliOutput;
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/bit_reader.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-/* Copyright 2013 Google Inc. All Rights Reserved.
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
 
-   Bit reading helpers
-*/ var BROTLI_READ_SIZE = 4096;
+
+
+
+
+
+
+
+
+
+
+
+ var BROTLI_READ_SIZE = 4096;
 var BROTLI_IBUF_SIZE = 2 * BROTLI_READ_SIZE + 32;
 var BROTLI_IBUF_MASK = 2 * BROTLI_READ_SIZE - 1;
 var kBitMask = new Uint32Array([
@@ -73,20 +73,20 @@ var kBitMask = new Uint32Array([
     8388607,
     16777215
 ]);
-/* Input byte buffer, consist of a ringbuffer and a "slack" region where */ /* bytes from the start of the ringbuffer are copied. */ function BrotliBitReader(input) {
+  function BrotliBitReader(input) {
     this.buf_ = new Uint8Array(BROTLI_IBUF_SIZE);
-    this.input_ = input; /* input callback */ 
+    this.input_ = input;  
     this.reset();
 }
 BrotliBitReader.READ_SIZE = BROTLI_READ_SIZE;
 BrotliBitReader.IBUF_MASK = BROTLI_IBUF_MASK;
 BrotliBitReader.prototype.reset = function() {
-    this.buf_ptr_ = 0; /* next input will write here */ 
-    this.val_ = 0; /* pre-fetched bits */ 
-    this.pos_ = 0; /* byte position in stream */ 
-    this.bit_pos_ = 0; /* current bit-reading position in val_ */ 
-    this.bit_end_pos_ = 0; /* bit-reading end position from LSB of val_ */ 
-    this.eos_ = 0; /* input stream is finished */ 
+    this.buf_ptr_ = 0;  
+    this.val_ = 0;  
+    this.pos_ = 0;  
+    this.bit_pos_ = 0;  
+    this.bit_end_pos_ = 0;  
+    this.eos_ = 0;  
     this.readMoreInput();
     for(var i = 0; i < 4; i++){
         this.val_ |= this.buf_[this.pos_] << 8 * i;
@@ -94,18 +94,18 @@ BrotliBitReader.prototype.reset = function() {
     }
     return this.bit_end_pos_ > 0;
 };
-/* Fills up the input ringbuffer by calling the input callback.
 
-   Does nothing if there are at least 32 bytes present after current position.
 
-   Returns 0 if either:
-    - the input callback returned an error, or
-    - there is no more input and the position is past the end of the stream.
 
-   After encountering the end of the input stream, 32 additional zero bytes are
-   copied to the ringbuffer, therefore it is safe to call this function after
-   every 32 bytes of input is read.
-*/ BrotliBitReader.prototype.readMoreInput = function() {
+
+
+
+
+
+
+
+
+ BrotliBitReader.prototype.readMoreInput = function() {
     if (this.bit_end_pos_ > 256) {
         return;
     } else if (this.eos_) {
@@ -118,10 +118,10 @@ BrotliBitReader.prototype.reset = function() {
         }
         if (bytes_read < BROTLI_READ_SIZE) {
             this.eos_ = 1;
-            /* Store 32 bytes of zero after the stream end. */ for(var p = 0; p < 32; p++)this.buf_[dst + bytes_read + p] = 0;
+             for(var p = 0; p < 32; p++)this.buf_[dst + bytes_read + p] = 0;
         }
         if (dst === 0) {
-            /* Copy the head of the ringbuffer to the slack region. */ for(var p = 0; p < 32; p++)this.buf_[(BROTLI_READ_SIZE << 1) + p] = this.buf_[p];
+             for(var p = 0; p < 32; p++)this.buf_[(BROTLI_READ_SIZE << 1) + p] = this.buf_[p];
             this.buf_ptr_ = BROTLI_READ_SIZE;
         } else {
             this.buf_ptr_ = 0;
@@ -129,7 +129,7 @@ BrotliBitReader.prototype.reset = function() {
         this.bit_end_pos_ += bytes_read << 3;
     }
 };
-/* Guarantees that there are at least 24 bits in the buffer. */ BrotliBitReader.prototype.fillBitWindow = function() {
+ BrotliBitReader.prototype.fillBitWindow = function() {
     while(this.bit_pos_ >= 8){
         this.val_ >>>= 8;
         this.val_ |= this.buf_[this.pos_ & BROTLI_IBUF_MASK] << 24;
@@ -138,7 +138,7 @@ BrotliBitReader.prototype.reset = function() {
         this.bit_end_pos_ = this.bit_end_pos_ - 8 >>> 0;
     }
 };
-/* Reads the specified number of bits from Read Buffer. */ BrotliBitReader.prototype.readBits = function(n_bits) {
+ BrotliBitReader.prototype.readBits = function(n_bits) {
     if (32 - this.bit_pos_ < n_bits) {
         this.fillBitWindow();
     }
@@ -155,13 +155,13 @@ module.exports = "W5/fcQLn5gKf2XUbAiQ1XULX+TZz6ADToDsgqk6qVfeC0e4m6OO2wcQ1J76ZBV
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/dictionary-browser.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 var base64 = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/base64-js/index.js [app-client] (ecmascript)");
-/**
- * The normal dictionary-data.js is quite large, which makes it 
- * unsuitable for browser usage. In order to make it smaller, 
- * we read dictionary.bin, which is a compressed version of
- * the dictionary, and on initial load, Brotli decompresses 
- * it's own dictionary. 😜
- */ exports.init = function() {
+
+
+
+
+
+
+ exports.init = function() {
     var BrotliDecompressBuffer = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/decode.js [app-client] (ecmascript)").BrotliDecompressBuffer;
     var compressed = base64.toByteArray(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/dictionary.bin.js [app-client] (ecmascript)"));
     return BrotliDecompressBuffer(compressed);
@@ -169,22 +169,22 @@ var base64 = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/dictionary.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-/* Copyright 2013 Google Inc. All Rights Reserved.
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
 
-   Collection of static dictionary words.
-*/ var data = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/dictionary-browser.js [app-client] (ecmascript)");
+
+
+
+
+
+
+
+
+
+
+
+ var data = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/dictionary-browser.js [app-client] (ecmascript)");
 exports.init = function() {
     exports.dictionary = data.init();
 };
@@ -248,28 +248,28 @@ exports.maxDictionaryWordLength = 24;
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/huffman.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 function HuffmanCode(bits, value) {
-    this.bits = bits; /* number of bits used for this symbol */ 
-    this.value = value; /* symbol value or table offset */ 
+    this.bits = bits;  
+    this.value = value;  
 }
 exports.HuffmanCode = HuffmanCode;
 var MAX_LENGTH = 15;
-/* Returns reverse(reverse(key, len) + 1, len), where reverse(key, len) is the
-   bit-wise reversal of the len least significant bits of key. */ function GetNextKey(key, len) {
+
+ function GetNextKey(key, len) {
     var step = 1 << len - 1;
     while(key & step){
         step >>= 1;
     }
     return (key & step - 1) + step;
 }
-/* Stores code in table[0], table[step], table[2*step], ..., table[end] */ /* Assumes that end is an integer multiple of step */ function ReplicateValue(table, i, step, end, code) {
+  function ReplicateValue(table, i, step, end, code) {
     do {
         end -= step;
         table[i + end] = new HuffmanCode(code.bits, code.value);
     }while (end > 0)
 }
-/* Returns the table width of the next 2nd level table. count is the histogram
-   of bit lengths for the remaining symbols, len is the code length of the next
-   processed symbol */ function NextTableBitSize(count, len, root_bits) {
+
+
+ function NextTableBitSize(count, len, root_bits) {
     var left = 1 << len - root_bits;
     while(len < MAX_LENGTH){
         left -= count[len];
@@ -281,28 +281,28 @@ var MAX_LENGTH = 15;
 }
 exports.BrotliBuildHuffmanTable = function(root_table, table, root_bits, code_lengths, code_lengths_size) {
     var start_table = table;
-    var code; /* current table entry */ 
-    var len; /* current code length */ 
-    var symbol; /* symbol index in original or sorted table */ 
-    var key; /* reversed prefix code */ 
-    var step; /* step size to replicate values in current table */ 
-    var low; /* low bits for current root entry */ 
-    var mask; /* mask for low bits */ 
-    var table_bits; /* key length of current table */ 
-    var table_size; /* size of current table */ 
-    var total_size; /* sum of root table size and 2nd level table sizes */ 
-    var sorted; /* symbols sorted by code length */ 
-    var count = new Int32Array(MAX_LENGTH + 1); /* number of codes of each length */ 
-    var offset = new Int32Array(MAX_LENGTH + 1); /* offsets in sorted table for each length */ 
+    var code;  
+    var len;  
+    var symbol;  
+    var key;  
+    var step;  
+    var low;  
+    var mask;  
+    var table_bits;  
+    var table_size;  
+    var total_size;  
+    var sorted;  
+    var count = new Int32Array(MAX_LENGTH + 1);  
+    var offset = new Int32Array(MAX_LENGTH + 1);  
     sorted = new Int32Array(code_lengths_size);
-    /* build histogram of code lengths */ for(symbol = 0; symbol < code_lengths_size; symbol++){
+     for(symbol = 0; symbol < code_lengths_size; symbol++){
         count[code_lengths[symbol]]++;
     }
-    /* generate offsets into sorted symbol table by code length */ offset[1] = 0;
+     offset[1] = 0;
     for(len = 1; len < MAX_LENGTH; len++){
         offset[len + 1] = offset[len] + count[len];
     }
-    /* sort symbols by length, by symbol order within each length */ for(symbol = 0; symbol < code_lengths_size; symbol++){
+     for(symbol = 0; symbol < code_lengths_size; symbol++){
         if (code_lengths[symbol] !== 0) {
             sorted[offset[code_lengths[symbol]]++] = symbol;
         }
@@ -310,13 +310,13 @@ exports.BrotliBuildHuffmanTable = function(root_table, table, root_bits, code_le
     table_bits = root_bits;
     table_size = 1 << table_bits;
     total_size = table_size;
-    /* special case code with only one value */ if (offset[MAX_LENGTH] === 1) {
+     if (offset[MAX_LENGTH] === 1) {
         for(key = 0; key < total_size; ++key){
             root_table[table + key] = new HuffmanCode(0, sorted[0] & 0xffff);
         }
         return total_size;
     }
-    /* fill in root table */ key = 0;
+     key = 0;
     symbol = 0;
     for(len = 1, step = 2; len <= root_bits; ++len, step <<= 1){
         for(; count[len] > 0; --count[len]){
@@ -325,7 +325,7 @@ exports.BrotliBuildHuffmanTable = function(root_table, table, root_bits, code_le
             key = GetNextKey(key, len);
         }
     }
-    /* fill in 2nd level tables and add pointers to root table */ mask = total_size - 1;
+     mask = total_size - 1;
     low = -1;
     for(len = root_bits + 1, step = 2; len <= MAX_LENGTH; ++len, step <<= 1){
         for(; count[len] > 0; --count[len]){
@@ -347,116 +347,116 @@ exports.BrotliBuildHuffmanTable = function(root_table, table, root_bits, code_le
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/context.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-/* Copyright 2013 Google Inc. All Rights Reserved.
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
 
-   Lookup table to map the previous two bytes to a context id.
 
-   There are four different context modeling modes defined here:
-     CONTEXT_LSB6: context id is the least significant 6 bits of the last byte,
-     CONTEXT_MSB6: context id is the most significant 6 bits of the last byte,
-     CONTEXT_UTF8: second-order context model tuned for UTF8-encoded text,
-     CONTEXT_SIGNED: second-order context model tuned for signed integers.
 
-   The context id for the UTF8 context model is calculated as follows. If p1
-   and p2 are the previous two bytes, we calcualte the context as
 
-     context = kContextLookup[p1] | kContextLookup[p2 + 256].
 
-   If the previous two bytes are ASCII characters (i.e. < 128), this will be
-   equivalent to
 
-     context = 4 * context1(p1) + context2(p2),
 
-   where context1 is based on the previous byte in the following way:
 
-     0  : non-ASCII control
-     1  : \t, \n, \r
-     2  : space
-     3  : other punctuation
-     4  : " '
-     5  : %
-     6  : ( < [ {
-     7  : ) > ] }
-     8  : , ; :
-     9  : .
-     10 : =
-     11 : number
-     12 : upper-case vowel
-     13 : upper-case consonant
-     14 : lower-case vowel
-     15 : lower-case consonant
 
-   and context2 is based on the second last byte:
 
-     0 : control, space
-     1 : punctuation
-     2 : upper-case letter, number
-     3 : lower-case letter
 
-   If the last byte is ASCII, and the second last byte is not (in a valid UTF8
-   stream it will be a continuation byte, value between 128 and 191), the
-   context is the same as if the second last byte was an ASCII control or space.
 
-   If the last byte is a UTF8 lead byte (value >= 192), then the next byte will
-   be a continuation byte and the context id is 2 or 3 depending on the LSB of
-   the last byte and to a lesser extent on the second last byte if it is ASCII.
 
-   If the last byte is a UTF8 continuation byte, the second last byte can be:
-     - continuation byte: the next byte is probably ASCII or lead byte (assuming
-       4-byte UTF8 characters are rare) and the context id is 0 or 1.
-     - lead byte (192 - 207): next byte is ASCII or lead byte, context is 0 or 1
-     - lead byte (208 - 255): next byte is continuation byte, context is 2 or 3
 
-   The possible value combinations of the previous two bytes, the range of
-   context ids and the type of the next byte is summarized in the table below:
 
-   |--------\-----------------------------------------------------------------|
-   |         \                         Last byte                              |
-   | Second   \---------------------------------------------------------------|
-   | last byte \    ASCII            |   cont. byte        |   lead byte      |
-   |            \   (0-127)          |   (128-191)         |   (192-)         |
-   |=============|===================|=====================|==================|
-   |  ASCII      | next: ASCII/lead  |  not valid          |  next: cont.     |
-   |  (0-127)    | context: 4 - 63   |                     |  context: 2 - 3  |
-   |-------------|-------------------|---------------------|------------------|
-   |  cont. byte | next: ASCII/lead  |  next: ASCII/lead   |  next: cont.     |
-   |  (128-191)  | context: 4 - 63   |  context: 0 - 1     |  context: 2 - 3  |
-   |-------------|-------------------|---------------------|------------------|
-   |  lead byte  | not valid         |  next: ASCII/lead   |  not valid       |
-   |  (192-207)  |                   |  context: 0 - 1     |                  |
-   |-------------|-------------------|---------------------|------------------|
-   |  lead byte  | not valid         |  next: cont.        |  not valid       |
-   |  (208-)     |                   |  context: 2 - 3     |                  |
-   |-------------|-------------------|---------------------|------------------|
 
-   The context id for the signed context mode is calculated as:
 
-     context = (kContextLookup[512 + p1] << 3) | kContextLookup[512 + p2].
 
-   For any context modeling modes, the context ids can be calculated by |-ing
-   together two lookups from one table using context model dependent offsets:
 
-     context = kContextLookup[offset1 + p1] | kContextLookup[offset2 + p2].
 
-   where offset1 and offset2 are dependent on the context mode.
-*/ var CONTEXT_LSB6 = 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ var CONTEXT_LSB6 = 0;
 var CONTEXT_MSB6 = 1;
 var CONTEXT_UTF8 = 2;
 var CONTEXT_SIGNED = 3;
-/* Common context lookup table for all context modes. */ exports.lookup = new Uint8Array([
-    /* CONTEXT_UTF8, last byte. */ /* ASCII range. */ 0,
+ exports.lookup = new Uint8Array([
+      0,
     0,
     0,
     0,
@@ -584,7 +584,7 @@ var CONTEXT_SIGNED = 3;
     28,
     12,
     0,
-    /* UTF8 continuation byte range. */ 0,
+     0,
     1,
     0,
     1,
@@ -648,7 +648,7 @@ var CONTEXT_SIGNED = 3;
     1,
     0,
     1,
-    /* UTF8 lead byte range. */ 2,
+     2,
     3,
     2,
     3,
@@ -712,7 +712,7 @@ var CONTEXT_SIGNED = 3;
     3,
     2,
     3,
-    /* CONTEXT_UTF8 second last byte. */ /* ASCII range. */ 0,
+      0,
     0,
     0,
     0,
@@ -840,7 +840,7 @@ var CONTEXT_SIGNED = 3;
     1,
     1,
     0,
-    /* UTF8 continuation byte range. */ 0,
+     0,
     0,
     0,
     0,
@@ -920,7 +920,7 @@ var CONTEXT_SIGNED = 3;
     0,
     0,
     0,
-    /* UTF8 lead byte range. */ 0,
+     0,
     0,
     0,
     0,
@@ -968,7 +968,7 @@ var CONTEXT_SIGNED = 3;
     2,
     2,
     2,
-    /* CONTEXT_SIGNED, second last byte. */ 0,
+     0,
     1,
     1,
     1,
@@ -1224,7 +1224,7 @@ var CONTEXT_SIGNED = 3;
     6,
     6,
     7,
-    /* CONTEXT_SIGNED, last byte, same as the above values shifted by 3 bits. */ 0,
+     0,
     8,
     8,
     8,
@@ -1480,71 +1480,7 @@ var CONTEXT_SIGNED = 3;
     48,
     48,
     56,
-    /* CONTEXT_LSB6, last byte. */ 0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
-    21,
-    22,
-    23,
-    24,
-    25,
-    26,
-    27,
-    28,
-    29,
-    30,
-    31,
-    32,
-    33,
-    34,
-    35,
-    36,
-    37,
-    38,
-    39,
-    40,
-    41,
-    42,
-    43,
-    44,
-    45,
-    46,
-    47,
-    48,
-    49,
-    50,
-    51,
-    52,
-    53,
-    54,
-    55,
-    56,
-    57,
-    58,
-    59,
-    60,
-    61,
-    62,
-    63,
-    0,
+     0,
     1,
     2,
     3,
@@ -1736,7 +1672,71 @@ var CONTEXT_SIGNED = 3;
     61,
     62,
     63,
-    /* CONTEXT_MSB6, last byte. */ 0,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+     0,
     0,
     0,
     0,
@@ -1992,7 +1992,7 @@ var CONTEXT_SIGNED = 3;
     63,
     63,
     63,
-    /* CONTEXT_{M,L}SB6, second last byte, */ 0,
+     0,
     0,
     0,
     0,
@@ -2250,35 +2250,35 @@ var CONTEXT_SIGNED = 3;
     0
 ]);
 exports.lookupOffsets = new Uint16Array([
-    /* CONTEXT_LSB6 */ 1024,
+     1024,
     1536,
-    /* CONTEXT_MSB6 */ 1280,
+     1280,
     1536,
-    /* CONTEXT_UTF8 */ 0,
+     0,
     256,
-    /* CONTEXT_SIGNED */ 768,
+     768,
     512
 ]);
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/prefix.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-/* Copyright 2013 Google Inc. All Rights Reserved.
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
 
-   Lookup tables to map prefix codes to value ranges. This is used during
-   decoding of the block lengths, literal insertion lengths and copy lengths.
-*/ /* Represents the range of values belonging to a prefix code: */ /* [offset, offset + 2^nbits) */ function PrefixCodeRange(offset, nbits) {
+
+
+
+
+
+
+
+
+
+
+
+
+   function PrefixCodeRange(offset, nbits) {
     this.offset = offset;
     this.nbits = nbits;
 }
@@ -2387,22 +2387,22 @@ exports.kCopyRangeLut = [
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/transform.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-/* Copyright 2013 Google Inc. All Rights Reserved.
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
 
-   Transformations on dictionary words.
-*/ var BrotliDictionary = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/dictionary.js [app-client] (ecmascript)");
+
+
+
+
+
+
+
+
+
+
+
+ var BrotliDictionary = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/dictionary.js [app-client] (ecmascript)");
 var kIdentity = 0;
 var kOmitLast1 = 1;
 var kOmitLast2 = 2;
@@ -2563,11 +2563,11 @@ function ToUpperCase(p, i) {
         }
         return 1;
     }
-    /* An overly simplified uppercasing model for utf-8. */ if (p[i] < 0xe0) {
+     if (p[i] < 0xe0) {
         p[i + 1] ^= 32;
         return 2;
     }
-    /* An arbitrary transform for three byte characters. */ p[i + 2] ^= 5;
+     p[i + 2] ^= 5;
     return 3;
 }
 exports.transformDictionaryWord = function(dst, idx, word, len, transform) {
@@ -2612,20 +2612,20 @@ exports.transformDictionaryWord = function(dst, idx, word, len, transform) {
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/decode.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-/* Copyright 2013 Google Inc. All Rights Reserved.
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-*/ var BrotliInput = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/streams.js [app-client] (ecmascript)").BrotliInput;
+
+
+
+
+
+
+
+
+
+
+ var BrotliInput = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/streams.js [app-client] (ecmascript)").BrotliInput;
 var BrotliOutput = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/streams.js [app-client] (ecmascript)").BrotliOutput;
 var BrotliBitReader = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/bit_reader.js [app-client] (ecmascript)");
 var BrotliDictionary = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/brotli/dec/dictionary.js [app-client] (ecmascript)");
@@ -2643,8 +2643,8 @@ var kLiteralContextBits = 6;
 var kDistanceContextBits = 2;
 var HUFFMAN_TABLE_BITS = 8;
 var HUFFMAN_TABLE_MASK = 0xff;
-/* Maximum possible Huffman table size for an alphabet size of 704, max code
- * length 15 and root table bits 8. */ var HUFFMAN_MAX_TABLE_SIZE = 1080;
+
+ var HUFFMAN_MAX_TABLE_SIZE = 1080;
 var CODE_LENGTH_CODES = 18;
 var kCodeLengthCodeOrder = new Uint8Array([
     1,
@@ -2743,7 +2743,7 @@ function DecodeWindowBits(br) {
     }
     return 17;
 }
-/* Decodes a number in the range [0..255], by reading 1 - 11 bits. */ function DecodeVarLenUint8(br) {
+ function DecodeVarLenUint8(br) {
     if (br.readBits(1)) {
         var nbits = br.readBits(3);
         if (nbits === 0) {
@@ -2793,7 +2793,7 @@ function DecodeMetaBlockLength(br) {
     }
     return out;
 }
-/* Decodes the next Huffman code from bit-stream. */ function ReadSymbol(table, index, br) {
+ function ReadSymbol(table, index, br) {
     var start_index = index;
     var nbits;
     br.fillBitWindow();
@@ -2870,11 +2870,11 @@ function ReadHuffmanCode(alphabet_size, tables, table, br) {
     var simple_code_or_skip;
     var code_lengths = new Uint8Array(alphabet_size);
     br.readMoreInput();
-    /* simple_code_or_skip is used as follows:
-     1 for simple code;
-     0 for no skipping, 2 skips 2 code lengths, 3 skips 3 code lengths */ simple_code_or_skip = br.readBits(2);
+    
+
+ simple_code_or_skip = br.readBits(2);
     if (simple_code_or_skip === 1) {
-        /* Read symbols, codes & code lengths directly. */ var i;
+         var i;
         var max_bits_counter = alphabet_size - 1;
         var max_bits = 0;
         var symbols = new Int32Array(4);
@@ -2919,7 +2919,7 @@ function ReadHuffmanCode(alphabet_size, tables, table, br) {
         var code_length_code_lengths = new Uint8Array(CODE_LENGTH_CODES);
         var space = 32;
         var num_codes = 0;
-        /* Static Huffman code for the code length code lengths */ var huff = [
+         var huff = [
             new HuffmanCode(2, 0),
             new HuffmanCode(2, 4),
             new HuffmanCode(2, 3),
@@ -2996,7 +2996,7 @@ function InverseMoveToFrontTransform(v, v_len) {
         if (index) MoveToFront(mtf, index);
     }
 }
-/* Contains a collection of huffman trees with the same alphabet size. */ function HuffmanTreeGroup(alphabet_size, num_htrees) {
+ function HuffmanTreeGroup(alphabet_size, num_htrees) {
     this.alphabet_size = alphabet_size;
     this.num_htrees = num_htrees;
     this.codes = new Array(num_htrees + num_htrees * kMaxHuffmanTableSize[alphabet_size + 31 >>> 5]);
@@ -3086,7 +3086,7 @@ function CopyUncompressedBlockToOutput(output, len, pos, ringbuffer, ringbuffer_
     var rb_pos = pos & ringbuffer_mask;
     var br_pos = br.pos_ & BrotliBitReader.IBUF_MASK;
     var nbytes;
-    /* For short lengths copy byte-by-byte */ if (len < 8 || br.bit_pos_ + (len << 3) < br.bit_end_pos_) {
+     if (len < 8 || br.bit_pos_ + (len << 3) < br.bit_end_pos_) {
         while(len-- > 0){
             br.readMoreInput();
             ringbuffer[rb_pos++] = br.readBits(8);
@@ -3100,13 +3100,13 @@ function CopyUncompressedBlockToOutput(output, len, pos, ringbuffer, ringbuffer_
     if (br.bit_end_pos_ < 32) {
         throw new Error('[CopyUncompressedBlockToOutput] br.bit_end_pos_ < 32');
     }
-    /* Copy remaining 0-4 bytes from br.val_ to ringbuffer. */ while(br.bit_pos_ < 32){
+     while(br.bit_pos_ < 32){
         ringbuffer[rb_pos] = br.val_ >>> br.bit_pos_;
         br.bit_pos_ += 8;
         ++rb_pos;
         --len;
     }
-    /* Copy remaining bytes from br.buf_ to ringbuffer. */ nbytes = br.bit_end_pos_ - br.bit_pos_ >> 3;
+     nbytes = br.bit_end_pos_ - br.bit_pos_ >> 3;
     if (br_pos + nbytes > BrotliBitReader.IBUF_MASK) {
         var tail = BrotliBitReader.IBUF_MASK + 1 - br_pos;
         for(var x = 0; x < tail; x++)ringbuffer[rb_pos + x] = br.buf_[br_pos + x];
@@ -3118,15 +3118,15 @@ function CopyUncompressedBlockToOutput(output, len, pos, ringbuffer, ringbuffer_
     for(var x = 0; x < nbytes; x++)ringbuffer[rb_pos + x] = br.buf_[br_pos + x];
     rb_pos += nbytes;
     len -= nbytes;
-    /* If we wrote past the logical end of the ringbuffer, copy the tail of the
-     ringbuffer to its beginning and flush the ringbuffer to the output. */ if (rb_pos >= rb_size) {
+    
+ if (rb_pos >= rb_size) {
         output.write(ringbuffer, rb_size);
         rb_pos -= rb_size;
         for(var x = 0; x < rb_pos; x++)ringbuffer[x] = ringbuffer[rb_size + x];
     }
-    /* If we have more to copy than the remaining size of the ringbuffer, then we
-     first fill the ringbuffer from the input and then flush the ringbuffer to
-     the output */ while(rb_pos + len >= rb_size){
+    
+
+ while(rb_pos + len >= rb_size){
         nbytes = rb_size - rb_pos;
         if (br.input_.read(ringbuffer, rb_pos, nbytes) < nbytes) {
             throw new Error('[CopyUncompressedBlockToOutput] not enough bytes');
@@ -3135,14 +3135,14 @@ function CopyUncompressedBlockToOutput(output, len, pos, ringbuffer, ringbuffer_
         len -= nbytes;
         rb_pos = 0;
     }
-    /* Copy straight from the input onto the ringbuffer. The ringbuffer will be
-     flushed to the output at a later time. */ if (br.input_.read(ringbuffer, rb_pos, len) < len) {
+    
+ if (br.input_.read(ringbuffer, rb_pos, len) < len) {
         throw new Error('[CopyUncompressedBlockToOutput] not enough bytes');
     }
-    /* Restore the state of the bit reader. */ br.reset();
+     br.reset();
 }
-/* Advances the bit reader position to the next byte boundary and verifies
-   that any skipped bits are set to zero. */ function JumpToByteBoundary(br) {
+
+ function JumpToByteBoundary(br) {
     var new_bit_pos = br.bit_pos_ + 7 & ~7;
     var pad_bits = br.readBits(new_bit_pos - br.bit_pos_);
     return pad_bits == 0;
@@ -3180,14 +3180,14 @@ function BrotliDecompress(input, output) {
     var ringbuffer_mask;
     var ringbuffer;
     var ringbuffer_end;
-    /* This ring buffer holds a few past copy distances that will be used by */ /* some special distance codes. */ var dist_rb = [
+      var dist_rb = [
         16,
         15,
         11,
         4
     ];
     var dist_rb_idx = 0;
-    /* The previous 2 bytes used for context. */ var prev_byte1 = 0;
+     var prev_byte1 = 0;
     var prev_byte2 = 0;
     var hgroup = [
         new HuffmanTreeGroup(0, 0),
@@ -3197,12 +3197,12 @@ function BrotliDecompress(input, output) {
     var block_type_trees;
     var block_len_trees;
     var br;
-    /* We need the slack region for the following reasons:
-       - always doing two 8-byte copies for fast backward copying
-       - transforms
-       - flushing the input ringbuffer when decoding uncompressed blocks */ var kRingBufferWriteAheadSlack = 128 + BrotliBitReader.READ_SIZE;
+    
+
+
+ var kRingBufferWriteAheadSlack = 128 + BrotliBitReader.READ_SIZE;
     br = new BrotliBitReader(input);
-    /* Decode window size. */ window_bits = DecodeWindowBits(br);
+     window_bits = DecodeWindowBits(br);
     max_backward_distance = (1 << window_bits) - 16;
     ringbuffer_size = 1 << window_bits;
     ringbuffer_mask = ringbuffer_size - 1;
@@ -3268,7 +3268,7 @@ function BrotliDecompress(input, output) {
         var _out = DecodeMetaBlockLength(br);
         meta_block_remaining_len = _out.meta_block_length;
         if (pos + meta_block_remaining_len > output.buffer.length) {
-            /* We need to grow the output buffer to fit the additional data. */ var tmp = new Uint8Array(pos + meta_block_remaining_len);
+             var tmp = new Uint8Array(pos + meta_block_remaining_len);
             tmp.set(output.buffer);
             output.buffer = tmp;
         }
@@ -3278,7 +3278,7 @@ function BrotliDecompress(input, output) {
             JumpToByteBoundary(br);
             for(; meta_block_remaining_len > 0; --meta_block_remaining_len){
                 br.readMoreInput();
-                /* Read one byte and ignore it. */ br.readBits(8);
+                 br.readBits(8);
             }
             continue;
         }
@@ -3410,7 +3410,7 @@ function BrotliDecompress(input, output) {
                     distance_code = num_direct_distance_codes + (offset + br.readBits(nbits) << distance_postfix_bits) + postfix;
                 }
             }
-            /* Convert the distance code to the actual distance by possibly looking */ /* up past distnaces from the ringbuffer. */ distance = TranslateShortCodes(distance_code, dist_rb, dist_rb_idx);
+              distance = TranslateShortCodes(distance_code, dist_rb, dist_rb_idx);
             if (distance < 0) {
                 throw new Error('[BrotliDecompress] invalid distance');
             }
@@ -3461,10 +3461,10 @@ function BrotliDecompress(input, output) {
                     --meta_block_remaining_len;
                 }
             }
-            /* When we get here, we must have inserted at least one literal and */ /* made a copy of at least length two, therefore accessing the last 2 */ /* bytes is valid. */ prev_byte1 = ringbuffer[pos - 1 & ringbuffer_mask];
+               prev_byte1 = ringbuffer[pos - 1 & ringbuffer_mask];
             prev_byte2 = ringbuffer[pos - 2 & ringbuffer_mask];
         }
-        /* Protect pos from overflow, wrap it around at every GB of input data */ pos &= 0x3fffffff;
+         pos &= 0x3fffffff;
     }
     output.write(ringbuffer, pos & ringbuffer_mask);
 }
@@ -3477,4 +3477,3 @@ module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixel
 }),
 ]);
 
-//# sourceMappingURL=c729b_brotli_8c8e8b96._.js.map

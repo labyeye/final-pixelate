@@ -58,9 +58,9 @@ interface FbAdsConnection {
 }
 
 interface Props {
-  /** The client this panel manages */
+  
   clientId: string;
-  /** If true, only shows sync status + sync button (client-role view) */
+  
   readOnly?: boolean;
 }
 
@@ -70,21 +70,21 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
   const [conn, setConn] = useState<FbAdsConnection | null>(null);
   const [loadingConn, setLoadingConn] = useState(true);
 
-  // Edit form state
+  
   const [accessToken, setAccessToken] = useState("");
   const [adAccountId, setAdAccountId] = useState("");
   const [datasetId, setDatasetId] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [saving, setSaving] = useState(false);
 
-  // Forms
+  
   const [forms, setForms] = useState<LeadAdForm[]>([]);
   const [loadingForms, setLoadingForms] = useState(false);
   const [selectedFormIds, setSelectedFormIds] = useState<string[]>([]);
   const [showForms, setShowForms] = useState(false);
   const [savingForms, setSavingForms] = useState(false);
 
-  // Sync
+  
   const [syncing, setSyncing] = useState(false);
 
   async function loadConnection() {
@@ -101,7 +101,7 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
         }
       }
     } catch {
-      // ignore
+      
     } finally {
       setLoadingConn(false);
     }
@@ -245,7 +245,7 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
     );
   }
 
-  // ── READ-ONLY VIEW (client portal) ──────────────────────────────────────
+  
   if (readOnly) {
     if (!conn?.isConnected) {
       return (
@@ -301,10 +301,10 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
     );
   }
 
-  // ── ADMIN VIEW ───────────────────────────────────────────────────────────
+  
   return (
     <div className="space-y-4">
-      {/* Connection Status + Setup */}
+      {}
       <Card className="border-2 border-black">
         <CardHeader className="pb-3">
           <CardTitle className="text-base flex items-center gap-2">
@@ -323,7 +323,7 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
         </CardHeader>
         <CardContent className="space-y-4">
           {conn?.isConnected && !isEditing ? (
-            /* Connected summary */
+            
             <div className="space-y-2">
               <div className="grid grid-cols-2 gap-2 text-sm">
                 <div>
@@ -363,7 +363,7 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
               </div>
             </div>
           ) : (
-            /* Setup / edit form */
+            
             <div className="space-y-3">
               <div className="bg-blue-50 border border-blue-200 rounded-md p-3 text-xs text-blue-800 flex gap-2">
                 <Info className="w-4 h-4 shrink-0 mt-0.5" />
@@ -443,7 +443,7 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
         </CardContent>
       </Card>
 
-      {/* Forms Selection (shown when connected) */}
+      {}
       {conn?.isConnected && !isEditing && (
         <Card className="border-2 border-black">
           <CardHeader className="pb-3">
@@ -521,7 +521,7 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
         </Card>
       )}
 
-      {/* Sync Controls */}
+      {}
       {conn?.isConnected && (conn.selectedFormIds?.length || 0) > 0 && (
         <Card className="border-2 border-black">
           <CardContent className="pt-5 space-y-3">

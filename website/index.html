@@ -97,6 +97,173 @@
       rel="preconnect"
       crossorigin="anonymous"
     />
+    <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin />
+
+    
+    <link
+      rel="preload"
+      as="image"
+      href="./assets/images/logos/Logo_Color_Name_Large.webp"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="./assets/images/back.webp"
+      fetchpriority="high"
+    />
+    <link rel="preload" as="style" href="./css/global.css" />
+
+    
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: "DM Sans", sans-serif;
+        font-size: 16px;
+        line-height: 150%;
+        background: #fff;
+        color: #515152;
+      }
+      img {
+        border: 0;
+        max-width: 100%;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      h1 {
+        margin: 0;
+        font-size: 62px;
+        font-weight: 500;
+        line-height: 120%;
+        letter-spacing: -0.02em;
+      }
+      ul {
+        margin: 0;
+        padding-left: 30px;
+      }
+      :root {
+        --primary-900: #044bab;
+        --primary-800: #2d69ba;
+        --primary-700: #5787c7;
+        --secondary-900: #fa731b;
+        --secondary-800: #f6893f;
+        --tertiary-900: #000000;
+        --tertiary-800: #515152;
+        --tertiary-700: #747577;
+        --tertiary-500: #b6b7b9;
+        --tertiary-400: #f2f2f2;
+        --tertiary-300: #ffffff;
+        --white: var(--tertiary-300);
+        --black: var(--tertiary-900);
+        --primary: var(--primary-900);
+        --secondary: var(--secondary-900);
+        --transparent: transparent;
+        --1: -0.01em;
+        --2: -0.02em;
+        --100: 100%;
+      }
+      .page-wrapper {
+        color: #fff;
+        position: relative;
+      }
+      .main-hero {
+        background-image: url("./assets/images/back.webp");
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+      }
+      .container {
+        max-width: 1266px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 13px;
+        padding-right: 13px;
+      }
+      .w-nav {
+        z-index: 1000;
+        position: relative;
+      }
+      .w-list-unstyled {
+        padding-left: 0;
+        list-style: none;
+      }
+      .w-inline-block {
+        max-width: 100%;
+        display: inline-block;
+      }
+      .navbar-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: 50px;
+      }
+      .navbar-brand {
+        width: 200px;
+      }
+      .navbar-brand .logo-desktop {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .navbar-brand .logo-mobile {
+        display: none;
+        width: 60px;
+        height: 60px;
+      }
+      .navbar-left {
+        flex-shrink: 0;
+      }
+      .navbar-center {
+        flex: 1;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+      }
+      .navbar-right {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .nav-wrap {
+        padding-top: 32px;
+      }
+      .announcement-bar {
+        background: #044bab;
+        color: #fff;
+        padding: 12px 0;
+        text-align: center;
+        font-weight: 600;
+        font-size: 14px;
+        position: relative;
+        z-index: 1000;
+        overflow: hidden;
+      }
+      @media (max-width: 600px) {
+        h1,
+        .h1.hero-heading {
+          font-size: 28px !important;
+          line-height: 1.15 !important;
+        }
+        .navbar-brand .logo-desktop {
+          display: none;
+        }
+        .navbar-brand .logo-mobile {
+          display: block;
+        }
+      }
+    </style>
+
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:wght@400;700;900&display=swap"
       rel="stylesheet"
@@ -289,12 +456,7 @@
       media="print"
       onload="this.media = 'all'"
     />
-    <style>
-      @font-face {
-        font-display: swap;
-      }
-    </style>
-
+    
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-T64KPYDX6P"
@@ -3069,21 +3231,21 @@
         });
       })();
     </script>
-    <script src="js/activity-tracker.js"></script>
-    <script src="js/chatbot.js" async></script>
-    <script src="js/main.js"></script>
-    <script src="js/quick-contact-buttons.js"></script>
+    <script src="js/activity-tracker.js" defer></script>
+    <script src="js/chatbot.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/quick-contact-buttons.js" defer></script>
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
         const gridContainer = document.querySelector(".masonry-grid");
         const filterBtns = document.querySelectorAll(".filter-btn");
 
         // 1. Define the pages to fetch from and the category label for filtering
-        const sources = [
-          { url: "webdev.html", category: "web-dev" },
-          { url: "app-dev.html", category: "app-dev" },
-          { url: "software-dev.html", category: "software-dev" },
-        ];
+        const sources = [];
+        // Portfolio files commented out - they don't exist yet
+        // { url: "webdev.html", category: "web-dev" },
+        // { url: "app-dev.html", category: "app-dev" },
+        // { url: "software-dev.html", category: "software-dev" },
 
         let allFetchedProjects = [];
 

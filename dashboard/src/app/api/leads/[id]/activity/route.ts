@@ -45,7 +45,7 @@ export async function POST(request: Request, { params }: { params: { id: string 
     }
     const res = await col.insertOne(doc)
 
-    // Also update lead's updatedAt
+    
     await svc.updateById('leads', params.id, { updatedAt: new Date() })
 
     return NextResponse.json({ ...doc, _id: res.insertedId }, { status: 201, headers: CORS })

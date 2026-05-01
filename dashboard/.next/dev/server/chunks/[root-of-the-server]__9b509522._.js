@@ -906,7 +906,7 @@ async function GET(request) {
     if (!conn) return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(null, {
         headers: CORS
     });
-    // Never expose the access token to the frontend
+    
     const { accessToken: _tok, ...safe } = conn;
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
         ...safe,
@@ -1046,4 +1046,3 @@ async function DELETE(request) {
 }),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__9b509522._.js.map

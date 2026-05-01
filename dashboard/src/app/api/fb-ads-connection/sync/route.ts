@@ -14,7 +14,7 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
 }
 
-/** Map a Facebook Lead Ad submission to our leads collection schema */
+
 function mapFbLeadToLead(fbLead: FbLead, clientId: string) {
   const fields: Record<string, string> = {};
   for (const f of fbLead.field_data || []) {
@@ -56,18 +56,18 @@ function mapFbLeadToLead(fbLead: FbLead, clientId: string) {
   };
 }
 
-/**
- * POST /api/fb-ads-connection/sync
- * Admin or client: trigger a sync of FB leads into the CRM leads collection.
- * Body: { clientId }  (admin can pass any clientId; client uses their own from token)
- *
- * Behaviour:
- * - Fetches leads from all selectedFormIds since lastSyncAt
- * - Deduplicates by fbLeadId
- * - Imports new leads with source "Facebook Lead Ads" and correct clientId
- * - If datasetId is configured, sends a "Lead" conversion event to Meta for each import
- * - Updates lastSyncAt and totalImported counters
- */
+
+
+
+
+
+
+
+
+
+
+
+
 export async function POST(request: NextRequest) {
   const auth = request.headers.get("authorization") || "";
   const token = auth.replace("Bearer ", "");
@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
 
   const body = await request.json().catch(() => ({}));
   let clientId: string = body.clientId || "";
-  // fullSync=true ignores lastSyncAt and fetches ALL leads from beginning (admin only)
+  
   const fullSync: boolean = decoded.role === "admin" && body.fullSync === true;
   if (decoded.role === "client") clientId = decoded.clientId;
   if (!clientId) return NextResponse.json({ error: "clientId required" }, { status: 400, headers: CORS });
@@ -98,7 +98,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // fullSync: ignore lastSyncAt and fetch everything from the beginning
+  
   const since = (!fullSync && conn.lastSyncAt)
     ? Math.floor(new Date(conn.lastSyncAt).getTime() / 1000)
     : undefined;
@@ -120,7 +120,7 @@ export async function POST(request: NextRequest) {
         await leadsCol.insertOne(lead);
         imported++;
 
-        // Prepare conversion event for Meta (if datasetId configured)
+        
         if (conn.datasetId) {
           conversionEvents.push({
             event_name: "Lead",
@@ -136,14 +136,14 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  // Fire-and-forget: send conversion events to Meta
+  
   if (conversionEvents.length > 0 && conn.datasetId) {
     sendConversionEvents(conn.datasetId, conn.accessToken, conversionEvents).catch((e) =>
       console.error("Conversions API error:", e.message),
     );
   }
 
-  // Update sync metadata
+  
   await connCol.updateOne(
     { clientId },
     {

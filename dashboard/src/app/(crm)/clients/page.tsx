@@ -91,7 +91,7 @@ export default function ClientsPage() {
     });
   }, [clients, search, statusFilter, tagFilter]);
 
-  // Stats
+  
   const active = clients.filter(c => (c.status || "active") === "active").length;
   const inactive = clients.filter(c => c.status === "inactive").length;
   const prospect = clients.filter(c => c.status === "prospect").length;
@@ -168,7 +168,7 @@ export default function ClientsPage() {
     <div className="space-y-6 font-headline">
       {successMessage && <SuccessModal message={successMessage} />}
 
-      {/* Header */}
+      {}
       <header className="flex items-center justify-between gap-4 flex-wrap">
         <div>
           <h1 className="text-5xl font-black tracking-tighter">CLIENTS</h1>
@@ -183,7 +183,7 @@ export default function ClientsPage() {
               <Plus className="w-4 h-4 mr-1" /> Add Client
             </Button>
           </AddClientDialog>
-          {/* Hidden edit dialog */}
+          {}
           <AddClientDialog
             isOpen={isEditDialogOpen}
             setIsOpen={setIsEditDialogOpen}
@@ -195,7 +195,7 @@ export default function ClientsPage() {
         </div>
       </header>
 
-      {/* Stats strip */}
+      {}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
           { label: "Active", value: active, icon: UserCheck, color: "bg-green-50 border-green-300", filter: "active" },
@@ -222,7 +222,7 @@ export default function ClientsPage() {
         })}
       </div>
 
-      {/* Search & Filters */}
+      {}
       <div className="flex items-center gap-2 flex-wrap">
         <div className="relative flex-1 min-w-[200px]">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -270,7 +270,7 @@ export default function ClientsPage() {
         </div>
       )}
 
-      {/* Table */}
+      {}
       <div className="border-2 border-black rounded-xl overflow-hidden">
         <Table>
           <TableHeader>

@@ -37,12 +37,12 @@ exports._ = _interop_require_wildcard;
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/app-router-context.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].AppRouterContext; //# sourceMappingURL=app-router-context.js.map
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].AppRouterContext; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/hooks-client-context.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].HooksClientContext; //# sourceMappingURL=hooks-client-context.js.map
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].HooksClientContext; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -96,7 +96,7 @@ function getSegmentValue(segment) {
     return Array.isArray(segment) ? segment[1] : segment;
 }
 function isGroupSegment(segment) {
-    // Use array[0] for performant purpose
+    
     return segment[0] === '(' && segment.endsWith(')');
 }
 function isParallelRouteSegment(segment) {
@@ -114,19 +114,19 @@ function computeSelectedLayoutSegment(segments, parallelRouteKey) {
     if (!segments || segments.length === 0) {
         return null;
     }
-    // For 'children', use first segment; for other parallel routes, use last segment
+    
     const rawSegment = parallelRouteKey === 'children' ? segments[0] : segments[segments.length - 1];
-    // If the default slot is showing, return null since it's not technically "selected" (it's a fallback)
-    // Returning an internal value like `__DEFAULT__` would be confusing
+    
+    
     return rawSegment === DEFAULT_SEGMENT_KEY ? null : rawSegment;
 }
 function getSelectedLayoutSegmentPath(tree, parallelRouteKey, first = true, segmentPath = []) {
     let node;
     if (first) {
-        // Use the provided parallel route key on the first parallel route
+        
         node = tree[1][parallelRouteKey];
     } else {
-        // After first parallel route prefer children, if there's no children pick the first parallel route.
+        
         const parallelRoutes = tree[1];
         node = parallelRoutes.children ?? Object.values(parallelRoutes)[0];
     }
@@ -140,16 +140,16 @@ function getSelectedLayoutSegmentPath(tree, parallelRouteKey, first = true, segm
     return getSelectedLayoutSegmentPath(node, parallelRouteKey, false, segmentPath);
 }
 const PAGE_SEGMENT_KEY = '__PAGE__';
-const DEFAULT_SEGMENT_KEY = '__DEFAULT__'; //# sourceMappingURL=segment.js.map
+const DEFAULT_SEGMENT_KEY = '__DEFAULT__'; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/readonly-url-search-params.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * ReadonlyURLSearchParams implementation shared between client and server.
- * This file is intentionally not marked as 'use client' or 'use server'
- * so it can be imported by both environments.
- */ /** @internal */ Object.defineProperty(exports, "__esModule", {
+
+
+
+
+  Object.defineProperty(exports, "__esModule", {
     value: true
 });
 Object.defineProperty(exports, "ReadonlyURLSearchParams", {
@@ -164,16 +164,16 @@ class ReadonlyURLSearchParamsError extends Error {
     }
 }
 class ReadonlyURLSearchParams extends URLSearchParams {
-    /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ append() {
+     append() {
         throw new ReadonlyURLSearchParamsError();
     }
-    /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ delete() {
+     delete() {
         throw new ReadonlyURLSearchParamsError();
     }
-    /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ set() {
+     set() {
         throw new ReadonlyURLSearchParamsError();
     }
-    /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ sort() {
+     sort() {
         throw new ReadonlyURLSearchParamsError();
     }
 }
@@ -183,12 +183,12 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=readonly-url-search-params.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/server-inserted-html.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].ServerInsertedHtml; //# sourceMappingURL=server-inserted-html.js.map
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].ServerInsertedHtml; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unrecognized-action-error.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -229,7 +229,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=unrecognized-action-error.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/redirect-status-code.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -243,7 +243,7 @@ Object.defineProperty(exports, "RedirectStatusCode", {
         return RedirectStatusCode;
     }
 });
-var RedirectStatusCode = /*#__PURE__*/ function(RedirectStatusCode) {
+var RedirectStatusCode =  function(RedirectStatusCode) {
     RedirectStatusCode[RedirectStatusCode["SeeOther"] = 303] = "SeeOther";
     RedirectStatusCode[RedirectStatusCode["TemporaryRedirect"] = 307] = "TemporaryRedirect";
     RedirectStatusCode[RedirectStatusCode["PermanentRedirect"] = 308] = "PermanentRedirect";
@@ -255,7 +255,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=redirect-status-code.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/redirect-error.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -287,7 +287,7 @@ _export(exports, {
 });
 const _redirectstatuscode = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/redirect-status-code.js [app-ssr] (ecmascript)");
 const REDIRECT_ERROR_CODE = 'NEXT_REDIRECT';
-var RedirectType = /*#__PURE__*/ function(RedirectType) {
+var RedirectType =  function(RedirectType) {
     RedirectType["push"] = "push";
     RedirectType["replace"] = "replace";
     return RedirectType;
@@ -309,7 +309,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=redirect-error.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/redirect.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -363,17 +363,17 @@ function getRedirectError(url, type, statusCode = _redirectstatuscode.RedirectSt
     error.digest = `${_redirecterror.REDIRECT_ERROR_CODE};${type};${url};${statusCode};`;
     return error;
 }
-function redirect(/** The URL to redirect to */ url, type) {
+function redirect( url, type) {
     type ??= actionAsyncStorage?.getStore()?.isAction ? _redirecterror.RedirectType.push : _redirecterror.RedirectType.replace;
     throw getRedirectError(url, type, _redirectstatuscode.RedirectStatusCode.TemporaryRedirect);
 }
-function permanentRedirect(/** The URL to redirect to */ url, type = _redirecterror.RedirectType.replace) {
+function permanentRedirect( url, type = _redirecterror.RedirectType.replace) {
     throw getRedirectError(url, type, _redirectstatuscode.RedirectStatusCode.PermanentRedirect);
 }
 function getURLFromRedirectError(error) {
     if (!(0, _redirecterror.isRedirectError)(error)) return null;
-    // Slices off the beginning of the digest that contains the code and the
-    // separating ';'.
+    
+    
     return error.digest.split(';').slice(2, -2).join(';');
 }
 function getRedirectTypeFromError(error) {
@@ -402,7 +402,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=redirect.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/http-access-fallback.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -476,7 +476,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=http-access-fallback.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/not-found.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -491,20 +491,20 @@ Object.defineProperty(exports, "notFound", {
     }
 });
 const _httpaccessfallback = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/http-access-fallback.js [app-ssr] (ecmascript)");
-/**
- * This function allows you to render the [not-found.js file](https://nextjs.org/docs/app/api-reference/file-conventions/not-found)
- * within a route segment as well as inject a tag.
- *
- * `notFound()` can be used in
- * [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components),
- * [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers), and
- * [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations).
- *
- * - In a Server Component, this will insert a `<meta name="robots" content="noindex" />` meta tag and set the status code to 404.
- * - In a Route Handler or Server Action, it will serve a 404 to the caller.
- *
- * Read more: [Next.js Docs: `notFound`](https://nextjs.org/docs/app/api-reference/functions/not-found)
- */ const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};404`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+ const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};404`;
 function notFound() {
     const error = Object.defineProperty(new Error(DIGEST), "__NEXT_ERROR_CODE", {
         value: "E394",
@@ -520,7 +520,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=not-found.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/forbidden.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -535,19 +535,19 @@ Object.defineProperty(exports, "forbidden", {
     }
 });
 const _httpaccessfallback = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/http-access-fallback.js [app-ssr] (ecmascript)");
-// TODO: Add `forbidden` docs
-/**
- * @experimental
- * This function allows you to render the [forbidden.js file](https://nextjs.org/docs/app/api-reference/file-conventions/forbidden)
- * within a route segment as well as inject a tag.
- *
- * `forbidden()` can be used in
- * [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components),
- * [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers), and
- * [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations).
- *
- * Read more: [Next.js Docs: `forbidden`](https://nextjs.org/docs/app/api-reference/functions/forbidden)
- */ const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};403`;
+
+
+
+
+
+
+
+
+
+
+
+
+ const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};403`;
 function forbidden() {
     if ("TURBOPACK compile-time truthy", 1) {
         throw Object.defineProperty(new Error(`\`forbidden()\` is experimental and only allowed to be enabled when \`experimental.authInterrupts\` is enabled.`), "__NEXT_ERROR_CODE", {
@@ -570,7 +570,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=forbidden.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unauthorized.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -585,20 +585,20 @@ Object.defineProperty(exports, "unauthorized", {
     }
 });
 const _httpaccessfallback = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/http-access-fallback.js [app-ssr] (ecmascript)");
-// TODO: Add `unauthorized` docs
-/**
- * @experimental
- * This function allows you to render the [unauthorized.js file](https://nextjs.org/docs/app/api-reference/file-conventions/unauthorized)
- * within a route segment as well as inject a tag.
- *
- * `unauthorized()` can be used in
- * [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components),
- * [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers), and
- * [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations).
- *
- *
- * Read more: [Next.js Docs: `unauthorized`](https://nextjs.org/docs/app/api-reference/functions/unauthorized)
- */ const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};401`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+ const DIGEST = `${_httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE};401`;
 function unauthorized() {
     if ("TURBOPACK compile-time truthy", 1) {
         throw Object.defineProperty(new Error(`\`unauthorized()\` is experimental and only allowed to be used when \`experimental.authInterrupts\` is enabled.`), "__NEXT_ERROR_CODE", {
@@ -621,7 +621,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=unauthorized.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/dynamic-rendering-utils.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -687,9 +687,9 @@ function makeHangingPromise(signal, route, expression) {
                 });
             }
         });
-        // We are fine if no one actually awaits this promise. We shouldn't consider this an unhandled rejection so
-        // we attach a noop catch handler here to suppress this warning. If you actually await somewhere or construct
-        // your own promise out of it you'll need to ensure you handle the error when it rejects.
+        
+        
+        
         hangingPromise.catch(ignoreReject);
         return hangingPromise;
     }
@@ -697,18 +697,18 @@ function makeHangingPromise(signal, route, expression) {
 function ignoreReject() {}
 function makeDevtoolsIOAwarePromise(underlying, requestStore, stage) {
     if (requestStore.stagedRendering) {
-        // We resolve each stage in a timeout, so React DevTools will pick this up as IO.
+        
         return requestStore.stagedRendering.delayUntilStage(stage, undefined, underlying);
     }
-    // in React DevTools if we resolve in a setTimeout we will observe
-    // the promise resolution as something that can suspend a boundary or root.
+    
+    
     return new Promise((resolve)=>{
-        // Must use setTimeout to be considered IO React DevTools. setImmediate will not work.
+        
         setTimeout(()=>{
             resolve(underlying);
         }, 0);
     });
-} //# sourceMappingURL=dynamic-rendering-utils.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/lib/router-utils/is-postpone.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -725,12 +725,12 @@ Object.defineProperty(exports, "isPostpone", {
 const REACT_POSTPONE_TYPE = Symbol.for('react.postpone');
 function isPostpone(error) {
     return typeof error === 'object' && error !== null && error.$$typeof === REACT_POSTPONE_TYPE;
-} //# sourceMappingURL=is-postpone.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/lazy-dynamic/bailout-to-csr.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-// This has to be a shared module which is shared between client component error boundary and dynamic component
+
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -763,7 +763,7 @@ function isBailoutToCSRError(err) {
         return false;
     }
     return err.digest === BAILOUT_TO_CSR;
-} //# sourceMappingURL=bailout-to-csr.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/is-next-router-error.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -788,7 +788,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=is-next-router-error.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/hooks-server-context.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -832,7 +832,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=hooks-server-context.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/static-generation-bailout.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -876,7 +876,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=static-generation-bailout.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/framework/boundary-constants.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -913,7 +913,7 @@ _export(exports, {
 const METADATA_BOUNDARY_NAME = '__next_metadata_boundary__';
 const VIEWPORT_BOUNDARY_NAME = '__next_viewport_boundary__';
 const OUTLET_BOUNDARY_NAME = '__next_outlet_boundary__';
-const ROOT_LAYOUT_BOUNDARY_NAME = '__next_root_layout_boundary__'; //# sourceMappingURL=boundary-constants.js.map
+const ROOT_LAYOUT_BOUNDARY_NAME = '__next_root_layout_boundary__'; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/lib/scheduler.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -948,14 +948,14 @@ _export(exports, {
     }
 });
 const scheduleOnNextTick = (cb)=>{
-    // We use Promise.resolve().then() here so that the operation is scheduled at
-    // the end of the promise job queue, we then add it to the next process tick
-    // to ensure it's evaluated afterwards.
-    //
-    // This was inspired by the implementation of the DataLoader interface: https://github.com/graphql/dataloader/blob/d336bd15282664e0be4b4a657cb796f09bafbc6b/src/index.js#L213-L255
-    //
+    
+    
+    
+    
+    
+    
     Promise.resolve().then(()=>{
-        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        if ("TURBOPACK compile-time falsy", 0) 
         ;
         else {
             process.nextTick(cb);
@@ -963,7 +963,7 @@ const scheduleOnNextTick = (cb)=>{
     });
 };
 const scheduleImmediate = (cb)=>{
-    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    if ("TURBOPACK compile-time falsy", 0) 
     ;
     else {
         setImmediate(cb);
@@ -973,12 +973,12 @@ function atLeastOneTask() {
     return new Promise((resolve)=>scheduleImmediate(resolve));
 }
 function waitAtLeastOneReactRenderTask() {
-    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    if ("TURBOPACK compile-time falsy", 0) 
     ;
     else {
         return new Promise((r)=>setImmediate(r));
     }
-} //# sourceMappingURL=scheduler.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/invariant-error.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -997,7 +997,7 @@ class InvariantError extends Error {
         super(`Invariant: ${message.endsWith('.') ? message : message + '.'} This is a bug in Next.js.`, options);
         this.name = 'InvariantError';
     }
-} //# sourceMappingURL=invariant-error.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/promise-with-resolvers.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1012,7 +1012,7 @@ Object.defineProperty(exports, "createPromiseWithResolvers", {
     }
 });
 function createPromiseWithResolvers() {
-    // Shim of Stage 4 Promise.withResolvers proposal
+    
     let resolve;
     let reject;
     const promise = new Promise((res, rej)=>{
@@ -1024,7 +1024,7 @@ function createPromiseWithResolvers() {
         reject: reject,
         promise
     };
-} //# sourceMappingURL=promise-with-resolvers.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/staged-rendering.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1052,7 +1052,7 @@ _export(exports, {
 });
 const _invarianterror = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/invariant-error.js [app-ssr] (ecmascript)");
 const _promisewithresolvers = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/promise-with-resolvers.js [app-ssr] (ecmascript)");
-var RenderStage = /*#__PURE__*/ function(RenderStage) {
+var RenderStage =  function(RenderStage) {
     RenderStage[RenderStage["Static"] = 1] = "Static";
     RenderStage[RenderStage["Runtime"] = 2] = "Runtime";
     RenderStage[RenderStage["Dynamic"] = 3] = "Dynamic";
@@ -1068,12 +1068,12 @@ class StagedRenderingController {
             abortSignal.addEventListener('abort', ()=>{
                 const { reason } = abortSignal;
                 if (this.currentStage < 2) {
-                    this.runtimeStagePromise.promise.catch(ignoreReject) // avoid unhandled rejections
+                    this.runtimeStagePromise.promise.catch(ignoreReject) 
                     ;
                     this.runtimeStagePromise.reject(reason);
                 }
                 if (this.currentStage < 3) {
-                    this.dynamicStagePromise.promise.catch(ignoreReject) // avoid unhandled rejections
+                    this.dynamicStagePromise.promise.catch(ignoreReject) 
                     ;
                     this.dynamicStagePromise.reject(reason);
                 }
@@ -1083,14 +1083,14 @@ class StagedRenderingController {
         }
     }
     advanceStage(stage) {
-        // If we're already at the target stage or beyond, do nothing.
-        // (this can happen e.g. if sync IO advanced us to the dynamic stage)
+        
+        
         if (this.currentStage >= stage) {
             return;
         }
         this.currentStage = stage;
-        // Note that we might be going directly from Static to Dynamic,
-        // so we need to resolve the runtime stage as well.
+        
+        
         if (stage >= 2) {
             this.runtimeStagePromise.resolve();
         }
@@ -1125,9 +1125,9 @@ class StagedRenderingController {
     delayUntilStage(stage, displayName, resolvedValue) {
         const ioTriggerPromise = this.getStagePromise(stage);
         const promise = makeDevtoolsIOPromiseFromIOTrigger(ioTriggerPromise, displayName, resolvedValue);
-        // Analogously to `makeHangingPromise`, we might reject this promise if the signal is invoked.
-        // (e.g. in the case where we don't want want the render to proceed to the dynamic stage and abort it).
-        // We shouldn't consider this an unhandled rejection, so we attach a noop catch handler here to suppress this warning.
+        
+        
+        
         if (this.abortSignal) {
             promise.catch(ignoreReject);
         }
@@ -1135,49 +1135,49 @@ class StagedRenderingController {
     }
 }
 function ignoreReject() {}
-// TODO(restart-on-cache-miss): the layering of `delayUntilStage`,
-// `makeDevtoolsIOPromiseFromIOTrigger` and and `makeDevtoolsIOAwarePromise`
-// is confusing, we should clean it up.
+
+
+
 function makeDevtoolsIOPromiseFromIOTrigger(ioTrigger, displayName, resolvedValue) {
-    // If we create a `new Promise` and give it a displayName
-    // (with no userspace code above us in the stack)
-    // React Devtools will use it as the IO cause when determining "suspended by".
-    // In particular, it should shadow any inner IO that resolved/rejected the promise
-    // (in case of staged rendering, this will be the `setTimeout` that triggers the relevant stage)
+    
+    
+    
+    
+    
     const promise = new Promise((resolve, reject)=>{
         ioTrigger.then(resolve.bind(null, resolvedValue), reject);
     });
     if (displayName !== undefined) {
-        // @ts-expect-error
+        
         promise.displayName = displayName;
     }
     return promise;
-} //# sourceMappingURL=staged-rendering.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/app-render/dynamic-rendering.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * The functions provided by this module are used to communicate certain properties
- * about the currently running code so that Next.js can make decisions on how to handle
- * the current execution in different rendering modes such as pre-rendering, resuming, and SSR.
- *
- * Today Next.js treats all code as potentially static. Certain APIs may only make sense when dynamically rendering.
- * Traditionally this meant deopting the entire render to dynamic however with PPR we can now deopt parts
- * of a React tree as dynamic while still keeping other parts static. There are really two different kinds of
- * Dynamic indications.
- *
- * The first is simply an intention to be dynamic. unstable_noStore is an example of this where
- * the currently executing code simply declares that the current scope is dynamic but if you use it
- * inside unstable_cache it can still be cached. This type of indication can be removed if we ever
- * make the default dynamic to begin with because the only way you would ever be static is inside
- * a cache scope which this indication does not affect.
- *
- * The second is an indication that a dynamic data source was read. This is a stronger form of dynamic
- * because it means that it is inappropriate to cache this at all. using a dynamic data source inside
- * unstable_cache should error. If you want to use some dynamic data inside unstable_cache you should
- * read that data outside the cache and pass it in as an argument to the cached function.
- */ Object.defineProperty(exports, "__esModule", {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 0 && (module.exports = {
@@ -1294,7 +1294,7 @@ _export(exports, {
         return useDynamicSearchParams;
     }
 });
-const _react = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)"));
+const _react =  _interop_require_default(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)"));
 const _hooksservercontext = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/hooks-server-context.js [app-ssr] (ecmascript)");
 const _staticgenerationbailout = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/static-generation-bailout.js [app-ssr] (ecmascript)");
 const _workunitasyncstorageexternal = __turbopack_context__.r("[externals]/next/dist/server/app-render/work-unit-async-storage.external.js [external] (next/dist/server/app-render/work-unit-async-storage.external.js, cjs)");
@@ -1336,13 +1336,13 @@ function markCurrentScopeAsDynamic(store, workUnitStore, expression) {
         switch(workUnitStore.type){
             case 'cache':
             case 'unstable-cache':
-                // Inside cache scopes, marking a scope as dynamic has no effect,
-                // because the outer cache scope creates a cache boundary. This is
-                // subtly different from reading a dynamic data source, which is
-                // forbidden inside a cache scope.
+                
+                
+                
+                
                 return;
             case 'private-cache':
-                // A private cache scope is already dynamic by definition.
+                
                 return;
             case 'prerender-legacy':
             case 'prerender-ppr':
@@ -1352,9 +1352,9 @@ function markCurrentScopeAsDynamic(store, workUnitStore, expression) {
                 workUnitStore;
         }
     }
-    // If we're forcing dynamic rendering or we're forcing static rendering, we
-    // don't need to do anything here because the entire page is already dynamic
-    // or it's static and it should not throw or postpone here.
+    
+    
+    
     if (store.forceDynamic || store.forceStatic) return;
     if (store.dynamicShouldError) {
         throw Object.defineProperty(new _staticgenerationbailout.StaticGenBailoutError(`Route ${store.route} with \`dynamic = "error"\` couldn't be rendered statically because it used \`${expression}\`. See more info here: https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic#dynamic-rendering`), "__NEXT_ERROR_CODE", {
@@ -1369,8 +1369,8 @@ function markCurrentScopeAsDynamic(store, workUnitStore, expression) {
                 return postponeWithTracking(store.route, expression, workUnitStore.dynamicTracking);
             case 'prerender-legacy':
                 workUnitStore.revalidate = 0;
-                // We aren't prerendering, but we are generating a static page. We need
-                // to bail out of static generation.
+                
+                
                 const err = Object.defineProperty(new _hooksservercontext.DynamicServerError(`Route ${store.route} couldn't be rendered statically because it used ${expression}. See more info here: https://nextjs.org/docs/messages/dynamic-server-error`), "__NEXT_ERROR_CODE", {
                     value: "E550",
                     enumerable: false,
@@ -1390,7 +1390,7 @@ function markCurrentScopeAsDynamic(store, workUnitStore, expression) {
     }
 }
 function throwToInterruptStaticGeneration(expression, store, prerenderStore) {
-    // We aren't prerendering but we are generating a static page. We need to bail out of static generation
+    
     const err = Object.defineProperty(new _hooksservercontext.DynamicServerError(`Route ${store.route} couldn't be rendered statically because it used \`${expression}\`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error`), "__NEXT_ERROR_CODE", {
         value: "E558",
         enumerable: false,
@@ -1405,13 +1405,13 @@ function trackDynamicDataInDynamicRender(workUnitStore) {
     switch(workUnitStore.type){
         case 'cache':
         case 'unstable-cache':
-            // Inside cache scopes, marking a scope as dynamic has no effect,
-            // because the outer cache scope creates a cache boundary. This is
-            // subtly different from reading a dynamic data source, which is
-            // forbidden inside a cache scope.
+            
+            
+            
+            
             return;
         case 'private-cache':
-            // A private cache scope is already dynamic by definition.
+            
             return;
         case 'prerender':
         case 'prerender-runtime':
@@ -1435,8 +1435,8 @@ function abortOnSynchronousDynamicDataAccess(route, expression, prerenderStore) 
     const dynamicTracking = prerenderStore.dynamicTracking;
     if (dynamicTracking) {
         dynamicTracking.dynamicAccesses.push({
-            // When we aren't debugging, we don't need to create another error for the
-            // stack trace.
+            
+            
             stack: dynamicTracking.isDebugDynamicAccesses ? new Error().stack : undefined,
             expression
         });
@@ -1445,10 +1445,10 @@ function abortOnSynchronousDynamicDataAccess(route, expression, prerenderStore) 
 function abortOnSynchronousPlatformIOAccess(route, expression, errorWithStack, prerenderStore) {
     const dynamicTracking = prerenderStore.dynamicTracking;
     abortOnSynchronousDynamicDataAccess(route, expression, prerenderStore);
-    // It is important that we set this tracking value after aborting. Aborts are executed
-    // synchronously except for the case where you abort during render itself. By setting this
-    // value late we can use it to determine if any of the aborted tasks are the task that
-    // called the sync IO expression in the first place.
+    
+    
+    
+    
     if (dynamicTracking) {
         if (dynamicTracking.syncDynamicErrorWithStack === null) {
             dynamicTracking.syncDynamicErrorWithStack = errorWithStack;
@@ -1456,27 +1456,27 @@ function abortOnSynchronousPlatformIOAccess(route, expression, errorWithStack, p
     }
 }
 function trackSynchronousPlatformIOAccessInDev(requestStore) {
-    // We don't actually have a controller to abort but we do the semantic equivalent by
-    // advancing the request store out of the prerender stage
+    
+    
     if (requestStore.stagedRendering) {
-        // TODO: error for sync IO in the runtime stage
-        // (which is not currently covered by the validation render in `spawnDynamicValidationInDev`)
+        
+        
         requestStore.stagedRendering.advanceStage(_stagedrendering.RenderStage.Dynamic);
     }
 }
 function abortAndThrowOnSynchronousRequestDataAccess(route, expression, errorWithStack, prerenderStore) {
     const prerenderSignal = prerenderStore.controller.signal;
     if (prerenderSignal.aborted === false) {
-        // TODO it would be better to move this aborted check into the callsite so we can avoid making
-        // the error object when it isn't relevant to the aborting of the prerender however
-        // since we need the throw semantics regardless of whether we abort it is easier to land
-        // this way. See how this was handled with `abortOnSynchronousPlatformIOAccess` for a closer
-        // to ideal implementation
+        
+        
+        
+        
+        
         abortOnSynchronousDynamicDataAccess(route, expression, prerenderStore);
-        // It is important that we set this tracking value after aborting. Aborts are executed
-        // synchronously except for the case where you abort during render itself. By setting this
-        // value late we can use it to determine if any of the aborted tasks are the task that
-        // called the sync IO expression in the first place.
+        
+        
+        
+        
         const dynamicTracking = prerenderStore.dynamicTracking;
         if (dynamicTracking) {
             if (dynamicTracking.syncDynamicErrorWithStack === null) {
@@ -1495,8 +1495,8 @@ function postponeWithTracking(route, expression, dynamicTracking) {
     assertPostpone();
     if (dynamicTracking) {
         dynamicTracking.dynamicAccesses.push({
-            // When we aren't debugging, we don't need to create another error for the
-            // stack trace.
+            
+            
             stack: dynamicTracking.isDebugDynamicAccesses ? new Error().stack : undefined,
             expression
         });
@@ -1539,27 +1539,27 @@ function accessedDynamicData(dynamicAccesses) {
     return dynamicAccesses.length > 0;
 }
 function consumeDynamicAccess(serverDynamic, clientDynamic) {
-    // We mutate because we only call this once we are no longer writing
-    // to the dynamicTrackingState and it's more efficient than creating a new
-    // array.
+    
+    
+    
     serverDynamic.dynamicAccesses.push(...clientDynamic.dynamicAccesses);
     return serverDynamic.dynamicAccesses;
 }
 function formatDynamicAPIAccesses(dynamicAccesses) {
     return dynamicAccesses.filter((access)=>typeof access.stack === 'string' && access.stack.length > 0).map(({ expression, stack })=>{
-        stack = stack.split('\n') // Remove the "Error: " prefix from the first line of the stack trace as
-        // well as the first 4 lines of the stack trace which is the distance
-        // from the user code and the `new Error().stack` call.
+        stack = stack.split('\n') 
+        
+        
         .slice(4).filter((line)=>{
-            // Exclude Next.js internals from the stack trace.
+            
             if (line.includes('node_modules/next/')) {
                 return false;
             }
-            // Exclude anonymous functions from the stack trace.
+            
             if (line.includes(' (<anonymous>)')) {
                 return false;
             }
-            // Exclude Node.js internals from the stack trace.
+            
             if (line.includes(' (node:')) {
                 return false;
             }
@@ -1592,25 +1592,25 @@ function createHangingInputAbortSignal(workUnitStore) {
         case 'prerender-runtime':
             const controller = new AbortController();
             if (workUnitStore.cacheSignal) {
-                // If we have a cacheSignal it means we're in a prospective render. If
-                // the input we're waiting on is coming from another cache, we do want
-                // to wait for it so that we can resolve this cache entry too.
+                
+                
+                
                 workUnitStore.cacheSignal.inputReady().then(()=>{
                     controller.abort();
                 });
             } else {
-                // Otherwise we're in the final render and we should already have all
-                // our caches filled.
-                // If the prerender uses stages, we have wait until the runtime stage,
-                // at which point all runtime inputs will be resolved.
-                // (otherwise, a runtime prerender might consider `cookies()` hanging
-                //  even though they'd resolve in the next task.)
-                //
-                // We might still be waiting on some microtasks so we
-                // wait one tick before giving up. When we give up, we still want to
-                // render the content of this cache as deeply as we can so that we can
-                // suspend as deeply as possible in the tree or not at all if we don't
-                // end up waiting for the input.
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 const runtimeStagePromise = (0, _workunitasyncstorageexternal.getRuntimeStagePromise)(workUnitStore);
                 if (runtimeStagePromise) {
                     runtimeStagePromise.then(()=>(0, _scheduler.scheduleOnNextTick)(()=>controller.abort()));
@@ -1650,9 +1650,9 @@ function useDynamicRouteParams(expression) {
                 {
                     const fallbackParams = workUnitStore.fallbackRouteParams;
                     if (fallbackParams && fallbackParams.size > 0) {
-                        // We are in a prerender with cacheComponents semantics. We are going to
-                        // hang here and never resolve. This will cause the currently
-                        // rendering component to effectively be a dynamic hole.
+                        
+                        
+                        
                         _react.default.use((0, _dynamicrenderingutils.makeHangingPromise)(workUnitStore.renderSignal, workStore.route, expression));
                     }
                     break;
@@ -1691,7 +1691,7 @@ function useDynamicSearchParams(expression) {
     const workStore = _workasyncstorageexternal.workAsyncStorage.getStore();
     const workUnitStore = _workunitasyncstorageexternal.workUnitAsyncStorage.getStore();
     if (!workStore) {
-        // We assume pages router context and just return
+        
         return;
     }
     if (!workUnitStore) {
@@ -1737,27 +1737,27 @@ function useDynamicSearchParams(expression) {
     }
 }
 const hasSuspenseRegex = /\n\s+at Suspense \(<anonymous>\)/;
-// Common implicit body tags that React will treat as body when placed directly in html
+
 const bodyAndImplicitTags = 'body|div|main|section|article|aside|header|footer|nav|form|p|span|h1|h2|h3|h4|h5|h6';
-// Detects when RootLayoutBoundary (our framework marker component) appears
-// after Suspense in the component stack, indicating the root layout is wrapped
-// within a Suspense boundary. Ensures no body/html/implicit-body components are in between.
-//
-// Example matches:
-//   at Suspense (<anonymous>)
-//   at __next_root_layout_boundary__ (<anonymous>)
-//
-// Or with other components in between (but not body/html/implicit-body):
-//   at Suspense (<anonymous>)
-//   at SomeComponent (<anonymous>)
-//   at __next_root_layout_boundary__ (<anonymous>)
+
+
+
+
+
+
+
+
+
+
+
+
 const hasSuspenseBeforeRootLayoutWithoutBodyOrImplicitBodyRegex = new RegExp(`\\n\\s+at Suspense \\(<anonymous>\\)(?:(?!\\n\\s+at (?:${bodyAndImplicitTags}) \\(<anonymous>\\))[\\s\\S])*?\\n\\s+at ${_boundaryconstants.ROOT_LAYOUT_BOUNDARY_NAME} \\([^\\n]*\\)`);
 const hasMetadataRegex = new RegExp(`\\n\\s+at ${_boundaryconstants.METADATA_BOUNDARY_NAME}[\\n\\s]`);
 const hasViewportRegex = new RegExp(`\\n\\s+at ${_boundaryconstants.VIEWPORT_BOUNDARY_NAME}[\\n\\s]`);
 const hasOutletRegex = new RegExp(`\\n\\s+at ${_boundaryconstants.OUTLET_BOUNDARY_NAME}[\\n\\s]`);
 function trackAllowedDynamicAccess(workStore, componentStack, dynamicValidation, clientDynamic) {
     if (hasOutletRegex.test(componentStack)) {
-        // We don't need to track that this is dynamic. It is only so when something else is also dynamic.
+        
         return;
     } else if (hasMetadataRegex.test(componentStack)) {
         dynamicValidation.hasDynamicMetadata = true;
@@ -1766,19 +1766,19 @@ function trackAllowedDynamicAccess(workStore, componentStack, dynamicValidation,
         dynamicValidation.hasDynamicViewport = true;
         return;
     } else if (hasSuspenseBeforeRootLayoutWithoutBodyOrImplicitBodyRegex.test(componentStack)) {
-        // For Suspense within body, the prelude wouldn't be empty so it wouldn't violate the empty static shells rule.
-        // But if you have Suspense above body, the prelude is empty but we allow that because having Suspense
-        // is an explicit signal from the user that they acknowledge the empty shell and want dynamic rendering.
+        
+        
+        
         dynamicValidation.hasAllowedDynamic = true;
         dynamicValidation.hasSuspenseAboveBody = true;
         return;
     } else if (hasSuspenseRegex.test(componentStack)) {
-        // this error had a Suspense boundary above it so we don't need to report it as a source
-        // of disallowed
+        
+        
         dynamicValidation.hasAllowedDynamic = true;
         return;
     } else if (clientDynamic.syncDynamicErrorWithStack) {
-        // This task was the task that called the sync error.
+        
         dynamicValidation.dynamicErrors.push(clientDynamic.syncDynamicErrorWithStack);
         return;
     } else {
@@ -1788,10 +1788,10 @@ function trackAllowedDynamicAccess(workStore, componentStack, dynamicValidation,
         return;
     }
 }
-/**
- * In dev mode, we prefer using the owner stack, otherwise the provided
- * component stack is used.
- */ function createErrorWithComponentOrOwnerStack(message, componentStack) {
+
+
+
+ function createErrorWithComponentOrOwnerStack(message, componentStack) {
     const ownerStack = ("TURBOPACK compile-time value", "development") !== 'production' && _react.default.captureOwnerStack ? _react.default.captureOwnerStack() : null;
     const error = Object.defineProperty(new Error(message), "__NEXT_ERROR_CODE", {
         value: "E394",
@@ -1801,7 +1801,7 @@ function trackAllowedDynamicAccess(workStore, componentStack, dynamicValidation,
     error.stack = error.name + ': ' + message + (ownerStack ?? componentStack);
     return error;
 }
-var PreludeState = /*#__PURE__*/ function(PreludeState) {
+var PreludeState =  function(PreludeState) {
     PreludeState[PreludeState["Full"] = 0] = "Full";
     PreludeState[PreludeState["Empty"] = 1] = "Empty";
     PreludeState[PreludeState["Errored"] = 2] = "Errored";
@@ -1826,14 +1826,14 @@ function throwIfDisallowedDynamic(workStore, prelude, dynamicValidation, serverD
     }
     if (prelude !== 0) {
         if (dynamicValidation.hasSuspenseAboveBody) {
-            // This route has opted into allowing fully dynamic rendering
-            // by including a Suspense boundary above the body. In this case
-            // a lack of a shell is not considered disallowed so we simply return
+            
+            
+            
             return;
         }
-        // We didn't have any sync bailouts but there may be user code which
-        // blocked the root. We would have captured these during the prerender
-        // and can log them here and then terminate the build/validating render
+        
+        
+        
         const dynamicErrors = dynamicValidation.dynamicErrors;
         if (dynamicErrors.length > 0) {
             for(let i = 0; i < dynamicErrors.length; i++){
@@ -1841,18 +1841,18 @@ function throwIfDisallowedDynamic(workStore, prelude, dynamicValidation, serverD
             }
             throw new _staticgenerationbailout.StaticGenBailoutError();
         }
-        // If we got this far then the only other thing that could be blocking
-        // the root is dynamic Viewport. If this is dynamic then
-        // you need to opt into that by adding a Suspense boundary above the body
-        // to indicate your are ok with fully dynamic rendering.
+        
+        
+        
+        
         if (dynamicValidation.hasDynamicViewport) {
             console.error(`Route "${workStore.route}" has a \`generateViewport\` that depends on Request data (\`cookies()\`, etc...) or uncached external data (\`fetch(...)\`, etc...) without explicitly allowing fully dynamic rendering. See more info here: https://nextjs.org/docs/messages/next-prerender-dynamic-viewport`);
             throw new _staticgenerationbailout.StaticGenBailoutError();
         }
         if (prelude === 1) {
-            // If we ever get this far then we messed up the tracking of invalid dynamic.
-            // We still adhere to the constraint that you must produce a shell but invite the
-            // user to report this as a bug in Next.js.
+            
+            
+            
             console.error(`Route "${workStore.route}" did not produce a static shell and Next.js was unable to determine a reason. This is a bug in Next.js.`);
             throw new _staticgenerationbailout.StaticGenBailoutError();
         }
@@ -1868,7 +1868,7 @@ function delayUntilRuntimeStage(prerenderStore, result) {
         return prerenderStore.runtimeStagePromise.then(()=>result);
     }
     return result;
-} //# sourceMappingURL=dynamic-rendering.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unstable-rethrow.server.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1902,18 +1902,18 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=unstable-rethrow.server.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/unstable-rethrow.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * This function should be used to rethrow internal Next.js errors so that they can be handled by the framework.
- * When wrapping an API that uses errors to interrupt control flow, you should use this function before you do any error handling.
- * This function will rethrow the error if it is a Next.js error so it can be handled, otherwise it will do nothing.
- *
- * Read more: [Next.js Docs: `unstable_rethrow`](https://nextjs.org/docs/app/api-reference/functions/unstable_rethrow)
- */ Object.defineProperty(exports, "__esModule", {
+
+
+
+
+
+
+ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 Object.defineProperty(exports, "unstable_rethrow", {
@@ -1929,7 +1929,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=unstable-rethrow.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/navigation.react-server.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2003,7 +2003,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=navigation.react-server.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/navigation.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2090,7 +2090,7 @@ _export(exports, {
     }
 });
 const _interop_require_wildcard = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [app-ssr] (ecmascript)");
-const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)"));
+const _react =  _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)"));
 const _approutercontextsharedruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/app-router-context.js [app-ssr] (ecmascript)");
 const _hooksclientcontextsharedruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/hooks-client-context.js [app-ssr] (ecmascript)");
 const _segment = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/segment.js [app-ssr] (ecmascript)");
@@ -2103,20 +2103,20 @@ const useDynamicSearchParams = ("TURBOPACK compile-time truthy", 1) ? __turbopac
 function useSearchParams() {
     useDynamicSearchParams?.('useSearchParams()');
     const searchParams = (0, _react.useContext)(_hooksclientcontextsharedruntime.SearchParamsContext);
-    // In the case where this is `null`, the compat types added in
-    // `next-env.d.ts` will add a new overload that changes the return type to
-    // include `null`.
+    
+    
+    
     const readonlySearchParams = (0, _react.useMemo)(()=>{
         if (!searchParams) {
-            // When the router is not ready in pages, we won't have the search params
-            // available.
+            
+            
             return null;
         }
         return new _readonlyurlsearchparams.ReadonlyURLSearchParams(searchParams);
     }, [
         searchParams
     ]);
-    // Instrument with Suspense DevTools (dev-only)
+    
     if (("TURBOPACK compile-time value", "development") !== 'production' && 'use' in _react.default) {
         const navigationPromises = (0, _react.use)(_hooksclientcontextsharedruntime.NavigationPromisesContext);
         if (navigationPromises) {
@@ -2127,10 +2127,10 @@ function useSearchParams() {
 }
 function usePathname() {
     useDynamicRouteParams?.('usePathname()');
-    // In the case where this is `null`, the compat types added in `next-env.d.ts`
-    // will add a new overload that changes the return type to include `null`.
+    
+    
     const pathname = (0, _react.useContext)(_hooksclientcontextsharedruntime.PathnameContext);
-    // Instrument with Suspense DevTools (dev-only)
+    
     if (("TURBOPACK compile-time value", "development") !== 'production' && 'use' in _react.default) {
         const navigationPromises = (0, _react.use)(_hooksclientcontextsharedruntime.NavigationPromisesContext);
         if (navigationPromises) {
@@ -2153,7 +2153,7 @@ function useRouter() {
 function useParams() {
     useDynamicRouteParams?.('useParams()');
     const params = (0, _react.useContext)(_hooksclientcontextsharedruntime.PathParamsContext);
-    // Instrument with Suspense DevTools (dev-only)
+    
     if (("TURBOPACK compile-time value", "development") !== 'production' && 'use' in _react.default) {
         const navigationPromises = (0, _react.use)(_hooksclientcontextsharedruntime.NavigationPromisesContext);
         if (navigationPromises) {
@@ -2165,16 +2165,16 @@ function useParams() {
 function useSelectedLayoutSegments(parallelRouteKey = 'children') {
     useDynamicRouteParams?.('useSelectedLayoutSegments()');
     const context = (0, _react.useContext)(_approutercontextsharedruntime.LayoutRouterContext);
-    // @ts-expect-error This only happens in `pages`. Type is overwritten in navigation.d.ts
+    
     if (!context) return null;
-    // Instrument with Suspense DevTools (dev-only)
+    
     if (("TURBOPACK compile-time value", "development") !== 'production' && 'use' in _react.default) {
         const navigationPromises = (0, _react.use)(_hooksclientcontextsharedruntime.NavigationPromisesContext);
         if (navigationPromises) {
             const promise = navigationPromises.selectedLayoutSegmentsPromises?.get(parallelRouteKey);
             if (promise) {
-                // We should always have a promise here, but if we don't, it's not worth erroring over.
-                // We just won't be able to instrument it, but can still provide the value.
+                
+                
                 return (0, _react.use)(promise);
             }
         }
@@ -2185,12 +2185,12 @@ function useSelectedLayoutSegment(parallelRouteKey = 'children') {
     useDynamicRouteParams?.('useSelectedLayoutSegment()');
     const navigationPromises = (0, _react.useContext)(_hooksclientcontextsharedruntime.NavigationPromisesContext);
     const selectedLayoutSegments = useSelectedLayoutSegments(parallelRouteKey);
-    // Instrument with Suspense DevTools (dev-only)
+    
     if (("TURBOPACK compile-time value", "development") !== 'production' && navigationPromises && 'use' in _react.default) {
         const promise = navigationPromises.selectedLayoutSegmentPromises?.get(parallelRouteKey);
         if (promise) {
-            // We should always have a promise here, but if we don't, it's not worth erroring over.
-            // We just won't be able to instrument it, but can still provide the value.
+            
+            
             return (0, _react.use)(promise);
         }
     }
@@ -2202,7 +2202,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=navigation.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/navigation.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
@@ -2211,7 +2211,7 @@ module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixel
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-slot/dist/index.mjs [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// src/slot.tsx
+
 __turbopack_context__.s([
     "Root",
     ()=>Slot,
@@ -2238,9 +2238,9 @@ function isPromiseLike(value) {
 function isLazyComponent(element) {
     return element != null && typeof element === "object" && "$$typeof" in element && element.$$typeof === REACT_LAZY_TYPE && "_payload" in element && isPromiseLike(element._payload);
 }
-// @__NO_SIDE_EFFECTS__
+
 function createSlot(ownerName) {
-    const SlotClone = /* @__PURE__ */ createSlotClone(ownerName);
+    const SlotClone =  createSlotClone(ownerName);
     const Slot2 = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.forwardRef((props, forwardedRef)=>{
         let { children, ...slotProps } = props;
         if (isLazyComponent(children) && typeof use === "function") {
@@ -2258,13 +2258,13 @@ function createSlot(ownerName) {
                     return child;
                 }
             });
-            return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+            return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
                 ...slotProps,
                 ref: forwardedRef,
                 children: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.isValidElement(newElement) ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.cloneElement(newElement, void 0, newChildren) : null
             });
         }
-        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
             ...slotProps,
             ref: forwardedRef,
             children
@@ -2273,8 +2273,8 @@ function createSlot(ownerName) {
     Slot2.displayName = `${ownerName}.Slot`;
     return Slot2;
 }
-var Slot = /* @__PURE__ */ createSlot("Slot");
-// @__NO_SIDE_EFFECTS__
+var Slot =  createSlot("Slot");
+
 function createSlotClone(ownerName) {
     const SlotClone = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.forwardRef((props, forwardedRef)=>{
         let { children, ...slotProps } = props;
@@ -2295,10 +2295,10 @@ function createSlotClone(ownerName) {
     return SlotClone;
 }
 var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-// @__NO_SIDE_EFFECTS__
+
 function createSlottable(ownerName) {
     const Slottable2 = ({ children })=>{
-        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
             children
         });
     };
@@ -2306,7 +2306,7 @@ function createSlottable(ownerName) {
     Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
     return Slottable2;
 }
-var Slottable = /* @__PURE__ */ createSlottable("Slottable");
+var Slottable =  createSlottable("Slottable");
 function isSlottable(child) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__.isValidElement(child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER;
 }
@@ -2359,7 +2359,7 @@ function getElementRef(element) {
     return element.props.ref || element.ref;
 }
 ;
- //# sourceMappingURL=index.mjs.map
+ 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2392,14 +2392,14 @@ if ("TURBOPACK compile-time truthy", 1) {
         }
         warnings.add(msg);
     };
-} //# sourceMappingURL=warn-once.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-blur-svg.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-/**
- * A shared function, used on both client and server, to generate a SVG blur placeholder.
- */ Object.defineProperty(exports, "__esModule", {
+
+
+ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 Object.defineProperty(exports, "getImageBlurSvg", {
@@ -2415,7 +2415,7 @@ function getImageBlurSvg({ widthInt, heightInt, blurWidth, blurHeight, blurDataU
     const viewBox = svgWidth && svgHeight ? `viewBox='0 0 ${svgWidth} ${svgHeight}'` : '';
     const preserveAspectRatio = viewBox ? 'none' : objectFit === 'contain' ? 'xMidYMid' : objectFit === 'cover' ? 'xMidYMid slice' : 'none';
     return `%3Csvg xmlns='http://www.w3.org/2000/svg' ${viewBox}%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='${std}'/%3E%3CfeColorMatrix values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 100 -1' result='s'/%3E%3CfeFlood x='0' y='0' width='100%25' height='100%25'/%3E%3CfeComposite operator='out' in='s'/%3E%3CfeComposite in2='SourceGraphic'/%3E%3CfeGaussianBlur stdDeviation='${std}'/%3E%3C/filter%3E%3Cimage width='100%25' height='100%25' x='0' y='0' preserveAspectRatio='${preserveAspectRatio}' style='filter: url(%23b);' href='${blurDataURL}'/%3E%3C/svg%3E`;
-} //# sourceMappingURL=image-blur-svg.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-config.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2471,9 +2471,9 @@ const imageConfigDefault = {
     path: '/_next/image',
     loader: 'default',
     loaderFile: '',
-    /**
-   * @deprecated Use `remotePatterns` instead to protect your application from malicious users.
-   */ domains: [],
+    
+
+ domains: [],
     disableStaticImages: false,
     minimumCacheTTL: 14400,
     formats: [
@@ -2490,7 +2490,7 @@ const imageConfigDefault = {
         75
     ],
     unoptimized: false
-}; //# sourceMappingURL=image-config.js.map
+}; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/get-img-props.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2512,7 +2512,7 @@ const VALID_LOADING_VALUES = [
     'eager',
     undefined
 ];
-// Object-fit values that are not valid background-size values
+
 const INVALID_BACKGROUND_SIZE_VALUES = [
     '-moz-initial',
     'fill',
@@ -2545,7 +2545,7 @@ function getInt(x) {
 }
 function getWidths({ deviceSizes, allSizes }, width, sizes) {
     if (sizes) {
-        // Find all the "vw" percent sizes used in the sizes prop
+        
         const viewportWidthRe = /(^|\s)(1?\d?\d)vw/g;
         const percentSizes = [];
         for(let match; match = viewportWidthRe.exec(sizes); match){
@@ -2570,16 +2570,16 @@ function getWidths({ deviceSizes, allSizes }, width, sizes) {
         };
     }
     const widths = [
-        ...new Set(// > are actually 3x in the green color, but only 1.5x in the red and
-        // > blue colors. Showing a 3x resolution image in the app vs a 2x
-        // > resolution image will be visually the same, though the 3x image
-        // > takes significantly more data. Even true 3x resolution screens are
-        // > wasteful as the human eye cannot see that level of detail without
-        // > something like a magnifying glass.
-        // https://blog.twitter.com/engineering/en_us/topics/infrastructure/2019/capping-image-fidelity-on-ultra-high-resolution-devices.html
+        ...new Set(
+        
+        
+        
+        
+        
+        
         [
             width,
-            width * 2 /*, width * 3*/ 
+            width * 2  
         ].map((w)=>allSizes.find((p)=>p >= w) || allSizes[allSizes.length - 1]))
     ];
     return {
@@ -2605,12 +2605,12 @@ function generateImgAttrs({ config, src, unoptimized, width, quality, sizes, loa
                 quality,
                 width: w
             })} ${kind === 'w' ? w : i + 1}${kind}`).join(', '),
-        // It's intended to keep `src` the last attribute because React updates
-        // attributes in order. If we keep `src` the first one, Safari will
-        // immediately start to fetch `src`, before `sizes` and `srcSet` are even
-        // updated by React. That causes multiple unnecessary requests if `srcSet`
-        // and `sizes` are defined.
-        // This bug cannot be reproduced in Chrome or Firefox.
+        
+        
+        
+        
+        
+        
         src: loader({
             config,
             src,
@@ -2647,11 +2647,11 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
         });
     }
     let loader = rest.loader || defaultLoader;
-    // Remove property so it's not spread on <img> element
+    
     delete rest.loader;
     delete rest.srcSet;
-    // This special value indicates that the user
-    // didn't define a "loader" prop or "loader" config.
+    
+    
     const isDefaultLoader = '__next_img_default' in loader;
     if (isDefaultLoader) {
         if (config.loader === 'custom') {
@@ -2662,9 +2662,9 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
             });
         }
     } else {
-        // The user defined a "loader" prop or config.
-        // Since the config object is internal only, we
-        // must not pass it to the user-defined "loader".
+        
+        
+        
         const customImageLoader = loader;
         loader = (obj)=>{
             const { config: _, ...opts } = obj;
@@ -2742,7 +2742,7 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
     src = typeof src === 'string' ? src : staticSrc;
     let isLazy = !priority && !preload && (loading === 'lazy' || typeof loading === 'undefined');
     if (!src || src.startsWith('data:') || src.startsWith('blob:')) {
-        // https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Data_URIs
+        
         unoptimized = true;
         isLazy = false;
     }
@@ -2750,8 +2750,8 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
         unoptimized = true;
     }
     if (isDefaultLoader && !config.dangerouslyAllowSVG && src.split('?', 1)[0].endsWith('.svg')) {
-        // Special case to make svg serve as-is to avoid proxying
-        // through the built-in Image Optimization API.
+        
+        
         unoptimized = true;
     }
     const qualityInt = getInt(quality);
@@ -2768,9 +2768,9 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
             });
         }
         if (!src) {
-            // React doesn't show the stack trace and there's
-            // no `src` to help identify which image, so we
-            // instead console.error(ref) during mount.
+            
+            
+            
             unoptimized = true;
         } else {
             if (fill) {
@@ -2836,7 +2836,7 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
                         configurable: true
                     });
                 }
-                // eslint-disable-next-line no-control-regex
+                
                 if (/^[\x00-\x20]/.test(src)) {
                     throw Object.defineProperty(new Error(`Image with src "${src}" cannot start with a space or control character. Use src.trimStart() to remove it or encodeURIComponent(src) to keep it.`), "__NEXT_ERROR_CODE", {
                         value: "E176",
@@ -2844,7 +2844,7 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
                         configurable: true
                     });
                 }
-                // eslint-disable-next-line no-control-regex
+                
                 if (/[\x00-\x20]$/.test(src)) {
                     throw Object.defineProperty(new Error(`Image with src "${src}" cannot end with a space or control character. Use src.trimEnd() to remove it or encodeURIComponent(src) to keep it.`), "__NEXT_ERROR_CODE", {
                         value: "E21",
@@ -2906,7 +2906,7 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
                 'png',
                 'webp',
                 'avif'
-            ] // should match next-image-loader
+            ] 
             ;
             throw Object.defineProperty(new Error(`Image with src "${src}" has "placeholder='blur'" property but is missing the "blurDataURL" property.
         Possible solutions:
@@ -2951,7 +2951,7 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
                 (0, _warnonce.warnOnce)(`Image with src "${src}" has legacy prop "${legacyKey}". Did you forget to run the codemod?` + `\nRead more: https://nextjs.org/docs/messages/next-image-upgrade-to-13`);
             }
         }
-        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        if ("TURBOPACK compile-time falsy", 0) 
         ;
     }
     const imgStyle = Object.assign(fill ? {
@@ -2974,9 +2974,9 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
         blurHeight,
         blurDataURL: blurDataURL || '',
         objectFit: imgStyle.objectFit
-    })}")` : `url("${placeholder}")` // assume `data:image/`
+    })}")` : `url("${placeholder}")` 
      : null;
-    const backgroundSize = !INVALID_BACKGROUND_SIZE_VALUES.includes(imgStyle.objectFit) ? imgStyle.objectFit : imgStyle.objectFit === 'fill' ? '100% 100%' // the background-size equivalent of `fill`
+    const backgroundSize = !INVALID_BACKGROUND_SIZE_VALUES.includes(imgStyle.objectFit) ? imgStyle.objectFit : imgStyle.objectFit === 'fill' ? '100% 100%' 
      : 'cover';
     let placeholderStyle = backgroundImage ? {
         backgroundSize,
@@ -2986,9 +2986,9 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
     } : {};
     if ("TURBOPACK compile-time truthy", 1) {
         if (placeholderStyle.backgroundImage && placeholder === 'blur' && blurDataURL?.startsWith('/')) {
-            // During `next dev`, we don't want to generate blur placeholders with webpack
-            // because it can delay starting the dev server. Instead, `next-image-loader.js`
-            // will inline a special url to lazily generate the blur placeholder at request time.
+            
+            
+            
             placeholderStyle.backgroundImage = `url("${blurDataURL}")`;
         }
     }
@@ -3003,7 +3003,7 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
     });
     const loadingFinal = isLazy ? 'lazy' : loading;
     if ("TURBOPACK compile-time truthy", 1) {
-        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        if ("TURBOPACK compile-time falsy", 0) 
         ;
     }
     const props = {
@@ -3032,7 +3032,7 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
         props,
         meta
     };
-} //# sourceMappingURL=get-img-props.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/side-effect.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -3068,11 +3068,11 @@ function SideEffect(props) {
             headManager?.mountedInstances?.delete(props.children);
         };
     });
-    // We need to call `updateHead` method whenever the `SideEffect` is trigger in all
-    // life-cycles: mount, update, unmount. However, if there are multiple `SideEffect`s
-    // being rendered, we only trigger the method from the last one.
-    // This is ensured by keeping the last unflushed `updateHead` in the `_pendingUpdate`
-    // singleton in the layout effect pass, and actually trigger it in the effect pass.
+    
+    
+    
+    
+    
     useClientOnlyLayoutEffect(()=>{
         if (headManager) {
             headManager._pendingUpdate = emitChange;
@@ -3096,12 +3096,12 @@ function SideEffect(props) {
         };
     });
     return null;
-} //# sourceMappingURL=side-effect.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/head-manager-context.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].HeadManagerContext; //# sourceMappingURL=head-manager-context.js.map
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].HeadManagerContext; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/head.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -3130,16 +3130,16 @@ _export(exports, {
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-ssr] (ecmascript)");
 const _interop_require_wildcard = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [app-ssr] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-runtime.js [app-ssr] (ecmascript)");
-const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)"));
-const _sideeffect = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/side-effect.js [app-ssr] (ecmascript)"));
+const _react =  _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)"));
+const _sideeffect =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/side-effect.js [app-ssr] (ecmascript)"));
 const _headmanagercontextsharedruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/head-manager-context.js [app-ssr] (ecmascript)");
 const _warnonce = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils/warn-once.js [app-ssr] (ecmascript)");
 function defaultHead() {
     const head = [
-        /*#__PURE__*/ (0, _jsxruntime.jsx)("meta", {
+         (0, _jsxruntime.jsx)("meta", {
             charSet: "utf-8"
         }, "charset"),
-        /*#__PURE__*/ (0, _jsxruntime.jsx)("meta", {
+         (0, _jsxruntime.jsx)("meta", {
             name: "viewport",
             content: "width=device-width"
         }, "viewport")
@@ -3147,11 +3147,11 @@ function defaultHead() {
     return head;
 }
 function onlyReactElement(list, child) {
-    // React children can be "string" or "number" in this case we ignore them for backwards compat
+    
     if (typeof child === 'string' || typeof child === 'number') {
         return list;
     }
-    // Adds support for React.Fragment
+    
     if (child.type === _react.default.Fragment) {
         return list.concat(_react.default.Children.toArray(child.props.children).reduce((fragmentList, fragmentChild)=>{
             if (typeof fragmentChild === 'string' || typeof fragmentChild === 'number') {
@@ -3168,11 +3168,11 @@ const METATYPES = [
     'charSet',
     'itemProp'
 ];
-/*
- returns a function for filtering head child elements
- which shouldn't be duplicated, like <title/>
- Also adds support for deduplicated `key` properties
-*/ function unique() {
+
+
+
+
+ function unique() {
     const keys = new Set();
     const tags = new Set();
     const metaTypes = new Set();
@@ -3189,7 +3189,7 @@ const METATYPES = [
                 keys.add(key);
             }
         }
-        // eslint-disable-next-line default-case
+        
         switch(h.type){
             case 'title':
             case 'base':
@@ -3225,14 +3225,14 @@ const METATYPES = [
         return isUnique;
     };
 }
-/**
- *
- * @param headChildrenElements List of children of <Head>
- */ function reduceComponents(headChildrenElements) {
+
+
+
+ function reduceComponents(headChildrenElements) {
     return headChildrenElements.reduce(onlyReactElement, []).reverse().concat(defaultHead().reverse()).filter(unique()).reverse().map((c, i)=>{
         const key = c.key || i;
         if ("TURBOPACK compile-time truthy", 1) {
-            // omit JSON-LD structured data snippets from the warning
+            
             if (c.type === 'script' && c.props['type'] !== 'application/ld+json') {
                 const srcMessage = c.props['src'] ? `<script> tag with src="${c.props['src']}"` : `inline <script>`;
                 (0, _warnonce.warnOnce)(`Do not add <script> tags using next/head (see ${srcMessage}). Use next/script instead. \nSee more info here: https://nextjs.org/docs/messages/no-script-tags-in-head-component`);
@@ -3240,17 +3240,17 @@ const METATYPES = [
                 (0, _warnonce.warnOnce)(`Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="${c.props['href']}"). Use Document instead. \nSee more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component`);
             }
         }
-        return /*#__PURE__*/ _react.default.cloneElement(c, {
+        return  _react.default.cloneElement(c, {
             key
         });
     });
 }
-/**
- * This component injects elements to `<head>` of your page.
- * To avoid duplicated `tags` in `<head>` you can use the `key` property, which will make sure every tag is only rendered once.
- */ function Head({ children }) {
+
+
+
+ function Head({ children }) {
     const headManager = (0, _react.useContext)(_headmanagercontextsharedruntime.HeadManagerContext);
-    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_sideeffect.default, {
+    return  (0, _jsxruntime.jsx)(_sideeffect.default, {
         reduceComponentsToState: reduceComponents,
         headManager: headManager,
         children: children
@@ -3263,17 +3263,17 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=head.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/image-config-context.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].ImageConfigContext; //# sourceMappingURL=image-config-context.js.map
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].ImageConfigContext; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/router-context.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].RouterContext; //# sourceMappingURL=router-context.js.map
+module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-ssr] (ecmascript)").vendored['contexts'].RouterContext; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/find-closest-quality.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -3293,7 +3293,7 @@ function findClosestQuality(quality, config) {
         return q;
     }
     return config.qualities.reduce((prev, cur)=>Math.abs(cur - q) < Math.abs(prev - q) ? cur : prev, 0);
-} //# sourceMappingURL=find-closest-quality.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/picomatch/index.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
@@ -4937,7 +4937,7 @@ function hasLocalMatch(localPatterns, urlPathAndQuery) {
     }
     const url = new URL(urlPathAndQuery, 'http://n');
     return localPatterns.some((p)=>matchLocalPattern(p, url));
-} //# sourceMappingURL=match-local-pattern.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/match-remote-pattern.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -4991,7 +4991,7 @@ function matchRemotePattern(pattern, url) {
             return false;
         }
     }
-    // Should be the same as writeImagesManifest()
+    
     if (!(0, _picomatch.makeRe)(pattern.pathname ?? '**', {
         dot: true
     }).test(url.pathname)) {
@@ -5001,7 +5001,7 @@ function matchRemotePattern(pattern, url) {
 }
 function hasRemoteMatch(domains, remotePatterns, url) {
     return domains.some((domain)=>url.hostname === domain) || remotePatterns.some((p)=>matchRemotePattern(p, url));
-} //# sourceMappingURL=match-remote-pattern.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-loader.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -5026,7 +5026,7 @@ function defaultLoader({ config, src, width, quality }) {
     }
     if ("TURBOPACK compile-time truthy", 1) {
         const missingValues = [];
-        // these should always be provided but make sure they are
+        
         if (!src) missingValues.push('src');
         if (!width) missingValues.push('width');
         if (missingValues.length > 0) {
@@ -5049,7 +5049,7 @@ function defaultLoader({ config, src, width, quality }) {
         }
         if (src.startsWith('/') && config.localPatterns) {
             if ("TURBOPACK compile-time truthy", 1) {
-                // We use dynamic require because this should only error in development
+                
                 const { hasLocalMatch } = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/match-local-pattern.js [app-ssr] (ecmascript)");
                 if (!hasLocalMatch(config.localPatterns, src)) {
                     throw Object.defineProperty(new Error(`Invalid src prop (${src}) on \`next/image\` does not match \`images.localPatterns\` configured in your \`next.config.js\`\n` + `See more info: https://nextjs.org/docs/messages/next-image-unconfigured-localpatterns`), "__NEXT_ERROR_CODE", {
@@ -5073,7 +5073,7 @@ function defaultLoader({ config, src, width, quality }) {
                 });
             }
             if ("TURBOPACK compile-time truthy", 1) {
-                // We use dynamic require because this should only error in development
+                
                 const { hasRemoteMatch } = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/match-remote-pattern.js [app-ssr] (ecmascript)");
                 if (!hasRemoteMatch(config.domains, config.remotePatterns, parsedSrc)) {
                     throw Object.defineProperty(new Error(`Invalid src prop (${src}) on \`next/image\`, hostname "${parsedSrc.hostname}" is not configured under images in your \`next.config.js\`\n` + `See more info: https://nextjs.org/docs/messages/next-image-unconfigured-host`), "__NEXT_ERROR_CODE", {
@@ -5088,10 +5088,10 @@ function defaultLoader({ config, src, width, quality }) {
     const q = (0, _findclosestquality.findClosestQuality)(quality, config);
     return `${config.path}?url=${encodeURIComponent(src)}&w=${width}&q=${q}${src.startsWith('/_next/static/media/') && ("TURBOPACK compile-time value", false) ? "TURBOPACK unreachable" : ''}`;
 }
-// We use this to determine if the import is the default loader
-// or a custom loader defined by the user in next.config.js
+
+
 defaultLoader.__next_img_default = true;
-const _default = defaultLoader; //# sourceMappingURL=image-loader.js.map
+const _default = defaultLoader; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/use-merged-ref.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -5109,13 +5109,13 @@ const _react = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelat
 function useMergedRef(refA, refB) {
     const cleanupA = (0, _react.useRef)(null);
     const cleanupB = (0, _react.useRef)(null);
-    // NOTE: In theory, we could skip the wrapping if only one of the refs is non-null.
-    // (this happens often if the user doesn't pass a ref to Link/Form/Image)
-    // But this can cause us to leak a cleanup-ref into user code (previously via `<Link legacyBehavior>`),
-    // and the user might pass that ref into ref-merging library that doesn't support cleanup refs
-    // (because it hasn't been updated for React 19)
-    // which can then cause things to blow up, because a cleanup-returning ref gets called with `null`.
-    // So in practice, it's safer to be defensive and always wrap the ref, even on React 19.
+    
+    
+    
+    
+    
+    
+    
     return (0, _react.useCallback)((current)=>{
         if (current === null) {
             const cleanupFnA = cleanupA.current;
@@ -5162,7 +5162,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=use-merged-ref.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/image-component.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -5179,17 +5179,17 @@ Object.defineProperty(exports, "Image", {
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-ssr] (ecmascript)");
 const _interop_require_wildcard = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [app-ssr] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-runtime.js [app-ssr] (ecmascript)");
-const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)"));
-const _reactdom = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-dom.js [app-ssr] (ecmascript)"));
-const _head = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/head.js [app-ssr] (ecmascript)"));
+const _react =  _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)"));
+const _reactdom =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-dom.js [app-ssr] (ecmascript)"));
+const _head =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/head.js [app-ssr] (ecmascript)"));
 const _getimgprops = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/get-img-props.js [app-ssr] (ecmascript)");
 const _imageconfig = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-config.js [app-ssr] (ecmascript)");
 const _imageconfigcontextsharedruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/image-config-context.js [app-ssr] (ecmascript)");
 const _warnonce = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils/warn-once.js [app-ssr] (ecmascript)");
 const _routercontextsharedruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/contexts/router-context.js [app-ssr] (ecmascript)");
-const _imageloader = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-loader.js [app-ssr] (ecmascript)"));
+const _imageloader =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-loader.js [app-ssr] (ecmascript)"));
 const _usemergedref = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/use-merged-ref.js [app-ssr] (ecmascript)");
-// This is replaced by webpack define plugin
+
 const configEnv = ("TURBOPACK compile-time value", {
     "deviceSizes": ("TURBOPACK compile-time value", [
         ("TURBOPACK compile-time value", 640),
@@ -5246,8 +5246,8 @@ if ("TURBOPACK compile-time truthy", 1) {
     ;
     globalThis.__NEXT_IMAGE_IMPORTED = true;
 }
-// See https://stackoverflow.com/q/39777833/266535 for why we use this ref
-// handler instead of the img's onLoad attribute.
+
+
 function handleLoading(img, placeholder, onLoadRef, onLoadingCompleteRef, setBlurComplete, unoptimized, sizesInput) {
     const src = img?.src;
     if (!img || img['data-loaded-src'] === src) {
@@ -5257,20 +5257,20 @@ function handleLoading(img, placeholder, onLoadRef, onLoadingCompleteRef, setBlu
     const p = 'decode' in img ? img.decode() : Promise.resolve();
     p.catch(()=>{}).then(()=>{
         if (!img.parentElement || !img.isConnected) {
-            // Exit early in case of race condition:
-            // - onload() is called
-            // - decode() is called but incomplete
-            // - unmount is called
-            // - decode() completes
+            
+            
+            
+            
+            
             return;
         }
         if (placeholder !== 'empty') {
             setBlurComplete(true);
         }
         if (onLoadRef?.current) {
-            // Since we don't have the SyntheticEvent here,
-            // we must create one with the same shape.
-            // See https://reactjs.org/docs/events.html
+            
+            
+            
             const event = new Event('load');
             Object.defineProperty(event, 'target', {
                 writable: false,
@@ -5337,29 +5337,29 @@ function handleLoading(img, placeholder, onLoadRef, onLoadingCompleteRef, setBlu
 }
 function getDynamicProps(fetchPriority) {
     if (Boolean(_react.use)) {
-        // In React 19.0.0 or newer, we must use camelCase
-        // prop to avoid "Warning: Invalid DOM property".
-        // See https://github.com/facebook/react/pull/25927
+        
+        
+        
         return {
             fetchPriority
         };
     }
-    // In React 18.2.0 or older, we must use lowercase prop
-    // to avoid "Warning: Invalid DOM property".
+    
+    
     return {
         fetchpriority: fetchPriority
     };
 }
-const ImageElement = /*#__PURE__*/ (0, _react.forwardRef)(({ src, srcSet, sizes, height, width, decoding, className, style, fetchPriority, placeholder, loading, unoptimized, fill, onLoadRef, onLoadingCompleteRef, setBlurComplete, setShowAltText, sizesInput, onLoad, onError, ...rest }, forwardedRef)=>{
+const ImageElement =  (0, _react.forwardRef)(({ src, srcSet, sizes, height, width, decoding, className, style, fetchPriority, placeholder, loading, unoptimized, fill, onLoadRef, onLoadingCompleteRef, setBlurComplete, setShowAltText, sizesInput, onLoad, onError, ...rest }, forwardedRef)=>{
     const ownRef = (0, _react.useCallback)((img)=>{
         if (!img) {
             return;
         }
         if (onError) {
-            // If the image has an error before react hydrates, then the error is lost.
-            // The workaround is to wait until the image is mounted which is after hydration,
-            // then we set the src again to trigger the error handler (if there was an error).
-            // eslint-disable-next-line no-self-assign
+            
+            
+            
+            
             img.src = img.src;
         }
         if ("TURBOPACK compile-time truthy", 1) {
@@ -5384,12 +5384,12 @@ const ImageElement = /*#__PURE__*/ (0, _react.forwardRef)(({ src, srcSet, sizes,
         sizesInput
     ]);
     const ref = (0, _usemergedref.useMergedRef)(forwardedRef, ownRef);
-    return /*#__PURE__*/ (0, _jsxruntime.jsx)("img", {
+    return  (0, _jsxruntime.jsx)("img", {
         ...rest,
         ...getDynamicProps(fetchPriority),
-        // It's intended to keep `loading` before `src` because React updates
-        // props in order which causes Safari/Firefox to not lazy load properly.
-        // See https://github.com/facebook/react/issues/25883
+        
+        
+        
         loading: loading,
         width: width,
         height: height,
@@ -5397,12 +5397,12 @@ const ImageElement = /*#__PURE__*/ (0, _react.forwardRef)(({ src, srcSet, sizes,
         "data-nimg": fill ? 'fill' : '1',
         className: className,
         style: style,
-        // It's intended to keep `src` the last attribute because React updates
-        // attributes in order. If we keep `src` the first one, Safari will
-        // immediately start to fetch `src`, before `sizes` and `srcSet` are even
-        // updated by React. That causes multiple unnecessary requests if `srcSet`
-        // and `sizes` are defined.
-        // This bug cannot be reproduced in Chrome or Firefox.
+        
+        
+        
+        
+        
+        
         sizes: sizes,
         srcSet: srcSet,
         src: src,
@@ -5412,10 +5412,10 @@ const ImageElement = /*#__PURE__*/ (0, _react.forwardRef)(({ src, srcSet, sizes,
             handleLoading(img, placeholder, onLoadRef, onLoadingCompleteRef, setBlurComplete, unoptimized, sizesInput);
         },
         onError: (event)=>{
-            // if the real image fails to load, this will ensure "alt" is visible
+            
             setShowAltText(true);
             if (placeholder !== 'empty') {
-                // If the real image fails to load, this will still remove the placeholder.
+                
                 setBlurComplete(true);
             }
             if (onError) {
@@ -5437,22 +5437,22 @@ function ImagePreload({ isAppRouter, imgAttributes }) {
         _reactdom.default.preload(imgAttributes.src, opts);
         return null;
     }
-    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_head.default, {
-        children: /*#__PURE__*/ (0, _jsxruntime.jsx)("link", {
+    return  (0, _jsxruntime.jsx)(_head.default, {
+        children:  (0, _jsxruntime.jsx)("link", {
             rel: "preload",
-            // Note how we omit the `href` attribute, as it would only be relevant
-            // for browsers that do not support `imagesrcset`, and in those cases
-            // it would cause the incorrect image to be preloaded.
-            //
-            // https://html.spec.whatwg.org/multipage/semantics.html#attr-link-imagesrcset
+            
+            
+            
+            
+            
             href: imgAttributes.srcSet ? undefined : imgAttributes.src,
             ...opts
         }, '__nimg-' + imgAttributes.src + imgAttributes.srcSet + imgAttributes.sizes)
     });
 }
-const Image = /*#__PURE__*/ (0, _react.forwardRef)((props, forwardedRef)=>{
+const Image =  (0, _react.forwardRef)((props, forwardedRef)=>{
     const pagesRouter = (0, _react.useContext)(_routercontextsharedruntime.RouterContext);
-    // We're in the app directory if there is no pages router.
+    
     const isAppRouter = !pagesRouter;
     const configContext = (0, _react.useContext)(_imageconfigcontextsharedruntime.ImageConfigContext);
     const config = (0, _react.useMemo)(()=>{
@@ -5468,10 +5468,10 @@ const Image = /*#__PURE__*/ (0, _react.forwardRef)((props, forwardedRef)=>{
             allSizes,
             deviceSizes,
             qualities,
-            // During the SSR, configEnv (__NEXT_IMAGE_OPTS) does not include
-            // security sensitive configs like `localPatterns`, which is needed
-            // during the server render to ensure it's validated. Therefore use
-            // configContext, which holds the config from the server for validation.
+            
+            
+            
+            
             localPatterns: ("TURBOPACK compile-time truthy", 1) ? configContext?.localPatterns : "TURBOPACK unreachable"
         };
     }, [
@@ -5498,9 +5498,9 @@ const Image = /*#__PURE__*/ (0, _react.forwardRef)((props, forwardedRef)=>{
         blurComplete,
         showAltText
     });
-    return /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+    return  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
         children: [
-            /*#__PURE__*/ (0, _jsxruntime.jsx)(ImageElement, {
+             (0, _jsxruntime.jsx)(ImageElement, {
                 ...imgAttributes,
                 unoptimized: imgMeta.unoptimized,
                 placeholder: imgMeta.placeholder,
@@ -5512,7 +5512,7 @@ const Image = /*#__PURE__*/ (0, _react.forwardRef)((props, forwardedRef)=>{
                 sizesInput: props.sizes,
                 ref: forwardedRef
             }),
-            imgMeta.preload ? /*#__PURE__*/ (0, _jsxruntime.jsx)(ImagePreload, {
+            imgMeta.preload ?  (0, _jsxruntime.jsx)(ImagePreload, {
                 isAppRouter: isAppRouter,
                 imgAttributes: imgAttributes
             }) : null
@@ -5525,7 +5525,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} //# sourceMappingURL=image-component.js.map
+} 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-external.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -5554,11 +5554,11 @@ _export(exports, {
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-ssr] (ecmascript)");
 const _getimgprops = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/get-img-props.js [app-ssr] (ecmascript)");
 const _imagecomponent = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/image-component.js [app-ssr] (ecmascript)");
-const _imageloader = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-loader.js [app-ssr] (ecmascript)"));
+const _imageloader =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-loader.js [app-ssr] (ecmascript)"));
 function getImageProps(imgProps) {
     const { props } = (0, _getimgprops.getImgProps)(imgProps, {
         defaultLoader: _imageloader.default,
-        // This is replaced by webpack define plugin
+        
         imgConf: ("TURBOPACK compile-time value", {
             "deviceSizes": ("TURBOPACK compile-time value", [
                 ("TURBOPACK compile-time value", 640),
@@ -5612,9 +5612,9 @@ function getImageProps(imgProps) {
             ])
         })
     });
-    // Normally we don't care about undefined props because we pass to JSX,
-    // but this exported function could be used by the end user for anything
-    // so we delete undefined props to clean it up a little.
+    
+    
+    
     for (const [key, value] of Object.entries(props)){
         if (value === undefined) {
             delete props[key];
@@ -5624,7 +5624,7 @@ function getImageProps(imgProps) {
         props
     };
 }
-const _default = _imagecomponent.Image; //# sourceMappingURL=image-external.js.map
+const _default = _imagecomponent.Image; 
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/image.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
@@ -5632,4 +5632,3 @@ module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixel
 }),
 ];
 
-//# sourceMappingURL=c729b_64170947._.js.map

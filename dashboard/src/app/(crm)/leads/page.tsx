@@ -45,7 +45,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-// ─── helpers ────────────────────────────────────────────────────────────────
+
 
 function getToken() {
   return localStorage.getItem("auth_token") || "";
@@ -79,7 +79,7 @@ function isOverdue(followUpDate?: Date | string | null) {
   return new Date(followUpDate) < new Date();
 }
 
-// ─── Kanban card ────────────────────────────────────────────────────────────
+
 
 function KanbanCard({
   lead,
@@ -153,7 +153,7 @@ function KanbanCard({
   );
 }
 
-// ─── Analytics strip ────────────────────────────────────────────────────────
+
 
 function AnalyticsStrip({ leads }: { leads: Lead[] }) {
   const total = leads.length;
@@ -234,7 +234,7 @@ function AnalyticsStrip({ leads }: { leads: Lead[] }) {
   );
 }
 
-// ─── Main component ──────────────────────────────────────────────────────────
+
 
 export default function LeadsPage() {
   const router = useRouter();
@@ -243,7 +243,7 @@ export default function LeadsPage() {
   const [team, setTeam] = useState<any[]>([]);
   const [view, setView] = useState<"table" | "kanban">("table");
 
-  // Filters
+  
   const [search, setSearch] = useState("");
   const [staffFilter, setStaffFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
@@ -251,17 +251,17 @@ export default function LeadsPage() {
   const [priorityFilter, setPriorityFilter] = useState("");
   const [showFilters, setShowFilters] = useState(false);
 
-  // Bulk select
+  
   const [selected, setSelected] = useState<Set<string>>(new Set());
 
-  // Loading states
+  
   const [loading, setLoading] = useState(true);
   const [isSyncing, setIsSyncing] = useState(false);
   const [bulkDeleting, setBulkDeleting] = useState(false);
 
   const role = typeof window !== "undefined" ? getRole() : null;
 
-  // ── fetch ────────────────────────────────────────────────────────────────
+  
 
   async function fetchLeads(): Promise<Lead[]> {
     try {
@@ -292,7 +292,7 @@ export default function LeadsPage() {
     })();
   }, []);
 
-  // ── derived/filtered leads ───────────────────────────────────────────────
+  
 
   const allSources = useMemo(() => {
     const s = new Set(leads.map((l) => l.source || "Unknown"));
@@ -317,7 +317,7 @@ export default function LeadsPage() {
     });
   }, [leads, search, staffFilter, statusFilter, sourceFilter, priorityFilter]);
 
-  // Kanban grouped
+  
   const kanbanGroups = useMemo(() => {
     const groups: Record<string, Lead[]> = {};
     leadStatuses.forEach((s) => {
@@ -331,7 +331,7 @@ export default function LeadsPage() {
     return groups;
   }, [filtered]);
 
-  // ── actions ──────────────────────────────────────────────────────────────
+  
 
   async function updateLeadStatus(leadId: string, newStatus: string) {
     setLeads((prev) =>
@@ -541,11 +541,11 @@ export default function LeadsPage() {
   const hasFilters =
     search || staffFilter || statusFilter || sourceFilter || priorityFilter;
 
-  // ── render ───────────────────────────────────────────────────────────────
+  
 
   return (
     <div className="space-y-5 font-headline">
-      {/* Header */}
+      {}
       <header className="flex items-center justify-between gap-4">
         <div>
           <h1 className="text-5xl font-black tracking-tighter">LEADS</h1>
@@ -594,12 +594,12 @@ export default function LeadsPage() {
         </div>
       </header>
 
-      {/* Analytics */}
+      {}
       <AnalyticsStrip leads={leads} />
 
-      {/* Source breakdown */}
+      {}
       <div className=" gap-4">
-        {/* Status funnel */}
+        {}
         <div className=" border-2 border-black p-4">
           <h3 className="text-sm font-bold uppercase tracking-wide mb-3">
             Pipeline Funnel
@@ -634,7 +634,7 @@ export default function LeadsPage() {
         </div>
       </div>
 
-      {/* Search & Filters bar */}
+      {}
       <div className="flex items-center gap-2 flex-wrap">
         <div className="relative flex-1 min-w-[200px]">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -670,7 +670,7 @@ export default function LeadsPage() {
         )}
       </div>
 
-      {/* Filter panel */}
+      {}
       {showFilters && (
         <div className="border-2 border-black p-4 grid grid-cols-2 sm:grid-cols-4 gap-3 bg-gray-50">
           <div>
@@ -745,7 +745,7 @@ export default function LeadsPage() {
         </div>
       )}
 
-      {/* Bulk actions bar */}
+      {}
       {selected.size > 0 && (
         <div className="border-2 border-black bg-black text-white px-4 py-3 flex items-center gap-3 flex-wrap">
           <span className="font-bold text-sm">{selected.size} selected</span>
@@ -812,14 +812,14 @@ export default function LeadsPage() {
         </div>
       )}
 
-      {/* Loading */}
+      {}
       {loading && (
         <div className="flex items-center justify-center py-16">
           <Loader2 className="animate-spin w-8 h-8 text-muted-foreground" />
         </div>
       )}
 
-      {/* ── TABLE VIEW ───────────────────────────────────────────────────── */}
+      {}
       {!loading && view === "table" && (
         <div className="border-2 border-black overflow-hidden">
           <Table>
@@ -990,7 +990,7 @@ export default function LeadsPage() {
         </div>
       )}
 
-      {/* ── KANBAN VIEW ──────────────────────────────────────────────────── */}
+      {}
       {!loading && view === "kanban" && (
         <div className="flex gap-4 overflow-x-auto pb-4">
           {leadStatuses.map((status) => {

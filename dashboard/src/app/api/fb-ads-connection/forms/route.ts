@@ -13,10 +13,10 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
 }
 
-/**
- * GET /api/fb-ads-connection/forms?clientId=xxx
- * Admin only: list all Lead Ad forms available on the client's connected Ad Account.
- */
+
+
+
+
 export async function GET(request: NextRequest) {
   const auth = request.headers.get("authorization") || "";
   const token = auth.replace("Bearer ", "");

@@ -138,7 +138,7 @@ export default function ClientLeadsPage() {
         <p className="text-muted-foreground mt-1">Track the performance and status of your leads</p>
       </div>
 
-      {/* Facebook Lead Ads sync banner */}
+      {}
       {user?.clientId && (
         <FbAdsConnectionPanel clientId={user.clientId} readOnly />
       )}

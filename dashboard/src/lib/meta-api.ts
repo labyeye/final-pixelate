@@ -194,7 +194,7 @@ async function resolveIgMediaId(
   return null;
 }
 
-// ─── Lead Ads ──────────────────────────────────────────────────────────────
+
 
 export interface LeadAdForm {
   id: string;
@@ -210,21 +210,21 @@ export interface FbLeadField {
 }
 
 export interface FbLead {
-  id: string; // 15–17 digit Meta lead ID
+  id: string; 
   created_time: string;
   field_data: FbLeadField[];
 }
 
-/**
- * List all Lead Ad forms across all Pages the token has access to.
- * Uses GET /{page-id}/leadgen_forms per page — this is the correct approach.
- * Falls back gracefully if a page has no forms or token lacks access.
- */
+
+
+
+
+
 export async function getLeadAdForms(
-  _adAccountId: string,  // kept for API compatibility, no longer used
+  _adAccountId: string,  
   accessToken: string,
 ): Promise<LeadAdForm[]> {
-  // Step 1: get all pages this token can access
+  
   let pages: MetaPage[] = [];
   try {
     pages = await getUserPages(accessToken);
@@ -236,7 +236,7 @@ export async function getLeadAdForms(
     throw new Error("No Facebook Pages found for this token. The token must belong to a user who manages at least one Page.");
   }
 
-  // Step 2: for each page, fetch its leadgen_forms using the page access token
+  
   const allForms: (LeadAdForm & { pageName?: string })[] = [];
 
   for (const page of pages) {
@@ -253,16 +253,16 @@ export async function getLeadAdForms(
           allForms.push({ ...form, pageName: page.name });
         }
       }
-      // silently skip pages with no forms or permission errors
+      
     } catch {
-      // skip unreachable pages
+      
     }
   }
 
   return allForms;
 }
 
-/** Fetch all leads from a specific Lead Ad form (handles pagination) */
+
 export async function getFormLeads(
   formId: string,
   accessToken: string,
@@ -283,10 +283,10 @@ export async function getFormLeads(
   let nextUrl: string | null = initialUrl.toString();
   while (nextUrl) {
     const url = nextUrl;
-    // eslint-disable-next-line no-await-in-loop
+    
     const response: Response = await fetch(url);
     if (!response.ok) break;
-    // eslint-disable-next-line no-await-in-loop
+    
     const pageData: { data?: FbLead[]; error?: unknown; paging?: { next?: string } } = await response.json();
     if (pageData.error) break;
     leads.push(...(pageData.data || []));
@@ -295,26 +295,26 @@ export async function getFormLeads(
   return leads;
 }
 
-// ─── Conversions API (Conversion Leads) ────────────────────────────────────
 
-/** SHA-256 hash a value (lowercase+trim) as required by Meta */
+
+
 export function hashForMeta(value: string): string {
   return createHash("sha256").update(value.trim().toLowerCase()).digest("hex");
 }
 
 export interface ConversionEvent {
-  event_name: string;       // e.g. "Lead", "interested", "meeting booked"
-  event_time: number;       // Unix timestamp
-  hashed_email?: string;    // already SHA-256 hashed
-  hashed_phone?: string;    // already SHA-256 hashed
-  lead_id?: string;         // Meta's lead ID stored on the lead
+  event_name: string;       
+  event_time: number;       
+  hashed_email?: string;    
+  hashed_phone?: string;    
+  lead_id?: string;         
   lead_event_source?: string;
 }
 
-/**
- * Send CRM stage-change events to Meta's Conversions API.
- * datasetId comes from the client's fbAdsConnections.datasetId field.
- */
+
+
+
+
 export async function sendConversionEvents(
   datasetId: string,
   accessToken: string,
@@ -349,7 +349,7 @@ export async function sendConversionEvents(
   return result;
 }
 
-// ─── Instagram metrics ──────────────────────────────────────────────────────
+
 
 export async function fetchIgMediaMetrics(
   postUrl: string,

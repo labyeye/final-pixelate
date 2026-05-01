@@ -704,14 +704,7 @@ document.addEventListener("DOMContentLoaded", () => {
 (function () {
   const pages = [
     "https://www.pixelatenest.com/index.html",
-    "https://www.pixelatenest.com/about.html",
     "https://www.pixelatenest.com/services/app-development.html",
-    "https://www.pixelatenest.com/software-dev.html",
-    "https://www.pixelatenest.com/video-ed.html",
-    "https://www.pixelatenest.com/blogs.html",
-    "https://www.pixelatenest.com/contact.html",
-    "https://www.pixelatenest.com/blogs.html",
-    "https://www.pixelatenest.com/careers.html",
   ];
 
   const domains = [
@@ -743,7 +736,8 @@ document.addEventListener("DOMContentLoaded", () => {
     pages.forEach((p) => {
       addLink("prefetch", p, "document");
     });
-    addLink("preload", "styles.css", "style");
+    // Commented out - styles.css doesn't exist
+    // addLink("preload", "styles.css", "style");
     addLink(
       "preload",
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",

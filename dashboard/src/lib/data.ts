@@ -1,8 +1,8 @@
-// NOTE: this file used to contain in-memory demo data. It now provides types
-// and async helpers that read from the database via `src/lib/services.ts`.
-// For backward compatibility some components import synchronous arrays from
-// here; those are exported as empty arrays and should be migrated to the
-// async getters below.
+
+
+
+
+
 
 export interface Client {
   id?: number | string;
@@ -21,7 +21,7 @@ export interface Client {
   loginEmail?: string;
   loginPassword?: string;
   userId?: string;
-  // New CRM fields
+  
   status?: "active" | "inactive" | "prospect" | "churned";
   tags?: string[];
   industry?: string;
@@ -50,12 +50,12 @@ export interface User {
   role: "admin" | "staff" | "client";
   password?: string;
   avatarUrl?: string;
-  // optional avatar (data URL or external URL)
+  
   avatar?: string;
-  // profile picture URL (stored after upload)
+  
   profilePicture?: string;
   allowedPages?: string[];
-  // For client-role users: link back to their client document
+  
   clientId?: string;
 }
 
@@ -112,7 +112,7 @@ export interface Lead {
   source?: string;
   indiamrtSynced?: boolean;
   indiamrtResponse?: any;
-  // New CRM fields
+  
   priority?: "low" | "medium" | "high";
   followUpDate?: Date | string | null;
   tags?: string[];
@@ -166,7 +166,7 @@ export interface Project {
   status?: ProjectStatus;
   dueDate?: string;
   services?: { id?: string | number; name?: string; amount?: number }[];
-  assignees?: { id?: string | number; payout?: number }[]; // Array of assignee objects with payout
+  assignees?: { id?: string | number; payout?: number }[]; 
   amount?: number;
   workUrl?: string;
   brandLogo?: string;
@@ -193,7 +193,7 @@ export interface QuotationServiceItem {
   startDate?: string | Date;
   endDate?: string | Date;
   amount?: number;
-  deliverables?: string; // free-form description
+  deliverables?: string; 
 }
 
 export interface Quotation {
@@ -202,8 +202,8 @@ export interface Quotation {
   status?: "APPROVED" | "PENDING" | "REJECTED";
   clientId?: number | string | any;
   clientName?: string;
-  services?: QuotationServiceItem[]; // array of service entries with date range and amount
-  amount?: number; // subtotal
+  services?: QuotationServiceItem[]; 
+  amount?: number; 
   discount?: number;
   deliveryDate?: Date;
   authorId?: number | any;
@@ -236,7 +236,7 @@ export async function getSupportTickets() {
 export const stats: any[] = [];
 
 export async function getStats() {
-  // implement derived stats from DB later
+  
   return [];
 }
 
@@ -244,7 +244,7 @@ export interface Service {
   id?: number | string;
   _id?: string | any;
   name: string;
-  // optional free-form description (used for Web Development services)
+  
   description?: string;
 }
 
@@ -271,14 +271,14 @@ export interface Invoice {
   dueDate?: string | Date;
   status?: string;
   createdAt?: string | Date;
-  // New fields
+  
   assignedStaff?: string[] | string;
-  workDate?: string; // ISO date
-  workTime?: string; // time string
+  workDate?: string; 
+  workTime?: string; 
   venueName?: string;
   venueAddress?: string;
-  equipmentAssigned?: string[] | string; // array or comma separated
-  // Optional description used when service is Web Development
+  equipmentAssigned?: string[] | string; 
+  
   description?: string;
 }
 

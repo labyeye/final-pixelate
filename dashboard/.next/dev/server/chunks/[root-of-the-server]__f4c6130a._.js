@@ -1023,7 +1023,7 @@ async function resolveIgMediaId(permalink, igAccountId, accessToken) {
     return null;
 }
 async function getLeadAdForms(_adAccountId, accessToken) {
-    // Step 1: get all pages this token can access
+    
     let pages = [];
     try {
         pages = await getUserPages(accessToken);
@@ -1033,7 +1033,7 @@ async function getLeadAdForms(_adAccountId, accessToken) {
     if (pages.length === 0) {
         throw new Error("No Facebook Pages found for this token. The token must belong to a user who manages at least one Page.");
     }
-    // Step 2: for each page, fetch its leadgen_forms using the page access token
+    
     const allForms = [];
     for (const page of pages){
         const pageToken = page.access_token || accessToken;
@@ -1051,9 +1051,9 @@ async function getLeadAdForms(_adAccountId, accessToken) {
                     });
                 }
             }
-        // silently skip pages with no forms or permission errors
+        
         } catch  {
-        // skip unreachable pages
+        
         }
     }
     return allForms;
@@ -1076,10 +1076,10 @@ async function getFormLeads(formId, accessToken, since) {
     let nextUrl = initialUrl.toString();
     while(nextUrl){
         const url = nextUrl;
-        // eslint-disable-next-line no-await-in-loop
+        
         const response = await fetch(url);
         if (!response.ok) break;
-        // eslint-disable-next-line no-await-in-loop
+        
         const pageData = await response.json();
         if (pageData.error) break;
         leads.push(...pageData.data || []);
@@ -1249,4 +1249,3 @@ async function GET(request) {
 }),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__f4c6130a._.js.map

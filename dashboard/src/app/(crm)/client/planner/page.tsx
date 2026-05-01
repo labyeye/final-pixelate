@@ -666,7 +666,7 @@ export default function ClientPlannerPage() {
         </div>
       ) : (
         <>
-          {/* ── Pending Review ── */}
+          {}
           <section className="space-y-4">
             <h2 className="text-2xl font-black flex items-center gap-2">
               ⏳ Pending Review
@@ -689,7 +689,7 @@ export default function ClientPlannerPage() {
             )}
           </section>
 
-          {/* ── Approved Posts ── */}
+          {}
           <section className="space-y-4">
             <h2 className="text-2xl font-black flex items-center gap-2">
               ✅ Approved Posts
@@ -776,7 +776,7 @@ export default function ClientPlannerPage() {
             )}
           </section>
 
-          {/* ── Rejected Posts ── */}
+          {}
           {rejectedPosts.length > 0 && (
             <section className="space-y-4">
               <h2 className="text-2xl font-black flex items-center gap-2">
