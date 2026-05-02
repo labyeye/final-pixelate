@@ -2,5 +2,5 @@
 2:I[667514,["/_next/static/chunks/56f05216f51a4648.js","/_next/static/chunks/48edd4e2bada9f03.js","/_next/static/chunks/ec79533051182bcf.js","/_next/static/chunks/24fedf760441cdf7.js","/_next/static/chunks/f4266e4aaf3726b4.js"],"WhatsAppInbox"]
 3:I[317936,["/_next/static/chunks/791ebc0f5ebacb8e.js","/_next/static/chunks/2dd70a0ed246cd95.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"buildId":"RZq6AIVjzK8Tchq4LcZ-_","rsc":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen bg-gray-50 p-6","children":["$","div",null,{"className":"max-w-7xl mx-auto","children":["$","$L2",null,{}]}]}],[["$","script","script-0",{"src":"/_next/static/chunks/f4266e4aaf3726b4.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"-B1g-WgcGl1x9uyzhKy1Q","rsc":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen bg-gray-50 p-6","children":["$","div",null,{"className":"max-w-7xl mx-auto","children":["$","$L2",null,{}]}]}],[["$","script","script-0",{"src":"/_next/static/chunks/f4266e4aaf3726b4.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
 5:null

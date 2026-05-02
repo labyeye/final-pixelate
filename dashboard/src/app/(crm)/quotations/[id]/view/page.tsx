@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Printer, Download, Edit } from "lucide-react";
 import type { Quotation, AgencySettings, Client } from "@/lib/quotation-models";
 import { calculateQuotationTotals } from "@/lib/quotation-models";
-import logo from "@/assets/sign.png";
 export default function QuotationViewPage() {
   const params = useParams();
   const router = useRouter();
@@ -556,7 +555,7 @@ export default function QuotationViewPage() {
                 <div>
                   <div className="h-0 mb-30"></div>
                   <div className="border-gray-400 pt-2">
-                    <img src={logo.src} alt="Signature" className="h-16 mb-2" />
+                    <img src="/assets/sign.png" alt="Signature" className="h-16 mb-2" />
                     <p className="text-sm font-semibold text-gray-900">
                       Authorized Signatory
                     </p>
