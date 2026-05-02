@@ -46,6 +46,7 @@
   "/(crm)/reels/page": "app/(crm)/reels/page.js",
   "/(crm)/reviews/page": "app/(crm)/reviews/page.js",
   "/(crm)/services/page": "app/(crm)/services/page.js",
+  "/(crm)/social-media-calendar/page": "app/(crm)/social-media-calendar/page.js",
   "/(crm)/social-media-planner/analytics/page": "app/(crm)/social-media-planner/analytics/page.js",
   "/(crm)/social-media-planner/calendar/page": "app/(crm)/social-media-planner/calendar/page.js",
   "/(crm)/social-media-planner/page": "app/(crm)/social-media-planner/page.js",

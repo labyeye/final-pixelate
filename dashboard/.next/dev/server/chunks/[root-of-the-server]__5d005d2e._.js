@@ -903,6 +903,7 @@ const defaultStaffAllowed = [
     "/blogs",
     "/work-gallery",
     "/social-media-planner",
+    "/social-media-calendar",
     "/dashboard/bulk-messaging",
     "/dashboard/campaigns",
     "/dashboard/whatsapp-inbox",
@@ -1013,6 +1014,12 @@ const navGroups = [
             {
                 href: "/social-media-planner",
                 label: "Social Media Planner",
+                adminOnly: false,
+                icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2d$days$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__CalendarDays$3e$__["CalendarDays"]
+            },
+            {
+                href: "/social-media-calendar",
+                label: "Social Media Calendar",
                 adminOnly: false,
                 icon: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2d$days$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__default__as__CalendarDays$3e$__["CalendarDays"]
             }
@@ -1440,3 +1447,4 @@ async function POST(request) {
 }),
 ];
 
+//# sourceMappingURL=%5Broot-of-the-server%5D__5d005d2e._.js.map

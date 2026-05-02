@@ -13,7 +13,7 @@ Object.defineProperty(exports, "styles", {
 });
 const styles = {
     error: {
-        
+        // https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css#L38-L52
         fontFamily: 'system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
         height: '100vh',
         textAlign: 'center',
@@ -47,7 +47,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} 
+} //# sourceMappingURL=access-error-styles.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/error-fallback.js [app-rsc] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -64,40 +64,40 @@ Object.defineProperty(exports, "HTTPAccessErrorFallback", {
 const _jsxruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-runtime.js [app-rsc] (ecmascript)");
 const _accesserrorstyles = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/styles/access-error-styles.js [app-rsc] (ecmascript)");
 function HTTPAccessErrorFallback({ status, message }) {
-    return  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+    return /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
         children: [
-             (0, _jsxruntime.jsx)("title", {
+            /*#__PURE__*/ (0, _jsxruntime.jsx)("title", {
                 children: `${status}: ${message}`
             }),
-             (0, _jsxruntime.jsx)("div", {
+            /*#__PURE__*/ (0, _jsxruntime.jsx)("div", {
                 style: _accesserrorstyles.styles.error,
-                children:  (0, _jsxruntime.jsxs)("div", {
+                children: /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
                     children: [
-                         (0, _jsxruntime.jsx)("style", {
+                        /*#__PURE__*/ (0, _jsxruntime.jsx)("style", {
                             dangerouslySetInnerHTML: {
-                                
+                                /* Minified CSS from
+                body { margin: 0; color: #000; background: #fff; }
+                .next-error-h1 {
+                  border-right: 1px solid rgba(0, 0, 0, .3);
+                }
 
-
-
-
-
-
-
-
-
-
-
- __html: `body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}`
+                @media (prefers-color-scheme: dark) {
+                  body { color: #fff; background: #000; }
+                  .next-error-h1 {
+                    border-right: 1px solid rgba(255, 255, 255, .3);
+                  }
+                }
+              */ __html: `body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}`
                             }
                         }),
-                         (0, _jsxruntime.jsx)("h1", {
+                        /*#__PURE__*/ (0, _jsxruntime.jsx)("h1", {
                             className: "next-error-h1",
                             style: _accesserrorstyles.styles.h1,
                             children: status
                         }),
-                         (0, _jsxruntime.jsx)("div", {
+                        /*#__PURE__*/ (0, _jsxruntime.jsx)("div", {
                             style: _accesserrorstyles.styles.desc,
-                            children:  (0, _jsxruntime.jsx)("h2", {
+                            children: /*#__PURE__*/ (0, _jsxruntime.jsx)("h2", {
                                 style: _accesserrorstyles.styles.h2,
                                 children: message
                             })
@@ -114,7 +114,7 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} 
+} //# sourceMappingURL=error-fallback.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -131,7 +131,7 @@ Object.defineProperty(exports, "default", {
 const _jsxruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-runtime.js [app-rsc] (ecmascript)");
 const _errorfallback = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/http-access-fallback/error-fallback.js [app-rsc] (ecmascript)");
 function NotFound() {
-    return  (0, _jsxruntime.jsx)(_errorfallback.HTTPAccessErrorFallback, {
+    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_errorfallback.HTTPAccessErrorFallback, {
         status: 404,
         message: "This page could not be found."
     });
@@ -142,7 +142,8 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} 
+} //# sourceMappingURL=not-found.js.map
 }),
 ];
 
+//# sourceMappingURL=c729b_next_dist_client_components_51727e70._.js.map

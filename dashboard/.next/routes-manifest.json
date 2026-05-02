@@ -937,6 +937,12 @@
       "namedRegex": "^/services(?:/)?$"
     },
     {
+      "page": "/social-media-calendar",
+      "regex": "^/social\\-media\\-calendar(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/social\\-media\\-calendar(?:/)?$"
+    },
+    {
       "page": "/social-media-planner",
       "regex": "^/social\\-media\\-planner(?:/)?$",
       "routeKeys": {},

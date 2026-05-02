@@ -1,4 +1,4 @@
-
+/* [project]/Desktop/Projects/final-pixelate/dashboard/src/app/globals.css [app-client] (css) */
 *, :before, :after, ::backdrop {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -1018,6 +1018,10 @@ body {
   max-height: 100vh;
 }
 
+.min-h-24 {
+  min-height: 6rem;
+}
+
 .min-h-28 {
   min-height: 7rem;
 }
@@ -1928,6 +1932,11 @@ body {
   border-color: rgb(251 191 36 / var(--tw-border-opacity, 1));
 }
 
+.border-amber-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(245 158 11 / var(--tw-border-opacity, 1));
+}
+
 .border-amber-600 {
   --tw-border-opacity: 1;
   border-color: rgb(217 119 6 / var(--tw-border-opacity, 1));
@@ -2144,6 +2153,11 @@ body {
 .border-slate-200 {
   --tw-border-opacity: 1;
   border-color: rgb(226 232 240 / var(--tw-border-opacity, 1));
+}
+
+.border-slate-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(148 163 184 / var(--tw-border-opacity, 1));
 }
 
 .border-success {
@@ -2715,6 +2729,11 @@ body {
   background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1));
 }
 
+.bg-yellow-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(202 138 4 / var(--tw-bg-opacity, 1));
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -2748,6 +2767,10 @@ body {
 
 .to-blue-100 {
   --tw-gradient-to: #dbeafe var(--tw-gradient-to-position);
+}
+
+.to-pink-500 {
+  --tw-gradient-to: #ec4899 var(--tw-gradient-to-position);
 }
 
 .to-red-500 {
@@ -5495,3 +5518,4 @@ body {
   border-bottom-width: 1px;
 }
 
+/*# sourceMappingURL=Desktop_Projects_final-pixelate_dashboard_src_app_globals_42f04430.css.map*/

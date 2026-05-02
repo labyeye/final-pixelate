@@ -6,7 +6,7 @@ module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixel
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-
+// src/slot.tsx
 __turbopack_context__.s([
     "Root",
     ()=>Slot,
@@ -33,9 +33,9 @@ function isPromiseLike(value) {
 function isLazyComponent(element) {
     return element != null && typeof element === "object" && "$$typeof" in element && element.$$typeof === REACT_LAZY_TYPE && "_payload" in element && isPromiseLike(element._payload);
 }
-
+// @__NO_SIDE_EFFECTS__
 function createSlot(ownerName) {
-    const SlotClone =  createSlotClone(ownerName);
+    const SlotClone = /* @__PURE__ */ createSlotClone(ownerName);
     const Slot2 = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.forwardRef((props, forwardedRef)=>{
         let { children, ...slotProps } = props;
         if (isLazyComponent(children) && typeof use === "function") {
@@ -53,13 +53,13 @@ function createSlot(ownerName) {
                     return child;
                 }
             });
-            return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+            return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
                 ...slotProps,
                 ref: forwardedRef,
                 children: __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.isValidElement(newElement) ? __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.cloneElement(newElement, void 0, newChildren) : null
             });
         }
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
             ...slotProps,
             ref: forwardedRef,
             children
@@ -68,8 +68,8 @@ function createSlot(ownerName) {
     Slot2.displayName = `${ownerName}.Slot`;
     return Slot2;
 }
-var Slot =  createSlot("Slot");
-
+var Slot = /* @__PURE__ */ createSlot("Slot");
+// @__NO_SIDE_EFFECTS__
 function createSlotClone(ownerName) {
     const SlotClone = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.forwardRef((props, forwardedRef)=>{
         let { children, ...slotProps } = props;
@@ -90,10 +90,10 @@ function createSlotClone(ownerName) {
     return SlotClone;
 }
 var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
-
+// @__NO_SIDE_EFFECTS__
 function createSlottable(ownerName) {
     const Slottable2 = ({ children })=>{
-        return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+        return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsx"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
             children
         });
     };
@@ -101,7 +101,7 @@ function createSlottable(ownerName) {
     Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
     return Slottable2;
 }
-var Slottable =  createSlottable("Slottable");
+var Slottable = /* @__PURE__ */ createSlottable("Slottable");
 function isSlottable(child) {
     return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__.isValidElement(child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER;
 }
@@ -154,14 +154,14 @@ function getElementRef(element) {
     return element.props.ref || element.ref;
 }
 ;
- 
+ //# sourceMappingURL=index.mjs.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-blur-svg.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
-
- Object.defineProperty(exports, "__esModule", {
+/**
+ * A shared function, used on both client and server, to generate a SVG blur placeholder.
+ */ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 Object.defineProperty(exports, "getImageBlurSvg", {
@@ -177,7 +177,7 @@ function getImageBlurSvg({ widthInt, heightInt, blurWidth, blurHeight, blurDataU
     const viewBox = svgWidth && svgHeight ? `viewBox='0 0 ${svgWidth} ${svgHeight}'` : '';
     const preserveAspectRatio = viewBox ? 'none' : objectFit === 'contain' ? 'xMidYMid' : objectFit === 'cover' ? 'xMidYMid slice' : 'none';
     return `%3Csvg xmlns='http://www.w3.org/2000/svg' ${viewBox}%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='${std}'/%3E%3CfeColorMatrix values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 100 -1' result='s'/%3E%3CfeFlood x='0' y='0' width='100%25' height='100%25'/%3E%3CfeComposite operator='out' in='s'/%3E%3CfeComposite in2='SourceGraphic'/%3E%3CfeGaussianBlur stdDeviation='${std}'/%3E%3C/filter%3E%3Cimage width='100%25' height='100%25' x='0' y='0' preserveAspectRatio='${preserveAspectRatio}' style='filter: url(%23b);' href='${blurDataURL}'/%3E%3C/svg%3E`;
-} 
+} //# sourceMappingURL=image-blur-svg.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-config.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -233,9 +233,9 @@ const imageConfigDefault = {
     path: '/_next/image',
     loader: 'default',
     loaderFile: '',
-    
-
- domains: [],
+    /**
+   * @deprecated Use `remotePatterns` instead to protect your application from malicious users.
+   */ domains: [],
     disableStaticImages: false,
     minimumCacheTTL: 14400,
     formats: [
@@ -252,12 +252,12 @@ const imageConfigDefault = {
         75
     ],
     unoptimized: false
-}; 
+}; //# sourceMappingURL=image-config.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/get-img-props.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -276,7 +276,7 @@ const VALID_LOADING_VALUES = [
     'eager',
     undefined
 ];
-
+// Object-fit values that are not valid background-size values
 const INVALID_BACKGROUND_SIZE_VALUES = [
     '-moz-initial',
     'fill',
@@ -309,7 +309,7 @@ function getInt(x) {
 }
 function getWidths({ deviceSizes, allSizes }, width, sizes) {
     if (sizes) {
-        
+        // Find all the "vw" percent sizes used in the sizes prop
         const viewportWidthRe = /(^|\s)(1?\d?\d)vw/g;
         const percentSizes = [];
         for(let match; match = viewportWidthRe.exec(sizes); match){
@@ -334,16 +334,16 @@ function getWidths({ deviceSizes, allSizes }, width, sizes) {
         };
     }
     const widths = [
-        ...new Set(
-        
-        
-        
-        
-        
-        
+        ...new Set(// > are actually 3x in the green color, but only 1.5x in the red and
+        // > blue colors. Showing a 3x resolution image in the app vs a 2x
+        // > resolution image will be visually the same, though the 3x image
+        // > takes significantly more data. Even true 3x resolution screens are
+        // > wasteful as the human eye cannot see that level of detail without
+        // > something like a magnifying glass.
+        // https://blog.twitter.com/engineering/en_us/topics/infrastructure/2019/capping-image-fidelity-on-ultra-high-resolution-devices.html
         [
             width,
-            width * 2  
+            width * 2 /*, width * 3*/ 
         ].map((w)=>allSizes.find((p)=>p >= w) || allSizes[allSizes.length - 1]))
     ];
     return {
@@ -369,12 +369,12 @@ function generateImgAttrs({ config, src, unoptimized, width, quality, sizes, loa
                 quality,
                 width: w
             })} ${kind === 'w' ? w : i + 1}${kind}`).join(', '),
-        
-        
-        
-        
-        
-        
+        // It's intended to keep `src` the last attribute because React updates
+        // attributes in order. If we keep `src` the first one, Safari will
+        // immediately start to fetch `src`, before `sizes` and `srcSet` are even
+        // updated by React. That causes multiple unnecessary requests if `srcSet`
+        // and `sizes` are defined.
+        // This bug cannot be reproduced in Chrome or Firefox.
         src: loader({
             config,
             src,
@@ -411,11 +411,11 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
         });
     }
     let loader = rest.loader || defaultLoader;
-    
+    // Remove property so it's not spread on <img> element
     delete rest.loader;
     delete rest.srcSet;
-    
-    
+    // This special value indicates that the user
+    // didn't define a "loader" prop or "loader" config.
     const isDefaultLoader = '__next_img_default' in loader;
     if (isDefaultLoader) {
         if (config.loader === 'custom') {
@@ -426,9 +426,9 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
             });
         }
     } else {
-        
-        
-        
+        // The user defined a "loader" prop or config.
+        // Since the config object is internal only, we
+        // must not pass it to the user-defined "loader".
         const customImageLoader = loader;
         loader = (obj)=>{
             const { config: _, ...opts } = obj;
@@ -506,7 +506,7 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
     src = typeof src === 'string' ? src : staticSrc;
     let isLazy = !priority && !preload && (loading === 'lazy' || typeof loading === 'undefined');
     if (!src || src.startsWith('data:') || src.startsWith('blob:')) {
-        
+        // https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Data_URIs
         unoptimized = true;
         isLazy = false;
     }
@@ -514,8 +514,8 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
         unoptimized = true;
     }
     if (isDefaultLoader && !config.dangerouslyAllowSVG && src.split('?', 1)[0].endsWith('.svg')) {
-        
-        
+        // Special case to make svg serve as-is to avoid proxying
+        // through the built-in Image Optimization API.
         unoptimized = true;
     }
     const qualityInt = getInt(quality);
@@ -532,9 +532,9 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
             });
         }
         if (!src) {
-            
-            
-            
+            // React doesn't show the stack trace and there's
+            // no `src` to help identify which image, so we
+            // instead console.error(ref) during mount.
             unoptimized = true;
         } else {
             if (fill) {
@@ -600,7 +600,7 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
                         configurable: true
                     });
                 }
-                
+                // eslint-disable-next-line no-control-regex
                 if (/^[\x00-\x20]/.test(src)) {
                     throw Object.defineProperty(new Error(`Image with src "${src}" cannot start with a space or control character. Use src.trimStart() to remove it or encodeURIComponent(src) to keep it.`), "__NEXT_ERROR_CODE", {
                         value: "E176",
@@ -608,7 +608,7 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
                         configurable: true
                     });
                 }
-                
+                // eslint-disable-next-line no-control-regex
                 if (/[\x00-\x20]$/.test(src)) {
                     throw Object.defineProperty(new Error(`Image with src "${src}" cannot end with a space or control character. Use src.trimEnd() to remove it or encodeURIComponent(src) to keep it.`), "__NEXT_ERROR_CODE", {
                         value: "E21",
@@ -670,7 +670,7 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
                 'png',
                 'webp',
                 'avif'
-            ] 
+            ] // should match next-image-loader
             ;
             throw Object.defineProperty(new Error(`Image with src "${src}" has "placeholder='blur'" property but is missing the "blurDataURL" property.
         Possible solutions:
@@ -718,11 +718,11 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
         if (typeof window !== 'undefined' && !perfObserver && window.PerformanceObserver) {
             perfObserver = new PerformanceObserver((entryList)=>{
                 for (const entry of entryList.getEntries()){
-                    
+                    // @ts-ignore - missing "LargestContentfulPaint" class with "element" prop
                     const imgSrc = entry?.element?.src || '';
                     const lcpImage = allImgs.get(imgSrc);
                     if (lcpImage && lcpImage.loading === 'lazy' && lcpImage.placeholder === 'empty' && !lcpImage.src.startsWith('data:') && !lcpImage.src.startsWith('blob:')) {
-                        
+                        // https://web.dev/lcp/#measure-lcp-in-javascript
                         (0, _warnonce.warnOnce)(`Image with src "${lcpImage.src}" was detected as the Largest Contentful Paint (LCP). Please add the \`loading="eager"\` property if this image is above the fold.` + `\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading`);
                     }
                 }
@@ -733,7 +733,7 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
                     buffered: true
                 });
             } catch (err) {
-                
+                // Log error but don't crash the app
                 console.error(err);
             }
         }
@@ -758,9 +758,9 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
         blurHeight,
         blurDataURL: blurDataURL || '',
         objectFit: imgStyle.objectFit
-    })}")` : `url("${placeholder}")` 
+    })}")` : `url("${placeholder}")` // assume `data:image/`
      : null;
-    const backgroundSize = !INVALID_BACKGROUND_SIZE_VALUES.includes(imgStyle.objectFit) ? imgStyle.objectFit : imgStyle.objectFit === 'fill' ? '100% 100%' 
+    const backgroundSize = !INVALID_BACKGROUND_SIZE_VALUES.includes(imgStyle.objectFit) ? imgStyle.objectFit : imgStyle.objectFit === 'fill' ? '100% 100%' // the background-size equivalent of `fill`
      : 'cover';
     let placeholderStyle = backgroundImage ? {
         backgroundSize,
@@ -770,9 +770,9 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
     } : {};
     if ("TURBOPACK compile-time truthy", 1) {
         if (placeholderStyle.backgroundImage && placeholder === 'blur' && blurDataURL?.startsWith('/')) {
-            
-            
-            
+            // During `next dev`, we don't want to generate blur placeholders with webpack
+            // because it can delay starting the dev server. Instead, `next-image-loader.js`
+            // will inline a special url to lazily generate the blur placeholder at request time.
             placeholderStyle.backgroundImage = `url("${blurDataURL}")`;
         }
     }
@@ -827,7 +827,7 @@ function getImgProps({ src, sizes, unoptimized = false, priority = false, preloa
         props,
         meta
     };
-} 
+} //# sourceMappingURL=get-img-props.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/side-effect.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -867,11 +867,11 @@ function SideEffect(props) {
             })["SideEffect.useClientOnlyLayoutEffect"];
         }
     }["SideEffect.useClientOnlyLayoutEffect"]);
-    
-    
-    
-    
-    
+    // We need to call `updateHead` method whenever the `SideEffect` is trigger in all
+    // life-cycles: mount, update, unmount. However, if there are multiple `SideEffect`s
+    // being rendered, we only trigger the method from the last one.
+    // This is ensured by keeping the last unflushed `updateHead` in the `_pendingUpdate`
+    // singleton in the layout effect pass, and actually trigger it in the effect pass.
     useClientOnlyLayoutEffect({
         "SideEffect.useClientOnlyLayoutEffect": ()=>{
             if (headManager) {
@@ -903,12 +903,12 @@ function SideEffect(props) {
         }
     }["SideEffect.useClientOnlyEffect"]);
     return null;
-} 
+} //# sourceMappingURL=side-effect.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/head.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 'use client';
 "use strict";
 Object.defineProperty(exports, "__esModule", {
@@ -935,16 +935,16 @@ _export(exports, {
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)");
 const _interop_require_wildcard = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [app-client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)");
-const _react =  _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)"));
-const _sideeffect =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/side-effect.js [app-client] (ecmascript)"));
+const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)"));
+const _sideeffect = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/side-effect.js [app-client] (ecmascript)"));
 const _headmanagercontextsharedruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/head-manager-context.shared-runtime.js [app-client] (ecmascript)");
 const _warnonce = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils/warn-once.js [app-client] (ecmascript)");
 function defaultHead() {
     const head = [
-         (0, _jsxruntime.jsx)("meta", {
+        /*#__PURE__*/ (0, _jsxruntime.jsx)("meta", {
             charSet: "utf-8"
         }, "charset"),
-         (0, _jsxruntime.jsx)("meta", {
+        /*#__PURE__*/ (0, _jsxruntime.jsx)("meta", {
             name: "viewport",
             content: "width=device-width"
         }, "viewport")
@@ -952,11 +952,11 @@ function defaultHead() {
     return head;
 }
 function onlyReactElement(list, child) {
-    
+    // React children can be "string" or "number" in this case we ignore them for backwards compat
     if (typeof child === 'string' || typeof child === 'number') {
         return list;
     }
-    
+    // Adds support for React.Fragment
     if (child.type === _react.default.Fragment) {
         return list.concat(_react.default.Children.toArray(child.props.children).reduce((fragmentList, fragmentChild)=>{
             if (typeof fragmentChild === 'string' || typeof fragmentChild === 'number') {
@@ -973,11 +973,11 @@ const METATYPES = [
     'charSet',
     'itemProp'
 ];
-
-
-
-
- function unique() {
+/*
+ returns a function for filtering head child elements
+ which shouldn't be duplicated, like <title/>
+ Also adds support for deduplicated `key` properties
+*/ function unique() {
     const keys = new Set();
     const tags = new Set();
     const metaTypes = new Set();
@@ -994,7 +994,7 @@ const METATYPES = [
                 keys.add(key);
             }
         }
-        
+        // eslint-disable-next-line default-case
         switch(h.type){
             case 'title':
             case 'base':
@@ -1030,14 +1030,14 @@ const METATYPES = [
         return isUnique;
     };
 }
-
-
-
- function reduceComponents(headChildrenElements) {
+/**
+ *
+ * @param headChildrenElements List of children of <Head>
+ */ function reduceComponents(headChildrenElements) {
     return headChildrenElements.reduce(onlyReactElement, []).reverse().concat(defaultHead().reverse()).filter(unique()).reverse().map((c, i)=>{
         const key = c.key || i;
         if ("TURBOPACK compile-time truthy", 1) {
-            
+            // omit JSON-LD structured data snippets from the warning
             if (c.type === 'script' && c.props['type'] !== 'application/ld+json') {
                 const srcMessage = c.props['src'] ? `<script> tag with src="${c.props['src']}"` : `inline <script>`;
                 (0, _warnonce.warnOnce)(`Do not add <script> tags using next/head (see ${srcMessage}). Use next/script instead. \nSee more info here: https://nextjs.org/docs/messages/no-script-tags-in-head-component`);
@@ -1045,17 +1045,17 @@ const METATYPES = [
                 (0, _warnonce.warnOnce)(`Do not add stylesheets using next/head (see <link rel="stylesheet"> tag with href="${c.props['href']}"). Use Document instead. \nSee more info here: https://nextjs.org/docs/messages/no-stylesheets-in-head-component`);
             }
         }
-        return  _react.default.cloneElement(c, {
+        return /*#__PURE__*/ _react.default.cloneElement(c, {
             key
         });
     });
 }
-
-
-
- function Head({ children }) {
+/**
+ * This component injects elements to `<head>` of your page.
+ * To avoid duplicated `tags` in `<head>` you can use the `key` property, which will make sure every tag is only rendered once.
+ */ function Head({ children }) {
     const headManager = (0, _react.useContext)(_headmanagercontextsharedruntime.HeadManagerContext);
-    return  (0, _jsxruntime.jsx)(_sideeffect.default, {
+    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_sideeffect.default, {
         reduceComponentsToState: reduceComponents,
         headManager: headManager,
         children: children
@@ -1068,12 +1068,12 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} 
+} //# sourceMappingURL=head.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-config-context.shared-runtime.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -1085,17 +1085,17 @@ Object.defineProperty(exports, "ImageConfigContext", {
     }
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)");
-const _react =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)"));
+const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)"));
 const _imageconfig = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-config.js [app-client] (ecmascript)");
 const ImageConfigContext = _react.default.createContext(_imageconfig.imageConfigDefault);
 if ("TURBOPACK compile-time truthy", 1) {
     ImageConfigContext.displayName = 'ImageConfigContext';
-} 
+} //# sourceMappingURL=image-config-context.shared-runtime.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router-context.shared-runtime.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -1107,11 +1107,11 @@ Object.defineProperty(exports, "RouterContext", {
     }
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)");
-const _react =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)"));
+const _react = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)"));
 const RouterContext = _react.default.createContext(null);
 if ("TURBOPACK compile-time truthy", 1) {
     RouterContext.displayName = 'RouterContext';
-} 
+} //# sourceMappingURL=router-context.shared-runtime.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/find-closest-quality.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -1131,11 +1131,11 @@ function findClosestQuality(quality, config) {
         return q;
     }
     return config.qualities.reduce((prev, cur)=>Math.abs(cur - q) < Math.abs(prev - q) ? cur : prev, 0);
-} 
+} //# sourceMappingURL=find-closest-quality.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/picomatch/index.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 (()=>{
     "use strict";
     var t = {
@@ -2776,7 +2776,7 @@ function hasLocalMatch(localPatterns, urlPathAndQuery) {
     }
     const url = new URL(urlPathAndQuery, 'http://n');
     return localPatterns.some((p)=>matchLocalPattern(p, url));
-} 
+} //# sourceMappingURL=match-local-pattern.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/match-remote-pattern.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2830,7 +2830,7 @@ function matchRemotePattern(pattern, url) {
             return false;
         }
     }
-    
+    // Should be the same as writeImagesManifest()
     if (!(0, _picomatch.makeRe)(pattern.pathname ?? '**', {
         dot: true
     }).test(url.pathname)) {
@@ -2840,12 +2840,12 @@ function matchRemotePattern(pattern, url) {
 }
 function hasRemoteMatch(domains, remotePatterns, url) {
     return domains.some((domain)=>url.hostname === domain) || remotePatterns.some((p)=>matchRemotePattern(p, url));
-} 
+} //# sourceMappingURL=match-remote-pattern.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-loader.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -2867,7 +2867,7 @@ function defaultLoader({ config, src, width, quality }) {
     }
     if ("TURBOPACK compile-time truthy", 1) {
         const missingValues = [];
-        
+        // these should always be provided but make sure they are
         if (!src) missingValues.push('src');
         if (!width) missingValues.push('width');
         if (missingValues.length > 0) {
@@ -2890,7 +2890,7 @@ function defaultLoader({ config, src, width, quality }) {
         }
         if (src.startsWith('/') && config.localPatterns) {
             if ("TURBOPACK compile-time truthy", 1) {
-                
+                // We use dynamic require because this should only error in development
                 const { hasLocalMatch } = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/match-local-pattern.js [app-client] (ecmascript)");
                 if (!hasLocalMatch(config.localPatterns, src)) {
                     throw Object.defineProperty(new Error(`Invalid src prop (${src}) on \`next/image\` does not match \`images.localPatterns\` configured in your \`next.config.js\`\n` + `See more info: https://nextjs.org/docs/messages/next-image-unconfigured-localpatterns`), "__NEXT_ERROR_CODE", {
@@ -2914,7 +2914,7 @@ function defaultLoader({ config, src, width, quality }) {
                 });
             }
             if ("TURBOPACK compile-time truthy", 1) {
-                
+                // We use dynamic require because this should only error in development
                 const { hasRemoteMatch } = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/match-remote-pattern.js [app-client] (ecmascript)");
                 if (!hasRemoteMatch(config.domains, config.remotePatterns, parsedSrc)) {
                     throw Object.defineProperty(new Error(`Invalid src prop (${src}) on \`next/image\`, hostname "${parsedSrc.hostname}" is not configured under images in your \`next.config.js\`\n` + `See more info: https://nextjs.org/docs/messages/next-image-unconfigured-host`), "__NEXT_ERROR_CODE", {
@@ -2929,10 +2929,10 @@ function defaultLoader({ config, src, width, quality }) {
     const q = (0, _findclosestquality.findClosestQuality)(quality, config);
     return `${config.path}?url=${encodeURIComponent(src)}&w=${width}&q=${q}${src.startsWith('/_next/static/media/') && ("TURBOPACK compile-time value", false) ? "TURBOPACK unreachable" : ''}`;
 }
-
-
+// We use this to determine if the import is the default loader
+// or a custom loader defined by the user in next.config.js
 defaultLoader.__next_img_default = true;
-const _default = defaultLoader; 
+const _default = defaultLoader; //# sourceMappingURL=image-loader.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/use-merged-ref.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -2950,13 +2950,13 @@ const _react = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelat
 function useMergedRef(refA, refB) {
     const cleanupA = (0, _react.useRef)(null);
     const cleanupB = (0, _react.useRef)(null);
-    
-    
-    
-    
-    
-    
-    
+    // NOTE: In theory, we could skip the wrapping if only one of the refs is non-null.
+    // (this happens often if the user doesn't pass a ref to Link/Form/Image)
+    // But this can cause us to leak a cleanup-ref into user code (previously via `<Link legacyBehavior>`),
+    // and the user might pass that ref into ref-merging library that doesn't support cleanup refs
+    // (because it hasn't been updated for React 19)
+    // which can then cause things to blow up, because a cleanup-returning ref gets called with `null`.
+    // So in practice, it's safer to be defensive and always wrap the ref, even on React 19.
     return (0, _react.useCallback)((current)=>{
         if (current === null) {
             const cleanupFnA = cleanupA.current;
@@ -3003,12 +3003,12 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} 
+} //# sourceMappingURL=use-merged-ref.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/image-component.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 'use client';
 "use strict";
 Object.defineProperty(exports, "__esModule", {
@@ -3023,17 +3023,17 @@ Object.defineProperty(exports, "Image", {
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)");
 const _interop_require_wildcard = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_wildcard.cjs [app-client] (ecmascript)");
 const _jsxruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)");
-const _react =  _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)"));
-const _reactdom =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-dom/index.js [app-client] (ecmascript)"));
-const _head =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/head.js [app-client] (ecmascript)"));
+const _react = /*#__PURE__*/ _interop_require_wildcard._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)"));
+const _reactdom = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-dom/index.js [app-client] (ecmascript)"));
+const _head = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/head.js [app-client] (ecmascript)"));
 const _getimgprops = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/get-img-props.js [app-client] (ecmascript)");
 const _imageconfig = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-config.js [app-client] (ecmascript)");
 const _imageconfigcontextsharedruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-config-context.shared-runtime.js [app-client] (ecmascript)");
 const _warnonce = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/utils/warn-once.js [app-client] (ecmascript)");
 const _routercontextsharedruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/router-context.shared-runtime.js [app-client] (ecmascript)");
-const _imageloader =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-loader.js [app-client] (ecmascript)"));
+const _imageloader = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-loader.js [app-client] (ecmascript)"));
 const _usemergedref = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/use-merged-ref.js [app-client] (ecmascript)");
-
+// This is replaced by webpack define plugin
 const configEnv = ("TURBOPACK compile-time value", {
     "deviceSizes": ("TURBOPACK compile-time value", [
         ("TURBOPACK compile-time value", 640),
@@ -3090,8 +3090,8 @@ if (typeof window === 'undefined') {
     ;
     globalThis.__NEXT_IMAGE_IMPORTED = true;
 }
-
-
+// See https://stackoverflow.com/q/39777833/266535 for why we use this ref
+// handler instead of the img's onLoad attribute.
 function handleLoading(img, placeholder, onLoadRef, onLoadingCompleteRef, setBlurComplete, unoptimized, sizesInput) {
     const src = img?.src;
     if (!img || img['data-loaded-src'] === src) {
@@ -3101,20 +3101,20 @@ function handleLoading(img, placeholder, onLoadRef, onLoadingCompleteRef, setBlu
     const p = 'decode' in img ? img.decode() : Promise.resolve();
     p.catch(()=>{}).then(()=>{
         if (!img.parentElement || !img.isConnected) {
-            
-            
-            
-            
-            
+            // Exit early in case of race condition:
+            // - onload() is called
+            // - decode() is called but incomplete
+            // - unmount is called
+            // - decode() completes
             return;
         }
         if (placeholder !== 'empty') {
             setBlurComplete(true);
         }
         if (onLoadRef?.current) {
-            
-            
-            
+            // Since we don't have the SyntheticEvent here,
+            // we must create one with the same shape.
+            // See https://reactjs.org/docs/events.html
             const event = new Event('load');
             Object.defineProperty(event, 'target', {
                 writable: false,
@@ -3181,29 +3181,29 @@ function handleLoading(img, placeholder, onLoadRef, onLoadingCompleteRef, setBlu
 }
 function getDynamicProps(fetchPriority) {
     if (Boolean(_react.use)) {
-        
-        
-        
+        // In React 19.0.0 or newer, we must use camelCase
+        // prop to avoid "Warning: Invalid DOM property".
+        // See https://github.com/facebook/react/pull/25927
         return {
             fetchPriority
         };
     }
-    
-    
+    // In React 18.2.0 or older, we must use lowercase prop
+    // to avoid "Warning: Invalid DOM property".
     return {
         fetchpriority: fetchPriority
     };
 }
-const ImageElement =  (0, _react.forwardRef)(({ src, srcSet, sizes, height, width, decoding, className, style, fetchPriority, placeholder, loading, unoptimized, fill, onLoadRef, onLoadingCompleteRef, setBlurComplete, setShowAltText, sizesInput, onLoad, onError, ...rest }, forwardedRef)=>{
+const ImageElement = /*#__PURE__*/ (0, _react.forwardRef)(({ src, srcSet, sizes, height, width, decoding, className, style, fetchPriority, placeholder, loading, unoptimized, fill, onLoadRef, onLoadingCompleteRef, setBlurComplete, setShowAltText, sizesInput, onLoad, onError, ...rest }, forwardedRef)=>{
     const ownRef = (0, _react.useCallback)((img)=>{
         if (!img) {
             return;
         }
         if (onError) {
-            
-            
-            
-            
+            // If the image has an error before react hydrates, then the error is lost.
+            // The workaround is to wait until the image is mounted which is after hydration,
+            // then we set the src again to trigger the error handler (if there was an error).
+            // eslint-disable-next-line no-self-assign
             img.src = img.src;
         }
         if ("TURBOPACK compile-time truthy", 1) {
@@ -3228,12 +3228,12 @@ const ImageElement =  (0, _react.forwardRef)(({ src, srcSet, sizes, height, widt
         sizesInput
     ]);
     const ref = (0, _usemergedref.useMergedRef)(forwardedRef, ownRef);
-    return  (0, _jsxruntime.jsx)("img", {
+    return /*#__PURE__*/ (0, _jsxruntime.jsx)("img", {
         ...rest,
         ...getDynamicProps(fetchPriority),
-        
-        
-        
+        // It's intended to keep `loading` before `src` because React updates
+        // props in order which causes Safari/Firefox to not lazy load properly.
+        // See https://github.com/facebook/react/issues/25883
         loading: loading,
         width: width,
         height: height,
@@ -3241,12 +3241,12 @@ const ImageElement =  (0, _react.forwardRef)(({ src, srcSet, sizes, height, widt
         "data-nimg": fill ? 'fill' : '1',
         className: className,
         style: style,
-        
-        
-        
-        
-        
-        
+        // It's intended to keep `src` the last attribute because React updates
+        // attributes in order. If we keep `src` the first one, Safari will
+        // immediately start to fetch `src`, before `sizes` and `srcSet` are even
+        // updated by React. That causes multiple unnecessary requests if `srcSet`
+        // and `sizes` are defined.
+        // This bug cannot be reproduced in Chrome or Firefox.
         sizes: sizes,
         srcSet: srcSet,
         src: src,
@@ -3256,10 +3256,10 @@ const ImageElement =  (0, _react.forwardRef)(({ src, srcSet, sizes, height, widt
             handleLoading(img, placeholder, onLoadRef, onLoadingCompleteRef, setBlurComplete, unoptimized, sizesInput);
         },
         onError: (event)=>{
-            
+            // if the real image fails to load, this will ensure "alt" is visible
             setShowAltText(true);
             if (placeholder !== 'empty') {
-                
+                // If the real image fails to load, this will still remove the placeholder.
                 setBlurComplete(true);
             }
             if (onError) {
@@ -3281,22 +3281,22 @@ function ImagePreload({ isAppRouter, imgAttributes }) {
         _reactdom.default.preload(imgAttributes.src, opts);
         return null;
     }
-    return  (0, _jsxruntime.jsx)(_head.default, {
-        children:  (0, _jsxruntime.jsx)("link", {
+    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_head.default, {
+        children: /*#__PURE__*/ (0, _jsxruntime.jsx)("link", {
             rel: "preload",
-            
-            
-            
-            
-            
+            // Note how we omit the `href` attribute, as it would only be relevant
+            // for browsers that do not support `imagesrcset`, and in those cases
+            // it would cause the incorrect image to be preloaded.
+            //
+            // https://html.spec.whatwg.org/multipage/semantics.html#attr-link-imagesrcset
             href: imgAttributes.srcSet ? undefined : imgAttributes.src,
             ...opts
         }, '__nimg-' + imgAttributes.src + imgAttributes.srcSet + imgAttributes.sizes)
     });
 }
-const Image =  (0, _react.forwardRef)((props, forwardedRef)=>{
+const Image = /*#__PURE__*/ (0, _react.forwardRef)((props, forwardedRef)=>{
     const pagesRouter = (0, _react.useContext)(_routercontextsharedruntime.RouterContext);
-    
+    // We're in the app directory if there is no pages router.
     const isAppRouter = !pagesRouter;
     const configContext = (0, _react.useContext)(_imageconfigcontextsharedruntime.ImageConfigContext);
     const config = (0, _react.useMemo)(()=>{
@@ -3312,10 +3312,10 @@ const Image =  (0, _react.forwardRef)((props, forwardedRef)=>{
             allSizes,
             deviceSizes,
             qualities,
-            
-            
-            
-            
+            // During the SSR, configEnv (__NEXT_IMAGE_OPTS) does not include
+            // security sensitive configs like `localPatterns`, which is needed
+            // during the server render to ensure it's validated. Therefore use
+            // configContext, which holds the config from the server for validation.
             localPatterns: typeof window === 'undefined' ? configContext?.localPatterns : c.localPatterns
         };
     }, [
@@ -3342,9 +3342,9 @@ const Image =  (0, _react.forwardRef)((props, forwardedRef)=>{
         blurComplete,
         showAltText
     });
-    return  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+    return /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
         children: [
-             (0, _jsxruntime.jsx)(ImageElement, {
+            /*#__PURE__*/ (0, _jsxruntime.jsx)(ImageElement, {
                 ...imgAttributes,
                 unoptimized: imgMeta.unoptimized,
                 placeholder: imgMeta.placeholder,
@@ -3356,7 +3356,7 @@ const Image =  (0, _react.forwardRef)((props, forwardedRef)=>{
                 sizesInput: props.sizes,
                 ref: forwardedRef
             }),
-            imgMeta.preload ?  (0, _jsxruntime.jsx)(ImagePreload, {
+            imgMeta.preload ? /*#__PURE__*/ (0, _jsxruntime.jsx)(ImagePreload, {
                 isAppRouter: isAppRouter,
                 imgAttributes: imgAttributes
             }) : null
@@ -3369,12 +3369,12 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} 
+} //# sourceMappingURL=image-component.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-external.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -3400,11 +3400,11 @@ _export(exports, {
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-client] (ecmascript)");
 const _getimgprops = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/get-img-props.js [app-client] (ecmascript)");
 const _imagecomponent = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/image-component.js [app-client] (ecmascript)");
-const _imageloader =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-loader.js [app-client] (ecmascript)"));
+const _imageloader = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/image-loader.js [app-client] (ecmascript)"));
 function getImageProps(imgProps) {
     const { props } = (0, _getimgprops.getImgProps)(imgProps, {
         defaultLoader: _imageloader.default,
-        
+        // This is replaced by webpack define plugin
         imgConf: ("TURBOPACK compile-time value", {
             "deviceSizes": ("TURBOPACK compile-time value", [
                 ("TURBOPACK compile-time value", 640),
@@ -3458,9 +3458,9 @@ function getImageProps(imgProps) {
             ])
         })
     });
-    
-    
-    
+    // Normally we don't care about undefined props because we pass to JSX,
+    // but this exported function could be used by the end user for anything
+    // so we delete undefined props to clean it up a little.
     for (const [key, value] of Object.entries(props)){
         if (value === undefined) {
             delete props[key];
@@ -3470,7 +3470,7 @@ function getImageProps(imgProps) {
         props
     };
 }
-const _default = _imagecomponent.Image; 
+const _default = _imagecomponent.Image; //# sourceMappingURL=image-external.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/image.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
@@ -3478,3 +3478,4 @@ module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixel
 }),
 ]);
 
+//# sourceMappingURL=c729b_a3d827da._.js.map

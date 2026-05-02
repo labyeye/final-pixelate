@@ -470,6 +470,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/(crm)/social-media-calendar/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/social-media-calendar">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/social-media-calendar/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/(crm)/social-media-planner/analytics/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/social-media-planner/analytics">> = Specific

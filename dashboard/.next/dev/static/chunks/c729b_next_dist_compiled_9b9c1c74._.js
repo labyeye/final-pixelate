@@ -187,39 +187,39 @@
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-refresh/cjs/react-refresh-runtime.development.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
-
-
-
-
-
-
-
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+/**
+ * @license React
+ * react-refresh-runtime.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 'use strict';
 if ("TURBOPACK compile-time truthy", 1) {
     (function() {
         'use strict';
-        
+        // ATTENTION
         var REACT_FORWARD_REF_TYPE = Symbol.for('react.forward_ref');
         var REACT_MEMO_TYPE = Symbol.for('react.memo');
-        var PossiblyWeakMap = typeof WeakMap === 'function' ? WeakMap : Map; 
-        
+        var PossiblyWeakMap = typeof WeakMap === 'function' ? WeakMap : Map; // We never remove these associations.
+        // It's OK to reference families, but use WeakMap/Set for types.
         var allFamiliesByID = new Map();
         var allFamiliesByType = new PossiblyWeakMap();
-        var allSignaturesByType = new PossiblyWeakMap(); 
-        
-        
-        var updatedFamiliesByType = new PossiblyWeakMap(); 
-        
-        var pendingUpdates = []; 
+        var allSignaturesByType = new PossiblyWeakMap(); // This WeakMap is read by React, so we only put families
+        // that have actually been edited here. This keeps checks fast.
+        // $FlowIssue
+        var updatedFamiliesByType = new PossiblyWeakMap(); // This is cleared on every performReactRefresh() call.
+        // It is an array of [Family, NextType] tuples.
+        var pendingUpdates = []; // This is injected by the renderer via DevTools global hook.
         var helpersByRendererID = new Map();
-        var helpersByRoot = new Map(); 
-        var mountedRoots = new Set(); 
-        var failedRoots = new Set(); 
-        
-        
-        
+        var helpersByRoot = new Map(); // We keep track of mounted roots so we can schedule updates.
+        var mountedRoots = new Set(); // If a root captures an error, we remember it so we can retry on edit.
+        var failedRoots = new Set(); // In environments that support WeakMap, we also remember the last element for every root.
+        // It needs to be weak because we do this even for roots that failed to mount.
+        // If there is no WeakMap, we won't attempt to do retrying.
+        // $FlowIssue
         var rootElements = typeof WeakMap === 'function' ? new WeakMap() : null;
         var isPerformingRefresh = false;
         function computeFullKey(signature) {
@@ -231,9 +231,9 @@ if ("TURBOPACK compile-time truthy", 1) {
             try {
                 hooks = signature.getCustomHooks();
             } catch (err) {
-                
-                
-                
+                // This can happen in an edge case, e.g. if expression like Foo.useSomething
+                // depends on Foo which is lazily initialized during rendering.
+                // In that case just assume we'll have to remount.
                 signature.forceReset = true;
                 signature.fullKey = fullKey;
                 return fullKey;
@@ -241,7 +241,7 @@ if ("TURBOPACK compile-time truthy", 1) {
             for(var i = 0; i < hooks.length; i++){
                 var hook = hooks[i];
                 if (typeof hook !== 'function') {
-                    
+                    // Something's wrong. Assume we need to remount.
                     signature.forceReset = true;
                     signature.fullKey = fullKey;
                     return fullKey;
@@ -289,9 +289,9 @@ if ("TURBOPACK compile-time truthy", 1) {
             return false;
         }
         function resolveFamily(type) {
-            
+            // Only check updated types to keep lookups fast.
             return updatedFamiliesByType.get(type);
-        } 
+        } // If we didn't care about IE11, we could use new Map/Set(iterable).
         function cloneMap(map) {
             var clone = new Map();
             map.forEach(function(value, key) {
@@ -305,12 +305,12 @@ if ("TURBOPACK compile-time truthy", 1) {
                 clone.add(value);
             });
             return clone;
-        } 
+        } // This is a safety mechanism to protect against rogue getters and Proxies.
         function getProperty(object, property) {
             try {
                 return object[property];
             } catch (err) {
-                
+                // Intentionally ignore.
                 return undefined;
             }
         }
@@ -329,33 +329,33 @@ if ("TURBOPACK compile-time truthy", 1) {
                 pendingUpdates = [];
                 updates.forEach(function(_ref) {
                     var family = _ref[0], nextType = _ref[1];
-                    
-                    
+                    // Now that we got a real edit, we can create associations
+                    // that will be read by the React reconciler.
                     var prevType = family.current;
                     updatedFamiliesByType.set(prevType, family);
                     updatedFamiliesByType.set(nextType, family);
-                    family.current = nextType; 
+                    family.current = nextType; // Determine whether this should be a re-render or a re-mount.
                     if (canPreserveStateBetween(prevType, nextType)) {
                         updatedFamilies.add(family);
                     } else {
                         staleFamilies.add(family);
                     }
-                }); 
+                }); // TODO: rename these fields to something more meaningful.
                 var update = {
                     updatedFamilies: updatedFamilies,
-                    
-                    staleFamilies: staleFamilies 
+                    // Families that will re-render preserving state
+                    staleFamilies: staleFamilies // Families that will be remounted
                 };
                 helpersByRendererID.forEach(function(helpers) {
-                    
-                    
+                    // Even if there are no roots, set the handler on first update.
+                    // This ensures that if *new* roots are mounted, they'll use the resolve handler.
                     helpers.setRefreshHandler(resolveFamily);
                 });
                 var didError = false;
-                var firstError = null; 
-                
-                
-                
+                var firstError = null; // We snapshot maps and sets that are mutated during commits.
+                // If we don't do this, there is a risk they will be mutated while
+                // we iterate over them. For example, trying to recover a failed root
+                // may cause another root to be added to the failed list -- an infinite loop.
                 var failedRootsSnapshot = cloneSet(failedRoots);
                 var mountedRootsSnapshot = cloneSet(mountedRoots);
                 var helpersByRootSnapshot = cloneMap(helpersByRoot);
@@ -378,7 +378,7 @@ if ("TURBOPACK compile-time truthy", 1) {
                         if (!didError) {
                             didError = true;
                             firstError = err;
-                        } 
+                        } // Keep trying other roots.
                     }
                 });
                 mountedRootsSnapshot.forEach(function(root) {
@@ -393,7 +393,7 @@ if ("TURBOPACK compile-time truthy", 1) {
                         if (!didError) {
                             didError = true;
                             firstError = err;
-                        } 
+                        } // Keep trying other roots.
                     }
                 });
                 if (didError) {
@@ -411,14 +411,14 @@ if ("TURBOPACK compile-time truthy", 1) {
                 }
                 if (typeof type !== 'function' && typeof type !== 'object') {
                     return;
-                } 
-                
-                
+                } // This can happen in an edge case, e.g. if we register
+                // return value of a HOC but it returns a cached component.
+                // Ignore anything but the first registration for each type.
                 if (allFamiliesByType.has(type)) {
                     return;
-                } 
-                
-                
+                } // Create family or remember to update it.
+                // None of this bookkeeping affects reconciliation
+                // until the first performReactRefresh() call above.
                 var family = allFamiliesByID.get(id);
                 if (family === undefined) {
                     family = {
@@ -431,7 +431,7 @@ if ("TURBOPACK compile-time truthy", 1) {
                         type
                     ]);
                 }
-                allFamiliesByType.set(type, family); 
+                allFamiliesByType.set(type, family); // Visit inner types because we might not have registered them.
                 if (typeof type === 'object' && type !== null) {
                     switch(getProperty(type, '$$typeof')){
                         case REACT_FORWARD_REF_TYPE:
@@ -457,7 +457,7 @@ if ("TURBOPACK compile-time truthy", 1) {
                             return [];
                         }
                     });
-                } 
+                } // Visit inner types because we might not have signed them.
                 if (typeof type === 'object' && type !== null) {
                     switch(getProperty(type, '$$typeof')){
                         case REACT_FORWARD_REF_TYPE:
@@ -469,8 +469,8 @@ if ("TURBOPACK compile-time truthy", 1) {
                     }
                 }
             }
-        } 
-        
+        } // This is lazily called during first render for a type.
+        // It captures Hook list at that time so inline requires don't break comparisons.
         function collectCustomHooksForSignature(type) {
             {
                 var signature = allSignaturesByType.get(type);
@@ -507,15 +507,15 @@ if ("TURBOPACK compile-time truthy", 1) {
         }
         function injectIntoGlobalHook(globalObject) {
             {
-                
-                
-                
-                
+                // For React Native, the global hook will be set up by require('react-devtools-core').
+                // That code will run before us. So we need to monkeypatch functions on existing hook.
+                // For React Web, the global hook will be set up by the extension.
+                // This will also run before us.
                 var hook = globalObject.__REACT_DEVTOOLS_GLOBAL_HOOK__;
                 if (hook === undefined) {
-                    
-                    
-                    
+                    // However, if there is no DevTools extension, we'll need to set up the global hook ourselves.
+                    // Note that in this case it's important that renderer code runs *after* this method call.
+                    // Otherwise, the renderer will think that there is no global hook, and won't do the injection.
                     var nextID = 0;
                     globalObject.__REACT_DEVTOOLS_GLOBAL_HOOK__ = hook = {
                         renderers: new Map(),
@@ -529,35 +529,35 @@ if ("TURBOPACK compile-time truthy", 1) {
                     };
                 }
                 if (hook.isDisabled) {
-                    
-                    
-                    
+                    // This isn't a real property on the hook, but it can be set to opt out
+                    // of DevTools integration and associated warnings and logs.
+                    // Using console['warn'] to evade Babel and ESLint
                     console['warn']('Something has shimmed the React DevTools global hook (__REACT_DEVTOOLS_GLOBAL_HOOK__). ' + 'Fast Refresh is not compatible with this shim and will be disabled.');
                     return;
-                } 
+                } // Here, we just want to get a reference to scheduleRefresh.
                 var oldInject = hook.inject;
                 hook.inject = function(injected) {
                     var id = oldInject.apply(this, arguments);
                     if (typeof injected.scheduleRefresh === 'function' && typeof injected.setRefreshHandler === 'function') {
-                        
+                        // This version supports React Refresh.
                         helpersByRendererID.set(id, injected);
                     }
                     return id;
-                }; 
-                
-                
+                }; // Do the same for any already injected roots.
+                // This is useful if ReactDOM has already been initialized.
+                // https://github.com/facebook/react/issues/17626
                 hook.renderers.forEach(function(injected, id) {
                     if (typeof injected.scheduleRefresh === 'function' && typeof injected.setRefreshHandler === 'function') {
-                        
+                        // This version supports React Refresh.
                         helpersByRendererID.set(id, injected);
                     }
-                }); 
+                }); // We also want to track currently mounted roots.
                 var oldOnCommitFiberRoot = hook.onCommitFiberRoot;
                 var oldOnScheduleFiberRoot = hook.onScheduleFiberRoot || function() {};
                 hook.onScheduleFiberRoot = function(id, root, children) {
                     if (!isPerformingRefresh) {
-                        
-                        
+                        // If it was intentionally scheduled, don't attempt to restore.
+                        // This includes intentionally scheduled unmounts.
                         failedRoots.delete(root);
                         if (rootElements !== null) {
                             rootElements.set(root, children);
@@ -570,71 +570,71 @@ if ("TURBOPACK compile-time truthy", 1) {
                     if (helpers !== undefined) {
                         helpersByRoot.set(root, helpers);
                         var current = root.current;
-                        var alternate = current.alternate; 
-                        
-                        
+                        var alternate = current.alternate; // We need to determine whether this root has just (un)mounted.
+                        // This logic is copy-pasted from similar logic in the DevTools backend.
+                        // If this breaks with some refactoring, you'll want to update DevTools too.
                         if (alternate !== null) {
                             var wasMounted = alternate.memoizedState != null && alternate.memoizedState.element != null && mountedRoots.has(root);
                             var isMounted = current.memoizedState != null && current.memoizedState.element != null;
                             if (!wasMounted && isMounted) {
-                                
+                                // Mount a new root.
                                 mountedRoots.add(root);
                                 failedRoots.delete(root);
                             } else if (wasMounted && isMounted) ;
                             else if (wasMounted && !isMounted) {
-                                
+                                // Unmount an existing root.
                                 mountedRoots.delete(root);
                                 if (didError) {
-                                    
+                                    // We'll remount it on future edits.
                                     failedRoots.add(root);
                                 } else {
                                     helpersByRoot.delete(root);
                                 }
                             } else if (!wasMounted && !isMounted) {
                                 if (didError) {
-                                    
+                                    // We'll remount it on future edits.
                                     failedRoots.add(root);
                                 }
                             }
                         } else {
-                            
+                            // Mount a new root.
                             mountedRoots.add(root);
                         }
-                    } 
+                    } // Always call the decorated DevTools hook.
                     return oldOnCommitFiberRoot.apply(this, arguments);
                 };
             }
         }
         function hasUnrecoverableErrors() {
-            
+            // TODO: delete this after removing dependency in RN.
             return false;
-        } 
+        } // Exposed for testing.
         function _getMountedRootCount() {
             {
                 return mountedRoots.size;
             }
-        } 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        } // This is a wrapper over more primitive functions for setting signature.
+        // Signatures let us decide whether the Hook order has changed on refresh.
+        //
+        // This function is intended to be used as a transform target, e.g.:
+        // var _s = createSignatureFunctionForTransform()
+        //
+        // function Hello() {
+        //   const [foo, setFoo] = useState(0);
+        //   const value = useCustomHook();
+        //   _s(); /* Call without arguments triggers collecting the custom Hook list.
+        //          * This doesn't happen during the module evaluation because we
+        //          * don't want to change the module order with inline requires.
+        //          * Next calls are noops. */
+        //   return <h1>Hi</h1>;
+        // }
+        //
+        // /* Call with arguments attaches the signature to the type: */
+        // _s(
+        //   Hello,
+        //   'useState{[foo, setFoo]}(0)',
+        //   () => [useCustomHook], /* Lazy to avoid triggering inline requires */
+        // );
         function createSignatureFunctionForTransform() {
             {
                 var savedType;
@@ -642,24 +642,24 @@ if ("TURBOPACK compile-time truthy", 1) {
                 var didCollectHooks = false;
                 return function(type, key, forceReset, getCustomHooks) {
                     if (typeof key === 'string') {
-                        
-                        
-                        
+                        // We're in the initial phase that associates signatures
+                        // with the functions. Note this may be called multiple times
+                        // in HOC chains like _s(hoc1(_s(hoc2(_s(actualFunction))))).
                         if (!savedType) {
-                            
+                            // We're in the innermost call, so this is the actual type.
                             savedType = type;
                             hasCustomHooks = typeof getCustomHooks === 'function';
-                        } 
-                        
-                        
+                        } // Set the signature for all types (even wrappers!) in case
+                        // they have no signatures of their own. This is to prevent
+                        // problems like https://github.com/facebook/react/issues/20417.
                         if (type != null && (typeof type === 'function' || typeof type === 'object')) {
                             setSignature(type, key, forceReset, getCustomHooks);
                         }
                         return type;
                     } else {
-                        
-                        
-                        
+                        // We're in the _s() call without arguments, which means
+                        // this is the time to collect custom Hook signatures.
+                        // Only do this once. This path is hot and runs *inside* every render!
                         if (!didCollectHooks && hasCustomHooks) {
                             didCollectHooks = true;
                             collectCustomHooksForSignature(savedType);
@@ -673,23 +673,23 @@ if ("TURBOPACK compile-time truthy", 1) {
                 switch(typeof type){
                     case 'function':
                         {
-                            
+                            // First, deal with classes.
                             if (type.prototype != null) {
                                 if (type.prototype.isReactComponent) {
-                                    
+                                    // React class.
                                     return true;
                                 }
                                 var ownNames = Object.getOwnPropertyNames(type.prototype);
                                 if (ownNames.length > 1 || ownNames[0] !== 'constructor') {
-                                    
+                                    // This looks like a class.
                                     return false;
-                                } 
+                                } // eslint-disable-next-line no-proto
                                 if (type.prototype.__proto__ !== Object.prototype) {
-                                    
+                                    // It has a superclass.
                                     return false;
-                                } 
-                            
-                            } 
+                                } // Pass through.
+                            // This looks like a regular function with empty prototype.
+                            } // For plain functions and arrows, use name as a heuristic.
                             var name = type.name || type.displayName;
                             return typeof name === 'string' && /^[A-Z]/.test(name);
                         }
@@ -699,7 +699,7 @@ if ("TURBOPACK compile-time truthy", 1) {
                                 switch(getProperty(type, '$$typeof')){
                                     case REACT_FORWARD_REF_TYPE:
                                     case REACT_MEMO_TYPE:
-                                        
+                                        // Definitely React components.
                                         return true;
                                     default:
                                         return false;
@@ -732,9 +732,9 @@ if ("TURBOPACK compile-time truthy", 1) {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-refresh/runtime.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 'use strict';
-if ("TURBOPACK compile-time falsy", 0) 
+if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
 ;
 else {
     module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-refresh/cjs/react-refresh-runtime.development.js [app-client] (ecmascript)");
@@ -743,29 +743,29 @@ else {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/internal/helpers.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- var __importDefault =  __turbopack_context__.e &&  __turbopack_context__.e.__importDefault || function(mod) {
+/**
+ * MIT License
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */ var __importDefault = /*TURBOPACK member replacement*/ __turbopack_context__.e && /*TURBOPACK member replacement*/ __turbopack_context__.e.__importDefault || function(mod) {
     return mod && mod.__esModule ? mod : {
         "default": mod
     };
@@ -773,20 +773,20 @@ else {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-
-
-
+// This file is copied from the Metro JavaScript bundler, with minor tweaks for
+// webpack 4 compatibility.
+//
+// https://github.com/facebook/metro/blob/d6b9685c730d0d63577db40f41369157f28dfa3a/packages/metro/src/lib/polyfills/require.js
 const runtime_1 = __importDefault(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-refresh/runtime.js [app-client] (ecmascript)"));
 function isSafeExport(key) {
-    return key === '__esModule' || key === '__N_SSG' || key === '__N_SSP' || 
+    return key === '__esModule' || key === '__N_SSG' || key === '__N_SSP' || // TODO: remove this key from page config instead of allow listing it
     key === 'config';
 }
 function registerExportsForReactRefresh(moduleExports, moduleID) {
     runtime_1.default.register(moduleExports, moduleID + ' %exports%');
     if (moduleExports == null || typeof moduleExports !== 'object') {
-        
-        
+        // Exit if we can't iterate over exports.
+        // (This is important for legacy environments.)
         return;
     }
     for(var key in moduleExports){
@@ -806,8 +806,8 @@ function getRefreshBoundarySignature(moduleExports) {
     var signature = [];
     signature.push(runtime_1.default.getFamilyByType(moduleExports));
     if (moduleExports == null || typeof moduleExports !== 'object') {
-        
-        
+        // Exit if we can't iterate over exports.
+        // (This is important for legacy environments.)
         return signature;
     }
     for(var key in moduleExports){
@@ -829,7 +829,7 @@ function isReactRefreshBoundary(moduleExports) {
         return true;
     }
     if (moduleExports == null || typeof moduleExports !== 'object') {
-        
+        // Exit if we can't iterate over exports.
         return false;
     }
     var hasExports = false;
@@ -842,7 +842,7 @@ function isReactRefreshBoundary(moduleExports) {
         try {
             var exportValue = moduleExports[key];
         } catch (_a) {
-            
+            // This might fail due to circular dependencies
             return false;
         }
         if (!runtime_1.default.isLikelyComponentType(exportValue)) {
@@ -863,7 +863,7 @@ function shouldInvalidateReactRefreshBoundary(prevSignature, nextSignature) {
     return false;
 }
 var isUpdateScheduled = false;
-
+// This function aggregates updates from multiple modules into a single React Refresh call.
 function scheduleUpdate() {
     if (isUpdateScheduled) {
         return;
@@ -881,7 +881,7 @@ function scheduleUpdate() {
         }
     }
     if (canApplyUpdate(module.hot.status())) {
-        
+        // Apply update on the next tick.
         Promise.resolve().then(()=>{
             applyUpdate();
         });
@@ -893,22 +893,22 @@ function scheduleUpdate() {
             applyUpdate();
         }
     };
-    
+    // Apply update once the HMR runtime's status is idle.
     module.hot.addStatusHandler(statusHandler);
 }
-
+// Needs to be compatible with IE11
 exports.default = {
     registerExportsForReactRefresh: registerExportsForReactRefresh,
     isReactRefreshBoundary: isReactRefreshBoundary,
     shouldInvalidateReactRefreshBoundary: shouldInvalidateReactRefreshBoundary,
     getRefreshBoundarySignature: getRefreshBoundarySignature,
     scheduleUpdate: scheduleUpdate
-}; 
+}; //# sourceMappingURL=helpers.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/runtime.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __importDefault =  __turbopack_context__.e &&  __turbopack_context__.e.__importDefault || function(mod) {
+var __importDefault = /*TURBOPACK member replacement*/ __turbopack_context__.e && /*TURBOPACK member replacement*/ __turbopack_context__.e.__importDefault || function(mod) {
     return mod && mod.__esModule ? mod : {
         "default": mod
     };
@@ -918,11 +918,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 const runtime_1 = __importDefault(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-refresh/runtime.js [app-client] (ecmascript)"));
 const helpers_1 = __importDefault(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/internal/helpers.js [app-client] (ecmascript)"));
-
+// Hook into ReactDOM initialization
 runtime_1.default.injectIntoGlobalHook(self);
-
+// Register global helpers
 self.$RefreshHelpers$ = helpers_1.default;
-
+// Register a helper for module execution interception
 self.$RefreshInterceptModuleExecution$ = function(webpackModuleId) {
     var prevRefreshReg = self.$RefreshReg$;
     var prevRefreshSig = self.$RefreshSig$;
@@ -930,26 +930,26 @@ self.$RefreshInterceptModuleExecution$ = function(webpackModuleId) {
         runtime_1.default.register(type, webpackModuleId + ' ' + id);
     };
     self.$RefreshSig$ = runtime_1.default.createSignatureFunctionForTransform;
-    
-    
+    // Modeled after `useEffect` cleanup pattern:
+    // https://react.dev/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed
     return function() {
         self.$RefreshReg$ = prevRefreshReg;
         self.$RefreshSig$ = prevRefreshSig;
     };
-}; 
+}; //# sourceMappingURL=runtime.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/cjs/react.development.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
-
-
-
-
-
-
-
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+/**
+ * @license React
+ * react.development.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 "use strict";
 "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function defineDeprecationWarning(methodName, info) {
@@ -1766,9 +1766,9 @@ self.$RefreshInterceptModuleExecution$ = function(webpackModuleId) {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 'use strict';
-if ("TURBOPACK compile-time falsy", 0) 
+if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
 ;
 else {
     module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/cjs/react.development.js [app-client] (ecmascript)");
@@ -1777,15 +1777,15 @@ else {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/cjs/react-jsx-runtime.development.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
-
-
-
-
-
-
-
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+/**
+ * @license React
+ * react-jsx-runtime.development.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 "use strict";
 "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function getComponentNameFromType(type) {
@@ -2003,9 +2003,9 @@ else {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-runtime.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 'use strict';
-if ("TURBOPACK compile-time falsy", 0) 
+if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
 ;
 else {
     module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/cjs/react-jsx-runtime.development.js [app-client] (ecmascript)");
@@ -2613,15 +2613,15 @@ else {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/scheduler/cjs/scheduler.development.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
-
-
-
-
-
-
-
- var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+/**
+ * @license React
+ * scheduler.development.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 "use strict";
 "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function performWorkUntilDeadline() {
@@ -2861,9 +2861,9 @@ else {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/scheduler/index.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =  __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 'use strict';
-if ("TURBOPACK compile-time falsy", 0) 
+if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
 ;
 else {
     module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/scheduler/cjs/scheduler.development.js [app-client] (ecmascript)");
@@ -2913,3 +2913,4 @@ else {
 }),
 ]);
 
+//# sourceMappingURL=c729b_next_dist_compiled_9b9c1c74._.js.map
