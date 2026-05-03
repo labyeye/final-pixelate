@@ -231,20 +231,11 @@ export async function POST(req: NextRequest) {
       const invoiceDoc = await svc.findById("invoices", invoiceId);
       if (invoiceDoc?.whatsapp_sent === true) {
         console.info(
-          `[WhatsApp] Invoice ${invoiceId} already sent. wamid: ${invoiceDoc.whatsapp_message_id}`,
-        );
-        return NextResponse.json(
-          {
-            error: "This invoice was already sent on WhatsApp.",
-            code: "ALREADY_SENT",
-            messageId: invoiceDoc.whatsapp_message_id,
-            sentAt: invoiceDoc.whatsapp_sent_at,
-          },
-          { status: 409 },
+          `[WhatsApp] Invoice ${invoiceId} already sent. Resending. Previous wamid: ${invoiceDoc.whatsapp_message_id}`,
         );
       }
     } catch (dbErr: any) {
-      console.error("[WhatsApp] DB error during idempotency check:", dbErr);
+      console.error("[WhatsApp] DB error during send check:", dbErr);
     }
   }
   const missingFields: string[] = [];

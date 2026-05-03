@@ -334,6 +334,17 @@ export const navGroups = [
 
 export const clientPortalGroups = [
   {
+    title: "Client Portal Exclusive",
+    items: [
+      { href: "/client/planner", label: "Planner", icon: CalendarDays },
+      { href: "/client/calendar", label: "Calendar", icon: CalendarDays },
+      { href: "/client/analytics", label: "Analytics", icon: BarChartIcon },
+      { href: "/client/development", label: "Development", icon: Rocket },
+      { href: "/client/support", label: "Support", icon: Headphones },
+      { href: "/client/leads", label: "Leads", icon: Zap },
+    ],
+  },
+  {
     title: "Management",
     items: [
       { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },

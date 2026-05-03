@@ -195,11 +195,9 @@ export function WhatsAppInvoiceSendButton({
 
   const disabledReason: string | null = !phone
     ? "No WhatsApp number saved for this client"
-    : alreadySent
-      ? `Invoice already sent on WhatsApp${invoice?.whatsapp_sent_at ? ` on ${new Date(invoice.whatsapp_sent_at).toLocaleDateString("en-IN")}` : ""}`
-      : !optedIn
-        ? "Client has not opted in to receive WhatsApp messages. Ask them to consent on next invoice creation."
-        : null;
+    : !optedIn
+      ? "Client has not opted in to receive WhatsApp messages. Ask them to consent on next invoice creation."
+      : null;
 
   const isDisabled = sending || !!disabledReason;
 
@@ -222,28 +220,17 @@ export function WhatsAppInvoiceSendButton({
       <Button
         size="sm"
         variant="outline"
-        className={`h-8 w-8 p-0 border-[#25D366] disabled:opacity-60 disabled:cursor-not-allowed ${
-          alreadySent
-            ? "text-[#25D366] bg-green-50 border-green-300"
-            : "text-[#25D366] hover:bg-[#25D366] hover:text-white"
-        }`}
-        title={disabledReason ?? `Send invoice to ${phone} via WhatsApp`}
+        className="h-8 w-8 p-0 border-[#25D366] disabled:opacity-60 disabled:cursor-not-allowed text-[#25D366] hover:bg-[#25D366] hover:text-white"
+        title={
+          disabledReason ??
+          (alreadySent
+            ? `Resend invoice to ${phone} via WhatsApp (already sent${invoice?.whatsapp_sent_at ? ` on ${new Date(invoice.whatsapp_sent_at).toLocaleDateString("en-IN")}` : ""})`
+            : `Send invoice to ${phone} via WhatsApp`)
+        }
         disabled={isDisabled}
         onClick={handleSend}
       >
-        {sending ? (
-          <Spinner />
-        ) : alreadySent ? (
-          <svg viewBox="0 0 20 20" className="w-4 h-4" fill="currentColor">
-            <path
-              fillRule="evenodd"
-              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-              clipRule="evenodd"
-            />
-          </svg>
-        ) : (
-          <WhatsAppIcon />
-        )}
+        {sending ? <Spinner /> : <WhatsAppIcon />}
       </Button>
       <Dialog
         open={resultModalOpen}
@@ -343,7 +330,7 @@ export function WhatsAppInvoiceSendButton({
             >
               Close
             </Button>
-            {isError && phone && optedIn && !alreadySent && (
+            {isError && phone && optedIn && (
               <Button
                 size="sm"
                 className="bg-[#25D366] hover:bg-[#1ebe5a] text-white"

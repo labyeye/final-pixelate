@@ -28,7 +28,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Save, Users, UserCheck, ChevronRight, ChevronDown } from "lucide-react";
+import { Loader2, Save, Users, UserCheck, ChevronRight, ChevronDown, ShieldAlert } from "lucide-react";
 
 interface ManagedUser {
   id: string;
@@ -194,18 +194,14 @@ function StaffPermissions() {
           <AccordionContent className="px-4 pb-4 pt-2 border-t-2 border-black bg-muted/20">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 pt-4">
               {navGroups.map((group) => {
-                
-                
-                
-                const itemsToShow = group.items;
-                if (itemsToShow.length === 0) return null;
+                if (group.items.length === 0) return null;
                 return (
                   <div key={group.title} className="space-y-3">
                     <h4 className="text-xs font-black text-muted-foreground uppercase tracking-widest">
                       {group.title}
                     </h4>
                     <div className="space-y-2">
-                      {itemsToShow.map((item) => {
+                      {group.items.map((item) => {
                         const perms = staff.pagePermissions?.[item.href] || { add: false, view: false, edit: false, delete: false };
                         const idBase = `staff-${staff.id}-${item.href}`;
                         const open = isPageOpen(staff.id, item.href);
@@ -217,6 +213,12 @@ function StaffPermissions() {
                                   <item.icon className="w-3.5 h-3.5 text-muted-foreground" />
                                   {item.label}
                                 </Label>
+                                {item.adminOnly && (
+                                  <span title="Admin-only page — grant access carefully" className="flex items-center gap-0.5 text-[10px] font-bold text-amber-600 bg-amber-50 border border-amber-300 rounded px-1 py-0.5 leading-none">
+                                    <ShieldAlert className="w-2.5 h-2.5" />
+                                    Admin
+                                  </span>
+                                )}
                               </div>
                               <button
                                 type="button"
@@ -481,8 +483,8 @@ export default function SettingsPage() {
                 Client Portal Visibility
               </CardTitle>
               <CardDescription className="font-semibold">
-                Control which pages each client can see in their portal sidebar.
-                Only clients with a portal login appear here.
+                Control which pages clients can see in their portal sidebar.
+                "Client Portal Exclusive" pages are client-only routes. All other pages are shared dashboard routes accessible to clients.
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-6">
