@@ -272,6 +272,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/(crm)/dashboard/whatsapp-webhook/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/dashboard/whatsapp-webhook">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/dashboard/whatsapp-webhook/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/(crm)/developers-and-editors/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/developers-and-editors">> = Specific
@@ -1365,6 +1374,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/whatsapp/bulk-send">> = Specific
   const handler = {} as typeof import("../../src/app/api/whatsapp/bulk-send/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/api/whatsapp/delivery-log/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/whatsapp/delivery-log">> = Specific
+  const handler = {} as typeof import("../../src/app/api/whatsapp/delivery-log/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

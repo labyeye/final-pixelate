@@ -667,6 +667,12 @@
       "namedRegex": "^/api/whatsapp/bulk\\-send(?:/)?$"
     },
     {
+      "page": "/api/whatsapp/delivery-log",
+      "regex": "^/api/whatsapp/delivery\\-log(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/whatsapp/delivery\\-log(?:/)?$"
+    },
+    {
       "page": "/api/whatsapp/messages",
       "regex": "^/api/whatsapp/messages(?:/)?$",
       "routeKeys": {},
@@ -809,6 +815,12 @@
       "regex": "^/dashboard/whatsapp\\-inbox(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/dashboard/whatsapp\\-inbox(?:/)?$"
+    },
+    {
+      "page": "/dashboard/whatsapp-webhook",
+      "regex": "^/dashboard/whatsapp\\-webhook(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/whatsapp\\-webhook(?:/)?$"
     },
     {
       "page": "/developers-and-editors",
