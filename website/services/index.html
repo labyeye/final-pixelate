@@ -1409,10 +1409,10 @@
         document.getElementById("hero-description").textContent =
           service.tagline;
 
-        // Update canonical to a stable service path if available (helps indexing)
+        // Keep canonical pointing to the base services page (strip query strings)
         try {
           const canonicalEl = document.getElementById("page-canonical");
-          const staticPath = `https://www.pixelatenest.com/detailed-services/${service.slug}/`;
+          const staticPath = `https://www.pixelatenest.com/services/index.html`;
           canonicalEl.setAttribute("href", staticPath);
           // Also update service JSON-LD to reference the canonical URL
           const schemaEl = document.getElementById("service-schema");

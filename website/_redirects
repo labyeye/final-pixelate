@@ -11,6 +11,12 @@
 /factory-management-bihar                            /pages/locations.html                                               301
 /school-crm-muzaffarpur                              /locations/school-crm-muzaffarpur.html                              301
 
+# Root index — redirect /index.html to / to avoid duplicate canonical
+/index.html  /  301
+
+# Blog index — redirect to /blog/ (matches canonical)
+/blog/index.html  /blog/  301
+
 # Core pages
 /about.html         /pages/about.html         301
 /about              /pages/about.html         301

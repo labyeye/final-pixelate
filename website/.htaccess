@@ -64,6 +64,9 @@ RewriteRule ^state$ /pages/locations [R=301,L]
 RewriteRule ^portfolio-details$ /pages/portfolio-details [R=301,L]
 RewriteRule ^product$ /pages/product [R=301,L]
 
+# Blog index.html → /blog/ (canonical is /blog/)
+RewriteRule ^blog/index\.html$ /blog/ [R=301,L]
+
 # Redirect old blog URLs
 RewriteRule ^blog$ /blog/ [R=301,L]
 RewriteRule ^blogs$ /blog/ [R=301,L]
