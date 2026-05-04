@@ -1,6 +1,6 @@
 # Pixelate Nest - Robots.txt
 # https://www.pixelatenest.com/robots.txt
-# Last Updated: April 6, 2026
+# Last Updated: May 4, 2026
 
 # === GOOGLEBOT (explicit for SEO audits & rendering) ===
 User-agent: Googlebot
@@ -11,6 +11,13 @@ Allow: /assets/
 Allow: /*.css$
 Allow: /*.js$
 
+# Block legacy redirect-only pages (now deleted; prevent re-crawling old URLs)
+Disallow: /detailed-services.html
+Disallow: /state.html
+Disallow: /server/
+Disallow: /.vscode/
+Disallow: /api/
+
 User-agent: Googlebot-Image
 Allow: /
 
@@ -19,10 +26,6 @@ Allow: /
 
 User-agent: AdsBot-Google
 Allow: /
-
-Disallow: /server/
-Disallow: /.vscode/
-Disallow: /api/
 
 # === AI CRAWLERS (explicitly allowed) ===
 User-agent: GPTBot
@@ -58,6 +61,8 @@ Allow: /assets/
 Allow: /*.css$
 Allow: /*.js$
 
+Disallow: /detailed-services.html
+Disallow: /state.html
 Disallow: /server/
 Disallow: /.vscode/
 Disallow: /api/
