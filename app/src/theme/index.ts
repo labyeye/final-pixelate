@@ -1,8 +1,3 @@
-
-
-
-
-
 export const Colors = {
   primary: '#0A3E91',
   primaryLight: '#1A5AC8',
@@ -33,7 +28,6 @@ export const Colors = {
   gray800: '#262626',
   gray900: '#171717',
 
-  
   statusNotCalled: '#F59E0B',
   statusCalled: '#3B82F6',
   statusInterested: '#22C55E',
@@ -41,24 +35,20 @@ export const Colors = {
   statusMeeting: '#8B5CF6',
   statusCallBack: '#F97316',
 
-  
   tabBarBackground: '#000000',
   tabBarActive: '#F76B10',
   tabBarInactive: '#888888',
 };
 
 export const Typography = {
-  
   fontFamily: 'System',
 
-  
   black: '900' as const,
   bold: '700' as const,
   semiBold: '600' as const,
   medium: '500' as const,
   regular: '400' as const,
 
-  
   xs: 11,
   sm: 13,
   base: 15,
@@ -72,7 +62,6 @@ export const Typography = {
 };
 
 export const Shadows = {
-  
   sm: {
     shadowColor: '#000000',
     shadowOffset: { width: 2, height: 2 },
@@ -112,5 +101,5 @@ export const Border = {
   width: 2,
   widthHeavy: 3,
   widthBold: 2,
-  radius: 0, 
+  radius: 0,
 };

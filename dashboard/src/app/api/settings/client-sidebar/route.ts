@@ -2,10 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { defaultClientAllowed } from "@/lib/nav-config";
 
-
-
-
-
 export async function GET() {
   try {
     const col = await svc.getCollection("agencySettings");
@@ -22,11 +18,6 @@ export async function GET() {
   }
 }
 
-
-
-
-
-
 export async function POST(request: NextRequest) {
   try {
     const { allowedClientPages } = await request.json();
@@ -41,9 +32,16 @@ export async function POST(request: NextRequest) {
     const col = await svc.getCollection("agencySettings");
     const existing = await col.findOne({});
     if (existing) {
-      await col.updateOne({}, { $set: { allowedClientPages, updatedAt: new Date() } });
+      await col.updateOne(
+        {},
+        { $set: { allowedClientPages, updatedAt: new Date() } },
+      );
     } else {
-      await col.insertOne({ allowedClientPages, createdAt: new Date(), updatedAt: new Date() });
+      await col.insertOne({
+        allowedClientPages,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      });
     }
 
     return NextResponse.json({ success: true, allowedClientPages });

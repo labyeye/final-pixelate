@@ -23,8 +23,13 @@ export async function POST(request: Request) {
         { error: "invalid credentials" },
         { status: 401 },
       );
-    const token = signToken({ id: u._id, email: u.email, role: u.role, clientId: u.clientId });
-    
+    const token = signToken({
+      id: u._id,
+      email: u.email,
+      role: u.role,
+      clientId: u.clientId,
+    });
+
     try {
       const db = await getDb();
       await db.collection("erp_events").insertOne({
@@ -36,7 +41,6 @@ export async function POST(request: Request) {
         createdAt: new Date(),
       });
     } catch (e) {
-      
       console.error("Failed to log login event", e);
     }
 

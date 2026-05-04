@@ -104,7 +104,6 @@ export default function DevelopersAndEditorsPage() {
 
   const handleAddMember = async (newMemberData: any) => {
     try {
-      
       const payload = {
         ...newMemberData,
         jobRole: newMemberData.role,
@@ -125,8 +124,6 @@ export default function DevelopersAndEditorsPage() {
       throw err;
     }
   };
-
-  
 
   const handleDeleteUser = async (u: any) => {
     try {
@@ -196,7 +193,6 @@ export default function DevelopersAndEditorsPage() {
           setIsOpen={setIsEditDialogOpen}
           initialValues={editingMember ?? undefined}
           onSave={async (id, update) => {
-            
             await handleSaveUser(id as string, update as any);
           }}
         >
@@ -263,7 +259,9 @@ export default function DevelopersAndEditorsPage() {
                 <TableCell className="font-bold text-base py-4 text-md">
                   {member.name}
                 </TableCell>
-                <TableCell className="text-base py-4 text-md">{member.email}</TableCell>
+                <TableCell className="text-base py-4 text-md">
+                  {member.email}
+                </TableCell>
                 <TableCell className="text-base py-4 text-md">
                   {member.role ?? "staff"}
                 </TableCell>

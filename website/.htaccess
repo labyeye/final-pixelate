@@ -24,13 +24,31 @@ RewriteRule ^software-dev$ /services/software-development [R=301,L]
 RewriteRule ^hosting-maintenance$ /services/hosting-maintenance [R=301,L]
 RewriteRule ^detailed-services-digital$ /services/digital-marketing [R=301,L]
 RewriteRule ^detailed-services-uiux$ /services/uiux-branding [R=301,L]
-RewriteRule ^detailed-services$ /services [R=301,L]
-RewriteRule ^detailed-services/(.*)$ /services/detailed/$1 [R=301,L]
+RewriteRule ^detailed-services$ /services/index.html [R=301,L]
+RewriteRule ^detailed-services/video-editing/?$ /services/video-editing.html [R=301,L]
+RewriteRule ^detailed-services/app-development/?$ /services/app-development.html [R=301,L]
+RewriteRule ^detailed-services/web-development/?$ /services/web-development.html [R=301,L]
+RewriteRule ^detailed-services/software-development/?$ /services/software-development.html [R=301,L]
+RewriteRule ^detailed-services/(.*)$ /services/index.html [R=301,L]
 
-# Legacy query-based service URLs
-RewriteCond %{REQUEST_URI} ^/detailed-services$ [NC]
-RewriteCond %{QUERY_STRING} (^|&)service=([a-z0-9-]+)(&|$) [NC]
-RewriteRule ^detailed-services$ /services/detailed/%2/? [R=301,L]
+# Legacy query-based service URLs — redirect to correct service pages
+RewriteCond %{QUERY_STRING} (^|&)service=web-development(&|$) [NC]
+RewriteRule ^detailed-services(\.html)?$ /services/web-development.html? [R=301,L]
+
+RewriteCond %{QUERY_STRING} (^|&)service=app-development(&|$) [NC]
+RewriteRule ^detailed-services(\.html)?$ /services/app-development.html? [R=301,L]
+
+RewriteCond %{QUERY_STRING} (^|&)service=software-development(&|$) [NC]
+RewriteRule ^detailed-services(\.html)?$ /services/software-development.html? [R=301,L]
+
+RewriteCond %{QUERY_STRING} (^|&)service=video-editing(&|$) [NC]
+RewriteRule ^detailed-services(\.html)?$ /services/video-editing.html? [R=301,L]
+
+RewriteCond %{QUERY_STRING} (^|&)service=digital-marketing(&|$) [NC]
+RewriteRule ^detailed-services(\.html)?$ /services/digital-marketing.html? [R=301,L]
+
+RewriteCond %{QUERY_STRING} (^|&)service=uiux(&|$) [NC]
+RewriteRule ^detailed-services(\.html)?$ /services/uiux-branding.html? [R=301,L]
 
 # Redirect old page URLs to new locations
 RewriteRule ^about$ /pages/about [R=301,L]
@@ -82,13 +100,21 @@ RewriteRule ^checkout$ /pages/contact [R=301,L]
 RewriteRule ^api/(.*)$ - [R=410,L]
 
 # Doorway page consolidation/redirection
-RewriteRule ^factory-management-bihar$ /pages/product [R=301,L]
+RewriteRule ^factory-management-bihar$ /pages/locations.html [R=301,L]
 RewriteRule ^factory-management-bihar/(.+)$ /locations/factory-management-bihar/$1 [R=301,L]
-RewriteRule ^counter-billing-bihar$ /products/counter-billing-software [R=301,L]
+RewriteRule ^counter-billing-bihar\.html$ /pages/locations.html [R=301,L]
+RewriteRule ^counter-billing-bihar$ /pages/locations.html [R=301,L]
+# Special case: sharif vs bihar-sharif filename mismatch
+RewriteRule ^counter-billing-bihar/counter-billing-sharif$ /locations/counter-billing-bihar/counter-billing-bihar-sharif.html [R=301,L]
+RewriteRule ^counter-billing-bihar/counter-billing-sharif\.html$ /locations/counter-billing-bihar/counter-billing-bihar-sharif.html [R=301,L]
 RewriteRule ^counter-billing-bihar/(.+)$ /locations/counter-billing-bihar/$1 [R=301,L]
-RewriteRule ^school-crm-bihar$ /products/school-management-system [R=301,L]
+RewriteRule ^school-crm-bihar$ /pages/locations.html [R=301,L]
 RewriteRule ^school-crm-bihar/(.+)$ /locations/school-crm-bihar/$1 [R=301,L]
-RewriteRule ^school-crm-muzaffarpur$ /locations/school-crm-bihar/school-crm-muzaffarpur [R=301,L]
+RewriteRule ^school-crm-muzaffarpur$ /locations/school-crm-muzaffarpur.html [R=301,L]
+
+# State with city query string — redirect to locations hub
+RewriteCond %{QUERY_STRING} city= [NC]
+RewriteRule ^state(\.html)?$ /pages/locations.html? [R=301,L]
 
 # Fix double slashes
 RewriteCond %{THE_REQUEST} //

@@ -1,50 +1,13 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
-
-
 
 function sanitisePhone(raw: string): string {
   return raw.replace(/\D/g, "");
 }
 
-
 function isValidPhone(digits: string): boolean {
   return /^\d{7,15}$/.test(digits);
 }
-
-
 
 interface SendInvoiceBody {
   phone: string;
@@ -52,13 +15,10 @@ interface SendInvoiceBody {
   invNo: string;
   amount: string;
   filename?: string;
-  
+
   mediaId?: string;
-  
+
   pdfUrl?: string;
-  
-
-
 
   clientId?: string;
   invoiceId?: string;
@@ -71,17 +31,14 @@ interface WhatsAppErrorDetail {
   fbtrace_id?: string;
 }
 
-
-
 const WA_ERROR_MAP: Record<number, string> = {
-  
   131030: "Recipient phone number is not registered on WhatsApp.",
   131031: "Recipient phone number is not a valid WhatsApp account.",
   131026: "Message undeliverable to this recipient.",
   131047:
     "Session expired (24-hour window). Template was used but check template approval.",
   131051: "Unsupported message type for this recipient.",
-  
+
   132000: "Template not found or not approved. Check WHATSAPP_TEMPLATE_NAME.",
   132001:
     "Template parameter count or type does not match the approved template.",
@@ -92,20 +49,18 @@ const WA_ERROR_MAP: Record<number, string> = {
   132012: "Template parameter format mismatch.",
   135000:
     "Generic template error — check component types and parameter values.",
-  
+
   190: "Access token expired or invalid. Regenerate your System User token.",
   200: "Permission error — ensure whatsapp_business_messaging permission is granted.",
-  
+
   368: "Account temporarily blocked due to policy violation.",
   131048: "Spam rate limit hit. Slow down.",
   131049: "Message failed to send because of a business account issue.",
-  
+
   131016: "Service temporarily unavailable.",
-  
+
   100: "Invalid request or missing parameter. Check the payload structure.",
 };
-
-
 
 async function sendTextFallback(
   digits: string,
@@ -345,7 +300,11 @@ export async function POST(req: NextRequest) {
           parameters: [
             { type: "text", parameter_name: "client_name", text: clientName },
             { type: "text", parameter_name: "inv_no", text: invNo },
-            { type: "text", parameter_name: "amount", text: `${String(amount)} incl GST` },
+            {
+              type: "text",
+              parameter_name: "amount",
+              text: `${String(amount)} incl GST`,
+            },
           ],
         },
       ],

@@ -1,34 +1,40 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { useRouter } from 'next/navigation';
-import { ArrowLeft, Plus, X } from 'lucide-react';
-import Link from 'next/link';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useRouter } from "next/navigation";
+import { ArrowLeft, Plus, X } from "lucide-react";
+import Link from "next/link";
 
 export default function AddJobPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    title: '',
-    department: '',
-    imageUrl: '',
-    location: '',
-    type: '',
-    experience: '',
-    salaryType: 'paid' as 'paid' | 'unpaid',
-    salary: '',
-    duration: '',
-    description: '',
-    requirements: [''],
-    responsibilities: [''],
-    tags: [''],
-    status: 'active' as 'active' | 'closed',
+    title: "",
+    department: "",
+    imageUrl: "",
+    location: "",
+    type: "",
+    experience: "",
+    salaryType: "paid" as "paid" | "unpaid",
+    salary: "",
+    duration: "",
+    description: "",
+    requirements: [""],
+    responsibilities: [""],
+    tags: [""],
+    status: "active" as "active" | "closed",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -36,41 +42,47 @@ export default function AddJobPage() {
     setLoading(true);
 
     try {
-      
       const cleanedData = {
         ...formData,
-        requirements: formData.requirements.filter(r => r.trim() !== ''),
-        responsibilities: formData.responsibilities.filter(r => r.trim() !== ''),
-        tags: formData.tags.filter(t => t.trim() !== ''),
+        requirements: formData.requirements.filter((r) => r.trim() !== ""),
+        responsibilities: formData.responsibilities.filter(
+          (r) => r.trim() !== "",
+        ),
+        tags: formData.tags.filter((t) => t.trim() !== ""),
       };
 
-      const response = await fetch('/api/careers', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/careers", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(cleanedData),
       });
 
       if (response.ok) {
-        router.push('/careers');
+        router.push("/careers");
       } else {
-        alert('Failed to create job posting');
+        alert("Failed to create job posting");
       }
     } catch (error) {
-      console.error('Error creating job:', error);
-      alert('Failed to create job posting');
+      console.error("Error creating job:", error);
+      alert("Failed to create job posting");
     } finally {
       setLoading(false);
     }
   };
 
-  const addArrayItem = (field: 'requirements' | 'responsibilities' | 'tags') => {
+  const addArrayItem = (
+    field: "requirements" | "responsibilities" | "tags",
+  ) => {
     setFormData({
       ...formData,
-      [field]: [...formData[field], ''],
+      [field]: [...formData[field], ""],
     });
   };
 
-  const removeArrayItem = (field: 'requirements' | 'responsibilities' | 'tags', index: number) => {
+  const removeArrayItem = (
+    field: "requirements" | "responsibilities" | "tags",
+    index: number,
+  ) => {
     setFormData({
       ...formData,
       [field]: formData[field].filter((_, i) => i !== index),
@@ -78,9 +90,9 @@ export default function AddJobPage() {
   };
 
   const updateArrayItem = (
-    field: 'requirements' | 'responsibilities' | 'tags',
+    field: "requirements" | "responsibilities" | "tags",
     index: number,
-    value: string
+    value: string,
   ) => {
     const newArray = [...formData[field]];
     newArray[index] = value;
@@ -101,7 +113,9 @@ export default function AddJobPage() {
         </Link>
         <div>
           <h1 className="text-3xl font-bold">Add Job Posting</h1>
-          <p className="text-muted-foreground mt-1">Create a new job position</p>
+          <p className="text-muted-foreground mt-1">
+            Create a new job position
+          </p>
         </div>
       </div>
 
@@ -119,7 +133,9 @@ export default function AddJobPage() {
                   id="title"
                   required
                   value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, title: e.target.value })
+                  }
                   placeholder="e.g., Senior Full-Stack Developer"
                 />
               </div>
@@ -128,7 +144,9 @@ export default function AddJobPage() {
                 <Label htmlFor="department">Department *</Label>
                 <Select
                   value={formData.department}
-                  onValueChange={(value) => setFormData({ ...formData, department: value })}
+                  onValueChange={(value) =>
+                    setFormData({ ...formData, department: value })
+                  }
                   required
                 >
                   <SelectTrigger>
@@ -149,7 +167,9 @@ export default function AddJobPage() {
                 <Input
                   id="imageUrl"
                   value={formData.imageUrl}
-                  onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, imageUrl: e.target.value })
+                  }
                   placeholder="https://example.com/logo.png"
                 />
               </div>
@@ -160,7 +180,9 @@ export default function AddJobPage() {
                   id="location"
                   required
                   value={formData.location}
-                  onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, location: e.target.value })
+                  }
                   placeholder="e.g., Remote / Hybrid / On-Site"
                 />
               </div>
@@ -169,7 +191,9 @@ export default function AddJobPage() {
                 <Label htmlFor="type">Employment Type *</Label>
                 <Select
                   value={formData.type}
-                  onValueChange={(value) => setFormData({ ...formData, type: value })}
+                  onValueChange={(value) =>
+                    setFormData({ ...formData, type: value })
+                  }
                   required
                 >
                   <SelectTrigger>
@@ -191,7 +215,9 @@ export default function AddJobPage() {
                   id="experience"
                   required
                   value={formData.experience}
-                  onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, experience: e.target.value })
+                  }
                   placeholder="e.g., 3+ Years Experience"
                 />
               </div>
@@ -202,7 +228,9 @@ export default function AddJobPage() {
                   id="duration"
                   required
                   value={formData.duration}
-                  onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, duration: e.target.value })
+                  }
                   placeholder="e.g., 6 months, 1 year, Permanent"
                 />
               </div>
@@ -211,7 +239,7 @@ export default function AddJobPage() {
                 <Label htmlFor="status">Status *</Label>
                 <Select
                   value={formData.status}
-                  onValueChange={(value: 'active' | 'closed') =>
+                  onValueChange={(value: "active" | "closed") =>
                     setFormData({ ...formData, status: value })
                   }
                   required
@@ -233,7 +261,7 @@ export default function AddJobPage() {
                 <Label htmlFor="salaryType">Salary Type *</Label>
                 <Select
                   value={formData.salaryType}
-                  onValueChange={(value: 'paid' | 'unpaid') =>
+                  onValueChange={(value: "paid" | "unpaid") =>
                     setFormData({ ...formData, salaryType: value })
                   }
                   required
@@ -250,14 +278,21 @@ export default function AddJobPage() {
 
               <div className="space-y-2">
                 <Label htmlFor="salary">
-                  Salary Range {formData.salaryType === 'paid' ? '*' : '(N/A for unpaid)'}
+                  Salary Range{" "}
+                  {formData.salaryType === "paid" ? "*" : "(N/A for unpaid)"}
                 </Label>
                 <Input
                   id="salary"
                   value={formData.salary}
-                  onChange={(e) => setFormData({ ...formData, salary: e.target.value })}
-                  placeholder={formData.salaryType === 'paid' ? 'e.g., ₹30K per month or ₹5L per annum' : 'Not applicable'}
-                  disabled={formData.salaryType === 'unpaid'}
+                  onChange={(e) =>
+                    setFormData({ ...formData, salary: e.target.value })
+                  }
+                  placeholder={
+                    formData.salaryType === "paid"
+                      ? "e.g., ₹30K per month or ₹5L per annum"
+                      : "Not applicable"
+                  }
+                  disabled={formData.salaryType === "unpaid"}
                 />
               </div>
             </div>
@@ -272,7 +307,9 @@ export default function AddJobPage() {
                 required
                 rows={5}
                 value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, description: e.target.value })
+                }
                 placeholder="Describe the role, team, and what the candidate will be working on..."
               />
             </div>
@@ -285,7 +322,7 @@ export default function AddJobPage() {
                   type="button"
                   variant="outline"
                   size="sm"
-                  onClick={() => addArrayItem('requirements')}
+                  onClick={() => addArrayItem("requirements")}
                 >
                   <Plus className="mr-2 h-4 w-4" />
                   Add Requirement
@@ -296,7 +333,9 @@ export default function AddJobPage() {
                   <div key={index} className="flex gap-2">
                     <Input
                       value={req}
-                      onChange={(e) => updateArrayItem('requirements', index, e.target.value)}
+                      onChange={(e) =>
+                        updateArrayItem("requirements", index, e.target.value)
+                      }
                       placeholder="e.g., 5+ years of React experience"
                     />
                     {formData.requirements.length > 1 && (
@@ -304,7 +343,7 @@ export default function AddJobPage() {
                         type="button"
                         variant="outline"
                         size="sm"
-                        onClick={() => removeArrayItem('requirements', index)}
+                        onClick={() => removeArrayItem("requirements", index)}
                       >
                         <X className="h-4 w-4" />
                       </Button>
@@ -322,7 +361,7 @@ export default function AddJobPage() {
                   type="button"
                   variant="outline"
                   size="sm"
-                  onClick={() => addArrayItem('responsibilities')}
+                  onClick={() => addArrayItem("responsibilities")}
                 >
                   <Plus className="mr-2 h-4 w-4" />
                   Add Responsibility
@@ -334,7 +373,11 @@ export default function AddJobPage() {
                     <Input
                       value={resp}
                       onChange={(e) =>
-                        updateArrayItem('responsibilities', index, e.target.value)
+                        updateArrayItem(
+                          "responsibilities",
+                          index,
+                          e.target.value,
+                        )
                       }
                       placeholder="e.g., Lead frontend development initiatives"
                     />
@@ -343,7 +386,9 @@ export default function AddJobPage() {
                         type="button"
                         variant="outline"
                         size="sm"
-                        onClick={() => removeArrayItem('responsibilities', index)}
+                        onClick={() =>
+                          removeArrayItem("responsibilities", index)
+                        }
                       >
                         <X className="h-4 w-4" />
                       </Button>
@@ -361,7 +406,7 @@ export default function AddJobPage() {
                   type="button"
                   variant="outline"
                   size="sm"
-                  onClick={() => addArrayItem('tags')}
+                  onClick={() => addArrayItem("tags")}
                 >
                   <Plus className="mr-2 h-4 w-4" />
                   Add Tag
@@ -372,7 +417,9 @@ export default function AddJobPage() {
                   <div key={index} className="flex gap-2">
                     <Input
                       value={tag}
-                      onChange={(e) => updateArrayItem('tags', index, e.target.value)}
+                      onChange={(e) =>
+                        updateArrayItem("tags", index, e.target.value)
+                      }
                       placeholder="e.g., React, Node.js, MongoDB"
                     />
                     {formData.tags.length > 1 && (
@@ -380,7 +427,7 @@ export default function AddJobPage() {
                         type="button"
                         variant="outline"
                         size="sm"
-                        onClick={() => removeArrayItem('tags', index)}
+                        onClick={() => removeArrayItem("tags", index)}
                       >
                         <X className="h-4 w-4" />
                       </Button>
@@ -393,7 +440,7 @@ export default function AddJobPage() {
             {}
             <div className="flex gap-4 pt-4">
               <Button type="submit" disabled={loading}>
-                {loading ? 'Creating...' : 'Create Job Posting'}
+                {loading ? "Creating..." : "Create Job Posting"}
               </Button>
               <Link href="/careers">
                 <Button type="button" variant="outline">

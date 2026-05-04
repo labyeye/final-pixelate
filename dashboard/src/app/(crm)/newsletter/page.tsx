@@ -13,15 +13,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Loader2,
-  Mail,
-  Send,
-  ImagePlus,
-  X,
-  Users,
-  Eye,
-} from "lucide-react";
+import { Loader2, Mail, Send, ImagePlus, X, Users, Eye } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -117,7 +109,6 @@ export default function NewsletterPage() {
         description: `Successfully delivered to ${data.sent} client${data.sent !== 1 ? "s" : ""}.`,
       });
 
-      
       setSubject("");
       setMessage("");
       removeBanner();
@@ -132,7 +123,6 @@ export default function NewsletterPage() {
     }
   };
 
-  
   const messageHtml = message
     .split(/\n\n+/)
     .map(

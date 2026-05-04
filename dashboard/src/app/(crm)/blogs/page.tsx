@@ -33,7 +33,7 @@ export default function BlogsAdminPage() {
         setPosts(JSON.parse(raw));
       } catch (e) {}
     }
-    
+
     (async () => {
       try {
         const res = await fetch("/api/blogs");
@@ -41,9 +41,7 @@ export default function BlogsAdminPage() {
           const data = await res.json();
           setServerPosts(Array.isArray(data) ? data : []);
         }
-      } catch (e) {
-        
-      }
+      } catch (e) {}
     })();
   }, []);
 
@@ -74,7 +72,6 @@ export default function BlogsAdminPage() {
       createdAt: new Date().toISOString(),
     };
 
-    
     const API_BASE =
       window.location.hostname === "localhost" ||
       window.location.hostname === "127.0.0.1"
@@ -88,7 +85,7 @@ export default function BlogsAdminPage() {
       });
       if (res.ok) {
         const saved = await res.json();
-        
+
         const toUse = { ...newPost, ...saved };
         const p = [toUse, ...posts];
         setPosts(p);
@@ -100,11 +97,8 @@ export default function BlogsAdminPage() {
         setImagePreview("");
         return;
       }
-    } catch (e) {
-      
-    }
+    } catch (e) {}
 
-    
     const p = [newPost, ...posts];
     setPosts(p);
     persist(p);
@@ -124,7 +118,6 @@ export default function BlogsAdminPage() {
           ? "https://backend.pixelatenest.com"
           : "";
       try {
-        
         const res = await fetch(`${API_BASE}/api/blogs/${id}`, {
           method: "DELETE",
         });
@@ -134,18 +127,14 @@ export default function BlogsAdminPage() {
           persist(p);
           return;
         }
-      } catch (e) {
-        
-      }
+      } catch (e) {}
 
-      
       const p = posts.filter((x) => x.id !== id);
       setPosts(p);
       persist(p);
     })();
   }
 
-  
   async function publishLocalPosts() {
     const raw = localStorage.getItem("pn_posts");
     if (!raw) return alert("No local posts found");
@@ -174,7 +163,6 @@ export default function BlogsAdminPage() {
           const saved = await res.json();
           published.unshift({ ...post, ...saved });
         } else {
-          
           published.unshift(post);
         }
       } catch (e) {
@@ -186,7 +174,6 @@ export default function BlogsAdminPage() {
     alert("Publish attempt finished. Check public site or API to confirm.");
   }
 
-  
   async function importJsonAndPublish() {
     if (!importText) return alert("Paste JSON into the import box first");
     let parsed: BlogPost[] | BlogPost;
@@ -318,7 +305,10 @@ export default function BlogsAdminPage() {
                               navigator.clipboard?.writeText(
                                 JSON.stringify(sp),
                               );
-                              toast({ title: "Copied", description: "Post JSON copied to clipboard." });
+                              toast({
+                                title: "Copied",
+                                description: "Post JSON copied to clipboard.",
+                              });
                             }}
                           >
                             Copy JSON

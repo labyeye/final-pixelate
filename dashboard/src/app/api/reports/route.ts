@@ -29,7 +29,11 @@ export async function GET(request: NextRequest) {
       case "expense":
         return await getExpenseStatement(startDate, endDate);
       case "staff":
-        return await getStaffReport(startDate, endDate, searchParams.get("staffMemberId"));
+        return await getStaffReport(
+          startDate,
+          endDate,
+          searchParams.get("staffMemberId"),
+        );
       case "client":
         return await getClientReport(startDate, endDate, clientId);
       case "task":
@@ -53,10 +57,6 @@ export async function GET(request: NextRequest) {
   }
 }
 
-
-
-
-
 function getDateQuery(field: string, start: Date, end: Date) {
   return {
     $or: [
@@ -69,7 +69,6 @@ function getDateQuery(field: string, start: Date, end: Date) {
 async function getIncomeStatement(startDate: Date, endDate: Date) {
   const invoicesCol = await svc.getCollection("invoices");
 
-  
   const invoices = await invoicesCol
     .find({
       $or: [
@@ -94,7 +93,6 @@ async function getIncomeStatement(startDate: Date, endDate: Date) {
     const totalAmount = Number(inv.amount || 0);
     const paidAmount = Number(inv.paidAmount || 0);
 
-    
     if (inv.paymentHistory && inv.paymentHistory.length > 0) {
       inv.paymentHistory.forEach((payment: any) => {
         const pDate = new Date(payment.date);
@@ -119,7 +117,6 @@ async function getIncomeStatement(startDate: Date, endDate: Date) {
         }
       });
     } else if (paidAmount > 0) {
-      
       const iDate = new Date(inv.createdAt);
       if (iDate >= startDate && iDate <= endDate) {
         totalRevenue += paidAmount;
@@ -139,7 +136,6 @@ async function getIncomeStatement(startDate: Date, endDate: Date) {
       }
     }
 
-    
     const iDate = new Date(inv.createdAt);
     if (iDate >= startDate && iDate <= endDate) {
       totalPending += totalAmount - paidAmount;
@@ -269,9 +265,7 @@ async function getStaffReport(
   const tasksCol = await svc.getCollection("tasks");
   const dateQuery = getDateQuery("createdAt", startDate, endDate);
 
-  
   if (staffMemberId && staffMemberId !== "all") {
-    
     let staffName: string | null = null;
     try {
       const member = await svc.findById("team-members", staffMemberId);
@@ -294,7 +288,6 @@ async function getStaffReport(
       else pending++;
     });
 
-    
     const projectsCol = await svc.getCollection("projects");
     const allProjects = await projectsCol.find({}).toArray();
 
@@ -328,7 +321,6 @@ async function getStaffReport(
       }
     });
 
-    
     const expensesCol = await svc.getCollection("expenses");
     const salaryExpenses = await expensesCol
       .find({
@@ -344,15 +336,20 @@ async function getStaffReport(
       })
       .toArray();
 
-    const payouts = salaryExpenses.map((e: any) => ({
-      date: e.date || e.createdAt,
-      amount: Number(e.amount || 0),
-      paymentMethod: e.paymentMethod || "—",
-      linkedProjectId: e.linkedProjectId || "",
-      linkedProjectTitle: e.linkedProjectTitle || "—",
-      note: e.note || e.reference || "",
-      status: e.status || "paid",
-    })).sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    const payouts = salaryExpenses
+      .map((e: any) => ({
+        date: e.date || e.createdAt,
+        amount: Number(e.amount || 0),
+        paymentMethod: e.paymentMethod || "—",
+        linkedProjectId: e.linkedProjectId || "",
+        linkedProjectTitle: e.linkedProjectTitle || "—",
+        note: e.note || e.reference || "",
+        status: e.status || "paid",
+      }))
+      .sort(
+        (a: any, b: any) =>
+          new Date(b.date).getTime() - new Date(a.date).getTime(),
+      );
 
     const totalEarnings = staffEarnings.reduce((s, e) => s + e.myShare, 0);
     const totalPayouts = payouts.reduce((s: number, p: any) => s + p.amount, 0);
@@ -376,7 +373,6 @@ async function getStaffReport(
     });
   }
 
-  
   const tasks = await tasksCol.find(dateQuery).toArray();
 
   const stats: Record<string, any> = {};
@@ -408,21 +404,18 @@ async function getClientReport(
 
   let query: any = getDateQuery("createdAt", startDate, endDate);
 
-  
   if (clientId && clientId !== "all") {
-    
     const client = await svc.findById("clients", clientId);
     const clientName = client?.name;
 
-    
     query = {
       $and: [
-        query, 
+        query,
         {
           $or: [
             { clientId: clientId },
             ...(clientName ? [{ clientName: clientName }] : []),
-            
+
             ...(clientId.length === 24
               ? [{ clientId: new ObjectId(clientId) }]
               : []),
@@ -439,7 +432,6 @@ async function getClientReport(
     let received = 0;
     let pending = 0;
 
-    
     const paymentDetails: any[] = [];
 
     const details = invoices.map((inv: any) => {
@@ -450,11 +442,10 @@ async function getClientReport(
       received += paid;
       pending += amount - paid;
 
-      
       if (inv.paymentHistory && inv.paymentHistory.length > 0) {
         inv.paymentHistory.forEach((payment: any) => {
           const pDate = new Date(payment.date);
-          
+
           if (pDate >= startDate && pDate <= endDate) {
             paymentDetails.push({
               date: payment.date,
@@ -477,7 +468,6 @@ async function getClientReport(
       };
     });
 
-    
     paymentDetails.sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
     );
@@ -493,11 +483,10 @@ async function getClientReport(
         invoiceCount: invoices.length,
       },
       details,
-      paymentDetails, 
+      paymentDetails,
     });
   }
 
-  
   const clientStats: Record<string, any> = {};
   invoices.forEach((inv: any) => {
     const client = inv.clientName || "Unknown Client";
@@ -564,7 +553,6 @@ async function getProjectReport(startDate: Date, endDate: Date) {
     .find(getDateQuery("createdAt", startDate, endDate))
     .toArray();
 
-  
   const statusStats: Record<string, number> = {};
   let totalAmount = 0;
   let completedAmount = 0;
@@ -602,7 +590,7 @@ async function getProjectReport(startDate: Date, endDate: Date) {
       amount: Number(p.amount || 0),
       assignees: Array.isArray(p.assignees)
         ? p.assignees
-            .map((a: any) => (typeof a === "string" ? a : a?.name ?? "—"))
+            .map((a: any) => (typeof a === "string" ? a : (a?.name ?? "—")))
             .join(", ")
         : "—",
       createdAt: p.createdAt,

@@ -1,11 +1,11 @@
-import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
-import * as svc from '@/lib/services';
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+import * as svc from "@/lib/services";
 
 const CORS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
 export async function OPTIONS() {
@@ -16,13 +16,13 @@ export async function POST(request: Request) {
   try {
     const formData = await request.formData();
 
-    const subject = formData.get('subject') as string;
-    const message = formData.get('message') as string;
-    const bannerFile = formData.get('banner') as File | null;
+    const subject = formData.get("subject") as string;
+    const message = formData.get("message") as string;
+    const bannerFile = formData.get("banner") as File | null;
 
     if (!subject?.trim() || !message?.trim()) {
       return NextResponse.json(
-        { error: 'Subject and message are required' },
+        { error: "Subject and message are required" },
         { status: 400, headers: CORS },
       );
     }
@@ -32,33 +32,31 @@ export async function POST(request: Request) {
 
     if (!EMAIL || !APP_PASSWORD) {
       return NextResponse.json(
-        { error: 'Email credentials not configured' },
+        { error: "Email credentials not configured" },
         { status: 500, headers: CORS },
       );
     }
 
-    
     const clients = await svc.getClients();
     const recipientEmails = clients
       .map((c: any) => c.email)
-      .filter((e: any) => typeof e === 'string' && e.includes('@'));
+      .filter((e: any) => typeof e === "string" && e.includes("@"));
 
     if (recipientEmails.length === 0) {
       return NextResponse.json(
-        { error: 'No client emails found to send newsletter to' },
+        { error: "No client emails found to send newsletter to" },
         { status: 400, headers: CORS },
       );
     }
 
-    
-    let bannerHtml = '';
-    let bannerAttachment: nodemailer.SendMailOptions['attachments'] = [];
+    let bannerHtml = "";
+    let bannerAttachment: nodemailer.SendMailOptions["attachments"] = [];
 
     if (bannerFile && bannerFile.size > 0) {
       const bytes = await bannerFile.arrayBuffer();
       const buffer = Buffer.from(bytes);
-      const mimeType = bannerFile.type || 'image/png';
-      const cid = 'newsletter-banner@pixelatenest';
+      const mimeType = bannerFile.type || "image/png";
+      const cid = "newsletter-banner@pixelatenest";
 
       bannerAttachment = [
         {
@@ -76,7 +74,7 @@ export async function POST(request: Request) {
     }
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: "gmail",
       auth: { user: EMAIL, pass: APP_PASSWORD },
     });
 
@@ -91,16 +89,15 @@ export async function POST(request: Request) {
         <span style="color: #ff640d; font-size: 22px; font-weight: 900; letter-spacing: -1px;">Pixelate Nest</span>
       </div>`;
 
-    
     const messageHtml = message
       .split(/\n\n+/)
       .map(
         (para) =>
           `<p style="color: #444; line-height: 1.8; margin: 0 0 16px;">${para
-            .split('\n')
-            .join('<br/>')}</p>`,
+            .split("\n")
+            .join("<br/>")}</p>`,
       )
-      .join('');
+      .join("");
 
     const htmlBody = `<!DOCTYPE html>
 <html lang="en">
@@ -118,7 +115,6 @@ export async function POST(request: Request) {
 </body>
 </html>`;
 
-    
     await transporter.sendMail({
       from: `"Pixelate Nest" <${EMAIL}>`,
       to: EMAIL,
@@ -133,7 +129,7 @@ export async function POST(request: Request) {
       { status: 200, headers: CORS },
     );
   } catch (e: any) {
-    console.error('newsletter error', e);
+    console.error("newsletter error", e);
     return NextResponse.json(
       { error: e.message || String(e) },
       { status: 500, headers: CORS },

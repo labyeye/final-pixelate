@@ -42,7 +42,6 @@ export async function GET(request: NextRequest) {
       .limit(100)
       .toArray();
 
-    
     const conversations = await db
       .collection("whatsapp_messages")
       .aggregate([
@@ -56,7 +55,12 @@ export async function GET(request: NextRequest) {
             unreadCount: {
               $sum: {
                 $cond: [
-                  { $and: [{ $eq: ["$messageType", "received"] }, { $eq: ["$status", "unread"] }] },
+                  {
+                    $and: [
+                      { $eq: ["$messageType", "received"] },
+                      { $eq: ["$status", "unread"] },
+                    ],
+                  },
                   1,
                   0,
                 ],
@@ -78,7 +82,7 @@ export async function GET(request: NextRequest) {
     console.error("Failed to fetch messages:", error);
     return NextResponse.json(
       { success: false, error: error.message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -102,7 +106,9 @@ export async function POST(request: NextRequest) {
       updatedAt: new Date(),
     };
 
-    const result = await db.collection("whatsapp_messages").insertOne(message as any);
+    const result = await db
+      .collection("whatsapp_messages")
+      .insertOne(message as any);
 
     return NextResponse.json({
       success: true,
@@ -112,7 +118,7 @@ export async function POST(request: NextRequest) {
     console.error("Failed to save message:", error);
     return NextResponse.json(
       { success: false, error: error.message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

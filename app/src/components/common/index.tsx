@@ -14,7 +14,6 @@ import {
 } from 'react-native';
 import { Colors, Typography, Shadows, Spacing, Border } from '../../theme';
 
-
 interface CardProps {
   children: ReactNode;
   style?: StyleProp<ViewStyle>;
@@ -36,13 +35,7 @@ export const Card = ({
 }: CardProps) => {
   const shadowStyle = shadow !== 'none' ? Shadows[shadow] : {};
   const content = (
-    <View
-      style={[
-        styles.card,
-        { borderColor, padding },
-        shadowStyle,
-        style,
-      ]}>
+    <View style={[styles.card, { borderColor, padding }, shadowStyle, style]}>
       {children}
     </View>
   );
@@ -56,10 +49,15 @@ export const Card = ({
   return content;
 };
 
-
 interface ButtonProps extends TouchableOpacityProps {
   label: string;
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive' | 'success';
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'outline'
+    | 'ghost'
+    | 'destructive'
+    | 'success';
   size?: 'sm' | 'md' | 'lg';
   loading?: boolean;
   icon?: ReactNode;
@@ -99,7 +97,11 @@ export const Button = ({
 
   const padV = { sm: 8, md: 12, lg: 16 }[size];
   const padH = { sm: 12, md: 16, lg: 24 }[size];
-  const fontSize = { sm: Typography.sm, md: Typography.base, lg: Typography.lg }[size];
+  const fontSize = {
+    sm: Typography.sm,
+    md: Typography.base,
+    lg: Typography.lg,
+  }[size];
 
   return (
     <TouchableOpacity
@@ -119,7 +121,8 @@ export const Button = ({
       ]}
       disabled={disabled || loading}
       activeOpacity={0.8}
-      {...props}>
+      {...props}
+    >
       {loading ? (
         <ActivityIndicator color={textColor} size="small" />
       ) : (
@@ -133,7 +136,6 @@ export const Button = ({
     </TouchableOpacity>
   );
 };
-
 
 interface InputProps extends TextInputProps {
   label?: string;
@@ -157,7 +159,11 @@ export const Input = ({
     <View style={[styles.inputWrapper, error ? styles.inputError : {}]}>
       {leftIcon && <View style={styles.inputIcon}>{leftIcon}</View>}
       <TextInput
-        style={[styles.input, leftIcon ? { paddingLeft: 4 } : {}, style as TextStyle]}
+        style={[
+          styles.input,
+          leftIcon ? { paddingLeft: 4 } : {},
+          style as TextStyle,
+        ]}
         placeholderTextColor={Colors.gray400}
         {...props}
       />
@@ -166,7 +172,6 @@ export const Input = ({
     {error ? <Text style={styles.inputErrorText}>{error}</Text> : null}
   </View>
 );
-
 
 interface BadgeProps {
   label: string;
@@ -186,48 +191,42 @@ export const Badge = ({
   </View>
 );
 
-
 const statusColors: Record<string, { bg: string; text: string }> = {
-  
   interested: { bg: Colors.primary, text: '#FFFFFF' },
   active: { bg: Colors.primary, text: '#FFFFFF' },
   completed: { bg: Colors.primary, text: '#FFFFFF' },
   paid: { bg: Colors.primary, text: '#FFFFFF' },
   approved: { bg: Colors.primary, text: '#FFFFFF' },
   resolved: { bg: Colors.primary, text: '#FFFFFF' },
-  
+
   'in progress': { bg: Colors.accent, text: '#FFFFFF' },
   called: { bg: Colors.accent, text: '#FFFFFF' },
   open: { bg: Colors.accent, text: '#FFFFFF' },
-  
+
   pending: { bg: Colors.warning, text: '#FFFFFF' },
   partial: { bg: Colors.secondary, text: '#FFFFFF' },
   'not called': { bg: Colors.warning, text: '#FFFFFF' },
   'call back later': { bg: Colors.secondary, text: '#FFFFFF' },
   'meeting booked': { bg: '#7C3AED', text: '#FFFFFF' },
-  
+
   'not interested': { bg: Colors.destructive, text: '#FFFFFF' },
   inactive: { bg: Colors.destructive, text: '#FFFFFF' },
   cancelled: { bg: Colors.destructive, text: '#FFFFFF' },
   unpaid: { bg: Colors.destructive, text: '#FFFFFF' },
   rejected: { bg: Colors.destructive, text: '#FFFFFF' },
-  
+
   draft: { bg: Colors.gray700, text: '#FFFFFF' },
   closed: { bg: Colors.gray600, text: '#FFFFFF' },
 };
 
 export const StatusBadge = ({ status }: { status: string }) => {
   const s = (status || '').toLowerCase();
-  const colors = statusColors[s] || { bg: Colors.muted, text: Colors.foreground };
-  return (
-    <Badge
-      label={status}
-      color={colors.bg}
-      textColor={colors.text}
-    />
-  );
+  const colors = statusColors[s] || {
+    bg: Colors.muted,
+    text: Colors.foreground,
+  };
+  return <Badge label={status} color={colors.bg} textColor={colors.text} />;
 };
-
 
 interface EmptyStateProps {
   title: string;
@@ -239,7 +238,9 @@ interface EmptyStateProps {
 export const EmptyState = ({ title, subtitle, action }: EmptyStateProps) => (
   <View style={styles.emptyState}>
     <Text style={styles.emptyStateTitle}>{title}</Text>
-    {subtitle ? <Text style={styles.emptyStateSubtitle}>{subtitle}</Text> : null}
+    {subtitle ? (
+      <Text style={styles.emptyStateSubtitle}>{subtitle}</Text>
+    ) : null}
     {action ? (
       <Button
         label={action.label}
@@ -250,13 +251,15 @@ export const EmptyState = ({ title, subtitle, action }: EmptyStateProps) => (
   </View>
 );
 
-
-export const LoadingSpinner = ({ size = 'large' }: { size?: 'small' | 'large' }) => (
+export const LoadingSpinner = ({
+  size = 'large',
+}: {
+  size?: 'small' | 'large';
+}) => (
   <View style={styles.loadingContainer}>
     <ActivityIndicator size={size} color={Colors.primary} />
   </View>
 );
-
 
 interface SectionHeaderProps {
   title: string;
@@ -275,7 +278,6 @@ export const SectionHeader = ({ title, action, style }: SectionHeaderProps) => (
   </View>
 );
 
-
 interface StatCardProps {
   label: string;
   value: string | number;
@@ -284,11 +286,18 @@ interface StatCardProps {
   onPress?: () => void;
 }
 
-export const StatCard = ({ label, value, accent = Colors.primary, icon, onPress }: StatCardProps) => (
+export const StatCard = ({
+  label,
+  value,
+  accent = Colors.primary,
+  icon,
+  onPress,
+}: StatCardProps) => (
   <Card
     style={[styles.statCard, { borderLeftColor: accent, borderLeftWidth: 4 }]}
     shadow="md"
-    onPress={onPress}>
+    onPress={onPress}
+  >
     <View style={styles.statCardHeader}>
       {icon && <View style={styles.statCardIcon}>{icon}</View>}
     </View>
@@ -297,11 +306,9 @@ export const StatCard = ({ label, value, accent = Colors.primary, icon, onPress 
   </Card>
 );
 
-
 export const Divider = ({ style }: { style?: StyleProp<ViewStyle> }) => (
   <View style={[styles.divider, style]} />
 );
-
 
 export const Row = ({
   children,
@@ -325,19 +332,24 @@ export const Row = ({
         gap,
       },
       style,
-    ]}>
+    ]}
+  >
     {children}
   </View>
 );
 
-
-export const ScreenTitle = ({ title, subtitle }: { title: string; subtitle?: string }) => (
+export const ScreenTitle = ({
+  title,
+  subtitle,
+}: {
+  title: string;
+  subtitle?: string;
+}) => (
   <View style={styles.screenTitle}>
     <Text style={styles.screenTitleText}>{title}</Text>
     {subtitle ? <Text style={styles.screenSubtitle}>{subtitle}</Text> : null}
   </View>
 );
-
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -351,7 +363,12 @@ export const SearchBar = ({
   placeholder?: string;
 }) => (
   <View style={styles.searchBar}>
-    <Icon name="magnify" size={18} color={Colors.gray400} style={styles.searchIcon} />
+    <Icon
+      name="magnify"
+      size={18}
+      color={Colors.gray400}
+      style={styles.searchIcon}
+    />
     <TextInput
       style={styles.searchInput}
       value={value}
@@ -361,7 +378,6 @@ export const SearchBar = ({
     />
   </View>
 );
-
 
 const styles = StyleSheet.create({
   card: {

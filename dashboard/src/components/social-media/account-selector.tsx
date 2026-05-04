@@ -8,7 +8,7 @@ import { PlatformLogo } from "./platform-logo";
 interface AccountSelectorProps {
   clientId: string;
   platform: SocialPlatform;
-  value: string; 
+  value: string;
   onChange: (accountId: string, handle: string) => void;
   onCreateNew?: (handle: string) => void;
   disabled?: boolean;
@@ -30,14 +30,16 @@ export function AccountSelector({
   const inputRef = useRef<HTMLInputElement>(null);
   const suggestionsRef = useRef<HTMLDivElement>(null);
 
-  
   useEffect(() => {
     if (!clientId || !platform) return;
 
     const loadAccounts = async () => {
       try {
         setLoading(true);
-        const url = new URL("/api/social-media-accounts", window.location.origin);
+        const url = new URL(
+          "/api/social-media-accounts",
+          window.location.origin,
+        );
         url.searchParams.set("clientId", clientId);
         url.searchParams.set("platform", platform);
         const res = await fetch(url.toString(), { cache: "no-store" });
@@ -55,12 +57,10 @@ export function AccountSelector({
     loadAccounts();
   }, [clientId, platform]);
 
-  
   const normalizeHandle = (h: string): string => {
     return (h || "").toLowerCase().replace(/^@+/, "").trim();
   };
 
-  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     setInput(val);
@@ -68,15 +68,11 @@ export function AccountSelector({
 
     const normalized = normalizeHandle(val);
 
-    
-    const matching = accounts.filter((acc) =>
-      acc.handle.includes(normalized)
-    );
+    const matching = accounts.filter((acc) => acc.handle.includes(normalized));
 
-    
     const suggestions = [
       ...matching,
-      
+
       ...(val.trim() && !matching.some((acc) => acc.handle === normalized)
         ? [
             {
@@ -94,10 +90,8 @@ export function AccountSelector({
     setFilteredAccounts(suggestions);
   };
 
-  
   const handleSelectAccount = async (account: SocialAccount | any) => {
     if (account.handle === "NEW" || account._id === "NEW") {
-      
       try {
         const res = await fetch("/api/social-media-accounts", {
           method: "POST",
@@ -116,7 +110,7 @@ export function AccountSelector({
           onChange(newAccount._id || newAccount.id || "", newAccount.handle);
           setInput("");
           setShowSuggestions(false);
-          
+
           setAccounts((prev) => [...prev, newAccount]);
         }
       } catch (e) {
@@ -124,7 +118,6 @@ export function AccountSelector({
         alert("Failed to create new account");
       }
     } else {
-      
       setSelectedHandle(account.handle);
       onChange(account._id || account.id || "", account.handle);
       setInput("");
@@ -132,7 +125,6 @@ export function AccountSelector({
     }
   };
 
-  
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
@@ -149,7 +141,6 @@ export function AccountSelector({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  
   useEffect(() => {
     setInput("");
     setSelectedHandle("");
@@ -195,8 +186,13 @@ export function AccountSelector({
                   <span className="text-sm">{account.displayName}</span>
                 ) : (
                   <div className="flex items-center gap-2">
-                    <PlatformLogo platform={account.platform as SocialPlatform} size="sm" />
-                    <span className="text-sm font-medium">@{account.handle}</span>
+                    <PlatformLogo
+                      platform={account.platform as SocialPlatform}
+                      size="sm"
+                    />
+                    <span className="text-sm font-medium">
+                      @{account.handle}
+                    </span>
                     {account.displayName && (
                       <span className="text-xs text-gray-500">
                         ({account.displayName})

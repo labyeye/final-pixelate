@@ -8,7 +8,6 @@ const CORS = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
-
 async function logErpEvent(
   type: string,
   target: string,
@@ -77,12 +76,10 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: Request) {
   try {
-    
     const body = await request.json();
     let userId: string | null = body?.userId || null;
     let email: string | null = body?.email || null;
 
-    
     if (!userId || !email) {
       const auth = request.headers.get("authorization") || "";
       const token = auth.replace("Bearer ", "");
@@ -100,7 +97,7 @@ export async function POST(request: Request) {
     const toInsert = {
       clientId: body?.clientId || "",
       socialAccountId: body?.socialAccountId || "",
-      socialAccountIds: body?.socialAccountIds || [], 
+      socialAccountIds: body?.socialAccountIds || [],
       title: body?.title || "",
       platform: body?.platform || "Instagram",
       contentType: body?.contentType || "Image Post",
@@ -126,7 +123,6 @@ export async function POST(request: Request) {
 
     const res = await col.insertOne(toInsert);
 
-    
     await logErpEvent(
       "post_created",
       `post_${res.insertedId}`,
@@ -168,11 +164,9 @@ export async function PUT(request: Request) {
       );
     }
 
-    
     let userId: string | null = body?.userId || null;
     let email: string | null = body?.email || null;
 
-    
     if (!userId || !email) {
       const auth = request.headers.get("authorization") || "";
       const token = auth.replace("Bearer ", "");
@@ -188,20 +182,16 @@ export async function PUT(request: Request) {
     const col = await svc.getCollection("socialMediaPosts");
     const { ObjectId } = await import("mongodb");
 
-    
     const postBefore = await col.findOne({ _id: new ObjectId(id) });
 
     const updateData: any = {
       updatedAt: new Date(),
     };
 
-    
     const changedFields: string[] = [];
     const changeDetails: any = {};
 
-    
     if (body.accountId) {
-      
       const accountMetricsKey = `accountMetrics.${body.accountId}`;
       updateData[accountMetricsKey] = {
         views: Math.max(0, body.views || 0),
@@ -216,7 +206,6 @@ export async function PUT(request: Request) {
         metrics: updateData[accountMetricsKey],
       };
     } else {
-      
       if (body.views !== undefined && postBefore?.views !== body.views) {
         updateData.views = Math.max(0, body.views);
         changedFields.push("views");
@@ -259,7 +248,6 @@ export async function PUT(request: Request) {
       }
     }
 
-    
     if (body.status !== undefined && postBefore?.status !== body.status) {
       updateData.status = body.status;
       changedFields.push("status");
@@ -311,7 +299,6 @@ export async function PUT(request: Request) {
       );
     }
 
-    
     if (changedFields.length > 0) {
       await logErpEvent(
         "post_updated",

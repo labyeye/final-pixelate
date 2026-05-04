@@ -1431,8 +1431,7 @@
         );
         backupLeads.push(leadData);
         localStorage.setItem("pixy_backup_leads", JSON.stringify(backupLeads));
-      } catch (storageError) {
-      }
+      } catch (storageError) {}
 
       addBotMessage("⚠️ Connection issue detected!");
       addBotMessage("");

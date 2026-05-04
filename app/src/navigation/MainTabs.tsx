@@ -27,7 +27,9 @@ const TabIcon = ({
       size={22}
       color={focused ? Colors.primary : Colors.gray400}
     />
-    <Text style={[styles.tabLabel, focused && styles.tabLabelActive]}>{label}</Text>
+    <Text style={[styles.tabLabel, focused && styles.tabLabelActive]}>
+      {label}
+    </Text>
   </View>
 );
 
@@ -37,7 +39,8 @@ const MainTabs = () => (
       headerShown: false,
       tabBarStyle: styles.tabBar,
       tabBarShowLabel: false,
-    }}>
+    }}
+  >
     <Tab.Screen
       name="HomeTab"
       component={HomeStack}
@@ -79,7 +82,11 @@ const MainTabs = () => (
       component={MoreStack}
       options={{
         tabBarIcon: ({ focused }) => (
-          <TabIcon label="MORE" iconName="dots-horizontal-circle" focused={focused} />
+          <TabIcon
+            label="MORE"
+            iconName="dots-horizontal-circle"
+            focused={focused}
+          />
         ),
       }}
     />

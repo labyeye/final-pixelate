@@ -11,8 +11,8 @@ export default function BulkMessagingPage() {
           📱 BULK WHATSAPP MESSAGING
         </h1>
         <p className="text-muted-foreground mt-2">
-          Send personalized messages to BNI contacts in bulk. Perfect for follow-ups after
-          networking events.
+          Send personalized messages to BNI contacts in bulk. Perfect for
+          follow-ups after networking events.
         </p>
       </header>
 
@@ -20,7 +20,6 @@ export default function BulkMessagingPage() {
       <BulkWhatsAppMessenger />
 
       {}
-      
     </div>
   );
 }

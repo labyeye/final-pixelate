@@ -59,7 +59,7 @@ async function sendPersonalizedMessage(
             parameters: [
               {
                 type: "text",
-                parameter_name: "person_name", 
+                parameter_name: "person_name",
                 text: name,
               },
             ],
@@ -75,7 +75,9 @@ async function sendPersonalizedMessage(
               {
                 type: "text",
                 parameter_name: "service_two",
-                text: services?.service_two ?? "Software (ERP and CRM) Software Development",
+                text:
+                  services?.service_two ??
+                  "Software (ERP and CRM) Software Development",
               },
               {
                 type: "text",
@@ -193,7 +195,6 @@ export async function POST(request: NextRequest) {
           successCount++;
           console.log(`✅ Message sent to ${contact.name} (${formattedPhone})`);
 
-          
           try {
             const db = await getDb();
             await db.collection("whatsapp_messages").insertOne({
@@ -236,7 +237,6 @@ export async function POST(request: NextRequest) {
       `📊 Bulk send complete: ${successCount} sent, ${failureCount} failed`,
     );
 
-    
     try {
       const db = await getDb();
       const now = new Date();
@@ -247,7 +247,7 @@ export async function POST(request: NextRequest) {
         status: "completed",
         totalContacts: contacts.length,
         sent: successCount,
-        delivered: successCount, 
+        delivered: successCount,
         read: 0,
         replied: 0,
         failed: failureCount,
@@ -261,7 +261,6 @@ export async function POST(request: NextRequest) {
       await db.collection("campaigns").insertOne(campaign as any);
     } catch (dbError: any) {
       console.error("Failed to save campaign:", dbError);
-      
     }
 
     return NextResponse.json({

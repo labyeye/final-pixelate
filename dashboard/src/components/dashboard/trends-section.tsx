@@ -28,7 +28,6 @@ interface TrendsSectionProps {
 }
 
 export function TrendsSection({ invoices, clients }: TrendsSectionProps) {
-  
   const chartData = useMemo(() => {
     const months: {
       date: Date;
@@ -39,7 +38,6 @@ export function TrendsSection({ invoices, clients }: TrendsSectionProps) {
     }[] = [];
     const now = new Date();
 
-    
     for (let i = 5; i >= 0; i--) {
       const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
       months.push({
@@ -54,7 +52,6 @@ export function TrendsSection({ invoices, clients }: TrendsSectionProps) {
       });
     }
 
-    
     invoices.forEach((inv) => {
       if (!inv.createdAt) return;
       const d = new Date(inv.createdAt);
@@ -71,9 +68,7 @@ export function TrendsSection({ invoices, clients }: TrendsSectionProps) {
       }
     });
 
-    
     clients.forEach((client) => {
-      
       if (!client.createdAt) return;
       const d = new Date(client.createdAt);
       if (isNaN(d.getTime())) return;

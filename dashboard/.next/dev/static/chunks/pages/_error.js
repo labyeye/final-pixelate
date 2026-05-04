@@ -11,5 +11,5 @@ __turbopack_load_page_chunks__("/_error", [
   "static/chunks/c729b_02f535e2._.js",
   "static/chunks/[root-of-the-server]__b2cd2fb1._.js",
   "static/chunks/Desktop_Projects_final-pixelate_dashboard_pages__error_2da965e7._.js",
-  "static/chunks/turbopack-Desktop_Projects_final-pixelate_dashboard_pages__error_d3951edf._.js"
-])
+  "static/chunks/turbopack-Desktop_Projects_final-pixelate_dashboard_pages__error_d3951edf._.js",
+]);

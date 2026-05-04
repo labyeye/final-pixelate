@@ -247,7 +247,6 @@ details.faq-item[open] .faq-answer {
   border-radius: 30px;
 }
 
-
 .features-image-side {
   flex: 0 0 420px;
   position: relative;
@@ -338,7 +337,6 @@ details.faq-item[open] .faq-answer {
   line-height: 1.6;
 }
 
-
 .features-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -407,7 +405,6 @@ details.faq-item[open] .faq-answer {
   margin: 0;
   line-height: 1.5;
 }
-
 
 @media (max-width: 768px) {
   .features-section {

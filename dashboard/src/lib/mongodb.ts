@@ -1,38 +1,31 @@
 import { MongoClient, Db } from "mongodb";
 
-
-
-
-
-
-
-
-
 const uri = process.env.MONGODB_URI || process.env.MONGO_URI || "";
 const defaultDbFromEnv = process.env.MONGODB_DB || process.env.MONGO_DB;
 
 if (!uri) {
-  
-  
-  
-  console.warn("MONGODB_URI is not set. MongoDB operations will fail until it's provided.");
+  console.warn(
+    "MONGODB_URI is not set. MongoDB operations will fail until it's provided.",
+  );
 }
 
 declare global {
-  
   var _mongoClientPromise: Promise<MongoClient> | undefined;
-  
+
   var _mongoClient: MongoClient | undefined;
 }
 
 let client: MongoClient | undefined = (global as any)._mongoClient;
-let clientPromise: Promise<MongoClient> | undefined = (global as any)._mongoClientPromise;
+let clientPromise: Promise<MongoClient> | undefined = (global as any)
+  ._mongoClientPromise;
 
-function parseDbNameFromUri(connectionString: string | undefined): string | undefined {
+function parseDbNameFromUri(
+  connectionString: string | undefined,
+): string | undefined {
   if (!connectionString) return undefined;
-  
+
   const withoutQuery = connectionString.split("?")[0];
-  
+
   const lastSlash = withoutQuery.lastIndexOf("/");
   if (lastSlash === -1) return undefined;
   const db = withoutQuery.substring(lastSlash + 1);
@@ -48,16 +41,12 @@ function ensureClientInitialized(): Promise<MongoClient> {
     client = new MongoClient(uri);
     clientPromise = client.connect();
 
-    
     try {
       (global as any)._mongoClient = client;
       (global as any)._mongoClientPromise = clientPromise;
-    } catch (e) {
-      
-    }
+    } catch (e) {}
   }
 
-  
   return clientPromise as Promise<MongoClient>;
 }
 
@@ -67,7 +56,7 @@ export async function getMongoClient(): Promise<MongoClient> {
 
 export async function getDb(dbName?: string): Promise<Db> {
   const conn = await ensureClientInitialized();
-  
+
   const dbFromUri = parseDbNameFromUri(uri);
   const name = dbName || defaultDbFromEnv || dbFromUri || "admin";
   return conn.db(name);
@@ -83,9 +72,7 @@ export async function closeMongoClient(): Promise<void> {
     try {
       (global as any)._mongoClient = undefined;
       (global as any)._mongoClientPromise = undefined;
-    } catch (e) {
-      
-    }
+    } catch (e) {}
   }
 }
 

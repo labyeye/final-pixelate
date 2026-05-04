@@ -19,7 +19,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { TrendingUp, Users, Trophy, Zap } from "lucide-react";
 import { FbAdsConnectionPanel } from "@/components/fb-ads/fb-ads-connection-panel";
 
-type LeadStatus = typeof leadStatuses[number];
+type LeadStatus = (typeof leadStatuses)[number];
 
 interface LeadStats {
   total: number;
@@ -58,8 +58,13 @@ export default function ClientLeadsPage() {
     const fetchLeads = async () => {
       try {
         setLoading(true);
-        const token = typeof window !== "undefined" ? localStorage.getItem("auth_token") : null;
-        const headers: Record<string, string> = { "Content-Type": "application/json" };
+        const token =
+          typeof window !== "undefined"
+            ? localStorage.getItem("auth_token")
+            : null;
+        const headers: Record<string, string> = {
+          "Content-Type": "application/json",
+        };
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
         const res = await fetch("/api/leads", { headers });
@@ -68,12 +73,13 @@ export default function ClientLeadsPage() {
         const data: Lead[] = await res.json();
         setLeads(Array.isArray(data) ? data : []);
 
-        
         const total = data.length;
-        const converted = data.filter((l) => l.status === "interested" || l.status === "meeting booked").length;
-        const conversionRate = total > 0 ? Math.round((converted / total) * 100) : 0;
+        const converted = data.filter(
+          (l) => l.status === "interested" || l.status === "meeting booked",
+        ).length;
+        const conversionRate =
+          total > 0 ? Math.round((converted / total) * 100) : 0;
 
-        
         const now = new Date();
         const currentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
         const newThisMonth = data.filter((l) => {
@@ -98,11 +104,13 @@ export default function ClientLeadsPage() {
     fetchLeads();
   }, [user]);
 
-  
-  const uniqueSources = Array.from(new Set(leads.map((l) => l.source).filter(Boolean)));
-  const uniqueStatuses = Array.from(new Set(leads.map((l) => l.status).filter(Boolean)));
+  const uniqueSources = Array.from(
+    new Set(leads.map((l) => l.source).filter(Boolean)),
+  );
+  const uniqueStatuses = Array.from(
+    new Set(leads.map((l) => l.status).filter(Boolean)),
+  );
 
-  
   const filteredLeads = leads.filter((lead) => {
     const matchSearch =
       !searchTerm ||
@@ -135,7 +143,9 @@ export default function ClientLeadsPage() {
     <div className="min-h-screen bg-background font-headline p-6 space-y-6">
       <div>
         <h1 className="text-4xl font-black tracking-tighter">Your Leads</h1>
-        <p className="text-muted-foreground mt-1">Track the performance and status of your leads</p>
+        <p className="text-muted-foreground mt-1">
+          Track the performance and status of your leads
+        </p>
       </div>
 
       {}
@@ -154,7 +164,9 @@ export default function ClientLeadsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-black">{stats.total}</div>
-            <p className="text-xs text-muted-foreground mt-1">All leads generated</p>
+            <p className="text-xs text-muted-foreground mt-1">
+              All leads generated
+            </p>
           </CardContent>
         </Card>
 
@@ -166,8 +178,12 @@ export default function ClientLeadsPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black text-green-600">{stats.converted}</div>
-            <p className="text-xs text-muted-foreground mt-1">Interested + Meeting Booked</p>
+            <div className="text-3xl font-black text-green-600">
+              {stats.converted}
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">
+              Interested + Meeting Booked
+            </p>
           </CardContent>
         </Card>
 
@@ -179,8 +195,12 @@ export default function ClientLeadsPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black text-primary">{stats.conversionRate}%</div>
-            <p className="text-xs text-muted-foreground mt-1">Overall performance</p>
+            <div className="text-3xl font-black text-primary">
+              {stats.conversionRate}%
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">
+              Overall performance
+            </p>
           </CardContent>
         </Card>
 
@@ -192,8 +212,12 @@ export default function ClientLeadsPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black text-blue-600">{stats.newThisMonth}</div>
-            <p className="text-xs text-muted-foreground mt-1">This month's leads</p>
+            <div className="text-3xl font-black text-blue-600">
+              {stats.newThisMonth}
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">
+              This month's leads
+            </p>
           </CardContent>
         </Card>
       </div>
@@ -271,11 +295,21 @@ export default function ClientLeadsPage() {
                 </TableHeader>
                 <TableBody>
                   {filteredLeads.map((lead) => (
-                    <TableRow key={String(lead._id || lead.id)} className="border-b border-black">
-                      <TableCell className="font-bold">{lead.name || "-"}</TableCell>
-                      <TableCell className="text-sm">{lead.phone || "-"}</TableCell>
+                    <TableRow
+                      key={String(lead._id || lead.id)}
+                      className="border-b border-black"
+                    >
+                      <TableCell className="font-bold">
+                        {lead.name || "-"}
+                      </TableCell>
+                      <TableCell className="text-sm">
+                        {lead.phone || "-"}
+                      </TableCell>
                       <TableCell>
-                        <Badge variant="outline" className="border-black font-bold">
+                        <Badge
+                          variant="outline"
+                          className="border-black font-bold"
+                        >
                           {lead.source || "Unknown"}
                         </Badge>
                       </TableCell>
@@ -309,7 +343,9 @@ export default function ClientLeadsPage() {
       <Card className="border-2 border-black bg-primary/5">
         <CardContent className="pt-6">
           <p className="text-sm">
-            <span className="font-bold">💡 Tip:</span> This page is read-only. Your team manages all leads and their details. You can only view and track performance here. All status changes are made by your team.
+            <span className="font-bold">💡 Tip:</span> This page is read-only.
+            Your team manages all leads and their details. You can only view and
+            track performance here. All status changes are made by your team.
           </p>
         </CardContent>
       </Card>

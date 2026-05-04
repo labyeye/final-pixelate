@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting... | Pixelate Nest</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var city = params.get("city") || "";
+
+        // Map known cities to specific location pages
+        var cityMap = {
+          Patna: "/locations/software-company-patna.html",
+          Muzaffarpur: "/services/software-development.html",
+          Delhi: "/pages/locations.html",
+          Bangalore: "/pages/locations.html",
+          Mumbai: "/pages/locations.html",
+          Hyderabad: "/pages/locations.html",
+          Chennai: "/pages/locations.html",
+          Kolkata: "/locations/software-company-bengal.html",
+          Pune: "/pages/locations.html",
+          Jaipur: "/pages/locations.html",
+          Surat: "/pages/locations.html",
+          Indore: "/pages/locations.html",
+          Bhopal: "/pages/locations.html",
+          Guwahati: "/pages/locations.html",
+          Visakhapatnam: "/pages/locations.html",
+          Lucknow: "/pages/locations.html",
+          Bhubaneswar: "/pages/locations.html",
+          Ahmedabad: "/pages/locations.html",
+          Chandigarh: "/pages/locations.html",
+          Kochi: "/pages/locations.html",
+          Thiruvananthapuram: "/pages/locations.html",
+          Nagpur: "/pages/locations.html",
+        };
+
+        var destination =
+          city && cityMap[city] ? cityMap[city] : "/pages/locations.html";
+        window.location.replace(destination);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to the correct page&hellip;</p>
+  </body>
+</html>

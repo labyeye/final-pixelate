@@ -8,7 +8,7 @@ import {
   Image,
 } from "@react-pdf/renderer";
 import logo from "../../assets/images/Logo_White_Name_Large.png";
-import sign from "../../assets/sign.png"
+import sign from "../../assets/sign.png";
 const signsrc = typeof sign === "string" ? sign : sign.src;
 const logoSrc = typeof logo === "string" ? logo : logo.src;
 
@@ -21,7 +21,6 @@ const MUTED = "#666667";
 const WHITE = "#ffffff";
 const TEXT = "#000000";
 
-
 const displayValue = (value?: string | number | null): string => {
   if (value === null || value === undefined) return "—";
   const text = String(value).trim();
@@ -33,7 +32,10 @@ const normalizeList = (value: unknown): string[] => {
     return value.map((item) => String(item ?? "").trim()).filter(Boolean);
   }
   if (typeof value === "string") {
-    return value.split("\n").map((s) => s.trim()).filter(Boolean);
+    return value
+      .split("\n")
+      .map((s) => s.trim())
+      .filter(Boolean);
   }
   return [];
 };
@@ -49,9 +51,7 @@ const formatDate = (value?: string | Date | number | null): string => {
   });
 };
 
-
 const styles = StyleSheet.create({
-  
   page: {
     paddingTop: 44,
     paddingBottom: 52,
@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
     backgroundColor: DARK,
   },
 
-  
   coverTop: {
     flex: 1,
     alignItems: "center",
@@ -147,7 +146,6 @@ const styles = StyleSheet.create({
     letterSpacing: 1.5,
   },
 
-  
   pageHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -184,7 +182,6 @@ const styles = StyleSheet.create({
     color: MUTED,
   },
 
-  
   sectionHeading: {
     fontSize: 15,
     fontFamily: "Helvetica-Bold",
@@ -201,7 +198,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 
-  
   card: {
     backgroundColor: CREAM_LIGHT,
     borderRadius: 5,
@@ -222,7 +218,6 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
 
-  
   fieldRow: {
     flexDirection: "row",
     marginBottom: 7,
@@ -242,7 +237,6 @@ const styles = StyleSheet.create({
     color: TEXT,
   },
 
-  
   row: {
     flexDirection: "row",
     gap: 14,
@@ -251,7 +245,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  
   bulletRow: {
     flexDirection: "row",
     marginBottom: 5,
@@ -270,7 +263,6 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
 
-  
   deliverableRow: {
     flexDirection: "row",
     alignItems: "flex-start",
@@ -333,7 +325,6 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
 
-  
   timelineItem: {
     flexDirection: "row",
     marginBottom: 12,
@@ -371,7 +362,6 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica-Bold",
   },
 
-  
   milestoneRow: {
     flexDirection: "row",
     alignItems: "center",
@@ -403,7 +393,6 @@ const styles = StyleSheet.create({
     color: DARK,
   },
 
-  
   termHeading: {
     fontSize: 10,
     fontFamily: "Helvetica-Bold",
@@ -417,7 +406,6 @@ const styles = StyleSheet.create({
     lineHeight: 1.6,
   },
 
-  
   signatureBox: {
     borderTop: `1 solid ${DARK}`,
     paddingTop: 8,
@@ -441,7 +429,6 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
 
-  
   briefText: {
     fontSize: 10,
     color: TEXT,
@@ -470,9 +457,13 @@ const styles = StyleSheet.create({
   },
 });
 
-
-
-function PageHeader({ section, pageNum }: { section: string; pageNum: string }) {
+function PageHeader({
+  section,
+  pageNum,
+}: {
+  section: string;
+  pageNum: string;
+}) {
   return (
     <View style={styles.pageHeader} fixed>
       <Text style={styles.pageHeaderAgency}>Pixelate Nest</Text>
@@ -487,16 +478,21 @@ function PageFooter({ data }: { data: any }) {
   return (
     <View style={styles.pageFooter} fixed>
       <Text style={styles.pageFooterText}>
-        Client Onboarding Document · {displayValue(footerClientName)} · {displayValue(footerProjectTitle)}
+        Client Onboarding Document · {displayValue(footerClientName)} ·{" "}
+        {displayValue(footerProjectTitle)}
       </Text>
-      <Text style={styles.pageFooterText}>
-        Confidential — Pixelate Nest
-      </Text>
+      <Text style={styles.pageFooterText}>Confidential — Pixelate Nest</Text>
     </View>
   );
 }
 
-function Field({ label, value }: { label: string; value?: string | number | null }) {
+function Field({
+  label,
+  value,
+}: {
+  label: string;
+  value?: string | number | null;
+}) {
   return (
     <View style={styles.fieldRow}>
       <Text style={styles.fieldLabel}>{label}</Text>
@@ -518,14 +514,16 @@ function SectionHeading({ title }: { title: string }) {
   return <Text style={styles.sectionHeading}>{title}</Text>;
 }
 
-
-
 export function OnboardingPDF({ data }: { data: any }) {
   const clientName = data?.clientName ?? data?.client ?? data?.company;
   const company = data?.company ?? data?.businessName;
   const projectTitle = data?.projectTitle ?? data?.title;
   const projectType = data?.projectType ?? data?.purpose ?? data?.objective;
-  const productType = data?.productType ?? (Array.isArray(data?.modules) && data.modules.length > 0 ? "Custom" : "Website");
+  const productType =
+    data?.productType ??
+    (Array.isArray(data?.modules) && data.modules.length > 0
+      ? "Custom"
+      : "Website");
   const pagesValue =
     data?.pages ??
     (Array.isArray(data?.modules) && data.modules.length > 0
@@ -552,10 +550,18 @@ export function OnboardingPDF({ data }: { data: any }) {
   };
 
   const deriveBudget = (source: any): string | number | null => {
-    if (source?.budget !== undefined && source?.budget !== null && String(source?.budget).trim() !== "") {
+    if (
+      source?.budget !== undefined &&
+      source?.budget !== null &&
+      String(source?.budget).trim() !== ""
+    ) {
       return source.budget;
     }
-    if (source?.amount !== undefined && source?.amount !== null && String(source?.amount).trim() !== "") {
+    if (
+      source?.amount !== undefined &&
+      source?.amount !== null &&
+      String(source?.amount).trim() !== ""
+    ) {
       return source.amount;
     }
 
@@ -564,7 +570,7 @@ export function OnboardingPDF({ data }: { data: any }) {
           const value = Number(
             item?.total ??
               item?.amount ??
-              (Number(item?.qty || 0) * Number(item?.price || 0)),
+              Number(item?.qty || 0) * Number(item?.price || 0),
           );
           return sum + (Number.isFinite(value) ? value : 0);
         }, 0)
@@ -573,7 +579,7 @@ export function OnboardingPDF({ data }: { data: any }) {
       ? source.lineItems.reduce((sum: number, item: any) => {
           const value = Number(
             item?.total ??
-              (Number(item?.qty || 0) * Number(item?.unitPrice || 0)),
+              Number(item?.qty || 0) * Number(item?.unitPrice || 0),
           );
           return sum + (Number.isFinite(value) ? value : 0);
         }, 0)
@@ -587,32 +593,44 @@ export function OnboardingPDF({ data }: { data: any }) {
     {
       phase: "01",
       label: "Discovery",
-      desc: data?.deliveryDiscovery || "Requirement gathering, stakeholder interviews, scope finalization",
+      desc:
+        data?.deliveryDiscovery ||
+        "Requirement gathering, stakeholder interviews, scope finalization",
     },
     {
       phase: "02",
       label: "Wireframes",
-      desc: data?.deliveryWireframes || "Low-fidelity layouts and information architecture",
+      desc:
+        data?.deliveryWireframes ||
+        "Low-fidelity layouts and information architecture",
     },
     {
       phase: "03",
       label: "Design",
-      desc: data?.deliveryDesign || "High-fidelity UI designs, style guide, asset creation",
+      desc:
+        data?.deliveryDesign ||
+        "High-fidelity UI designs, style guide, asset creation",
     },
     {
       phase: "04",
       label: "Development",
-      desc: data?.deliveryDevelopment || "Front-end & back-end implementation per approved designs",
+      desc:
+        data?.deliveryDevelopment ||
+        "Front-end & back-end implementation per approved designs",
     },
     {
       phase: "05",
       label: "Testing",
-      desc: data?.deliveryTesting || "QA, browser/device testing, bug fixes, performance checks",
+      desc:
+        data?.deliveryTesting ||
+        "QA, browser/device testing, bug fixes, performance checks",
     },
     {
       phase: "06",
       label: "Deployment",
-      desc: data?.deliveryDeployment || "Production deployment, go-live support, post-launch monitoring",
+      desc:
+        data?.deliveryDeployment ||
+        "Production deployment, go-live support, post-launch monitoring",
     },
   ];
 
@@ -621,13 +639,18 @@ export function OnboardingPDF({ data }: { data: any }) {
   const techStackFromModel = parseTechStack(data?.techStack);
   const derivedTechStack = [
     ...(Array.isArray(data?.services)
-      ? data.services.map((service: any) => service?.serviceName || service?.name).filter(Boolean)
+      ? data.services
+          .map((service: any) => service?.serviceName || service?.name)
+          .filter(Boolean)
       : []),
     ...(Array.isArray(data?.modules)
-      ? data.modules.map((module: any) => module?.moduleName || module?.name).filter(Boolean)
+      ? data.modules
+          .map((module: any) => module?.moduleName || module?.name)
+          .filter(Boolean)
       : []),
   ];
-  const techStack = techStackFromModel.length > 0 ? techStackFromModel : derivedTechStack;
+  const techStack =
+    techStackFromModel.length > 0 ? techStackFromModel : derivedTechStack;
 
   const milestones = normalizeList(
     data?.milestones ??
@@ -635,7 +658,9 @@ export function OnboardingPDF({ data }: { data: any }) {
         ? data.timeline
             .map((step: any) => {
               const phase = String(step?.phase ?? "").trim();
-              const description = String(step?.description ?? step?.duration ?? "").trim();
+              const description = String(
+                step?.description ?? step?.duration ?? "",
+              ).trim();
               if (phase && description) return `${phase}: ${description}`;
               return phase || description;
             })
@@ -664,13 +689,13 @@ export function OnboardingPDF({ data }: { data: any }) {
       creator="Pixelate Nest CRM"
       subject="Client Onboarding Document"
     >
-      {
-
-}
+      {}
       <Page size="A4" style={[styles.page, styles.coverPage]}>
         <View style={styles.coverTop}>
           <Image src={logoSrc} style={{ width: 400, marginBottom: 120 }} />
-          <Text style={styles.coverAgencyLabel}>Client Onboarding Document</Text>
+          <Text style={styles.coverAgencyLabel}>
+            Client Onboarding Document
+          </Text>
           <View style={styles.coverDividerLine} />
           <Text style={styles.coverDocTitle}>
             {displayValue(projectTitle || "New Project")}
@@ -680,7 +705,9 @@ export function OnboardingPDF({ data }: { data: any }) {
           <View style={styles.coverInfoBox}>
             <View style={styles.coverInfoRow}>
               <Text style={styles.coverInfoLabel}>Client</Text>
-              <Text style={styles.coverInfoValue}>{displayValue(clientName)}</Text>
+              <Text style={styles.coverInfoValue}>
+                {displayValue(clientName)}
+              </Text>
             </View>
             <View style={styles.coverInfoRow}>
               <Text style={styles.coverInfoLabel}>Company</Text>
@@ -693,21 +720,27 @@ export function OnboardingPDF({ data }: { data: any }) {
           </View>
 
           {}
-          <Text style={{ fontSize: 9, color: WHITE, textAlign: "center", marginTop: 8 }}>
-            This document is confidential and prepared exclusively for the above-named client.
+          <Text
+            style={{
+              fontSize: 9,
+              color: WHITE,
+              textAlign: "center",
+              marginTop: 8,
+            }}
+          >
+            This document is confidential and prepared exclusively for the
+            above-named client.
           </Text>
         </View>
 
         <View style={styles.coverBottom}>
           <Text style={styles.coverBottomText}>
-            www.pixelatenest.com  ·  support@pixelatenest.com
+            www.pixelatenest.com · support@pixelatenest.com
           </Text>
         </View>
       </Page>
 
-      {
-
-}
+      {}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Client Details" pageNum="2" />
 
@@ -730,9 +763,7 @@ export function OnboardingPDF({ data }: { data: any }) {
         <PageFooter data={data} />
       </Page>
 
-      {
-
-}
+      {}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Project Overview" pageNum="3" />
 
@@ -750,16 +781,17 @@ export function OnboardingPDF({ data }: { data: any }) {
             <View style={styles.cardGhost}>
               <Field label="Pages / Modules" value={pagesValue} />
               <Field label="Start Date" value={formatDate(startDateValue)} />
-              <Field label="Target Delivery" value={formatDate(deadlineValue)} />
+              <Field
+                label="Target Delivery"
+                value={formatDate(deadlineValue)}
+              />
             </View>
           </View>
         </View>
 
         <Text style={styles.subHeading}>Project Brief &amp; Requirements</Text>
         <View style={styles.cardGhost}>
-          <Text style={styles.briefText}>
-            {displayValue(briefValue)}
-          </Text>
+          <Text style={styles.briefText}>{displayValue(briefValue)}</Text>
         </View>
 
         {data?.notes ? (
@@ -774,9 +806,7 @@ export function OnboardingPDF({ data }: { data: any }) {
         <PageFooter data={data} />
       </Page>
 
-      {
-
-}
+      {}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Project Scope" pageNum="4" />
 
@@ -786,35 +816,38 @@ export function OnboardingPDF({ data }: { data: any }) {
           <View style={styles.col}>
             <Text style={styles.subHeading}>Scope of Work</Text>
             <View style={styles.card}>
-              {scopeOfWork.length > 0
-                ? scopeOfWork.map((item, i) => (
-                    <BulletItem key={i} text={item} />
-                  ))
-                : <Text style={styles.briefText}>{displayValue(null)}</Text>
-              }
+              {scopeOfWork.length > 0 ? (
+                scopeOfWork.map((item, i) => <BulletItem key={i} text={item} />)
+              ) : (
+                <Text style={styles.briefText}>{displayValue(null)}</Text>
+              )}
             </View>
           </View>
           <View style={styles.col}>
             <Text style={styles.subHeading}>Out of Scope</Text>
             <View style={styles.cardGhost}>
-              {outOfScope.length > 0
-                ? outOfScope.map((item, i) => (
-                    <BulletItem key={i} text={item} />
-                  ))
-                : <Text style={styles.briefText}>{displayValue(null)}</Text>
-              }
+              {outOfScope.length > 0 ? (
+                outOfScope.map((item, i) => <BulletItem key={i} text={item} />)
+              ) : (
+                <Text style={styles.briefText}>{displayValue(null)}</Text>
+              )}
             </View>
           </View>
         </View>
 
         <Text style={styles.subHeading}>Technology Stack</Text>
-        <View style={[styles.cardGhost, { flexDirection: "row", flexWrap: "wrap" }]}>
-          {techStack.length > 0
-            ? techStack.map((t, i) => (
-                <Text key={i} style={styles.pillBadge}>{t}</Text>
-              ))
-            : <Text style={styles.briefText}>—</Text>
-          }
+        <View
+          style={[styles.cardGhost, { flexDirection: "row", flexWrap: "wrap" }]}
+        >
+          {techStack.length > 0 ? (
+            techStack.map((t, i) => (
+              <Text key={i} style={styles.pillBadge}>
+                {t}
+              </Text>
+            ))
+          ) : (
+            <Text style={styles.briefText}>—</Text>
+          )}
         </View>
 
         <Text style={styles.subHeading}>Pages / Modules</Text>
@@ -825,9 +858,7 @@ export function OnboardingPDF({ data }: { data: any }) {
         <PageFooter data={data} />
       </Page>
 
-      {
-
-}
+      {}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Project Timeline" pageNum="5" />
 
@@ -837,13 +868,25 @@ export function OnboardingPDF({ data }: { data: any }) {
         <View style={styles.row}>
           <View style={[styles.col, styles.card]}>
             <Text style={styles.subHeading}>Start Date</Text>
-            <Text style={{ fontSize: 16, fontFamily: "Helvetica-Bold", color: DARK }}>
+            <Text
+              style={{
+                fontSize: 16,
+                fontFamily: "Helvetica-Bold",
+                color: DARK,
+              }}
+            >
               {formatDate(data?.startDate)}
             </Text>
           </View>
           <View style={[styles.col, styles.card]}>
             <Text style={styles.subHeading}>Target Delivery</Text>
-            <Text style={{ fontSize: 16, fontFamily: "Helvetica-Bold", color: DARK }}>
+            <Text
+              style={{
+                fontSize: 16,
+                fontFamily: "Helvetica-Bold",
+                color: DARK,
+              }}
+            >
               {formatDate(data?.deadline)}
             </Text>
           </View>
@@ -858,7 +901,9 @@ export function OnboardingPDF({ data }: { data: any }) {
                 <View key={i} style={styles.timelineItem}>
                   <View style={styles.timelineLeft}>
                     <View style={styles.timelineDot} />
-                    {i < milestones.length - 1 && <View style={styles.timelineLine} />}
+                    {i < milestones.length - 1 && (
+                      <View style={styles.timelineLine} />
+                    )}
                   </View>
                   <View style={styles.timelineContent}>
                     <Text style={styles.timelineValue}>{m}</Text>
@@ -872,9 +917,7 @@ export function OnboardingPDF({ data }: { data: any }) {
         <PageFooter data={data} />
       </Page>
 
-      {
-
-}
+      {}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Financial Details" pageNum="6" />
 
@@ -882,15 +925,37 @@ export function OnboardingPDF({ data }: { data: any }) {
 
         <View style={styles.row}>
           <View style={[styles.col, styles.cardDark]}>
-            <Text style={{ fontSize: 9, color: WHITE, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6 }}>
+            <Text
+              style={{
+                fontSize: 9,
+                color: WHITE,
+                textTransform: "uppercase",
+                letterSpacing: 0.8,
+                marginBottom: 6,
+              }}
+            >
               Estimated Budget
             </Text>
-            <Text style={{ fontSize: 22, fontFamily: "Helvetica-Bold", color: WHITE }}>
+            <Text
+              style={{
+                fontSize: 22,
+                fontFamily: "Helvetica-Bold",
+                color: WHITE,
+              }}
+            >
               ₹ {displayValue(budgetValue)}
             </Text>
           </View>
           <View style={[styles.col, styles.card]}>
-            <Text style={{ fontSize: 9, color: MUTED, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6 }}>
+            <Text
+              style={{
+                fontSize: 9,
+                color: MUTED,
+                textTransform: "uppercase",
+                letterSpacing: 0.8,
+                marginBottom: 6,
+              }}
+            >
               Payment Methods
             </Text>
             <View style={styles.paymentMethodsWrap}>
@@ -906,7 +971,9 @@ export function OnboardingPDF({ data }: { data: any }) {
             <Text style={styles.subHeading}>Payment Milestones</Text>
             {paymentMilestones.map((m, i) => (
               <View key={i} style={styles.milestoneRow}>
-                <Text style={styles.milestoneBadge}>{String(i + 1).padStart(2, "0")}</Text>
+                <Text style={styles.milestoneBadge}>
+                  {String(i + 1).padStart(2, "0")}
+                </Text>
                 <Text style={styles.milestoneDesc}>{m}</Text>
               </View>
             ))}
@@ -916,24 +983,27 @@ export function OnboardingPDF({ data }: { data: any }) {
         <PageFooter data={data} />
       </Page>
 
-      {
-
-}
+      {}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Deliverables" pageNum="7" />
 
         <SectionHeading title="Deliverables" />
         <Text style={{ fontSize: 9.5, color: MUTED, marginBottom: 16 }}>
-          The following deliverables are included in the project scope and will be provided upon completion of each respective phase.
+          The following deliverables are included in the project scope and will
+          be provided upon completion of each respective phase.
         </Text>
 
         {deliverablePhases.map((d) => (
           <View key={d.phase} style={styles.deliverableRow}>
             <View style={styles.deliverableCheckFilled}>
-              <Text style={{ fontSize: 7, color: WHITE, textAlign: "center" }}>✓</Text>
+              <Text style={{ fontSize: 7, color: WHITE, textAlign: "center" }}>
+                ✓
+              </Text>
             </View>
             <View style={styles.deliverableTextWrap}>
-              <Text style={styles.deliverableLabel}>Phase {d.phase} — {d.label}</Text>
+              <Text style={styles.deliverableLabel}>
+                Phase {d.phase} — {d.label}
+              </Text>
               <Text style={styles.deliverableDesc}>{d.desc}</Text>
             </View>
           </View>
@@ -942,9 +1012,7 @@ export function OnboardingPDF({ data }: { data: any }) {
         <PageFooter data={data} />
       </Page>
 
-      {
-
-}
+      {}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Terms & Conditions" pageNum="8" />
 
@@ -977,32 +1045,94 @@ export function OnboardingPDF({ data }: { data: any }) {
         <PageFooter data={data} />
       </Page>
 
-      {
-
-}
+      {}
       <Page size="A4" style={styles.page}>
         <PageHeader section="Approval & Signatures" pageNum="9" />
 
         <SectionHeading title="Document Approval" />
 
-        <Text style={{ fontSize: 10, color: MUTED, marginBottom: 24, lineHeight: 1.7 }}>
-          By signing below, both parties confirm that they have read, understood, and agreed to the terms and conditions outlined in this onboarding document. This document constitutes a formal agreement between the client and Pixelate Nest for the project described herein.
+        <Text
+          style={{
+            fontSize: 10,
+            color: MUTED,
+            marginBottom: 24,
+            lineHeight: 1.7,
+          }}
+        >
+          By signing below, both parties confirm that they have read,
+          understood, and agreed to the terms and conditions outlined in this
+          onboarding document. This document constitutes a formal agreement
+          between the client and Pixelate Nest for the project described herein.
         </Text>
 
         {}
         <View style={[styles.cardDark, { marginBottom: 28 }]}>
           <View style={styles.row}>
             <View style={styles.col}>
-              <Text style={{ fontSize: 8, color: WHITE, textTransform: "uppercase", letterSpacing: 0.7, marginBottom: 4 }}>Project</Text>
-              <Text style={{ fontSize: 11, color: WHITE, fontFamily: "Helvetica-Bold" }}>{displayValue(data?.projectTitle)}</Text>
+              <Text
+                style={{
+                  fontSize: 8,
+                  color: WHITE,
+                  textTransform: "uppercase",
+                  letterSpacing: 0.7,
+                  marginBottom: 4,
+                }}
+              >
+                Project
+              </Text>
+              <Text
+                style={{
+                  fontSize: 11,
+                  color: WHITE,
+                  fontFamily: "Helvetica-Bold",
+                }}
+              >
+                {displayValue(data?.projectTitle)}
+              </Text>
             </View>
             <View style={styles.col}>
-              <Text style={{ fontSize: 8, color: WHITE, textTransform: "uppercase", letterSpacing: 0.7, marginBottom: 4 }}>Client</Text>
-              <Text style={{ fontSize: 11, color: WHITE, fontFamily: "Helvetica-Bold" }}>{displayValue(data?.clientName)}</Text>
+              <Text
+                style={{
+                  fontSize: 8,
+                  color: WHITE,
+                  textTransform: "uppercase",
+                  letterSpacing: 0.7,
+                  marginBottom: 4,
+                }}
+              >
+                Client
+              </Text>
+              <Text
+                style={{
+                  fontSize: 11,
+                  color: WHITE,
+                  fontFamily: "Helvetica-Bold",
+                }}
+              >
+                {displayValue(data?.clientName)}
+              </Text>
             </View>
             <View style={styles.col}>
-              <Text style={{ fontSize: 8, color: WHITE, textTransform: "uppercase", letterSpacing: 0.7, marginBottom: 4 }}>Date</Text>
-              <Text style={{ fontSize: 11, color: WHITE, fontFamily: "Helvetica-Bold" }}>{onboardingDate}</Text>
+              <Text
+                style={{
+                  fontSize: 8,
+                  color: WHITE,
+                  textTransform: "uppercase",
+                  letterSpacing: 0.7,
+                  marginBottom: 4,
+                }}
+              >
+                Date
+              </Text>
+              <Text
+                style={{
+                  fontSize: 11,
+                  color: WHITE,
+                  fontFamily: "Helvetica-Bold",
+                }}
+              >
+                {onboardingDate}
+              </Text>
             </View>
           </View>
         </View>
@@ -1013,14 +1143,17 @@ export function OnboardingPDF({ data }: { data: any }) {
           <View style={styles.col}>
             <Text style={styles.subHeading}>Client Signature</Text>
             <Text style={{ fontSize: 9, color: MUTED, marginBottom: 40 }}>
-              I hereby confirm my agreement to the terms set out in this document.
+              I hereby confirm my agreement to the terms set out in this
+              document.
             </Text>
             <View style={styles.signatureBox}>
               <Text style={styles.signatureLabel}>Signature</Text>
             </View>
             <View style={[styles.signatureBox, { marginTop: 14 }]}>
               <Text style={styles.signatureLabel}>Printed Name</Text>
-              <Text style={styles.signatureName}>{displayValue(data?.clientName)}</Text>
+              <Text style={styles.signatureName}>
+                {displayValue(data?.clientName)}
+              </Text>
             </View>
             <View style={[styles.signatureBox, { marginTop: 14 }]}>
               <Text style={styles.signatureLabel}>Date</Text>
@@ -1029,15 +1162,20 @@ export function OnboardingPDF({ data }: { data: any }) {
           </View>
 
           {}
-          <View style={{ width: 1, backgroundColor: RULE, marginHorizontal: 16 }} />
+          <View
+            style={{ width: 1, backgroundColor: RULE, marginHorizontal: 16 }}
+          />
 
           {}
           <View style={styles.col}>
-            <Text style={styles.subHeading}>Pixelate Nest — Agency Signature</Text>
-            <Text style={{ fontSize: 9, color: MUTED, marginBottom: 40 }}>
-              On behalf of Pixelate Nest, we confirm our commitment to delivering the project as described.
+            <Text style={styles.subHeading}>
+              Pixelate Nest — Agency Signature
             </Text>
-            <Image src={signsrc} style={{ width: 120 ,marginBottom:-20}} />
+            <Text style={{ fontSize: 9, color: MUTED, marginBottom: 40 }}>
+              On behalf of Pixelate Nest, we confirm our commitment to
+              delivering the project as described.
+            </Text>
+            <Image src={signsrc} style={{ width: 120, marginBottom: -20 }} />
 
             <View style={styles.signatureBox}>
               <Text style={styles.signatureLabel}>Signature</Text>

@@ -25,10 +25,10 @@ interface AddPostModalProps {
 }
 
 const CAPTION_LIMITS: Partial<Record<string, number>> = {
-  "Instagram": 2200,
-  "Facebook": 63206,
+  Instagram: 2200,
+  Facebook: 63206,
   "X / Twitter": 280,
-  "LinkedIn": 3000,
+  LinkedIn: 3000,
   "YouTube Shorts": 5000,
   "WhatsApp Channel": 1024,
   "Google My Business": 1500,
@@ -73,25 +73,28 @@ export function AddPostModal({
   useEffect(() => {
     if (isOpen) {
       if (editingPost) {
-        
         setForm(editingPost);
-        
-        setIsMultipleMode((editingPost.socialAccountIds?.length ?? 0) > 1 || (editingPost.socialAccountIds?.length ?? 0) === 0);
+
+        setIsMultipleMode(
+          (editingPost.socialAccountIds?.length ?? 0) > 1 ||
+            (editingPost.socialAccountIds?.length ?? 0) === 0,
+        );
       } else {
-        
         setForm({ ...initialForm, clientId });
-        setIsMultipleMode(true); 
+        setIsMultipleMode(true);
       }
     }
   }, [isOpen, clientId, editingPost]);
 
-  
   useEffect(() => {
     if (!isMultipleMode || !clientId || !form.platform) return;
-    
+
     const loadAccounts = async () => {
       try {
-        const url = new URL("/api/social-media-accounts", window.location.origin);
+        const url = new URL(
+          "/api/social-media-accounts",
+          window.location.origin,
+        );
         url.searchParams.set("clientId", clientId);
         url.searchParams.set("platform", form.platform);
         const res = await fetch(url.toString(), { cache: "no-store" });
@@ -112,10 +115,10 @@ export function AddPostModal({
   };
 
   const handleAccountsChange = (accountIds: string[]) => {
-    setForm((prev) => ({ 
-      ...prev, 
+    setForm((prev) => ({
+      ...prev,
       socialAccountIds: accountIds,
-      socialAccountId: accountIds[0] || "", 
+      socialAccountId: accountIds[0] || "",
     }));
   };
 
@@ -129,7 +132,7 @@ export function AddPostModal({
 
   const toggleMode = () => {
     setIsMultipleMode(!isMultipleMode);
-    
+
     setForm((prev) => ({
       ...prev,
       socialAccountId: "",
@@ -138,16 +141,20 @@ export function AddPostModal({
   };
 
   const handleSave = async (saveAction: "draft" | "schedule") => {
-    if (!form.title || !form.platform || !form.scheduledDate || !form.scheduledTime) {
+    if (
+      !form.title ||
+      !form.platform ||
+      !form.scheduledDate ||
+      !form.scheduledTime
+    ) {
       alert("Please fill title, platform, scheduled date and time.");
       return;
     }
 
-    
-    const hasAccount = isMultipleMode 
-      ? (form.socialAccountIds && form.socialAccountIds.length > 0)
+    const hasAccount = isMultipleMode
+      ? form.socialAccountIds && form.socialAccountIds.length > 0
       : form.socialAccountId;
-    
+
     if (!hasAccount) {
       alert("Please select at least one social account.");
       return;
@@ -160,7 +167,8 @@ export function AddPostModal({
 
     setSaving(true);
     try {
-      const status = saveAction === "schedule" ? ("Scheduled" as const) : ("Draft" as const);
+      const status =
+        saveAction === "schedule" ? ("Scheduled" as const) : ("Draft" as const);
       const payload = {
         ...form,
         clientId,
@@ -213,7 +221,9 @@ export function AddPostModal({
           {}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div>
-              <label className="block text-sm font-semibold mb-1">Post Title *</label>
+              <label className="block text-sm font-semibold mb-1">
+                Post Title *
+              </label>
               <Input
                 placeholder="Enter post title"
                 value={form.title}
@@ -226,7 +236,9 @@ export function AddPostModal({
               label="Platform"
             />
             <div>
-              <label className="block text-sm font-semibold mb-1">Content Type *</label>
+              <label className="block text-sm font-semibold mb-1">
+                Content Type *
+              </label>
               <select
                 value={form.contentType}
                 onChange={(e) => handleChange("contentType", e.target.value)}
@@ -243,7 +255,9 @@ export function AddPostModal({
 
           {}
           <div>
-            <label className="block text-sm font-semibold mb-1">Campaign / Project</label>
+            <label className="block text-sm font-semibold mb-1">
+              Campaign / Project
+            </label>
             <Input
               placeholder="e.g. Summer Launch, Diwali 2025"
               value={form.campaign || ""}
@@ -254,9 +268,15 @@ export function AddPostModal({
           {}
           <div>
             <div className="flex items-center justify-between mb-2">
-              <label className="block text-sm font-semibold">Social Accounts *</label>
+              <label className="block text-sm font-semibold">
+                Social Accounts *
+              </label>
               <div className="flex items-center gap-2">
-                <span className={`text-xs font-medium ${isMultipleMode ? "text-gray-400" : "text-gray-700"}`}>Single</span>
+                <span
+                  className={`text-xs font-medium ${isMultipleMode ? "text-gray-400" : "text-gray-700"}`}
+                >
+                  Single
+                </span>
                 <button
                   onClick={toggleMode}
                   className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
@@ -270,7 +290,11 @@ export function AddPostModal({
                     }`}
                   />
                 </button>
-                <span className={`text-xs font-medium ${isMultipleMode ? "text-gray-700" : "text-gray-400"}`}>Multiple</span>
+                <span
+                  className={`text-xs font-medium ${isMultipleMode ? "text-gray-700" : "text-gray-400"}`}
+                >
+                  Multiple
+                </span>
               </div>
             </div>
 
@@ -282,7 +306,6 @@ export function AddPostModal({
                 onChange={(accountIds) => handleAccountsChange(accountIds)}
               />
             ) : (
-              
               <select
                 value={form.socialAccountId || ""}
                 onChange={(e) => handleSingleAccountChange(e.target.value)}
@@ -290,7 +313,10 @@ export function AddPostModal({
               >
                 <option value="">Select an account...</option>
                 {singleModeAccounts.map((account) => (
-                  <option key={account._id || account.id} value={account._id || account.id}>
+                  <option
+                    key={account._id || account.id}
+                    value={account._id || account.id}
+                  >
                     {account.displayName || account.handle}
                   </option>
                 ))}
@@ -301,7 +327,9 @@ export function AddPostModal({
           {}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div>
-              <label className="block text-sm font-semibold mb-1">Schedule Date *</label>
+              <label className="block text-sm font-semibold mb-1">
+                Schedule Date *
+              </label>
               <Input
                 type="date"
                 value={form.scheduledDate}
@@ -309,7 +337,9 @@ export function AddPostModal({
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1">Schedule Time *</label>
+              <label className="block text-sm font-semibold mb-1">
+                Schedule Time *
+              </label>
               <Input
                 type="time"
                 value={form.scheduledTime}
@@ -317,7 +347,9 @@ export function AddPostModal({
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1">Assigned Staff</label>
+              <label className="block text-sm font-semibold mb-1">
+                Assigned Staff
+              </label>
               <select
                 value={form.assignedTo}
                 onChange={(e) => handleChange("assignedTo", e.target.value)}
@@ -336,7 +368,9 @@ export function AddPostModal({
           {}
           <div className="grid grid-cols-1 gap-3">
             <div>
-              <label className="block text-sm font-semibold mb-1">Approval Status</label>
+              <label className="block text-sm font-semibold mb-1">
+                Approval Status
+              </label>
               <select
                 value={form.approvalStatus || "Pending"}
                 onChange={(e) => handleChange("approvalStatus", e.target.value)}
@@ -358,7 +392,12 @@ export function AddPostModal({
                 const len = (form.caption || "").length;
                 if (!limit) return null;
                 const pct = len / limit;
-                const color = pct >= 1 ? "text-red-600 font-bold" : pct >= 0.9 ? "text-orange-500 font-semibold" : "text-gray-400";
+                const color =
+                  pct >= 1
+                    ? "text-red-600 font-bold"
+                    : pct >= 0.9
+                      ? "text-orange-500 font-semibold"
+                      : "text-gray-400";
                 return (
                   <span className={`text-xs ${color}`}>
                     {len.toLocaleString()} / {limit.toLocaleString()}
@@ -377,7 +416,9 @@ export function AddPostModal({
           {}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
-              <label className="block text-sm font-semibold mb-1">Hashtags</label>
+              <label className="block text-sm font-semibold mb-1">
+                Hashtags
+              </label>
               <Input
                 placeholder="#hashtag1 #hashtag2"
                 value={form.hashtags || ""}
@@ -385,7 +426,9 @@ export function AddPostModal({
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1">Media URL or Path</label>
+              <label className="block text-sm font-semibold mb-1">
+                Media URL or Path
+              </label>
               <Input
                 placeholder="https://example.com/image.jpg"
                 value={form.mediaFile || ""}
@@ -396,7 +439,9 @@ export function AddPostModal({
 
           {}
           <div>
-            <label className="block text-sm font-semibold mb-1">Upload Media File</label>
+            <label className="block text-sm font-semibold mb-1">
+              Upload Media File
+            </label>
             <Input
               type="file"
               accept="image/*,video/*"
@@ -411,7 +456,9 @@ export function AddPostModal({
           {}
           {form.mediaFile && (
             <div className="border rounded p-3 bg-gray-50">
-              <div className="text-xs font-semibold text-muted-foreground mb-2">Media</div>
+              <div className="text-xs font-semibold text-muted-foreground mb-2">
+                Media
+              </div>
               {String(form.mediaFile).startsWith("data:image") ? (
                 <img
                   src={form.mediaFile}
@@ -435,7 +482,12 @@ export function AddPostModal({
 
           {}
           <div>
-            <label className="block text-sm font-semibold mb-1">Internal Comments <span className="text-xs text-gray-400 font-normal">(staff only, not visible to client)</span></label>
+            <label className="block text-sm font-semibold mb-1">
+              Internal Comments{" "}
+              <span className="text-xs text-gray-400 font-normal">
+                (staff only, not visible to client)
+              </span>
+            </label>
             <Textarea
               placeholder="Team notes, revision requests, internal feedback..."
               value={form.internalComments || ""}
@@ -446,7 +498,12 @@ export function AddPostModal({
 
           {}
           <div>
-            <label className="block text-sm font-semibold mb-1">Notes <span className="text-xs text-gray-400 font-normal">(visible to client)</span></label>
+            <label className="block text-sm font-semibold mb-1">
+              Notes{" "}
+              <span className="text-xs text-gray-400 font-normal">
+                (visible to client)
+              </span>
+            </label>
             <Textarea
               placeholder="Notes visible to the client"
               value={form.notes || ""}
@@ -458,18 +515,11 @@ export function AddPostModal({
 
         {}
         <div className="border-t p-4 flex gap-2 justify-end bg-gray-50">
-          <Button
-            variant="outline"
-            onClick={onClose}
-            disabled={saving}
-          >
+          <Button variant="outline" onClick={onClose} disabled={saving}>
             Cancel
           </Button>
           {isEditing ? (
-            <Button
-              onClick={() => handleSave("schedule")}
-              disabled={saving}
-            >
+            <Button onClick={() => handleSave("schedule")} disabled={saving}>
               {saving ? "Saving..." : "Save Changes"}
             </Button>
           ) : (
@@ -481,10 +531,7 @@ export function AddPostModal({
               >
                 {saving ? "Saving..." : "Save as Draft"}
               </Button>
-              <Button
-                onClick={() => handleSave("schedule")}
-                disabled={saving}
-              >
+              <Button onClick={() => handleSave("schedule")} disabled={saving}>
                 {saving ? "Scheduling..." : "Schedule Post"}
               </Button>
             </>

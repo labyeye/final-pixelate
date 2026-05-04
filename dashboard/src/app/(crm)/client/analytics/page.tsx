@@ -35,11 +35,15 @@ export default function ClientAnalyticsPage() {
     const fetchAnalytics = async () => {
       try {
         setLoading(true);
-        const token = typeof window !== "undefined" ? localStorage.getItem("auth_token") : null;
-        const headers: Record<string, string> = { "Content-Type": "application/json" };
+        const token =
+          typeof window !== "undefined"
+            ? localStorage.getItem("auth_token")
+            : null;
+        const headers: Record<string, string> = {
+          "Content-Type": "application/json",
+        };
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
-        
         const res = await fetch("/api/social-media-planner", { headers });
         if (!res.ok) throw new Error("Failed to fetch analytics");
 
@@ -48,10 +52,18 @@ export default function ClientAnalyticsPage() {
           ? posts.filter((p) => p.clientId === user.clientId)
           : [];
 
-        
-        const totalViews = clientPosts.reduce((sum, p) => sum + (p.views || 0), 0);
-        const totalLikes = clientPosts.reduce((sum, p) => sum + (p.likes || 0), 0);
-        const totalShares = clientPosts.reduce((sum, p) => sum + (p.shares || 0), 0);
+        const totalViews = clientPosts.reduce(
+          (sum, p) => sum + (p.views || 0),
+          0,
+        );
+        const totalLikes = clientPosts.reduce(
+          (sum, p) => sum + (p.likes || 0),
+          0,
+        );
+        const totalShares = clientPosts.reduce(
+          (sum, p) => sum + (p.shares || 0),
+          0,
+        );
         const engagementRate =
           totalViews > 0
             ? Math.round(((totalLikes + totalShares) / totalViews) * 100)
@@ -64,9 +76,12 @@ export default function ClientAnalyticsPage() {
           engagementRate,
         });
 
-        
         const last7Posts = clientPosts
-          .sort((a, b) => new Date(b.scheduledDate).getTime() - new Date(a.scheduledDate).getTime())
+          .sort(
+            (a, b) =>
+              new Date(b.scheduledDate).getTime() -
+              new Date(a.scheduledDate).getTime(),
+          )
           .slice(0, 7)
           .reverse()
           .map((p) => ({
@@ -110,7 +125,9 @@ export default function ClientAnalyticsPage() {
       {}
       <div>
         <h1 className="text-4xl font-black tracking-tighter">Analytics</h1>
-        <p className="text-muted-foreground mt-1">Track your performance metrics</p>
+        <p className="text-muted-foreground mt-1">
+          Track your performance metrics
+        </p>
       </div>
 
       {}
@@ -123,8 +140,12 @@ export default function ClientAnalyticsPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black">{analytics.totalViews.toLocaleString()}</div>
-            <p className="text-xs text-muted-foreground mt-1">Total impressions</p>
+            <div className="text-3xl font-black">
+              {analytics.totalViews.toLocaleString()}
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">
+              Total impressions
+            </p>
           </CardContent>
         </Card>
 
@@ -136,7 +157,9 @@ export default function ClientAnalyticsPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black text-red-600">{analytics.totalLikes.toLocaleString()}</div>
+            <div className="text-3xl font-black text-red-600">
+              {analytics.totalLikes.toLocaleString()}
+            </div>
             <p className="text-xs text-muted-foreground mt-1">Total likes</p>
           </CardContent>
         </Card>
@@ -149,7 +172,9 @@ export default function ClientAnalyticsPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black text-blue-600">{analytics.totalShares.toLocaleString()}</div>
+            <div className="text-3xl font-black text-blue-600">
+              {analytics.totalShares.toLocaleString()}
+            </div>
             <p className="text-xs text-muted-foreground mt-1">Total shares</p>
           </CardContent>
         </Card>
@@ -162,8 +187,12 @@ export default function ClientAnalyticsPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black text-green-600">{analytics.engagementRate}%</div>
-            <p className="text-xs text-muted-foreground mt-1">Engagement rate</p>
+            <div className="text-3xl font-black text-green-600">
+              {analytics.engagementRate}%
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">
+              Engagement rate
+            </p>
           </CardContent>
         </Card>
       </div>
@@ -213,7 +242,9 @@ export default function ClientAnalyticsPage() {
       <Card className="border-2 border-black bg-primary/5">
         <CardContent className="pt-6">
           <p className="text-sm">
-            <span className="font-bold">💡 Note:</span> Analytics are updated daily. Your team manages all content. These metrics are for your transparency and reference only.
+            <span className="font-bold">💡 Note:</span> Analytics are updated
+            daily. Your team manages all content. These metrics are for your
+            transparency and reference only.
           </p>
         </CardContent>
       </Card>

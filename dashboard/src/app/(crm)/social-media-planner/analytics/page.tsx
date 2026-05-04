@@ -24,7 +24,10 @@ type AccountMetrics = {
 
 const NO_ACCOUNT = "__no_account__";
 
-function getAccountMetrics(post: SocialMediaPost, accountId: string): AccountMetrics {
+function getAccountMetrics(
+  post: SocialMediaPost,
+  accountId: string,
+): AccountMetrics {
   if (accountId === NO_ACCOUNT) {
     return {
       views: post.views || 0,
@@ -58,9 +61,13 @@ export default function AnalyticsPage() {
   const [dateTo, setDateTo] = useState("");
 
   const [isMetricsModalOpen, setIsMetricsModalOpen] = useState(false);
-  const [selectedPostForMetrics, setSelectedPostForMetrics] = useState<SocialMediaPost | null>(null);
+  const [selectedPostForMetrics, setSelectedPostForMetrics] =
+    useState<SocialMediaPost | null>(null);
 
-  const [syncingKey, setSyncingKey] = useState<{ postId: string; accountId: string } | null>(null);
+  const [syncingKey, setSyncingKey] = useState<{
+    postId: string;
+    accountId: string;
+  } | null>(null);
   const [syncError, setSyncError] = useState<string | null>(null);
 
   const [inlineEditingKey, setInlineEditingKey] = useState<{
@@ -122,14 +129,17 @@ export default function AnalyticsPage() {
 
   const filteredPosts = useMemo(() => {
     return posts.filter((post) => {
-      const matchesSearch = post.title.toLowerCase().includes(search.toLowerCase());
-      const matchesPlatform = !platformFilter || post.platform === platformFilter;
-      const matchesContentType = !contentTypeFilter || post.contentType === contentTypeFilter;
+      const matchesSearch = post.title
+        .toLowerCase()
+        .includes(search.toLowerCase());
+      const matchesPlatform =
+        !platformFilter || post.platform === platformFilter;
+      const matchesContentType =
+        !contentTypeFilter || post.contentType === contentTypeFilter;
       return matchesSearch && matchesPlatform && matchesContentType;
     });
   }, [posts, search, platformFilter, contentTypeFilter]);
 
-  
   const flatRows = useMemo(() => {
     return filteredPosts.flatMap((post) => {
       const accountIds =
@@ -147,7 +157,6 @@ export default function AnalyticsPage() {
     });
   }, [filteredPosts]);
 
-  
   const summary = useMemo(() => {
     return posts.reduce(
       (acc, p) => {
@@ -187,11 +196,20 @@ export default function AnalyticsPage() {
         }
         return acc;
       },
-      { totalViews: 0, totalLikes: 0, totalComments: 0, totalShares: 0, totalFollowersGained: 0 },
+      {
+        totalViews: 0,
+        totalLikes: 0,
+        totalComments: 0,
+        totalShares: 0,
+        totalFollowersGained: 0,
+      },
     );
   }, [posts]);
 
-  const handleSyncMetrics = async (post: SocialMediaPost, accountId: string) => {
+  const handleSyncMetrics = async (
+    post: SocialMediaPost,
+    accountId: string,
+  ) => {
     const postId = (post._id || post.id) as string;
     setSyncingKey({ postId, accountId });
     setSyncError(null);
@@ -251,10 +269,23 @@ export default function AnalyticsPage() {
   };
 
   const handleExportCSV = () => {
-    const headers = ["Title", "Platform", "Account ID", "Date", "Views", "Likes", "Comments", "Shares", "Followers", "Eng. Rate"];
+    const headers = [
+      "Title",
+      "Platform",
+      "Account ID",
+      "Date",
+      "Views",
+      "Likes",
+      "Comments",
+      "Shares",
+      "Followers",
+      "Eng. Rate",
+    ];
     const rows = flatRows.map(({ post, accountId }) => {
       const m = getAccountMetrics(post, accountId);
-      const er = m.views ? (((m.likes + m.comments + m.shares) / m.views) * 100).toFixed(2) + "%" : "—";
+      const er = m.views
+        ? (((m.likes + m.comments + m.shares) / m.views) * 100).toFixed(2) + "%"
+        : "—";
       return [
         `"${post.title.replace(/"/g, '""')}"`,
         post.platform,
@@ -303,13 +334,32 @@ export default function AnalyticsPage() {
       {}
       <header className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-4xl font-black tracking-tighter">SOCIAL MEDIA ANALYTICS</h1>
-          <p className="text-muted-foreground">Track post performance and engagement metrics.</p>
+          <h1 className="text-4xl font-black tracking-tighter">
+            SOCIAL MEDIA ANALYTICS
+          </h1>
+          <p className="text-muted-foreground">
+            Track post performance and engagement metrics.
+          </p>
         </div>
         <div className="flex items-center gap-2">
-          <Link href="/social-media-planner" className="px-3 py-2 border rounded-md text-sm font-semibold">Dashboard</Link>
-          <Link href="/social-media-planner/planner" className="px-3 py-2 border rounded-md text-sm font-semibold">Planner</Link>
-          <Link href="/social-media-planner/calendar" className="px-3 py-2 border rounded-md text-sm font-semibold">Calendar</Link>
+          <Link
+            href="/social-media-planner"
+            className="px-3 py-2 border rounded-md text-sm font-semibold"
+          >
+            Dashboard
+          </Link>
+          <Link
+            href="/social-media-planner/planner"
+            className="px-3 py-2 border rounded-md text-sm font-semibold"
+          >
+            Planner
+          </Link>
+          <Link
+            href="/social-media-planner/calendar"
+            className="px-3 py-2 border rounded-md text-sm font-semibold"
+          >
+            Calendar
+          </Link>
         </div>
       </header>
 
@@ -329,30 +379,53 @@ export default function AnalyticsPage() {
       {selectedClientId && (
         <>
           <div className="text-lg font-semibold text-gray-700">
-            Analytics for: <span className="text-black">{selectedClient?.name || "Selected Client"}</span>
+            Analytics for:{" "}
+            <span className="text-black">
+              {selectedClient?.name || "Selected Client"}
+            </span>
           </div>
 
           {}
           <section className="grid grid-cols-2 md:grid-cols-5 gap-4">
             <div className="border-2 border-black rounded-lg p-4 bg-blue-50">
-              <div className="text-sm font-semibold text-gray-600">Total Views</div>
-              <div className="text-3xl font-black text-blue-900 mt-2">{summary.totalViews.toLocaleString()}</div>
+              <div className="text-sm font-semibold text-gray-600">
+                Total Views
+              </div>
+              <div className="text-3xl font-black text-blue-900 mt-2">
+                {summary.totalViews.toLocaleString()}
+              </div>
             </div>
             <div className="border-2 border-black rounded-lg p-4 bg-red-50">
-              <div className="text-sm font-semibold text-gray-600">Total Likes</div>
-              <div className="text-3xl font-black text-red-900 mt-2">{summary.totalLikes.toLocaleString()}</div>
+              <div className="text-sm font-semibold text-gray-600">
+                Total Likes
+              </div>
+              <div className="text-3xl font-black text-red-900 mt-2">
+                {summary.totalLikes.toLocaleString()}
+              </div>
             </div>
             <div className="border-2 border-black rounded-lg p-4 bg-green-50">
-              <div className="text-sm font-semibold text-gray-600">Total Comments</div>
-              <div className="text-3xl font-black text-green-900 mt-2">{summary.totalComments.toLocaleString()}</div>
+              <div className="text-sm font-semibold text-gray-600">
+                Total Comments
+              </div>
+              <div className="text-3xl font-black text-green-900 mt-2">
+                {summary.totalComments.toLocaleString()}
+              </div>
             </div>
             <div className="border-2 border-black rounded-lg p-4 bg-purple-50">
-              <div className="text-sm font-semibold text-gray-600">Total Shares</div>
-              <div className="text-3xl font-black text-purple-900 mt-2">{summary.totalShares.toLocaleString()}</div>
+              <div className="text-sm font-semibold text-gray-600">
+                Total Shares
+              </div>
+              <div className="text-3xl font-black text-purple-900 mt-2">
+                {summary.totalShares.toLocaleString()}
+              </div>
             </div>
             <div className="border-2 border-black rounded-lg p-4 bg-orange-50">
-              <div className="text-sm font-semibold text-gray-600">Followers Gained</div>
-              <div className="text-3xl font-black text-orange-900 mt-2">{summary.totalFollowersGained.toLocaleString()}</div>
+              <div className="text-sm font-semibold text-gray-600">
+                Followers Gained
+              </div>
+              <div className="text-3xl font-black text-orange-900 mt-2">
+                {summary.totalFollowersGained.toLocaleString()}
+              </div>
             </div>
           </section>
 
@@ -360,7 +433,12 @@ export default function AnalyticsPage() {
           {syncError && (
             <div className="rounded-lg border-2 border-red-400 bg-red-50 px-4 py-3 text-sm text-red-800 flex items-center justify-between">
               <span>{syncError}</span>
-              <button className="ml-4 text-xs underline" onClick={() => setSyncError(null)}>Dismiss</button>
+              <button
+                className="ml-4 text-xs underline"
+                onClick={() => setSyncError(null)}
+              >
+                Dismiss
+              </button>
             </div>
           )}
 
@@ -369,7 +447,9 @@ export default function AnalyticsPage() {
             <h3 className="text-lg font-bold mb-4">Filters</h3>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
               <div>
-                <label className="block text-sm font-semibold mb-2">Search Posts</label>
+                <label className="block text-sm font-semibold mb-2">
+                  Search Posts
+                </label>
                 <Input
                   placeholder="Search by title..."
                   value={search}
@@ -377,7 +457,9 @@ export default function AnalyticsPage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold mb-2">Platform</label>
+                <label className="block text-sm font-semibold mb-2">
+                  Platform
+                </label>
                 <select
                   className="w-full px-3 py-2 border rounded-md"
                   value={platformFilter}
@@ -385,12 +467,16 @@ export default function AnalyticsPage() {
                 >
                   <option value="">All Platforms</option>
                   {SOCIAL_PLATFORMS.map((p) => (
-                    <option key={p} value={p}>{p}</option>
+                    <option key={p} value={p}>
+                      {p}
+                    </option>
                   ))}
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-semibold mb-2">Content Type</label>
+                <label className="block text-sm font-semibold mb-2">
+                  Content Type
+                </label>
                 <select
                   className="w-full px-3 py-2 border rounded-md"
                   value={contentTypeFilter}
@@ -398,17 +484,31 @@ export default function AnalyticsPage() {
                 >
                   <option value="">All Types</option>
                   {CONTENT_TYPES.map((ct) => (
-                    <option key={ct} value={ct}>{ct}</option>
+                    <option key={ct} value={ct}>
+                      {ct}
+                    </option>
                   ))}
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-semibold mb-2">From Date</label>
-                <Input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} />
+                <label className="block text-sm font-semibold mb-2">
+                  From Date
+                </label>
+                <Input
+                  type="date"
+                  value={dateFrom}
+                  onChange={(e) => setDateFrom(e.target.value)}
+                />
               </div>
               <div>
-                <label className="block text-sm font-semibold mb-2">To Date</label>
-                <Input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} />
+                <label className="block text-sm font-semibold mb-2">
+                  To Date
+                </label>
+                <Input
+                  type="date"
+                  value={dateTo}
+                  onChange={(e) => setDateTo(e.target.value)}
+                />
               </div>
             </div>
           </section>
@@ -429,8 +529,12 @@ export default function AnalyticsPage() {
             )}
             {flatRows.length === 0 ? (
               <div className="p-6 text-center text-gray-600">
-                <p className="text-lg">📊 No analytics data available for this client</p>
-                <p className="text-sm text-gray-500 mt-2">Posts will appear here once created and metrics are updated.</p>
+                <p className="text-lg">
+                  📊 No analytics data available for this client
+                </p>
+                <p className="text-sm text-gray-500 mt-2">
+                  Posts will appear here once created and metrics are updated.
+                </p>
               </div>
             ) : (
               <div className="overflow-x-auto">
@@ -438,210 +542,265 @@ export default function AnalyticsPage() {
                   <thead className="bg-black text-white">
                     <tr>
                       <th className="px-4 py-2 text-left font-bold">Title</th>
-                      <th className="px-4 py-2 text-center font-bold">Platform</th>
-                      <th className="px-4 py-2 text-center font-bold">Account</th>
+                      <th className="px-4 py-2 text-center font-bold">
+                        Platform
+                      </th>
+                      <th className="px-4 py-2 text-center font-bold">
+                        Account
+                      </th>
                       <th className="px-4 py-2 text-center font-bold">Date</th>
                       <th className="px-4 py-2 text-right font-bold">Views</th>
                       <th className="px-4 py-2 text-right font-bold">Likes</th>
-                      <th className="px-4 py-2 text-right font-bold">Comments</th>
+                      <th className="px-4 py-2 text-right font-bold">
+                        Comments
+                      </th>
                       <th className="px-4 py-2 text-right font-bold">Shares</th>
-                      <th className="px-4 py-2 text-right font-bold">Followers</th>
-                      <th className="px-4 py-2 text-right font-bold">Eng. Rate</th>
-                      <th className="px-4 py-2 text-center font-bold">Actions</th>
+                      <th className="px-4 py-2 text-right font-bold">
+                        Followers
+                      </th>
+                      <th className="px-4 py-2 text-right font-bold">
+                        Eng. Rate
+                      </th>
+                      <th className="px-4 py-2 text-center font-bold">
+                        Actions
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
-                    {flatRows.map(({ post, accountId, isFirst, totalAccounts }, rowIdx) => {
-                      const postId = (post._id || post.id) as string;
-                      const isEditing =
-                        inlineEditingKey?.postId === postId &&
-                        inlineEditingKey?.accountId === accountId;
-                      const metrics = getAccountMetrics(post, accountId);
+                    {flatRows.map(
+                      ({ post, accountId, isFirst, totalAccounts }, rowIdx) => {
+                        const postId = (post._id || post.id) as string;
+                        const isEditing =
+                          inlineEditingKey?.postId === postId &&
+                          inlineEditingKey?.accountId === accountId;
+                        const metrics = getAccountMetrics(post, accountId);
 
-                      
-                      const bgClass = rowIdx % 2 === 0 ? "bg-gray-50" : "bg-white";
-                      const borderClass = isFirst && rowIdx !== 0 ? "border-t-2 border-gray-300" : "";
+                        const bgClass =
+                          rowIdx % 2 === 0 ? "bg-gray-50" : "bg-white";
+                        const borderClass =
+                          isFirst && rowIdx !== 0
+                            ? "border-t-2 border-gray-300"
+                            : "";
 
-                      return (
-                        <tr
-                          key={`${postId}-${accountId}`}
-                          className={`${bgClass} ${borderClass}`}
-                        >
-                          {}
-                          <td className="px-4 py-3 font-semibold text-gray-900 max-w-[180px]">
-                            {isFirst ? post.title : (
-                              <span className="text-gray-400 text-xs italic">↳ {post.title}</span>
-                            )}
-                          </td>
-                          <td className="px-4 py-3 text-center text-sm">
-                            {isFirst ? post.platform : ""}
-                          </td>
-                          <td className="px-4 py-3 text-center text-sm">
-                            {accountId === NO_ACCOUNT ? (
-                              <span className="text-gray-400 text-xs">No account</span>
-                            ) : (
-                              <PostAccountDisplay accountId={accountId} />
-                            )}
-                          </td>
-                          <td className="px-4 py-3 text-center text-sm text-gray-600">
-                            {isFirst ? post.scheduledDate : ""}
-                          </td>
+                        return (
+                          <tr
+                            key={`${postId}-${accountId}`}
+                            className={`${bgClass} ${borderClass}`}
+                          >
+                            {}
+                            <td className="px-4 py-3 font-semibold text-gray-900 max-w-[180px]">
+                              {isFirst ? (
+                                post.title
+                              ) : (
+                                <span className="text-gray-400 text-xs italic">
+                                  ↳ {post.title}
+                                </span>
+                              )}
+                            </td>
+                            <td className="px-4 py-3 text-center text-sm">
+                              {isFirst ? post.platform : ""}
+                            </td>
+                            <td className="px-4 py-3 text-center text-sm">
+                              {accountId === NO_ACCOUNT ? (
+                                <span className="text-gray-400 text-xs">
+                                  No account
+                                </span>
+                              ) : (
+                                <PostAccountDisplay accountId={accountId} />
+                              )}
+                            </td>
+                            <td className="px-4 py-3 text-center text-sm text-gray-600">
+                              {isFirst ? post.scheduledDate : ""}
+                            </td>
 
-                          {}
-                          <td className="px-4 py-3 text-right">
-                            {isEditing ? (
-                              <input
-                                type="number"
-                                min="0"
-                                value={inlineMetrics.views}
-                                onChange={(e) =>
-                                  setInlineMetrics((prev) => ({
-                                    ...prev,
-                                    views: Math.max(0, parseInt(e.target.value) || 0),
-                                  }))
-                                }
-                                className="w-20 px-2 py-1 border rounded text-right font-semibold"
-                              />
-                            ) : (
-                              <span className="font-semibold">{metrics.views.toLocaleString()}</span>
-                            )}
-                          </td>
+                            {}
+                            <td className="px-4 py-3 text-right">
+                              {isEditing ? (
+                                <input
+                                  type="number"
+                                  min="0"
+                                  value={inlineMetrics.views}
+                                  onChange={(e) =>
+                                    setInlineMetrics((prev) => ({
+                                      ...prev,
+                                      views: Math.max(
+                                        0,
+                                        parseInt(e.target.value) || 0,
+                                      ),
+                                    }))
+                                  }
+                                  className="w-20 px-2 py-1 border rounded text-right font-semibold"
+                                />
+                              ) : (
+                                <span className="font-semibold">
+                                  {metrics.views.toLocaleString()}
+                                </span>
+                              )}
+                            </td>
 
-                          {}
-                          <td className="px-4 py-3 text-right">
-                            {isEditing ? (
-                              <input
-                                type="number"
-                                min="0"
-                                value={inlineMetrics.likes}
-                                onChange={(e) =>
-                                  setInlineMetrics((prev) => ({
-                                    ...prev,
-                                    likes: Math.max(0, parseInt(e.target.value) || 0),
-                                  }))
-                                }
-                                className="w-20 px-2 py-1 border rounded text-right font-semibold"
-                              />
-                            ) : (
-                              <span className="font-semibold">{metrics.likes.toLocaleString()}</span>
-                            )}
-                          </td>
+                            {}
+                            <td className="px-4 py-3 text-right">
+                              {isEditing ? (
+                                <input
+                                  type="number"
+                                  min="0"
+                                  value={inlineMetrics.likes}
+                                  onChange={(e) =>
+                                    setInlineMetrics((prev) => ({
+                                      ...prev,
+                                      likes: Math.max(
+                                        0,
+                                        parseInt(e.target.value) || 0,
+                                      ),
+                                    }))
+                                  }
+                                  className="w-20 px-2 py-1 border rounded text-right font-semibold"
+                                />
+                              ) : (
+                                <span className="font-semibold">
+                                  {metrics.likes.toLocaleString()}
+                                </span>
+                              )}
+                            </td>
 
-                          {}
-                          <td className="px-4 py-3 text-right">
-                            {isEditing ? (
-                              <input
-                                type="number"
-                                min="0"
-                                value={inlineMetrics.comments}
-                                onChange={(e) =>
-                                  setInlineMetrics((prev) => ({
-                                    ...prev,
-                                    comments: Math.max(0, parseInt(e.target.value) || 0),
-                                  }))
-                                }
-                                className="w-20 px-2 py-1 border rounded text-right font-semibold"
-                              />
-                            ) : (
-                              <span className="font-semibold">{metrics.comments.toLocaleString()}</span>
-                            )}
-                          </td>
+                            {}
+                            <td className="px-4 py-3 text-right">
+                              {isEditing ? (
+                                <input
+                                  type="number"
+                                  min="0"
+                                  value={inlineMetrics.comments}
+                                  onChange={(e) =>
+                                    setInlineMetrics((prev) => ({
+                                      ...prev,
+                                      comments: Math.max(
+                                        0,
+                                        parseInt(e.target.value) || 0,
+                                      ),
+                                    }))
+                                  }
+                                  className="w-20 px-2 py-1 border rounded text-right font-semibold"
+                                />
+                              ) : (
+                                <span className="font-semibold">
+                                  {metrics.comments.toLocaleString()}
+                                </span>
+                              )}
+                            </td>
 
-                          {}
-                          <td className="px-4 py-3 text-right">
-                            {isEditing ? (
-                              <input
-                                type="number"
-                                min="0"
-                                value={inlineMetrics.shares}
-                                onChange={(e) =>
-                                  setInlineMetrics((prev) => ({
-                                    ...prev,
-                                    shares: Math.max(0, parseInt(e.target.value) || 0),
-                                  }))
-                                }
-                                className="w-20 px-2 py-1 border rounded text-right font-semibold"
-                              />
-                            ) : (
-                              <span className="font-semibold">{metrics.shares.toLocaleString()}</span>
-                            )}
-                          </td>
+                            {}
+                            <td className="px-4 py-3 text-right">
+                              {isEditing ? (
+                                <input
+                                  type="number"
+                                  min="0"
+                                  value={inlineMetrics.shares}
+                                  onChange={(e) =>
+                                    setInlineMetrics((prev) => ({
+                                      ...prev,
+                                      shares: Math.max(
+                                        0,
+                                        parseInt(e.target.value) || 0,
+                                      ),
+                                    }))
+                                  }
+                                  className="w-20 px-2 py-1 border rounded text-right font-semibold"
+                                />
+                              ) : (
+                                <span className="font-semibold">
+                                  {metrics.shares.toLocaleString()}
+                                </span>
+                              )}
+                            </td>
 
-                          {}
-                          <td className="px-4 py-3 text-right">
-                            {isEditing ? (
-                              <input
-                                type="number"
-                                min="0"
-                                value={inlineMetrics.followers_gained}
-                                onChange={(e) =>
-                                  setInlineMetrics((prev) => ({
-                                    ...prev,
-                                    followers_gained: Math.max(0, parseInt(e.target.value) || 0),
-                                  }))
-                                }
-                                className="w-20 px-2 py-1 border rounded text-right font-semibold"
-                              />
-                            ) : (
-                              <span className="font-semibold">{metrics.followers_gained.toLocaleString()}</span>
-                            )}
-                          </td>
+                            {}
+                            <td className="px-4 py-3 text-right">
+                              {isEditing ? (
+                                <input
+                                  type="number"
+                                  min="0"
+                                  value={inlineMetrics.followers_gained}
+                                  onChange={(e) =>
+                                    setInlineMetrics((prev) => ({
+                                      ...prev,
+                                      followers_gained: Math.max(
+                                        0,
+                                        parseInt(e.target.value) || 0,
+                                      ),
+                                    }))
+                                  }
+                                  className="w-20 px-2 py-1 border rounded text-right font-semibold"
+                                />
+                              ) : (
+                                <span className="font-semibold">
+                                  {metrics.followers_gained.toLocaleString()}
+                                </span>
+                              )}
+                            </td>
 
-                          {}
-                          <td className="px-4 py-3 text-right text-sm font-semibold text-indigo-700">
-                            {isEditing ? "—" : engagementRate(metrics)}
-                          </td>
+                            {}
+                            <td className="px-4 py-3 text-right text-sm font-semibold text-indigo-700">
+                              {isEditing ? "—" : engagementRate(metrics)}
+                            </td>
 
-                          {}
-                          <td className="px-4 py-3 text-center">
-                            {isEditing ? (
-                              <div className="flex gap-2 justify-center">
-                                <Button
-                                  size="sm"
-                                  className="text-xs bg-green-600 hover:bg-green-700"
-                                  onClick={handleSaveInlineMetrics}
-                                >
-                                  Save
-                                </Button>
-                                <Button
-                                  size="sm"
-                                  variant="outline"
-                                  className="text-xs"
-                                  onClick={handleCancelInlineEdit}
-                                >
-                                  Cancel
-                                </Button>
-                              </div>
-                            ) : (
-                              <div className="flex gap-1 justify-center">
-                                {}
-                                {(post.platform === "Facebook" || post.platform === "Instagram") && accountId !== NO_ACCOUNT && (
+                            {}
+                            <td className="px-4 py-3 text-center">
+                              {isEditing ? (
+                                <div className="flex gap-2 justify-center">
+                                  <Button
+                                    size="sm"
+                                    className="text-xs bg-green-600 hover:bg-green-700"
+                                    onClick={handleSaveInlineMetrics}
+                                  >
+                                    Save
+                                  </Button>
                                   <Button
                                     size="sm"
                                     variant="outline"
-                                    className="text-xs border-blue-500 text-blue-700 hover:bg-blue-50"
-                                    disabled={!!syncingKey}
-                                    onClick={() => handleSyncMetrics(post, accountId)}
-                                    title="Fetch live metrics from Meta Graph API"
+                                    className="text-xs"
+                                    onClick={handleCancelInlineEdit}
                                   >
-                                    {syncingKey?.postId === postId && syncingKey?.accountId === accountId
-                                      ? "Syncing…"
-                                      : "Sync"}
+                                    Cancel
                                   </Button>
-                                )}
-                                <Button
-                                  size="sm"
-                                  className="text-xs"
-                                  onClick={() => handleStartInlineEdit(post, accountId)}
-                                >
-                                  Edit
-                                </Button>
-                              </div>
-                            )}
-                          </td>
-                        </tr>
-                      );
-                    })}
+                                </div>
+                              ) : (
+                                <div className="flex gap-1 justify-center">
+                                  {}
+                                  {(post.platform === "Facebook" ||
+                                    post.platform === "Instagram") &&
+                                    accountId !== NO_ACCOUNT && (
+                                      <Button
+                                        size="sm"
+                                        variant="outline"
+                                        className="text-xs border-blue-500 text-blue-700 hover:bg-blue-50"
+                                        disabled={!!syncingKey}
+                                        onClick={() =>
+                                          handleSyncMetrics(post, accountId)
+                                        }
+                                        title="Fetch live metrics from Meta Graph API"
+                                      >
+                                        {syncingKey?.postId === postId &&
+                                        syncingKey?.accountId === accountId
+                                          ? "Syncing…"
+                                          : "Sync"}
+                                      </Button>
+                                    )}
+                                  <Button
+                                    size="sm"
+                                    className="text-xs"
+                                    onClick={() =>
+                                      handleStartInlineEdit(post, accountId)
+                                    }
+                                  >
+                                    Edit
+                                  </Button>
+                                </div>
+                              )}
+                            </td>
+                          </tr>
+                        );
+                      },
+                    )}
                   </tbody>
                 </table>
               </div>

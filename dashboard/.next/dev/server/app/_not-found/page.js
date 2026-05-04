@@ -1,11 +1,23 @@
-var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/_not-found/page.js")
-R.c("server/chunks/ssr/c729b_next_dist_53a15890._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__a1936c5c._.js")
-R.c("server/chunks/ssr/c729b_07899e3c._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__864ab248._.js")
-R.c("server/chunks/ssr/Desktop_Projects_final-pixelate_dashboard_8223186d._.js")
-R.c("server/chunks/ssr/c729b_next_dist_client_components_51727e70._.js")
-R.c("server/chunks/ssr/c729b_next_dist_client_components_builtin_forbidden_6557e82b.js")
-R.c("server/chunks/ssr/09130_dashboard__next-internal_server_app__not-found_page_actions_17e8c379.js")
-R.m("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/build/templates/app-page.js?page=/_not-found/page { MODULE_0 => \"[project]/Desktop/Projects/final-pixelate/dashboard/src/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_1 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_2 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_3 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_4 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)\" } [app-rsc] (ecmascript)")
-module.exports=R.m("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/build/templates/app-page.js?page=/_not-found/page { MODULE_0 => \"[project]/Desktop/Projects/final-pixelate/dashboard/src/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_1 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_2 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_3 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)\", MODULE_4 => \"[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)\" } [app-rsc] (ecmascript)").exports
+var R = require("../../chunks/ssr/[turbopack]_runtime.js")(
+  "server/app/_not-found/page.js",
+);
+R.c("server/chunks/ssr/c729b_next_dist_53a15890._.js");
+R.c("server/chunks/ssr/[root-of-the-server]__a1936c5c._.js");
+R.c("server/chunks/ssr/c729b_07899e3c._.js");
+R.c("server/chunks/ssr/[root-of-the-server]__864ab248._.js");
+R.c(
+  "server/chunks/ssr/Desktop_Projects_final-pixelate_dashboard_8223186d._.js",
+);
+R.c("server/chunks/ssr/c729b_next_dist_client_components_51727e70._.js");
+R.c(
+  "server/chunks/ssr/c729b_next_dist_client_components_builtin_forbidden_6557e82b.js",
+);
+R.c(
+  "server/chunks/ssr/09130_dashboard__next-internal_server_app__not-found_page_actions_17e8c379.js",
+);
+R.m(
+  '[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/build/templates/app-page.js?page=/_not-found/page { MODULE_0 => "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript)',
+);
+module.exports = R.m(
+  '[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/esm/build/templates/app-page.js?page=/_not-found/page { MODULE_0 => "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/layout.tsx [app-rsc] (ecmascript, Next.js Server Component)", MODULE_1 => "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_2 => "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/forbidden.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_3 => "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/unauthorized.js [app-rsc] (ecmascript, Next.js Server Component)", MODULE_4 => "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/client/components/builtin/not-found.js [app-rsc] (ecmascript, Next.js Server Component)" } [app-rsc] (ecmascript)',
+).exports;

@@ -37,8 +37,6 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-
-
 export type JourneyEventType =
   | "meeting"
   | "quotation"
@@ -74,8 +72,6 @@ export interface JourneyEvent {
   metadata?: Record<string, unknown>;
   createdAt?: string | Date;
 }
-
-
 
 const EVENT_TYPE_CONFIG: Record<
   JourneyEventType,
@@ -148,8 +144,6 @@ const STATUS_VARIANT: Record<string, string> = {
   Signed: "bg-purple-100 text-purple-800 border-purple-200",
 };
 
-
-
 function formatTime(date: Date) {
   return date.toLocaleTimeString("en-IN", {
     hour: "2-digit",
@@ -212,8 +206,6 @@ function groupByDate(events: JourneyEvent[]) {
 
   return groups;
 }
-
-
 
 interface AddEventDialogProps {
   open: boolean;
@@ -453,8 +445,6 @@ function AddEventDialog({
   );
 }
 
-
-
 function JourneyCard({ event }: { event: JourneyEvent }) {
   const config = EVENT_TYPE_CONFIG[event.type] ?? EVENT_TYPE_CONFIG.note;
   const Icon = config.icon;
@@ -462,7 +452,10 @@ function JourneyCard({ event }: { event: JourneyEvent }) {
   const [expanded, setExpanded] = useState(false);
 
   const hasDetails =
-    !!event.description || !!event.fileUrl || !!event.linkUrl || !!event.projectName;
+    !!event.description ||
+    !!event.fileUrl ||
+    !!event.linkUrl ||
+    !!event.projectName;
 
   return (
     <div className="flex gap-3 group">
@@ -559,12 +552,16 @@ function JourneyCard({ event }: { event: JourneyEvent }) {
             {}
             {event.description && (
               <div className="text-sm text-muted-foreground font-medium space-y-1">
-                {event.description.split('\n\n').map((block, i) => (
+                {event.description.split("\n\n").map((block, i) => (
                   <div key={i}>
-                    {block.split('\n').map((line, j) => (
+                    {block.split("\n").map((line, j) => (
                       <p
                         key={j}
-                        className={line.startsWith('  •') ? 'ml-3 leading-relaxed' : 'leading-relaxed'}
+                        className={
+                          line.startsWith("  •")
+                            ? "ml-3 leading-relaxed"
+                            : "leading-relaxed"
+                        }
                       >
                         {line}
                       </p>
@@ -618,8 +615,6 @@ function JourneyCard({ event }: { event: JourneyEvent }) {
   );
 }
 
-
-
 function DateSeparator({ label, date }: { label: string; date: Date }) {
   return (
     <div className="flex items-center gap-3 py-2">
@@ -637,8 +632,6 @@ function DateSeparator({ label, date }: { label: string; date: Date }) {
     </div>
   );
 }
-
-
 
 function EmptyFeed({ clientSelected }: { clientSelected: boolean }) {
   return (
@@ -660,8 +653,6 @@ function EmptyFeed({ clientSelected }: { clientSelected: boolean }) {
   );
 }
 
-
-
 export default function JourneyPage() {
   const [clients, setClients] = useState<{ id: string; name: string }[]>([]);
   const [selectedClientId, setSelectedClientId] = useState("");
@@ -671,7 +662,6 @@ export default function JourneyPage() {
   const [addOpen, setAddOpen] = useState(false);
   const feedEndRef = useRef<HTMLDivElement>(null);
 
-  
   useEffect(() => {
     fetch("/api/clients")
       .then((r) => r.json())
@@ -686,7 +676,6 @@ export default function JourneyPage() {
       .catch(console.error);
   }, []);
 
-  
   useEffect(() => {
     if (!selectedClientId) {
       setEvents([]);
@@ -700,7 +689,6 @@ export default function JourneyPage() {
       .finally(() => setLoading(false));
   }, [selectedClientId]);
 
-  
   useEffect(() => {
     if (events.length > 0) {
       feedEndRef.current?.scrollIntoView({ behavior: "smooth" });

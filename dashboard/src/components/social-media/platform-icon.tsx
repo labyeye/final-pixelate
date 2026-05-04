@@ -15,7 +15,11 @@ interface PlatformIconProps {
   className?: string;
 }
 
-export function PlatformIcon({ platform, size = "md", className = "" }: PlatformIconProps) {
+export function PlatformIcon({
+  platform,
+  size = "md",
+  className = "",
+}: PlatformIconProps) {
   const sizeMap = { sm: 16, md: 20, lg: 26 };
   const px = sizeMap[size];
 
@@ -23,19 +27,71 @@ export function PlatformIcon({ platform, size = "md", className = "" }: Platform
 
   switch (platform) {
     case "Instagram":
-      return <Image src={instagramIcon} alt="Instagram" width={px} height={px} className={imgClass} />;
+      return (
+        <Image
+          src={instagramIcon}
+          alt="Instagram"
+          width={px}
+          height={px}
+          className={imgClass}
+        />
+      );
     case "Facebook":
-      return <Image src={facebookIcon} alt="Facebook" width={px} height={px} className={imgClass} />;
+      return (
+        <Image
+          src={facebookIcon}
+          alt="Facebook"
+          width={px}
+          height={px}
+          className={imgClass}
+        />
+      );
     case "LinkedIn":
-      return <Image src={linkedinIcon} alt="LinkedIn" width={px} height={px} className={imgClass} />;
+      return (
+        <Image
+          src={linkedinIcon}
+          alt="LinkedIn"
+          width={px}
+          height={px}
+          className={imgClass}
+        />
+      );
     case "YouTube Shorts":
-      return <Image src={youtubeIcon} alt="YouTube Shorts" width={px} height={px} className={imgClass} />;
+      return (
+        <Image
+          src={youtubeIcon}
+          alt="YouTube Shorts"
+          width={px}
+          height={px}
+          className={imgClass}
+        />
+      );
     case "Google My Business":
-      return <Image src={gmbIcon} alt="Google My Business" width={px} height={px} className={imgClass} />;
+      return (
+        <Image
+          src={gmbIcon}
+          alt="Google My Business"
+          width={px}
+          height={px}
+          className={imgClass}
+        />
+      );
     case "X / Twitter":
-      return <Twitter size={px} className={`${className} flex-shrink-0`} strokeWidth={2.5} />;
+      return (
+        <Twitter
+          size={px}
+          className={`${className} flex-shrink-0`}
+          strokeWidth={2.5}
+        />
+      );
     case "WhatsApp Channel":
-      return <MessageCircle size={px} className={`${className} flex-shrink-0`} strokeWidth={2.5} />;
+      return (
+        <MessageCircle
+          size={px}
+          className={`${className} flex-shrink-0`}
+          strokeWidth={2.5}
+        />
+      );
     default:
       return null;
   }

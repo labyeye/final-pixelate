@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { getDb } from "@/lib/mongodb";
-import { createOnboardingJourneyEvent, parseJourneyOccurredAt } from "@/lib/journey-helpers";
+import {
+  createOnboardingJourneyEvent,
+  parseJourneyOccurredAt,
+} from "@/lib/journey-helpers";
 
 type RouteContext = { params: Promise<{ id: string }> };
 
@@ -18,7 +21,10 @@ export async function GET(_request: Request, context: RouteContext) {
   try {
     const id = await getRouteId(context);
     if (!id) {
-      return NextResponse.json({ error: "Invalid onboarding id" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid onboarding id" },
+        { status: 400 },
+      );
     }
 
     const item = await svc.findById("onboardings", id);
@@ -28,7 +34,10 @@ export async function GET(_request: Request, context: RouteContext) {
 
     return NextResponse.json(item);
   } catch (e: any) {
-    return NextResponse.json({ error: e.message || String(e) }, { status: 500 });
+    return NextResponse.json(
+      { error: e.message || String(e) },
+      { status: 500 },
+    );
   }
 }
 
@@ -36,7 +45,10 @@ export async function PUT(request: Request, context: RouteContext) {
   try {
     const id = await getRouteId(context);
     if (!id) {
-      return NextResponse.json({ error: "Invalid onboarding id" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid onboarding id" },
+        { status: 400 },
+      );
     }
 
     const body = await request.json();
@@ -73,7 +85,10 @@ export async function PUT(request: Request, context: RouteContext) {
                   null,
                 title: `Onboarding Completed${updated.projectTitle ? ` – ${updated.projectTitle}` : ""}`,
                 status: "Completed",
-                occurredAt: parseJourneyOccurredAt(updated.date, parseJourneyOccurredAt(existing.occurredAt)),
+                occurredAt: parseJourneyOccurredAt(
+                  updated.date,
+                  parseJourneyOccurredAt(existing.occurredAt),
+                ),
                 updatedAt: new Date(),
                 metadata: {
                   ...(existing.metadata ?? {}),
@@ -93,13 +108,19 @@ export async function PUT(request: Request, context: RouteContext) {
           );
         }
       } catch (journeyErr) {
-        console.error("Failed to sync onboarding update to journey:", journeyErr);
+        console.error(
+          "Failed to sync onboarding update to journey:",
+          journeyErr,
+        );
       }
     }
 
     return NextResponse.json(updated);
   } catch (e: any) {
-    return NextResponse.json({ error: e.message || String(e) }, { status: 500 });
+    return NextResponse.json(
+      { error: e.message || String(e) },
+      { status: 500 },
+    );
   }
 }
 
@@ -107,7 +128,10 @@ export async function DELETE(_request: Request, context: RouteContext) {
   try {
     const id = await getRouteId(context);
     if (!id) {
-      return NextResponse.json({ error: "Invalid onboarding id" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid onboarding id" },
+        { status: 400 },
+      );
     }
 
     const ok = await svc.deleteById("onboardings", id);
@@ -117,6 +141,9 @@ export async function DELETE(_request: Request, context: RouteContext) {
 
     return NextResponse.json({ success: true });
   } catch (e: any) {
-    return NextResponse.json({ error: e.message || String(e) }, { status: 500 });
+    return NextResponse.json(
+      { error: e.message || String(e) },
+      { status: 500 },
+    );
   }
 }

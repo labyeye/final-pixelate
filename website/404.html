@@ -52,7 +52,7 @@
         ]
       }
     </script>
-      <script id="pixelate-seo-schema" type="application/ld+json">
+    <script id="pixelate-seo-schema" type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@graph": [
@@ -82,15 +82,141 @@
               "@type": "Organization",
               "name": "Pixelate Nest (Kalahanu Tech Studios LLP)"
             }
-          },
+          }
         ]
       }
     </script>
-  <link rel="stylesheet" href="/assets/fonts/all.min.css">
-</head>
+    <link rel="stylesheet" href="/assets/fonts/all.min.css" />
+  </head>
   <body>
-  
+    <script>
+      (function () {
+        var path = window.location.pathname.replace(/\/$/, "").toLowerCase();
+        var search = window.location.search;
+
+        var redirectMap = {
+          "/about": "/pages/about.html",
+          "/about.html": "/pages/about.html",
+          "/contact": "/pages/contact.html",
+          "/contact.html": "/pages/contact.html",
+          "/pricing": "/pages/pricing.html",
+          "/pricing.html": "/pages/pricing.html",
+          "/careers": "/pages/careers.html",
+          "/careers.html": "/pages/careers.html",
+          "/blogs": "/blog/index.html",
+          "/blogs.html": "/blog/index.html",
+          "/blog-post": "/blog/index.html",
+          "/blog-post.html": "/blog/index.html",
+          "/technologies": "/pages/technologies.html",
+          "/photography": "/pages/photography.html",
+          "/location.html": "/pages/locations.html",
+          "/locations.html": "/pages/locations.html",
+          "/privacy-policy": "/legal/privacy-policy.html",
+          "/privacy-policy.html": "/legal/privacy-policy.html",
+          "/terms-of-service": "/legal/terms-of-service.html",
+          "/terms-of-service.html": "/legal/terms-of-service.html",
+          "/cookie-policy": "/legal/cookie-policy.html",
+          "/cookie-policy.html": "/legal/cookie-policy.html",
+          "/refund-policy": "/legal/refund-policy.html",
+          "/refund-policy.html": "/legal/refund-policy.html",
+          "/software-dev": "/services/software-development.html",
+          "/software-dev.html": "/services/software-development.html",
+          "/software-dev.html.html": "/services/software-development.html",
+          "/app-dev": "/services/app-development.html",
+          "/app-dev.html": "/services/app-development.html",
+          "/appdev": "/services/app-development.html",
+          "/appdev.html": "/services/app-development.html",
+          "/webdev": "/services/web-development.html",
+          "/webdev.html": "/services/web-development.html",
+          "/video-ed": "/services/video-editing.html",
+          "/video-ed.html": "/services/video-editing.html",
+          "/videoediting": "/services/video-editing.html",
+          "/videoediting.html": "/services/video-editing.html",
+          "/hosting-maintenance": "/services/hosting-maintenance.html",
+          "/services.html": "/services/index.html",
+          "/detailed-services-uiux.html": "/services/uiux-branding.html",
+          "/detailed-services-digital.html": "/services/digital-marketing.html",
+          "/industry-ecommerce": "/industries/ecommerce.html",
+          "/industry-ecommerce.html": "/industries/ecommerce.html",
+          "/industry-logistics": "/industries/logistics.html",
+          "/industry-logistics.html": "/industries/logistics.html",
+          "/industry-manufacturing": "/industries/manufacturing.html",
+          "/industry-manufacturing.html": "/industries/manufacturing.html",
+          "/industry-travel": "/industries/travel.html",
+          "/industry-travel.html": "/industries/travel.html",
+          "/industry-realestate": "/industries/real-estate.html",
+          "/industry-education": "/industries/education.html",
+          "/industry-healthcare": "/industries/education.html",
+          "/industry-healthcare.html": "/industries/education.html",
+          "/industry-finance": "/",
+          "/industry-media": "/",
+          "/state": "/pages/locations.html",
+          "/state.html": "/pages/locations.html",
+          "/search": "/",
+          "/counter-billing-bihar.html": "/pages/locations.html",
+        };
+
+        if (redirectMap[path]) {
+          window.location.replace(redirectMap[path]);
+          return;
+        }
+
+        // detailed-services with query string
+        if (
+          path === "/detailed-services" ||
+          path === "/detailed-services.html"
+        ) {
+          var svc = new URLSearchParams(search).get("service") || "";
+          var svcMap = {
+            "web-development": "/services/web-development.html",
+            "app-development": "/services/app-development.html",
+            "software-development": "/services/software-development.html",
+            "video-editing": "/services/video-editing.html",
+            "digital-marketing": "/services/digital-marketing.html",
+          };
+          window.location.replace(svcMap[svc] || "/services/index.html");
+          return;
+        }
+
+        // detailed-services/slug
+        if (path.startsWith("/detailed-services/")) {
+          var slug = path.replace("/detailed-services/", "");
+          var slugMap = {
+            "video-editing": "/services/video-editing.html",
+            "app-development": "/services/app-development.html",
+            "web-development": "/services/web-development.html",
+            "software-development": "/services/software-development.html",
+          };
+          window.location.replace(slugMap[slug] || "/services/index.html");
+          return;
+        }
+
+        // Old root-level location paths → /locations/ subdirectory
+        if (path.startsWith("/counter-billing-bihar/")) {
+          var p = path.replace("/counter-billing-bihar/", "");
+          if (
+            p === "counter-billing-sharif" ||
+            p === "counter-billing-sharif.html"
+          )
+            p = "counter-billing-bihar-sharif.html";
+          window.location.replace("/locations/counter-billing-bihar/" + p);
+          return;
+        }
+        if (path.startsWith("/school-crm-bihar/")) {
+          window.location.replace(
+            "/locations/school-crm-bihar/" +
+              path.replace("/school-crm-bihar/", ""),
+          );
+          return;
+        }
+        if (path.startsWith("/factory-management-bihar/")) {
+          window.location.replace(
+            "/locations/factory-management-bihar/" +
+              path.replace("/factory-management-bihar/", ""),
+          );
+          return;
+        }
+      })();
+    </script>
   </body>
 </html>
-
-

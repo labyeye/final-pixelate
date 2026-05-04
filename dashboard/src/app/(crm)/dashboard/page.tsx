@@ -25,7 +25,6 @@ import { PaymentReceiptModal } from "@/components/dashboard/payment-receipt-moda
 import { TaskCreationModal } from "@/components/dashboard/task-creation-modal";
 import { TrendsSection } from "@/components/dashboard/trends-section";
 
-
 const MONTH_NAMES = [
   "Jan",
   "Feb",
@@ -64,7 +63,6 @@ export default function DashboardPage() {
   const [services, setServices] = useState<any[]>([]);
   const [teamMembers, setTeamMembers] = useState<any[]>([]);
 
-  
   function AnimatedNumber({
     value,
     duration = 800,
@@ -150,13 +148,12 @@ export default function DashboardPage() {
         setProjects(projectsData || []);
         setInvoices(invoicesData || []);
         setExpenses(expensesData || []);
-        
+
         setLeads(Array.isArray(leadsData) ? leadsData : []);
         setQuotations(quotationsData || []);
         setServices(servicesData || []);
         setTeamMembers(Array.isArray(teamMembersData) ? teamMembersData : []);
 
-        
         const clientsList = await (await fetch("/api/clients")).json();
         setClients(clientsList || []);
         const clientsCount = (clientsList || []).length || 0;
@@ -165,7 +162,7 @@ export default function DashboardPage() {
           (s: any, inv: any) => s + Number(inv.amount || 0),
           0,
         );
-        
+
         const totalExpense = (expensesData || []).reduce(
           (s: any, ex: any) => s + Number(ex.amount || 0),
           0,
@@ -240,7 +237,6 @@ export default function DashboardPage() {
     };
   }, []);
 
-  
   const projectStatusCounts = projects.reduce(
     (acc, project) => {
       const status = project.status || "BACKLOG";
@@ -284,7 +280,6 @@ export default function DashboardPage() {
     .map(([service, count]) => ({ service, count }))
     .sort((a, b) => b.count - a.count);
 
-  
   const revenueData = (() => {
     const now = new Date();
     const months: { month: string; revenue: number }[] = [];
@@ -312,7 +307,6 @@ export default function DashboardPage() {
     .filter((p) => p.status === "COMPLETED")
     .map((p) => ({ title: p.title, amount: Number(p.amount || 0) }));
 
-  
   const myEarnings = (() => {
     if (!user || user.role !== "staff") return 0;
     const uid = user.id ?? (user._id as any);
@@ -321,7 +315,7 @@ export default function DashboardPage() {
       const ass = p.assignees || [];
       for (const aRaw of ass) {
         const a: any = aRaw as any;
-        
+
         const aid =
           a && (a.id ?? a._id ?? a.teamMemberId ?? a.memberId ?? a.userId ?? a);
         if (!aid) continue;
@@ -333,7 +327,6 @@ export default function DashboardPage() {
     return sum;
   })();
 
-  
   const myEarningsByProject = (() => {
     if (!user || user.role !== "staff")
       return [] as {
@@ -356,14 +349,10 @@ export default function DashboardPage() {
         if (!aid) continue;
         if (String(aid) === String(uid)) {
           const pid = String(p._id ?? p.id ?? p.title);
-          
-          
-          
-          
+
           let clientName = (p as any).clientName || "-";
           try {
             if (!clientName || clientName === "-") {
-              
               if (
                 p.client &&
                 typeof p.client === "object" &&
@@ -374,7 +363,6 @@ export default function DashboardPage() {
                   (p.client as any).title ||
                   String(p.client);
               } else if (p.client) {
-                
                 const found = (clients || []).find(
                   (c: any) => String(c.id ?? c._id) === String(p.client),
                 );
@@ -400,7 +388,7 @@ export default function DashboardPage() {
             clientName,
           };
           prev.payout += Number(a.payout || 0);
-          
+
           if (!prev.clientName) prev.clientName = clientName;
           map.set(pid, prev);
         }
@@ -418,7 +406,6 @@ export default function DashboardPage() {
             Real-time pulse of your agency.
           </p>
         </div>
-        
       </header>
 
       <Tabs defaultValue="overview">

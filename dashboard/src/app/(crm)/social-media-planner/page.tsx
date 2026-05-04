@@ -64,12 +64,19 @@ export default function SocialMediaPlannerDashboardPage() {
     ) as Record<string, number>;
 
     const dateTimePairs = posts
-      .map((item) => ({ item, dt: toDateTime(item.scheduledDate, item.scheduledTime) }))
+      .map((item) => ({
+        item,
+        dt: toDateTime(item.scheduledDate, item.scheduledTime),
+      }))
       .filter((x) => x.dt);
 
-    const todaysPosts = dateTimePairs.filter((x) => isSameDate(x.dt as Date, now)).length;
+    const todaysPosts = dateTimePairs.filter((x) =>
+      isSameDate(x.dt as Date, now),
+    ).length;
     const thisWeeksPosts = dateTimePairs.filter(
-      (x) => (x.dt as Date) >= new Date(now.setHours(0, 0, 0, 0)) && (x.dt as Date) <= weekEnd,
+      (x) =>
+        (x.dt as Date) >= new Date(now.setHours(0, 0, 0, 0)) &&
+        (x.dt as Date) <= weekEnd,
     ).length;
 
     const platformWise = Object.fromEntries(
@@ -92,9 +99,12 @@ export default function SocialMediaPlannerDashboardPage() {
     const nowRef = new Date();
     return posts
       .filter((item) => item.status === "Scheduled")
-      .map((item) => ({ item, dt: toDateTime(item.scheduledDate, item.scheduledTime) }))
+      .map((item) => ({
+        item,
+        dt: toDateTime(item.scheduledDate, item.scheduledTime),
+      }))
       .filter((x) => x.dt && (x.dt as Date) >= nowRef)
-      .sort((a, b) => +((a.dt as Date)) - +((b.dt as Date)))
+      .sort((a, b) => +(a.dt as Date) - +(b.dt as Date))
       .slice(0, 8)
       .map((x) => x.item);
   }, [posts]);
@@ -105,7 +115,11 @@ export default function SocialMediaPlannerDashboardPage() {
       .filter((item) => {
         const dt = toDateTime(item.scheduledDate, item.scheduledTime);
         if (!dt) return item.status === "Missed";
-        return item.status === "Missed" || ((item.status === "Scheduled" || item.status === "Ready") && dt < nowRef);
+        return (
+          item.status === "Missed" ||
+          ((item.status === "Scheduled" || item.status === "Ready") &&
+            dt < nowRef)
+        );
       })
       .sort((a, b) => {
         const ad = toDateTime(a.scheduledDate, a.scheduledTime);
@@ -118,7 +132,11 @@ export default function SocialMediaPlannerDashboardPage() {
   const recentPosted = useMemo(() => {
     return posts
       .filter((item) => item.status === "Posted")
-      .sort((a, b) => +(new Date(b.updatedAt || b.createdAt || 0)) - +(new Date(a.updatedAt || a.createdAt || 0)))
+      .sort(
+        (a, b) =>
+          +new Date(b.updatedAt || b.createdAt || 0) -
+          +new Date(a.updatedAt || a.createdAt || 0),
+      )
       .slice(0, 8);
   }, [posts]);
 
@@ -147,21 +165,38 @@ export default function SocialMediaPlannerDashboardPage() {
     <div className="space-y-8 font-headline">
       <header className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-4xl font-black tracking-tighter">SOCIAL MEDIA PLANNER</h1>
-          <p className="text-muted-foreground">Dashboard overview of social media posts</p>
+          <h1 className="text-4xl font-black tracking-tighter">
+            SOCIAL MEDIA PLANNER
+          </h1>
+          <p className="text-muted-foreground">
+            Dashboard overview of social media posts
+          </p>
         </div>
         <div className="flex items-center gap-2">
-          <Link href="/social-media-planner/planner" className="px-3 py-2 border rounded-md text-sm font-semibold">Planner</Link>
-          <Link href="/social-media-planner/calendar" className="px-3 py-2 border rounded-md text-sm font-semibold">Calendar</Link>
-          <Link href="/social-media-planner/analytics" className="px-3 py-2 border rounded-md text-sm font-semibold">Analytics</Link>
+          <Link
+            href="/social-media-planner/planner"
+            className="px-3 py-2 border rounded-md text-sm font-semibold"
+          >
+            Planner
+          </Link>
+          <Link
+            href="/social-media-planner/calendar"
+            className="px-3 py-2 border rounded-md text-sm font-semibold"
+          >
+            Calendar
+          </Link>
+          <Link
+            href="/social-media-planner/analytics"
+            className="px-3 py-2 border rounded-md text-sm font-semibold"
+          >
+            Analytics
+          </Link>
         </div>
       </header>
 
       {}
       <section className="border-2 border-black rounded-lg p-4">
-        <ClientPicker
-          onClientSelected={setSelectedClientId}
-        />
+        <ClientPicker onClientSelected={setSelectedClientId} />
       </section>
 
       {}
@@ -171,7 +206,8 @@ export default function SocialMediaPlannerDashboardPage() {
             ⚠️ Please select a client to view dashboard metrics
           </div>
           <p className="text-sm text-yellow-700 mt-2">
-            Select a client from the dropdown above to view their social media statistics.
+            Select a client from the dropdown above to view their social media
+            statistics.
           </p>
         </section>
       )}
@@ -181,15 +217,22 @@ export default function SocialMediaPlannerDashboardPage() {
         <div className="space-y-6">
           <header className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <h2 className="text-2xl font-black tracking-tighter">Dashboard Metrics</h2>
-              <p className="text-muted-foreground">Daily planning and execution overview for social posting.</p>
+              <h2 className="text-2xl font-black tracking-tighter">
+                Dashboard Metrics
+              </h2>
+              <p className="text-muted-foreground">
+                Daily planning and execution overview for social posting.
+              </p>
             </div>
           </header>
 
           <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-3">
             <StatCard label="Total Planned" value={metrics.totalPlannedPosts} />
             <StatCard label="Draft" value={metrics.byStatus.Draft || 0} />
-            <StatCard label="Scheduled" value={metrics.byStatus.Scheduled || 0} />
+            <StatCard
+              label="Scheduled"
+              value={metrics.byStatus.Scheduled || 0}
+            />
             <StatCard label="Posted" value={metrics.byStatus.Posted || 0} />
             <StatCard label="Missed" value={metrics.byStatus.Missed || 0} />
             <StatCard label="Today" value={metrics.todaysPosts} />
@@ -203,15 +246,33 @@ export default function SocialMediaPlannerDashboardPage() {
                 <CardTitle>Upcoming Scheduled Posts</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-                {upcomingScheduled.length === 0 ? <p className="text-sm text-muted-foreground">No upcoming scheduled posts.</p> : upcomingScheduled.map((item) => (
-                  <div key={String(item._id || item.id)} className="border rounded p-2 flex items-center justify-between gap-2">
-                    <div>
-                      <div className="font-semibold text-sm">{item.title}</div>
-                      <div className="text-xs text-muted-foreground">{item.platform} · {item.scheduledDate} {item.scheduledTime}</div>
+                {upcomingScheduled.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">
+                    No upcoming scheduled posts.
+                  </p>
+                ) : (
+                  upcomingScheduled.map((item) => (
+                    <div
+                      key={String(item._id || item.id)}
+                      className="border rounded p-2 flex items-center justify-between gap-2"
+                    >
+                      <div>
+                        <div className="font-semibold text-sm">
+                          {item.title}
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          {item.platform} · {item.scheduledDate}{" "}
+                          {item.scheduledTime}
+                        </div>
+                      </div>
+                      <span
+                        className={`text-xs px-2 py-1 rounded ${statusColor[item.status] || "bg-gray-100"}`}
+                      >
+                        {item.status}
+                      </span>
                     </div>
-                    <span className={`text-xs px-2 py-1 rounded ${statusColor[item.status] || "bg-gray-100"}`}>{item.status}</span>
-                  </div>
-                ))}
+                  ))
+                )}
               </CardContent>
             </Card>
 
@@ -221,9 +282,14 @@ export default function SocialMediaPlannerDashboardPage() {
               </CardHeader>
               <CardContent className="space-y-2">
                 {SOCIAL_PLATFORMS.map((platform) => (
-                  <div key={platform} className="flex items-center justify-between text-sm">
+                  <div
+                    key={platform}
+                    className="flex items-center justify-between text-sm"
+                  >
                     <span>{platform}</span>
-                    <span className="font-bold">{metrics.platformWise[platform] || 0}</span>
+                    <span className="font-bold">
+                      {metrics.platformWise[platform] || 0}
+                    </span>
                   </div>
                 ))}
               </CardContent>
@@ -236,12 +302,24 @@ export default function SocialMediaPlannerDashboardPage() {
                 <CardTitle>Overdue / Missed</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-                {missedPosts.length === 0 ? <p className="text-sm text-muted-foreground">No missed posts.</p> : missedPosts.map((item) => (
-                  <div key={String(item._id || item.id)} className="border rounded p-2">
-                    <div className="font-semibold text-sm">{item.title}</div>
-                    <div className="text-xs text-muted-foreground">{item.platform} · {item.scheduledDate} {item.scheduledTime}</div>
-                  </div>
-                ))}
+                {missedPosts.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">
+                    No missed posts.
+                  </p>
+                ) : (
+                  missedPosts.map((item) => (
+                    <div
+                      key={String(item._id || item.id)}
+                      className="border rounded p-2"
+                    >
+                      <div className="font-semibold text-sm">{item.title}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {item.platform} · {item.scheduledDate}{" "}
+                        {item.scheduledTime}
+                      </div>
+                    </div>
+                  ))
+                )}
               </CardContent>
             </Card>
 
@@ -250,12 +328,23 @@ export default function SocialMediaPlannerDashboardPage() {
                 <CardTitle>Recent Posted Content</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-                {recentPosted.length === 0 ? <p className="text-sm text-muted-foreground">No posted content yet.</p> : recentPosted.map((item) => (
-                  <div key={String(item._id || item.id)} className="border rounded p-2">
-                    <div className="font-semibold text-sm">{item.title}</div>
-                    <div className="text-xs text-muted-foreground">{item.platform} · {item.postedLink || "No link"}</div>
-                  </div>
-                ))}
+                {recentPosted.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">
+                    No posted content yet.
+                  </p>
+                ) : (
+                  recentPosted.map((item) => (
+                    <div
+                      key={String(item._id || item.id)}
+                      className="border rounded p-2"
+                    >
+                      <div className="font-semibold text-sm">{item.title}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {item.platform} · {item.postedLink || "No link"}
+                      </div>
+                    </div>
+                  ))
+                )}
               </CardContent>
             </Card>
 
@@ -264,12 +353,21 @@ export default function SocialMediaPlannerDashboardPage() {
                 <CardTitle>Staff-wise Assigned</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-                {staffWiseAssigned.length === 0 ? <p className="text-sm text-muted-foreground">No assignments yet.</p> : staffWiseAssigned.map(([name, count]) => (
-                  <div key={name} className="flex items-center justify-between text-sm border rounded px-2 py-1">
-                    <span>{name}</span>
-                    <span className="font-bold">{count}</span>
-                  </div>
-                ))}
+                {staffWiseAssigned.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">
+                    No assignments yet.
+                  </p>
+                ) : (
+                  staffWiseAssigned.map(([name, count]) => (
+                    <div
+                      key={name}
+                      className="flex items-center justify-between text-sm border rounded px-2 py-1"
+                    >
+                      <span>{name}</span>
+                      <span className="font-bold">{count}</span>
+                    </div>
+                  ))
+                )}
               </CardContent>
             </Card>
           </div>
@@ -280,8 +378,16 @@ export default function SocialMediaPlannerDashboardPage() {
             </CardHeader>
             <CardContent className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2">
               {quickCalendar.map(({ date, count }) => (
-                <div key={date.toISOString()} className="border rounded p-2 text-center">
-                  <div className="text-xs text-muted-foreground">{date.toLocaleDateString("en-IN", { day: "2-digit", month: "short" })}</div>
+                <div
+                  key={date.toISOString()}
+                  className="border rounded p-2 text-center"
+                >
+                  <div className="text-xs text-muted-foreground">
+                    {date.toLocaleDateString("en-IN", {
+                      day: "2-digit",
+                      month: "short",
+                    })}
+                  </div>
                   <div className="text-xl font-black">{count}</div>
                 </div>
               ))}

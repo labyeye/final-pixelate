@@ -1,16 +1,18 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  
-  if (request.nextUrl.pathname.startsWith('/api/public/')) {
+  if (request.nextUrl.pathname.startsWith("/api/public/")) {
     const response = NextResponse.next();
-    
-    response.headers.set('Access-Control-Allow-Origin', '*');
-    response.headers.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
-    response.headers.set('Access-Control-Allow-Headers', 'Content-Type');
-    response.headers.set('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
-    
+
+    response.headers.set("Access-Control-Allow-Origin", "*");
+    response.headers.set("Access-Control-Allow-Methods", "GET, OPTIONS");
+    response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+    response.headers.set(
+      "Cache-Control",
+      "public, s-maxage=300, stale-while-revalidate=600",
+    );
+
     return response;
   }
 
@@ -18,5 +20,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/api/public/:path*'],
+  matcher: ["/api/public/:path*"],
 };

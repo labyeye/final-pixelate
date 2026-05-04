@@ -12,22 +12,9 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
 }
 
-
-
-
-
-
-
 function normalizeHandle(handle: string): string {
   return (handle || "").toLowerCase().replace(/^@+/, "").trim();
 }
-
-
-
-
-
-
-
 
 export async function GET(request: NextRequest) {
   try {
@@ -44,7 +31,6 @@ export async function GET(request: NextRequest) {
       try {
         query._id = new ObjectId(id);
       } catch (e) {
-        
         query.id = id;
       }
     }
@@ -54,7 +40,6 @@ export async function GET(request: NextRequest) {
       .sort({ platform: 1, handle: 1 })
       .toArray();
 
-    
     const safe = accounts.map(({ accessToken, ...rest }) => ({
       ...rest,
       isConnected: !!accessToken,
@@ -64,14 +49,10 @@ export async function GET(request: NextRequest) {
   } catch (e: any) {
     return NextResponse.json(
       { error: e.message || String(e) },
-      { status: 500, headers: CORS }
+      { status: 500, headers: CORS },
     );
   }
 }
-
-
-
-
 
 export async function POST(request: Request) {
   try {
@@ -86,25 +67,27 @@ export async function POST(request: Request) {
     if (!clientId || !platform) {
       return NextResponse.json(
         { error: "clientId and platform are required" },
-        { status: 400, headers: CORS }
+        { status: 400, headers: CORS },
       );
     }
 
     if (!handle) {
       return NextResponse.json(
-        { error: "Username/Handle is required and must be at least 1 character after normalization" },
-        { status: 400, headers: CORS }
+        {
+          error:
+            "Username/Handle is required and must be at least 1 character after normalization",
+        },
+        { status: 400, headers: CORS },
       );
     }
 
     if (handle.length > 500) {
       return NextResponse.json(
         { error: "Username/Handle must be less than 500 characters" },
-        { status: 400, headers: CORS }
+        { status: 400, headers: CORS },
       );
     }
 
-    
     const existing = await col.findOne({
       clientId,
       platform,
@@ -115,7 +98,6 @@ export async function POST(request: Request) {
       return NextResponse.json(existing, { status: 200, headers: CORS });
     }
 
-    
     const toInsert = {
       clientId,
       platform,
@@ -128,19 +110,15 @@ export async function POST(request: Request) {
     const res = await col.insertOne(toInsert);
     return NextResponse.json(
       { ...toInsert, _id: res.insertedId },
-      { status: 201, headers: CORS }
+      { status: 201, headers: CORS },
     );
   } catch (e: any) {
     return NextResponse.json(
       { error: e.message || String(e) },
-      { status: 500, headers: CORS }
+      { status: 500, headers: CORS },
     );
   }
 }
-
-
-
-
 
 export async function PUT(request: Request) {
   try {
@@ -150,7 +128,7 @@ export async function PUT(request: Request) {
     if (!id) {
       return NextResponse.json(
         { error: "id is required" },
-        { status: 400, headers: CORS }
+        { status: 400, headers: CORS },
       );
     }
 
@@ -162,13 +140,13 @@ export async function PUT(request: Request) {
 
     const result = await col.updateOne(
       { _id: new ObjectId(id) },
-      { $set: updateData }
+      { $set: updateData },
     );
 
     if (result.matchedCount === 0) {
       return NextResponse.json(
         { error: "Account not found" },
-        { status: 404, headers: CORS }
+        { status: 404, headers: CORS },
       );
     }
 
@@ -176,14 +154,10 @@ export async function PUT(request: Request) {
   } catch (e: any) {
     return NextResponse.json(
       { error: e.message || String(e) },
-      { status: 500, headers: CORS }
+      { status: 500, headers: CORS },
     );
   }
 }
-
-
-
-
 
 export async function DELETE(request: Request) {
   try {
@@ -193,7 +167,7 @@ export async function DELETE(request: Request) {
     if (!id) {
       return NextResponse.json(
         { error: "id is required" },
-        { status: 400, headers: CORS }
+        { status: 400, headers: CORS },
       );
     }
 
@@ -203,18 +177,18 @@ export async function DELETE(request: Request) {
     if (result.deletedCount === 0) {
       return NextResponse.json(
         { error: "Account not found" },
-        { status: 404, headers: CORS }
+        { status: 404, headers: CORS },
       );
     }
 
     return NextResponse.json(
       { success: true, deletedCount: result.deletedCount },
-      { headers: CORS }
+      { headers: CORS },
     );
   } catch (e: any) {
     return NextResponse.json(
       { error: e.message || String(e) },
-      { status: 500, headers: CORS }
+      { status: 500, headers: CORS },
     );
   }
 }

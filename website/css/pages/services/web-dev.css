@@ -30,7 +30,7 @@
 
 @media (min-width: 768px) {
   .portfolio-grid {
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -53,13 +53,13 @@
   justify-content: center;
   gap: 12px;
   text-align: center;
-  min-height: 550px; 
+  min-height: 550px;
   border: 1px solid rgba(4, 75, 171, 0.06);
   overflow: hidden;
 }
 .portfolio-card {
   position: relative;
-  padding-bottom: 190px; 
+  padding-bottom: 190px;
 }
 
 .portfolio-card:hover {
@@ -99,7 +99,6 @@
   position: relative;
   z-index: 1;
 }
-
 
 .portfolio-title {
   font-size: 26px;
@@ -171,7 +170,6 @@
   font-weight: 600;
   color: var(--primary-900);
 }
-
 
 .portfolio-buttons-container {
   display: flex;
@@ -307,7 +305,7 @@
   height: auto !important;
   gap: 14px !important;
   padding: 14px !important;
-  
+
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.04),
@@ -338,7 +336,7 @@
   position: relative !important;
   transform: none !important;
   background: transparent !important;
-  padding: 12px 0 40px 0 !important; 
+  padding: 12px 0 40px 0 !important;
   color: var(--white) !important;
 }
 
@@ -376,7 +374,6 @@
   transform: scale(1.04) rotate(-0.6deg);
 }
 
-
 .offerings-section {
   padding: 48px 20px;
   background: linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
@@ -401,7 +398,6 @@
   grid-template-columns: repeat(1, 1fr);
   gap: 14px;
 }
-
 
 .offerings-section {
   padding: 48px 0;
@@ -550,7 +546,6 @@ offerings-container .offer-card {
   text-align: center;
 }
 
-
 .faq-section {
   padding: 40px 20px;
   background: transparent;
@@ -626,9 +621,6 @@ offerings-container .offer-card {
     font-size: 69px;
   }
 }
-
-
-
 
 .card-body {
   display: flex;

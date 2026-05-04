@@ -58,13 +58,13 @@
     font-weight: 600;
     cursor: pointer;
     text-align: center;
-    font-size: 10px ;
+    font-size: 10px;
   }
 }
 
 @media (min-width: 768px) {
   .portfolio-grid {
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -87,13 +87,13 @@
   justify-content: center;
   gap: 12px;
   text-align: center;
-  min-height: 550px; 
+  min-height: 550px;
   border: 1px solid rgba(4, 75, 171, 0.06);
   overflow: hidden;
 }
 .portfolio-card {
   position: relative;
-  padding-bottom: 190px; 
+  padding-bottom: 190px;
 }
 
 .portfolio-card:hover {
@@ -309,7 +309,7 @@
   position: relative !important;
   transform: none !important;
   background: transparent !important;
-  padding: 12px 0 40px 0 !important; 
+  padding: 12px 0 40px 0 !important;
   color: var(--white) !important;
 }
 
@@ -341,7 +341,6 @@
 .portfolio-card:hover .portfolio-image {
   transform: scale(1.04) rotate(-0.6deg);
 }
-
 
 .faq-section {
   padding: 48px 20px;
@@ -402,7 +401,7 @@
   transform: rotate(180deg);
 }
 .faq-answer {
-  padding: 0 18px; 
+  padding: 0 18px;
   color: rgba(0, 0, 0, 0.75);
   line-height: 1.6;
   max-height: 0;
@@ -412,7 +411,7 @@
     padding 0.22s ease;
 }
 .faq-item[aria-expanded="true"] .faq-answer {
-  max-height: 800px; 
+  max-height: 800px;
   padding: 12px 18px 18px 18px;
 }
 .faq-item[aria-expanded="false"] .faq-answer {
@@ -435,7 +434,6 @@
     max-width: 1200px;
   }
 }
-
 
 .cta-section {
   padding: 40px 20px;
@@ -493,7 +491,6 @@
     padding: 18px 24px;
   }
 }
-
 
 .offerings-section {
   padding: 48px 20px;
@@ -603,7 +600,6 @@
   margin: 24px 0 12px;
   text-align: center;
 }
-
 
 .portfolio-buttons-container {
   display: flex;

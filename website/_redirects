@@ -1,0 +1,109 @@
+# Pixelate Nest — Netlify Redirects (301)
+
+# Location pages — old root-level paths → /locations/ subdirectory
+/counter-billing-bihar/counter-billing-sharif.html  /locations/counter-billing-bihar/counter-billing-bihar-sharif.html  301
+/counter-billing-bihar/*                             /locations/counter-billing-bihar/:splat                             301
+/counter-billing-bihar                               /pages/locations.html                                               301
+/counter-billing-bihar.html                          /pages/locations.html                                               301
+/school-crm-bihar/*                                  /locations/school-crm-bihar/:splat                                  301
+/school-crm-bihar                                    /pages/locations.html                                               301
+/factory-management-bihar/*                          /locations/factory-management-bihar/:splat                          301
+/factory-management-bihar                            /pages/locations.html                                               301
+/school-crm-muzaffarpur                              /locations/school-crm-muzaffarpur.html                              301
+
+# Core pages
+/about.html         /pages/about.html         301
+/about              /pages/about.html         301
+/contact.html       /pages/contact.html       301
+/contact            /pages/contact.html       301
+/pricing.html       /pages/pricing.html       301
+/pricing            /pages/pricing.html       301
+/careers.html       /pages/careers.html       301
+/careers            /pages/careers.html       301
+/technologies.html  /pages/technologies.html  301
+/technologies       /pages/technologies.html  301
+/photography.html   /pages/photography.html   301
+/photography        /pages/photography.html   301
+/location.html      /pages/locations.html     301
+/locations.html     /pages/locations.html     301
+/blogs.html         /blog/index.html          301
+/blogs              /blog/index.html          301
+/blog-post          /blog/index.html          301
+/blog-post.html     /blog/index.html          301
+
+# Legal pages
+/privacy-policy.html    /legal/privacy-policy.html    301
+/privacy-policy         /legal/privacy-policy.html    301
+/terms-of-service.html  /legal/terms-of-service.html  301
+/terms-of-service       /legal/terms-of-service.html  301
+/cookie-policy.html     /legal/cookie-policy.html     301
+/cookie-policy          /legal/cookie-policy.html     301
+/refund-policy.html     /legal/refund-policy.html     301
+/refund-policy          /legal/refund-policy.html     301
+
+# Service pages
+/software-dev.html.html      /services/software-development.html  301
+/software-dev.html           /services/software-development.html  301
+/software-dev                /services/software-development.html  301
+/app-dev.html                /services/app-development.html       301
+/app-dev                     /services/app-development.html       301
+/appdev.html                 /services/app-development.html       301
+/appdev                      /services/app-development.html       301
+/webdev.html                 /services/web-development.html       301
+/webdev                      /services/web-development.html       301
+/video-ed.html               /services/video-editing.html         301
+/video-ed                    /services/video-editing.html         301
+/videoediting.html           /services/video-editing.html         301
+/videoediting                /services/video-editing.html         301
+/hosting-maintenance         /services/hosting-maintenance.html   301
+/services.html               /services/index.html                 301
+/detailed-services-uiux.html    /services/uiux-branding.html     301
+/detailed-services-digital.html /services/digital-marketing.html 301
+
+# Detailed-services query strings (must come BEFORE wildcard)
+/detailed-services.html?service=web-development         /services/web-development.html       301
+/detailed-services.html?service=app-development         /services/app-development.html       301
+/detailed-services.html?service=software-development    /services/software-development.html  301
+/detailed-services.html?service=video-editing           /services/video-editing.html         301
+/detailed-services.html?service=digital-marketing       /services/digital-marketing.html     301
+/detailed-services?service=web-development              /services/web-development.html       301
+/detailed-services?service=app-development              /services/app-development.html       301
+/detailed-services?service=software-development         /services/software-development.html  301
+/detailed-services?service=video-editing                /services/video-editing.html         301
+/detailed-services?service=digital-marketing            /services/digital-marketing.html     301
+
+# Detailed-services path segments
+/detailed-services/video-editing        /services/video-editing.html         301
+/detailed-services/app-development      /services/app-development.html       301
+/detailed-services/web-development      /services/web-development.html       301
+/detailed-services/software-development /services/software-development.html  301
+/detailed-services/*                    /services/index.html                 301
+/detailed-services                      /services/index.html                 301
+
+# State query strings
+/state.html  /pages/locations.html  301
+/state       /pages/locations.html  301
+
+# Industry pages
+/industry-ecommerce.html     /industries/ecommerce.html     301
+/industry-ecommerce          /industries/ecommerce.html     301
+/industry-logistics.html     /industries/logistics.html     301
+/industry-logistics          /industries/logistics.html     301
+/industry-manufacturing.html /industries/manufacturing.html 301
+/industry-manufacturing      /industries/manufacturing.html 301
+/industry-travel.html        /industries/travel.html        301
+/industry-travel             /industries/travel.html        301
+/industry-realestate.html    /industries/real-estate.html   301
+/industry-realestate         /industries/real-estate.html   301
+/industry-education.html     /industries/education.html     301
+/industry-education          /industries/education.html     301
+/industry-healthcare.html    /industries/education.html     301
+/industry-healthcare         /industries/education.html     301
+/industry-finance            /                              301
+/industry-media              /                              301
+
+# Search template URL (schema artifact)
+/search  /  301
+
+# 404 fallback
+/*  /404.html  404

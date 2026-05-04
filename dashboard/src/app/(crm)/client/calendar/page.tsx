@@ -17,11 +17,15 @@ export default function ClientCalendarPage() {
     const fetchEvents = async () => {
       try {
         setLoading(true);
-        const token = typeof window !== "undefined" ? localStorage.getItem("auth_token") : null;
-        const headers: Record<string, string> = { "Content-Type": "application/json" };
+        const token =
+          typeof window !== "undefined"
+            ? localStorage.getItem("auth_token")
+            : null;
+        const headers: Record<string, string> = {
+          "Content-Type": "application/json",
+        };
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
-        
         const [plannerRes, tasksRes] = await Promise.all([
           fetch("/api/social-media-planner", { headers }),
           fetch("/api/tasks", { headers }),
@@ -71,9 +75,16 @@ export default function ClientCalendarPage() {
     fetchEvents();
   }, [user]);
 
-  
-  const monthStart = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1);
-  const monthEnd = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0);
+  const monthStart = new Date(
+    currentMonth.getFullYear(),
+    currentMonth.getMonth(),
+    1,
+  );
+  const monthEnd = new Date(
+    currentMonth.getFullYear(),
+    currentMonth.getMonth() + 1,
+    0,
+  );
 
   const upcomingEvents = events
     .filter((e) => {
@@ -83,7 +94,9 @@ export default function ClientCalendarPage() {
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
   const changeMonth = (offset: number) => {
-    setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + offset, 1));
+    setCurrentMonth(
+      new Date(currentMonth.getFullYear(), currentMonth.getMonth() + offset, 1),
+    );
   };
 
   if (!user || user.role !== "client") {
@@ -106,7 +119,9 @@ export default function ClientCalendarPage() {
       {}
       <div>
         <h1 className="text-4xl font-black tracking-tighter">Calendar</h1>
-        <p className="text-muted-foreground mt-1">View your scheduled posts and tasks</p>
+        <p className="text-muted-foreground mt-1">
+          View your scheduled posts and tasks
+        </p>
       </div>
 
       {}
@@ -119,7 +134,10 @@ export default function ClientCalendarPage() {
             ← Previous
           </button>
           <CardTitle className="text-xl">
-            {currentMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+            {currentMonth.toLocaleDateString("en-US", {
+              month: "long",
+              year: "numeric",
+            })}
           </CardTitle>
           <button
             onClick={() => changeMonth(1)}
@@ -133,13 +151,17 @@ export default function ClientCalendarPage() {
       {}
       <div>
         {loading ? (
-          <div className="text-center text-muted-foreground">Loading calendar...</div>
+          <div className="text-center text-muted-foreground">
+            Loading calendar...
+          </div>
         ) : upcomingEvents.length === 0 ? (
           <Card className="border-2 border-black">
             <CardContent className="pt-6 text-center">
               <div className="text-4xl mb-2">📅</div>
               <p className="font-bold">No events scheduled for this month</p>
-              <p className="text-sm text-muted-foreground">Check back soon for new posts and tasks</p>
+              <p className="text-sm text-muted-foreground">
+                Check back soon for new posts and tasks
+              </p>
             </CardContent>
           </Card>
         ) : (
@@ -157,12 +179,17 @@ export default function ClientCalendarPage() {
                           {event.type === "post" ? "📱 Post" : "✓ Task"}
                         </Badge>
                         {event.platform && (
-                          <Badge variant="outline" className="border-black font-bold">
+                          <Badge
+                            variant="outline"
+                            className="border-black font-bold"
+                          >
                             {event.platform}
                           </Badge>
                         )}
                       </div>
-                      <h3 className="font-bold text-lg">{event.title || event.name || "Untitled"}</h3>
+                      <h3 className="font-bold text-lg">
+                        {event.title || event.name || "Untitled"}
+                      </h3>
                       <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
                         {event.description || event.caption || "-"}
                       </p>
@@ -190,7 +217,8 @@ export default function ClientCalendarPage() {
       <Card className="border-2 border-black bg-primary/5">
         <CardContent className="pt-6">
           <p className="text-sm">
-            <span className="font-bold">💡 Note:</span> This calendar shows all your scheduled posts and tasks. Your team manages all scheduling.
+            <span className="font-bold">💡 Note:</span> This calendar shows all
+            your scheduled posts and tasks. Your team manages all scheduling.
           </p>
         </CardContent>
       </Card>

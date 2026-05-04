@@ -1,38 +1,35 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getDb } from '@/lib/mongodb';
-import { ObjectId } from 'mongodb';
-
+import { NextRequest, NextResponse } from "next/server";
+import { getDb } from "@/lib/mongodb";
+import { ObjectId } from "mongodb";
 
 const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
-
 
 export async function OPTIONS() {
   return NextResponse.json({}, { headers: corsHeaders });
 }
 
-
 export async function GET(request: NextRequest) {
   try {
     const db = await getDb();
-    
+
     const jobs = await db
-      .collection('careers')
+      .collection("careers")
       .aggregate([
         {
           $lookup: {
-            from: 'applications',
-            localField: '_id',
-            foreignField: 'jobId',
-            as: 'applications',
+            from: "applications",
+            localField: "_id",
+            foreignField: "jobId",
+            as: "applications",
           },
         },
         {
           $addFields: {
-            applicationsCount: { $size: '$applications' },
+            applicationsCount: { $size: "$applications" },
           },
         },
         {
@@ -48,11 +45,13 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(jobs, { headers: corsHeaders });
   } catch (error) {
-    console.error('Error fetching jobs:', error);
-    return NextResponse.json({ error: 'Failed to fetch jobs' }, { status: 500, headers: corsHeaders });
+    console.error("Error fetching jobs:", error);
+    return NextResponse.json(
+      { error: "Failed to fetch jobs" },
+      { status: 500, headers: corsHeaders },
+    );
   }
 }
-
 
 export async function POST(request: NextRequest) {
   try {
@@ -65,11 +64,17 @@ export async function POST(request: NextRequest) {
       updatedAt: new Date().toISOString(),
     };
 
-    const result = await db.collection('careers').insertOne(newJob);
+    const result = await db.collection("careers").insertOne(newJob);
 
-    return NextResponse.json({ _id: result.insertedId, ...newJob }, { status: 201, headers: corsHeaders });
+    return NextResponse.json(
+      { _id: result.insertedId, ...newJob },
+      { status: 201, headers: corsHeaders },
+    );
   } catch (error) {
-    console.error('Error creating job:', error);
-    return NextResponse.json({ error: 'Failed to create job' }, { status: 500, headers: corsHeaders });
+    console.error("Error creating job:", error);
+    return NextResponse.json(
+      { error: "Failed to create job" },
+      { status: 500, headers: corsHeaders },
+    );
   }
 }

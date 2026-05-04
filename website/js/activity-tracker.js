@@ -46,9 +46,7 @@
       if (data && data.id) {
         activityId = data.id;
       }
-    } catch (error) {
-      
-    }
+    } catch (error) {}
   }
 
   async function sendPing() {
@@ -71,18 +69,6 @@
         keepalive: true,
         body: JSON.stringify(payload),
       });
-      
-    } catch (error) {
-      
-    }
+    } catch (error) {}
   }
-
-  
-  
-
-  
-
-  
-  
-  
 })();

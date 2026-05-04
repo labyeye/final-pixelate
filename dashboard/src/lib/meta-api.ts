@@ -10,7 +10,9 @@ export type MetaPostMetrics = {
   followers_gained: number;
 };
 
-export async function exchangeForLongLivedToken(shortToken: string): Promise<string> {
+export async function exchangeForLongLivedToken(
+  shortToken: string,
+): Promise<string> {
   const url = new URL(`${META_GRAPH_API}/oauth/access_token`);
   url.searchParams.set("grant_type", "fb_exchange_token");
   url.searchParams.set("client_id", process.env.FACEBOOK_APP_ID!);
@@ -20,7 +22,8 @@ export async function exchangeForLongLivedToken(shortToken: string): Promise<str
   const res = await fetch(url.toString());
   if (!res.ok) throw new Error(`Token exchange failed: ${await res.text()}`);
   const data = await res.json();
-  if (!data.access_token) throw new Error("No access_token in exchange response");
+  if (!data.access_token)
+    throw new Error("No access_token in exchange response");
   return data.access_token;
 }
 
@@ -33,9 +36,14 @@ export type MetaPage = {
   instagram_business_account?: { id: string };
 };
 
-export async function getUserPages(longLivedToken: string): Promise<MetaPage[]> {
+export async function getUserPages(
+  longLivedToken: string,
+): Promise<MetaPage[]> {
   const url = new URL(`${META_GRAPH_API}/me/accounts`);
-  url.searchParams.set("fields", "id,name,access_token,instagram_business_account");
+  url.searchParams.set(
+    "fields",
+    "id,name,access_token,instagram_business_account",
+  );
   url.searchParams.set("access_token", longLivedToken);
 
   const res = await fetch(url.toString());
@@ -44,7 +52,10 @@ export async function getUserPages(longLivedToken: string): Promise<MetaPage[]> 
   return data.data || [];
 }
 
-export async function getPageDetails(pageId: string, pageToken: string): Promise<Pick<MetaPage, "id" | "name" | "link" | "username">> {
+export async function getPageDetails(
+  pageId: string,
+  pageToken: string,
+): Promise<Pick<MetaPage, "id" | "name" | "link" | "username">> {
   const url = new URL(`${META_GRAPH_API}/${pageId}`);
   url.searchParams.set("fields", "id,name,link,username");
   url.searchParams.set("access_token", pageToken);
@@ -54,36 +65,33 @@ export async function getPageDetails(pageId: string, pageToken: string): Promise
   return res.json();
 }
 
-
-export function parseFbPostId(postUrl: string): { postId: string | null; pageId: string | null } {
+export function parseFbPostId(postUrl: string): {
+  postId: string | null;
+  pageId: string | null;
+} {
   try {
     const u = new URL(postUrl);
     const pathname = u.pathname;
 
-    
     const reelMatch = pathname.match(/\/reel\/(\d+)/);
     if (reelMatch) return { postId: reelMatch[1], pageId: null };
 
-    
     const fbid = u.searchParams.get("fbid");
     const pageIdFromQuery = u.searchParams.get("id");
-    if (fbid && pathname.includes("photo")) return { postId: fbid, pageId: pageIdFromQuery };
+    if (fbid && pathname.includes("photo"))
+      return { postId: fbid, pageId: pageIdFromQuery };
 
-    
     const storyFbid = u.searchParams.get("story_fbid");
     if (storyFbid) return { postId: storyFbid, pageId: pageIdFromQuery };
 
-    
     const videoId = u.searchParams.get("v");
     if (videoId) return { postId: videoId, pageId: null };
 
-    
-    const pathMatch = pathname.match(/\/[^/]+\/(posts|videos|photos|notes)\/([^/?]+)/);
+    const pathMatch = pathname.match(
+      /\/[^/]+\/(posts|videos|photos|notes)\/([^/?]+)/,
+    );
     if (pathMatch) return { postId: pathMatch[2], pageId: null };
-
-  } catch {
-    
-  }
+  } catch {}
   return { postId: null, pageId: null };
 }
 
@@ -93,11 +101,11 @@ export async function fetchFbPostMetrics(
   pageAccessToken: string,
 ): Promise<MetaPostMetrics> {
   const { postId } = parseFbPostId(postUrl);
-  if (!postId) throw new Error("Could not extract post ID from URL: " + postUrl);
+  if (!postId)
+    throw new Error("Could not extract post ID from URL: " + postUrl);
 
   const graphId = `${pageId}_${postId}`;
 
-  
   const engUrl = new URL(`${META_GRAPH_API}/${graphId}`);
   engUrl.searchParams.set(
     "fields",
@@ -110,7 +118,6 @@ export async function fetchFbPostMetrics(
   if (engRes.ok) {
     eng = await engRes.json();
   } else {
-    
     const fallbackUrl = new URL(`${META_GRAPH_API}/${postId}`);
     fallbackUrl.searchParams.set(
       "fields",
@@ -118,11 +125,11 @@ export async function fetchFbPostMetrics(
     );
     fallbackUrl.searchParams.set("access_token", pageAccessToken);
     const fbRes = await fetch(fallbackUrl.toString());
-    if (!fbRes.ok) throw new Error(`Failed to fetch post metrics: ${await fbRes.text()}`);
+    if (!fbRes.ok)
+      throw new Error(`Failed to fetch post metrics: ${await fbRes.text()}`);
     eng = await fbRes.json();
   }
 
-  
   let views = 0;
   try {
     const insightUrl = new URL(`${META_GRAPH_API}/${graphId}/insights`);
@@ -131,19 +138,22 @@ export async function fetchFbPostMetrics(
     const insightRes = await fetch(insightUrl.toString());
     if (insightRes.ok) {
       const insightData = await insightRes.json();
-      const metric = (insightData.data || []).find((d: any) => d.name === "post_impressions_unique");
+      const metric = (insightData.data || []).find(
+        (d: any) => d.name === "post_impressions_unique",
+      );
       views = metric?.values?.[0]?.value ?? metric?.value ?? 0;
     }
-  } catch {
-    
-  }
+  } catch {}
 
   return {
     views,
-    likes: eng?.reactions?.summary?.total_count ?? eng?.likes?.summary?.total_count ?? 0,
+    likes:
+      eng?.reactions?.summary?.total_count ??
+      eng?.likes?.summary?.total_count ??
+      0,
     comments: eng?.comments?.summary?.total_count ?? 0,
     shares: eng?.shares?.count ?? 0,
-    followers_gained: 0, 
+    followers_gained: 0,
   };
 }
 
@@ -152,7 +162,6 @@ async function resolveIgMediaId(
   igAccountId: string,
   accessToken: string,
 ): Promise<string | null> {
-  
   try {
     const oembedUrl = new URL(`${META_GRAPH_API}/instagram_oembed`);
     oembedUrl.searchParams.set("url", permalink);
@@ -162,11 +171,8 @@ async function resolveIgMediaId(
       const data = await oembedRes.json();
       if (data.media_id) return data.media_id;
     }
-  } catch {
-    
-  }
+  } catch {}
 
-  
   const normalised = permalink.replace(/\/$/, "").toLowerCase();
   let after: string | null = null;
 
@@ -182,7 +188,9 @@ async function resolveIgMediaId(
     const data = await res.json();
 
     for (const item of data.data || []) {
-      if ((item.permalink || "").replace(/\/$/, "").toLowerCase() === normalised) {
+      if (
+        (item.permalink || "").replace(/\/$/, "").toLowerCase() === normalised
+      ) {
         return item.id;
       }
     }
@@ -193,8 +201,6 @@ async function resolveIgMediaId(
 
   return null;
 }
-
-
 
 export interface LeadAdForm {
   id: string;
@@ -210,33 +216,30 @@ export interface FbLeadField {
 }
 
 export interface FbLead {
-  id: string; 
+  id: string;
   created_time: string;
   field_data: FbLeadField[];
 }
 
-
-
-
-
-
 export async function getLeadAdForms(
-  _adAccountId: string,  
+  _adAccountId: string,
   accessToken: string,
 ): Promise<LeadAdForm[]> {
-  
   let pages: MetaPage[] = [];
   try {
     pages = await getUserPages(accessToken);
   } catch (e: any) {
-    throw new Error(`Could not fetch Facebook Pages: ${e.message}. Make sure the token has pages_show_list permission.`);
+    throw new Error(
+      `Could not fetch Facebook Pages: ${e.message}. Make sure the token has pages_show_list permission.`,
+    );
   }
 
   if (pages.length === 0) {
-    throw new Error("No Facebook Pages found for this token. The token must belong to a user who manages at least one Page.");
+    throw new Error(
+      "No Facebook Pages found for this token. The token must belong to a user who manages at least one Page.",
+    );
   }
 
-  
   const allForms: (LeadAdForm & { pageName?: string })[] = [];
 
   for (const page of pages) {
@@ -253,15 +256,11 @@ export async function getLeadAdForms(
           allForms.push({ ...form, pageName: page.name });
         }
       }
-      
-    } catch {
-      
-    }
+    } catch {}
   }
 
   return allForms;
 }
-
 
 export async function getFormLeads(
   formId: string,
@@ -276,18 +275,24 @@ export async function getFormLeads(
   if (since) {
     initialUrl.searchParams.set(
       "filtering",
-      JSON.stringify([{ field: "time_created", operator: "GREATER_THAN", value: since }]),
+      JSON.stringify([
+        { field: "time_created", operator: "GREATER_THAN", value: since },
+      ]),
     );
   }
 
   let nextUrl: string | null = initialUrl.toString();
   while (nextUrl) {
     const url = nextUrl;
-    
+
     const response: Response = await fetch(url);
     if (!response.ok) break;
-    
-    const pageData: { data?: FbLead[]; error?: unknown; paging?: { next?: string } } = await response.json();
+
+    const pageData: {
+      data?: FbLead[];
+      error?: unknown;
+      paging?: { next?: string };
+    } = await response.json();
     if (pageData.error) break;
     leads.push(...(pageData.data || []));
     nextUrl = pageData.paging?.next || null;
@@ -295,25 +300,18 @@ export async function getFormLeads(
   return leads;
 }
 
-
-
-
 export function hashForMeta(value: string): string {
   return createHash("sha256").update(value.trim().toLowerCase()).digest("hex");
 }
 
 export interface ConversionEvent {
-  event_name: string;       
-  event_time: number;       
-  hashed_email?: string;    
-  hashed_phone?: string;    
-  lead_id?: string;         
+  event_name: string;
+  event_time: number;
+  hashed_email?: string;
+  hashed_phone?: string;
+  lead_id?: string;
   lead_event_source?: string;
 }
-
-
-
-
 
 export async function sendConversionEvents(
   datasetId: string,
@@ -345,11 +343,10 @@ export async function sendConversionEvents(
     body: JSON.stringify(payload),
   });
   const result = await res.json();
-  if (!res.ok) throw new Error(`Conversions API error: ${JSON.stringify(result)}`);
+  if (!res.ok)
+    throw new Error(`Conversions API error: ${JSON.stringify(result)}`);
   return result;
 }
-
-
 
 export async function fetchIgMediaMetrics(
   postUrl: string,
@@ -359,13 +356,13 @@ export async function fetchIgMediaMetrics(
   const mediaId = await resolveIgMediaId(postUrl, igAccountId, accessToken);
   if (!mediaId) throw new Error("Could not find Instagram media for this URL");
 
-  
   const mediaUrl = new URL(`${META_GRAPH_API}/${mediaId}`);
   mediaUrl.searchParams.set("fields", "id,like_count,comments_count,permalink");
   mediaUrl.searchParams.set("access_token", accessToken);
 
   const mediaRes = await fetch(mediaUrl.toString());
-  if (!mediaRes.ok) throw new Error(`Failed to fetch IG media: ${await mediaRes.text()}`);
+  if (!mediaRes.ok)
+    throw new Error(`Failed to fetch IG media: ${await mediaRes.text()}`);
   const media = await mediaRes.json();
 
   let views = 0;
@@ -386,9 +383,7 @@ export async function fetchIgMediaMetrics(
         if (item.name === "follows") followers_gained = val;
       }
     }
-  } catch {
-    
-  }
+  } catch {}
 
   return {
     views,

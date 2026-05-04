@@ -270,8 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
         img.setAttribute("alt", "rating star");
       }
     });
-  } catch (e) {
-  }
+  } catch (e) {}
 })();
 
 (function () {
@@ -1070,7 +1069,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.5 },
   );
 
   if (statSection) {

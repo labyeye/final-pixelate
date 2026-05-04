@@ -88,7 +88,9 @@ export function EditInvoiceDialog({
   React.useEffect(() => {
     if (open && invoice) {
       form.reset({
-        clientId: String(invoice.clientId ?? invoice.client ?? invoice.clientName ?? ""),
+        clientId: String(
+          invoice.clientId ?? invoice.client ?? invoice.clientName ?? "",
+        ),
         invoiceNo: invoice.invoiceNo ?? "",
         projectTitle: invoice.projectTitle ?? invoice.title ?? "",
         title: invoice.title ?? invoice.projectTitle ?? "",
@@ -102,7 +104,6 @@ export function EditInvoiceDialog({
         includeVenueAddress: Boolean(invoice.venueAddress),
       });
 
-      
       if (Array.isArray(invoice.lineItems) && invoice.lineItems.length) {
         setLineItems(
           invoice.lineItems.map((it: any) => ({
@@ -115,7 +116,8 @@ export function EditInvoiceDialog({
       } else if (invoice.amount) {
         setLineItems([
           {
-            description: invoice.title || invoice.projectTitle || "Professional Services",
+            description:
+              invoice.title || invoice.projectTitle || "Professional Services",
             hsnCode: invoice.hsnCode ?? "998314",
             quantity: 1,
             rate: Number(invoice.amount || 0),
@@ -185,7 +187,8 @@ export function EditInvoiceDialog({
       };
 
       if (values.includeVenueName) body.venueName = values.venueName || "";
-      if (values.includeVenueAddress) body.venueAddress = values.venueAddress || "";
+      if (values.includeVenueAddress)
+        body.venueAddress = values.venueAddress || "";
 
       const res = await fetch(`/api/invoices/${invoice._id ?? invoice.id}`, {
         method: "PUT",
@@ -239,7 +242,10 @@ export function EditInvoiceDialog({
                       <select {...field} className="w-full border rounded p-2">
                         <option value="">Select client</option>
                         {clients.map((c) => (
-                          <option key={String(c.id ?? c._id)} value={String(c.id ?? c._id)}>
+                          <option
+                            key={String(c.id ?? c._id)}
+                            value={String(c.id ?? c._id)}
+                          >
                             {c.name}
                           </option>
                         ))}
@@ -309,8 +315,15 @@ export function EditInvoiceDialog({
             {}
             <div>
               <div className="flex items-center justify-between mb-3">
-                <h3 className="font-semibold text-base">Services / Line Items</h3>
-                <Button type="button" variant="outline" size="sm" onClick={addLineItem}>
+                <h3 className="font-semibold text-base">
+                  Services / Line Items
+                </h3>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={addLineItem}
+                >
                   + Add Row
                 </Button>
               </div>
@@ -336,15 +349,21 @@ export function EditInvoiceDialog({
                       <Input
                         placeholder="Service description"
                         value={row.description}
-                        onChange={(e) => updateLineItem(idx, { description: e.target.value })}
+                        onChange={(e) =>
+                          updateLineItem(idx, { description: e.target.value })
+                        }
                       />
                       <select
                         className="border rounded p-2 text-sm"
                         value={row.hsnCode}
-                        onChange={(e) => updateLineItem(idx, { hsnCode: e.target.value })}
+                        onChange={(e) =>
+                          updateLineItem(idx, { hsnCode: e.target.value })
+                        }
                       >
                         {HSN_OPTIONS.map((o) => (
-                          <option key={o.value} value={o.value}>{o.value}</option>
+                          <option key={o.value} value={o.value}>
+                            {o.value}
+                          </option>
                         ))}
                       </select>
                       <Input
@@ -352,7 +371,9 @@ export function EditInvoiceDialog({
                         min={1}
                         value={row.quantity}
                         onChange={(e) =>
-                          updateLineItem(idx, { quantity: Number(e.target.value) })
+                          updateLineItem(idx, {
+                            quantity: Number(e.target.value),
+                          })
                         }
                       />
                       <Input
@@ -387,7 +408,10 @@ export function EditInvoiceDialog({
                 <div className="flex gap-8">
                   <span className="text-muted-foreground">Subtotal</span>
                   <span className="w-28 text-right font-medium">
-                    ₹{subtotal.toLocaleString("en-IN", { minimumFractionDigits: 2 })}
+                    ₹
+                    {subtotal.toLocaleString("en-IN", {
+                      minimumFractionDigits: 2,
+                    })}
                   </span>
                 </div>
                 <div className="flex gap-8">
@@ -399,7 +423,10 @@ export function EditInvoiceDialog({
                 <div className="flex gap-8 text-base font-semibold border-t pt-1 mt-1">
                   <span>Total</span>
                   <span className="w-28 text-right">
-                    ₹{total.toLocaleString("en-IN", { minimumFractionDigits: 2 })}
+                    ₹
+                    {total.toLocaleString("en-IN", {
+                      minimumFractionDigits: 2,
+                    })}
                   </span>
                 </div>
               </div>
@@ -417,9 +444,13 @@ export function EditInvoiceDialog({
                         <input
                           type="checkbox"
                           checked={field.value || false}
-                          onChange={(e: any) => field.onChange(e.target.checked)}
+                          onChange={(e: any) =>
+                            field.onChange(e.target.checked)
+                          }
                         />
-                        <span className="font-medium text-sm">Include Venue Name</span>
+                        <span className="font-medium text-sm">
+                          Include Venue Name
+                        </span>
                       </label>
                     </FormItem>
                   )}
@@ -430,7 +461,11 @@ export function EditInvoiceDialog({
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input {...field} disabled={!includeVenueName} placeholder="Venue name" />
+                        <Input
+                          {...field}
+                          disabled={!includeVenueName}
+                          placeholder="Venue name"
+                        />
                       </FormControl>
                     </FormItem>
                   )}
@@ -447,9 +482,13 @@ export function EditInvoiceDialog({
                         <input
                           type="checkbox"
                           checked={field.value || false}
-                          onChange={(e: any) => field.onChange(e.target.checked)}
+                          onChange={(e: any) =>
+                            field.onChange(e.target.checked)
+                          }
                         />
-                        <span className="font-medium text-sm">Include Venue Address</span>
+                        <span className="font-medium text-sm">
+                          Include Venue Address
+                        </span>
                       </label>
                     </FormItem>
                   )}
@@ -460,7 +499,11 @@ export function EditInvoiceDialog({
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input {...field} disabled={!includeVenueAddress} placeholder="Venue address" />
+                        <Input
+                          {...field}
+                          disabled={!includeVenueAddress}
+                          placeholder="Venue address"
+                        />
                       </FormControl>
                     </FormItem>
                   )}

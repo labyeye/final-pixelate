@@ -1,35 +1,6 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  
   const internalSecret = process.env.INTERNAL_API_SECRET;
   if (internalSecret) {
     const header = req.headers.get("x-internal-secret");
@@ -38,39 +9,48 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  
   const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
   const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
-  
+
   const apiVersion = process.env.WHATSAPP_API_VERSION ?? "v21.0";
 
   if (!accessToken || !phoneNumberId) {
-    console.error("[WhatsApp Media] Missing WHATSAPP_ACCESS_TOKEN or WHATSAPP_PHONE_NUMBER_ID");
-    return NextResponse.json({ error: "Server misconfiguration." }, { status: 500 });
+    console.error(
+      "[WhatsApp Media] Missing WHATSAPP_ACCESS_TOKEN or WHATSAPP_PHONE_NUMBER_ID",
+    );
+    return NextResponse.json(
+      { error: "Server misconfiguration." },
+      { status: 500 },
+    );
   }
 
-  
   let formData: FormData;
   try {
     formData = await req.formData();
   } catch {
-    return NextResponse.json({ error: "Invalid multipart form data." }, { status: 400 });
-  }
-
-  const file = formData.get("file") as File | null;
-  if (!file) {
-    return NextResponse.json({ error: 'Form field "file" is required.' }, { status: 400 });
-  }
-
-  
-  if (file.type !== "application/pdf") {
     return NextResponse.json(
-      { error: `Invalid file type "${file.type}". Only application/pdf is accepted.` },
+      { error: "Invalid multipart form data." },
       { status: 400 },
     );
   }
 
-  
+  const file = formData.get("file") as File | null;
+  if (!file) {
+    return NextResponse.json(
+      { error: 'Form field "file" is required.' },
+      { status: 400 },
+    );
+  }
+
+  if (file.type !== "application/pdf") {
+    return NextResponse.json(
+      {
+        error: `Invalid file type "${file.type}". Only application/pdf is accepted.`,
+      },
+      { status: 400 },
+    );
+  }
+
   const MAX_BYTES = 100 * 1024 * 1024;
   if (file.size > MAX_BYTES) {
     return NextResponse.json(
@@ -79,14 +59,12 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  
-  
-  
-  
-  
   const fileBuffer = await file.arrayBuffer();
   const pdfBlob = new Blob([fileBuffer], { type: "application/pdf" });
-  const safeFilename = (file.name || "invoice.pdf").replace(/[^a-zA-Z0-9.\-_]/g, "_");
+  const safeFilename = (file.name || "invoice.pdf").replace(
+    /[^a-zA-Z0-9.\-_]/g,
+    "_",
+  );
 
   console.info(
     `[WhatsApp Media] Uploading: ${safeFilename}, size: ${(file.size / 1024).toFixed(1)} KB`,
@@ -105,7 +83,6 @@ export async function POST(req: NextRequest) {
       method: "POST",
       headers: {
         Authorization: `Bearer ${accessToken}`,
-        
       },
       body: waForm,
     });
@@ -123,7 +100,7 @@ export async function POST(req: NextRequest) {
     const errDetail = (waJson as any)?.error ?? {};
     console.error(
       `[WhatsApp Media] Upload failed — HTTP ${waResponse.status}, ` +
-      `code: ${errDetail?.code}, fbtrace_id: ${errDetail?.fbtrace_id}:`,
+        `code: ${errDetail?.code}, fbtrace_id: ${errDetail?.fbtrace_id}:`,
       JSON.stringify(waJson, null, 2),
     );
     return NextResponse.json(
@@ -146,7 +123,9 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  console.info(`[WhatsApp Media] Uploaded OK — mediaId: ${mediaId}, filename: ${safeFilename}`);
+  console.info(
+    `[WhatsApp Media] Uploaded OK — mediaId: ${mediaId}, filename: ${safeFilename}`,
+  );
 
   return NextResponse.json({ mediaId });
 }

@@ -27,7 +27,10 @@ export function PostAccountDisplay({
     const fetchAccount = async () => {
       try {
         setLoading(true);
-        const url = new URL("/api/social-media-accounts", window.location.origin);
+        const url = new URL(
+          "/api/social-media-accounts",
+          window.location.origin,
+        );
         url.searchParams.set("id", accountId);
         const res = await fetch(url.toString(), { cache: "no-store" });
         if (res.ok) {
@@ -60,7 +63,9 @@ export function PostAccountDisplay({
       <span>
         @{account.handle}
         {account.displayName && account.displayName !== account.handle && (
-          <span className="text-xs text-gray-600 ml-1">({account.displayName})</span>
+          <span className="text-xs text-gray-600 ml-1">
+            ({account.displayName})
+          </span>
         )}
       </span>
     </div>

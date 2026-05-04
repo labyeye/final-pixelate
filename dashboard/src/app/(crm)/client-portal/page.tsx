@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -16,8 +22,11 @@ export default function ClientPortalPage() {
 
   useEffect(() => {
     if (!user || user.role !== "client") return;
-    const token = typeof window !== "undefined" ? localStorage.getItem("auth_token") : null;
-    const headers: Record<string, string> = { "Content-Type": "application/json" };
+    const token =
+      typeof window !== "undefined" ? localStorage.getItem("auth_token") : null;
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
     if (token) headers["Authorization"] = `Bearer ${token}`;
 
     (async () => {
@@ -29,13 +38,12 @@ export default function ClientPortalPage() {
         const allProjects = projRes.ok ? await projRes.json() : [];
         const allInvoices = invRes.ok ? await invRes.json() : [];
 
-        
         const cid = user.clientId;
         const myProjects = allProjects.filter(
-          (p: any) => cid && String(p.clientId) === String(cid)
+          (p: any) => cid && String(p.clientId) === String(cid),
         );
         const myInvoices = allInvoices.filter(
-          (i: any) => cid && String(i.clientId) === String(cid)
+          (i: any) => cid && String(i.clientId) === String(cid),
         );
         setProjects(myProjects);
         setInvoices(myInvoices);
@@ -70,10 +78,19 @@ export default function ClientPortalPage() {
       <header className="border-b-2 border-black bg-white/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/assets/images/logo-transparent.png" alt="Logo" className="w-10 h-10" onError={(e) => (e.currentTarget.style.display = 'none')} />
+            <img
+              src="/assets/images/logo-transparent.png"
+              alt="Logo"
+              className="w-10 h-10"
+              onError={(e) => (e.currentTarget.style.display = "none")}
+            />
             <div>
-              <h1 className="text-2xl font-black tracking-tighter">PIXELATE NEST</h1>
-              <p className="text-xs text-muted-foreground font-bold uppercase tracking-wider">Client Portal</p>
+              <h1 className="text-2xl font-black tracking-tighter">
+                PIXELATE NEST
+              </h1>
+              <p className="text-xs text-muted-foreground font-bold uppercase tracking-wider">
+                Client Portal
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-3">
@@ -86,7 +103,12 @@ export default function ClientPortalPage() {
               <p className="text-sm font-bold leading-none">{user.name}</p>
               <p className="text-xs text-muted-foreground">{user.email}</p>
             </div>
-            <Button variant="outline" size="sm" onClick={logout} className="border-2 border-black ml-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={logout}
+              className="border-2 border-black ml-2"
+            >
               <LogOut className="w-4 h-4 mr-1" /> Logout
             </Button>
           </div>
@@ -96,8 +118,12 @@ export default function ClientPortalPage() {
       <main className="max-w-5xl mx-auto px-6 py-10 space-y-10">
         {}
         <section>
-          <h2 className="text-4xl font-black tracking-tighter">Welcome, {user.name?.split(" ")[0]}!</h2>
-          <p className="text-muted-foreground mt-1">Here's an overview of your projects and invoices.</p>
+          <h2 className="text-4xl font-black tracking-tighter">
+            Welcome, {user.name?.split(" ")[0]}!
+          </h2>
+          <p className="text-muted-foreground mt-1">
+            Here's an overview of your projects and invoices.
+          </p>
         </section>
 
         {/* Stats */}
@@ -109,7 +135,9 @@ export default function ClientPortalPage() {
               </div>
               <div>
                 <p className="text-3xl font-black">{projects.length}</p>
-                <p className="text-sm text-muted-foreground font-bold">Total Projects</p>
+                <p className="text-sm text-muted-foreground font-bold">
+                  Total Projects
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -120,7 +148,9 @@ export default function ClientPortalPage() {
               </div>
               <div>
                 <p className="text-3xl font-black">{invoices.length}</p>
-                <p className="text-sm text-muted-foreground font-bold">Total Invoices</p>
+                <p className="text-sm text-muted-foreground font-bold">
+                  Total Invoices
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -135,18 +165,24 @@ export default function ClientPortalPage() {
             <p className="text-muted-foreground">Loading...</p>
           ) : projects.length === 0 ? (
             <Card className="border-2 border-black">
-              <CardContent className="py-8 text-center text-muted-foreground">No projects yet.</CardContent>
+              <CardContent className="py-8 text-center text-muted-foreground">
+                No projects yet.
+              </CardContent>
             </Card>
           ) : (
             <div className="space-y-3">
               {projects.map((p) => (
-                <Card key={String(p._id ?? p.id)} className="border-2 border-black">
+                <Card
+                  key={String(p._id ?? p.id)}
+                  className="border-2 border-black"
+                >
                   <CardContent className="py-4 flex items-center justify-between gap-4">
                     <div className="flex-1 min-w-0">
                       <p className="font-bold text-base truncate">{p.title}</p>
                       {p.deliveryDate && (
                         <p className="text-sm text-muted-foreground">
-                          Delivery: {new Date(p.deliveryDate).toLocaleDateString("en-IN")}
+                          Delivery:{" "}
+                          {new Date(p.deliveryDate).toLocaleDateString("en-IN")}
                         </p>
                       )}
                     </div>
@@ -163,7 +199,10 @@ export default function ClientPortalPage() {
                         </div>
                       )}
                       {p.amount != null && (
-                        <Badge variant="outline" className="border-black font-bold">
+                        <Badge
+                          variant="outline"
+                          className="border-black font-bold"
+                        >
                           ₹{Number(p.amount).toLocaleString("en-IN")}
                         </Badge>
                       )}
@@ -184,27 +223,40 @@ export default function ClientPortalPage() {
             <p className="text-muted-foreground">Loading...</p>
           ) : invoices.length === 0 ? (
             <Card className="border-2 border-black">
-              <CardContent className="py-8 text-center text-muted-foreground">No invoices yet.</CardContent>
+              <CardContent className="py-8 text-center text-muted-foreground">
+                No invoices yet.
+              </CardContent>
             </Card>
           ) : (
             <div className="space-y-3">
               {invoices.map((inv) => (
-                <Card key={String(inv._id ?? inv.id)} className="border-2 border-black">
+                <Card
+                  key={String(inv._id ?? inv.id)}
+                  className="border-2 border-black"
+                >
                   <CardContent className="py-4 flex items-center justify-between gap-4">
                     <div className="flex-1 min-w-0">
-                      <p className="font-bold text-base">{inv.title || inv.invoiceNo || "Invoice"}</p>
+                      <p className="font-bold text-base">
+                        {inv.title || inv.invoiceNo || "Invoice"}
+                      </p>
                       {inv.invoiceNo && inv.title && (
-                        <p className="text-sm text-muted-foreground">{inv.invoiceNo}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {inv.invoiceNo}
+                        </p>
                       )}
                       {inv.dueDate && (
                         <p className="text-sm text-muted-foreground">
-                          Due: {new Date(inv.dueDate).toLocaleDateString("en-IN")}
+                          Due:{" "}
+                          {new Date(inv.dueDate).toLocaleDateString("en-IN")}
                         </p>
                       )}
                     </div>
                     <div className="flex items-center gap-3 shrink-0">
                       {inv.amount != null && (
-                        <Badge variant="outline" className="border-black font-bold">
+                        <Badge
+                          variant="outline"
+                          className="border-black font-bold"
+                        >
                           ₹{Number(inv.amount).toLocaleString("en-IN")}
                         </Badge>
                       )}
@@ -214,8 +266,8 @@ export default function ClientPortalPage() {
                             inv.status === "paid"
                               ? "bg-green-500 text-white border-green-700"
                               : inv.status === "overdue"
-                              ? "bg-red-500 text-white border-red-700"
-                              : "border-black"
+                                ? "bg-red-500 text-white border-red-700"
+                                : "border-black"
                           }
                           variant="outline"
                         >

@@ -178,15 +178,25 @@ export function AddInvoiceDialog({
         }
       }
 
-      
-      const doc = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
+      const doc = new jsPDF({
+        unit: "mm",
+        format: "a4",
+        orientation: "portrait",
+      });
       try {
         const { loadNotoSansForJsPDF } = await import("@/lib/pdf-fonts");
         const family = await loadNotoSansForJsPDF(doc, "NotoSans");
-        if (family) { try { doc.setFont(family); } catch (e) {} }
+        if (family) {
+          try {
+            doc.setFont(family);
+          } catch (e) {}
+        }
 
         const pdfBody = renderToString(
-          <InvoicePDF invoice={{ ...created, ...invoice }} client={selectedClient} />,
+          <InvoicePDF
+            invoice={{ ...created, ...invoice }}
+            client={selectedClient}
+          />,
         );
         const notoHref =
           "https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap";
@@ -227,7 +237,9 @@ export function AddInvoiceDialog({
             const invoiceId = created.id ?? created.invoiceNo ?? created._id;
             const sanitize = (s: string) =>
               s.replace(/[\\/:*?"<>|\s]+/g, "_").replace(/^_+|_+$/g, "");
-            const clientSafe = sanitize(String(created.clientName || selectedClient?.name || "Client"));
+            const clientSafe = sanitize(
+              String(created.clientName || selectedClient?.name || "Client"),
+            );
             doc.save(`${invoiceId}_${clientSafe}.pdf`);
           },
           x: 0,
@@ -237,7 +249,10 @@ export function AddInvoiceDialog({
         });
       } catch (e) {
         const pdfContent = renderToString(
-          <InvoicePDF invoice={{ ...created, ...invoice }} client={selectedClient} />,
+          <InvoicePDF
+            invoice={{ ...created, ...invoice }}
+            client={selectedClient}
+          />,
         );
         const pageWidth = doc.internal.pageSize.getWidth();
         doc.html(pdfContent.replace(/₹/g, "Rs."), {
@@ -245,7 +260,10 @@ export function AddInvoiceDialog({
             const invoiceId = created.id ?? created.invoiceNo ?? created._id;
             doc.save(`${invoiceId}_Invoice.pdf`);
           },
-          x: 0, y: 0, width: pageWidth, windowWidth: 1200,
+          x: 0,
+          y: 0,
+          width: pageWidth,
+          windowWidth: 1200,
         });
       }
 
@@ -285,7 +303,10 @@ export function AddInvoiceDialog({
                       <select {...field} className="w-full border rounded p-2">
                         <option value="">Select client</option>
                         {clients.map((c) => (
-                          <option key={String(c.id ?? c._id)} value={String(c.id ?? c._id)}>
+                          <option
+                            key={String(c.id ?? c._id)}
+                            value={String(c.id ?? c._id)}
+                          >
                             {c.name}
                           </option>
                         ))}
@@ -338,8 +359,15 @@ export function AddInvoiceDialog({
             {/* ── Line Items ── */}
             <div>
               <div className="flex items-center justify-between mb-3">
-                <h3 className="font-semibold text-base">Services / Line Items</h3>
-                <Button type="button" variant="outline" size="sm" onClick={addLineItem}>
+                <h3 className="font-semibold text-base">
+                  Services / Line Items
+                </h3>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={addLineItem}
+                >
                   + Add Row
                 </Button>
               </div>
@@ -365,15 +393,21 @@ export function AddInvoiceDialog({
                       <Input
                         placeholder="Service description"
                         value={row.description}
-                        onChange={(e) => updateLineItem(idx, { description: e.target.value })}
+                        onChange={(e) =>
+                          updateLineItem(idx, { description: e.target.value })
+                        }
                       />
                       <select
                         className="border rounded p-2 text-sm"
                         value={row.hsnCode}
-                        onChange={(e) => updateLineItem(idx, { hsnCode: e.target.value })}
+                        onChange={(e) =>
+                          updateLineItem(idx, { hsnCode: e.target.value })
+                        }
                       >
                         {HSN_OPTIONS.map((o) => (
-                          <option key={o.value} value={o.value}>{o.value}</option>
+                          <option key={o.value} value={o.value}>
+                            {o.value}
+                          </option>
                         ))}
                       </select>
                       <Input
@@ -381,7 +415,9 @@ export function AddInvoiceDialog({
                         min={1}
                         value={row.quantity}
                         onChange={(e) =>
-                          updateLineItem(idx, { quantity: Number(e.target.value) })
+                          updateLineItem(idx, {
+                            quantity: Number(e.target.value),
+                          })
                         }
                       />
                       <Input
@@ -416,7 +452,10 @@ export function AddInvoiceDialog({
                 <div className="flex gap-8">
                   <span className="text-muted-foreground">Subtotal</span>
                   <span className="w-28 text-right font-medium">
-                    ₹{subtotal.toLocaleString("en-IN", { minimumFractionDigits: 2 })}
+                    ₹
+                    {subtotal.toLocaleString("en-IN", {
+                      minimumFractionDigits: 2,
+                    })}
                   </span>
                 </div>
                 <div className="flex gap-8">
@@ -428,7 +467,10 @@ export function AddInvoiceDialog({
                 <div className="flex gap-8 text-base font-semibold border-t pt-1 mt-1">
                   <span>Total</span>
                   <span className="w-28 text-right">
-                    ₹{total.toLocaleString("en-IN", { minimumFractionDigits: 2 })}
+                    ₹
+                    {total.toLocaleString("en-IN", {
+                      minimumFractionDigits: 2,
+                    })}
                   </span>
                 </div>
               </div>
@@ -446,9 +488,13 @@ export function AddInvoiceDialog({
                         <input
                           type="checkbox"
                           checked={field.value || false}
-                          onChange={(e: any) => field.onChange(e.target.checked)}
+                          onChange={(e: any) =>
+                            field.onChange(e.target.checked)
+                          }
                         />
-                        <span className="font-medium text-sm">Include Venue Name</span>
+                        <span className="font-medium text-sm">
+                          Include Venue Name
+                        </span>
                       </label>
                     </FormItem>
                   )}
@@ -459,7 +505,11 @@ export function AddInvoiceDialog({
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input {...field} disabled={!includeVenueName} placeholder="Venue name" />
+                        <Input
+                          {...field}
+                          disabled={!includeVenueName}
+                          placeholder="Venue name"
+                        />
                       </FormControl>
                     </FormItem>
                   )}
@@ -476,9 +526,13 @@ export function AddInvoiceDialog({
                         <input
                           type="checkbox"
                           checked={field.value || false}
-                          onChange={(e: any) => field.onChange(e.target.checked)}
+                          onChange={(e: any) =>
+                            field.onChange(e.target.checked)
+                          }
                         />
-                        <span className="font-medium text-sm">Include Venue Address</span>
+                        <span className="font-medium text-sm">
+                          Include Venue Address
+                        </span>
                       </label>
                     </FormItem>
                   )}
@@ -489,7 +543,11 @@ export function AddInvoiceDialog({
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input {...field} disabled={!includeVenueAddress} placeholder="Venue address" />
+                        <Input
+                          {...field}
+                          disabled={!includeVenueAddress}
+                          placeholder="Venue address"
+                        />
                       </FormControl>
                     </FormItem>
                   )}
@@ -542,18 +600,23 @@ export function AddInvoiceDialog({
                             className="font-semibold text-sm"
                             style={{ color: waOptIn ? "#15803d" : "#374151" }}
                           >
-                            📲 Send this invoice to {selectedClient?.name ?? "client"} on WhatsApp
+                            📲 Send this invoice to{" "}
+                            {selectedClient?.name ?? "client"} on WhatsApp
                           </span>
                           <span
                             className="block text-xs mt-1"
                             style={{ color: "#6b7280", lineHeight: 1.5 }}
                           >
                             By checking this box, you confirm that{" "}
-                            <strong>{selectedClient?.name ?? "the client"}</strong>{" "}
-                            has agreed to receive invoice and payment notifications from Pixelate Studio on WhatsApp.
+                            <strong>
+                              {selectedClient?.name ?? "the client"}
+                            </strong>{" "}
+                            has agreed to receive invoice and payment
+                            notifications from Pixelate Studio on WhatsApp.
                             {!hasPhone && (
                               <span className="block mt-1 text-amber-600 font-medium">
-                                ⚠️ No WhatsApp number saved for this client. Add their number in the client profile first.
+                                ⚠️ No WhatsApp number saved for this client. Add
+                                their number in the client profile first.
                               </span>
                             )}
                           </span>
@@ -564,7 +627,9 @@ export function AddInvoiceDialog({
                 })()}
 
                 <Button type="submit" size="lg" className="w-full">
-                  {waOptIn ? "Create Invoice & Send on WhatsApp ✓" : "Create & Download PDF"}
+                  {waOptIn
+                    ? "Create Invoice & Send on WhatsApp ✓"
+                    : "Create & Download PDF"}
                 </Button>
               </div>
             </DialogFooter>

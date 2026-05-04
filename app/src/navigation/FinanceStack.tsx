@@ -20,20 +20,64 @@ const FinanceStack = () => (
     screenOptions={{
       headerStyle: { backgroundColor: Colors.primary },
       headerTintColor: Colors.white,
-      headerTitleStyle: { fontWeight: Typography.black, fontSize: Typography.lg },
+      headerTitleStyle: {
+        fontWeight: Typography.black,
+        fontSize: Typography.lg,
+      },
       headerShadowVisible: false,
       contentStyle: { backgroundColor: Colors.background },
-    }}>
-    <Stack.Screen name="FinanceHome" component={FinanceHomeScreen} options={{ title: 'FINANCE' }} />
-    <Stack.Screen name="Invoicing" component={InvoicingScreen} options={{ title: 'INVOICING' }} />
-    <Stack.Screen name="InvoiceDetail" component={InvoiceDetailScreen} options={{ title: 'INVOICE' }} />
-    <Stack.Screen name="Payments" component={PaymentsScreen} options={{ title: 'PAYMENTS' }} />
-    <Stack.Screen name="Expenses" component={ExpensesScreen} options={{ title: 'EXPENSES' }} />
-    <Stack.Screen name="EMITracker" component={EMITrackerScreen} options={{ title: 'EMI TRACKER' }} />
-    <Stack.Screen name="Quotations" component={QuotationsScreen} options={{ title: 'QUOTATIONS' }} />
-    <Stack.Screen name="QuotationDetail" component={QuotationDetailScreen} options={{ title: 'QUOTATION' }} />
-    <Stack.Screen name="Onboarding" component={OnboardingScreen} options={{ title: 'ONBOARDING' }} />
-    <Stack.Screen name="NDAApproval" component={NDAApprovalScreen} options={{ title: 'NDA APPROVAL' }} />
+    }}
+  >
+    <Stack.Screen
+      name="FinanceHome"
+      component={FinanceHomeScreen}
+      options={{ title: 'FINANCE' }}
+    />
+    <Stack.Screen
+      name="Invoicing"
+      component={InvoicingScreen}
+      options={{ title: 'INVOICING' }}
+    />
+    <Stack.Screen
+      name="InvoiceDetail"
+      component={InvoiceDetailScreen}
+      options={{ title: 'INVOICE' }}
+    />
+    <Stack.Screen
+      name="Payments"
+      component={PaymentsScreen}
+      options={{ title: 'PAYMENTS' }}
+    />
+    <Stack.Screen
+      name="Expenses"
+      component={ExpensesScreen}
+      options={{ title: 'EXPENSES' }}
+    />
+    <Stack.Screen
+      name="EMITracker"
+      component={EMITrackerScreen}
+      options={{ title: 'EMI TRACKER' }}
+    />
+    <Stack.Screen
+      name="Quotations"
+      component={QuotationsScreen}
+      options={{ title: 'QUOTATIONS' }}
+    />
+    <Stack.Screen
+      name="QuotationDetail"
+      component={QuotationDetailScreen}
+      options={{ title: 'QUOTATION' }}
+    />
+    <Stack.Screen
+      name="Onboarding"
+      component={OnboardingScreen}
+      options={{ title: 'ONBOARDING' }}
+    />
+    <Stack.Screen
+      name="NDAApproval"
+      component={NDAApprovalScreen}
+      options={{ title: 'NDA APPROVAL' }}
+    />
   </Stack.Navigator>
 );
 

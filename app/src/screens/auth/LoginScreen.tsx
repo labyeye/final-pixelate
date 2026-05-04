@@ -119,10 +119,10 @@ const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: Colors.white },
   flex: { flex: 1 },
   container: {
-  flexGrow: 1,
-  paddingHorizontal: Spacing.base,
-  justifyContent: 'center', 
-},
+    flexGrow: 1,
+    paddingHorizontal: Spacing.base,
+    justifyContent: 'center',
+  },
   heroBadge: {
     alignSelf: 'flex-start',
     backgroundColor: Colors.secondary,
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
   },
-  logoTextBlock: { gap: 10 , flexDirection: 'row', alignItems: 'center' },
+  logoTextBlock: { gap: 10, flexDirection: 'row', alignItems: 'center' },
   logoTitle: {
     fontSize: Typography['3xl'],
     fontWeight: Typography.black,
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
     lineHeight: 28,
   },
-  taglineBlock: { marginBottom: Spacing['2xl'], },
+  taglineBlock: { marginBottom: Spacing['2xl'] },
   tagline: {
     fontSize: Typography.xl,
     fontWeight: Typography.bold,

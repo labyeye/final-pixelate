@@ -1,4 +1,3 @@
-
 .services-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -29,7 +28,6 @@
 .p-text-03 {
   color: rgba(0, 0, 0, 0.7);
 }
-
 
 .pricing-cards-section {
   position: relative;
@@ -140,7 +138,6 @@
     font-size: 32px;
   }
 }
-
 
 .faq-list details {
   background: #fff;

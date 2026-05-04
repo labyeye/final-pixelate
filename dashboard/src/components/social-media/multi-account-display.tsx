@@ -28,10 +28,13 @@ export function MultiAccountDisplay({
       try {
         setLoading(true);
         const promises = accountIds.map((id) => {
-          const url = new URL("/api/social-media-accounts", window.location.origin);
+          const url = new URL(
+            "/api/social-media-accounts",
+            window.location.origin,
+          );
           url.searchParams.set("id", id);
           return fetch(url.toString(), { cache: "no-store" }).then((res) =>
-            res.ok ? res.json() : null
+            res.ok ? res.json() : null,
           );
         });
 
@@ -69,10 +72,11 @@ export function MultiAccountDisplay({
           <PlatformLogo platform={account.platform} size="sm" />
           <span>
             @{account.handle}
-            {account.displayName &&
-              account.displayName !== account.handle && (
-                <span className="text-gray-600 ml-1">({account.displayName})</span>
-              )}
+            {account.displayName && account.displayName !== account.handle && (
+              <span className="text-gray-600 ml-1">
+                ({account.displayName})
+              </span>
+            )}
           </span>
         </div>
       ))}

@@ -11,5 +11,5 @@ __turbopack_load_page_chunks__("/_app", [
   "static/chunks/c729b_02f535e2._.js",
   "static/chunks/[root-of-the-server]__d0c8b4bf._.js",
   "static/chunks/Desktop_Projects_final-pixelate_dashboard_pages__app_2da965e7._.js",
-  "static/chunks/turbopack-Desktop_Projects_final-pixelate_dashboard_pages__app_898abf7b._.js"
-])
+  "static/chunks/turbopack-Desktop_Projects_final-pixelate_dashboard_pages__app_898abf7b._.js",
+]);

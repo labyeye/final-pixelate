@@ -56,9 +56,7 @@ export function InvoicePDF({
             const data = await res.json();
             setClient(data as Client);
           }
-        } catch (e) {
-          
-        }
+        } catch (e) {}
       })();
     }
     return () => {
@@ -91,16 +89,15 @@ export function InvoicePDF({
   let status = "DUE";
   let statusColor = "#044bab";
 
-  
   const isPaid =
     invoice?.status === "PAID" || (paidAmount >= total - 1 && total > 0);
 
   if (isPaid) {
     status = "PAID";
-    statusColor = "#16a34a"; 
+    statusColor = "#16a34a";
   } else if (paidAmount > 0 && paidAmount < total) {
     status = "PARTIAL";
-    statusColor = "#f59e0b"; 
+    statusColor = "#f59e0b";
   }
 
   const effectiveClientName =

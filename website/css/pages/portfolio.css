@@ -1,14 +1,13 @@
-
-:root{
+:root {
   --primary: #044bab;
-  --muted: rgba(0,0,0,0.65);
+  --muted: rgba(0, 0, 0, 0.65);
 }
-.portfolio-details-main{
+.portfolio-details-main {
   padding: 48px 20px;
   background: #ffffff;
   min-height: 60vh;
 }
-.details-card{
+.details-card {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
@@ -16,30 +15,67 @@
   margin: 0 auto;
   align-items: start;
 }
-.details-media img{
+.details-media img {
   width: 100%;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 12px 40px rgba(4,75,171,0.08);
+  box-shadow: 0 12px 40px rgba(4, 75, 171, 0.08);
   object-fit: cover;
 }
-.details-body{
+.details-body {
   padding: 8px 4px;
 }
-.details-body h1{
+.details-body h1 {
   font-size: 32px;
   margin: 6px 0 12px;
   color: var(--primary);
 }
-.pd-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px }
-.pd-tags .tag{ background: rgba(4,75,171,0.06); color: var(--primary); padding:6px 10px; border-radius:999px; font-weight:700 }
-.pd-desc{ color: var(--muted); line-height:1.6; margin-bottom:18px }
-.pd-actions{ display:flex; gap:12px; align-items:center }
-.btn{ display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:700 }
-.btn-primary{ background:var(--primary); color:white }
-.btn-ghost{ background:transparent; color:var(--primary); border:2px solid rgba(4,75,171,0.08) }
+.pd-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.pd-tags .tag {
+  background: rgba(4, 75, 171, 0.06);
+  color: var(--primary);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+.pd-desc {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.pd-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid rgba(4, 75, 171, 0.08);
+}
 
-@media(min-width:900px){
-  .details-card{ grid-template-columns: 48% 52%; align-items:start }
-  .details-media img{ height: 420px; }
+@media (min-width: 900px) {
+  .details-card {
+    grid-template-columns: 48% 52%;
+    align-items: start;
+  }
+  .details-media img {
+    height: 420px;
+  }
 }

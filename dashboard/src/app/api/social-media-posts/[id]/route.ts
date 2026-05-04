@@ -9,13 +9,12 @@ const CORS = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
-
 async function logErpEvent(
   type: string,
   target: string,
   details: any,
   userId?: string | null,
-  email?: string | null
+  email?: string | null,
 ) {
   try {
     const response = await fetch(
@@ -24,7 +23,7 @@ async function logErpEvent(
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type, target, details, userId, email }),
-      }
+      },
     );
     if (!response.ok) {
       console.warn("Failed to log ERP event:", await response.text());
@@ -72,9 +71,8 @@ export async function PUT(request: Request, { params }: RouteContext) {
     const body = await request.json();
     const col = await svc.getCollection("socialMediaPosts");
 
-    
     const oldPost = await col.findOne({ _id: new ObjectId(id) });
-    
+
     if (!oldPost) {
       return NextResponse.json(
         { error: "Not found" },
@@ -82,7 +80,6 @@ export async function PUT(request: Request, { params }: RouteContext) {
       );
     }
 
-    
     const { _id, createdAt, ...updateData } = body;
 
     const updates: any = {
@@ -108,20 +105,19 @@ export async function PUT(request: Request, { params }: RouteContext) {
 
     const updated = await col.findOne({ _id: new ObjectId(id) });
 
-    
     await logErpEvent(
       "post_updated",
       "socialMediaPost",
       {
         postId: id,
         changes: Object.keys(updateData).filter(
-          (key) => (oldPost as any)[key] !== (updateData as any)[key]
+          (key) => (oldPost as any)[key] !== (updateData as any)[key],
         ),
         before: oldPost,
         after: updated,
       },
       decoded?.userId,
-      decoded?.email
+      decoded?.email,
     );
 
     return NextResponse.json(updated, { headers: CORS });
@@ -150,7 +146,6 @@ export async function PATCH(request: Request, { params }: RouteContext) {
     const body = await request.json();
     const col = await svc.getCollection("socialMediaPosts");
 
-    
     const post = await col.findOne({ _id: new ObjectId(id) });
 
     if (!post) {
@@ -160,7 +155,6 @@ export async function PATCH(request: Request, { params }: RouteContext) {
       );
     }
 
-    
     if (post.clientId !== decoded.clientId) {
       return NextResponse.json(
         { error: "Unauthorized - This post does not belong to you" },
@@ -227,12 +221,10 @@ export async function DELETE(request: Request, { params }: RouteContext) {
   try {
     const { id } = await params;
 
-    
     const body = await request.json().catch(() => ({}));
     let userId: string | null = body?.userId || null;
     let email: string | null = body?.email || null;
 
-    
     if (!userId || !email) {
       const auth = request.headers.get("authorization") || "";
       const token = auth.replace("Bearer ", "");
@@ -245,11 +237,14 @@ export async function DELETE(request: Request, { params }: RouteContext) {
       }
     }
 
-    
     const col = await svc.getCollection("socialMediaPosts");
     const postBefore = await col.findOne({ _id: new ObjectId(id) });
 
-    const ok = await svc.softDeleteById("socialMediaPosts", id, "Social Media Post");
+    const ok = await svc.softDeleteById(
+      "socialMediaPosts",
+      id,
+      "Social Media Post",
+    );
     if (!ok) {
       return NextResponse.json(
         { error: "Delete failed" },
@@ -257,7 +252,6 @@ export async function DELETE(request: Request, { params }: RouteContext) {
       );
     }
 
-    
     if (postBefore) {
       await logErpEvent(
         "post_deleted",
@@ -273,7 +267,7 @@ export async function DELETE(request: Request, { params }: RouteContext) {
           scheduledDate: postBefore.scheduledDate,
         },
         userId,
-        email
+        email,
       );
     }
 

@@ -12,46 +12,51 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
 }
 
-
-
-
-
-
-
 export async function GET(request: NextRequest) {
   const auth = request.headers.get("authorization") || "";
   const token = auth.replace("Bearer ", "");
   const decoded: any = verifyToken(token);
-  if (!decoded) return NextResponse.json({ error: "unauthorized" }, { status: 401, headers: CORS });
+  if (!decoded)
+    return NextResponse.json(
+      { error: "unauthorized" },
+      { status: 401, headers: CORS },
+    );
 
   const { searchParams } = new URL(request.url);
   let clientId = searchParams.get("clientId");
   if (decoded.role === "client") clientId = decoded.clientId;
-  if (!clientId) return NextResponse.json({ error: "clientId required" }, { status: 400, headers: CORS });
+  if (!clientId)
+    return NextResponse.json(
+      { error: "clientId required" },
+      { status: 400, headers: CORS },
+    );
 
   const col = await svc.getCollection("fbAdsConnections");
   const conn = await col.findOne({ clientId });
   if (!conn) return NextResponse.json(null, { headers: CORS });
 
-  
   const { accessToken: _tok, ...safe } = conn as any;
   return NextResponse.json({ ...safe, isConnected: !!_tok }, { headers: CORS });
 }
-
-
-
-
-
 
 export async function POST(request: NextRequest) {
   const auth = request.headers.get("authorization") || "";
   const token = auth.replace("Bearer ", "");
   const decoded: any = verifyToken(token);
-  if (!decoded) return NextResponse.json({ error: "unauthorized" }, { status: 401, headers: CORS });
-  if (decoded.role !== "admin") return NextResponse.json({ error: "forbidden" }, { status: 403, headers: CORS });
+  if (!decoded)
+    return NextResponse.json(
+      { error: "unauthorized" },
+      { status: 401, headers: CORS },
+    );
+  if (decoded.role !== "admin")
+    return NextResponse.json(
+      { error: "forbidden" },
+      { status: 403, headers: CORS },
+    );
 
   const body = await request.json();
-  const { clientId, accessToken, adAccountId, datasetId, selectedFormIds } = body;
+  const { clientId, accessToken, adAccountId, datasetId, selectedFormIds } =
+    body;
   if (!clientId || !accessToken || !adAccountId) {
     return NextResponse.json(
       { error: "clientId, accessToken and adAccountId are required" },
@@ -66,13 +71,19 @@ export async function POST(request: NextRequest) {
       $set: {
         clientId,
         accessToken,
-        adAccountId: adAccountId.startsWith("act_") ? adAccountId : `act_${adAccountId}`,
+        adAccountId: adAccountId.startsWith("act_")
+          ? adAccountId
+          : `act_${adAccountId}`,
         datasetId: datasetId || null,
         selectedFormIds: Array.isArray(selectedFormIds) ? selectedFormIds : [],
         isActive: true,
         updatedAt: new Date(),
       },
-      $setOnInsert: { createdAt: new Date(), lastSyncAt: null, totalImported: 0 },
+      $setOnInsert: {
+        createdAt: new Date(),
+        lastSyncAt: null,
+        totalImported: 0,
+      },
     },
     { upsert: true },
   );
@@ -80,21 +91,28 @@ export async function POST(request: NextRequest) {
   return NextResponse.json({ success: true }, { headers: CORS });
 }
 
-
-
-
-
-
 export async function PATCH(request: NextRequest) {
   const auth = request.headers.get("authorization") || "";
   const token = auth.replace("Bearer ", "");
   const decoded: any = verifyToken(token);
-  if (!decoded) return NextResponse.json({ error: "unauthorized" }, { status: 401, headers: CORS });
-  if (decoded.role !== "admin") return NextResponse.json({ error: "forbidden" }, { status: 403, headers: CORS });
+  if (!decoded)
+    return NextResponse.json(
+      { error: "unauthorized" },
+      { status: 401, headers: CORS },
+    );
+  if (decoded.role !== "admin")
+    return NextResponse.json(
+      { error: "forbidden" },
+      { status: 403, headers: CORS },
+    );
 
   const body = await request.json();
   const { clientId, selectedFormIds, datasetId } = body;
-  if (!clientId) return NextResponse.json({ error: "clientId required" }, { status: 400, headers: CORS });
+  if (!clientId)
+    return NextResponse.json(
+      { error: "clientId required" },
+      { status: 400, headers: CORS },
+    );
 
   const updates: Record<string, any> = { updatedAt: new Date() };
   if (Array.isArray(selectedFormIds)) updates.selectedFormIds = selectedFormIds;
@@ -105,20 +123,28 @@ export async function PATCH(request: NextRequest) {
   return NextResponse.json({ success: true }, { headers: CORS });
 }
 
-
-
-
-
 export async function DELETE(request: NextRequest) {
   const auth = request.headers.get("authorization") || "";
   const token = auth.replace("Bearer ", "");
   const decoded: any = verifyToken(token);
-  if (!decoded) return NextResponse.json({ error: "unauthorized" }, { status: 401, headers: CORS });
-  if (decoded.role !== "admin") return NextResponse.json({ error: "forbidden" }, { status: 403, headers: CORS });
+  if (!decoded)
+    return NextResponse.json(
+      { error: "unauthorized" },
+      { status: 401, headers: CORS },
+    );
+  if (decoded.role !== "admin")
+    return NextResponse.json(
+      { error: "forbidden" },
+      { status: 403, headers: CORS },
+    );
 
   const { searchParams } = new URL(request.url);
   const clientId = searchParams.get("clientId");
-  if (!clientId) return NextResponse.json({ error: "clientId required" }, { status: 400, headers: CORS });
+  if (!clientId)
+    return NextResponse.json(
+      { error: "clientId required" },
+      { status: 400, headers: CORS },
+    );
 
   const col = await svc.getCollection("fbAdsConnections");
   await col.deleteOne({ clientId });

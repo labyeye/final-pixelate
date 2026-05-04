@@ -73,13 +73,12 @@ export function PaymentReceiptModal({
   const [paymentMethod, setPaymentMethod] = useState<string>("bank_transfer");
   const [clientOpen, setClientOpen] = useState(false);
 
-  
   const clientPendingInvoices = useMemo(() => {
     if (!selectedClient) return [];
     return invoices.filter(
       (inv) =>
         (String(inv.clientId) === String(selectedClient.id) ||
-          String(inv.clientId) === String((selectedClient as any)._id)) && 
+          String(inv.clientId) === String((selectedClient as any)._id)) &&
         inv.status !== "PAID",
     );
   }, [selectedClient, invoices]);
@@ -95,7 +94,7 @@ export function PaymentReceiptModal({
       });
     }
     setOpen(false);
-    
+
     setSelectedClient(null);
     setSelectedInvoice(null);
     setAmount("");

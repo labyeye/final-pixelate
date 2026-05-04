@@ -24,10 +24,15 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Trash2, RotateCcw, AlertTriangle, Inbox, Search, Filter } from "lucide-react";
+import {
+  Trash2,
+  RotateCcw,
+  AlertTriangle,
+  Inbox,
+  Search,
+  Filter,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
-
-
 
 type TrashItem = {
   _id: string;
@@ -38,31 +43,105 @@ type TrashItem = {
   deletedAt: string;
 };
 
-
-
 const COLLECTION_META: Record<
   string,
   { label: string; colour: string; summary: (doc: any) => string }
 > = {
-  invoices:       { label: "Invoice",       colour: "bg-blue-100 text-blue-800",       summary: (d) => d.invoiceNo ?? d.id ?? "—" },
-  leads:          { label: "Lead",          colour: "bg-yellow-100 text-yellow-800",    summary: (d) => d.name ?? d.email ?? "—" },
-  clients:        { label: "Client",        colour: "bg-green-100 text-green-800",      summary: (d) => d.name ?? d.email ?? "—" },
-  quotations:     { label: "Quotation",     colour: "bg-purple-100 text-purple-800",    summary: (d) => d.quotationNo ?? d.id ?? "—" },
-  projects:       { label: "Project",       colour: "bg-indigo-100 text-indigo-800",    summary: (d) => d.title ?? d.name ?? "—" },
-  tasks:          { label: "Task",          colour: "bg-pink-100 text-pink-800",        summary: (d) => d.title ?? d.name ?? "—" },
-  expenses:       { label: "Expense",       colour: "bg-red-100 text-red-800",          summary: (d) => d.description ?? d.title ?? "—" },
-  emi:            { label: "EMI",           colour: "bg-orange-100 text-orange-800",    summary: (d) => d.name ?? d.loanAccount ?? "—" },
-  inventory:      { label: "Inventory",     colour: "bg-teal-100 text-teal-800",        summary: (d) => d.itemName ?? d.name ?? "—" },
-  services:       { label: "Service",       colour: "bg-cyan-100 text-cyan-800",        summary: (d) => d.name ?? d.title ?? "—" },
-  blogs:          { label: "Blog",          colour: "bg-lime-100 text-lime-800",        summary: (d) => d.title ?? "—" },
-  reels:          { label: "Reel",          colour: "bg-rose-100 text-rose-800",        summary: (d) => d.title ?? d.caption ?? "—" },
-  photoGalleries: { label: "Photo Gallery", colour: "bg-amber-100 text-amber-800",      summary: (d) => d.title ?? d.name ?? "—" },
-  workGallery:    { label: "Work Gallery",  colour: "bg-violet-100 text-violet-800",    summary: (d) => d.title ?? d.projectName ?? "—" },
-  enquiries:      { label: "Enquiry",       colour: "bg-sky-100 text-sky-800",          summary: (d) => d.name ?? d.email ?? "—" },
-  supportTickets: { label: "Support Ticket",colour: "bg-slate-100 text-slate-800",      summary: (d) => d.subject ?? d.title ?? "—" },
-  journey_events: { label: "Journey Event", colour: "bg-emerald-100 text-emerald-800",  summary: (d) => d.title ?? d.label ?? "—" },
-  teamMembers:    { label: "Team Member",   colour: "bg-fuchsia-100 text-fuchsia-800",  summary: (d) => d.name ?? d.email ?? "—" },
-  careers:        { label: "Career",        colour: "bg-stone-100 text-stone-800",      summary: (d) => d.title ?? d.position ?? "—" },
+  invoices: {
+    label: "Invoice",
+    colour: "bg-blue-100 text-blue-800",
+    summary: (d) => d.invoiceNo ?? d.id ?? "—",
+  },
+  leads: {
+    label: "Lead",
+    colour: "bg-yellow-100 text-yellow-800",
+    summary: (d) => d.name ?? d.email ?? "—",
+  },
+  clients: {
+    label: "Client",
+    colour: "bg-green-100 text-green-800",
+    summary: (d) => d.name ?? d.email ?? "—",
+  },
+  quotations: {
+    label: "Quotation",
+    colour: "bg-purple-100 text-purple-800",
+    summary: (d) => d.quotationNo ?? d.id ?? "—",
+  },
+  projects: {
+    label: "Project",
+    colour: "bg-indigo-100 text-indigo-800",
+    summary: (d) => d.title ?? d.name ?? "—",
+  },
+  tasks: {
+    label: "Task",
+    colour: "bg-pink-100 text-pink-800",
+    summary: (d) => d.title ?? d.name ?? "—",
+  },
+  expenses: {
+    label: "Expense",
+    colour: "bg-red-100 text-red-800",
+    summary: (d) => d.description ?? d.title ?? "—",
+  },
+  emi: {
+    label: "EMI",
+    colour: "bg-orange-100 text-orange-800",
+    summary: (d) => d.name ?? d.loanAccount ?? "—",
+  },
+  inventory: {
+    label: "Inventory",
+    colour: "bg-teal-100 text-teal-800",
+    summary: (d) => d.itemName ?? d.name ?? "—",
+  },
+  services: {
+    label: "Service",
+    colour: "bg-cyan-100 text-cyan-800",
+    summary: (d) => d.name ?? d.title ?? "—",
+  },
+  blogs: {
+    label: "Blog",
+    colour: "bg-lime-100 text-lime-800",
+    summary: (d) => d.title ?? "—",
+  },
+  reels: {
+    label: "Reel",
+    colour: "bg-rose-100 text-rose-800",
+    summary: (d) => d.title ?? d.caption ?? "—",
+  },
+  photoGalleries: {
+    label: "Photo Gallery",
+    colour: "bg-amber-100 text-amber-800",
+    summary: (d) => d.title ?? d.name ?? "—",
+  },
+  workGallery: {
+    label: "Work Gallery",
+    colour: "bg-violet-100 text-violet-800",
+    summary: (d) => d.title ?? d.projectName ?? "—",
+  },
+  enquiries: {
+    label: "Enquiry",
+    colour: "bg-sky-100 text-sky-800",
+    summary: (d) => d.name ?? d.email ?? "—",
+  },
+  supportTickets: {
+    label: "Support Ticket",
+    colour: "bg-slate-100 text-slate-800",
+    summary: (d) => d.subject ?? d.title ?? "—",
+  },
+  journey_events: {
+    label: "Journey Event",
+    colour: "bg-emerald-100 text-emerald-800",
+    summary: (d) => d.title ?? d.label ?? "—",
+  },
+  teamMembers: {
+    label: "Team Member",
+    colour: "bg-fuchsia-100 text-fuchsia-800",
+    summary: (d) => d.name ?? d.email ?? "—",
+  },
+  careers: {
+    label: "Career",
+    colour: "bg-stone-100 text-stone-800",
+    summary: (d) => d.title ?? d.position ?? "—",
+  },
 };
 
 const getMeta = (col: string) =>
@@ -71,8 +150,6 @@ const getMeta = (col: string) =>
     colour: "bg-gray-100 text-gray-700",
     summary: (d: any) => d.title ?? d.name ?? d._id ?? "—",
   };
-
-
 
 const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString("en-IN", {
@@ -83,21 +160,18 @@ const fmtDate = (iso: string) =>
     minute: "2-digit",
   });
 
-
-
 export default function TrashPage() {
   const { user } = useAuth();
   const { toast } = useToast();
   const isAdmin = user?.role === "admin";
 
-  const [items, setItems]           = useState<TrashItem[]>([]);
-  const [loading, setLoading]       = useState(true);
-  const [search, setSearch]         = useState("");
-  const [filterCol, setFilterCol]   = useState<string>("all");
+  const [items, setItems] = useState<TrashItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [filterCol, setFilterCol] = useState<string>("all");
   const [restoringIds, setRestoringIds] = useState<Set<string>>(new Set());
-  const [deletingIds, setDeletingIds]   = useState<Set<string>>(new Set());
+  const [deletingIds, setDeletingIds] = useState<Set<string>>(new Set());
 
-  
   const fetchTrash = async () => {
     setLoading(true);
     try {
@@ -111,17 +185,21 @@ export default function TrashPage() {
     }
   };
 
-  useEffect(() => { fetchTrash(); }, []); 
+  useEffect(() => {
+    fetchTrash();
+  }, []);
 
-  
   const collectionOptions = useMemo(() => {
-    const cols = Array.from(new Set(items.map((i) => i.originalCollection))).sort();
+    const cols = Array.from(
+      new Set(items.map((i) => i.originalCollection)),
+    ).sort();
     return cols;
   }, [items]);
 
   const filtered = useMemo(() => {
     let list = items;
-    if (filterCol !== "all") list = list.filter((i) => i.originalCollection === filterCol);
+    if (filterCol !== "all")
+      list = list.filter((i) => i.originalCollection === filterCol);
     if (search.trim()) {
       const q = search.toLowerCase();
       list = list.filter((i) => {
@@ -137,7 +215,6 @@ export default function TrashPage() {
     return list;
   }, [items, filterCol, search]);
 
-  
   const handleRestore = async (item: TrashItem) => {
     const id = String(item._id);
     if (restoringIds.has(id)) return;
@@ -154,9 +231,17 @@ export default function TrashPage() {
         description: `${item.collectionLabel} "${getMeta(item.originalCollection).summary(item.document)}" has been restored.`,
       });
     } catch (e: any) {
-      toast({ title: "Restore Failed", description: e.message, variant: "destructive" });
+      toast({
+        title: "Restore Failed",
+        description: e.message,
+        variant: "destructive",
+      });
     } finally {
-      setRestoringIds((p) => { const n = new Set(p); n.delete(id); return n; });
+      setRestoringIds((p) => {
+        const n = new Set(p);
+        n.delete(id);
+        return n;
+      });
     }
   };
 
@@ -177,13 +262,20 @@ export default function TrashPage() {
         variant: "destructive",
       });
     } catch (e: any) {
-      toast({ title: "Delete Failed", description: e.message, variant: "destructive" });
+      toast({
+        title: "Delete Failed",
+        description: e.message,
+        variant: "destructive",
+      });
     } finally {
-      setDeletingIds((p) => { const n = new Set(p); n.delete(id); return n; });
+      setDeletingIds((p) => {
+        const n = new Set(p);
+        n.delete(id);
+        return n;
+      });
     }
   };
 
-  
   if (!isAdmin) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4 text-center">
@@ -196,7 +288,6 @@ export default function TrashPage() {
     );
   }
 
-  
   return (
     <div className="space-y-6">
       {}
@@ -206,7 +297,8 @@ export default function TrashPage() {
           <div>
             <h1 className="text-3xl font-black tracking-tight">Trash</h1>
             <p className="text-sm text-muted-foreground font-semibold mt-0.5">
-              All deleted records across the CRM. Restore or permanently delete them.
+              All deleted records across the CRM. Restore or permanently delete
+              them.
             </p>
           </div>
         </div>
@@ -219,8 +311,9 @@ export default function TrashPage() {
       <div className="flex items-start gap-3 border-2 border-amber-400 bg-amber-50 rounded-lg p-4">
         <AlertTriangle className="w-5 h-5 text-amber-600 mt-0.5 shrink-0" />
         <p className="text-sm font-semibold text-amber-800">
-          Permanently deleted items <strong>cannot be recovered</strong>.
-          Use <strong>Restore</strong> to bring a record back to its original section.
+          Permanently deleted items <strong>cannot be recovered</strong>. Use{" "}
+          <strong>Restore</strong> to bring a record back to its original
+          section.
         </p>
       </div>
 
@@ -261,7 +354,9 @@ export default function TrashPage() {
         <div className="flex flex-col items-center justify-center py-24 gap-4 border-2 border-dashed border-black/20 rounded-xl">
           <Inbox className="w-14 h-14 text-muted-foreground/40" />
           <p className="text-lg font-black text-muted-foreground">
-            {items.length === 0 ? "Trash is empty" : "No results match your filter"}
+            {items.length === 0
+              ? "Trash is empty"
+              : "No results match your filter"}
           </p>
           <p className="text-sm text-muted-foreground font-semibold">
             {items.length === 0
@@ -274,29 +369,44 @@ export default function TrashPage() {
           <Table>
             <TableHeader className="bg-muted/60">
               <TableRow className="border-b-2 border-black">
-                <TableHead className="font-black text-xs uppercase tracking-widest w-36">Type</TableHead>
-                <TableHead className="font-black text-xs uppercase tracking-widest">Record</TableHead>
-                <TableHead className="font-black text-xs uppercase tracking-widest hidden md:table-cell">Details</TableHead>
-                <TableHead className="font-black text-xs uppercase tracking-widest hidden lg:table-cell">Deleted At</TableHead>
-                <TableHead className="text-right font-black text-xs uppercase tracking-widest">Actions</TableHead>
+                <TableHead className="font-black text-xs uppercase tracking-widest w-36">
+                  Type
+                </TableHead>
+                <TableHead className="font-black text-xs uppercase tracking-widest">
+                  Record
+                </TableHead>
+                <TableHead className="font-black text-xs uppercase tracking-widest hidden md:table-cell">
+                  Details
+                </TableHead>
+                <TableHead className="font-black text-xs uppercase tracking-widest hidden lg:table-cell">
+                  Deleted At
+                </TableHead>
+                <TableHead className="text-right font-black text-xs uppercase tracking-widest">
+                  Actions
+                </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {filtered.map((item) => {
-                const id         = String(item._id);
-                const meta       = getMeta(item.originalCollection);
-                const summary    = meta.summary(item.document);
+                const id = String(item._id);
+                const meta = getMeta(item.originalCollection);
+                const summary = meta.summary(item.document);
                 const isRestoring = restoringIds.has(id);
-                const isDeleting  = deletingIds.has(id);
-                const doc         = item.document;
+                const isDeleting = deletingIds.has(id);
+                const doc = item.document;
 
-                
                 const detail =
-                  doc.clientName ?? doc.client ?? doc.email ?? doc.status ?? doc.amount
+                  (doc.clientName ??
+                  doc.client ??
+                  doc.email ??
+                  doc.status ??
+                  doc.amount)
                     ? [
                         doc.clientName ?? doc.client ?? "",
                         doc.email ?? "",
-                        doc.amount != null ? `₹${Number(doc.amount).toLocaleString()}` : "",
+                        doc.amount != null
+                          ? `₹${Number(doc.amount).toLocaleString()}`
+                          : "",
                         doc.status ?? "",
                       ]
                         .filter(Boolean)
@@ -368,12 +478,20 @@ export default function TrashPage() {
                                 Permanently Delete?
                               </AlertDialogTitle>
                               <AlertDialogDescription className="font-semibold">
-                                <span className={cn("text-xs font-black px-1.5 py-0.5 rounded mr-1", meta.colour)}>
+                                <span
+                                  className={cn(
+                                    "text-xs font-black px-1.5 py-0.5 rounded mr-1",
+                                    meta.colour,
+                                  )}
+                                >
                                   {meta.label}
                                 </span>
-                                <strong>{summary}</strong> will be permanently removed
-                                from the database. This action{" "}
-                                <strong className="text-destructive">cannot be undone</strong>.
+                                <strong>{summary}</strong> will be permanently
+                                removed from the database. This action{" "}
+                                <strong className="text-destructive">
+                                  cannot be undone
+                                </strong>
+                                .
                               </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
@@ -400,7 +518,8 @@ export default function TrashPage() {
       )}
 
       <p className="text-xs text-muted-foreground font-semibold text-right">
-        Showing {filtered.length} of {items.length} item{items.length !== 1 ? "s" : ""}
+        Showing {filtered.length} of {items.length} item
+        {items.length !== 1 ? "s" : ""}
       </p>
     </div>
   );

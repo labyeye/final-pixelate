@@ -111,7 +111,6 @@
 }
 
 @media (max-width: 760px) {
-
   .products-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px 16px;
@@ -155,12 +154,10 @@
   }
 }
 
-
 .product-card-link {
   text-decoration: none;
   color: var(--tertiary-900);
   display: block;
-
 }
 
 .product-card-link:hover,

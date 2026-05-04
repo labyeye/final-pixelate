@@ -1,14 +1,11 @@
-
 export type RootStackParams = {
   Auth: undefined;
   Main: undefined;
 };
 
-
 export type AuthStackParams = {
   Login: undefined;
 };
-
 
 export type BottomTabParams = {
   HomeTab: undefined;
@@ -18,7 +15,6 @@ export type BottomTabParams = {
   MoreTab: undefined;
 };
 
-
 export type HomeStackParams = {
   Dashboard: undefined;
   Analytics: undefined;
@@ -26,7 +22,6 @@ export type HomeStackParams = {
   UserActivity: undefined;
   Profile: undefined;
 };
-
 
 export type CRMStackParams = {
   CRMHome: undefined;
@@ -38,7 +33,6 @@ export type CRMStackParams = {
   Reviews: undefined;
 };
 
-
 export type OperationsStackParams = {
   OperationsHome: undefined;
   Projects: undefined;
@@ -48,7 +42,6 @@ export type OperationsStackParams = {
   Inventory: undefined;
   Services: undefined;
 };
-
 
 export type FinanceStackParams = {
   FinanceHome: undefined;
@@ -62,7 +55,6 @@ export type FinanceStackParams = {
   Onboarding: undefined;
   NDAApproval: undefined;
 };
-
 
 export type MoreStackParams = {
   MoreHome: undefined;

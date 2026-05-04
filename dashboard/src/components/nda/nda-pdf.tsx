@@ -38,54 +38,152 @@ export function NdaPDF({ data }: { data: any }) {
           pageBreakAfter: "always",
         }}
       >
-        <h1 style={{ fontSize: "40px", margin: 0, color: "#0b3a91" }}>Non-Disclosure Approval</h1>
-        <div style={{ marginTop: 18, fontSize: 16, color: "#333" }}>{data?.title || "NDA Approval"}</div>
-        <div style={{ marginTop: 18, fontSize: 14, color: "#666" }}>Effective: {formatDate(data?.effectiveDate)}</div>
+        <h1 style={{ fontSize: "40px", margin: 0, color: "#0b3a91" }}>
+          Non-Disclosure Approval
+        </h1>
+        <div style={{ marginTop: 18, fontSize: 16, color: "#333" }}>
+          {data?.title || "NDA Approval"}
+        </div>
+        <div style={{ marginTop: 18, fontSize: 14, color: "#666" }}>
+          Effective: {formatDate(data?.effectiveDate)}
+        </div>
       </div>
 
-      <div style={{ width: "210mm", padding: "20mm", pageBreakAfter: "always" }}>
-        <div style={{ marginBottom: 12, fontSize: 18, fontWeight: 700, color: "#0b3a91" }}>Parties</div>
+      <div
+        style={{ width: "210mm", padding: "20mm", pageBreakAfter: "always" }}
+      >
+        <div
+          style={{
+            marginBottom: 12,
+            fontSize: 18,
+            fontWeight: 700,
+            color: "#0b3a91",
+          }}
+        >
+          Parties
+        </div>
         <div style={{ background: "#f6f7fb", padding: 16, borderRadius: 8 }}>
-          <div style={{ marginBottom: 8 }}><strong>Disclosing Party:</strong> {data.disclosingParty || "—"}</div>
-          <div style={{ marginBottom: 8 }}><strong>Receiving Party:</strong> {data.receivingParty || "—"}</div>
-          <div style={{ marginBottom: 8 }}><strong>Client:</strong> {data.clientName || "—"}</div>
+          <div style={{ marginBottom: 8 }}>
+            <strong>Disclosing Party:</strong> {data.disclosingParty || "—"}
+          </div>
+          <div style={{ marginBottom: 8 }}>
+            <strong>Receiving Party:</strong> {data.receivingParty || "—"}
+          </div>
+          <div style={{ marginBottom: 8 }}>
+            <strong>Client:</strong> {data.clientName || "—"}
+          </div>
         </div>
 
-        <div style={{ marginTop: 20, marginBottom: 12, fontSize: 18, fontWeight: 700, color: "#0b3a91" }}>Scope</div>
-        <div style={{ background: "#fff", padding: 16, borderRadius: 8, border: "1px solid #eee" }}>
-          <div style={{ whiteSpace: "pre-wrap", fontSize: 14, color: "#222" }}>{data.scope || data.description || "—"}</div>
+        <div
+          style={{
+            marginTop: 20,
+            marginBottom: 12,
+            fontSize: 18,
+            fontWeight: 700,
+            color: "#0b3a91",
+          }}
+        >
+          Scope
+        </div>
+        <div
+          style={{
+            background: "#fff",
+            padding: 16,
+            borderRadius: 8,
+            border: "1px solid #eee",
+          }}
+        >
+          <div style={{ whiteSpace: "pre-wrap", fontSize: 14, color: "#222" }}>
+            {data.scope || data.description || "—"}
+          </div>
         </div>
       </div>
 
       <div style={{ width: "210mm", padding: "20mm" }}>
-        <div style={{ marginBottom: 12, fontSize: 18, fontWeight: 700, color: "#0b3a91" }}>Confidential Information</div>
-        <div style={{ background: "#f6f7fb", padding: 16, borderRadius: 8, minHeight: 120 }}>
-          <div style={{ whiteSpace: "pre-wrap", fontSize: 14, color: "#222" }}>{data.confidentialDefinition || "All non-public information disclosed in relation to the Project."}</div>
+        <div
+          style={{
+            marginBottom: 12,
+            fontSize: 18,
+            fontWeight: 700,
+            color: "#0b3a91",
+          }}
+        >
+          Confidential Information
+        </div>
+        <div
+          style={{
+            background: "#f6f7fb",
+            padding: 16,
+            borderRadius: 8,
+            minHeight: 120,
+          }}
+        >
+          <div style={{ whiteSpace: "pre-wrap", fontSize: 14, color: "#222" }}>
+            {data.confidentialDefinition ||
+              "All non-public information disclosed in relation to the Project."}
+          </div>
         </div>
 
         <div style={{ marginTop: 20, display: "flex", gap: 20 }}>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 8 }}>Term</div>
-            <div style={{ background: "#fff", padding: 12, borderRadius: 8, border: "1px solid #eee" }}>
+            <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 8 }}>
+              Term
+            </div>
+            <div
+              style={{
+                background: "#fff",
+                padding: 12,
+                borderRadius: 8,
+                border: "1px solid #eee",
+              }}
+            >
               <div>{data.term || "2 years"}</div>
             </div>
           </div>
 
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 8 }}>Exclusions</div>
-            <div style={{ background: "#fff", padding: 12, borderRadius: 8, border: "1px solid #eee" }}>
-              <div style={{ whiteSpace: "pre-wrap" }}>{data.exclusions || "Information already known or publicly available."}</div>
+            <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 8 }}>
+              Exclusions
+            </div>
+            <div
+              style={{
+                background: "#fff",
+                padding: 12,
+                borderRadius: 8,
+                border: "1px solid #eee",
+              }}
+            >
+              <div style={{ whiteSpace: "pre-wrap" }}>
+                {data.exclusions ||
+                  "Information already known or publicly available."}
+              </div>
             </div>
           </div>
         </div>
 
         <div style={{ marginTop: 28 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <div style={{ fontSize: 13, color: "#777" }}>Generated by Pixelate Nest</div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ fontSize: 13, color: "#777" }}>
+              Generated by Pixelate Nest
+            </div>
             <div style={{ textAlign: "right" }}>
-              <div style={{ fontSize: 14, fontWeight: 700 }}>{data.signatureName || data.receivingParty || "Authorized Signatory"}</div>
-              <div style={{ fontSize: 12, color: "#777", marginTop: 8 }}>Signature: ________________________</div>
-              <div style={{ fontSize: 12, color: "#777", marginTop: 6 }}>{formatDate(data?.date || data?.effectiveDate)}</div>
+              <div style={{ fontSize: 14, fontWeight: 700 }}>
+                {data.signatureName ||
+                  data.receivingParty ||
+                  "Authorized Signatory"}
+              </div>
+              <div style={{ fontSize: 12, color: "#777", marginTop: 8 }}>
+                Signature: ________________________
+              </div>
+              <div style={{ fontSize: 12, color: "#777", marginTop: 6 }}>
+                {formatDate(data?.date || data?.effectiveDate)}
+              </div>
             </div>
           </div>
         </div>

@@ -25,7 +25,6 @@ export function SocialAccountsManager({
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editingDisplayName, setEditingDisplayName] = useState("");
 
-  
   useEffect(() => {
     if (!isOpen || !clientId) return;
     loadAccounts();
@@ -157,7 +156,9 @@ export function SocialAccountsManager({
             <div className="space-y-3">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-sm font-semibold mb-1">Platform</label>
+                  <label className="block text-sm font-semibold mb-1">
+                    Platform
+                  </label>
                   <select
                     value={newPlatform}
                     onChange={(e) => setNewPlatform(e.target.value)}
@@ -171,7 +172,9 @@ export function SocialAccountsManager({
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold mb-1">Handle *</label>
+                  <label className="block text-sm font-semibold mb-1">
+                    Handle *
+                  </label>
                   <Input
                     placeholder="e.g. @brandname"
                     value={newHandle}
@@ -180,7 +183,9 @@ export function SocialAccountsManager({
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-semibold mb-1">Display Name (optional)</label>
+                <label className="block text-sm font-semibold mb-1">
+                  Display Name (optional)
+                </label>
                 <Input
                   placeholder="e.g. Brand Name"
                   value={newDisplayName}
@@ -188,10 +193,7 @@ export function SocialAccountsManager({
                 />
               </div>
               <div className="flex gap-2">
-                <Button
-                  onClick={handleAddAccount}
-                  disabled={saving}
-                >
+                <Button onClick={handleAddAccount} disabled={saving}>
                   {saving ? "Adding..." : "Add Account"}
                 </Button>
               </div>
@@ -219,20 +221,27 @@ export function SocialAccountsManager({
                           {account.platform}
                         </span>
                       </div>
-                      {account.displayName && account.displayName !== account.handle && (
-                        <p className="text-sm text-gray-600 mt-1">{account.displayName}</p>
-                      )}
+                      {account.displayName &&
+                        account.displayName !== account.handle && (
+                          <p className="text-sm text-gray-600 mt-1">
+                            {account.displayName}
+                          </p>
+                        )}
                       {editingId === account._id && (
                         <div className="mt-2 flex gap-2">
                           <Input
                             placeholder="Update display name"
                             value={editingDisplayName}
-                            onChange={(e) => setEditingDisplayName(e.target.value)}
+                            onChange={(e) =>
+                              setEditingDisplayName(e.target.value)
+                            }
                             className="flex-1"
                           />
                           <Button
                             size="sm"
-                            onClick={() => handleUpdateDisplayName(String(account._id))}
+                            onClick={() =>
+                              handleUpdateDisplayName(String(account._id))
+                            }
                             disabled={saving}
                           >
                             {saving ? "Saving..." : "Save"}
@@ -266,7 +275,9 @@ export function SocialAccountsManager({
                         <Button
                           size="sm"
                           variant="destructive"
-                          onClick={() => handleDeleteAccount(String(account._id))}
+                          onClick={() =>
+                            handleDeleteAccount(String(account._id))
+                          }
                         >
                           Delete
                         </Button>

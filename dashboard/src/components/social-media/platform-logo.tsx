@@ -41,7 +41,11 @@ const platformColors: Record<SocialPlatform, { bg: string; fg: string }> = {
   "Google My Business": { bg: "bg-blue-500", fg: "text-white" },
 };
 
-export function PlatformLogo({ platform, size = "md", showLabel = false }: PlatformLogoProps) {
+export function PlatformLogo({
+  platform,
+  size = "md",
+  showLabel = false,
+}: PlatformLogoProps) {
   const iconSizeClass = sizeMap[size];
   const wrapperSizeClass = wrapperSizeMap[size];
   const colors = platformColors[platform] || {

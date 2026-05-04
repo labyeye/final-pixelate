@@ -8,10 +8,21 @@ import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/use-auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faPlus, faFilter, faXmark, faTriangleExclamation,
-  faHourglassHalf, faCircleCheck, faCircleXmark,
-  faEye, faPen, faCopy, faCalendarDays, faCheck,
-  faTriangleExclamation as faMissed, faTrash, faComment,
+  faPlus,
+  faFilter,
+  faXmark,
+  faTriangleExclamation,
+  faHourglassHalf,
+  faCircleCheck,
+  faCircleXmark,
+  faEye,
+  faPen,
+  faCopy,
+  faCalendarDays,
+  faCheck,
+  faTriangleExclamation as faMissed,
+  faTrash,
+  faComment,
   faCheckCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -57,7 +68,10 @@ const approvalIconColor: Record<string, string> = {
 export default function SocialMediaPlannerPage() {
   const { user } = useAuth();
   const searchParams = useSearchParams();
-  const [metaBanner, setMetaBanner] = useState<{ type: "success" | "error"; message: string } | null>(null);
+  const [metaBanner, setMetaBanner] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
   const [selectedClientId, setSelectedClientId] = useState<string>("");
   const [posts, setPosts] = useState<SocialMediaPost[]>([]);
   const [team, setTeam] = useState<any[]>([]);
@@ -69,7 +83,11 @@ export default function SocialMediaPlannerPage() {
   const [postForLinks, setPostForLinks] = useState<SocialMediaPost | null>(
     null,
   );
-  const [dropdownInfo, setDropdownInfo] = useState<{ id: string; x: number; y: number } | null>(null);
+  const [dropdownInfo, setDropdownInfo] = useState<{
+    id: string;
+    x: number;
+    y: number;
+  } | null>(null);
 
   const [search, setSearch] = useState("");
   const [platformFilter, setPlatformFilter] = useState("");
@@ -80,7 +98,6 @@ export default function SocialMediaPlannerPage() {
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
 
-  
   const loadPosts = async (clientId: string) => {
     if (!clientId) {
       setPosts([]);
@@ -90,7 +107,6 @@ export default function SocialMediaPlannerPage() {
       const url = new URL("/api/social-media-posts", window.location.origin);
       url.searchParams.set("clientId", clientId);
 
-      
       if (user && user.role !== "admin" && user.name) {
         url.searchParams.set("assignedTo", user.name);
       }
@@ -105,7 +121,6 @@ export default function SocialMediaPlannerPage() {
     }
   };
 
-  
   useEffect(() => {
     const connected = searchParams?.get("meta_connected");
     const metaError = searchParams?.get("meta_error");
@@ -122,7 +137,6 @@ export default function SocialMediaPlannerPage() {
     }
   }, [searchParams]);
 
-  
   useEffect(() => {
     (async () => {
       try {
@@ -139,7 +153,6 @@ export default function SocialMediaPlannerPage() {
   useEffect(() => {
     loadPosts(selectedClientId);
   }, [selectedClientId, user]);
-
 
   const staffOptions = useMemo(() => {
     const fromTeam = team
@@ -159,8 +172,10 @@ export default function SocialMediaPlannerPage() {
       if (platformFilter && item.platform !== platformFilter) return false;
       if (statusFilter && item.status !== statusFilter) return false;
       if (staffFilter && item.assignedTo !== staffFilter) return false;
-      if (contentTypeFilter && item.contentType !== contentTypeFilter) return false;
-      if (campaignFilter && (item as any).campaign !== campaignFilter) return false;
+      if (contentTypeFilter && item.contentType !== contentTypeFilter)
+        return false;
+      if (campaignFilter && (item as any).campaign !== campaignFilter)
+        return false;
       if (dateFrom && item.scheduledDate < dateFrom) return false;
       if (dateTo && item.scheduledDate > dateTo) return false;
       return true;
@@ -179,7 +194,6 @@ export default function SocialMediaPlannerPage() {
 
   const savePost = async (post: SocialMediaPost) => {
     try {
-      
       const isUpdate = !!(post._id || post.id);
       const method = isUpdate ? "PUT" : "POST";
       const url = isUpdate
@@ -247,7 +261,6 @@ export default function SocialMediaPlannerPage() {
     post?: SocialMediaPost,
   ) => {
     if (status === "Posted" && post) {
-      
       const accountIds =
         post.socialAccountIds && post.socialAccountIds.length > 0
           ? post.socialAccountIds
@@ -260,7 +273,6 @@ export default function SocialMediaPlannerPage() {
         setIsPostLinksModalOpen(true);
         return;
       } else if (accountIds.length === 1) {
-        
         const accountId = accountIds[0];
         const link = window.prompt("Paste posted link (optional):", "") || "";
         const postedLinks = link && accountId ? { [accountId]: link } : {};
@@ -422,10 +434,17 @@ export default function SocialMediaPlannerPage() {
       {}
       {!selectedClientId && (
         <section className="border-2 border-yellow-400 bg-yellow-50 rounded-lg p-4 flex items-center gap-3">
-          <FontAwesomeIcon icon={faTriangleExclamation} className="text-yellow-600 w-5 h-5 flex-shrink-0" />
+          <FontAwesomeIcon
+            icon={faTriangleExclamation}
+            className="text-yellow-600 w-5 h-5 flex-shrink-0"
+          />
           <div>
-            <p className="text-sm font-semibold text-yellow-900">Please select a client to view and manage content</p>
-            <p className="text-xs text-yellow-700 mt-0.5">Select a client from the dropdown above to start planning.</p>
+            <p className="text-sm font-semibold text-yellow-900">
+              Please select a client to view and manage content
+            </p>
+            <p className="text-xs text-yellow-700 mt-0.5">
+              Select a client from the dropdown above to start planning.
+            </p>
           </div>
         </section>
       )}
@@ -450,7 +469,11 @@ export default function SocialMediaPlannerPage() {
                 onChange={(e) => setPlatformFilter(e.target.value)}
               >
                 <option value="">All Platforms</option>
-                {SOCIAL_PLATFORMS.map((p) => <option key={p} value={p}>{p}</option>)}
+                {SOCIAL_PLATFORMS.map((p) => (
+                  <option key={p} value={p}>
+                    {p}
+                  </option>
+                ))}
               </select>
               <select
                 className="h-7 text-xs px-2 border border-gray-300 rounded-md bg-white"
@@ -458,7 +481,11 @@ export default function SocialMediaPlannerPage() {
                 onChange={(e) => setStatusFilter(e.target.value)}
               >
                 <option value="">All Status</option>
-                {POST_STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
+                {POST_STATUSES.map((s) => (
+                  <option key={s} value={s}>
+                    {s}
+                  </option>
+                ))}
               </select>
               <select
                 className="h-7 text-xs px-2 border border-gray-300 rounded-md bg-white"
@@ -466,7 +493,11 @@ export default function SocialMediaPlannerPage() {
                 onChange={(e) => setStaffFilter(e.target.value)}
               >
                 <option value="">All Staff</option>
-                {staffOptions.map((n) => <option key={n} value={n}>{n}</option>)}
+                {staffOptions.map((n) => (
+                  <option key={n} value={n}>
+                    {n}
+                  </option>
+                ))}
               </select>
               <select
                 className="h-7 text-xs px-2 border border-gray-300 rounded-md bg-white"
@@ -474,7 +505,11 @@ export default function SocialMediaPlannerPage() {
                 onChange={(e) => setContentTypeFilter(e.target.value)}
               >
                 <option value="">All Types</option>
-                {CONTENT_TYPES.map((c) => <option key={c} value={c}>{c}</option>)}
+                {CONTENT_TYPES.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
               </select>
               <Input
                 className="h-7 text-xs py-0 w-32 border-gray-300"
@@ -494,9 +529,25 @@ export default function SocialMediaPlannerPage() {
                 value={dateTo}
                 onChange={(e) => setDateTo(e.target.value)}
               />
-              {(search || platformFilter || statusFilter || staffFilter || contentTypeFilter || campaignFilter || dateFrom || dateTo) && (
+              {(search ||
+                platformFilter ||
+                statusFilter ||
+                staffFilter ||
+                contentTypeFilter ||
+                campaignFilter ||
+                dateFrom ||
+                dateTo) && (
                 <button
-                  onClick={() => { setSearch(""); setPlatformFilter(""); setStatusFilter(""); setStaffFilter(""); setContentTypeFilter(""); setCampaignFilter(""); setDateFrom(""); setDateTo(""); }}
+                  onClick={() => {
+                    setSearch("");
+                    setPlatformFilter("");
+                    setStatusFilter("");
+                    setStaffFilter("");
+                    setContentTypeFilter("");
+                    setCampaignFilter("");
+                    setDateFrom("");
+                    setDateTo("");
+                  }}
                   className="h-7 text-xs px-2.5 border border-gray-300 rounded-md bg-white flex items-center gap-1.5 hover:bg-gray-100 text-gray-600"
                 >
                   <FontAwesomeIcon icon={faXmark} className="w-3 h-3" />
@@ -505,7 +556,11 @@ export default function SocialMediaPlannerPage() {
               )}
             </div>
           </div>
-          <Button onClick={() => setIsModalOpen(true)} size="sm" className="gap-2 flex-shrink-0">
+          <Button
+            onClick={() => setIsModalOpen(true)}
+            size="sm"
+            className="gap-2 flex-shrink-0"
+          >
             <FontAwesomeIcon icon={faPlus} className="w-3 h-3" />
             Add Plan
           </Button>
@@ -527,145 +582,214 @@ export default function SocialMediaPlannerPage() {
                   No posts planned for this client
                 </p>
                 <p className="text-sm mt-1 flex items-center justify-center gap-1.5">
-                  Click <FontAwesomeIcon icon={faPlus} className="w-2.5 h-2.5" /> Add Plan to create your first post
+                  Click{" "}
+                  <FontAwesomeIcon icon={faPlus} className="w-2.5 h-2.5" /> Add
+                  Plan to create your first post
                 </p>
               </div>
             ) : (
               <>
-              <table className="w-full text-sm">
-                <thead className="bg-muted/40">
-                  <tr>
-                    <th className="text-left p-2 border-b w-[220px] max-w-[220px]">Title</th>
-                    <th className="text-left p-2 border-b">Platform</th>
-                    <th className="text-left p-2 border-b">Content</th>
-                    <th className="text-left p-2 border-b">Scheduled / Posted</th>
-                    <th className="text-left p-2 border-b">Assigned</th>
-                    <th className="text-left p-2 border-b">Status</th>
-                    <th className="text-left p-2 border-b">Approval</th>
-                    <th className="text-left p-2 border-b w-10">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {filtered.map((item) => {
-                    const itemId = String(item._id || item.id || "");
-                    const dt = toDateTime(item.scheduledDate, item.scheduledTime);
-                    const isOverdue =
-                      !!dt &&
-                      dt < new Date() &&
-                      item.status !== "Posted" &&
-                      item.status !== "Cancelled" &&
-                      item.status !== "Missed";
+                <table className="w-full text-sm">
+                  <thead className="bg-muted/40">
+                    <tr>
+                      <th className="text-left p-2 border-b w-[220px] max-w-[220px]">
+                        Title
+                      </th>
+                      <th className="text-left p-2 border-b">Platform</th>
+                      <th className="text-left p-2 border-b">Content</th>
+                      <th className="text-left p-2 border-b">
+                        Scheduled / Posted
+                      </th>
+                      <th className="text-left p-2 border-b">Assigned</th>
+                      <th className="text-left p-2 border-b">Status</th>
+                      <th className="text-left p-2 border-b">Approval</th>
+                      <th className="text-left p-2 border-b w-10">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filtered.map((item) => {
+                      const itemId = String(item._id || item.id || "");
+                      const dt = toDateTime(
+                        item.scheduledDate,
+                        item.scheduledTime,
+                      );
+                      const isOverdue =
+                        !!dt &&
+                        dt < new Date() &&
+                        item.status !== "Posted" &&
+                        item.status !== "Cancelled" &&
+                        item.status !== "Missed";
 
-                    const postedAt = (item as any).postedAt
-                      ? new Date((item as any).postedAt).toLocaleString("en-IN", {
-                          day: "2-digit", month: "short", year: "2-digit",
-                          hour: "2-digit", minute: "2-digit",
-                        })
-                      : null;
+                      const postedAt = (item as any).postedAt
+                        ? new Date((item as any).postedAt).toLocaleString(
+                            "en-IN",
+                            {
+                              day: "2-digit",
+                              month: "short",
+                              year: "2-digit",
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            },
+                          )
+                        : null;
 
-                    return (
-                      <tr key={itemId} className={isOverdue ? "bg-red-50" : ""}>
-                        <td className="p-2 border-b align-top w-[220px] max-w-[220px]">
-                          <div className="font-semibold line-clamp-2 break-words">{item.title}</div>
-                          <div className="text-xs text-muted-foreground line-clamp-1 mt-0.5">
-                            {item.caption}
-                          </div>
-                          {(item as any).campaign && (
-                            <span className="inline-block mt-1 px-1.5 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded font-medium">
-                              {(item as any).campaign}
-                            </span>
-                          )}
-                        </td>
-                        <td className="p-2 border-b align-top">
-                          <div className="flex items-center gap-1.5 whitespace-nowrap">
-                            <PlatformIcon platform={item.platform} size="sm" />
-                            <span>{item.platform}</span>
-                          </div>
-                        </td>
-                        <td className="p-2 border-b align-top whitespace-nowrap">
-                          {item.contentType}
-                        </td>
-                        <td className="p-2 border-b align-top">
-                          <div className="space-y-1">
-                            <div className="text-xs">
-                              <FontAwesomeIcon icon={faCalendarDays} className="w-2.5 h-2.5 text-muted-foreground mr-1" />
-                              <span className="font-medium">{item.scheduledDate}</span>
-                              {item.scheduledTime && (
-                                <span className="text-muted-foreground"> {item.scheduledTime}</span>
-                              )}
+                      return (
+                        <tr
+                          key={itemId}
+                          className={isOverdue ? "bg-red-50" : ""}
+                        >
+                          <td className="p-2 border-b align-top w-[220px] max-w-[220px]">
+                            <div className="font-semibold line-clamp-2 break-words">
+                              {item.title}
                             </div>
-                            {postedAt && (
-                              <div className="text-xs text-green-700 flex items-center gap-1">
-                                <FontAwesomeIcon icon={faCheck} className="w-2.5 h-2.5" />
-                                <span className="font-medium">{postedAt}</span>
-                              </div>
-                            )}
-                          </div>
-                        </td>
-                        <td className="p-2 border-b align-top whitespace-nowrap">
-                          {item.assignedTo || "Unassigned"}
-                        </td>
-                        <td className="p-2 border-b align-top">
-                          <span className={`px-2 py-1 rounded text-xs whitespace-nowrap ${statusBadge[item.status] || "bg-gray-100"}`}>
-                            {item.status}
-                          </span>
-                        </td>
-                        <td className="p-2 border-b align-top">
-                          {item.approvalStatus ? (
-                            <div className="space-y-1">
-                              <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold whitespace-nowrap ${approvalBadge[item.approvalStatus] || "bg-gray-100"}`}>
-                                <FontAwesomeIcon icon={approvalFaIcon[item.approvalStatus]} className={`w-2.5 h-2.5 ${approvalIconColor[item.approvalStatus]}`} />
-                                {item.approvalStatus}
+                            <div className="text-xs text-muted-foreground line-clamp-1 mt-0.5">
+                              {item.caption}
+                            </div>
+                            {(item as any).campaign && (
+                              <span className="inline-block mt-1 px-1.5 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded font-medium">
+                                {(item as any).campaign}
                               </span>
-                              {item.approvalStatus === "Rejected" && (item as any).rejectionReason && (
-                                <div className="flex items-start gap-1 text-xs text-red-600 max-w-[130px] line-clamp-2 mt-1" title={(item as any).rejectionReason}>
-                                  <FontAwesomeIcon icon={faComment} className="w-2.5 h-2.5 mt-0.5 flex-shrink-0" />
-                                  <span>{(item as any).rejectionReason}</span>
-                                </div>
-                              )}
-                              {(item as any).clientRemarks && item.approvalStatus !== "Rejected" && (
-                                <div className="flex items-start gap-1 text-xs text-blue-700 max-w-[130px] line-clamp-2 mt-1" title={(item as any).clientRemarks}>
-                                  <FontAwesomeIcon icon={faComment} className="w-2.5 h-2.5 mt-0.5 flex-shrink-0" />
-                                  <span>{(item as any).clientRemarks}</span>
+                            )}
+                          </td>
+                          <td className="p-2 border-b align-top">
+                            <div className="flex items-center gap-1.5 whitespace-nowrap">
+                              <PlatformIcon
+                                platform={item.platform}
+                                size="sm"
+                              />
+                              <span>{item.platform}</span>
+                            </div>
+                          </td>
+                          <td className="p-2 border-b align-top whitespace-nowrap">
+                            {item.contentType}
+                          </td>
+                          <td className="p-2 border-b align-top">
+                            <div className="space-y-1">
+                              <div className="text-xs">
+                                <FontAwesomeIcon
+                                  icon={faCalendarDays}
+                                  className="w-2.5 h-2.5 text-muted-foreground mr-1"
+                                />
+                                <span className="font-medium">
+                                  {item.scheduledDate}
+                                </span>
+                                {item.scheduledTime && (
+                                  <span className="text-muted-foreground">
+                                    {" "}
+                                    {item.scheduledTime}
+                                  </span>
+                                )}
+                              </div>
+                              {postedAt && (
+                                <div className="text-xs text-green-700 flex items-center gap-1">
+                                  <FontAwesomeIcon
+                                    icon={faCheck}
+                                    className="w-2.5 h-2.5"
+                                  />
+                                  <span className="font-medium">
+                                    {postedAt}
+                                  </span>
                                 </div>
                               )}
                             </div>
-                          ) : (
-                            <span className="text-xs text-muted-foreground">—</span>
-                          )}
-                        </td>
-                        <td className="p-2 border-b align-top">
-                          <div className="relative">
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                if (dropdownInfo?.id === itemId) {
-                                  setDropdownInfo(null);
-                                } else {
-                                  const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-                                  setDropdownInfo({ id: itemId, x: rect.right - 176, y: rect.bottom + 4 });
-                                }
-                              }}
-                              className="w-8 h-8 flex items-center justify-center rounded-md border border-gray-200 hover:bg-gray-100 text-gray-600 font-bold text-lg"
-                              title="Actions"
+                          </td>
+                          <td className="p-2 border-b align-top whitespace-nowrap">
+                            {item.assignedTo || "Unassigned"}
+                          </td>
+                          <td className="p-2 border-b align-top">
+                            <span
+                              className={`px-2 py-1 rounded text-xs whitespace-nowrap ${statusBadge[item.status] || "bg-gray-100"}`}
                             >
-                              ⋯
-                            </button>
-                          </div>
+                              {item.status}
+                            </span>
+                          </td>
+                          <td className="p-2 border-b align-top">
+                            {item.approvalStatus ? (
+                              <div className="space-y-1">
+                                <span
+                                  className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold whitespace-nowrap ${approvalBadge[item.approvalStatus] || "bg-gray-100"}`}
+                                >
+                                  <FontAwesomeIcon
+                                    icon={approvalFaIcon[item.approvalStatus]}
+                                    className={`w-2.5 h-2.5 ${approvalIconColor[item.approvalStatus]}`}
+                                  />
+                                  {item.approvalStatus}
+                                </span>
+                                {item.approvalStatus === "Rejected" &&
+                                  (item as any).rejectionReason && (
+                                    <div
+                                      className="flex items-start gap-1 text-xs text-red-600 max-w-[130px] line-clamp-2 mt-1"
+                                      title={(item as any).rejectionReason}
+                                    >
+                                      <FontAwesomeIcon
+                                        icon={faComment}
+                                        className="w-2.5 h-2.5 mt-0.5 flex-shrink-0"
+                                      />
+                                      <span>
+                                        {(item as any).rejectionReason}
+                                      </span>
+                                    </div>
+                                  )}
+                                {(item as any).clientRemarks &&
+                                  item.approvalStatus !== "Rejected" && (
+                                    <div
+                                      className="flex items-start gap-1 text-xs text-blue-700 max-w-[130px] line-clamp-2 mt-1"
+                                      title={(item as any).clientRemarks}
+                                    >
+                                      <FontAwesomeIcon
+                                        icon={faComment}
+                                        className="w-2.5 h-2.5 mt-0.5 flex-shrink-0"
+                                      />
+                                      <span>{(item as any).clientRemarks}</span>
+                                    </div>
+                                  )}
+                              </div>
+                            ) : (
+                              <span className="text-xs text-muted-foreground">
+                                —
+                              </span>
+                            )}
+                          </td>
+                          <td className="p-2 border-b align-top">
+                            <div className="relative">
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  if (dropdownInfo?.id === itemId) {
+                                    setDropdownInfo(null);
+                                  } else {
+                                    const rect = (
+                                      e.currentTarget as HTMLElement
+                                    ).getBoundingClientRect();
+                                    setDropdownInfo({
+                                      id: itemId,
+                                      x: rect.right - 176,
+                                      y: rect.bottom + 4,
+                                    });
+                                  }
+                                }}
+                                className="w-8 h-8 flex items-center justify-center rounded-md border border-gray-200 hover:bg-gray-100 text-gray-600 font-bold text-lg"
+                                title="Actions"
+                              >
+                                ⋯
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                    {!filtered.length && posts.length > 0 && (
+                      <tr>
+                        <td
+                          colSpan={8}
+                          className="p-6 text-center text-muted-foreground"
+                        >
+                          No posts found for selected filters.
                         </td>
                       </tr>
-                    );
-                  })}
-                  {!filtered.length && posts.length > 0 && (
-                    <tr>
-                      <td colSpan={8} className="p-6 text-center text-muted-foreground">
-                        No posts found for selected filters.
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-
+                    )}
+                  </tbody>
+                </table>
               </>
             )}
           </div>
@@ -721,48 +845,120 @@ export default function SocialMediaPlannerPage() {
       />
 
       {}
-      {dropdownInfo && (() => {
-        const dp = filtered.find(p => String(p._id || p.id) === dropdownInfo.id);
-        if (!dp) return null;
-        const dpId = dropdownInfo.id;
-        return (
-          <>
-            <div
-              className="fixed inset-0 z-[9998]"
-              onClick={() => setDropdownInfo(null)}
-            />
-            <div
-              style={{ position: "fixed", top: dropdownInfo.y, left: Math.max(8, dropdownInfo.x), zIndex: 9999 }}
-              className="bg-white border-2 border-black rounded-xl shadow-2xl w-48 py-1.5 text-sm"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button onClick={() => { openViewPlan(dp); setDropdownInfo(null); }} className="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center gap-2.5 font-medium text-gray-700">
-                <FontAwesomeIcon icon={faEye} className="w-3.5 h-3.5 text-gray-400" /> View Details
-              </button>
-              <button onClick={() => { editPost(dp); setDropdownInfo(null); }} className="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center gap-2.5 font-medium text-gray-700">
-                <FontAwesomeIcon icon={faPen} className="w-3.5 h-3.5 text-gray-400" /> Edit
-              </button>
-              <button onClick={() => { duplicatePost(dp); setDropdownInfo(null); }} className="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center gap-2.5 font-medium text-gray-700">
-                <FontAwesomeIcon icon={faCopy} className="w-3.5 h-3.5 text-gray-400" /> Duplicate
-              </button>
-              <button onClick={() => { reschedulePost(dp); setDropdownInfo(null); }} className="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center gap-2.5 font-medium text-gray-700">
-                <FontAwesomeIcon icon={faCalendarDays} className="w-3.5 h-3.5 text-gray-400" /> Reschedule
-              </button>
-              <div className="border-t border-gray-100 my-1" />
-              <button onClick={() => { updateStatus(dpId, "Posted", dp); setDropdownInfo(null); }} className="w-full text-left px-4 py-2 hover:bg-green-50 text-green-700 flex items-center gap-2.5 font-medium">
-                <FontAwesomeIcon icon={faCheck} className="w-3.5 h-3.5" /> Mark Posted
-              </button>
-              <button onClick={() => { updateStatus(dpId, "Missed"); setDropdownInfo(null); }} className="w-full text-left px-4 py-2 hover:bg-amber-50 text-amber-700 flex items-center gap-2.5 font-medium">
-                <FontAwesomeIcon icon={faTriangleExclamation} className="w-3.5 h-3.5" /> Mark Missed
-              </button>
-              <div className="border-t border-gray-100 my-1" />
-              <button onClick={() => { deletePost(dpId); setDropdownInfo(null); }} className="w-full text-left px-4 py-2 hover:bg-red-50 text-red-600 flex items-center gap-2.5 font-medium">
-                <FontAwesomeIcon icon={faTrash} className="w-3.5 h-3.5" /> Delete
-              </button>
-            </div>
-          </>
-        );
-      })()}
+      {dropdownInfo &&
+        (() => {
+          const dp = filtered.find(
+            (p) => String(p._id || p.id) === dropdownInfo.id,
+          );
+          if (!dp) return null;
+          const dpId = dropdownInfo.id;
+          return (
+            <>
+              <div
+                className="fixed inset-0 z-[9998]"
+                onClick={() => setDropdownInfo(null)}
+              />
+              <div
+                style={{
+                  position: "fixed",
+                  top: dropdownInfo.y,
+                  left: Math.max(8, dropdownInfo.x),
+                  zIndex: 9999,
+                }}
+                className="bg-white border-2 border-black rounded-xl shadow-2xl w-48 py-1.5 text-sm"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={() => {
+                    openViewPlan(dp);
+                    setDropdownInfo(null);
+                  }}
+                  className="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center gap-2.5 font-medium text-gray-700"
+                >
+                  <FontAwesomeIcon
+                    icon={faEye}
+                    className="w-3.5 h-3.5 text-gray-400"
+                  />{" "}
+                  View Details
+                </button>
+                <button
+                  onClick={() => {
+                    editPost(dp);
+                    setDropdownInfo(null);
+                  }}
+                  className="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center gap-2.5 font-medium text-gray-700"
+                >
+                  <FontAwesomeIcon
+                    icon={faPen}
+                    className="w-3.5 h-3.5 text-gray-400"
+                  />{" "}
+                  Edit
+                </button>
+                <button
+                  onClick={() => {
+                    duplicatePost(dp);
+                    setDropdownInfo(null);
+                  }}
+                  className="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center gap-2.5 font-medium text-gray-700"
+                >
+                  <FontAwesomeIcon
+                    icon={faCopy}
+                    className="w-3.5 h-3.5 text-gray-400"
+                  />{" "}
+                  Duplicate
+                </button>
+                <button
+                  onClick={() => {
+                    reschedulePost(dp);
+                    setDropdownInfo(null);
+                  }}
+                  className="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center gap-2.5 font-medium text-gray-700"
+                >
+                  <FontAwesomeIcon
+                    icon={faCalendarDays}
+                    className="w-3.5 h-3.5 text-gray-400"
+                  />{" "}
+                  Reschedule
+                </button>
+                <div className="border-t border-gray-100 my-1" />
+                <button
+                  onClick={() => {
+                    updateStatus(dpId, "Posted", dp);
+                    setDropdownInfo(null);
+                  }}
+                  className="w-full text-left px-4 py-2 hover:bg-green-50 text-green-700 flex items-center gap-2.5 font-medium"
+                >
+                  <FontAwesomeIcon icon={faCheck} className="w-3.5 h-3.5" />{" "}
+                  Mark Posted
+                </button>
+                <button
+                  onClick={() => {
+                    updateStatus(dpId, "Missed");
+                    setDropdownInfo(null);
+                  }}
+                  className="w-full text-left px-4 py-2 hover:bg-amber-50 text-amber-700 flex items-center gap-2.5 font-medium"
+                >
+                  <FontAwesomeIcon
+                    icon={faTriangleExclamation}
+                    className="w-3.5 h-3.5"
+                  />{" "}
+                  Mark Missed
+                </button>
+                <div className="border-t border-gray-100 my-1" />
+                <button
+                  onClick={() => {
+                    deletePost(dpId);
+                    setDropdownInfo(null);
+                  }}
+                  className="w-full text-left px-4 py-2 hover:bg-red-50 text-red-600 flex items-center gap-2.5 font-medium"
+                >
+                  <FontAwesomeIcon icon={faTrash} className="w-3.5 h-3.5" />{" "}
+                  Delete
+                </button>
+              </div>
+            </>
+          );
+        })()}
     </div>
   );
 }

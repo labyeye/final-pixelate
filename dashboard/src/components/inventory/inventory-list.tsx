@@ -38,7 +38,7 @@ export default function InventoryList() {
   const filtered = items.filter(
     (i) =>
       (i.itemName || "").toLowerCase().includes(query.toLowerCase()) ||
-      (i.category || "").toLowerCase().includes(query.toLowerCase())
+      (i.category || "").toLowerCase().includes(query.toLowerCase()),
   );
   const sorted = [...filtered].sort((a, b) => {
     if (sort === "name")
@@ -79,14 +79,30 @@ export default function InventoryList() {
         <Table>
           <TableHeader>
             <TableRow className="border-b-2 border-black bg-primary hover:bg-primary">
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">Item</TableHead>
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">Category</TableHead>
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3 text-center">Qty</TableHead>
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">Unit</TableHead>
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">Price</TableHead>
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">Vendor</TableHead>
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3 text-center">Status</TableHead>
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3 text-right">Actions</TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">
+                Item
+              </TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">
+                Category
+              </TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3 text-center">
+                Qty
+              </TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">
+                Unit
+              </TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">
+                Price
+              </TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">
+                Vendor
+              </TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3 text-center">
+                Status
+              </TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3 text-right">
+                Actions
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -95,7 +111,9 @@ export default function InventoryList() {
                 <TableCell colSpan={8} className="py-16 text-center">
                   <div className="flex flex-col items-center gap-3 text-muted-foreground">
                     <Package className="h-10 w-10 opacity-30" />
-                    <p className="text-sm font-medium">No inventory items found</p>
+                    <p className="text-sm font-medium">
+                      No inventory items found
+                    </p>
                   </div>
                 </TableCell>
               </TableRow>
@@ -119,21 +137,25 @@ export default function InventoryList() {
                       Number(it.quantityAvailable) <= 0
                         ? "text-red-600"
                         : Number(it.quantityAvailable) <= 5
-                        ? "text-yellow-600"
-                        : "text-green-700"
+                          ? "text-yellow-600"
+                          : "text-green-700"
                     }`}
                   >
                     {it.quantityAvailable}
                   </span>
                 </TableCell>
-                <TableCell className="text-sm py-3 text-muted-foreground">{it.unit}</TableCell>
+                <TableCell className="text-sm py-3 text-muted-foreground">
+                  {it.unit}
+                </TableCell>
                 <TableCell className="text-sm py-3 font-semibold">
                   ₹{Number(it.price || 0).toLocaleString()}
                 </TableCell>
                 <TableCell className="text-sm py-3">
                   <div className="font-medium">{it.vendorName || "—"}</div>
                   {it.vendorContact && (
-                    <div className="text-xs text-muted-foreground">{it.vendorContact}</div>
+                    <div className="text-xs text-muted-foreground">
+                      {it.vendorContact}
+                    </div>
                   )}
                 </TableCell>
                 <TableCell className="py-3 text-center">
@@ -164,11 +186,12 @@ export default function InventoryList() {
                       className="h-8 w-8 p-0"
                       title="Delete"
                       onClick={async () => {
-                        if (!window.confirm("Delete this inventory item?")) return;
+                        if (!window.confirm("Delete this inventory item?"))
+                          return;
                         try {
                           const res = await fetch(
                             `/api/inventory/${it._id ?? it.id}`,
-                            { method: "DELETE" }
+                            { method: "DELETE" },
                           );
                           if (!res.ok) throw new Error("Delete failed");
                           await load();

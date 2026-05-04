@@ -18,7 +18,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { RefreshCw, CheckCheck, Check, Clock, XCircle, MessageSquare } from "lucide-react";
+import {
+  RefreshCw,
+  CheckCheck,
+  Check,
+  Clock,
+  XCircle,
+  MessageSquare,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface DeliveryEntry {
@@ -68,7 +75,10 @@ function StatusBadge({ status }: { status?: string }) {
   return (
     <Badge
       variant="outline"
-      className={cn("flex items-center gap-1 font-semibold text-xs px-2 py-0.5 w-fit", cfg.className)}
+      className={cn(
+        "flex items-center gap-1 font-semibold text-xs px-2 py-0.5 w-fit",
+        cfg.className,
+      )}
     >
       <Icon size={12} />
       {cfg.label}
@@ -106,7 +116,10 @@ export default function WhatsAppWebhookPage() {
   const fetchData = useCallback(async () => {
     setLoading(true);
     try {
-      const params = new URLSearchParams({ status: statusFilter, limit: "200" });
+      const params = new URLSearchParams({
+        status: statusFilter,
+        limit: "200",
+      });
       const res = await fetch(`/api/whatsapp/delivery-log?${params}`);
       if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
@@ -149,7 +162,8 @@ export default function WhatsAppWebhookPage() {
             WhatsApp Webhook Log
           </h1>
           <p className="text-muted-foreground text-sm mt-1">
-            Real-time delivery status for every WhatsApp message sent by this system
+            Real-time delivery status for every WhatsApp message sent by this
+            system
           </p>
           {lastRefreshed && (
             <p className="text-xs text-muted-foreground mt-0.5">
@@ -190,7 +204,10 @@ export default function WhatsAppWebhookPage() {
             onClick={fetchData}
             disabled={loading}
           >
-            <RefreshCw size={14} className={cn("mr-1", loading && "animate-spin")} />
+            <RefreshCw
+              size={14}
+              className={cn("mr-1", loading && "animate-spin")}
+            />
             Refresh
           </Button>
         </div>
@@ -212,7 +229,9 @@ export default function WhatsAppWebhookPage() {
             >
               <div className="flex items-center gap-2 mb-1">
                 <Icon size={16} />
-                <span className="text-xs font-bold uppercase tracking-wide">{cfg.label}</span>
+                <span className="text-xs font-bold uppercase tracking-wide">
+                  {cfg.label}
+                </span>
               </div>
               <div className="text-3xl font-black">{counts[s] ?? 0}</div>
             </button>
@@ -228,7 +247,9 @@ export default function WhatsAppWebhookPage() {
             {statusFilter !== "all" ? ` • ${statusFilter}` : ""}
           </span>
           {autoRefresh && (
-            <span className="text-xs text-green-400 font-mono animate-pulse">● live</span>
+            <span className="text-xs text-green-400 font-mono animate-pulse">
+              ● live
+            </span>
           )}
         </div>
 
@@ -240,27 +261,45 @@ export default function WhatsAppWebhookPage() {
                 <TableHead className="font-black text-black">Client</TableHead>
                 <TableHead className="font-black text-black">Phone</TableHead>
                 <TableHead className="font-black text-black">Status</TableHead>
-                <TableHead className="font-black text-black">Accepted by Meta</TableHead>
+                <TableHead className="font-black text-black">
+                  Accepted by Meta
+                </TableHead>
                 <TableHead className="font-black text-black">Sent</TableHead>
-                <TableHead className="font-black text-black">Delivered</TableHead>
+                <TableHead className="font-black text-black">
+                  Delivered
+                </TableHead>
                 <TableHead className="font-black text-black">Read</TableHead>
                 <TableHead className="font-black text-black">wamid</TableHead>
-                <TableHead className="font-black text-black">Failure Reason</TableHead>
+                <TableHead className="font-black text-black">
+                  Failure Reason
+                </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {loading && entries.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={10} className="text-center py-16 text-muted-foreground">
-                    <RefreshCw className="animate-spin mx-auto mb-2" size={24} />
+                  <TableCell
+                    colSpan={10}
+                    className="text-center py-16 text-muted-foreground"
+                  >
+                    <RefreshCw
+                      className="animate-spin mx-auto mb-2"
+                      size={24}
+                    />
                     Loading…
                   </TableCell>
                 </TableRow>
               ) : entries.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={10} className="text-center py-16 text-muted-foreground">
+                  <TableCell
+                    colSpan={10}
+                    className="text-center py-16 text-muted-foreground"
+                  >
                     No WhatsApp messages found
-                    {statusFilter !== "all" ? ` with status "${statusFilter}"` : ""}.
+                    {statusFilter !== "all"
+                      ? ` with status "${statusFilter}"`
+                      : ""}
+                    .
                   </TableCell>
                 </TableRow>
               ) : (
@@ -293,7 +332,9 @@ export default function WhatsAppWebhookPage() {
                       {entry.whatsapp_send_status === "sent" ||
                       entry.whatsapp_send_status === "delivered" ||
                       entry.whatsapp_send_status === "read" ? (
-                        <span className="text-yellow-700 font-semibold">✓ sent</span>
+                        <span className="text-yellow-700 font-semibold">
+                          ✓ sent
+                        </span>
                       ) : entry.whatsapp_send_status === "failed" ? (
                         <span className="text-red-500">✗</span>
                       ) : (
@@ -302,7 +343,10 @@ export default function WhatsAppWebhookPage() {
                     </TableCell>
                     <TableCell className="text-xs whitespace-nowrap">
                       {entry.whatsapp_delivered_at ? (
-                        <span className="text-blue-700 font-semibold" title={formatTs(entry.whatsapp_delivered_at)}>
+                        <span
+                          className="text-blue-700 font-semibold"
+                          title={formatTs(entry.whatsapp_delivered_at)}
+                        >
                           ✓✓ {formatTs(entry.whatsapp_delivered_at)}
                         </span>
                       ) : (
@@ -311,7 +355,10 @@ export default function WhatsAppWebhookPage() {
                     </TableCell>
                     <TableCell className="text-xs whitespace-nowrap">
                       {entry.whatsapp_read_at ? (
-                        <span className="text-green-700 font-semibold" title={formatTs(entry.whatsapp_read_at)}>
+                        <span
+                          className="text-green-700 font-semibold"
+                          title={formatTs(entry.whatsapp_read_at)}
+                        >
                           ✓✓ {formatTs(entry.whatsapp_read_at)}
                         </span>
                       ) : (
@@ -348,19 +395,23 @@ export default function WhatsAppWebhookPage() {
       <div className="flex flex-wrap gap-4 text-xs text-muted-foreground border-t pt-4">
         <span className="font-bold text-black">Legend:</span>
         <span>
-          <strong className="text-yellow-700">Accepted by Meta</strong> — timestamp when our server sent the message to Meta&apos;s API
+          <strong className="text-yellow-700">Accepted by Meta</strong> —
+          timestamp when our server sent the message to Meta&apos;s API
         </span>
         <span>
-          <strong className="text-yellow-700">Sent</strong> — confirmed via webhook that Meta dispatched it to the recipient
+          <strong className="text-yellow-700">Sent</strong> — confirmed via
+          webhook that Meta dispatched it to the recipient
         </span>
         <span>
-          <strong className="text-blue-700">Delivered</strong> — recipient&apos;s device received it
+          <strong className="text-blue-700">Delivered</strong> —
+          recipient&apos;s device received it
         </span>
         <span>
           <strong className="text-green-700">Read</strong> — recipient opened it
         </span>
         <span>
-          <strong className="text-red-700">Failed</strong> — delivery failed (error code shown)
+          <strong className="text-red-700">Failed</strong> — delivery failed
+          (error code shown)
         </span>
       </div>
     </div>

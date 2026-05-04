@@ -17,17 +17,49 @@ const CRMStack = () => (
     screenOptions={{
       headerStyle: { backgroundColor: Colors.primary },
       headerTintColor: Colors.white,
-      headerTitleStyle: { fontWeight: Typography.black, fontSize: Typography.lg },
+      headerTitleStyle: {
+        fontWeight: Typography.black,
+        fontSize: Typography.lg,
+      },
       headerShadowVisible: false,
       contentStyle: { backgroundColor: Colors.background },
-    }}>
-    <Stack.Screen name="CRMHome" component={CRMHomeScreen} options={{ title: 'CRM' }} />
-    <Stack.Screen name="Leads" component={LeadsScreen} options={{ title: 'LEADS' }} />
-    <Stack.Screen name="LeadDetail" component={LeadDetailScreen} options={{ title: 'LEAD DETAIL' }} />
-    <Stack.Screen name="Clients" component={ClientsScreen} options={{ title: 'CLIENTS' }} />
-    <Stack.Screen name="ClientDetail" component={ClientDetailScreen} options={{ title: 'CLIENT DETAIL' }} />
-    <Stack.Screen name="Enquiries" component={EnquiriesScreen} options={{ title: 'ENQUIRIES' }} />
-    <Stack.Screen name="Reviews" component={ReviewsScreen} options={{ title: 'REVIEWS' }} />
+    }}
+  >
+    <Stack.Screen
+      name="CRMHome"
+      component={CRMHomeScreen}
+      options={{ title: 'CRM' }}
+    />
+    <Stack.Screen
+      name="Leads"
+      component={LeadsScreen}
+      options={{ title: 'LEADS' }}
+    />
+    <Stack.Screen
+      name="LeadDetail"
+      component={LeadDetailScreen}
+      options={{ title: 'LEAD DETAIL' }}
+    />
+    <Stack.Screen
+      name="Clients"
+      component={ClientsScreen}
+      options={{ title: 'CLIENTS' }}
+    />
+    <Stack.Screen
+      name="ClientDetail"
+      component={ClientDetailScreen}
+      options={{ title: 'CLIENT DETAIL' }}
+    />
+    <Stack.Screen
+      name="Enquiries"
+      component={EnquiriesScreen}
+      options={{ title: 'ENQUIRIES' }}
+    />
+    <Stack.Screen
+      name="Reviews"
+      component={ReviewsScreen}
+      options={{ title: 'REVIEWS' }}
+    />
   </Stack.Navigator>
 );
 

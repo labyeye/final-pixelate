@@ -1,6 +1,9 @@
 "use client";
 
-import { SOCIAL_PLATFORMS, type SocialPlatform } from "@/lib/social-media-planner";
+import {
+  SOCIAL_PLATFORMS,
+  type SocialPlatform,
+} from "@/lib/social-media-planner";
 import { PlatformIcon } from "./platform-icon";
 import {
   Select,

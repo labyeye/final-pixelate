@@ -17,17 +17,49 @@ const OperationsStack = () => (
     screenOptions={{
       headerStyle: { backgroundColor: Colors.primary },
       headerTintColor: Colors.white,
-      headerTitleStyle: { fontWeight: Typography.black, fontSize: Typography.lg },
+      headerTitleStyle: {
+        fontWeight: Typography.black,
+        fontSize: Typography.lg,
+      },
       headerShadowVisible: false,
       contentStyle: { backgroundColor: Colors.background },
-    }}>
-    <Stack.Screen name="OperationsHome" component={OperationsHomeScreen} options={{ title: 'OPERATIONS' }} />
-    <Stack.Screen name="Projects" component={ProjectsScreen} options={{ title: 'PROJECTS' }} />
-    <Stack.Screen name="ProjectDetail" component={ProjectDetailScreen} options={{ title: 'PROJECT' }} />
-    <Stack.Screen name="Tasks" component={TasksScreen} options={{ title: 'TASKS' }} />
-    <Stack.Screen name="Journey" component={JourneyScreen} options={{ title: 'JOURNEY' }} />
-    <Stack.Screen name="Inventory" component={InventoryScreen} options={{ title: 'INVENTORY' }} />
-    <Stack.Screen name="Services" component={ServicesScreen} options={{ title: 'SERVICES' }} />
+    }}
+  >
+    <Stack.Screen
+      name="OperationsHome"
+      component={OperationsHomeScreen}
+      options={{ title: 'OPERATIONS' }}
+    />
+    <Stack.Screen
+      name="Projects"
+      component={ProjectsScreen}
+      options={{ title: 'PROJECTS' }}
+    />
+    <Stack.Screen
+      name="ProjectDetail"
+      component={ProjectDetailScreen}
+      options={{ title: 'PROJECT' }}
+    />
+    <Stack.Screen
+      name="Tasks"
+      component={TasksScreen}
+      options={{ title: 'TASKS' }}
+    />
+    <Stack.Screen
+      name="Journey"
+      component={JourneyScreen}
+      options={{ title: 'JOURNEY' }}
+    />
+    <Stack.Screen
+      name="Inventory"
+      component={InventoryScreen}
+      options={{ title: 'INVENTORY' }}
+    />
+    <Stack.Screen
+      name="Services"
+      component={ServicesScreen}
+      options={{ title: 'SERVICES' }}
+    />
   </Stack.Navigator>
 );
 

@@ -1,24 +1,18 @@
-
-
-
-
-
-
-
-
-
-import { NextResponse } from 'next/server';
-import { getDb } from '@/lib/mongodb';
-import { createOnboardingJourneyEvent, createProjectJourneyEvent, createQuotationJourneyEvent } from '@/lib/journey-helpers';
+import { NextResponse } from "next/server";
+import { getDb } from "@/lib/mongodb";
+import {
+  createOnboardingJourneyEvent,
+  createProjectJourneyEvent,
+  createQuotationJourneyEvent,
+} from "@/lib/journey-helpers";
 
 export async function POST() {
   try {
     const db = await getDb();
 
-    
     const quotations = await db
-      .collection('quotations')
-      .find({ status: { $nin: ['DRAFT'] }, deleted: { $ne: true } })
+      .collection("quotations")
+      .find({ status: { $nin: ["DRAFT"] }, deleted: { $ne: true } })
       .toArray();
 
     let createdQuotation = 0;
@@ -31,9 +25,8 @@ export async function POST() {
     for (const q of quotations) {
       const quotationId = String(q._id);
 
-      
-      const exists = await db.collection('journey_events').findOne({
-        'metadata.quotationId': quotationId,
+      const exists = await db.collection("journey_events").findOne({
+        "metadata.quotationId": quotationId,
       });
 
       if (exists) {
@@ -41,17 +34,23 @@ export async function POST() {
         continue;
       }
 
-      
       try {
-        await createQuotationJourneyEvent(db, quotationId, q as Record<string, any>);
+        await createQuotationJourneyEvent(
+          db,
+          quotationId,
+          q as Record<string, any>,
+        );
         createdQuotation++;
       } catch (err) {
-        console.error(`Failed to create journey event for quotation ${quotationId}:`, err);
+        console.error(
+          `Failed to create journey event for quotation ${quotationId}:`,
+          err,
+        );
       }
     }
 
     const onboardings = await db
-      .collection('onboardings')
+      .collection("onboardings")
       .find({ deleted: { $ne: true } })
       .toArray();
 
@@ -63,8 +62,8 @@ export async function POST() {
         continue;
       }
 
-      const exists = await db.collection('journey_events').findOne({
-        'metadata.onboardingId': onboardingId,
+      const exists = await db.collection("journey_events").findOne({
+        "metadata.onboardingId": onboardingId,
       });
 
       if (exists) {
@@ -73,15 +72,22 @@ export async function POST() {
       }
 
       try {
-        await createOnboardingJourneyEvent(db, onboardingId, onboarding as Record<string, any>);
+        await createOnboardingJourneyEvent(
+          db,
+          onboardingId,
+          onboarding as Record<string, any>,
+        );
         createdOnboarding++;
       } catch (err) {
-        console.error(`Failed to create journey event for onboarding ${onboardingId}:`, err);
+        console.error(
+          `Failed to create journey event for onboarding ${onboardingId}:`,
+          err,
+        );
       }
     }
 
     const projects = await db
-      .collection('projects')
+      .collection("projects")
       .find({ deleted: { $ne: true } })
       .toArray();
 
@@ -93,9 +99,9 @@ export async function POST() {
         continue;
       }
 
-      const exists = await db.collection('journey_events').findOne({
-        'metadata.projectId': projectId,
-        type: 'project_update',
+      const exists = await db.collection("journey_events").findOne({
+        "metadata.projectId": projectId,
+        type: "project_update",
       });
 
       if (exists) {
@@ -104,10 +110,17 @@ export async function POST() {
       }
 
       try {
-        await createProjectJourneyEvent(db, projectId, project as Record<string, any>);
+        await createProjectJourneyEvent(
+          db,
+          projectId,
+          project as Record<string, any>,
+        );
         createdProject++;
       } catch (err) {
-        console.error(`Failed to create journey event for project ${projectId}:`, err);
+        console.error(
+          `Failed to create journey event for project ${projectId}:`,
+          err,
+        );
       }
     }
 
@@ -128,6 +141,9 @@ export async function POST() {
       },
     });
   } catch (e: any) {
-    return NextResponse.json({ error: e.message || String(e) }, { status: 500 });
+    return NextResponse.json(
+      { error: e.message || String(e) },
+      { status: 500 },
+    );
   }
 }

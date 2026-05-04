@@ -9,7 +9,7 @@ import {
   User,
   Briefcase,
   Check,
-} from "lucide-react"; 
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
@@ -33,18 +33,15 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 export function TaskCreationModal() {
   const [open, setOpen] = useState(false);
 
-  
   const [title, setTitle] = useState("");
   const [status, setStatus] = useState("not-started");
   const [priority, setPriority] = useState("medium");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState<Date | undefined>(undefined);
 
-  
   const [selectedProjectId, setSelectedProjectId] = useState<string>("none");
   const [selectedAssigneeId, setSelectedAssigneeId] = useState<string>("none");
 
-  
   const [projects, setProjects] = useState<any[]>([]);
   const [staffMembers, setStaffMembers] = useState<any[]>([]);
   const [clients, setClients] = useState<any[]>([]);
@@ -52,7 +49,6 @@ export function TaskCreationModal() {
 
   useEffect(() => {
     if (open) {
-      
       Promise.all([
         fetch("/api/projects").then((res) => res.json()),
         fetch("/api/users").then((res) => res.json()),
@@ -77,7 +73,6 @@ export function TaskCreationModal() {
     setLoading(true);
 
     try {
-      
       const project = projects.find(
         (p) => (p.id || p._id) === selectedProjectId,
       );
@@ -107,7 +102,7 @@ export function TaskCreationModal() {
 
       if (res.ok) {
         setOpen(false);
-        
+
         setTitle("");
         setDescription("");
         setStatus("not-started");
@@ -116,7 +111,6 @@ export function TaskCreationModal() {
         setSelectedAssigneeId("none");
         setDueDate(undefined);
 
-        
         window.dispatchEvent(new Event("task:created"));
       }
     } catch (e) {
@@ -258,9 +252,6 @@ export function TaskCreationModal() {
                 <SelectContent>
                   <SelectItem value="none">Empty</SelectItem>
                   {projects.map((p) => {
-                    
-                    
-                    
                     const client = clients.find(
                       (c) =>
                         String(c.id || c._id) ===

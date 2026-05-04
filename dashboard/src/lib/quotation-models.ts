@@ -1,8 +1,3 @@
-
-
-
-
-
 export type AgencySettings = {
   _id?: string;
   id?: string;
@@ -75,30 +70,26 @@ export type QuotationModule = {
 export type Quotation = {
   _id?: string;
   id?: string;
-  quoteId: string; 
+  quoteId: string;
   title: string;
   subtitle?: string;
   date: Date | string;
   clientId: string;
 
-  
   objective: string;
   purpose: string;
   scope: string[];
   deliverables: string[];
 
-  
   timeline: QuotationTimeline[];
   lineItems: QuotationLineItem[];
   services: QuotationService[];
   modules: QuotationModule[];
 
-  
   notes?: string;
   paymentTerms?: string;
   customTerms?: string[];
 
-  
   projectId?: string;
   clientDisplayId?: string;
   projectTitle?: string;
@@ -116,33 +107,30 @@ export type Quotation = {
   paymentMilestones?: string[] | string;
   paymentMethod?: string;
 
-  
   status: "DRAFT" | "PENDING" | "APPROVED" | "REJECTED" | "CONVERTED";
   authorId?: string | number;
   createdAt?: Date | string;
   updatedAt?: Date | string;
 };
 
-
 export function calculateQuotationTotals(quotation: Quotation) {
   const lineItemsTotal = quotation.lineItems.reduce(
     (sum, item) => sum + item.total,
-    0
+    0,
   );
   const servicesTotal = quotation.services.reduce(
     (sum, item) => sum + item.total,
-    0
+    0,
   );
   const subtotal = lineItemsTotal + servicesTotal;
   const taxAmount = quotation.lineItems.reduce(
     (sum, item) => sum + (item.unitPrice * item.qty * item.tax) / 100,
-    0
+    0,
   );
   const grandTotal = subtotal;
 
   return { subtotal, taxAmount, grandTotal };
 }
-
 
 export function generateQuotationId(lastId?: string): string {
   const year = new Date().getFullYear();

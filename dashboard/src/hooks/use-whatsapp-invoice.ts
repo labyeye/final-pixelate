@@ -1,16 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 "use client";
 
 import { useState, useCallback } from "react";
@@ -29,40 +16,28 @@ export type WhatsAppSendStatus =
 export interface WhatsAppInvoiceOptions {
   invoice: any;
   client: any;
-  
+
   phone: string;
-  
-
-
 
   publicPdfUrl?: string;
-  
-
-
 
   clientId?: string;
-  
-
-
-
 
   invoiceId?: string;
 }
 
 export interface WhatsAppInvoiceResult {
-  
   send: (opts: WhatsAppInvoiceOptions) => Promise<void>;
-  
+
   sending: boolean;
   status: WhatsAppSendStatus;
-  
+
   statusMessage: string;
-  
+
   error: string | null;
-  
+
   messageId: string | null;
 }
-
 
 const statusLabel: Record<WhatsAppSendStatus, string> = {
   idle: "Ready",
@@ -87,7 +62,6 @@ function getInvoiceItems(invoice: any) {
 function calculateTotal(invoice: any): number {
   if (!invoice) return 0;
 
-  
   const precomputed =
     invoice.totalAmount ??
     invoice.grandTotal ??
@@ -100,12 +74,8 @@ function calculateTotal(invoice: any): number {
     if (!isNaN(n) && n > 0) return n;
   }
 
-  
-  
-  
   const items = getInvoiceItems(invoice);
   const subtotal = items.reduce((s: number, it: any) => {
-    
     const lineTotal =
       it?.amount !== undefined
         ? Number(it.amount)
@@ -116,16 +86,11 @@ function calculateTotal(invoice: any): number {
   return subtotal - Number(invoice?.discount ?? 0) + Number(invoice?.tax ?? 0);
 }
 
-
-
-
-
-
 function sanitiseFilename(name: string): string {
   return name
     .replace(/[\/\\:*?"<>|]/g, "-") // replace path separators & illegal chars
-    .replace(/-{2,}/g, "-")          // collapse multiple dashes
-    .replace(/^-|-$/g, "")           // trim leading/trailing dashes
+    .replace(/-{2,}/g, "-") // collapse multiple dashes
+    .replace(/^-|-$/g, "") // trim leading/trailing dashes
     .trim();
 }
 

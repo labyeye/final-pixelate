@@ -41,7 +41,6 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  
   const loadAccounts = async () => {
     if (!clientId) {
       setAccounts([]);
@@ -72,7 +71,7 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
 
   const handleAddAccount = async () => {
     setError("");
-    
+
     if (!username.trim()) {
       setError("Username/Handle is required");
       return;
@@ -101,13 +100,11 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
         throw new Error(errorData.error || "Failed to add account");
       }
 
-      
       setUsername("");
       setDisplayName("");
       setSelectedPlatform("Instagram");
       setIsDialogOpen(false);
 
-      
       await loadAccounts();
     } catch (e: any) {
       setError(e.message || "Failed to add account");
@@ -228,8 +225,12 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
               <tr>
                 <th className="px-4 py-3 text-left font-medium">Platform</th>
                 <th className="px-4 py-3 text-left font-medium">Username</th>
-                <th className="px-4 py-3 text-left font-medium">Display Name</th>
-                <th className="px-4 py-3 text-center font-medium">Meta Connection</th>
+                <th className="px-4 py-3 text-left font-medium">
+                  Display Name
+                </th>
+                <th className="px-4 py-3 text-center font-medium">
+                  Meta Connection
+                </th>
                 <th className="px-4 py-3 text-center font-medium">Actions</th>
               </tr>
             </thead>
@@ -240,7 +241,11 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
                   className="border-b hover:bg-gray-50"
                 >
                   <td className="px-4 py-3">
-                    <PlatformLogo platform={account.platform as SocialPlatform} size="md" showLabel />
+                    <PlatformLogo
+                      platform={account.platform as SocialPlatform}
+                      size="md"
+                      showLabel
+                    />
                   </td>
                   <td className="px-4 py-3 font-mono">@{account.handle}</td>
                   <td className="px-4 py-3 text-gray-600">
@@ -249,11 +254,14 @@ export function SocialAccountsTable({ clientId }: SocialAccountsTableProps) {
 
                   {}
                   <td className="px-4 py-3 text-center">
-                    {account.platform === "Facebook" || account.platform === "Instagram" ? (
+                    {account.platform === "Facebook" ||
+                    account.platform === "Instagram" ? (
                       account.isConnected ? (
                         <span className="inline-flex items-center gap-1 rounded-full bg-green-100 px-2 py-1 text-xs font-semibold text-green-800">
                           <CheckCircle2 className="h-3 w-3" />
-                          {account.connectedPageName ? `Connected: ${account.connectedPageName}` : "Connected"}
+                          {account.connectedPageName
+                            ? `Connected: ${account.connectedPageName}`
+                            : "Connected"}
                         </span>
                       ) : (
                         <a

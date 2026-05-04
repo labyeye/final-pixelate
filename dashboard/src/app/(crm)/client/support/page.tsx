@@ -17,7 +17,6 @@ export default function ClientSupportPage() {
   const [loading, setLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [category, setCategory] = useState("general");
@@ -102,7 +101,6 @@ export default function ClientSupportPage() {
       const newTicket = await res.json();
       setTickets([newTicket, ...tickets]);
 
-      
       setSubject("");
       setMessage("");
       setCategory("general");

@@ -735,7 +735,6 @@
 }
 
 @media screen and (max-width: 767px) {
-
   .hero-description {
     font-size: 16px;
   }
@@ -770,7 +769,6 @@ button {
   border-radius: var(--radius);
   background: var(--white);
 }
-
 
 .offerings-section {
   padding: 48px 20px;
@@ -903,16 +901,10 @@ button {
   height: 560px;
 }
 
-
-
-
 .reel-card:not([style*="--offset: 0"]) img {
-  filter: grayscale(100%) brightness(0.95); 
-  opacity: 1; 
+  filter: grayscale(100%) brightness(0.95);
+  opacity: 1;
 }
-
-
-
 
 .reels-slider {
   height: 560px;
@@ -925,7 +917,6 @@ button {
   transition: all 0.6s ease;
   display: block;
 }
-
 
 .faq-section {
   padding: 40px 20px;

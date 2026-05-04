@@ -47,7 +47,6 @@ export function TeamMembersSection({
             return sum + Number(memberAssignment?.payout || 0);
           }, 0);
 
-          
           const completedTasks = projects.filter((project) => {
             const assignees = project.assignees || [];
             const isAssigned = assignees.some((a: any) => {
@@ -64,7 +63,6 @@ export function TeamMembersSection({
             return isAssigned && project.status === "COMPLETED";
           }).length;
 
-          
           const profileImage =
             member.profileImage ||
             member.image ||

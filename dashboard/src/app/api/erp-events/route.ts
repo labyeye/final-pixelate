@@ -18,10 +18,16 @@ export async function POST(req: NextRequest) {
     };
 
     const res = await db.collection("erp_events").insertOne(ev);
-    return NextResponse.json({ success: true, id: res.insertedId.toString() }, { headers: CORS });
+    return NextResponse.json(
+      { success: true, id: res.insertedId.toString() },
+      { headers: CORS },
+    );
   } catch (e) {
     console.error("ERP event logging error", e);
-    return NextResponse.json({ error: "failed" }, { status: 500, headers: CORS });
+    return NextResponse.json(
+      { error: "failed" },
+      { status: 500, headers: CORS },
+    );
   }
 }
 
@@ -37,6 +43,9 @@ export async function GET() {
     return NextResponse.json(events, { headers: CORS });
   } catch (e) {
     console.error("Failed to fetch erp events", e);
-    return NextResponse.json({ error: "failed" }, { status: 500, headers: CORS });
+    return NextResponse.json(
+      { error: "failed" },
+      { status: 500, headers: CORS },
+    );
   }
 }

@@ -48,11 +48,7 @@ export const defaultStaffAllowed = [
   "/quotations/create",
 ];
 
-
-
-
 export const navGroups = [
-  
   {
     title: "Management",
     items: [
@@ -95,7 +91,6 @@ export const navGroups = [
     ],
   },
 
-  
   {
     title: "Marketing",
     items: [
@@ -197,7 +192,6 @@ export const navGroups = [
     ],
   },
 
-  
   {
     title: "Sales",
     items: [
@@ -228,7 +222,6 @@ export const navGroups = [
     ],
   },
 
-  
   {
     title: "Operations",
     items: [
@@ -265,7 +258,6 @@ export const navGroups = [
     ],
   },
 
-  
   {
     title: "Finance",
     items: [
@@ -302,7 +294,6 @@ export const navGroups = [
     ],
   },
 
-  
   {
     title: "HR & Support",
     items: [
@@ -333,11 +324,6 @@ export const navGroups = [
     ],
   },
 ];
-
-
-
-
-
 
 export const clientPortalGroups = [
   {
@@ -408,20 +394,9 @@ export const clientPortalGroups = [
   },
 ];
 
-
-
-
-
 export const clientNavItems = clientPortalGroups.flatMap((g) => g.items);
 
-
-
-
 export const defaultClientAllowed = ["/invoicing", "/projects", "/support"];
-
-
-
-
 
 export const clientSpecificNavItems = [
   { href: "/client/planner", label: "Planner", icon: CalendarDays },

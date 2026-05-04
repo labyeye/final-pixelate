@@ -35,22 +35,18 @@ export type SocialPlatform = (typeof SOCIAL_PLATFORMS)[number];
 export type ContentType = (typeof CONTENT_TYPES)[number];
 export type PostStatus = (typeof POST_STATUSES)[number];
 
-
-
-
-
 export type SocialAccount = {
   _id?: string;
   id?: string;
   clientId: string;
   platform: SocialPlatform;
-  handle: string; 
-  displayName?: string; 
-  
-  platformAccountId?: string; 
-  igAccountId?: string;       
-  connectedPageName?: string; 
-  isConnected?: boolean;      
+  handle: string;
+  displayName?: string;
+
+  platformAccountId?: string;
+  igAccountId?: string;
+  connectedPageName?: string;
+  isConnected?: boolean;
   createdAt?: string | Date;
   updatedAt?: string | Date;
 };
@@ -92,13 +88,16 @@ export type SocialMediaPost = {
   comments?: number;
   shares?: number;
   followers_gained?: number;
-  accountMetrics?: Record<string, {
-    views: number;
-    likes: number;
-    comments: number;
-    shares: number;
-    followers_gained: number;
-  }>;
+  accountMetrics?: Record<
+    string,
+    {
+      views: number;
+      likes: number;
+      comments: number;
+      shares: number;
+      followers_gained: number;
+    }
+  >;
   createdAt?: string | Date;
   updatedAt?: string | Date;
 };
@@ -115,11 +114,9 @@ export const isSameDate = (a: Date, b: Date) =>
   a.getMonth() === b.getMonth() &&
   a.getDate() === b.getDate();
 
-
-
-
-
-export const fetchSocialAccount = async (accountId: string): Promise<SocialAccount | null> => {
+export const fetchSocialAccount = async (
+  accountId: string,
+): Promise<SocialAccount | null> => {
   try {
     const res = await fetch(`/api/social-media-accounts?id=${accountId}`, {
       cache: "no-store",
@@ -134,16 +131,12 @@ export const fetchSocialAccount = async (accountId: string): Promise<SocialAccou
   return null;
 };
 
-
-
-
-export const formatAccountDisplay = (account?: SocialAccount | null): string => {
+export const formatAccountDisplay = (
+  account?: SocialAccount | null,
+): string => {
   if (!account) return "(No Account)";
   return `@${account.handle}`;
 };
-
-
-
 
 export const getPlatformIcon = (platform: SocialPlatform): string => {
   const icons: Record<SocialPlatform, string> = {

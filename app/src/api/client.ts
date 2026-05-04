@@ -9,7 +9,6 @@ const apiClient = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
-
 apiClient.interceptors.request.use(async config => {
   const token = await AsyncStorage.getItem('auth_token');
   if (token) {
@@ -17,7 +16,6 @@ apiClient.interceptors.request.use(async config => {
   }
   return config;
 });
-
 
 apiClient.interceptors.response.use(
   res => res,

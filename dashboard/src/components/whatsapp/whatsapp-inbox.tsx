@@ -84,13 +84,11 @@ export function WhatsAppInbox() {
       }
 
       setSyncMessage(
-        `✅ Synced ${data.synced} new messages from webhook (${data.totalProcessed} total processed)`
+        `✅ Synced ${data.synced} new messages from webhook (${data.totalProcessed} total processed)`,
       );
 
-      
       await fetchConversations();
 
-      
       setTimeout(() => setSyncMessage(""), 5000);
     } catch (err: any) {
       setSyncMessage(`❌ Sync failed: ${err.message}`);
@@ -101,7 +99,9 @@ export function WhatsAppInbox() {
 
   const fetchConversationMessages = async (phone: string) => {
     try {
-      const response = await fetch(`/api/whatsapp/messages?phone=${encodeURIComponent(phone)}`);
+      const response = await fetch(
+        `/api/whatsapp/messages?phone=${encodeURIComponent(phone)}`,
+      );
       if (!response.ok) throw new Error("Failed to fetch messages");
 
       const data = await response.json();
@@ -115,7 +115,7 @@ export function WhatsAppInbox() {
   const filteredConversations = conversations.filter(
     (conv) =>
       conv.contactName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      conv.phone.includes(searchQuery)
+      conv.phone.includes(searchQuery),
   );
 
   const getStatusIcon = (status: string) => {
@@ -142,7 +142,8 @@ export function WhatsAppInbox() {
         <div>
           <h2 className="text-3xl font-bold text-gray-900">WhatsApp Inbox</h2>
           <p className="text-gray-600 mt-1">
-            View all messages and conversations from your bulk messaging campaigns
+            View all messages and conversations from your bulk messaging
+            campaigns
           </p>
         </div>
         <Button
@@ -151,9 +152,7 @@ export function WhatsAppInbox() {
           className="gap-2"
           variant="outline"
         >
-          <RefreshCw
-            className={`h-4 w-4 ${syncing ? "animate-spin" : ""}`}
-          />
+          <RefreshCw className={`h-4 w-4 ${syncing ? "animate-spin" : ""}`} />
           {syncing ? "Syncing..." : "Sync Messages"}
         </Button>
       </div>
@@ -254,11 +253,15 @@ export function WhatsAppInbox() {
                 {selectedPhone ? (
                   <div>
                     <div className="font-semibold">
-                      {conversations.find((c) => c._id === selectedPhone)?.contactName || "Conversation"}
+                      {conversations.find((c) => c._id === selectedPhone)
+                        ?.contactName || "Conversation"}
                     </div>
                     <div className="text-sm text-gray-500 flex items-center gap-1">
                       <Phone className="h-3 w-3" />
-                      {conversations.find((c) => c._id === selectedPhone)?.phone}
+                      {
+                        conversations.find((c) => c._id === selectedPhone)
+                          ?.phone
+                      }
                     </div>
                   </div>
                 ) : (
@@ -283,7 +286,9 @@ export function WhatsAppInbox() {
                     <div
                       key={msg._id}
                       className={`flex ${
-                        msg.messageType === "sent" ? "justify-end" : "justify-start"
+                        msg.messageType === "sent"
+                          ? "justify-end"
+                          : "justify-start"
                       }`}
                     >
                       <div
@@ -301,7 +306,8 @@ export function WhatsAppInbox() {
                               minute: "2-digit",
                             })}
                           </p>
-                          {msg.messageType === "sent" && getStatusIcon(msg.status)}
+                          {msg.messageType === "sent" &&
+                            getStatusIcon(msg.status)}
                         </div>
                       </div>
                     </div>
@@ -348,7 +354,10 @@ export function WhatsAppInbox() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
-                {conversations.reduce((sum, conv) => sum + conv.messageCount, 0)}
+                {conversations.reduce(
+                  (sum, conv) => sum + conv.messageCount,
+                  0,
+                )}
               </div>
             </CardContent>
           </Card>

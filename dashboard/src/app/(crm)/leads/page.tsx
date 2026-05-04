@@ -45,8 +45,6 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-
-
 function getToken() {
   return localStorage.getItem("auth_token") || "";
 }
@@ -78,8 +76,6 @@ function isOverdue(followUpDate?: Date | string | null) {
   if (!followUpDate) return false;
   return new Date(followUpDate) < new Date();
 }
-
-
 
 function KanbanCard({
   lead,
@@ -152,8 +148,6 @@ function KanbanCard({
     </div>
   );
 }
-
-
 
 function AnalyticsStrip({ leads }: { leads: Lead[] }) {
   const total = leads.length;
@@ -234,8 +228,6 @@ function AnalyticsStrip({ leads }: { leads: Lead[] }) {
   );
 }
 
-
-
 export default function LeadsPage() {
   const router = useRouter();
   const { toast } = useToast();
@@ -243,7 +235,6 @@ export default function LeadsPage() {
   const [team, setTeam] = useState<any[]>([]);
   const [view, setView] = useState<"table" | "kanban">("table");
 
-  
   const [search, setSearch] = useState("");
   const [staffFilter, setStaffFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
@@ -251,17 +242,13 @@ export default function LeadsPage() {
   const [priorityFilter, setPriorityFilter] = useState("");
   const [showFilters, setShowFilters] = useState(false);
 
-  
   const [selected, setSelected] = useState<Set<string>>(new Set());
 
-  
   const [loading, setLoading] = useState(true);
   const [isSyncing, setIsSyncing] = useState(false);
   const [bulkDeleting, setBulkDeleting] = useState(false);
 
   const role = typeof window !== "undefined" ? getRole() : null;
-
-  
 
   async function fetchLeads(): Promise<Lead[]> {
     try {
@@ -292,8 +279,6 @@ export default function LeadsPage() {
     })();
   }, []);
 
-  
-
   const allSources = useMemo(() => {
     const s = new Set(leads.map((l) => l.source || "Unknown"));
     return Array.from(s).sort();
@@ -317,7 +302,6 @@ export default function LeadsPage() {
     });
   }, [leads, search, staffFilter, statusFilter, sourceFilter, priorityFilter]);
 
-  
   const kanbanGroups = useMemo(() => {
     const groups: Record<string, Lead[]> = {};
     leadStatuses.forEach((s) => {
@@ -330,8 +314,6 @@ export default function LeadsPage() {
     });
     return groups;
   }, [filtered]);
-
-  
 
   async function updateLeadStatus(leadId: string, newStatus: string) {
     setLeads((prev) =>
@@ -540,8 +522,6 @@ export default function LeadsPage() {
   };
   const hasFilters =
     search || staffFilter || statusFilter || sourceFilter || priorityFilter;
-
-  
 
   return (
     <div className="space-y-5 font-headline">

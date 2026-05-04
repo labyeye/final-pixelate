@@ -1,13 +1,11 @@
-﻿
-window.addEventListener("DOMContentLoaded", () => {
+﻿window.addEventListener("DOMContentLoaded", () => {
   const selectedPlan = localStorage.getItem("selectedPlan");
   if (selectedPlan) {
     document.getElementById("selected-plan").value = selectedPlan;
-    
-    document.getElementById(
-      "Enter-your-subject"
-    ).value = `Inquiry for ${selectedPlan}`;
-    localStorage.removeItem("selectedPlan"); 
+
+    document.getElementById("Enter-your-subject").value =
+      `Inquiry for ${selectedPlan}`;
+    localStorage.removeItem("selectedPlan");
   }
 });
 
@@ -32,12 +30,11 @@ async function handleFormSubmit(event) {
   };
 
   try {
-    
     const API_BASE =
       window.DASHBOARD_API_BASE && window.DASHBOARD_API_BASE.trim()
         ? window.DASHBOARD_API_BASE.replace(/\/$/, "")
         : "";
-    
+
     const saveRes = await fetch((API_BASE || "") + "/api/enquiries", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -45,24 +42,18 @@ async function handleFormSubmit(event) {
     });
     if (!saveRes.ok) throw new Error("Failed to save enquiry");
 
-    
     try {
-      
       await fetch((API_BASE || "") + "/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify(data),
       });
-    } catch (e) {
-      
-    }
+    } catch (e) {}
 
-    
     document.querySelector(".form-success-message").style.display = "block";
     form.reset();
   } catch (error) {
-    
     document.querySelector(".form-error-message").style.display = "block";
   } finally {
     submitButton.value = "Submit";
@@ -73,4 +64,3 @@ async function handleFormSubmit(event) {
 
   document.querySelector(".form-error-message").style.display = "block";
 }
-

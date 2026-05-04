@@ -1,5 +1,4 @@
-
-'use client';
+"use client";
 
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,9 +6,15 @@ import AddProjectForm from "@/components/projects/add-project-form";
 import { Progress } from "@/components/ui/progress";
 import type { Project } from "@/lib/data";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, CheckCheck, Pencil, Trash2, FolderOpen } from 'lucide-react';
+import {
+  CheckCircle,
+  CheckCheck,
+  Pencil,
+  Trash2,
+  FolderOpen,
+} from "lucide-react";
 import { SuccessModal } from "@/components/ui/success-modal";
-import { useToast } from '@/hooks/use-toast';
+import { useToast } from "@/hooks/use-toast";
 import {
   Table,
   TableBody,
@@ -36,34 +41,52 @@ export default function ProjectsPage() {
     let mounted = true;
     (async () => {
       try {
-        const [cRes, sRes, tRes] = await Promise.all([fetch('/api/clients'), fetch('/api/services'), fetch('/api/team-members')]);
-        const [cJson, sJson, tJson] = await Promise.all([cRes.json(), sRes.json(), tRes.json()]);
+        const [cRes, sRes, tRes] = await Promise.all([
+          fetch("/api/clients"),
+          fetch("/api/services"),
+          fetch("/api/team-members"),
+        ]);
+        const [cJson, sJson, tJson] = await Promise.all([
+          cRes.json(),
+          sRes.json(),
+          tRes.json(),
+        ]);
         if (!mounted) return;
-        const normClients = (cJson as any[] || []).map(c => ({ ...c, id: c.id ?? (c._id ? String(c._id) : String(c.id)) }));
-        const normServices = (sJson as any[] || []).map(s => ({ ...s, id: s.id ?? (s._id ? String(s._id) : String(s.id)) }));
+        const normClients = ((cJson as any[]) || []).map((c) => ({
+          ...c,
+          id: c.id ?? (c._id ? String(c._id) : String(c.id)),
+        }));
+        const normServices = ((sJson as any[]) || []).map((s) => ({
+          ...s,
+          id: s.id ?? (s._id ? String(s._id) : String(s.id)),
+        }));
         setClients(normClients);
         setServices(normServices);
-        setTeamMembers(tJson as any[] || []);
+        setTeamMembers((tJson as any[]) || []);
       } catch (err) {
-        console.error('Failed to load project related data', err);
+        console.error("Failed to load project related data", err);
       }
     })();
-    return () => { mounted = false; };
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   useEffect(() => {
     let mounted = true;
     (async () => {
       try {
-        const res = await fetch('/api/projects');
+        const res = await fetch("/api/projects");
         if (!res.ok) throw new Error(`Failed to fetch projects: ${res.status}`);
         const items = await res.json();
         if (mounted) setProjects(items as Project[]);
       } catch (err) {
-        console.error('Failed to load projects', err);
+        console.error("Failed to load projects", err);
       }
     })();
-    return () => { mounted = false; };
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   const statusColor: Record<string, string> = {
@@ -74,13 +97,12 @@ export default function ProjectsPage() {
   };
 
   const getClientName = (clientId: string | any, project?: any): string => {
-    
     if (project?.clientName) return project.clientName;
-    
+
     if (!clientId) return "—";
     const clientIdStr = String(clientId);
-    
-    const found = clients.find(c => {
+
+    const found = clients.find((c) => {
       const cId = String(c._id || c.id || "");
       return cId === clientIdStr;
     });
@@ -92,7 +114,9 @@ export default function ProjectsPage() {
       {successMessage && <SuccessModal message={successMessage} />}
       <header>
         <h1 className="text-5xl font-black tracking-tighter">PROJECTS</h1>
-        <p className="text-muted-foreground text-lg">An overview of all active and completed projects.</p>
+        <p className="text-muted-foreground text-lg">
+          An overview of all active and completed projects.
+        </p>
       </header>
 
       <Card className="border-2 border-black">
@@ -110,11 +134,15 @@ export default function ProjectsPage() {
             editingId={editing ? (editing._id ?? editing.id) : null}
             onCreate={(p) => {
               if (editing) {
-                setProjects(prev => prev.map(pr => (pr._id ?? pr.id) === (editing._id ?? editing.id) ? p : pr));
+                setProjects((prev) =>
+                  prev.map((pr) =>
+                    (pr._id ?? pr.id) === (editing._id ?? editing.id) ? p : pr,
+                  ),
+                );
                 setEditing(null);
                 showSuccess("Project updated!");
               } else {
-                setProjects(prev => [p, ...prev]);
+                setProjects((prev) => [p, ...prev]);
                 showSuccess("Project added!");
               }
             }}
@@ -127,13 +155,27 @@ export default function ProjectsPage() {
         <Table>
           <TableHeader>
             <TableRow className="border-b-2 border-black bg-primary hover:bg-black">
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">Project</TableHead>
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">Client</TableHead>
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">Status</TableHead>
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">Progress</TableHead>
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">Amount</TableHead>
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">Assignees</TableHead>
-              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3 text-right">Actions</TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">
+                Project
+              </TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">
+                Client
+              </TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">
+                Status
+              </TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">
+                Progress
+              </TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">
+                Amount
+              </TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3">
+                Assignees
+              </TableHead>
+              <TableHead className="text-white font-black text-xs uppercase tracking-widest py-3 text-right">
+                Actions
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -155,13 +197,15 @@ export default function ProjectsPage() {
                 {}
                 <TableCell className="py-3">
                   <div className="flex items-center gap-2">
-                    {project.status === 'COMPLETED' && (
+                    {project.status === "COMPLETED" && (
                       <CheckCircle className="h-4 w-4 text-green-600 shrink-0" />
                     )}
                     <div>
                       <div className="font-black text-sm">{project.title}</div>
                       {project.description && (
-                        <div className="text-xs text-muted-foreground line-clamp-1 max-w-[220px]">{project.description}</div>
+                        <div className="text-xs text-muted-foreground line-clamp-1 max-w-[220px]">
+                          {project.description}
+                        </div>
                       )}
                     </div>
                   </div>
@@ -174,7 +218,9 @@ export default function ProjectsPage() {
 
                 {}
                 <TableCell className="py-3">
-                  <span className={`text-xs font-black tracking-widest px-2 py-1 ${statusColor[project.status ?? ""] ?? "bg-gray-100 text-gray-700 border border-gray-300"}`}>
+                  <span
+                    className={`text-xs font-black tracking-widest px-2 py-1 ${statusColor[project.status ?? ""] ?? "bg-gray-100 text-gray-700 border border-gray-300"}`}
+                  >
                     {project.status ?? "—"}
                   </span>
                 </TableCell>
@@ -191,10 +237,16 @@ export default function ProjectsPage() {
 
                 {}
                 <TableCell className="py-3">
-                  <div className="font-bold text-sm">₹{(project.amount ?? 0).toLocaleString()}</div>
+                  <div className="font-bold text-sm">
+                    ₹{(project.amount ?? 0).toLocaleString()}
+                  </div>
                   {project.assignees && project.assignees.length > 0 && (
                     <div className="text-xs text-muted-foreground">
-                      ₹{Math.floor((project.amount ?? 0) / project.assignees.length).toLocaleString()} / member
+                      ₹
+                      {Math.floor(
+                        (project.amount ?? 0) / project.assignees.length,
+                      ).toLocaleString()}{" "}
+                      / member
                     </div>
                   )}
                 </TableCell>
@@ -203,11 +255,16 @@ export default function ProjectsPage() {
                 <TableCell className="py-3">
                   {project.assignees && project.assignees.length > 0 ? (
                     <div className="flex flex-wrap gap-1">
-                      {project.assignees.slice(0, 3).map((a: any, i: number) => (
-                        <span key={i} className="text-xs bg-black text-white px-1.5 py-0.5 font-bold">
-                          {typeof a === "string" ? a : a?.name ?? "—"}
-                        </span>
-                      ))}
+                      {project.assignees
+                        .slice(0, 3)
+                        .map((a: any, i: number) => (
+                          <span
+                            key={i}
+                            className="text-xs bg-black text-white px-1.5 py-0.5 font-bold"
+                          >
+                            {typeof a === "string" ? a : (a?.name ?? "—")}
+                          </span>
+                        ))}
                       {project.assignees.length > 3 && (
                         <span className="text-xs bg-muted px-1.5 py-0.5 font-bold">
                           +{project.assignees.length - 3}
@@ -230,19 +287,27 @@ export default function ProjectsPage() {
                       title="Edit"
                       onClick={async () => {
                         try {
-                          const res = await fetch(`/api/projects/${project._id ?? project.id}`);
-                          if (!res.ok) throw new Error('Failed to fetch project');
+                          const res = await fetch(
+                            `/api/projects/${project._id ?? project.id}`,
+                          );
+                          if (!res.ok)
+                            throw new Error("Failed to fetch project");
                           const data = await res.json();
-                          setEditing({ ...data, id: data._id ? String(data._id) : data.id });
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        } catch (err) { console.error(err); }
+                          setEditing({
+                            ...data,
+                            id: data._id ? String(data._id) : data.id,
+                          });
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        } catch (err) {
+                          console.error(err);
+                        }
                       }}
                     >
                       <Pencil className="h-3.5 w-3.5" />
                     </Button>
 
                     {}
-                    {project.status !== 'COMPLETED' && (
+                    {project.status !== "COMPLETED" && (
                       <Button
                         size="sm"
                         variant="outline"
@@ -252,20 +317,36 @@ export default function ProjectsPage() {
                           try {
                             const id = project._id ?? project.id;
                             const res = await fetch(`/api/projects/${id}`, {
-                              method: 'PUT',
-                              body: JSON.stringify({ status: 'COMPLETED' }),
-                              headers: { 'Content-Type': 'application/json' }
+                              method: "PUT",
+                              body: JSON.stringify({ status: "COMPLETED" }),
+                              headers: { "Content-Type": "application/json" },
                             });
-                            if (!res.ok) throw new Error('Failed to mark complete');
+                            if (!res.ok)
+                              throw new Error("Failed to mark complete");
                             const updated = await res.json();
-                            setProjects(prev => prev.map(p => (p._id ?? p.id) === id ? updated : p));
+                            setProjects((prev) =>
+                              prev.map((p) =>
+                                (p._id ?? p.id) === id ? updated : p,
+                              ),
+                            );
                             showSuccess("Project completed!");
                             try {
-                              const invoicesRes = await fetch('/api/invoices');
-                              const invoicesData = invoicesRes.ok ? await invoicesRes.json() : [];
-                              window.dispatchEvent(new CustomEvent('data:changed', { detail: { type: 'invoices', invoices: invoicesData } }));
-                            } catch(e) {  }
-                          } catch (err) { console.error(err); }
+                              const invoicesRes = await fetch("/api/invoices");
+                              const invoicesData = invoicesRes.ok
+                                ? await invoicesRes.json()
+                                : [];
+                              window.dispatchEvent(
+                                new CustomEvent("data:changed", {
+                                  detail: {
+                                    type: "invoices",
+                                    invoices: invoicesData,
+                                  },
+                                }),
+                              );
+                            } catch (e) {}
+                          } catch (err) {
+                            console.error(err);
+                          }
                         }}
                       >
                         <CheckCheck className="h-3.5 w-3.5" />
@@ -279,17 +360,29 @@ export default function ProjectsPage() {
                       className="h-8 w-8 p-0"
                       title="Delete"
                       onClick={async () => {
-                        if (!window.confirm('Delete this project?')) return;
+                        if (!window.confirm("Delete this project?")) return;
                         try {
                           const id = project._id ?? project.id;
-                          const res = await fetch(`/api/projects/${id}`, { method: 'DELETE' });
-                          if (!res.ok) throw new Error('Delete failed');
-                          setProjects(prev => prev.filter(p => (p._id ?? p.id) !== id));
+                          const res = await fetch(`/api/projects/${id}`, {
+                            method: "DELETE",
+                          });
+                          if (!res.ok) throw new Error("Delete failed");
+                          setProjects((prev) =>
+                            prev.filter((p) => (p._id ?? p.id) !== id),
+                          );
                           showSuccess("Project deleted!");
-                          toast({ title: 'Project Deleted', description: 'Project has been removed successfully.' });
+                          toast({
+                            title: "Project Deleted",
+                            description:
+                              "Project has been removed successfully.",
+                          });
                         } catch (err) {
                           console.error(err);
-                          toast({ title: 'Delete Failed', description: 'Could not delete project.', variant: 'destructive' });
+                          toast({
+                            title: "Delete Failed",
+                            description: "Could not delete project.",
+                            variant: "destructive",
+                          });
                         }
                       }}
                     >

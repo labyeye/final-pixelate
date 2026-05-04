@@ -15,7 +15,12 @@ export async function GET(request: NextRequest) {
     let filter: Record<string, any> = {};
     if (clientIdParam) {
       try {
-        filter = { $or: [{ clientId: new ObjectId(clientIdParam) }, { clientId: clientIdParam }] };
+        filter = {
+          $or: [
+            { clientId: new ObjectId(clientIdParam) },
+            { clientId: clientIdParam },
+          ],
+        };
       } catch {
         filter = { clientId: clientIdParam };
       }
@@ -54,7 +59,10 @@ export async function POST(request: Request) {
           );
         }
       } catch (journeyErr) {
-        console.error("Failed to auto-create journey event for onboarding:", journeyErr);
+        console.error(
+          "Failed to auto-create journey event for onboarding:",
+          journeyErr,
+        );
       }
     }
 

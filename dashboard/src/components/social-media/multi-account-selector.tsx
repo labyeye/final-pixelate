@@ -17,7 +17,7 @@ interface SocialAccount {
 interface MultiAccountSelectorProps {
   clientId: string;
   platform: string;
-  value: string[]; 
+  value: string[];
   onChange: (accountIds: string[], handles: string[]) => void;
 }
 
@@ -38,7 +38,9 @@ export function MultiAccountSelector({
     }
 
     setLoading(true);
-    fetch(`/api/social-media-accounts?clientId=${clientId}&platform=${platform}`)
+    fetch(
+      `/api/social-media-accounts?clientId=${clientId}&platform=${platform}`,
+    )
       .then((res) => res.json())
       .then((data) => {
         setAccounts(Array.isArray(data) ? data : []);
@@ -50,12 +52,12 @@ export function MultiAccountSelector({
       .finally(() => setLoading(false));
   }, [clientId, platform]);
 
-  const selectedAccounts = accounts.filter(
-    (acc) => value.includes(acc._id || acc.id || "")
+  const selectedAccounts = accounts.filter((acc) =>
+    value.includes(acc._id || acc.id || ""),
   );
 
   const availableAccounts = accounts.filter(
-    (acc) => !value.includes(acc._id || acc.id || "")
+    (acc) => !value.includes(acc._id || acc.id || ""),
   );
 
   const handleSelectAccount = (account: SocialAccount) => {
@@ -90,10 +92,11 @@ export function MultiAccountSelector({
               key={acc._id || acc.id}
               className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm flex items-center gap-2"
             >
-              <PlatformLogo platform={acc.platform as SocialPlatform} size="sm" />
-              <span>
-                {acc.displayName || acc.handle}
-              </span>
+              <PlatformLogo
+                platform={acc.platform as SocialPlatform}
+                size="sm"
+              />
+              <span>{acc.displayName || acc.handle}</span>
               <button
                 onClick={() => handleRemoveAccount(acc._id || acc.id || "")}
                 className="hover:text-blue-900"
@@ -127,9 +130,14 @@ export function MultiAccountSelector({
                 onClick={() => handleSelectAccount(acc)}
                 className="w-full text-left px-4 py-2 hover:bg-gray-100 border-b last:border-b-0 flex items-center gap-2"
               >
-                <PlatformLogo platform={acc.platform as SocialPlatform} size="sm" />
+                <PlatformLogo
+                  platform={acc.platform as SocialPlatform}
+                  size="sm"
+                />
                 <div>
-                  <div className="font-medium">{acc.displayName || acc.handle}</div>
+                  <div className="font-medium">
+                    {acc.displayName || acc.handle}
+                  </div>
                   <div className="text-xs text-gray-500">@{acc.handle}</div>
                 </div>
               </button>

@@ -43,7 +43,9 @@ export default function OnboardingPage() {
   const [onboardings, setOnboardings] = useState<any[]>([]);
   const [selectedClientId, setSelectedClientId] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingOnboardingId, setEditingOnboardingId] = useState<string | null>(null);
+  const [editingOnboardingId, setEditingOnboardingId] = useState<string | null>(
+    null,
+  );
 
   const getInitialFormState = () => ({
     clientName: "",
@@ -65,7 +67,7 @@ export default function OnboardingPage() {
     notes: "",
     projectTitle: "",
     date: new Date().toISOString(),
-    
+
     projectId: "",
     clientDisplayId: "",
     scopeOfWork: "",
@@ -126,19 +128,32 @@ export default function OnboardingPage() {
     deliverables: Array.isArray(item?.deliverables)
       ? item.deliverables
       : typeof item?.deliverables === "string"
-        ? item.deliverables.split("\n").map((entry: string) => entry.trim()).filter(Boolean)
+        ? item.deliverables
+            .split("\n")
+            .map((entry: string) => entry.trim())
+            .filter(Boolean)
         : ["Discovery Call", "Wireframes", "Design", "Development"],
     notes: item?.notes ?? "",
     projectTitle: item?.projectTitle ?? "",
     date: toDateInputValue(item?.date) || toDateInputValue(new Date()),
-    
+
     projectId: item?.projectId ?? "",
     clientDisplayId: item?.clientDisplayId ?? "",
-    scopeOfWork: Array.isArray(item?.scopeOfWork) ? item.scopeOfWork.join("\n") : (item?.scopeOfWork ?? ""),
-    outOfScope: Array.isArray(item?.outOfScope) ? item.outOfScope.join("\n") : (item?.outOfScope ?? ""),
-    techStack: Array.isArray(item?.techStack) ? item.techStack.join(", ") : (item?.techStack ?? ""),
-    milestones: Array.isArray(item?.milestones) ? item.milestones.join("\n") : (item?.milestones ?? ""),
-    paymentMilestones: Array.isArray(item?.paymentMilestones) ? item.paymentMilestones.join("\n") : (item?.paymentMilestones ?? ""),
+    scopeOfWork: Array.isArray(item?.scopeOfWork)
+      ? item.scopeOfWork.join("\n")
+      : (item?.scopeOfWork ?? ""),
+    outOfScope: Array.isArray(item?.outOfScope)
+      ? item.outOfScope.join("\n")
+      : (item?.outOfScope ?? ""),
+    techStack: Array.isArray(item?.techStack)
+      ? item.techStack.join(", ")
+      : (item?.techStack ?? ""),
+    milestones: Array.isArray(item?.milestones)
+      ? item.milestones.join("\n")
+      : (item?.milestones ?? ""),
+    paymentMilestones: Array.isArray(item?.paymentMilestones)
+      ? item.paymentMilestones.join("\n")
+      : (item?.paymentMilestones ?? ""),
     paymentMethod: item?.paymentMethod ?? "",
     deliveryDiscovery: item?.deliveryDiscovery ?? "",
     deliveryWireframes: item?.deliveryWireframes ?? "",
@@ -156,9 +171,10 @@ export default function OnboardingPage() {
 
   const fetchOnboardings = async () => {
     try {
-      const url = isClient && myClientId
-        ? `/api/onboarding?clientId=${myClientId}`
-        : "/api/onboarding";
+      const url =
+        isClient && myClientId
+          ? `/api/onboarding?clientId=${myClientId}`
+          : "/api/onboarding";
       const res = await fetch(url);
       if (res.ok) {
         const data = await res.json();
@@ -186,10 +202,8 @@ export default function OnboardingPage() {
     return () => {
       mounted = false;
     };
-    
   }, [isClient, myClientId]);
 
-  
   useEffect(() => {
     if (!selectedClientId) return;
     const c = clients.find(
@@ -226,7 +240,11 @@ export default function OnboardingPage() {
       setTimeout(() => URL.revokeObjectURL(url), 0);
     } catch (e) {
       console.error("Failed to generate PDF", e);
-      toast({ title: "PDF Failed", description: "Failed to generate onboarding PDF.", variant: "destructive" });
+      toast({
+        title: "PDF Failed",
+        description: "Failed to generate onboarding PDF.",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -266,11 +284,19 @@ export default function OnboardingPage() {
         setSelectedClientId(null);
       } else {
         const err = await res.json();
-        toast({ title: isEditing ? "Update Failed" : "Save Failed", description: "Failed to save: " + (err.error || "Unknown"), variant: "destructive" });
+        toast({
+          title: isEditing ? "Update Failed" : "Save Failed",
+          description: "Failed to save: " + (err.error || "Unknown"),
+          variant: "destructive",
+        });
       }
     } catch (e) {
       console.error("Failed to save onboarding", e);
-      toast({ title: editingOnboardingId ? "Update Failed" : "Save Failed", description: "Failed to save onboarding record. Please try again.", variant: "destructive" });
+      toast({
+        title: editingOnboardingId ? "Update Failed" : "Save Failed",
+        description: "Failed to save onboarding record. Please try again.",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -339,13 +365,15 @@ export default function OnboardingPage() {
             {isClient ? "My Onboarding Documents" : "Onboarding History"}
           </h2>
           <p className="text-muted-foreground">
-            {isClient ? "View your onboarding documents." : "View and manage generated onboarding documents."}
+            {isClient
+              ? "View your onboarding documents."
+              : "View and manage generated onboarding documents."}
           </p>
         </div>
         {!isClient && (
-        <Button onClick={() => handleOpenModal()}>
-          <Plus className="mr-2 h-4 w-4" /> New Onboarding
-        </Button>
+          <Button onClick={() => handleOpenModal()}>
+            <Plus className="mr-2 h-4 w-4" /> New Onboarding
+          </Button>
         )}
       </div>
 
@@ -440,7 +468,9 @@ export default function OnboardingPage() {
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>
-              {editingOnboardingId ? "Edit Onboarding" : "Client Onboarding Form"}
+              {editingOnboardingId
+                ? "Edit Onboarding"
+                : "Client Onboarding Form"}
             </DialogTitle>
           </DialogHeader>
 
@@ -508,7 +538,9 @@ export default function OnboardingPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1">Project ID</label>
+              <label className="block text-sm font-medium mb-1">
+                Project ID
+              </label>
               <Input
                 value={form.projectId}
                 onChange={(e: any) => update("projectId", e.target.value)}
@@ -516,7 +548,9 @@ export default function OnboardingPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Client ID</label>
+              <label className="block text-sm font-medium mb-1">
+                Client ID
+              </label>
               <Input
                 value={form.clientDisplayId}
                 onChange={(e: any) => update("clientDisplayId", e.target.value)}
@@ -666,7 +700,9 @@ export default function OnboardingPage() {
               <h3 className="font-semibold mb-4">Project Scope</h3>
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium mb-1">Scope of Work (one item per line)</label>
+              <label className="block text-sm font-medium mb-1">
+                Scope of Work (one item per line)
+              </label>
               <Textarea
                 rows={4}
                 value={form.scopeOfWork}
@@ -675,7 +711,9 @@ export default function OnboardingPage() {
               />
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium mb-1">Out of Scope (one item per line)</label>
+              <label className="block text-sm font-medium mb-1">
+                Out of Scope (one item per line)
+              </label>
               <Textarea
                 rows={3}
                 value={form.outOfScope}
@@ -684,7 +722,9 @@ export default function OnboardingPage() {
               />
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium mb-1">Technology Stack (comma separated)</label>
+              <label className="block text-sm font-medium mb-1">
+                Technology Stack (comma separated)
+              </label>
               <Input
                 value={form.techStack}
                 onChange={(e: any) => update("techStack", e.target.value)}
@@ -697,7 +737,9 @@ export default function OnboardingPage() {
               <h3 className="font-semibold mb-4">Timeline &amp; Milestones</h3>
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium mb-1">Project Milestones (one per line)</label>
+              <label className="block text-sm font-medium mb-1">
+                Project Milestones (one per line)
+              </label>
               <Textarea
                 rows={4}
                 value={form.milestones}
@@ -711,7 +753,9 @@ export default function OnboardingPage() {
               <h3 className="font-semibold mb-4">Financial Details</h3>
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Payment Method</label>
+              <label className="block text-sm font-medium mb-1">
+                Payment Method
+              </label>
               <Input
                 value={form.paymentMethod}
                 onChange={(e: any) => update("paymentMethod", e.target.value)}
@@ -719,65 +763,139 @@ export default function OnboardingPage() {
               />
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium mb-1">Payment Milestones (one per line)</label>
+              <label className="block text-sm font-medium mb-1">
+                Payment Milestones (one per line)
+              </label>
               <Textarea
                 rows={4}
                 value={form.paymentMilestones}
-                onChange={(e: any) => update("paymentMilestones", e.target.value)}
+                onChange={(e: any) =>
+                  update("paymentMilestones", e.target.value)
+                }
                 placeholder="e.g. 30% advance on signing&#10;40% on design approval&#10;30% on delivery"
               />
             </div>
 
             {}
             <div className="md:col-span-2 border-t pt-4 mt-2">
-              <h3 className="font-semibold mb-1">Deliverable Phase Descriptions</h3>
-              <p className="text-xs text-muted-foreground mb-4">Leave blank to use default descriptions in the PDF.</p>
+              <h3 className="font-semibold mb-1">
+                Deliverable Phase Descriptions
+              </h3>
+              <p className="text-xs text-muted-foreground mb-4">
+                Leave blank to use default descriptions in the PDF.
+              </p>
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Discovery</label>
-              <Textarea rows={2} value={form.deliveryDiscovery} onChange={(e: any) => update("deliveryDiscovery", e.target.value)} />
+              <label className="block text-sm font-medium mb-1">
+                Discovery
+              </label>
+              <Textarea
+                rows={2}
+                value={form.deliveryDiscovery}
+                onChange={(e: any) =>
+                  update("deliveryDiscovery", e.target.value)
+                }
+              />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Wireframes</label>
-              <Textarea rows={2} value={form.deliveryWireframes} onChange={(e: any) => update("deliveryWireframes", e.target.value)} />
+              <label className="block text-sm font-medium mb-1">
+                Wireframes
+              </label>
+              <Textarea
+                rows={2}
+                value={form.deliveryWireframes}
+                onChange={(e: any) =>
+                  update("deliveryWireframes", e.target.value)
+                }
+              />
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Design</label>
-              <Textarea rows={2} value={form.deliveryDesign} onChange={(e: any) => update("deliveryDesign", e.target.value)} />
+              <Textarea
+                rows={2}
+                value={form.deliveryDesign}
+                onChange={(e: any) => update("deliveryDesign", e.target.value)}
+              />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Development</label>
-              <Textarea rows={2} value={form.deliveryDevelopment} onChange={(e: any) => update("deliveryDevelopment", e.target.value)} />
+              <label className="block text-sm font-medium mb-1">
+                Development
+              </label>
+              <Textarea
+                rows={2}
+                value={form.deliveryDevelopment}
+                onChange={(e: any) =>
+                  update("deliveryDevelopment", e.target.value)
+                }
+              />
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Testing</label>
-              <Textarea rows={2} value={form.deliveryTesting} onChange={(e: any) => update("deliveryTesting", e.target.value)} />
+              <Textarea
+                rows={2}
+                value={form.deliveryTesting}
+                onChange={(e: any) => update("deliveryTesting", e.target.value)}
+              />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Deployment</label>
-              <Textarea rows={2} value={form.deliveryDeployment} onChange={(e: any) => update("deliveryDeployment", e.target.value)} />
+              <label className="block text-sm font-medium mb-1">
+                Deployment
+              </label>
+              <Textarea
+                rows={2}
+                value={form.deliveryDeployment}
+                onChange={(e: any) =>
+                  update("deliveryDeployment", e.target.value)
+                }
+              />
             </div>
 
             {}
             <div className="md:col-span-2 border-t pt-4 mt-2">
               <h3 className="font-semibold mb-1">Terms &amp; Conditions</h3>
-              <p className="text-xs text-muted-foreground mb-4">Leave blank to use Pixelate Nest default terms in the PDF.</p>
+              <p className="text-xs text-muted-foreground mb-4">
+                Leave blank to use Pixelate Nest default terms in the PDF.
+              </p>
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium mb-1">Revision Policy</label>
-              <Textarea rows={3} value={form.termsRevision} onChange={(e: any) => update("termsRevision", e.target.value)} />
+              <label className="block text-sm font-medium mb-1">
+                Revision Policy
+              </label>
+              <Textarea
+                rows={3}
+                value={form.termsRevision}
+                onChange={(e: any) => update("termsRevision", e.target.value)}
+              />
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium mb-1">Scope Change Policy</label>
-              <Textarea rows={3} value={form.termsScope} onChange={(e: any) => update("termsScope", e.target.value)} />
+              <label className="block text-sm font-medium mb-1">
+                Scope Change Policy
+              </label>
+              <Textarea
+                rows={3}
+                value={form.termsScope}
+                onChange={(e: any) => update("termsScope", e.target.value)}
+              />
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium mb-1">Payment Policy</label>
-              <Textarea rows={3} value={form.termsPayment} onChange={(e: any) => update("termsPayment", e.target.value)} />
+              <label className="block text-sm font-medium mb-1">
+                Payment Policy
+              </label>
+              <Textarea
+                rows={3}
+                value={form.termsPayment}
+                onChange={(e: any) => update("termsPayment", e.target.value)}
+              />
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium mb-1">Client Responsibilities</label>
-              <Textarea rows={3} value={form.termsClientResp} onChange={(e: any) => update("termsClientResp", e.target.value)} />
+              <label className="block text-sm font-medium mb-1">
+                Client Responsibilities
+              </label>
+              <Textarea
+                rows={3}
+                value={form.termsClientResp}
+                onChange={(e: any) => update("termsClientResp", e.target.value)}
+              />
             </div>
 
             <div className="md:col-span-2 border-t pt-4 mt-2">

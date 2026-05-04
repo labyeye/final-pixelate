@@ -13,19 +13,13 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
 }
 
-
-
-
-
-
-
-
-
-
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { postId, accountId } = body as { postId?: string; accountId?: string };
+    const { postId, accountId } = body as {
+      postId?: string;
+      accountId?: string;
+    };
 
     if (!postId || !accountId) {
       return NextResponse.json(
@@ -34,21 +28,27 @@ export async function POST(request: Request) {
       );
     }
 
-    
     const postsCol = await svc.getCollection("socialMediaPosts");
     let post: any;
     try {
       post = await postsCol.findOne({ _id: new ObjectId(postId) });
     } catch {
-      return NextResponse.json({ error: "Invalid postId" }, { status: 400, headers: CORS });
+      return NextResponse.json(
+        { error: "Invalid postId" },
+        { status: 400, headers: CORS },
+      );
     }
     if (!post) {
-      return NextResponse.json({ error: "Post not found" }, { status: 404, headers: CORS });
+      return NextResponse.json(
+        { error: "Post not found" },
+        { status: 404, headers: CORS },
+      );
     }
 
-    
     const postedUrl: string | undefined =
-      (post.postedLinks && post.postedLinks[accountId]) || post.postedLink || undefined;
+      (post.postedLinks && post.postedLinks[accountId]) ||
+      post.postedLink ||
+      undefined;
 
     if (!postedUrl) {
       return NextResponse.json(
@@ -60,16 +60,21 @@ export async function POST(request: Request) {
       );
     }
 
-    
     const accountsCol = await svc.getCollection("socialMediaAccounts");
     let account: any;
     try {
       account = await accountsCol.findOne({ _id: new ObjectId(accountId) });
     } catch {
-      return NextResponse.json({ error: "Invalid accountId" }, { status: 400, headers: CORS });
+      return NextResponse.json(
+        { error: "Invalid accountId" },
+        { status: 400, headers: CORS },
+      );
     }
     if (!account) {
-      return NextResponse.json({ error: "Account not found" }, { status: 404, headers: CORS });
+      return NextResponse.json(
+        { error: "Account not found" },
+        { status: 404, headers: CORS },
+      );
     }
 
     if (!account.accessToken || !account.platformAccountId) {
@@ -103,15 +108,20 @@ export async function POST(request: Request) {
           { status: 400, headers: CORS },
         );
       }
-      metrics = await fetchIgMediaMetrics(postedUrl, account.igAccountId, account.accessToken);
+      metrics = await fetchIgMediaMetrics(
+        postedUrl,
+        account.igAccountId,
+        account.accessToken,
+      );
     } else {
       return NextResponse.json(
-        { error: `Auto-sync is not supported for ${platform} yet. Supported: Facebook, Instagram.` },
+        {
+          error: `Auto-sync is not supported for ${platform} yet. Supported: Facebook, Instagram.`,
+        },
         { status: 400, headers: CORS },
       );
     }
 
-    
     await postsCol.updateOne(
       { _id: new ObjectId(postId) },
       {

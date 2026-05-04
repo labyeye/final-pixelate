@@ -1,12 +1,8 @@
-﻿const sharp = require('sharp');
-const fs = require('fs');
-const path = require('path');
+﻿const sharp = require("sharp");
+const fs = require("fs");
+const path = require("path");
 
-const targetDir = path.join(__dirname, 'assets');
-
-
-
-
+const targetDir = path.join(__dirname, "assets");
 
 async function processDirectory(directory) {
   const files = fs.readdirSync(directory);
@@ -19,52 +15,48 @@ async function processDirectory(directory) {
       await processDirectory(fullPath);
     } else {
       const ext = path.extname(file).toLowerCase();
-      
-      if (ext === '.jpg' || ext === '.jpeg' || ext === '.png') {
-        const outputPath = fullPath.replace(new RegExp(`${ext}$`, 'i'), '.webp');
-        
+
+      if (ext === ".jpg" || ext === ".jpeg" || ext === ".png") {
+        const outputPath = fullPath.replace(
+          new RegExp(`${ext}$`, "i"),
+          ".webp",
+        );
+
         try {
           await sharp(fullPath)
             .webp({ quality: 70, alphaQuality: 90, effort: 6 })
             .toFile(outputPath);
-          
-        } catch (error) {
-          
-        }
-      }
-      
-      else if (ext === '.webp') {
+        } catch (error) {}
+      } else if (ext === ".webp") {
         try {
-          const tempPath = fullPath + '.tmp.webp';
+          const tempPath = fullPath + ".tmp.webp";
           const originalSize = fs.statSync(fullPath).size;
-          
+
           await sharp(fullPath)
-            .webp({ quality: 65, alphaQuality: 85, effort: 6, nearLossless: false })
+            .webp({
+              quality: 65,
+              alphaQuality: 85,
+              effort: 6,
+              nearLossless: false,
+            })
             .toFile(tempPath);
-          
+
           const newSize = fs.statSync(tempPath).size;
-          
-          
+
           if (newSize < originalSize) {
             fs.unlinkSync(fullPath);
             fs.renameSync(tempPath, fullPath);
             const savedKB = ((originalSize - newSize) / 1024).toFixed(2);
           } else {
-            
             fs.unlinkSync(tempPath);
           }
-        } catch (error) {
-          
-        }
+        } catch (error) {}
       }
     }
   }
 }
 
-
 if (fs.existsSync(targetDir)) {
   processDirectory(targetDir);
 } else {
-  
 }
-

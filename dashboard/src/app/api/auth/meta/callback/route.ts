@@ -7,18 +7,6 @@ import {
   getPageDetails,
 } from "@/lib/meta-api";
 
-
-
-
-
-
-
-
-
-
-
-
-
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const code = searchParams.get("code");
@@ -34,16 +22,22 @@ export async function GET(request: NextRequest) {
 
   if (oauthError || !code || !accountId) {
     const reason = oauthError || "missing_code";
-    return NextResponse.redirect(`${returnBase}?meta_error=${encodeURIComponent(reason)}`);
+    return NextResponse.redirect(
+      `${returnBase}?meta_error=${encodeURIComponent(reason)}`,
+    );
   }
 
   try {
     const callbackUrl = `${appUrl}/api/auth/meta/callback`;
 
-    
-    const tokenUrl = new URL("https://graph.facebook.com/v19.0/oauth/access_token");
+    const tokenUrl = new URL(
+      "https://graph.facebook.com/v19.0/oauth/access_token",
+    );
     tokenUrl.searchParams.set("client_id", process.env.FACEBOOK_APP_ID!);
-    tokenUrl.searchParams.set("client_secret", process.env.FACEBOOK_APP_SECRET!);
+    tokenUrl.searchParams.set(
+      "client_secret",
+      process.env.FACEBOOK_APP_SECRET!,
+    );
     tokenUrl.searchParams.set("redirect_uri", callbackUrl);
     tokenUrl.searchParams.set("code", code);
 
@@ -53,16 +47,15 @@ export async function GET(request: NextRequest) {
     }
     const { access_token: shortToken } = await tokenRes.json();
 
-    
     const longToken = await exchangeForLongLivedToken(shortToken);
 
-    
     const pages = await getUserPages(longToken);
     if (pages.length === 0) {
-      throw new Error("No Facebook Pages found. Make sure you manage at least one Page.");
+      throw new Error(
+        "No Facebook Pages found. Make sure you manage at least one Page.",
+      );
     }
 
-    
     const enrichedPages = await Promise.all(
       pages.map(async (page) => {
         const details = await getPageDetails(page.id, page.access_token);
@@ -70,16 +63,12 @@ export async function GET(request: NextRequest) {
       }),
     );
 
-    
     const col = await svc.getCollection("socialMediaAccounts");
     let triggerAccount: any = null;
     try {
       triggerAccount = await col.findOne({ _id: new ObjectId(accountId) });
-    } catch {
-      
-    }
+    } catch {}
 
-    
     let connectedCount = 0;
 
     for (const page of enrichedPages) {
@@ -87,7 +76,6 @@ export async function GET(request: NextRequest) {
       const pageUsername = (page.username || "").toLowerCase();
       const pageId = page.id;
 
-      
       const query: any = { platform: { $in: ["Facebook", "Instagram"] } };
       if (triggerAccount?.clientId) query.clientId = triggerAccount.clientId;
 
@@ -97,14 +85,12 @@ export async function GET(request: NextRequest) {
         const handle = (acc.handle || "").toLowerCase();
 
         const matches =
-          
-          (pageLink && (handle === pageLink || handle.includes(pageUsername))) ||
-          
+          (pageLink &&
+            (handle === pageLink || handle.includes(pageUsername))) ||
           (pageUsername && handle === pageUsername) ||
-          
           handle.includes(pageId) ||
-          
-          (pageLink && pageLink.includes(handle.replace(/^https?:\/\/[^\/]+/, "")));
+          (pageLink &&
+            pageLink.includes(handle.replace(/^https?:\/\/[^\/]+/, "")));
 
         if (matches) {
           await col.updateOne(
@@ -124,7 +110,6 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    
     if (connectedCount === 0 && triggerAccount) {
       const firstPage = enrichedPages[0];
       await col.updateOne(

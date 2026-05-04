@@ -1,12 +1,4 @@
-
-
-
-
-
-
-
-
-import { Db, ObjectId } from 'mongodb';
+import { Db, ObjectId } from "mongodb";
 
 export function parseJourneyOccurredAt(
   value: unknown,
@@ -32,38 +24,34 @@ export function parseJourneyOccurredAt(
 
 export async function createQuotationJourneyEvent(
   db: Db,
-  quotationId: string,          
-  quotationDoc: Record<string, any>, 
+  quotationId: string,
+  quotationDoc: Record<string, any>,
 ) {
-  
   const rawClientId = quotationDoc.clientId;
   let clientDoc: any = null;
   try {
-    clientDoc = await db.collection('clients').findOne({
+    clientDoc = await db.collection("clients").findOne({
       _id: new ObjectId(String(rawClientId)),
     });
   } catch {
-    clientDoc = await db.collection('clients').findOne({ _id: rawClientId });
+    clientDoc = await db.collection("clients").findOne({ _id: rawClientId });
   }
-  const clientName: string =
-    clientDoc?.name ?? clientDoc?.businessName ?? '';
+  const clientName: string = clientDoc?.name ?? clientDoc?.businessName ?? "";
   const clientId: string = String(rawClientId);
 
-  
   const statusMap: Record<string, string> = {
-    SENT:      'Sent',
-    APPROVED:  'Approved',
-    REJECTED:  'Rejected',
-    CONVERTED: 'Completed',
-    PENDING:   'Pending',
+    SENT: "Sent",
+    APPROVED: "Approved",
+    REJECTED: "Rejected",
+    CONVERTED: "Completed",
+    PENDING: "Pending",
   };
-  const journeyStatus = statusMap[quotationDoc.status] ?? 'Pending';
+  const journeyStatus = statusMap[quotationDoc.status] ?? "Pending";
 
-  
-  const services: any[]    = quotationDoc.services    ?? [];
-  const timeline: any[]    = quotationDoc.timeline    ?? [];
-  const modules:  any[]    = quotationDoc.modules     ?? [];
-  const scope:    string[] = quotationDoc.scope       ?? [];
+  const services: any[] = quotationDoc.services ?? [];
+  const timeline: any[] = quotationDoc.timeline ?? [];
+  const modules: any[] = quotationDoc.modules ?? [];
+  const scope: string[] = quotationDoc.scope ?? [];
   const deliverables: string[] = quotationDoc.deliverables ?? [];
 
   const grandTotal: number = services.reduce(
@@ -71,75 +59,72 @@ export async function createQuotationJourneyEvent(
     0,
   );
 
-  
   const parts: string[] = [];
 
   parts.push(`📄 Quote ID: ${quotationDoc.quoteId}`);
 
-  if (quotationDoc.subtitle)
-    parts.push(`📝 ${quotationDoc.subtitle}`);
+  if (quotationDoc.subtitle) parts.push(`📝 ${quotationDoc.subtitle}`);
 
   if (quotationDoc.objective)
     parts.push(`🎯 Objective: ${quotationDoc.objective}`);
 
-  if (quotationDoc.purpose)
-    parts.push(`💡 Purpose: ${quotationDoc.purpose}`);
+  if (quotationDoc.purpose) parts.push(`💡 Purpose: ${quotationDoc.purpose}`);
 
   if (scope.length > 0)
-    parts.push(`🔧 Scope of Work:\n${scope.map(s => `  • ${s}`).join('\n')}`);
+    parts.push(`🔧 Scope of Work:\n${scope.map((s) => `  • ${s}`).join("\n")}`);
 
   if (services.length > 0) {
     const lines = services.map(
-      s =>
+      (s) =>
         `${s.serviceName} × ${s.qty ?? 1}` +
-        (s.price ? ` @ ₹${Number(s.price).toLocaleString('en-IN')}` : ''),
+        (s.price ? ` @ ₹${Number(s.price).toLocaleString("en-IN")}` : ""),
     );
-    parts.push(`💼 Services:\n${lines.map(l => `  • ${l}`).join('\n')}`);
-    parts.push(`💰 Grand Total: ₹${grandTotal.toLocaleString('en-IN')}`);
+    parts.push(`💼 Services:\n${lines.map((l) => `  • ${l}`).join("\n")}`);
+    parts.push(`💰 Grand Total: ₹${grandTotal.toLocaleString("en-IN")}`);
   }
 
   if (timeline.length > 0) {
-    const lines = timeline.map(t => `${t.phase} – ${t.duration}`);
-    parts.push(`🗓 Timeline:\n${lines.map(l => `  • ${l}`).join('\n')}`);
+    const lines = timeline.map((t) => `${t.phase} – ${t.duration}`);
+    parts.push(`🗓 Timeline:\n${lines.map((l) => `  • ${l}`).join("\n")}`);
   }
 
   if (modules.length > 0) {
     const lines = modules.map(
-      m => `${m.moduleName}${m.description ? ` (${m.description})` : ''}`,
+      (m) => `${m.moduleName}${m.description ? ` (${m.description})` : ""}`,
     );
-    parts.push(`🧩 Modules:\n${lines.map(l => `  • ${l}`).join('\n')}`);
+    parts.push(`🧩 Modules:\n${lines.map((l) => `  • ${l}`).join("\n")}`);
   }
 
   if (deliverables.length > 0)
-    parts.push(`📦 Deliverables:\n${deliverables.map(d => `  • ${d}`).join('\n')}`);
+    parts.push(
+      `📦 Deliverables:\n${deliverables.map((d) => `  • ${d}`).join("\n")}`,
+    );
 
   if (quotationDoc.paymentTerms)
     parts.push(`💳 Payment Terms: ${quotationDoc.paymentTerms}`);
 
-  if (quotationDoc.notes)
-    parts.push(`📌 Notes: ${quotationDoc.notes}`);
+  if (quotationDoc.notes) parts.push(`📌 Notes: ${quotationDoc.notes}`);
 
-  
-  await db.collection('journey_events').insertOne({
+  await db.collection("journey_events").insertOne({
     clientId,
     clientName,
-    projectId:   null,
+    projectId: null,
     projectName: quotationDoc.title ?? null,
-    type:        'quotation',
-    title:       `Quotation Sent – ${quotationDoc.title || quotationDoc.quoteId}`,
-    description: parts.join('\n\n'),
-    performedBy: 'System',
-    status:      journeyStatus,
-    fileUrl:     null,
-    linkUrl:     `/quotations/${quotationId}/view`,
-    occurredAt:  new Date(),
+    type: "quotation",
+    title: `Quotation Sent – ${quotationDoc.title || quotationDoc.quoteId}`,
+    description: parts.join("\n\n"),
+    performedBy: "System",
+    status: journeyStatus,
+    fileUrl: null,
+    linkUrl: `/quotations/${quotationId}/view`,
+    occurredAt: new Date(),
     metadata: {
       quotationId,
-      quoteId:        quotationDoc.quoteId,
+      quoteId: quotationDoc.quoteId,
       grandTotal,
-      servicesCount:  services.length,
-      modulesCount:   modules.length,
-      scopeCount:     scope.length,
+      servicesCount: services.length,
+      modulesCount: modules.length,
+      scopeCount: scope.length,
       timelinePhases: timeline.length,
       quotationStatus: quotationDoc.status,
     },
@@ -159,11 +144,11 @@ export async function createOnboardingJourneyEvent(
 
   let clientDoc: any = null;
   try {
-    clientDoc = await db.collection('clients').findOne({
+    clientDoc = await db.collection("clients").findOne({
       _id: new ObjectId(String(rawClientId)),
     });
   } catch {
-    clientDoc = await db.collection('clients').findOne({ _id: rawClientId });
+    clientDoc = await db.collection("clients").findOne({ _id: rawClientId });
   }
 
   const clientName: string =
@@ -171,7 +156,7 @@ export async function createOnboardingJourneyEvent(
     onboardingDoc.company ??
     clientDoc?.name ??
     clientDoc?.businessName ??
-    '';
+    "";
 
   const projectTitle =
     onboardingDoc.projectTitle ??
@@ -200,16 +185,17 @@ export async function createOnboardingJourneyEvent(
     descriptionParts.push(`📝 Brief: ${onboardingDoc.brief}`);
   }
 
-  await db.collection('journey_events').insertOne({
+  await db.collection("journey_events").insertOne({
     clientId: String(rawClientId),
     clientName,
     projectId: onboardingDoc.projectId ? String(onboardingDoc.projectId) : null,
     projectName: projectTitle,
-    type: 'onboarding',
-    title: `Onboarding Completed${projectTitle ? ` – ${projectTitle}` : ''}`,
-    description: descriptionParts.join('\n\n') || 'Client onboarding record created.',
-    performedBy: 'System',
-    status: 'Completed',
+    type: "onboarding",
+    title: `Onboarding Completed${projectTitle ? ` – ${projectTitle}` : ""}`,
+    description:
+      descriptionParts.join("\n\n") || "Client onboarding record created.",
+    performedBy: "System",
+    status: "Completed",
     fileUrl: null,
     linkUrl: `/onboarding`,
     occurredAt: parseJourneyOccurredAt(onboardingDoc.date),
@@ -227,7 +213,7 @@ export async function createProjectJourneyEvent(
   db: Db,
   projectId: string,
   projectDoc: Record<string, any>,
-  mode: 'created' | 'updated' = 'created',
+  mode: "created" | "updated" = "created",
 ) {
   const rawClientId = projectDoc.clientId ?? projectDoc.client;
   if (!rawClientId) {
@@ -236,52 +222,53 @@ export async function createProjectJourneyEvent(
 
   let clientDoc: any = null;
   try {
-    clientDoc = await db.collection('clients').findOne({
+    clientDoc = await db.collection("clients").findOne({
       _id: new ObjectId(String(rawClientId)),
     });
   } catch {
-    clientDoc = await db.collection('clients').findOne({ _id: rawClientId });
+    clientDoc = await db.collection("clients").findOne({ _id: rawClientId });
   }
 
   const clientName: string =
-    projectDoc.clientName ??
-    clientDoc?.name ??
-    clientDoc?.businessName ??
-    '';
+    projectDoc.clientName ?? clientDoc?.name ?? clientDoc?.businessName ?? "";
 
-  const title = projectDoc.title ?? 'Project Created';
-  const services = Array.isArray(projectDoc.services) ? projectDoc.services : [];
+  const title = projectDoc.title ?? "Project Created";
+  const services = Array.isArray(projectDoc.services)
+    ? projectDoc.services
+    : [];
   const serviceNames = services
     .map((s: any) => s?.name)
-    .filter((name: any) => typeof name === 'string' && name.trim().length > 0);
+    .filter((name: any) => typeof name === "string" && name.trim().length > 0);
 
-  const descriptionParts: string[] = [
-    `📁 Project: ${title}`,
-  ];
+  const descriptionParts: string[] = [`📁 Project: ${title}`];
 
   if (projectDoc.amount != null) {
-    descriptionParts.push(`💰 Amount: ₹${Number(projectDoc.amount || 0).toLocaleString('en-IN')}`);
+    descriptionParts.push(
+      `💰 Amount: ₹${Number(projectDoc.amount || 0).toLocaleString("en-IN")}`,
+    );
   }
   if (projectDoc.deliveryDate) {
     descriptionParts.push(`📅 Delivery Date: ${projectDoc.deliveryDate}`);
   }
   if (serviceNames.length > 0) {
-    descriptionParts.push(`🧩 Services: ${serviceNames.join(', ')}`);
+    descriptionParts.push(`🧩 Services: ${serviceNames.join(", ")}`);
   }
 
-  await db.collection('journey_events').insertOne({
+  await db.collection("journey_events").insertOne({
     clientId: String(rawClientId),
     clientName,
     projectId,
     projectName: title,
-    type: 'project_update',
-    title: `${mode === 'updated' ? 'Project Updated' : 'Project Created'} – ${title}`,
-    description: descriptionParts.join('\n\n'),
-    performedBy: 'System',
-    status: 'Completed',
+    type: "project_update",
+    title: `${mode === "updated" ? "Project Updated" : "Project Created"} – ${title}`,
+    description: descriptionParts.join("\n\n"),
+    performedBy: "System",
+    status: "Completed",
     fileUrl: null,
     linkUrl: `/projects`,
-    occurredAt: parseJourneyOccurredAt(mode === 'updated' ? projectDoc.updatedAt : projectDoc.createdAt),
+    occurredAt: parseJourneyOccurredAt(
+      mode === "updated" ? projectDoc.updatedAt : projectDoc.createdAt,
+    ),
     metadata: {
       projectId,
       eventMode: mode,

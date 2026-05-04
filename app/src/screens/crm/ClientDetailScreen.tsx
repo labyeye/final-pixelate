@@ -26,7 +26,12 @@ const ClientDetailScreen = () => {
   });
 
   if (isLoading) return <LoadingSpinner />;
-  if (!client) return <View style={styles.center}><Text>Client not found</Text></View>;
+  if (!client)
+    return (
+      <View style={styles.center}>
+        <Text>Client not found</Text>
+      </View>
+    );
 
   return (
     <SafeAreaView style={styles.safe} edges={['bottom']}>
@@ -34,12 +39,18 @@ const ClientDetailScreen = () => {
         <Card style={styles.heroCard} shadow="lg">
           <View style={styles.avatarBlock}>
             <View style={styles.avatar}>
-              <Text style={styles.avatarText}>{(client.name || 'C').charAt(0).toUpperCase()}</Text>
+              <Text style={styles.avatarText}>
+                {(client.name || 'C').charAt(0).toUpperCase()}
+              </Text>
             </View>
           </View>
           <Text style={styles.heroName}>{client.name}</Text>
-          {client.email ? <Text style={styles.heroEmail}>{client.email}</Text> : null}
-          {client.phone ? <Text style={styles.heroPhone}>{client.phone}</Text> : null}
+          {client.email ? (
+            <Text style={styles.heroEmail}>{client.email}</Text>
+          ) : null}
+          {client.phone ? (
+            <Text style={styles.heroPhone}>{client.phone}</Text>
+          ) : null}
         </Card>
 
         <Card style={styles.detailCard}>
@@ -82,20 +93,85 @@ const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: Colors.background },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center' },
   content: { padding: Spacing.base, paddingBottom: 24 },
-  heroCard: { padding: Spacing.xl, marginBottom: Spacing.sm, alignItems: 'center' },
+  heroCard: {
+    padding: Spacing.xl,
+    marginBottom: Spacing.sm,
+    alignItems: 'center',
+  },
   avatarBlock: { marginBottom: Spacing.md },
-  avatar: { width: 72, height: 72, backgroundColor: Colors.primary, borderWidth: Border.widthBold, borderColor: Colors.black, alignItems: 'center', justifyContent: 'center' },
-  avatarText: { fontSize: Typography['4xl'], fontWeight: Typography.black, color: Colors.white },
-  heroName: { fontSize: Typography['2xl'], fontWeight: Typography.black, color: Colors.foreground, textAlign: 'center', letterSpacing: -0.5 },
-  heroEmail: { fontSize: Typography.base, color: Colors.primary, fontWeight: Typography.bold, marginTop: 4, textAlign: 'center' },
-  heroPhone: { fontSize: Typography.base, color: Colors.mutedForeground, fontWeight: Typography.medium, marginTop: 2, textAlign: 'center' },
+  avatar: {
+    width: 72,
+    height: 72,
+    backgroundColor: Colors.primary,
+    borderWidth: Border.widthBold,
+    borderColor: Colors.black,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  avatarText: {
+    fontSize: Typography['4xl'],
+    fontWeight: Typography.black,
+    color: Colors.white,
+  },
+  heroName: {
+    fontSize: Typography['2xl'],
+    fontWeight: Typography.black,
+    color: Colors.foreground,
+    textAlign: 'center',
+    letterSpacing: -0.5,
+  },
+  heroEmail: {
+    fontSize: Typography.base,
+    color: Colors.primary,
+    fontWeight: Typography.bold,
+    marginTop: 4,
+    textAlign: 'center',
+  },
+  heroPhone: {
+    fontSize: Typography.base,
+    color: Colors.mutedForeground,
+    fontWeight: Typography.medium,
+    marginTop: 2,
+    textAlign: 'center',
+  },
   detailCard: { padding: Spacing.md, marginBottom: Spacing.sm },
-  sectionTitle: { fontSize: Typography.xs, fontWeight: Typography.black, color: Colors.mutedForeground, letterSpacing: 1.5 },
-  field: { paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: Colors.gray200 },
-  fieldLabel: { fontSize: Typography.sm, fontWeight: Typography.semiBold, color: Colors.mutedForeground },
-  fieldValue: { fontSize: Typography.sm, fontWeight: Typography.bold, color: Colors.foreground, flex: 1, textAlign: 'right' },
-  activeBadge: { backgroundColor: Colors.success, paddingHorizontal: 10, paddingVertical: 4, borderWidth: Border.width, borderColor: Colors.border, marginTop: Spacing.sm },
-  activeBadgeText: { fontSize: Typography.xs, fontWeight: Typography.black, color: Colors.white, letterSpacing: 0.5 },
+  sectionTitle: {
+    fontSize: Typography.xs,
+    fontWeight: Typography.black,
+    color: Colors.mutedForeground,
+    letterSpacing: 1.5,
+  },
+  field: {
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.gray200,
+  },
+  fieldLabel: {
+    fontSize: Typography.sm,
+    fontWeight: Typography.semiBold,
+    color: Colors.mutedForeground,
+  },
+  fieldValue: {
+    fontSize: Typography.sm,
+    fontWeight: Typography.bold,
+    color: Colors.foreground,
+    flex: 1,
+    textAlign: 'right',
+  },
+  activeBadge: {
+    backgroundColor: Colors.success,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderWidth: Border.width,
+    borderColor: Colors.border,
+    marginTop: Spacing.sm,
+  },
+  activeBadgeText: {
+    fontSize: Typography.xs,
+    fontWeight: Typography.black,
+    color: Colors.white,
+    letterSpacing: 0.5,
+  },
 });
 
 export default ClientDetailScreen;

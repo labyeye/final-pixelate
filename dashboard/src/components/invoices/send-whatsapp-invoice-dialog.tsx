@@ -101,7 +101,6 @@ export function WhatsAppOptInToggle({
         });
         if (!res.ok) throw new Error("Opt-in failed");
       } else {
-        
         const res = await fetch("/api/whatsapp-optin", {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
@@ -109,7 +108,7 @@ export function WhatsAppOptInToggle({
         });
         if (!res.ok) throw new Error("Opt-out failed");
       }
-      onClientUpdate?.(null); 
+      onClientUpdate?.(null);
     } catch (e) {
       console.error("WhatsApp opt-in toggle failed", e);
     } finally {
@@ -154,7 +153,6 @@ export function WhatsAppOptInToggle({
           />
         </svg>
       ) : optedIn ? (
-        
         <svg viewBox="0 0 20 20" className="w-3.5 h-3.5" fill="currentColor">
           <path
             fillRule="evenodd"
@@ -163,7 +161,6 @@ export function WhatsAppOptInToggle({
           />
         </svg>
       ) : (
-        
         <WhatsAppIcon className="w-3.5 h-3.5" />
       )}
     </button>

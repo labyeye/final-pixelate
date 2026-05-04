@@ -97,7 +97,7 @@ export default function AnalyticsPage() {
     (s, inv) => s + Number(inv.amount || 0),
     0,
   );
-  
+
   const collected = invoices.reduce((s, inv) => {
     const paid =
       Number(inv.paidAmount ?? (inv.status === "PAID" ? inv.amount : 0)) || 0;
@@ -125,7 +125,6 @@ export default function AnalyticsPage() {
     0,
   );
 
-  
   const devEditorEarnings = useMemo(() => {
     const earnings: { developers: number; editors: number } = {
       developers: 0,

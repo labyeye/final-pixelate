@@ -65,14 +65,14 @@ export default function NdaApprovalPage() {
 
   const fetchNdaApprovals = async () => {
     try {
-      
-      const url = isClient && myClientId
-        ? `/api/nda-approvals?clientId=${myClientId}`
-        : "/api/nda-approvals";
+      const url =
+        isClient && myClientId
+          ? `/api/nda-approvals?clientId=${myClientId}`
+          : "/api/nda-approvals";
       const res = await fetch(url);
       if (res.ok) {
         const data = await res.json();
-        
+
         setNdaApprovals(data.reverse());
       }
     } catch (e) {
@@ -97,7 +97,6 @@ export default function NdaApprovalPage() {
     return () => {
       mounted = false;
     };
-    
   }, [isClient, myClientId]);
 
   useEffect(() => {
@@ -171,7 +170,6 @@ export default function NdaApprovalPage() {
   const saveAndGenerate = async () => {
     setLoading(true);
     try {
-      
       const payload = {
         ...form,
         clientId: selectedClientId || myClientId || undefined,
@@ -211,13 +209,15 @@ export default function NdaApprovalPage() {
             {isClient ? "My NDA Documents" : "NDA Approvals History"}
           </h2>
           <p className="text-muted-foreground">
-            {isClient ? "View your signed NDA agreements." : "Manage NDA documents and approvals."}
+            {isClient
+              ? "View your signed NDA agreements."
+              : "Manage NDA documents and approvals."}
           </p>
         </div>
         {!isClient && (
-        <Button onClick={() => handleOpenModal()}>
-          <Plus className="mr-2 h-4 w-4" /> New NDA
-        </Button>
+          <Button onClick={() => handleOpenModal()}>
+            <Plus className="mr-2 h-4 w-4" /> New NDA
+          </Button>
         )}
       </div>
 

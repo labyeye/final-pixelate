@@ -107,7 +107,7 @@ export default function SocialMediaCalendarPage() {
       const filtered = new Map<string, SocialMediaPost[]>();
       map.forEach((postsForDate, key) => {
         const filteredPosts = postsForDate.filter(
-          (p) => p.platform === platformFilter
+          (p) => p.platform === platformFilter,
         );
         if (filteredPosts.length > 0) {
           filtered.set(key, filteredPosts);
@@ -146,7 +146,10 @@ export default function SocialMediaCalendarPage() {
               size="sm"
               onClick={() =>
                 setCurrentDate(
-                  new Date(currentDate.getFullYear(), currentDate.getMonth() - 1)
+                  new Date(
+                    currentDate.getFullYear(),
+                    currentDate.getMonth() - 1,
+                  ),
                 )
               }
             >
@@ -157,7 +160,10 @@ export default function SocialMediaCalendarPage() {
               size="sm"
               onClick={() =>
                 setCurrentDate(
-                  new Date(currentDate.getFullYear(), currentDate.getMonth() + 1)
+                  new Date(
+                    currentDate.getFullYear(),
+                    currentDate.getMonth() + 1,
+                  ),
                 )
               }
             >
@@ -175,21 +181,17 @@ export default function SocialMediaCalendarPage() {
 
           {days.map((day, idx) => {
             if (day === null) {
-              return (
-                <div key={`empty-${idx}`} className="p-2 min-h-24" />
-              );
+              return <div key={`empty-${idx}`} className="p-2 min-h-24" />;
             }
 
             const date = new Date(
               currentDate.getFullYear(),
               currentDate.getMonth(),
-              day
+              day,
             );
             const dateKey = formatDateKey(date);
             const dayPosts = postsByDate.get(dateKey) || [];
-            const isToday =
-              dateKey ===
-              formatDateKey(new Date());
+            const isToday = dateKey === formatDateKey(new Date());
 
             return (
               <div
@@ -352,9 +354,7 @@ export default function SocialMediaCalendarPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
             <label className="block text-sm font-medium mb-2">Client</label>
-            <ClientPicker
-              onClientSelected={setSelectedClientId}
-            />
+            <ClientPicker onClientSelected={setSelectedClientId} />
           </div>
 
           <div>
@@ -390,7 +390,8 @@ export default function SocialMediaCalendarPage() {
         {selectedClientId && (
           <div className="flex items-center justify-between pt-2 border-t">
             <div className="text-sm text-gray-600">
-              Total scheduled posts: <span className="font-bold">{posts.length}</span>
+              Total scheduled posts:{" "}
+              <span className="font-bold">{posts.length}</span>
             </div>
             <Link href="/crm/social-media-planner/calendar">
               <Button variant="default">
@@ -406,7 +407,9 @@ export default function SocialMediaCalendarPage() {
       <div className="bg-white rounded-lg border p-6">
         {!selectedClientId ? (
           <div className="text-center py-12">
-            <p className="text-gray-500">Please select a client to view calendar</p>
+            <p className="text-gray-500">
+              Please select a client to view calendar
+            </p>
           </div>
         ) : viewMode === "month" ? (
           renderMonthCalendar()

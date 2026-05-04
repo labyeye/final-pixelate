@@ -11,10 +11,8 @@ export async function PUT(
     const body = await req.json();
     const db = await getDb();
 
-    
     const userId = req.nextUrl.searchParams.get("userId");
 
-    
     const task = await db
       .collection("tasks")
       .findOne({ _id: new ObjectId(id) });
@@ -23,7 +21,6 @@ export async function PUT(
       return NextResponse.json({ error: "Task not found" }, { status: 404 });
     }
 
-    
     if (userId && String(task.assigneeId) !== String(userId)) {
       return NextResponse.json(
         { error: "You can only update your own tasks" },
@@ -31,7 +28,6 @@ export async function PUT(
       );
     }
 
-    
     const updateData = {
       ...body,
       updatedAt: new Date(),
@@ -67,9 +63,10 @@ export async function DELETE(
 ) {
   try {
     const { id } = params;
-    const { softDeleteById } = await import('@/lib/services');
-    const ok = await softDeleteById('tasks', id);
-    if (!ok) return NextResponse.json({ error: 'Task not found' }, { status: 404 });
+    const { softDeleteById } = await import("@/lib/services");
+    const ok = await softDeleteById("tasks", id);
+    if (!ok)
+      return NextResponse.json({ error: "Task not found" }, { status: 404 });
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Failed to delete task", error);

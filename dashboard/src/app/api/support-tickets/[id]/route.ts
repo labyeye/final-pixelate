@@ -41,7 +41,6 @@ export async function PATCH(
     const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
     const filter = hex24 ? { _id: new ObjectId(id) } : { id };
 
-    
     if (updates.activity) {
       const currentTicket = await col.findOne(filter);
       const existingActivity = currentTicket?.activity || [];
@@ -77,7 +76,7 @@ export async function DELETE(
   try {
     const { id } = params;
 
-    const ok = await svc.softDeleteById('supportTickets', id);
+    const ok = await svc.softDeleteById("supportTickets", id);
     if (!ok) {
       return NextResponse.json({ error: "Ticket not found" }, { status: 404 });
     }

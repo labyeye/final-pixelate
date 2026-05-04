@@ -6,20 +6,17 @@ import { Task } from "@/lib/task-models";
 export async function GET(req: NextRequest) {
   try {
     const db = await getDb();
-    
-    
+
     const userId = req.nextUrl.searchParams.get("userId");
-    
-    
+
     const query = userId ? { assigneeId: userId } : {};
-    
+
     const tasks = await db
       .collection("tasks")
       .find(query)
       .sort({ createdAt: -1 })
       .toArray();
 
-    
     const mappedTasks = tasks.map((t) => ({
       ...t,
       id: t._id.toString(),
@@ -40,7 +37,6 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const db = await getDb();
 
-    
     if (!body.title) {
       return NextResponse.json({ error: "Title is required" }, { status: 400 });
     }

@@ -41,7 +41,6 @@ export default function ClientDevelopmentPage() {
 
         setTasks(clientTasks);
 
-        
         const total = clientTasks.length;
         const completed = clientTasks.filter(
           (t) => t.status === "completed",

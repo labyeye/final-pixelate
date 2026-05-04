@@ -5,28 +5,19 @@ import { glob } from "glob";
 
 async function runPurge() {
   try {
-    
-
-    
     const contentFiles = await glob(["**/*.html", "js/**/*.js"], {
       ignore: ["node_modules/**", "purge-output/**"],
     });
 
-    
     const cssFiles = await glob(["**/*.css"], {
       ignore: ["node_modules/**", "purge-output/**"],
     });
-
-    
-    
 
     const purgeCSSResult = await new PurgeCSS().purge({
       content: contentFiles,
       css: cssFiles,
 
-      
       safelist: [
-        
         /^w-/,
         /^w--/,
         /^aria-/,
@@ -38,7 +29,6 @@ async function runPurge() {
         /has-/,
         /was-/,
 
-        
         /^fa-/,
         /^fas/,
         /^far/,
@@ -51,19 +41,16 @@ async function runPurge() {
         /^fa-duotone/,
         /fa$/,
 
-        
         "active",
         "hidden",
         "show",
         "open",
         "visible",
 
-        
         /^icon-/,
       ],
     });
 
-    
     if (!fs.existsSync("purge-output")) {
       fs.mkdirSync("purge-output", { recursive: true });
     }
@@ -85,14 +72,9 @@ async function runPurge() {
       totalSavings += savings;
       filesProcessed++;
     });
-
-    
-
   } catch (error) {
-    
     process.exit(1);
   }
 }
 
 runPurge();
-

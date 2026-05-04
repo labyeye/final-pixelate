@@ -28,18 +28,26 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Save, Users, UserCheck, ChevronRight, ChevronDown, ShieldAlert } from "lucide-react";
+import {
+  Loader2,
+  Save,
+  Users,
+  UserCheck,
+  ChevronRight,
+  ChevronDown,
+  ShieldAlert,
+} from "lucide-react";
 
 interface ManagedUser {
   id: string;
   name: string;
   email: string;
   allowedPages: string[];
-  pagePermissions?: Record<string, { add?: boolean; view?: boolean; edit?: boolean; delete?: boolean }>;
+  pagePermissions?: Record<
+    string,
+    { add?: boolean; view?: boolean; edit?: boolean; delete?: boolean }
+  >;
 }
-
-
-
 
 function StaffPermissions() {
   const { toast } = useToast();
@@ -47,7 +55,7 @@ function StaffPermissions() {
   const [staffUsers, setStaffUsers] = useState<ManagedUser[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState<string | null>(null);
-  
+
   const [openPages, setOpenPages] = useState<Record<string, Set<string>>>({});
 
   useEffect(() => {
@@ -58,34 +66,52 @@ function StaffPermissions() {
         const data = await res.json();
         setStaffUsers(
           data.map((u: any) => {
-            const allowed = u.allowedPages?.length ? u.allowedPages : defaultStaffAllowed;
-            
-            const pagePermissions = u.pagePermissions || allowed.reduce((acc: any, href: string) => {
-              acc[href] = { view: true };
-              return acc;
-            }, {});
+            const allowed = u.allowedPages?.length
+              ? u.allowedPages
+              : defaultStaffAllowed;
+
+            const pagePermissions =
+              u.pagePermissions ||
+              allowed.reduce((acc: any, href: string) => {
+                acc[href] = { view: true };
+                return acc;
+              }, {});
             return { ...u, allowedPages: allowed, pagePermissions };
           }),
         );
       } catch {
-        toast({ title: "Error", description: "Failed to load staff.", variant: "destructive" });
+        toast({
+          title: "Error",
+          description: "Failed to load staff.",
+          variant: "destructive",
+        });
       } finally {
         setLoading(false);
       }
     })();
   }, []);
 
-  const togglePermission = (userId: string, href: string, perm: keyof NonNullable<ManagedUser['pagePermissions']>) =>
+  const togglePermission = (
+    userId: string,
+    href: string,
+    perm: keyof NonNullable<ManagedUser["pagePermissions"]>,
+  ) =>
     setStaffUsers((prev) =>
       prev.map((u) => {
         if (u.id !== userId) return u;
         const perms = { ...(u.pagePermissions || {}) } as Record<string, any>;
-        perms[href] = perms[href] || { add: false, view: false, edit: false, delete: false };
+        perms[href] = perms[href] || {
+          add: false,
+          view: false,
+          edit: false,
+          delete: false,
+        };
         perms[href][perm] = !perms[href][perm];
 
-        
         const anyTrue = Object.values(perms[href]).some(Boolean);
-        const allowedPages = anyTrue ? Array.from(new Set([...(u.allowedPages || []), href])) : (u.allowedPages || []).filter((p) => p !== href);
+        const allowedPages = anyTrue
+          ? Array.from(new Set([...(u.allowedPages || []), href]))
+          : (u.allowedPages || []).filter((p) => p !== href);
 
         return { ...u, pagePermissions: perms, allowedPages };
       }),
@@ -94,7 +120,6 @@ function StaffPermissions() {
   const save = async (staff: ManagedUser) => {
     setSaving(staff.id);
     try {
-      
       const pagePerms = staff.pagePermissions || {};
       const derivedAllowed = Object.keys(pagePerms).filter((href) => {
         const p = pagePerms[href] || {};
@@ -106,40 +131,58 @@ function StaffPermissions() {
       const res = await fetch("/api/settings/sidebar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          userId: staff.id, 
-          allowedPages: derivedAllowed, 
+        body: JSON.stringify({
+          userId: staff.id,
+          allowedPages: derivedAllowed,
           pagePermissions: pagePerms,
-          adminName 
+          adminName,
         }),
       });
       if (!res.ok) throw new Error("Failed to save");
-      toast({ title: "Saved", description: `Permissions updated for ${staff.name}` });
+      toast({
+        title: "Saved",
+        description: `Permissions updated for ${staff.name}`,
+      });
     } catch {
-      toast({ title: "Error", description: "Failed to save settings.", variant: "destructive" });
+      toast({
+        title: "Error",
+        description: "Failed to save settings.",
+        variant: "destructive",
+      });
     } finally {
       setSaving(null);
     }
   };
 
-  
-  const setPermission = (userId: string, href: string, perm: keyof NonNullable<ManagedUser['pagePermissions']>, value: boolean) =>
+  const setPermission = (
+    userId: string,
+    href: string,
+    perm: keyof NonNullable<ManagedUser["pagePermissions"]>,
+    value: boolean,
+  ) =>
     setStaffUsers((prev) =>
       prev.map((u) => {
         if (u.id !== userId) return u;
         const perms = { ...(u.pagePermissions || {}) } as Record<string, any>;
-        perms[href] = perms[href] || { add: false, view: false, edit: false, delete: false };
+        perms[href] = perms[href] || {
+          add: false,
+          view: false,
+          edit: false,
+          delete: false,
+        };
         perms[href][perm] = value;
 
-        
         const anyTrue = Object.values(perms[href]).some(Boolean);
-        const allowedPages = anyTrue ? Array.from(new Set([...(u.allowedPages || []), href])) : (u.allowedPages || []).filter((p) => p !== href);
+        const allowedPages = anyTrue
+          ? Array.from(new Set([...(u.allowedPages || []), href]))
+          : (u.allowedPages || []).filter((p) => p !== href);
 
         return { ...u, pagePermissions: perms, allowedPages };
       }),
     );
 
-  const isPageOpen = (userId: string, href: string) => !!(openPages[userId] && openPages[userId].has(href));
+  const isPageOpen = (userId: string, href: string) =>
+    !!(openPages[userId] && openPages[userId].has(href));
   const togglePageOpen = (userId: string, href: string) =>
     setOpenPages((prev) => {
       const copy: Record<string, Set<string>> = { ...prev };
@@ -181,13 +224,21 @@ function StaffPermissions() {
               </div>
               <div>
                 <p className="font-black text-sm">{staff.name}</p>
-                <p className="text-xs text-muted-foreground font-normal">{staff.email}</p>
+                <p className="text-xs text-muted-foreground font-normal">
+                  {staff.email}
+                </p>
               </div>
-              <Badge variant="outline" className="ml-2 border-black font-bold text-xs">
-                {Object.keys(staff.pagePermissions || {}).filter(h => {
-                  const p = staff.pagePermissions?.[h] || {};
-                  return !!(p.view || p.add || p.edit || p.delete);
-                }).length} pages
+              <Badge
+                variant="outline"
+                className="ml-2 border-black font-bold text-xs"
+              >
+                {
+                  Object.keys(staff.pagePermissions || {}).filter((h) => {
+                    const p = staff.pagePermissions?.[h] || {};
+                    return !!(p.view || p.add || p.edit || p.delete);
+                  }).length
+                }{" "}
+                pages
               </Badge>
             </div>
           </AccordionTrigger>
@@ -202,11 +253,19 @@ function StaffPermissions() {
                     </h4>
                     <div className="space-y-2">
                       {group.items.map((item) => {
-                        const perms = staff.pagePermissions?.[item.href] || { add: false, view: false, edit: false, delete: false };
+                        const perms = staff.pagePermissions?.[item.href] || {
+                          add: false,
+                          view: false,
+                          edit: false,
+                          delete: false,
+                        };
                         const idBase = `staff-${staff.id}-${item.href}`;
                         const open = isPageOpen(staff.id, item.href);
                         return (
-                          <div key={item.href} className="border-b border-transparent last:border-b-0">
+                          <div
+                            key={item.href}
+                            className="border-b border-transparent last:border-b-0"
+                          >
                             <div className="flex items-center justify-between py-2">
                               <div className="flex items-center gap-2">
                                 <Label className="text-sm font-semibold flex items-center gap-1.5">
@@ -214,7 +273,10 @@ function StaffPermissions() {
                                   {item.label}
                                 </Label>
                                 {item.adminOnly && (
-                                  <span title="Admin-only page — grant access carefully" className="flex items-center gap-0.5 text-[10px] font-bold text-amber-600 bg-amber-50 border border-amber-300 rounded px-1 py-0.5 leading-none">
+                                  <span
+                                    title="Admin-only page — grant access carefully"
+                                    className="flex items-center gap-0.5 text-[10px] font-bold text-amber-600 bg-amber-50 border border-amber-300 rounded px-1 py-0.5 leading-none"
+                                  >
                                     <ShieldAlert className="w-2.5 h-2.5" />
                                     Admin
                                   </span>
@@ -222,7 +284,9 @@ function StaffPermissions() {
                               </div>
                               <button
                                 type="button"
-                                onClick={() => togglePageOpen(staff.id, item.href)}
+                                onClick={() =>
+                                  togglePageOpen(staff.id, item.href)
+                                }
                                 aria-expanded={open}
                                 className="p-1 rounded hover:bg-muted/30"
                               >
@@ -237,20 +301,76 @@ function StaffPermissions() {
                             {open && (
                               <div className="flex items-center gap-3 pl-8 pb-2">
                                 <div className="flex items-center gap-1">
-                                  <Checkbox id={`${idBase}-view`} checked={!!perms.view} onCheckedChange={(v) => setPermission(staff.id, item.href, "view", !!v)} className="border-2 border-black" />
-                                  <span className="text-xs font-semibold">View</span>
+                                  <Checkbox
+                                    id={`${idBase}-view`}
+                                    checked={!!perms.view}
+                                    onCheckedChange={(v) =>
+                                      setPermission(
+                                        staff.id,
+                                        item.href,
+                                        "view",
+                                        !!v,
+                                      )
+                                    }
+                                    className="border-2 border-black"
+                                  />
+                                  <span className="text-xs font-semibold">
+                                    View
+                                  </span>
                                 </div>
                                 <div className="flex items-center gap-1">
-                                  <Checkbox id={`${idBase}-add`} checked={!!perms.add} onCheckedChange={(v) => setPermission(staff.id, item.href, "add", !!v)} className="border-2 border-black" />
-                                  <span className="text-xs font-semibold">Add</span>
+                                  <Checkbox
+                                    id={`${idBase}-add`}
+                                    checked={!!perms.add}
+                                    onCheckedChange={(v) =>
+                                      setPermission(
+                                        staff.id,
+                                        item.href,
+                                        "add",
+                                        !!v,
+                                      )
+                                    }
+                                    className="border-2 border-black"
+                                  />
+                                  <span className="text-xs font-semibold">
+                                    Add
+                                  </span>
                                 </div>
                                 <div className="flex items-center gap-1">
-                                  <Checkbox id={`${idBase}-edit`} checked={!!perms.edit} onCheckedChange={(v) => setPermission(staff.id, item.href, "edit", !!v)} className="border-2 border-black" />
-                                  <span className="text-xs font-semibold">Edit</span>
+                                  <Checkbox
+                                    id={`${idBase}-edit`}
+                                    checked={!!perms.edit}
+                                    onCheckedChange={(v) =>
+                                      setPermission(
+                                        staff.id,
+                                        item.href,
+                                        "edit",
+                                        !!v,
+                                      )
+                                    }
+                                    className="border-2 border-black"
+                                  />
+                                  <span className="text-xs font-semibold">
+                                    Edit
+                                  </span>
                                 </div>
                                 <div className="flex items-center gap-1">
-                                  <Checkbox id={`${idBase}-delete`} checked={!!perms.delete} onCheckedChange={(v) => setPermission(staff.id, item.href, "delete", !!v)} className="border-2 border-black" />
-                                  <span className="text-xs font-semibold">Delete</span>
+                                  <Checkbox
+                                    id={`${idBase}-delete`}
+                                    checked={!!perms.delete}
+                                    onCheckedChange={(v) =>
+                                      setPermission(
+                                        staff.id,
+                                        item.href,
+                                        "delete",
+                                        !!v,
+                                      )
+                                    }
+                                    className="border-2 border-black"
+                                  />
+                                  <span className="text-xs font-semibold">
+                                    Delete
+                                  </span>
                                 </div>
                               </div>
                             )}
@@ -283,9 +403,6 @@ function StaffPermissions() {
   );
 }
 
-
-
-
 function ClientPermissions() {
   const { toast } = useToast();
   const [allowedPages, setAllowedPages] = useState<string[]>([]);
@@ -300,7 +417,11 @@ function ClientPermissions() {
         const data = await res.json();
         setAllowedPages(data.allowedClientPages ?? defaultClientAllowed);
       } catch {
-        toast({ title: "Error", description: "Failed to load client settings.", variant: "destructive" });
+        toast({
+          title: "Error",
+          description: "Failed to load client settings.",
+          variant: "destructive",
+        });
         setAllowedPages(defaultClientAllowed);
       } finally {
         setLoading(false);
@@ -322,9 +443,16 @@ function ClientPermissions() {
         body: JSON.stringify({ allowedClientPages: allowedPages }),
       });
       if (!res.ok) throw new Error("Failed to save");
-      toast({ title: "Saved", description: "Client portal visibility updated for all clients." });
+      toast({
+        title: "Saved",
+        description: "Client portal visibility updated for all clients.",
+      });
     } catch {
-      toast({ title: "Error", description: "Failed to save settings.", variant: "destructive" });
+      toast({
+        title: "Error",
+        description: "Failed to save settings.",
+        variant: "destructive",
+      });
     } finally {
       setSaving(false);
     }
@@ -344,7 +472,10 @@ function ClientPermissions() {
       <div className="flex items-start gap-3 p-4 rounded-lg border-2 border-black bg-amber-50">
         <UserCheck className="w-5 h-5 mt-0.5 text-amber-600 shrink-0" />
         <p className="text-sm font-semibold text-amber-800">
-          These settings apply to <span className="font-black">all clients</span>. Toggling a page on/off will show or hide it in every client's portal sidebar immediately.
+          These settings apply to{" "}
+          <span className="font-black">all clients</span>. Toggling a page
+          on/off will show or hide it in every client's portal sidebar
+          immediately.
         </p>
       </div>
 
@@ -464,8 +595,8 @@ export default function SettingsPage() {
                 Staff Sidebar Permissions
               </CardTitle>
               <CardDescription className="font-semibold">
-                Choose which sidebar pages each staff member can see.
-                Unchecked pages are hidden from their navigation.
+                Choose which sidebar pages each staff member can see. Unchecked
+                pages are hidden from their navigation.
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-6">
@@ -484,7 +615,8 @@ export default function SettingsPage() {
               </CardTitle>
               <CardDescription className="font-semibold">
                 Control which pages clients can see in their portal sidebar.
-                "Client Portal Exclusive" pages are client-only routes. All other pages are shared dashboard routes accessible to clients.
+                "Client Portal Exclusive" pages are client-only routes. All
+                other pages are shared dashboard routes accessible to clients.
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-6">

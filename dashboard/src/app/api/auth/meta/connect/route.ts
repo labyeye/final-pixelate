@@ -1,23 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 
-
-
-
-
-
-
-
-
-
-
-
-
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const accountId = searchParams.get("accountId");
 
   if (!accountId) {
-    return NextResponse.json({ error: "accountId query param is required" }, { status: 400 });
+    return NextResponse.json(
+      { error: "accountId query param is required" },
+      { status: 400 },
+    );
   }
 
   const appId = process.env.FACEBOOK_APP_ID;

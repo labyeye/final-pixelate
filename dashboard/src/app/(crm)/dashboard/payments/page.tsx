@@ -48,21 +48,18 @@ export default function PaymentsPage() {
   const [invoices, setInvoices] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
-  
   const [paymentAmount, setPaymentAmount] = useState<string>("");
   const [paymentDate, setPaymentDate] = useState<string>(
     new Date().toISOString().split("T")[0],
   );
   const [paymentMode, setPaymentMode] = useState<string>("Bank Transfer");
   const [paymentRemarks, setPaymentRemarks] = useState<string>("");
-  const [activeInvoice, setActiveInvoice] = useState<any>(null); 
+  const [activeInvoice, setActiveInvoice] = useState<any>(null);
 
-  
   const [expandedInvoices, setExpandedInvoices] = useState<
     Record<string, boolean>
   >({});
 
-  
   const [editingPayment, setEditingPayment] = useState<{
     invoice: any;
     index: number;
@@ -76,12 +73,11 @@ export default function PaymentsPage() {
     setExpandedInvoices((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  
   const clientSummary = invoices.reduce(
     (acc, inv) => {
       const baseAmount = Number(inv.amount || 0);
       const taxAmount = Number(inv.tax || 0);
-      const totalAmount = baseAmount + taxAmount; 
+      const totalAmount = baseAmount + taxAmount;
       acc.billed += totalAmount;
       acc.received += Number(inv.paidAmount || 0);
       return acc;
@@ -90,10 +86,8 @@ export default function PaymentsPage() {
   );
   const outstanding = clientSummary.billed - clientSummary.received;
 
-  
   useEffect(() => {
     if (isClient) {
-      
       if (myClientId) setSelectedClient(String(myClientId));
       return;
     }
@@ -103,7 +97,6 @@ export default function PaymentsPage() {
       .catch(console.error);
   }, [isClient, myClientId]);
 
-  
   useEffect(() => {
     if (!selectedClient) {
       setInvoices([]);
@@ -123,7 +116,7 @@ export default function PaymentsPage() {
   const handlePayClick = (invoice: any) => {
     setActiveInvoice(invoice);
     const remaining = (invoice.amount || 0) - (invoice.paidAmount || 0);
-    
+
     const amountWithTax = remaining > 0 ? remaining * 1.18 : 0;
     setPaymentAmount(amountWithTax > 0 ? amountWithTax.toString() : "0");
   };
@@ -154,14 +147,12 @@ export default function PaymentsPage() {
         description: `Successfully recorded payment of ₹${paymentAmount} for invoice ${activeInvoice.invoiceNo}`,
       });
 
-      
       const updatedRes = await fetch(
         `/api/invoices?clientId=${selectedClient}`,
       );
       const updatedData = await updatedRes.json();
       setInvoices(updatedData);
 
-      
       setActiveInvoice(null);
       setPaymentAmount("");
       setPaymentRemarks("");
@@ -218,14 +209,12 @@ export default function PaymentsPage() {
         description: "Payment details have been updated successfully",
       });
 
-      
       const updatedRes = await fetch(
         `/api/invoices?clientId=${selectedClient}`,
       );
       const updatedData = await updatedRes.json();
       setInvoices(updatedData);
 
-      
       setEditingPayment(null);
       setEditAmount("");
       setEditDate("");
@@ -268,7 +257,6 @@ export default function PaymentsPage() {
         description: "Payment entry has been removed successfully",
       });
 
-      
       const updatedRes = await fetch(
         `/api/invoices?clientId=${selectedClient}`,
       );
@@ -312,7 +300,9 @@ export default function PaymentsPage() {
             {isClient ? "My Payments" : "Receive Payments"}
           </h1>
           <p className="text-muted-foreground font-medium">
-            {isClient ? "Track your invoices and payment history" : "Manage your incoming cash flow and reconcile client accounts"}
+            {isClient
+              ? "Track your invoices and payment history"
+              : "Manage your incoming cash flow and reconcile client accounts"}
           </p>
         </div>
       </div>
@@ -321,27 +311,30 @@ export default function PaymentsPage() {
         {}
         <div className="lg:col-span-1 space-y-6">
           {!isClient && (
-          <Card className="border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <CardHeader className="bg-neutral-50 border-b-2 border-black">
-              <CardTitle className="text-xs font-black uppercase tracking-widest text-neutral-500 flex items-center gap-2">
-                <Receipt className="w-4 h-4" /> Billing Account
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <Select value={selectedClient} onValueChange={setSelectedClient}>
-                <SelectTrigger className="w-full border-2 border-black font-black h-12 bg-white">
-                  <SelectValue placeholder="Select a client..." />
-                </SelectTrigger>
-                <SelectContent className="border-2 border-black font-bold">
-                  {clients.map((c) => (
-                    <SelectItem key={c._id || c.id} value={c._id || c.id}>
-                      {c.name}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </CardContent>
-          </Card>
+            <Card className="border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <CardHeader className="bg-neutral-50 border-b-2 border-black">
+                <CardTitle className="text-xs font-black uppercase tracking-widest text-neutral-500 flex items-center gap-2">
+                  <Receipt className="w-4 h-4" /> Billing Account
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <Select
+                  value={selectedClient}
+                  onValueChange={setSelectedClient}
+                >
+                  <SelectTrigger className="w-full border-2 border-black font-black h-12 bg-white">
+                    <SelectValue placeholder="Select a client..." />
+                  </SelectTrigger>
+                  <SelectContent className="border-2 border-black font-bold">
+                    {clients.map((c) => (
+                      <SelectItem key={c._id || c.id} value={c._id || c.id}>
+                        {c.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </CardContent>
+            </Card>
           )}
 
           {selectedClient && (
@@ -417,7 +410,7 @@ export default function PaymentsPage() {
                   {invoices.map((inv) => {
                     const baseAmount = Number(inv.amount || 0);
                     const taxAmount = Number(inv.tax || 0);
-                    const total = baseAmount + taxAmount; 
+                    const total = baseAmount + taxAmount;
                     const paid = Number(inv.paidAmount || 0);
                     const balance = total - paid;
                     const status = (inv.status || "PENDING").toUpperCase();
@@ -617,26 +610,29 @@ export default function PaymentsPage() {
                                           </div>
                                           <div className="flex items-center gap-1 ml-2">
                                             {!isClient && (
-                                            <>
-                                            <button
-                                              onClick={() =>
-                                                handleEditPayment(inv, idx)
-                                              }
-                                              className="p-1.5 hover:bg-blue-50 rounded border border-transparent hover:border-blue-200 transition-colors"
-                                              title="Edit payment"
-                                            >
-                                              <Edit className="w-3.5 h-3.5 text-blue-600" />
-                                            </button>
-                                            <button
-                                              onClick={() =>
-                                                handleDeletePayment(inv, idx)
-                                              }
-                                              className="p-1.5 hover:bg-red-50 rounded border border-transparent hover:border-red-200 transition-colors"
-                                              title="Delete payment"
-                                            >
-                                              <Trash2 className="w-3.5 h-3.5 text-red-600" />
-                                            </button>
-                                            </>
+                                              <>
+                                                <button
+                                                  onClick={() =>
+                                                    handleEditPayment(inv, idx)
+                                                  }
+                                                  className="p-1.5 hover:bg-blue-50 rounded border border-transparent hover:border-blue-200 transition-colors"
+                                                  title="Edit payment"
+                                                >
+                                                  <Edit className="w-3.5 h-3.5 text-blue-600" />
+                                                </button>
+                                                <button
+                                                  onClick={() =>
+                                                    handleDeletePayment(
+                                                      inv,
+                                                      idx,
+                                                    )
+                                                  }
+                                                  className="p-1.5 hover:bg-red-50 rounded border border-transparent hover:border-red-200 transition-colors"
+                                                  title="Delete payment"
+                                                >
+                                                  <Trash2 className="w-3.5 h-3.5 text-red-600" />
+                                                </button>
+                                              </>
                                             )}
                                           </div>
                                         </div>
@@ -711,7 +707,9 @@ export default function PaymentsPage() {
                     </span>
                   </div>
                   <div className="flex justify-between items-center text-xs font-black border-t border-blue-200 pt-1 mt-1">
-                    <span className="text-blue-700 uppercase tracking-wider">Total to Receive:</span>
+                    <span className="text-blue-700 uppercase tracking-wider">
+                      Total to Receive:
+                    </span>
                     <span className="text-blue-900 text-sm">
                       {formatCurrency(
                         ((activeInvoice.amount || 0) -

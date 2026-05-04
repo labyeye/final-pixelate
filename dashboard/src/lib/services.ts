@@ -2,27 +2,20 @@ import { getDb } from "@/lib/mongodb";
 import { hashPassword } from "@/lib/auth";
 import { ObjectId } from "mongodb";
 
-
-
 export function getFinancialYear(date: Date = new Date()): string {
   const year = date.getFullYear();
-  const month = date.getMonth() + 1; 
+  const month = date.getMonth() + 1;
   if (month >= 4) {
-    
     return `${year}-${year + 1}`;
   } else {
-    
     return `${year - 1}-${year}`;
   }
 }
-
-
 
 export async function getCollection(name: string) {
   const db = await getDb();
   return db.collection(name);
 }
-
 
 export async function getClients() {
   const col = await getCollection("clients");
@@ -35,7 +28,6 @@ export async function createClient(client: any) {
   return { ...client, _id: res.insertedId };
 }
 
-
 export async function getServices() {
   const col = await getCollection("services");
   return col.find().toArray();
@@ -46,7 +38,6 @@ export async function createService(service: any) {
   const res = await col.insertOne({ ...service, createdAt: new Date() });
   return { ...service, _id: res.insertedId };
 }
-
 
 export async function getInventory() {
   const col = await getCollection("inventory");
@@ -93,26 +84,17 @@ export async function deleteInventory(id: string) {
   return softDeleteById("inventory", id);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 export async function softDeleteById(
   collectionName: string,
   id: string,
   collectionLabel?: string,
 ): Promise<boolean> {
   const normalizedId = String(id ?? "").trim();
-  if (!normalizedId || normalizedId === "undefined" || normalizedId === "null") {
+  if (
+    !normalizedId ||
+    normalizedId === "undefined" ||
+    normalizedId === "null"
+  ) {
     return false;
   }
 
@@ -121,7 +103,6 @@ export async function softDeleteById(
 
   const hex24 = /^[a-fA-F0-9]{24}$/.test(normalizedId);
 
-  
   let doc: any = null;
   let filter: any = null;
 
@@ -132,12 +113,10 @@ export async function softDeleteById(
     } catch (_) {}
   }
   if (!doc) {
-    
     doc = await col.findOne({ _id: normalizedId } as any);
     if (doc) filter = { _id: normalizedId };
   }
   if (!doc) {
-    
     doc = await col.findOne({ id: normalizedId });
     if (doc) filter = { id: normalizedId };
   }
@@ -147,7 +126,6 @@ export async function softDeleteById(
   }
   if (!doc || !filter) return false;
 
-  
   if (collectionName === "invoices") {
     if (Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
       try {
@@ -184,27 +162,26 @@ export async function softDeleteById(
     careers: "Career",
   };
 
-  
   await trash.insertOne({
     _originalId: String(doc._id),
     originalCollection: collectionName,
-    collectionLabel: collectionLabel ?? LABELS[collectionName] ?? collectionName,
+    collectionLabel:
+      collectionLabel ?? LABELS[collectionName] ?? collectionName,
     document: doc,
     deletedAt: new Date(),
   });
 
-  
   const res = await col.deleteOne(filter);
   return res.deletedCount === 1;
 }
 
-
-
-
-
 export async function restoreFromTrash(trashId: string): Promise<boolean> {
   const normalizedId = String(trashId ?? "").trim();
-  if (!normalizedId || normalizedId === "undefined" || normalizedId === "null") {
+  if (
+    !normalizedId ||
+    normalizedId === "undefined" ||
+    normalizedId === "null"
+  ) {
     return false;
   }
 
@@ -224,12 +201,10 @@ export async function restoreFromTrash(trashId: string): Promise<boolean> {
   const originalCol = await getCollection(trashDoc.originalCollection);
   const doc = { ...trashDoc.document };
 
-  
   if (trashDoc._originalId && /^[a-fA-F0-9]{24}$/.test(trashDoc._originalId)) {
     doc._id = new ObjectId(trashDoc._originalId);
   }
 
-  
   if (trashDoc.originalCollection === "invoices") {
     if (Array.isArray(doc.inventoryItems) && doc.inventoryItems.length) {
       try {
@@ -247,7 +222,6 @@ export async function restoreFromTrash(trashId: string): Promise<boolean> {
   try {
     await originalCol.insertOne(doc);
   } catch (e: any) {
-    
     if (e?.code === 11000) {
       delete doc._id;
       await originalCol.insertOne(doc);
@@ -260,10 +234,15 @@ export async function restoreFromTrash(trashId: string): Promise<boolean> {
   return true;
 }
 
-
-export async function permanentlyDestroyTrashItem(trashId: string): Promise<boolean> {
+export async function permanentlyDestroyTrashItem(
+  trashId: string,
+): Promise<boolean> {
   const normalizedId = String(trashId ?? "").trim();
-  if (!normalizedId || normalizedId === "undefined" || normalizedId === "null") {
+  if (
+    !normalizedId ||
+    normalizedId === "undefined" ||
+    normalizedId === "null"
+  ) {
     return false;
   }
 
@@ -280,7 +259,6 @@ export async function permanentlyDestroyTrashItem(trashId: string): Promise<bool
   }
   return (res?.deletedCount ?? 0) === 1;
 }
-
 
 async function adjustInventoryQuantities(
   items: any[],
@@ -309,15 +287,12 @@ async function adjustInventoryQuantities(
   }
 }
 
-
 export async function getTeamMembers() {
-  
   const col = await getCollection("users");
   return col.find({ jobRole: { $exists: true } }).toArray();
 }
 
 export async function createTeamMember(member: any) {
-  
   const usersCol = await getCollection("users");
   const toInsert = {
     ...member,
@@ -325,18 +300,17 @@ export async function createTeamMember(member: any) {
     role: member.authRole ?? "staff",
     createdAt: new Date(),
   };
-  
-  delete toInsert.role; 
+
+  delete toInsert.role;
   const authRole = member.loginRole ?? member.authRole ?? "staff";
   toInsert.role = authRole;
-  
+
   if (member.password) {
     toInsert.password = hashPassword(member.password);
   }
   const res = await usersCol.insertOne(toInsert);
   return { ...toInsert, _id: res.insertedId };
 }
-
 
 export async function getUsers() {
   const col = await getCollection("users");
@@ -353,34 +327,27 @@ export async function createUser(user: any) {
   return { ...toInsert, _id: res.insertedId };
 }
 
-
 export async function findById(collectionName: string, id: string) {
   const col = await getCollection(collectionName);
 
   if (!id) return null;
 
-  
   const byRawId = await col.findOne({ _id: id } as any);
   if (byRawId) return byRawId;
 
-  
   const hex24 = typeof id === "string" && /^[a-fA-F0-9]{24}$/.test(id);
   if (hex24) {
     try {
       const byObjectId = await col.findOne({ _id: new ObjectId(id) });
       if (byObjectId) return byObjectId;
-    } catch (e) {
-      
-    }
+    } catch (e) {}
   }
 
-  
   if (collectionName === "invoices") {
     const byInvoiceNo = await col.findOne({ invoiceNo: id });
     if (byInvoiceNo) return byInvoiceNo;
   }
 
-  
   const byCustomId = await col.findOne({ id: id });
   return byCustomId;
 }
@@ -391,11 +358,11 @@ export async function updateById(
   update: any,
 ) {
   const col = await getCollection(collectionName);
-  
+
   const updateDoc = { ...(update || {}) };
-  
+
   if (updateDoc._id) delete updateDoc._id;
-  
+
   if (updateDoc && updateDoc.password) {
     updateDoc.password = hashPassword(updateDoc.password);
   }
@@ -404,7 +371,7 @@ export async function updateById(
     await col.updateOne({ _id: new ObjectId(id) }, { $set: updateDoc });
     return findById(collectionName, id);
   }
-  
+
   if (collectionName === "invoices") {
     const byInvoiceNo = await col.findOne({ invoiceNo: id });
     if (byInvoiceNo) {
@@ -420,28 +387,23 @@ export async function deleteById(collectionName: string, id: string) {
   return softDeleteById(collectionName, id);
 }
 
-
 export async function getInvoices() {
   const col = await getCollection("invoices");
   return col.find().toArray();
 }
 
-
 export async function renumberInvoices(financialYear?: string) {
   const col = await getCollection("invoices");
-  
+
   const invoices = await col.find({}).sort({ createdAt: 1 }).toArray();
   if (!invoices || !invoices.length) return { updated: 0 };
-  
+
   let counter = 1;
   for (const inv of invoices) {
     const fy = financialYear || getFinancialYear(inv.createdAt || new Date());
     const padded = String(counter).padStart(4, "0");
     const invoiceNo = `KTS/${fy}/${padded}`;
-    await col.updateOne(
-      { _id: inv._id },
-      { $set: { invoiceNo } },
-    );
+    await col.updateOne({ _id: inv._id }, { $set: { invoiceNo } });
     counter++;
   }
   return { updated: counter - 1 };
@@ -449,10 +411,10 @@ export async function renumberInvoices(financialYear?: string) {
 
 export async function createInvoice(invoice: any) {
   const col = await getCollection("invoices");
-  
+
   try {
     const fy = getFinancialYear(new Date());
-    
+
     const regex = new RegExp(`^KTS/${fy}/(\\d+)$`);
     const docs = await col
       .find({ invoiceNo: { $regex: `^KTS/${fy}/` } })
@@ -483,7 +445,7 @@ export async function createInvoice(invoice: any) {
       invoiceNo,
       _id: res.insertedId,
     };
-    
+
     if (
       Array.isArray(invoice.inventoryItems) &&
       invoice.inventoryItems.length
@@ -501,7 +463,6 @@ export async function createInvoice(invoice: any) {
   }
 }
 
-
 export async function getQuotations() {
   const col = await getCollection("quotations");
   return col.find().toArray();
@@ -509,7 +470,7 @@ export async function getQuotations() {
 
 export async function createQuotation(q: any) {
   const col = await getCollection("quotations");
-  
+
   try {
     const last = await col.find({}).sort({ createdAt: -1 }).limit(1).toArray();
     let lastNum = 0;
@@ -529,7 +490,6 @@ export async function createQuotation(q: any) {
   }
 }
 
-
 export async function getNdaApprovals() {
   const col = await getCollection("nda_approvals");
   return col.find().toArray();
@@ -541,7 +501,6 @@ export async function createNdaApproval(data: any) {
   const res = await col.insertOne(toInsert);
   return { ...toInsert, _id: res.insertedId };
 }
-
 
 export async function getOnboardings() {
   const col = await getCollection("onboardings");

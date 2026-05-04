@@ -49,12 +49,11 @@ export default function SocialMediaCalendarPage() {
     try {
       const url = new URL("/api/social-media-posts", window.location.origin);
       url.searchParams.set("clientId", clientId);
-      
-      
+
       if (user && user.role !== "admin" && user.name) {
         url.searchParams.set("assignedTo", user.name);
       }
-      
+
       const res = await fetch(url.toString(), { cache: "no-store" });
       if (!res.ok) throw new Error("Failed to load social posts");
       const data = await res.json();
@@ -93,23 +92,19 @@ export default function SocialMediaCalendarPage() {
     const map = new Map<string, SocialMediaPost[]>();
     filtered.forEach((item) => {
       if (!item.scheduledDate) return;
-      
+
       let normalizedDate = item.scheduledDate;
-      
-      
-      if (normalizedDate.includes('T')) {
-        normalizedDate = normalizedDate.split('T')[0];
+
+      if (normalizedDate.includes("T")) {
+        normalizedDate = normalizedDate.split("T")[0];
       }
-      
-      
-      if (normalizedDate.includes('-') && normalizedDate.length === 10) {
-        
+
+      if (normalizedDate.includes("-") && normalizedDate.length === 10) {
         const key = normalizedDate;
         const arr = map.get(key) || [];
         arr.push(item);
         map.set(key, arr);
       } else {
-        
         try {
           const dateObj = new Date(normalizedDate);
           if (!Number.isNaN(dateObj.getTime())) {
@@ -119,7 +114,7 @@ export default function SocialMediaCalendarPage() {
             map.set(key, arr);
           }
         } catch (e) {
-          console.warn('Failed to parse date:', normalizedDate, e);
+          console.warn("Failed to parse date:", normalizedDate, e);
         }
       }
     });
@@ -438,13 +433,16 @@ export default function SocialMediaCalendarPage() {
                   {item.scheduledTime} · {item.title}
                 </div>
                 <div className="text-xs text-muted-foreground">
-                  {item.platform} · 
-                  {(item.socialAccountIds && item.socialAccountIds.length > 0) ? (
-                    <MultiAccountDisplay accountIds={item.socialAccountIds} className="inline" />
+                  {item.platform} ·
+                  {item.socialAccountIds && item.socialAccountIds.length > 0 ? (
+                    <MultiAccountDisplay
+                      accountIds={item.socialAccountIds}
+                      className="inline"
+                    />
                   ) : (
                     <PostAccountDisplay accountId={item.socialAccountId} />
                   )}
-                   · {item.assignedTo || "Unassigned"} · {item.status}
+                  · {item.assignedTo || "Unassigned"} · {item.status}
                 </div>
               </div>
             ))}
@@ -575,13 +573,17 @@ export default function SocialMediaCalendarPage() {
                 >
                   <div className="font-semibold">{item.title}</div>
                   <div className="text-xs text-muted-foreground">
-                    {item.platform} · 
-                    {(item.socialAccountIds && item.socialAccountIds.length > 0) ? (
-                      <MultiAccountDisplay accountIds={item.socialAccountIds} className="inline" />
+                    {item.platform} ·
+                    {item.socialAccountIds &&
+                    item.socialAccountIds.length > 0 ? (
+                      <MultiAccountDisplay
+                        accountIds={item.socialAccountIds}
+                        className="inline"
+                      />
                     ) : (
                       <PostAccountDisplay accountId={item.socialAccountId} />
                     )}
-                     · {item.contentType} · {item.scheduledTime}
+                    · {item.contentType} · {item.scheduledTime}
                   </div>
                   <div className="text-xs mt-1">{item.caption}</div>
                 </div>
@@ -613,13 +615,16 @@ export default function SocialMediaCalendarPage() {
                   {item.scheduledTime} · {item.title}
                 </div>
                 <div className="text-xs text-muted-foreground">
-                  {item.platform} · 
-                  {(item.socialAccountIds && item.socialAccountIds.length > 0) ? (
-                    <MultiAccountDisplay accountIds={item.socialAccountIds} className="inline" />
+                  {item.platform} ·
+                  {item.socialAccountIds && item.socialAccountIds.length > 0 ? (
+                    <MultiAccountDisplay
+                      accountIds={item.socialAccountIds}
+                      className="inline"
+                    />
                   ) : (
                     <PostAccountDisplay accountId={item.socialAccountId} />
                   )}
-                   · {item.assignedTo || "Unassigned"}
+                  · {item.assignedTo || "Unassigned"}
                 </div>
               </div>
             ))}

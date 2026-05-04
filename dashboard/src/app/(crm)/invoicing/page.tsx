@@ -20,7 +20,10 @@ import { pdf } from "@react-pdf/renderer";
 import { renderToString } from "react-dom/server";
 import { InvoicePDFDocument } from "@/components/invoices/invoice-pdf-document";
 import dynamic from "next/dynamic";
-import { WhatsAppInvoiceSendButton, WhatsAppOptInToggle } from "@/components/invoices/send-whatsapp-invoice-dialog";
+import {
+  WhatsAppInvoiceSendButton,
+  WhatsAppOptInToggle,
+} from "@/components/invoices/send-whatsapp-invoice-dialog";
 
 const PDFViewer = dynamic(
   () => import("@react-pdf/renderer").then((mod) => mod.PDFViewer),
@@ -41,7 +44,6 @@ import {
 
 type Invoice = any;
 
-
 const getInvoiceItems = (invoice: any) => {
   if (!invoice) return [];
   if (Array.isArray(invoice.items) && invoice.items.length)
@@ -60,7 +62,6 @@ const getInvoiceItems = (invoice: any) => {
   }
   return [];
 };
-
 
 const calculateInvoiceTotals = (invoice: any) => {
   const items = getInvoiceItems(invoice);
@@ -89,16 +90,19 @@ export default function InvoicingPage() {
   const [previewInvoice, setPreviewInvoice] = useState<any | null>(null);
   const [previewLoading, setPreviewLoading] = useState(false);
   const [gmailSending, setGmailSending] = useState<Record<string, boolean>>({});
-  const [deletingInvoices, setDeletingInvoices] = useState<Set<string>>(new Set());
+  const [deletingInvoices, setDeletingInvoices] = useState<Set<string>>(
+    new Set(),
+  );
   const { toast } = useToast();
 
   useEffect(() => {
     let mounted = true;
     (async () => {
       try {
-        const url = isClient && myClientId
-          ? `/api/invoices?clientId=${encodeURIComponent(myClientId)}`
-          : "/api/invoices";
+        const url =
+          isClient && myClientId
+            ? `/api/invoices?clientId=${encodeURIComponent(myClientId)}`
+            : "/api/invoices";
         const res = await fetch(url);
         if (!res.ok) throw new Error(`Failed to fetch invoices: ${res.status}`);
         const list = await res.json();
@@ -131,15 +135,14 @@ export default function InvoicingPage() {
     return () => {
       mounted = false;
     };
-  
-  
   }, [isClient, myClientId]);
 
   const refresh = async () => {
     try {
-      const url = isClient && myClientId
-        ? `/api/invoices?clientId=${encodeURIComponent(myClientId)}`
-        : "/api/invoices";
+      const url =
+        isClient && myClientId
+          ? `/api/invoices?clientId=${encodeURIComponent(myClientId)}`
+          : "/api/invoices";
       const res = await fetch(url, { cache: "no-store" });
       if (!res.ok) throw new Error("Failed to fetch invoices");
       const list = await res.json();
@@ -161,27 +164,32 @@ export default function InvoicingPage() {
   };
 
   const handleDeleteInvoice = async (invoiceId: string, invoiceNo: string) => {
-    
     if (deletingInvoices.has(invoiceId)) return;
     if (!window.confirm("Delete this invoice? This cannot be undone.")) return;
 
     setDeletingInvoices((prev) => new Set(prev).add(invoiceId));
     try {
-      const res = await fetch(`/api/invoices/${invoiceId}`, { method: "DELETE" });
+      const res = await fetch(`/api/invoices/${invoiceId}`, {
+        method: "DELETE",
+      });
       if (!res.ok) {
         const errJson = await res.json().catch(() => ({}));
         throw new Error(errJson.error || "Delete failed");
       }
-      
+
       setInvoices((prev) =>
         prev.filter((inv) => String(inv._id ?? inv.id ?? "") !== invoiceId),
       );
-      toast({ title: "Invoice Deleted", description: `Invoice ${invoiceNo} deleted.` });
+      toast({
+        title: "Invoice Deleted",
+        description: `Invoice ${invoiceNo} deleted.`,
+      });
     } catch (err: any) {
       console.error(err);
       toast({
         title: "Delete Failed",
-        description: err.message || "Could not delete invoice. Please try again.",
+        description:
+          err.message || "Could not delete invoice. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -221,7 +229,6 @@ export default function InvoicingPage() {
 
       console.log("Generating PDF with @react-pdf/renderer...");
 
-      
       const blob = await pdf(
         <InvoicePDFDocument invoice={invoice} client={client} />,
       ).toBlob();
@@ -239,14 +246,11 @@ export default function InvoicingPage() {
     } catch (error) {
       console.error("PDF generation failed:", error);
 
-      
       try {
         console.log("Trying alternative PDF generation...");
 
-        
         const printWindow = window.open("", "_blank");
         if (printWindow) {
-          
           const previewContent = document.querySelector(
             ".invoice-preview-content",
           );
@@ -486,7 +490,6 @@ export default function InvoicingPage() {
           printWindow.document.write(htmlContent);
           printWindow.document.close();
 
-          
           printWindow.onload = function () {
             printWindow.print();
             setTimeout(() => {
@@ -494,12 +497,16 @@ export default function InvoicingPage() {
             }, 1000);
           };
         } else {
-          toast({ title: "Popups Blocked", description: "Please allow popups to download the invoice, or try again.", variant: "destructive" });
+          toast({
+            title: "Popups Blocked",
+            description:
+              "Please allow popups to download the invoice, or try again.",
+            variant: "destructive",
+          });
         }
       } catch (fallbackError) {
         console.error("Fallback also failed:", fallbackError);
 
-        
         const { total, paidAmount } = calculateInvoiceTotals(invoice);
         const simpleText =
           `Invoice #: ${invoice.invoiceNo || invoice.id}\n` +
@@ -508,7 +515,11 @@ export default function InvoicingPage() {
           `Paid: ₹${paidAmount.toLocaleString()}\n\n` +
           `Please contact support for a proper invoice.`;
 
-        toast({ title: "PDF Generation Failed", description: "PDF could not be generated. Please contact support.", variant: "destructive" });
+        toast({
+          title: "PDF Generation Failed",
+          description: "PDF could not be generated. Please contact support.",
+          variant: "destructive",
+        });
       }
     } finally {
       setPreviewLoading(false);
@@ -529,29 +540,31 @@ export default function InvoicingPage() {
     const clientEmail =
       clientObj?.email || invoice?.clientEmail || invoice?.email || "";
     const clientName =
-      invoice.clientName ||
-      invoice.client ||
-      clientObj?.name ||
-      "Client";
+      invoice.clientName || invoice.client || clientObj?.name || "Client";
 
     if (!clientEmail) {
-      toast({ title: "No Email Found", description: "No email address found for this client. Please update the client record first.", variant: "destructive" });
+      toast({
+        title: "No Email Found",
+        description:
+          "No email address found for this client. Please update the client record first.",
+        variant: "destructive",
+      });
       return;
     }
 
     try {
       setGmailSending((prev) => ({ ...prev, [id]: true }));
 
-      
       const blob = await pdf(
         <InvoicePDFDocument invoice={invoice} client={clientObj} />,
       ).toBlob();
 
-      
       const arrayBuffer = await blob.arrayBuffer();
       const uint8Array = new Uint8Array(arrayBuffer);
       let binary = "";
-      uint8Array.forEach((byte) => { binary += String.fromCharCode(byte); });
+      uint8Array.forEach((byte) => {
+        binary += String.fromCharCode(byte);
+      });
       const base64 = btoa(binary);
 
       const sanitized = String(clientName || "invoice")
@@ -581,10 +594,17 @@ export default function InvoicingPage() {
         throw new Error(err.error || "Failed to send email");
       }
 
-      toast({ title: "Email Sent ✅", description: `Invoice sent to ${clientEmail} successfully!` });
+      toast({
+        title: "Email Sent ✅",
+        description: `Invoice sent to ${clientEmail} successfully!`,
+      });
     } catch (e: any) {
       console.error("Gmail invoice send failed:", e);
-      toast({ title: "Email Failed", description: e.message || String(e), variant: "destructive" });
+      toast({
+        title: "Email Failed",
+        description: e.message || String(e),
+        variant: "destructive",
+      });
     } finally {
       setGmailSending((prev) => {
         const next = { ...prev };
@@ -676,7 +696,11 @@ export default function InvoicingPage() {
       URL.revokeObjectURL(url);
     } catch (e) {
       console.error("Export CSV failed", e);
-      toast({ title: "Export Failed", description: "Failed to export invoices. Please try again.", variant: "destructive" });
+      toast({
+        title: "Export Failed",
+        description: "Failed to export invoices. Please try again.",
+        variant: "destructive",
+      });
     }
   };
 
@@ -698,10 +722,7 @@ export default function InvoicingPage() {
             <Button size="sm" onClick={exportCsv}>
               Export Excel
             </Button>
-            <AddInvoiceDialog
-              clients={clients}
-              onCreated={refresh}
-            />
+            <AddInvoiceDialog clients={clients} onCreated={refresh} />
           </div>
         )}
       </header>
@@ -818,7 +839,9 @@ export default function InvoicingPage() {
                         {}
                         <WhatsAppOptInToggle
                           client={clients.find(
-                            (c) => String(c.id ?? c._id) === String(invoice.clientId),
+                            (c) =>
+                              String(c.id ?? c._id) ===
+                              String(invoice.clientId),
                           )}
                           onClientUpdate={refreshClients}
                         />
@@ -827,7 +850,9 @@ export default function InvoicingPage() {
                         <WhatsAppInvoiceSendButton
                           invoice={invoice}
                           client={clients.find(
-                            (c) => String(c.id ?? c._id) === String(invoice.clientId),
+                            (c) =>
+                              String(c.id ?? c._id) ===
+                              String(invoice.clientId),
                           )}
                           onClientUpdate={refreshClients}
                         />
@@ -838,18 +863,45 @@ export default function InvoicingPage() {
                           variant="outline"
                           className="h-8 w-8 p-0 border-[#EA4335] text-[#EA4335] hover:bg-[#EA4335] hover:text-white disabled:opacity-50"
                           title="Send via Gmail"
-                          disabled={!!gmailSending[String(invoice._id ?? invoice.id ?? "")]}
+                          disabled={
+                            !!gmailSending[
+                              String(invoice._id ?? invoice.id ?? "")
+                            ]
+                          }
                           onClick={() => sendGmailInvoice(invoice)}
                         >
-                          {gmailSending[String(invoice._id ?? invoice.id ?? "")] ? (
-                            <svg className="w-3.5 h-3.5 animate-spin" viewBox="0 0 24 24" fill="none">
-                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                          {gmailSending[
+                            String(invoice._id ?? invoice.id ?? "")
+                          ] ? (
+                            <svg
+                              className="w-3.5 h-3.5 animate-spin"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <circle
+                                className="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                              />
+                              <path
+                                className="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8v8z"
+                              />
                             </svg>
                           ) : (
-                            
-                            <svg viewBox="0 0 24 24" className="w-4 h-4" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.272H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.908 1.528-1.148C21.69 2.28 24 3.434 24 5.457z" fill="currentColor"/>
+                            <svg
+                              viewBox="0 0 24 24"
+                              className="w-4 h-4"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.272H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.908 1.528-1.148C21.69 2.28 24 3.434 24 5.457z"
+                                fill="currentColor"
+                              />
                             </svg>
                           )}
                         </Button>
@@ -859,7 +911,9 @@ export default function InvoicingPage() {
                       <Button
                         size="sm"
                         variant="destructive"
-                        disabled={deletingInvoices.has(String(invoice._id ?? invoice.id ?? ""))}
+                        disabled={deletingInvoices.has(
+                          String(invoice._id ?? invoice.id ?? ""),
+                        )}
                         onClick={() =>
                           handleDeleteInvoice(
                             String(invoice._id ?? invoice.id ?? ""),
@@ -867,7 +921,9 @@ export default function InvoicingPage() {
                           )
                         }
                       >
-                        {deletingInvoices.has(String(invoice._id ?? invoice.id ?? ""))
+                        {deletingInvoices.has(
+                          String(invoice._id ?? invoice.id ?? ""),
+                        )
                           ? "Deleting..."
                           : "Delete"}
                       </Button>

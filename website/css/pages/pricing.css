@@ -217,7 +217,7 @@ iframe {
   }
 }
 
- .pricing-cards-section {
+.pricing-cards-section {
   position: relative;
   overflow: hidden;
 }
@@ -427,7 +427,7 @@ iframe {
   box-shadow: 0 4px 15px rgba(7, 51, 171, 0.5);
   position: relative;
   overflow: hidden;
-  margin-top: auto; 
+  margin-top: auto;
 }
 
 .card-cta-btn::before {
@@ -464,7 +464,6 @@ iframe {
 .card-cta-btn:hover i {
   transform: translateX(5px);
 }
-
 
 @media (max-width: 768px) {
   .pricing-cards-grid {

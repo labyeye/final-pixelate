@@ -36,7 +36,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-
 if (typeof window !== "undefined" && !(window as any).__projectsStore) {
   (window as any).__projectsStore = [];
 }
@@ -56,10 +55,10 @@ export default function QuotationsPage() {
     let mounted = true;
     (async () => {
       try {
-        
-        const url = isClient && myClientId
-          ? `/api/quotations?clientId=${myClientId}`
-          : "/api/quotations";
+        const url =
+          isClient && myClientId
+            ? `/api/quotations?clientId=${myClientId}`
+            : "/api/quotations";
         const res = await fetch(url);
         if (!res.ok)
           throw new Error(`Failed to fetch quotations: ${res.status}`);
@@ -70,7 +69,6 @@ export default function QuotationsPage() {
       }
     })();
 
-    
     if (!isClient) {
       (async () => {
         try {
@@ -83,9 +81,7 @@ export default function QuotationsPage() {
             if (c.id) map[String(c.id)] = c;
           }
           if (mounted) setClientsMap(map);
-        } catch (e) {
-          
-        }
+        } catch (e) {}
       })();
     }
 
@@ -94,7 +90,6 @@ export default function QuotationsPage() {
     };
   }, [isClient, myClientId]);
 
-  
   const persistStatus = async (quote: Quotation, newStatus: string) => {
     const token = localStorage.getItem("auth_token") || "";
     try {
@@ -119,8 +114,8 @@ export default function QuotationsPage() {
             (updated as any)._id &&
             String((q as any)._id) === String((updated as any)._id))
             ? updated
-            : q
-        )
+            : q,
+        ),
       );
       toast({ title: "Updated", description: "Quotation status saved." });
     } catch (err: any) {
@@ -134,7 +129,7 @@ export default function QuotationsPage() {
 
   const updateStatus = (id: string, status: "APPROVED" | "REJECTED") => {
     setQuotations((prev) =>
-      prev.map((q) => (q.id === id ? { ...q, status } : q))
+      prev.map((q) => (q.id === id ? { ...q, status } : q)),
     );
   };
 
@@ -160,7 +155,7 @@ export default function QuotationsPage() {
   const createProjectFromQuote = (quote: Quotation) => {
     const servicesList = quote.services ?? [];
     const newProject: Project = {
-      id: new Date().getTime(), 
+      id: new Date().getTime(),
       title: `New Project for ${quote.clientName}`,
       client: quote.clientName,
       progress: 0,
@@ -169,7 +164,6 @@ export default function QuotationsPage() {
       }. Services: ${servicesList.map((s) => s.name).join(", ")}`,
     };
 
-    
     (window as any).__projectsStore.push(newProject);
 
     toast({
@@ -181,13 +175,12 @@ export default function QuotationsPage() {
   const generatePdf = (quote: Quotation) => {
     (async () => {
       try {
-        
         let client = undefined;
         if (quote.clientId) {
           const res = await fetch(`/api/clients/${quote.clientId}`);
           if (res.ok) client = await res.json();
         }
-        
+
         const doc = new jsPDF({
           unit: "mm",
           format: "a4",
@@ -219,11 +212,15 @@ export default function QuotationsPage() {
             quote.id ||
             (quote._id
               ? `PN-${String(
-                  quotations.findIndex((q) => q === quote) + 1
+                  quotations.findIndex((q) => q === quote) + 1,
                 ).padStart(5, "0")}`
               : undefined);
           const pdfBody = renderToString(
-            <QuotationPDF quote={quote} client={client} displayId={displayId} />
+            <QuotationPDF
+              quote={quote}
+              client={client}
+              displayId={displayId}
+            />,
           );
           let styledHtml: string;
           const fontLinkTag = `<link href="${notoHref}" rel="stylesheet">`;
@@ -237,7 +234,7 @@ export default function QuotationsPage() {
               for (let i = 0; i < bytes.length; i += chunkSize) {
                 binary += String.fromCharCode.apply(
                   null,
-                  Array.from(bytes.slice(i, i + chunkSize)) as any
+                  Array.from(bytes.slice(i, i + chunkSize)) as any,
                 );
               }
               const base64 =
@@ -260,7 +257,7 @@ export default function QuotationsPage() {
                   tfoot { display: table-footer-group; }
                 </style>
               `;
-              
+
               styledHtml = `${fontDataFace}${fontLinkTag}<div style="width:794px;margin:0;padding:0;box-sizing:border-box;">${pdfBody}</div>`;
             } else {
               const localFontFace = `
@@ -296,16 +293,11 @@ export default function QuotationsPage() {
             };">${pdfBody}</div>`;
           }
 
-          
           const finalHtml = styledHtml.replace(/₹/g, "Rs.");
 
-          
-          
           const pageWidth = doc.internal.pageSize.getWidth();
           const pageHeight = doc.internal.pageSize.getHeight();
 
-          
-          
           doc.html(finalHtml, {
             callback: function (doc) {
               doc.save(`Quotation-${quote.id}.pdf`);
@@ -318,9 +310,8 @@ export default function QuotationsPage() {
             margin: [0, 0, 0, 0],
           });
         } catch (e) {
-          
           const pdfContent = renderToString(
-            <QuotationPDF quote={quote} client={client} />
+            <QuotationPDF quote={quote} client={client} />,
           );
           const finalPdfContent = String(pdfContent).replace(/₹/g, "Rs.");
           const pageWidth = doc.internal.pageSize.getWidth();
@@ -344,7 +335,6 @@ export default function QuotationsPage() {
   };
 
   const getAuthorName = (authorId: number | undefined) => {
-    
     return "Unknown";
   };
 
@@ -354,7 +344,9 @@ export default function QuotationsPage() {
         <div>
           <h1 className="text-5xl font-black tracking-tighter">QUOTATIONS</h1>
           <p className="text-muted-foreground text-lg">
-            {isClient ? "View your quotations from us." : "Create, send, and track client quotations."}
+            {isClient
+              ? "View your quotations from us."
+              : "Create, send, and track client quotations."}
           </p>
         </div>
         {!isClient && (
@@ -405,8 +397,6 @@ export default function QuotationsPage() {
               </TableRow>
             ) : (
               quotations.map((quote, idx) => {
-                
-                
                 const servicesTotal = (quote.services || []).reduce(
                   (sum: number, item: any) => {
                     const fromAmount = Number(item?.amount ?? NaN);
@@ -423,17 +413,17 @@ export default function QuotationsPage() {
                       Number.isFinite(fromAmount) && !Number.isNaN(fromAmount)
                         ? fromAmount
                         : Number.isFinite(fromTotal) && !Number.isNaN(fromTotal)
-                        ? fromTotal
-                        : Number.isFinite(fromPriceQty) &&
-                          !Number.isNaN(fromPriceQty)
-                        ? fromPriceQty
-                        : Number.isFinite(fromUnitPriceQty) &&
-                          !Number.isNaN(fromUnitPriceQty)
-                        ? fromUnitPriceQty
-                        : 0;
+                          ? fromTotal
+                          : Number.isFinite(fromPriceQty) &&
+                              !Number.isNaN(fromPriceQty)
+                            ? fromPriceQty
+                            : Number.isFinite(fromUnitPriceQty) &&
+                                !Number.isNaN(fromUnitPriceQty)
+                              ? fromUnitPriceQty
+                              : 0;
                     return sum + val;
                   },
-                  0
+                  0,
                 );
                 const totalAmount = servicesTotal || quote.amount || 0;
 
@@ -484,7 +474,7 @@ export default function QuotationsPage() {
                                 day: "2-digit",
                                 month: "short",
                                 year: "numeric",
-                              }
+                              },
                             )
                           : "N/A"}
                       </div>
@@ -498,7 +488,7 @@ export default function QuotationsPage() {
                             .map((s: any, sidx: number) => (
                               <Badge
                                 key={`${String(
-                                  s._id ?? s.id ?? s.serviceName ?? "service"
+                                  s._id ?? s.id ?? s.serviceName ?? "service",
                                 )}-${sidx}`}
                                 variant="secondary"
                                 className="text-xs"
@@ -528,7 +518,7 @@ export default function QuotationsPage() {
                             .map((m: any, midx: number) => (
                               <Badge
                                 key={`${String(
-                                  m._id ?? m.id ?? m.moduleName ?? "module"
+                                  m._id ?? m.id ?? m.moduleName ?? "module",
                                 )}-${midx}`}
                                 variant="outline"
                                 className="text-xs"
@@ -556,52 +546,57 @@ export default function QuotationsPage() {
 
                     <TableCell className="text-center py-4">
                       {isClient ? (
-                        <span className={cn(
-                          "inline-block px-3 py-1 rounded-full text-xs font-semibold",
-                          quote.status === "APPROVED" && "bg-green-100 text-green-800",
-                          quote.status === "REJECTED" && "bg-red-100 text-red-800",
-                          (!quote.status || quote.status === "PENDING") && "bg-yellow-100 text-yellow-800"
-                        )}>
+                        <span
+                          className={cn(
+                            "inline-block px-3 py-1 rounded-full text-xs font-semibold",
+                            quote.status === "APPROVED" &&
+                              "bg-green-100 text-green-800",
+                            quote.status === "REJECTED" &&
+                              "bg-red-100 text-red-800",
+                            (!quote.status || quote.status === "PENDING") &&
+                              "bg-yellow-100 text-yellow-800",
+                          )}
+                        >
                           {quote.status || "PENDING"}
                         </span>
                       ) : (
-                      <Select
-                        value={quote.status || "PENDING"}
-                        onValueChange={(v) => {
-                          setQuotations((prev) =>
-                            prev.map((q) => {
-                              const same =
-                                (q as any)._id && (quote as any)._id
-                                  ? String((q as any)._id) ===
-                                    String((quote as any)._id)
-                                  : (q as any).id && (quote as any).id
-                                  ? (q as any).id === (quote as any).id
-                                  : false;
-                              return same ? { ...q, status: v as any } : q;
-                            })
-                          );
-                          persistStatus(quote, v);
-                        }}
-                      >
-                        <SelectTrigger
-                          className={cn(
-                            "h-9 px-3 font-semibold text-xs w-[110px]",
-                            quote.status === "APPROVED" &&
-                              "bg-green-100 text-green-800 border-green-300",
-                            quote.status === "REJECTED" &&
-                              "bg-red-100 text-red-800 border-red-300",
-                            (!quote.status || quote.status === "PENDING") &&
-                              "bg-yellow-100 text-yellow-800 border-yellow-300"
-                          )}
+                        <Select
+                          value={quote.status || "PENDING"}
+                          onValueChange={(v) => {
+                            setQuotations((prev) =>
+                              prev.map((q) => {
+                                const same =
+                                  (q as any)._id && (quote as any)._id
+                                    ? String((q as any)._id) ===
+                                      String((quote as any)._id)
+                                    : (q as any).id && (quote as any).id
+                                      ? (q as any).id === (quote as any).id
+                                      : false;
+                                return same ? { ...q, status: v as any } : q;
+                              }),
+                            );
+                            persistStatus(quote, v);
+                          }}
                         >
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="PENDING">PENDING</SelectItem>
-                          <SelectItem value="APPROVED">APPROVED</SelectItem>
-                          <SelectItem value="REJECTED">REJECTED</SelectItem>
-                        </SelectContent>
-                      </Select>
+                          <SelectTrigger
+                            className={cn(
+                              "h-9 px-3 font-semibold text-xs w-[110px]",
+                              quote.status === "APPROVED" &&
+                                "bg-green-100 text-green-800 border-green-300",
+                              quote.status === "REJECTED" &&
+                                "bg-red-100 text-red-800 border-red-300",
+                              (!quote.status || quote.status === "PENDING") &&
+                                "bg-yellow-100 text-yellow-800 border-yellow-300",
+                            )}
+                          >
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="PENDING">PENDING</SelectItem>
+                            <SelectItem value="APPROVED">APPROVED</SelectItem>
+                            <SelectItem value="REJECTED">REJECTED</SelectItem>
+                          </SelectContent>
+                        </Select>
                       )}
                     </TableCell>
 
@@ -615,7 +610,7 @@ export default function QuotationsPage() {
                             router.push(
                               `/quotations/${
                                 (quote as any)._id || (quote as any).id
-                              }/view`
+                              }/view`,
                             )
                           }
                         >
@@ -633,36 +628,36 @@ export default function QuotationsPage() {
                         )}
 
                         {!isClient && (
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              className="h-8 w-8"
-                            >
-                              <MoreVertical className="h-4 w-4" />
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuItem
-                              onClick={() => {
-                                const id =
-                                  (quote as any)._id || (quote as any).id;
-                                if (
-                                  id &&
-                                  window.confirm(
-                                    "Are you sure you want to delete this quotation?"
-                                  )
-                                ) {
-                                  deleteQuotation(String(id));
-                                }
-                              }}
-                              className="text-destructive font-semibold"
-                            >
-                              Delete
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                className="h-8 w-8"
+                              >
+                                <MoreVertical className="h-4 w-4" />
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                              <DropdownMenuItem
+                                onClick={() => {
+                                  const id =
+                                    (quote as any)._id || (quote as any).id;
+                                  if (
+                                    id &&
+                                    window.confirm(
+                                      "Are you sure you want to delete this quotation?",
+                                    )
+                                  ) {
+                                    deleteQuotation(String(id));
+                                  }
+                                }}
+                                className="text-destructive font-semibold"
+                              >
+                                Delete
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
                         )}
                       </div>
                     </TableCell>

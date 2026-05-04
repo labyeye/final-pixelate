@@ -40,20 +40,19 @@ export function BulkWhatsAppMessenger() {
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState<"upload" | "template">("upload");
 
-  
   const parseCSV = (csv: string): Contact[] => {
     const lines = csv.trim().split("\n");
     if (lines.length < 2) return [];
 
     const header = lines[0].split(",").map((h) => h.trim().toLowerCase());
     const nameIdx = header.findIndex(
-      (h) => h === "name" || h === "contact name" || h === "person name"
+      (h) => h === "name" || h === "contact name" || h === "person name",
     );
     const phoneIdx = header.findIndex(
-      (h) => h === "phone" || h === "mobile" || h === "phone number"
+      (h) => h === "phone" || h === "mobile" || h === "phone number",
     );
     const companyIdx = header.findIndex(
-      (h) => h === "company" || h === "organization" || h === "business"
+      (h) => h === "company" || h === "organization" || h === "business",
     );
 
     if (nameIdx === -1 || phoneIdx === -1) {
@@ -76,7 +75,6 @@ export function BulkWhatsAppMessenger() {
     return parsed;
   };
 
-  
   const parseXLSX = (buffer: ArrayBuffer): Contact[] => {
     const workbook = XLSX.read(new Uint8Array(buffer), { type: "array" });
     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
@@ -94,16 +92,16 @@ export function BulkWhatsAppMessenger() {
     }
 
     const header = (data[0] as string[]).map((h) =>
-      String(h).trim().toLowerCase()
+      String(h).trim().toLowerCase(),
     );
     const nameIdx = header.findIndex(
-      (h) => h === "name" || h === "contact name" || h === "person name"
+      (h) => h === "name" || h === "contact name" || h === "person name",
     );
     const phoneIdx = header.findIndex(
-      (h) => h === "phone" || h === "mobile" || h === "phone number"
+      (h) => h === "phone" || h === "mobile" || h === "phone number",
     );
     const companyIdx = header.findIndex(
-      (h) => h === "company" || h === "organization" || h === "business"
+      (h) => h === "company" || h === "organization" || h === "business",
     );
 
     if (nameIdx === -1 || phoneIdx === -1) {
@@ -121,7 +119,10 @@ export function BulkWhatsAppMessenger() {
         parsed.push({
           name,
           phone,
-          company: companyIdx !== -1 ? String(row[companyIdx] || "").trim() : undefined,
+          company:
+            companyIdx !== -1
+              ? String(row[companyIdx] || "").trim()
+              : undefined,
         });
       }
     }
@@ -129,7 +130,6 @@ export function BulkWhatsAppMessenger() {
     return parsed;
   };
 
-  
   const handleCSVPaste = () => {
     if (!csvInput.trim()) {
       setError("Please paste CSV data");
@@ -147,14 +147,12 @@ export function BulkWhatsAppMessenger() {
     setCsvInput("");
   };
 
-  
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
     try {
       if (file.name.endsWith(".xlsx") || file.name.endsWith(".xls")) {
-        
         const buffer = await file.arrayBuffer();
         const parsed = parseXLSX(buffer);
 
@@ -166,7 +164,6 @@ export function BulkWhatsAppMessenger() {
         setContacts(parsed);
         setError("");
       } else if (file.name.endsWith(".csv")) {
-        
         const text = await file.text();
         const parsed = parseCSV(text);
 
@@ -186,7 +183,6 @@ export function BulkWhatsAppMessenger() {
     }
   };
 
-  
   const handleSendMessages = async () => {
     if (contacts.length === 0) {
       setError("No contacts to send messages to");
@@ -221,9 +217,10 @@ export function BulkWhatsAppMessenger() {
       setResults(data.details || []);
       setShowResults(true);
 
-      
       const updatedContacts = contacts.map((contact) => {
-        const result = data.details?.find((r: SendResult) => r.phone === contact.phone);
+        const result = data.details?.find(
+          (r: SendResult) => r.phone === contact.phone,
+        );
         if (result) {
           return {
             ...contact,
@@ -236,9 +233,8 @@ export function BulkWhatsAppMessenger() {
       });
       setContacts(updatedContacts);
 
-      
       alert(
-        `Messages sent! Success: ${data.summary.successful}, Failed: ${data.summary.failed}`
+        `Messages sent! Success: ${data.summary.successful}, Failed: ${data.summary.failed}`,
       );
     } catch (err: any) {
       setError(err.message || "Failed to send messages");
@@ -247,12 +243,10 @@ export function BulkWhatsAppMessenger() {
     }
   };
 
-  
   const removeContact = (index: number) => {
     setContacts(contacts.filter((_, i) => i !== index));
   };
 
-  
   const addContact = (name: string, phone: string, company?: string) => {
     if (!name || !phone) return;
     setContacts([...contacts, { name, phone, company }]);
@@ -313,7 +307,8 @@ export function BulkWhatsAppMessenger() {
                   </Button>
                 </div>
                 <p className="text-xs text-gray-500">
-                  Supported: CSV, XLSX, XLS - Must have columns: Name, Phone, (Company optional)
+                  Supported: CSV, XLSX, XLS - Must have columns: Name, Phone,
+                  (Company optional)
                 </p>
               </div>
 
@@ -330,7 +325,11 @@ Jane Smith,9123456789,XYZ Ltd`}
                   onChange={(e) => setCsvInput(e.target.value)}
                   className="min-h-[150px] font-mono text-sm"
                 />
-                <Button onClick={handleCSVPaste} variant="outline" className="w-full">
+                <Button
+                  onClick={handleCSVPaste}
+                  variant="outline"
+                  className="w-full"
+                >
                   Parse CSV Data
                 </Button>
               </div>
@@ -353,18 +352,30 @@ Jane Smith,9123456789,XYZ Ltd`}
                     <table className="w-full text-sm">
                       <thead className="bg-gray-50 sticky top-0">
                         <tr>
-                          <th className="px-3 py-2 text-left font-medium">Name</th>
-                          <th className="px-3 py-2 text-left font-medium">Phone</th>
-                          <th className="px-3 py-2 text-left font-medium">Company</th>
-                          <th className="px-3 py-2 text-center font-medium">Status</th>
-                          <th className="px-3 py-2 text-center font-medium">Action</th>
+                          <th className="px-3 py-2 text-left font-medium">
+                            Name
+                          </th>
+                          <th className="px-3 py-2 text-left font-medium">
+                            Phone
+                          </th>
+                          <th className="px-3 py-2 text-left font-medium">
+                            Company
+                          </th>
+                          <th className="px-3 py-2 text-center font-medium">
+                            Status
+                          </th>
+                          <th className="px-3 py-2 text-center font-medium">
+                            Action
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         {contacts.map((contact, idx) => (
                           <tr key={idx} className="border-t hover:bg-gray-50">
                             <td className="px-3 py-2">{contact.name}</td>
-                            <td className="px-3 py-2 font-mono">{contact.phone}</td>
+                            <td className="px-3 py-2 font-mono">
+                              {contact.phone}
+                            </td>
                             <td className="px-3 py-2 text-gray-600">
                               {contact.company || "-"}
                             </td>
@@ -372,17 +383,26 @@ Jane Smith,9123456789,XYZ Ltd`}
                               {contact.status === "done" ? (
                                 <div className="flex items-center justify-center gap-1">
                                   <CheckCircle className="h-4 w-4 text-green-600" />
-                                  <span className="text-xs text-green-600 font-semibold">Done</span>
+                                  <span className="text-xs text-green-600 font-semibold">
+                                    Done
+                                  </span>
                                 </div>
                               ) : contact.status === "failed" ? (
-                                <div className="flex items-center justify-center gap-1" title={contact.error}>
+                                <div
+                                  className="flex items-center justify-center gap-1"
+                                  title={contact.error}
+                                >
                                   <XCircle className="h-4 w-4 text-red-600" />
-                                  <span className="text-xs text-red-600 font-semibold">Failed</span>
+                                  <span className="text-xs text-red-600 font-semibold">
+                                    Failed
+                                  </span>
                                 </div>
                               ) : (
                                 <div className="flex items-center justify-center gap-1">
                                   <div className="h-4 w-4 rounded-full border-2 border-gray-300" />
-                                  <span className="text-xs text-gray-500 font-semibold">Pending</span>
+                                  <span className="text-xs text-gray-500 font-semibold">
+                                    Pending
+                                  </span>
                                 </div>
                               )}
                             </td>
@@ -428,7 +448,8 @@ Jane Smith,9123456789,XYZ Ltd`}
                 </h3>
                 <div className="space-y-3 text-sm text-blue-900">
                   <p>
-                    <strong>Subject:</strong> BNI Visitor Follow-up from Kalahanu Tech Studios
+                    <strong>Subject:</strong> BNI Visitor Follow-up from
+                    Kalahanu Tech Studios
                   </p>
                   <p>
                     <strong>Main Message:</strong>
@@ -465,7 +486,8 @@ Let's connect!`}
                     ✅ <strong>DO:</strong> Personalize with person's name
                   </li>
                   <li>
-                    ✅ <strong>DO:</strong> Mention how you met them (BNI visitor)
+                    ✅ <strong>DO:</strong> Mention how you met them (BNI
+                    visitor)
                   </li>
                   <li>
                     ✅ <strong>DO:</strong> Keep CTA (Call-To-Action) soft
@@ -518,8 +540,12 @@ Khushij Jain,9182946509,Matrix Sports`}
                   <thead className="bg-gray-50 sticky top-0">
                     <tr>
                       <th className="px-3 py-2 text-left font-medium">Phone</th>
-                      <th className="px-3 py-2 text-left font-medium">Status</th>
-                      <th className="px-3 py-2 text-left font-medium">Details</th>
+                      <th className="px-3 py-2 text-left font-medium">
+                        Status
+                      </th>
+                      <th className="px-3 py-2 text-left font-medium">
+                        Details
+                      </th>
                     </tr>
                   </thead>
                   <tbody>

@@ -24,8 +24,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-
-
 export default function TasksPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -50,8 +48,8 @@ export default function TasksPage() {
   };
 
   useEffect(() => {
-    
-    const storedUserId = typeof window !== "undefined" ? sessionStorage.getItem("userId") : null;
+    const storedUserId =
+      typeof window !== "undefined" ? sessionStorage.getItem("userId") : null;
     setUserId(storedUserId);
     fetchTasks(storedUserId);
 
@@ -75,7 +73,9 @@ export default function TasksPage() {
 
       if (res.ok) {
         const updatedTask = await res.json();
-        setTasks(tasks.map((t) => (t.id === taskId ? { ...t, status: newStatus } : t)));
+        setTasks(
+          tasks.map((t) => (t.id === taskId ? { ...t, status: newStatus } : t)),
+        );
       } else {
         console.error("Failed to update task status");
       }
@@ -209,10 +209,14 @@ function TaskColumn({
     <div className="w-[300px] flex flex-col h-full">
       {}
       <div className="flex items-center gap-2 mb-3 px-1">
-        <span className={`px-2 py-0.5 rounded text-xs font-bold ${color} ${textColor}`}>
+        <span
+          className={`px-2 py-0.5 rounded text-xs font-bold ${color} ${textColor}`}
+        >
           {title}
         </span>
-        <span className="text-muted-foreground text-xs font-medium">{count}</span>
+        <span className="text-muted-foreground text-xs font-medium">
+          {count}
+        </span>
         <div className="ml-auto flex gap-1 opacity-0 hover:opacity-100 group-hover:opacity-100 transition-opacity">
           <Button variant="ghost" size="icon" className="h-6 w-6">
             <Plus className="w-3 h-3" />
@@ -252,7 +256,9 @@ function TaskCard({
   return (
     <div className="bg-card hover:bg-accent/10 border border-transparent hover:border-border transition-all rounded-md shadow-sm p-3 group cursor-pointer flex flex-col gap-2 relative">
       {}
-      <span className="font-medium text-sm text-foreground/90">{task.title}</span>
+      <span className="font-medium text-sm text-foreground/90">
+        {task.title}
+      </span>
 
       {}
       <div className="flex flex-wrap gap-2 mt-1">
@@ -282,7 +288,10 @@ function TaskCard({
         <div className="flex items-center justify-between mt-1 pt-2 border-t border-border/40">
           <div className="flex items-center gap-2">
             {task.assigneeName && (
-              <div className="flex items-center gap-1.5" title={task.assigneeName}>
+              <div
+                className="flex items-center gap-1.5"
+                title={task.assigneeName}
+              >
                 <Avatar className="h-4 w-4">
                   <AvatarImage src={task.assigneeAvatar} />
                   <AvatarFallback className="text-[8px] bg-orange-200 text-orange-800">
@@ -310,7 +319,9 @@ function TaskCard({
               size="sm"
               className="h-7 text-xs w-full justify-between"
             >
-              <span className="capitalize">{task.status.replace("-", " ")}</span>
+              <span className="capitalize">
+                {task.status.replace("-", " ")}
+              </span>
               <ChevronDown className="w-3 h-3 ml-1" />
             </Button>
           </DropdownMenuTrigger>

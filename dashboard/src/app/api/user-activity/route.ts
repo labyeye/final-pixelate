@@ -17,7 +17,6 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const db = await getDb();
 
-    
     if (!body.userId || !body.url) {
       return NextResponse.json(
         { error: "Missing required fields" },
@@ -30,25 +29,11 @@ export async function POST(req: NextRequest) {
       url: body.url,
       startTime: new Date(body.startTime),
       endTime: body.endTime ? new Date(body.endTime) : null,
-      duration: body.duration || 0, 
+      duration: body.duration || 0,
       userAgent: body.userAgent,
       referrer: body.referrer,
       createdAt: new Date(),
     };
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
 
     let result;
     if (body.type === "page_view") {
@@ -64,15 +49,8 @@ export async function POST(req: NextRequest) {
         { headers: CORS_HEADERS },
       );
     } else if (body.type === "ping" && body.id) {
-      
-      
-      
-      
+      const ObjectId = require("mongodb").ObjectId;
 
-      const ObjectId = require("mongodb").ObjectId; 
-      
-
-      
       await db.collection("user_activity").updateOne(
         { _id: new (require("mongodb").ObjectId)(body.id) },
         {

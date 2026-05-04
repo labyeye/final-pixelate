@@ -23,33 +23,43 @@ interface Campaign {
 export async function GET(request: NextRequest) {
   try {
     const db = await getDb();
-    
+
     const campaigns = await db
       .collection("campaigns")
       .find({})
       .sort({ createdAt: -1 })
       .toArray();
 
-    
     const messages = await db
       .collection("whatsapp_messages")
       .find({})
       .toArray();
 
-    console.log(`[Campaign Insights] Total messages in webhook: ${messages.length}`);
-    
-    
+    console.log(
+      `[Campaign Insights] Total messages in webhook: ${messages.length}`,
+    );
+
     const messagesByStatus = {
-      sent: messages.filter((m: any) => m.deliveryStatus === "sent" || (m.status === "sent" && !m.deliveryStatus)).length,
-      delivered: messages.filter((m: any) => m.deliveryStatus === "delivered" || m.status === "delivered").length,
-      read: messages.filter((m: any) => m.deliveryStatus === "read" || m.status === "read").length,
-      failed: messages.filter((m: any) => m.deliveryStatus === "failed" || m.status === "failed").length,
+      sent: messages.filter(
+        (m: any) =>
+          m.deliveryStatus === "sent" ||
+          (m.status === "sent" && !m.deliveryStatus),
+      ).length,
+      delivered: messages.filter(
+        (m: any) =>
+          m.deliveryStatus === "delivered" || m.status === "delivered",
+      ).length,
+      read: messages.filter(
+        (m: any) => m.deliveryStatus === "read" || m.status === "read",
+      ).length,
+      failed: messages.filter(
+        (m: any) => m.deliveryStatus === "failed" || m.status === "failed",
+      ).length,
     };
-    
+
     console.log(`[Campaign Insights] Messages by status:`, messagesByStatus);
     console.log(`[Campaign Insights] Sample messages:`, messages.slice(0, 3));
 
-    
     const campaignInsights = campaigns.reduce(
       (acc: any, campaign: any) => ({
         totalInitiated: acc.totalInitiated + (campaign.totalContacts || 0),
@@ -66,42 +76,42 @@ export async function GET(request: NextRequest) {
         totalRead: 0,
         totalReplied: 0,
         totalFailed: 0,
-      }
+      },
     );
 
-    
-    
     const deliveredCount = messagesByStatus.delivered;
     const failedCount = messagesByStatus.failed;
-    const sentCount = messagesByStatus.sent + messagesByStatus.delivered + messagesByStatus.read + messagesByStatus.failed;
+    const sentCount =
+      messagesByStatus.sent +
+      messagesByStatus.delivered +
+      messagesByStatus.read +
+      messagesByStatus.failed;
     const readCount = messagesByStatus.read;
     const pendingCount = messagesByStatus.sent;
 
-    
     const byCategory: Record<string, number> = {};
 
     messages.forEach((msg: any) => {
-      const category = msg.category || msg.templateName?.toLowerCase() || "marketing";
+      const category =
+        msg.category || msg.templateName?.toLowerCase() || "marketing";
       byCategory[category] = (byCategory[category] || 0) + 1;
     });
 
-    
     const deliveredMessages = messages.filter(
-      (m: any) => m.deliveryStatus === "delivered" || m.status === "delivered"
+      (m: any) => m.deliveryStatus === "delivered" || m.status === "delivered",
     );
 
     const failedMessages = messages.filter(
-      (m: any) => m.deliveryStatus === "failed" || m.status === "failed"
+      (m: any) => m.deliveryStatus === "failed" || m.status === "failed",
     );
 
-    
     const failureReasons: Record<string, number> = {};
     failedMessages.forEach((msg: any) => {
-      const reason = msg.failureReason || msg.error_reason || msg.errorCode || "Unknown";
+      const reason =
+        msg.failureReason || msg.error_reason || msg.errorCode || "Unknown";
       failureReasons[reason] = (failureReasons[reason] || 0) + 1;
     });
 
-    
     const chargesPerCategory: Record<string, number> = {
       marketing: 0.25,
       "marketing-lite": 0.15,
@@ -118,49 +128,41 @@ export async function GET(request: NextRequest) {
     const deliveredByCategory: Record<string, number> = {};
 
     deliveredMessages.forEach((msg: any) => {
-      const category = msg.category || msg.templateName?.toLowerCase() || "marketing";
+      const category =
+        msg.category || msg.templateName?.toLowerCase() || "marketing";
       deliveredByCategory[category] = (deliveredByCategory[category] || 0) + 1;
       estimatedCharges += chargesPerCategory[category] || 0.25;
     });
 
     const insights = {
-      
       totalInitiated: sentCount + pendingCount,
       totalSent: sentCount,
       totalDelivered: deliveredCount,
       totalRead: readCount,
-      totalReplied: readCount, 
+      totalReplied: readCount,
       totalFailed: failedCount,
-      
-      
+
       byCategory,
       deliveredByCategory,
-      
-      
+
       deliveryStatus: {
         delivered: deliveredCount,
         failed: failedCount,
         pending: pendingCount,
         read: readCount,
       },
-      
-      
+
       failureReasons,
-      
-      
+
       estimatedCharges: parseFloat(estimatedCharges.toFixed(2)),
-      
-      
+
       metrics: {
-        deliveryRate: sentCount > 0 
-          ? ((deliveredCount / sentCount) * 100).toFixed(1) 
-          : "0",
-        failureRate: sentCount > 0 
-          ? ((failedCount / sentCount) * 100).toFixed(1) 
-          : "0",
-        pendingRate: sentCount > 0 
-          ? ((pendingCount / sentCount) * 100).toFixed(1) 
-          : "0",
+        deliveryRate:
+          sentCount > 0 ? ((deliveredCount / sentCount) * 100).toFixed(1) : "0",
+        failureRate:
+          sentCount > 0 ? ((failedCount / sentCount) * 100).toFixed(1) : "0",
+        pendingRate:
+          sentCount > 0 ? ((pendingCount / sentCount) * 100).toFixed(1) : "0",
       },
     };
 
@@ -174,13 +176,13 @@ export async function GET(request: NextRequest) {
         deliveredMessages: deliveredCount,
         failedMessages: failedCount,
         sentMessages: sentCount,
-      }
+      },
     });
   } catch (error: any) {
     console.error("Failed to fetch campaigns:", error);
     return NextResponse.json(
       { success: false, error: error.message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -217,7 +219,7 @@ export async function POST(request: NextRequest) {
     console.error("Failed to create campaign:", error);
     return NextResponse.json(
       { success: false, error: error.message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

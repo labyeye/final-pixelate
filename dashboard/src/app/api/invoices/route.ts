@@ -5,15 +5,12 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const clientId = searchParams.get("clientId");
-    const status = searchParams.get("status"); 
+    const status = searchParams.get("status");
 
-    
     const query: any = {};
     if (clientId) query.clientId = clientId;
     if (status) query.status = status.toUpperCase();
 
-    
-    
     const col = await svc.getCollection("invoices");
     const invoices = await col.find(query).sort({ createdAt: -1 }).toArray();
 
@@ -30,7 +27,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const invoiceData = await request.json();
-    
+
     const created = await svc.createInvoice(invoiceData);
     return NextResponse.json(created, { status: 201 });
   } catch (error: any) {

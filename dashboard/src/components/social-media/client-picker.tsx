@@ -17,7 +17,10 @@ interface ClientPickerProps {
 
 const STORAGE_KEY = "selectedClientId";
 
-export function ClientPicker({ onClientSelected, onClientsLoaded }: ClientPickerProps) {
+export function ClientPicker({
+  onClientSelected,
+  onClientsLoaded,
+}: ClientPickerProps) {
   const [clients, setClients] = useState<Client[]>([]);
   const [selectedId, setSelectedId] = useState<string>("");
   const [loading, setLoading] = useState(true);
@@ -34,8 +37,10 @@ export function ClientPicker({ onClientSelected, onClientsLoaded }: ClientPicker
         setClients(clientList);
         onClientsLoaded?.(clientList);
 
-        
-        const stored = typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
+        const stored =
+          typeof window !== "undefined"
+            ? localStorage.getItem(STORAGE_KEY)
+            : null;
         if (stored && clientList.some((c) => (c._id || c.id) === stored)) {
           setSelectedId(stored);
           onClientSelected(stored);
@@ -88,7 +93,10 @@ export function ClientPicker({ onClientSelected, onClientsLoaded }: ClientPicker
       >
         <option value="">-- Choose a client --</option>
         {clients.map((client) => (
-          <option key={client._id || client.id} value={String(client._id || client.id)}>
+          <option
+            key={client._id || client.id}
+            value={String(client._id || client.id)}
+          >
             {client.name}
           </option>
         ))}

@@ -20,11 +20,16 @@ import {
 } from "lucide-react";
 
 function getToken() {
-  return typeof window !== "undefined" ? localStorage.getItem("auth_token") || "" : "";
+  return typeof window !== "undefined"
+    ? localStorage.getItem("auth_token") || ""
+    : "";
 }
 function authH(): Record<string, string> {
   const t = getToken();
-  return { "Content-Type": "application/json", ...(t ? { Authorization: "Bearer " + t } : {}) };
+  return {
+    "Content-Type": "application/json",
+    ...(t ? { Authorization: "Bearer " + t } : {}),
+  };
 }
 function timeAgo(date: string | Date | null | undefined): string {
   if (!date) return "Never";
@@ -58,9 +63,8 @@ interface FbAdsConnection {
 }
 
 interface Props {
-  
   clientId: string;
-  
+
   readOnly?: boolean;
 }
 
@@ -70,27 +74,26 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
   const [conn, setConn] = useState<FbAdsConnection | null>(null);
   const [loadingConn, setLoadingConn] = useState(true);
 
-  
   const [accessToken, setAccessToken] = useState("");
   const [adAccountId, setAdAccountId] = useState("");
   const [datasetId, setDatasetId] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [saving, setSaving] = useState(false);
 
-  
   const [forms, setForms] = useState<LeadAdForm[]>([]);
   const [loadingForms, setLoadingForms] = useState(false);
   const [selectedFormIds, setSelectedFormIds] = useState<string[]>([]);
   const [showForms, setShowForms] = useState(false);
   const [savingForms, setSavingForms] = useState(false);
 
-  
   const [syncing, setSyncing] = useState(false);
 
   async function loadConnection() {
     setLoadingConn(true);
     try {
-      const res = await fetch(`/api/fb-ads-connection?clientId=${clientId}`, { headers: authH() });
+      const res = await fetch(`/api/fb-ads-connection?clientId=${clientId}`, {
+        headers: authH(),
+      });
       if (res.ok) {
         const data = await res.json();
         setConn(data);
@@ -101,7 +104,6 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
         }
       }
     } catch {
-      
     } finally {
       setLoadingConn(false);
     }
@@ -113,7 +115,10 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
 
   async function saveConnection() {
     if (!accessToken.trim() || !adAccountId.trim()) {
-      toast({ title: "Access Token and Ad Account ID are required", variant: "destructive" });
+      toast({
+        title: "Access Token and Ad Account ID are required",
+        variant: "destructive",
+      });
       return;
     }
     setSaving(true);
@@ -164,7 +169,10 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
     setLoadingForms(true);
     setShowForms(true);
     try {
-      const res = await fetch(`/api/fb-ads-connection/forms?clientId=${clientId}`, { headers: authH() });
+      const res = await fetch(
+        `/api/fb-ads-connection/forms?clientId=${clientId}`,
+        { headers: authH() },
+      );
       const json = await res.json();
       if (!res.ok) {
         toast({
@@ -179,12 +187,16 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
       if ((json || []).length === 0) {
         toast({
           title: "No Lead Ad forms found in this Ad Account",
-          description: "Make sure the token has access to this ad account and it has Lead Ad campaigns.",
+          description:
+            "Make sure the token has access to this ad account and it has Lead Ad campaigns.",
           variant: "destructive",
         });
       }
     } catch (e: any) {
-      toast({ title: e.message || "Failed to load forms", variant: "destructive" });
+      toast({
+        title: e.message || "Failed to load forms",
+        variant: "destructive",
+      });
     } finally {
       setLoadingForms(false);
     }
@@ -196,7 +208,11 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
       const res = await fetch("/api/fb-ads-connection", {
         method: "PATCH",
         headers: authH(),
-        body: JSON.stringify({ clientId, selectedFormIds, datasetId: datasetId || null }),
+        body: JSON.stringify({
+          clientId,
+          selectedFormIds,
+          datasetId: datasetId || null,
+        }),
       });
       if (!res.ok) throw new Error("Failed to save form selection");
       toast({ title: `${selectedFormIds.length} form(s) saved for sync` });
@@ -226,7 +242,8 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
       if (!res.ok) throw new Error(data.error || "Sync failed");
       toast({
         title: `Sync complete: ${data.imported} new lead(s) imported`,
-        description: data.skipped > 0 ? `${data.skipped} duplicate(s) skipped` : undefined,
+        description:
+          data.skipped > 0 ? `${data.skipped} duplicate(s) skipped` : undefined,
       });
       await loadConnection();
     } catch (e: any) {
@@ -245,7 +262,6 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
     );
   }
 
-  
   if (readOnly) {
     if (!conn?.isConnected) {
       return (
@@ -253,9 +269,12 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
           <CardContent className="pt-5 flex items-start gap-3">
             <Facebook className="w-5 h-5 text-blue-600 mt-0.5 shrink-0" />
             <div>
-              <p className="font-bold text-sm">Facebook Lead Ads not connected</p>
+              <p className="font-bold text-sm">
+                Facebook Lead Ads not connected
+              </p>
               <p className="text-xs text-muted-foreground mt-0.5">
-                Ask your account manager to connect your Facebook Ads account to start importing leads automatically.
+                Ask your account manager to connect your Facebook Ads account to
+                start importing leads automatically.
               </p>
             </div>
           </CardContent>
@@ -274,13 +293,20 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
               <div>
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-sm">Facebook Lead Ads</span>
-                  <Badge className="bg-green-100 text-green-700 border-green-300 font-bold text-xs">Connected</Badge>
+                  <Badge className="bg-green-100 text-green-700 border-green-300 font-bold text-xs">
+                    Connected
+                  </Badge>
                 </div>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  {formsReady
-                    ? <>{conn.selectedFormIds!.length} form(s) active · {conn.totalImported || 0} leads imported · Last sync: {timeAgo(conn.lastSyncAt)}</>
-                    : "Forms not configured yet — ask your account manager to select Lead Ad forms"
-                  }
+                  {formsReady ? (
+                    <>
+                      {conn.selectedFormIds!.length} form(s) active ·{" "}
+                      {conn.totalImported || 0} leads imported · Last sync:{" "}
+                      {timeAgo(conn.lastSyncAt)}
+                    </>
+                  ) : (
+                    "Forms not configured yet — ask your account manager to select Lead Ad forms"
+                  )}
                 </p>
               </div>
             </div>
@@ -291,7 +317,11 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
                 disabled={syncing}
                 className="border-2 border-black font-bold"
               >
-                {syncing ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <RefreshCw className="w-4 h-4 mr-2" />}
+                {syncing ? (
+                  <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                ) : (
+                  <RefreshCw className="w-4 h-4 mr-2" />
+                )}
                 Sync Now
               </Button>
             )}
@@ -301,7 +331,6 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
     );
   }
 
-  
   return (
     <div className="space-y-4">
       {}
@@ -323,20 +352,25 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
         </CardHeader>
         <CardContent className="space-y-4">
           {conn?.isConnected && !isEditing ? (
-            
             <div className="space-y-2">
               <div className="grid grid-cols-2 gap-2 text-sm">
                 <div>
                   <span className="text-muted-foreground">Ad Account:</span>{" "}
-                  <span className="font-mono font-bold">{conn.adAccountId}</span>
+                  <span className="font-mono font-bold">
+                    {conn.adAccountId}
+                  </span>
                 </div>
                 <div>
                   <span className="text-muted-foreground">Dataset ID:</span>{" "}
-                  <span className="font-mono font-bold">{conn.datasetId || "—"}</span>
+                  <span className="font-mono font-bold">
+                    {conn.datasetId || "—"}
+                  </span>
                 </div>
                 <div>
                   <span className="text-muted-foreground">Forms selected:</span>{" "}
-                  <span className="font-bold">{conn.selectedFormIds?.length || 0}</span>
+                  <span className="font-bold">
+                    {conn.selectedFormIds?.length || 0}
+                  </span>
                 </div>
                 <div>
                   <span className="text-muted-foreground">Total imported:</span>{" "}
@@ -363,17 +397,35 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
               </div>
             </div>
           ) : (
-            
             <div className="space-y-3">
               <div className="bg-blue-50 border border-blue-200 rounded-md p-3 text-xs text-blue-800 flex gap-2">
                 <Info className="w-4 h-4 shrink-0 mt-0.5" />
                 <div>
                   <p className="font-bold mb-1">How to get these values:</p>
                   <ol className="list-decimal list-inside space-y-1">
-                    <li>Go to <strong>Meta Business Manager → Settings → System Users</strong> (or use a User token)</li>
-                    <li>Generate token with permissions: <code>ads_management</code>, <code>leads_retrieval</code>, <code>pages_show_list</code>, <code>pages_read_engagement</code></li>
-                    <li><strong>Ad Account ID</strong>: copy from <strong>Ads Manager → Account Settings</strong> (e.g. <code>act_123456789</code>). This field is optional — forms are fetched via your Pages.</li>
-                    <li><strong>Dataset ID</strong> (optional): from <strong>Events Manager → your pixel → Settings</strong></li>
+                    <li>
+                      Go to{" "}
+                      <strong>
+                        Meta Business Manager → Settings → System Users
+                      </strong>{" "}
+                      (or use a User token)
+                    </li>
+                    <li>
+                      Generate token with permissions:{" "}
+                      <code>ads_management</code>, <code>leads_retrieval</code>,{" "}
+                      <code>pages_show_list</code>,{" "}
+                      <code>pages_read_engagement</code>
+                    </li>
+                    <li>
+                      <strong>Ad Account ID</strong>: copy from{" "}
+                      <strong>Ads Manager → Account Settings</strong> (e.g.{" "}
+                      <code>act_123456789</code>). This field is optional —
+                      forms are fetched via your Pages.
+                    </li>
+                    <li>
+                      <strong>Dataset ID</strong> (optional): from{" "}
+                      <strong>Events Manager → your pixel → Settings</strong>
+                    </li>
                   </ol>
                 </div>
               </div>
@@ -405,7 +457,10 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
                   </div>
                   <div>
                     <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                      Dataset ID <span className="text-muted-foreground font-normal">(for Conversions API)</span>
+                      Dataset ID{" "}
+                      <span className="text-muted-foreground font-normal">
+                        (for Conversions API)
+                      </span>
                     </label>
                     <Input
                       placeholder="e.g. 2116147625829931"
@@ -424,7 +479,11 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
                   disabled={saving}
                   className="border-2 border-black font-bold bg-black text-white"
                 >
-                  {saving ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Save className="w-4 h-4 mr-2" />}
+                  {saving ? (
+                    <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                  ) : (
+                    <Save className="w-4 h-4 mr-2" />
+                  )}
                   Save Connection
                 </Button>
                 {isEditing && (
@@ -476,7 +535,10 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
           {showForms && (
             <CardContent className="space-y-3">
               {forms.length === 0 && !loadingForms ? (
-                <p className="text-sm text-muted-foreground">No forms found. Make sure the access token has access to this Ad Account.</p>
+                <p className="text-sm text-muted-foreground">
+                  No forms found. Make sure the access token has access to this
+                  Ad Account.
+                </p>
               ) : (
                 <div className="space-y-2">
                   {forms.map((form) => (
@@ -491,11 +553,22 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
                         className="w-4 h-4 accent-black"
                       />
                       <div className="flex-1 min-w-0">
-                        <p className="font-bold text-sm truncate">{form.name}</p>
+                        <p className="font-bold text-sm truncate">
+                          {form.name}
+                        </p>
                         <p className="text-xs text-muted-foreground">
                           ID: {form.id} ·{" "}
-                          {form.leads_count !== undefined ? `${form.leads_count} leads` : ""} ·{" "}
-                          <span className={form.status === "ACTIVE" ? "text-green-600" : "text-yellow-600"}>
+                          {form.leads_count !== undefined
+                            ? `${form.leads_count} leads`
+                            : ""}{" "}
+                          ·{" "}
+                          <span
+                            className={
+                              form.status === "ACTIVE"
+                                ? "text-green-600"
+                                : "text-yellow-600"
+                            }
+                          >
                             {form.status}
                           </span>
                         </p>
@@ -512,7 +585,11 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
                   disabled={savingForms}
                   className="border-2 border-black font-bold bg-black text-white"
                 >
-                  {savingForms ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Save className="w-4 h-4 mr-2" />}
+                  {savingForms ? (
+                    <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                  ) : (
+                    <Save className="w-4 h-4 mr-2" />
+                  )}
                   Save Form Selection ({selectedFormIds.length} selected)
                 </Button>
               )}
@@ -551,7 +628,11 @@ export function FbAdsConnectionPanel({ clientId, readOnly = false }: Props) {
                   size="sm"
                   variant="outline"
                   onClick={() => {
-                    if (confirm("This will re-import ALL leads from the beginning (duplicates are skipped). Continue?")) {
+                    if (
+                      confirm(
+                        "This will re-import ALL leads from the beginning (duplicates are skipped). Continue?",
+                      )
+                    ) {
                       syncNow(true);
                     }
                   }}

@@ -61,20 +61,38 @@ export default function ProfilePage() {
       if (res.ok) {
         const updated = await res.json();
         setProfile(updated);
-        toast({ title: "Profile Updated", description: "Your profile has been saved successfully." });
+        toast({
+          title: "Profile Updated",
+          description: "Your profile has been saved successfully.",
+        });
       } else {
         const err = await res.json();
-        toast({ title: "Save Failed", description: "Failed: " + (err.error || res.status), variant: "destructive" });
+        toast({
+          title: "Save Failed",
+          description: "Failed: " + (err.error || res.status),
+          variant: "destructive",
+        });
       }
     } catch (e) {
       console.error(e);
-      toast({ title: "Save Failed", description: "An unexpected error occurred.", variant: "destructive" });
+      toast({
+        title: "Save Failed",
+        description: "An unexpected error occurred.",
+        variant: "destructive",
+      });
     }
     setSaving(false);
   }
 
   async function changePassword() {
-    if (!newPassword) { toast({ title: "Enter Password", description: "Please enter a new password.", variant: "destructive" }); return; }
+    if (!newPassword) {
+      toast({
+        title: "Enter Password",
+        description: "Please enter a new password.",
+        variant: "destructive",
+      });
+      return;
+    }
     setPwSaving(true);
     try {
       const token = localStorage.getItem("auth_token") || "";
@@ -87,15 +105,26 @@ export default function ProfilePage() {
         body: JSON.stringify({ action: "change-password", newPassword }),
       });
       if (res.ok) {
-        toast({ title: "Password Changed", description: "Your password has been updated successfully." });
+        toast({
+          title: "Password Changed",
+          description: "Your password has been updated successfully.",
+        });
         setNewPassword("");
       } else {
         const err = await res.json();
-        toast({ title: "Failed", description: "Failed: " + (err.error || res.status), variant: "destructive" });
+        toast({
+          title: "Failed",
+          description: "Failed: " + (err.error || res.status),
+          variant: "destructive",
+        });
       }
     } catch (e) {
       console.error(e);
-      toast({ title: "Change Failed", description: "An unexpected error occurred.", variant: "destructive" });
+      toast({
+        title: "Change Failed",
+        description: "An unexpected error occurred.",
+        variant: "destructive",
+      });
     }
     setPwSaving(false);
   }

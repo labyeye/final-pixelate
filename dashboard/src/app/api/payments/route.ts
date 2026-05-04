@@ -15,7 +15,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    
     const invoice = await svc.findById("invoices", invoiceId);
 
     if (!invoice) {

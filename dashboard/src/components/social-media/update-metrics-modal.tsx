@@ -124,12 +124,16 @@ export function UpdateMetricsModal({
           </div>
 
           <div>
-            <label className="block text-sm font-semibold mb-1">Followers Gained</label>
+            <label className="block text-sm font-semibold mb-1">
+              Followers Gained
+            </label>
             <Input
               type="number"
               min="0"
               value={metrics.followers_gained}
-              onChange={(e) => handleMetricChange("followers_gained", e.target.value)}
+              onChange={(e) =>
+                handleMetricChange("followers_gained", e.target.value)
+              }
               placeholder="0"
               disabled={isSaving}
             />
@@ -137,17 +141,10 @@ export function UpdateMetricsModal({
         </div>
 
         <DialogFooter>
-          <Button
-            variant="outline"
-            onClick={onClose}
-            disabled={isSaving}
-          >
+          <Button variant="outline" onClick={onClose} disabled={isSaving}>
             Cancel
           </Button>
-          <Button
-            onClick={handleSave}
-            disabled={isSaving}
-          >
+          <Button onClick={handleSave} disabled={isSaving}>
             {isSaving ? "Saving..." : "Save"}
           </Button>
         </DialogFooter>

@@ -1,13 +1,19 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Plus, Briefcase, Users, Eye, Edit, Trash2 } from 'lucide-react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Plus, Briefcase, Users, Eye, Edit, Trash2 } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { SuccessModal } from "@/components/ui/success-modal";
-import { useToast } from '@/hooks/use-toast';
+import { useToast } from "@/hooks/use-toast";
 
 interface JobPosting {
   _id: string;
@@ -17,14 +23,14 @@ interface JobPosting {
   location: string;
   type: string;
   experience: string;
-  salaryType: 'paid' | 'unpaid';
+  salaryType: "paid" | "unpaid";
   salary?: string;
   duration: string;
   description: string;
   requirements: string[];
   responsibilities: string[];
   tags: string[];
-  status: 'active' | 'closed';
+  status: "active" | "closed";
   applicationsCount?: number;
   createdAt: string;
 }
@@ -33,7 +39,7 @@ export default function CareersPage() {
   const [jobs, setJobs] = useState<JobPosting[]>([]);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
-  const [filter, setFilter] = useState<'all' | 'active' | 'closed'>('all');
+  const [filter, setFilter] = useState<"all" | "active" | "closed">("all");
   const router = useRouter();
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const showSuccess = (msg: string) => {
@@ -47,51 +53,72 @@ export default function CareersPage() {
 
   const fetchJobs = async () => {
     try {
-      const response = await fetch('/api/careers');
+      const response = await fetch("/api/careers");
       const data = await response.json();
       setJobs(data);
     } catch (error) {
-      console.error('Error fetching jobs:', error);
+      console.error("Error fetching jobs:", error);
     } finally {
       setLoading(false);
     }
   };
 
   const deleteJob = async (id: string) => {
-    if (!window.confirm('Are you sure you want to delete this job posting?')) return;
+    if (!window.confirm("Are you sure you want to delete this job posting?"))
+      return;
 
     try {
-      const token = typeof window !== 'undefined' ? localStorage.getItem('auth_token') : '';
-      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-      if (token) headers['Authorization'] = `Bearer ${token}`;
-      
-      const response = await fetch(`/api/careers/${id}`, { method: 'DELETE', headers });
+      const token =
+        typeof window !== "undefined" ? localStorage.getItem("auth_token") : "";
+      const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+      };
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+
+      const response = await fetch(`/api/careers/${id}`, {
+        method: "DELETE",
+        headers,
+      });
       const data = await response.json();
-      
+
       if (!response.ok) {
-        toast({ title: 'Delete Failed', description: data.error || 'Unknown error', variant: 'destructive' });
+        toast({
+          title: "Delete Failed",
+          description: data.error || "Unknown error",
+          variant: "destructive",
+        });
         return;
       }
-      
-      setJobs(jobs.filter(job => job._id !== id));
+
+      setJobs(jobs.filter((job) => job._id !== id));
       showSuccess("Job posting deleted!");
-      toast({ title: 'Job Deleted', description: 'Job posting has been removed.' });
+      toast({
+        title: "Job Deleted",
+        description: "Job posting has been removed.",
+      });
     } catch (error) {
-      console.error('Error deleting job:', error);
-      toast({ title: 'Error', description: error instanceof Error ? error.message : 'Unknown error', variant: 'destructive' });
+      console.error("Error deleting job:", error);
+      toast({
+        title: "Error",
+        description: error instanceof Error ? error.message : "Unknown error",
+        variant: "destructive",
+      });
     }
   };
 
-  const filteredJobs = jobs.filter(job => {
-    if (filter === 'all') return true;
+  const filteredJobs = jobs.filter((job) => {
+    if (filter === "all") return true;
     return job.status === filter;
   });
 
   const stats = {
     total: jobs.length,
-    active: jobs.filter(j => j.status === 'active').length,
-    closed: jobs.filter(j => j.status === 'closed').length,
-    totalApplications: jobs.reduce((sum, j) => sum + (j.applicationsCount || 0), 0),
+    active: jobs.filter((j) => j.status === "active").length,
+    closed: jobs.filter((j) => j.status === "closed").length,
+    totalApplications: jobs.reduce(
+      (sum, j) => sum + (j.applicationsCount || 0),
+      0,
+    ),
   };
 
   return (
@@ -133,7 +160,9 @@ export default function CareersPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-green-600">{stats.active}</div>
+            <div className="text-2xl font-bold text-green-600">
+              {stats.active}
+            </div>
           </CardContent>
         </Card>
 
@@ -144,7 +173,9 @@ export default function CareersPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-gray-500">{stats.closed}</div>
+            <div className="text-2xl font-bold text-gray-500">
+              {stats.closed}
+            </div>
           </CardContent>
         </Card>
 
@@ -155,7 +186,9 @@ export default function CareersPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-blue-600">{stats.totalApplications}</div>
+            <div className="text-2xl font-bold text-blue-600">
+              {stats.totalApplications}
+            </div>
           </CardContent>
         </Card>
       </div>
@@ -163,20 +196,20 @@ export default function CareersPage() {
       {}
       <div className="flex gap-2">
         <Button
-          variant={filter === 'all' ? 'default' : 'outline'}
-          onClick={() => setFilter('all')}
+          variant={filter === "all" ? "default" : "outline"}
+          onClick={() => setFilter("all")}
         >
           All Jobs
         </Button>
         <Button
-          variant={filter === 'active' ? 'default' : 'outline'}
-          onClick={() => setFilter('active')}
+          variant={filter === "active" ? "default" : "outline"}
+          onClick={() => setFilter("active")}
         >
           Active
         </Button>
         <Button
-          variant={filter === 'closed' ? 'default' : 'outline'}
-          onClick={() => setFilter('closed')}
+          variant={filter === "closed" ? "default" : "outline"}
+          onClick={() => setFilter("closed")}
         >
           Closed
         </Button>
@@ -189,7 +222,9 @@ export default function CareersPage() {
         <Card>
           <CardContent className="py-12 text-center">
             <Briefcase className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-            <h3 className="text-lg font-semibold mb-2">No job postings found</h3>
+            <h3 className="text-lg font-semibold mb-2">
+              No job postings found
+            </h3>
             <p className="text-muted-foreground mb-4">
               Get started by creating your first job posting
             </p>
@@ -210,14 +245,18 @@ export default function CareersPage() {
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
                       {job.imageUrl ? (
-                        <img src={job.imageUrl} alt={job.title} className="w-12 h-12 rounded-md object-cover mr-2" />
+                        <img
+                          src={job.imageUrl}
+                          alt={job.title}
+                          className="w-12 h-12 rounded-md object-cover mr-2"
+                        />
                       ) : null}
                       <CardTitle className="text-xl">{job.title}</CardTitle>
                       <span
                         className={`px-2 py-1 text-xs rounded-full ${
-                          job.status === 'active'
-                            ? 'bg-green-100 text-green-800'
-                            : 'bg-gray-100 text-gray-800'
+                          job.status === "active"
+                            ? "bg-green-100 text-green-800"
+                            : "bg-gray-100 text-gray-800"
                         }`}
                       >
                         {job.status}
@@ -229,7 +268,12 @@ export default function CareersPage() {
                       <span>⏰ {job.type}</span>
                       <span>💼 {job.experience}</span>
                       {job.salaryType && (
-                        <span>💰 {job.salaryType === 'paid' ? (job.salary || 'Paid') : 'Unpaid'}</span>
+                        <span>
+                          💰{" "}
+                          {job.salaryType === "paid"
+                            ? job.salary || "Paid"
+                            : "Unpaid"}
+                        </span>
                       )}
                       {job.duration && <span>📅 {job.duration}</span>}
                     </CardDescription>

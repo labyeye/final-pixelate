@@ -22,7 +22,9 @@
   display: block;
   text-decoration: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .portfolio-card:hover {
@@ -52,9 +54,11 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.95) 0%,
-      rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
   padding: 60px 30px 30px;
   color: white;
   transform: translateY(100%);
@@ -68,7 +72,9 @@
 .portfolio-overlay * {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
+  transition:
+    opacity 0.4s ease 0.2s,
+    transform 0.4s ease 0.2s;
 }
 
 .portfolio-card:hover .portfolio-overlay * {
@@ -101,7 +107,9 @@
 .section-animate {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .section-animate.in-view {
@@ -131,56 +139,55 @@
   }
 }
 
-
 :root {
   --gutter: 16px;
   --gap: 16px;
   --site-max-width: 1200px;
   --radius: 6px;
-  --transition: 220ms ease
+  --transition: 220ms ease;
 }
 
 html,
 body {
-  overflow-x: hidden
+  overflow-x: hidden;
 }
 
 h1 {
-  font-size: clamp(24px, calc(1.35rem + 1.2vw), 48px)
+  font-size: clamp(24px, calc(1.35rem + 1.2vw), 48px);
 }
 
 h2 {
-  font-size: clamp(20px, calc(1.15rem + 1.0vw), 36px)
+  font-size: clamp(20px, calc(1.15rem + 1vw), 36px);
 }
 
 h3 {
-  font-size: clamp(18px, calc(1rem + 0.6vw), 28px)
+  font-size: clamp(18px, calc(1rem + 0.6vw), 28px);
 }
 
 p,
 li,
 button {
-  font-size: clamp(13px, calc(0.95rem + 0.2vw), 16px)
+  font-size: clamp(13px, calc(0.95rem + 0.2vw), 16px);
 }
 
 .container {
   width: 100%;
   max-width: var(--site-max-width);
   margin: 0 auto;
-  padding: 0 calc(var(--gutter))
+  padding: 0 calc(var(--gutter));
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap);
-  align-items: flex-start
+  align-items: flex-start;
 }
 
 .card {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   border-radius: var(--radius);
-  background: var(--white)
+  background: var(--white);
 }
 
 img,
@@ -188,7 +195,7 @@ video,
 iframe {
   max-width: 100%;
   height: auto;
-  display: block
+  display: block;
 }
 
 .w-button {
@@ -197,39 +204,39 @@ iframe {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 * {
-  transition: var(--transition)
+  transition: var(--transition);
 }
 
-@media (min-width:768px) and (max-width:1023px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   :root {
     --gutter: 20px;
-    --gap: 20px
+    --gap: 20px;
   }
 }
 
-@media (min-width:1024px) and (max-width:1439px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
   :root {
     --gutter: 28px;
-    --gap: 28px
+    --gap: 28px;
   }
 
   .container {
-    padding: 0 calc(var(--gutter) * 0.75)
+    padding: 0 calc(var(--gutter) * 0.75);
   }
 }
 
-@media (min-width:1440px) {
+@media (min-width: 1440px) {
   :root {
     --gutter: 42px;
     --gap: 32px;
-    --site-max-width: 1440px
+    --site-max-width: 1440px;
   }
 
   .container {
-    padding: 0 calc(var(--gutter))
+    padding: 0 calc(var(--gutter));
   }
 }

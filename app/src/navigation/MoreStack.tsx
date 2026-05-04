@@ -33,33 +33,129 @@ const MoreStack = () => (
     screenOptions={{
       headerStyle: { backgroundColor: Colors.primary },
       headerTintColor: Colors.white,
-      headerTitleStyle: { fontWeight: Typography.black, fontSize: Typography.lg },
+      headerTitleStyle: {
+        fontWeight: Typography.black,
+        fontSize: Typography.lg,
+      },
       headerShadowVisible: false,
       contentStyle: { backgroundColor: Colors.background },
-    }}>
-    <Stack.Screen name="MoreHome" component={MoreHomeScreen} options={{ title: 'MORE' }} />
-    <Stack.Screen name="WhatsAppInbox" component={WhatsAppInboxScreen} options={{ title: 'WHATSAPP INBOX' }} />
-    <Stack.Screen name="BulkMessaging" component={BulkMessagingScreen} options={{ title: 'BULK MESSAGING' }} />
-    <Stack.Screen name="Campaigns" component={CampaignsScreen} options={{ title: 'CAMPAIGNS' }} />
-    <Stack.Screen name="SocialMediaPlanner" component={SocialMediaPlannerScreen} options={{ title: 'SOCIAL MEDIA' }} />
-    <Stack.Screen name="SocialMediaCalendar" component={SocialMediaCalendarScreen} options={{ title: 'CONTENT CALENDAR' }} />
-    <Stack.Screen name="Blogs" component={BlogsScreen} options={{ title: 'BLOGS' }} />
-    <Stack.Screen name="BlogDetail" component={BlogDetailScreen} options={{ title: 'BLOG' }} />
-    <Stack.Screen name="Newsletter" component={NewsletterScreen} options={{ title: 'NEWSLETTER' }} />
-    <Stack.Screen name="Announcements" component={AnnouncementsScreen} options={{ title: 'ANNOUNCEMENTS' }} />
-    <Stack.Screen name="Support" component={SupportScreen} options={{ title: 'SUPPORT' }} />
-    <Stack.Screen name="SupportDetail" component={SupportDetailScreen} options={{ title: 'TICKET' }} />
-    <Stack.Screen name="Settings" component={SettingsScreen} options={{ title: 'SETTINGS' }} />
-    <Stack.Screen name="Profile" component={ProfileScreen} options={{ title: 'PROFILE' }} />
-    <Stack.Screen name="Careers" component={CareersScreen} options={{ title: 'CAREERS' }} />
-    <Stack.Screen name="CareerDetail" component={CareerDetailScreen} options={{ title: 'JOB POSTING' }} />
-    <Stack.Screen name="AboutTeam" component={AboutTeamScreen} options={{ title: 'ABOUT US TEAM' }} />
-    <Stack.Screen name="Developers" component={DevelopersScreen} options={{ title: 'DEVELOPERS' }} />
-    <Stack.Screen name="WorkGallery" component={WorkGalleryScreen} options={{ title: 'WORK GALLERY' }} />
-    <Stack.Screen name="Photos" component={PhotosScreen} options={{ title: 'PHOTOS' }} />
-    <Stack.Screen name="Reels" component={ReelsScreen} options={{ title: 'REELS' }} />
-    <Stack.Screen name="Trash" component={TrashScreen} options={{ title: 'TRASH' }} />
-    <Stack.Screen name="ERPConsole" component={ERPConsoleScreen} options={{ title: 'ERP CONSOLE' }} />
+    }}
+  >
+    <Stack.Screen
+      name="MoreHome"
+      component={MoreHomeScreen}
+      options={{ title: 'MORE' }}
+    />
+    <Stack.Screen
+      name="WhatsAppInbox"
+      component={WhatsAppInboxScreen}
+      options={{ title: 'WHATSAPP INBOX' }}
+    />
+    <Stack.Screen
+      name="BulkMessaging"
+      component={BulkMessagingScreen}
+      options={{ title: 'BULK MESSAGING' }}
+    />
+    <Stack.Screen
+      name="Campaigns"
+      component={CampaignsScreen}
+      options={{ title: 'CAMPAIGNS' }}
+    />
+    <Stack.Screen
+      name="SocialMediaPlanner"
+      component={SocialMediaPlannerScreen}
+      options={{ title: 'SOCIAL MEDIA' }}
+    />
+    <Stack.Screen
+      name="SocialMediaCalendar"
+      component={SocialMediaCalendarScreen}
+      options={{ title: 'CONTENT CALENDAR' }}
+    />
+    <Stack.Screen
+      name="Blogs"
+      component={BlogsScreen}
+      options={{ title: 'BLOGS' }}
+    />
+    <Stack.Screen
+      name="BlogDetail"
+      component={BlogDetailScreen}
+      options={{ title: 'BLOG' }}
+    />
+    <Stack.Screen
+      name="Newsletter"
+      component={NewsletterScreen}
+      options={{ title: 'NEWSLETTER' }}
+    />
+    <Stack.Screen
+      name="Announcements"
+      component={AnnouncementsScreen}
+      options={{ title: 'ANNOUNCEMENTS' }}
+    />
+    <Stack.Screen
+      name="Support"
+      component={SupportScreen}
+      options={{ title: 'SUPPORT' }}
+    />
+    <Stack.Screen
+      name="SupportDetail"
+      component={SupportDetailScreen}
+      options={{ title: 'TICKET' }}
+    />
+    <Stack.Screen
+      name="Settings"
+      component={SettingsScreen}
+      options={{ title: 'SETTINGS' }}
+    />
+    <Stack.Screen
+      name="Profile"
+      component={ProfileScreen}
+      options={{ title: 'PROFILE' }}
+    />
+    <Stack.Screen
+      name="Careers"
+      component={CareersScreen}
+      options={{ title: 'CAREERS' }}
+    />
+    <Stack.Screen
+      name="CareerDetail"
+      component={CareerDetailScreen}
+      options={{ title: 'JOB POSTING' }}
+    />
+    <Stack.Screen
+      name="AboutTeam"
+      component={AboutTeamScreen}
+      options={{ title: 'ABOUT US TEAM' }}
+    />
+    <Stack.Screen
+      name="Developers"
+      component={DevelopersScreen}
+      options={{ title: 'DEVELOPERS' }}
+    />
+    <Stack.Screen
+      name="WorkGallery"
+      component={WorkGalleryScreen}
+      options={{ title: 'WORK GALLERY' }}
+    />
+    <Stack.Screen
+      name="Photos"
+      component={PhotosScreen}
+      options={{ title: 'PHOTOS' }}
+    />
+    <Stack.Screen
+      name="Reels"
+      component={ReelsScreen}
+      options={{ title: 'REELS' }}
+    />
+    <Stack.Screen
+      name="Trash"
+      component={TrashScreen}
+      options={{ title: 'TRASH' }}
+    />
+    <Stack.Screen
+      name="ERPConsole"
+      component={ERPConsoleScreen}
+      options={{ title: 'ERP CONSOLE' }}
+    />
   </Stack.Navigator>
 );
 

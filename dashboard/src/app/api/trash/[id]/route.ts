@@ -12,17 +12,14 @@ async function getRouteId(context: RouteContext) {
   return normalized;
 }
 
-
-
-
-export async function PATCH(
-  _request: Request,
-  context: RouteContext,
-) {
+export async function PATCH(_request: Request, context: RouteContext) {
   try {
     const id = await getRouteId(context);
     if (!id) {
-      return NextResponse.json({ error: "Invalid trash item id" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid trash item id" },
+        { status: 400 },
+      );
     }
 
     const ok = await svc.restoreFromTrash(id);
@@ -33,21 +30,21 @@ export async function PATCH(
       );
     return NextResponse.json({ success: true });
   } catch (e: any) {
-    return NextResponse.json({ error: e.message || String(e) }, { status: 500 });
+    return NextResponse.json(
+      { error: e.message || String(e) },
+      { status: 500 },
+    );
   }
 }
 
-
-
-
-export async function DELETE(
-  _request: Request,
-  context: RouteContext,
-) {
+export async function DELETE(_request: Request, context: RouteContext) {
   try {
     const id = await getRouteId(context);
     if (!id) {
-      return NextResponse.json({ error: "Invalid trash item id" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid trash item id" },
+        { status: 400 },
+      );
     }
 
     const ok = await svc.permanentlyDestroyTrashItem(id);
@@ -58,6 +55,9 @@ export async function DELETE(
       );
     return NextResponse.json({ success: true });
   } catch (e: any) {
-    return NextResponse.json({ error: e.message || String(e) }, { status: 500 });
+    return NextResponse.json(
+      { error: e.message || String(e) },
+      { status: 500 },
+    );
   }
 }

@@ -1,42 +1,41 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getDb } from '@/lib/mongodb';
-import { ObjectId } from 'mongodb';
-
+import { NextRequest, NextResponse } from "next/server";
+import { getDb } from "@/lib/mongodb";
+import { ObjectId } from "mongodb";
 
 const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
-
 
 export async function OPTIONS() {
   return NextResponse.json({}, { headers: corsHeaders });
 }
 
-
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const jobId = searchParams.get('jobId');
-    
+    const jobId = searchParams.get("jobId");
+
     const db = await getDb();
-    
+
     const query = jobId ? { jobId: new ObjectId(jobId) } : {};
-    
+
     const applications = await db
-      .collection('applications')
+      .collection("applications")
       .find(query)
       .sort({ appliedAt: -1 })
       .toArray();
 
     return NextResponse.json(applications, { headers: corsHeaders });
   } catch (error) {
-    console.error('Error fetching applications:', error);
-    return NextResponse.json({ error: 'Failed to fetch applications' }, { status: 500, headers: corsHeaders });
+    console.error("Error fetching applications:", error);
+    return NextResponse.json(
+      { error: "Failed to fetch applications" },
+      { status: 500, headers: corsHeaders },
+    );
   }
 }
-
 
 export async function POST(request: NextRequest) {
   try {
@@ -46,15 +45,23 @@ export async function POST(request: NextRequest) {
     const newApplication = {
       ...body,
       jobId: new ObjectId(body.jobId),
-      status: 'pending',
+      status: "pending",
       appliedAt: new Date().toISOString(),
     };
 
-    const result = await db.collection('applications').insertOne(newApplication);
+    const result = await db
+      .collection("applications")
+      .insertOne(newApplication);
 
-    return NextResponse.json({ _id: result.insertedId, ...newApplication }, { status: 201, headers: corsHeaders });
+    return NextResponse.json(
+      { _id: result.insertedId, ...newApplication },
+      { status: 201, headers: corsHeaders },
+    );
   } catch (error) {
-    console.error('Error creating application:', error);
-    return NextResponse.json({ error: 'Failed to submit application' }, { status: 500, headers: corsHeaders });
+    console.error("Error creating application:", error);
+    return NextResponse.json(
+      { error: "Failed to submit application" },
+      { status: 500, headers: corsHeaders },
+    );
   }
 }

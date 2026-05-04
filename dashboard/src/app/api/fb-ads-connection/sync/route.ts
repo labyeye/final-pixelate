@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { verifyToken } from "@/lib/auth";
-import { getFormLeads, hashForMeta, sendConversionEvents } from "@/lib/meta-api";
+import {
+  getFormLeads,
+  hashForMeta,
+  sendConversionEvents,
+} from "@/lib/meta-api";
 import type { FbLead } from "@/lib/meta-api";
 
 const CORS = {
@@ -13,7 +17,6 @@ const CORS = {
 export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
 }
-
 
 function mapFbLeadToLead(fbLead: FbLead, clientId: string) {
   const fields: Record<string, string> = {};
@@ -29,7 +32,11 @@ function mapFbLeadToLead(fbLead: FbLead, clientId: string) {
     "Unknown";
 
   const phone =
-    fields.phone_number || fields.phone || fields.mobile_number || fields.mobile || "";
+    fields.phone_number ||
+    fields.phone ||
+    fields.mobile_number ||
+    fields.mobile ||
+    "";
   const email = fields.email || fields.email_address || "";
   const city = fields.city || fields.location || "";
   const subject =
@@ -56,30 +63,26 @@ function mapFbLeadToLead(fbLead: FbLead, clientId: string) {
   };
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 export async function POST(request: NextRequest) {
   const auth = request.headers.get("authorization") || "";
   const token = auth.replace("Bearer ", "");
   const decoded: any = verifyToken(token);
-  if (!decoded) return NextResponse.json({ error: "unauthorized" }, { status: 401, headers: CORS });
+  if (!decoded)
+    return NextResponse.json(
+      { error: "unauthorized" },
+      { status: 401, headers: CORS },
+    );
 
   const body = await request.json().catch(() => ({}));
   let clientId: string = body.clientId || "";
-  
+
   const fullSync: boolean = decoded.role === "admin" && body.fullSync === true;
   if (decoded.role === "client") clientId = decoded.clientId;
-  if (!clientId) return NextResponse.json({ error: "clientId required" }, { status: 400, headers: CORS });
+  if (!clientId)
+    return NextResponse.json(
+      { error: "clientId required" },
+      { status: 400, headers: CORS },
+    );
 
   const connCol = await svc.getCollection("fbAdsConnections");
   const conn = await connCol.findOne({ clientId });
@@ -93,15 +96,18 @@ export async function POST(request: NextRequest) {
   const selectedFormIds: string[] = conn.selectedFormIds || [];
   if (selectedFormIds.length === 0) {
     return NextResponse.json(
-      { error: "No Lead Ad forms selected. Select at least one form in the FB Ads settings." },
+      {
+        error:
+          "No Lead Ad forms selected. Select at least one form in the FB Ads settings.",
+      },
       { status: 400, headers: CORS },
     );
   }
 
-  
-  const since = (!fullSync && conn.lastSyncAt)
-    ? Math.floor(new Date(conn.lastSyncAt).getTime() / 1000)
-    : undefined;
+  const since =
+    !fullSync && conn.lastSyncAt
+      ? Math.floor(new Date(conn.lastSyncAt).getTime() / 1000)
+      : undefined;
 
   const leadsCol = await svc.getCollection("leads");
   let imported = 0;
@@ -114,17 +120,21 @@ export async function POST(request: NextRequest) {
 
       for (const fbLead of fbLeads) {
         const existing = await leadsCol.findOne({ fbLeadId: fbLead.id });
-        if (existing) { skipped++; continue; }
+        if (existing) {
+          skipped++;
+          continue;
+        }
 
         const lead = mapFbLeadToLead(fbLead, clientId);
         await leadsCol.insertOne(lead);
         imported++;
 
-        
         if (conn.datasetId) {
           conversionEvents.push({
             event_name: "Lead",
-            event_time: Math.floor(new Date(fbLead.created_time).getTime() / 1000),
+            event_time: Math.floor(
+              new Date(fbLead.created_time).getTime() / 1000,
+            ),
             hashed_email: lead.email ? hashForMeta(lead.email) : undefined,
             hashed_phone: lead.phone ? hashForMeta(lead.phone) : undefined,
             lead_id: fbLead.id,
@@ -136,14 +146,14 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  
   if (conversionEvents.length > 0 && conn.datasetId) {
-    sendConversionEvents(conn.datasetId, conn.accessToken, conversionEvents).catch((e) =>
-      console.error("Conversions API error:", e.message),
-    );
+    sendConversionEvents(
+      conn.datasetId,
+      conn.accessToken,
+      conversionEvents,
+    ).catch((e) => console.error("Conversions API error:", e.message));
   }
 
-  
   await connCol.updateOne(
     { clientId },
     {
@@ -152,5 +162,8 @@ export async function POST(request: NextRequest) {
     },
   );
 
-  return NextResponse.json({ imported, skipped, total: imported + skipped }, { headers: CORS });
+  return NextResponse.json(
+    { imported, skipped, total: imported + skipped },
+    { headers: CORS },
+  );
 }

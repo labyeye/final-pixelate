@@ -35,7 +35,6 @@ const S = StyleSheet.create({
   },
   originalCopy: { fontSize: 7, color: "#666", marginTop: 1 },
 
-  
   headerRow: { flexDirection: "row", borderBottom: "1pt solid #222" },
   companyBlock: { flex: 1, padding: 8, borderRight: "1pt solid #222" },
   logo: { width: 150, height: 50, objectFit: "contain", marginBottom: 4 },
@@ -69,7 +68,6 @@ const S = StyleSheet.create({
     marginBottom: -20,
   },
 
-  
   partyRow: { flexDirection: "row", borderBottom: "1pt solid #222" },
   partyBlock: { flex: 1, padding: 8 },
   partyBlockRight: { flex: 1, padding: 8, borderLeft: "1pt solid #222" },
@@ -89,7 +87,6 @@ const S = StyleSheet.create({
   },
   partyLine: { fontSize: 8, color: "#333", marginBottom: 1 },
 
-  
   tableContainer: { borderBottom: "1pt solid #222" },
   tableHeader: {
     flexDirection: "row",
@@ -123,7 +120,6 @@ const S = StyleSheet.create({
     height: 18,
   },
 
-  
   amountWords: {
     flexDirection: "row",
     paddingVertical: 5,
@@ -139,7 +135,6 @@ const S = StyleSheet.create({
   },
   amountWordsValue: { fontSize: 7.5, color: "#111", flex: 1 },
 
-  
   bottomSection: { flexDirection: "row", borderBottom: "1pt solid #222" },
   bottomLeft: { flex: 1, borderRight: "1pt solid #222", padding: 8 },
   sectionLabel: {
@@ -188,7 +183,6 @@ const S = StyleSheet.create({
     color: "#111",
   },
 
-  
   taxSection: { borderBottom: "1pt solid #222" },
   taxHeader: {
     flexDirection: "row",
@@ -218,7 +212,6 @@ const S = StyleSheet.create({
     textAlign: "right",
   },
 
-  
   footerSection: { flexDirection: "row", borderBottom: "1pt solid #222" },
   declarationBlock: {
     width: 333.25,
@@ -246,11 +239,9 @@ const S = StyleSheet.create({
   },
   signatureTitle: { fontSize: 7.5, color: "#666", textAlign: "right" },
 
-  
   footerNote: { paddingVertical: 5, alignItems: "center" },
   footerNoteText: { fontSize: 7.5, color: "#888" },
 });
-
 
 const fmt = (n: number) =>
   `Rs. ${Number(n || 0).toLocaleString("en-IN", {
@@ -361,7 +352,6 @@ function numToWords(n: number): string {
   return res + " Only";
 }
 
-
 export function InvoicePDFDocument({
   invoice,
   client,
@@ -372,7 +362,6 @@ export function InvoicePDFDocument({
   const items = getItems(invoice);
   const selectedHsnCode = String(invoice?.hsnCode || "998314");
 
-  
   const subtotal = items.reduce((s: number, it: any) => {
     const qty = Number(it?.quantity ?? it?.qty ?? 1);
     const rate = Number(it?.price ?? it?.unitPrice ?? it?.amount ?? 0);
@@ -721,7 +710,9 @@ export function InvoicePDFDocument({
                 <Text style={S.taxColNH}>Total Tax</Text>
               </View>
               <View style={S.taxRow}>
-                <Text style={[S.taxColW, { fontSize: 7.5 }]}>{selectedHsnCode}</Text>
+                <Text style={[S.taxColW, { fontSize: 7.5 }]}>
+                  {selectedHsnCode}
+                </Text>
                 <Text style={S.taxColN}>{fmt(taxable)}</Text>
                 {isInterState ? (
                   <>

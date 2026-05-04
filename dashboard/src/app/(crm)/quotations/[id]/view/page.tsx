@@ -21,19 +21,16 @@ export default function QuotationViewPage() {
 
     (async () => {
       try {
-        
         const qRes = await fetch(`/api/quotations/${id}`);
         if (!qRes.ok) throw new Error("Failed to fetch quotation");
         const qData = await qRes.json();
         setQuotation(qData);
 
-        
         if (qData.clientId) {
           const cRes = await fetch(`/api/clients/${qData.clientId}`);
           if (cRes.ok) setClient(await cRes.json());
         }
 
-        
         const sRes = await fetch("/api/settings");
         if (sRes.ok) setSettings(await sRes.json());
       } catch (error) {
@@ -103,46 +100,7 @@ export default function QuotationViewPage() {
       </div>
       <div className="print-area min-h-screen bg-white">
         <div className="max-w-[210mm] mx-auto">
-          {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
+          {}
           <section className="h-screen flex flex-col items-center justify-center p-12 relative bg-[#ffffff]">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#044bab] to-[#044bab]"></div>
             <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#044bab] to-[#044bab]"></div>
@@ -555,7 +513,11 @@ export default function QuotationViewPage() {
                 <div>
                   <div className="h-0 mb-30"></div>
                   <div className="border-gray-400 pt-2">
-                    <img src="/assets/sign.png" alt="Signature" className="h-16 mb-2" />
+                    <img
+                      src="/assets/sign.png"
+                      alt="Signature"
+                      className="h-16 mb-2"
+                    />
                     <p className="text-sm font-semibold text-gray-900">
                       Authorized Signatory
                     </p>

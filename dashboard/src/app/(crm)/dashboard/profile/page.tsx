@@ -7,7 +7,13 @@ import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Loader2, Upload, Eye, EyeOff } from "lucide-react";
 
 export default function ProfilePage() {
@@ -29,7 +35,9 @@ export default function ProfilePage() {
   });
 
   const [profilePicture, setProfilePicture] = useState<string | null>(null);
-  const [profilePictureFile, setProfilePictureFile] = useState<File | null>(null);
+  const [profilePictureFile, setProfilePictureFile] = useState<File | null>(
+    null,
+  );
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const [showPasswords, setShowPasswords] = useState({
@@ -41,7 +49,6 @@ export default function ProfilePage() {
   const [updatingPassword, setUpdatingPassword] = useState(false);
   const [updatingProfile, setUpdatingProfile] = useState(false);
 
-  
   useEffect(() => {
     if (!user) {
       router.push("/login");
@@ -54,20 +61,22 @@ export default function ProfilePage() {
       role: user.role || "",
     });
 
-    
-    const profilePic = (user as any)?.profilePicture || (user as any)?.avatarUrl || (user as any)?.avatar;
+    const profilePic =
+      (user as any)?.profilePicture ||
+      (user as any)?.avatarUrl ||
+      (user as any)?.avatar;
     if (profilePic) {
       setProfilePicture(profilePic);
       setPreviewUrl(profilePic);
     }
   }, [user, router]);
 
-  
-  const handleProfilePictureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleProfilePictureChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    
     if (!file.type.startsWith("image/")) {
       toast({
         title: "Invalid file type",
@@ -77,7 +86,6 @@ export default function ProfilePage() {
       return;
     }
 
-    
     if (file.size > 5 * 1024 * 1024) {
       toast({
         title: "File too large",
@@ -89,7 +97,6 @@ export default function ProfilePage() {
 
     setProfilePictureFile(file);
 
-    
     const reader = new FileReader();
     reader.onloadend = () => {
       setPreviewUrl(reader.result as string);
@@ -97,7 +104,6 @@ export default function ProfilePage() {
     reader.readAsDataURL(file);
   };
 
-  
   const handleUploadProfilePicture = async () => {
     if (!profilePictureFile) {
       toast({
@@ -127,7 +133,6 @@ export default function ProfilePage() {
       const uploadData = await uploadRes.json();
       const imageUrl = uploadData.url || uploadData.path || uploadData.filename;
 
-      
       const updateRes = await fetch(`/api/users/${user?.id || user?._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -158,7 +163,6 @@ export default function ProfilePage() {
     }
   };
 
-  
   const handleChangePassword = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -200,14 +204,17 @@ export default function ProfilePage() {
 
     setUpdatingPassword(true);
     try {
-      const res = await fetch(`/api/users/${user?.id || user?._id}/change-password`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          currentPassword: passwordData.currentPassword,
-          newPassword: passwordData.newPassword,
-        }),
-      });
+      const res = await fetch(
+        `/api/users/${user?.id || user?._id}/change-password`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            currentPassword: passwordData.currentPassword,
+            newPassword: passwordData.newPassword,
+          }),
+        },
+      );
 
       const data = await res.json();
 
@@ -220,7 +227,6 @@ export default function ProfilePage() {
         description: "Password changed successfully",
       });
 
-      
       setPasswordData({
         currentPassword: "",
         newPassword: "",
@@ -248,7 +254,9 @@ export default function ProfilePage() {
         {}
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Profile Settings</h1>
-          <p className="text-gray-600 mt-2">Manage your account and security settings</p>
+          <p className="text-gray-600 mt-2">
+            Manage your account and security settings
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -280,7 +288,10 @@ export default function ProfilePage() {
 
                 {}
                 <div>
-                  <label htmlFor="profile-picture" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="profile-picture"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Choose Image
                   </label>
                   <input
@@ -295,7 +306,9 @@ export default function ProfilePage() {
                       file:bg-blue-50 file:text-blue-700
                       hover:file:bg-blue-100"
                   />
-                  <p className="text-xs text-gray-500 mt-2">Max 5MB, JPG/PNG/GIF</p>
+                  <p className="text-xs text-gray-500 mt-2">
+                    Max 5MB, JPG/PNG/GIF
+                  </p>
                 </div>
 
                 {}
@@ -330,7 +343,10 @@ export default function ProfilePage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <Label htmlFor="name" className="text-sm font-medium text-gray-700">
+                  <Label
+                    htmlFor="name"
+                    className="text-sm font-medium text-gray-700"
+                  >
                     Full Name
                   </Label>
                   <Input
@@ -340,11 +356,16 @@ export default function ProfilePage() {
                     disabled
                     className="mt-1 bg-gray-50 text-gray-500 cursor-not-allowed"
                   />
-                  <p className="text-xs text-gray-500 mt-1">Contact admin to change name</p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Contact admin to change name
+                  </p>
                 </div>
 
                 <div>
-                  <Label htmlFor="email" className="text-sm font-medium text-gray-700">
+                  <Label
+                    htmlFor="email"
+                    className="text-sm font-medium text-gray-700"
+                  >
                     Email Address
                   </Label>
                   <Input
@@ -354,17 +375,25 @@ export default function ProfilePage() {
                     disabled
                     className="mt-1 bg-gray-50 text-gray-500 cursor-not-allowed"
                   />
-                  <p className="text-xs text-gray-500 mt-1">Contact admin to change email</p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Contact admin to change email
+                  </p>
                 </div>
 
                 <div>
-                  <Label htmlFor="role" className="text-sm font-medium text-gray-700">
+                  <Label
+                    htmlFor="role"
+                    className="text-sm font-medium text-gray-700"
+                  >
                     Role
                   </Label>
                   <Input
                     id="role"
                     type="text"
-                    value={profileData.role.charAt(0).toUpperCase() + profileData.role.slice(1)}
+                    value={
+                      profileData.role.charAt(0).toUpperCase() +
+                      profileData.role.slice(1)
+                    }
                     disabled
                     className="mt-1 bg-gray-50 text-gray-500 cursor-not-allowed"
                   />
@@ -376,13 +405,18 @@ export default function ProfilePage() {
             <Card>
               <CardHeader>
                 <CardTitle className="text-lg">Change Password</CardTitle>
-                <CardDescription>Update your password to keep your account secure</CardDescription>
+                <CardDescription>
+                  Update your password to keep your account secure
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleChangePassword} className="space-y-4">
                   {}
                   <div>
-                    <Label htmlFor="current-password" className="text-sm font-medium text-gray-700">
+                    <Label
+                      htmlFor="current-password"
+                      className="text-sm font-medium text-gray-700"
+                    >
                       Current Password
                     </Label>
                     <div className="relative mt-1">
@@ -391,7 +425,10 @@ export default function ProfilePage() {
                         type={showPasswords.current ? "text" : "password"}
                         value={passwordData.currentPassword}
                         onChange={(e) =>
-                          setPasswordData({ ...passwordData, currentPassword: e.target.value })
+                          setPasswordData({
+                            ...passwordData,
+                            currentPassword: e.target.value,
+                          })
                         }
                         placeholder="Enter current password"
                         className="pr-10"
@@ -399,7 +436,10 @@ export default function ProfilePage() {
                       <button
                         type="button"
                         onClick={() =>
-                          setShowPasswords({ ...showPasswords, current: !showPasswords.current })
+                          setShowPasswords({
+                            ...showPasswords,
+                            current: !showPasswords.current,
+                          })
                         }
                         className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
                       >
@@ -414,7 +454,10 @@ export default function ProfilePage() {
 
                   {}
                   <div>
-                    <Label htmlFor="new-password" className="text-sm font-medium text-gray-700">
+                    <Label
+                      htmlFor="new-password"
+                      className="text-sm font-medium text-gray-700"
+                    >
                       New Password
                     </Label>
                     <div className="relative mt-1">
@@ -423,7 +466,10 @@ export default function ProfilePage() {
                         type={showPasswords.new ? "text" : "password"}
                         value={passwordData.newPassword}
                         onChange={(e) =>
-                          setPasswordData({ ...passwordData, newPassword: e.target.value })
+                          setPasswordData({
+                            ...passwordData,
+                            newPassword: e.target.value,
+                          })
                         }
                         placeholder="Enter new password"
                         className="pr-10"
@@ -431,7 +477,10 @@ export default function ProfilePage() {
                       <button
                         type="button"
                         onClick={() =>
-                          setShowPasswords({ ...showPasswords, new: !showPasswords.new })
+                          setShowPasswords({
+                            ...showPasswords,
+                            new: !showPasswords.new,
+                          })
                         }
                         className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
                       >
@@ -442,12 +491,17 @@ export default function ProfilePage() {
                         )}
                       </button>
                     </div>
-                    <p className="text-xs text-gray-500 mt-1">At least 6 characters</p>
+                    <p className="text-xs text-gray-500 mt-1">
+                      At least 6 characters
+                    </p>
                   </div>
 
                   {}
                   <div>
-                    <Label htmlFor="confirm-password" className="text-sm font-medium text-gray-700">
+                    <Label
+                      htmlFor="confirm-password"
+                      className="text-sm font-medium text-gray-700"
+                    >
                       Confirm New Password
                     </Label>
                     <div className="relative mt-1">
@@ -456,7 +510,10 @@ export default function ProfilePage() {
                         type={showPasswords.confirm ? "text" : "password"}
                         value={passwordData.confirmPassword}
                         onChange={(e) =>
-                          setPasswordData({ ...passwordData, confirmPassword: e.target.value })
+                          setPasswordData({
+                            ...passwordData,
+                            confirmPassword: e.target.value,
+                          })
                         }
                         placeholder="Confirm new password"
                         className="pr-10"
@@ -464,7 +521,10 @@ export default function ProfilePage() {
                       <button
                         type="button"
                         onClick={() =>
-                          setShowPasswords({ ...showPasswords, confirm: !showPasswords.confirm })
+                          setShowPasswords({
+                            ...showPasswords,
+                            confirm: !showPasswords.confirm,
+                          })
                         }
                         className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
                       >
@@ -478,7 +538,11 @@ export default function ProfilePage() {
                   </div>
 
                   {}
-                  <Button type="submit" disabled={updatingPassword} className="w-full">
+                  <Button
+                    type="submit"
+                    disabled={updatingPassword}
+                    className="w-full"
+                  >
                     {updatingPassword ? (
                       <>
                         <Loader2 className="w-4 h-4 mr-2 animate-spin" />

@@ -40,12 +40,6 @@ export async function POST(req: NextRequest) {
   }
 }
 
-
-
-
-
-
-
 export async function DELETE(req: NextRequest) {
   let body: { clientId?: string; reason?: string };
   try {

@@ -26,43 +26,42 @@ export async function POST(request: NextRequest, context: RouteContext) {
     if (!currentPassword || !newPassword) {
       return NextResponse.json(
         { error: "Current password and new password are required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (newPassword.length < 6) {
       return NextResponse.json(
         { error: "New password must be at least 6 characters" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    
     const user = await svc.findById("users", id);
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    
     if (!user.password) {
       return NextResponse.json(
         { error: "User account has no password set" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    const isPasswordValid = await bcryptjs.compare(currentPassword, user.password);
+    const isPasswordValid = await bcryptjs.compare(
+      currentPassword,
+      user.password,
+    );
     if (!isPasswordValid) {
       return NextResponse.json(
         { error: "Current password is incorrect" },
-        { status: 401 }
+        { status: 401 },
       );
     }
 
-    
     const hashedPassword = await bcryptjs.hash(newPassword, 10);
 
-    
     const updated = await svc.updateById("users", id, {
       password: hashedPassword,
     });
@@ -76,7 +75,7 @@ export async function POST(request: NextRequest, context: RouteContext) {
     console.error("Password change error:", e);
     return NextResponse.json(
       { error: e.message || "Failed to change password" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

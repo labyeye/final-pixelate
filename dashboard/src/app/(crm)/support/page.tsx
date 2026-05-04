@@ -135,7 +135,6 @@ export default function SupportPage() {
         .then(setUsers)
         .catch(console.error);
     }
-    
   }, [isClient, myClientId]);
 
   const createTicket = async () => {
@@ -196,7 +195,7 @@ export default function SupportPage() {
 
   const updateTicketStatus = async (
     ticketId: string,
-    newStatus: TicketStatus
+    newStatus: TicketStatus,
   ) => {
     try {
       const res = await fetch(`/api/support-tickets/${ticketId}`, {
@@ -236,7 +235,7 @@ export default function SupportPage() {
       const ticketId = selectedTicket._id || selectedTicket.id;
       const commenterName = isClient
         ? myClientName
-        : (user as any)?.name ?? "Staff";
+        : ((user as any)?.name ?? "Staff");
       const res = await fetch(`/api/support-tickets/${ticketId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
@@ -328,7 +327,6 @@ export default function SupportPage() {
     resolved: getTicketsByStatus("resolved").length,
   };
 
-  
   const TicketDetailModal = () => (
     <Dialog open={isDetailModalOpen} onOpenChange={setIsDetailModalOpen}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
@@ -417,26 +415,24 @@ export default function SupportPage() {
                       Status
                     </label>
                     {isClient ? (
-                      
                       <div className="mt-2">
                         <Badge
                           variant="outline"
                           className={cn(
                             "text-sm px-3 py-1",
-                            getStatusColor(selectedTicket.status)
+                            getStatusColor(selectedTicket.status),
                           )}
                         >
                           {getStatusLabel(selectedTicket.status)}
                         </Badge>
                       </div>
                     ) : (
-                      
                       <Select
                         value={selectedTicket.status}
                         onValueChange={(v) =>
                           updateTicketStatus(
                             selectedTicket._id || selectedTicket.id || "",
-                            v as TicketStatus
+                            v as TicketStatus,
                           )
                         }
                       >
@@ -445,7 +441,9 @@ export default function SupportPage() {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="new">New</SelectItem>
-                          <SelectItem value="in_progress">In Progress</SelectItem>
+                          <SelectItem value="in_progress">
+                            In Progress
+                          </SelectItem>
                           <SelectItem value="resolved">Resolved</SelectItem>
                         </SelectContent>
                       </Select>
@@ -475,10 +473,7 @@ export default function SupportPage() {
                             <span className="font-medium">{activity.user}</span>
                             <span className="text-xs text-muted-foreground">
                               {activity.timestamp
-                                ? format(
-                                    new Date(activity.timestamp),
-                                    "PPp"
-                                  )
+                                ? format(new Date(activity.timestamp), "PPp")
                                 : ""}
                             </span>
                           </div>
@@ -521,7 +516,6 @@ export default function SupportPage() {
     </Dialog>
   );
 
-  
   if (isClient) {
     return (
       <div className="p-6 space-y-6 max-w-5xl mx-auto">
@@ -558,7 +552,7 @@ export default function SupportPage() {
                 "border-2 cursor-pointer transition-all",
                 activeTab === s
                   ? "border-purple-500 shadow-md"
-                  : "border-gray-200 hover:border-purple-300"
+                  : "border-gray-200 hover:border-purple-300",
               )}
               onClick={() => setActiveTab(activeTab === s ? "all" : s)}
             >
@@ -569,8 +563,8 @@ export default function SupportPage() {
                     s === "new"
                       ? "bg-blue-100"
                       : s === "in_progress"
-                      ? "bg-purple-100"
-                      : "bg-green-100"
+                        ? "bg-purple-100"
+                        : "bg-green-100",
                   )}
                 >
                   {s === "new" ? (
@@ -668,7 +662,10 @@ export default function SupportPage() {
                   <div className="flex flex-col items-end gap-2 shrink-0">
                     <Badge
                       variant="outline"
-                      className={cn("text-xs", getPriorityColor(ticket.priority))}
+                      className={cn(
+                        "text-xs",
+                        getPriorityColor(ticket.priority),
+                      )}
                     >
                       {ticket.priority}
                     </Badge>
@@ -683,7 +680,7 @@ export default function SupportPage() {
                     {ticket.createdAt
                       ? format(
                           new Date(ticket.createdAt),
-                          "dd MMM yyyy, h:mm a"
+                          "dd MMM yyyy, h:mm a",
                         )
                       : ""}
                   </span>
@@ -807,7 +804,6 @@ export default function SupportPage() {
     );
   }
 
-  
   const TicketCard = ({ ticket }: { ticket: Ticket }) => (
     <div
       className="bg-white rounded-lg border border-gray-200 p-4 mb-3 cursor-pointer hover:shadow-md transition-shadow"
@@ -867,7 +863,7 @@ export default function SupportPage() {
                 "w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-colors",
                 activeTab === tab
                   ? "bg-purple-50 text-purple-700 font-medium"
-                  : "text-gray-700 hover:bg-gray-50"
+                  : "text-gray-700 hover:bg-gray-50",
               )}
             >
               {tab === "all" && <Tag className="h-4 w-4" />}
@@ -879,10 +875,10 @@ export default function SupportPage() {
                 {tab === "all"
                   ? ticketStats.all
                   : tab === "new"
-                  ? ticketStats.new
-                  : tab === "in_progress"
-                  ? ticketStats.in_progress
-                  : ticketStats.resolved}
+                    ? ticketStats.new
+                    : tab === "in_progress"
+                      ? ticketStats.in_progress
+                      : ticketStats.resolved}
               </span>
             </button>
           ))}
@@ -904,10 +900,10 @@ export default function SupportPage() {
                 {activeTab === "all"
                   ? ticketStats.all
                   : activeTab === "new"
-                  ? ticketStats.new
-                  : activeTab === "in_progress"
-                  ? ticketStats.in_progress
-                  : ticketStats.resolved}
+                    ? ticketStats.new
+                    : activeTab === "in_progress"
+                      ? ticketStats.in_progress
+                      : ticketStats.resolved}
               </span>
             </div>
             <div className="flex items-center gap-3">
@@ -950,8 +946,8 @@ export default function SupportPage() {
                       status === "new"
                         ? "bg-blue-500"
                         : status === "in_progress"
-                        ? "bg-purple-500"
-                        : "bg-green-500"
+                          ? "bg-purple-500"
+                          : "bg-green-500",
                     )}
                   />
                   <h3 className="font-semibold text-gray-900">
@@ -963,10 +959,7 @@ export default function SupportPage() {
                 </div>
                 <div className="space-y-3">
                   {getTicketsByStatus(status).map((ticket) => (
-                    <TicketCard
-                      key={ticket._id || ticket.id}
-                      ticket={ticket}
-                    />
+                    <TicketCard key={ticket._id || ticket.id} ticket={ticket} />
                   ))}
                   {getTicketsByStatus(status).length === 0 && (
                     <div className="text-center py-8 text-gray-400 text-sm">
@@ -987,7 +980,8 @@ export default function SupportPage() {
             <DialogTitle>Create New Support Ticket</DialogTitle>
           </DialogHeader>
           <div className="grid gap-4 py-4">
-clear            <div className="grid gap-2">
+            clear{" "}
+            <div className="grid gap-2">
               <label className="text-sm font-medium">Title</label>
               <Input
                 placeholder="Brief description of the issue"
@@ -1034,9 +1028,7 @@ clear            <div className="grid gap-2">
                 <label className="text-sm font-medium">Priority</label>
                 <Select
                   value={form.priority}
-                  onValueChange={(v) =>
-                    update("priority", v as TicketPriority)
-                  }
+                  onValueChange={(v) => update("priority", v as TicketPriority)}
                 >
                   <SelectTrigger>
                     <SelectValue />

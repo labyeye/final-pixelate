@@ -33,8 +33,8 @@ interface UserActivity {
   _id: string;
   userId: string;
   url: string;
-  startTime: string; 
-  duration: number; 
+  startTime: string;
+  duration: number;
   userAgent: string;
   referrer: string;
 }
@@ -73,7 +73,7 @@ export default function UserActivityPage() {
 
   useEffect(() => {
     fetchData();
-    const interval = setInterval(fetchData, 10000); 
+    const interval = setInterval(fetchData, 10000);
     return () => clearInterval(interval);
   }, []);
 
@@ -91,19 +91,16 @@ export default function UserActivityPage() {
     }
   };
 
-  
   const totalVisits = data.length;
   const uniqueUsers = new Set(data.map((d) => d.userId)).size;
   const avgDuration =
     data.length > 0
       ? (
-        data.reduce((acc, curr) => acc + (curr.duration || 0), 0) /
-        data.length
-      ).toFixed(1)
+          data.reduce((acc, curr) => acc + (curr.duration || 0), 0) /
+          data.length
+        ).toFixed(1)
       : 0;
 
-  
-  
   const visitsByHour = data.reduce(
     (acc, curr) => {
       const date = new Date(curr.startTime);
@@ -119,18 +116,14 @@ export default function UserActivityPage() {
     value,
   }));
 
-  
   const pagesCount = data.reduce(
     (acc, curr) => {
-      
       let path = curr.url;
       try {
         const urlObj = new URL(curr.url);
         path = urlObj.pathname;
         if (path === "/index.html") path = "/";
-      } catch (e) {
-        
-      }
+      } catch (e) {}
 
       acc[path] = (acc[path] || 0) + 1;
       return acc;
@@ -143,9 +136,7 @@ export default function UserActivityPage() {
     .slice(0, 5)
     .map(([name, value]) => ({ name, value }));
 
-  
   const pagePerformance = KNOWN_PAGES.map((page) => {
-    
     const visits = data.filter((d) => {
       try {
         let p = new URL(d.url).pathname;

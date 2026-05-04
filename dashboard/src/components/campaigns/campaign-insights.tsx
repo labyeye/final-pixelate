@@ -92,7 +92,6 @@ export function CampaignInsights() {
         throw new Error(data.error || "Failed to delete campaign");
       }
 
-      
       await fetchCampaigns();
       alert("Campaign deleted successfully!");
     } catch (err: any) {
@@ -102,7 +101,9 @@ export function CampaignInsights() {
   };
 
   if (loading)
-    return <div className="text-center text-gray-500">Loading campaigns...</div>;
+    return (
+      <div className="text-center text-gray-500">Loading campaigns...</div>
+    );
   if (error)
     return <div className="text-center text-red-500">Error: {error}</div>;
   if (!insights)
@@ -130,7 +131,9 @@ export function CampaignInsights() {
       {}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-3xl font-bold text-gray-900">Campaign Insights</h2>
+          <h2 className="text-3xl font-bold text-gray-900">
+            Campaign Insights
+          </h2>
           <p className="text-gray-600 mt-1">
             Track and analyze your campaign performance in real-time
           </p>
@@ -159,7 +162,10 @@ export function CampaignInsights() {
             </div>
             <div className="text-xs text-gray-500 mt-2">100% baseline</div>
             <div className="w-full bg-gray-200 h-1 rounded-full mt-3">
-              <div className="bg-blue-500 h-1 rounded-full" style={{ width: "100%" }} />
+              <div
+                className="bg-blue-500 h-1 rounded-full"
+                style={{ width: "100%" }}
+              />
             </div>
           </CardContent>
         </Card>
@@ -273,10 +279,9 @@ export function CampaignInsights() {
             </div>
             <div className="text-xs text-gray-500 mt-2">
               {insights.totalRead > 0
-                ? (
-                    (insights.totalReplied / insights.totalRead) *
-                    100
-                  ).toFixed(0)
+                ? ((insights.totalReplied / insights.totalRead) * 100).toFixed(
+                    0,
+                  )
                 : "0"}
               %
             </div>
@@ -320,15 +325,21 @@ export function CampaignInsights() {
             <div className="space-y-2">
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Messages sent</span>
-                <span className="font-semibold">{insights.totalSent.toLocaleString()}</span>
+                <span className="font-semibold">
+                  {insights.totalSent.toLocaleString()}
+                </span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Messages delivered</span>
-                <span className="font-semibold">{insights.totalDelivered.toLocaleString()}</span>
+                <span className="font-semibold">
+                  {insights.totalDelivered.toLocaleString()}
+                </span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Messages received</span>
-                <span className="font-semibold">{insights.totalReplied.toLocaleString()}</span>
+                <span className="font-semibold">
+                  {insights.totalReplied.toLocaleString()}
+                </span>
               </div>
             </div>
           </CardContent>
@@ -337,19 +348,26 @@ export function CampaignInsights() {
         {}
         <Card>
           <CardHeader>
-            <CardTitle className="text-sm font-medium">Messages Sent by Category</CardTitle>
+            <CardTitle className="text-sm font-medium">
+              Messages Sent by Category
+            </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="space-y-2 text-sm">
-              {insights.byCategory && Object.entries(insights.byCategory).map(([category, count]) => (
-                count > 0 && (
-                  <div key={category} className="flex justify-between">
-                    <span className="text-gray-600 capitalize">{category.replace(/-/g, ' ')}:</span>
-                    <span className="font-semibold">{count}</span>
-                  </div>
-                )
-              ))}
-              {(!insights.byCategory || Object.values(insights.byCategory).every(v => v === 0)) && (
+              {insights.byCategory &&
+                Object.entries(insights.byCategory).map(
+                  ([category, count]) =>
+                    count > 0 && (
+                      <div key={category} className="flex justify-between">
+                        <span className="text-gray-600 capitalize">
+                          {category.replace(/-/g, " ")}:
+                        </span>
+                        <span className="font-semibold">{count}</span>
+                      </div>
+                    ),
+                )}
+              {(!insights.byCategory ||
+                Object.values(insights.byCategory).every((v) => v === 0)) && (
                 <p className="text-gray-400 text-xs">No messages sent yet</p>
               )}
             </div>
@@ -359,27 +377,39 @@ export function CampaignInsights() {
         {}
         <Card>
           <CardHeader>
-            <CardTitle className="text-sm font-medium">💰 Charges (Delivered Only)</CardTitle>
+            <CardTitle className="text-sm font-medium">
+              💰 Charges (Delivered Only)
+            </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="space-y-2">
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Delivered (Charged)</span>
-                <span className="font-semibold text-green-600">{insights.deliveryStatus?.delivered || 0}</span>
+                <span className="font-semibold text-green-600">
+                  {insights.deliveryStatus?.delivered || 0}
+                </span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Failed (No Charge)</span>
-                <span className="font-semibold text-red-600">{insights.deliveryStatus?.failed || 0}</span>
+                <span className="font-semibold text-red-600">
+                  {insights.deliveryStatus?.failed || 0}
+                </span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Pending (No Charge Yet)</span>
-                <span className="font-semibold text-yellow-600">{insights.deliveryStatus?.pending || 0}</span>
+                <span className="font-semibold text-yellow-600">
+                  {insights.deliveryStatus?.pending || 0}
+                </span>
               </div>
               <div className="border-t pt-2 mt-2 flex justify-between font-bold">
                 <span>Total Charges:</span>
-                <span className="text-orange-600">₹{(insights.estimatedCharges || 0).toFixed(2)}</span>
+                <span className="text-orange-600">
+                  ₹{(insights.estimatedCharges || 0).toFixed(2)}
+                </span>
               </div>
-              <p className="text-xs text-gray-500 pt-1">💡 Charges calculated only for successfully delivered messages</p>
+              <p className="text-xs text-gray-500 pt-1">
+                💡 Charges calculated only for successfully delivered messages
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -399,7 +429,9 @@ export function CampaignInsights() {
               <div className="flex items-center justify-between text-sm">
                 <span className="text-gray-600">✅ Delivered</span>
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold text-green-600">{insights.deliveryStatus?.delivered || 0}</span>
+                  <span className="font-semibold text-green-600">
+                    {insights.deliveryStatus?.delivered || 0}
+                  </span>
                   <span className="text-xs text-gray-500">
                     ({insights.metrics?.deliveryRate || 0}%)
                   </span>
@@ -408,7 +440,9 @@ export function CampaignInsights() {
               <div className="flex items-center justify-between text-sm">
                 <span className="text-gray-600">❌ Failed</span>
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold text-red-600">{insights.deliveryStatus?.failed || 0}</span>
+                  <span className="font-semibold text-red-600">
+                    {insights.deliveryStatus?.failed || 0}
+                  </span>
                   <span className="text-xs text-gray-500">
                     ({insights.metrics?.failureRate || 0}%)
                   </span>
@@ -417,14 +451,17 @@ export function CampaignInsights() {
               <div className="flex items-center justify-between text-sm">
                 <span className="text-gray-600">⏳ Pending</span>
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold text-yellow-600">{insights.deliveryStatus?.pending || 0}</span>
+                  <span className="font-semibold text-yellow-600">
+                    {insights.deliveryStatus?.pending || 0}
+                  </span>
                   <span className="text-xs text-gray-500">
                     ({insights.metrics?.pendingRate || 0}%)
                   </span>
                 </div>
               </div>
               <div className="bg-blue-50 p-2 rounded mt-3 text-xs text-blue-800 border border-blue-200">
-                💡 <strong>Real Data:</strong> These numbers come directly from WhatsApp webhook events, not just API responses.
+                💡 <strong>Real Data:</strong> These numbers come directly from
+                WhatsApp webhook events, not just API responses.
               </div>
             </div>
           </CardContent>
@@ -438,21 +475,35 @@ export function CampaignInsights() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            {insights.failureReasons && Object.keys(insights.failureReasons).length > 0 ? (
+            {insights.failureReasons &&
+            Object.keys(insights.failureReasons).length > 0 ? (
               <div className="space-y-2">
-                {Object.entries(insights.failureReasons).map(([reason, count]) => (
-                  <div key={reason} className="flex items-start justify-between text-sm">
-                    <span className="text-gray-600 flex-1 break-words">{reason}</span>
-                    <span className="font-semibold text-red-600 ml-2">{count}</span>
-                  </div>
-                ))}
+                {Object.entries(insights.failureReasons).map(
+                  ([reason, count]) => (
+                    <div
+                      key={reason}
+                      className="flex items-start justify-between text-sm"
+                    >
+                      <span className="text-gray-600 flex-1 break-words">
+                        {reason}
+                      </span>
+                      <span className="font-semibold text-red-600 ml-2">
+                        {count}
+                      </span>
+                    </div>
+                  ),
+                )}
                 <div className="bg-red-50 p-2 rounded mt-3 text-xs text-red-800 border border-red-200">
-                  ⚠️ <strong>Issue:</strong> Check why messages are failing. Common reasons: Invalid number, not on WhatsApp, or recipient blocked.
+                  ⚠️ <strong>Issue:</strong> Check why messages are failing.
+                  Common reasons: Invalid number, not on WhatsApp, or recipient
+                  blocked.
                 </div>
               </div>
             ) : (
               <div className="text-center py-4 text-gray-500">
-                <p className="text-sm">✅ No failures! All messages delivered successfully.</p>
+                <p className="text-sm">
+                  ✅ No failures! All messages delivered successfully.
+                </p>
               </div>
             )}
           </CardContent>
@@ -478,7 +529,9 @@ export function CampaignInsights() {
                     <th className="text-left py-3 px-4 font-semibold">
                       Template
                     </th>
-                    <th className="text-left py-3 px-4 font-semibold">Status</th>
+                    <th className="text-left py-3 px-4 font-semibold">
+                      Status
+                    </th>
                     <th className="text-right py-3 px-4 font-semibold">
                       Sent/Total
                     </th>
@@ -496,7 +549,10 @@ export function CampaignInsights() {
                 </thead>
                 <tbody>
                   {campaigns.map((campaign) => (
-                    <tr key={campaign._id} className="border-b hover:bg-gray-50">
+                    <tr
+                      key={campaign._id}
+                      className="border-b hover:bg-gray-50"
+                    >
                       <td className="py-3 px-4 font-medium">{campaign.name}</td>
                       <td className="py-3 px-4 text-gray-600">
                         {campaign.templateName}
@@ -507,10 +563,10 @@ export function CampaignInsights() {
                             campaign.status === "active"
                               ? "bg-green-100 text-green-800"
                               : campaign.status === "completed"
-                              ? "bg-blue-100 text-blue-800"
-                              : campaign.status === "paused"
-                              ? "bg-yellow-100 text-yellow-800"
-                              : "bg-gray-100 text-gray-800"
+                                ? "bg-blue-100 text-blue-800"
+                                : campaign.status === "paused"
+                                  ? "bg-yellow-100 text-yellow-800"
+                                  : "bg-gray-100 text-gray-800"
                           }`}
                         >
                           {campaign.status.charAt(0).toUpperCase() +

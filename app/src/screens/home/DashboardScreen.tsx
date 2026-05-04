@@ -35,7 +35,12 @@ const QUICK_ACTIONS = [
     color: Colors.white,
     route: 'Analytics',
   },
-  { label: 'Reports', icon: 'file-text-o', color: Colors.white, route: 'Reports' },
+  {
+    label: 'Reports',
+    icon: 'file-text-o',
+    color: Colors.white,
+    route: 'Reports',
+  },
   { label: 'Profile', icon: 'user', color: Colors.white, route: 'Profile' },
 ];
 

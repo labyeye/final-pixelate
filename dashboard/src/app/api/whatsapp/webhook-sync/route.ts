@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import getDb from "@/lib/mongodb";
 
-
-
-
-
 export async function POST(request: NextRequest) {
   try {
     const db = await getDb();
@@ -12,7 +8,6 @@ export async function POST(request: NextRequest) {
 
     console.log("Syncing WhatsApp messages from webhook...");
 
-    
     const webhookUrl = "https://backend.pixelatenest.com/api/whatsapp-webhook";
     const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
 
@@ -44,15 +39,12 @@ export async function POST(request: NextRequest) {
     let syncedCount = 0;
     let messages = webhookData.messages || webhookData.data || [];
 
-    
     if (!Array.isArray(messages)) {
       messages = [messages];
     }
 
-    
     for (const msg of messages) {
       try {
-        
         const existing = await db
           .collection("whatsapp_messages")
           .findOne({ messageId: msg.id || msg.messageId });
@@ -64,22 +56,19 @@ export async function POST(request: NextRequest) {
             messageType: msg.type === "incoming" ? "received" : "sent",
             message: msg.body || msg.message || msg.text || "",
             templateName: msg.templateName,
-            
-            
-            
-            
-            
-            
-            status: msg.status || (msg.type === "incoming" ? "received" : "sent"),
+
+            status:
+              msg.status || (msg.type === "incoming" ? "received" : "sent"),
             messageId: msg.id || msg.messageId,
             timestamp: new Date(msg.timestamp || msg.createdAt || Date.now()),
             repliedAt: msg.repliedAt ? new Date(msg.repliedAt) : null,
-            
-            deliveryStatus: msg.status || (msg.type === "incoming" ? "received" : "sent"),
-            
+
+            deliveryStatus:
+              msg.status || (msg.type === "incoming" ? "received" : "sent"),
+
             failureReason: msg.error_data?.details || msg.error_reason || null,
             failureCode: msg.error_code || null,
-            
+
             category: msg.templateName?.toLowerCase() || "marketing",
             metadata: msg.metadata,
             createdAt: new Date(),
@@ -88,26 +77,31 @@ export async function POST(request: NextRequest) {
 
           await db.collection("whatsapp_messages").insertOne(document as any);
           syncedCount++;
-          console.log(`✅ Synced message from ${document.contactName} - Status: ${document.deliveryStatus}`);
+          console.log(
+            `✅ Synced message from ${document.contactName} - Status: ${document.deliveryStatus}`,
+          );
         } else {
-          
           await db.collection("whatsapp_messages").updateOne(
             { messageId: msg.id || msg.messageId },
             {
               $set: {
                 status: msg.status || existing.status,
                 deliveryStatus: msg.status || existing.deliveryStatus,
-                failureReason: msg.error_data?.details || msg.error_reason || existing.failureReason,
+                failureReason:
+                  msg.error_data?.details ||
+                  msg.error_reason ||
+                  existing.failureReason,
                 failureCode: msg.error_code || existing.failureCode,
                 updatedAt: new Date(),
-              }
-            }
+              },
+            },
           );
-          console.log(`✅ Updated message status - New Status: ${msg.status || existing.status}`);
+          console.log(
+            `✅ Updated message status - New Status: ${msg.status || existing.status}`,
+          );
         }
       } catch (msgError: any) {
         console.error("Failed to sync individual message:", msgError);
-        
       }
     }
 
@@ -128,9 +122,6 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-
-
-
 
 export async function GET(request: NextRequest) {
   try {

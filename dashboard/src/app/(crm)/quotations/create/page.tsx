@@ -26,7 +26,7 @@ const quotationSchema = z.object({
       phase: z.string(),
       description: z.string(),
       duration: z.string(),
-    })
+    }),
   ),
   lineItems: z.array(
     z.object({
@@ -35,7 +35,7 @@ const quotationSchema = z.object({
       unitPrice: z.number(),
       tax: z.number(),
       total: z.number(),
-    })
+    }),
   ),
   services: z.array(
     z.object({
@@ -43,14 +43,14 @@ const quotationSchema = z.object({
       qty: z.number(),
       price: z.number(),
       total: z.number(),
-    })
+    }),
   ),
   modules: z.array(
     z.object({
       moduleName: z.string(),
       description: z.string(),
       status: z.enum(["Planned", "Ongoing", "Completed"]),
-    })
+    }),
   ),
   notes: z.string().optional(),
   paymentTerms: z.string().optional(),
@@ -153,43 +153,53 @@ export default function CreateQuotationPage() {
 
   useEffect(() => {
     if (!editId) return;
-    
+
     (async () => {
       try {
         const res = await fetch(`/api/quotations/${editId}`);
         if (!res.ok) throw new Error("Failed to fetch quotation");
         const quotation = await res.json();
-        
+
         setIsEditMode(true);
         setValue("title", quotation.title || "");
         setValue("subtitle", quotation.subtitle || "");
-        setValue("date", quotation.date?.split("T")[0] || new Date().toISOString().split("T")[0]);
+        setValue(
+          "date",
+          quotation.date?.split("T")[0] ||
+            new Date().toISOString().split("T")[0],
+        );
         setValue("clientId", quotation.clientId || "");
         setValue("objective", quotation.objective || "");
         setValue("purpose", quotation.purpose || "");
         setValue("notes", quotation.notes || "");
         setValue("paymentTerms", quotation.paymentTerms || "");
-        
+
         if (quotation.scope && quotation.scope.length > 0) {
-          setValue("scope", quotation.scope.map((s: string) => ({ value: s })));
+          setValue(
+            "scope",
+            quotation.scope.map((s: string) => ({ value: s })),
+          );
         }
-        
+
         if (quotation.deliverables && quotation.deliverables.length > 0) {
-          setValue("deliverables", quotation.deliverables.map((d: string) => ({ value: d })));
+          setValue(
+            "deliverables",
+            quotation.deliverables.map((d: string) => ({ value: d })),
+          );
         }
-        
+
         if (quotation.timeline && quotation.timeline.length > 0) {
           setValue("timeline", quotation.timeline);
         }
-        
+
         if (quotation.lineItems && quotation.lineItems.length > 0) {
           setValue("lineItems", quotation.lineItems);
         }
-        
+
         if (quotation.services && quotation.services.length > 0) {
           setValue("services", quotation.services);
         }
-        
+
         if (quotation.modules && quotation.modules.length > 0) {
           setValue("modules", quotation.modules);
         }
@@ -204,7 +214,6 @@ export default function CreateQuotationPage() {
     })();
   }, [editId, setValue, toast]);
 
-  
   const watchLineItems = watch("lineItems");
   useEffect(() => {
     watchLineItems.forEach((item, idx) => {
@@ -215,7 +224,6 @@ export default function CreateQuotationPage() {
     });
   }, [watchLineItems, setValue]);
 
-  
   const watchServices = watch("services");
   useEffect(() => {
     watchServices.forEach((item, idx) => {

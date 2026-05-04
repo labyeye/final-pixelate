@@ -1,47 +1,6 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { NextRequest, NextResponse } from "next/server";
 import { createHmac, timingSafeEqual } from "crypto";
 import { getCollection } from "@/lib/services";
-
-
 
 interface WAStatusError {
   code: number;
@@ -51,7 +10,7 @@ interface WAStatusError {
 }
 
 interface WAStatus {
-  id: string;           
+  id: string;
   status: "sent" | "delivered" | "read" | "failed";
   timestamp: string;
   recipient_id: string;
@@ -92,12 +51,10 @@ interface WAWebhookBody {
   }>;
 }
 
-
-
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const mode      = searchParams.get("hub.mode");
-  const token     = searchParams.get("hub.verify_token");
+  const mode = searchParams.get("hub.mode");
+  const token = searchParams.get("hub.verify_token");
   const challenge = searchParams.get("hub.challenge");
 
   const verifyToken = process.env.WHATSAPP_WEBHOOK_VERIFY_TOKEN;
@@ -109,20 +66,17 @@ export async function GET(req: NextRequest) {
 
   if (mode === "subscribe" && token === verifyToken) {
     console.info("[WA Webhook] Verification successful.");
-    
+
     return new NextResponse(challenge, { status: 200 });
   }
 
-  console.warn("[WA Webhook] Verification failed — token mismatch or wrong mode.");
+  console.warn(
+    "[WA Webhook] Verification failed — token mismatch or wrong mode.",
+  );
   return new NextResponse("Forbidden", { status: 403 });
 }
 
-
-
 export async function POST(req: NextRequest) {
-  
-  
-  
   const appSecret = process.env.WHATSAPP_APP_SECRET;
   if (appSecret) {
     const sigHeader = req.headers.get("x-hub-signature-256");
@@ -131,13 +85,11 @@ export async function POST(req: NextRequest) {
       return new NextResponse("Forbidden", { status: 403 });
     }
 
-    
     const rawBody = await req.text();
     const expectedSig =
       "sha256=" +
       createHmac("sha256", appSecret).update(rawBody, "utf8").digest("hex");
 
-    
     const sigBuffer = Buffer.from(sigHeader);
     const expectedBuffer = Buffer.from(expectedSig);
     const signaturesMatch =
@@ -145,11 +97,12 @@ export async function POST(req: NextRequest) {
       timingSafeEqual(sigBuffer, expectedBuffer);
 
     if (!signaturesMatch) {
-      console.warn("[WA Webhook] Signature mismatch — possible spoofed request.");
+      console.warn(
+        "[WA Webhook] Signature mismatch — possible spoofed request.",
+      );
       return new NextResponse("Forbidden", { status: 403 });
     }
 
-    
     let body: WAWebhookBody;
     try {
       body = JSON.parse(rawBody);
@@ -159,7 +112,6 @@ export async function POST(req: NextRequest) {
     return processWebhookBody(body);
   }
 
-  
   let body: WAWebhookBody;
   try {
     body = await req.json();
@@ -170,7 +122,6 @@ export async function POST(req: NextRequest) {
 }
 
 function processWebhookBody(body: WAWebhookBody): NextResponse | Response {
-  
   if (body.object !== "whatsapp_business_account") {
     return new NextResponse("Not WhatsApp", { status: 400 });
   }
@@ -181,14 +132,11 @@ function processWebhookBody(body: WAWebhookBody): NextResponse | Response {
 
       const val = change.value;
 
-      
       for (const status of val.statuses ?? []) {
         handleStatusUpdate(status);
       }
 
-      
       for (const msg of val.messages ?? []) {
-        
         handleInboundMessage(msg, val.contacts ?? []).catch((e) =>
           console.error("[WA Webhook] handleInboundMessage error:", e),
         );
@@ -196,12 +144,8 @@ function processWebhookBody(body: WAWebhookBody): NextResponse | Response {
     }
   }
 
-  
-  
   return new NextResponse("OK", { status: 200 });
 }
-
-
 
 function handleStatusUpdate(status: WAStatus) {
   const { id: wamid, status: state, recipient_id, timestamp, errors } = status;
@@ -209,50 +153,56 @@ function handleStatusUpdate(status: WAStatus) {
 
   switch (state) {
     case "sent":
-      console.info(`[WA Webhook] SENT      — wamid: ${wamid}, to: ${recipient_id}, at: ${ts}`);
+      console.info(
+        `[WA Webhook] SENT      — wamid: ${wamid}, to: ${recipient_id}, at: ${ts}`,
+      );
       break;
 
     case "delivered":
-      console.info(`[WA Webhook] DELIVERED — wamid: ${wamid}, to: ${recipient_id}, at: ${ts}`);
-      
-      updateInvoiceWhatsAppStatus(wamid, "delivered", { whatsapp_delivered_at: ts }).catch(
-        (e) => console.error("[WA Webhook] DB update failed for DELIVERED:", e),
+      console.info(
+        `[WA Webhook] DELIVERED — wamid: ${wamid}, to: ${recipient_id}, at: ${ts}`,
+      );
+
+      updateInvoiceWhatsAppStatus(wamid, "delivered", {
+        whatsapp_delivered_at: ts,
+      }).catch((e) =>
+        console.error("[WA Webhook] DB update failed for DELIVERED:", e),
       );
       break;
 
     case "read":
-      console.info(`[WA Webhook] READ      — wamid: ${wamid}, to: ${recipient_id}, at: ${ts}`);
-      
-      updateInvoiceWhatsAppStatus(wamid, "read", { whatsapp_read_at: ts }).catch(
-        (e) => console.error("[WA Webhook] DB update failed for READ:", e),
+      console.info(
+        `[WA Webhook] READ      — wamid: ${wamid}, to: ${recipient_id}, at: ${ts}`,
+      );
+
+      updateInvoiceWhatsAppStatus(wamid, "read", {
+        whatsapp_read_at: ts,
+      }).catch((e) =>
+        console.error("[WA Webhook] DB update failed for READ:", e),
       );
       break;
 
     case "failed":
-      
-      
-      const errCode  = errors?.[0]?.code;
+      const errCode = errors?.[0]?.code;
       const errTitle = errors?.[0]?.title;
-      const errData  = errors?.[0]?.error_data?.details;
+      const errData = errors?.[0]?.error_data?.details;
       console.error(
         `[WA Webhook] FAILED    — wamid: ${wamid}, to: ${recipient_id}, at: ${ts}\n` +
-        `  Error code:  ${errCode ?? "unknown"}\n` +
-        `  Error title: ${errTitle ?? "unknown"}\n` +
-        `  Details:     ${errData ?? "none"}`,
+          `  Error code:  ${errCode ?? "unknown"}\n` +
+          `  Error title: ${errTitle ?? "unknown"}\n` +
+          `  Details:     ${errData ?? "none"}`,
       );
-      
+
       updateInvoiceWhatsAppStatus(wamid, "failed", {
         whatsapp_failed_at: ts,
         whatsapp_fail_code: errCode,
         whatsapp_fail_reason: errTitle ?? errData ?? "unknown",
-      }).catch((e) => console.error("[WA Webhook] DB update failed for FAILED:", e));
+      }).catch((e) =>
+        console.error("[WA Webhook] DB update failed for FAILED:", e),
+      );
       break;
   }
 }
-
-
-
-
 
 async function updateInvoiceWhatsAppStatus(
   wamid: string,
@@ -270,16 +220,19 @@ async function updateInvoiceWhatsAppStatus(
   }
 }
 
-async function handleInboundMessage(msg: WAInboundMessage, contacts: WAContact[]) {
-  const senderName = contacts.find((c) => c.wa_id === msg.from)?.profile?.name ?? "Unknown";
+async function handleInboundMessage(
+  msg: WAInboundMessage,
+  contacts: WAContact[],
+) {
+  const senderName =
+    contacts.find((c) => c.wa_id === msg.from)?.profile?.name ?? "Unknown";
   const messageText = (msg.text?.body ?? "").trim().toUpperCase();
 
   console.info(
     `[WA Webhook] INBOUND — from: ${msg.from} (${senderName}), type: ${msg.type}, ` +
-    `text: ${msg.text?.body ?? "(non-text)"}`,
+      `text: ${msg.text?.body ?? "(non-text)"}`,
   );
 
-  
   try {
     const db = await getDb();
     const incomingMsg = {
@@ -295,30 +248,36 @@ async function handleInboundMessage(msg: WAInboundMessage, contacts: WAContact[]
       updatedAt: new Date(),
     };
     await db.collection("whatsapp_messages").insertOne(incomingMsg as any);
-    console.info(`[WA Webhook] ✅ Stored incoming message from ${msg.from} (${senderName}) in inbox`);
+    console.info(
+      `[WA Webhook] ✅ Stored incoming message from ${msg.from} (${senderName}) in inbox`,
+    );
   } catch (e) {
     console.error("[WA Webhook] Failed to store incoming message:", e);
   }
 
-  
-  
-  
-  
-  const OPT_OUT_KEYWORDS = ["STOP", "UNSUBSCRIBE", "CANCEL", "OPT OUT", "OPTOUT", "QUIT", "END"];
+  const OPT_OUT_KEYWORDS = [
+    "STOP",
+    "UNSUBSCRIBE",
+    "CANCEL",
+    "OPT OUT",
+    "OPTOUT",
+    "QUIT",
+    "END",
+  ];
   if (OPT_OUT_KEYWORDS.includes(messageText)) {
     console.warn(
       `[WA Webhook] OPT-OUT — ${msg.from} (${senderName}) sent "${msg.text?.body}". Revoking opt-in.`,
     );
     try {
       const clientsCol = await getCollection("clients");
-      
+
       const phoneVariants = [msg.from, msg.from.replace(/^91/, "")];
       await clientsCol.updateMany(
         {
           $or: [
             { phone: { $in: phoneVariants } },
             { whatsapp: { $in: phoneVariants } },
-            { phone: msg.from.slice(-10) },   
+            { phone: msg.from.slice(-10) },
           ],
         },
         {

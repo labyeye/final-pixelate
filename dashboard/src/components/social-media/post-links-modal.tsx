@@ -36,10 +36,13 @@ export function PostLinksModal({
       try {
         setLoading(true);
         const promises = accountIds.map((id) => {
-          const url = new URL("/api/social-media-accounts", window.location.origin);
+          const url = new URL(
+            "/api/social-media-accounts",
+            window.location.origin,
+          );
           url.searchParams.set("id", id);
           return fetch(url.toString(), { cache: "no-store" }).then((res) =>
-            res.ok ? res.json() : null
+            res.ok ? res.json() : null,
           );
         });
 
@@ -49,7 +52,6 @@ export function PostLinksModal({
           .filter(Boolean) as SocialAccount[];
         setAccounts(loaded);
 
-        
         const initialLinks: Record<string, string> = {};
         loaded.forEach((account) => {
           initialLinks[account._id || account.id || ""] = "";
@@ -111,7 +113,9 @@ export function PostLinksModal({
           </p>
 
           {loading ? (
-            <div className="text-center py-8 text-gray-500">Loading accounts...</div>
+            <div className="text-center py-8 text-gray-500">
+              Loading accounts...
+            </div>
           ) : accounts.length === 0 ? (
             <div className="text-center py-8 text-gray-500">
               No accounts to add links for
@@ -132,17 +136,20 @@ export function PostLinksModal({
                         showLabel={false}
                       />
                       <span className="font-semibold">@{account.handle}</span>
-                      {account.displayName && account.displayName !== account.handle && (
-                        <span className="text-sm text-gray-600">
-                          ({account.displayName})
-                        </span>
-                      )}
+                      {account.displayName &&
+                        account.displayName !== account.handle && (
+                          <span className="text-sm text-gray-600">
+                            ({account.displayName})
+                          </span>
+                        )}
                     </div>
                     <Input
                       type="url"
                       placeholder="https://example.com/post/123"
                       value={links[accountId] || ""}
-                      onChange={(e) => handleLinkChange(accountId, e.target.value)}
+                      onChange={(e) =>
+                        handleLinkChange(accountId, e.target.value)
+                      }
                       disabled={saving}
                     />
                   </div>
@@ -154,11 +161,7 @@ export function PostLinksModal({
 
         {}
         <div className="border-t-2 border-black p-4 flex justify-end gap-2 flex-shrink-0">
-          <Button
-            variant="outline"
-            onClick={onClose}
-            disabled={saving}
-          >
+          <Button variant="outline" onClick={onClose} disabled={saving}>
             Cancel
           </Button>
           <Button

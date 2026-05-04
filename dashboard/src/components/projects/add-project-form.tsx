@@ -47,7 +47,7 @@ const schema = z.object({
         id: z.string(),
         name: z.string(),
         amount: z.number().min(0).optional(),
-      })
+      }),
     )
     .min(1),
   deliveryDate: z.date(),
@@ -60,7 +60,7 @@ const schema = z.object({
       z.object({
         id: z.union([z.string(), z.number()]),
         payout: z.number().min(0),
-      })
+      }),
     )
     .optional(),
 });
@@ -99,14 +99,13 @@ export default function AddProjectForm({
 
   React.useEffect(() => {
     if (initialValues) {
-      
       const mapped = {
         title: initialValues.title || "",
         clientId: initialValues.clientId
           ? String(initialValues.clientId)
           : initialValues.client
-          ? initialValues.client
-          : "",
+            ? initialValues.client
+            : "",
         services: (initialValues.services || []).map((s: any) => ({
           id: String(s.id ?? s._id ?? s),
           name: s.name ?? s.title ?? "",
@@ -147,7 +146,7 @@ export default function AddProjectForm({
           method: editingId ? "PUT" : "POST",
           body: JSON.stringify(body),
           headers: { "Content-Type": "application/json" },
-        }
+        },
       );
       if (!res.ok) throw new Error("Failed to create project");
       const created = await res.json();
@@ -217,10 +216,10 @@ export default function AddProjectForm({
                     const serviceId = s.id ?? s._id;
                     const current = field.value || [];
                     const selected = current.some(
-                      (obj: any) => String(obj.id) === String(serviceId)
+                      (obj: any) => String(obj.id) === String(serviceId),
                     );
                     const selectedObj = current.find(
-                      (obj: any) => String(obj.id) === String(serviceId)
+                      (obj: any) => String(obj.id) === String(serviceId),
                     );
                     return (
                       <div
@@ -244,8 +243,8 @@ export default function AddProjectForm({
                               field.onChange(
                                 cur.filter(
                                   (obj: any) =>
-                                    String(obj.id) !== String(serviceId)
-                                )
+                                    String(obj.id) !== String(serviceId),
+                                ),
                               );
                           }}
                         />
@@ -261,7 +260,7 @@ export default function AddProjectForm({
                                 const next = cur.map((obj: any) =>
                                   String(obj.id) === String(serviceId)
                                     ? { ...obj, amount: val }
-                                    : obj
+                                    : obj,
                                 );
                                 field.onChange(next);
                               }}
@@ -288,10 +287,10 @@ export default function AddProjectForm({
                       const memberId = m.id ?? m._id;
                       const current = field.value || [];
                       const selected = current.some(
-                        (obj: any) => String(obj.id) === String(memberId)
+                        (obj: any) => String(obj.id) === String(memberId),
                       );
                       const selectedObj = current.find(
-                        (obj: any) => String(obj.id) === String(memberId)
+                        (obj: any) => String(obj.id) === String(memberId),
                       );
                       return (
                         <div
@@ -311,8 +310,8 @@ export default function AddProjectForm({
                                 field.onChange(
                                   cur.filter(
                                     (obj: any) =>
-                                      String(obj.id) !== String(memberId)
-                                  )
+                                      String(obj.id) !== String(memberId),
+                                  ),
                                 );
                             }}
                           />
@@ -328,7 +327,7 @@ export default function AddProjectForm({
                                   const next = cur.map((obj: any) =>
                                     String(obj.id) === String(memberId)
                                       ? { ...obj, payout: val }
-                                      : obj
+                                      : obj,
                                   );
                                   field.onChange(next);
                                 }}

@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import * as svc from '@/lib/services';
+import { NextRequest, NextResponse } from "next/server";
+import * as svc from "@/lib/services";
 
 export async function POST(request: NextRequest) {
   try {
@@ -8,7 +8,10 @@ export async function POST(request: NextRequest) {
     const res = await svc.renumberInvoices(fy);
     return NextResponse.json({ success: true, ...res });
   } catch (e: any) {
-    console.error('Failed to renumber invoices', e);
-    return NextResponse.json({ success: false, error: e.message || String(e) }, { status: 500 });
+    console.error("Failed to renumber invoices", e);
+    return NextResponse.json(
+      { success: false, error: e.message || String(e) },
+      { status: 500 },
+    );
   }
 }

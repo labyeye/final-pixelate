@@ -1,12 +1,10 @@
 import api from './client';
 
-
 export const authAPI = {
   login: (email: string, password: string) =>
     api.post('/auth/login', { email, password }),
   me: () => api.get('/me'),
 };
-
 
 export const dashboardAPI = {
   getStats: () => api.get('/dashboard/stats'),
@@ -14,7 +12,6 @@ export const dashboardAPI = {
   getAnalytics: () => api.get('/analytics'),
   getUserActivity: () => api.get('/user-activity'),
 };
-
 
 export const leadsAPI = {
   getAll: () => api.get('/leads'),
@@ -24,11 +21,9 @@ export const leadsAPI = {
   delete: (id: string) => api.delete(`/leads/${id}`),
 };
 
-
 export const enquiriesAPI = {
   getAll: () => api.get('/enquiries'),
 };
-
 
 export const clientsAPI = {
   getAll: () => api.get('/clients'),
@@ -38,7 +33,6 @@ export const clientsAPI = {
   delete: (id: string) => api.delete(`/clients/${id}`),
 };
 
-
 export const projectsAPI = {
   getAll: () => api.get('/projects'),
   getById: (id: string) => api.get(`/projects/${id}`),
@@ -47,7 +41,6 @@ export const projectsAPI = {
   delete: (id: string) => api.delete(`/projects/${id}`),
 };
 
-
 export const tasksAPI = {
   getAll: () => api.get('/tasks'),
   getById: (id: string) => api.get(`/tasks/${id}`),
@@ -55,7 +48,6 @@ export const tasksAPI = {
   update: (id: string, data: any) => api.patch(`/tasks/${id}`, data),
   delete: (id: string) => api.delete(`/tasks/${id}`),
 };
-
 
 export const invoicesAPI = {
   getAll: () => api.get('/invoices'),
@@ -67,14 +59,12 @@ export const invoicesAPI = {
     api.patch(`/invoices/${id}`, { ...data, action: 'record_payment' }),
 };
 
-
 export const paymentsAPI = {
   getAll: () => api.get('/payments'),
   getById: (id: string) => api.get(`/payments/${id}`),
   create: (data: any) => api.post('/payments', data),
   update: (id: string, data: any) => api.patch(`/payments/${id}`, data),
 };
-
 
 export const expensesAPI = {
   getAll: () => api.get('/expenses'),
@@ -83,14 +73,12 @@ export const expensesAPI = {
   delete: (id: string) => api.delete(`/expenses/${id}`),
 };
 
-
 export const emiAPI = {
   getAll: () => api.get('/emi'),
   create: (data: any) => api.post('/emi', data),
   update: (id: string, data: any) => api.patch(`/emi/${id}`, data),
   delete: (id: string) => api.delete(`/emi/${id}`),
 };
-
 
 export const quotationsAPI = {
   getAll: () => api.get('/quotations'),
@@ -100,18 +88,15 @@ export const quotationsAPI = {
   delete: (id: string) => api.delete(`/quotations/${id}`),
 };
 
-
 export const onboardingAPI = {
   getAll: () => api.get('/onboarding'),
   getById: (id: string) => api.get(`/onboarding/${id}`),
   update: (id: string, data: any) => api.patch(`/onboarding/${id}`, data),
 };
 
-
 export const ndaAPI = {
   getAll: () => api.get('/nda-approvals'),
 };
-
 
 export const reviewsAPI = {
   getAll: () => api.get('/reviews'),
@@ -119,7 +104,6 @@ export const reviewsAPI = {
   update: (id: string, data: any) => api.patch(`/reviews/${id}`, data),
   delete: (id: string) => api.delete(`/reviews/${id}`),
 };
-
 
 export const blogsAPI = {
   getAll: () => api.get('/blogs'),
@@ -129,7 +113,6 @@ export const blogsAPI = {
   delete: (id: string) => api.delete(`/blogs/${id}`),
 };
 
-
 export const supportAPI = {
   getAll: () => api.get('/support-tickets'),
   getById: (id: string) => api.get(`/support-tickets/${id}`),
@@ -137,29 +120,26 @@ export const supportAPI = {
   update: (id: string, data: any) => api.patch(`/support-tickets/${id}`, data),
 };
 
-
 export const whatsappAPI = {
   getMessages: () => api.get('/whatsapp/messages'),
   getInbox: () => api.get('/whatsapp/messages'),
   bulkSend: (data: any) => api.post('/whatsapp/bulk-send', data),
 };
 
-
 export const campaignsAPI = {
   getAll: () => api.get('/campaigns'),
   getById: (id: string) => api.get(`/campaigns/${id}`),
 };
 
-
 export const socialMediaAPI = {
   getPosts: () => api.get('/social-media-posts'),
   getById: (id: string) => api.get(`/social-media-posts/${id}`),
   create: (data: any) => api.post('/social-media-posts', data),
-  update: (id: string, data: any) => api.patch(`/social-media-posts/${id}`, data),
+  update: (id: string, data: any) =>
+    api.patch(`/social-media-posts/${id}`, data),
   delete: (id: string) => api.delete(`/social-media-posts/${id}`),
   getAccounts: () => api.get('/social-media-accounts'),
 };
-
 
 export const inventoryAPI = {
   getAll: () => api.get('/inventory'),
@@ -168,13 +148,11 @@ export const inventoryAPI = {
   delete: (id: string) => api.delete(`/inventory/${id}`),
 };
 
-
 export const journeyAPI = {
   getAll: () => api.get('/journey'),
   create: (data: any) => api.post('/journey', data),
   update: (id: string, data: any) => api.patch(`/journey/${id}`, data),
 };
-
 
 export const careersAPI = {
   getAll: () => api.get('/careers'),
@@ -185,7 +163,6 @@ export const careersAPI = {
   getApplications: (id: string) => api.get(`/careers/${id}/applications`),
 };
 
-
 export const usersAPI = {
   getAll: () => api.get('/users'),
   getById: (id: string) => api.get(`/users/${id}`),
@@ -194,17 +171,14 @@ export const usersAPI = {
     api.patch(`/users/${id}/change-password`, data),
 };
 
-
 export const settingsAPI = {
   get: () => api.get('/settings'),
   update: (data: any) => api.patch('/settings', data),
 };
 
-
 export const newsletterAPI = {
   getAll: () => api.get('/newsletter'),
 };
-
 
 export const teamAPI = {
   getAll: () => api.get('/team-members'),
@@ -213,14 +187,12 @@ export const teamAPI = {
   delete: (id: string) => api.delete(`/team-members/${id}`),
 };
 
-
 export const aboutTeamAPI = {
   getAll: () => api.get('/about-team'),
   create: (data: any) => api.post('/about-team', data),
   update: (id: string, data: any) => api.patch(`/about-team/${id}`, data),
   delete: (id: string) => api.delete(`/about-team/${id}`),
 };
-
 
 export const workGalleryAPI = {
   getAll: () => api.get('/work-gallery'),
@@ -229,13 +201,11 @@ export const workGalleryAPI = {
   delete: (id: string) => api.delete(`/work-gallery/${id}`),
 };
 
-
 export const photosAPI = {
   getAll: () => api.get('/photos'),
   create: (data: any) => api.post('/photos', data),
   delete: (id: string) => api.delete(`/photos/${id}`),
 };
-
 
 export const reelsAPI = {
   getAll: () => api.get('/reels'),
@@ -244,13 +214,11 @@ export const reelsAPI = {
   delete: (id: string) => api.delete(`/reels/${id}`),
 };
 
-
 export const trashAPI = {
   getAll: () => api.get('/trash'),
   restore: (id: string) => api.post(`/trash/${id}/restore`, {}),
   deletePermanently: (id: string) => api.delete(`/trash/${id}`),
 };
-
 
 export const erpAPI = {
   getEvents: () => api.get('/erp-events'),

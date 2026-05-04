@@ -1,9 +1,3 @@
-
-
-
-
-
-
 export interface Client {
   id?: number | string;
   _id?: string | any;
@@ -21,7 +15,7 @@ export interface Client {
   loginEmail?: string;
   loginPassword?: string;
   userId?: string;
-  
+
   status?: "active" | "inactive" | "prospect" | "churned";
   tags?: string[];
   industry?: string;
@@ -50,12 +44,12 @@ export interface User {
   role: "admin" | "staff" | "client";
   password?: string;
   avatarUrl?: string;
-  
+
   avatar?: string;
-  
+
   profilePicture?: string;
   allowedPages?: string[];
-  
+
   clientId?: string;
 }
 
@@ -112,7 +106,7 @@ export interface Lead {
   source?: string;
   indiamrtSynced?: boolean;
   indiamrtResponse?: any;
-  
+
   priority?: "low" | "medium" | "high";
   followUpDate?: Date | string | null;
   tags?: string[];
@@ -166,7 +160,7 @@ export interface Project {
   status?: ProjectStatus;
   dueDate?: string;
   services?: { id?: string | number; name?: string; amount?: number }[];
-  assignees?: { id?: string | number; payout?: number }[]; 
+  assignees?: { id?: string | number; payout?: number }[];
   amount?: number;
   workUrl?: string;
   brandLogo?: string;
@@ -193,7 +187,7 @@ export interface QuotationServiceItem {
   startDate?: string | Date;
   endDate?: string | Date;
   amount?: number;
-  deliverables?: string; 
+  deliverables?: string;
 }
 
 export interface Quotation {
@@ -202,8 +196,8 @@ export interface Quotation {
   status?: "APPROVED" | "PENDING" | "REJECTED";
   clientId?: number | string | any;
   clientName?: string;
-  services?: QuotationServiceItem[]; 
-  amount?: number; 
+  services?: QuotationServiceItem[];
+  amount?: number;
   discount?: number;
   deliveryDate?: Date;
   authorId?: number | any;
@@ -236,7 +230,6 @@ export async function getSupportTickets() {
 export const stats: any[] = [];
 
 export async function getStats() {
-  
   return [];
 }
 
@@ -244,7 +237,7 @@ export interface Service {
   id?: number | string;
   _id?: string | any;
   name: string;
-  
+
   description?: string;
 }
 
@@ -271,14 +264,14 @@ export interface Invoice {
   dueDate?: string | Date;
   status?: string;
   createdAt?: string | Date;
-  
+
   assignedStaff?: string[] | string;
-  workDate?: string; 
-  workTime?: string; 
+  workDate?: string;
+  workTime?: string;
   venueName?: string;
   venueAddress?: string;
-  equipmentAssigned?: string[] | string; 
-  
+  equipmentAssigned?: string[] | string;
+
   description?: string;
 }
 

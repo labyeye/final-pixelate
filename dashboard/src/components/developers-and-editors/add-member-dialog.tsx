@@ -35,7 +35,7 @@ import { Textarea } from "../ui/textarea";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name is required." }),
-  
+
   email: z.string().email({ message: "A valid email is required." }),
   password: z
     .string()
@@ -44,7 +44,7 @@ const formSchema = z.object({
   loginRole: z.union([z.literal("staff"), z.literal("admin")]).optional(),
   phone: z.string().min(10, { message: "A valid phone number is required." }),
   address: z.string().min(5, { message: "Address is required." }),
-  
+
   role: z.union([
     z.literal("Founder"),
     z.literal("Co-Founder"),
@@ -59,8 +59,10 @@ const formSchema = z.object({
   secondaryPhone: z.string().optional(),
   secondaryEmail: z.string().email().optional().or(z.literal("")),
   salary: z.coerce.number().optional(),
-  
-  paymentAccountType: z.union([z.literal("UPI"), z.literal("Bank"), z.literal("None")]).optional(),
+
+  paymentAccountType: z
+    .union([z.literal("UPI"), z.literal("Bank"), z.literal("None")])
+    .optional(),
   upiId: z.string().optional(),
   bankAccountHolderName: z.string().optional(),
   bankAccountNumber: z.string().optional(),
@@ -71,12 +73,12 @@ const formSchema = z.object({
 type AddMemberDialogProps = {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
-  
+
   onAddMember?: (
     newMember: Omit<TeamMember, "id">,
   ) => void | Promise<void | TeamMember>;
   onCreated?: (created: any) => void;
-  
+
   onSave?: (
     id: string | number,
     update: Partial<TeamMember>,
@@ -109,7 +111,7 @@ export function AddMemberDialog({
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     console.debug("AddMemberDialog onSubmit values:", values);
-    
+
     const memberPayload: any = {
       name: values.name,
       email: values.email,
@@ -123,7 +125,7 @@ export function AddMemberDialog({
       secondaryPhone: values.secondaryPhone,
       secondaryEmail: values.secondaryEmail,
       salary: values.salary,
-      
+
       paymentAccountType: values.paymentAccountType,
       upiId: values.upiId,
       bankAccountHolderName: values.bankAccountHolderName,
@@ -133,11 +135,9 @@ export function AddMemberDialog({
     };
 
     if (initialValues && (initialValues._id || initialValues.id)) {
-      
       const id = initialValues._id ?? initialValues.id;
       if (onSave) {
         try {
-          
           const updatePayload: any = { ...memberPayload };
           if (updatePayload.role) {
             updatePayload.jobRole = updatePayload.role;
@@ -157,7 +157,6 @@ export function AddMemberDialog({
         }
       }
     } else {
-      
       let createdMember: any = null;
       let parentCreated = false;
       if (onAddMember) {
@@ -168,11 +167,9 @@ export function AddMemberDialog({
         } catch (e) {
           console.error("onAddMember failed", e);
           parentCreated = false;
-          
         }
       }
 
-      
       if (!parentCreated) {
         try {
           const userBody: any = {
@@ -180,9 +177,9 @@ export function AddMemberDialog({
             jobRole: memberPayload.role,
             role: values.loginRole ?? "staff",
           };
-          
+
           if (values.password) userBody.password = values.password;
-          delete userBody.role; 
+          delete userBody.role;
           console.debug(
             "Posting consolidated userBody to /api/users",
             userBody,
@@ -215,7 +212,6 @@ export function AddMemberDialog({
     setIsOpen(false);
   }
 
-  
   React.useEffect(() => {
     if (initialValues) {
       form.reset({
@@ -231,11 +227,14 @@ export function AddMemberDialog({
         secondaryPhone: initialValues.secondaryPhone ?? undefined,
         secondaryEmail: initialValues.secondaryEmail ?? undefined,
         salary: initialValues.salary ?? undefined,
-        
-        paymentAccountType: (initialValues as any).paymentAccountType ?? undefined,
+
+        paymentAccountType:
+          (initialValues as any).paymentAccountType ?? undefined,
         upiId: (initialValues as any).upiId ?? undefined,
-        bankAccountHolderName: (initialValues as any).bankAccountHolderName ?? undefined,
-        bankAccountNumber: (initialValues as any).bankAccountNumber ?? undefined,
+        bankAccountHolderName:
+          (initialValues as any).bankAccountHolderName ?? undefined,
+        bankAccountNumber:
+          (initialValues as any).bankAccountNumber ?? undefined,
         bankIfscCode: (initialValues as any).bankIfscCode ?? undefined,
         bankName: (initialValues as any).bankName ?? undefined,
       });
@@ -459,7 +458,9 @@ export function AddMemberDialog({
 
             {}
             <div className="border-t pt-6 mt-6">
-              <h3 className="text-lg font-semibold mb-4">Payment Account Details (Optional)</h3>
+              <h3 className="text-lg font-semibold mb-4">
+                Payment Account Details (Optional)
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <FormField
                   control={form.control}
@@ -553,7 +554,10 @@ export function AddMemberDialog({
                         <FormItem className="md:col-span-3">
                           <FormLabel>Bank Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="State Bank of India" {...field} />
+                            <Input
+                              placeholder="State Bank of India"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

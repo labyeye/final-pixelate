@@ -59,7 +59,7 @@ export default function InventoryModal({
         vendorGstNumber: editItem.vendorGstNumber || "",
         gstPercentage: editItem.gstPercentage ?? 0,
       });
-      
+
       setOpen(true);
     }
   }, [editItem]);
@@ -122,9 +122,14 @@ export default function InventoryModal({
                 control={form.control}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-bold text-xs uppercase tracking-widest">Item Name</FormLabel>
+                    <FormLabel className="font-bold text-xs uppercase tracking-widest">
+                      Item Name
+                    </FormLabel>
                     <FormControl>
-                      <Input className="border-2 border-black rounded-none" {...field} />
+                      <Input
+                        className="border-2 border-black rounded-none"
+                        {...field}
+                      />
                     </FormControl>
                   </FormItem>
                 )}
@@ -134,9 +139,14 @@ export default function InventoryModal({
                 control={form.control}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-bold text-xs uppercase tracking-widest">Category</FormLabel>
+                    <FormLabel className="font-bold text-xs uppercase tracking-widest">
+                      Category
+                    </FormLabel>
                     <FormControl>
-                      <Input className="border-2 border-black rounded-none" {...field} />
+                      <Input
+                        className="border-2 border-black rounded-none"
+                        {...field}
+                      />
                     </FormControl>
                   </FormItem>
                 )}
@@ -150,9 +160,15 @@ export default function InventoryModal({
                 control={form.control}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-bold text-xs uppercase tracking-widest">Quantity</FormLabel>
+                    <FormLabel className="font-bold text-xs uppercase tracking-widest">
+                      Quantity
+                    </FormLabel>
                     <FormControl>
-                      <Input type="number" className="border-2 border-black rounded-none" {...field} />
+                      <Input
+                        type="number"
+                        className="border-2 border-black rounded-none"
+                        {...field}
+                      />
                     </FormControl>
                   </FormItem>
                 )}
@@ -162,9 +178,14 @@ export default function InventoryModal({
                 control={form.control}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-bold text-xs uppercase tracking-widest">Unit</FormLabel>
+                    <FormLabel className="font-bold text-xs uppercase tracking-widest">
+                      Unit
+                    </FormLabel>
                     <FormControl>
-                      <Input className="border-2 border-black rounded-none" {...field} />
+                      <Input
+                        className="border-2 border-black rounded-none"
+                        {...field}
+                      />
                     </FormControl>
                   </FormItem>
                 )}
@@ -174,9 +195,15 @@ export default function InventoryModal({
                 control={form.control}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-bold text-xs uppercase tracking-widest">Price (₹)</FormLabel>
+                    <FormLabel className="font-bold text-xs uppercase tracking-widest">
+                      Price (₹)
+                    </FormLabel>
                     <FormControl>
-                      <Input type="number" className="border-2 border-black rounded-none" {...field} />
+                      <Input
+                        type="number"
+                        className="border-2 border-black rounded-none"
+                        {...field}
+                      />
                     </FormControl>
                   </FormItem>
                 )}
@@ -190,9 +217,14 @@ export default function InventoryModal({
                 control={form.control}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-bold text-xs uppercase tracking-widest">Vendor Name</FormLabel>
+                    <FormLabel className="font-bold text-xs uppercase tracking-widest">
+                      Vendor Name
+                    </FormLabel>
                     <FormControl>
-                      <Input className="border-2 border-black rounded-none" {...field} />
+                      <Input
+                        className="border-2 border-black rounded-none"
+                        {...field}
+                      />
                     </FormControl>
                   </FormItem>
                 )}
@@ -202,9 +234,17 @@ export default function InventoryModal({
                 control={form.control}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-bold text-xs uppercase tracking-widest">Vendor Contact <span className="text-muted-foreground font-normal">(optional)</span></FormLabel>
+                    <FormLabel className="font-bold text-xs uppercase tracking-widest">
+                      Vendor Contact{" "}
+                      <span className="text-muted-foreground font-normal">
+                        (optional)
+                      </span>
+                    </FormLabel>
                     <FormControl>
-                      <Input className="border-2 border-black rounded-none" {...field} />
+                      <Input
+                        className="border-2 border-black rounded-none"
+                        {...field}
+                      />
                     </FormControl>
                   </FormItem>
                 )}
@@ -219,7 +259,9 @@ export default function InventoryModal({
                   className="h-4 w-4 accent-black"
                   {...form.register("isGst")}
                 />
-                <span className="font-black text-sm uppercase tracking-widest">GST Applicable?</span>
+                <span className="font-black text-sm uppercase tracking-widest">
+                  GST Applicable?
+                </span>
               </label>
               {form.watch("isGst") && (
                 <div className="grid grid-cols-2 gap-4 pt-1">
@@ -228,9 +270,14 @@ export default function InventoryModal({
                     control={form.control}
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="font-bold text-xs uppercase tracking-widest">GST Number</FormLabel>
+                        <FormLabel className="font-bold text-xs uppercase tracking-widest">
+                          GST Number
+                        </FormLabel>
                         <FormControl>
-                          <Input className="border-2 border-black rounded-none" {...field} />
+                          <Input
+                            className="border-2 border-black rounded-none"
+                            {...field}
+                          />
                         </FormControl>
                       </FormItem>
                     )}
@@ -240,9 +287,15 @@ export default function InventoryModal({
                     control={form.control}
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="font-bold text-xs uppercase tracking-widest">GST %</FormLabel>
+                        <FormLabel className="font-bold text-xs uppercase tracking-widest">
+                          GST %
+                        </FormLabel>
                         <FormControl>
-                          <Input type="number" className="border-2 border-black rounded-none" {...field} />
+                          <Input
+                            type="number"
+                            className="border-2 border-black rounded-none"
+                            {...field}
+                          />
                         </FormControl>
                       </FormItem>
                     )}
@@ -252,7 +305,10 @@ export default function InventoryModal({
             </div>
 
             <DialogFooter>
-              <Button type="submit" className="w-full h-11 text-base font-black tracking-widest rounded-none">
+              <Button
+                type="submit"
+                className="w-full h-11 text-base font-black tracking-widest rounded-none"
+              >
                 {editItem ? "Update Item" : "Add Item"}
               </Button>
             </DialogFooter>

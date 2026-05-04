@@ -1,673 +1,1596 @@
 module.exports = [
-"[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
+  "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx [app-ssr] (ecmascript)",
+  (__turbopack_context__) => {
+    "use strict";
 
-__turbopack_context__.s([
-    "Table",
-    ()=>Table,
-    "TableBody",
-    ()=>TableBody,
-    "TableCaption",
-    ()=>TableCaption,
-    "TableCell",
-    ()=>TableCell,
-    "TableFooter",
-    ()=>TableFooter,
-    "TableHead",
-    ()=>TableHead,
-    "TableHeader",
-    ()=>TableHeader,
-    "TableRow",
-    ()=>TableRow
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-ssr] (ecmascript)");
-;
-;
-;
-const Table =  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "relative w-full overflow-auto",
-        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
+    __turbopack_context__.s([
+      "Table",
+      () => Table,
+      "TableBody",
+      () => TableBody,
+      "TableCaption",
+      () => TableCaption,
+      "TableCell",
+      () => TableCell,
+      "TableFooter",
+      () => TableFooter,
+      "TableHead",
+      () => TableHead,
+      "TableHeader",
+      () => TableHeader,
+      "TableRow",
+      () => TableRow,
+    ]);
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-ssr] (ecmascript)",
+      );
+    const Table =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "div",
+          {
+            className: "relative w-full overflow-auto",
+            children: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "jsxDEV"
+            ])(
+              "table",
+              {
+                ref: ref,
+                className: (0,
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                  "cn"
+                ])("w-full caption-bottom text-sm", className),
+                ...props,
+              },
+              void 0,
+              false,
+              {
+                fileName:
+                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
+                lineNumber: 10,
+                columnNumber: 5,
+              },
+              ("TURBOPACK compile-time value", void 0),
+            ),
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
+            lineNumber: 9,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    Table.displayName = "Table";
+    const TableHeader =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "thead",
+          {
             ref: ref,
-            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("w-full caption-bottom text-sm", className),
-            ...props
-        }, void 0, false, {
-            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
-            lineNumber: 10,
-            columnNumber: 5
-        }, ("TURBOPACK compile-time value", void 0))
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
-        lineNumber: 9,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-Table.displayName = "Table";
-const TableHeader =  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("[&_tr]:border-b", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
-        lineNumber: 23,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-TableHeader.displayName = "TableHeader";
-const TableBody =  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("[&_tr:last-child]:border-0", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
-        lineNumber: 31,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-TableBody.displayName = "TableBody";
-const TableFooter =  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tfoot", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("border-t bg-muted/50 font-medium [&>tr]:last:border-b-0", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
-        lineNumber: 43,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-TableFooter.displayName = "TableFooter";
-const TableRow =  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
-        lineNumber: 58,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-TableRow.displayName = "TableRow";
-const TableHead =  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
-        lineNumber: 73,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-TableHead.displayName = "TableHead";
-const TableCell =  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("p-4 align-middle [&:has([role=checkbox])]:pr-0", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
-        lineNumber: 88,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-TableCell.displayName = "TableCell";
-const TableCaption =  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("caption", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("mt-4 text-sm text-muted-foreground", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
-        lineNumber: 100,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-TableCaption.displayName = "TableCaption";
-;
-}),
-"[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])("[&_tr]:border-b", className),
+            ...props,
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
+            lineNumber: 23,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    TableHeader.displayName = "TableHeader";
+    const TableBody =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "tbody",
+          {
+            ref: ref,
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])("[&_tr:last-child]:border-0", className),
+            ...props,
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
+            lineNumber: 31,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    TableBody.displayName = "TableBody";
+    const TableFooter =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "tfoot",
+          {
+            ref: ref,
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])(
+              "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
+              className,
+            ),
+            ...props,
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
+            lineNumber: 43,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    TableFooter.displayName = "TableFooter";
+    const TableRow =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "tr",
+          {
+            ref: ref,
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])(
+              "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
+              className,
+            ),
+            ...props,
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
+            lineNumber: 58,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    TableRow.displayName = "TableRow";
+    const TableHead =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "th",
+          {
+            ref: ref,
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])(
+              "h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0",
+              className,
+            ),
+            ...props,
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
+            lineNumber: 73,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    TableHead.displayName = "TableHead";
+    const TableCell =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "td",
+          {
+            ref: ref,
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])("p-4 align-middle [&:has([role=checkbox])]:pr-0", className),
+            ...props,
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
+            lineNumber: 88,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    TableCell.displayName = "TableCell";
+    const TableCaption =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "caption",
+          {
+            ref: ref,
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])("mt-4 text-sm text-muted-foreground", className),
+            ...props,
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx",
+            lineNumber: 100,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    TableCaption.displayName = "TableCaption";
+  },
+  "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx [app-ssr] (ecmascript)",
+  (__turbopack_context__) => {
+    "use strict";
 
-__turbopack_context__.s([
-    "Card",
-    ()=>Card,
-    "CardContent",
-    ()=>CardContent,
-    "CardDescription",
-    ()=>CardDescription,
-    "CardFooter",
-    ()=>CardFooter,
-    "CardHeader",
-    ()=>CardHeader,
-    "CardTitle",
-    ()=>CardTitle
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-ssr] (ecmascript)");
-;
-;
-;
-const Card =  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("rounded-none border-2 bg-card text-card-foreground", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
-        lineNumber: 9,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-Card.displayName = "Card";
-const CardHeader =  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("flex flex-col space-y-1.5 p-4", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
-        lineNumber: 24,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-CardHeader.displayName = "CardHeader";
-const CardTitle =  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("text-2xl font-semibold leading-none tracking-tight", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
-        lineNumber: 36,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-CardTitle.displayName = "CardTitle";
-const CardDescription =  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("text-sm text-muted-foreground", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
-        lineNumber: 51,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-CardDescription.displayName = "CardDescription";
-const CardContent =  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("p-4 pt-0", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
-        lineNumber: 63,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-CardContent.displayName = "CardContent";
-const CardFooter =  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("flex items-center p-4 pt-0", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
-        lineNumber: 71,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-CardFooter.displayName = "CardFooter";
-;
-}),
-"[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
+    __turbopack_context__.s([
+      "Card",
+      () => Card,
+      "CardContent",
+      () => CardContent,
+      "CardDescription",
+      () => CardDescription,
+      "CardFooter",
+      () => CardFooter,
+      "CardHeader",
+      () => CardHeader,
+      "CardTitle",
+      () => CardTitle,
+    ]);
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-ssr] (ecmascript)",
+      );
+    const Card =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "div",
+          {
+            ref: ref,
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])("rounded-none border-2 bg-card text-card-foreground", className),
+            ...props,
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
+            lineNumber: 9,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    Card.displayName = "Card";
+    const CardHeader =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "div",
+          {
+            ref: ref,
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])("flex flex-col space-y-1.5 p-4", className),
+            ...props,
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
+            lineNumber: 24,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    CardHeader.displayName = "CardHeader";
+    const CardTitle =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "h3",
+          {
+            ref: ref,
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])("text-2xl font-semibold leading-none tracking-tight", className),
+            ...props,
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
+            lineNumber: 36,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    CardTitle.displayName = "CardTitle";
+    const CardDescription =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "p",
+          {
+            ref: ref,
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])("text-sm text-muted-foreground", className),
+            ...props,
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
+            lineNumber: 51,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    CardDescription.displayName = "CardDescription";
+    const CardContent =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "div",
+          {
+            ref: ref,
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])("p-4 pt-0", className),
+            ...props,
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
+            lineNumber: 63,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    CardContent.displayName = "CardContent";
+    const CardFooter =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "div",
+          {
+            ref: ref,
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])("flex items-center p-4 pt-0", className),
+            ...props,
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
+            lineNumber: 71,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    CardFooter.displayName = "CardFooter";
+  },
+  "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx [app-ssr] (ecmascript)",
+  (__turbopack_context__) => {
+    "use strict";
 
-__turbopack_context__.s([
-    "SuccessModal",
-    ()=>SuccessModal
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-"use client";
-;
-;
-function SuccessModal({ message }) {
-    const [visible, setVisible] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        const t = setTimeout(()=>setVisible(false), 2000);
-        return ()=>clearTimeout(t);
-    }, []);
-    if (!visible) return null;
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm",
-        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "bg-white border-4 border-black rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] px-10 py-8 flex flex-col items-center gap-4 animate-in zoom-in-90 duration-200",
-            children: [
-                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+    __turbopack_context__.s(["SuccessModal", () => SuccessModal]);
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)",
+      );
+    ("use client");
+    function SuccessModal({ message }) {
+      const [visible, setVisible] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])(true);
+      (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "useEffect"
+      ])(() => {
+        const t = setTimeout(() => setVisible(false), 2000);
+        return () => clearTimeout(t);
+      }, []);
+      if (!visible) return null;
+      return (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "jsxDEV"
+      ])(
+        "div",
+        {
+          className:
+            "fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm",
+          children: (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+            "jsxDEV"
+          ])(
+            "div",
+            {
+              className:
+                "bg-white border-4 border-black rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] px-10 py-8 flex flex-col items-center gap-4 animate-in zoom-in-90 duration-200",
+              children: [
+                (0,
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                  "jsxDEV"
+                ])(
+                  "svg",
+                  {
                     width: "72",
                     height: "72",
                     viewBox: "0 0 72 72",
                     fill: "none",
                     children: [
-                         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                            cx: "36",
-                            cy: "36",
-                            r: "34",
-                            stroke: "black",
-                            strokeWidth: "4",
-                            fill: "#22c55e"
-                        }, void 0, false, {
-                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx",
-                            lineNumber: 23,
-                            columnNumber: 11
-                        }, this),
-                         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
-                            points: "20,37 31,48 52,26",
-                            fill: "none",
-                            stroke: "white",
-                            strokeWidth: "5",
-                            strokeLinecap: "round",
-                            strokeLinejoin: "round",
-                            style: {
-                                strokeDasharray: 50,
-                                strokeDashoffset: 0,
-                                animation: "draw-check 0.4s ease forwards"
-                            }
-                        }, void 0, false, {
-                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx",
-                            lineNumber: 24,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx",
+                      (0,
+                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                        "jsxDEV"
+                      ])(
+                        "circle",
+                        {
+                          cx: "36",
+                          cy: "36",
+                          r: "34",
+                          stroke: "black",
+                          strokeWidth: "4",
+                          fill: "#22c55e",
+                        },
+                        void 0,
+                        false,
+                        {
+                          fileName:
+                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx",
+                          lineNumber: 23,
+                          columnNumber: 11,
+                        },
+                        this,
+                      ),
+                      (0,
+                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                        "jsxDEV"
+                      ])(
+                        "polyline",
+                        {
+                          points: "20,37 31,48 52,26",
+                          fill: "none",
+                          stroke: "white",
+                          strokeWidth: "5",
+                          strokeLinecap: "round",
+                          strokeLinejoin: "round",
+                          style: {
+                            strokeDasharray: 50,
+                            strokeDashoffset: 0,
+                            animation: "draw-check 0.4s ease forwards",
+                          },
+                        },
+                        void 0,
+                        false,
+                        {
+                          fileName:
+                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx",
+                          lineNumber: 24,
+                          columnNumber: 11,
+                        },
+                        this,
+                      ),
+                    ],
+                  },
+                  void 0,
+                  true,
+                  {
+                    fileName:
+                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx",
                     lineNumber: 22,
-                    columnNumber: 9
-                }, this),
-                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
+                    columnNumber: 9,
+                  },
+                  this,
+                ),
+                (0,
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                  "jsxDEV"
+                ])(
+                  "style",
+                  {
                     children: `
           @keyframes draw-check {
             from { stroke-dashoffset: 50; }
             to   { stroke-dashoffset: 0; }
           }
-        `
-                }, void 0, false, {
-                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx",
+        `,
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName:
+                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx",
                     lineNumber: 38,
-                    columnNumber: 9
-                }, this),
-                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    columnNumber: 9,
+                  },
+                  this,
+                ),
+                (0,
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                  "jsxDEV"
+                ])(
+                  "p",
+                  {
                     className: "text-xl font-black tracking-tight text-center",
-                    children: message
-                }, void 0, false, {
-                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx",
+                    children: message,
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName:
+                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx",
                     lineNumber: 44,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx",
-            lineNumber: 21,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx",
-        lineNumber: 20,
-        columnNumber: 5
-    }, this);
-}
-}),
-"[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
+                    columnNumber: 9,
+                  },
+                  this,
+                ),
+              ],
+            },
+            void 0,
+            true,
+            {
+              fileName:
+                "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx",
+              lineNumber: 21,
+              columnNumber: 7,
+            },
+            this,
+          ),
+        },
+        void 0,
+        false,
+        {
+          fileName:
+            "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx",
+          lineNumber: 20,
+          columnNumber: 5,
+        },
+        this,
+      );
+    }
+  },
+  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx [app-ssr] (ecmascript)",
+  (__turbopack_context__) => {
+    "use strict";
 
-__turbopack_context__.s([
-    "default",
-    ()=>EnquiriesPage
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$success$2d$modal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx [app-ssr] (ecmascript)");
-"use client";
-;
-;
-;
-;
-;
-function EnquiriesPage() {
-    const [items, setItems] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [successMessage, setSuccessMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    const showSuccess = (msg)=>{
+    __turbopack_context__.s(["default", () => EnquiriesPage]);
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/table.tsx [app-ssr] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx [app-ssr] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$success$2d$modal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/success-modal.tsx [app-ssr] (ecmascript)",
+      );
+    ("use client");
+    function EnquiriesPage() {
+      const [items, setItems] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])([]);
+      const [successMessage, setSuccessMessage] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])(null);
+      const showSuccess = (msg) => {
         setSuccessMessage(msg);
-        setTimeout(()=>setSuccessMessage(null), 2000);
-    };
-    const updateItem = async (id, patch)=>{
+        setTimeout(() => setSuccessMessage(null), 2000);
+      };
+      const updateItem = async (id, patch) => {
         try {
-            const res = await fetch(`/api/enquiries?id=${encodeURIComponent(id)}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(patch)
-            });
-            if (!res.ok) throw new Error('update failed');
-            const updated = await res.json();
-            setItems((prev)=>prev.map((p)=>String(p._id || p.id) === String(id) ? updated : p));
-            showSuccess("Status updated!");
+          const res = await fetch(
+            `/api/enquiries?id=${encodeURIComponent(id)}`,
+            {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(patch),
+            },
+          );
+          if (!res.ok) throw new Error("update failed");
+          const updated = await res.json();
+          setItems((prev) =>
+            prev.map((p) =>
+              String(p._id || p.id) === String(id) ? updated : p,
+            ),
+          );
+          showSuccess("Status updated!");
         } catch (e) {
-            console.error('Failed to update enquiry', e);
+          console.error("Failed to update enquiry", e);
         }
-    };
-    const deleteItem = async (id)=>{
+      };
+      const deleteItem = async (id) => {
         try {
-            if (!window.confirm('Are you sure you want to delete this enquiry? This cannot be undone.')) return;
-            const res = await fetch(`/api/enquiries?id=${encodeURIComponent(id)}`, {
-                method: 'DELETE'
-            });
-            if (!res.ok) throw new Error('delete failed');
-            
-            setItems((prev)=>prev.filter((p)=>String(p._id || p.id) !== String(id)));
-            showSuccess("Enquiry deleted!");
+          if (
+            !window.confirm(
+              "Are you sure you want to delete this enquiry? This cannot be undone.",
+            )
+          )
+            return;
+          const res = await fetch(
+            `/api/enquiries?id=${encodeURIComponent(id)}`,
+            {
+              method: "DELETE",
+            },
+          );
+          if (!res.ok) throw new Error("delete failed");
+
+          setItems((prev) =>
+            prev.filter((p) => String(p._id || p.id) !== String(id)),
+          );
+          showSuccess("Enquiry deleted!");
         } catch (e) {
-            console.error('Failed to delete enquiry', e);
+          console.error("Failed to delete enquiry", e);
         }
-    };
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+      };
+      (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "useEffect"
+      ])(() => {
         let mounted = true;
-        (async ()=>{
-            try {
-                const res = await fetch('/api/enquiries');
-                const json = await res.json();
-                if (!mounted) return;
-                setItems(json || []);
-            } catch (e) {
-                console.error('Failed to load enquiries', e);
-            }
+        (async () => {
+          try {
+            const res = await fetch("/api/enquiries");
+            const json = await res.json();
+            if (!mounted) return;
+            setItems(json || []);
+          } catch (e) {
+            console.error("Failed to load enquiries", e);
+          }
         })();
-        return ()=>{
-            mounted = false;
+        return () => {
+          mounted = false;
         };
-    }, []);
-    return  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "space-y-6",
-        children: [
-            successMessage &&  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$success$2d$modal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SuccessModal"], {
-                message: successMessage
-            }, void 0, false, {
-                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                lineNumber: 64,
-                columnNumber: 26
-            }, this),
-             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
+      }, []);
+      return (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+        "jsxDEV"
+      ])(
+        "div",
+        {
+          className: "space-y-6",
+          children: [
+            successMessage &&
+              (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                "jsxDEV"
+              ])(
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$success$2d$modal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                  "SuccessModal"
+                ],
+                {
+                  message: successMessage,
+                },
+                void 0,
+                false,
+                {
+                  fileName:
+                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                  lineNumber: 64,
+                  columnNumber: 26,
+                },
+                this,
+              ),
+            (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "jsxDEV"
+            ])(
+              "header",
+              {
                 children: [
-                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        className: "text-5xl font-black",
-                        children: "Enquiries"
-                    }, void 0, false, {
-                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                        lineNumber: 66,
-                        columnNumber: 9
-                    }, this),
-                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-muted-foreground",
-                        children: "All contact form submissions saved from the website."
-                    }, void 0, false, {
-                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                        lineNumber: 67,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                  (0,
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                    "jsxDEV"
+                  ])(
+                    "h1",
+                    {
+                      className: "text-5xl font-black",
+                      children: "Enquiries",
+                    },
+                    void 0,
+                    false,
+                    {
+                      fileName:
+                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                      lineNumber: 66,
+                      columnNumber: 9,
+                    },
+                    this,
+                  ),
+                  (0,
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                    "jsxDEV"
+                  ])(
+                    "p",
+                    {
+                      className: "text-muted-foreground",
+                      children:
+                        "All contact form submissions saved from the website.",
+                    },
+                    void 0,
+                    false,
+                    {
+                      fileName:
+                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                      lineNumber: 67,
+                      columnNumber: 9,
+                    },
+                    this,
+                  ),
+                ],
+              },
+              void 0,
+              true,
+              {
+                fileName:
+                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
                 lineNumber: 65,
-                columnNumber: 7
-            }, this),
-             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
+                columnNumber: 7,
+              },
+              this,
+            ),
+            (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+              "jsxDEV"
+            ])(
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                "Card"
+              ],
+              {
                 className: "border-2 border-black",
                 children: [
-                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardHeader"], {
-                        children: [
-                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardTitle"], {
-                                children: "All Enquiries"
-                            }, void 0, false, {
-                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                lineNumber: 72,
-                                columnNumber: 11
-                            }, this),
-                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardDescription"], {
-                                children: "Newest first"
-                            }, void 0, false, {
-                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                lineNumber: 73,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                        lineNumber: 71,
-                        columnNumber: 9
-                    }, this),
-                     (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
-                        children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Table"], {
-                            children: [
-                                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHeader"], {
-                                    children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableRow"], {
-                                        children: [
-                                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
-                                                children: "Name"
-                                            }, void 0, false, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 79,
-                                                columnNumber: 17
-                                            }, this),
-                                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
-                                                children: "Email"
-                                            }, void 0, false, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 80,
-                                                columnNumber: 17
-                                            }, this),
-                                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
-                                                children: "Phone"
-                                            }, void 0, false, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 81,
-                                                columnNumber: 17
-                                            }, this),
-                                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
-                                                children: "Subject"
-                                            }, void 0, false, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 82,
-                                                columnNumber: 17
-                                            }, this),
-                                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
-                                                children: "Project Type"
-                                            }, void 0, false, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 83,
-                                                columnNumber: 17
-                                            }, this),
-                                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
-                                                children: "Message"
-                                            }, void 0, false, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 84,
-                                                columnNumber: 17
-                                            }, this),
-                                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
-                                                children: "Budget"
-                                            }, void 0, false, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 85,
-                                                columnNumber: 17
-                                            }, this),
-                                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
-                                                children: "Status"
-                                            }, void 0, false, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 86,
-                                                columnNumber: 17
-                                            }, this),
-                                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
-                                                children: "Date"
-                                            }, void 0, false, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                lineNumber: 87,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                        lineNumber: 78,
-                                        columnNumber: 15
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                    lineNumber: 77,
-                                    columnNumber: 13
-                                }, this),
-                                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableBody"], {
-                                    children: items.map((it)=> (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableRow"], {
-                                            children: [
-                                                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                    className: "font-bold",
-                                                    children: it.name || '-'
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                    lineNumber: 93,
-                                                    columnNumber: 19
-                                                }, this),
-                                                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                    children: it.email || '-'
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                    lineNumber: 94,
-                                                    columnNumber: 19
-                                                }, this),
-                                                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                    children: it.phone || '-'
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                    lineNumber: 95,
-                                                    columnNumber: 19
-                                                }, this),
-                                                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                    children: it.subject || '-'
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                    lineNumber: 96,
-                                                    columnNumber: 19
-                                                }, this),
-                                                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                    children: it.projectType || '-'
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                    lineNumber: 97,
-                                                    columnNumber: 19
-                                                }, this),
-                                                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                    style: {
-                                                        maxWidth: 300
+                  (0,
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                    "jsxDEV"
+                  ])(
+                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                      "CardHeader"
+                    ],
+                    {
+                      children: [
+                        (0,
+                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                          "jsxDEV"
+                        ])(
+                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                            "CardTitle"
+                          ],
+                          {
+                            children: "All Enquiries",
+                          },
+                          void 0,
+                          false,
+                          {
+                            fileName:
+                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                            lineNumber: 72,
+                            columnNumber: 11,
+                          },
+                          this,
+                        ),
+                        (0,
+                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                          "jsxDEV"
+                        ])(
+                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                            "CardDescription"
+                          ],
+                          {
+                            children: "Newest first",
+                          },
+                          void 0,
+                          false,
+                          {
+                            fileName:
+                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                            lineNumber: 73,
+                            columnNumber: 11,
+                          },
+                          this,
+                        ),
+                      ],
+                    },
+                    void 0,
+                    true,
+                    {
+                      fileName:
+                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                      lineNumber: 71,
+                      columnNumber: 9,
+                    },
+                    this,
+                  ),
+                  (0,
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                    "jsxDEV"
+                  ])(
+                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                      "CardContent"
+                    ],
+                    {
+                      children: (0,
+                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                        "jsxDEV"
+                      ])(
+                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                          "Table"
+                        ],
+                        {
+                          children: [
+                            (0,
+                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                              "jsxDEV"
+                            ])(
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                "TableHeader"
+                              ],
+                              {
+                                children: (0,
+                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                  "jsxDEV"
+                                ])(
+                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                    "TableRow"
+                                  ],
+                                  {
+                                    children: [
+                                      (0,
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                        "jsxDEV"
+                                      ])(
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "TableHead"
+                                        ],
+                                        {
+                                          children: "Name",
+                                        },
+                                        void 0,
+                                        false,
+                                        {
+                                          fileName:
+                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                          lineNumber: 79,
+                                          columnNumber: 17,
+                                        },
+                                        this,
+                                      ),
+                                      (0,
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                        "jsxDEV"
+                                      ])(
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "TableHead"
+                                        ],
+                                        {
+                                          children: "Email",
+                                        },
+                                        void 0,
+                                        false,
+                                        {
+                                          fileName:
+                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                          lineNumber: 80,
+                                          columnNumber: 17,
+                                        },
+                                        this,
+                                      ),
+                                      (0,
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                        "jsxDEV"
+                                      ])(
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "TableHead"
+                                        ],
+                                        {
+                                          children: "Phone",
+                                        },
+                                        void 0,
+                                        false,
+                                        {
+                                          fileName:
+                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                          lineNumber: 81,
+                                          columnNumber: 17,
+                                        },
+                                        this,
+                                      ),
+                                      (0,
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                        "jsxDEV"
+                                      ])(
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "TableHead"
+                                        ],
+                                        {
+                                          children: "Subject",
+                                        },
+                                        void 0,
+                                        false,
+                                        {
+                                          fileName:
+                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                          lineNumber: 82,
+                                          columnNumber: 17,
+                                        },
+                                        this,
+                                      ),
+                                      (0,
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                        "jsxDEV"
+                                      ])(
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "TableHead"
+                                        ],
+                                        {
+                                          children: "Project Type",
+                                        },
+                                        void 0,
+                                        false,
+                                        {
+                                          fileName:
+                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                          lineNumber: 83,
+                                          columnNumber: 17,
+                                        },
+                                        this,
+                                      ),
+                                      (0,
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                        "jsxDEV"
+                                      ])(
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "TableHead"
+                                        ],
+                                        {
+                                          children: "Message",
+                                        },
+                                        void 0,
+                                        false,
+                                        {
+                                          fileName:
+                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                          lineNumber: 84,
+                                          columnNumber: 17,
+                                        },
+                                        this,
+                                      ),
+                                      (0,
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                        "jsxDEV"
+                                      ])(
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "TableHead"
+                                        ],
+                                        {
+                                          children: "Budget",
+                                        },
+                                        void 0,
+                                        false,
+                                        {
+                                          fileName:
+                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                          lineNumber: 85,
+                                          columnNumber: 17,
+                                        },
+                                        this,
+                                      ),
+                                      (0,
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                        "jsxDEV"
+                                      ])(
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "TableHead"
+                                        ],
+                                        {
+                                          children: "Status",
+                                        },
+                                        void 0,
+                                        false,
+                                        {
+                                          fileName:
+                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                          lineNumber: 86,
+                                          columnNumber: 17,
+                                        },
+                                        this,
+                                      ),
+                                      (0,
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                        "jsxDEV"
+                                      ])(
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "TableHead"
+                                        ],
+                                        {
+                                          children: "Date",
+                                        },
+                                        void 0,
+                                        false,
+                                        {
+                                          fileName:
+                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                          lineNumber: 87,
+                                          columnNumber: 17,
+                                        },
+                                        this,
+                                      ),
+                                    ],
+                                  },
+                                  void 0,
+                                  true,
+                                  {
+                                    fileName:
+                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                    lineNumber: 78,
+                                    columnNumber: 15,
+                                  },
+                                  this,
+                                ),
+                              },
+                              void 0,
+                              false,
+                              {
+                                fileName:
+                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                lineNumber: 77,
+                                columnNumber: 13,
+                              },
+                              this,
+                            ),
+                            (0,
+                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                              "jsxDEV"
+                            ])(
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                "TableBody"
+                              ],
+                              {
+                                children: items.map((it) =>
+                                  (0,
+                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                    "jsxDEV"
+                                  ])(
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                      "TableRow"
+                                    ],
+                                    {
+                                      children: [
+                                        (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                            "TableCell"
+                                          ],
+                                          {
+                                            className: "font-bold",
+                                            children: it.name || "-",
+                                          },
+                                          void 0,
+                                          false,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                            lineNumber: 93,
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                        (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                            "TableCell"
+                                          ],
+                                          {
+                                            children: it.email || "-",
+                                          },
+                                          void 0,
+                                          false,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                            lineNumber: 94,
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                        (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                            "TableCell"
+                                          ],
+                                          {
+                                            children: it.phone || "-",
+                                          },
+                                          void 0,
+                                          false,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                            lineNumber: 95,
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                        (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                            "TableCell"
+                                          ],
+                                          {
+                                            children: it.subject || "-",
+                                          },
+                                          void 0,
+                                          false,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                            lineNumber: 96,
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                        (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                            "TableCell"
+                                          ],
+                                          {
+                                            children: it.projectType || "-",
+                                          },
+                                          void 0,
+                                          false,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                            lineNumber: 97,
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                        (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                            "TableCell"
+                                          ],
+                                          {
+                                            style: {
+                                              maxWidth: 300,
+                                            },
+                                            children: it.message || "-",
+                                          },
+                                          void 0,
+                                          false,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                            lineNumber: 98,
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                        (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                            "TableCell"
+                                          ],
+                                          {
+                                            children: it.budget || "-",
+                                          },
+                                          void 0,
+                                          false,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                            lineNumber: 99,
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                        (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                            "TableCell"
+                                          ],
+                                          {
+                                            children: (0,
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                              "jsxDEV"
+                                            ])(
+                                              "select",
+                                              {
+                                                value: it.status || "pending",
+                                                onChange: (e) =>
+                                                  updateItem(
+                                                    String(it._id || it.id),
+                                                    {
+                                                      status: e.target.value,
                                                     },
-                                                    children: it.message || '-'
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                    lineNumber: 98,
-                                                    columnNumber: 19
-                                                }, this),
-                                                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                    children: it.budget || '-'
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                    lineNumber: 99,
-                                                    columnNumber: 19
-                                                }, this),
-                                                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                    children:  (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                                        value: it.status || 'pending',
-                                                        onChange: (e)=>updateItem(String(it._id || it.id), {
-                                                                status: e.target.value
-                                                            }),
-                                                        className: "border rounded px-2 py-1",
-                                                        children: [
-                                                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                value: "pending",
-                                                                children: "Pending"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 102,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                value: "confirmation",
-                                                                children: "Confirmation"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 103,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                                value: "rejected",
-                                                                children: "Rejected"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                                lineNumber: 104,
-                                                                columnNumber: 23
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                        lineNumber: 101,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                    lineNumber: 100,
-                                                    columnNumber: 19
-                                                }, this),
-                                                 (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                    className: "flex items-center gap-2",
-                                                    children: [
-                                                         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            children: it.createdAt ? new Date(it.createdAt).toLocaleString() : '-'
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                            lineNumber: 108,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                         (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                            onClick: ()=>deleteItem(String(it._id || it.id)),
-                                                            className: "ml-2 text-sm text-red-600 hover:underline",
-                                                            children: "Delete"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                            lineNumber: 109,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                                    lineNumber: 107,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, String(it._id || it.id), true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                            lineNumber: 92,
-                                            columnNumber: 17
-                                        }, this))
-                                }, void 0, false, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                                    lineNumber: 90,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                            lineNumber: 76,
-                            columnNumber: 11
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-                        lineNumber: 75,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                                  ),
+                                                className:
+                                                  "border rounded px-2 py-1",
+                                                children: [
+                                                  (0,
+                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                    "jsxDEV"
+                                                  ])(
+                                                    "option",
+                                                    {
+                                                      value: "pending",
+                                                      children: "Pending",
+                                                    },
+                                                    void 0,
+                                                    false,
+                                                    {
+                                                      fileName:
+                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                                      lineNumber: 102,
+                                                      columnNumber: 23,
+                                                    },
+                                                    this,
+                                                  ),
+                                                  (0,
+                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                    "jsxDEV"
+                                                  ])(
+                                                    "option",
+                                                    {
+                                                      value: "confirmation",
+                                                      children: "Confirmation",
+                                                    },
+                                                    void 0,
+                                                    false,
+                                                    {
+                                                      fileName:
+                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                                      lineNumber: 103,
+                                                      columnNumber: 23,
+                                                    },
+                                                    this,
+                                                  ),
+                                                  (0,
+                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                    "jsxDEV"
+                                                  ])(
+                                                    "option",
+                                                    {
+                                                      value: "rejected",
+                                                      children: "Rejected",
+                                                    },
+                                                    void 0,
+                                                    false,
+                                                    {
+                                                      fileName:
+                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                                      lineNumber: 104,
+                                                      columnNumber: 23,
+                                                    },
+                                                    this,
+                                                  ),
+                                                ],
+                                              },
+                                              void 0,
+                                              true,
+                                              {
+                                                fileName:
+                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                                lineNumber: 101,
+                                                columnNumber: 21,
+                                              },
+                                              this,
+                                            ),
+                                          },
+                                          void 0,
+                                          false,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                            lineNumber: 100,
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                        (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                            "TableCell"
+                                          ],
+                                          {
+                                            className:
+                                              "flex items-center gap-2",
+                                            children: [
+                                              (0,
+                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                "jsxDEV"
+                                              ])(
+                                                "span",
+                                                {
+                                                  children: it.createdAt
+                                                    ? new Date(
+                                                        it.createdAt,
+                                                      ).toLocaleString()
+                                                    : "-",
+                                                },
+                                                void 0,
+                                                false,
+                                                {
+                                                  fileName:
+                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                                  lineNumber: 108,
+                                                  columnNumber: 21,
+                                                },
+                                                this,
+                                              ),
+                                              (0,
+                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__[
+                                                "jsxDEV"
+                                              ])(
+                                                "button",
+                                                {
+                                                  onClick: () =>
+                                                    deleteItem(
+                                                      String(it._id || it.id),
+                                                    ),
+                                                  className:
+                                                    "ml-2 text-sm text-red-600 hover:underline",
+                                                  children: "Delete",
+                                                },
+                                                void 0,
+                                                false,
+                                                {
+                                                  fileName:
+                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                                  lineNumber: 109,
+                                                  columnNumber: 21,
+                                                },
+                                                this,
+                                              ),
+                                            ],
+                                          },
+                                          void 0,
+                                          true,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                            lineNumber: 107,
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                      ],
+                                    },
+                                    String(it._id || it.id),
+                                    true,
+                                    {
+                                      fileName:
+                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                      lineNumber: 92,
+                                      columnNumber: 17,
+                                    },
+                                    this,
+                                  ),
+                                ),
+                              },
+                              void 0,
+                              false,
+                              {
+                                fileName:
+                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                                lineNumber: 90,
+                                columnNumber: 13,
+                              },
+                              this,
+                            ),
+                          ],
+                        },
+                        void 0,
+                        true,
+                        {
+                          fileName:
+                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                          lineNumber: 76,
+                          columnNumber: 11,
+                        },
+                        this,
+                      ),
+                    },
+                    void 0,
+                    false,
+                    {
+                      fileName:
+                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+                      lineNumber: 75,
+                      columnNumber: 9,
+                    },
+                    this,
+                  ),
+                ],
+              },
+              void 0,
+              true,
+              {
+                fileName:
+                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
                 lineNumber: 70,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
-        lineNumber: 63,
-        columnNumber: 5
-    }, this);
-}
-}),
+                columnNumber: 7,
+              },
+              this,
+            ),
+          ],
+        },
+        void 0,
+        true,
+        {
+          fileName:
+            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/enquiries/page.tsx",
+          lineNumber: 63,
+          columnNumber: 5,
+        },
+        this,
+      );
+    }
+  },
 ];
-

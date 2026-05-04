@@ -137,7 +137,8 @@ export default function AboutUsTeamPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!window.confirm("Are you sure you want to delete this team member?")) return;
+    if (!window.confirm("Are you sure you want to delete this team member?"))
+      return;
 
     try {
       setLoading(true);
@@ -314,7 +315,7 @@ export default function AboutUsTeamPage() {
                           });
                         } finally {
                           setUploading(false);
-                          
+
                           e.target.value = "";
                         }
                       }
