@@ -1247,7 +1247,7 @@ module.exports = [
   },
   "[project]/Desktop/Projects/final-pixelate/dashboard/src/assets/images/social/Instagram_icon.png (static in ecmascript, tag client)",
   (__turbopack_context__) => {
-    __turbopack_context__.v("/_next/static/media/Instagram_icon.8959c2e1.png");
+    __turbopack_context__.v("/_next/static/media/Instagram_icon.8959c2e1.webp");
   },
   '[project]/Desktop/Projects/final-pixelate/dashboard/src/assets/images/social/Instagram_icon.png.mjs { IMAGE => "[project]/Desktop/Projects/final-pixelate/dashboard/src/assets/images/social/Instagram_icon.png (static in ecmascript, tag client)" } [app-ssr] (structured image object with data url, ecmascript)',
   (__turbopack_context__) => {

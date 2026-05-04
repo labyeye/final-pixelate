@@ -54,7 +54,7 @@ export async function POST(request: Request) {
 <html>
 <body style="margin:0;padding:0;font-family:Arial,sans-serif;background:#f4f4f4;">
   <div style="background:#1a1a1a;padding:20px;">
-    ${WEBSITE_URL ? `<img src="${WEBSITE_URL}/assets/logo-2.png" alt="Pixelate Nest" style="height:50px;margin-bottom:10px;"/>` : ""}
+    ${WEBSITE_URL ? `<img src="${WEBSITE_URL}/assets/logo-2.webp" alt="Pixelate Nest" style="height:50px;margin-bottom:10px;"/>` : ""}
     <p style="color:#fff;margin:0;font-size:18px;font-weight:bold;">Pixelate Nest</p>
   </div>
   <div style="max-width:600px;margin:0 auto;padding:30px 20px;">

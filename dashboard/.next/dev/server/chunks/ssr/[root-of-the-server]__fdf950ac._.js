@@ -8402,7 +8402,7 @@ module.exports = [
   "[project]/Desktop/Projects/final-pixelate/dashboard/src/assets/images/Logo_Color_Name_Large.png (static in ecmascript, tag client)",
   (__turbopack_context__) => {
     __turbopack_context__.v(
-      "/_next/static/media/Logo_Color_Name_Large.10db1d93.png",
+      "/_next/static/media/Logo_Color_Name_Large.10db1d93.webp",
     );
   },
   '[project]/Desktop/Projects/final-pixelate/dashboard/src/assets/images/Logo_Color_Name_Large.png.mjs { IMAGE => "[project]/Desktop/Projects/final-pixelate/dashboard/src/assets/images/Logo_Color_Name_Large.png (static in ecmascript, tag client)" } [app-ssr] (structured image object with data url, ecmascript)',

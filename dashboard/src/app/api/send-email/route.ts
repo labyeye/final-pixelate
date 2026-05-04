@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
     const WEBSITE_URL = process.env.WEBSITE_URL || "";
 
-    const emailHeader = `<div style="background-color: #1a1a1a; color: white; padding: 20px;"><img src="${WEBSITE_URL}/assets/logo-2.png" alt="Pixelate Nest Logo" style="height: 50px; margin-bottom: 20px;"/></div>`;
+    const emailHeader = `<div style="background-color: #1a1a1a; color: white; padding: 20px;"><img src="${WEBSITE_URL}/assets/logo-2.webp" alt="Pixelate Nest Logo" style="height: 50px; margin-bottom: 20px;"/></div>`;
     const emailFooter = `<div style="background-color: #1a1a1a; color: #666; text-align: center; padding: 20px; margin-top: 30px;"><p>© 2026 Kalahanu Tech Studios LLP. All Rights Reserved.</p></div>`;
 
     const customerTemplate = (name: string, selectedPlan?: string) =>
