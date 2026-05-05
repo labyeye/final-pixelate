@@ -602,6 +602,31 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/dashboard/whatsapp-templates": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/dashboard/whatsapp-templates",
+      "dataRoute": "/dashboard/whatsapp-templates.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/dashboard/whatsapp-webhook": {
       "experimentalBypassFor": [
         {
@@ -1481,8 +1506,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "8726674d2940ef8e712e79834022af0e",
-    "previewModeSigningKey": "67596f4e402d47aaf203e0939fcee70c4f956b4b688d8762a0ed6fb6fb6523f4",
-    "previewModeEncryptionKey": "f520145b99f751dfa7736ad3d0b92c1eb78893efa211c8b49ce799b853c63595"
+    "previewModeId": "55cd28ef4b05c4ffbe3ee121b57ff6ca",
+    "previewModeSigningKey": "ddc62d88ce286e49854308b20d194446e0d74694a1f29a089cacef39c428b5d2",
+    "previewModeEncryptionKey": "0b93c2179f0191324479f893ad585645a8a8b03cd3fb4a75baf8c61d5476df66"
   }
 }

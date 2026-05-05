@@ -245,6 +245,14 @@
       "namedRegex": "^/api/users/(?<nxtPid>[^/]+?)/change\\-password(?:/)?$"
     },
     {
+      "page": "/api/whatsapp-templates/[id]",
+      "regex": "^/api/whatsapp\\-templates/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/whatsapp\\-templates/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/work-gallery/[id]",
       "regex": "^/api/work\\-gallery/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -431,6 +439,12 @@
       "regex": "^/api/fb\\-ads\\-connection/sync(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/fb\\-ads\\-connection/sync(?:/)?$"
+    },
+    {
+      "page": "/api/generate-payment-receipt",
+      "regex": "^/api/generate\\-payment\\-receipt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/generate\\-payment\\-receipt(?:/)?$"
     },
     {
       "page": "/api/inventory",
@@ -691,6 +705,18 @@
       "namedRegex": "^/api/whatsapp\\-optin(?:/)?$"
     },
     {
+      "page": "/api/whatsapp-templates",
+      "regex": "^/api/whatsapp\\-templates(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/whatsapp\\-templates(?:/)?$"
+    },
+    {
+      "page": "/api/whatsapp-templates/sync",
+      "regex": "^/api/whatsapp\\-templates/sync(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/whatsapp\\-templates/sync(?:/)?$"
+    },
+    {
       "page": "/api/whatsapp-webhook",
       "regex": "^/api/whatsapp\\-webhook(?:/)?$",
       "routeKeys": {},
@@ -815,6 +841,12 @@
       "regex": "^/dashboard/whatsapp\\-inbox(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/dashboard/whatsapp\\-inbox(?:/)?$"
+    },
+    {
+      "page": "/dashboard/whatsapp-templates",
+      "regex": "^/dashboard/whatsapp\\-templates(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/whatsapp\\-templates(?:/)?$"
     },
     {
       "page": "/dashboard/whatsapp-webhook",

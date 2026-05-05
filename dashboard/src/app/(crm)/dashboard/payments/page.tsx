@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { format } from "date-fns";
 import {
@@ -15,6 +15,9 @@ import {
   Receipt,
   Edit,
   Trash2,
+  Download,
+  MessageCircle,
+  ArrowDownUp,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -36,6 +39,54 @@ import {
 } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+
+function getFinancialYear(): string {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth() + 1;
+  const fyStart = month >= 4 ? year : year - 1;
+  return `${String(fyStart).slice(2)}${String(fyStart + 1).slice(2)}`;
+}
+
+function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none">
+      <circle cx="16" cy="16" r="16" fill="currentColor" />
+      <path
+        d="M22.8 19.4c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.63-.93-2.23-.24-.59-.49-.51-.68-.52-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.09 4.49.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"
+        fill="white"
+      />
+      <path
+        d="M16 5.5C10.2 5.5 5.5 10.2 5.5 16c0 1.86.5 3.6 1.36 5.1L5.5 26.5l5.56-1.34A10.44 10.44 0 0 0 16 26.5c5.8 0 10.5-4.7 10.5-10.5S21.8 5.5 16 5.5zm0 19.25a8.73 8.73 0 0 1-4.47-1.22l-.32-.19-3.3.8.82-3.22-.21-.33A8.74 8.74 0 0 1 7.25 16c0-4.83 3.93-8.75 8.75-8.75S24.75 11.17 24.75 16 20.83 24.75 16 24.75z"
+        fill="white"
+      />
+    </svg>
+  );
+}
+
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+interface FlatPayment {
+  invoiceId: string;
+  invoiceNo: string;
+  projectTitle: string;
+  clientName: string;
+  clientPhone?: string;
+  clientAddress?: string;
+  paymentIndex: number;
+  receiptNo: string;
+  amount: number;
+  date: string;
+  mode: string;
+  remarks?: string;
+  invoiceTotal: number;
+  balanceDue: number;
+  invoiceStatus: string;
+}
+
+// ─── Main Page ────────────────────────────────────────────────────────────────
+
 export default function PaymentsPage() {
   const { user } = useAuth();
   const { toast } = useToast();
@@ -45,6 +96,7 @@ export default function PaymentsPage() {
 
   const [clients, setClients] = useState<any[]>([]);
   const [selectedClient, setSelectedClient] = useState<string>("");
+  const [selectedClientObj, setSelectedClientObj] = useState<any>(null);
   const [invoices, setInvoices] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -69,6 +121,11 @@ export default function PaymentsPage() {
   const [editMode, setEditMode] = useState<string>("");
   const [editRemarks, setEditRemarks] = useState<string>("");
 
+  const [downloadingReceipt, setDownloadingReceipt] = useState<string | null>(
+    null,
+  );
+  const [sendingWhatsApp, setSendingWhatsApp] = useState<string | null>(null);
+
   const toggleInvoiceExpand = (id: string) => {
     setExpandedInvoices((prev) => ({ ...prev, [id]: !prev[id] }));
   };
@@ -86,6 +143,49 @@ export default function PaymentsPage() {
   );
   const outstanding = clientSummary.billed - clientSummary.received;
 
+  // Build flat list of all payments across all invoices, sorted by date desc
+  const allPayments = useMemo<FlatPayment[]>(() => {
+    const fy = getFinancialYear();
+    let globalIndex = 1;
+    const payments: FlatPayment[] = [];
+
+    invoices.forEach((inv) => {
+      const baseAmount = Number(inv.amount || 0);
+      const taxAmount = Number(inv.tax || 0);
+      const total = baseAmount + taxAmount;
+      const paid = Number(inv.paidAmount || 0);
+      const balance = total - paid;
+
+      (inv.paymentHistory || []).forEach((h: any, idx: number) => {
+        payments.push({
+          invoiceId: String(inv._id || inv.id),
+          invoiceNo: inv.invoiceNo || "—",
+          projectTitle: inv.projectTitle || inv.title || "Untitled Project",
+          clientName: inv.clientName || selectedClientObj?.name || "—",
+          clientPhone: inv.clientPhone || selectedClientObj?.phone,
+          clientAddress: inv.clientAddress
+            ? [inv.clientAddress, inv.clientCity, inv.clientState, inv.clientPin].filter(Boolean).join(", ")
+            : selectedClientObj
+              ? [selectedClientObj.address, selectedClientObj.city, selectedClientObj.state, selectedClientObj.pin].filter(Boolean).join(", ")
+              : undefined,
+          paymentIndex: idx,
+          receiptNo: `RCPT/${fy}/${String(globalIndex++).padStart(4, "0")}`,
+          amount: Number(h.amount),
+          date: h.date,
+          mode: h.mode || "Bank Transfer",
+          remarks: h.remarks,
+          invoiceTotal: total,
+          balanceDue: balance,
+          invoiceStatus: (inv.status || "PENDING").toUpperCase(),
+        });
+      });
+    });
+
+    return payments.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    );
+  }, [invoices, selectedClientObj]);
+
   useEffect(() => {
     if (isClient) {
       if (myClientId) setSelectedClient(String(myClientId));
@@ -100,30 +200,31 @@ export default function PaymentsPage() {
   useEffect(() => {
     if (!selectedClient) {
       setInvoices([]);
+      setSelectedClientObj(null);
       return;
     }
+    const found = clients.find(
+      (c) => String(c._id || c.id) === selectedClient,
+    );
+    setSelectedClientObj(found || null);
 
     setLoading(true);
     fetch(`/api/invoices?clientId=${selectedClient}`)
       .then((res) => res.json())
-      .then((data) => {
-        setInvoices(data);
-      })
+      .then((data) => setInvoices(data))
       .catch(console.error)
       .finally(() => setLoading(false));
-  }, [selectedClient]);
+  }, [selectedClient, clients]);
 
   const handlePayClick = (invoice: any) => {
     setActiveInvoice(invoice);
     const remaining = (invoice.amount || 0) - (invoice.paidAmount || 0);
-
     const amountWithTax = remaining > 0 ? remaining * 1.18 : 0;
     setPaymentAmount(amountWithTax > 0 ? amountWithTax.toString() : "0");
   };
 
   const submitPayment = async () => {
     if (!activeInvoice || !paymentAmount) return;
-
     try {
       const res = await fetch("/api/payments", {
         method: "POST",
@@ -136,23 +237,17 @@ export default function PaymentsPage() {
           remarks: paymentRemarks,
         }),
       });
-
       if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));
         throw new Error(errorData.error || "Payment failed");
       }
-
       toast({
         title: "Payment Recorded",
         description: `Successfully recorded payment of ₹${paymentAmount} for invoice ${activeInvoice.invoiceNo}`,
       });
-
-      const updatedRes = await fetch(
-        `/api/invoices?clientId=${selectedClient}`,
-      );
+      const updatedRes = await fetch(`/api/invoices?clientId=${selectedClient}`);
       const updatedData = await updatedRes.json();
       setInvoices(updatedData);
-
       setActiveInvoice(null);
       setPaymentAmount("");
       setPaymentRemarks("");
@@ -160,8 +255,7 @@ export default function PaymentsPage() {
       console.error(error);
       toast({
         title: "Error",
-        description:
-          error.message || "Failed to record payment. Please try again.",
+        description: error.message || "Failed to record payment. Please try again.",
         variant: "destructive",
       });
     }
@@ -182,7 +276,6 @@ export default function PaymentsPage() {
 
   const submitEditPayment = async () => {
     if (!editingPayment || !editAmount) return;
-
     try {
       const res = await fetch(`/api/payments/${editingPayment.index}`, {
         method: "PATCH",
@@ -198,30 +291,16 @@ export default function PaymentsPage() {
           remarks: editRemarks,
         }),
       });
-
       if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));
         throw new Error(errorData.error || "Failed to update payment");
       }
-
-      toast({
-        title: "Payment Updated",
-        description: "Payment details have been updated successfully",
-      });
-
-      const updatedRes = await fetch(
-        `/api/invoices?clientId=${selectedClient}`,
-      );
+      toast({ title: "Payment Updated", description: "Payment details updated successfully" });
+      const updatedRes = await fetch(`/api/invoices?clientId=${selectedClient}`);
       const updatedData = await updatedRes.json();
       setInvoices(updatedData);
-
       setEditingPayment(null);
-      setEditAmount("");
-      setEditDate("");
-      setEditMode("");
-      setEditRemarks("");
     } catch (error: any) {
-      console.error(error);
       toast({
         title: "Error",
         description: error.message || "Failed to update payment",
@@ -231,39 +310,21 @@ export default function PaymentsPage() {
   };
 
   const handleDeletePayment = async (invoice: any, index: number) => {
-    if (
-      !window.confirm(
-        "Are you sure you want to delete this payment entry? This action cannot be undone.",
-      )
-    ) {
-      return;
-    }
-
+    if (!window.confirm("Delete this payment entry? This cannot be undone.")) return;
     try {
       const res = await fetch(
         `/api/payments/${index}?invoiceId=${String(invoice._id || invoice.id)}&index=${index}`,
-        {
-          method: "DELETE",
-        },
+        { method: "DELETE" },
       );
-
       if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));
         throw new Error(errorData.error || "Failed to delete payment");
       }
-
-      toast({
-        title: "Payment Deleted",
-        description: "Payment entry has been removed successfully",
-      });
-
-      const updatedRes = await fetch(
-        `/api/invoices?clientId=${selectedClient}`,
-      );
+      toast({ title: "Payment Deleted", description: "Payment entry removed successfully" });
+      const updatedRes = await fetch(`/api/invoices?clientId=${selectedClient}`);
       const updatedData = await updatedRes.json();
       setInvoices(updatedData);
     } catch (error: any) {
-      console.error(error);
       toast({
         title: "Error",
         description: error.message || "Failed to delete payment",
@@ -272,21 +333,168 @@ export default function PaymentsPage() {
     }
   };
 
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat("en-IN", {
-      style: "currency",
-      currency: "INR",
-    }).format(amount);
+  // Download receipt PDF for a specific payment
+  const handleDownloadReceipt = async (payment: FlatPayment) => {
+    const key = `${payment.invoiceId}-${payment.paymentIndex}`;
+    setDownloadingReceipt(key);
+    try {
+      const res = await fetch("/api/generate-payment-receipt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          receiptNo: payment.receiptNo,
+          clientName: payment.clientName,
+          clientAddress: payment.clientAddress,
+          clientPhone: payment.clientPhone,
+          invoiceNo: payment.invoiceNo,
+          projectTitle: payment.projectTitle,
+          amount: payment.amount,
+          paymentDate: payment.date,
+          paymentMode: payment.mode,
+          transactionRef: payment.remarks,
+          invoiceTotal: payment.invoiceTotal,
+          balanceDue: payment.balanceDue,
+          invoiceStatus: payment.invoiceStatus,
+        }),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || "Failed to generate receipt");
+      }
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `Receipt-${payment.invoiceNo}-${payment.clientName}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      toast({ title: "Receipt Downloaded", description: `Receipt for ${payment.invoiceNo} downloaded.` });
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "Could not generate receipt",
+        variant: "destructive",
+      });
+    } finally {
+      setDownloadingReceipt(null);
+    }
   };
+
+  // Send receipt via WhatsApp
+  const handleWhatsAppReceipt = async (payment: FlatPayment) => {
+    const phone = payment.clientPhone?.replace(/\D/g, "") || "";
+    if (!phone) {
+      toast({
+        title: "No Phone Number",
+        description: "This client has no phone number saved.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const key = `${payment.invoiceId}-${payment.paymentIndex}`;
+    setSendingWhatsApp(key);
+
+    try {
+      // Step 1: Generate the receipt PDF
+      const pdfRes = await fetch("/api/generate-payment-receipt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          receiptNo: payment.receiptNo,
+          clientName: payment.clientName,
+          clientAddress: payment.clientAddress,
+          clientPhone: payment.clientPhone,
+          invoiceNo: payment.invoiceNo,
+          projectTitle: payment.projectTitle,
+          amount: payment.amount,
+          paymentDate: payment.date,
+          paymentMode: payment.mode,
+          transactionRef: payment.remarks,
+          invoiceTotal: payment.invoiceTotal,
+          balanceDue: payment.balanceDue,
+          invoiceStatus: payment.invoiceStatus,
+        }),
+      });
+
+      if (!pdfRes.ok) {
+        throw new Error("Failed to generate receipt PDF");
+      }
+
+      const pdfBlob = await pdfRes.blob();
+      const safeFilename = `Receipt-${payment.invoiceNo.replace(/[/\\]/g, "-")}-${payment.clientName.replace(/[^a-zA-Z0-9]/g, "-")}.pdf`;
+
+      // Step 2: Upload PDF to WhatsApp media
+      const formData = new FormData();
+      formData.append(
+        "file",
+        new File([pdfBlob], safeFilename, { type: "application/pdf" }),
+      );
+
+      const uploadRes = await fetch("/api/upload-whatsapp-media", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!uploadRes.ok) {
+        throw new Error("Failed to upload receipt to WhatsApp");
+      }
+
+      const { mediaId } = await uploadRes.json();
+
+      // Step 3: Send via WhatsApp template
+      const digits = phone.length === 10 ? "91" + phone : phone;
+      const amountFormatted = new Intl.NumberFormat("en-IN", {
+        style: "currency",
+        currency: "INR",
+      }).format(payment.amount);
+
+      const sendRes = await fetch("/api/send-invoice-whatsapp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          phone: digits,
+          clientName: payment.clientName,
+          invNo: payment.receiptNo,
+          amount: amountFormatted,
+          filename: safeFilename,
+          mediaId,
+          clientId: selectedClient,
+        }),
+      });
+
+      const sendData = await sendRes.json().catch(() => ({}));
+
+      if (!sendRes.ok && sendRes.status !== 207) {
+        throw new Error(sendData.error || "WhatsApp delivery failed");
+      }
+
+      toast({
+        title: "Receipt Sent via WhatsApp",
+        description: `Payment receipt sent to ${payment.clientName} (${digits})`,
+      });
+    } catch (error: any) {
+      toast({
+        title: "WhatsApp Error",
+        description: error.message || "Could not send receipt via WhatsApp",
+        variant: "destructive",
+      });
+    } finally {
+      setSendingWhatsApp(null);
+    }
+  };
+
+  const formatCurrency = (amount: number) =>
+    new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR" }).format(amount);
 
   if (user?.role !== "admin" && user?.role !== "client") {
     return (
       <div className="flex h-[50vh] items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-destructive">Access Denied</h1>
-          <p className="text-muted-foreground">
-            Only admins can record payments.
-          </p>
+          <p className="text-muted-foreground">Only admins can record payments.</p>
         </div>
       </div>
     );
@@ -302,13 +510,13 @@ export default function PaymentsPage() {
           <p className="text-muted-foreground font-medium">
             {isClient
               ? "Track your invoices and payment history"
-              : "Manage your incoming cash flow and reconcile client accounts"}
+              : "Manage incoming cash flow and reconcile client accounts"}
           </p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        {}
+        {/* ── Left sidebar ── */}
         <div className="lg:col-span-1 space-y-6">
           {!isClient && (
             <Card className="border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
@@ -318,10 +526,7 @@ export default function PaymentsPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
-                <Select
-                  value={selectedClient}
-                  onValueChange={setSelectedClient}
-                >
+                <Select value={selectedClient} onValueChange={setSelectedClient}>
                   <SelectTrigger className="w-full border-2 border-black font-black h-12 bg-white">
                     <SelectValue placeholder="Select a client..." />
                   </SelectTrigger>
@@ -365,13 +570,21 @@ export default function PaymentsPage() {
                       {formatCurrency(outstanding)}
                     </p>
                   </div>
+                  <div className="pt-1 border-t border-neutral-200">
+                    <p className="text-[10px] font-black text-neutral-400 uppercase tracking-widest mb-1">
+                      Total Payments
+                    </p>
+                    <p className="text-xl font-black text-neutral-700">
+                      {allPayments.length} transaction{allPayments.length !== 1 ? "s" : ""}
+                    </p>
+                  </div>
                 </div>
               </Card>
             </div>
           )}
         </div>
 
-        {}
+        {/* ── Main content ── */}
         <div className="lg:col-span-3 space-y-6">
           {!selectedClient ? (
             <div className="flex flex-col items-center justify-center p-12 border-2 border-dashed border-neutral-300 rounded-xl bg-neutral-50/50 opacity-60">
@@ -380,12 +593,154 @@ export default function PaymentsPage() {
                 No client selected
               </h3>
               <p className="text-neutral-400 font-medium text-sm">
-                Please select a client account to view their invoices and record
-                payments
+                Select a client account to view invoices and record payments
               </p>
             </div>
           ) : (
             <div className="space-y-6">
+
+              {/* ── Recent Payments Table ── */}
+              {allPayments.length > 0 && (
+                <div className="bg-white border-2 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+                  <div className="flex items-center justify-between p-4 border-b-2 border-black bg-green-50">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-green-600 rounded flex items-center justify-center">
+                        <ArrowDownUp className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <h2 className="font-black text-lg uppercase tracking-tight">
+                          Recent Payments
+                        </h2>
+                        <p className="text-xs text-neutral-500 font-medium">
+                          {allPayments.length} transactions • Download or send receipt via WhatsApp
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead>
+                        <tr className="border-b-2 border-black bg-neutral-50">
+                          <th className="text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500">
+                            Date
+                          </th>
+                          <th className="text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500">
+                            Receipt No.
+                          </th>
+                          <th className="text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500">
+                            Invoice
+                          </th>
+                          <th className="text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500 hidden md:table-cell">
+                            Project
+                          </th>
+                          <th className="text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500">
+                            Mode
+                          </th>
+                          <th className="text-right px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500">
+                            Amount
+                          </th>
+                          <th className="text-center px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500">
+                            Actions
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {allPayments.map((payment, rowIdx) => {
+                          const key = `${payment.invoiceId}-${payment.paymentIndex}`;
+                          const isDownloading = downloadingReceipt === key;
+                          const isSendingWA = sendingWhatsApp === key;
+
+                          return (
+                            <tr
+                              key={key}
+                              className={cn(
+                                "border-b border-neutral-100 hover:bg-neutral-50 transition-colors",
+                                rowIdx % 2 === 0 ? "bg-white" : "bg-neutral-50/40",
+                              )}
+                            >
+                              <td className="px-4 py-3">
+                                <p className="font-bold text-sm text-neutral-800">
+                                  {format(new Date(payment.date), "dd MMM yy")}
+                                </p>
+                              </td>
+                              <td className="px-4 py-3">
+                                <span className="font-black text-xs text-green-700 bg-green-50 border border-green-200 px-2 py-0.5 rounded">
+                                  {payment.receiptNo}
+                                </span>
+                              </td>
+                              <td className="px-4 py-3">
+                                <p className="font-black text-sm">{payment.invoiceNo}</p>
+                                <p className="text-[10px] text-neutral-400 font-medium">
+                                  {payment.invoiceStatus}
+                                </p>
+                              </td>
+                              <td className="px-4 py-3 hidden md:table-cell">
+                                <p className="text-sm font-bold text-neutral-700 truncate max-w-[140px]">
+                                  {payment.projectTitle}
+                                </p>
+                                {payment.remarks && (
+                                  <p className="text-[10px] text-neutral-400 italic truncate max-w-[140px]">
+                                    {payment.remarks}
+                                  </p>
+                                )}
+                              </td>
+                              <td className="px-4 py-3">
+                                <span className="text-[10px] font-black uppercase bg-neutral-100 border border-neutral-200 px-2 py-0.5 rounded">
+                                  {payment.mode}
+                                </span>
+                              </td>
+                              <td className="px-4 py-3 text-right">
+                                <p className="font-black text-base text-green-700">
+                                  {formatCurrency(payment.amount)}
+                                </p>
+                              </td>
+                              <td className="px-4 py-3">
+                                <div className="flex items-center justify-center gap-2">
+                                  {/* Download Receipt */}
+                                  <button
+                                    onClick={() => handleDownloadReceipt(payment)}
+                                    disabled={isDownloading}
+                                    title="Download Payment Receipt (PDF)"
+                                    className="flex items-center gap-1.5 px-2.5 py-1.5 bg-black text-white text-[10px] font-black uppercase rounded hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                  >
+                                    {isDownloading ? (
+                                      <Loader2 className="w-3 h-3 animate-spin" />
+                                    ) : (
+                                      <Download className="w-3 h-3" />
+                                    )}
+                                    <span>Receipt</span>
+                                  </button>
+
+                                  {/* WhatsApp */}
+                                  <button
+                                    onClick={() => handleWhatsAppReceipt(payment)}
+                                    disabled={isSendingWA || !payment.clientPhone}
+                                    title={
+                                      !payment.clientPhone
+                                        ? "No phone number for this client"
+                                        : "Send receipt via WhatsApp"
+                                    }
+                                    className="flex items-center gap-1 px-2.5 py-1.5 bg-[#25D366] text-white text-[10px] font-black uppercase rounded hover:bg-[#1ebe5a] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                                  >
+                                    {isSendingWA ? (
+                                      <Loader2 className="w-3 h-3 animate-spin" />
+                                    ) : (
+                                      <WhatsAppIcon className="w-3 h-3" />
+                                    )}
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              {/* ── Invoice Ledger ── */}
               <div className="flex justify-between items-center bg-white p-5 border-2 border-black rounded-lg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                 <h2 className="text-2xl font-black flex items-center gap-3 italic">
                   <Receipt className="w-6 h-6" /> Invoice Ledger
@@ -445,9 +800,7 @@ export default function PaymentsPage() {
                               </span>
                             </div>
                             <p className="text-sm font-black text-neutral-600 uppercase tracking-tight">
-                              {inv.projectTitle ||
-                                inv.title ||
-                                "Untitled Project"}
+                              {inv.projectTitle || inv.title || "Untitled Project"}
                             </p>
                             <div className="flex items-center gap-6 text-[11px] text-neutral-400 font-bold uppercase tracking-wider pt-1">
                               <span className="flex items-center gap-1.5">
@@ -458,8 +811,7 @@ export default function PaymentsPage() {
                                 <span
                                   className={cn(
                                     "flex items-center gap-1.5",
-                                    new Date(inv.dueDate) < new Date() &&
-                                      !isPaid
+                                    new Date(inv.dueDate) < new Date() && !isPaid
                                       ? "text-red-500"
                                       : "",
                                   )}
@@ -479,9 +831,7 @@ export default function PaymentsPage() {
                               <p
                                 className={cn(
                                   "text-2xl font-black",
-                                  balance > 0
-                                    ? "text-red-600"
-                                    : "text-green-600",
+                                  balance > 0 ? "text-red-600" : "text-green-600",
                                 )}
                               >
                                 {formatCurrency(balance)}
@@ -501,21 +851,13 @@ export default function PaymentsPage() {
                                 </Button>
                               )}
                               <button
-                                onClick={() =>
-                                  toggleInvoiceExpand(inv._id || inv.id)
-                                }
+                                onClick={() => toggleInvoiceExpand(inv._id || inv.id)}
                                 className="text-[10px] font-black uppercase tracking-widest text-neutral-500 hover:text-black flex items-center justify-center gap-1"
                               >
                                 {isExpanded ? (
-                                  <>
-                                    <ChevronUp className="w-3 h-3" /> Less
-                                    Detail
-                                  </>
+                                  <><ChevronUp className="w-3 h-3" /> Less Detail</>
                                 ) : (
-                                  <>
-                                    <ChevronDown className="w-3 h-3" /> Full
-                                    Detail
-                                  </>
+                                  <><ChevronDown className="w-3 h-3" /> Full Detail</>
                                 )}
                               </button>
                             </div>
@@ -531,41 +873,13 @@ export default function PaymentsPage() {
                                 </h4>
                                 <div className="space-y-3 text-sm">
                                   <div className="grid grid-cols-3">
-                                    <span className="font-black text-neutral-400 uppercase text-[10px]">
-                                      Client
-                                    </span>
-                                    <span className="col-span-2 font-bold">
-                                      {inv.clientName}
-                                    </span>
+                                    <span className="font-black text-neutral-400 uppercase text-[10px]">Client</span>
+                                    <span className="col-span-2 font-bold">{inv.clientName}</span>
                                   </div>
                                   <div className="grid grid-cols-3">
-                                    <span className="font-black text-neutral-400 uppercase text-[10px]">
-                                      Project
-                                    </span>
-                                    <span className="col-span-2 font-bold">
-                                      {inv.projectTitle || "-"}
-                                    </span>
+                                    <span className="font-black text-neutral-400 uppercase text-[10px]">Project</span>
+                                    <span className="col-span-2 font-bold">{inv.projectTitle || "-"}</span>
                                   </div>
-                                  {inv.venueName && (
-                                    <div className="grid grid-cols-3">
-                                      <span className="font-black text-neutral-400 uppercase text-[10px]">
-                                        Venue
-                                      </span>
-                                      <span className="col-span-2 font-bold">
-                                        {inv.venueName}
-                                      </span>
-                                    </div>
-                                  )}
-                                  {inv.workDate && (
-                                    <div className="grid grid-cols-3">
-                                      <span className="font-black text-neutral-400 uppercase text-[10px]">
-                                        Date
-                                      </span>
-                                      <span className="col-span-2 font-bold">
-                                        {format(new Date(inv.workDate), "PPP")}
-                                      </span>
-                                    </div>
-                                  )}
                                   {inv.description && (
                                     <div className="pt-2 italic text-neutral-500 text-xs border-t border-dashed border-neutral-300">
                                       "{inv.description}"
@@ -579,65 +893,52 @@ export default function PaymentsPage() {
                                   <History className="w-3 h-3" />
                                 </h4>
                                 <div className="space-y-3">
-                                  {inv.paymentHistory &&
-                                  inv.paymentHistory.length > 0 ? (
-                                    inv.paymentHistory.map(
-                                      (h: any, idx: number) => (
-                                        <div
-                                          key={idx}
-                                          className="flex justify-between items-center p-3 bg-white border-2 border-neutral-200 rounded-lg shadow-sm hover:border-neutral-300 transition-colors"
-                                        >
-                                          <div className="space-y-0.5 flex-1">
-                                            <div className="flex items-center gap-2">
-                                              <p className="font-black text-sm text-green-700">
-                                                {formatCurrency(h.amount)}
-                                              </p>
-                                              <span className="text-[8px] font-black uppercase py-0.5 px-1.5 bg-neutral-100 text-neutral-600 rounded">
-                                                {h.mode}
-                                              </span>
-                                            </div>
-                                            <p className="text-[10px] text-neutral-400 font-bold uppercase">
-                                              {format(
-                                                new Date(h.date),
-                                                "dd MMM yyyy",
-                                              )}
+                                  {inv.paymentHistory && inv.paymentHistory.length > 0 ? (
+                                    inv.paymentHistory.map((h: any, idx: number) => (
+                                      <div
+                                        key={idx}
+                                        className="flex justify-between items-center p-3 bg-white border-2 border-neutral-200 rounded-lg shadow-sm hover:border-neutral-300 transition-colors"
+                                      >
+                                        <div className="space-y-0.5 flex-1">
+                                          <div className="flex items-center gap-2">
+                                            <p className="font-black text-sm text-green-700">
+                                              {formatCurrency(h.amount)}
                                             </p>
-                                            {h.remarks && (
-                                              <p className="text-[10px] font-medium text-neutral-400 italic">
-                                                {h.remarks}
-                                              </p>
-                                            )}
+                                            <span className="text-[8px] font-black uppercase py-0.5 px-1.5 bg-neutral-100 text-neutral-600 rounded">
+                                              {h.mode}
+                                            </span>
                                           </div>
-                                          <div className="flex items-center gap-1 ml-2">
-                                            {!isClient && (
-                                              <>
-                                                <button
-                                                  onClick={() =>
-                                                    handleEditPayment(inv, idx)
-                                                  }
-                                                  className="p-1.5 hover:bg-blue-50 rounded border border-transparent hover:border-blue-200 transition-colors"
-                                                  title="Edit payment"
-                                                >
-                                                  <Edit className="w-3.5 h-3.5 text-blue-600" />
-                                                </button>
-                                                <button
-                                                  onClick={() =>
-                                                    handleDeletePayment(
-                                                      inv,
-                                                      idx,
-                                                    )
-                                                  }
-                                                  className="p-1.5 hover:bg-red-50 rounded border border-transparent hover:border-red-200 transition-colors"
-                                                  title="Delete payment"
-                                                >
-                                                  <Trash2 className="w-3.5 h-3.5 text-red-600" />
-                                                </button>
-                                              </>
-                                            )}
-                                          </div>
+                                          <p className="text-[10px] text-neutral-400 font-bold uppercase">
+                                            {format(new Date(h.date), "dd MMM yyyy")}
+                                          </p>
+                                          {h.remarks && (
+                                            <p className="text-[10px] font-medium text-neutral-400 italic">
+                                              {h.remarks}
+                                            </p>
+                                          )}
                                         </div>
-                                      ),
-                                    )
+                                        <div className="flex items-center gap-1 ml-2">
+                                          {!isClient && (
+                                            <>
+                                              <button
+                                                onClick={() => handleEditPayment(inv, idx)}
+                                                className="p-1.5 hover:bg-blue-50 rounded border border-transparent hover:border-blue-200 transition-colors"
+                                                title="Edit payment"
+                                              >
+                                                <Edit className="w-3.5 h-3.5 text-blue-600" />
+                                              </button>
+                                              <button
+                                                onClick={() => handleDeletePayment(inv, idx)}
+                                                className="p-1.5 hover:bg-red-50 rounded border border-transparent hover:border-red-200 transition-colors"
+                                                title="Delete payment"
+                                              >
+                                                <Trash2 className="w-3.5 h-3.5 text-red-600" />
+                                              </button>
+                                            </>
+                                          )}
+                                        </div>
+                                      </div>
+                                    ))
                                   ) : (
                                     <div className="py-6 text-center border-2 border-dashed border-neutral-200 rounded-lg bg-white/50">
                                       <p className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest italic">
@@ -660,7 +961,7 @@ export default function PaymentsPage() {
         </div>
       </div>
 
-      {}
+      {/* ── Record Payment Modal ── */}
       {activeInvoice && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <Card className="max-w-md w-full border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white animate-in zoom-in-95 duration-300">
@@ -690,32 +991,19 @@ export default function PaymentsPage() {
                   <div className="flex justify-between items-center text-xs font-black">
                     <span className="text-blue-600">Bill Amount:</span>
                     <span className="text-blue-700">
-                      {formatCurrency(
-                        (activeInvoice.amount || 0) -
-                          (activeInvoice.paidAmount || 0),
-                      )}
+                      {formatCurrency((activeInvoice.amount || 0) - (activeInvoice.paidAmount || 0))}
                     </span>
                   </div>
                   <div className="flex justify-between items-center text-xs font-black">
                     <span className="text-blue-600">GST (18%):</span>
                     <span className="text-blue-700">
-                      {formatCurrency(
-                        ((activeInvoice.amount || 0) -
-                          (activeInvoice.paidAmount || 0)) *
-                          0.18,
-                      )}
+                      {formatCurrency(((activeInvoice.amount || 0) - (activeInvoice.paidAmount || 0)) * 0.18)}
                     </span>
                   </div>
                   <div className="flex justify-between items-center text-xs font-black border-t border-blue-200 pt-1 mt-1">
-                    <span className="text-blue-700 uppercase tracking-wider">
-                      Total to Receive:
-                    </span>
+                    <span className="text-blue-700 uppercase tracking-wider">Total to Receive:</span>
                     <span className="text-blue-900 text-sm">
-                      {formatCurrency(
-                        ((activeInvoice.amount || 0) -
-                          (activeInvoice.paidAmount || 0)) *
-                          1.18,
-                      )}
+                      {formatCurrency(((activeInvoice.amount || 0) - (activeInvoice.paidAmount || 0)) * 1.18)}
                     </span>
                   </div>
                 </div>
@@ -783,7 +1071,7 @@ export default function PaymentsPage() {
         </div>
       )}
 
-      {}
+      {/* ── Edit Payment Modal ── */}
       {editingPayment && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <Card className="max-w-md w-full border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white animate-in zoom-in-95 duration-300">
@@ -792,8 +1080,7 @@ export default function PaymentsPage() {
                 Edit Payment
               </CardTitle>
               <CardDescription className="font-bold text-black opacity-60">
-                Updating payment for Invoice #{" "}
-                {editingPayment.invoice.invoiceNo}
+                Updating payment for Invoice # {editingPayment.invoice.invoiceNo}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-5 pt-6 pb-8 px-8">
@@ -854,7 +1141,7 @@ export default function PaymentsPage() {
 
               <div className="pt-4 flex flex-col gap-3">
                 <Button
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white h-14 font-black text-xl transition-all hover:scale-[1.02] active:scale-95 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white h-14 font-black text-xl transition-all hover:scale-[1.02] active:scale-95"
                   onClick={submitEditPayment}
                 >
                   <CheckCircle2 className="mr-2 h-6 w-6" />

@@ -189,6 +189,12 @@ export const navGroups = [
         adminOnly: false,
         icon: MessageCircle,
       },
+      {
+        href: "/dashboard/whatsapp-templates",
+        label: "WhatsApp Templates",
+        adminOnly: true,
+        icon: FileText,
+      },
     ],
   },
 

@@ -272,6 +272,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/(crm)/dashboard/whatsapp-templates/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/dashboard/whatsapp-templates">> = Specific
+  const handler = {} as typeof import("../../src/app/(crm)/dashboard/whatsapp-templates/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/(crm)/dashboard/whatsapp-webhook/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/dashboard/whatsapp-webhook">> = Specific
@@ -821,6 +830,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/api/generate-payment-receipt/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/generate-payment-receipt">> = Specific
+  const handler = {} as typeof import("../../src/app/api/generate-payment-receipt/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/api/inventory/[id]/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/inventory/[id]">> = Specific
@@ -1356,6 +1374,33 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/whatsapp-optin">> = Specific
   const handler = {} as typeof import("../../src/app/api/whatsapp-optin/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/api/whatsapp-templates/[id]/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/whatsapp-templates/[id]">> = Specific
+  const handler = {} as typeof import("../../src/app/api/whatsapp-templates/[id]/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/api/whatsapp-templates/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/whatsapp-templates">> = Specific
+  const handler = {} as typeof import("../../src/app/api/whatsapp-templates/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/api/whatsapp-templates/sync/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/whatsapp-templates/sync">> = Specific
+  const handler = {} as typeof import("../../src/app/api/whatsapp-templates/sync/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
