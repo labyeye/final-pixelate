@@ -2,15 +2,15 @@ module.exports = [
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/cjs/react.development.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
-
-
-
-
-
-
-
- "production" !== ("TURBOPACK compile-time value", "development") && function() {
+/**
+ * @license React
+ * react.development.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function defineDeprecationWarning(methodName, info) {
         Object.defineProperty(Component.prototype, methodName, {
             get: function() {
@@ -482,7 +482,7 @@ module.exports = [
     var unknownOwnerDebugStack = deprecatedAPIs.react_stack_bottom_frame.bind(deprecatedAPIs, UnknownOwner)();
     var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
     var didWarnAboutMaps = !1, userProvidedKeyEscapeRegex = /\/+/g, reportGlobalError = "function" === typeof reportError ? reportError : function(error) {
-        if ("TURBOPACK compile-time falsy", 0) 
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
         {
             var event;
         } else if ("object" === typeof process && "function" === typeof process.emit) {
@@ -820,7 +820,7 @@ module.exports = [
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-if ("TURBOPACK compile-time falsy", 0) 
+if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
 ;
 else {
     module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/cjs/react.development.js [app-ssr] (ecmascript)");
@@ -829,15 +829,15 @@ else {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-
-
-
-
-
-
-
-
- "production" !== ("TURBOPACK compile-time value", "development") && function() {
+/**
+ * @license React
+ * react-dom.development.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function noop() {}
     function testStringCoercion(value) {
         return "" + value;
@@ -1006,29 +1006,29 @@ else {
 "use strict";
 
 function checkDCE() {
-     if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function') {
+    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function') {
         return;
     }
     if ("TURBOPACK compile-time truthy", 1) {
-        
-        
-        
-        
-        
-        
-        
+        // This branch is unreachable because this function is only called
+        // in production, but the condition is true only in development.
+        // Therefore if the branch is still here, dead code elimination wasn't
+        // properly applied.
+        // Don't change the message. React DevTools relies on it. Also make sure
+        // this message doesn't occur elsewhere in this function, or it will cause
+        // a false positive.
         throw new Error('^_^');
     }
     try {
-        
+        // Verify that the code above has been dead code eliminated (DCE'd).
         __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
     } catch (err) {
-        
-        
+        // DevTools shouldn't crash React, no matter what.
+        // We should still report in case we break this code.
         console.error(err);
     }
 }
-if ("TURBOPACK compile-time falsy", 0) 
+if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
 ;
 else {
     module.exports = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js [app-ssr] (ecmascript)");
@@ -1037,38 +1037,38 @@ else {
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react-dom/cjs/react-dom-server-legacy.node.development.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
+/**
+ * @license React
+ * react-dom-server-legacy.node.development.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ /*
 
 
+ JS Implementation of MurmurHash3 (r136) (as of May 20, 2011)
 
+ Copyright (c) 2011 Gary Court
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
 
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
 
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- "production" !== ("TURBOPACK compile-time value", "development") && function() {
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+*/ "production" !== ("TURBOPACK compile-time value", "development") && function() {
     function styleReplacer(match, prefix, s, suffix) {
         return "" + prefix + ("s" === s ? "\\73 " : "\\53 ") + suffix;
     }
@@ -9833,7 +9833,7 @@ else {
                 "function" === typeof instance.componentWillUpdate && !0 !== instance.componentWillUpdate.__suppressDeprecationWarning ? foundWillUpdateName = "componentWillUpdate" : "function" === typeof instance.UNSAFE_componentWillUpdate && (foundWillUpdateName = "UNSAFE_componentWillUpdate");
                 if (null !== foundWillMountName || null !== foundWillReceivePropsName || null !== foundWillUpdateName) {
                     var _componentName = getComponentNameFromType(type) || "Component", newApiName = "function" === typeof type.getDerivedStateFromProps ? "getDerivedStateFromProps()" : "getSnapshotBeforeUpdate()";
-                    didWarnAboutLegacyLifecyclesAndDerivedState.has(_componentName) || (didWarnAboutLegacyLifecyclesAndDerivedState.add(_componentName), console.error("Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n%s uses %s but also contains the following legacy lifecycles:%s%s%s\n\nThe above lifecycles should be removed. Learn more about this warning here:\nhttps:
+                    didWarnAboutLegacyLifecyclesAndDerivedState.has(_componentName) || (didWarnAboutLegacyLifecyclesAndDerivedState.add(_componentName), console.error("Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n%s uses %s but also contains the following legacy lifecycles:%s%s%s\n\nThe above lifecycles should be removed. Learn more about this warning here:\nhttps://react.dev/link/unsafe-component-lifecycles", _componentName, newApiName, null !== foundWillMountName ? "\n  " + foundWillMountName : "", null !== foundWillReceivePropsName ? "\n  " + foundWillReceivePropsName : "", null !== foundWillUpdateName ? "\n  " + foundWillUpdateName : ""));
                 }
             }
             var name = getComponentNameFromType(type) || "Component";
@@ -13072,11 +13072,11 @@ function PreloadChunks({ moduleIds }) {
             const href = `${workStore.assetPrefix}/_next/${(0, _encodeuripath.encodeURIPath)(chunk)}${dplId}`;
             const isCss = chunk.endsWith('.css');
             // If it's stylesheet we use `precedence` o help hoist with React Float.
-            
-            
+            // For stylesheets we actually need to render the CSS because nothing else is going to do it so it needs to be part of the component tree.
+            // The `preload` for stylesheet is not optional.
             if (isCss) {
-                return  (0, _jsxruntime.jsx)("link", {
-                    
+                return /*#__PURE__*/ (0, _jsxruntime.jsx)("link", {
+                    // @ts-ignore
                     precedence: "dynamic",
                     href: href,
                     rel: "stylesheet",
@@ -13084,7 +13084,7 @@ function PreloadChunks({ moduleIds }) {
                     nonce: workStore.nonce
                 }, chunk);
             } else {
-                
+                // If it's script we use ReactDOM.preload to preload the resources
                 (0, _reactdom.preload)(href, {
                     as: 'script',
                     fetchPriority: 'low',
@@ -13094,7 +13094,7 @@ function PreloadChunks({ moduleIds }) {
             }
         })
     });
-} 
+} //# sourceMappingURL=preload-chunks.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/lazy-dynamic/loadable.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -13112,16 +13112,16 @@ const _jsxruntime = __turbopack_context__.r("[project]/Desktop/Projects/final-pi
 const _react = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 const _dynamicbailouttocsr = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/lazy-dynamic/dynamic-bailout-to-csr.js [app-ssr] (ecmascript)");
 const _preloadchunks = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/lazy-dynamic/preload-chunks.js [app-ssr] (ecmascript)");
-
-
-
+// Normalize loader to return the module as form { default: Component } for `React.lazy`.
+// Also for backward compatible since next/dynamic allows to resolve a component directly with loader
+// Client component reference proxy need to be converted to a module.
 function convertModule(mod) {
-    
-    
-    
-    
-    
-    
+    // Check "default" prop before accessing it, as it could be client reference proxy that could break it reference.
+    // Cases:
+    // mod: { default: Component }
+    // mod: Component
+    // mod: { default: proxy(Component) }
+    // mod: proxy(Component)
     const hasDefault = mod && 'default' in mod;
     return {
         default: hasDefault ? mod.default : mod
@@ -13137,36 +13137,36 @@ function Loadable(options) {
         ...defaultOptions,
         ...options
     };
-    const Lazy =  (0, _react.lazy)(()=>opts.loader().then(convertModule));
+    const Lazy = /*#__PURE__*/ (0, _react.lazy)(()=>opts.loader().then(convertModule));
     const Loading = opts.loading;
     function LoadableComponent(props) {
-        const fallbackElement = Loading ?  (0, _jsxruntime.jsx)(Loading, {
+        const fallbackElement = Loading ? /*#__PURE__*/ (0, _jsxruntime.jsx)(Loading, {
             isLoading: true,
             pastDelay: true,
             error: null
         }) : null;
-        
+        // If it's non-SSR or provided a loading component, wrap it in a suspense boundary
         const hasSuspenseBoundary = !opts.ssr || !!opts.loading;
         const Wrap = hasSuspenseBoundary ? _react.Suspense : _react.Fragment;
         const wrapProps = hasSuspenseBoundary ? {
             fallback: fallbackElement
         } : {};
-        const children = opts.ssr ?  (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+        const children = opts.ssr ? /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
             children: [
-                ("TURBOPACK compile-time truthy", 1) ?  (0, _jsxruntime.jsx)(_preloadchunks.PreloadChunks, {
+                ("TURBOPACK compile-time truthy", 1) ? /*#__PURE__*/ (0, _jsxruntime.jsx)(_preloadchunks.PreloadChunks, {
                     moduleIds: opts.modules
                 }) : "TURBOPACK unreachable",
-                 (0, _jsxruntime.jsx)(Lazy, {
+                /*#__PURE__*/ (0, _jsxruntime.jsx)(Lazy, {
                     ...props
                 })
             ]
-        }) :  (0, _jsxruntime.jsx)(_dynamicbailouttocsr.BailoutToCSR, {
+        }) : /*#__PURE__*/ (0, _jsxruntime.jsx)(_dynamicbailouttocsr.BailoutToCSR, {
             reason: "next/dynamic",
-            children:  (0, _jsxruntime.jsx)(Lazy, {
+            children: /*#__PURE__*/ (0, _jsxruntime.jsx)(Lazy, {
                 ...props
             })
         });
-        return  (0, _jsxruntime.jsx)(Wrap, {
+        return /*#__PURE__*/ (0, _jsxruntime.jsx)(Wrap, {
             ...wrapProps,
             children: children
         });
@@ -13174,7 +13174,7 @@ function Loadable(options) {
     LoadableComponent.displayName = 'LoadableComponent';
     return LoadableComponent;
 }
-const _default = Loadable; 
+const _default = Loadable; //# sourceMappingURL=loadable.js.map
 }),
 "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/app-dynamic.js [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
@@ -13189,7 +13189,7 @@ Object.defineProperty(exports, "default", {
     }
 });
 const _interop_require_default = __turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@swc/helpers/cjs/_interop_require_default.cjs [app-ssr] (ecmascript)");
-const _loadable =  _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/lazy-dynamic/loadable.js [app-ssr] (ecmascript)"));
+const _loadable = /*#__PURE__*/ _interop_require_default._(__turbopack_context__.r("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/shared/lib/lazy-dynamic/loadable.js [app-ssr] (ecmascript)"));
 function dynamic(dynamicOptions, options) {
     const loadableOptions = {};
     if (typeof dynamicOptions === 'function') {
@@ -13210,7 +13210,8 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     });
     Object.assign(exports.default, exports);
     module.exports = exports.default;
-} 
+} //# sourceMappingURL=app-dynamic.js.map
 }),
 ];
 
+//# sourceMappingURL=c729b_next_dist_d46523de._.js.map

@@ -9,11 +9,13 @@ export async function GET() {
   const wabaId = process.env.WHATSAPP_BUSINESS_ACCOUNT_ID;
   const apiVersion = process.env.WHATSAPP_API_VERSION ?? "v21.0";
 
-  if (!accessToken || !wabaId) {
+  const missing: string[] = [];
+  if (!accessToken) missing.push("WHATSAPP_ACCESS_TOKEN");
+  if (!wabaId) missing.push("WHATSAPP_BUSINESS_ACCOUNT_ID");
+  if (missing.length > 0) {
     return NextResponse.json(
       {
-        error:
-          "WHATSAPP_ACCESS_TOKEN and WHATSAPP_BUSINESS_ACCOUNT_ID must be set in .env to sync from Meta.",
+        error: `Missing in .env: ${missing.join(", ")}. Add the value(s) and restart the dev server.`,
       },
       { status: 500 },
     );

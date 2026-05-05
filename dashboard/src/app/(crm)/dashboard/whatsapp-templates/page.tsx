@@ -10,12 +10,14 @@ import {
   Trash2,
   CheckCircle2,
   X,
-  ChevronDown,
+  Send,
   Eye,
   FileText,
   Loader2,
   AlertCircle,
   Info,
+  Upload,
+  CheckCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -47,6 +49,8 @@ interface WaTemplate {
   language: string;
   headerType: "NONE" | "TEXT" | "IMAGE" | "DOCUMENT" | "VIDEO";
   headerText?: string | null;
+  headerMediaHandle?: string | null;
+  headerMediaName?: string | null;
   body: string;
   footer?: string | null;
   buttons: WaButton[];
@@ -145,10 +149,13 @@ interface FormState {
   language: string;
   headerType: WaTemplate["headerType"];
   headerText: string;
+  headerMediaHandle: string;
+  headerMediaName: string;
   body: string;
   footer: string;
   buttons: WaButton[];
   variables: string[];
+  exampleValues: string[];  // one per {{n}} variable — required by Meta
   notes: string;
 }
 
@@ -158,10 +165,13 @@ const blankForm = (): FormState => ({
   language: "en_US",
   headerType: "NONE",
   headerText: "",
+  headerMediaHandle: "",
+  headerMediaName: "",
   body: "",
   footer: "",
   buttons: [],
   variables: [],
+  exampleValues: [],
   notes: "",
 });
 
@@ -185,9 +195,11 @@ export default function WhatsAppTemplatesPage() {
 
   const [previewTemplate, setPreviewTemplate] = useState<WaTemplate | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [submittingId, setSubmittingId] = useState<string | null>(null);
   const [newButtonText, setNewButtonText] = useState("");
   const [newButtonType, setNewButtonType] = useState<WaButton["type"]>("QUICK_REPLY");
   const [newVariableLabel, setNewVariableLabel] = useState("");
+  const [uploadingMedia, setUploadingMedia] = useState(false);
 
   // ── fetch ──────────────────────────────────────────────────────────────────
   const fetchTemplates = async () => {
@@ -266,13 +278,78 @@ export default function WhatsAppTemplatesPage() {
       language: t.language,
       headerType: t.headerType,
       headerText: t.headerText ?? "",
+      headerMediaHandle: t.headerMediaHandle ?? "",
+      headerMediaName: t.headerMediaName ?? "",
       body: t.body,
       footer: t.footer ?? "",
       buttons: t.buttons ?? [],
       variables: t.variables ?? [],
+      exampleValues: (t as any).exampleValues ?? [],
       notes: t.notes ?? "",
     });
     setShowForm(true);
+  };
+
+  // ── upload sample media to Meta ────────────────────────────────────────────
+  const handleMediaUpload = async (file: File) => {
+    setUploadingMedia(true);
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      const res = await fetch("/api/whatsapp-templates/upload-media", {
+        method: "POST",
+        body: fd,
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Upload failed");
+      setForm((f) => ({
+        ...f,
+        headerMediaHandle: data.handle,
+        headerMediaName: data.fileName,
+      }));
+      toast({
+        title: "Sample uploaded",
+        description: `"${data.fileName}" uploaded to Meta. Handle stored.`,
+      });
+    } catch (err: any) {
+      toast({ title: "Upload Failed", description: err.message, variant: "destructive" });
+    } finally {
+      setUploadingMedia(false);
+    }
+  };
+
+  // ── submit to Meta ─────────────────────────────────────────────────────────
+  const handleSubmitToMeta = async (t: WaTemplate) => {
+    if (
+      !window.confirm(
+        `Submit "${t.name}" to Meta for approval?\n\nMake sure your example values are filled in — Meta requires them for templates with variables.`,
+      )
+    )
+      return;
+
+    setSubmittingId(t._id);
+    try {
+      const res = await fetch(`/api/whatsapp-templates/${t._id}/submit`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: t.name }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Submission failed");
+      toast({
+        title: "Submitted to Meta!",
+        description: data.message,
+      });
+      await fetchTemplates();
+    } catch (err: any) {
+      toast({
+        title: "Submission Failed",
+        description: err.message,
+        variant: "destructive",
+      });
+    } finally {
+      setSubmittingId(null);
+    }
   };
 
   const closeForm = () => {
@@ -297,10 +374,13 @@ export default function WhatsAppTemplatesPage() {
         language: form.language,
         headerType: form.headerType,
         headerText: form.headerText || null,
+        headerMediaHandle: form.headerMediaHandle || null,
+        headerMediaName: form.headerMediaName || null,
         body: form.body,
         footer: form.footer || null,
         buttons: form.buttons,
         variables: form.variables,
+        exampleValues: form.exampleValues,
         notes: form.notes || null,
       };
 
@@ -504,6 +584,13 @@ export default function WhatsAppTemplatesPage() {
             const sc = STATUS_CONFIG[t.status] ?? STATUS_CONFIG.UNKNOWN;
             const isDel = deletingId === t._id;
 
+            const isSubmitting = submittingId === t._id;
+            const canSubmit = t.status === "LOCAL" || t.status === "REJECTED";
+            const needsMediaUpload =
+              canSubmit &&
+              ["IMAGE", "DOCUMENT", "VIDEO"].includes(t.headerType) &&
+              !t.headerMediaHandle;
+
             return (
               <div
                 key={t._id}
@@ -551,10 +638,25 @@ export default function WhatsAppTemplatesPage() {
                       </p>
                     )}
                     {["IMAGE", "DOCUMENT", "VIDEO"].includes(t.headerType) && (
-                      <div className="bg-neutral-300 rounded h-14 flex items-center justify-center mb-2">
-                        <span className="text-[10px] font-black text-neutral-500 uppercase">
-                          {t.headerType} ATTACHMENT
-                        </span>
+                      <div className={cn(
+                        "rounded h-14 flex items-center justify-center mb-2 gap-2",
+                        t.headerMediaHandle ? "bg-green-100 border border-green-300" : "bg-neutral-300",
+                      )}>
+                        {t.headerMediaHandle ? (
+                          <>
+                            <CheckCircle className="w-4 h-4 text-green-600" />
+                            <span className="text-[10px] font-black text-green-700 uppercase">
+                              {t.headerType} — Sample Uploaded
+                            </span>
+                          </>
+                        ) : (
+                          <>
+                            <Upload className="w-3.5 h-3.5 text-neutral-500" />
+                            <span className="text-[10px] font-black text-neutral-500 uppercase">
+                              {t.headerType} — No Sample Yet
+                            </span>
+                          </>
+                        )}
                       </div>
                     )}
                     <div className="bg-white rounded p-2 shadow-sm">
@@ -585,6 +687,41 @@ export default function WhatsAppTemplatesPage() {
                     </p>
                   )}
                 </div>
+
+                {/* Submit to Meta — shown only for LOCAL / REJECTED */}
+                {canSubmit && (
+                  <div className="px-3 pb-3 space-y-1.5">
+                    {needsMediaUpload && (
+                      <p className="text-[10px] font-black text-amber-700 bg-amber-50 border border-amber-300 rounded px-2 py-1 flex items-center gap-1">
+                        <Upload className="w-3 h-3 shrink-0" />
+                        Edit template to upload a sample {t.headerType.toLowerCase()} first
+                      </p>
+                    )}
+                    <button
+                      onClick={() => needsMediaUpload ? openEdit(t) : handleSubmitToMeta(t)}
+                      disabled={isSubmitting}
+                      className={cn(
+                        "w-full flex items-center justify-center gap-2 font-black uppercase text-xs tracking-wider h-9 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed border-2",
+                        needsMediaUpload
+                          ? "bg-amber-400 hover:bg-amber-500 text-amber-900 border-amber-600"
+                          : "bg-[#25D366] hover:bg-[#1ebe5a] text-white border-[#128C7E]",
+                      )}
+                    >
+                      {isSubmitting ? (
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                      ) : needsMediaUpload ? (
+                        <Upload className="w-3.5 h-3.5" />
+                      ) : (
+                        <Send className="w-3.5 h-3.5" />
+                      )}
+                      {isSubmitting
+                        ? "Submitting…"
+                        : needsMediaUpload
+                        ? "Upload Sample File First"
+                        : "Submit to Meta for Approval"}
+                    </button>
+                  </div>
+                )}
 
                 {/* Actions */}
                 <div className="flex items-center gap-2 p-3 border-t-2 border-black bg-neutral-50">
@@ -749,6 +886,78 @@ export default function WhatsAppTemplatesPage() {
                 </div>
               )}
 
+              {["IMAGE", "DOCUMENT", "VIDEO"].includes(form.headerType) && (
+                <div className="space-y-2 border-2 border-blue-200 bg-blue-50 rounded-lg p-4">
+                  <div className="flex items-start gap-2">
+                    <Upload className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+                    <div>
+                      <Label className="font-black uppercase text-[10px] tracking-widest text-blue-700">
+                        Upload Sample {form.headerType} — Required by Meta
+                      </Label>
+                      <p className="text-[10px] text-blue-600 mt-0.5">
+                        Meta needs a sample file to review the template. Upload a real{" "}
+                        {form.headerType === "DOCUMENT" ? "PDF" : form.headerType === "IMAGE" ? "image" : "video"}{" "}
+                        file — it won&apos;t be sent to clients.
+                      </p>
+                    </div>
+                  </div>
+
+                  {form.headerMediaHandle ? (
+                    <div className="flex items-center gap-2 bg-white border-2 border-blue-300 rounded-lg px-3 py-2 mt-2">
+                      <CheckCircle className="w-4 h-4 text-green-600 shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-black text-green-700 truncate">
+                          {form.headerMediaName || "File uploaded"}
+                        </p>
+                        <p className="text-[10px] text-neutral-400 font-mono truncate">
+                          Handle: {form.headerMediaHandle.slice(0, 32)}…
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setForm((f) => ({ ...f, headerMediaHandle: "", headerMediaName: "" }))}
+                        className="text-[10px] font-black text-red-500 hover:underline shrink-0"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  ) : (
+                    <label className="mt-2 flex items-center justify-center gap-2 h-12 border-2 border-dashed border-blue-300 rounded-lg cursor-pointer hover:bg-blue-100 transition-colors">
+                      {uploadingMedia ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin text-blue-600" />
+                          <span className="text-xs font-black text-blue-600">Uploading to Meta…</span>
+                        </>
+                      ) : (
+                        <>
+                          <Upload className="w-4 h-4 text-blue-500" />
+                          <span className="text-xs font-black text-blue-600">
+                            Click to upload sample {form.headerType === "DOCUMENT" ? "PDF" : form.headerType.toLowerCase()}
+                          </span>
+                        </>
+                      )}
+                      <input
+                        type="file"
+                        className="hidden"
+                        disabled={uploadingMedia}
+                        accept={
+                          form.headerType === "IMAGE"
+                            ? "image/jpeg,image/png"
+                            : form.headerType === "DOCUMENT"
+                            ? "application/pdf"
+                            : "video/mp4"
+                        }
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) handleMediaUpload(file);
+                          e.target.value = "";
+                        }}
+                      />
+                    </label>
+                  )}
+                </div>
+              )}
+
               {/* Body */}
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between">
@@ -833,6 +1042,48 @@ export default function WhatsAppTemplatesPage() {
                   </div>
                 )}
               </div>
+
+              {/* Example Values — required by Meta for variable templates */}
+              {detectedVars.length > 0 && (
+                <div className="space-y-2 border-2 border-yellow-300 bg-yellow-50 rounded-lg p-4">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle className="w-4 h-4 text-yellow-600 mt-0.5 shrink-0" />
+                    <div>
+                      <Label className="font-black uppercase text-[10px] tracking-widest text-yellow-700">
+                        Example Values — Required by Meta
+                      </Label>
+                      <p className="text-[10px] text-yellow-600 mt-0.5">
+                        Meta needs real sample values to review your template. Fill one per variable.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="space-y-2 mt-2">
+                    {detectedVars.map((v, i) => {
+                      const label = form.variables[i] ?? v;
+                      return (
+                        <div key={i} className="flex items-center gap-2">
+                          <span className="text-[10px] font-black text-yellow-700 bg-yellow-200 border border-yellow-400 px-2 py-1 rounded w-12 text-center shrink-0">
+                            {v}
+                          </span>
+                          <span className="text-[10px] text-neutral-500 w-28 shrink-0 truncate">
+                            {label}
+                          </span>
+                          <Input
+                            placeholder={`e.g. ${label === v ? `sample_${i + 1}` : label}`}
+                            className="border-2 border-yellow-300 font-medium h-8 text-sm bg-white focus-visible:border-yellow-500"
+                            value={form.exampleValues[i] ?? ""}
+                            onChange={(e) => {
+                              const updated = [...form.exampleValues];
+                              updated[i] = e.target.value;
+                              setForm((f) => ({ ...f, exampleValues: updated }));
+                            }}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
 
               {/* Footer */}
               <div className="space-y-1.5">

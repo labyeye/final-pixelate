@@ -1,13 +1,13 @@
 globalThis.__BUILD_MANIFEST = {
-  pages: {
-    "/_app": [],
+  "pages": {
+    "/_app": []
   },
-  devFiles: [],
-  polyfillFiles: [
-    "static/chunks/c729b_next_dist_build_polyfills_polyfill-nomodule.js",
+  "devFiles": [],
+  "polyfillFiles": [
+    "static/chunks/c729b_next_dist_build_polyfills_polyfill-nomodule.js"
   ],
-  lowPriorityFiles: [],
-  rootMainFiles: [
+  "lowPriorityFiles": [],
+  "rootMainFiles": [
     "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_249049af._.js",
     "static/chunks/c729b_next_dist_compiled_react-dom_20237a9b._.js",
     "static/chunks/c729b_next_dist_compiled_react-server-dom-turbopack_5420d89e._.js",
@@ -17,10 +17,10 @@ globalThis.__BUILD_MANIFEST = {
     "static/chunks/c729b_next_dist_1df661d4._.js",
     "static/chunks/c729b_@swc_helpers_cjs_752c2495._.js",
     "static/chunks/Desktop_Projects_final-pixelate_dashboard_a0ff3932._.js",
-    "static/chunks/turbopack-Desktop_Projects_final-pixelate_dashboard_254db160._.js",
-  ],
+    "static/chunks/turbopack-Desktop_Projects_final-pixelate_dashboard_254db160._.js"
+  ]
 };
 globalThis.__BUILD_MANIFEST.lowPriorityFiles = [
-  "/static/" + process.env.__NEXT_BUILD_ID + "/_buildManifest.js",
-  "/static/" + process.env.__NEXT_BUILD_ID + "/_ssgManifest.js",
+"/static/" + process.env.__NEXT_BUILD_ID + "/_buildManifest.js",
+"/static/" + process.env.__NEXT_BUILD_ID + "/_ssgManifest.js"
 ];

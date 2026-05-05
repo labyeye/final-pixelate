@@ -7,16 +7,17 @@ import {
   StyleSheet,
   Image,
 } from "@react-pdf/renderer";
-import logo from "../../assets/images/Logo_Color_Name_Large.png";
-import sign from "../../assets/images/sign.png";
+import logoImg from "../../assets/images/Logo_Color_Name_Large.png";
+import signImg from "../../assets/images/sign.png";
 
-const signsrc = typeof sign === "string" ? sign : sign.src;
-const logosrc = typeof logo === "string" ? logo : (logo as any).src;
+// Next.js static imports return StaticImageData { src, width, height }.
+// react-pdf's <Image> needs a plain URL string.
+const LOGO_PATH = logoImg.src;
+const SIGN_PATH = signImg.src;
 
 const DARK = "#1a1a2e";
-const GREEN = "#0d6e47";
-const LIGHT_GREEN = "#e8f5f0";
-const BORDER = "#1a6e47";
+const BLUE = "#1e3a8a";
+const BORDER = "#1a1a2e";
 const GREY = "#555";
 const LIGHT_GREY = "#f5f5f5";
 
@@ -34,17 +35,17 @@ const S = StyleSheet.create({
 
   // Outer cheque-style border
   outerBorder: {
-    border: "2pt solid #1a6e47",
+    border: "2pt solid #1e3a8a",
     borderRadius: 2,
   },
   innerBorder: {
-    border: "0.5pt solid #a8d5c2",
+    border: "0.5pt solid #ffffff",
     margin: 3,
   },
 
   // Header band
   headerBand: {
-    backgroundColor: GREEN,
+    backgroundColor: "#ffffff",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -56,12 +57,12 @@ const S = StyleSheet.create({
   receiptTitle: {
     fontSize: 16,
     fontFamily: "Helvetica-Bold",
-    color: "#fff",
+    color: DARK,
     letterSpacing: 3,
   },
   receiptSubtitle: {
     fontSize: 7,
-    color: "#a8f0d0",
+    color: "#000000",
     letterSpacing: 1,
     marginTop: 2,
   },
@@ -69,9 +70,9 @@ const S = StyleSheet.create({
   // Receipt meta strip
   metaStrip: {
     flexDirection: "row",
-    backgroundColor: LIGHT_GREEN,
+    backgroundColor: "#ffffff",
     borderBottom: `1pt solid ${BORDER}`,
-    borderTop: `0.5pt solid #a8d5c2`,
+    borderTop: `0.5pt solid #ffffff`,
     paddingHorizontal: 12,
     paddingVertical: 6,
   },
@@ -79,7 +80,7 @@ const S = StyleSheet.create({
   metaLabel: {
     fontSize: 6.5,
     fontFamily: "Helvetica-Bold",
-    color: GREEN,
+    color: BLUE,
     textTransform: "uppercase",
     letterSpacing: 0.8,
     marginBottom: 2,
@@ -95,7 +96,7 @@ const S = StyleSheet.create({
     paddingHorizontal: 14,
     paddingTop: 14,
     paddingBottom: 10,
-    borderBottom: `1pt solid #c5e0d5`,
+    borderBottom: `1pt solid #ffffff`,
   },
 
   // "Received from" row
@@ -131,14 +132,14 @@ const S = StyleSheet.create({
   amountWords: {
     flex: 1,
     backgroundColor: LIGHT_GREY,
-    border: "0.75pt solid #c5e0d5",
+    border: "0.75pt solid #ffffff",
     padding: 8,
     marginRight: 10,
   },
   amountWordsLabel: {
     fontSize: 6.5,
     fontFamily: "Helvetica-Bold",
-    color: GREEN,
+    color: BLUE,
     textTransform: "uppercase",
     letterSpacing: 0.8,
     marginBottom: 3,
@@ -151,30 +152,25 @@ const S = StyleSheet.create({
   },
   amountBox: {
     width: 130,
-    border: "1.5pt solid #1a6e47",
-    backgroundColor: "#f0f9f5",
+    border: "1.5pt solid #1e3a8a",
+    backgroundColor: "#ffffff",
     alignItems: "center",
     justifyContent: "center",
     padding: 8,
   },
   amountBoxLabel: {
     fontSize: 6.5,
-    color: GREEN,
+    color: BLUE,
     fontFamily: "Helvetica-Bold",
     textTransform: "uppercase",
     letterSpacing: 0.8,
     marginBottom: 3,
   },
   amountBoxValue: {
-    fontSize: 18,
+    fontSize: 15,
     fontFamily: "Helvetica-Bold",
-    color: GREEN,
+    color: BLUE,
     letterSpacing: 0.5,
-  },
-  amountBoxCurrency: {
-    fontSize: 10,
-    fontFamily: "Helvetica-Bold",
-    color: GREEN,
   },
 
   // Details row
@@ -186,20 +182,20 @@ const S = StyleSheet.create({
   detailBlock: {
     flex: 1,
     backgroundColor: LIGHT_GREY,
-    border: "0.5pt solid #c5e0d5",
+    border: "0.5pt solid #ffffff",
     padding: 7,
     marginRight: 8,
   },
   detailBlockLast: {
     flex: 1,
     backgroundColor: LIGHT_GREY,
-    border: "0.5pt solid #c5e0d5",
+    border: "0.5pt solid #ffffff",
     padding: 7,
   },
   detailLabel: {
     fontSize: 6.5,
     fontFamily: "Helvetica-Bold",
-    color: GREEN,
+    color: BLUE,
     textTransform: "uppercase",
     letterSpacing: 0.8,
     marginBottom: 2,
@@ -212,7 +208,7 @@ const S = StyleSheet.create({
 
   // Invoice reference bar
   invoiceRefBar: {
-    backgroundColor: LIGHT_GREEN,
+    backgroundColor: "#ffffff",
     border: "0.75pt solid #a8d5c2",
     padding: 7,
     flexDirection: "row",
@@ -222,7 +218,7 @@ const S = StyleSheet.create({
   invoiceRefLabel: {
     fontSize: 7.5,
     fontFamily: "Helvetica-Bold",
-    color: GREEN,
+    color: BLUE,
     marginRight: 6,
   },
   invoiceRefValue: {
@@ -252,7 +248,7 @@ const S = StyleSheet.create({
     paddingHorizontal: 14,
     paddingTop: 8,
     paddingBottom: 10,
-    borderBottom: `0.5pt solid #c5e0d5`,
+    borderBottom: `0.5pt solid #ffffff`,
   },
   companyNote: {
     fontSize: 7,
@@ -302,12 +298,11 @@ const S = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 14,
     paddingVertical: 6,
-    backgroundColor: LIGHT_GREEN,
   },
   footerText: { fontSize: 7, color: "#666" },
-  footerBrand: { fontSize: 7.5, fontFamily: "Helvetica-Bold", color: GREEN },
+  footerBrand: { fontSize: 7.5, fontFamily: "Helvetica-Bold", color: BLUE },
 
-  // Watermark-style "PAID" text overlay — done as positioned element
+  // Watermark-style "PAID" text overlay
   paidWatermark: {
     position: "absolute",
     top: 130,
@@ -315,11 +310,47 @@ const S = StyleSheet.create({
     fontSize: 72,
     fontFamily: "Helvetica-Bold",
     color: "#e8f5f0",
-    transform: "rotate(-30deg)",
     opacity: 0.4,
     zIndex: -1,
   },
 });
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+
+/** Safely convert any value that might be a BSON Decimal128 / extended JSON / object to a JS number */
+function toNum(v: unknown): number {
+  if (v === null || v === undefined) return 0;
+  if (typeof v === "number") return isFinite(v) ? v : 0;
+  if (typeof v === "string") return parseFloat(v) || 0;
+  // BSON Decimal128 / extended JSON: { $numberDecimal: "5000" } or { $numberLong: "5000" }
+  if (typeof v === "object") {
+    const o = v as Record<string, unknown>;
+    const raw =
+      o.$numberDecimal ?? o.$numberLong ?? o.$numberInt ?? o.$numberDouble;
+    if (raw !== undefined) return parseFloat(String(raw)) || 0;
+    // Last resort: try toString()
+    const s = String(v);
+    return parseFloat(s) || 0;
+  }
+  return 0;
+}
+
+/** Safely convert any value to a plain string — never lets an object leak into a Text node */
+function toStr(v: unknown): string {
+  if (v === null || v === undefined) return "";
+  if (typeof v === "string") return v;
+  if (typeof v === "number") return isFinite(v) ? String(v) : "";
+  if (typeof v === "object") {
+    const o = v as Record<string, unknown>;
+    // BSON Date extended JSON
+    if (o.$date) return String(o.$date);
+    // BSON numeric types
+    const n = o.$numberDecimal ?? o.$numberLong ?? o.$numberInt;
+    if (n !== undefined) return String(n);
+    return "";
+  }
+  return String(v);
+}
 
 const fmt = (n: number) =>
   new Intl.NumberFormat("en-IN", {
@@ -327,30 +358,90 @@ const fmt = (n: number) =>
     maximumFractionDigits: 2,
   }).format(n);
 
-const fmtDate = (v: any) => {
-  if (!v) return new Date().toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" });
+const fmtDate = (v: unknown): string => {
+  const s = toStr(v);
+  if (!s)
+    return new Date().toLocaleDateString("en-IN", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
   try {
-    return new Date(v).toLocaleDateString("en-IN", {
+    const d = new Date(s);
+    if (isNaN(d.getTime())) return s;
+    return d.toLocaleDateString("en-IN", {
       day: "2-digit",
       month: "short",
       year: "numeric",
     });
   } catch {
-    return String(v);
+    return s;
   }
 };
 
 function numToWords(n: number): string {
-  const a = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
-  const b = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
-  if (n === 0) return "Zero";
+  if (!isFinite(n) || n < 0) return "Amount Not Available";
+  n = Math.round(n);
+  if (n === 0) return "Zero Rupees Only";
+  const a = [
+    "",
+    "One",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine",
+    "Ten",
+    "Eleven",
+    "Twelve",
+    "Thirteen",
+    "Fourteen",
+    "Fifteen",
+    "Sixteen",
+    "Seventeen",
+    "Eighteen",
+    "Nineteen",
+  ];
+  const b = [
+    "",
+    "",
+    "Twenty",
+    "Thirty",
+    "Forty",
+    "Fifty",
+    "Sixty",
+    "Seventy",
+    "Eighty",
+    "Ninety",
+  ];
   const w = (x: number): string => {
+    if (!isFinite(x) || x <= 0) return "";
     if (x < 20) return a[x] || "";
     if (x < 100) return b[Math.floor(x / 10)] + (x % 10 ? " " + a[x % 10] : "");
-    if (x < 1000) return a[Math.floor(x / 100)] + " Hundred" + (x % 100 ? " " + w(x % 100) : "");
-    if (x < 100000) return w(Math.floor(x / 1000)) + " Thousand" + (x % 1000 ? " " + w(x % 1000) : "");
-    if (x < 10000000) return w(Math.floor(x / 100000)) + " Lakh" + (x % 100000 ? " " + w(x % 100000) : "");
-    return w(Math.floor(x / 10000000)) + " Crore" + (x % 10000000 ? " " + w(x % 10000000) : "");
+    if (x < 1000)
+      return (
+        a[Math.floor(x / 100)] + " Hundred" + (x % 100 ? " " + w(x % 100) : "")
+      );
+    if (x < 100000)
+      return (
+        w(Math.floor(x / 1000)) +
+        " Thousand" +
+        (x % 1000 ? " " + w(x % 1000) : "")
+      );
+    if (x < 10000000)
+      return (
+        w(Math.floor(x / 100000)) +
+        " Lakh" +
+        (x % 100000 ? " " + w(x % 100000) : "")
+      );
+    return (
+      w(Math.floor(x / 10000000)) +
+      " Crore" +
+      (x % 10000000 ? " " + w(x % 10000000) : "")
+    );
   };
   const paise = Math.round((n % 1) * 100);
   let res = w(Math.floor(n)) + " Rupees";
@@ -365,6 +456,8 @@ function getFinancialYear(): string {
   const fyStart = month >= 4 ? year : year - 1;
   return `${String(fyStart).slice(2)}${String(fyStart + 1).slice(2)}`;
 }
+
+// ── Types ─────────────────────────────────────────────────────────────────────
 
 export interface PaymentReceiptData {
   receiptNo: string;
@@ -382,25 +475,37 @@ export interface PaymentReceiptData {
   invoiceStatus?: string;
 }
 
-export function PaymentReceiptPDFDocument({ data }: { data: PaymentReceiptData }) {
+// ── PDF Component ─────────────────────────────────────────────────────────────
+
+export function PaymentReceiptPDFDocument({
+  data,
+}: {
+  data: PaymentReceiptData;
+}) {
   const fy = getFinancialYear();
-  const receiptNo = data.receiptNo || `RCPT/${fy}/0001`;
+  const receiptNo = toStr(data.receiptNo) || `RCPT/${fy}/0001`;
+  const amount = toNum(data.amount);
+  const invoiceTotal =
+    data.invoiceTotal !== undefined ? toNum(data.invoiceTotal) : undefined;
+  const balanceDue =
+    data.balanceDue !== undefined ? toNum(data.balanceDue) : undefined;
 
   return (
     <Document>
       <Page size="A4" style={S.page}>
         <View style={S.outerBorder}>
           <View style={S.innerBorder}>
-
             {/* PAID watermark */}
             <Text style={S.paidWatermark}>PAID</Text>
 
             {/* Header Band */}
             <View style={S.headerBand}>
-              <Image src={logosrc} style={S.logo} />
+              <Image src={LOGO_PATH} style={S.logo} />
               <View style={S.headerRight}>
                 <Text style={S.receiptTitle}>PAYMENT RECEIPT</Text>
-                <Text style={S.receiptSubtitle}>OFFICIAL ACKNOWLEDGEMENT OF PAYMENT</Text>
+                <Text style={S.receiptSubtitle}>
+                  OFFICIAL ACKNOWLEDGEMENT OF PAYMENT
+                </Text>
               </View>
             </View>
 
@@ -416,7 +521,9 @@ export function PaymentReceiptPDFDocument({ data }: { data: PaymentReceiptData }
               </View>
               <View style={S.metaItem}>
                 <Text style={S.metaLabel}>Financial Year</Text>
-                <Text style={S.metaValue}>20{fy.slice(0, 2)} – 20{fy.slice(2)}</Text>
+                <Text style={S.metaValue}>
+                  {"20" + fy.slice(0, 2) + " \u2013 20" + fy.slice(2)}
+                </Text>
               </View>
               <View style={[S.metaItem, { alignItems: "flex-end" }]}>
                 <Text style={S.metaLabel}>Issued By</Text>
@@ -426,26 +533,23 @@ export function PaymentReceiptPDFDocument({ data }: { data: PaymentReceiptData }
 
             {/* Cheque Body */}
             <View style={S.chequeBody}>
-
               {/* Received From */}
               <View style={S.receivedRow}>
                 <Text style={S.receivedLabel}>Received with thanks from:</Text>
-                <Text style={S.receivedValue}>{data.clientName}</Text>
+                <Text style={S.receivedValue}>
+                  {toStr(data.clientName) || "—"}
+                </Text>
               </View>
 
               {/* Amount in Words + Amount Box */}
               <View style={S.amountSection}>
                 <View style={S.amountWords}>
                   <Text style={S.amountWordsLabel}>Amount in Words (INR)</Text>
-                  <Text style={S.amountWordsValue}>
-                    {numToWords(Math.round(data.amount))}
-                  </Text>
+                  <Text style={S.amountWordsValue}>{numToWords(amount)}</Text>
                 </View>
                 <View style={S.amountBox}>
                   <Text style={S.amountBoxLabel}>Amount Paid</Text>
-                  <Text style={S.amountBoxValue}>
-                    ₹ {fmt(data.amount)}
-                  </Text>
+                  <Text style={S.amountBoxValue}>{"Rs. " + fmt(amount)}</Text>
                 </View>
               </View>
 
@@ -453,11 +557,17 @@ export function PaymentReceiptPDFDocument({ data }: { data: PaymentReceiptData }
               <View style={S.detailsRow}>
                 <View style={S.detailBlock}>
                   <Text style={S.detailLabel}>Payment Mode</Text>
-                  <Text style={S.detailValue}>{data.paymentMode}</Text>
+                  <Text style={S.detailValue}>
+                    {toStr(data.paymentMode) || "—"}
+                  </Text>
                 </View>
                 <View style={S.detailBlock}>
-                  <Text style={S.detailLabel}>Transaction Ref / Cheque No.</Text>
-                  <Text style={S.detailValue}>{data.transactionRef || "—"}</Text>
+                  <Text style={S.detailLabel}>
+                    Transaction Ref / Cheque No.
+                  </Text>
+                  <Text style={S.detailValue}>
+                    {toStr(data.transactionRef) || "—"}
+                  </Text>
                 </View>
                 <View style={S.detailBlockLast}>
                   <Text style={S.detailLabel}>Payment Date</Text>
@@ -467,39 +577,61 @@ export function PaymentReceiptPDFDocument({ data }: { data: PaymentReceiptData }
 
               {/* Invoice Reference Bar */}
               <View style={S.invoiceRefBar}>
-                <Text style={S.invoiceRefLabel}>Being payment against Invoice:</Text>
-                <Text style={S.invoiceRefValue}>
-                  {data.invoiceNo}
-                  {data.projectTitle ? `  •  ${data.projectTitle}` : ""}
+                <Text style={S.invoiceRefLabel}>
+                  Being payment against Invoice:
                 </Text>
-                {data.balanceDue !== undefined && data.balanceDue <= 0 ? (
+                <Text style={S.invoiceRefValue}>
+                  {toStr(data.invoiceNo) +
+                    (data.projectTitle
+                      ? "  \u2022  " + toStr(data.projectTitle)
+                      : "")}
+                </Text>
+                {balanceDue !== undefined && balanceDue <= 0 ? (
                   <View style={S.invoiceStatusBadge}>
                     <Text style={S.invoiceStatusText}>FULLY PAID</Text>
                   </View>
-                ) : data.balanceDue !== undefined && data.balanceDue > 0 ? (
-                  <View style={[S.invoiceStatusBadge, { backgroundColor: "#d97706" }]}>
-                    <Text style={S.invoiceStatusText}>PARTIAL — Bal ₹{fmt(data.balanceDue)}</Text>
+                ) : balanceDue !== undefined && balanceDue > 0 ? (
+                  <View
+                    style={[
+                      S.invoiceStatusBadge,
+                      { backgroundColor: "#d97706" },
+                    ]}
+                  >
+                    <Text style={S.invoiceStatusText}>
+                      {"PARTIAL \u2014 Bal \u20B9" + fmt(balanceDue)}
+                    </Text>
                   </View>
                 ) : null}
               </View>
 
-              {/* Company & Client details */}
+              {/* Client & Company details */}
               {(data.clientAddress || data.clientPhone) && (
                 <View style={{ flexDirection: "row", gap: 0, marginBottom: 4 }}>
                   <View style={[S.detailBlock, { flex: 2 }]}>
                     <Text style={S.detailLabel}>Client Address</Text>
-                    <Text style={S.detailValue}>{data.clientAddress || "—"}</Text>
-                    {data.clientPhone && (
-                      <Text style={[S.detailValue, { marginTop: 2, fontSize: 8 }]}>
-                        Ph: {data.clientPhone}
+                    <Text style={S.detailValue}>
+                      {toStr(data.clientAddress) || "—"}
+                    </Text>
+                    {data.clientPhone ? (
+                      <Text
+                        style={[S.detailValue, { marginTop: 2, fontSize: 8 }]}
+                      >
+                        {"Ph: " + toStr(data.clientPhone)}
                       </Text>
-                    )}
+                    ) : null}
                   </View>
                   <View style={[S.detailBlockLast, { flex: 2, marginLeft: 8 }]}>
-                    <Text style={S.detailLabel}>Received By (Company Bank)</Text>
+                    <Text style={S.detailLabel}>
+                      Received By (Company Bank)
+                    </Text>
                     <Text style={S.detailValue}>Kalahanu Tech Studios LLP</Text>
-                    <Text style={[S.detailValue, { fontSize: 7.5, color: GREY, marginTop: 2 }]}>
-                      HDFC Bank • A/c: 50200119083987 • IFSC: HDFC0000344
+                    <Text
+                      style={[
+                        S.detailValue,
+                        { fontSize: 7.5, color: GREY, marginTop: 2 },
+                      ]}
+                    >
+                      HDFC Bank | A/c: 50200119083987 | IFSC: HDFC0000344
                     </Text>
                   </View>
                 </View>
@@ -509,27 +641,37 @@ export function PaymentReceiptPDFDocument({ data }: { data: PaymentReceiptData }
             {/* Signature Section */}
             <View style={S.signatureSection}>
               <Text style={S.companyNote}>
-                {"This is an official receipt issued by Kalahanu Tech Studios LLP (Pixelate Nest).\n"}
-                {"GSTIN: 10ABFFK0650E1Z2 | PAN: ABFFK0650E | support@pixelatenest.com\n"}
-                {"Kala Bhawan, Akharaghat Road, Muzaffarpur, Bihar – 842001"}
+                {
+                  "This is an official receipt issued by Kalahanu Tech Studios LLP (Pixelate Nest).\n"
+                }
+                {
+                  "GSTIN: 10ABFFK0650E1Z2  |  PAN: ABFFK0650E  |  support@pixelatenest.com\n"
+                }
+                {
+                  "Kala Bhawan, Akharaghat Road, Muzaffarpur, Bihar \u2013 842001"
+                }
               </Text>
               <View style={S.signatureBlock}>
-                <Text style={S.signatureFor}>For Kalahanu Tech Studios LLP</Text>
-                <Image src={signsrc} style={S.signatureImage} />
+                <Text style={S.signatureFor}>
+                  For Kalahanu Tech Studios LLP
+                </Text>
+                <Image src={SIGN_PATH} style={S.signatureImage} />
                 <View style={S.signatureLine} />
                 <Text style={S.signatureName}>Labh Chandra Bothra</Text>
-                <Text style={S.signatureTitle}>Co-Founder & Authorised Signatory</Text>
+                <Text style={S.signatureTitle}>
+                  Co-Founder &amp; Authorised Signatory
+                </Text>
               </View>
             </View>
 
             {/* Footer */}
             <View style={S.footer}>
               <Text style={S.footerText}>
-                This is a computer-generated receipt. No physical signature required.
+                This is a computer-generated receipt. No physical signature
+                required.
               </Text>
               <Text style={S.footerBrand}>pixelatenest.com</Text>
             </View>
-
           </View>
         </View>
       </Page>

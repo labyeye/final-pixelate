@@ -1388,6 +1388,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/api/whatsapp-templates/[id]/submit/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/whatsapp-templates/[id]/submit">> = Specific
+  const handler = {} as typeof import("../../src/app/api/whatsapp-templates/[id]/submit/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/api/whatsapp-templates/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/whatsapp-templates">> = Specific
@@ -1401,6 +1410,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/whatsapp-templates/sync">> = Specific
   const handler = {} as typeof import("../../src/app/api/whatsapp-templates/sync/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/api/whatsapp-templates/upload-media/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/whatsapp-templates/upload-media">> = Specific
+  const handler = {} as typeof import("../../src/app/api/whatsapp-templates/upload-media/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

@@ -38,6 +38,8 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { pdf } from "@react-pdf/renderer";
+import { PaymentReceiptPDFDocument } from "@/components/payments/payment-receipt-pdf";
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -338,30 +340,25 @@ export default function PaymentsPage() {
     const key = `${payment.invoiceId}-${payment.paymentIndex}`;
     setDownloadingReceipt(key);
     try {
-      const res = await fetch("/api/generate-payment-receipt", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          receiptNo: payment.receiptNo,
-          clientName: payment.clientName,
-          clientAddress: payment.clientAddress,
-          clientPhone: payment.clientPhone,
-          invoiceNo: payment.invoiceNo,
-          projectTitle: payment.projectTitle,
-          amount: payment.amount,
-          paymentDate: payment.date,
-          paymentMode: payment.mode,
-          transactionRef: payment.remarks,
-          invoiceTotal: payment.invoiceTotal,
-          balanceDue: payment.balanceDue,
-          invoiceStatus: payment.invoiceStatus,
-        }),
-      });
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        throw new Error(err.error || "Failed to generate receipt");
-      }
-      const blob = await res.blob();
+      const blob = await pdf(
+        <PaymentReceiptPDFDocument
+          data={{
+            receiptNo: payment.receiptNo,
+            clientName: payment.clientName,
+            clientAddress: payment.clientAddress,
+            clientPhone: payment.clientPhone,
+            invoiceNo: payment.invoiceNo,
+            projectTitle: payment.projectTitle,
+            amount: payment.amount,
+            paymentDate: payment.date,
+            paymentMode: payment.mode,
+            transactionRef: payment.remarks,
+            invoiceTotal: payment.invoiceTotal,
+            balanceDue: payment.balanceDue,
+            invoiceStatus: payment.invoiceStatus,
+          }}
+        />
+      ).toBlob();
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
@@ -398,32 +395,26 @@ export default function PaymentsPage() {
     setSendingWhatsApp(key);
 
     try {
-      // Step 1: Generate the receipt PDF
-      const pdfRes = await fetch("/api/generate-payment-receipt", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          receiptNo: payment.receiptNo,
-          clientName: payment.clientName,
-          clientAddress: payment.clientAddress,
-          clientPhone: payment.clientPhone,
-          invoiceNo: payment.invoiceNo,
-          projectTitle: payment.projectTitle,
-          amount: payment.amount,
-          paymentDate: payment.date,
-          paymentMode: payment.mode,
-          transactionRef: payment.remarks,
-          invoiceTotal: payment.invoiceTotal,
-          balanceDue: payment.balanceDue,
-          invoiceStatus: payment.invoiceStatus,
-        }),
-      });
-
-      if (!pdfRes.ok) {
-        throw new Error("Failed to generate receipt PDF");
-      }
-
-      const pdfBlob = await pdfRes.blob();
+      // Step 1: Generate the receipt PDF client-side
+      const pdfBlob = await pdf(
+        <PaymentReceiptPDFDocument
+          data={{
+            receiptNo: payment.receiptNo,
+            clientName: payment.clientName,
+            clientAddress: payment.clientAddress,
+            clientPhone: payment.clientPhone,
+            invoiceNo: payment.invoiceNo,
+            projectTitle: payment.projectTitle,
+            amount: payment.amount,
+            paymentDate: payment.date,
+            paymentMode: payment.mode,
+            transactionRef: payment.remarks,
+            invoiceTotal: payment.invoiceTotal,
+            balanceDue: payment.balanceDue,
+            invoiceStatus: payment.invoiceStatus,
+          }}
+        />
+      ).toBlob();
       const safeFilename = `Receipt-${payment.invoiceNo.replace(/[/\\]/g, "-")}-${payment.clientName.replace(/[^a-zA-Z0-9]/g, "-")}.pdf`;
 
       // Step 2: Upload PDF to WhatsApp media

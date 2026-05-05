@@ -15,10 +15,10 @@ function toObjectId(id: string) {
 // ── PATCH — update a template ──
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
     const oid = toObjectId(id);
     if (!oid) return NextResponse.json({ error: "Invalid id." }, { status: 400 });
 
@@ -27,7 +27,8 @@ export async function PATCH(
 
     const allowedFields = [
       "name", "category", "language", "headerType", "headerText",
-      "body", "footer", "buttons", "variables", "notes",
+      "headerMediaHandle", "headerMediaName",
+      "body", "footer", "buttons", "variables", "exampleValues", "notes",
       "status", "metaTemplateId", "submittedAt", "approvedAt", "rejectedReason",
     ];
 
@@ -48,7 +49,7 @@ export async function PATCH(
       return NextResponse.json({ error: "Template not found." }, { status: 404 });
     }
 
-    return NextResponse.json(result);
+    return NextResponse.json({ ...result, _id: result._id.toString() });
   } catch (err: any) {
     console.error("[whatsapp-templates PATCH]", err);
     return NextResponse.json({ error: "Failed to update template." }, { status: 500 });
@@ -58,10 +59,10 @@ export async function PATCH(
 // ── DELETE — remove a template ──
 export async function DELETE(
   _req: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
     const oid = toObjectId(id);
     if (!oid) return NextResponse.json({ error: "Invalid id." }, { status: 400 });
 

@@ -8,7 +8,7 @@ function getFinancialYear(): string {
   const year = now.getFullYear();
   const month = now.getMonth() + 1;
   const fyStart = month >= 4 ? year : year - 1;
-  return `${String(fyStart).slice(2)}${String(fyStart + 1).slice(2)}`;
+  return `${fyStart}-${fyStart + 1}`;
 }
 
 let receiptCounter = 1;
@@ -43,12 +43,9 @@ export async function POST(req: NextRequest) {
     receiptIndex,
   } = body;
 
-  if (!clientName || !invoiceNo || !amount || !paymentDate || !paymentMode) {
+  if (!clientName || !invoiceNo || !paymentDate || !paymentMode) {
     return NextResponse.json(
-      {
-        error:
-          "Missing required fields: clientName, invoiceNo, amount, paymentDate, paymentMode",
-      },
+      { error: "Missing required fields: clientName, invoiceNo, paymentDate, paymentMode" },
       { status: 400 },
     );
   }
@@ -56,20 +53,46 @@ export async function POST(req: NextRequest) {
   const finalReceiptNo =
     receiptNo || generateReceiptNo(receiptIndex || receiptCounter++);
 
+  // Safely coerce a value that might be a BSON Decimal128 / extended JSON object
+  function coerceNum(v: unknown): number {
+    if (v === null || v === undefined) return 0;
+    if (typeof v === "number") return isFinite(v) ? v : 0;
+    if (typeof v === "string") return parseFloat(v) || 0;
+    if (typeof v === "object") {
+      const o = v as Record<string, unknown>;
+      const raw = o.$numberDecimal ?? o.$numberLong ?? o.$numberInt ?? o.$numberDouble;
+      if (raw !== undefined) return parseFloat(String(raw)) || 0;
+    }
+    return parseFloat(String(v)) || 0;
+  }
+
+  function coerceStr(v: unknown): string {
+    if (v === null || v === undefined) return "";
+    if (typeof v === "string") return v;
+    if (typeof v === "object") {
+      const o = v as Record<string, unknown>;
+      if (o.$date) return String(o.$date);
+      const n = o.$numberDecimal ?? o.$numberLong ?? o.$numberInt;
+      if (n !== undefined) return String(n);
+      return "";
+    }
+    return String(v);
+  }
+
   const data = {
     receiptNo: finalReceiptNo,
-    clientName: String(clientName),
-    clientAddress: clientAddress ? String(clientAddress) : undefined,
-    clientPhone: clientPhone ? String(clientPhone) : undefined,
-    invoiceNo: String(invoiceNo),
-    projectTitle: projectTitle ? String(projectTitle) : undefined,
-    amount: Number(amount),
-    paymentDate: String(paymentDate),
-    paymentMode: String(paymentMode),
-    transactionRef: transactionRef ? String(transactionRef) : undefined,
-    invoiceTotal: invoiceTotal ? Number(invoiceTotal) : undefined,
-    balanceDue: balanceDue !== undefined ? Number(balanceDue) : undefined,
-    invoiceStatus: invoiceStatus ? String(invoiceStatus) : undefined,
+    clientName: coerceStr(clientName) || "Client",
+    clientAddress: clientAddress ? coerceStr(clientAddress) : undefined,
+    clientPhone: clientPhone ? coerceStr(clientPhone) : undefined,
+    invoiceNo: coerceStr(invoiceNo) || "—",
+    projectTitle: projectTitle ? coerceStr(projectTitle) : undefined,
+    amount: coerceNum(amount),
+    paymentDate: coerceStr(paymentDate) || new Date().toISOString(),
+    paymentMode: coerceStr(paymentMode) || "Bank Transfer",
+    transactionRef: transactionRef ? coerceStr(transactionRef) : undefined,
+    invoiceTotal: invoiceTotal !== undefined && invoiceTotal !== null ? coerceNum(invoiceTotal) : undefined,
+    balanceDue: balanceDue !== undefined && balanceDue !== null ? coerceNum(balanceDue) : undefined,
+    invoiceStatus: invoiceStatus ? coerceStr(invoiceStatus) : undefined,
   };
 
   try {

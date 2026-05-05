@@ -253,6 +253,14 @@
       "namedRegex": "^/api/whatsapp\\-templates/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/whatsapp-templates/[id]/submit",
+      "regex": "^/api/whatsapp\\-templates/([^/]+?)/submit(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/whatsapp\\-templates/(?<nxtPid>[^/]+?)/submit(?:/)?$"
+    },
+    {
       "page": "/api/work-gallery/[id]",
       "regex": "^/api/work\\-gallery/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -715,6 +723,12 @@
       "regex": "^/api/whatsapp\\-templates/sync(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/whatsapp\\-templates/sync(?:/)?$"
+    },
+    {
+      "page": "/api/whatsapp-templates/upload-media",
+      "regex": "^/api/whatsapp\\-templates/upload\\-media(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/whatsapp\\-templates/upload\\-media(?:/)?$"
     },
     {
       "page": "/api/whatsapp-webhook",
