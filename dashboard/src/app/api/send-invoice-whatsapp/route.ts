@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as svc from "@/lib/services";
+import getDb from "@/lib/mongodb";
 
 function sanitisePhone(raw: string): string {
   return raw.replace(/\D/g, "");
@@ -22,6 +23,8 @@ interface SendInvoiceBody {
 
   clientId?: string;
   invoiceId?: string;
+  templateName?: string;
+  templateLang?: string;
 }
 
 interface WhatsAppErrorDetail {
@@ -136,6 +139,8 @@ export async function POST(req: NextRequest) {
     pdfUrl,
     clientId,
     invoiceId,
+    templateName: bodyTemplateName,
+    templateLang: bodyTemplateLang,
   } = body;
   if (clientId) {
     try {
@@ -251,9 +256,24 @@ export async function POST(req: NextRequest) {
   console.info(
     `[WhatsApp] Sending to: ${digits} (sender phoneNumberId: ${phoneNumberId})`,
   );
-  const templateName = process.env.WHATSAPP_TEMPLATE_NAME ?? "invoicing";
-  const templateLang = process.env.WHATSAPP_TEMPLATE_LANG ?? "en_US";
+  const templateName =
+    bodyTemplateName ||
+    process.env.WHATSAPP_TEMPLATE_NAME ||
+    "invoicing";
   const apiVersion = process.env.WHATSAPP_API_VERSION ?? "v21.0";
+
+  // Resolve template language: body param > DB lookup > env > fallback
+  let templateLang = bodyTemplateLang || process.env.WHATSAPP_TEMPLATE_LANG || "en_US";
+  try {
+    const db = await getDb();
+    const tmplDoc = await db.collection("whatsapp_templates").findOne({ name: templateName });
+    if (tmplDoc?.language) {
+      templateLang = tmplDoc.language;
+      console.info(`[WhatsApp] Resolved template language from DB: ${templateLang} (template: ${templateName})`);
+    }
+  } catch (dbErr) {
+    console.warn("[WhatsApp] Could not look up template language from DB — using fallback:", templateLang);
+  }
 
   function sanitiseFilename(raw: string): string {
     return raw

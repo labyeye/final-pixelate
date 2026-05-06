@@ -442,6 +442,9 @@ export default function PaymentsPage() {
         currency: "INR",
       }).format(payment.amount);
 
+      const receiptTemplateName =
+        process.env.NEXT_PUBLIC_WHATSAPP_RECEIPT_TEMPLATE_NAME || "payment_receipt";
+
       const sendRes = await fetch("/api/send-invoice-whatsapp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -453,6 +456,7 @@ export default function PaymentsPage() {
           filename: safeFilename,
           mediaId,
           clientId: selectedClient,
+          templateName: receiptTemplateName,
         }),
       });
 
