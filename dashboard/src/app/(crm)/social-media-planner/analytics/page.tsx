@@ -126,6 +126,12 @@ export default function AnalyticsPage() {
   const [syncError, setSyncError] = useState<string | null>(null);
   const [syncingAll, setSyncingAll] = useState(false);
   const [syncAllResult, setSyncAllResult] = useState<{ synced: number; skipped: number } | null>(null);
+  const [syncProgress, setSyncProgress] = useState<{
+    current: number;
+    total: number;
+    currentTitle: string;
+    errors: { title: string; error: string }[];
+  } | null>(null);
 
   const [inlineEditingKey, setInlineEditingKey] = useState<{
     postId: string;
@@ -295,8 +301,7 @@ export default function AnalyticsPage() {
     setSyncingAll(true);
     setSyncError(null);
     setSyncAllResult(null);
-    let synced = 0;
-    let skipped = 0;
+    setSyncProgress(null);
 
     const syncable = flatRows.filter(({ post, accountId }) => {
       const isMetaPlatform = post.platform === "Facebook" || post.platform === "Instagram";
@@ -305,18 +310,34 @@ export default function AnalyticsPage() {
       return isMetaPlatform && hasAccount && hasLink;
     });
 
-    for (const { post, accountId } of syncable) {
+    setSyncProgress({ current: 0, total: syncable.length, currentTitle: "", errors: [] });
+
+    let synced = 0;
+    let skipped = 0;
+    const errors: { title: string; error: string }[] = [];
+
+    for (let i = 0; i < syncable.length; i++) {
+      const { post, accountId } = syncable[i];
       const postId = (post._id || post.id) as string;
+      setSyncProgress((prev) => prev ? { ...prev, current: i + 1, currentTitle: post.title } : prev);
       try {
         const res = await fetch("/api/social-media-metrics/sync", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ postId, accountId }),
         });
-        if (res.ok) synced++;
-        else skipped++;
-      } catch {
+        if (res.ok) {
+          synced++;
+        } else {
+          skipped++;
+          const data = await res.json().catch(() => ({}));
+          errors.push({ title: post.title, error: data.error || `HTTP ${res.status}` });
+          setSyncProgress((prev) => prev ? { ...prev, errors: [...prev.errors, { title: post.title, error: data.error || `HTTP ${res.status}` }] } : prev);
+        }
+      } catch (e: any) {
         skipped++;
+        errors.push({ title: post.title, error: e.message || "Network error" });
+        setSyncProgress((prev) => prev ? { ...prev, errors: [...prev.errors, { title: post.title, error: e.message || "Network error" }] } : prev);
       }
     }
 
@@ -394,8 +415,101 @@ export default function AnalyticsPage() {
     URL.revokeObjectURL(url);
   };
 
+  const isSyncDone = !syncingAll && syncProgress !== null;
+
   return (
     <div className="space-y-6 font-headline">
+
+      {/* Sync Progress Modal */}
+      {syncProgress && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="bg-white border-2 border-black rounded-xl shadow-2xl w-full max-w-md mx-4 overflow-hidden">
+            {/* Header */}
+            <div className="bg-black text-white px-5 py-4 flex items-center justify-between">
+              <h2 className="font-black text-base tracking-tight">
+                {isSyncDone ? "SYNC COMPLETE" : "SYNCING POSTS…"}
+              </h2>
+              {isSyncDone && (
+                <button
+                  className="text-white hover:text-gray-300 font-black text-xl leading-none"
+                  onClick={() => setSyncProgress(null)}
+                >
+                  ×
+                </button>
+              )}
+            </div>
+
+            <div className="px-5 py-4 space-y-4">
+              {/* Progress counter */}
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-bold text-gray-600">
+                  {isSyncDone ? "Finished" : `Post ${syncProgress.current} of ${syncProgress.total}`}
+                </span>
+                <span className="text-sm font-black">
+                  {syncProgress.current}/{syncProgress.total}
+                </span>
+              </div>
+
+              {/* Progress bar */}
+              <div className="w-full bg-gray-200 rounded-full h-3 border border-black overflow-hidden">
+                <div
+                  className="h-3 rounded-full transition-all duration-300"
+                  style={{
+                    width: `${syncProgress.total > 0 ? (syncProgress.current / syncProgress.total) * 100 : 0}%`,
+                    backgroundColor: isSyncDone ? "#22c55e" : "#2563eb",
+                  }}
+                />
+              </div>
+
+              {/* Current post */}
+              {!isSyncDone && syncProgress.currentTitle && (
+                <p className="text-xs font-semibold text-gray-500 truncate">
+                  Syncing: <span className="text-black font-bold">{syncProgress.currentTitle}</span>
+                </p>
+              )}
+
+              {/* Result summary when done */}
+              {isSyncDone && syncAllResult && (
+                <div className="flex gap-3">
+                  <div className="flex-1 bg-green-50 border-2 border-green-400 rounded-lg p-3 text-center">
+                    <div className="text-2xl font-black text-green-700">{syncAllResult.synced}</div>
+                    <div className="text-xs font-bold text-green-600 uppercase">Synced</div>
+                  </div>
+                  <div className="flex-1 bg-red-50 border-2 border-red-300 rounded-lg p-3 text-center">
+                    <div className="text-2xl font-black text-red-600">{syncAllResult.skipped}</div>
+                    <div className="text-xs font-bold text-red-500 uppercase">Skipped</div>
+                  </div>
+                </div>
+              )}
+
+              {/* Errors list */}
+              {syncProgress.errors.length > 0 && (
+                <div className="max-h-40 overflow-y-auto space-y-1.5">
+                  <p className="text-xs font-black uppercase text-gray-500 mb-1">
+                    Skipped Posts ({syncProgress.errors.length})
+                  </p>
+                  {syncProgress.errors.map((e, i) => (
+                    <div key={i} className="bg-red-50 border border-red-200 rounded-md px-3 py-2">
+                      <p className="text-xs font-bold text-gray-800 truncate">{e.title}</p>
+                      <p className="text-xs text-red-600 mt-0.5">{e.error}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Close button */}
+              {isSyncDone && (
+                <button
+                  className="w-full py-2 bg-black text-white font-black rounded-lg text-sm hover:bg-gray-800 transition-colors"
+                  onClick={() => setSyncProgress(null)}
+                >
+                  Close
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
       {/* Header */}
       <header className="flex flex-wrap items-center justify-between gap-3">
         <div>

@@ -133,34 +133,45 @@ async function resolveUrlToObjectId(
   return null;
 }
 
-// Search page's recent posts to find the numeric ID matching a pfbid permalink.
+// Search page's recent posts/feed to find the numeric ID matching a pfbid permalink.
+// Tries multiple endpoints because reels/videos don't appear in /posts.
 async function resolveViaPagePosts(
   pageId: string,
   pfbid: string,
   accessToken: string,
 ): Promise<string | null> {
-  let after: string | null = null;
-  for (let page = 0; page < 5; page++) {
-    const url = new URL(`${META_GRAPH_API}/${pageId}/posts`);
-    url.searchParams.set("fields", "id,permalink_url");
-    url.searchParams.set("limit", "25");
-    url.searchParams.set("access_token", accessToken);
-    if (after) url.searchParams.set("after", after);
+  const endpoints = [
+    `${META_GRAPH_API}/${pageId}/posts`,
+    `${META_GRAPH_API}/${pageId}/feed`,
+    `${META_GRAPH_API}/${pageId}/published_posts`,
+  ];
 
-    try {
-      const res = await fetch(url.toString());
-      if (!res.ok) break;
-      const data = await res.json();
-      if (data.error) break;
+  for (const base of endpoints) {
+    let after: string | null = null;
+    for (let p = 0; p < 4; p++) {
+      const url = new URL(base);
+      url.searchParams.set("fields", "id,permalink_url");
+      url.searchParams.set("limit", "25");
+      url.searchParams.set("access_token", accessToken);
+      if (after) url.searchParams.set("after", after);
 
-      for (const post of data.data || []) {
-        if ((post.permalink_url || "").includes(pfbid)) return post.id;
+      try {
+        const res = await fetch(url.toString());
+        if (!res.ok) break;
+        const data = await res.json();
+        if (data.error) break;
+
+        for (const post of data.data || []) {
+          const permalink: string = post.permalink_url || "";
+          // Match pfbid anywhere in the permalink URL
+          if (permalink.includes(pfbid)) return post.id;
+        }
+
+        after = data.paging?.cursors?.after;
+        if (!after) break;
+      } catch {
+        break;
       }
-
-      after = data.paging?.cursors?.after;
-      if (!after) break;
-    } catch {
-      break;
     }
   }
   return null;
@@ -199,56 +210,89 @@ export async function fetchFbPostMetrics(
     }
   }
 
-  async function fetchEngagement(id: string): Promise<any | null> {
-    for (const fields of [
-      "id,reactions.summary(true).limit(0),likes.summary(true).limit(0),comments.summary(true).limit(0),shares",
-      "id,reactions.summary(true).limit(0),likes.summary(true).limit(0),comments.summary(true).limit(0)",
-    ]) {
+  const engFields = [
+    "id,reactions.summary(true).limit(0),likes.summary(true).limit(0),comments.summary(true).limit(0),shares",
+    "id,reactions.summary(true).limit(0),likes.summary(true).limit(0),comments.summary(true).limit(0)",
+    "id,likes.summary(true).limit(0),comments.summary(true).limit(0)",
+  ];
+
+  async function fetchEngagement(id: string, token: string): Promise<any | null> {
+    for (const fields of engFields) {
       const url = new URL(`${META_GRAPH_API}/${id}`);
       url.searchParams.set("fields", fields);
-      url.searchParams.set("access_token", pageAccessToken);
+      url.searchParams.set("access_token", token);
       const res = await fetch(url.toString());
-      if (!res.ok) continue;
       const data = await res.json();
-      if (!data.error) return data;
+      if (data.error) {
+        const code = data.error.code;
+        const subcode = data.error.error_subcode;
+        console.warn(`FB engagement error for ${id}: ${data.error.message} (code ${code}, subcode ${subcode})`);
+        // Token expired — throw immediately, no point retrying
+        if (code === 190) {
+          throw new Error(`Facebook access token has expired. Go to the client's Social Tokens tab and click "Connect Facebook" to get a new token.`);
+        }
+        // Permission error on this specific ID format (code 10) — try next field combo or caller will try bare ID
+        // Field doesn't exist (code 100) — try next field combo without that field
+        if (code === 10 || code === 100) continue;
+        // Other auth/fatal errors — stop retrying
+        break;
+      }
+      if (res.ok) return data;
     }
     return null;
   }
 
-  // Try pageId_postId composite first, then bare postId
   const graphId = `${pageId}_${postId}`;
-  let eng: any = await fetchEngagement(graphId);
-  if (!eng) eng = await fetchEngagement(postId);
+  console.log(`[FB metrics] postUrl=${postUrl} postId=${postId} graphId=${graphId}`);
 
-  // Last resort: resolve the URL directly and retry
-  if (!eng && !isPfbid) {
+  // Try all ID formats: pageId_postId, bare postId, then URL-resolved ID
+  let eng: any =
+    await fetchEngagement(graphId, pageAccessToken) ||
+    await fetchEngagement(postId, pageAccessToken);
+
+  if (!eng) {
+    // Last resort: resolve URL to object ID and retry
     const urlResolved = await resolveUrlToObjectId(resolvedUrl, pageAccessToken);
     if (urlResolved && urlResolved !== postId) {
-      eng = await fetchEngagement(`${pageId}_${urlResolved}`);
-      if (!eng) eng = await fetchEngagement(urlResolved);
+      eng =
+        await fetchEngagement(`${pageId}_${urlResolved}`, pageAccessToken) ||
+        await fetchEngagement(urlResolved, pageAccessToken);
     }
   }
 
   if (!eng)
     throw new Error(
-      `Failed to fetch post metrics for post ID: ${postId}. ` +
-      `Check that the Page ID saved on this account is correct and the token has pages_read_engagement permission.`
+      `Could not fetch metrics for post ${postId} (page ${pageId}). ` +
+      `Check that the System User Token has 'pages_read_engagement' permission and the Page ID is correct.`
     );
 
   let views = 0;
-  try {
-    const insightUrl = new URL(`${META_GRAPH_API}/${graphId}/insights`);
-    insightUrl.searchParams.set("metric", "post_impressions_unique");
-    insightUrl.searchParams.set("access_token", pageAccessToken);
-    const insightRes = await fetch(insightUrl.toString());
-    if (insightRes.ok) {
-      const insightData = await insightRes.json();
-      const metric = (insightData.data || []).find(
-        (d: any) => d.name === "post_impressions_unique",
-      );
-      views = metric?.values?.[0]?.value ?? metric?.value ?? 0;
+  const fbViewMetrics = [
+    "post_impressions_unique",
+    "post_impressions",
+    "post_video_views",
+    "post_video_complete_views_organic",
+  ];
+  // Try insights with graphId first, then bare postId as fallback
+  const insightIds = [graphId, postId].filter((v, i, a) => a.indexOf(v) === i);
+  outer: for (const insightId of insightIds) {
+    for (const metric of fbViewMetrics) {
+      try {
+        const insightUrl = new URL(`${META_GRAPH_API}/${insightId}/insights`);
+        insightUrl.searchParams.set("metric", metric);
+        insightUrl.searchParams.set("access_token", pageAccessToken);
+        const insightRes = await fetch(insightUrl.toString());
+        const insightData = await insightRes.json();
+        if (insightData.error) {
+          console.warn(`FB insight [${insightId}] "${metric}" error: ${insightData.error.message}`);
+          continue;
+        }
+        const found = (insightData.data || []).find((d: any) => d.name === metric);
+        const val = found?.values?.[0]?.value ?? found?.value ?? 0;
+        if (val > 0) { views = val; break outer; }
+      } catch {}
     }
-  } catch {}
+  }
 
   return {
     views,
@@ -266,37 +310,45 @@ async function resolveIgMediaId(
   permalink: string,
   igAccountId: string,
   accessToken: string,
-): Promise<string | null> {
-  try {
-    const oembedUrl = new URL(`${META_GRAPH_API}/instagram_oembed`);
-    oembedUrl.searchParams.set("url", permalink);
-    oembedUrl.searchParams.set("access_token", accessToken);
-    const oembedRes = await fetch(oembedUrl.toString());
-    if (oembedRes.ok) {
-      const data = await oembedRes.json();
-      if (data.media_id) return data.media_id;
-    }
-  } catch {}
-
+): Promise<{ id: string | null; failReason: string }> {
   const normalised = permalink.replace(/\/$/, "").toLowerCase();
-  let after: string | null = null;
+  const shortcodeMatch = permalink.match(/instagram\.com\/(?:p|reel|tv)\/([A-Za-z0-9_-]+)/);
 
-  for (let page = 0; page < 3; page++) {
+  // Search through account media
+  let after: string | null = null;
+  let totalScanned = 0;
+  let apiError = "";
+
+  for (let page = 0; page < 10; page++) {
     const url = new URL(`${META_GRAPH_API}/${igAccountId}/media`);
-    url.searchParams.set("fields", "id,permalink");
+    url.searchParams.set("fields", "id,permalink,media_type");
     url.searchParams.set("limit", "50");
     url.searchParams.set("access_token", accessToken);
     if (after) url.searchParams.set("after", after);
 
     const res = await fetch(url.toString());
-    if (!res.ok) break;
     const data = await res.json();
 
-    for (const item of data.data || []) {
-      if (
-        (item.permalink || "").replace(/\/$/, "").toLowerCase() === normalised
-      ) {
-        return item.id;
+    if (!res.ok || data.error) {
+      const code = data.error?.code;
+      const msg = data.error?.message || `HTTP ${res.status}`;
+      apiError = code === 190
+        ? "Access token expired — regenerate the System User Token in Meta Business Suite."
+        : code === 10 || code === 200
+        ? `Token missing 'instagram_basic' permission — regenerate System User Token and select instagram_basic.`
+        : code === 100
+        ? `Instagram account ID ${igAccountId} not accessible — check igAccountId in the Social Tokens tab.`
+        : msg;
+      console.warn(`[IG resolve] media API failed: ${msg} (code ${code})`);
+      break;
+    }
+
+    const items = data.data || [];
+    totalScanned += items.length;
+    for (const item of items) {
+      const itemPermalink = (item.permalink || "").replace(/\/$/, "").toLowerCase();
+      if (itemPermalink === normalised || (shortcodeMatch && itemPermalink.includes(shortcodeMatch[1]))) {
+        return { id: item.id, failReason: "" };
       }
     }
 
@@ -304,7 +356,12 @@ async function resolveIgMediaId(
     if (!after) break;
   }
 
-  return null;
+  const failReason = apiError ||
+    (totalScanned > 0
+      ? `Post not found after scanning ${totalScanned} items — it may be a collab post or belong to a different account.`
+      : "No media returned from API.");
+
+  return { id: null, failReason };
 }
 
 export interface LeadAdForm {
@@ -458,37 +515,63 @@ export async function fetchIgMediaMetrics(
   igAccountId: string,
   accessToken: string,
 ): Promise<MetaPostMetrics> {
-  const mediaId = await resolveIgMediaId(postUrl, igAccountId, accessToken);
-  if (!mediaId) throw new Error("Could not find Instagram media for this URL");
+  const { id: mediaId, failReason } = await resolveIgMediaId(postUrl, igAccountId, accessToken);
+  if (!mediaId) throw new Error(`Instagram sync failed: ${failReason}`);
 
+  // Fetch basic media info including media_type to pick correct insight metrics
   const mediaUrl = new URL(`${META_GRAPH_API}/${mediaId}`);
-  mediaUrl.searchParams.set("fields", "id,like_count,comments_count,permalink");
+  mediaUrl.searchParams.set("fields", "id,like_count,comments_count,media_type,permalink");
   mediaUrl.searchParams.set("access_token", accessToken);
 
   const mediaRes = await fetch(mediaUrl.toString());
   if (!mediaRes.ok)
     throw new Error(`Failed to fetch IG media: ${await mediaRes.text()}`);
   const media = await mediaRes.json();
+  if (media.error) throw new Error(`IG media error: ${media.error.message}`);
+
+  const mediaType: string = media.media_type || "IMAGE";
+  const isReel = mediaType === "VIDEO" || postUrl.includes("/reel/");
 
   let views = 0;
   let shares = 0;
   let followers_gained = 0;
+  let insightError = "";
 
-  try {
-    const insightUrl = new URL(`${META_GRAPH_API}/${mediaId}/insights`);
-    insightUrl.searchParams.set("metric", "impressions,reach,shares,follows");
-    insightUrl.searchParams.set("access_token", accessToken);
-    const insightRes = await fetch(insightUrl.toString());
-    if (insightRes.ok) {
-      const insightData = await insightRes.json();
-      for (const item of insightData.data || []) {
-        const val = item.values?.[0]?.value ?? item.value ?? 0;
-        if (item.name === "impressions") views = val;
-        if (item.name === "shares") shares = val;
-        if (item.name === "follows") followers_gained = val;
+  // Each metric set tried independently so one bad metric doesn't block others
+  const viewMetrics = isReel
+    ? ["plays", "impressions", "video_views"]
+    : ["impressions", "reach"];
+  const extraMetrics = ["shares", "saved"];
+
+  async function fetchInsight(metric: string): Promise<number> {
+    try {
+      const url = new URL(`${META_GRAPH_API}/${mediaId}/insights`);
+      url.searchParams.set("metric", metric);
+      url.searchParams.set("access_token", accessToken);
+      const res = await fetch(url.toString());
+      const data = await res.json();
+      if (data.error) {
+        insightError = data.error.message;
+        return 0;
       }
+      const item = (data.data || []).find((d: any) => d.name === metric);
+      return item?.values?.[0]?.value ?? item?.value ?? 0;
+    } catch {
+      return 0;
     }
-  } catch {}
+  }
+
+  // Try view metrics one by one until we get a non-zero value
+  for (const metric of viewMetrics) {
+    const val = await fetchInsight(metric);
+    if (val > 0) { views = val; break; }
+  }
+  shares = await fetchInsight("shares");
+
+  // Log insight error to server for debugging
+  if (insightError) {
+    console.warn(`IG insights error for mediaId ${mediaId}: ${insightError}`);
+  }
 
   return {
     views,

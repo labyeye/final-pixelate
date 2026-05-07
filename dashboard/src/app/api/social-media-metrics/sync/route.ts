@@ -77,7 +77,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Token priority: account-level → client-level → global company token (.env)
+    // Token priority: client System User Token → account Page Token → (no company fallback for client metrics)
     let clientMetaToken: string | null = null;
     if (post.clientId) {
       try {
@@ -86,7 +86,8 @@ export async function POST(request: Request) {
         clientMetaToken = client?.metaAccessToken || null;
       } catch {}
     }
-    const baseToken = account.accessToken || clientMetaToken || process.env.META_ACCESS_TOKEN;
+    // Prefer client's System User Token (doesn't expire) over account's Page Token (expires in 60 days)
+    const baseToken = clientMetaToken || account.accessToken;
 
     if (!baseToken || !account.platformAccountId) {
       return NextResponse.json(
@@ -94,7 +95,7 @@ export async function POST(request: Request) {
           error:
             !account.platformAccountId
               ? "No Page ID saved for this account. Go to the client's Social Tokens tab and enter the Facebook Page ID."
-              : "No access token available. Add a System User Token on the client record or set META_ACCESS_TOKEN in .env.",
+              : "No access token available. Go to the client's Social Tokens tab and add a System User Token.",
           needsConnect: true,
           accountId,
         },
@@ -119,6 +120,21 @@ export async function POST(request: Request) {
 
     const platform: string = post.platform;
     let metrics;
+
+    // Catch URL/platform mismatch early before wasting API calls
+    const urlLower = postedUrl.toLowerCase();
+    if (platform === "Facebook" && !urlLower.includes("facebook.com") && !urlLower.includes("fb.com")) {
+      return NextResponse.json(
+        { error: `URL mismatch: platform is Facebook but the posted link is not a Facebook URL (${postedUrl}). Update the posted link in the Planner.` },
+        { status: 400, headers: CORS },
+      );
+    }
+    if (platform === "Instagram" && !urlLower.includes("instagram.com")) {
+      return NextResponse.json(
+        { error: `URL mismatch: platform is Instagram but the posted link is not an Instagram URL (${postedUrl}). Update the posted link in the Planner.` },
+        { status: 400, headers: CORS },
+      );
+    }
 
     if (platform === "Facebook") {
       metrics = await fetchFbPostMetrics(

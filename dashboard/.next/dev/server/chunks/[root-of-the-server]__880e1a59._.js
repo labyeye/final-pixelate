@@ -875,7 +875,7 @@ const CORS = {
 };
 async function logErpEvent(type, target, details, userId, email) {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/api/erp-events`, {
+        const response = await fetch(`${("TURBOPACK compile-time value", "https://backend.pixelatenest.com")}/api/erp-events`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -1130,6 +1130,13 @@ async function PUT(request) {
             changeDetails.postedLink = {
                 before: postBefore?.postedLink,
                 after: body.postedLink
+            };
+        }
+        if (body.postedLinks && typeof body.postedLinks === "object") {
+            // Merge new per-account links on top of existing ones
+            updateData.postedLinks = {
+                ...postBefore?.postedLinks || {},
+                ...body.postedLinks
             };
         }
         const result = await col.updateOne({

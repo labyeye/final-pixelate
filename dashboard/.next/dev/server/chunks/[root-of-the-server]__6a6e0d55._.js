@@ -1044,7 +1044,7 @@ module.exports = [
     async function logErpEvent(type, target, details, userId, email) {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/api/erp-events`,
+          `${process.env.NEXT_PUBLIC_APP_URL}/api/erp-events`,
           {
             method: "POST",
             headers: {

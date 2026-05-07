@@ -875,7 +875,7 @@ const CORS = {
 };
 async function logErpEvent(type, target, details, userId, email) {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/api/erp-events`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/erp-events`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

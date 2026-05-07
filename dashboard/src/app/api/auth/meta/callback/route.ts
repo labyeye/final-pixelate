@@ -13,10 +13,8 @@ export async function GET(request: NextRequest) {
   const stateRaw = searchParams.get("state");
   const oauthError = searchParams.get("error");
 
-  const appUrl =
-    process.env.NEXT_PUBLIC_APP_URL ||
-    process.env.APP_URL ||
-    "http://localhost:9002";
+  const appUrl = 
+    "https://backend.pixelatenest.com";
 
   // Decode state
   let stateObj: { clientId?: string; accountId?: string } = {};

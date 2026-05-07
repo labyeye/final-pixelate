@@ -17,7 +17,7 @@ async function logErpEvent(
 ) {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/api/erp-events`,
+      `${process.env.NEXT_PUBLIC_APP_URL}/api/erp-events`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -284,6 +284,13 @@ export async function PUT(request: Request) {
       changeDetails.postedLink = {
         before: postBefore?.postedLink,
         after: body.postedLink,
+      };
+    }
+    if (body.postedLinks && typeof body.postedLinks === "object") {
+      // Merge new per-account links on top of existing ones
+      updateData.postedLinks = {
+        ...(postBefore?.postedLinks || {}),
+        ...body.postedLinks,
       };
     }
 
