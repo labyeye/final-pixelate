@@ -75,6 +75,7 @@
   "/api/campaigns/route": "app/api/campaigns/route.js",
   "/api/careers/[id]/route": "app/api/careers/[id]/route.js",
   "/api/careers/route": "app/api/careers/route.js",
+  "/api/clients/[id]/meta-token/route": "app/api/clients/[id]/meta-token/route.js",
   "/api/clients/[id]/route": "app/api/clients/[id]/route.js",
   "/api/clients/route": "app/api/clients/route.js",
   "/api/emi/[id]/route": "app/api/emi/[id]/route.js",

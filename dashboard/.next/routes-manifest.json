@@ -61,6 +61,14 @@
       "namedRegex": "^/api/clients/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/clients/[id]/meta-token",
+      "regex": "^/api/clients/([^/]+?)/meta\\-token(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/clients/(?<nxtPid>[^/]+?)/meta\\-token(?:/)?$"
+    },
+    {
       "page": "/api/emi/[id]",
       "regex": "^/api/emi/([^/]+?)(?:/)?$",
       "routeKeys": {

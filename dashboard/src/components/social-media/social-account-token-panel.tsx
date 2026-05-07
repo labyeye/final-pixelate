@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import {
   CheckCircle,
@@ -11,10 +11,10 @@ import {
   Loader2,
   ChevronDown,
   ChevronUp,
-  Eye,
-  EyeOff,
+  Facebook,
   RefreshCw,
 } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 
 function getToken() {
   return typeof window !== "undefined"
@@ -31,43 +31,35 @@ function authH(): Record<string, string> {
 
 interface SocialAccount {
   _id: string;
-  clientId: string;
   platform: string;
   handle: string;
   displayName: string;
-  isConnected: boolean;
   hasToken: boolean;
   platformAccountId?: string;
   igAccountId?: string;
-  updatedAt?: string;
+  connectedPageName?: string;
 }
 
-interface TokenForm {
-  accessToken: string;
-  platformAccountId: string;
-  igAccountId: string;
-}
-
-function AccountTokenRow({ account, onSaved }: { account: SocialAccount; onSaved: () => void }) {
+// ── Per-account row (read-only display + optional manual ID override) ────────
+function AccountRow({ account, onSaved }: { account: SocialAccount; onSaved: () => void }) {
   const { toast } = useToast();
   const [expanded, setExpanded] = useState(false);
   const [saving, setSaving] = useState(false);
-  const [testing, setTesting] = useState(false);
-  const [showToken, setShowToken] = useState(false);
-  const [form, setForm] = useState<TokenForm>({
-    accessToken: "",
+  const [form, setForm] = useState({
     platformAccountId: account.platformAccountId || "",
     igAccountId: account.igAccountId || "",
   });
-  const [testResult, setTestResult] = useState<{ ok: boolean; msg: string } | null>(null);
 
   const isIg = account.platform === "Instagram";
   const isFb = account.platform === "Facebook";
-  const needsToken = isIg || isFb;
+  const needsIds = isIg || isFb;
+  const isConnected = account.hasToken && !!account.platformAccountId;
+
+  if (!needsIds) return null;
 
   async function handleSave() {
-    if (!form.accessToken.trim() && !form.platformAccountId.trim()) {
-      toast({ title: "Enter at least an Access Token", variant: "destructive" });
+    if (!form.platformAccountId.trim()) {
+      toast({ title: "Facebook Page ID is required", variant: "destructive" });
       return;
     }
     setSaving(true);
@@ -77,13 +69,12 @@ function AccountTokenRow({ account, onSaved }: { account: SocialAccount; onSaved
         headers: authH(),
         body: JSON.stringify({
           id: account._id,
-          accessToken: form.accessToken.trim() || undefined,
-          platformAccountId: form.platformAccountId.trim() || undefined,
+          platformAccountId: form.platformAccountId.trim(),
           igAccountId: form.igAccountId.trim() || undefined,
         }),
       });
       if (!res.ok) throw new Error(await res.text());
-      toast({ title: "Token saved successfully" });
+      toast({ title: "Saved" });
       onSaved();
       setExpanded(false);
     } catch (e: any) {
@@ -93,43 +84,6 @@ function AccountTokenRow({ account, onSaved }: { account: SocialAccount; onSaved
     }
   }
 
-  async function handleTest() {
-    if (!form.accessToken.trim()) {
-      setTestResult({ ok: false, msg: "Enter an access token first" });
-      return;
-    }
-    setTesting(true);
-    setTestResult(null);
-    try {
-      const url = new URL("https://graph.facebook.com/v19.0/me");
-      url.searchParams.set("access_token", form.accessToken.trim());
-      url.searchParams.set("fields", "id,name");
-      const res = await fetch(url.toString());
-      const data = await res.json();
-      if (data.error) {
-        setTestResult({ ok: false, msg: data.error.message });
-      } else {
-        setTestResult({ ok: true, msg: `Connected as: ${data.name} (ID: ${data.id})` });
-      }
-    } catch (e: any) {
-      setTestResult({ ok: false, msg: e.message });
-    } finally {
-      setTesting(false);
-    }
-  }
-
-  if (!needsToken) {
-    return (
-      <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 last:border-0">
-        <div>
-          <span className="font-bold text-sm">{account.displayName || account.handle}</span>
-          <span className="ml-2 text-xs text-gray-400">{account.platform}</span>
-        </div>
-        <span className="text-xs text-gray-400 italic">No token needed for {account.platform}</span>
-      </div>
-    );
-  }
-
   return (
     <div className="border-b border-gray-100 last:border-0">
       <div
@@ -137,122 +91,69 @@ function AccountTokenRow({ account, onSaved }: { account: SocialAccount; onSaved
         onClick={() => setExpanded((v) => !v)}
       >
         <div className="flex items-center gap-3">
-          {account.hasToken ? (
+          {isConnected ? (
             <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
           ) : (
             <AlertCircle className="w-4 h-4 text-yellow-500 flex-shrink-0" />
           )}
           <div>
-            <span className="font-bold text-sm">{account.displayName || account.handle}</span>
-            <span className="ml-2 text-xs px-1.5 py-0.5 rounded bg-gray-100 text-gray-600">{account.platform}</span>
+            <span className="font-bold text-sm">
+              {account.connectedPageName || account.displayName || account.handle}
+            </span>
+            <span className="ml-2 text-xs px-1.5 py-0.5 rounded bg-gray-100 text-gray-600">
+              {account.platform}
+            </span>
             {account.platformAccountId && (
-              <span className="ml-2 text-xs text-gray-400">Page ID: {account.platformAccountId}</span>
+              <span className="ml-2 text-xs text-gray-400 font-mono">
+                {account.platformAccountId}
+              </span>
             )}
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <span className={`text-xs font-bold ${account.hasToken ? "text-green-600" : "text-yellow-600"}`}>
-            {account.hasToken ? "Token Saved" : "No Token"}
+          <span className={`text-xs font-bold ${isConnected ? "text-green-600" : "text-yellow-600"}`}>
+            {isConnected ? "Connected" : "Not Connected"}
           </span>
           {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
         </div>
       </div>
 
       {expanded && (
-        <div className="px-4 pb-4 space-y-3 bg-gray-50 border-t border-gray-100">
-          <div className="pt-3">
+        <div className="px-4 pb-4 space-y-3 bg-gray-50 border-t border-gray-100 pt-3">
+          <p className="text-xs text-gray-500">
+            Override IDs manually if auto-connect picked the wrong page.
+          </p>
+          <div>
             <label className="block text-xs font-bold mb-1 uppercase tracking-wide">
-              {isFb ? "Page" : "Instagram"} Access Token
+              Facebook Page ID
             </label>
-            <div className="flex gap-2">
-              <div className="relative flex-1">
-                <Input
-                  type={showToken ? "text" : "password"}
-                  placeholder="Paste your long-lived access token here"
-                  value={form.accessToken}
-                  onChange={(e) => setForm((f) => ({ ...f, accessToken: e.target.value }))}
-                  className="border-2 border-black pr-10 font-mono text-xs"
-                />
-                <button
-                  type="button"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                  onClick={() => setShowToken((v) => !v)}
-                >
-                  {showToken ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                </button>
-              </div>
-              <Button
-                size="sm"
-                variant="outline"
-                className="border-2 border-black font-bold shrink-0"
-                onClick={handleTest}
-                disabled={testing}
-              >
-                {testing ? <Loader2 className="w-3 h-3 animate-spin" /> : <RefreshCw className="w-3 h-3" />}
-                <span className="ml-1">Test</span>
-              </Button>
-            </div>
-            {testResult && (
-              <p className={`text-xs mt-1 font-semibold ${testResult.ok ? "text-green-600" : "text-red-600"}`}>
-                {testResult.ok ? "✓" : "✗"} {testResult.msg}
-              </p>
-            )}
+            <Input
+              placeholder="e.g. 100931523472122222"
+              value={form.platformAccountId}
+              onChange={(e) => setForm((f) => ({ ...f, platformAccountId: e.target.value }))}
+              className="border-2 border-black font-mono text-xs"
+            />
           </div>
-
-          {isFb && (
+          {isIg && (
             <div>
               <label className="block text-xs font-bold mb-1 uppercase tracking-wide">
-                Facebook Page ID
+                Instagram Business Account ID
               </label>
               <Input
-                placeholder="e.g. 123456789012345"
-                value={form.platformAccountId}
-                onChange={(e) => setForm((f) => ({ ...f, platformAccountId: e.target.value }))}
+                placeholder="e.g. 17841430541330912"
+                value={form.igAccountId}
+                onChange={(e) => setForm((f) => ({ ...f, igAccountId: e.target.value }))}
                 className="border-2 border-black font-mono text-xs"
               />
-              <p className="text-xs text-gray-400 mt-0.5">
-                Find it in Meta Business Suite → Settings → Page Info
-              </p>
             </div>
           )}
-
-          {isIg && (
-            <>
-              <div>
-                <label className="block text-xs font-bold mb-1 uppercase tracking-wide">
-                  Facebook Page ID (linked to Instagram)
-                </label>
-                <Input
-                  placeholder="e.g. 123456789012345"
-                  value={form.platformAccountId}
-                  onChange={(e) => setForm((f) => ({ ...f, platformAccountId: e.target.value }))}
-                  className="border-2 border-black font-mono text-xs"
-                />
-              </div>
-              <div>
-                <label className="block text-xs font-bold mb-1 uppercase tracking-wide">
-                  Instagram Business Account ID
-                </label>
-                <Input
-                  placeholder="e.g. 17841400000000000"
-                  value={form.igAccountId}
-                  onChange={(e) => setForm((f) => ({ ...f, igAccountId: e.target.value }))}
-                  className="border-2 border-black font-mono text-xs"
-                />
-                <p className="text-xs text-gray-400 mt-0.5">
-                  From Graph API: /me/accounts → instagram_business_account id
-                </p>
-              </div>
-            </>
-          )}
-
           <Button
             className="border-2 border-black font-bold w-full"
             onClick={handleSave}
             disabled={saving}
           >
-            {saving ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
-            Save Token & IDs
+            {saving && <Loader2 className="w-4 h-4 animate-spin mr-2" />}
+            Save Override
           </Button>
         </div>
       )}
@@ -260,18 +161,26 @@ function AccountTokenRow({ account, onSaved }: { account: SocialAccount; onSaved
   );
 }
 
+// ── Main panel ───────────────────────────────────────────────────────────────
 export function SocialAccountTokenPanel({ clientId }: { clientId: string }) {
+  const { toast } = useToast();
   const [accounts, setAccounts] = useState<SocialAccount[]>([]);
   const [loading, setLoading] = useState(true);
+  const [hasClientToken, setHasClientToken] = useState(false);
+
+  const searchParams = useSearchParams();
 
   async function load() {
     setLoading(true);
     try {
-      const res = await fetch(`/api/social-media-accounts?clientId=${clientId}`, {
-        headers: authH(),
-      });
-      const data = await res.json();
-      setAccounts(Array.isArray(data) ? data : []);
+      const [accRes, tokenRes] = await Promise.all([
+        fetch(`/api/social-media-accounts?clientId=${clientId}`, { headers: authH() }),
+        fetch(`/api/clients/${clientId}/meta-token`, { headers: authH() }),
+      ]);
+      const accData = await accRes.json();
+      const tokenData = await tokenRes.json();
+      setAccounts(Array.isArray(accData) ? accData : []);
+      setHasClientToken(!!tokenData.hasToken);
     } catch {
       setAccounts([]);
     } finally {
@@ -283,6 +192,30 @@ export function SocialAccountTokenPanel({ clientId }: { clientId: string }) {
     if (clientId) load();
   }, [clientId]);
 
+  // Show toast on return from OAuth
+  useEffect(() => {
+    const connected = searchParams.get("meta_connected");
+    const error = searchParams.get("meta_error");
+    if (connected) {
+      toast({ title: `Facebook connected — ${connected} accounts synced` });
+      load();
+    }
+    if (error) {
+      toast({ title: `Facebook connect failed: ${error}`, variant: "destructive" });
+    }
+  }, []);
+
+  function handleConnectFacebook() {
+    window.location.href = `/api/auth/meta/connect?clientId=${clientId}`;
+  }
+
+  const connectedAccounts = accounts.filter(
+    (a) => (a.platform === "Facebook" || a.platform === "Instagram") && a.hasToken && a.platformAccountId,
+  );
+  const totalMetaAccounts = accounts.filter(
+    (a) => a.platform === "Facebook" || a.platform === "Instagram",
+  );
+
   if (loading) {
     return (
       <div className="flex items-center justify-center py-10">
@@ -291,38 +224,74 @@ export function SocialAccountTokenPanel({ clientId }: { clientId: string }) {
     );
   }
 
-  if (accounts.length === 0) {
-    return (
-      <div className="text-center py-10 border-2 border-dashed border-gray-200 rounded-xl text-muted-foreground">
-        <AlertCircle className="w-8 h-8 mx-auto mb-2 opacity-30" />
-        <p className="text-sm font-semibold">No social media accounts added for this client.</p>
-        <p className="text-xs mt-1">Add accounts in the Social Media Planner first.</p>
-      </div>
-    );
-  }
-
-  const connected = accounts.filter((a) => a.hasToken).length;
-
   return (
-    <Card className="border-2 border-black">
-      <CardHeader className="pb-2">
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-sm font-bold uppercase tracking-wide">
-            Social Media Tokens
-          </CardTitle>
-          <span className="text-xs font-semibold text-gray-500">
-            {connected}/{accounts.length} connected
-          </span>
-        </div>
-        <p className="text-xs text-muted-foreground mt-1">
-          Save access tokens per account to enable live stats sync from Meta Graph API.
-        </p>
-      </CardHeader>
-      <CardContent className="p-0">
-        {accounts.map((acc) => (
-          <AccountTokenRow key={acc._id} account={acc} onSaved={load} />
-        ))}
-      </CardContent>
-    </Card>
+    <div className="space-y-4">
+      <Card className="border-2 border-black">
+        <CardContent className="pt-5">
+          {/* Connect button */}
+          <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
+            <div>
+              <h3 className="font-black text-sm uppercase tracking-wide">
+                Facebook / Instagram
+              </h3>
+              <p className="text-xs text-gray-500 mt-0.5">
+                {hasClientToken
+                  ? `${connectedAccounts.length}/${totalMetaAccounts.length} accounts connected`
+                  : "Not connected — click Connect to link all pages automatically"}
+              </p>
+            </div>
+            <div className="flex gap-2">
+              {hasClientToken && (
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="border-2 border-black font-bold text-xs"
+                  onClick={handleConnectFacebook}
+                >
+                  <RefreshCw className="w-3 h-3 mr-1" />
+                  Reconnect
+                </Button>
+              )}
+              <Button
+                size="sm"
+                className="bg-[#1877F2] hover:bg-[#166fe5] text-white border-2 border-[#1877F2] font-bold text-xs"
+                onClick={handleConnectFacebook}
+              >
+                <Facebook className="w-4 h-4 mr-2" />
+                {hasClientToken ? "Connect Another Account" : "Connect Facebook"}
+              </Button>
+            </div>
+          </div>
+
+          {/* What happens on connect */}
+          {!hasClientToken && (
+            <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-3 mb-4 text-xs text-blue-800 space-y-1">
+              <p className="font-bold">After clicking Connect:</p>
+              <p>✓ Client logs into their Facebook account</p>
+              <p>✓ All their Pages are automatically fetched</p>
+              <p>✓ Instagram Business Accounts are linked automatically</p>
+              <p>✓ Stats sync will work immediately — no manual IDs needed</p>
+            </div>
+          )}
+
+          {/* Connected accounts list */}
+          {totalMetaAccounts.length > 0 && (
+            <div className="border-2 border-black rounded-lg overflow-hidden">
+              {totalMetaAccounts.map((acc) => (
+                <AccountRow key={acc._id} account={acc} onSaved={load} />
+              ))}
+            </div>
+          )}
+
+          {totalMetaAccounts.length === 0 && hasClientToken && (
+            <div className="text-center py-6 border-2 border-dashed border-gray-200 rounded-xl text-muted-foreground">
+              <p className="text-xs font-semibold">
+                No Facebook/Instagram accounts added yet. They will appear here after connecting.
+              </p>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </div>
   );
 }

@@ -2,11 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
+
+  // Support both legacy accountId and new clientId flow
+  const clientId = searchParams.get("clientId");
   const accountId = searchParams.get("accountId");
 
-  if (!accountId) {
+  if (!clientId && !accountId) {
     return NextResponse.json(
-      { error: "accountId query param is required" },
+      { error: "clientId query param is required" },
       { status: 400 },
     );
   }
@@ -26,14 +29,19 @@ export async function GET(request: NextRequest) {
 
   const callbackUrl = `${appUrl}/api/auth/meta/callback`;
 
+  // Encode state as JSON so callback knows what mode it's in
+  const state = clientId
+    ? JSON.stringify({ clientId })
+    : JSON.stringify({ accountId });
+
   const oauthUrl = new URL("https://www.facebook.com/v19.0/dialog/oauth");
   oauthUrl.searchParams.set("client_id", appId);
   oauthUrl.searchParams.set("redirect_uri", callbackUrl);
   oauthUrl.searchParams.set(
     "scope",
-    "pages_read_engagement,pages_show_list,instagram_basic,instagram_manage_insights,business_management",
+    "pages_read_engagement,pages_show_list,instagram_basic,instagram_manage_insights,business_management,leads_retrieval,pages_manage_ads",
   );
-  oauthUrl.searchParams.set("state", accountId);
+  oauthUrl.searchParams.set("state", Buffer.from(state).toString("base64"));
   oauthUrl.searchParams.set("response_type", "code");
 
   return NextResponse.redirect(oauthUrl.toString());

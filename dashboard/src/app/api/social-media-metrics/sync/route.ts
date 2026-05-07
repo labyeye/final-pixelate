@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import * as svc from "@/lib/services";
-import { fetchFbPostMetrics, fetchIgMediaMetrics } from "@/lib/meta-api";
+import { fetchFbPostMetrics, fetchIgMediaMetrics, getUserPages } from "@/lib/meta-api";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -77,16 +77,44 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!account.accessToken || !account.platformAccountId) {
+    // Token priority: account-level → client-level → global company token (.env)
+    let clientMetaToken: string | null = null;
+    if (post.clientId) {
+      try {
+        const clientsCol = await svc.getCollection("clients");
+        const client = await clientsCol.findOne({ _id: new ObjectId(post.clientId) });
+        clientMetaToken = client?.metaAccessToken || null;
+      } catch {}
+    }
+    const baseToken = account.accessToken || clientMetaToken || process.env.META_ACCESS_TOKEN;
+
+    if (!baseToken || !account.platformAccountId) {
       return NextResponse.json(
         {
           error:
-            "This account is not connected to Meta. Go to the Planner → Accounts section and click 'Connect to Meta'.",
+            !account.platformAccountId
+              ? "No Page ID saved for this account. Go to the client's Social Tokens tab and enter the Facebook Page ID."
+              : "No access token available. Add a System User Token on the client record or set META_ACCESS_TOKEN in .env.",
           needsConnect: true,
           accountId,
         },
         { status: 400, headers: CORS },
       );
+    }
+
+    // Auto-exchange user token → page token.
+    // Page-level endpoints (metrics, insights) require a Page Access Token, not a User Token.
+    let effectiveToken = baseToken;
+    try {
+      const pages = await getUserPages(baseToken);
+      const matchedPage = pages.find(
+        (p) => String(p.id) === String(account.platformAccountId),
+      );
+      if (matchedPage?.access_token) {
+        effectiveToken = matchedPage.access_token;
+      }
+    } catch {
+      // if /me/accounts fails, proceed with stored token (may already be a page token)
     }
 
     const platform: string = post.platform;
@@ -96,7 +124,7 @@ export async function POST(request: Request) {
       metrics = await fetchFbPostMetrics(
         postedUrl,
         account.platformAccountId,
-        account.accessToken,
+        effectiveToken,
       );
     } else if (platform === "Instagram") {
       if (!account.igAccountId) {
@@ -111,7 +139,7 @@ export async function POST(request: Request) {
       metrics = await fetchIgMediaMetrics(
         postedUrl,
         account.igAccountId,
-        account.accessToken,
+        effectiveToken,
       );
     } else {
       return NextResponse.json(

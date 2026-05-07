@@ -10,7 +10,7 @@ import {
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const code = searchParams.get("code");
-  const accountId = searchParams.get("state");
+  const stateRaw = searchParams.get("state");
   const oauthError = searchParams.get("error");
 
   const appUrl =
@@ -18,42 +18,47 @@ export async function GET(request: NextRequest) {
     process.env.APP_URL ||
     "http://localhost:9002";
 
-  const returnBase = `${appUrl}/social-media-planner/planner`;
+  // Decode state
+  let stateObj: { clientId?: string; accountId?: string } = {};
+  try {
+    stateObj = JSON.parse(Buffer.from(stateRaw || "", "base64").toString());
+  } catch {
+    // Legacy: state was a raw accountId string
+    stateObj = { accountId: stateRaw || "" };
+  }
 
-  if (oauthError || !code || !accountId) {
-    const reason = oauthError || "missing_code";
+  const { clientId, accountId } = stateObj;
+  const returnUrl = clientId
+    ? `${appUrl}/clients/${clientId}?tab=social-tokens`
+    : `${appUrl}/social-media-planner/planner`;
+
+  if (oauthError || !code) {
     return NextResponse.redirect(
-      `${returnBase}?meta_error=${encodeURIComponent(reason)}`,
+      `${returnUrl}&meta_error=${encodeURIComponent(oauthError || "missing_code")}`,
     );
   }
 
   try {
     const callbackUrl = `${appUrl}/api/auth/meta/callback`;
 
-    const tokenUrl = new URL(
-      "https://graph.facebook.com/v19.0/oauth/access_token",
-    );
+    // Exchange code for short-lived token
+    const tokenUrl = new URL("https://graph.facebook.com/v19.0/oauth/access_token");
     tokenUrl.searchParams.set("client_id", process.env.FACEBOOK_APP_ID!);
-    tokenUrl.searchParams.set(
-      "client_secret",
-      process.env.FACEBOOK_APP_SECRET!,
-    );
+    tokenUrl.searchParams.set("client_secret", process.env.FACEBOOK_APP_SECRET!);
     tokenUrl.searchParams.set("redirect_uri", callbackUrl);
     tokenUrl.searchParams.set("code", code);
 
     const tokenRes = await fetch(tokenUrl.toString());
-    if (!tokenRes.ok) {
-      throw new Error(`Code exchange failed: ${await tokenRes.text()}`);
-    }
+    if (!tokenRes.ok) throw new Error(`Code exchange failed: ${await tokenRes.text()}`);
     const { access_token: shortToken } = await tokenRes.json();
 
+    // Exchange for long-lived user token (60 days)
     const longToken = await exchangeForLongLivedToken(shortToken);
 
+    // Get all pages + IG account IDs
     const pages = await getUserPages(longToken);
     if (pages.length === 0) {
-      throw new Error(
-        "No Facebook Pages found. Make sure you manage at least one Page.",
-      );
+      throw new Error("No Facebook Pages found. Make sure you manage at least one Page.");
     }
 
     const enrichedPages = await Promise.all(
@@ -63,10 +68,77 @@ export async function GET(request: NextRequest) {
       }),
     );
 
+    // ── CLIENT flow: save token + auto-create/update all social accounts ──
+    if (clientId) {
+      const clientsCol = await svc.getCollection("clients");
+      const accountsCol = await svc.getCollection("socialMediaAccounts");
+
+      // Save long-lived user token on client record
+      await clientsCol.updateOne(
+        { _id: new ObjectId(clientId) },
+        { $set: { metaAccessToken: longToken, updatedAt: new Date() } },
+      );
+
+      let upserted = 0;
+
+      for (const page of enrichedPages) {
+        const igId = page.instagram_business_account?.id ?? null;
+
+        // Upsert Facebook Page account
+        await accountsCol.updateOne(
+          { clientId, platform: "Facebook", platformAccountId: page.id },
+          {
+            $set: {
+              clientId,
+              platform: "Facebook",
+              handle: (page.username || page.id).toLowerCase(),
+              displayName: page.name,
+              accessToken: page.access_token,
+              platformAccountId: page.id,
+              igAccountId: igId,
+              connectedPageName: page.name,
+              updatedAt: new Date(),
+            },
+            $setOnInsert: { createdAt: new Date() },
+          },
+          { upsert: true },
+        );
+        upserted++;
+
+        // Upsert Instagram account if linked
+        if (igId) {
+          await accountsCol.updateOne(
+            { clientId, platform: "Instagram", igAccountId: igId },
+            {
+              $set: {
+                clientId,
+                platform: "Instagram",
+                handle: (page.username || igId).toLowerCase(),
+                displayName: `${page.name} (Instagram)`,
+                accessToken: page.access_token,
+                platformAccountId: page.id,
+                igAccountId: igId,
+                connectedPageName: page.name,
+                updatedAt: new Date(),
+              },
+              $setOnInsert: { createdAt: new Date() },
+            },
+            { upsert: true },
+          );
+          upserted++;
+        }
+      }
+
+      return NextResponse.redirect(
+        `${returnUrl}&meta_connected=${upserted}&pages=${enrichedPages.length}`,
+      );
+    }
+
+    // ── LEGACY account flow (from social media planner) ──
     const col = await svc.getCollection("socialMediaAccounts");
     let triggerAccount: any = null;
     try {
-      triggerAccount = await col.findOne({ _id: new ObjectId(accountId) });
+      triggerAccount = await col.findOne({ _id: new ObjectId(accountId!) });
     } catch {}
 
     let connectedCount = 0;
@@ -74,23 +146,17 @@ export async function GET(request: NextRequest) {
     for (const page of enrichedPages) {
       const pageLink = (page.link || "").toLowerCase();
       const pageUsername = (page.username || "").toLowerCase();
-      const pageId = page.id;
 
       const query: any = { platform: { $in: ["Facebook", "Instagram"] } };
       if (triggerAccount?.clientId) query.clientId = triggerAccount.clientId;
 
       const candidates = await col.find(query).toArray();
-
       for (const acc of candidates) {
         const handle = (acc.handle || "").toLowerCase();
-
         const matches =
-          (pageLink &&
-            (handle === pageLink || handle.includes(pageUsername))) ||
           (pageUsername && handle === pageUsername) ||
-          handle.includes(pageId) ||
-          (pageLink &&
-            pageLink.includes(handle.replace(/^https?:\/\/[^\/]+/, "")));
+          (pageLink && handle.includes(pageUsername)) ||
+          handle.includes(page.id);
 
         if (matches) {
           await col.updateOne(
@@ -98,7 +164,7 @@ export async function GET(request: NextRequest) {
             {
               $set: {
                 accessToken: page.access_token,
-                platformAccountId: pageId,
+                platformAccountId: page.id,
                 igAccountId: page.instagram_business_account?.id ?? null,
                 connectedPageName: page.name,
                 updatedAt: new Date(),
@@ -113,7 +179,7 @@ export async function GET(request: NextRequest) {
     if (connectedCount === 0 && triggerAccount) {
       const firstPage = enrichedPages[0];
       await col.updateOne(
-        { _id: new ObjectId(accountId) },
+        { _id: new ObjectId(accountId!) },
         {
           $set: {
             accessToken: firstPage.access_token,
@@ -128,12 +194,12 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.redirect(
-      `${returnBase}?meta_connected=${connectedCount}&pages=${enrichedPages.length}`,
+      `${returnUrl}?meta_connected=${connectedCount}&pages=${enrichedPages.length}`,
     );
   } catch (e: any) {
     console.error("Meta OAuth callback error:", e);
     return NextResponse.redirect(
-      `${returnBase}?meta_error=${encodeURIComponent(e.message || "unknown_error")}`,
+      `${returnUrl}&meta_error=${encodeURIComponent(e.message || "unknown_error")}`,
     );
   }
 }
