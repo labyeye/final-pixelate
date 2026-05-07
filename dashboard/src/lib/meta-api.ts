@@ -116,7 +116,6 @@ async function resolveShareUrl(url: string): Promise<string> {
 }
 
 // Resolve a full post URL to a numeric Graph API object ID.
-// Handles pfbid slugs (new FB permalink format) which are not numeric IDs.
 async function resolveUrlToObjectId(
   postUrl: string,
   accessToken: string,
@@ -131,6 +130,39 @@ async function resolveUrlToObjectId(
     const data = await res.json();
     if (data.id && /^\d+$/.test(data.id)) return data.id;
   } catch {}
+  return null;
+}
+
+// Search page's recent posts to find the numeric ID matching a pfbid permalink.
+async function resolveViaPagePosts(
+  pageId: string,
+  pfbid: string,
+  accessToken: string,
+): Promise<string | null> {
+  let after: string | null = null;
+  for (let page = 0; page < 5; page++) {
+    const url = new URL(`${META_GRAPH_API}/${pageId}/posts`);
+    url.searchParams.set("fields", "id,permalink_url");
+    url.searchParams.set("limit", "25");
+    url.searchParams.set("access_token", accessToken);
+    if (after) url.searchParams.set("after", after);
+
+    try {
+      const res = await fetch(url.toString());
+      if (!res.ok) break;
+      const data = await res.json();
+      if (data.error) break;
+
+      for (const post of data.data || []) {
+        if ((post.permalink_url || "").includes(pfbid)) return post.id;
+      }
+
+      after = data.paging?.cursors?.after;
+      if (!after) break;
+    } catch {
+      break;
+    }
+  }
   return null;
 }
 
@@ -152,12 +184,19 @@ export async function fetchFbPostMetrics(
       `(e.g. facebook.com/YourPage/posts/123456789) instead of a share link.`
     );
 
-  // pfbid slugs are not numeric — resolve them to real numeric IDs via the Graph API URL lookup
+  // pfbid slugs are not numeric — resolve to real numeric ID via multiple strategies
   const isPfbid = postId.startsWith("pfbid") || !/^\d+$/.test(postId);
   if (isPfbid) {
-    const resolved = await resolveUrlToObjectId(resolvedUrl, pageAccessToken);
-    if (resolved) postId = resolved;
-    // if resolution fails, we'll try with the slug anyway and let it fail naturally
+    // Strategy 1: Graph API URL lookup
+    const byUrl = await resolveUrlToObjectId(resolvedUrl, pageAccessToken);
+    if (byUrl) {
+      postId = byUrl;
+    } else {
+      // Strategy 2: Search page's posts feed for matching permalink
+      const byFeed = await resolveViaPagePosts(pageId, postId, pageAccessToken);
+      if (byFeed) postId = byFeed;
+      // else: try with slug anyway — will fail with a clear error
+    }
   }
 
   async function fetchEngagement(id: string): Promise<any | null> {
