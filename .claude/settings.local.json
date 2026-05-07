@@ -4,7 +4,11 @@
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\labhb\\\\Desktop\\\\projects\\\\final-pixelate\")",
       "Bash(Select-Object Name, PSIsContainer)",
       "Bash(Format-Table -AutoSize)",
-      "Bash(grep -E \"^[A-Za-z]|:$\")"
+      "Bash(grep -E \"^[A-Za-z]|:$\")",
+      "Bash(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\labhb\\\\Desktop\\\\projects\\\\final-pixelate\\\\dashboard\\\\src\\\\app\\\\api\\\\client-leads\")",
+      "Bash(Out-Null)",
+      "Bash(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\labhb\\\\Desktop\\\\projects\\\\final-pixelate\\\\dashboard\\\\src\\\\app\\\\api\\\\client-leads\\\\sync\")",
+      "PowerShell(New-Item *)"
     ]
   }
 }

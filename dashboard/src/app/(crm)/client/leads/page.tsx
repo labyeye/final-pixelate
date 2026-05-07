@@ -48,6 +48,9 @@ export default function ClientLeadsPage() {
     newThisMonth: 0,
   });
   const [loading, setLoading] = useState(true);
+  const [syncing, setSyncing] = useState(false);
+  const [syncResult, setSyncResult] = useState<{ synced: number; skipped: number; forms: number } | null>(null);
+  const [syncError, setSyncError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("");
   const [sourceFilter, setSourceFilter] = useState<string>("");
@@ -104,6 +107,31 @@ export default function ClientLeadsPage() {
     fetchLeads();
   }, [user]);
 
+  const handleSyncFbLeads = async () => {
+    if (!user?.clientId) return;
+    setSyncing(true);
+    setSyncError(null);
+    setSyncResult(null);
+    try {
+      const token = typeof window !== "undefined" ? localStorage.getItem("auth_token") : null;
+      const res = await fetch("/api/client-leads/sync", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+        body: JSON.stringify({ clientId: user.clientId }),
+      });
+      const data = await res.json();
+      if (!res.ok) { setSyncError(data.error || "Sync failed"); return; }
+      setSyncResult(data);
+      // Refresh leads list
+      const leadsRes = await fetch("/api/leads", { headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) } });
+      if (leadsRes.ok) setLeads(await leadsRes.json());
+    } catch (e: any) {
+      setSyncError(e.message || "Sync failed");
+    } finally {
+      setSyncing(false);
+    }
+  };
+
   const uniqueSources = Array.from(
     new Set(leads.map((l) => l.source).filter(Boolean)),
   );
@@ -141,14 +169,33 @@ export default function ClientLeadsPage() {
 
   return (
     <div className="min-h-screen bg-background font-headline p-6 space-y-6">
-      <div>
-        <h1 className="text-4xl font-black tracking-tighter">Your Leads</h1>
-        <p className="text-muted-foreground mt-1">
-          Track the performance and status of your leads
-        </p>
+      <div className="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 className="text-4xl font-black tracking-tighter">Your Leads</h1>
+          <p className="text-muted-foreground mt-1">
+            Track the performance and status of your leads
+          </p>
+        </div>
+        <div className="flex flex-col items-end gap-2">
+          <Button
+            onClick={handleSyncFbLeads}
+            disabled={syncing}
+            className="bg-blue-600 hover:bg-blue-700 text-white border-2 border-black font-bold"
+          >
+            {syncing ? "Syncing…" : "⟳ Sync from Facebook Ads"}
+          </Button>
+          {syncResult && (
+            <p className="text-xs font-semibold text-green-700">
+              ✓ {syncResult.synced} new leads synced from {syncResult.forms} forms
+              {syncResult.skipped > 0 && `, ${syncResult.skipped} already existed`}
+            </p>
+          )}
+          {syncError && (
+            <p className="text-xs font-semibold text-red-600">⚠ {syncError}</p>
+          )}
+        </div>
       </div>
 
-      {}
       {user?.clientId && (
         <FbAdsConnectionPanel clientId={user.clientId} readOnly />
       )}

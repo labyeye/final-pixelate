@@ -409,6 +409,12 @@
       "namedRegex": "^/api/careers(?:/)?$"
     },
     {
+      "page": "/api/client-leads/sync",
+      "regex": "^/api/client\\-leads/sync(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/client\\-leads/sync(?:/)?$"
+    },
+    {
       "page": "/api/clients",
       "regex": "^/api/clients(?:/)?$",
       "routeKeys": {},

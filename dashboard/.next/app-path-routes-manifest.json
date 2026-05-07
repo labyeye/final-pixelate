@@ -75,6 +75,7 @@
   "/api/campaigns/route": "/api/campaigns",
   "/api/careers/[id]/route": "/api/careers/[id]",
   "/api/careers/route": "/api/careers",
+  "/api/client-leads/sync/route": "/api/client-leads/sync",
   "/api/clients/[id]/meta-token/route": "/api/clients/[id]/meta-token",
   "/api/clients/[id]/route": "/api/clients/[id]",
   "/api/clients/route": "/api/clients",

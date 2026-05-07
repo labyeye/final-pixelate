@@ -709,6 +709,117 @@ function MediaCell({ url }: { url?: string }) {
   );
 }
 
+function AnalyticsTab({ posts }: { posts: Post[] }) {
+  const postedPosts = posts.filter((p) => p.status === "Posted");
+
+  const summary = postedPosts.reduce(
+    (acc, p) => {
+      const accountMetrics = (p as any).accountMetrics;
+      const accountIds = (p as any).socialAccountIds || ((p as any).socialAccountId ? [(p as any).socialAccountId] : null);
+      if (accountIds && accountMetrics) {
+        for (const id of accountIds) {
+          const m = accountMetrics[id];
+          if (m) {
+            acc.views += m.views || 0;
+            acc.likes += m.likes || 0;
+            acc.comments += m.comments || 0;
+            acc.shares += m.shares || 0;
+          }
+        }
+      } else {
+        acc.views += p.views || 0;
+        acc.likes += p.likes || 0;
+        acc.comments += p.comments || 0;
+        acc.shares += p.shares || 0;
+      }
+      return acc;
+    },
+    { views: 0, likes: 0, comments: 0, shares: 0 },
+  );
+
+  const statCards = [
+    { label: "Total Views", value: summary.views, icon: "👁", bg: "bg-blue-50 border-blue-300" },
+    { label: "Total Likes", value: summary.likes, icon: "❤️", bg: "bg-red-50 border-red-300" },
+    { label: "Comments", value: summary.comments, icon: "💬", bg: "bg-green-50 border-green-300" },
+    { label: "Shares", value: summary.shares, icon: "↗", bg: "bg-purple-50 border-purple-300" },
+  ];
+
+  return (
+    <div className="space-y-6">
+      {postedPosts.length === 0 ? (
+        <div className="border-2 border-dashed border-gray-300 rounded-xl p-12 text-center text-muted-foreground">
+          <p className="text-xl font-bold">No posted content yet</p>
+          <p className="text-sm mt-2">Analytics will appear here once posts go live</p>
+        </div>
+      ) : (
+        <>
+          {/* Summary cards */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {statCards.map((s) => (
+              <div key={s.label} className={`border-2 rounded-xl p-4 ${s.bg}`}>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">{s.label}</span>
+                  <span className="text-lg">{s.icon}</span>
+                </div>
+                <div className="text-3xl font-black">{s.value.toLocaleString()}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Posts table */}
+          <div className="border-2 border-black rounded-xl overflow-hidden">
+            <div className="bg-black text-white px-4 py-3">
+              <h3 className="font-black text-sm tracking-tight">POSTS PERFORMANCE</h3>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-50 border-b-2 border-black">
+                  <tr>
+                    <th className="text-left px-4 py-3 font-black text-xs uppercase tracking-wide">Post</th>
+                    <th className="text-left px-4 py-3 font-black text-xs uppercase tracking-wide">Platform</th>
+                    <th className="text-left px-4 py-3 font-black text-xs uppercase tracking-wide">Date</th>
+                    <th className="text-right px-4 py-3 font-black text-xs uppercase tracking-wide">Views</th>
+                    <th className="text-right px-4 py-3 font-black text-xs uppercase tracking-wide">Likes</th>
+                    <th className="text-right px-4 py-3 font-black text-xs uppercase tracking-wide">Comments</th>
+                    <th className="text-right px-4 py-3 font-black text-xs uppercase tracking-wide">Shares</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {postedPosts.map((post, i) => {
+                    const accountMetrics = (post as any).accountMetrics;
+                    const accountIds = (post as any).socialAccountIds || ((post as any).socialAccountId ? [(post as any).socialAccountId] : null);
+                    let views = post.views || 0, likes = post.likes || 0, comments = post.comments || 0, shares = post.shares || 0;
+                    if (accountIds && accountMetrics) {
+                      views = 0; likes = 0; comments = 0; shares = 0;
+                      for (const id of accountIds) {
+                        const m = accountMetrics[id];
+                        if (m) { views += m.views || 0; likes += m.likes || 0; comments += m.comments || 0; shares += m.shares || 0; }
+                      }
+                    }
+                    return (
+                      <tr key={post._id} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                        <td className="px-4 py-3 font-semibold max-w-[200px] truncate">{post.title}</td>
+                        <td className="px-4 py-3">
+                          <span className="px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">{post.platform}</span>
+                        </td>
+                        <td className="px-4 py-3 text-xs text-gray-500 font-semibold">{post.scheduledDate}</td>
+                        <td className="px-4 py-3 text-right font-black">{views.toLocaleString()}</td>
+                        <td className="px-4 py-3 text-right font-black">{likes.toLocaleString()}</td>
+                        <td className="px-4 py-3 text-right font-black">{comments.toLocaleString()}</td>
+                        <td className="px-4 py-3 text-right font-black">{shares.toLocaleString()}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 export default function ClientPlannerPage() {
   const { user } = useAuth();
   const { toast } = useToast();
@@ -718,6 +829,7 @@ export default function ClientPlannerPage() {
   const [actionPost, setActionPost] = useState<Post | null>(null);
   const [actionType, setActionType] = useState<ActionType | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [activeTab, setActiveTab] = useState<"posts" | "analytics">("posts");
 
   const fetchPosts = async () => {
     try {
@@ -843,14 +955,31 @@ export default function ClientPlannerPage() {
   return (
     <div className="min-h-screen bg-background font-headline p-6 space-y-8">
       <div className="border-b-2 border-black pb-4">
-        <h1 className="text-4xl font-black tracking-tighter">
-          Social Media Posts
-        </h1>
+        <h1 className="text-4xl font-black tracking-tighter">Social Media</h1>
         <p className="text-muted-foreground mt-1">
-          Review and approve social media content created by your team
+          Review content and track your post performance
         </p>
       </div>
 
+      {/* Tabs */}
+      <div className="flex gap-2 border-b-2 border-black">
+        <button
+          onClick={() => setActiveTab("posts")}
+          className={`px-5 py-2 font-black text-sm border-2 border-b-0 rounded-t-lg transition-colors ${activeTab === "posts" ? "bg-black text-white border-black" : "border-transparent text-gray-500 hover:text-black"}`}
+        >
+          Posts & Approvals
+        </button>
+        <button
+          onClick={() => setActiveTab("analytics")}
+          className={`px-5 py-2 font-black text-sm border-2 border-b-0 rounded-t-lg transition-colors ${activeTab === "analytics" ? "bg-black text-white border-black" : "border-transparent text-gray-500 hover:text-black"}`}
+        >
+          Analytics
+        </button>
+      </div>
+
+      {activeTab === "analytics" && <AnalyticsTab posts={posts} />}
+
+      {activeTab === "posts" && <>
       <div className="grid grid-cols-3 gap-4">
         <div className="border-2 border-black bg-yellow-50 rounded-xl p-4 text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
           <div className="text-3xl font-black">{pendingPosts.length}</div>
@@ -1171,6 +1300,7 @@ export default function ClientPlannerPage() {
           <strong>Reject</strong> on each pending card.
         </p>
       </div>
+      </>}
 
       {viewingPost && (
         <PostDetailModal
