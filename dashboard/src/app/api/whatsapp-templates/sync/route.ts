@@ -5,12 +5,12 @@ const COLLECTION = "whatsapp_templates";
 
 // ── GET — fetch approved templates from Meta and upsert into local DB ──
 export async function GET() {
-  const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
+  const accessToken = process.env.META_ACCESS_TOKEN;
   const wabaId = process.env.WHATSAPP_BUSINESS_ACCOUNT_ID;
   const apiVersion = process.env.WHATSAPP_API_VERSION ?? "v21.0";
 
   const missing: string[] = [];
-  if (!accessToken) missing.push("WHATSAPP_ACCESS_TOKEN");
+  if (!accessToken) missing.push("META_ACCESS_TOKEN");
   if (!wabaId) missing.push("WHATSAPP_BUSINESS_ACCOUNT_ID");
   if (missing.length > 0) {
     return NextResponse.json(

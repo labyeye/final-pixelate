@@ -45,12 +45,12 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/server.js [app-route] (ecmascript)");
 ;
 async function POST(req) {
-    const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
+    const accessToken = process.env.META_ACCESS_TOKEN;
     const appId = process.env.WHATSAPP_APP_ID;
     const apiVersion = process.env.WHATSAPP_API_VERSION ?? "v21.0";
     if (!accessToken || !appId) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            error: "Missing WHATSAPP_ACCESS_TOKEN or WHATSAPP_APP_ID in .env"
+            error: "Missing META_ACCESS_TOKEN or WHATSAPP_APP_ID in .env"
         }, {
             status: 500
         });

@@ -246,11 +246,11 @@ async function POST(req, { params }) {
     // body is optional
     }
     const oid = toObjectId(id);
-    const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
+    const accessToken = process.env.META_ACCESS_TOKEN;
     const wabaId = process.env.WHATSAPP_BUSINESS_ACCOUNT_ID;
     const apiVersion = process.env.WHATSAPP_API_VERSION ?? "v21.0";
     const missing = [];
-    if (!accessToken) missing.push("WHATSAPP_ACCESS_TOKEN");
+    if (!accessToken) missing.push("META_ACCESS_TOKEN");
     if (!wabaId) missing.push("WHATSAPP_BUSINESS_ACCOUNT_ID");
     if (missing.length > 0) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({

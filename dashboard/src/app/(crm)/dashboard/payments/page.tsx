@@ -442,21 +442,19 @@ export default function PaymentsPage() {
         currency: "INR",
       }).format(payment.amount);
 
-      const receiptTemplateName =
-        process.env.NEXT_PUBLIC_WHATSAPP_RECEIPT_TEMPLATE_NAME || "payment_receipt";
-
-      const sendRes = await fetch("/api/send-invoice-whatsapp", {
+      const sendRes = await fetch("/api/send-payment-receipt-whatsapp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           phone: digits,
           clientName: payment.clientName,
-          invNo: payment.receiptNo,
+          receiptNo: payment.receiptNo,
           amount: amountFormatted,
           filename: safeFilename,
           mediaId,
-          clientId: selectedClient,
-          templateName: receiptTemplateName,
+          paymentDate: new Date(payment.date).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }),
+          paymentMode: payment.mode,
+          transactionRef: payment.remarks || "—",
         }),
       });
 

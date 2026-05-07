@@ -1,9 +1,9 @@
 {
-  "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/renderer/lib/react-pdf.browser.js [app-client] (ecmascript, next/dynamic entry)": {
-    "id": "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@react-pdf/renderer/lib/react-pdf.browser.js [app-client] (ecmascript, next/dynamic entry)",
+  "[project]/node_modules/@react-pdf/renderer/lib/react-pdf.browser.js [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/node_modules/@react-pdf/renderer/lib/react-pdf.browser.js [app-client] (ecmascript, next/dynamic entry)",
     "files": [
-      "static/chunks/c729b_@react-pdf_renderer_lib_react-pdf_browser_b40066e1.js",
-      "static/chunks/c729b_@react-pdf_renderer_lib_react-pdf_browser_4511b7ff.js"
+      "static/chunks/node_modules_@react-pdf_renderer_lib_react-pdf_browser_0918a9c5.js",
+      "static/chunks/node_modules_@react-pdf_renderer_lib_react-pdf_browser_fd47ed16.js"
     ]
   }
 }

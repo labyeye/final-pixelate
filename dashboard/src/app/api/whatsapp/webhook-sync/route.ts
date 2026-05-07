@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
     console.log("Syncing WhatsApp messages from webhook...");
 
     const webhookUrl = "https://backend.pixelatenest.com/api/whatsapp-webhook";
-    const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
+    const accessToken = process.env.META_ACCESS_TOKEN;
 
     console.log("Webhook URL:", webhookUrl);
     console.log("Using access token for authorization");
@@ -126,7 +126,7 @@ export async function POST(request: NextRequest) {
 export async function GET(request: NextRequest) {
   try {
     const webhookUrl = "https://backend.pixelatenest.com/api/whatsapp-webhook";
-    const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
+    const accessToken = process.env.META_ACCESS_TOKEN;
 
     console.log("Checking webhook status...");
 

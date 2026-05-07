@@ -470,6 +470,33 @@ export default function LeadsPage() {
     toast({ title: `Exported ${filtered.length} leads` });
   }
 
+  async function syncMetaAds() {
+    if (!window.confirm("Sync leads from Meta Ads?")) return;
+    setIsSyncing(true);
+    try {
+      const res = await fetch("/api/meta-leads");
+      const data = await res.json();
+      if (res.ok) {
+        const items = await fetchLeads();
+        setLeads(items);
+        toast({
+          title: "Meta Ads Sync Complete",
+          description: `${data.synced} new leads imported`,
+        });
+      } else {
+        toast({
+          title: "Meta Sync Failed",
+          description: data.error,
+          variant: "destructive",
+        });
+      }
+    } catch {
+      toast({ title: "Meta Sync Error", variant: "destructive" });
+    } finally {
+      setIsSyncing(false);
+    }
+  }
+
   async function syncIndiaMART() {
     if (!window.confirm("Sync all leads from IndiaMART?")) return;
     setIsSyncing(true);
@@ -570,6 +597,19 @@ export default function LeadsPage() {
               <RefreshCw className="w-4 h-4 mr-1" />
             )}
             Sync IndiaMART
+          </Button>
+          <Button
+            size="sm"
+            onClick={syncMetaAds}
+            disabled={isSyncing}
+            className="bg-blue-600 hover:bg-blue-700 text-white border-2 border-black font-bold"
+          >
+            {isSyncing ? (
+              <Loader2 className="w-4 h-4 animate-spin mr-1" />
+            ) : (
+              <RefreshCw className="w-4 h-4 mr-1" />
+            )}
+            Sync Meta Ads
           </Button>
         </div>
       </header>

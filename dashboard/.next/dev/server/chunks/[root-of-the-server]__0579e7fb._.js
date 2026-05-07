@@ -167,7 +167,7 @@ module.exports = [
 
         const webhookUrl =
           "https://backend.pixelatenest.com/api/whatsapp-webhook";
-        const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
+        const accessToken = process.env.META_ACCESS_TOKEN;
         console.log("Webhook URL:", webhookUrl);
         console.log("Using access token for authorization");
         const webhookResponse = await fetch(webhookUrl, {
@@ -252,7 +252,7 @@ module.exports = [
       try {
         const webhookUrl =
           "https://backend.pixelatenest.com/api/whatsapp-webhook";
-        const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
+        const accessToken = process.env.META_ACCESS_TOKEN;
         console.log("Checking webhook status...");
         const response = await fetch(webhookUrl, {
           method: "POST",

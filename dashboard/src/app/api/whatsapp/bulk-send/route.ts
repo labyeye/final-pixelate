@@ -27,7 +27,7 @@ interface WhatsAppResponse {
 
 const WHATSAPP_API_VERSION = process.env.WHATSAPP_API_VERSION || "v21.0";
 const WHATSAPP_PHONE_ID = process.env.WHATSAPP_PHONE_NUMBER_ID;
-const WHATSAPP_ACCESS_TOKEN = process.env.WHATSAPP_ACCESS_TOKEN;
+const META_ACCESS_TOKEN = process.env.META_ACCESS_TOKEN;
 
 const DELAY_BETWEEN_MESSAGES = 1000;
 
@@ -96,7 +96,7 @@ async function sendPersonalizedMessage(
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${WHATSAPP_ACCESS_TOKEN}`,
+        Authorization: `Bearer ${META_ACCESS_TOKEN}`,
       },
       body: JSON.stringify(payload),
     });
@@ -145,7 +145,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!WHATSAPP_PHONE_ID || !WHATSAPP_ACCESS_TOKEN) {
+    if (!WHATSAPP_PHONE_ID || !META_ACCESS_TOKEN) {
       return NextResponse.json(
         { error: "WhatsApp API credentials not configured" },
         { status: 500 },

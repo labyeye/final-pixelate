@@ -69,7 +69,7 @@ module.exports = [
       );
     const WHATSAPP_API_VERSION = process.env.WHATSAPP_API_VERSION || "v21.0";
     const WHATSAPP_PHONE_ID = process.env.WHATSAPP_PHONE_NUMBER_ID;
-    const WHATSAPP_ACCESS_TOKEN = process.env.WHATSAPP_ACCESS_TOKEN;
+    const META_ACCESS_TOKEN = process.env.META_ACCESS_TOKEN;
     const DELAY_BETWEEN_MESSAGES = 1000;
     async function sendPersonalizedMessage(
       phone,
@@ -132,7 +132,7 @@ module.exports = [
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${WHATSAPP_ACCESS_TOKEN}`,
+            Authorization: `Bearer ${META_ACCESS_TOKEN}`,
           },
           body: JSON.stringify(payload),
         });
@@ -185,7 +185,7 @@ module.exports = [
             },
           );
         }
-        if (!WHATSAPP_PHONE_ID || !WHATSAPP_ACCESS_TOKEN) {
+        if (!WHATSAPP_PHONE_ID || !META_ACCESS_TOKEN) {
           return __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__[
             "NextResponse"
           ].json(

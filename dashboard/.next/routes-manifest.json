@@ -497,6 +497,12 @@
       "namedRegex": "^/api/me(?:/)?$"
     },
     {
+      "page": "/api/meta-leads",
+      "regex": "^/api/meta\\-leads(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/meta\\-leads(?:/)?$"
+    },
+    {
       "page": "/api/nda-approvals",
       "regex": "^/api/nda\\-approvals(?:/)?$",
       "routeKeys": {},
@@ -591,6 +597,12 @@
       "regex": "^/api/send\\-invoice\\-whatsapp(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/send\\-invoice\\-whatsapp(?:/)?$"
+    },
+    {
+      "page": "/api/send-payment-receipt-whatsapp",
+      "regex": "^/api/send\\-payment\\-receipt\\-whatsapp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/send\\-payment\\-receipt\\-whatsapp(?:/)?$"
     },
     {
       "page": "/api/services",

@@ -947,6 +947,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../src/app/api/meta-leads/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/meta-leads">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/meta-leads/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../src/app/api/nda-approvals/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/nda-approvals">> = Specific
@@ -1158,6 +1167,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/send-invoice-whatsapp">> = Specific
   const handler = {} as typeof import("../../../src/app/api/send-invoice-whatsapp/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/app/api/send-payment-receipt-whatsapp/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/send-payment-receipt-whatsapp">> = Specific
+  const handler = {} as typeof import("../../../src/app/api/send-payment-receipt-whatsapp/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

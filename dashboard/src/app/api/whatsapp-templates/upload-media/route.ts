@@ -12,13 +12,13 @@ import { NextRequest, NextResponse } from "next/server";
  *  2. POST /{session-id}       — upload bytes           → { h: "4::..." }
  */
 export async function POST(req: NextRequest) {
-  const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
+  const accessToken = process.env.META_ACCESS_TOKEN;
   const appId = process.env.WHATSAPP_APP_ID;
   const apiVersion = process.env.WHATSAPP_API_VERSION ?? "v21.0";
 
   if (!accessToken || !appId) {
     return NextResponse.json(
-      { error: "Missing WHATSAPP_ACCESS_TOKEN or WHATSAPP_APP_ID in .env" },
+      { error: "Missing META_ACCESS_TOKEN or WHATSAPP_APP_ID in .env" },
       { status: 500 },
     );
   }
