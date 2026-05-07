@@ -1,10 +1,6 @@
-[00:00:01.324] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.540] Server  LOG      ✓ Ready in 1165ms
-[00:00:01.548] Browser ERROR   Failed to fetch RSC payload for http://localhost:9002/dashboard/payments. Falling back to browser navigation. {}
-[00:00:01.548] Browser ERROR   Failed to fetch RSC payload for http://localhost:9002/dashboard/payments. Falling back to browser navigation. {}
-[00:00:04.616] Server  LOG      ○ Compiling /dashboard/payments ...
-[00:00:04.710] Server  INFO    [WhatsApp Media] Uploading: Receipt-KTS-2026-2027-0003-Aaray-Packaging-Private-Limited.pdf, size: 51.1 KB
-[00:00:05.254] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:06.548] Server  INFO    [WhatsApp Media] Uploaded OK — mediaId: 814296908078799, filename: Receipt-KTS-2026-2027-0003-Aaray-Packaging-Private-Limited.pdf
-[00:00:15.894] Server  INFO    [WhatsApp Media] Uploading: Receipt-KTS-2026-2027-0003-Aaray-Packaging-Private-Limited.pdf, size: 51.1 KB
-[00:00:17.235] Server  INFO    [WhatsApp Media] Uploaded OK — mediaId: 1336445228303400, filename: Receipt-KTS-2026-2027-0003-Aaray-Packaging-Private-Limited.pdf
+[00:00:01.471] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.671] Server  LOG      ✓ Ready in 1270ms
+[00:00:12.692] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:32.043] Browser WARN    Image with src "http://localhost:9002/_next/static/media/google-my-business-logo.7aa38aa9.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:01:18.661] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:19.288] Browser WARN    Image with src "http://localhost:9002/_next/static/media/google-my-business-logo.7aa38aa9.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.

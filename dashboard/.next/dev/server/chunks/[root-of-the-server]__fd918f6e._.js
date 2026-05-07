@@ -872,6 +872,15 @@ async function OPTIONS() {
         headers: CORS
     });
 }
+async function getPageToken(userToken, pageId) {
+    const res = await fetch(`https://graph.facebook.com/v19.0/me/accounts?access_token=${userToken}`);
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
+    const page = (data.data || []).find((p)=>String(p.id) === String(pageId));
+    if (page?.access_token) return page.access_token;
+    // If not found in accounts, try treating the token as a page token directly
+    return userToken;
+}
 async function GET() {
     const TOKEN = process.env.META_ACCESS_TOKEN;
     const PAGE_ID = process.env.META_PAGE_ID;
@@ -884,8 +893,10 @@ async function GET() {
         });
     }
     try {
+        // Exchange user token for page access token (leadgen_forms requires page token)
+        const pageToken = await getPageToken(TOKEN, PAGE_ID);
         // Lead gen forms live on the Facebook Page, not the Ad Account
-        const formsRes = await fetch(`https://graph.facebook.com/v19.0/${PAGE_ID}/leadgen_forms?access_token=${TOKEN}`);
+        const formsRes = await fetch(`https://graph.facebook.com/v19.0/${PAGE_ID}/leadgen_forms?access_token=${pageToken}`);
         const formsData = await formsRes.json();
         if (formsData.error) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
@@ -899,7 +910,7 @@ async function GET() {
         const col = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$services$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getCollection"]("leads");
         let synced = 0;
         for (const form of forms){
-            const leadsRes = await fetch(`https://graph.facebook.com/v19.0/${form.id}/leads?fields=field_data,created_time&access_token=${TOKEN}`);
+            const leadsRes = await fetch(`https://graph.facebook.com/v19.0/${form.id}/leads?fields=field_data,created_time&access_token=${pageToken}`);
             const leadsData = await leadsRes.json();
             const metaLeads = leadsData.data || [];
             for (const ml of metaLeads){

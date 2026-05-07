@@ -43,6 +43,7 @@ export async function GET(request: NextRequest) {
     const safe = accounts.map(({ accessToken, ...rest }) => ({
       ...rest,
       isConnected: !!accessToken,
+      hasToken: !!accessToken,
     }));
 
     return NextResponse.json(safe, { headers: CORS });
@@ -137,6 +138,9 @@ export async function PUT(request: Request) {
 
     const updateData: any = { updatedAt: new Date() };
     if (displayName) updateData.displayName = displayName;
+    if (body.accessToken !== undefined) updateData.accessToken = body.accessToken;
+    if (body.platformAccountId !== undefined) updateData.platformAccountId = body.platformAccountId;
+    if (body.igAccountId !== undefined) updateData.igAccountId = body.igAccountId;
 
     const result = await col.updateOne(
       { _id: new ObjectId(id) },

@@ -11,6 +11,18 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
 }
 
+async function getPageToken(userToken: string, pageId: string): Promise<string> {
+  const res = await fetch(
+    `https://graph.facebook.com/v19.0/me/accounts?access_token=${userToken}`,
+  );
+  const data = await res.json();
+  if (data.error) throw new Error(data.error.message);
+  const page = (data.data || []).find((p: any) => String(p.id) === String(pageId));
+  if (page?.access_token) return page.access_token;
+  // If not found in accounts, try treating the token as a page token directly
+  return userToken;
+}
+
 export async function GET() {
   const TOKEN = process.env.META_ACCESS_TOKEN;
   const PAGE_ID = process.env.META_PAGE_ID;
@@ -23,9 +35,12 @@ export async function GET() {
   }
 
   try {
+    // Exchange user token for page access token (leadgen_forms requires page token)
+    const pageToken = await getPageToken(TOKEN, PAGE_ID);
+
     // Lead gen forms live on the Facebook Page, not the Ad Account
     const formsRes = await fetch(
-      `https://graph.facebook.com/v19.0/${PAGE_ID}/leadgen_forms?access_token=${TOKEN}`,
+      `https://graph.facebook.com/v19.0/${PAGE_ID}/leadgen_forms?access_token=${pageToken}`,
     );
     const formsData = await formsRes.json();
 
@@ -42,7 +57,7 @@ export async function GET() {
 
     for (const form of forms) {
       const leadsRes = await fetch(
-        `https://graph.facebook.com/v19.0/${form.id}/leads?fields=field_data,created_time&access_token=${TOKEN}`,
+        `https://graph.facebook.com/v19.0/${form.id}/leads?fields=field_data,created_time&access_token=${pageToken}`,
       );
       const leadsData = await leadsRes.json();
       const metaLeads: any[] = leadsData.data || [];

@@ -33,6 +33,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { FbAdsConnectionPanel } from "@/components/fb-ads/fb-ads-connection-panel";
+import { SocialAccountTokenPanel } from "@/components/social-media/social-account-token-panel";
 
 function formatDate(date?: Date | string | null) {
   if (!date) return "—";
@@ -637,6 +638,9 @@ export default function ClientDetailPage() {
               <TabsTrigger value="fb-leads" className="font-bold">
                 FB Lead Ads
               </TabsTrigger>
+              <TabsTrigger value="social-tokens" className="font-bold">
+                Social Tokens
+              </TabsTrigger>
             </TabsList>
 
             {}
@@ -786,6 +790,10 @@ export default function ClientDetailPage() {
             {}
             <TabsContent value="fb-leads">
               <FbAdsConnectionPanel clientId={clientId} />
+            </TabsContent>
+
+            <TabsContent value="social-tokens">
+              <SocialAccountTokenPanel clientId={clientId} />
             </TabsContent>
           </Tabs>
         </div>
