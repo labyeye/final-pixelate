@@ -124,6 +124,8 @@ export default function AnalyticsPage() {
     accountId: string;
   } | null>(null);
   const [syncError, setSyncError] = useState<string | null>(null);
+  const [syncingAll, setSyncingAll] = useState(false);
+  const [syncAllResult, setSyncAllResult] = useState<{ synced: number; skipped: number } | null>(null);
 
   const [inlineEditingKey, setInlineEditingKey] = useState<{
     postId: string;
@@ -288,6 +290,40 @@ export default function AnalyticsPage() {
       .sort((a, b) => b.er - a.er)
       .slice(0, 3);
   }, [flatRows]);
+
+  const handleSyncAll = async () => {
+    setSyncingAll(true);
+    setSyncError(null);
+    setSyncAllResult(null);
+    let synced = 0;
+    let skipped = 0;
+
+    const syncable = flatRows.filter(({ post, accountId }) => {
+      const isMetaPlatform = post.platform === "Facebook" || post.platform === "Instagram";
+      const hasAccount = accountId !== NO_ACCOUNT;
+      const hasLink = !!(post.postedLink || (post as any).postedLinks?.[accountId]);
+      return isMetaPlatform && hasAccount && hasLink;
+    });
+
+    for (const { post, accountId } of syncable) {
+      const postId = (post._id || post.id) as string;
+      try {
+        const res = await fetch("/api/social-media-metrics/sync", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ postId, accountId }),
+        });
+        if (res.ok) synced++;
+        else skipped++;
+      } catch {
+        skipped++;
+      }
+    }
+
+    await loadPosts(selectedClientId);
+    setSyncingAll(false);
+    setSyncAllResult({ synced, skipped });
+  };
 
   const handleSyncMetrics = async (post: SocialMediaPost, accountId: string) => {
     const postId = (post._id || post.id) as string;
@@ -598,21 +634,36 @@ export default function AnalyticsPage() {
           {/* Posts Table */}
           <section className="border-2 border-black rounded-lg overflow-hidden">
             {flatRows.length > 0 && (
-              <div className="flex items-center justify-between px-4 pt-3 pb-2 border-b-2 border-black">
+              <div className="flex items-center justify-between px-4 pt-3 pb-2 border-b-2 border-black flex-wrap gap-2">
                 <h3 className="text-base font-black tracking-tight">
                   POSTS PERFORMANCE
                   <span className="ml-2 text-sm font-semibold text-gray-500">
                     ({flatRows.length} rows)
                   </span>
                 </h3>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="text-xs font-bold border-2 border-black hover:bg-black hover:text-white transition-colors"
-                  onClick={handleExportCSV}
-                >
-                  ↓ Export CSV
-                </Button>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {syncAllResult && (
+                    <span className="text-xs font-semibold text-gray-500">
+                      ✓ {syncAllResult.synced} synced, {syncAllResult.skipped} skipped
+                    </span>
+                  )}
+                  <Button
+                    size="sm"
+                    className="text-xs font-bold border-2 border-blue-600 bg-blue-600 hover:bg-blue-700 text-white transition-colors"
+                    onClick={handleSyncAll}
+                    disabled={syncingAll || !!syncingKey}
+                  >
+                    {syncingAll ? "Syncing…" : "⟳ Sync All"}
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="text-xs font-bold border-2 border-black hover:bg-black hover:text-white transition-colors"
+                    onClick={handleExportCSV}
+                  >
+                    ↓ Export CSV
+                  </Button>
+                </div>
               </div>
             )}
 

@@ -87,6 +87,8 @@ export function parseFbPostId(postUrl: string): {
     const videoId = u.searchParams.get("v");
     if (videoId) return { postId: videoId, pageId: null };
 
+    // /posts/pfbid... — alphanumeric slug, not a numeric ID
+    // /posts/123456789 — numeric post ID
     const pathMatch = pathname.match(
       /\/[^/]+\/(posts|videos|photos|notes)\/([^/?]+)/,
     );
@@ -95,39 +97,66 @@ export function parseFbPostId(postUrl: string): {
   return { postId: null, pageId: null };
 }
 
+// Resolves Facebook share shortlinks (facebook.com/share/p/TOKEN) to the real URL
+// by following the HTTP redirect without loading page content.
+async function resolveShareUrl(url: string): Promise<string> {
+  try {
+    const res = await fetch(url, {
+      method: "HEAD",
+      redirect: "follow",
+      headers: { "User-Agent": "facebookexternalhit/1.1" },
+    });
+    const resolved = res.url;
+    // If redirect landed back on a share URL or same URL, return original
+    if (resolved && !resolved.includes("/share/") && resolved !== url) {
+      return resolved;
+    }
+  } catch {}
+  return url;
+}
+
 export async function fetchFbPostMetrics(
   postUrl: string,
   pageId: string,
   pageAccessToken: string,
 ): Promise<MetaPostMetrics> {
-  const { postId } = parseFbPostId(postUrl);
+  // Resolve share shortlinks first
+  const resolvedUrl = postUrl.includes("/share/")
+    ? await resolveShareUrl(postUrl)
+    : postUrl;
+
+  const { postId } = parseFbPostId(resolvedUrl);
   if (!postId)
-    throw new Error("Could not extract post ID from URL: " + postUrl);
+    throw new Error(
+      `Could not extract post ID from URL: ${postUrl}. ` +
+      `Please use the direct post URL from your Facebook Page ` +
+      `(e.g. facebook.com/YourPage/posts/123456789) instead of a share link.`
+    );
 
   const graphId = `${pageId}_${postId}`;
 
-  const engUrl = new URL(`${META_GRAPH_API}/${graphId}`);
-  engUrl.searchParams.set(
-    "fields",
-    "id,reactions.summary(true).limit(0),likes.summary(true).limit(0),comments.summary(true).limit(0),shares",
-  );
-  engUrl.searchParams.set("access_token", pageAccessToken);
-
-  let eng: any = null;
-  const engRes = await fetch(engUrl.toString());
-  if (engRes.ok) {
-    eng = await engRes.json();
-  } else {
-    const fallbackUrl = new URL(`${META_GRAPH_API}/${postId}`);
-    fallbackUrl.searchParams.set(
-      "fields",
+  async function fetchEngagement(id: string): Promise<any | null> {
+    // Try with shares first, fall back without it (shares field not available on all post types)
+    for (const fields of [
       "id,reactions.summary(true).limit(0),likes.summary(true).limit(0),comments.summary(true).limit(0),shares",
-    );
-    fallbackUrl.searchParams.set("access_token", pageAccessToken);
-    const fbRes = await fetch(fallbackUrl.toString());
-    if (!fbRes.ok)
-      throw new Error(`Failed to fetch post metrics: ${await fbRes.text()}`);
-    eng = await fbRes.json();
+      "id,reactions.summary(true).limit(0),likes.summary(true).limit(0),comments.summary(true).limit(0)",
+    ]) {
+      const url = new URL(`${META_GRAPH_API}/${id}`);
+      url.searchParams.set("fields", fields);
+      url.searchParams.set("access_token", pageAccessToken);
+      const res = await fetch(url.toString());
+      if (!res.ok) continue;
+      const data = await res.json();
+      if (!data.error) return data;
+    }
+    return null;
+  }
+
+  let eng: any = await fetchEngagement(graphId);
+  if (!eng) {
+    eng = await fetchEngagement(postId);
+    if (!eng)
+      throw new Error(`Failed to fetch post metrics for post ID: ${postId}`);
   }
 
   let views = 0;
