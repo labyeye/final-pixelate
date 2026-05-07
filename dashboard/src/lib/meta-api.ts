@@ -115,6 +115,25 @@ async function resolveShareUrl(url: string): Promise<string> {
   return url;
 }
 
+// Resolve a full post URL to a numeric Graph API object ID.
+// Handles pfbid slugs (new FB permalink format) which are not numeric IDs.
+async function resolveUrlToObjectId(
+  postUrl: string,
+  accessToken: string,
+): Promise<string | null> {
+  try {
+    const url = new URL(`${META_GRAPH_API}/`);
+    url.searchParams.set("id", postUrl);
+    url.searchParams.set("fields", "id");
+    url.searchParams.set("access_token", accessToken);
+    const res = await fetch(url.toString());
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data.id && /^\d+$/.test(data.id)) return data.id;
+  } catch {}
+  return null;
+}
+
 export async function fetchFbPostMetrics(
   postUrl: string,
   pageId: string,
@@ -125,7 +144,7 @@ export async function fetchFbPostMetrics(
     ? await resolveShareUrl(postUrl)
     : postUrl;
 
-  const { postId } = parseFbPostId(resolvedUrl);
+  let { postId } = parseFbPostId(resolvedUrl);
   if (!postId)
     throw new Error(
       `Could not extract post ID from URL: ${postUrl}. ` +
@@ -133,10 +152,15 @@ export async function fetchFbPostMetrics(
       `(e.g. facebook.com/YourPage/posts/123456789) instead of a share link.`
     );
 
-  const graphId = `${pageId}_${postId}`;
+  // pfbid slugs are not numeric — resolve them to real numeric IDs via the Graph API URL lookup
+  const isPfbid = postId.startsWith("pfbid") || !/^\d+$/.test(postId);
+  if (isPfbid) {
+    const resolved = await resolveUrlToObjectId(resolvedUrl, pageAccessToken);
+    if (resolved) postId = resolved;
+    // if resolution fails, we'll try with the slug anyway and let it fail naturally
+  }
 
   async function fetchEngagement(id: string): Promise<any | null> {
-    // Try with shares first, fall back without it (shares field not available on all post types)
     for (const fields of [
       "id,reactions.summary(true).limit(0),likes.summary(true).limit(0),comments.summary(true).limit(0),shares",
       "id,reactions.summary(true).limit(0),likes.summary(true).limit(0),comments.summary(true).limit(0)",
@@ -152,12 +176,25 @@ export async function fetchFbPostMetrics(
     return null;
   }
 
+  // Try pageId_postId composite first, then bare postId
+  const graphId = `${pageId}_${postId}`;
   let eng: any = await fetchEngagement(graphId);
-  if (!eng) {
-    eng = await fetchEngagement(postId);
-    if (!eng)
-      throw new Error(`Failed to fetch post metrics for post ID: ${postId}`);
+  if (!eng) eng = await fetchEngagement(postId);
+
+  // Last resort: resolve the URL directly and retry
+  if (!eng && !isPfbid) {
+    const urlResolved = await resolveUrlToObjectId(resolvedUrl, pageAccessToken);
+    if (urlResolved && urlResolved !== postId) {
+      eng = await fetchEngagement(`${pageId}_${urlResolved}`);
+      if (!eng) eng = await fetchEngagement(urlResolved);
+    }
   }
+
+  if (!eng)
+    throw new Error(
+      `Failed to fetch post metrics for post ID: ${postId}. ` +
+      `Check that the Page ID saved on this account is correct and the token has pages_read_engagement permission.`
+    );
 
   let views = 0;
   try {
