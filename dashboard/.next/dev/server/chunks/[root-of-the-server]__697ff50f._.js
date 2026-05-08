@@ -879,7 +879,7 @@ const CORS = {
 };
 async function logErpEvent(type, target, details, userId, email) {
     try {
-        const response = await fetch(`${("TURBOPACK compile-time value", "https://backend.pixelatenest.com")}/api/erp-events`, {
+        const response = await fetch(`${("TURBOPACK compile-time value", "http://localhost:9002")}/api/erp-events`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -289,7 +289,7 @@ export default function ClientsPage() {
       </header>
 
       {}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {[
           {
             label: "Active",
@@ -344,8 +344,8 @@ export default function ClientsPage() {
       </div>
 
       {}
-      <div className="flex items-center gap-2 flex-wrap">
-        <div className="relative flex-1 min-w-[200px]">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 flex-wrap">
+        <div className="relative flex-1 min-w-[200px] w-full sm:w-auto">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input
             placeholder="Search name, email, phone, city, GSTIN…"
@@ -422,6 +422,7 @@ export default function ClientsPage() {
 
       {}
       <div className="border-2 border-black rounded-xl overflow-hidden">
+        <div className="overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow className="border-b-2 border-black bg-gray-50">
@@ -565,6 +566,7 @@ export default function ClientsPage() {
             })}
           </TableBody>
         </Table>
+        </div>
       </div>
     </div>
   );

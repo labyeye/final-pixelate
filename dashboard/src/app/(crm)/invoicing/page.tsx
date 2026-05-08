@@ -727,7 +727,7 @@ export default function InvoicingPage() {
         )}
       </header>
 
-      <div className="border-2 border-black">
+      <div className="border-2 border-black overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow className="border-b-2 border-black">
@@ -942,7 +942,7 @@ export default function InvoicingPage() {
           if (!open) setPreviewInvoice(null);
         }}
       >
-        <DialogContent className="max-w-4xl w-full">
+        <DialogContent className="w-[95vw] max-w-4xl">
           <DialogHeader>
             <DialogTitle>Invoice Preview</DialogTitle>
           </DialogHeader>

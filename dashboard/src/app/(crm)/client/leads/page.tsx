@@ -1,109 +1,243 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import type { Lead } from "@/lib/data";
-import { leadStatuses } from "@/lib/constants";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { useEffect, useState, useMemo } from "react";
 import { useAuth } from "@/hooks/use-auth";
-import { TrendingUp, Users, Trophy, Zap } from "lucide-react";
-import { FbAdsConnectionPanel } from "@/components/fb-ads/fb-ads-connection-panel";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
-type LeadStatus = (typeof leadStatuses)[number];
+// ── Types ─────────────────────────────────────────────────────────────────────
 
-interface LeadStats {
-  total: number;
-  converted: number;
-  conversionRate: number;
-  newThisMonth: number;
+interface Lead {
+  _id?: string;
+  id?: string;
+  clientId?: string;
+  metaLeadId?: string;
+  name: string;
+  phone?: string;
+  email?: string;
+  source?: string;
+  campaignName?: string;
+  adSetName?: string;
+  adName?: string;
+  formName?: string;
+  status: string;
+  notes?: string;
+  followUpDate?: string;
+  createdAt?: string;
+  metaFields?: Record<string, string>;
 }
 
-const statusColors: Record<string, { bg: string; text: string }> = {
-  "not called": { bg: "bg-gray-100", text: "text-gray-700" },
-  called: { bg: "bg-blue-100", text: "text-blue-700" },
-  "not interested": { bg: "bg-red-100", text: "text-red-700" },
-  "meeting booked": { bg: "bg-purple-100", text: "text-purple-700" },
-  interested: { bg: "bg-green-100", text: "text-green-700" },
-  "call back later": { bg: "bg-yellow-100", text: "text-yellow-700" },
-  other: { bg: "bg-slate-100", text: "text-slate-700" },
+// ── Constants ─────────────────────────────────────────────────────────────────
+
+const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string; dot: string }> = {
+  "not called":     { label: "Not Called",     color: "text-gray-700",   bg: "bg-gray-100",   dot: "bg-gray-400" },
+  "called":         { label: "Called",          color: "text-blue-700",   bg: "bg-blue-100",   dot: "bg-blue-500" },
+  "interested":     { label: "Interested",      color: "text-green-700",  bg: "bg-green-100",  dot: "bg-green-500" },
+  "meeting booked": { label: "Meeting Booked",  color: "text-purple-700", bg: "bg-purple-100", dot: "bg-purple-500" },
+  "not interested": { label: "Not Interested",  color: "text-red-700",    bg: "bg-red-100",    dot: "bg-red-400" },
+  "call back later":{ label: "Call Back Later", color: "text-yellow-700", bg: "bg-yellow-100", dot: "bg-yellow-400" },
+  "other":          { label: "Other",           color: "text-slate-700",  bg: "bg-slate-100",  dot: "bg-slate-400" },
 };
+
+const ALL_STATUSES = Object.keys(STATUS_CONFIG);
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+function getAuthHeaders() {
+  const token = typeof window !== "undefined" ? localStorage.getItem("auth_token") : null;
+  return { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) };
+}
+
+function StatusBadge({ status }: { status: string }) {
+  const cfg = STATUS_CONFIG[status] || STATUS_CONFIG["other"];
+  return (
+    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold ${cfg.bg} ${cfg.color}`}>
+      <span className={`w-1.5 h-1.5 rounded-full ${cfg.dot}`} />
+      {cfg.label}
+    </span>
+  );
+}
+
+// ── Lead Detail Modal ─────────────────────────────────────────────────────────
+
+function LeadModal({
+  lead,
+  onClose,
+  onSave,
+}: {
+  lead: Lead;
+  onClose: () => void;
+  onSave: (id: string, updates: Partial<Lead>) => Promise<void>;
+}) {
+  const [status, setStatus] = useState(lead.status || "not called");
+  const [notes, setNotes] = useState(lead.notes || "");
+  const [followUpDate, setFollowUpDate] = useState(lead.followUpDate || "");
+  const [saving, setSaving] = useState(false);
+
+  const handleSave = async () => {
+    setSaving(true);
+    await onSave(String(lead._id || lead.id), { status, notes, followUpDate });
+    setSaving(false);
+    onClose();
+  };
+
+  const extraFields = lead.metaFields
+    ? Object.entries(lead.metaFields).filter(
+        ([k]) => !["full_name", "name", "phone_number", "phone", "mobile_number",
+                    "contact_number", "mobile", "whatsapp_number", "email",
+                    "email_address", "first_name", "last_name"].includes(k),
+      )
+    : [];
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+      <div className="bg-white border-2 border-black rounded-xl shadow-2xl w-full max-w-lg max-h-[92vh] overflow-y-auto">
+        {/* Header */}
+        <div className="sticky top-0 bg-black text-white px-5 py-4 flex items-center justify-between rounded-t-xl">
+          <div>
+            <h2 className="font-black text-lg">{lead.name}</h2>
+            <p className="text-gray-300 text-xs mt-0.5">{lead.campaignName || lead.source || "Meta Ads"}</p>
+          </div>
+          <button onClick={onClose} className="text-white hover:text-gray-300 text-2xl leading-none font-black">×</button>
+        </div>
+
+        <div className="p-5 space-y-5">
+          {/* Contact Info */}
+          <div className="grid grid-cols-2 gap-3">
+            {lead.phone && (
+              <div className="border-2 border-black rounded-lg p-3">
+                <p className="text-xs font-bold text-gray-500 mb-1">PHONE</p>
+                <a href={`tel:${lead.phone}`} className="font-black text-blue-700 hover:underline text-sm">{lead.phone}</a>
+                <div className="flex gap-2 mt-2">
+                  <a href={`tel:${lead.phone}`} className="flex-1 text-center text-xs py-1.5 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700">📞 Call</a>
+                  <a href={`https://wa.me/${lead.phone.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer"
+                    className="flex-1 text-center text-xs py-1.5 bg-green-500 text-white rounded-lg font-bold hover:bg-green-600">💬 WhatsApp</a>
+                </div>
+              </div>
+            )}
+            {lead.email && (
+              <div className="border-2 border-black rounded-lg p-3">
+                <p className="text-xs font-bold text-gray-500 mb-1">EMAIL</p>
+                <a href={`mailto:${lead.email}`} className="font-black text-blue-700 hover:underline text-sm break-all">{lead.email}</a>
+                <a href={`mailto:${lead.email}`} className="block mt-2 text-center text-xs py-1.5 bg-gray-800 text-white rounded-lg font-bold hover:bg-black">✉ Send Email</a>
+              </div>
+            )}
+          </div>
+
+          {/* Campaign Info */}
+          <div className="border-2 border-black rounded-lg p-3 bg-blue-50 space-y-1.5">
+            <p className="text-xs font-black text-gray-500 uppercase mb-2">Ad Campaign Info</p>
+            {lead.campaignName && <p className="text-xs font-semibold">📢 <span className="font-black">{lead.campaignName}</span></p>}
+            {lead.adSetName && <p className="text-xs text-gray-600">🎯 Ad Set: {lead.adSetName}</p>}
+            {lead.adName && <p className="text-xs text-gray-600">📄 Ad: {lead.adName}</p>}
+            {lead.formName && <p className="text-xs text-gray-600">📋 Form: {lead.formName}</p>}
+            {lead.createdAt && (
+              <p className="text-xs text-gray-500">🕐 Submitted: {new Date(lead.createdAt).toLocaleString("en-IN", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })}</p>
+            )}
+          </div>
+
+          {/* Extra form fields */}
+          {extraFields.length > 0 && (
+            <div className="border-2 border-black rounded-lg p-3">
+              <p className="text-xs font-black text-gray-500 uppercase mb-2">Form Responses</p>
+              <div className="space-y-1.5">
+                {extraFields.map(([k, v]) => (
+                  <div key={k} className="flex justify-between text-xs">
+                    <span className="font-bold text-gray-600 capitalize">{k.replace(/_/g, " ")}</span>
+                    <span className="font-semibold text-gray-900">{v || "—"}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Status Update */}
+          <div className="border-2 border-black rounded-lg p-3">
+            <p className="text-xs font-black text-gray-500 uppercase mb-2">Lead Status</p>
+            <div className="grid grid-cols-2 gap-2">
+              {ALL_STATUSES.map((s) => {
+                const cfg = STATUS_CONFIG[s];
+                return (
+                  <button
+                    key={s}
+                    onClick={() => setStatus(s)}
+                    className={`text-xs font-bold py-2 px-3 rounded-lg border-2 transition-all text-left flex items-center gap-2
+                      ${status === s ? `border-black ${cfg.bg} ${cfg.color}` : "border-gray-200 text-gray-500 hover:border-gray-400"}`}
+                  >
+                    <span className={`w-2 h-2 rounded-full flex-shrink-0 ${status === s ? cfg.dot : "bg-gray-300"}`} />
+                    {cfg.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Follow-up Date */}
+          <div className="border-2 border-black rounded-lg p-3">
+            <p className="text-xs font-black text-gray-500 uppercase mb-2">Follow-up Date</p>
+            <input
+              type="date"
+              value={followUpDate}
+              onChange={(e) => setFollowUpDate(e.target.value)}
+              className="w-full px-3 py-2 border-2 border-black rounded-lg text-sm font-semibold"
+            />
+          </div>
+
+          {/* Notes */}
+          <div className="border-2 border-black rounded-lg p-3">
+            <p className="text-xs font-black text-gray-500 uppercase mb-2">Notes</p>
+            <textarea
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              placeholder="Add call notes, follow-up details..."
+              rows={3}
+              className="w-full px-3 py-2 border-2 border-black rounded-lg text-sm font-semibold resize-none focus:outline-none"
+            />
+          </div>
+
+          {/* Actions */}
+          <div className="flex gap-3">
+            <Button variant="outline" onClick={onClose} className="flex-1 border-2 border-black font-bold">Cancel</Button>
+            <Button onClick={handleSave} disabled={saving} className="flex-1 bg-black text-white font-black border-2 border-black hover:bg-gray-800">
+              {saving ? "Saving…" : "Save Changes"}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Main Page ─────────────────────────────────────────────────────────────────
 
 export default function ClientLeadsPage() {
   const { user } = useAuth();
   const [leads, setLeads] = useState<Lead[]>([]);
-  const [stats, setStats] = useState<LeadStats>({
-    total: 0,
-    converted: 0,
-    conversionRate: 0,
-    newThisMonth: 0,
-  });
   const [loading, setLoading] = useState(true);
   const [syncing, setSyncing] = useState(false);
-  const [syncResult, setSyncResult] = useState<{ synced: number; skipped: number; forms: number } | null>(null);
+  const [syncResult, setSyncResult] = useState<any>(null);
   const [syncError, setSyncError] = useState<string | null>(null);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [statusFilter, setStatusFilter] = useState<string>("");
-  const [sourceFilter, setSourceFilter] = useState<string>("");
+  const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
+
+  // Filters
+  const [search, setSearch] = useState("");
+  const [statusFilter, setStatusFilter] = useState("");
+  const [campaignFilter, setCampaignFilter] = useState("");
+
+  const fetchLeads = async () => {
+    try {
+      setLoading(true);
+      const res = await fetch("/api/leads", { headers: getAuthHeaders() });
+      if (!res.ok) throw new Error("Failed");
+      const data = await res.json();
+      setLeads(Array.isArray(data) ? data : []);
+    } catch { setLeads([]); }
+    finally { setLoading(false); }
+  };
 
   useEffect(() => {
     if (!user || user.role !== "client") return;
-
-    const fetchLeads = async () => {
-      try {
-        setLoading(true);
-        const token =
-          typeof window !== "undefined"
-            ? localStorage.getItem("auth_token")
-            : null;
-        const headers: Record<string, string> = {
-          "Content-Type": "application/json",
-        };
-        if (token) headers["Authorization"] = `Bearer ${token}`;
-
-        const res = await fetch("/api/leads", { headers });
-        if (!res.ok) throw new Error("Failed to fetch leads");
-
-        const data: Lead[] = await res.json();
-        setLeads(Array.isArray(data) ? data : []);
-
-        const total = data.length;
-        const converted = data.filter(
-          (l) => l.status === "interested" || l.status === "meeting booked",
-        ).length;
-        const conversionRate =
-          total > 0 ? Math.round((converted / total) * 100) : 0;
-
-        const now = new Date();
-        const currentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-        const newThisMonth = data.filter((l) => {
-          const leadDate = l.createdAt ? new Date(l.createdAt) : null;
-          return leadDate && leadDate >= currentMonth;
-        }).length;
-
-        setStats({
-          total,
-          converted,
-          conversionRate,
-          newThisMonth,
-        });
-      } catch (err) {
-        console.error("Failed to load leads", err);
-        setLeads([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchLeads();
   }, [user]);
 
@@ -113,18 +247,15 @@ export default function ClientLeadsPage() {
     setSyncError(null);
     setSyncResult(null);
     try {
-      const token = typeof window !== "undefined" ? localStorage.getItem("auth_token") : null;
       const res = await fetch("/api/client-leads/sync", {
         method: "POST",
-        headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+        headers: getAuthHeaders(),
         body: JSON.stringify({ clientId: user.clientId }),
       });
       const data = await res.json();
       if (!res.ok) { setSyncError(data.error || "Sync failed"); return; }
       setSyncResult(data);
-      // Refresh leads list
-      const leadsRes = await fetch("/api/leads", { headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) } });
-      if (leadsRes.ok) setLeads(await leadsRes.json());
+      await fetchLeads();
     } catch (e: any) {
       setSyncError(e.message || "Sync failed");
     } finally {
@@ -132,49 +263,69 @@ export default function ClientLeadsPage() {
     }
   };
 
-  const uniqueSources = Array.from(
-    new Set(leads.map((l) => l.source).filter(Boolean)),
+  const handleSaveLead = async (id: string, updates: Partial<Lead>) => {
+    await fetch(`/api/leads/${id}`, {
+      method: "PATCH",
+      headers: getAuthHeaders(),
+      body: JSON.stringify(updates),
+    });
+    setLeads((prev) => prev.map((l) => String(l._id || l.id) === id ? { ...l, ...updates } : l));
+  };
+
+  // Stats
+  const stats = useMemo(() => {
+    const total = leads.length;
+    const converted = leads.filter((l) => l.status === "interested" || l.status === "meeting booked").length;
+    const notCalled = leads.filter((l) => !l.status || l.status === "not called").length;
+    const now = new Date();
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+    const newThisMonth = leads.filter((l) => l.createdAt && new Date(l.createdAt) >= monthStart).length;
+    return { total, converted, notCalled, newThisMonth, conversionRate: total > 0 ? Math.round((converted / total) * 100) : 0 };
+  }, [leads]);
+
+  // Unique campaigns for filter
+  const campaigns = useMemo(() =>
+    Array.from(new Set(leads.map((l) => l.campaignName).filter(Boolean))) as string[],
+    [leads],
   );
-  const uniqueStatuses = Array.from(
-    new Set(leads.map((l) => l.status).filter(Boolean)),
-  );
 
-  const filteredLeads = leads.filter((lead) => {
-    const matchSearch =
-      !searchTerm ||
-      lead.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      lead.phone?.includes(searchTerm) ||
-      lead.email?.toLowerCase().includes(searchTerm.toLowerCase());
+  // Filtered leads
+  const filtered = useMemo(() => leads.filter((l) => {
+    const q = search.toLowerCase();
+    const matchSearch = !search ||
+      l.name?.toLowerCase().includes(q) ||
+      l.phone?.includes(q) ||
+      l.email?.toLowerCase().includes(q) ||
+      l.campaignName?.toLowerCase().includes(q);
+    const matchStatus = !statusFilter || l.status === statusFilter;
+    const matchCampaign = !campaignFilter || l.campaignName === campaignFilter;
+    return matchSearch && matchStatus && matchCampaign;
+  }), [leads, search, statusFilter, campaignFilter]);
 
-    const matchStatus = !statusFilter || lead.status === statusFilter;
-    const matchSource = !sourceFilter || lead.source === sourceFilter;
-
-    return matchSearch && matchStatus && matchSource;
-  });
+  // Follow-ups due today or overdue
+  const followUpsDue = useMemo(() => {
+    const today = new Date().toISOString().slice(0, 10);
+    return leads.filter((l) => l.followUpDate && l.followUpDate <= today && l.status !== "not interested");
+  }, [leads]);
 
   if (!user || user.role !== "client") {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <Card className="border-2 border-black">
-          <CardHeader>
-            <CardTitle>Access Denied</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p>This page is only accessible to clients.</p>
-          </CardContent>
-        </Card>
+        <div className="border-2 border-black rounded-xl p-8 text-center">
+          <h2 className="text-xl font-black">Access Denied</h2>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-background font-headline p-6 space-y-6">
+
+      {/* Header */}
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="text-4xl font-black tracking-tighter">Your Leads</h1>
-          <p className="text-muted-foreground mt-1">
-            Track the performance and status of your leads
-          </p>
+          <h1 className="text-4xl font-black tracking-tighter">Lead Management</h1>
+          <p className="text-muted-foreground mt-1">Track, manage and follow up on your leads</p>
         </div>
         <div className="flex flex-col items-end gap-2">
           <Button
@@ -186,216 +337,201 @@ export default function ClientLeadsPage() {
           </Button>
           {syncResult && (
             <p className="text-xs font-semibold text-green-700">
-              ✓ {syncResult.synced} new leads synced from {syncResult.forms} forms
-              {syncResult.skipped > 0 && `, ${syncResult.skipped} already existed`}
+              ✓ {syncResult.synced} new · {syncResult.skipped} existing · {syncResult.total} total found
             </p>
           )}
-          {syncError && (
-            <p className="text-xs font-semibold text-red-600">⚠ {syncError}</p>
+          {syncError && <p className="text-xs font-semibold text-red-600">⚠ {syncError}</p>}
+        </div>
+      </div>
+
+      {/* Follow-up Alert */}
+      {followUpsDue.length > 0 && (
+        <div className="border-2 border-orange-400 bg-orange-50 rounded-xl px-4 py-3 flex items-center justify-between flex-wrap gap-2">
+          <p className="text-sm font-bold text-orange-800">
+            🔔 {followUpsDue.length} follow-up{followUpsDue.length > 1 ? "s" : ""} due today —{" "}
+            {followUpsDue.map((l) => l.name).slice(0, 3).join(", ")}
+            {followUpsDue.length > 3 && ` +${followUpsDue.length - 3} more`}
+          </p>
+          <button
+            onClick={() => setStatusFilter("")}
+            className="text-xs font-bold text-orange-700 underline"
+          >
+            View All
+          </button>
+        </div>
+      )}
+
+      {/* Stats */}
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+        {[
+          { label: "Total Leads", value: stats.total, color: "bg-gray-50", icon: "👥" },
+          { label: "Not Called", value: stats.notCalled, color: "bg-red-50", icon: "📵" },
+          { label: "Interested", value: stats.converted, color: "bg-green-50", icon: "✅" },
+          { label: "This Month", value: stats.newThisMonth, color: "bg-blue-50", icon: "📅" },
+          { label: "Conv. Rate", value: `${stats.conversionRate}%`, color: "bg-purple-50", icon: "🎯" },
+        ].map((s) => (
+          <div key={s.label} className={`border-2 border-black rounded-xl p-4 ${s.color}`}>
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">{s.label}</span>
+              <span className="text-base">{s.icon}</span>
+            </div>
+            <div className="text-2xl font-black">{s.value}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Status Breakdown */}
+      <div className="border-2 border-black rounded-xl p-4">
+        <p className="text-xs font-black text-gray-500 uppercase mb-3">Status Breakdown</p>
+        <div className="flex flex-wrap gap-2">
+          {ALL_STATUSES.map((s) => {
+            const count = leads.filter((l) => l.status === s).length;
+            if (count === 0) return null;
+            const cfg = STATUS_CONFIG[s];
+            return (
+              <button
+                key={s}
+                onClick={() => setStatusFilter(statusFilter === s ? "" : s)}
+                className={`flex items-center gap-2 px-3 py-1.5 rounded-full border-2 text-xs font-bold transition-all
+                  ${statusFilter === s ? `border-black ${cfg.bg} ${cfg.color}` : "border-gray-200 hover:border-gray-400 text-gray-600"}`}
+              >
+                <span className={`w-2 h-2 rounded-full ${cfg.dot}`} />
+                {cfg.label} <span className="font-black">({count})</span>
+              </button>
+            );
+          })}
+          {statusFilter && (
+            <button onClick={() => setStatusFilter("")} className="px-3 py-1.5 rounded-full border-2 border-gray-300 text-xs font-bold text-gray-500 hover:border-black">
+              ✕ Clear
+            </button>
           )}
         </div>
       </div>
 
-      {user?.clientId && (
-        <FbAdsConnectionPanel clientId={user.clientId} readOnly />
-      )}
-
-      {}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-              <Zap className="w-4 h-4" />
-              Total Leads
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-black">{stats.total}</div>
-            <p className="text-xs text-muted-foreground mt-1">
-              All leads generated
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-              <Trophy className="w-4 h-4" />
-              Converted
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-black text-green-600">
-              {stats.converted}
-            </div>
-            <p className="text-xs text-muted-foreground mt-1">
-              Interested + Meeting Booked
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-              <TrendingUp className="w-4 h-4" />
-              Conversion Rate
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-black text-primary">
-              {stats.conversionRate}%
-            </div>
-            <p className="text-xs text-muted-foreground mt-1">
-              Overall performance
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-              <Users className="w-4 h-4" />
-              New This Month
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-black text-blue-600">
-              {stats.newThisMonth}
-            </div>
-            <p className="text-xs text-muted-foreground mt-1">
-              This month's leads
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Filters */}
-      <Card className="border-2 border-black">
-        <CardHeader>
-          <CardTitle className="text-lg">Filters</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {/* Filters + Table */}
+      <div className="border-2 border-black rounded-xl overflow-hidden">
+        {/* Filter Bar */}
+        <div className="border-b-2 border-black px-4 py-3 bg-gray-50 flex flex-wrap gap-3 items-center justify-between">
+          <div className="flex flex-wrap gap-3 flex-1">
             <Input
-              placeholder="Search by name, phone, or email..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="border-2 border-black"
+              placeholder="Search name, phone, email, campaign..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="border-2 border-black font-semibold text-sm max-w-xs"
             />
             <select
-              value={statusFilter}
-              onChange={(e) => setStatusFilter(e.target.value)}
-              className="px-3 py-2 border-2 border-black rounded-md bg-background font-bold"
+              value={campaignFilter}
+              onChange={(e) => setCampaignFilter(e.target.value)}
+              className="px-3 py-2 border-2 border-black rounded-md bg-white font-semibold text-sm"
             >
-              <option value="">All Statuses</option>
-              {uniqueStatuses.sort().map((s) => (
-                <option key={s} value={s}>
-                  {s}
-                </option>
-              ))}
-            </select>
-            <select
-              value={sourceFilter}
-              onChange={(e) => setSourceFilter(e.target.value)}
-              className="px-3 py-2 border-2 border-black rounded-md bg-background font-bold"
-            >
-              <option value="">All Sources</option>
-              {uniqueSources.sort().map((s) => (
-                <option key={s} value={s}>
-                  {s}
-                </option>
-              ))}
+              <option value="">All Campaigns</option>
+              {campaigns.map((c) => <option key={c} value={c}>{c}</option>)}
             </select>
           </div>
-        </CardContent>
-      </Card>
+          <span className="text-xs font-bold text-gray-500">{filtered.length} leads</span>
+        </div>
 
-      {/* Leads Table */}
-      <Card className="border-2 border-black overflow-hidden">
-        <CardHeader>
-          <CardTitle className="text-lg">
-            Leads ({filteredLeads.length})
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-0">
-          {loading ? (
-            <div className="p-6 text-center text-muted-foreground">
-              Loading leads...
-            </div>
-          ) : filteredLeads.length === 0 ? (
-            <div className="p-6 text-center text-muted-foreground">
-              <p className="font-bold">No leads available yet</p>
-              <p className="text-sm">Leads generated will appear here</p>
-            </div>
-          ) : (
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow className="border-b-2 border-black bg-muted/50">
-                    <TableHead className="font-black">Lead Name</TableHead>
-                    <TableHead className="font-black">Phone</TableHead>
-                    <TableHead className="font-black">Source</TableHead>
-                    <TableHead className="font-black">Interest</TableHead>
-                    <TableHead className="font-black">Status</TableHead>
-                    <TableHead className="font-black">Created Date</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {filteredLeads.map((lead) => (
-                    <TableRow
+        {/* Table */}
+        {loading ? (
+          <div className="p-12 text-center text-muted-foreground font-semibold">Loading leads…</div>
+        ) : filtered.length === 0 ? (
+          <div className="p-12 text-center">
+            <p className="text-xl font-black">No leads found</p>
+            <p className="text-sm text-gray-500 mt-1">Try syncing from Facebook Ads or adjust filters</p>
+          </div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-black text-white">
+                <tr>
+                  <th className="px-4 py-3 text-left text-xs font-black uppercase">Lead</th>
+                  <th className="px-4 py-3 text-left text-xs font-black uppercase">Contact</th>
+                  <th className="px-4 py-3 text-left text-xs font-black uppercase">Campaign</th>
+                  <th className="px-4 py-3 text-left text-xs font-black uppercase">Status</th>
+                  <th className="px-4 py-3 text-left text-xs font-black uppercase">Follow-up</th>
+                  <th className="px-4 py-3 text-left text-xs font-black uppercase">Notes</th>
+                  <th className="px-4 py-3 text-left text-xs font-black uppercase">Date</th>
+                  <th className="px-4 py-3 text-center text-xs font-black uppercase">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filtered.map((lead, i) => {
+                  const followUpDue = lead.followUpDate && lead.followUpDate <= new Date().toISOString().slice(0, 10);
+                  return (
+                    <tr
                       key={String(lead._id || lead.id)}
-                      className="border-b border-black"
+                      className={`border-b border-gray-200 hover:bg-gray-50 transition-colors ${i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}
                     >
-                      <TableCell className="font-bold">
-                        {lead.name || "-"}
-                      </TableCell>
-                      <TableCell className="text-sm">
-                        {lead.phone || "-"}
-                      </TableCell>
-                      <TableCell>
-                        <Badge
-                          variant="outline"
-                          className="border-black font-bold"
+                      <td className="px-4 py-3">
+                        <div className="font-black text-sm">{lead.name || "—"}</div>
+                      </td>
+                      <td className="px-4 py-3">
+                        {lead.phone && (
+                          <a href={`tel:${lead.phone}`} className="text-sm font-semibold text-blue-700 hover:underline block">{lead.phone}</a>
+                        )}
+                        {lead.email && (
+                          <a href={`mailto:${lead.email}`} className="text-xs text-gray-500 hover:underline block truncate max-w-[140px]">{lead.email}</a>
+                        )}
+                        {lead.phone && (
+                          <a
+                            href={`https://wa.me/${lead.phone.replace(/\D/g, "")}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-xs text-green-600 font-bold hover:underline mt-1"
+                          >
+                            💬 WhatsApp
+                          </a>
+                        )}
+                      </td>
+                      <td className="px-4 py-3 max-w-[160px]">
+                        {lead.campaignName && <div className="text-xs font-black truncate">📢 {lead.campaignName}</div>}
+                        {lead.adSetName && <div className="text-xs text-gray-500 truncate">🎯 {lead.adSetName}</div>}
+                        {lead.formName && !lead.campaignName && <div className="text-xs text-gray-500 truncate">📋 {lead.formName}</div>}
+                      </td>
+                      <td className="px-4 py-3">
+                        <StatusBadge status={lead.status || "not called"} />
+                      </td>
+                      <td className="px-4 py-3">
+                        {lead.followUpDate ? (
+                          <span className={`text-xs font-bold ${followUpDue ? "text-red-600" : "text-gray-600"}`}>
+                            {followUpDue ? "🔔 " : "📅 "}{new Date(lead.followUpDate).toLocaleDateString("en-IN", { day: "2-digit", month: "short" })}
+                          </span>
+                        ) : (
+                          <span className="text-xs text-gray-400">—</span>
+                        )}
+                      </td>
+                      <td className="px-4 py-3 max-w-[150px]">
+                        <p className="text-xs text-gray-600 truncate">{lead.notes || "—"}</p>
+                      </td>
+                      <td className="px-4 py-3 text-xs text-gray-500 font-semibold whitespace-nowrap">
+                        {lead.createdAt ? new Date(lead.createdAt).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "2-digit" }) : "—"}
+                      </td>
+                      <td className="px-4 py-3 text-center">
+                        <Button
+                          size="sm"
+                          className="text-xs font-bold border-2 border-black h-7 px-3 bg-white text-black hover:bg-black hover:text-white"
+                          onClick={() => setSelectedLead(lead)}
                         >
-                          {lead.source || "Unknown"}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="text-sm">
-                        {lead.projectType || lead.subject || "-"}
-                      </TableCell>
-                      <TableCell>
-                        <Badge
-                          className={`font-bold border-black ${
-                            statusColors[lead.status || "other"].bg
-                          } ${statusColors[lead.status || "other"].text}`}
-                        >
-                          {lead.status || "Unknown"}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="text-sm text-muted-foreground">
-                        {lead.createdAt
-                          ? new Date(lead.createdAt).toLocaleDateString()
-                          : "-"}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          )}
-        </CardContent>
-      </Card>
+                          Manage
+                        </Button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
 
-      {/* Info Card */}
-      <Card className="border-2 border-black bg-primary/5">
-        <CardContent className="pt-6">
-          <p className="text-sm">
-            <span className="font-bold">💡 Tip:</span> This page is read-only.
-            Your team manages all leads and their details. You can only view and
-            track performance here. All status changes are made by your team.
-          </p>
-        </CardContent>
-      </Card>
+      {/* Lead Detail Modal */}
+      {selectedLead && (
+        <LeadModal
+          lead={selectedLead}
+          onClose={() => setSelectedLead(null)}
+          onSave={handleSaveLead}
+        />
+      )}
     </div>
   );
 }

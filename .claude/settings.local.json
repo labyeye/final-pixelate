@@ -8,7 +8,8 @@
       "Bash(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\labhb\\\\Desktop\\\\projects\\\\final-pixelate\\\\dashboard\\\\src\\\\app\\\\api\\\\client-leads\")",
       "Bash(Out-Null)",
       "Bash(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\labhb\\\\Desktop\\\\projects\\\\final-pixelate\\\\dashboard\\\\src\\\\app\\\\api\\\\client-leads\\\\sync\")",
-      "PowerShell(New-Item *)"
+      "PowerShell(New-Item *)",
+      "Bash(Get-ChildItem *)"
     ]
   }
 }

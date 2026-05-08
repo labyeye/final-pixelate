@@ -135,31 +135,71 @@ function ClientAnalyticsPage() {
                 };
                 if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
                 ;
-                const res = await fetch("/api/social-media-planner", {
+                const url = new URL("/api/social-media-posts", window.location.origin);
+                url.searchParams.set("clientId", user.clientId || "");
+                const res = await fetch(url.toString(), {
                     headers
                 });
                 if (!res.ok) throw new Error("Failed to fetch analytics");
                 const posts = await res.json();
-                const clientPosts = Array.isArray(posts) ? posts.filter((p)=>p.clientId === user.clientId) : [];
-                const totalViews = clientPosts.reduce((sum, p)=>sum + (p.views || 0), 0);
-                const totalLikes = clientPosts.reduce((sum, p)=>sum + (p.likes || 0), 0);
-                const totalShares = clientPosts.reduce((sum, p)=>sum + (p.shares || 0), 0);
-                const engagementRate = totalViews > 0 ? Math.round((totalLikes + totalShares) / totalViews * 100) : 0;
+                const clientPosts = Array.isArray(posts) ? posts : [];
+                // Sum metrics — prefer accountMetrics (synced) over flat fields
+                let totalViews = 0, totalLikes = 0, totalShares = 0, totalComments = 0;
+                for (const p of clientPosts){
+                    const accountIds = p.socialAccountIds?.length ? p.socialAccountIds : p.socialAccountId ? [
+                        p.socialAccountId
+                    ] : null;
+                    if (accountIds && p.accountMetrics) {
+                        for (const id of accountIds){
+                            const m = p.accountMetrics[id];
+                            if (m) {
+                                totalViews += m.views || 0;
+                                totalLikes += m.likes || 0;
+                                totalShares += m.shares || 0;
+                                totalComments += m.comments || 0;
+                            }
+                        }
+                    } else {
+                        totalViews += p.views || 0;
+                        totalLikes += p.likes || 0;
+                        totalShares += p.shares || 0;
+                    }
+                }
+                const engagementRate = totalViews > 0 ? Math.round((totalLikes + totalShares + totalComments) / totalViews * 100) : 0;
                 setAnalytics({
                     totalViews,
                     totalLikes,
                     totalShares,
                     engagementRate
                 });
-                const last7Posts = clientPosts.sort((a, b)=>new Date(b.scheduledDate).getTime() - new Date(a.scheduledDate).getTime()).slice(0, 7).reverse().map((p)=>({
+                const last7Posts = clientPosts.filter((p)=>p.status === "Posted").sort((a, b)=>new Date(b.scheduledDate).getTime() - new Date(a.scheduledDate).getTime()).slice(0, 7).reverse().map((p)=>{
+                    let v = p.views || 0, l = p.likes || 0, s = p.shares || 0;
+                    const ids = p.socialAccountIds?.length ? p.socialAccountIds : p.socialAccountId ? [
+                        p.socialAccountId
+                    ] : null;
+                    if (ids && p.accountMetrics) {
+                        v = 0;
+                        l = 0;
+                        s = 0;
+                        for (const id of ids){
+                            const m = p.accountMetrics[id];
+                            if (m) {
+                                v += m.views || 0;
+                                l += m.likes || 0;
+                                s += m.shares || 0;
+                            }
+                        }
+                    }
+                    return {
                         name: new Date(p.scheduledDate).toLocaleDateString("en-US", {
                             month: "short",
                             day: "numeric"
                         }),
-                        views: p.views || 0,
-                        likes: p.likes || 0,
-                        shares: p.shares || 0
-                    }));
+                        views: v,
+                        likes: l,
+                        shares: s
+                    };
+                });
                 setChartData(last7Posts);
             } catch (err) {
                 console.error("Failed to load analytics", err);
@@ -182,12 +222,12 @@ function ClientAnalyticsPage() {
                             children: "Access Denied"
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                            lineNumber: 113,
+                            lineNumber: 108,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                        lineNumber: 112,
+                        lineNumber: 107,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -195,23 +235,23 @@ function ClientAnalyticsPage() {
                             children: "This page is only accessible to clients."
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                            lineNumber: 116,
+                            lineNumber: 111,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                        lineNumber: 115,
+                        lineNumber: 110,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                lineNumber: 111,
+                lineNumber: 106,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-            lineNumber: 110,
+            lineNumber: 105,
             columnNumber: 7
         }, this);
     }
@@ -225,7 +265,7 @@ function ClientAnalyticsPage() {
                         children: "Analytics"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                        lineNumber: 127,
+                        lineNumber: 122,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -233,13 +273,13 @@ function ClientAnalyticsPage() {
                         children: "Track your performance metrics"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                        lineNumber: 128,
+                        lineNumber: 123,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                lineNumber: 126,
+                lineNumber: 121,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -257,19 +297,19 @@ function ClientAnalyticsPage() {
                                             className: "w-4 h-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                            lineNumber: 138,
+                                            lineNumber: 133,
                                             columnNumber: 15
                                         }, this),
                                         "Views"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                    lineNumber: 137,
+                                    lineNumber: 132,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                lineNumber: 136,
+                                lineNumber: 131,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -279,7 +319,7 @@ function ClientAnalyticsPage() {
                                         children: analytics.totalViews.toLocaleString()
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 143,
+                                        lineNumber: 138,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -287,19 +327,19 @@ function ClientAnalyticsPage() {
                                         children: "Total impressions"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 146,
+                                        lineNumber: 141,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                lineNumber: 142,
+                                lineNumber: 137,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                        lineNumber: 135,
+                        lineNumber: 130,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -314,19 +354,19 @@ function ClientAnalyticsPage() {
                                             className: "w-4 h-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                            lineNumber: 155,
+                                            lineNumber: 150,
                                             columnNumber: 15
                                         }, this),
                                         "Likes"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                    lineNumber: 154,
+                                    lineNumber: 149,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                lineNumber: 153,
+                                lineNumber: 148,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -336,7 +376,7 @@ function ClientAnalyticsPage() {
                                         children: analytics.totalLikes.toLocaleString()
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 160,
+                                        lineNumber: 155,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -344,19 +384,19 @@ function ClientAnalyticsPage() {
                                         children: "Total likes"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 163,
+                                        lineNumber: 158,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                lineNumber: 159,
+                                lineNumber: 154,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                        lineNumber: 152,
+                        lineNumber: 147,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -371,19 +411,19 @@ function ClientAnalyticsPage() {
                                             className: "w-4 h-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                            lineNumber: 170,
+                                            lineNumber: 165,
                                             columnNumber: 15
                                         }, this),
                                         "Shares"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                    lineNumber: 169,
+                                    lineNumber: 164,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                lineNumber: 168,
+                                lineNumber: 163,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -393,7 +433,7 @@ function ClientAnalyticsPage() {
                                         children: analytics.totalShares.toLocaleString()
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 175,
+                                        lineNumber: 170,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -401,19 +441,19 @@ function ClientAnalyticsPage() {
                                         children: "Total shares"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 178,
+                                        lineNumber: 173,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                lineNumber: 174,
+                                lineNumber: 169,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                        lineNumber: 167,
+                        lineNumber: 162,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -428,19 +468,19 @@ function ClientAnalyticsPage() {
                                             className: "w-4 h-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                            lineNumber: 185,
+                                            lineNumber: 180,
                                             columnNumber: 15
                                         }, this),
                                         "Engagement"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                    lineNumber: 184,
+                                    lineNumber: 179,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                lineNumber: 183,
+                                lineNumber: 178,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -453,7 +493,7 @@ function ClientAnalyticsPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 190,
+                                        lineNumber: 185,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -461,25 +501,25 @@ function ClientAnalyticsPage() {
                                         children: "Engagement rate"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 193,
+                                        lineNumber: 188,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                lineNumber: 189,
+                                lineNumber: 184,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                        lineNumber: 182,
+                        lineNumber: 177,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                lineNumber: 134,
+                lineNumber: 129,
                 columnNumber: 7
             }, this),
             !loading && chartData.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -490,12 +530,12 @@ function ClientAnalyticsPage() {
                             children: "Performance Trend (Last 7 Posts)"
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                            lineNumber: 204,
+                            lineNumber: 199,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                        lineNumber: 203,
+                        lineNumber: 198,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -510,29 +550,29 @@ function ClientAnalyticsPage() {
                                         stroke: "#000"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 209,
+                                        lineNumber: 204,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$XAxis$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["XAxis"], {
                                         dataKey: "name"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 210,
+                                        lineNumber: 205,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$YAxis$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["YAxis"], {}, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 211,
+                                        lineNumber: 206,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Tooltip$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Tooltip"], {}, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 212,
+                                        lineNumber: 207,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Legend$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Legend"], {}, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 213,
+                                        lineNumber: 208,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$Line$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Line"], {
@@ -543,7 +583,7 @@ function ClientAnalyticsPage() {
                                         name: "Views"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 214,
+                                        lineNumber: 209,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$Line$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Line"], {
@@ -554,7 +594,7 @@ function ClientAnalyticsPage() {
                                         name: "Likes"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 221,
+                                        lineNumber: 216,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$Line$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Line"], {
@@ -565,29 +605,29 @@ function ClientAnalyticsPage() {
                                         name: "Shares"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                        lineNumber: 228,
+                                        lineNumber: 223,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                lineNumber: 208,
+                                lineNumber: 203,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                            lineNumber: 207,
+                            lineNumber: 202,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                        lineNumber: 206,
+                        lineNumber: 201,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                lineNumber: 202,
+                lineNumber: 197,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -602,30 +642,30 @@ function ClientAnalyticsPage() {
                                 children: "💡 Note:"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                                lineNumber: 245,
+                                lineNumber: 240,
                                 columnNumber: 13
                             }, this),
                             " Analytics are updated daily. Your team manages all content. These metrics are for your transparency and reference only."
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                        lineNumber: 244,
+                        lineNumber: 239,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                    lineNumber: 243,
+                    lineNumber: 238,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-                lineNumber: 242,
+                lineNumber: 237,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(crm)/client/analytics/page.tsx",
-        lineNumber: 124,
+        lineNumber: 119,
         columnNumber: 5
     }, this);
 }

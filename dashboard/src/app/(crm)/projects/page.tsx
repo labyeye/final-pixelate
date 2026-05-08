@@ -152,6 +152,7 @@ export default function ProjectsPage() {
 
       {}
       <div className="border-2 border-black overflow-hidden">
+        <div className="overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow className="border-b-2 border-black bg-primary hover:bg-black">
@@ -394,6 +395,7 @@ export default function ProjectsPage() {
             ))}
           </TableBody>
         </Table>
+        </div>
       </div>
     </div>
   );

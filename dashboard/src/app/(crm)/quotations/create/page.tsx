@@ -332,7 +332,7 @@ export default function CreateQuotationPage() {
                 placeholder="Optional: short tagline or project summary (e.g., Improve conversion rate)"
               />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="text-sm font-semibold">Proposal Date *</label>
                 <Input type="date" {...register("date")} />
@@ -488,29 +488,29 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
             {timelineFields.map((field, idx) => (
               <div
                 key={field.id}
-                className="grid grid-cols-12 gap-2 items-start"
+                className="grid grid-cols-1 sm:grid-cols-12 gap-2 items-start"
               >
                 <Input
                   {...register(`timeline.${idx}.phase`)}
                   placeholder="e.g., Discovery, Design, Development"
-                  className="col-span-3"
+                  className="sm:col-span-3"
                 />
                 <Input
                   {...register(`timeline.${idx}.description`)}
                   placeholder="Brief description of this phase (responsibilities & output)"
-                  className="col-span-6"
+                  className="sm:col-span-6"
                 />
                 <Input
                   {...register(`timeline.${idx}.duration`)}
                   placeholder="e.g., 2 weeks, 1 month"
-                  className="col-span-2"
+                  className="sm:col-span-2"
                 />
                 <Button
                   type="button"
                   variant="ghost"
                   size="icon"
                   onClick={() => removeTimeline(idx)}
-                  className="col-span-1"
+                  className="sm:col-span-1"
                 >
                   <Trash2 className="h-4 w-4" />
                 </Button>
@@ -544,18 +544,18 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
             {serviceFields.map((field, idx) => (
               <div
                 key={field.id}
-                className="grid grid-cols-12 gap-2 items-start"
+                className="grid grid-cols-1 sm:grid-cols-12 gap-2 items-start"
               >
                 <Input
                   {...register(`services.${idx}.serviceName`)}
                   placeholder="e.g., Frontend Development, SEO Audit"
-                  className="col-span-5"
+                  className="sm:col-span-5"
                 />
                 <Input
                   type="number"
                   {...register(`services.${idx}.qty`, { valueAsNumber: true })}
                   placeholder="Qty (hours/units)"
-                  className="col-span-2"
+                  className="sm:col-span-2"
                 />
                 <Input
                   type="number"
@@ -563,19 +563,19 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
                     valueAsNumber: true,
                   })}
                   placeholder="Unit price (INR)"
-                  className="col-span-2"
+                  className="sm:col-span-2"
                 />
                 <Input
                   value={watchServices[idx]?.total.toFixed(2) || "0.00"}
                   readOnly
-                  className="col-span-2 bg-gray-50"
+                  className="sm:col-span-2 bg-gray-50"
                 />
                 <Button
                   type="button"
                   variant="ghost"
                   size="icon"
                   onClick={() => removeService(idx)}
-                  className="col-span-1"
+                  className="sm:col-span-1"
                 >
                   <Trash2 className="h-4 w-4" />
                 </Button>
@@ -616,18 +616,18 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
             {lineItemFields.map((field, idx) => (
               <div
                 key={field.id}
-                className="grid grid-cols-12 gap-2 items-start"
+                className="grid grid-cols-1 sm:grid-cols-12 gap-2 items-start"
               >
                 <Input
                   {...register(`lineItems.${idx}.name`)}
                   placeholder="e.g., UI Design (40 hours)"
-                  className="col-span-4"
+                  className="sm:col-span-4"
                 />
                 <Input
                   type="number"
                   {...register(`lineItems.${idx}.qty`, { valueAsNumber: true })}
                   placeholder="Qty (e.g., 40)"
-                  className="col-span-1"
+                  className="sm:col-span-1"
                 />
                 <Input
                   type="number"
@@ -635,25 +635,25 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
                     valueAsNumber: true,
                   })}
                   placeholder="Unit price (e.g., 500)"
-                  className="col-span-2"
+                  className="sm:col-span-2"
                 />
                 <Input
                   type="number"
                   {...register(`lineItems.${idx}.tax`, { valueAsNumber: true })}
                   placeholder="Tax % (e.g., 18)"
-                  className="col-span-1"
+                  className="sm:col-span-1"
                 />
                 <Input
                   value={watchLineItems[idx]?.total.toFixed(2) || "0.00"}
                   readOnly
-                  className="col-span-3 bg-gray-50"
+                  className="sm:col-span-3 bg-gray-50"
                 />
                 <Button
                   type="button"
                   variant="ghost"
                   size="icon"
                   onClick={() => removeLineItem(idx)}
-                  className="col-span-1"
+                  className="sm:col-span-1"
                 >
                   <Trash2 className="h-4 w-4" />
                 </Button>
@@ -690,21 +690,21 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
             {moduleFields.map((field, idx) => (
               <div
                 key={field.id}
-                className="grid grid-cols-12 gap-2 items-start"
+                className="grid grid-cols-1 sm:grid-cols-12 gap-2 items-start"
               >
                 <Input
                   {...register(`modules.${idx}.moduleName`)}
                   placeholder="e.g., Blog Module, E-commerce Cart"
-                  className="col-span-4"
+                  className="sm:col-span-4"
                 />
                 <Input
                   {...register(`modules.${idx}.description`)}
                   placeholder="Short description or responsibilities for this module"
-                  className="col-span-5"
+                  className="sm:col-span-5"
                 />
                 <select
                   {...register(`modules.${idx}.status`)}
-                  className="col-span-2 border rounded px-2 py-2"
+                  className="sm:col-span-2 border rounded px-2 py-2"
                 >
                   <option value="Planned">Planned</option>
                   <option value="Ongoing">Ongoing</option>
@@ -715,7 +715,7 @@ Examples: Improve conversion, migrate to headless CMS, launch e-commerce feature
                   variant="ghost"
                   size="icon"
                   onClick={() => removeModule(idx)}
-                  className="col-span-1"
+                  className="sm:col-span-1"
                 >
                   <Trash2 className="h-4 w-4" />
                 </Button>

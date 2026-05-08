@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import * as svc from "@/lib/services";
-import { getUserPages, getLeadAdForms, getFormLeads } from "@/lib/meta-api";
+import { getUserPages } from "@/lib/meta-api";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -9,8 +9,96 @@ const CORS = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
+const GRAPH = "https://graph.facebook.com/v19.0";
+
 export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
+}
+
+// Fetch all ad accounts the token has access to
+async function getAdAccounts(token: string): Promise<{ id: string; name: string }[]> {
+  try {
+    const res = await fetch(`${GRAPH}/me/adaccounts?fields=id,name&limit=50&access_token=${token}`);
+    const data = await res.json();
+    if (data.error) { console.warn("adaccounts error:", data.error.message); return []; }
+    return data.data || [];
+  } catch { return []; }
+}
+
+// Fetch ALL leads from an ad account across all campaigns/ad sets/ads
+async function fetchAdAccountLeads(adAccountId: string, token: string): Promise<any[]> {
+  const leads: any[] = [];
+  let nextUrl: string | null =
+    `${GRAPH}/${adAccountId}/leads?fields=id,created_time,ad_id,ad_name,adset_id,adset_name,campaign_id,campaign_name,field_data&limit=100&access_token=${token}`;
+
+  while (nextUrl) {
+    try {
+      const res = await fetch(nextUrl);
+      const data = await res.json();
+      if (data.error) { console.warn(`Ad account leads error [${adAccountId}]:`, data.error.message); break; }
+      leads.push(...(data.data || []));
+      nextUrl = data.paging?.next || null;
+    } catch { break; }
+  }
+  return leads;
+}
+
+// Fallback: fetch leads from page-level lead gen forms
+async function fetchPageFormLeads(pageId: string, pageToken: string): Promise<any[]> {
+  const leads: any[] = [];
+  try {
+    const formsRes = await fetch(
+      `${GRAPH}/${pageId}/leadgen_forms?fields=id,name,status&limit=50&access_token=${pageToken}`,
+    );
+    const formsData = await formsRes.json();
+    if (formsData.error) return leads;
+
+    for (const form of formsData.data || []) {
+      let nextUrl: string | null =
+        `${GRAPH}/${form.id}/leads?fields=id,created_time,ad_id,field_data&limit=100&access_token=${pageToken}`;
+      while (nextUrl) {
+        try {
+          const res = await fetch(nextUrl);
+          const data = await res.json();
+          if (data.error) break;
+          for (const lead of data.data || []) {
+            leads.push({ ...lead, _formName: form.name });
+          }
+          nextUrl = data.paging?.next || null;
+        } catch { break; }
+      }
+    }
+  } catch {}
+  return leads;
+}
+
+function parseFields(fieldData: any[]): Record<string, string> {
+  const f: Record<string, string> = {};
+  for (const field of fieldData || []) {
+    f[field.name] = field.values?.[0] || "";
+  }
+  return f;
+}
+
+function extractPhone(f: Record<string, string>): string {
+  return (
+    f["phone_number"] || f["phone"] || f["mobile_number"] ||
+    f["contact_number"] || f["mobile"] || f["whatsapp_number"] ||
+    f["Phone Number"] || f["Phone"] || ""
+  );
+}
+
+function extractEmail(f: Record<string, string>): string {
+  return f["email"] || f["email_address"] || f["Email"] || "";
+}
+
+function extractName(f: Record<string, string>): string {
+  if (f["full_name"]) return f["full_name"];
+  if (f["name"]) return f["name"];
+  const first = f["first_name"] || "";
+  const last = f["last_name"] || "";
+  if (first || last) return `${first} ${last}`.trim();
+  return "Meta Ads Lead";
 }
 
 export async function POST(request: Request) {
@@ -39,90 +127,121 @@ export async function POST(request: Request) {
       );
     }
 
-    // Fetch all pages for this token to get page-level tokens
-    let pages: any[] = [];
-    try {
-      pages = await getUserPages(token);
-    } catch (e: any) {
-      return NextResponse.json(
-        { error: `Could not fetch Facebook Pages: ${e.message}` },
-        { status: 400, headers: CORS },
-      );
-    }
-
-    if (pages.length === 0) {
-      return NextResponse.json(
-        { error: "No Facebook Pages found for this token." },
-        { status: 400, headers: CORS },
-      );
-    }
-
     const leadsCol = await svc.getCollection("leads");
     let synced = 0;
     let skipped = 0;
-    const formsSynced: string[] = [];
 
-    for (const page of pages) {
-      const pageToken = page.access_token || token;
+    // Collect all raw leads — from ad accounts (primary) + page forms (fallback)
+    const allRawLeads: any[] = [];
+    const seenMetaIds = new Set<string>();
 
-      // Fetch lead gen forms for this page
-      let forms: any[] = [];
-      try {
-        const formsRes = await fetch(
-          `https://graph.facebook.com/v19.0/${page.id}/leadgen_forms?fields=id,name,status,leads_count&access_token=${pageToken}`,
-        );
-        const formsData = await formsRes.json();
-        if (!formsData.error) forms = formsData.data || [];
-      } catch {}
+    // Strategy 1: Use stored ad account ID from fb-ads-connection, then fallback to /me/adaccounts
+    const fbAdsCol = await svc.getCollection("fbAdsConnections");
+    const fbConn = await fbAdsCol.findOne({ clientId });
+    const fbToken = fbConn?.accessToken || token;
 
-      for (const form of forms) {
-        formsSynced.push(form.name);
+    const adAccounts: { id: string; name: string }[] = [];
 
-        // Fetch leads from this form
-        let formLeads: any[] = [];
-        try {
-          formLeads = await getFormLeads(form.id, pageToken);
-        } catch {}
+    if (fbConn?.adAccountId) {
+      // Use the stored ad account ID directly
+      const storedId = fbConn.adAccountId.startsWith("act_")
+        ? fbConn.adAccountId
+        : `act_${fbConn.adAccountId}`;
+      adAccounts.push({ id: storedId, name: storedId });
+      console.log(`[LeadsSync] Using stored ad account: ${storedId}`);
+    } else {
+      // Fallback: discover via token
+      const discovered = await getAdAccounts(fbToken);
+      adAccounts.push(...discovered);
+      console.log(`[LeadsSync] Discovered ${discovered.length} ad accounts via token`);
+    }
 
-        for (const ml of formLeads) {
-          const f: Record<string, string> = {};
-          for (const field of ml.field_data || []) {
-            f[field.name] = field.values?.[0] || "";
-          }
-
-          const phone = f["phone_number"] || f["phone"] || "";
-          const email = f["email"] || "";
-          const name = f["full_name"] || f["name"] || "Meta Ads Lead";
-
-          if (!phone && !email) continue;
-
-          // Dedup by phone or email within this client's leads
-          const query: any = { clientId };
-          if (phone && email) query.$or = [{ phone }, { email }];
-          else if (phone) query.phone = phone;
-          else query.email = email;
-
-          const existing = await leadsCol.findOne(query);
-          if (existing) { skipped++; continue; }
-
-          await leadsCol.insertOne({
-            clientId,
-            name,
-            phone,
-            email,
-            source: `Meta Ads — ${page.name}`,
-            formName: form.name,
-            status: "not called",
-            createdAt: new Date(ml.created_time),
-            syncedAt: new Date(),
-          });
-          synced++;
+    for (const adAccount of adAccounts) {
+      const leads = await fetchAdAccountLeads(adAccount.id, fbToken);
+      console.log(`[LeadsSync] Ad account ${adAccount.name} (${adAccount.id}): ${leads.length} leads`);
+      for (const lead of leads) {
+        if (!seenMetaIds.has(lead.id)) {
+          seenMetaIds.add(lead.id);
+          allRawLeads.push({ ...lead, _adAccountName: adAccount.name });
         }
       }
     }
 
+    // Strategy 2: Page forms fallback (catches leads not linked to ad accounts)
+    let pages: any[] = [];
+    try { pages = await getUserPages(fbToken); } catch {}
+
+    for (const page of pages) {
+      const pageToken = page.access_token || token;
+      const pageLeads = await fetchPageFormLeads(page.id, pageToken);
+      console.log(`[LeadsSync] Page ${page.name}: ${pageLeads.length} leads from forms`);
+      for (const lead of pageLeads) {
+        if (!seenMetaIds.has(lead.id)) {
+          seenMetaIds.add(lead.id);
+          allRawLeads.push({ ...lead, _pageName: page.name });
+        }
+      }
+    }
+
+    console.log(`[LeadsSync] Total unique leads to process: ${allRawLeads.length}`);
+
+    // Insert unique leads
+    for (const ml of allRawLeads) {
+      const f = parseFields(ml.field_data);
+      const phone = extractPhone(f);
+      const email = extractEmail(f);
+      const name = extractName(f);
+
+      // Dedup by metaLeadId first
+      const existingById = await leadsCol.findOne({ clientId, metaLeadId: ml.id });
+      if (existingById) { skipped++; continue; }
+
+      // Dedup by phone/email within client
+      if (phone || email) {
+        const orClauses: any[] = [];
+        if (phone) orClauses.push({ phone });
+        if (email) orClauses.push({ email });
+        const existingByContact = await leadsCol.findOne({ clientId, $or: orClauses });
+        if (existingByContact) {
+          await leadsCol.updateOne(
+            { _id: existingByContact._id },
+            { $set: { metaLeadId: ml.id, campaignName: ml.campaign_name || "", adName: ml.ad_name || "" } },
+          );
+          skipped++;
+          continue;
+        }
+      }
+
+      await leadsCol.insertOne({
+        clientId,
+        metaLeadId: ml.id,
+        name,
+        phone,
+        email,
+        metaFields: f,
+        source: "Meta Ads",
+        campaignName: ml.campaign_name || "",
+        campaignId: ml.campaign_id || "",
+        adSetName: ml.adset_name || "",
+        adName: ml.ad_name || ml._formName || "",
+        formName: ml._formName || ml.ad_name || "",
+        pageName: ml._pageName || "",
+        adId: ml.ad_id || "",
+        status: "not called",
+        createdAt: new Date(ml.created_time),
+        syncedAt: new Date(),
+      });
+      synced++;
+    }
+
     return NextResponse.json(
-      { synced, skipped, pages: pages.length, forms: formsSynced.length },
+      {
+        synced,
+        skipped,
+        total: allRawLeads.length,
+        adAccounts: adAccounts.length,
+        pages: pages.length,
+      },
       { headers: CORS },
     );
   } catch (e: any) {

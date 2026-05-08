@@ -363,16 +363,17 @@ export default function QuotationsPage() {
       </header>
 
       <div className="border-2 border-black rounded-lg overflow-hidden">
+        <div className="overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow className="border-b-2 border-black bg-gray-50">
-              <TableHead className="text-base font-bold">
+              <TableHead className="text-xs sm:text-sm font-bold">
                 Quote ID / Title
               </TableHead>
-              <TableHead className="text-base font-bold">Client</TableHead>
-              <TableHead className="text-base font-bold">Date</TableHead>
-              <TableHead className="text-base font-bold">Services</TableHead>
-              <TableHead className="text-base font-bold">Modules</TableHead>
+              <TableHead className="text-xs sm:text-sm font-bold">Client</TableHead>
+              <TableHead className="text-xs sm:text-sm font-bold">Date</TableHead>
+              <TableHead className="text-xs sm:text-sm font-bold">Services</TableHead>
+              <TableHead className="text-xs sm:text-sm font-bold">Modules</TableHead>
               <TableHead className="text-base font-bold text-right">
                 Total Amount
               </TableHead>
@@ -667,6 +668,7 @@ export default function QuotationsPage() {
             )}
           </TableBody>
         </Table>
+        </div>
       </div>
     </div>
   );

@@ -329,7 +329,7 @@ export default function SupportPage() {
 
   const TicketDetailModal = () => (
     <Dialog open={isDetailModalOpen} onOpenChange={setIsDetailModalOpen}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="w-[95vw] max-w-4xl max-h-[90vh] overflow-y-auto">
         {selectedTicket && (
           <>
             <DialogHeader>
@@ -375,7 +375,7 @@ export default function SupportPage() {
                     <p className="mt-1">{selectedTicket.description}</p>
                   </div>
                   <Separator />
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-sm font-medium text-muted-foreground flex items-center gap-2">
                         <User className="h-4 w-4" /> Client
@@ -739,7 +739,7 @@ export default function SupportPage() {
                   onChange={(e) => update("description", e.target.value)}
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="grid gap-2">
                   <label className="text-sm font-medium">Priority</label>
                   <Select
@@ -850,7 +850,7 @@ export default function SupportPage() {
   return (
     <div className="flex h-screen bg-gray-50">
       {}
-      <div className="w-64 bg-white border-r border-gray-200 p-4 shrink-0">
+      <div className="hidden md:block w-64 bg-white border-r border-gray-200 p-4 shrink-0">
         <div className="mb-8">
           <h2 className="text-lg font-bold text-gray-900">Support Tickets</h2>
         </div>
@@ -886,7 +886,7 @@ export default function SupportPage() {
       </div>
 
       {}
-      <div className="flex-1 overflow-hidden flex flex-col">
+      <div className="w-full md:flex-1 overflow-hidden flex flex-col">
         {}
         <div className="bg-white border-b border-gray-200 px-6 py-4 shrink-0">
           <div className="flex items-center justify-between">
@@ -936,7 +936,7 @@ export default function SupportPage() {
 
         {}
         <div className="p-6 overflow-auto flex-1">
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {(["new", "in_progress", "resolved"] as const).map((status) => (
               <div key={status}>
                 <div className="flex items-center gap-2 mb-4">
@@ -998,7 +998,7 @@ export default function SupportPage() {
                 onChange={(e) => update("description", e.target.value)}
               />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="grid gap-2">
                 <label className="text-sm font-medium">Client</label>
                 <Select
@@ -1042,7 +1042,7 @@ export default function SupportPage() {
                 </Select>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="grid gap-2">
                 <label className="text-sm font-medium">Category</label>
                 <Select

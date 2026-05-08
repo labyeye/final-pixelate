@@ -692,7 +692,7 @@ export default function LeadsPage() {
 
       {}
       {showFilters && (
-        <div className="border-2 border-black p-4 grid grid-cols-2 sm:grid-cols-4 gap-3 bg-gray-50">
+        <div className="border-2 border-black p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 bg-gray-50">
           <div>
             <label className="text-xs font-bold mb-1 block uppercase tracking-wide">
               Staff
@@ -842,6 +842,7 @@ export default function LeadsPage() {
       {}
       {!loading && view === "table" && (
         <div className="border-2 border-black overflow-hidden">
+          <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow className="border-b-2 border-black bg-gray-50">
@@ -1007,6 +1008,7 @@ export default function LeadsPage() {
               })}
             </TableBody>
           </Table>
+          </div>
         </div>
       )}
 
@@ -1017,7 +1019,7 @@ export default function LeadsPage() {
             const cards = kanbanGroups[status] || [];
             const statusColor = leadStatusColors[status] || "bg-gray-100";
             return (
-              <div key={status} className="flex-shrink-0 w-72">
+              <div key={status} className="flex-shrink-0 w-72 min-w-[280px]">
                 <div className={`border-2 border-black overflow-hidden`}>
                   <div
                     className={`px-3 py-2 border-b-2 border-black ${statusColor}`}
