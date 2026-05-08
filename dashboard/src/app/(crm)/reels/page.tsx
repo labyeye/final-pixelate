@@ -31,7 +31,7 @@ export default function ReelsPage() {
     setSuccessMessage(msg);
     setTimeout(() => setSuccessMessage(null), 2000);
   };
-  const { register, control, handleSubmit, reset, setValue, getValues } =
+  const { register, control, handleSubmit, reset, setValue, getValues, watch } =
     useForm<FormValues>({
       defaultValues: { brandName: "", brandLogoBase64: "", entries: [] },
     });
@@ -39,6 +39,8 @@ export default function ReelsPage() {
     control,
     name: "entries",
   });
+  const watchedLogo = watch("brandLogoBase64");
+  const watchedEntries = watch("entries");
 
   useEffect(() => {
     let mounted = true;
@@ -85,17 +87,13 @@ export default function ReelsPage() {
   };
 
   const onEntryFile = async (index: number, f: File | null) => {
-    const data = f ? await toBase64(f) : "";
-
+    if (!f) return;
+    const data = await toBase64(f);
     const current = getValues().entries || [];
     const entriesCopy = [...current];
-
     while (entriesCopy.length <= index)
       entriesCopy.push({ thumbnailBase64: "", link: "", title: "" });
-    entriesCopy[index] = {
-      ...(entriesCopy[index] || {}),
-      thumbnailBase64: data,
-    };
+    entriesCopy[index] = { ...(entriesCopy[index] || {}), thumbnailBase64: data };
     replace(entriesCopy);
   };
 
@@ -190,6 +188,13 @@ export default function ReelsPage() {
             <div>
               <label className="block text-sm font-medium">Brand Logo</label>
               <input type="file" accept="image/*" onChange={onBrandLogo} />
+              {watchedLogo && (
+                <img
+                  src={watchedLogo}
+                  alt="Brand logo preview"
+                  className="mt-2 h-16 object-contain rounded border"
+                />
+              )}
             </div>
 
             <div>
@@ -200,28 +205,41 @@ export default function ReelsPage() {
                 {fields.map((f, idx) => (
                   <div
                     key={f.id}
-                    className="grid grid-cols-3 gap-2 items-center"
+                    className="border rounded p-3 space-y-2"
                   >
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={async (e) =>
-                        await onEntryFile(idx, e.target.files?.[0] ?? null)
-                      }
-                    />
-                    <Input
-                      {...register(`entries.${idx}.link` as const)}
-                      placeholder="Link"
-                    />
-                    <Input
-                      {...register(`entries.${idx}.title` as const)}
-                      placeholder="Title (optional)"
-                    />
-                    <div className="col-span-3">
-                      <Button variant="destructive" onClick={() => remove(idx)}>
-                        Remove
-                      </Button>
+                    <div className="grid grid-cols-2 gap-2">
+                      <Input
+                        {...register(`entries.${idx}.link` as const)}
+                        placeholder="Link"
+                      />
+                      <Input
+                        {...register(`entries.${idx}.title` as const)}
+                        placeholder="Title (optional)"
+                      />
                     </div>
+                    <div className="flex items-center gap-3">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={async (e) =>
+                          await onEntryFile(idx, e.target.files?.[0] ?? null)
+                        }
+                      />
+                      {watchedEntries?.[idx]?.thumbnailBase64 && (
+                        <img
+                          src={watchedEntries[idx].thumbnailBase64}
+                          alt={`Thumbnail ${idx + 1} preview`}
+                          className="h-16 w-28 object-cover rounded border"
+                        />
+                      )}
+                    </div>
+                    <Button
+                      type="button"
+                      variant="destructive"
+                      onClick={() => remove(idx)}
+                    >
+                      Remove
+                    </Button>
                   </div>
                 ))}
                 <Button
