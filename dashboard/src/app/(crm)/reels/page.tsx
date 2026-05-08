@@ -57,12 +57,23 @@ export default function ReelsPage() {
     };
   }, []);
 
-  const toBase64 = (f: File | null) => {
-    if (!f) return Promise.resolve<string>("");
+  const toBase64 = (f: File | null): Promise<string> => {
+    if (!f) return Promise.resolve("");
     return new Promise<string>((resolve, reject) => {
       const r = new FileReader();
-      r.onload = () => resolve(String(r.result));
       r.onerror = reject;
+      r.onload = () => {
+        const img = new Image();
+        img.onerror = reject;
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+          canvas.getContext("2d")!.drawImage(img, 0, 0);
+          resolve(canvas.toDataURL("image/webp", 0.85));
+        };
+        img.src = String(r.result);
+      };
       r.readAsDataURL(f);
     });
   };
