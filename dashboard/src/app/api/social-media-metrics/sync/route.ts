@@ -157,6 +157,12 @@ export async function POST(request: Request) {
         account.igAccountId,
         effectiveToken,
       );
+      if ((metrics as any).skipped) {
+        return NextResponse.json(
+          { skipped: true, reason: (metrics as any).skipReason },
+          { status: 200, headers: CORS },
+        );
+      }
     } else {
       return NextResponse.json(
         {

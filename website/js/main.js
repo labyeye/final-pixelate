@@ -62,7 +62,7 @@ fbq("track", "PageView");
 (async function loadAnnouncement() {
   try {
     const res = await fetch(
-      "https://backend.pixelatenest.com/api/announcement",
+      "http://localhost:9002/api/announcement",
       {
         cache: "no-store",
       },
@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 (function () {
-  const API_URL = "https://backend.pixelatenest.com/api/reviews";
+  const API_URL = "http://localhost:9002/api/reviews";
   let currentIndex = 0;
   let testimonials = [];
   let selectedRating = 0;
@@ -707,7 +707,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   const domains = [
-    "https://backend.pixelatenest.com",
+    "http://localhost:9002",
     "https://fonts.googleapis.com",
     "https://fonts.gstatic.com",
     "https://cdn.prod.website-files.com",
@@ -747,7 +747,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fetch("/", { method: "GET", mode: "no-cors", cache: "no-cache" }).catch(
         () => {},
       );
-      fetch("https://backend.pixelatenest.com", {
+      fetch("http://localhost:9002", {
         method: "GET",
         mode: "no-cors",
       }).catch(() => {});

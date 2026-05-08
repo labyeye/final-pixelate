@@ -1389,7 +1389,7 @@
         timestamp: new Date().toISOString(),
       };
 
-      const apiUrl = "https://backend.pixelatenest.com/api/pixy-lead";
+      const apiUrl = "http://localhost:9002/api/pixy-lead";
 
       const response = await fetch(apiUrl, {
         method: "POST",

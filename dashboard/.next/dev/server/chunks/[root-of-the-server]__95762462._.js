@@ -1123,16 +1123,21 @@ async function fetchFbPostMetrics(postUrl, pageId, pageAccessToken) {
     };
 }
 async function resolveIgMediaId(permalink, igAccountId, accessToken) {
-    const normalised = permalink.replace(/\/$/, "").toLowerCase();
+    const normalised = permalink.replace(/\/$/, "").toLowerCase().trim();
     const shortcodeMatch = permalink.match(/instagram\.com\/(?:p|reel|tv)\/([A-Za-z0-9_-]+)/);
+    // Keep original case — Instagram shortcodes are case-sensitive (base64). Compare lowercased separately.
+    const shortcode = shortcodeMatch?.[1] || null;
+    const shortcodeLower = shortcode?.toLowerCase() || null;
+    console.log(`[IG resolve] Looking for: "${normalised}" | shortcode: "${shortcode}" | igAccountId: ${igAccountId}`);
     // Search through account media
     let after = null;
     let totalScanned = 0;
     let apiError = "";
-    for(let page = 0; page < 10; page++){
+    let firstItemPermalink = "";
+    for(let page = 0; page < 20; page++){
         const url = new URL(`${META_GRAPH_API}/${igAccountId}/media`);
         url.searchParams.set("fields", "id,permalink,media_type");
-        url.searchParams.set("limit", "50");
+        url.searchParams.set("limit", "100");
         url.searchParams.set("access_token", accessToken);
         if (after) url.searchParams.set("after", after);
         const res = await fetch(url.toString());
@@ -1145,10 +1150,22 @@ async function resolveIgMediaId(permalink, igAccountId, accessToken) {
             break;
         }
         const items = data.data || [];
+        if (totalScanned === 0 && items[0]?.permalink) {
+            firstItemPermalink = items[0].permalink;
+            console.log(`[IG resolve] First item in feed: "${firstItemPermalink}"`);
+        }
         totalScanned += items.length;
         for (const item of items){
-            const itemPermalink = (item.permalink || "").replace(/\/$/, "").toLowerCase();
-            if (itemPermalink === normalised || shortcodeMatch && itemPermalink.includes(shortcodeMatch[1])) {
+            // Normalise item permalink the same way (lowercase, no trailing slash)
+            const itemPermalink = (item.permalink || "").replace(/\/$/, "").toLowerCase().trim();
+            // Extract shortcode from item permalink (already lowercased)
+            const itemShortcodeMatch = itemPermalink.match(/instagram\.com\/(?:p|reel|tv)\/([a-z0-9_-]+)/);
+            const itemShortcode = itemShortcodeMatch?.[1] || null;
+            const exactMatch = itemPermalink === normalised;
+            // Compare shortcodes in lowercase — shortcodes are case-sensitive but lowercasing both is safe for matching
+            const shortcodeHit = shortcodeLower && itemShortcode && itemShortcode === shortcodeLower;
+            if (exactMatch || shortcodeHit) {
+                console.log(`[IG resolve] Found! id=${item.id} permalink="${item.permalink}" (exact=${exactMatch} shortcode=${shortcodeHit})`);
                 return {
                     id: item.id,
                     failReason: ""
@@ -1158,6 +1175,7 @@ async function resolveIgMediaId(permalink, igAccountId, accessToken) {
         after = data.paging?.cursors?.after;
         if (!after) break;
     }
+    console.warn(`[IG resolve] Not found after ${totalScanned} items. Searching for: "${normalised}" | First item was: "${firstItemPermalink}"`);
     const failReason = apiError || (totalScanned > 0 ? `Post not found after scanning ${totalScanned} items — it may be a collab post or belong to a different account.` : "No media returned from API.");
     return {
         id: null,
@@ -1267,7 +1285,18 @@ async function sendConversionEvents(datasetId, accessToken, events) {
 }
 async function fetchIgMediaMetrics(postUrl, igAccountId, accessToken) {
     const { id: mediaId, failReason } = await resolveIgMediaId(postUrl, igAccountId, accessToken);
-    if (!mediaId) throw new Error(`Instagram sync failed: ${failReason}`);
+    if (!mediaId) {
+        console.warn(`[IG sync] Skipping post — ${failReason}`);
+        return {
+            views: 0,
+            likes: 0,
+            comments: 0,
+            shares: 0,
+            followers_gained: 0,
+            skipped: true,
+            skipReason: failReason
+        };
+    }
     // Fetch basic media info including media_type to pick correct insight metrics
     const mediaUrl = new URL(`${META_GRAPH_API}/${mediaId}`);
     mediaUrl.searchParams.set("fields", "id,like_count,comments_count,media_type,permalink");
@@ -1282,14 +1311,14 @@ async function fetchIgMediaMetrics(postUrl, igAccountId, accessToken) {
     let shares = 0;
     let followers_gained = 0;
     let insightError = "";
-    // Each metric set tried independently so one bad metric doesn't block others
+    // plays/video_views/impressions removed in Meta API v22.0
+    // reach is the correct metric for both reels and image posts
     const viewMetrics = isReel ? [
-        "plays",
-        "impressions",
-        "video_views"
+        "reach",
+        "ig_reels_video_view_total_time"
     ] : [
-        "impressions",
-        "reach"
+        "reach",
+        "total_interactions"
     ];
     const extraMetrics = [
         "shares",
@@ -1303,7 +1332,14 @@ async function fetchIgMediaMetrics(postUrl, igAccountId, accessToken) {
             const res = await fetch(url.toString());
             const data = await res.json();
             if (data.error) {
-                insightError = data.error.message;
+                const code = data.error.code;
+                // code 100 = unsupported metric — log at debug level, not warn
+                if (code === 100) {
+                    console.log(`[IG insights] metric "${metric}" unsupported for ${mediaId}, trying next`);
+                } else {
+                    insightError = data.error.message;
+                    console.warn(`[IG insights] error for "${metric}" on ${mediaId}: ${data.error.message}`);
+                }
                 return 0;
             }
             const item = (data.data || []).find((d)=>d.name === metric);
@@ -1321,10 +1357,6 @@ async function fetchIgMediaMetrics(postUrl, igAccountId, accessToken) {
         }
     }
     shares = await fetchInsight("shares");
-    // Log insight error to server for debugging
-    if (insightError) {
-        console.warn(`IG insights error for mediaId ${mediaId}: ${insightError}`);
-    }
     return {
         views,
         likes: media.like_count ?? 0,
@@ -1493,6 +1525,15 @@ async function POST(request) {
                 });
             }
             metrics = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$meta$2d$api$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["fetchIgMediaMetrics"])(postedUrl, account.igAccountId, effectiveToken);
+            if (metrics.skipped) {
+                return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                    skipped: true,
+                    reason: metrics.skipReason
+                }, {
+                    status: 200,
+                    headers: CORS
+                });
+            }
         } else {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
                 error: `Auto-sync is not supported for ${platform} yet. Supported: Facebook, Instagram.`

@@ -326,13 +326,14 @@ export default function AnalyticsPage() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ postId, accountId }),
         });
-        if (res.ok) {
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && !data.skipped) {
           synced++;
         } else {
           skipped++;
-          const data = await res.json().catch(() => ({}));
-          errors.push({ title: post.title, error: data.error || `HTTP ${res.status}` });
-          setSyncProgress((prev) => prev ? { ...prev, errors: [...prev.errors, { title: post.title, error: data.error || `HTTP ${res.status}` }] } : prev);
+          const msg = data.reason || data.error || `HTTP ${res.status}`;
+          errors.push({ title: post.title, error: msg });
+          setSyncProgress((prev) => prev ? { ...prev, errors: [...prev.errors, { title: post.title, error: msg }] } : prev);
         }
       } catch (e: any) {
         skipped++;
