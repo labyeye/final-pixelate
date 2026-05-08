@@ -192,11 +192,24 @@ export async function POST(request: Request) {
       const email = extractEmail(f);
       const name = extractName(f);
 
-      // Dedup by metaLeadId first
-      const existingById = await leadsCol.findOne({ clientId, metaLeadId: ml.id });
-      if (existingById) { skipped++; continue; }
+      // Dedup by metaLeadId OR legacy fbLeadId (old sync route used fbLeadId field name)
+      const existingById = await leadsCol.findOne({
+        clientId,
+        $or: [{ metaLeadId: ml.id }, { fbLeadId: ml.id }],
+      });
+      if (existingById) {
+        // Migrate legacy fbLeadId → metaLeadId so future syncs find it faster
+        if (!existingById.metaLeadId) {
+          await leadsCol.updateOne(
+            { _id: existingById._id },
+            { $set: { metaLeadId: ml.id, campaignName: ml.campaign_name || "", adName: ml.ad_name || "" } },
+          );
+        }
+        skipped++;
+        continue;
+      }
 
-      // Dedup by phone/email within client
+      // Dedup by phone/email within client — NEVER overwrite status/notes/followUpDate
       if (phone || email) {
         const orClauses: any[] = [];
         if (phone) orClauses.push({ phone });

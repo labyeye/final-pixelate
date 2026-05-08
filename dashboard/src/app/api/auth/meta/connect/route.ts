@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
   }
 
   const appUrl =
-    "http://localhost:9002";
+    "https://backend.pixelatenest.com";
 
   const callbackUrl = `${appUrl}/api/auth/meta/callback`;
 

@@ -1,5 +1,5 @@
 (function () {
-  const API_URL = "http://localhost:9002/api/user-activity";
+  const API_URL = "https://backend.pixelatenest.com/api/user-activity";
 
   function getUserId() {
     let userId = localStorage.getItem("pixelate_user_id");

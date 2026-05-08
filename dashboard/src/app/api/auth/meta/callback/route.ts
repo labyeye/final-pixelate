@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
   const oauthError = searchParams.get("error");
 
   const appUrl = 
-    "http://localhost:9002";
+    "https://backend.pixelatenest.com";
 
   // Decode state
   let stateObj: { clientId?: string; accountId?: string } = {};
