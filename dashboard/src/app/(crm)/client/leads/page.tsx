@@ -8,6 +8,12 @@ import { Badge } from "@/components/ui/badge";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
+interface StatusHistoryEntry {
+  from: string;
+  to: string;
+  changedAt: string;
+}
+
 interface Lead {
   _id?: string;
   id?: string;
@@ -26,6 +32,7 @@ interface Lead {
   followUpDate?: string;
   createdAt?: string;
   metaFields?: Record<string, string>;
+  statusHistory?: StatusHistoryEntry[];
 }
 
 // ── Constants ─────────────────────────────────────────────────────────────────
@@ -196,6 +203,33 @@ function LeadModal({
             />
           </div>
 
+          {/* Status History */}
+          {lead.statusHistory && lead.statusHistory.length > 0 && (
+            <div className="border-2 border-black rounded-lg p-3">
+              <p className="text-xs font-black text-gray-500 uppercase mb-3">Status History</p>
+              <div className="relative pl-4">
+                <div className="absolute left-1.5 top-0 bottom-0 w-px bg-gray-200" />
+                {[...lead.statusHistory].reverse().map((h, i) => {
+                  const fromCfg = STATUS_CONFIG[h.from] || STATUS_CONFIG["other"];
+                  const toCfg = STATUS_CONFIG[h.to] || STATUS_CONFIG["other"];
+                  return (
+                    <div key={i} className="relative mb-3 last:mb-0">
+                      <span className={`absolute -left-[11px] w-3 h-3 rounded-full border-2 border-white ${toCfg.dot}`} />
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${fromCfg.bg} ${fromCfg.color}`}>{fromCfg.label}</span>
+                        <span className="text-xs text-gray-400">→</span>
+                        <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${toCfg.bg} ${toCfg.color}`}>{toCfg.label}</span>
+                      </div>
+                      <p className="text-xs text-gray-400 mt-0.5">
+                        {new Date(h.changedAt).toLocaleString("en-IN", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           {/* Actions */}
           <div className="flex gap-3">
             <Button variant="outline" onClick={onClose} className="flex-1 border-2 border-black font-bold">Cancel</Button>
@@ -264,12 +298,17 @@ export default function ClientLeadsPage() {
   };
 
   const handleSaveLead = async (id: string, updates: Partial<Lead>) => {
-    await fetch(`/api/leads/${id}`, {
+    const res = await fetch(`/api/leads/${id}`, {
       method: "PATCH",
       headers: getAuthHeaders(),
       body: JSON.stringify(updates),
     });
-    setLeads((prev) => prev.map((l) => String(l._id || l.id) === id ? { ...l, ...updates } : l));
+    const updated = res.ok ? await res.json() : null;
+    setLeads((prev) => prev.map((l) => {
+      if (String(l._id || l.id) !== id) return l;
+      return updated ? { ...l, ...updated } : { ...l, ...updates };
+    }));
+    if (updated) setSelectedLead((prev) => prev ? { ...prev, ...updated } : prev);
   };
 
   // Stats

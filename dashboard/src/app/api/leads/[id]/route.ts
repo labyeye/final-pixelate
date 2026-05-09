@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import * as svc from "@/lib/services";
 import { verifyToken } from "@/lib/auth";
+import { ObjectId } from "mongodb";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -40,8 +41,32 @@ export async function PATCH(
         headers: CORS,
       });
     const body = await request.json();
+    const { status: newStatus, ...rest } = body;
 
-    const updated = await svc.updateById("leads", params.id, body);
+    const col = await svc.getCollection("leads");
+    const hex24 = /^[a-fA-F0-9]{24}$/.test(params.id);
+    const filter = hex24 ? { _id: new ObjectId(params.id) } : { id: params.id };
+
+    const existing = await col.findOne(filter);
+    const setDoc: Record<string, any> = { ...rest, updatedAt: new Date() };
+    const pushDoc: Record<string, any> = {};
+
+    if (newStatus !== undefined) {
+      setDoc.status = newStatus;
+      if (existing?.status !== newStatus) {
+        pushDoc.statusHistory = {
+          from: existing?.status ?? "not called",
+          to: newStatus,
+          changedAt: new Date(),
+        };
+      }
+    }
+
+    const mongoUpdate: Record<string, any> = { $set: setDoc };
+    if (Object.keys(pushDoc).length) mongoUpdate.$push = pushDoc;
+
+    await col.updateOne(filter, mongoUpdate);
+    const updated = await col.findOne(filter);
     return NextResponse.json(updated, { headers: CORS });
   } catch (e: any) {
     return NextResponse.json(
