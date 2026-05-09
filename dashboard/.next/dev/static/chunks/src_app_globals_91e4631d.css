@@ -450,6 +450,10 @@ body {
   left: -1.25rem;
 }
 
+.-left-\[11px\] {
+  left: -11px;
+}
+
 .-right-12 {
   right: -3rem;
 }
@@ -472,6 +476,10 @@ body {
 
 .left-1 {
   left: .25rem;
+}
+
+.left-1\.5 {
+  left: .375rem;
 }
 
 .left-1\/2 {
@@ -2273,6 +2281,11 @@ body {
 
 .border-transparent {
   border-color: #0000;
+}
+
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
 .border-white\/30 {
@@ -4332,6 +4345,10 @@ body {
 
 .first\:pt-0:first-child {
   padding-top: 0;
+}
+
+.last\:mb-0:last-child {
+  margin-bottom: 0;
 }
 
 .last\:border-0:last-child {

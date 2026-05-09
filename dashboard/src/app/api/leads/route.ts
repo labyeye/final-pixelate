@@ -26,7 +26,10 @@ export async function GET(request: Request) {
     const col = await svc.getCollection("leads");
     let items: any[];
     if (decoded.role === "admin") {
-      items = await col.find().sort({ createdAt: -1 }).toArray();
+      items = await col
+        .find({ clientId: { $exists: false } })
+        .sort({ createdAt: -1 })
+        .toArray();
     } else if (decoded.role === "client") {
       items = await col
         .find({ clientId: decoded.clientId })

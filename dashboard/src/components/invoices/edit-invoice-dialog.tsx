@@ -21,6 +21,7 @@ import {
 import { useForm } from "react-hook-form";
 
 const HSN_OPTIONS = [
+  { value: "998313", label: "998313 – Management Consulting Services" },
   { value: "998314", label: "998314 – IT/Creative Services" },
   { value: "999612", label: "999612 – Photography/Video" },
   { value: "998315", label: "998315 – Hosting/Maintenance" },

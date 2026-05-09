@@ -59,7 +59,7 @@ async function POST(req) {
         });
     }
     const { phone, clientName, amount, receiptNo, paymentDate, paymentMode, transactionRef, mediaId, filename } = body;
-    const accessToken = process.env.WHATSAPP_ACCESS_TOKEN || process.env.META_ACCESS_TOKEN;
+    const accessToken = process.env.META_ACCESS_TOKEN || process.env.META_ACCESS_TOKEN;
     const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
     const apiVersion = process.env.WHATSAPP_API_VERSION ?? "v21.0";
     if (!accessToken || !phoneNumberId) {

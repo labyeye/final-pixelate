@@ -1020,10 +1020,10 @@ async function POST(req) {
             });
         }
     }
-    const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
+    const accessToken = process.env.META_ACCESS_TOKEN;
     const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
     if (!accessToken) {
-        console.error("[WhatsApp] WHATSAPP_ACCESS_TOKEN is not set.");
+        console.error("[WhatsApp] META_ACCESS_TOKEN is not set.");
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             error: "Server misconfiguration: missing token."
         }, {

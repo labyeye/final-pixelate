@@ -236,11 +236,11 @@ export async function POST(req: NextRequest) {
       );
     }
   }
-  const accessToken = process.env.WHATSAPP_ACCESS_TOKEN;
+  const accessToken = process.env.META_ACCESS_TOKEN;
   const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
 
   if (!accessToken) {
-    console.error("[WhatsApp] WHATSAPP_ACCESS_TOKEN is not set.");
+    console.error("[WhatsApp] META_ACCESS_TOKEN is not set.");
     return NextResponse.json(
       { error: "Server misconfiguration: missing token." },
       { status: 500 },
