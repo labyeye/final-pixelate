@@ -4,11 +4,12 @@ import { ObjectId } from "mongodb";
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await params;
     const db = await getDb();
-    const campaignId = params.id;
+    const campaignId = id;
 
     console.log("Attempting to delete campaign:", campaignId);
 
@@ -49,11 +50,12 @@ export async function DELETE(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await params;
     const db = await getDb();
-    const campaignId = params.id;
+    const campaignId = id;
     const updates = await request.json();
 
     if (!ObjectId.isValid(campaignId)) {

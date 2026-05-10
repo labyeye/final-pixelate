@@ -3,10 +3,11 @@ import * as svc from "@/lib/services";
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const item = await svc.findById("inventory", params.id);
+    const { id } = await params;
+    const item = await svc.findById("inventory", id);
     if (!item)
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     return NextResponse.json(item);
@@ -20,11 +21,12 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
-    const updated = await svc.updateInventory(params.id, body);
+    const updated = await svc.updateInventory(id, body);
     return NextResponse.json(updated);
   } catch (e: any) {
     return NextResponse.json(
@@ -36,10 +38,11 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const ok = await svc.deleteInventory(params.id);
+    const { id } = await params;
+    const ok = await svc.deleteInventory(id);
     if (!ok) return NextResponse.json({ error: "Not found" }, { status: 404 });
     return NextResponse.json({ success: true });
   } catch (e: any) {

@@ -14,10 +14,10 @@ export async function OPTIONS() {
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id } = (await params) as any;
+    const { id } = await params;
     const col = await svc.getCollection("reels");
     const item = await col.findOne({ _id: new ObjectId(id) });
     return NextResponse.json(item, { headers: CORS });
@@ -31,10 +31,10 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id } = (await params) as any;
+    const { id } = await params;
     const body = await request.json();
     const col = await svc.getCollection("reels");
     const updates = { ...body, updatedAt: new Date() };
@@ -59,10 +59,10 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id } = (await params) as any;
+    const { id } = await params;
     const ok = await svc.softDeleteById("reels", id);
     if (!ok)
       return NextResponse.json(

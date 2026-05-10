@@ -13,10 +13,11 @@ export async function OPTIONS() {
 
 export async function GET(
   _request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const item = await svc.findById("blogs", params.id);
+    const { id } = await params;
+    const item = await svc.findById("blogs", id);
     return NextResponse.json(item || {}, { headers: CORS_HEADERS });
   } catch (e: any) {
     return NextResponse.json(
@@ -28,11 +29,12 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
-    const updated = await svc.updateById("blogs", params.id, {
+    const updated = await svc.updateById("blogs", id, {
       ...body,
       updatedAt: new Date(),
     });
@@ -47,9 +49,10 @@ export async function PUT(
 
 export async function DELETE(
   _request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await params;
     const auth = _request.headers.get("authorization") || "";
     const token = auth.replace("Bearer ", "");
     const { verifyToken } = await import("@/lib/auth");
@@ -64,7 +67,7 @@ export async function DELETE(
         status: 403,
         headers: CORS_HEADERS,
       });
-    const ok = await svc.deleteById("blogs", params.id);
+    const ok = await svc.deleteById("blogs", id);
     return NextResponse.json({ ok }, { headers: CORS_HEADERS });
   } catch (e: any) {
     return NextResponse.json(

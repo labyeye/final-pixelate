@@ -15,10 +15,11 @@ export async function OPTIONS() {
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const item = await svc.findById("leads", params.id);
+    const { id } = await params;
+    const item = await svc.findById("leads", id);
     return NextResponse.json(item, { headers: CORS });
   } catch (e: any) {
     return NextResponse.json(
@@ -30,7 +31,7 @@ export async function GET(
 
 export async function PATCH(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const auth = request.headers.get("authorization") || "";
@@ -40,12 +41,14 @@ export async function PATCH(
         status: 401,
         headers: CORS,
       });
+
+    const { id } = await params;
     const body = await request.json();
     const { status: newStatus, ...rest } = body;
 
     const col = await svc.getCollection("leads");
-    const hex24 = /^[a-fA-F0-9]{24}$/.test(params.id);
-    const filter = hex24 ? { _id: new ObjectId(params.id) } : { id: params.id };
+    const hex24 = /^[a-fA-F0-9]{24}$/.test(id);
+    const filter = hex24 ? { _id: new ObjectId(id) } : { id };
 
     const existing = await col.findOne(filter);
     const setDoc: Record<string, any> = { ...rest, updatedAt: new Date() };
@@ -78,7 +81,7 @@ export async function PATCH(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const auth = request.headers.get("authorization") || "";
@@ -95,7 +98,8 @@ export async function DELETE(
         status: 403,
         headers: CORS,
       });
-    const ok = await svc.deleteById("leads", params.id);
+    const { id } = await params;
+    const ok = await svc.deleteById("leads", id);
     return NextResponse.json({ deleted: ok }, { headers: CORS });
   } catch (e: any) {
     return NextResponse.json(

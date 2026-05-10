@@ -15,9 +15,9 @@ export async function OPTIONS() {
 // Returns whether token exists (never exposes the actual token)
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const { id } = (await params) as any;
+  const { id } = await params;
   const col = await svc.getCollection("clients");
   const { ObjectId } = await import("mongodb");
   const client = await col.findOne({ _id: new ObjectId(id) });
@@ -32,17 +32,16 @@ export async function GET(
 // Save / update the client's Meta System User Token
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await params;
     const auth = request.headers.get("authorization") || "";
     const jwt = auth.replace("Bearer ", "");
     const decoded: any = verifyToken(jwt);
     if (!decoded || decoded.role !== "admin") {
       return NextResponse.json({ error: "Forbidden" }, { status: 403, headers: CORS });
     }
-
-    const { id } = (await params) as any;
     const body = await request.json();
     const { metaAccessToken } = body;
 

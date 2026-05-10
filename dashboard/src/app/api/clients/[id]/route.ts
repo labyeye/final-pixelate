@@ -3,10 +3,10 @@ import * as svc from "@/lib/services";
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id } = (await params) as any;
+    const { id } = await params;
     const item = await svc.findById("clients", id);
     if (!item)
       return NextResponse.json({ error: "Not found" }, { status: 404 });
@@ -21,10 +21,10 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id } = (await params) as any;
+    const { id } = await params;
     const body = await request.json();
     const { loginEmail, loginPassword, ...clientData } = body;
 
@@ -66,10 +66,10 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id } = (await params) as any;
+    const { id } = await params;
 
     const existing = await svc.findById("clients", id);
     if (existing?.userId) {
