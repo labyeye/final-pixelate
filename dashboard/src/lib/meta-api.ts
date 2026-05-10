@@ -532,27 +532,52 @@ export async function sendConversionEvents(
   return result;
 }
 
+// Decode Instagram shortcode → numeric media ID (no API call, pure math)
+function shortcodeToMediaId(shortcode: string): string | null {
+  const ALPHA = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+  try {
+    let id = BigInt(0);
+    for (const ch of shortcode) {
+      const i = ALPHA.indexOf(ch);
+      if (i < 0) return null;
+      id = id * BigInt(64) + BigInt(i);
+    }
+    return id.toString();
+  } catch { return null; }
+}
+
+async function fetchIgMediaObject(mediaId: string, accessToken: string): Promise<any | null> {
+  const url = new URL(`${META_GRAPH_API}/${mediaId}`);
+  url.searchParams.set("fields", "id,like_count,comments_count,media_type,media_product_type,permalink");
+  url.searchParams.set("access_token", accessToken);
+  const res = await fetch(url.toString());
+  const data = await res.json();
+  return data.error ? null : data;
+}
+
 export async function fetchIgMediaMetrics(
   postUrl: string,
   igAccountId: string,
   accessToken: string,
 ): Promise<MetaPostMetrics> {
-  const { id: mediaId, failReason } = await resolveIgMediaId(postUrl, igAccountId, accessToken);
-  if (!mediaId) {
-    console.warn(`[IG sync] Skipping post — ${failReason}`);
-    return { views: 0, likes: 0, comments: 0, shares: 0, followers_gained: 0, skipped: true, skipReason: failReason } as any;
+  // Fast path: decode shortcode → media ID in O(n) with zero API calls
+  let media: any = null;
+  const shortcodeMatch = postUrl.match(/instagram\.com\/(?:p|reel|tv)\/([A-Za-z0-9_-]+)/);
+  if (shortcodeMatch) {
+    const decoded = shortcodeToMediaId(shortcodeMatch[1]);
+    if (decoded) media = await fetchIgMediaObject(decoded, accessToken);
   }
 
-  // Fetch basic media info including media_type to pick correct insight metrics
-  const mediaUrl = new URL(`${META_GRAPH_API}/${mediaId}`);
-  mediaUrl.searchParams.set("fields", "id,like_count,comments_count,media_type,media_product_type,permalink");
-  mediaUrl.searchParams.set("access_token", accessToken);
-
-  const mediaRes = await fetch(mediaUrl.toString());
-  if (!mediaRes.ok)
-    throw new Error(`Failed to fetch IG media: ${await mediaRes.text()}`);
-  const media = await mediaRes.json();
-  if (media.error) throw new Error(`IG media error: ${media.error.message}`);
+  // Slow path: scan the account media feed (fallback for non-standard URLs)
+  if (!media) {
+    const { id: resolvedId, failReason } = await resolveIgMediaId(postUrl, igAccountId, accessToken);
+    if (!resolvedId) {
+      console.warn(`[IG sync] Skipping post — ${failReason}`);
+      return { views: 0, likes: 0, comments: 0, shares: 0, followers_gained: 0, skipped: true, skipReason: failReason } as any;
+    }
+    media = await fetchIgMediaObject(resolvedId, accessToken);
+    if (!media) throw new Error(`Failed to fetch IG media for resolved ID ${resolvedId}`);
+  }
 
   const mediaType: string = media.media_type || "IMAGE";
   const mediaProductType: string = media.media_product_type || "";
@@ -571,7 +596,7 @@ export async function fetchIgMediaMetrics(
 
   async function fetchInsight(metric: string): Promise<number> {
     try {
-      const url = new URL(`${META_GRAPH_API}/${mediaId}/insights`);
+      const url = new URL(`${META_GRAPH_API}/${media.id}/insights`);
       url.searchParams.set("metric", metric);
       url.searchParams.set("access_token", accessToken);
       const res = await fetch(url.toString());
@@ -580,9 +605,9 @@ export async function fetchIgMediaMetrics(
         const code = data.error.code;
         // code 100 = unsupported metric — log at debug level, not warn
         if (code === 100) {
-          console.log(`[IG insights] metric "${metric}" unsupported for ${mediaId}, trying next`);
+          console.log(`[IG insights] metric "${metric}" unsupported for ${media.id}, trying next`);
         } else {
-          console.warn(`[IG insights] error for "${metric}" on ${mediaId}: ${data.error.message}`);
+          console.warn(`[IG insights] error for "${metric}" on ${media.id}: ${data.error.message}`);
         }
         return 0;
       }
