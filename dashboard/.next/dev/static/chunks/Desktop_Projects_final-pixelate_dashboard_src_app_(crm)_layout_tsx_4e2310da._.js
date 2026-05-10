@@ -2,7 +2,7 @@
     script: typeof document === "object" ? document.currentScript : undefined,
     chunks: [
   "static/chunks/Desktop_Projects_final-pixelate_dashboard_src_40e08c78._.js",
-  "static/chunks/c729b_8cdc139a._.js"
+  "static/chunks/c729b_c905e763._.js"
 ],
     source: "dynamic"
 });

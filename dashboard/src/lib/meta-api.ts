@@ -545,7 +545,7 @@ export async function fetchIgMediaMetrics(
 
   // Fetch basic media info including media_type to pick correct insight metrics
   const mediaUrl = new URL(`${META_GRAPH_API}/${mediaId}`);
-  mediaUrl.searchParams.set("fields", "id,like_count,comments_count,media_type,permalink");
+  mediaUrl.searchParams.set("fields", "id,like_count,comments_count,media_type,media_product_type,permalink,video_view_count");
   mediaUrl.searchParams.set("access_token", accessToken);
 
   const mediaRes = await fetch(mediaUrl.toString());
@@ -555,18 +555,20 @@ export async function fetchIgMediaMetrics(
   if (media.error) throw new Error(`IG media error: ${media.error.message}`);
 
   const mediaType: string = media.media_type || "IMAGE";
-  const isReel = mediaType === "VIDEO" || postUrl.includes("/reel/");
+  const mediaProductType: string = media.media_product_type || "";
+  const isReel = mediaType === "VIDEO" || mediaProductType === "REELS" || postUrl.includes("/reel/");
 
   let views = 0;
   let shares = 0;
   let followers_gained = 0;
   let insightError = "";
 
-  // plays/video_views/impressions removed in Meta API v22.0
-  // reach is the correct metric for both reels and image posts
+  // For Reels: "plays" = total play count (correct view metric in v19.0)
+  // ig_reels_video_view_total_time is watch-time in ms — NOT a view count
+  // For Images: "impressions" = total times shown (correct view metric)
   const viewMetrics = isReel
-    ? ["reach", "ig_reels_video_view_total_time"]
-    : ["reach", "total_interactions"];
+    ? ["plays", "video_views", "impressions", "reach"]
+    : ["impressions", "reach"];
   const extraMetrics = ["shares", "saved"];
 
   async function fetchInsight(metric: string): Promise<number> {
@@ -598,6 +600,10 @@ export async function fetchIgMediaMetrics(
   for (const metric of viewMetrics) {
     const val = await fetchInsight(metric);
     if (val > 0) { views = val; break; }
+  }
+  // Last resort: video_view_count directly on the media object
+  if (views === 0 && media.video_view_count) {
+    views = media.video_view_count;
   }
   shares = await fetchInsight("shares");
 
