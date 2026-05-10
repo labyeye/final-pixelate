@@ -545,7 +545,7 @@ export async function fetchIgMediaMetrics(
 
   // Fetch basic media info including media_type to pick correct insight metrics
   const mediaUrl = new URL(`${META_GRAPH_API}/${mediaId}`);
-  mediaUrl.searchParams.set("fields", "id,like_count,comments_count,media_type,media_product_type,permalink,video_view_count");
+  mediaUrl.searchParams.set("fields", "id,like_count,comments_count,media_type,media_product_type,permalink");
   mediaUrl.searchParams.set("access_token", accessToken);
 
   const mediaRes = await fetch(mediaUrl.toString());
@@ -561,7 +561,6 @@ export async function fetchIgMediaMetrics(
   let views = 0;
   let shares = 0;
   let followers_gained = 0;
-  let insightError = "";
 
   // For Reels: "plays" = total play count (correct view metric in v19.0)
   // ig_reels_video_view_total_time is watch-time in ms — NOT a view count
@@ -569,7 +568,6 @@ export async function fetchIgMediaMetrics(
   const viewMetrics = isReel
     ? ["plays", "video_views", "impressions", "reach"]
     : ["impressions", "reach"];
-  const extraMetrics = ["shares", "saved"];
 
   async function fetchInsight(metric: string): Promise<number> {
     try {
@@ -584,7 +582,6 @@ export async function fetchIgMediaMetrics(
         if (code === 100) {
           console.log(`[IG insights] metric "${metric}" unsupported for ${mediaId}, trying next`);
         } else {
-          insightError = data.error.message;
           console.warn(`[IG insights] error for "${metric}" on ${mediaId}: ${data.error.message}`);
         }
         return 0;
@@ -600,10 +597,6 @@ export async function fetchIgMediaMetrics(
   for (const metric of viewMetrics) {
     const val = await fetchInsight(metric);
     if (val > 0) { views = val; break; }
-  }
-  // Last resort: video_view_count directly on the media object
-  if (views === 0 && media.video_view_count) {
-    views = media.video_view_count;
   }
   shares = await fetchInsight("shares");
 
