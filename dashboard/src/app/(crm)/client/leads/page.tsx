@@ -275,6 +275,36 @@ export default function ClientLeadsPage() {
     fetchLeads();
   }, [user]);
 
+  // Auto-sync: silently pull new leads on mount and every 5 minutes
+  useEffect(() => {
+    if (!user || user.role !== "client" || !user.clientId) return;
+
+    const silentSync = async () => {
+      try {
+        const res = await fetch("/api/client-leads/sync", {
+          method: "POST",
+          headers: getAuthHeaders(),
+          body: JSON.stringify({ clientId: user.clientId }),
+        });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.synced > 0) {
+          const leadsRes = await fetch("/api/leads", { headers: getAuthHeaders() });
+          if (leadsRes.ok) {
+            const fresh = await leadsRes.json();
+            setLeads(Array.isArray(fresh) ? fresh : []);
+          }
+        }
+      } catch {
+        // silent fail — user can always click manual sync
+      }
+    };
+
+    silentSync();
+    const interval = setInterval(silentSync, 5 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, [user]);
+
   const handleSyncFbLeads = async () => {
     if (!user?.clientId) return;
     setSyncing(true);

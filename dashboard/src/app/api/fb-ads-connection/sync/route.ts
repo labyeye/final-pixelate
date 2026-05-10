@@ -119,8 +119,18 @@ export async function POST(request: NextRequest) {
       const fbLeads = await getFormLeads(formId, conn.accessToken, since);
 
       for (const fbLead of fbLeads) {
-        const existing = await leadsCol.findOne({ fbLeadId: fbLead.id });
+        const existing = await leadsCol.findOne({
+          clientId,
+          $or: [{ fbLeadId: fbLead.id }, { metaLeadId: fbLead.id }],
+        });
         if (existing) {
+          // Migrate legacy fbLeadId → metaLeadId if needed
+          if (!existing.metaLeadId) {
+            await leadsCol.updateOne(
+              { _id: existing._id },
+              { $set: { metaLeadId: fbLead.id } },
+            );
+          }
           skipped++;
           continue;
         }
