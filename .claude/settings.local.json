@@ -9,7 +9,9 @@
       "Bash(Out-Null)",
       "Bash(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\labhb\\\\Desktop\\\\projects\\\\final-pixelate\\\\dashboard\\\\src\\\\app\\\\api\\\\client-leads\\\\sync\")",
       "PowerShell(New-Item *)",
-      "Bash(Get-ChildItem *)"
+      "Bash(Get-ChildItem *)",
+      "Bash(python *)",
+      "Bash(pip install *)"
     ]
   }
 }

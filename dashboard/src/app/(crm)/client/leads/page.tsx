@@ -22,6 +22,7 @@ interface Lead {
   name: string;
   phone?: string;
   email?: string;
+  city?: string;
   source?: string;
   campaignName?: string;
   adSetName?: string;
@@ -258,6 +259,8 @@ export default function ClientLeadsPage() {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
   const [campaignFilter, setCampaignFilter] = useState("");
+  const [dateFilter, setDateFilter] = useState("");
+  const [dateSortDir, setDateSortDir] = useState<"asc" | "desc">("desc");
 
   const fetchLeads = async () => {
     try {
@@ -328,18 +331,58 @@ export default function ClientLeadsPage() {
     [leads],
   );
 
-  // Filtered leads
-  const filtered = useMemo(() => leads.filter((l) => {
-    const q = search.toLowerCase();
-    const matchSearch = !search ||
-      l.name?.toLowerCase().includes(q) ||
-      l.phone?.includes(q) ||
-      l.email?.toLowerCase().includes(q) ||
-      l.campaignName?.toLowerCase().includes(q);
-    const matchStatus = !statusFilter || l.status === statusFilter;
-    const matchCampaign = !campaignFilter || l.campaignName === campaignFilter;
-    return matchSearch && matchStatus && matchCampaign;
-  }), [leads, search, statusFilter, campaignFilter]);
+  // City extractor
+  const getCity = (lead: Lead): string => {
+    if (lead.city) return lead.city;
+    if (lead.metaFields) {
+      const cityKey = Object.keys(lead.metaFields).find((k) =>
+        ["city", "location", "town", "district"].includes(k.toLowerCase()),
+      );
+      if (cityKey) return lead.metaFields[cityKey];
+    }
+    return "";
+  };
+
+  // Filtered + sorted leads
+  const filtered = useMemo(() => {
+    const now = new Date();
+    const todayStr = now.toISOString().slice(0, 10);
+    const weekStart = new Date(now); weekStart.setDate(now.getDate() - 7);
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+    const lastMonthStart = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+    const lastMonthEnd = new Date(now.getFullYear(), now.getMonth(), 0);
+
+    const result = leads.filter((l) => {
+      const q = search.toLowerCase();
+      const matchSearch = !search ||
+        l.name?.toLowerCase().includes(q) ||
+        l.phone?.includes(q) ||
+        l.email?.toLowerCase().includes(q) ||
+        l.campaignName?.toLowerCase().includes(q) ||
+        getCity(l).toLowerCase().includes(q);
+      const matchStatus = !statusFilter || l.status === statusFilter;
+      const matchCampaign = !campaignFilter || l.campaignName === campaignFilter;
+      let matchDate = true;
+      if (dateFilter && l.createdAt) {
+        const d = new Date(l.createdAt);
+        if (dateFilter === "today") matchDate = l.createdAt.slice(0, 10) === todayStr;
+        else if (dateFilter === "week") matchDate = d >= weekStart;
+        else if (dateFilter === "month") matchDate = d >= monthStart;
+        else if (dateFilter === "last_month") matchDate = d >= lastMonthStart && d <= lastMonthEnd;
+      } else if (dateFilter) {
+        matchDate = false;
+      }
+      return matchSearch && matchStatus && matchCampaign && matchDate;
+    });
+
+    result.sort((a, b) => {
+      const da = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+      const db = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+      return dateSortDir === "desc" ? db - da : da - db;
+    });
+
+    return result;
+  }, [leads, search, statusFilter, campaignFilter, dateFilter, dateSortDir]);
 
   // Follow-ups due today or overdue
   const followUpsDue = useMemo(() => {
@@ -485,11 +528,52 @@ export default function ClientLeadsPage() {
                 <tr>
                   <th className="px-4 py-3 text-left text-xs font-black uppercase">Lead</th>
                   <th className="px-4 py-3 text-left text-xs font-black uppercase">Contact</th>
+                  <th className="px-4 py-3 text-left text-xs font-black uppercase">City</th>
                   <th className="px-4 py-3 text-left text-xs font-black uppercase">Campaign</th>
-                  <th className="px-4 py-3 text-left text-xs font-black uppercase">Status</th>
+                  <th className="px-4 py-3 text-left text-xs font-black uppercase min-w-[140px]">
+                    <div className="flex flex-col gap-1">
+                      <span>Campaign Status</span>
+                      <select
+                        value={statusFilter}
+                        onChange={(e) => setStatusFilter(e.target.value)}
+                        onClick={(e) => e.stopPropagation()}
+                        className="bg-white text-black text-xs font-semibold rounded px-1 py-0.5 border border-gray-300 w-full"
+                      >
+                        <option value="">All</option>
+                        {ALL_STATUSES.map((s) => (
+                          <option key={s} value={s}>{STATUS_CONFIG[s].label}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </th>
                   <th className="px-4 py-3 text-left text-xs font-black uppercase">Follow-up</th>
                   <th className="px-4 py-3 text-left text-xs font-black uppercase">Notes</th>
-                  <th className="px-4 py-3 text-left text-xs font-black uppercase">Date</th>
+                  <th className="px-4 py-3 text-left text-xs font-black uppercase min-w-[150px]">
+                    <div className="flex flex-col gap-1">
+                      <div className="flex items-center gap-1">
+                        <span>Date</span>
+                        <button
+                          onClick={() => setDateSortDir((d) => d === "desc" ? "asc" : "desc")}
+                          className="text-gray-300 hover:text-white text-xs"
+                          title={dateSortDir === "desc" ? "Newest first" : "Oldest first"}
+                        >
+                          {dateSortDir === "desc" ? "↓" : "↑"}
+                        </button>
+                      </div>
+                      <select
+                        value={dateFilter}
+                        onChange={(e) => setDateFilter(e.target.value)}
+                        onClick={(e) => e.stopPropagation()}
+                        className="bg-white text-black text-xs font-semibold rounded px-1 py-0.5 border border-gray-300 w-full"
+                      >
+                        <option value="">All Time</option>
+                        <option value="today">Today</option>
+                        <option value="week">Last 7 Days</option>
+                        <option value="month">This Month</option>
+                        <option value="last_month">Last Month</option>
+                      </select>
+                    </div>
+                  </th>
                   <th className="px-4 py-3 text-center text-xs font-black uppercase">Action</th>
                 </tr>
               </thead>
@@ -521,6 +605,9 @@ export default function ClientLeadsPage() {
                             💬 WhatsApp
                           </a>
                         )}
+                      </td>
+                      <td className="px-4 py-3 text-sm font-semibold text-gray-700">
+                        {getCity(lead) || <span className="text-gray-400">—</span>}
                       </td>
                       <td className="px-4 py-3 max-w-[160px]">
                         {lead.campaignName && <div className="text-xs font-black truncate">📢 {lead.campaignName}</div>}

@@ -82,6 +82,11 @@
     />
     <link
       rel="alternate"
+      hreflang="en-SG"
+      href="https://www.pixelatenest.com/"
+    />
+    <link
+      rel="alternate"
       hreflang="x-default"
       href="https://www.pixelatenest.com/"
     />
@@ -351,19 +356,27 @@
               "ratingValue": "4.9",
               "reviewCount": "127"
             },
-            "openingHoursSpecification": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
-              ],
-              "opens": "09:00",
-              "closes": "19:00"
-            }
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "opens": "09:00",
+                "closes": "19:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Sunday",
+                "opens": "00:00",
+                "closes": "00:00"
+              }
+            ]
           }
         ]
       }
@@ -488,40 +501,6 @@
             "position": 1,
             "name": "Home",
             "item": "https://www.pixelatenest.com/"
-          }
-        ]
-      }
-    </script>
-    <script id="pixelate-seo-schema" type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "LocalBusiness",
-            "name": "Pixelate Nest (Kalahanu Tech Studios LLP)",
-            "url": "https://www.pixelatenest.com",
-            "telephone": "+91-84069-12345",
-            "email": "support@pixelatenest.com",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Kala Bhawan, Akharaghat Road",
-              "addressLocality": "Muzaffarpur",
-              "addressRegion": "Bihar",
-              "postalCode": "842001",
-              "addressCountry": "IN"
-            }
-          },
-          {
-            "@type": "CreativeWork",
-            "name": "Pixelate Nest Website Content",
-            "creator": {
-              "@type": "Organization",
-              "name": "Pixelate Nest (Kalahanu Tech Studios LLP)"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Pixelate Nest (Kalahanu Tech Studios LLP)"
-            }
           }
         ]
       }
