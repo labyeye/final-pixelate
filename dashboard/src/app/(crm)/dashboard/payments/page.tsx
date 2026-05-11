@@ -166,9 +166,23 @@ export default function PaymentsPage() {
           clientName: inv.clientName || selectedClientObj?.name || "—",
           clientPhone: inv.clientPhone || selectedClientObj?.phone,
           clientAddress: inv.clientAddress
-            ? [inv.clientAddress, inv.clientCity, inv.clientState, inv.clientPin].filter(Boolean).join(", ")
+            ? [
+                inv.clientAddress,
+                inv.clientCity,
+                inv.clientState,
+                inv.clientPin,
+              ]
+                .filter(Boolean)
+                .join(", ")
             : selectedClientObj
-              ? [selectedClientObj.address, selectedClientObj.city, selectedClientObj.state, selectedClientObj.pin].filter(Boolean).join(", ")
+              ? [
+                  selectedClientObj.address,
+                  selectedClientObj.city,
+                  selectedClientObj.state,
+                  selectedClientObj.pin,
+                ]
+                  .filter(Boolean)
+                  .join(", ")
               : undefined,
           paymentIndex: idx,
           receiptNo: `RCPT/${fy}/${String(globalIndex++).padStart(4, "0")}`,
@@ -205,9 +219,7 @@ export default function PaymentsPage() {
       setSelectedClientObj(null);
       return;
     }
-    const found = clients.find(
-      (c) => String(c._id || c.id) === selectedClient,
-    );
+    const found = clients.find((c) => String(c._id || c.id) === selectedClient);
     setSelectedClientObj(found || null);
 
     setLoading(true);
@@ -247,7 +259,9 @@ export default function PaymentsPage() {
         title: "Payment Recorded",
         description: `Successfully recorded payment of ₹${paymentAmount} for invoice ${activeInvoice.invoiceNo}`,
       });
-      const updatedRes = await fetch(`/api/invoices?clientId=${selectedClient}`);
+      const updatedRes = await fetch(
+        `/api/invoices?clientId=${selectedClient}`,
+      );
       const updatedData = await updatedRes.json();
       setInvoices(updatedData);
       setActiveInvoice(null);
@@ -257,7 +271,8 @@ export default function PaymentsPage() {
       console.error(error);
       toast({
         title: "Error",
-        description: error.message || "Failed to record payment. Please try again.",
+        description:
+          error.message || "Failed to record payment. Please try again.",
         variant: "destructive",
       });
     }
@@ -297,8 +312,13 @@ export default function PaymentsPage() {
         const errorData = await res.json().catch(() => ({}));
         throw new Error(errorData.error || "Failed to update payment");
       }
-      toast({ title: "Payment Updated", description: "Payment details updated successfully" });
-      const updatedRes = await fetch(`/api/invoices?clientId=${selectedClient}`);
+      toast({
+        title: "Payment Updated",
+        description: "Payment details updated successfully",
+      });
+      const updatedRes = await fetch(
+        `/api/invoices?clientId=${selectedClient}`,
+      );
       const updatedData = await updatedRes.json();
       setInvoices(updatedData);
       setEditingPayment(null);
@@ -312,7 +332,8 @@ export default function PaymentsPage() {
   };
 
   const handleDeletePayment = async (invoice: any, index: number) => {
-    if (!window.confirm("Delete this payment entry? This cannot be undone.")) return;
+    if (!window.confirm("Delete this payment entry? This cannot be undone."))
+      return;
     try {
       const res = await fetch(
         `/api/payments/${index}?invoiceId=${String(invoice._id || invoice.id)}&index=${index}`,
@@ -322,8 +343,13 @@ export default function PaymentsPage() {
         const errorData = await res.json().catch(() => ({}));
         throw new Error(errorData.error || "Failed to delete payment");
       }
-      toast({ title: "Payment Deleted", description: "Payment entry removed successfully" });
-      const updatedRes = await fetch(`/api/invoices?clientId=${selectedClient}`);
+      toast({
+        title: "Payment Deleted",
+        description: "Payment entry removed successfully",
+      });
+      const updatedRes = await fetch(
+        `/api/invoices?clientId=${selectedClient}`,
+      );
       const updatedData = await updatedRes.json();
       setInvoices(updatedData);
     } catch (error: any) {
@@ -357,7 +383,7 @@ export default function PaymentsPage() {
             balanceDue: payment.balanceDue,
             invoiceStatus: payment.invoiceStatus,
           }}
-        />
+        />,
       ).toBlob();
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -367,7 +393,10 @@ export default function PaymentsPage() {
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      toast({ title: "Receipt Downloaded", description: `Receipt for ${payment.invoiceNo} downloaded.` });
+      toast({
+        title: "Receipt Downloaded",
+        description: `Receipt for ${payment.invoiceNo} downloaded.`,
+      });
     } catch (error: any) {
       toast({
         title: "Error",
@@ -413,7 +442,7 @@ export default function PaymentsPage() {
             balanceDue: payment.balanceDue,
             invoiceStatus: payment.invoiceStatus,
           }}
-        />
+        />,
       ).toBlob();
       const safeFilename = `Receipt-${payment.invoiceNo.replace(/[/\\]/g, "-")}-${payment.clientName.replace(/[^a-zA-Z0-9]/g, "-")}.pdf`;
 
@@ -452,7 +481,11 @@ export default function PaymentsPage() {
           amount: amountFormatted,
           filename: safeFilename,
           mediaId,
-          paymentDate: new Date(payment.date).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }),
+          paymentDate: new Date(payment.date).toLocaleDateString("en-IN", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+          }),
           paymentMode: payment.mode,
           transactionRef: payment.remarks || "—",
         }),
@@ -480,14 +513,19 @@ export default function PaymentsPage() {
   };
 
   const formatCurrency = (amount: number) =>
-    new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR" }).format(amount);
+    new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+    }).format(amount);
 
   if (user?.role !== "admin" && user?.role !== "client") {
     return (
       <div className="flex h-[50vh] items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-destructive">Access Denied</h1>
-          <p className="text-muted-foreground">Only admins can record payments.</p>
+          <p className="text-muted-foreground">
+            Only admins can record payments.
+          </p>
         </div>
       </div>
     );
@@ -519,7 +557,10 @@ export default function PaymentsPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
-                <Select value={selectedClient} onValueChange={setSelectedClient}>
+                <Select
+                  value={selectedClient}
+                  onValueChange={setSelectedClient}
+                >
                   <SelectTrigger className="w-full border-2 border-black font-black h-12 bg-white">
                     <SelectValue placeholder="Select a client..." />
                   </SelectTrigger>
@@ -568,7 +609,8 @@ export default function PaymentsPage() {
                       Total Payments
                     </p>
                     <p className="text-xl font-black text-neutral-700">
-                      {allPayments.length} transaction{allPayments.length !== 1 ? "s" : ""}
+                      {allPayments.length} transaction
+                      {allPayments.length !== 1 ? "s" : ""}
                     </p>
                   </div>
                 </div>
@@ -591,7 +633,6 @@ export default function PaymentsPage() {
             </div>
           ) : (
             <div className="space-y-6">
-
               {/* ── Recent Payments Table ── */}
               {allPayments.length > 0 && (
                 <div className="bg-white border-2 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
@@ -605,7 +646,8 @@ export default function PaymentsPage() {
                           Recent Payments
                         </h2>
                         <p className="text-xs text-neutral-500 font-medium">
-                          {allPayments.length} transactions • Download or send receipt via WhatsApp
+                          {allPayments.length} transactions • Download or send
+                          receipt via WhatsApp
                         </p>
                       </div>
                     </div>
@@ -649,7 +691,9 @@ export default function PaymentsPage() {
                               key={key}
                               className={cn(
                                 "border-b border-neutral-100 hover:bg-neutral-50 transition-colors",
-                                rowIdx % 2 === 0 ? "bg-white" : "bg-neutral-50/40",
+                                rowIdx % 2 === 0
+                                  ? "bg-white"
+                                  : "bg-neutral-50/40",
                               )}
                             >
                               <td className="px-4 py-3">
@@ -663,7 +707,9 @@ export default function PaymentsPage() {
                                 </span>
                               </td>
                               <td className="px-4 py-3">
-                                <p className="font-black text-sm">{payment.invoiceNo}</p>
+                                <p className="font-black text-sm">
+                                  {payment.invoiceNo}
+                                </p>
                                 <p className="text-[10px] text-neutral-400 font-medium">
                                   {payment.invoiceStatus}
                                 </p>
@@ -692,7 +738,9 @@ export default function PaymentsPage() {
                                 <div className="flex items-center justify-center gap-2">
                                   {/* Download Receipt */}
                                   <button
-                                    onClick={() => handleDownloadReceipt(payment)}
+                                    onClick={() =>
+                                      handleDownloadReceipt(payment)
+                                    }
                                     disabled={isDownloading}
                                     title="Download Payment Receipt (PDF)"
                                     className="flex items-center gap-1.5 px-2.5 py-1.5 bg-black text-white text-[10px] font-black uppercase rounded hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
@@ -707,8 +755,12 @@ export default function PaymentsPage() {
 
                                   {/* WhatsApp */}
                                   <button
-                                    onClick={() => handleWhatsAppReceipt(payment)}
-                                    disabled={isSendingWA || !payment.clientPhone}
+                                    onClick={() =>
+                                      handleWhatsAppReceipt(payment)
+                                    }
+                                    disabled={
+                                      isSendingWA || !payment.clientPhone
+                                    }
                                     title={
                                       !payment.clientPhone
                                         ? "No phone number for this client"
@@ -793,7 +845,9 @@ export default function PaymentsPage() {
                               </span>
                             </div>
                             <p className="text-sm font-black text-neutral-600 uppercase tracking-tight">
-                              {inv.projectTitle || inv.title || "Untitled Project"}
+                              {inv.projectTitle ||
+                                inv.title ||
+                                "Untitled Project"}
                             </p>
                             <div className="flex items-center gap-6 text-[11px] text-neutral-400 font-bold uppercase tracking-wider pt-1">
                               <span className="flex items-center gap-1.5">
@@ -804,7 +858,8 @@ export default function PaymentsPage() {
                                 <span
                                   className={cn(
                                     "flex items-center gap-1.5",
-                                    new Date(inv.dueDate) < new Date() && !isPaid
+                                    new Date(inv.dueDate) < new Date() &&
+                                      !isPaid
                                       ? "text-red-500"
                                       : "",
                                   )}
@@ -824,7 +879,9 @@ export default function PaymentsPage() {
                               <p
                                 className={cn(
                                   "text-2xl font-black",
-                                  balance > 0 ? "text-red-600" : "text-green-600",
+                                  balance > 0
+                                    ? "text-red-600"
+                                    : "text-green-600",
                                 )}
                               >
                                 {formatCurrency(balance)}
@@ -844,13 +901,21 @@ export default function PaymentsPage() {
                                 </Button>
                               )}
                               <button
-                                onClick={() => toggleInvoiceExpand(inv._id || inv.id)}
+                                onClick={() =>
+                                  toggleInvoiceExpand(inv._id || inv.id)
+                                }
                                 className="text-[10px] font-black uppercase tracking-widest text-neutral-500 hover:text-black flex items-center justify-center gap-1"
                               >
                                 {isExpanded ? (
-                                  <><ChevronUp className="w-3 h-3" /> Less Detail</>
+                                  <>
+                                    <ChevronUp className="w-3 h-3" /> Less
+                                    Detail
+                                  </>
                                 ) : (
-                                  <><ChevronDown className="w-3 h-3" /> Full Detail</>
+                                  <>
+                                    <ChevronDown className="w-3 h-3" /> Full
+                                    Detail
+                                  </>
                                 )}
                               </button>
                             </div>
@@ -866,12 +931,20 @@ export default function PaymentsPage() {
                                 </h4>
                                 <div className="space-y-3 text-sm">
                                   <div className="grid grid-cols-3">
-                                    <span className="font-black text-neutral-400 uppercase text-[10px]">Client</span>
-                                    <span className="col-span-2 font-bold">{inv.clientName}</span>
+                                    <span className="font-black text-neutral-400 uppercase text-[10px]">
+                                      Client
+                                    </span>
+                                    <span className="col-span-2 font-bold">
+                                      {inv.clientName}
+                                    </span>
                                   </div>
                                   <div className="grid grid-cols-3">
-                                    <span className="font-black text-neutral-400 uppercase text-[10px]">Project</span>
-                                    <span className="col-span-2 font-bold">{inv.projectTitle || "-"}</span>
+                                    <span className="font-black text-neutral-400 uppercase text-[10px]">
+                                      Project
+                                    </span>
+                                    <span className="col-span-2 font-bold">
+                                      {inv.projectTitle || "-"}
+                                    </span>
                                   </div>
                                   {inv.description && (
                                     <div className="pt-2 italic text-neutral-500 text-xs border-t border-dashed border-neutral-300">
@@ -886,52 +959,65 @@ export default function PaymentsPage() {
                                   <History className="w-3 h-3" />
                                 </h4>
                                 <div className="space-y-3">
-                                  {inv.paymentHistory && inv.paymentHistory.length > 0 ? (
-                                    inv.paymentHistory.map((h: any, idx: number) => (
-                                      <div
-                                        key={idx}
-                                        className="flex justify-between items-center p-3 bg-white border-2 border-neutral-200 rounded-lg shadow-sm hover:border-neutral-300 transition-colors"
-                                      >
-                                        <div className="space-y-0.5 flex-1">
-                                          <div className="flex items-center gap-2">
-                                            <p className="font-black text-sm text-green-700">
-                                              {formatCurrency(h.amount)}
+                                  {inv.paymentHistory &&
+                                  inv.paymentHistory.length > 0 ? (
+                                    inv.paymentHistory.map(
+                                      (h: any, idx: number) => (
+                                        <div
+                                          key={idx}
+                                          className="flex justify-between items-center p-3 bg-white border-2 border-neutral-200 rounded-lg shadow-sm hover:border-neutral-300 transition-colors"
+                                        >
+                                          <div className="space-y-0.5 flex-1">
+                                            <div className="flex items-center gap-2">
+                                              <p className="font-black text-sm text-green-700">
+                                                {formatCurrency(h.amount)}
+                                              </p>
+                                              <span className="text-[8px] font-black uppercase py-0.5 px-1.5 bg-neutral-100 text-neutral-600 rounded">
+                                                {h.mode}
+                                              </span>
+                                            </div>
+                                            <p className="text-[10px] text-neutral-400 font-bold uppercase">
+                                              {format(
+                                                new Date(h.date),
+                                                "dd MMM yyyy",
+                                              )}
                                             </p>
-                                            <span className="text-[8px] font-black uppercase py-0.5 px-1.5 bg-neutral-100 text-neutral-600 rounded">
-                                              {h.mode}
-                                            </span>
+                                            {h.remarks && (
+                                              <p className="text-[10px] font-medium text-neutral-400 italic">
+                                                {h.remarks}
+                                              </p>
+                                            )}
                                           </div>
-                                          <p className="text-[10px] text-neutral-400 font-bold uppercase">
-                                            {format(new Date(h.date), "dd MMM yyyy")}
-                                          </p>
-                                          {h.remarks && (
-                                            <p className="text-[10px] font-medium text-neutral-400 italic">
-                                              {h.remarks}
-                                            </p>
-                                          )}
+                                          <div className="flex items-center gap-1 ml-2">
+                                            {!isClient && (
+                                              <>
+                                                <button
+                                                  onClick={() =>
+                                                    handleEditPayment(inv, idx)
+                                                  }
+                                                  className="p-1.5 hover:bg-blue-50 rounded border border-transparent hover:border-blue-200 transition-colors"
+                                                  title="Edit payment"
+                                                >
+                                                  <Edit className="w-3.5 h-3.5 text-blue-600" />
+                                                </button>
+                                                <button
+                                                  onClick={() =>
+                                                    handleDeletePayment(
+                                                      inv,
+                                                      idx,
+                                                    )
+                                                  }
+                                                  className="p-1.5 hover:bg-red-50 rounded border border-transparent hover:border-red-200 transition-colors"
+                                                  title="Delete payment"
+                                                >
+                                                  <Trash2 className="w-3.5 h-3.5 text-red-600" />
+                                                </button>
+                                              </>
+                                            )}
+                                          </div>
                                         </div>
-                                        <div className="flex items-center gap-1 ml-2">
-                                          {!isClient && (
-                                            <>
-                                              <button
-                                                onClick={() => handleEditPayment(inv, idx)}
-                                                className="p-1.5 hover:bg-blue-50 rounded border border-transparent hover:border-blue-200 transition-colors"
-                                                title="Edit payment"
-                                              >
-                                                <Edit className="w-3.5 h-3.5 text-blue-600" />
-                                              </button>
-                                              <button
-                                                onClick={() => handleDeletePayment(inv, idx)}
-                                                className="p-1.5 hover:bg-red-50 rounded border border-transparent hover:border-red-200 transition-colors"
-                                                title="Delete payment"
-                                              >
-                                                <Trash2 className="w-3.5 h-3.5 text-red-600" />
-                                              </button>
-                                            </>
-                                          )}
-                                        </div>
-                                      </div>
-                                    ))
+                                      ),
+                                    )
                                   ) : (
                                     <div className="py-6 text-center border-2 border-dashed border-neutral-200 rounded-lg bg-white/50">
                                       <p className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest italic">
@@ -984,19 +1070,32 @@ export default function PaymentsPage() {
                   <div className="flex justify-between items-center text-xs font-black">
                     <span className="text-blue-600">Bill Amount:</span>
                     <span className="text-blue-700">
-                      {formatCurrency((activeInvoice.amount || 0) - (activeInvoice.paidAmount || 0))}
+                      {formatCurrency(
+                        (activeInvoice.amount || 0) -
+                          (activeInvoice.paidAmount || 0),
+                      )}
                     </span>
                   </div>
                   <div className="flex justify-between items-center text-xs font-black">
                     <span className="text-blue-600">GST (18%):</span>
                     <span className="text-blue-700">
-                      {formatCurrency(((activeInvoice.amount || 0) - (activeInvoice.paidAmount || 0)) * 0.18)}
+                      {formatCurrency(
+                        ((activeInvoice.amount || 0) -
+                          (activeInvoice.paidAmount || 0)) *
+                          0.18,
+                      )}
                     </span>
                   </div>
                   <div className="flex justify-between items-center text-xs font-black border-t border-blue-200 pt-1 mt-1">
-                    <span className="text-blue-700 uppercase tracking-wider">Total to Receive:</span>
+                    <span className="text-blue-700 uppercase tracking-wider">
+                      Total to Receive:
+                    </span>
                     <span className="text-blue-900 text-sm">
-                      {formatCurrency(((activeInvoice.amount || 0) - (activeInvoice.paidAmount || 0)) * 1.18)}
+                      {formatCurrency(
+                        ((activeInvoice.amount || 0) -
+                          (activeInvoice.paidAmount || 0)) *
+                          1.18,
+                      )}
                     </span>
                   </div>
                 </div>
@@ -1073,7 +1172,8 @@ export default function PaymentsPage() {
                 Edit Payment
               </CardTitle>
               <CardDescription className="font-bold text-black opacity-60">
-                Updating payment for Invoice # {editingPayment.invoice.invoiceNo}
+                Updating payment for Invoice #{" "}
+                {editingPayment.invoice.invoiceNo}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-5 pt-6 pb-8 px-8">

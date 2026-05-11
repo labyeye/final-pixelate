@@ -16,17 +16,29 @@ export async function OPTIONS() {
 }
 
 // Fetch all ad accounts the token has access to
-async function getAdAccounts(token: string): Promise<{ id: string; name: string }[]> {
+async function getAdAccounts(
+  token: string,
+): Promise<{ id: string; name: string }[]> {
   try {
-    const res = await fetch(`${GRAPH}/me/adaccounts?fields=id,name&limit=50&access_token=${token}`);
+    const res = await fetch(
+      `${GRAPH}/me/adaccounts?fields=id,name&limit=50&access_token=${token}`,
+    );
     const data = await res.json();
-    if (data.error) { console.warn("adaccounts error:", data.error.message); return []; }
+    if (data.error) {
+      console.warn("adaccounts error:", data.error.message);
+      return [];
+    }
     return data.data || [];
-  } catch { return []; }
+  } catch {
+    return [];
+  }
 }
 
 // Fetch ALL leads from an ad account across all campaigns/ad sets/ads
-async function fetchAdAccountLeads(adAccountId: string, token: string): Promise<any[]> {
+async function fetchAdAccountLeads(
+  adAccountId: string,
+  token: string,
+): Promise<any[]> {
   const leads: any[] = [];
   let nextUrl: string | null =
     `${GRAPH}/${adAccountId}/leads?fields=id,created_time,ad_id,ad_name,adset_id,adset_name,campaign_id,campaign_name,field_data&limit=100&access_token=${token}`;
@@ -35,16 +47,27 @@ async function fetchAdAccountLeads(adAccountId: string, token: string): Promise<
     try {
       const res = await fetch(nextUrl);
       const data = await res.json();
-      if (data.error) { console.warn(`Ad account leads error [${adAccountId}]:`, data.error.message); break; }
+      if (data.error) {
+        console.warn(
+          `Ad account leads error [${adAccountId}]:`,
+          data.error.message,
+        );
+        break;
+      }
       leads.push(...(data.data || []));
       nextUrl = data.paging?.next || null;
-    } catch { break; }
+    } catch {
+      break;
+    }
   }
   return leads;
 }
 
 // Fallback: fetch leads from page-level lead gen forms
-async function fetchPageFormLeads(pageId: string, pageToken: string): Promise<any[]> {
+async function fetchPageFormLeads(
+  pageId: string,
+  pageToken: string,
+): Promise<any[]> {
   const leads: any[] = [];
   try {
     const formsRes = await fetch(
@@ -65,7 +88,9 @@ async function fetchPageFormLeads(pageId: string, pageToken: string): Promise<an
             leads.push({ ...lead, _formName: form.name });
           }
           nextUrl = data.paging?.next || null;
-        } catch { break; }
+        } catch {
+          break;
+        }
       }
     }
   } catch {}
@@ -82,9 +107,15 @@ function parseFields(fieldData: any[]): Record<string, string> {
 
 function extractPhone(f: Record<string, string>): string {
   return (
-    f["phone_number"] || f["phone"] || f["mobile_number"] ||
-    f["contact_number"] || f["mobile"] || f["whatsapp_number"] ||
-    f["Phone Number"] || f["Phone"] || ""
+    f["phone_number"] ||
+    f["phone"] ||
+    f["mobile_number"] ||
+    f["contact_number"] ||
+    f["mobile"] ||
+    f["whatsapp_number"] ||
+    f["Phone Number"] ||
+    f["Phone"] ||
+    ""
   );
 }
 
@@ -105,7 +136,10 @@ export async function POST(request: Request) {
   try {
     const { clientId } = await request.json();
     if (!clientId) {
-      return NextResponse.json({ error: "clientId is required" }, { status: 400, headers: CORS });
+      return NextResponse.json(
+        { error: "clientId is required" },
+        { status: 400, headers: CORS },
+      );
     }
 
     const clientsCol = await svc.getCollection("clients");
@@ -113,16 +147,25 @@ export async function POST(request: Request) {
     try {
       client = await clientsCol.findOne({ _id: new ObjectId(clientId) });
     } catch {
-      return NextResponse.json({ error: "Invalid clientId" }, { status: 400, headers: CORS });
+      return NextResponse.json(
+        { error: "Invalid clientId" },
+        { status: 400, headers: CORS },
+      );
     }
     if (!client) {
-      return NextResponse.json({ error: "Client not found" }, { status: 404, headers: CORS });
+      return NextResponse.json(
+        { error: "Client not found" },
+        { status: 404, headers: CORS },
+      );
     }
 
     const token: string | null = client.metaAccessToken || null;
     if (!token) {
       return NextResponse.json(
-        { error: "No Meta access token saved for this client. Go to Social Tokens tab and connect Facebook." },
+        {
+          error:
+            "No Meta access token saved for this client. Go to Social Tokens tab and connect Facebook.",
+        },
         { status: 400, headers: CORS },
       );
     }
@@ -153,12 +196,16 @@ export async function POST(request: Request) {
       // Fallback: discover via token
       const discovered = await getAdAccounts(fbToken);
       adAccounts.push(...discovered);
-      console.log(`[LeadsSync] Discovered ${discovered.length} ad accounts via token`);
+      console.log(
+        `[LeadsSync] Discovered ${discovered.length} ad accounts via token`,
+      );
     }
 
     for (const adAccount of adAccounts) {
       const leads = await fetchAdAccountLeads(adAccount.id, fbToken);
-      console.log(`[LeadsSync] Ad account ${adAccount.name} (${adAccount.id}): ${leads.length} leads`);
+      console.log(
+        `[LeadsSync] Ad account ${adAccount.name} (${adAccount.id}): ${leads.length} leads`,
+      );
       for (const lead of leads) {
         if (!seenMetaIds.has(lead.id)) {
           seenMetaIds.add(lead.id);
@@ -169,12 +216,16 @@ export async function POST(request: Request) {
 
     // Strategy 2: Page forms fallback (catches leads not linked to ad accounts)
     let pages: any[] = [];
-    try { pages = await getUserPages(fbToken); } catch {}
+    try {
+      pages = await getUserPages(fbToken);
+    } catch {}
 
     for (const page of pages) {
       const pageToken = page.access_token || token;
       const pageLeads = await fetchPageFormLeads(page.id, pageToken);
-      console.log(`[LeadsSync] Page ${page.name}: ${pageLeads.length} leads from forms`);
+      console.log(
+        `[LeadsSync] Page ${page.name}: ${pageLeads.length} leads from forms`,
+      );
       for (const lead of pageLeads) {
         if (!seenMetaIds.has(lead.id)) {
           seenMetaIds.add(lead.id);
@@ -183,7 +234,9 @@ export async function POST(request: Request) {
       }
     }
 
-    console.log(`[LeadsSync] Total unique leads to process: ${allRawLeads.length}`);
+    console.log(
+      `[LeadsSync] Total unique leads to process: ${allRawLeads.length}`,
+    );
 
     // Insert unique leads
     for (const ml of allRawLeads) {
@@ -202,7 +255,13 @@ export async function POST(request: Request) {
         if (!existingById.metaLeadId) {
           await leadsCol.updateOne(
             { _id: existingById._id },
-            { $set: { metaLeadId: ml.id, campaignName: ml.campaign_name || "", adName: ml.ad_name || "" } },
+            {
+              $set: {
+                metaLeadId: ml.id,
+                campaignName: ml.campaign_name || "",
+                adName: ml.ad_name || "",
+              },
+            },
           );
         }
         skipped++;
@@ -214,11 +273,20 @@ export async function POST(request: Request) {
         const orClauses: any[] = [];
         if (phone) orClauses.push({ phone });
         if (email) orClauses.push({ email });
-        const existingByContact = await leadsCol.findOne({ clientId, $or: orClauses });
+        const existingByContact = await leadsCol.findOne({
+          clientId,
+          $or: orClauses,
+        });
         if (existingByContact) {
           await leadsCol.updateOne(
             { _id: existingByContact._id },
-            { $set: { metaLeadId: ml.id, campaignName: ml.campaign_name || "", adName: ml.ad_name || "" } },
+            {
+              $set: {
+                metaLeadId: ml.id,
+                campaignName: ml.campaign_name || "",
+                adName: ml.ad_name || "",
+              },
+            },
           );
           skipped++;
           continue;

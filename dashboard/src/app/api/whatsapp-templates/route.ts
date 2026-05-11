@@ -31,7 +31,10 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(serialized);
   } catch (err: any) {
     console.error("[whatsapp-templates GET]", err);
-    return NextResponse.json({ error: "Failed to fetch templates." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to fetch templates." },
+      { status: 500 },
+    );
   }
 }
 
@@ -39,7 +42,19 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, category, language, headerType, headerText, body: bodyText, footer, buttons, variables, exampleValues, notes } = body;
+    const {
+      name,
+      category,
+      language,
+      headerType,
+      headerText,
+      body: bodyText,
+      footer,
+      buttons,
+      variables,
+      exampleValues,
+      notes,
+    } = body;
 
     if (!name || !category || !bodyText) {
       return NextResponse.json(
@@ -72,7 +87,7 @@ export async function POST(req: NextRequest) {
       variables: Array.isArray(variables) ? variables : [],
       exampleValues: Array.isArray(exampleValues) ? exampleValues : [],
       notes: notes ? String(notes) : null,
-      status: "LOCAL",         // LOCAL | SUBMITTED | APPROVED | REJECTED | PAUSED
+      status: "LOCAL", // LOCAL | SUBMITTED | APPROVED | REJECTED | PAUSED
       metaTemplateId: null,
       submittedAt: null,
       approvedAt: null,
@@ -82,9 +97,15 @@ export async function POST(req: NextRequest) {
     };
 
     const result = await db.collection(COLLECTION).insertOne(doc);
-    return NextResponse.json({ ...doc, _id: result.insertedId.toString() }, { status: 201 });
+    return NextResponse.json(
+      { ...doc, _id: result.insertedId.toString() },
+      { status: 201 },
+    );
   } catch (err: any) {
     console.error("[whatsapp-templates POST]", err);
-    return NextResponse.json({ error: "Failed to create template." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to create template." },
+      { status: 500 },
+    );
   }
 }

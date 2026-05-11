@@ -125,7 +125,10 @@ export default function AnalyticsPage() {
   } | null>(null);
   const [syncError, setSyncError] = useState<string | null>(null);
   const [syncingAll, setSyncingAll] = useState(false);
-  const [syncAllResult, setSyncAllResult] = useState<{ synced: number; skipped: number } | null>(null);
+  const [syncAllResult, setSyncAllResult] = useState<{
+    synced: number;
+    skipped: number;
+  } | null>(null);
   const [syncProgress, setSyncProgress] = useState<{
     current: number;
     total: number;
@@ -146,7 +149,10 @@ export default function AnalyticsPage() {
   });
 
   const loadPosts = async (clientId: string) => {
-    if (!clientId) { setPosts([]); return; }
+    if (!clientId) {
+      setPosts([]);
+      return;
+    }
     try {
       const url = new URL("/api/social-media-posts", window.location.origin);
       url.searchParams.set("clientId", clientId);
@@ -171,7 +177,9 @@ export default function AnalyticsPage() {
         if (!res.ok) return;
         const data = await res.json();
         setClients(Array.isArray(data) ? data : []);
-      } catch (e) { console.error(e); }
+      } catch (e) {
+        console.error(e);
+      }
     })();
   }, []);
 
@@ -186,9 +194,13 @@ export default function AnalyticsPage() {
 
   const filteredPosts = useMemo(() => {
     return posts.filter((post) => {
-      const matchesSearch = post.title.toLowerCase().includes(search.toLowerCase());
-      const matchesPlatform = !platformFilter || post.platform === platformFilter;
-      const matchesContentType = !contentTypeFilter || post.contentType === contentTypeFilter;
+      const matchesSearch = post.title
+        .toLowerCase()
+        .includes(search.toLowerCase());
+      const matchesPlatform =
+        !platformFilter || post.platform === platformFilter;
+      const matchesContentType =
+        !contentTypeFilter || post.contentType === contentTypeFilter;
       return matchesSearch && matchesPlatform && matchesContentType;
     });
   }, [posts, search, platformFilter, contentTypeFilter]);
@@ -216,7 +228,9 @@ export default function AnalyticsPage() {
         const accountIds =
           p.socialAccountIds && p.socialAccountIds.length > 0
             ? p.socialAccountIds
-            : p.socialAccountId ? [p.socialAccountId] : null;
+            : p.socialAccountId
+              ? [p.socialAccountId]
+              : null;
         if (accountIds && p.accountMetrics) {
           let hasAny = false;
           for (const id of accountIds) {
@@ -246,7 +260,13 @@ export default function AnalyticsPage() {
         }
         return acc;
       },
-      { totalViews: 0, totalLikes: 0, totalComments: 0, totalShares: 0, totalFollowersGained: 0 },
+      {
+        totalViews: 0,
+        totalLikes: 0,
+        totalComments: 0,
+        totalShares: 0,
+        totalFollowersGained: 0,
+      },
     );
   }, [posts]);
 
@@ -254,7 +274,8 @@ export default function AnalyticsPage() {
     if (!summary.totalViews) return null;
     return (
       ((summary.totalLikes + summary.totalComments + summary.totalShares) /
-        summary.totalViews) * 100
+        summary.totalViews) *
+      100
     ).toFixed(2);
   }, [summary]);
 
@@ -262,11 +283,19 @@ export default function AnalyticsPage() {
     const map: Record<string, AccountMetrics> = {};
     posts.forEach((p) => {
       if (!map[p.platform])
-        map[p.platform] = { views: 0, likes: 0, comments: 0, shares: 0, followers_gained: 0 };
+        map[p.platform] = {
+          views: 0,
+          likes: 0,
+          comments: 0,
+          shares: 0,
+          followers_gained: 0,
+        };
       const accountIds =
         p.socialAccountIds && p.socialAccountIds.length > 0
           ? p.socialAccountIds
-          : p.socialAccountId ? [p.socialAccountId] : null;
+          : p.socialAccountId
+            ? [p.socialAccountId]
+            : null;
       if (accountIds && p.accountMetrics) {
         for (const id of accountIds) {
           const m = p.accountMetrics[id];
@@ -304,13 +333,21 @@ export default function AnalyticsPage() {
     setSyncProgress(null);
 
     const syncable = flatRows.filter(({ post, accountId }) => {
-      const isMetaPlatform = post.platform === "Facebook" || post.platform === "Instagram";
+      const isMetaPlatform =
+        post.platform === "Facebook" || post.platform === "Instagram";
       const hasAccount = accountId !== NO_ACCOUNT;
-      const hasLink = !!(post.postedLink || (post as any).postedLinks?.[accountId]);
+      const hasLink = !!(
+        post.postedLink || (post as any).postedLinks?.[accountId]
+      );
       return isMetaPlatform && hasAccount && hasLink;
     });
 
-    setSyncProgress({ current: 0, total: syncable.length, currentTitle: "", errors: [] });
+    setSyncProgress({
+      current: 0,
+      total: syncable.length,
+      currentTitle: "",
+      errors: [],
+    });
 
     let synced = 0;
     let skipped = 0;
@@ -319,7 +356,9 @@ export default function AnalyticsPage() {
     for (let i = 0; i < syncable.length; i++) {
       const { post, accountId } = syncable[i];
       const postId = (post._id || post.id) as string;
-      setSyncProgress((prev) => prev ? { ...prev, current: i + 1, currentTitle: post.title } : prev);
+      setSyncProgress((prev) =>
+        prev ? { ...prev, current: i + 1, currentTitle: post.title } : prev,
+      );
       try {
         const res = await fetch("/api/social-media-metrics/sync", {
           method: "POST",
@@ -333,12 +372,29 @@ export default function AnalyticsPage() {
           skipped++;
           const msg = data.reason || data.error || `HTTP ${res.status}`;
           errors.push({ title: post.title, error: msg });
-          setSyncProgress((prev) => prev ? { ...prev, errors: [...prev.errors, { title: post.title, error: msg }] } : prev);
+          setSyncProgress((prev) =>
+            prev
+              ? {
+                  ...prev,
+                  errors: [...prev.errors, { title: post.title, error: msg }],
+                }
+              : prev,
+          );
         }
       } catch (e: any) {
         skipped++;
         errors.push({ title: post.title, error: e.message || "Network error" });
-        setSyncProgress((prev) => prev ? { ...prev, errors: [...prev.errors, { title: post.title, error: e.message || "Network error" }] } : prev);
+        setSyncProgress((prev) =>
+          prev
+            ? {
+                ...prev,
+                errors: [
+                  ...prev.errors,
+                  { title: post.title, error: e.message || "Network error" },
+                ],
+              }
+            : prev,
+        );
       }
     }
 
@@ -347,7 +403,10 @@ export default function AnalyticsPage() {
     setSyncAllResult({ synced, skipped });
   };
 
-  const handleSyncMetrics = async (post: SocialMediaPost, accountId: string) => {
+  const handleSyncMetrics = async (
+    post: SocialMediaPost,
+    accountId: string,
+  ) => {
     const postId = (post._id || post.id) as string;
     setSyncingKey({ postId, accountId });
     setSyncError(null);
@@ -376,7 +435,8 @@ export default function AnalyticsPage() {
     if (!inlineEditingKey) return;
     try {
       const body: any = { id: inlineEditingKey.postId, ...inlineMetrics };
-      if (inlineEditingKey.accountId !== NO_ACCOUNT) body.accountId = inlineEditingKey.accountId;
+      if (inlineEditingKey.accountId !== NO_ACCOUNT)
+        body.accountId = inlineEditingKey.accountId;
       const res = await fetch("/api/social-media-posts", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -392,7 +452,18 @@ export default function AnalyticsPage() {
   };
 
   const handleExportCSV = () => {
-    const headers = ["Title", "Platform", "Account ID", "Date", "Views", "Likes", "Comments", "Shares", "Followers", "Eng. Rate"];
+    const headers = [
+      "Title",
+      "Platform",
+      "Account ID",
+      "Date",
+      "Views",
+      "Likes",
+      "Comments",
+      "Shares",
+      "Followers",
+      "Eng. Rate",
+    ];
     const rows = flatRows.map(({ post, accountId }) => {
       const m = getAccountMetrics(post, accountId);
       const er = m.views
@@ -403,7 +474,12 @@ export default function AnalyticsPage() {
         post.platform,
         accountId === NO_ACCOUNT ? "" : accountId,
         post.scheduledDate,
-        m.views, m.likes, m.comments, m.shares, m.followers_gained, er,
+        m.views,
+        m.likes,
+        m.comments,
+        m.shares,
+        m.followers_gained,
+        er,
       ].join(",");
     });
     const csv = [headers.join(","), ...rows].join("\n");
@@ -420,7 +496,6 @@ export default function AnalyticsPage() {
 
   return (
     <div className="space-y-6 font-headline">
-
       {/* Sync Progress Modal */}
       {syncProgress && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
@@ -444,7 +519,9 @@ export default function AnalyticsPage() {
               {/* Progress counter */}
               <div className="flex items-center justify-between">
                 <span className="text-sm font-bold text-gray-600">
-                  {isSyncDone ? "Finished" : `Post ${syncProgress.current} of ${syncProgress.total}`}
+                  {isSyncDone
+                    ? "Finished"
+                    : `Post ${syncProgress.current} of ${syncProgress.total}`}
                 </span>
                 <span className="text-sm font-black">
                   {syncProgress.current}/{syncProgress.total}
@@ -465,7 +542,10 @@ export default function AnalyticsPage() {
               {/* Current post */}
               {!isSyncDone && syncProgress.currentTitle && (
                 <p className="text-xs font-semibold text-gray-500 truncate">
-                  Syncing: <span className="text-black font-bold">{syncProgress.currentTitle}</span>
+                  Syncing:{" "}
+                  <span className="text-black font-bold">
+                    {syncProgress.currentTitle}
+                  </span>
                 </p>
               )}
 
@@ -473,12 +553,20 @@ export default function AnalyticsPage() {
               {isSyncDone && syncAllResult && (
                 <div className="flex gap-3">
                   <div className="flex-1 bg-green-50 border-2 border-green-400 rounded-lg p-3 text-center">
-                    <div className="text-2xl font-black text-green-700">{syncAllResult.synced}</div>
-                    <div className="text-xs font-bold text-green-600 uppercase">Synced</div>
+                    <div className="text-2xl font-black text-green-700">
+                      {syncAllResult.synced}
+                    </div>
+                    <div className="text-xs font-bold text-green-600 uppercase">
+                      Synced
+                    </div>
                   </div>
                   <div className="flex-1 bg-red-50 border-2 border-red-300 rounded-lg p-3 text-center">
-                    <div className="text-2xl font-black text-red-600">{syncAllResult.skipped}</div>
-                    <div className="text-xs font-bold text-red-500 uppercase">Skipped</div>
+                    <div className="text-2xl font-black text-red-600">
+                      {syncAllResult.skipped}
+                    </div>
+                    <div className="text-xs font-bold text-red-500 uppercase">
+                      Skipped
+                    </div>
                   </div>
                 </div>
               )}
@@ -490,8 +578,13 @@ export default function AnalyticsPage() {
                     Skipped Posts ({syncProgress.errors.length})
                   </p>
                   {syncProgress.errors.map((e, i) => (
-                    <div key={i} className="bg-red-50 border border-red-200 rounded-md px-3 py-2">
-                      <p className="text-xs font-bold text-gray-800 truncate">{e.title}</p>
+                    <div
+                      key={i}
+                      className="bg-red-50 border border-red-200 rounded-md px-3 py-2"
+                    >
+                      <p className="text-xs font-bold text-gray-800 truncate">
+                        {e.title}
+                      </p>
                       <p className="text-xs text-red-600 mt-0.5">{e.error}</p>
                     </div>
                   ))}
@@ -522,13 +615,22 @@ export default function AnalyticsPage() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Link href="/social-media-planner" className="px-3 py-2 border-2 border-black rounded-md text-sm font-semibold hover:bg-black hover:text-white transition-colors">
+          <Link
+            href="/social-media-planner"
+            className="px-3 py-2 border-2 border-black rounded-md text-sm font-semibold hover:bg-black hover:text-white transition-colors"
+          >
             Dashboard
           </Link>
-          <Link href="/social-media-planner/planner" className="px-3 py-2 border-2 border-black rounded-md text-sm font-semibold hover:bg-black hover:text-white transition-colors">
+          <Link
+            href="/social-media-planner/planner"
+            className="px-3 py-2 border-2 border-black rounded-md text-sm font-semibold hover:bg-black hover:text-white transition-colors"
+          >
             Planner
           </Link>
-          <Link href="/social-media-planner/calendar" className="px-3 py-2 border-2 border-black rounded-md text-sm font-semibold hover:bg-black hover:text-white transition-colors">
+          <Link
+            href="/social-media-planner/calendar"
+            className="px-3 py-2 border-2 border-black rounded-md text-sm font-semibold hover:bg-black hover:text-white transition-colors"
+          >
             Calendar
           </Link>
         </div>
@@ -563,7 +665,10 @@ export default function AnalyticsPage() {
           {syncError && (
             <div className="rounded-lg border-2 border-red-400 bg-red-50 px-4 py-3 text-sm text-red-800 flex items-center justify-between">
               <span>⚠ {syncError}</span>
-              <button className="ml-4 text-xs underline font-semibold" onClick={() => setSyncError(null)}>
+              <button
+                className="ml-4 text-xs underline font-semibold"
+                onClick={() => setSyncError(null)}
+              >
                 Dismiss
               </button>
             </div>
@@ -572,7 +677,10 @@ export default function AnalyticsPage() {
           {/* Summary Stats */}
           <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {STAT_CONFIG.map((cfg) => (
-              <div key={cfg.key} className={`border-2 border-black rounded-lg p-4 ${cfg.bg}`}>
+              <div
+                key={cfg.key}
+                className={`border-2 border-black rounded-lg p-4 ${cfg.bg}`}
+              >
                 <div className="flex items-center justify-between mb-2">
                   <div className="text-xs font-bold text-gray-600 uppercase tracking-wide">
                     {cfg.label}
@@ -599,86 +707,99 @@ export default function AnalyticsPage() {
           </section>
 
           {/* Charts Row */}
-          {posts.length > 0 && (platformBreakdown.length > 0 || topPosts.length > 0) && (
-            <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              {/* Platform Views Chart */}
-              {platformBreakdown.length > 0 && (
-                <div className="border-2 border-black rounded-lg p-5">
-                  <h3 className="text-base font-black mb-4 tracking-tight">
-                    VIEWS BY PLATFORM
-                  </h3>
-                  <ResponsiveContainer width="100%" height={200}>
-                    <BarChart
-                      data={platformBreakdown}
-                      layout="vertical"
-                      margin={{ left: 8, right: 16, top: 4, bottom: 4 }}
-                    >
-                      <XAxis
-                        type="number"
-                        tick={{ fontSize: 11, fontWeight: 600 }}
-                        tickLine={false}
-                        axisLine={false}
-                      />
-                      <YAxis
-                        type="category"
-                        dataKey="platform"
-                        tick={{ fontSize: 11, fontWeight: 700 }}
-                        tickLine={false}
-                        axisLine={false}
-                        width={110}
-                      />
-                      <Tooltip
-                        formatter={(v: any) => [v.toLocaleString() + " views", "Views"]}
-                        contentStyle={{
-                          fontSize: 12,
-                          fontWeight: 700,
-                          border: "2px solid black",
-                          borderRadius: 8,
-                        }}
-                      />
-                      <Bar dataKey="views" radius={[0, 4, 4, 0]}>
-                        {platformBreakdown.map((entry, i) => (
-                          <Cell key={i} fill={PLATFORM_COLORS[entry.platform] || "#6366f1"} />
-                        ))}
-                      </Bar>
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-              )}
-
-              {/* Top Posts */}
-              {topPosts.length > 0 && (
-                <div className="border-2 border-black rounded-lg p-5">
-                  <h3 className="text-base font-black mb-4 tracking-tight">
-                    TOP PERFORMING POSTS
-                  </h3>
-                  <div className="space-y-3">
-                    {topPosts.map(({ post, m, er }, i) => (
-                      <div
-                        key={(post._id || post.id) as string}
-                        className="flex items-center gap-3 p-3 border-2 border-black rounded-lg bg-gray-50"
+          {posts.length > 0 &&
+            (platformBreakdown.length > 0 || topPosts.length > 0) && (
+              <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                {/* Platform Views Chart */}
+                {platformBreakdown.length > 0 && (
+                  <div className="border-2 border-black rounded-lg p-5">
+                    <h3 className="text-base font-black mb-4 tracking-tight">
+                      VIEWS BY PLATFORM
+                    </h3>
+                    <ResponsiveContainer width="100%" height={200}>
+                      <BarChart
+                        data={platformBreakdown}
+                        layout="vertical"
+                        margin={{ left: 8, right: 16, top: 4, bottom: 4 }}
                       >
-                        <span className="text-2xl font-black text-gray-300 w-6 text-center flex-shrink-0">
-                          {i + 1}
-                        </span>
-                        <div className="flex-1 min-w-0">
-                          <div className="text-sm font-black truncate">{post.title}</div>
-                          <div className="text-xs text-gray-500 font-semibold mt-0.5">
-                            {post.platform} · {m.views.toLocaleString()} views
-                          </div>
-                        </div>
-                        <EngagementBadge m={m} />
-                      </div>
-                    ))}
+                        <XAxis
+                          type="number"
+                          tick={{ fontSize: 11, fontWeight: 600 }}
+                          tickLine={false}
+                          axisLine={false}
+                        />
+                        <YAxis
+                          type="category"
+                          dataKey="platform"
+                          tick={{ fontSize: 11, fontWeight: 700 }}
+                          tickLine={false}
+                          axisLine={false}
+                          width={110}
+                        />
+                        <Tooltip
+                          formatter={(v: any) => [
+                            v.toLocaleString() + " views",
+                            "Views",
+                          ]}
+                          contentStyle={{
+                            fontSize: 12,
+                            fontWeight: 700,
+                            border: "2px solid black",
+                            borderRadius: 8,
+                          }}
+                        />
+                        <Bar dataKey="views" radius={[0, 4, 4, 0]}>
+                          {platformBreakdown.map((entry, i) => (
+                            <Cell
+                              key={i}
+                              fill={
+                                PLATFORM_COLORS[entry.platform] || "#6366f1"
+                              }
+                            />
+                          ))}
+                        </Bar>
+                      </BarChart>
+                    </ResponsiveContainer>
                   </div>
-                </div>
-              )}
-            </section>
-          )}
+                )}
+
+                {/* Top Posts */}
+                {topPosts.length > 0 && (
+                  <div className="border-2 border-black rounded-lg p-5">
+                    <h3 className="text-base font-black mb-4 tracking-tight">
+                      TOP PERFORMING POSTS
+                    </h3>
+                    <div className="space-y-3">
+                      {topPosts.map(({ post, m, er }, i) => (
+                        <div
+                          key={(post._id || post.id) as string}
+                          className="flex items-center gap-3 p-3 border-2 border-black rounded-lg bg-gray-50"
+                        >
+                          <span className="text-2xl font-black text-gray-300 w-6 text-center flex-shrink-0">
+                            {i + 1}
+                          </span>
+                          <div className="flex-1 min-w-0">
+                            <div className="text-sm font-black truncate">
+                              {post.title}
+                            </div>
+                            <div className="text-xs text-gray-500 font-semibold mt-0.5">
+                              {post.platform} · {m.views.toLocaleString()} views
+                            </div>
+                          </div>
+                          <EngagementBadge m={m} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </section>
+            )}
 
           {/* Filters */}
           <section className="border-2 border-black rounded-lg p-4">
-            <h3 className="text-base font-black mb-4 tracking-tight">FILTERS</h3>
+            <h3 className="text-base font-black mb-4 tracking-tight">
+              FILTERS
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
               <div>
                 <label className="block text-xs font-bold mb-1.5 uppercase tracking-wide">
@@ -702,7 +823,9 @@ export default function AnalyticsPage() {
                 >
                   <option value="">All Platforms</option>
                   {SOCIAL_PLATFORMS.map((p) => (
-                    <option key={p} value={p}>{p}</option>
+                    <option key={p} value={p}>
+                      {p}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -717,7 +840,9 @@ export default function AnalyticsPage() {
                 >
                   <option value="">All Types</option>
                   {CONTENT_TYPES.map((ct) => (
-                    <option key={ct} value={ct}>{ct}</option>
+                    <option key={ct} value={ct}>
+                      {ct}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -759,7 +884,8 @@ export default function AnalyticsPage() {
                 <div className="flex items-center gap-2 flex-wrap">
                   {syncAllResult && (
                     <span className="text-xs font-semibold text-gray-500">
-                      ✓ {syncAllResult.synced} synced, {syncAllResult.skipped} skipped
+                      ✓ {syncAllResult.synced} synced, {syncAllResult.skipped}{" "}
+                      skipped
                     </span>
                   )}
                   <Button
@@ -785,7 +911,9 @@ export default function AnalyticsPage() {
             {flatRows.length === 0 ? (
               <div className="p-10 text-center">
                 <div className="text-4xl mb-3">📭</div>
-                <p className="text-lg font-black">No analytics data available</p>
+                <p className="text-lg font-black">
+                  No analytics data available
+                </p>
                 <p className="text-sm text-gray-500 font-semibold mt-1">
                   Posts will appear here once created and metrics are updated.
                 </p>
@@ -795,17 +923,39 @@ export default function AnalyticsPage() {
                 <table className="w-full">
                   <thead className="bg-black text-white">
                     <tr>
-                      <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wide">Title</th>
-                      <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wide">Platform</th>
-                      <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wide">Account</th>
-                      <th className="px-4 py-3 text-center text-xs font-black uppercase tracking-wide">Date</th>
-                      <th className="px-4 py-3 text-right text-xs font-black uppercase tracking-wide">Views</th>
-                      <th className="px-4 py-3 text-right text-xs font-black uppercase tracking-wide">Likes</th>
-                      <th className="px-4 py-3 text-right text-xs font-black uppercase tracking-wide">Comments</th>
-                      <th className="px-4 py-3 text-right text-xs font-black uppercase tracking-wide">Shares</th>
-                      <th className="px-4 py-3 text-right text-xs font-black uppercase tracking-wide">Followers</th>
-                      <th className="px-4 py-3 text-right text-xs font-black uppercase tracking-wide">Eng. Rate</th>
-                      <th className="px-4 py-3 text-center text-xs font-black uppercase tracking-wide">Actions</th>
+                      <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wide">
+                        Title
+                      </th>
+                      <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wide">
+                        Platform
+                      </th>
+                      <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wide">
+                        Account
+                      </th>
+                      <th className="px-4 py-3 text-center text-xs font-black uppercase tracking-wide">
+                        Date
+                      </th>
+                      <th className="px-4 py-3 text-right text-xs font-black uppercase tracking-wide">
+                        Views
+                      </th>
+                      <th className="px-4 py-3 text-right text-xs font-black uppercase tracking-wide">
+                        Likes
+                      </th>
+                      <th className="px-4 py-3 text-right text-xs font-black uppercase tracking-wide">
+                        Comments
+                      </th>
+                      <th className="px-4 py-3 text-right text-xs font-black uppercase tracking-wide">
+                        Shares
+                      </th>
+                      <th className="px-4 py-3 text-right text-xs font-black uppercase tracking-wide">
+                        Followers
+                      </th>
+                      <th className="px-4 py-3 text-right text-xs font-black uppercase tracking-wide">
+                        Eng. Rate
+                      </th>
+                      <th className="px-4 py-3 text-center text-xs font-black uppercase tracking-wide">
+                        Actions
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -815,11 +965,18 @@ export default function AnalyticsPage() {
                         inlineEditingKey?.postId === postId &&
                         inlineEditingKey?.accountId === accountId;
                       const metrics = getAccountMetrics(post, accountId);
-                      const bgClass = rowIdx % 2 === 0 ? "bg-gray-50" : "bg-white";
-                      const borderClass = isFirst && rowIdx !== 0 ? "border-t-2 border-black" : "";
+                      const bgClass =
+                        rowIdx % 2 === 0 ? "bg-gray-50" : "bg-white";
+                      const borderClass =
+                        isFirst && rowIdx !== 0
+                          ? "border-t-2 border-black"
+                          : "";
 
                       return (
-                        <tr key={`${postId}-${accountId}`} className={`${bgClass} ${borderClass}`}>
+                        <tr
+                          key={`${postId}-${accountId}`}
+                          className={`${bgClass} ${borderClass}`}
+                        >
                           {/* Title */}
                           <td className="px-4 py-3 max-w-[200px]">
                             {isFirst ? (
@@ -840,8 +997,13 @@ export default function AnalyticsPage() {
                           <td className="px-4 py-3">
                             {isFirst && (
                               <div className="flex items-center gap-1.5">
-                                <PlatformLogo platform={post.platform} size="sm" />
-                                <span className="text-xs font-bold text-gray-700">{post.platform}</span>
+                                <PlatformLogo
+                                  platform={post.platform}
+                                  size="sm"
+                                />
+                                <span className="text-xs font-bold text-gray-700">
+                                  {post.platform}
+                                </span>
                               </div>
                             )}
                           </td>
@@ -849,7 +1011,9 @@ export default function AnalyticsPage() {
                           {/* Account */}
                           <td className="px-4 py-3 text-sm">
                             {accountId === NO_ACCOUNT ? (
-                              <span className="text-gray-400 text-xs font-semibold">—</span>
+                              <span className="text-gray-400 text-xs font-semibold">
+                                —
+                              </span>
                             ) : (
                               <PostAccountDisplay accountId={accountId} />
                             )}
@@ -863,8 +1027,19 @@ export default function AnalyticsPage() {
                           {/* Metric cells */}
                           {isEditing ? (
                             <>
-                              {(["views", "likes", "comments", "shares", "followers_gained"] as const).map((field) => (
-                                <td key={field} className="px-4 py-3 text-right">
+                              {(
+                                [
+                                  "views",
+                                  "likes",
+                                  "comments",
+                                  "shares",
+                                  "followers_gained",
+                                ] as const
+                              ).map((field) => (
+                                <td
+                                  key={field}
+                                  className="px-4 py-3 text-right"
+                                >
                                   <input
                                     type="number"
                                     min="0"
@@ -872,14 +1047,19 @@ export default function AnalyticsPage() {
                                     onChange={(e) =>
                                       setInlineMetrics((prev) => ({
                                         ...prev,
-                                        [field]: Math.max(0, parseInt(e.target.value) || 0),
+                                        [field]: Math.max(
+                                          0,
+                                          parseInt(e.target.value) || 0,
+                                        ),
                                       }))
                                     }
                                     className="w-20 px-2 py-1 border-2 border-black rounded text-right font-bold text-sm"
                                   />
                                 </td>
                               ))}
-                              <td className="px-4 py-3 text-right text-gray-400 font-semibold text-sm">—</td>
+                              <td className="px-4 py-3 text-right text-gray-400 font-semibold text-sm">
+                                —
+                              </td>
                             </>
                           ) : (
                             <>
@@ -926,17 +1106,21 @@ export default function AnalyticsPage() {
                               </div>
                             ) : (
                               <div className="flex gap-1.5 justify-center">
-                                {(post.platform === "Facebook" || post.platform === "Instagram") &&
+                                {(post.platform === "Facebook" ||
+                                  post.platform === "Instagram") &&
                                   accountId !== NO_ACCOUNT && (
                                     <Button
                                       size="sm"
                                       variant="outline"
                                       className="text-xs font-bold border-2 border-blue-500 text-blue-700 hover:bg-blue-50 h-7 px-2"
                                       disabled={!!syncingKey}
-                                      onClick={() => handleSyncMetrics(post, accountId)}
+                                      onClick={() =>
+                                        handleSyncMetrics(post, accountId)
+                                      }
                                       title="Fetch live metrics from Meta Graph API"
                                     >
-                                      {syncingKey?.postId === postId && syncingKey?.accountId === accountId
+                                      {syncingKey?.postId === postId &&
+                                      syncingKey?.accountId === accountId
                                         ? "Syncing…"
                                         : "⟳ Sync"}
                                     </Button>
@@ -944,7 +1128,9 @@ export default function AnalyticsPage() {
                                 <Button
                                   size="sm"
                                   className="text-xs font-bold border-2 border-black h-7 px-2"
-                                  onClick={() => handleStartInlineEdit(post, accountId)}
+                                  onClick={() =>
+                                    handleStartInlineEdit(post, accountId)
+                                  }
                                 >
                                   Edit
                                 </Button>

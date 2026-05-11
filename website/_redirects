@@ -66,18 +66,7 @@
 /detailed-services-uiux.html    /services/uiux-branding.html     301
 /detailed-services-digital.html /services/digital-marketing.html 301
 
-# Detailed-services query strings — exact service matches (must come BEFORE catch-all)
-/detailed-services.html?service=web-development         /services/web-development.html       301
-/detailed-services.html?service=app-development         /services/app-development.html       301
-/detailed-services.html?service=software-development    /services/software-development.html  301
-/detailed-services.html?service=video-editing           /services/video-editing.html         301
-/detailed-services.html?service=digital-marketing       /services/digital-marketing.html     301
-/detailed-services?service=web-development              /services/web-development.html       301
-/detailed-services?service=app-development              /services/app-development.html       301
-/detailed-services?service=software-development         /services/software-development.html  301
-/detailed-services?service=video-editing                /services/video-editing.html         301
-/detailed-services?service=digital-marketing            /services/digital-marketing.html     301
-# Catch-all: handles ?service=X&city=Y variants (no query string = matches everything)
+# Catch-all: handles /detailed-services.html with any ?service=X or ?service=X&city=Y query (Netlify ignores source query strings)
 /detailed-services.html                                 /services/index.html                 301
 /detailed-services                                      /services/index.html                 301
 
@@ -104,6 +93,8 @@
 /industry-travel             /industries/travel.html        301
 /industry-realestate.html    /industries/real-estate.html   301
 /industry-realestate         /industries/real-estate.html   301
+/industry-retail.html        /industries/ecommerce.html     301
+/industry-retail             /industries/ecommerce.html     301
 /industry-education.html     /industries/education.html     301
 /industry-education          /industries/education.html     301
 /industry-healthcare.html    /industries/education.html     301

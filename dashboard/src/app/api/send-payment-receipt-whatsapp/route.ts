@@ -24,7 +24,8 @@ export async function POST(req: NextRequest) {
     filename,
   } = body;
 
-  const accessToken = process.env.META_ACCESS_TOKEN || process.env.META_ACCESS_TOKEN;
+  const accessToken =
+    process.env.META_ACCESS_TOKEN || process.env.META_ACCESS_TOKEN;
   const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
   const apiVersion = process.env.WHATSAPP_API_VERSION ?? "v21.0";
 
@@ -66,7 +67,16 @@ export async function POST(req: NextRequest) {
             { type: "text", text: clientName },
             { type: "text", text: String(amount) },
             { type: "text", text: receiptNo },
-            { type: "text", text: paymentDate || new Date().toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) },
+            {
+              type: "text",
+              text:
+                paymentDate ||
+                new Date().toLocaleDateString("en-IN", {
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+                }),
+            },
             { type: "text", text: paymentMode || "Bank Transfer" },
             { type: "text", text: transactionRef || "—" },
           ],
@@ -92,7 +102,10 @@ export async function POST(req: NextRequest) {
 
     if (!res.ok) {
       const errMsg = (data as any)?.error?.message || "WhatsApp API error";
-      return NextResponse.json({ error: errMsg }, { status: res.status >= 500 ? 502 : 422 });
+      return NextResponse.json(
+        { error: errMsg },
+        { status: res.status >= 500 ? 502 : 422 },
+      );
     }
 
     const messageId = (data as any)?.messages?.[0]?.id ?? null;

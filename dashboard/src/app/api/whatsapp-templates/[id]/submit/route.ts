@@ -5,7 +5,11 @@ import { ObjectId } from "mongodb";
 const COLLECTION = "whatsapp_templates";
 
 function toObjectId(id: string) {
-  try { return new ObjectId(id); } catch { return null; }
+  try {
+    return new ObjectId(id);
+  } catch {
+    return null;
+  }
 }
 
 // Build the Meta API components array from our template document
@@ -16,9 +20,15 @@ function buildComponents(template: any): any[] {
   if (template.headerType && template.headerType !== "NONE") {
     if (template.headerType === "TEXT" && template.headerText) {
       const hasVar = /{{[^}]+}}/.test(template.headerText);
-      const comp: any = { type: "HEADER", format: "TEXT", text: template.headerText };
+      const comp: any = {
+        type: "HEADER",
+        format: "TEXT",
+        text: template.headerText,
+      };
       if (hasVar) {
-        comp.example = { header_text: [template.headerExamples?.[0] ?? "Sample Header"] };
+        comp.example = {
+          header_text: [template.headerExamples?.[0] ?? "Sample Header"],
+        };
       }
       components.push(comp);
     } else {
@@ -48,7 +58,11 @@ function buildComponents(template: any): any[] {
     // Detect {{n}} variables and attach example values
     // Sort {{1}}, {{2}}, … in numeric order so examples align correctly
     const rawMatches = template.body.match(/\{\{(\d+)\}\}/g) ?? [];
-    const varNums: number[] = [...new Set<number>(rawMatches.map((m: string) => parseInt(m.replace(/[{}]/g, ""))))].sort((a, b) => a - b);
+    const varNums: number[] = [
+      ...new Set<number>(
+        rawMatches.map((m: string) => parseInt(m.replace(/[{}]/g, ""))),
+      ),
+    ].sort((a, b) => a - b);
     if (varNums.length > 0) {
       const examples: string[] = varNums.map((n) => {
         const i = n - 1; // {{1}} → index 0
@@ -68,9 +82,20 @@ function buildComponents(template: any): any[] {
   // ── BUTTONS ───────────────────────────────────────────────────────────────
   if (Array.isArray(template.buttons) && template.buttons.length > 0) {
     const buttons = template.buttons.map((btn: any) => {
-      if (btn.type === "QUICK_REPLY") return { type: "QUICK_REPLY", text: btn.text };
-      if (btn.type === "URL") return { type: "URL", text: btn.text, url: btn.url ?? "https://pixelatenest.com" };
-      if (btn.type === "PHONE_NUMBER") return { type: "PHONE_NUMBER", text: btn.text, phone_number: btn.phone ?? "+919999999999" };
+      if (btn.type === "QUICK_REPLY")
+        return { type: "QUICK_REPLY", text: btn.text };
+      if (btn.type === "URL")
+        return {
+          type: "URL",
+          text: btn.text,
+          url: btn.url ?? "https://pixelatenest.com",
+        };
+      if (btn.type === "PHONE_NUMBER")
+        return {
+          type: "PHONE_NUMBER",
+          text: btn.text,
+          phone_number: btn.phone ?? "+919999999999",
+        };
       return { type: btn.type, text: btn.text };
     });
     components.push({ type: "BUTTONS", buttons });
@@ -114,7 +139,10 @@ export async function POST(
   try {
     db = await getDb();
   } catch (err: any) {
-    return NextResponse.json({ error: "Database connection failed: " + err.message }, { status: 500 });
+    return NextResponse.json(
+      { error: "Database connection failed: " + err.message },
+      { status: 500 },
+    );
   }
 
   // Look up template — try 3 strategies in order:
@@ -124,28 +152,43 @@ export async function POST(
   let template: any = null;
   try {
     if (nameOverride) {
-      template = await db.collection(COLLECTION).findOne({ name: nameOverride });
-      console.info(`[submit] lookup by name "${nameOverride}":`, template ? "FOUND" : "NOT FOUND");
+      template = await db
+        .collection(COLLECTION)
+        .findOne({ name: nameOverride });
+      console.info(
+        `[submit] lookup by name "${nameOverride}":`,
+        template ? "FOUND" : "NOT FOUND",
+      );
     }
     if (!template && oid) {
       template = await db.collection(COLLECTION).findOne({ _id: oid });
-      console.info(`[submit] lookup by ObjectId "${id}":`, template ? "FOUND" : "NOT FOUND");
+      console.info(
+        `[submit] lookup by ObjectId "${id}":`,
+        template ? "FOUND" : "NOT FOUND",
+      );
     }
     if (!template) {
       // last resort — scan entire collection (small collection, acceptable)
       const all = await db.collection(COLLECTION).find({}).toArray();
-      console.info(`[submit] full scan, ${all.length} docs, looking for id="${id}"`);
-      template = all.find(
-        (t) => t._id.toString() === id || t.name === nameOverride,
-      ) ?? null;
+      console.info(
+        `[submit] full scan, ${all.length} docs, looking for id="${id}"`,
+      );
+      template =
+        all.find((t) => t._id.toString() === id || t.name === nameOverride) ??
+        null;
     }
   } catch (err: any) {
-    return NextResponse.json({ error: "DB query failed: " + err.message }, { status: 500 });
+    return NextResponse.json(
+      { error: "DB query failed: " + err.message },
+      { status: 500 },
+    );
   }
 
   if (!template) {
     return NextResponse.json(
-      { error: `Template not found. Please delete it, recreate it, and submit again.` },
+      {
+        error: `Template not found. Please delete it, recreate it, and submit again.`,
+      },
       { status: 404 },
     );
   }
@@ -159,7 +202,10 @@ export async function POST(
     components,
   };
 
-  console.info("[whatsapp-templates/submit] Submitting to Meta:", JSON.stringify(payload, null, 2));
+  console.info(
+    "[whatsapp-templates/submit] Submitting to Meta:",
+    JSON.stringify(payload, null, 2),
+  );
 
   let metaRes: Response;
   try {
@@ -185,21 +231,38 @@ export async function POST(
 
   if (!metaRes.ok) {
     const errDetail = (metaJson as any)?.error ?? {};
-    console.error("[whatsapp-templates/submit] Meta error:", JSON.stringify(metaJson, null, 2));
-    console.error("[submit] Meta rejected payload:", JSON.stringify(payload, null, 2));
+    console.error(
+      "[whatsapp-templates/submit] Meta error:",
+      JSON.stringify(metaJson, null, 2),
+    );
+    console.error(
+      "[submit] Meta rejected payload:",
+      JSON.stringify(payload, null, 2),
+    );
 
     const metaMessage = errDetail.message ?? "Meta API returned an error.";
     const metaDetails = errDetail.error_data?.details ?? "";
     const subcode = errDetail.error_subcode ?? "";
 
     // Subcode 2388023 = template name already exists on Meta — treat as success
-    if (subcode === 2388023 || String(subcode) === "2388023" ||
-        metaMessage.toLowerCase().includes("already exists")) {
+    if (
+      subcode === 2388023 ||
+      String(subcode) === "2388023" ||
+      metaMessage.toLowerCase().includes("already exists")
+    ) {
       // Template was previously submitted — just mark it as submitted locally
-      await db.collection(COLLECTION).updateOne(
-        { _id: template._id },
-        { $set: { status: "SUBMITTED", submittedAt: new Date().toISOString(), updatedAt: new Date() } },
-      );
+      await db
+        .collection(COLLECTION)
+        .updateOne(
+          { _id: template._id },
+          {
+            $set: {
+              status: "SUBMITTED",
+              submittedAt: new Date().toISOString(),
+              updatedAt: new Date(),
+            },
+          },
+        );
       return NextResponse.json({
         success: true,
         metaTemplateId: template.metaTemplateId ?? null,
@@ -215,7 +278,13 @@ export async function POST(
         : metaMessage;
 
     return NextResponse.json(
-      { error: `[Meta ${errDetail.code ?? metaRes.status}] ${friendly}`, code: errDetail.code, subcode, detail: errDetail, payload },
+      {
+        error: `[Meta ${errDetail.code ?? metaRes.status}] ${friendly}`,
+        code: errDetail.code,
+        subcode,
+        detail: errDetail,
+        payload,
+      },
       { status: metaRes.status >= 500 ? 502 : 422 },
     );
   }

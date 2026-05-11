@@ -45,7 +45,10 @@ export async function POST(req: NextRequest) {
 
   if (!clientName || !invoiceNo || !paymentDate || !paymentMode) {
     return NextResponse.json(
-      { error: "Missing required fields: clientName, invoiceNo, paymentDate, paymentMode" },
+      {
+        error:
+          "Missing required fields: clientName, invoiceNo, paymentDate, paymentMode",
+      },
       { status: 400 },
     );
   }
@@ -60,7 +63,8 @@ export async function POST(req: NextRequest) {
     if (typeof v === "string") return parseFloat(v) || 0;
     if (typeof v === "object") {
       const o = v as Record<string, unknown>;
-      const raw = o.$numberDecimal ?? o.$numberLong ?? o.$numberInt ?? o.$numberDouble;
+      const raw =
+        o.$numberDecimal ?? o.$numberLong ?? o.$numberInt ?? o.$numberDouble;
       if (raw !== undefined) return parseFloat(String(raw)) || 0;
     }
     return parseFloat(String(v)) || 0;
@@ -90,8 +94,14 @@ export async function POST(req: NextRequest) {
     paymentDate: coerceStr(paymentDate) || new Date().toISOString(),
     paymentMode: coerceStr(paymentMode) || "Bank Transfer",
     transactionRef: transactionRef ? coerceStr(transactionRef) : undefined,
-    invoiceTotal: invoiceTotal !== undefined && invoiceTotal !== null ? coerceNum(invoiceTotal) : undefined,
-    balanceDue: balanceDue !== undefined && balanceDue !== null ? coerceNum(balanceDue) : undefined,
+    invoiceTotal:
+      invoiceTotal !== undefined && invoiceTotal !== null
+        ? coerceNum(invoiceTotal)
+        : undefined,
+    balanceDue:
+      balanceDue !== undefined && balanceDue !== null
+        ? coerceNum(balanceDue)
+        : undefined,
     invoiceStatus: invoiceStatus ? coerceStr(invoiceStatus) : undefined,
   };
 

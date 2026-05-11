@@ -3,28 +3,25 @@
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr) !important;
   gap: 30px;
   padding: 50px 20px 50px 20px;
-  background-color: white;
+  background-color: #fff;
 }
+iframe,
 img,
-video,
-iframe {
+video {
   max-width: 100%;
   height: auto;
   display: block;
 }
-
 .w-button {
   padding: 12px 18px;
   border-radius: 6px;
@@ -33,35 +30,29 @@ iframe {
   align-items: center;
   justify-content: center;
 }
-
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
 }
-
 .section-animate {
   opacity: 0;
   transform: translateY(20px);
 }
-
 .section-animate.in-view {
   animation: fadeInUp 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
 }
-
 .services-section {
   padding: 120px 5%;
   background-image: url("./assets/back-left.webp");
   background-size: cover;
   position: relative;
   overflow: hidden;
-  color: white;
+  color: #fff;
 }
-
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -70,7 +61,6 @@ iframe {
   margin: 0 auto;
   position: relative;
 }
-
 .process-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -79,7 +69,6 @@ iframe {
   margin: 0 auto;
   position: relative;
 }
-
 .process-step {
   text-align: center;
   padding: 40px 24px;
@@ -91,37 +80,31 @@ iframe {
   position: relative;
   z-index: 1;
 }
-
 .process-step:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
   border-color: var(--tertiary-700);
 }
-
 .process-step:hover::before {
   opacity: 1;
 }
-
 .process-step h3 {
   font-size: 1.5rem;
   margin-bottom: 16px;
   color: var(--primary-900);
 }
-
 .process-step p {
   color: var(--primary-600);
   line-height: 1.6;
 }
-
 .tech-section {
   padding: 120px 5%;
   background-image: url("./assets/back.webp");
   background-size: cover;
   position: relative;
   overflow: hidden;
-  color: white;
+  color: #fff;
 }
-
 .tech-item {
   text-align: center;
   padding: 24px;
@@ -138,38 +121,32 @@ iframe {
   flex-direction: column;
   justify-content: center;
 }
-
 .tech-item:hover {
   transform: translateY(-8px) scale(1.05);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
   border-color: var(--tertiary-700);
 }
-
 .tech-item:hover::before {
   opacity: 1;
 }
-
 .tech-item img {
   width: 72px;
   height: 72px;
   margin-bottom: 16px;
   transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-
 .tech-item:hover img {
   transform: scale(1.1);
 }
-
 .tech-item span {
   display: block;
   font-weight: 600;
   font-size: 1.1rem;
   transition: color 0.4s ease;
 }
-
 .offerings-section {
   padding: 48px 20px;
-  background: linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
+  background: linear-gradient(180deg, #fff 0, #f6fbff 100%);
 }
 .offerings-container {
   max-width: 95%;
@@ -223,7 +200,6 @@ iframe {
   color: rgba(0, 0, 0, 0.72);
   font-size: 0.95rem;
 }
-
 .offer-keywords {
   font-size: 0.85rem;
   color: rgba(0, 0, 0, 0.6);
@@ -241,7 +217,6 @@ iframe {
   text-decoration: none;
   font-weight: 700;
 }
-
 .offerings-section {
   padding: 48px 0;
 }
@@ -304,19 +279,16 @@ iframe {
     grid-template-columns: 1fr;
   }
 }
-
 @media (min-width: 640px) {
   .offer-button {
     padding: 10px 14px;
   }
 }
-
 @media (min-width: 640px) {
   .offerings-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (min-width: 1000px) {
   .offerings-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -328,7 +300,6 @@ iframe {
     font-size: 62px;
   }
 }
-
 .portfolio-heading {
   font-size: 28px;
   color: #042a5f;
@@ -336,10 +307,9 @@ iframe {
   margin: 24px 0 12px;
   text-align: center;
 }
-
 .faq-section {
   padding: 40px 20px;
-  background: transparent;
+  background: 0 0;
 }
 .faq-container {
   max-width: 1100px;
@@ -379,7 +349,7 @@ iframe {
   cursor: pointer;
   font-weight: 700;
   color: #042a5f;
-  background: transparent;
+  background: 0 0;
   border: none;
   width: 100%;
   text-align: left;
@@ -402,7 +372,6 @@ iframe {
   padding: 0 16px;
   max-height: 0;
 }
-
 @media (min-width: 768px) {
   .faq-list {
     grid-template-columns: 1fr;
@@ -412,7 +381,6 @@ iframe {
     font-size: 69px;
   }
 }
-
 .portfolio-buttons-container {
   display: flex;
   gap: 8px;
@@ -420,18 +388,16 @@ iframe {
   flex-direction: column;
   margin-top: 12px;
 }
-
 @media (min-width: 768px) {
   .portfolio-buttons-container {
     flex-direction: row;
   }
 }
-
 .visit-button {
   flex: 1;
   padding: 10px 12px;
   background: #044bab;
-  color: #ffffff;
+  color: #fff;
   border: none;
   border-radius: 10px;
   font-weight: 600;
@@ -439,17 +405,15 @@ iframe {
   text-align: center;
   display: block;
 }
-
 .visit-button:disabled {
   background: rgba(4, 75, 171, 0.18);
   cursor: default;
   opacity: 0.7;
 }
-
 .details-button {
   flex: 1;
   padding: 10px 12px;
-  background: transparent;
+  background: 0 0;
   color: #044bab;
   border: 2px solid rgba(4, 75, 171, 0.12);
   border-radius: 10px;
@@ -458,11 +422,9 @@ iframe {
   text-align: center;
   display: block;
 }
-
 .details-button:hover {
   background: rgba(4, 75, 171, 0.04);
 }
-
 .details-button:disabled {
   opacity: 0.6;
   cursor: default;

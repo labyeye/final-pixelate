@@ -53,10 +53,16 @@ export async function GET() {
   let skipped = 0;
 
   for (const t of metaTemplates) {
-    const headerComp = (t.components ?? []).find((c: any) => c.type === "HEADER");
+    const headerComp = (t.components ?? []).find(
+      (c: any) => c.type === "HEADER",
+    );
     const bodyComp = (t.components ?? []).find((c: any) => c.type === "BODY");
-    const footerComp = (t.components ?? []).find((c: any) => c.type === "FOOTER");
-    const buttonsComp = (t.components ?? []).find((c: any) => c.type === "BUTTONS");
+    const footerComp = (t.components ?? []).find(
+      (c: any) => c.type === "FOOTER",
+    );
+    const buttonsComp = (t.components ?? []).find(
+      (c: any) => c.type === "BUTTONS",
+    );
 
     const update = {
       name: t.name,

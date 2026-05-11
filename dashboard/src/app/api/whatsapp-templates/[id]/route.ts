@@ -20,16 +20,31 @@ export async function PATCH(
   try {
     const { id } = await params;
     const oid = toObjectId(id);
-    if (!oid) return NextResponse.json({ error: "Invalid id." }, { status: 400 });
+    if (!oid)
+      return NextResponse.json({ error: "Invalid id." }, { status: 400 });
 
     const body = await req.json();
     const db = await getDb();
 
     const allowedFields = [
-      "name", "category", "language", "headerType", "headerText",
-      "headerMediaHandle", "headerMediaName",
-      "body", "footer", "buttons", "variables", "exampleValues", "notes",
-      "status", "metaTemplateId", "submittedAt", "approvedAt", "rejectedReason",
+      "name",
+      "category",
+      "language",
+      "headerType",
+      "headerText",
+      "headerMediaHandle",
+      "headerMediaName",
+      "body",
+      "footer",
+      "buttons",
+      "variables",
+      "exampleValues",
+      "notes",
+      "status",
+      "metaTemplateId",
+      "submittedAt",
+      "approvedAt",
+      "rejectedReason",
     ];
 
     const update: Record<string, any> = { updatedAt: new Date() };
@@ -46,13 +61,19 @@ export async function PATCH(
       );
 
     if (!result) {
-      return NextResponse.json({ error: "Template not found." }, { status: 404 });
+      return NextResponse.json(
+        { error: "Template not found." },
+        { status: 404 },
+      );
     }
 
     return NextResponse.json({ ...result, _id: result._id.toString() });
   } catch (err: any) {
     console.error("[whatsapp-templates PATCH]", err);
-    return NextResponse.json({ error: "Failed to update template." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to update template." },
+      { status: 500 },
+    );
   }
 }
 
@@ -64,18 +85,25 @@ export async function DELETE(
   try {
     const { id } = await params;
     const oid = toObjectId(id);
-    if (!oid) return NextResponse.json({ error: "Invalid id." }, { status: 400 });
+    if (!oid)
+      return NextResponse.json({ error: "Invalid id." }, { status: 400 });
 
     const db = await getDb();
     const result = await db.collection(COLLECTION).deleteOne({ _id: oid });
 
     if (result.deletedCount === 0) {
-      return NextResponse.json({ error: "Template not found." }, { status: 404 });
+      return NextResponse.json(
+        { error: "Template not found." },
+        { status: 404 },
+      );
     }
 
     return NextResponse.json({ success: true });
   } catch (err: any) {
     console.error("[whatsapp-templates DELETE]", err);
-    return NextResponse.json({ error: "Failed to delete template." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to delete template." },
+      { status: 500 },
+    );
   }
 }

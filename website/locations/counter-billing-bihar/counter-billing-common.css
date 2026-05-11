@@ -2,18 +2,15 @@
   padding: 88px 0;
   position: relative;
 }
-
 .crm-muted-bg {
   background: var(--white);
 }
-
 .crm-heading {
   font-size: clamp(1.85rem, 4vw, 3.1rem);
   line-height: 1.16;
   color: var(--primary-900);
   margin-bottom: 16px;
 }
-
 .crm-subheading {
   max-width: 760px;
   margin: 0 auto 18px;
@@ -21,31 +18,26 @@
   font-size: 1.05rem;
   line-height: 1.7;
 }
-
 .crm-section-lead {
   font-size: 1.08rem;
   line-height: 1.82;
   color: var(--tertiary-700);
   max-width: 860px;
 }
-
 .hero-cta-wrap.crm-cta-stack {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
 }
-
 .hero-cta-button.crm-secondary {
-  background: transparent;
+  background: 0 0;
   color: var(--secondary-900);
   border: 1px solid var(--secondary-900);
   box-shadow: none;
 }
-
 .hero-cta-button.crm-secondary:hover {
   color: var(--white);
 }
-
 .crm-pill {
   display: inline-flex;
   align-items: center;
@@ -57,16 +49,13 @@
   background: rgba(255, 255, 255, 0.8);
   font-size: 13px;
 }
-
 .crm-grid {
   display: grid;
   gap: 22px;
 }
-
 .crm-grid.features {
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
-
 .crm-card {
   background: #fff;
   border-radius: 18px;
@@ -77,16 +66,13 @@
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
-
 .crm-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 44px rgba(15, 23, 42, 0.14);
 }
-
 .crm-feature {
   grid-column: span 4;
 }
-
 .crm-icon {
   width: 48px;
   height: 48px;
@@ -99,31 +85,26 @@
   margin-bottom: 14px;
   background: var(--secondary-900);
 }
-
 .crm-card h3 {
   margin: 0 0 10px;
   font-size: 1.14rem;
   color: var(--primary-900);
 }
-
 .crm-card p {
   margin: 0;
   color: var(--tertiary-700);
   line-height: 1.72;
 }
-
-.crm-role-grid,
-.crm-benefits-grid {
+.crm-benefits-grid,
+.crm-role-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 20px;
 }
-
-.crm-role-card,
-.crm-benefit-card {
+.crm-benefit-card,
+.crm-role-card {
   grid-column: span 4;
 }
-
 .crm-preview-slider {
   width: min(96vw, 1320px);
   margin: 0 auto;
@@ -134,18 +115,15 @@
   box-shadow: 0 14px 38px rgba(15, 23, 42, 0.08);
   padding: 16px;
 }
-
 .crm-preview-track {
   display: flex;
   gap: 16px;
   width: max-content;
   animation: crm-preview-scroll 32s linear infinite;
 }
-
 .crm-preview-slider:hover .crm-preview-track {
   animation-play-state: paused;
 }
-
 .crm-preview-image-slide {
   margin: 0;
   flex: 0 0 clamp(220px, 30vw, 400px);
@@ -153,43 +131,36 @@
   overflow: hidden;
   border: 1px solid rgba(148, 163, 184, 0.3);
   background: #f8fafc;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16/10;
 }
-
 .crm-preview-image-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-
 @keyframes crm-preview-scroll {
   from {
     transform: translateX(0);
   }
-
   to {
     transform: translateX(calc(-50% - 8px));
   }
 }
-
 .crm-check-list {
   display: grid;
   gap: 12px;
   margin-top: 24px;
 }
-
 .crm-check-item {
   display: flex;
   align-items: flex-start;
   gap: 12px;
 }
-
 .crm-check-item i {
   margin-top: 5px;
   color: var(--secondary-900);
 }
-
 .crm-cta-panel {
   padding: 38px;
   border-radius: 22px;
@@ -197,34 +168,28 @@
   color: var(--primary-900);
   box-shadow: 0 20px 48px rgba(15, 23, 42, 0.24);
 }
-
 .crm-cta-panel h2 {
   color: var(--tertiary-900);
   margin-top: 0;
   margin-bottom: 12px;
   font-size: clamp(1.8rem, 4vw, 2.7rem);
 }
-
 .crm-cta-panel p {
   margin-bottom: 22px;
   color: var(--tertiary-700);
 }
-
 .crm-cta-row {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
 }
-
 .crm-cta-row .hero-cta-button {
   border-color: rgba(255, 255, 255, 0.6);
 }
-
 .crm-cta-row .hero-cta-button.crm-secondary {
   color: var(--white);
   border-color: rgba(255, 255, 255, 0.65);
 }
-
 .faq-list .faq-item {
   border-radius: 14px;
   margin-bottom: 10px;
@@ -232,65 +197,52 @@
   background: #fff;
   padding: 16px 18px;
 }
-
 .faq-list .faq-item summary {
   cursor: pointer;
   font-weight: 600;
   list-style: none;
 }
-
 .faq-list .faq-item summary::-webkit-details-marker {
   display: none;
 }
-
 .faq-list .faq-item[open] {
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
 }
-
 @media (max-width: 991px) {
+  .crm-benefit-card,
   .crm-feature,
-  .crm-role-card,
-  .crm-benefit-card {
+  .crm-role-card {
     grid-column: span 6;
   }
-
   .crm-preview-image-slide {
     flex-basis: min(62vw, 340px);
   }
-
   .crm-section {
     padding: 70px 0;
   }
 }
-
 @media (max-width: 767px) {
+  .crm-benefit-card,
   .crm-feature,
-  .crm-role-card,
-  .crm-benefit-card {
+  .crm-role-card {
     grid-column: span 12;
   }
-
   .crm-preview-slider {
     padding: 10px;
   }
-
   .crm-preview-track {
     gap: 12px;
     animation-duration: 26s;
   }
-
   .crm-preview-image-slide {
     flex-basis: min(72vw, 280px);
   }
-
   .crm-cta-panel {
     padding: 24px;
   }
-
   .hero-cta-wrap.crm-cta-stack {
     width: 100%;
   }
-
   .hero-cta-wrap.crm-cta-stack .hero-cta-button {
     width: 100%;
     text-align: center;

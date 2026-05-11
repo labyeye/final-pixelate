@@ -13,8 +13,7 @@ export async function GET(request: NextRequest) {
   const stateRaw = searchParams.get("state");
   const oauthError = searchParams.get("error");
 
-  const appUrl = 
-    "https://backend.pixelatenest.com";
+  const appUrl = "https://backend.pixelatenest.com";
 
   // Decode state
   let stateObj: { clientId?: string; accountId?: string } = {};
@@ -40,14 +39,20 @@ export async function GET(request: NextRequest) {
     const callbackUrl = `${appUrl}/api/auth/meta/callback`;
 
     // Exchange code for short-lived token
-    const tokenUrl = new URL("https://graph.facebook.com/v19.0/oauth/access_token");
+    const tokenUrl = new URL(
+      "https://graph.facebook.com/v19.0/oauth/access_token",
+    );
     tokenUrl.searchParams.set("client_id", process.env.FACEBOOK_APP_ID!);
-    tokenUrl.searchParams.set("client_secret", process.env.FACEBOOK_APP_SECRET!);
+    tokenUrl.searchParams.set(
+      "client_secret",
+      process.env.FACEBOOK_APP_SECRET!,
+    );
     tokenUrl.searchParams.set("redirect_uri", callbackUrl);
     tokenUrl.searchParams.set("code", code);
 
     const tokenRes = await fetch(tokenUrl.toString());
-    if (!tokenRes.ok) throw new Error(`Code exchange failed: ${await tokenRes.text()}`);
+    if (!tokenRes.ok)
+      throw new Error(`Code exchange failed: ${await tokenRes.text()}`);
     const { access_token: shortToken } = await tokenRes.json();
 
     // Exchange for long-lived user token (60 days)
@@ -56,7 +61,9 @@ export async function GET(request: NextRequest) {
     // Get all pages + IG account IDs
     const pages = await getUserPages(longToken);
     if (pages.length === 0) {
-      throw new Error("No Facebook Pages found. Make sure you manage at least one Page.");
+      throw new Error(
+        "No Facebook Pages found. Make sure you manage at least one Page.",
+      );
     }
 
     const enrichedPages = await Promise.all(

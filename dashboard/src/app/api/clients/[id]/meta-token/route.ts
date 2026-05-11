@@ -21,7 +21,11 @@ export async function GET(
   const col = await svc.getCollection("clients");
   const { ObjectId } = await import("mongodb");
   const client = await col.findOne({ _id: new ObjectId(id) });
-  if (!client) return NextResponse.json({ error: "Not found" }, { status: 404, headers: CORS });
+  if (!client)
+    return NextResponse.json(
+      { error: "Not found" },
+      { status: 404, headers: CORS },
+    );
 
   return NextResponse.json(
     { hasToken: !!client.metaAccessToken },
@@ -39,7 +43,10 @@ export async function PUT(
     const jwt = auth.replace("Bearer ", "");
     const decoded: any = verifyToken(jwt);
     if (!decoded || decoded.role !== "admin") {
-      return NextResponse.json({ error: "Forbidden" }, { status: 403, headers: CORS });
+      return NextResponse.json(
+        { error: "Forbidden" },
+        { status: 403, headers: CORS },
+      );
     }
 
     const { id } = (await params) as any;
@@ -51,11 +58,19 @@ export async function PUT(
 
     await col.updateOne(
       { _id: new ObjectId(id) },
-      { $set: { metaAccessToken: metaAccessToken || null, updatedAt: new Date() } },
+      {
+        $set: {
+          metaAccessToken: metaAccessToken || null,
+          updatedAt: new Date(),
+        },
+      },
     );
 
     return NextResponse.json({ success: true }, { headers: CORS });
   } catch (e: any) {
-    return NextResponse.json({ error: e.message || String(e) }, { status: 500, headers: CORS });
+    return NextResponse.json(
+      { error: e.message || String(e) },
+      { status: 500, headers: CORS },
+    );
   }
 }

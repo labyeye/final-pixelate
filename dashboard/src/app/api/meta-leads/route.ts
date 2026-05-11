@@ -11,13 +11,18 @@ export async function OPTIONS() {
   return new NextResponse(null, { headers: CORS });
 }
 
-async function getPageToken(userToken: string, pageId: string): Promise<string> {
+async function getPageToken(
+  userToken: string,
+  pageId: string,
+): Promise<string> {
   const res = await fetch(
     `https://graph.facebook.com/v19.0/me/accounts?access_token=${userToken}`,
   );
   const data = await res.json();
   if (data.error) throw new Error(data.error.message);
-  const page = (data.data || []).find((p: any) => String(p.id) === String(pageId));
+  const page = (data.data || []).find(
+    (p: any) => String(p.id) === String(pageId),
+  );
   if (page?.access_token) return page.access_token;
   // If not found in accounts, try treating the token as a page token directly
   return userToken;
@@ -76,10 +81,7 @@ export async function GET() {
 
         // dedup by phone or email
         const existing = await col.findOne({
-          $or: [
-            ...(phone ? [{ phone }] : []),
-            ...(email ? [{ email }] : []),
-          ],
+          $or: [...(phone ? [{ phone }] : []), ...(email ? [{ email }] : [])],
         });
         if (existing) continue;
 

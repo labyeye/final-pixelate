@@ -1,2781 +1,6652 @@
-(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([typeof document === "object" ? document.currentScript : undefined,
-"[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/input.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([
+  typeof document === "object" ? document.currentScript : undefined,
+  "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/input.tsx [app-client] (ecmascript)",
+  (__turbopack_context__) => {
+    "use strict";
 
-__turbopack_context__.s([
-    "Input",
-    ()=>Input
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-client] (ecmascript)");
-;
-;
-;
-const Input = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c = ({ className, type, ...props }, ref)=>{
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-        type: type,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex h-14 w-full rounded-none border-2 border-foreground bg-background px-4 py-3 text-lg ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50", className),
-        ref: ref,
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/input.tsx",
-        lineNumber: 8,
-        columnNumber: 7
-    }, ("TURBOPACK compile-time value", void 0));
-});
-_c1 = Input;
-Input.displayName = "Input";
-;
-var _c, _c1;
-__turbopack_context__.k.register(_c, "Input$React.forwardRef");
-__turbopack_context__.k.register(_c1, "Input");
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
-}),
-"[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/label.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
+    __turbopack_context__.s(["Input", () => Input]);
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-client] (ecmascript)",
+      );
+    const Input =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](
+        (_c = ({ className, type, ...props }, ref) => {
+          return /*#__PURE__*/ (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "jsxDEV"
+          ])(
+            "input",
+            {
+              type: type,
+              className: (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "cn"
+              ])(
+                "flex h-14 w-full rounded-none border-2 border-foreground bg-background px-4 py-3 text-lg ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+                className,
+              ),
+              ref: ref,
+              ...props,
+            },
+            void 0,
+            false,
+            {
+              fileName:
+                "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/input.tsx",
+              lineNumber: 8,
+              columnNumber: 7,
+            },
+            ("TURBOPACK compile-time value", void 0),
+          );
+        }),
+      );
+    _c1 = Input;
+    Input.displayName = "Input";
+    var _c, _c1;
+    __turbopack_context__.k.register(_c, "Input$React.forwardRef");
+    __turbopack_context__.k.register(_c1, "Input");
+    if (
+      typeof globalThis.$RefreshHelpers$ === "object" &&
+      globalThis.$RefreshHelpers !== null
+    ) {
+      __turbopack_context__.k.registerExports(
+        __turbopack_context__.m,
+        globalThis.$RefreshHelpers$,
+      );
+    }
+  },
+  "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/label.tsx [app-client] (ecmascript)",
+  (__turbopack_context__) => {
+    "use strict";
 
-__turbopack_context__.s([
-    "Label",
-    ()=>Label
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$label$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-label/dist/index.mjs [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/class-variance-authority/dist/index.mjs [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-client] (ecmascript)");
-"use client";
-;
-;
-;
-;
-;
-const labelVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cva"])("text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70");
-const Label = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c = ({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$label$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])(labelVariants(), className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/label.tsx",
-        lineNumber: 18,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-_c1 = Label;
-Label.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$label$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"].displayName;
-;
-var _c, _c1;
-__turbopack_context__.k.register(_c, "Label$React.forwardRef");
-__turbopack_context__.k.register(_c1, "Label");
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
-}),
-"[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
+    __turbopack_context__.s(["Label", () => Label]);
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$label$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-label/dist/index.mjs [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/class-variance-authority/dist/index.mjs [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-client] (ecmascript)",
+      );
+    ("use client");
+    const labelVariants = (0,
+    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+      "cva"
+    ])(
+      "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+    );
+    const Label =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](
+        (_c = ({ className, ...props }, ref) =>
+          /*#__PURE__*/ (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "jsxDEV"
+          ])(
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$label$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "Root"
+            ],
+            {
+              ref: ref,
+              className: (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "cn"
+              ])(labelVariants(), className),
+              ...props,
+            },
+            void 0,
+            false,
+            {
+              fileName:
+                "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/label.tsx",
+              lineNumber: 18,
+              columnNumber: 3,
+            },
+            ("TURBOPACK compile-time value", void 0),
+          )),
+      );
+    _c1 = Label;
+    Label.displayName =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$label$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "Root"
+      ].displayName;
+    var _c, _c1;
+    __turbopack_context__.k.register(_c, "Label$React.forwardRef");
+    __turbopack_context__.k.register(_c1, "Label");
+    if (
+      typeof globalThis.$RefreshHelpers$ === "object" &&
+      globalThis.$RefreshHelpers !== null
+    ) {
+      __turbopack_context__.k.registerExports(
+        __turbopack_context__.m,
+        globalThis.$RefreshHelpers$,
+      );
+    }
+  },
+  "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx [app-client] (ecmascript)",
+  (__turbopack_context__) => {
+    "use strict";
 
-__turbopack_context__.s([
-    "Select",
-    ()=>Select,
-    "SelectContent",
-    ()=>SelectContent,
-    "SelectGroup",
-    ()=>SelectGroup,
-    "SelectItem",
-    ()=>SelectItem,
-    "SelectLabel",
-    ()=>SelectLabel,
-    "SelectScrollDownButton",
-    ()=>SelectScrollDownButton,
-    "SelectScrollUpButton",
-    ()=>SelectScrollUpButton,
-    "SelectSeparator",
-    ()=>SelectSeparator,
-    "SelectTrigger",
-    ()=>SelectTrigger,
-    "SelectValue",
-    ()=>SelectValue
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-select/dist/index.mjs [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Check$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/check.js [app-client] (ecmascript) <export default as Check>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-client] (ecmascript) <export default as ChevronDown>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronUp$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-up.js [app-client] (ecmascript) <export default as ChevronUp>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-client] (ecmascript)");
-"use client";
-;
-;
-;
-;
-;
-const Select = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"];
-const SelectGroup = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Group"];
-const SelectValue = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Value"];
-const SelectTrigger = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c = ({ className, children, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Trigger"], {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex h-10 w-full items-center justify-between rounded-none border-2 border-foreground bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1", className),
-        ...props,
-        children: [
-            children,
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Icon"], {
-                asChild: true,
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
-                    className: "h-4 w-4 opacity-50"
-                }, void 0, false, {
-                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-                    lineNumber: 29,
-                    columnNumber: 7
-                }, ("TURBOPACK compile-time value", void 0))
-            }, void 0, false, {
-                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-                lineNumber: 28,
-                columnNumber: 5
-            }, ("TURBOPACK compile-time value", void 0))
-        ]
-    }, void 0, true, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-        lineNumber: 19,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-_c1 = SelectTrigger;
-SelectTrigger.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Trigger"].displayName;
-const SelectScrollUpButton = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollUpButton"], {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex cursor-default items-center justify-center py-1", className),
-        ...props,
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronUp$3e$__["ChevronUp"], {
-            className: "h-4 w-4"
-        }, void 0, false, {
-            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-            lineNumber: 47,
-            columnNumber: 5
-        }, ("TURBOPACK compile-time value", void 0))
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-        lineNumber: 39,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-_c2 = SelectScrollUpButton;
-SelectScrollUpButton.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollUpButton"].displayName;
-const SelectScrollDownButton = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollDownButton"], {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex cursor-default items-center justify-center py-1", className),
-        ...props,
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
-            className: "h-4 w-4"
-        }, void 0, false, {
-            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-            lineNumber: 64,
-            columnNumber: 5
-        }, ("TURBOPACK compile-time value", void 0))
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-        lineNumber: 56,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-_c3 = SelectScrollDownButton;
-SelectScrollDownButton.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollDownButton"].displayName;
-const SelectContent = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c4 = ({ className, children, position = "popper", ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Portal"], {
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Content"], {
+    __turbopack_context__.s([
+      "Select",
+      () => Select,
+      "SelectContent",
+      () => SelectContent,
+      "SelectGroup",
+      () => SelectGroup,
+      "SelectItem",
+      () => SelectItem,
+      "SelectLabel",
+      () => SelectLabel,
+      "SelectScrollDownButton",
+      () => SelectScrollDownButton,
+      "SelectScrollUpButton",
+      () => SelectScrollUpButton,
+      "SelectSeparator",
+      () => SelectSeparator,
+      "SelectTrigger",
+      () => SelectTrigger,
+      "SelectValue",
+      () => SelectValue,
+    ]);
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/@radix-ui/react-select/dist/index.mjs [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Check$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/check.js [app-client] (ecmascript) <export default as Check>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-client] (ecmascript) <export default as ChevronDown>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronUp$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-up.js [app-client] (ecmascript) <export default as ChevronUp>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-client] (ecmascript)",
+      );
+    ("use client");
+    const Select =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "Root"
+      ];
+    const SelectGroup =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "Group"
+      ];
+    const SelectValue =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "Value"
+      ];
+    const SelectTrigger =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](
+        (_c = ({ className, children, ...props }, ref) =>
+          /*#__PURE__*/ (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "jsxDEV"
+          ])(
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "Trigger"
+            ],
+            {
+              ref: ref,
+              className: (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "cn"
+              ])(
+                "flex h-10 w-full items-center justify-between rounded-none border-2 border-foreground bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+                className,
+              ),
+              ...props,
+              children: [
+                children,
+                /*#__PURE__*/ (0,
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  "jsxDEV"
+                ])(
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    "Icon"
+                  ],
+                  {
+                    asChild: true,
+                    children: /*#__PURE__*/ (0,
+                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                      "jsxDEV"
+                    ])(
+                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__[
+                        "ChevronDown"
+                      ],
+                      {
+                        className: "h-4 w-4 opacity-50",
+                      },
+                      void 0,
+                      false,
+                      {
+                        fileName:
+                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+                        lineNumber: 29,
+                        columnNumber: 7,
+                      },
+                      ("TURBOPACK compile-time value", void 0),
+                    ),
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName:
+                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+                    lineNumber: 28,
+                    columnNumber: 5,
+                  },
+                  ("TURBOPACK compile-time value", void 0),
+                ),
+              ],
+            },
+            void 0,
+            true,
+            {
+              fileName:
+                "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+              lineNumber: 19,
+              columnNumber: 3,
+            },
+            ("TURBOPACK compile-time value", void 0),
+          )),
+      );
+    _c1 = SelectTrigger;
+    SelectTrigger.displayName =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "Trigger"
+      ].displayName;
+    const SelectScrollUpButton =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        /*#__PURE__*/ (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "ScrollUpButton"
+          ],
+          {
             ref: ref,
-            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-none border-2 bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2", position === "popper" && "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1", className),
-            position: position,
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])(
+              "flex cursor-default items-center justify-center py-1",
+              className,
+            ),
             ...props,
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SelectScrollUpButton, {}, void 0, false, {
-                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-                    lineNumber: 86,
-                    columnNumber: 7
-                }, ("TURBOPACK compile-time value", void 0)),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Viewport"], {
-                    className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("p-1", position === "popper" && "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]"),
-                    children: children
-                }, void 0, false, {
-                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-                    lineNumber: 87,
-                    columnNumber: 7
-                }, ("TURBOPACK compile-time value", void 0)),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SelectScrollDownButton, {}, void 0, false, {
-                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-                    lineNumber: 96,
-                    columnNumber: 7
-                }, ("TURBOPACK compile-time value", void 0))
-            ]
-        }, void 0, true, {
-            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-            lineNumber: 75,
-            columnNumber: 5
-        }, ("TURBOPACK compile-time value", void 0))
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-        lineNumber: 74,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-_c5 = SelectContent;
-SelectContent.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Content"].displayName;
-const SelectLabel = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c6 = ({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("py-1.5 pl-8 pr-2 text-sm font-semibold", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-        lineNumber: 106,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-_c7 = SelectLabel;
-SelectLabel.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"].displayName;
-const SelectItem = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c8 = ({ className, children, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Item"], {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("relative flex w-full cursor-default select-none items-center rounded-none py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50", className),
-        ...props,
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ItemIndicator"], {
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Check$3e$__["Check"], {
-                        className: "h-4 w-4"
-                    }, void 0, false, {
-                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-                        lineNumber: 128,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0))
-                }, void 0, false, {
-                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-                    lineNumber: 127,
-                    columnNumber: 7
-                }, ("TURBOPACK compile-time value", void 0))
-            }, void 0, false, {
-                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-                lineNumber: 126,
-                columnNumber: 5
-            }, ("TURBOPACK compile-time value", void 0)),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ItemText"], {
-                children: children
-            }, void 0, false, {
-                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-                lineNumber: 132,
-                columnNumber: 5
-            }, ("TURBOPACK compile-time value", void 0))
-        ]
-    }, void 0, true, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-        lineNumber: 118,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-_c9 = SelectItem;
-SelectItem.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Item"].displayName;
-const SelectSeparator = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c10 = ({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Separator"], {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("-mx-1 my-1 h-px bg-muted", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
-        lineNumber: 141,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-_c11 = SelectSeparator;
-SelectSeparator.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Separator"].displayName;
-;
-var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c10, _c11;
-__turbopack_context__.k.register(_c, "SelectTrigger$React.forwardRef");
-__turbopack_context__.k.register(_c1, "SelectTrigger");
-__turbopack_context__.k.register(_c2, "SelectScrollUpButton");
-__turbopack_context__.k.register(_c3, "SelectScrollDownButton");
-__turbopack_context__.k.register(_c4, "SelectContent$React.forwardRef");
-__turbopack_context__.k.register(_c5, "SelectContent");
-__turbopack_context__.k.register(_c6, "SelectLabel$React.forwardRef");
-__turbopack_context__.k.register(_c7, "SelectLabel");
-__turbopack_context__.k.register(_c8, "SelectItem$React.forwardRef");
-__turbopack_context__.k.register(_c9, "SelectItem");
-__turbopack_context__.k.register(_c10, "SelectSeparator$React.forwardRef");
-__turbopack_context__.k.register(_c11, "SelectSeparator");
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
-}),
-"[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
+            children: /*#__PURE__*/ (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "jsxDEV"
+            ])(
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronUp$3e$__[
+                "ChevronUp"
+              ],
+              {
+                className: "h-4 w-4",
+              },
+              void 0,
+              false,
+              {
+                fileName:
+                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+                lineNumber: 47,
+                columnNumber: 5,
+              },
+              ("TURBOPACK compile-time value", void 0),
+            ),
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+            lineNumber: 39,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    _c2 = SelectScrollUpButton;
+    SelectScrollUpButton.displayName =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "ScrollUpButton"
+      ].displayName;
+    const SelectScrollDownButton =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](({ className, ...props }, ref) =>
+        /*#__PURE__*/ (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "ScrollDownButton"
+          ],
+          {
+            ref: ref,
+            className: (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "cn"
+            ])(
+              "flex cursor-default items-center justify-center py-1",
+              className,
+            ),
+            ...props,
+            children: /*#__PURE__*/ (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "jsxDEV"
+            ])(
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__[
+                "ChevronDown"
+              ],
+              {
+                className: "h-4 w-4",
+              },
+              void 0,
+              false,
+              {
+                fileName:
+                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+                lineNumber: 64,
+                columnNumber: 5,
+              },
+              ("TURBOPACK compile-time value", void 0),
+            ),
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+            lineNumber: 56,
+            columnNumber: 3,
+          },
+          ("TURBOPACK compile-time value", void 0),
+        ),
+      );
+    _c3 = SelectScrollDownButton;
+    SelectScrollDownButton.displayName =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "ScrollDownButton"
+      ].displayName;
+    const SelectContent =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](
+        (_c4 = ({ className, children, position = "popper", ...props }, ref) =>
+          /*#__PURE__*/ (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "jsxDEV"
+          ])(
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "Portal"
+            ],
+            {
+              children: /*#__PURE__*/ (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "jsxDEV"
+              ])(
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  "Content"
+                ],
+                {
+                  ref: ref,
+                  className: (0,
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    "cn"
+                  ])(
+                    "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-none border-2 bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+                    position === "popper" &&
+                      "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+                    className,
+                  ),
+                  position: position,
+                  ...props,
+                  children: [
+                    /*#__PURE__*/ (0,
+                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                      "jsxDEV"
+                    ])(
+                      SelectScrollUpButton,
+                      {},
+                      void 0,
+                      false,
+                      {
+                        fileName:
+                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+                        lineNumber: 86,
+                        columnNumber: 7,
+                      },
+                      ("TURBOPACK compile-time value", void 0),
+                    ),
+                    /*#__PURE__*/ (0,
+                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                      "jsxDEV"
+                    ])(
+                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                        "Viewport"
+                      ],
+                      {
+                        className: (0,
+                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                          "cn"
+                        ])(
+                          "p-1",
+                          position === "popper" &&
+                            "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]",
+                        ),
+                        children: children,
+                      },
+                      void 0,
+                      false,
+                      {
+                        fileName:
+                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+                        lineNumber: 87,
+                        columnNumber: 7,
+                      },
+                      ("TURBOPACK compile-time value", void 0),
+                    ),
+                    /*#__PURE__*/ (0,
+                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                      "jsxDEV"
+                    ])(
+                      SelectScrollDownButton,
+                      {},
+                      void 0,
+                      false,
+                      {
+                        fileName:
+                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+                        lineNumber: 96,
+                        columnNumber: 7,
+                      },
+                      ("TURBOPACK compile-time value", void 0),
+                    ),
+                  ],
+                },
+                void 0,
+                true,
+                {
+                  fileName:
+                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+                  lineNumber: 75,
+                  columnNumber: 5,
+                },
+                ("TURBOPACK compile-time value", void 0),
+              ),
+            },
+            void 0,
+            false,
+            {
+              fileName:
+                "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+              lineNumber: 74,
+              columnNumber: 3,
+            },
+            ("TURBOPACK compile-time value", void 0),
+          )),
+      );
+    _c5 = SelectContent;
+    SelectContent.displayName =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "Content"
+      ].displayName;
+    const SelectLabel =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](
+        (_c6 = ({ className, ...props }, ref) =>
+          /*#__PURE__*/ (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "jsxDEV"
+          ])(
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "Label"
+            ],
+            {
+              ref: ref,
+              className: (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "cn"
+              ])("py-1.5 pl-8 pr-2 text-sm font-semibold", className),
+              ...props,
+            },
+            void 0,
+            false,
+            {
+              fileName:
+                "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+              lineNumber: 106,
+              columnNumber: 3,
+            },
+            ("TURBOPACK compile-time value", void 0),
+          )),
+      );
+    _c7 = SelectLabel;
+    SelectLabel.displayName =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "Label"
+      ].displayName;
+    const SelectItem =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](
+        (_c8 = ({ className, children, ...props }, ref) =>
+          /*#__PURE__*/ (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "jsxDEV"
+          ])(
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "Item"
+            ],
+            {
+              ref: ref,
+              className: (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "cn"
+              ])(
+                "relative flex w-full cursor-default select-none items-center rounded-none py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+                className,
+              ),
+              ...props,
+              children: [
+                /*#__PURE__*/ (0,
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  "jsxDEV"
+                ])(
+                  "span",
+                  {
+                    className:
+                      "absolute left-2 flex h-3.5 w-3.5 items-center justify-center",
+                    children: /*#__PURE__*/ (0,
+                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                      "jsxDEV"
+                    ])(
+                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                        "ItemIndicator"
+                      ],
+                      {
+                        children: /*#__PURE__*/ (0,
+                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                          "jsxDEV"
+                        ])(
+                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Check$3e$__[
+                            "Check"
+                          ],
+                          {
+                            className: "h-4 w-4",
+                          },
+                          void 0,
+                          false,
+                          {
+                            fileName:
+                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+                            lineNumber: 128,
+                            columnNumber: 9,
+                          },
+                          ("TURBOPACK compile-time value", void 0),
+                        ),
+                      },
+                      void 0,
+                      false,
+                      {
+                        fileName:
+                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+                        lineNumber: 127,
+                        columnNumber: 7,
+                      },
+                      ("TURBOPACK compile-time value", void 0),
+                    ),
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName:
+                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+                    lineNumber: 126,
+                    columnNumber: 5,
+                  },
+                  ("TURBOPACK compile-time value", void 0),
+                ),
+                /*#__PURE__*/ (0,
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  "jsxDEV"
+                ])(
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    "ItemText"
+                  ],
+                  {
+                    children: children,
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName:
+                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+                    lineNumber: 132,
+                    columnNumber: 5,
+                  },
+                  ("TURBOPACK compile-time value", void 0),
+                ),
+              ],
+            },
+            void 0,
+            true,
+            {
+              fileName:
+                "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+              lineNumber: 118,
+              columnNumber: 3,
+            },
+            ("TURBOPACK compile-time value", void 0),
+          )),
+      );
+    _c9 = SelectItem;
+    SelectItem.displayName =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "Item"
+      ].displayName;
+    const SelectSeparator =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](
+        (_c10 = ({ className, ...props }, ref) =>
+          /*#__PURE__*/ (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "jsxDEV"
+          ])(
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "Separator"
+            ],
+            {
+              ref: ref,
+              className: (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "cn"
+              ])("-mx-1 my-1 h-px bg-muted", className),
+              ...props,
+            },
+            void 0,
+            false,
+            {
+              fileName:
+                "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx",
+              lineNumber: 141,
+              columnNumber: 3,
+            },
+            ("TURBOPACK compile-time value", void 0),
+          )),
+      );
+    _c11 = SelectSeparator;
+    SelectSeparator.displayName =
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "Separator"
+      ].displayName;
+    var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c10, _c11;
+    __turbopack_context__.k.register(_c, "SelectTrigger$React.forwardRef");
+    __turbopack_context__.k.register(_c1, "SelectTrigger");
+    __turbopack_context__.k.register(_c2, "SelectScrollUpButton");
+    __turbopack_context__.k.register(_c3, "SelectScrollDownButton");
+    __turbopack_context__.k.register(_c4, "SelectContent$React.forwardRef");
+    __turbopack_context__.k.register(_c5, "SelectContent");
+    __turbopack_context__.k.register(_c6, "SelectLabel$React.forwardRef");
+    __turbopack_context__.k.register(_c7, "SelectLabel");
+    __turbopack_context__.k.register(_c8, "SelectItem$React.forwardRef");
+    __turbopack_context__.k.register(_c9, "SelectItem");
+    __turbopack_context__.k.register(_c10, "SelectSeparator$React.forwardRef");
+    __turbopack_context__.k.register(_c11, "SelectSeparator");
+    if (
+      typeof globalThis.$RefreshHelpers$ === "object" &&
+      globalThis.$RefreshHelpers !== null
+    ) {
+      __turbopack_context__.k.registerExports(
+        __turbopack_context__.m,
+        globalThis.$RefreshHelpers$,
+      );
+    }
+  },
+  "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx [app-client] (ecmascript)",
+  (__turbopack_context__) => {
+    "use strict";
 
-__turbopack_context__.s([
-    "Card",
-    ()=>Card,
-    "CardContent",
-    ()=>CardContent,
-    "CardDescription",
-    ()=>CardDescription,
-    "CardFooter",
-    ()=>CardFooter,
-    "CardHeader",
-    ()=>CardHeader,
-    "CardTitle",
-    ()=>CardTitle
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-client] (ecmascript)");
-;
-;
-;
-const Card = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c = ({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("rounded-none border-2 bg-card text-card-foreground", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
-        lineNumber: 9,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-_c1 = Card;
-Card.displayName = "Card";
-const CardHeader = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c2 = ({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex flex-col space-y-1.5 p-4", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
-        lineNumber: 24,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-_c3 = CardHeader;
-CardHeader.displayName = "CardHeader";
-const CardTitle = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c4 = ({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("text-2xl font-semibold leading-none tracking-tight", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
-        lineNumber: 36,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-_c5 = CardTitle;
-CardTitle.displayName = "CardTitle";
-const CardDescription = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c6 = ({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("text-sm text-muted-foreground", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
-        lineNumber: 51,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-_c7 = CardDescription;
-CardDescription.displayName = "CardDescription";
-const CardContent = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c8 = ({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("p-4 pt-0", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
-        lineNumber: 63,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-_c9 = CardContent;
-CardContent.displayName = "CardContent";
-const CardFooter = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["forwardRef"](_c10 = ({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        ref: ref,
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex items-center p-4 pt-0", className),
-        ...props
-    }, void 0, false, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
-        lineNumber: 71,
-        columnNumber: 3
-    }, ("TURBOPACK compile-time value", void 0)));
-_c11 = CardFooter;
-CardFooter.displayName = "CardFooter";
-;
-var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c10, _c11;
-__turbopack_context__.k.register(_c, "Card$React.forwardRef");
-__turbopack_context__.k.register(_c1, "Card");
-__turbopack_context__.k.register(_c2, "CardHeader$React.forwardRef");
-__turbopack_context__.k.register(_c3, "CardHeader");
-__turbopack_context__.k.register(_c4, "CardTitle$React.forwardRef");
-__turbopack_context__.k.register(_c5, "CardTitle");
-__turbopack_context__.k.register(_c6, "CardDescription$React.forwardRef");
-__turbopack_context__.k.register(_c7, "CardDescription");
-__turbopack_context__.k.register(_c8, "CardContent$React.forwardRef");
-__turbopack_context__.k.register(_c9, "CardContent");
-__turbopack_context__.k.register(_c10, "CardFooter$React.forwardRef");
-__turbopack_context__.k.register(_c11, "CardFooter");
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
-}),
-"[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
+    __turbopack_context__.s([
+      "Card",
+      () => Card,
+      "CardContent",
+      () => CardContent,
+      "CardDescription",
+      () => CardDescription,
+      "CardFooter",
+      () => CardFooter,
+      "CardHeader",
+      () => CardHeader,
+      "CardTitle",
+      () => CardTitle,
+    ]);
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-client] (ecmascript)",
+      );
+    const Card =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](
+        (_c = ({ className, ...props }, ref) =>
+          /*#__PURE__*/ (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "jsxDEV"
+          ])(
+            "div",
+            {
+              ref: ref,
+              className: (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "cn"
+              ])(
+                "rounded-none border-2 bg-card text-card-foreground",
+                className,
+              ),
+              ...props,
+            },
+            void 0,
+            false,
+            {
+              fileName:
+                "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
+              lineNumber: 9,
+              columnNumber: 3,
+            },
+            ("TURBOPACK compile-time value", void 0),
+          )),
+      );
+    _c1 = Card;
+    Card.displayName = "Card";
+    const CardHeader =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](
+        (_c2 = ({ className, ...props }, ref) =>
+          /*#__PURE__*/ (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "jsxDEV"
+          ])(
+            "div",
+            {
+              ref: ref,
+              className: (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "cn"
+              ])("flex flex-col space-y-1.5 p-4", className),
+              ...props,
+            },
+            void 0,
+            false,
+            {
+              fileName:
+                "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
+              lineNumber: 24,
+              columnNumber: 3,
+            },
+            ("TURBOPACK compile-time value", void 0),
+          )),
+      );
+    _c3 = CardHeader;
+    CardHeader.displayName = "CardHeader";
+    const CardTitle =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](
+        (_c4 = ({ className, ...props }, ref) =>
+          /*#__PURE__*/ (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "jsxDEV"
+          ])(
+            "h3",
+            {
+              ref: ref,
+              className: (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "cn"
+              ])(
+                "text-2xl font-semibold leading-none tracking-tight",
+                className,
+              ),
+              ...props,
+            },
+            void 0,
+            false,
+            {
+              fileName:
+                "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
+              lineNumber: 36,
+              columnNumber: 3,
+            },
+            ("TURBOPACK compile-time value", void 0),
+          )),
+      );
+    _c5 = CardTitle;
+    CardTitle.displayName = "CardTitle";
+    const CardDescription =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](
+        (_c6 = ({ className, ...props }, ref) =>
+          /*#__PURE__*/ (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "jsxDEV"
+          ])(
+            "p",
+            {
+              ref: ref,
+              className: (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "cn"
+              ])("text-sm text-muted-foreground", className),
+              ...props,
+            },
+            void 0,
+            false,
+            {
+              fileName:
+                "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
+              lineNumber: 51,
+              columnNumber: 3,
+            },
+            ("TURBOPACK compile-time value", void 0),
+          )),
+      );
+    _c7 = CardDescription;
+    CardDescription.displayName = "CardDescription";
+    const CardContent =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](
+        (_c8 = ({ className, ...props }, ref) =>
+          /*#__PURE__*/ (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "jsxDEV"
+          ])(
+            "div",
+            {
+              ref: ref,
+              className: (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "cn"
+              ])("p-4 pt-0", className),
+              ...props,
+            },
+            void 0,
+            false,
+            {
+              fileName:
+                "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
+              lineNumber: 63,
+              columnNumber: 3,
+            },
+            ("TURBOPACK compile-time value", void 0),
+          )),
+      );
+    _c9 = CardContent;
+    CardContent.displayName = "CardContent";
+    const CardFooter =
+      /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "forwardRef"
+      ](
+        (_c10 = ({ className, ...props }, ref) =>
+          /*#__PURE__*/ (0,
+          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+            "jsxDEV"
+          ])(
+            "div",
+            {
+              ref: ref,
+              className: (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "cn"
+              ])("flex items-center p-4 pt-0", className),
+              ...props,
+            },
+            void 0,
+            false,
+            {
+              fileName:
+                "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx",
+              lineNumber: 71,
+              columnNumber: 3,
+            },
+            ("TURBOPACK compile-time value", void 0),
+          )),
+      );
+    _c11 = CardFooter;
+    CardFooter.displayName = "CardFooter";
+    var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c10, _c11;
+    __turbopack_context__.k.register(_c, "Card$React.forwardRef");
+    __turbopack_context__.k.register(_c1, "Card");
+    __turbopack_context__.k.register(_c2, "CardHeader$React.forwardRef");
+    __turbopack_context__.k.register(_c3, "CardHeader");
+    __turbopack_context__.k.register(_c4, "CardTitle$React.forwardRef");
+    __turbopack_context__.k.register(_c5, "CardTitle");
+    __turbopack_context__.k.register(_c6, "CardDescription$React.forwardRef");
+    __turbopack_context__.k.register(_c7, "CardDescription");
+    __turbopack_context__.k.register(_c8, "CardContent$React.forwardRef");
+    __turbopack_context__.k.register(_c9, "CardContent");
+    __turbopack_context__.k.register(_c10, "CardFooter$React.forwardRef");
+    __turbopack_context__.k.register(_c11, "CardFooter");
+    if (
+      typeof globalThis.$RefreshHelpers$ === "object" &&
+      globalThis.$RefreshHelpers !== null
+    ) {
+      __turbopack_context__.k.registerExports(
+        __turbopack_context__.m,
+        globalThis.$RefreshHelpers$,
+      );
+    }
+  },
+  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx [app-client] (ecmascript)",
+  (__turbopack_context__) => {
+    "use strict";
 
-__turbopack_context__.s([
-    "default",
-    ()=>PaymentsPage
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$auth$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/hooks/use-auth.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/date-fns/format.mjs [app-client] (ecmascript) <locals>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/loader-circle.js [app-client] (ecmascript) <export default as Loader2>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/dollar-sign.js [app-client] (ecmascript) <export default as DollarSign>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/circle-check.js [app-client] (ecmascript) <export default as CheckCircle2>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertCircle$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/circle-alert.js [app-client] (ecmascript) <export default as AlertCircle>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-client] (ecmascript) <export default as ChevronDown>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronUp$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-up.js [app-client] (ecmascript) <export default as ChevronUp>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$history$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__History$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/history.js [app-client] (ecmascript) <export default as History>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$info$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Info$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/info.js [app-client] (ecmascript) <export default as Info>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$receipt$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Receipt$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/receipt.js [app-client] (ecmascript) <export default as Receipt>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$pen$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Edit$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/square-pen.js [app-client] (ecmascript) <export default as Edit>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/trash-2.js [app-client] (ecmascript) <export default as Trash2>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/download.js [app-client] (ecmascript) <export default as Download>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$down$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowDownUp$3e$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/arrow-down-up.js [app-client] (ecmascript) <export default as ArrowDownUp>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/button.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/input.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/label.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Desktop/Projects/final-pixelate/dashboard/src/hooks/use-toast.ts [app-client] (ecmascript)");
-;
-var _s = __turbopack_context__.k.signature();
-"use client";
-;
-;
-;
-;
-;
-;
-;
-;
-;
-;
-;
-// ─── Helpers ─────────────────────────────────────────────────────────────────
-function getFinancialYear() {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = now.getMonth() + 1;
-    const fyStart = month >= 4 ? year : year - 1;
-    return `${String(fyStart).slice(2)}${String(fyStart + 1).slice(2)}`;
-}
-function WhatsAppIcon({ className = "w-4 h-4" }) {
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-        viewBox: "0 0 32 32",
-        className: className,
-        fill: "none",
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+    __turbopack_context__.s(["default", () => PaymentsPage]);
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$auth$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/hooks/use-auth.tsx [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/date-fns/format.mjs [app-client] (ecmascript) <locals>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/loader-circle.js [app-client] (ecmascript) <export default as Loader2>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/dollar-sign.js [app-client] (ecmascript) <export default as DollarSign>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/circle-check.js [app-client] (ecmascript) <export default as CheckCircle2>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertCircle$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/circle-alert.js [app-client] (ecmascript) <export default as AlertCircle>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-client] (ecmascript) <export default as ChevronDown>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronUp$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/chevron-up.js [app-client] (ecmascript) <export default as ChevronUp>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$history$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__History$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/history.js [app-client] (ecmascript) <export default as History>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$info$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Info$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/info.js [app-client] (ecmascript) <export default as Info>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$receipt$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Receipt$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/receipt.js [app-client] (ecmascript) <export default as Receipt>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$pen$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Edit$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/square-pen.js [app-client] (ecmascript) <export default as Edit>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/trash-2.js [app-client] (ecmascript) <export default as Trash2>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/download.js [app-client] (ecmascript) <export default as Download>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$down$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowDownUp$3e$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/node_modules/lucide-react/dist/esm/icons/arrow-down-up.js [app-client] (ecmascript) <export default as ArrowDownUp>",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/lib/utils.ts [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/button.tsx [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/input.tsx [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/label.tsx [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/select.tsx [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/components/ui/card.tsx [app-client] (ecmascript)",
+      );
+    var __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ =
+      __turbopack_context__.i(
+        "[project]/Desktop/Projects/final-pixelate/dashboard/src/hooks/use-toast.ts [app-client] (ecmascript)",
+      );
+    var _s = __turbopack_context__.k.signature();
+    ("use client");
+    // ─── Helpers ─────────────────────────────────────────────────────────────────
+    function getFinancialYear() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      const fyStart = month >= 4 ? year : year - 1;
+      return `${String(fyStart).slice(2)}${String(fyStart + 1).slice(2)}`;
+    }
+    function WhatsAppIcon({ className = "w-4 h-4" }) {
+      return /*#__PURE__*/ (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "jsxDEV"
+      ])(
+        "svg",
+        {
+          viewBox: "0 0 32 32",
+          className: className,
+          fill: "none",
+          children: [
+            /*#__PURE__*/ (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "jsxDEV"
+            ])(
+              "circle",
+              {
                 cx: "16",
                 cy: "16",
                 r: "16",
-                fill: "currentColor"
-            }, void 0, false, {
-                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                fill: "currentColor",
+              },
+              void 0,
+              false,
+              {
+                fileName:
+                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                 lineNumber: 57,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                columnNumber: 7,
+              },
+              this,
+            ),
+            /*#__PURE__*/ (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "jsxDEV"
+            ])(
+              "path",
+              {
                 d: "M22.8 19.4c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.63-.93-2.23-.24-.59-.49-.51-.68-.52-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.09 4.49.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z",
-                fill: "white"
-            }, void 0, false, {
-                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                fill: "white",
+              },
+              void 0,
+              false,
+              {
+                fileName:
+                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                 lineNumber: 58,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                columnNumber: 7,
+              },
+              this,
+            ),
+            /*#__PURE__*/ (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "jsxDEV"
+            ])(
+              "path",
+              {
                 d: "M16 5.5C10.2 5.5 5.5 10.2 5.5 16c0 1.86.5 3.6 1.36 5.1L5.5 26.5l5.56-1.34A10.44 10.44 0 0 0 16 26.5c5.8 0 10.5-4.7 10.5-10.5S21.8 5.5 16 5.5zm0 19.25a8.73 8.73 0 0 1-4.47-1.22l-.32-.19-3.3.8.82-3.22-.21-.33A8.74 8.74 0 0 1 7.25 16c0-4.83 3.93-8.75 8.75-8.75S24.75 11.17 24.75 16 20.83 24.75 16 24.75z",
-                fill: "white"
-            }, void 0, false, {
-                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                fill: "white",
+              },
+              void 0,
+              false,
+              {
+                fileName:
+                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                 lineNumber: 62,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-        lineNumber: 56,
-        columnNumber: 5
-    }, this);
-}
-_c = WhatsAppIcon;
-function PaymentsPage() {
-    _s();
-    const { user } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$auth$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
-    const { toast } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useToast"])();
-    const isClient = user?.role === "client";
-    const myClientId = user?.clientId ?? null;
-    const [clients, setClients] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [selectedClient, setSelectedClient] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const [selectedClientObj, setSelectedClientObj] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [invoices, setInvoices] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [paymentAmount, setPaymentAmount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const [paymentDate, setPaymentDate] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(new Date().toISOString().split("T")[0]);
-    const [paymentMode, setPaymentMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("Bank Transfer");
-    const [paymentRemarks, setPaymentRemarks] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const [activeInvoice, setActiveInvoice] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [expandedInvoices, setExpandedInvoices] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({});
-    const [editingPayment, setEditingPayment] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [editAmount, setEditAmount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const [editDate, setEditDate] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const [editMode, setEditMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const [editRemarks, setEditRemarks] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const [downloadingReceipt, setDownloadingReceipt] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [sendingWhatsApp, setSendingWhatsApp] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const toggleInvoiceExpand = (id)=>{
-        setExpandedInvoices((prev)=>({
-                ...prev,
-                [id]: !prev[id]
-            }));
-    };
-    const clientSummary = invoices.reduce((acc, inv)=>{
-        const baseAmount = Number(inv.amount || 0);
-        const taxAmount = Number(inv.tax || 0);
-        const totalAmount = baseAmount + taxAmount;
-        acc.billed += totalAmount;
-        acc.received += Number(inv.paidAmount || 0);
-        return acc;
-    }, {
-        billed: 0,
-        received: 0
-    });
-    const outstanding = clientSummary.billed - clientSummary.received;
-    // Build flat list of all payments across all invoices, sorted by date desc
-    const allPayments = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
-        "PaymentsPage.useMemo[allPayments]": ()=>{
+                columnNumber: 7,
+              },
+              this,
+            ),
+          ],
+        },
+        void 0,
+        true,
+        {
+          fileName:
+            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+          lineNumber: 56,
+          columnNumber: 5,
+        },
+        this,
+      );
+    }
+    _c = WhatsAppIcon;
+    function PaymentsPage() {
+      _s();
+      const { user } = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$auth$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useAuth"
+      ])();
+      const { toast } = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useToast"
+      ])();
+      const isClient = user?.role === "client";
+      const myClientId = user?.clientId ?? null;
+      const [clients, setClients] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])([]);
+      const [selectedClient, setSelectedClient] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])("");
+      const [selectedClientObj, setSelectedClientObj] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])(null);
+      const [invoices, setInvoices] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])([]);
+      const [loading, setLoading] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])(false);
+      const [paymentAmount, setPaymentAmount] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])("");
+      const [paymentDate, setPaymentDate] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])(new Date().toISOString().split("T")[0]);
+      const [paymentMode, setPaymentMode] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])("Bank Transfer");
+      const [paymentRemarks, setPaymentRemarks] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])("");
+      const [activeInvoice, setActiveInvoice] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])(null);
+      const [expandedInvoices, setExpandedInvoices] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])({});
+      const [editingPayment, setEditingPayment] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])(null);
+      const [editAmount, setEditAmount] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])("");
+      const [editDate, setEditDate] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])("");
+      const [editMode, setEditMode] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])("");
+      const [editRemarks, setEditRemarks] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])("");
+      const [downloadingReceipt, setDownloadingReceipt] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])(null);
+      const [sendingWhatsApp, setSendingWhatsApp] = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useState"
+      ])(null);
+      const toggleInvoiceExpand = (id) => {
+        setExpandedInvoices((prev) => ({
+          ...prev,
+          [id]: !prev[id],
+        }));
+      };
+      const clientSummary = invoices.reduce(
+        (acc, inv) => {
+          const baseAmount = Number(inv.amount || 0);
+          const taxAmount = Number(inv.tax || 0);
+          const totalAmount = baseAmount + taxAmount;
+          acc.billed += totalAmount;
+          acc.received += Number(inv.paidAmount || 0);
+          return acc;
+        },
+        {
+          billed: 0,
+          received: 0,
+        },
+      );
+      const outstanding = clientSummary.billed - clientSummary.received;
+      // Build flat list of all payments across all invoices, sorted by date desc
+      const allPayments = (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useMemo"
+      ])(
+        {
+          "PaymentsPage.useMemo[allPayments]": () => {
             const fy = getFinancialYear();
             let globalIndex = 1;
             const payments = [];
-            invoices.forEach({
-                "PaymentsPage.useMemo[allPayments]": (inv)=>{
-                    const baseAmount = Number(inv.amount || 0);
-                    const taxAmount = Number(inv.tax || 0);
-                    const total = baseAmount + taxAmount;
-                    const paid = Number(inv.paidAmount || 0);
-                    const balance = total - paid;
-                    (inv.paymentHistory || []).forEach({
-                        "PaymentsPage.useMemo[allPayments]": (h, idx)=>{
-                            payments.push({
-                                invoiceId: String(inv._id || inv.id),
-                                invoiceNo: inv.invoiceNo || "—",
-                                projectTitle: inv.projectTitle || inv.title || "Untitled Project",
-                                clientName: inv.clientName || selectedClientObj?.name || "—",
-                                clientPhone: inv.clientPhone || selectedClientObj?.phone,
-                                clientAddress: inv.clientAddress ? [
-                                    inv.clientAddress,
-                                    inv.clientCity,
-                                    inv.clientState,
-                                    inv.clientPin
-                                ].filter(Boolean).join(", ") : selectedClientObj ? [
-                                    selectedClientObj.address,
-                                    selectedClientObj.city,
-                                    selectedClientObj.state,
-                                    selectedClientObj.pin
-                                ].filter(Boolean).join(", ") : undefined,
-                                paymentIndex: idx,
-                                receiptNo: `RCPT/${fy}/${String(globalIndex++).padStart(4, "0")}`,
-                                amount: Number(h.amount),
-                                date: h.date,
-                                mode: h.mode || "Bank Transfer",
-                                remarks: h.remarks,
-                                invoiceTotal: total,
-                                balanceDue: balance,
-                                invoiceStatus: (inv.status || "PENDING").toUpperCase()
-                            });
-                        }
-                    }["PaymentsPage.useMemo[allPayments]"]);
-                }
-            }["PaymentsPage.useMemo[allPayments]"]);
-            return payments.sort({
-                "PaymentsPage.useMemo[allPayments]": (a, b)=>new Date(b.date).getTime() - new Date(a.date).getTime()
-            }["PaymentsPage.useMemo[allPayments]"]);
-        }
-    }["PaymentsPage.useMemo[allPayments]"], [
-        invoices,
-        selectedClientObj
-    ]);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "PaymentsPage.useEffect": ()=>{
+            invoices.forEach(
+              {
+                "PaymentsPage.useMemo[allPayments]": (inv) => {
+                  const baseAmount = Number(inv.amount || 0);
+                  const taxAmount = Number(inv.tax || 0);
+                  const total = baseAmount + taxAmount;
+                  const paid = Number(inv.paidAmount || 0);
+                  const balance = total - paid;
+                  (inv.paymentHistory || []).forEach(
+                    {
+                      "PaymentsPage.useMemo[allPayments]": (h, idx) => {
+                        payments.push({
+                          invoiceId: String(inv._id || inv.id),
+                          invoiceNo: inv.invoiceNo || "—",
+                          projectTitle:
+                            inv.projectTitle || inv.title || "Untitled Project",
+                          clientName:
+                            inv.clientName || selectedClientObj?.name || "—",
+                          clientPhone:
+                            inv.clientPhone || selectedClientObj?.phone,
+                          clientAddress: inv.clientAddress
+                            ? [
+                                inv.clientAddress,
+                                inv.clientCity,
+                                inv.clientState,
+                                inv.clientPin,
+                              ]
+                                .filter(Boolean)
+                                .join(", ")
+                            : selectedClientObj
+                              ? [
+                                  selectedClientObj.address,
+                                  selectedClientObj.city,
+                                  selectedClientObj.state,
+                                  selectedClientObj.pin,
+                                ]
+                                  .filter(Boolean)
+                                  .join(", ")
+                              : undefined,
+                          paymentIndex: idx,
+                          receiptNo: `RCPT/${fy}/${String(globalIndex++).padStart(4, "0")}`,
+                          amount: Number(h.amount),
+                          date: h.date,
+                          mode: h.mode || "Bank Transfer",
+                          remarks: h.remarks,
+                          invoiceTotal: total,
+                          balanceDue: balance,
+                          invoiceStatus: (
+                            inv.status || "PENDING"
+                          ).toUpperCase(),
+                        });
+                      },
+                    }["PaymentsPage.useMemo[allPayments]"],
+                  );
+                },
+              }["PaymentsPage.useMemo[allPayments]"],
+            );
+            return payments.sort(
+              {
+                "PaymentsPage.useMemo[allPayments]": (a, b) =>
+                  new Date(b.date).getTime() - new Date(a.date).getTime(),
+              }["PaymentsPage.useMemo[allPayments]"],
+            );
+          },
+        }["PaymentsPage.useMemo[allPayments]"],
+        [invoices, selectedClientObj],
+      );
+      (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useEffect"
+      ])(
+        {
+          "PaymentsPage.useEffect": () => {
             if (isClient) {
-                if (myClientId) setSelectedClient(String(myClientId));
-                return;
+              if (myClientId) setSelectedClient(String(myClientId));
+              return;
             }
-            fetch("/api/clients").then({
-                "PaymentsPage.useEffect": (res)=>res.json()
-            }["PaymentsPage.useEffect"]).then({
-                "PaymentsPage.useEffect": (data)=>setClients(data)
-            }["PaymentsPage.useEffect"]).catch(console.error);
-        }
-    }["PaymentsPage.useEffect"], [
-        isClient,
-        myClientId
-    ]);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "PaymentsPage.useEffect": ()=>{
+            fetch("/api/clients")
+              .then(
+                {
+                  "PaymentsPage.useEffect": (res) => res.json(),
+                }["PaymentsPage.useEffect"],
+              )
+              .then(
+                {
+                  "PaymentsPage.useEffect": (data) => setClients(data),
+                }["PaymentsPage.useEffect"],
+              )
+              .catch(console.error);
+          },
+        }["PaymentsPage.useEffect"],
+        [isClient, myClientId],
+      );
+      (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "useEffect"
+      ])(
+        {
+          "PaymentsPage.useEffect": () => {
             if (!selectedClient) {
-                setInvoices([]);
-                setSelectedClientObj(null);
-                return;
+              setInvoices([]);
+              setSelectedClientObj(null);
+              return;
             }
-            const found = clients.find({
-                "PaymentsPage.useEffect.found": (c)=>String(c._id || c.id) === selectedClient
-            }["PaymentsPage.useEffect.found"]);
+            const found = clients.find(
+              {
+                "PaymentsPage.useEffect.found": (c) =>
+                  String(c._id || c.id) === selectedClient,
+              }["PaymentsPage.useEffect.found"],
+            );
             setSelectedClientObj(found || null);
             setLoading(true);
-            fetch(`/api/invoices?clientId=${selectedClient}`).then({
-                "PaymentsPage.useEffect": (res)=>res.json()
-            }["PaymentsPage.useEffect"]).then({
-                "PaymentsPage.useEffect": (data)=>setInvoices(data)
-            }["PaymentsPage.useEffect"]).catch(console.error).finally({
-                "PaymentsPage.useEffect": ()=>setLoading(false)
-            }["PaymentsPage.useEffect"]);
-        }
-    }["PaymentsPage.useEffect"], [
-        selectedClient,
-        clients
-    ]);
-    const handlePayClick = (invoice)=>{
+            fetch(`/api/invoices?clientId=${selectedClient}`)
+              .then(
+                {
+                  "PaymentsPage.useEffect": (res) => res.json(),
+                }["PaymentsPage.useEffect"],
+              )
+              .then(
+                {
+                  "PaymentsPage.useEffect": (data) => setInvoices(data),
+                }["PaymentsPage.useEffect"],
+              )
+              .catch(console.error)
+              .finally(
+                {
+                  "PaymentsPage.useEffect": () => setLoading(false),
+                }["PaymentsPage.useEffect"],
+              );
+          },
+        }["PaymentsPage.useEffect"],
+        [selectedClient, clients],
+      );
+      const handlePayClick = (invoice) => {
         setActiveInvoice(invoice);
         const remaining = (invoice.amount || 0) - (invoice.paidAmount || 0);
         const amountWithTax = remaining > 0 ? remaining * 1.18 : 0;
         setPaymentAmount(amountWithTax > 0 ? amountWithTax.toString() : "0");
-    };
-    const submitPayment = async ()=>{
+      };
+      const submitPayment = async () => {
         if (!activeInvoice || !paymentAmount) return;
         try {
-            const res = await fetch("/api/payments", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    invoiceId: String(activeInvoice._id || activeInvoice.id),
-                    amount: Number(paymentAmount),
-                    date: paymentDate,
-                    mode: paymentMode,
-                    remarks: paymentRemarks
-                })
-            });
-            if (!res.ok) {
-                const errorData = await res.json().catch(()=>({}));
-                throw new Error(errorData.error || "Payment failed");
-            }
-            toast({
-                title: "Payment Recorded",
-                description: `Successfully recorded payment of ₹${paymentAmount} for invoice ${activeInvoice.invoiceNo}`
-            });
-            const updatedRes = await fetch(`/api/invoices?clientId=${selectedClient}`);
-            const updatedData = await updatedRes.json();
-            setInvoices(updatedData);
-            setActiveInvoice(null);
-            setPaymentAmount("");
-            setPaymentRemarks("");
+          const res = await fetch("/api/payments", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              invoiceId: String(activeInvoice._id || activeInvoice.id),
+              amount: Number(paymentAmount),
+              date: paymentDate,
+              mode: paymentMode,
+              remarks: paymentRemarks,
+            }),
+          });
+          if (!res.ok) {
+            const errorData = await res.json().catch(() => ({}));
+            throw new Error(errorData.error || "Payment failed");
+          }
+          toast({
+            title: "Payment Recorded",
+            description: `Successfully recorded payment of ₹${paymentAmount} for invoice ${activeInvoice.invoiceNo}`,
+          });
+          const updatedRes = await fetch(
+            `/api/invoices?clientId=${selectedClient}`,
+          );
+          const updatedData = await updatedRes.json();
+          setInvoices(updatedData);
+          setActiveInvoice(null);
+          setPaymentAmount("");
+          setPaymentRemarks("");
         } catch (error) {
-            console.error(error);
-            toast({
-                title: "Error",
-                description: error.message || "Failed to record payment. Please try again.",
-                variant: "destructive"
-            });
+          console.error(error);
+          toast({
+            title: "Error",
+            description:
+              error.message || "Failed to record payment. Please try again.",
+            variant: "destructive",
+          });
         }
-    };
-    const handleEditPayment = (invoice, index)=>{
+      };
+      const handleEditPayment = (invoice, index) => {
         const payment = invoice.paymentHistory[index];
         setEditingPayment({
-            invoice,
-            index
+          invoice,
+          index,
         });
         setEditAmount(payment.amount.toString());
-        setEditDate(payment.date ? new Date(payment.date).toISOString().split("T")[0] : new Date().toISOString().split("T")[0]);
+        setEditDate(
+          payment.date
+            ? new Date(payment.date).toISOString().split("T")[0]
+            : new Date().toISOString().split("T")[0],
+        );
         setEditMode(payment.mode || "Bank Transfer");
         setEditRemarks(payment.remarks || "");
-    };
-    const submitEditPayment = async ()=>{
+      };
+      const submitEditPayment = async () => {
         if (!editingPayment || !editAmount) return;
         try {
-            const res = await fetch(`/api/payments/${editingPayment.index}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    invoiceId: String(editingPayment.invoice._id || editingPayment.invoice.id),
-                    index: editingPayment.index,
-                    amount: Number(editAmount),
-                    date: editDate,
-                    mode: editMode,
-                    remarks: editRemarks
-                })
-            });
-            if (!res.ok) {
-                const errorData = await res.json().catch(()=>({}));
-                throw new Error(errorData.error || "Failed to update payment");
-            }
-            toast({
-                title: "Payment Updated",
-                description: "Payment details updated successfully"
-            });
-            const updatedRes = await fetch(`/api/invoices?clientId=${selectedClient}`);
-            const updatedData = await updatedRes.json();
-            setInvoices(updatedData);
-            setEditingPayment(null);
+          const res = await fetch(`/api/payments/${editingPayment.index}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              invoiceId: String(
+                editingPayment.invoice._id || editingPayment.invoice.id,
+              ),
+              index: editingPayment.index,
+              amount: Number(editAmount),
+              date: editDate,
+              mode: editMode,
+              remarks: editRemarks,
+            }),
+          });
+          if (!res.ok) {
+            const errorData = await res.json().catch(() => ({}));
+            throw new Error(errorData.error || "Failed to update payment");
+          }
+          toast({
+            title: "Payment Updated",
+            description: "Payment details updated successfully",
+          });
+          const updatedRes = await fetch(
+            `/api/invoices?clientId=${selectedClient}`,
+          );
+          const updatedData = await updatedRes.json();
+          setInvoices(updatedData);
+          setEditingPayment(null);
         } catch (error) {
-            toast({
-                title: "Error",
-                description: error.message || "Failed to update payment",
-                variant: "destructive"
-            });
+          toast({
+            title: "Error",
+            description: error.message || "Failed to update payment",
+            variant: "destructive",
+          });
         }
-    };
-    const handleDeletePayment = async (invoice, index)=>{
-        if (!window.confirm("Delete this payment entry? This cannot be undone.")) return;
+      };
+      const handleDeletePayment = async (invoice, index) => {
+        if (
+          !window.confirm("Delete this payment entry? This cannot be undone.")
+        )
+          return;
         try {
-            const res = await fetch(`/api/payments/${index}?invoiceId=${String(invoice._id || invoice.id)}&index=${index}`, {
-                method: "DELETE"
-            });
-            if (!res.ok) {
-                const errorData = await res.json().catch(()=>({}));
-                throw new Error(errorData.error || "Failed to delete payment");
-            }
-            toast({
-                title: "Payment Deleted",
-                description: "Payment entry removed successfully"
-            });
-            const updatedRes = await fetch(`/api/invoices?clientId=${selectedClient}`);
-            const updatedData = await updatedRes.json();
-            setInvoices(updatedData);
+          const res = await fetch(
+            `/api/payments/${index}?invoiceId=${String(invoice._id || invoice.id)}&index=${index}`,
+            {
+              method: "DELETE",
+            },
+          );
+          if (!res.ok) {
+            const errorData = await res.json().catch(() => ({}));
+            throw new Error(errorData.error || "Failed to delete payment");
+          }
+          toast({
+            title: "Payment Deleted",
+            description: "Payment entry removed successfully",
+          });
+          const updatedRes = await fetch(
+            `/api/invoices?clientId=${selectedClient}`,
+          );
+          const updatedData = await updatedRes.json();
+          setInvoices(updatedData);
         } catch (error) {
-            toast({
-                title: "Error",
-                description: error.message || "Failed to delete payment",
-                variant: "destructive"
-            });
+          toast({
+            title: "Error",
+            description: error.message || "Failed to delete payment",
+            variant: "destructive",
+          });
         }
-    };
-    // Download receipt PDF for a specific payment
-    const handleDownloadReceipt = async (payment)=>{
+      };
+      // Download receipt PDF for a specific payment
+      const handleDownloadReceipt = async (payment) => {
         const key = `${payment.invoiceId}-${payment.paymentIndex}`;
         setDownloadingReceipt(key);
         try {
-            const res = await fetch("/api/generate-payment-receipt", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    receiptNo: payment.receiptNo,
-                    clientName: payment.clientName,
-                    clientAddress: payment.clientAddress,
-                    clientPhone: payment.clientPhone,
-                    invoiceNo: payment.invoiceNo,
-                    projectTitle: payment.projectTitle,
-                    amount: payment.amount,
-                    paymentDate: payment.date,
-                    paymentMode: payment.mode,
-                    transactionRef: payment.remarks,
-                    invoiceTotal: payment.invoiceTotal,
-                    balanceDue: payment.balanceDue,
-                    invoiceStatus: payment.invoiceStatus
-                })
-            });
-            if (!res.ok) {
-                const err = await res.json().catch(()=>({}));
-                throw new Error(err.error || "Failed to generate receipt");
-            }
-            const blob = await res.blob();
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = `Receipt-${payment.invoiceNo}-${payment.clientName}.pdf`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            toast({
-                title: "Receipt Downloaded",
-                description: `Receipt for ${payment.invoiceNo} downloaded.`
-            });
+          const res = await fetch("/api/generate-payment-receipt", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              receiptNo: payment.receiptNo,
+              clientName: payment.clientName,
+              clientAddress: payment.clientAddress,
+              clientPhone: payment.clientPhone,
+              invoiceNo: payment.invoiceNo,
+              projectTitle: payment.projectTitle,
+              amount: payment.amount,
+              paymentDate: payment.date,
+              paymentMode: payment.mode,
+              transactionRef: payment.remarks,
+              invoiceTotal: payment.invoiceTotal,
+              balanceDue: payment.balanceDue,
+              invoiceStatus: payment.invoiceStatus,
+            }),
+          });
+          if (!res.ok) {
+            const err = await res.json().catch(() => ({}));
+            throw new Error(err.error || "Failed to generate receipt");
+          }
+          const blob = await res.blob();
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `Receipt-${payment.invoiceNo}-${payment.clientName}.pdf`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          toast({
+            title: "Receipt Downloaded",
+            description: `Receipt for ${payment.invoiceNo} downloaded.`,
+          });
         } catch (error) {
-            toast({
-                title: "Error",
-                description: error.message || "Could not generate receipt",
-                variant: "destructive"
-            });
-        } finally{
-            setDownloadingReceipt(null);
+          toast({
+            title: "Error",
+            description: error.message || "Could not generate receipt",
+            variant: "destructive",
+          });
+        } finally {
+          setDownloadingReceipt(null);
         }
-    };
-    // Send receipt via WhatsApp
-    const handleWhatsAppReceipt = async (payment)=>{
+      };
+      // Send receipt via WhatsApp
+      const handleWhatsAppReceipt = async (payment) => {
         const phone = payment.clientPhone?.replace(/\D/g, "") || "";
         if (!phone) {
-            toast({
-                title: "No Phone Number",
-                description: "This client has no phone number saved.",
-                variant: "destructive"
-            });
-            return;
+          toast({
+            title: "No Phone Number",
+            description: "This client has no phone number saved.",
+            variant: "destructive",
+          });
+          return;
         }
         const key = `${payment.invoiceId}-${payment.paymentIndex}`;
         setSendingWhatsApp(key);
         try {
-            // Step 1: Generate the receipt PDF
-            const pdfRes = await fetch("/api/generate-payment-receipt", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    receiptNo: payment.receiptNo,
-                    clientName: payment.clientName,
-                    clientAddress: payment.clientAddress,
-                    clientPhone: payment.clientPhone,
-                    invoiceNo: payment.invoiceNo,
-                    projectTitle: payment.projectTitle,
-                    amount: payment.amount,
-                    paymentDate: payment.date,
-                    paymentMode: payment.mode,
-                    transactionRef: payment.remarks,
-                    invoiceTotal: payment.invoiceTotal,
-                    balanceDue: payment.balanceDue,
-                    invoiceStatus: payment.invoiceStatus
-                })
-            });
-            if (!pdfRes.ok) {
-                throw new Error("Failed to generate receipt PDF");
-            }
-            const pdfBlob = await pdfRes.blob();
-            const safeFilename = `Receipt-${payment.invoiceNo.replace(/[/\\]/g, "-")}-${payment.clientName.replace(/[^a-zA-Z0-9]/g, "-")}.pdf`;
-            // Step 2: Upload PDF to WhatsApp media
-            const formData = new FormData();
-            formData.append("file", new File([
-                pdfBlob
-            ], safeFilename, {
-                type: "application/pdf"
-            }));
-            const uploadRes = await fetch("/api/upload-whatsapp-media", {
-                method: "POST",
-                body: formData
-            });
-            if (!uploadRes.ok) {
-                throw new Error("Failed to upload receipt to WhatsApp");
-            }
-            const { mediaId } = await uploadRes.json();
-            // Step 3: Send via WhatsApp template
-            const digits = phone.length === 10 ? "91" + phone : phone;
-            const amountFormatted = new Intl.NumberFormat("en-IN", {
-                style: "currency",
-                currency: "INR"
-            }).format(payment.amount);
-            const sendRes = await fetch("/api/send-invoice-whatsapp", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    phone: digits,
-                    clientName: payment.clientName,
-                    invNo: payment.receiptNo,
-                    amount: amountFormatted,
-                    filename: safeFilename,
-                    mediaId,
-                    clientId: selectedClient
-                })
-            });
-            const sendData = await sendRes.json().catch(()=>({}));
-            if (!sendRes.ok && sendRes.status !== 207) {
-                throw new Error(sendData.error || "WhatsApp delivery failed");
-            }
-            toast({
-                title: "Receipt Sent via WhatsApp",
-                description: `Payment receipt sent to ${payment.clientName} (${digits})`
-            });
-        } catch (error) {
-            toast({
-                title: "WhatsApp Error",
-                description: error.message || "Could not send receipt via WhatsApp",
-                variant: "destructive"
-            });
-        } finally{
-            setSendingWhatsApp(null);
-        }
-    };
-    const formatCurrency = (amount)=>new Intl.NumberFormat("en-IN", {
+          // Step 1: Generate the receipt PDF
+          const pdfRes = await fetch("/api/generate-payment-receipt", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              receiptNo: payment.receiptNo,
+              clientName: payment.clientName,
+              clientAddress: payment.clientAddress,
+              clientPhone: payment.clientPhone,
+              invoiceNo: payment.invoiceNo,
+              projectTitle: payment.projectTitle,
+              amount: payment.amount,
+              paymentDate: payment.date,
+              paymentMode: payment.mode,
+              transactionRef: payment.remarks,
+              invoiceTotal: payment.invoiceTotal,
+              balanceDue: payment.balanceDue,
+              invoiceStatus: payment.invoiceStatus,
+            }),
+          });
+          if (!pdfRes.ok) {
+            throw new Error("Failed to generate receipt PDF");
+          }
+          const pdfBlob = await pdfRes.blob();
+          const safeFilename = `Receipt-${payment.invoiceNo.replace(/[/\\]/g, "-")}-${payment.clientName.replace(/[^a-zA-Z0-9]/g, "-")}.pdf`;
+          // Step 2: Upload PDF to WhatsApp media
+          const formData = new FormData();
+          formData.append(
+            "file",
+            new File([pdfBlob], safeFilename, {
+              type: "application/pdf",
+            }),
+          );
+          const uploadRes = await fetch("/api/upload-whatsapp-media", {
+            method: "POST",
+            body: formData,
+          });
+          if (!uploadRes.ok) {
+            throw new Error("Failed to upload receipt to WhatsApp");
+          }
+          const { mediaId } = await uploadRes.json();
+          // Step 3: Send via WhatsApp template
+          const digits = phone.length === 10 ? "91" + phone : phone;
+          const amountFormatted = new Intl.NumberFormat("en-IN", {
             style: "currency",
-            currency: "INR"
+            currency: "INR",
+          }).format(payment.amount);
+          const sendRes = await fetch("/api/send-invoice-whatsapp", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              phone: digits,
+              clientName: payment.clientName,
+              invNo: payment.receiptNo,
+              amount: amountFormatted,
+              filename: safeFilename,
+              mediaId,
+              clientId: selectedClient,
+            }),
+          });
+          const sendData = await sendRes.json().catch(() => ({}));
+          if (!sendRes.ok && sendRes.status !== 207) {
+            throw new Error(sendData.error || "WhatsApp delivery failed");
+          }
+          toast({
+            title: "Receipt Sent via WhatsApp",
+            description: `Payment receipt sent to ${payment.clientName} (${digits})`,
+          });
+        } catch (error) {
+          toast({
+            title: "WhatsApp Error",
+            description: error.message || "Could not send receipt via WhatsApp",
+            variant: "destructive",
+          });
+        } finally {
+          setSendingWhatsApp(null);
+        }
+      };
+      const formatCurrency = (amount) =>
+        new Intl.NumberFormat("en-IN", {
+          style: "currency",
+          currency: "INR",
         }).format(amount);
-    if (user?.role !== "admin" && user?.role !== "client") {
-        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+      if (user?.role !== "admin" && user?.role !== "client") {
+        return /*#__PURE__*/ (0,
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          "jsxDEV"
+        ])(
+          "div",
+          {
             className: "flex h-[50vh] items-center justify-center",
-            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            children: /*#__PURE__*/ (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "jsxDEV"
+            ])(
+              "div",
+              {
                 className: "text-center",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        className: "text-2xl font-bold text-destructive",
-                        children: "Access Denied"
-                    }, void 0, false, {
-                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                        lineNumber: 498,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-muted-foreground",
-                        children: "Only admins can record payments."
-                    }, void 0, false, {
-                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                        lineNumber: 499,
-                        columnNumber: 11
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                  /*#__PURE__*/ (0,
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    "jsxDEV"
+                  ])(
+                    "h1",
+                    {
+                      className: "text-2xl font-bold text-destructive",
+                      children: "Access Denied",
+                    },
+                    void 0,
+                    false,
+                    {
+                      fileName:
+                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                      lineNumber: 498,
+                      columnNumber: 11,
+                    },
+                    this,
+                  ),
+                  /*#__PURE__*/ (0,
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    "jsxDEV"
+                  ])(
+                    "p",
+                    {
+                      className: "text-muted-foreground",
+                      children: "Only admins can record payments.",
+                    },
+                    void 0,
+                    false,
+                    {
+                      fileName:
+                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                      lineNumber: 499,
+                      columnNumber: 11,
+                    },
+                    this,
+                  ),
+                ],
+              },
+              void 0,
+              true,
+              {
+                fileName:
+                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                 lineNumber: 497,
-                columnNumber: 9
-            }, this)
-        }, void 0, false, {
-            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                columnNumber: 9,
+              },
+              this,
+            ),
+          },
+          void 0,
+          false,
+          {
+            fileName:
+              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
             lineNumber: 496,
-            columnNumber: 7
-        }, this);
-    }
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "p-6 space-y-6",
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            columnNumber: 7,
+          },
+          this,
+        );
+      }
+      return /*#__PURE__*/ (0,
+      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+        "jsxDEV"
+      ])(
+        "div",
+        {
+          className: "p-6 space-y-6",
+          children: [
+            /*#__PURE__*/ (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "jsxDEV"
+            ])(
+              "div",
+              {
                 className: "flex justify-between items-end border-b pb-6",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                children: /*#__PURE__*/ (0,
+                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                  "jsxDEV"
+                ])(
+                  "div",
+                  {
                     children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                            className: "text-4xl font-black tracking-tight uppercase italic",
-                            children: isClient ? "My Payments" : "Receive Payments"
-                        }, void 0, false, {
-                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                            lineNumber: 509,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-muted-foreground font-medium",
-                            children: isClient ? "Track your invoices and payment history" : "Manage incoming cash flow and reconcile client accounts"
-                        }, void 0, false, {
-                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                            lineNumber: 512,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                      /*#__PURE__*/ (0,
+                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                        "jsxDEV"
+                      ])(
+                        "h1",
+                        {
+                          className:
+                            "text-4xl font-black tracking-tight uppercase italic",
+                          children: isClient
+                            ? "My Payments"
+                            : "Receive Payments",
+                        },
+                        void 0,
+                        false,
+                        {
+                          fileName:
+                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                          lineNumber: 509,
+                          columnNumber: 11,
+                        },
+                        this,
+                      ),
+                      /*#__PURE__*/ (0,
+                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                        "jsxDEV"
+                      ])(
+                        "p",
+                        {
+                          className: "text-muted-foreground font-medium",
+                          children: isClient
+                            ? "Track your invoices and payment history"
+                            : "Manage incoming cash flow and reconcile client accounts",
+                        },
+                        void 0,
+                        false,
+                        {
+                          fileName:
+                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                          lineNumber: 512,
+                          columnNumber: 11,
+                        },
+                        this,
+                      ),
+                    ],
+                  },
+                  void 0,
+                  true,
+                  {
+                    fileName:
+                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                     lineNumber: 508,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                    columnNumber: 9,
+                  },
+                  this,
+                ),
+              },
+              void 0,
+              false,
+              {
+                fileName:
+                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                 lineNumber: 507,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                columnNumber: 7,
+              },
+              this,
+            ),
+            /*#__PURE__*/ (0,
+            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+              "jsxDEV"
+            ])(
+              "div",
+              {
                 className: "grid grid-cols-1 lg:grid-cols-4 gap-6",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "lg:col-span-1 space-y-6",
-                        children: [
-                            !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
-                                className: "border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardHeader"], {
-                                        className: "bg-neutral-50 border-b-2 border-black",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardTitle"], {
-                                            className: "text-xs font-black uppercase tracking-widest text-neutral-500 flex items-center gap-2",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$receipt$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Receipt$3e$__["Receipt"], {
-                                                    className: "w-4 h-4"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 527,
-                                                    columnNumber: 19
-                                                }, this),
-                                                " Billing Account"
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 526,
-                                            columnNumber: 17
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                        lineNumber: 525,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
-                                        className: "pt-6",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
-                                            value: selectedClient,
-                                            onValueChange: setSelectedClient,
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
-                                                    className: "w-full border-2 border-black font-black h-12 bg-white",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
-                                                        placeholder: "Select a client..."
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                        lineNumber: 533,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 532,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
-                                                    className: "border-2 border-black font-bold",
-                                                    children: clients.map((c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
-                                                            value: c._id || c.id,
-                                                            children: c.name
-                                                        }, c._id || c.id, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                            lineNumber: 537,
-                                                            columnNumber: 23
-                                                        }, this))
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 535,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 531,
-                                            columnNumber: 17
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                        lineNumber: 530,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                lineNumber: 524,
-                                columnNumber: 13
-                            }, this),
-                            selectedClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "space-y-4",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
-                                    className: "border-2 border-neutral-200 shadow-sm bg-neutral-50/50 overflow-hidden",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "p-4 space-y-4",
+                  /*#__PURE__*/ (0,
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    "jsxDEV"
+                  ])(
+                    "div",
+                    {
+                      className: "lg:col-span-1 space-y-6",
+                      children: [
+                        !isClient &&
+                          /*#__PURE__*/ (0,
+                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                            "jsxDEV"
+                          ])(
+                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                              "Card"
+                            ],
+                            {
+                              className:
+                                "border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
+                              children: [
+                                /*#__PURE__*/ (0,
+                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                  "jsxDEV"
+                                ])(
+                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                    "CardHeader"
+                                  ],
+                                  {
+                                    className:
+                                      "bg-neutral-50 border-b-2 border-black",
+                                    children: /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "CardTitle"
+                                      ],
+                                      {
+                                        className:
+                                          "text-xs font-black uppercase tracking-widest text-neutral-500 flex items-center gap-2",
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "space-y-1",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-[10px] font-black text-neutral-400 uppercase tracking-widest",
-                                                        children: "Total Billed"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                        lineNumber: 552,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-2xl font-black",
-                                                        children: formatCurrency(clientSummary.billed)
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                        lineNumber: 555,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                lineNumber: 551,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "space-y-1",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-[10px] font-black text-neutral-400 uppercase tracking-widest",
-                                                        children: "Total Received"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                        lineNumber: 560,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-2xl font-black text-green-600",
-                                                        children: formatCurrency(clientSummary.received)
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                        lineNumber: 563,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                lineNumber: 559,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "pt-2 border-t border-neutral-300",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-[10px] font-black text-red-500 uppercase tracking-widest mb-1",
-                                                        children: "Total Outstanding"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                        lineNumber: 568,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-3xl font-black text-red-600 underline decoration-4 underline-offset-4",
-                                                        children: formatCurrency(outstanding)
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                        lineNumber: 571,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                lineNumber: 567,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "pt-1 border-t border-neutral-200",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-[10px] font-black text-neutral-400 uppercase tracking-widest mb-1",
-                                                        children: "Total Payments"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                        lineNumber: 576,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-xl font-black text-neutral-700",
-                                                        children: [
-                                                            allPayments.length,
-                                                            " transaction",
-                                                            allPayments.length !== 1 ? "s" : ""
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                        lineNumber: 579,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                lineNumber: 575,
-                                                columnNumber: 19
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                        lineNumber: 550,
-                                        columnNumber: 17
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 549,
-                                    columnNumber: 15
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                lineNumber: 548,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                        lineNumber: 522,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "lg:col-span-3 space-y-6",
-                        children: !selectedClient ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex flex-col items-center justify-center p-12 border-2 border-dashed border-neutral-300 rounded-xl bg-neutral-50/50 opacity-60",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$info$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Info$3e$__["Info"], {
-                                    className: "w-12 h-12 text-neutral-400 mb-4"
-                                }, void 0, false, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$receipt$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Receipt$3e$__[
+                                              "Receipt"
+                                            ],
+                                            {
+                                              className: "w-4 h-4",
+                                            },
+                                            void 0,
+                                            false,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 527,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                          " Billing Account",
+                                        ],
+                                      },
+                                      void 0,
+                                      true,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 526,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                  },
+                                  void 0,
+                                  false,
+                                  {
+                                    fileName:
+                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                    lineNumber: 525,
+                                    columnNumber: 15,
+                                  },
+                                  this,
+                                ),
+                                /*#__PURE__*/ (0,
+                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                  "jsxDEV"
+                                ])(
+                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                    "CardContent"
+                                  ],
+                                  {
+                                    className: "pt-6",
+                                    children: /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "Select"
+                                      ],
+                                      {
+                                        value: selectedClient,
+                                        onValueChange: setSelectedClient,
+                                        children: [
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "SelectTrigger"
+                                            ],
+                                            {
+                                              className:
+                                                "w-full border-2 border-black font-black h-12 bg-white",
+                                              children: /*#__PURE__*/ (0,
+                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                "jsxDEV"
+                                              ])(
+                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                  "SelectValue"
+                                                ],
+                                                {
+                                                  placeholder:
+                                                    "Select a client...",
+                                                },
+                                                void 0,
+                                                false,
+                                                {
+                                                  fileName:
+                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                  lineNumber: 533,
+                                                  columnNumber: 21,
+                                                },
+                                                this,
+                                              ),
+                                            },
+                                            void 0,
+                                            false,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 532,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "SelectContent"
+                                            ],
+                                            {
+                                              className:
+                                                "border-2 border-black font-bold",
+                                              children: clients.map((c) =>
+                                                /*#__PURE__*/ (0,
+                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                  "jsxDEV"
+                                                ])(
+                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                    "SelectItem"
+                                                  ],
+                                                  {
+                                                    value: c._id || c.id,
+                                                    children: c.name,
+                                                  },
+                                                  c._id || c.id,
+                                                  false,
+                                                  {
+                                                    fileName:
+                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                    lineNumber: 537,
+                                                    columnNumber: 23,
+                                                  },
+                                                  this,
+                                                ),
+                                              ),
+                                            },
+                                            void 0,
+                                            false,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 535,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                        ],
+                                      },
+                                      void 0,
+                                      true,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 531,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                  },
+                                  void 0,
+                                  false,
+                                  {
+                                    fileName:
+                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                    lineNumber: 530,
+                                    columnNumber: 15,
+                                  },
+                                  this,
+                                ),
+                              ],
+                            },
+                            void 0,
+                            true,
+                            {
+                              fileName:
+                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                              lineNumber: 524,
+                              columnNumber: 13,
+                            },
+                            this,
+                          ),
+                        selectedClient &&
+                          /*#__PURE__*/ (0,
+                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                            "jsxDEV"
+                          ])(
+                            "div",
+                            {
+                              className: "space-y-4",
+                              children: /*#__PURE__*/ (0,
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                "jsxDEV"
+                              ])(
+                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                  "Card"
+                                ],
+                                {
+                                  className:
+                                    "border-2 border-neutral-200 shadow-sm bg-neutral-50/50 overflow-hidden",
+                                  children: /*#__PURE__*/ (0,
+                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                    "jsxDEV"
+                                  ])(
+                                    "div",
+                                    {
+                                      className: "p-4 space-y-4",
+                                      children: [
+                                        /*#__PURE__*/ (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          "div",
+                                          {
+                                            className: "space-y-1",
+                                            children: [
+                                              /*#__PURE__*/ (0,
+                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                "jsxDEV"
+                                              ])(
+                                                "p",
+                                                {
+                                                  className:
+                                                    "text-[10px] font-black text-neutral-400 uppercase tracking-widest",
+                                                  children: "Total Billed",
+                                                },
+                                                void 0,
+                                                false,
+                                                {
+                                                  fileName:
+                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                  lineNumber: 552,
+                                                  columnNumber: 21,
+                                                },
+                                                this,
+                                              ),
+                                              /*#__PURE__*/ (0,
+                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                "jsxDEV"
+                                              ])(
+                                                "p",
+                                                {
+                                                  className:
+                                                    "text-2xl font-black",
+                                                  children: formatCurrency(
+                                                    clientSummary.billed,
+                                                  ),
+                                                },
+                                                void 0,
+                                                false,
+                                                {
+                                                  fileName:
+                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                  lineNumber: 555,
+                                                  columnNumber: 21,
+                                                },
+                                                this,
+                                              ),
+                                            ],
+                                          },
+                                          void 0,
+                                          true,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                            lineNumber: 551,
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                        /*#__PURE__*/ (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          "div",
+                                          {
+                                            className: "space-y-1",
+                                            children: [
+                                              /*#__PURE__*/ (0,
+                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                "jsxDEV"
+                                              ])(
+                                                "p",
+                                                {
+                                                  className:
+                                                    "text-[10px] font-black text-neutral-400 uppercase tracking-widest",
+                                                  children: "Total Received",
+                                                },
+                                                void 0,
+                                                false,
+                                                {
+                                                  fileName:
+                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                  lineNumber: 560,
+                                                  columnNumber: 21,
+                                                },
+                                                this,
+                                              ),
+                                              /*#__PURE__*/ (0,
+                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                "jsxDEV"
+                                              ])(
+                                                "p",
+                                                {
+                                                  className:
+                                                    "text-2xl font-black text-green-600",
+                                                  children: formatCurrency(
+                                                    clientSummary.received,
+                                                  ),
+                                                },
+                                                void 0,
+                                                false,
+                                                {
+                                                  fileName:
+                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                  lineNumber: 563,
+                                                  columnNumber: 21,
+                                                },
+                                                this,
+                                              ),
+                                            ],
+                                          },
+                                          void 0,
+                                          true,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                            lineNumber: 559,
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                        /*#__PURE__*/ (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          "div",
+                                          {
+                                            className:
+                                              "pt-2 border-t border-neutral-300",
+                                            children: [
+                                              /*#__PURE__*/ (0,
+                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                "jsxDEV"
+                                              ])(
+                                                "p",
+                                                {
+                                                  className:
+                                                    "text-[10px] font-black text-red-500 uppercase tracking-widest mb-1",
+                                                  children: "Total Outstanding",
+                                                },
+                                                void 0,
+                                                false,
+                                                {
+                                                  fileName:
+                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                  lineNumber: 568,
+                                                  columnNumber: 21,
+                                                },
+                                                this,
+                                              ),
+                                              /*#__PURE__*/ (0,
+                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                "jsxDEV"
+                                              ])(
+                                                "p",
+                                                {
+                                                  className:
+                                                    "text-3xl font-black text-red-600 underline decoration-4 underline-offset-4",
+                                                  children:
+                                                    formatCurrency(outstanding),
+                                                },
+                                                void 0,
+                                                false,
+                                                {
+                                                  fileName:
+                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                  lineNumber: 571,
+                                                  columnNumber: 21,
+                                                },
+                                                this,
+                                              ),
+                                            ],
+                                          },
+                                          void 0,
+                                          true,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                            lineNumber: 567,
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                        /*#__PURE__*/ (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          "div",
+                                          {
+                                            className:
+                                              "pt-1 border-t border-neutral-200",
+                                            children: [
+                                              /*#__PURE__*/ (0,
+                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                "jsxDEV"
+                                              ])(
+                                                "p",
+                                                {
+                                                  className:
+                                                    "text-[10px] font-black text-neutral-400 uppercase tracking-widest mb-1",
+                                                  children: "Total Payments",
+                                                },
+                                                void 0,
+                                                false,
+                                                {
+                                                  fileName:
+                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                  lineNumber: 576,
+                                                  columnNumber: 21,
+                                                },
+                                                this,
+                                              ),
+                                              /*#__PURE__*/ (0,
+                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                "jsxDEV"
+                                              ])(
+                                                "p",
+                                                {
+                                                  className:
+                                                    "text-xl font-black text-neutral-700",
+                                                  children: [
+                                                    allPayments.length,
+                                                    " transaction",
+                                                    allPayments.length !== 1
+                                                      ? "s"
+                                                      : "",
+                                                  ],
+                                                },
+                                                void 0,
+                                                true,
+                                                {
+                                                  fileName:
+                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                  lineNumber: 579,
+                                                  columnNumber: 21,
+                                                },
+                                                this,
+                                              ),
+                                            ],
+                                          },
+                                          void 0,
+                                          true,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                            lineNumber: 575,
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                      ],
+                                    },
+                                    void 0,
+                                    true,
+                                    {
+                                      fileName:
+                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                      lineNumber: 550,
+                                      columnNumber: 17,
+                                    },
+                                    this,
+                                  ),
+                                },
+                                void 0,
+                                false,
+                                {
+                                  fileName:
+                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                  lineNumber: 549,
+                                  columnNumber: 15,
+                                },
+                                this,
+                              ),
+                            },
+                            void 0,
+                            false,
+                            {
+                              fileName:
+                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                              lineNumber: 548,
+                              columnNumber: 13,
+                            },
+                            this,
+                          ),
+                      ],
+                    },
+                    void 0,
+                    true,
+                    {
+                      fileName:
+                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                      lineNumber: 522,
+                      columnNumber: 9,
+                    },
+                    this,
+                  ),
+                  /*#__PURE__*/ (0,
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    "jsxDEV"
+                  ])(
+                    "div",
+                    {
+                      className: "lg:col-span-3 space-y-6",
+                      children: !selectedClient
+                        ? /*#__PURE__*/ (0,
+                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                            "jsxDEV"
+                          ])(
+                            "div",
+                            {
+                              className:
+                                "flex flex-col items-center justify-center p-12 border-2 border-dashed border-neutral-300 rounded-xl bg-neutral-50/50 opacity-60",
+                              children: [
+                                /*#__PURE__*/ (0,
+                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                  "jsxDEV"
+                                ])(
+                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$info$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Info$3e$__[
+                                    "Info"
+                                  ],
+                                  {
+                                    className:
+                                      "w-12 h-12 text-neutral-400 mb-4",
+                                  },
+                                  void 0,
+                                  false,
+                                  {
+                                    fileName:
+                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                                     lineNumber: 593,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                    className: "text-lg font-black uppercase text-neutral-400",
-                                    children: "No client selected"
-                                }, void 0, false, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                    columnNumber: 15,
+                                  },
+                                  this,
+                                ),
+                                /*#__PURE__*/ (0,
+                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                  "jsxDEV"
+                                ])(
+                                  "h3",
+                                  {
+                                    className:
+                                      "text-lg font-black uppercase text-neutral-400",
+                                    children: "No client selected",
+                                  },
+                                  void 0,
+                                  false,
+                                  {
+                                    fileName:
+                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                                     lineNumber: 594,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-neutral-400 font-medium text-sm",
-                                    children: "Select a client account to view invoices and record payments"
-                                }, void 0, false, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                    columnNumber: 15,
+                                  },
+                                  this,
+                                ),
+                                /*#__PURE__*/ (0,
+                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                  "jsxDEV"
+                                ])(
+                                  "p",
+                                  {
+                                    className:
+                                      "text-neutral-400 font-medium text-sm",
+                                    children:
+                                      "Select a client account to view invoices and record payments",
+                                  },
+                                  void 0,
+                                  false,
+                                  {
+                                    fileName:
+                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                                     lineNumber: 597,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                            lineNumber: 592,
-                            columnNumber: 13
-                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "space-y-6",
-                            children: [
-                                allPayments.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bg-white border-2 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex items-center justify-between p-4 border-b-2 border-black bg-green-50",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex items-center gap-3",
+                                    columnNumber: 15,
+                                  },
+                                  this,
+                                ),
+                              ],
+                            },
+                            void 0,
+                            true,
+                            {
+                              fileName:
+                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                              lineNumber: 592,
+                              columnNumber: 13,
+                            },
+                            this,
+                          )
+                        : /*#__PURE__*/ (0,
+                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                            "jsxDEV"
+                          ])(
+                            "div",
+                            {
+                              className: "space-y-6",
+                              children: [
+                                allPayments.length > 0 &&
+                                  /*#__PURE__*/ (0,
+                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                    "jsxDEV"
+                                  ])(
+                                    "div",
+                                    {
+                                      className:
+                                        "bg-white border-2 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden",
+                                      children: [
+                                        /*#__PURE__*/ (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          "div",
+                                          {
+                                            className:
+                                              "flex items-center justify-between p-4 border-b-2 border-black bg-green-50",
+                                            children: /*#__PURE__*/ (0,
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "jsxDEV"
+                                            ])(
+                                              "div",
+                                              {
+                                                className:
+                                                  "flex items-center gap-3",
                                                 children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "w-8 h-8 bg-green-600 rounded flex items-center justify-center",
-                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$down$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowDownUp$3e$__["ArrowDownUp"], {
-                                                            className: "w-4 h-4 text-white"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                  /*#__PURE__*/ (0,
+                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                    "jsxDEV"
+                                                  ])(
+                                                    "div",
+                                                    {
+                                                      className:
+                                                        "w-8 h-8 bg-green-600 rounded flex items-center justify-center",
+                                                      children:
+                                                        /*#__PURE__*/ (0,
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                          "jsxDEV"
+                                                        ])(
+                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$down$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowDownUp$3e$__[
+                                                            "ArrowDownUp"
+                                                          ],
+                                                          {
+                                                            className:
+                                                              "w-4 h-4 text-white",
+                                                          },
+                                                          void 0,
+                                                          false,
+                                                          {
+                                                            fileName:
+                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                                                             lineNumber: 610,
-                                                            columnNumber: 25
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                        lineNumber: 609,
-                                                        columnNumber: 23
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                                                className: "font-black text-lg uppercase tracking-tight",
-                                                                children: "Recent Payments"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                lineNumber: 613,
-                                                                columnNumber: 25
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "text-xs text-neutral-500 font-medium",
-                                                                children: [
-                                                                    allPayments.length,
-                                                                    " transactions • Download or send receipt via WhatsApp"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                lineNumber: 616,
-                                                                columnNumber: 25
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                        lineNumber: 612,
-                                                        columnNumber: 23
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                            columnNumber: 25,
+                                                          },
+                                                          this,
+                                                        ),
+                                                    },
+                                                    void 0,
+                                                    false,
+                                                    {
+                                                      fileName:
+                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                      lineNumber: 609,
+                                                      columnNumber: 23,
+                                                    },
+                                                    this,
+                                                  ),
+                                                  /*#__PURE__*/ (0,
+                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                    "jsxDEV"
+                                                  ])(
+                                                    "div",
+                                                    {
+                                                      children: [
+                                                        /*#__PURE__*/ (0,
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                          "jsxDEV"
+                                                        ])(
+                                                          "h2",
+                                                          {
+                                                            className:
+                                                              "font-black text-lg uppercase tracking-tight",
+                                                            children:
+                                                              "Recent Payments",
+                                                          },
+                                                          void 0,
+                                                          false,
+                                                          {
+                                                            fileName:
+                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                            lineNumber: 613,
+                                                            columnNumber: 25,
+                                                          },
+                                                          this,
+                                                        ),
+                                                        /*#__PURE__*/ (0,
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                          "jsxDEV"
+                                                        ])(
+                                                          "p",
+                                                          {
+                                                            className:
+                                                              "text-xs text-neutral-500 font-medium",
+                                                            children: [
+                                                              allPayments.length,
+                                                              " transactions • Download or send receipt via WhatsApp",
+                                                            ],
+                                                          },
+                                                          void 0,
+                                                          true,
+                                                          {
+                                                            fileName:
+                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                            lineNumber: 616,
+                                                            columnNumber: 25,
+                                                          },
+                                                          this,
+                                                        ),
+                                                      ],
+                                                    },
+                                                    void 0,
+                                                    true,
+                                                    {
+                                                      fileName:
+                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                      lineNumber: 612,
+                                                      columnNumber: 23,
+                                                    },
+                                                    this,
+                                                  ),
+                                                ],
+                                              },
+                                              void 0,
+                                              true,
+                                              {
+                                                fileName:
+                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                                                 lineNumber: 608,
-                                                columnNumber: 21
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                columnNumber: 21,
+                                              },
+                                              this,
+                                            ),
+                                          },
+                                          void 0,
+                                          false,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                                             lineNumber: 607,
-                                            columnNumber: 19
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                        /*#__PURE__*/ (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          "div",
+                                          {
                                             className: "overflow-x-auto",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
+                                            children: /*#__PURE__*/ (0,
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "jsxDEV"
+                                            ])(
+                                              "table",
+                                              {
                                                 className: "w-full",
                                                 children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
-                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
-                                                            className: "border-b-2 border-black bg-neutral-50",
+                                                  /*#__PURE__*/ (0,
+                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                    "jsxDEV"
+                                                  ])(
+                                                    "thead",
+                                                    {
+                                                      children:
+                                                        /*#__PURE__*/ (0,
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                          "jsxDEV"
+                                                        ])(
+                                                          "tr",
+                                                          {
+                                                            className:
+                                                              "border-b-2 border-black bg-neutral-50",
                                                             children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                                                    className: "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
-                                                                    children: "Date"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 627,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                                                    className: "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
-                                                                    children: "Receipt No."
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 630,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                                                    className: "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
-                                                                    children: "Invoice"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 633,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                                                    className: "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500 hidden md:table-cell",
-                                                                    children: "Project"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 636,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                                                    className: "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
-                                                                    children: "Mode"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 639,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                                                    className: "text-right px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
-                                                                    children: "Amount"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 642,
-                                                                    columnNumber: 27
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                                                    className: "text-center px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
-                                                                    children: "Actions"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 645,
-                                                                    columnNumber: 27
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                              /*#__PURE__*/ (0,
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                "jsxDEV"
+                                                              ])(
+                                                                "th",
+                                                                {
+                                                                  className:
+                                                                    "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
+                                                                  children:
+                                                                    "Date",
+                                                                },
+                                                                void 0,
+                                                                false,
+                                                                {
+                                                                  fileName:
+                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                  lineNumber: 627,
+                                                                  columnNumber: 27,
+                                                                },
+                                                                this,
+                                                              ),
+                                                              /*#__PURE__*/ (0,
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                "jsxDEV"
+                                                              ])(
+                                                                "th",
+                                                                {
+                                                                  className:
+                                                                    "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
+                                                                  children:
+                                                                    "Receipt No.",
+                                                                },
+                                                                void 0,
+                                                                false,
+                                                                {
+                                                                  fileName:
+                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                  lineNumber: 630,
+                                                                  columnNumber: 27,
+                                                                },
+                                                                this,
+                                                              ),
+                                                              /*#__PURE__*/ (0,
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                "jsxDEV"
+                                                              ])(
+                                                                "th",
+                                                                {
+                                                                  className:
+                                                                    "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
+                                                                  children:
+                                                                    "Invoice",
+                                                                },
+                                                                void 0,
+                                                                false,
+                                                                {
+                                                                  fileName:
+                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                  lineNumber: 633,
+                                                                  columnNumber: 27,
+                                                                },
+                                                                this,
+                                                              ),
+                                                              /*#__PURE__*/ (0,
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                "jsxDEV"
+                                                              ])(
+                                                                "th",
+                                                                {
+                                                                  className:
+                                                                    "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500 hidden md:table-cell",
+                                                                  children:
+                                                                    "Project",
+                                                                },
+                                                                void 0,
+                                                                false,
+                                                                {
+                                                                  fileName:
+                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                  lineNumber: 636,
+                                                                  columnNumber: 27,
+                                                                },
+                                                                this,
+                                                              ),
+                                                              /*#__PURE__*/ (0,
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                "jsxDEV"
+                                                              ])(
+                                                                "th",
+                                                                {
+                                                                  className:
+                                                                    "text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
+                                                                  children:
+                                                                    "Mode",
+                                                                },
+                                                                void 0,
+                                                                false,
+                                                                {
+                                                                  fileName:
+                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                  lineNumber: 639,
+                                                                  columnNumber: 27,
+                                                                },
+                                                                this,
+                                                              ),
+                                                              /*#__PURE__*/ (0,
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                "jsxDEV"
+                                                              ])(
+                                                                "th",
+                                                                {
+                                                                  className:
+                                                                    "text-right px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
+                                                                  children:
+                                                                    "Amount",
+                                                                },
+                                                                void 0,
+                                                                false,
+                                                                {
+                                                                  fileName:
+                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                  lineNumber: 642,
+                                                                  columnNumber: 27,
+                                                                },
+                                                                this,
+                                                              ),
+                                                              /*#__PURE__*/ (0,
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                "jsxDEV"
+                                                              ])(
+                                                                "th",
+                                                                {
+                                                                  className:
+                                                                    "text-center px-4 py-3 text-[10px] font-black uppercase tracking-widest text-neutral-500",
+                                                                  children:
+                                                                    "Actions",
+                                                                },
+                                                                void 0,
+                                                                false,
+                                                                {
+                                                                  fileName:
+                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                  lineNumber: 645,
+                                                                  columnNumber: 27,
+                                                                },
+                                                                this,
+                                                              ),
+                                                            ],
+                                                          },
+                                                          void 0,
+                                                          true,
+                                                          {
+                                                            fileName:
+                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                                                             lineNumber: 626,
-                                                            columnNumber: 25
-                                                        }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                        lineNumber: 625,
-                                                        columnNumber: 23
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
-                                                        children: allPayments.map((payment, rowIdx)=>{
-                                                            const key = `${payment.invoiceId}-${payment.paymentIndex}`;
-                                                            const isDownloading = downloadingReceipt === key;
-                                                            const isSendingWA = sendingWhatsApp === key;
-                                                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
-                                                                className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("border-b border-neutral-100 hover:bg-neutral-50 transition-colors", rowIdx % 2 === 0 ? "bg-white" : "bg-neutral-50/40"),
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                        className: "px-4 py-3",
-                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: "font-bold text-sm text-neutral-800",
-                                                                            children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(new Date(payment.date), "dd MMM yy")
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 665,
-                                                                            columnNumber: 33
-                                                                        }, this)
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 664,
-                                                                        columnNumber: 31
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                        className: "px-4 py-3",
-                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                            className: "font-black text-xs text-green-700 bg-green-50 border border-green-200 px-2 py-0.5 rounded",
-                                                                            children: payment.receiptNo
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 670,
-                                                                            columnNumber: 33
-                                                                        }, this)
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 669,
-                                                                        columnNumber: 31
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                        className: "px-4 py-3",
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                className: "font-black text-sm",
-                                                                                children: payment.invoiceNo
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                lineNumber: 675,
-                                                                                columnNumber: 33
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                className: "text-[10px] text-neutral-400 font-medium",
-                                                                                children: payment.invoiceStatus
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                lineNumber: 676,
-                                                                                columnNumber: 33
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 674,
-                                                                        columnNumber: 31
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                        className: "px-4 py-3 hidden md:table-cell",
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                className: "text-sm font-bold text-neutral-700 truncate max-w-[140px]",
-                                                                                children: payment.projectTitle
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                lineNumber: 681,
-                                                                                columnNumber: 33
-                                                                            }, this),
-                                                                            payment.remarks && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                className: "text-[10px] text-neutral-400 italic truncate max-w-[140px]",
-                                                                                children: payment.remarks
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                lineNumber: 685,
-                                                                                columnNumber: 35
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 680,
-                                                                        columnNumber: 31
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                        className: "px-4 py-3",
-                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                            className: "text-[10px] font-black uppercase bg-neutral-100 border border-neutral-200 px-2 py-0.5 rounded",
-                                                                            children: payment.mode
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 691,
-                                                                            columnNumber: 33
-                                                                        }, this)
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 690,
-                                                                        columnNumber: 31
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                        className: "px-4 py-3 text-right",
-                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: "font-black text-base text-green-700",
-                                                                            children: formatCurrency(payment.amount)
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 696,
-                                                                            columnNumber: 33
-                                                                        }, this)
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 695,
-                                                                        columnNumber: 31
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                        className: "px-4 py-3",
-                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                            className: "flex items-center justify-center gap-2",
-                                                                            children: [
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                                    onClick: ()=>handleDownloadReceipt(payment),
-                                                                                    disabled: isDownloading,
-                                                                                    title: "Download Payment Receipt (PDF)",
-                                                                                    className: "flex items-center gap-1.5 px-2.5 py-1.5 bg-black text-white text-[10px] font-black uppercase rounded hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
-                                                                                    children: [
-                                                                                        isDownloading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
-                                                                                            className: "w-3 h-3 animate-spin"
-                                                                                        }, void 0, false, {
-                                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                            lineNumber: 710,
-                                                                                            columnNumber: 39
-                                                                                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__["Download"], {
-                                                                                            className: "w-3 h-3"
-                                                                                        }, void 0, false, {
-                                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                            lineNumber: 712,
-                                                                                            columnNumber: 39
-                                                                                        }, this),
-                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                            children: "Receipt"
-                                                                                        }, void 0, false, {
-                                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                            lineNumber: 714,
-                                                                                            columnNumber: 37
-                                                                                        }, this)
-                                                                                    ]
-                                                                                }, void 0, true, {
-                                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                    lineNumber: 703,
-                                                                                    columnNumber: 35
-                                                                                }, this),
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                                    onClick: ()=>handleWhatsAppReceipt(payment),
-                                                                                    disabled: isSendingWA || !payment.clientPhone,
-                                                                                    title: !payment.clientPhone ? "No phone number for this client" : "Send receipt via WhatsApp",
-                                                                                    className: "flex items-center gap-1 px-2.5 py-1.5 bg-[#25D366] text-white text-[10px] font-black uppercase rounded hover:bg-[#1ebe5a] transition-colors disabled:opacity-40 disabled:cursor-not-allowed",
-                                                                                    children: isSendingWA ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
-                                                                                        className: "w-3 h-3 animate-spin"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                        lineNumber: 729,
-                                                                                        columnNumber: 39
-                                                                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(WhatsAppIcon, {
-                                                                                        className: "w-3 h-3"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                        lineNumber: 731,
-                                                                                        columnNumber: 39
-                                                                                    }, this)
-                                                                                }, void 0, false, {
-                                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                    lineNumber: 718,
-                                                                                    columnNumber: 35
-                                                                                }, this)
-                                                                            ]
-                                                                        }, void 0, true, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 701,
-                                                                            columnNumber: 33
-                                                                        }, this)
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 700,
-                                                                        columnNumber: 31
-                                                                    }, this)
-                                                                ]
-                                                            }, key, true, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                lineNumber: 657,
-                                                                columnNumber: 29
-                                                            }, this);
-                                                        })
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                        lineNumber: 650,
-                                                        columnNumber: 23
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                            columnNumber: 25,
+                                                          },
+                                                          this,
+                                                        ),
+                                                    },
+                                                    void 0,
+                                                    false,
+                                                    {
+                                                      fileName:
+                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                      lineNumber: 625,
+                                                      columnNumber: 23,
+                                                    },
+                                                    this,
+                                                  ),
+                                                  /*#__PURE__*/ (0,
+                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                    "jsxDEV"
+                                                  ])(
+                                                    "tbody",
+                                                    {
+                                                      children: allPayments.map(
+                                                        (payment, rowIdx) => {
+                                                          const key = `${payment.invoiceId}-${payment.paymentIndex}`;
+                                                          const isDownloading =
+                                                            downloadingReceipt ===
+                                                            key;
+                                                          const isSendingWA =
+                                                            sendingWhatsApp ===
+                                                            key;
+                                                          return /*#__PURE__*/ (0,
+                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                            "jsxDEV"
+                                                          ])(
+                                                            "tr",
+                                                            {
+                                                              className: (0,
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                "cn"
+                                                              ])(
+                                                                "border-b border-neutral-100 hover:bg-neutral-50 transition-colors",
+                                                                rowIdx % 2 === 0
+                                                                  ? "bg-white"
+                                                                  : "bg-neutral-50/40",
+                                                              ),
+                                                              children: [
+                                                                /*#__PURE__*/ (0,
+                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                  "jsxDEV"
+                                                                ])(
+                                                                  "td",
+                                                                  {
+                                                                    className:
+                                                                      "px-4 py-3",
+                                                                    children:
+                                                                      /*#__PURE__*/ (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "p",
+                                                                        {
+                                                                          className:
+                                                                            "font-bold text-sm text-neutral-800",
+                                                                          children:
+                                                                            (0,
+                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
+                                                                              "format"
+                                                                            ])(
+                                                                              new Date(
+                                                                                payment.date,
+                                                                              ),
+                                                                              "dd MMM yy",
+                                                                            ),
+                                                                        },
+                                                                        void 0,
+                                                                        false,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 665,
+                                                                          columnNumber: 33,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                  },
+                                                                  void 0,
+                                                                  false,
+                                                                  {
+                                                                    fileName:
+                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                    lineNumber: 664,
+                                                                    columnNumber: 31,
+                                                                  },
+                                                                  this,
+                                                                ),
+                                                                /*#__PURE__*/ (0,
+                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                  "jsxDEV"
+                                                                ])(
+                                                                  "td",
+                                                                  {
+                                                                    className:
+                                                                      "px-4 py-3",
+                                                                    children:
+                                                                      /*#__PURE__*/ (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "span",
+                                                                        {
+                                                                          className:
+                                                                            "font-black text-xs text-green-700 bg-green-50 border border-green-200 px-2 py-0.5 rounded",
+                                                                          children:
+                                                                            payment.receiptNo,
+                                                                        },
+                                                                        void 0,
+                                                                        false,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 670,
+                                                                          columnNumber: 33,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                  },
+                                                                  void 0,
+                                                                  false,
+                                                                  {
+                                                                    fileName:
+                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                    lineNumber: 669,
+                                                                    columnNumber: 31,
+                                                                  },
+                                                                  this,
+                                                                ),
+                                                                /*#__PURE__*/ (0,
+                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                  "jsxDEV"
+                                                                ])(
+                                                                  "td",
+                                                                  {
+                                                                    className:
+                                                                      "px-4 py-3",
+                                                                    children: [
+                                                                      /*#__PURE__*/ (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "p",
+                                                                        {
+                                                                          className:
+                                                                            "font-black text-sm",
+                                                                          children:
+                                                                            payment.invoiceNo,
+                                                                        },
+                                                                        void 0,
+                                                                        false,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 675,
+                                                                          columnNumber: 33,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                      /*#__PURE__*/ (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "p",
+                                                                        {
+                                                                          className:
+                                                                            "text-[10px] text-neutral-400 font-medium",
+                                                                          children:
+                                                                            payment.invoiceStatus,
+                                                                        },
+                                                                        void 0,
+                                                                        false,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 676,
+                                                                          columnNumber: 33,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                    ],
+                                                                  },
+                                                                  void 0,
+                                                                  true,
+                                                                  {
+                                                                    fileName:
+                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                    lineNumber: 674,
+                                                                    columnNumber: 31,
+                                                                  },
+                                                                  this,
+                                                                ),
+                                                                /*#__PURE__*/ (0,
+                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                  "jsxDEV"
+                                                                ])(
+                                                                  "td",
+                                                                  {
+                                                                    className:
+                                                                      "px-4 py-3 hidden md:table-cell",
+                                                                    children: [
+                                                                      /*#__PURE__*/ (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "p",
+                                                                        {
+                                                                          className:
+                                                                            "text-sm font-bold text-neutral-700 truncate max-w-[140px]",
+                                                                          children:
+                                                                            payment.projectTitle,
+                                                                        },
+                                                                        void 0,
+                                                                        false,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 681,
+                                                                          columnNumber: 33,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                      payment.remarks &&
+                                                                        /*#__PURE__*/ (0,
+                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                          "jsxDEV"
+                                                                        ])(
+                                                                          "p",
+                                                                          {
+                                                                            className:
+                                                                              "text-[10px] text-neutral-400 italic truncate max-w-[140px]",
+                                                                            children:
+                                                                              payment.remarks,
+                                                                          },
+                                                                          void 0,
+                                                                          false,
+                                                                          {
+                                                                            fileName:
+                                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                            lineNumber: 685,
+                                                                            columnNumber: 35,
+                                                                          },
+                                                                          this,
+                                                                        ),
+                                                                    ],
+                                                                  },
+                                                                  void 0,
+                                                                  true,
+                                                                  {
+                                                                    fileName:
+                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                    lineNumber: 680,
+                                                                    columnNumber: 31,
+                                                                  },
+                                                                  this,
+                                                                ),
+                                                                /*#__PURE__*/ (0,
+                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                  "jsxDEV"
+                                                                ])(
+                                                                  "td",
+                                                                  {
+                                                                    className:
+                                                                      "px-4 py-3",
+                                                                    children:
+                                                                      /*#__PURE__*/ (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "span",
+                                                                        {
+                                                                          className:
+                                                                            "text-[10px] font-black uppercase bg-neutral-100 border border-neutral-200 px-2 py-0.5 rounded",
+                                                                          children:
+                                                                            payment.mode,
+                                                                        },
+                                                                        void 0,
+                                                                        false,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 691,
+                                                                          columnNumber: 33,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                  },
+                                                                  void 0,
+                                                                  false,
+                                                                  {
+                                                                    fileName:
+                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                    lineNumber: 690,
+                                                                    columnNumber: 31,
+                                                                  },
+                                                                  this,
+                                                                ),
+                                                                /*#__PURE__*/ (0,
+                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                  "jsxDEV"
+                                                                ])(
+                                                                  "td",
+                                                                  {
+                                                                    className:
+                                                                      "px-4 py-3 text-right",
+                                                                    children:
+                                                                      /*#__PURE__*/ (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "p",
+                                                                        {
+                                                                          className:
+                                                                            "font-black text-base text-green-700",
+                                                                          children:
+                                                                            formatCurrency(
+                                                                              payment.amount,
+                                                                            ),
+                                                                        },
+                                                                        void 0,
+                                                                        false,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 696,
+                                                                          columnNumber: 33,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                  },
+                                                                  void 0,
+                                                                  false,
+                                                                  {
+                                                                    fileName:
+                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                    lineNumber: 695,
+                                                                    columnNumber: 31,
+                                                                  },
+                                                                  this,
+                                                                ),
+                                                                /*#__PURE__*/ (0,
+                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                  "jsxDEV"
+                                                                ])(
+                                                                  "td",
+                                                                  {
+                                                                    className:
+                                                                      "px-4 py-3",
+                                                                    children:
+                                                                      /*#__PURE__*/ (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "div",
+                                                                        {
+                                                                          className:
+                                                                            "flex items-center justify-center gap-2",
+                                                                          children:
+                                                                            [
+                                                                              /*#__PURE__*/ (0,
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                "jsxDEV"
+                                                                              ])(
+                                                                                "button",
+                                                                                {
+                                                                                  onClick:
+                                                                                    () =>
+                                                                                      handleDownloadReceipt(
+                                                                                        payment,
+                                                                                      ),
+                                                                                  disabled:
+                                                                                    isDownloading,
+                                                                                  title:
+                                                                                    "Download Payment Receipt (PDF)",
+                                                                                  className:
+                                                                                    "flex items-center gap-1.5 px-2.5 py-1.5 bg-black text-white text-[10px] font-black uppercase rounded hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
+                                                                                  children:
+                                                                                    [
+                                                                                      isDownloading
+                                                                                        ? /*#__PURE__*/ (0,
+                                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                            "jsxDEV"
+                                                                                          ])(
+                                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__[
+                                                                                              "Loader2"
+                                                                                            ],
+                                                                                            {
+                                                                                              className:
+                                                                                                "w-3 h-3 animate-spin",
+                                                                                            },
+                                                                                            void 0,
+                                                                                            false,
+                                                                                            {
+                                                                                              fileName:
+                                                                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                              lineNumber: 710,
+                                                                                              columnNumber: 39,
+                                                                                            },
+                                                                                            this,
+                                                                                          )
+                                                                                        : /*#__PURE__*/ (0,
+                                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                            "jsxDEV"
+                                                                                          ])(
+                                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__[
+                                                                                              "Download"
+                                                                                            ],
+                                                                                            {
+                                                                                              className:
+                                                                                                "w-3 h-3",
+                                                                                            },
+                                                                                            void 0,
+                                                                                            false,
+                                                                                            {
+                                                                                              fileName:
+                                                                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                              lineNumber: 712,
+                                                                                              columnNumber: 39,
+                                                                                            },
+                                                                                            this,
+                                                                                          ),
+                                                                                      /*#__PURE__*/ (0,
+                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                        "jsxDEV"
+                                                                                      ])(
+                                                                                        "span",
+                                                                                        {
+                                                                                          children:
+                                                                                            "Receipt",
+                                                                                        },
+                                                                                        void 0,
+                                                                                        false,
+                                                                                        {
+                                                                                          fileName:
+                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                          lineNumber: 714,
+                                                                                          columnNumber: 37,
+                                                                                        },
+                                                                                        this,
+                                                                                      ),
+                                                                                    ],
+                                                                                },
+                                                                                void 0,
+                                                                                true,
+                                                                                {
+                                                                                  fileName:
+                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                  lineNumber: 703,
+                                                                                  columnNumber: 35,
+                                                                                },
+                                                                                this,
+                                                                              ),
+                                                                              /*#__PURE__*/ (0,
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                "jsxDEV"
+                                                                              ])(
+                                                                                "button",
+                                                                                {
+                                                                                  onClick:
+                                                                                    () =>
+                                                                                      handleWhatsAppReceipt(
+                                                                                        payment,
+                                                                                      ),
+                                                                                  disabled:
+                                                                                    isSendingWA ||
+                                                                                    !payment.clientPhone,
+                                                                                  title:
+                                                                                    !payment.clientPhone
+                                                                                      ? "No phone number for this client"
+                                                                                      : "Send receipt via WhatsApp",
+                                                                                  className:
+                                                                                    "flex items-center gap-1 px-2.5 py-1.5 bg-[#25D366] text-white text-[10px] font-black uppercase rounded hover:bg-[#1ebe5a] transition-colors disabled:opacity-40 disabled:cursor-not-allowed",
+                                                                                  children:
+                                                                                    isSendingWA
+                                                                                      ? /*#__PURE__*/ (0,
+                                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                          "jsxDEV"
+                                                                                        ])(
+                                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__[
+                                                                                            "Loader2"
+                                                                                          ],
+                                                                                          {
+                                                                                            className:
+                                                                                              "w-3 h-3 animate-spin",
+                                                                                          },
+                                                                                          void 0,
+                                                                                          false,
+                                                                                          {
+                                                                                            fileName:
+                                                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                            lineNumber: 729,
+                                                                                            columnNumber: 39,
+                                                                                          },
+                                                                                          this,
+                                                                                        )
+                                                                                      : /*#__PURE__*/ (0,
+                                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                          "jsxDEV"
+                                                                                        ])(
+                                                                                          WhatsAppIcon,
+                                                                                          {
+                                                                                            className:
+                                                                                              "w-3 h-3",
+                                                                                          },
+                                                                                          void 0,
+                                                                                          false,
+                                                                                          {
+                                                                                            fileName:
+                                                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                            lineNumber: 731,
+                                                                                            columnNumber: 39,
+                                                                                          },
+                                                                                          this,
+                                                                                        ),
+                                                                                },
+                                                                                void 0,
+                                                                                false,
+                                                                                {
+                                                                                  fileName:
+                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                  lineNumber: 718,
+                                                                                  columnNumber: 35,
+                                                                                },
+                                                                                this,
+                                                                              ),
+                                                                            ],
+                                                                        },
+                                                                        void 0,
+                                                                        true,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 701,
+                                                                          columnNumber: 33,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                  },
+                                                                  void 0,
+                                                                  false,
+                                                                  {
+                                                                    fileName:
+                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                    lineNumber: 700,
+                                                                    columnNumber: 31,
+                                                                  },
+                                                                  this,
+                                                                ),
+                                                              ],
+                                                            },
+                                                            key,
+                                                            true,
+                                                            {
+                                                              fileName:
+                                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                              lineNumber: 657,
+                                                              columnNumber: 29,
+                                                            },
+                                                            this,
+                                                          );
+                                                        },
+                                                      ),
+                                                    },
+                                                    void 0,
+                                                    false,
+                                                    {
+                                                      fileName:
+                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                      lineNumber: 650,
+                                                      columnNumber: 23,
+                                                    },
+                                                    this,
+                                                  ),
+                                                ],
+                                              },
+                                              void 0,
+                                              true,
+                                              {
+                                                fileName:
+                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                                                 lineNumber: 624,
-                                                columnNumber: 21
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                columnNumber: 21,
+                                              },
+                                              this,
+                                            ),
+                                          },
+                                          void 0,
+                                          false,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                                             lineNumber: 623,
-                                            columnNumber: 19
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 606,
-                                    columnNumber: 17
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex justify-between items-center bg-white p-5 border-2 border-black rounded-lg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]",
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                      ],
+                                    },
+                                    void 0,
+                                    true,
+                                    {
+                                      fileName:
+                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                      lineNumber: 606,
+                                      columnNumber: 17,
+                                    },
+                                    this,
+                                  ),
+                                /*#__PURE__*/ (0,
+                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                  "jsxDEV"
+                                ])(
+                                  "div",
+                                  {
+                                    className:
+                                      "flex justify-between items-center bg-white p-5 border-2 border-black rounded-lg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]",
                                     children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                            className: "text-2xl font-black flex items-center gap-3 italic",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$receipt$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Receipt$3e$__["Receipt"], {
-                                                    className: "w-6 h-6"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 748,
-                                                    columnNumber: 19
-                                                }, this),
-                                                " Invoice Ledger"
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 747,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "text-[10px] font-black uppercase bg-neutral-100 px-3 py-1 rounded-full border border-neutral-200",
-                                            children: [
-                                                invoices.length,
-                                                " ACTIVE ITEMS"
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 750,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                      /*#__PURE__*/ (0,
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "jsxDEV"
+                                      ])(
+                                        "h2",
+                                        {
+                                          className:
+                                            "text-2xl font-black flex items-center gap-3 italic",
+                                          children: [
+                                            /*#__PURE__*/ (0,
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "jsxDEV"
+                                            ])(
+                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$receipt$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Receipt$3e$__[
+                                                "Receipt"
+                                              ],
+                                              {
+                                                className: "w-6 h-6",
+                                              },
+                                              void 0,
+                                              false,
+                                              {
+                                                fileName:
+                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                lineNumber: 748,
+                                                columnNumber: 19,
+                                              },
+                                              this,
+                                            ),
+                                            " Invoice Ledger",
+                                          ],
+                                        },
+                                        void 0,
+                                        true,
+                                        {
+                                          fileName:
+                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                          lineNumber: 747,
+                                          columnNumber: 17,
+                                        },
+                                        this,
+                                      ),
+                                      /*#__PURE__*/ (0,
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "jsxDEV"
+                                      ])(
+                                        "div",
+                                        {
+                                          className:
+                                            "text-[10px] font-black uppercase bg-neutral-100 px-3 py-1 rounded-full border border-neutral-200",
+                                          children: [
+                                            invoices.length,
+                                            " ACTIVE ITEMS",
+                                          ],
+                                        },
+                                        void 0,
+                                        true,
+                                        {
+                                          fileName:
+                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                          lineNumber: 750,
+                                          columnNumber: 17,
+                                        },
+                                        this,
+                                      ),
+                                    ],
+                                  },
+                                  void 0,
+                                  true,
+                                  {
+                                    fileName:
+                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                                     lineNumber: 746,
-                                    columnNumber: 15
-                                }, this),
-                                loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex justify-center p-12",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
-                                        className: "animate-spin w-10 h-10 text-neutral-400"
-                                    }, void 0, false, {
-                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                        lineNumber: 757,
-                                        columnNumber: 19
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 756,
-                                    columnNumber: 17
-                                }, this) : invoices.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "p-12 text-center border-2 border-dashed border-neutral-300 rounded-xl",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-neutral-400 font-black italic",
-                                        children: "NO INVOICES FOUND FOR THIS ACCOUNT"
-                                    }, void 0, false, {
-                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                        lineNumber: 761,
-                                        columnNumber: 19
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 760,
-                                    columnNumber: 17
-                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "space-y-4",
-                                    children: invoices.map((inv)=>{
-                                        const baseAmount = Number(inv.amount || 0);
-                                        const taxAmount = Number(inv.tax || 0);
-                                        const total = baseAmount + taxAmount;
-                                        const paid = Number(inv.paidAmount || 0);
-                                        const balance = total - paid;
-                                        const status = (inv.status || "PENDING").toUpperCase();
-                                        const isPaid = status === "PAID" || balance <= 0;
-                                        const isExpanded = expandedInvoices[inv._id || inv.id];
-                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("bg-white border-2 border-black rounded-xl transition-all overflow-hidden", isPaid ? "bg-neutral-50 border-neutral-300" : "shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"),
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "p-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-6",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "space-y-2 flex-grow",
+                                    columnNumber: 15,
+                                  },
+                                  this,
+                                ),
+                                loading
+                                  ? /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      "div",
+                                      {
+                                        className: "flex justify-center p-12",
+                                        children: /*#__PURE__*/ (0,
+                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                          "jsxDEV"
+                                        ])(
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__[
+                                            "Loader2"
+                                          ],
+                                          {
+                                            className:
+                                              "animate-spin w-10 h-10 text-neutral-400",
+                                          },
+                                          void 0,
+                                          false,
+                                          {
+                                            fileName:
+                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                            lineNumber: 757,
+                                            columnNumber: 19,
+                                          },
+                                          this,
+                                        ),
+                                      },
+                                      void 0,
+                                      false,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 756,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    )
+                                  : invoices.length === 0
+                                    ? /*#__PURE__*/ (0,
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "jsxDEV"
+                                      ])(
+                                        "div",
+                                        {
+                                          className:
+                                            "p-12 text-center border-2 border-dashed border-neutral-300 rounded-xl",
+                                          children: /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            "p",
+                                            {
+                                              className:
+                                                "text-neutral-400 font-black italic",
+                                              children:
+                                                "NO INVOICES FOUND FOR THIS ACCOUNT",
+                                            },
+                                            void 0,
+                                            false,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 761,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                        },
+                                        void 0,
+                                        false,
+                                        {
+                                          fileName:
+                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                          lineNumber: 760,
+                                          columnNumber: 17,
+                                        },
+                                        this,
+                                      )
+                                    : /*#__PURE__*/ (0,
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "jsxDEV"
+                                      ])(
+                                        "div",
+                                        {
+                                          className: "space-y-4",
+                                          children: invoices.map((inv) => {
+                                            const baseAmount = Number(
+                                              inv.amount || 0,
+                                            );
+                                            const taxAmount = Number(
+                                              inv.tax || 0,
+                                            );
+                                            const total =
+                                              baseAmount + taxAmount;
+                                            const paid = Number(
+                                              inv.paidAmount || 0,
+                                            );
+                                            const balance = total - paid;
+                                            const status = (
+                                              inv.status || "PENDING"
+                                            ).toUpperCase();
+                                            const isPaid =
+                                              status === "PAID" || balance <= 0;
+                                            const isExpanded =
+                                              expandedInvoices[
+                                                inv._id || inv.id
+                                              ];
+                                            return /*#__PURE__*/ (0,
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "jsxDEV"
+                                            ])(
+                                              "div",
+                                              {
+                                                className: (0,
+                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                  "cn"
+                                                ])(
+                                                  "bg-white border-2 border-black rounded-xl transition-all overflow-hidden",
+                                                  isPaid
+                                                    ? "bg-neutral-50 border-neutral-300"
+                                                    : "shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
+                                                ),
+                                                children: [
+                                                  /*#__PURE__*/ (0,
+                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                    "jsxDEV"
+                                                  ])(
+                                                    "div",
+                                                    {
+                                                      className:
+                                                        "p-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-6",
+                                                      children: [
+                                                        /*#__PURE__*/ (0,
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                          "jsxDEV"
+                                                        ])(
+                                                          "div",
+                                                          {
+                                                            className:
+                                                              "space-y-2 flex-grow",
                                                             children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "flex items-center gap-3",
-                                                                    children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                            className: "font-black text-xl tracking-tighter",
-                                                                            children: inv.invoiceNo
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 790,
-                                                                            columnNumber: 31
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-widest border-2", isPaid ? "bg-green-50 text-green-700 border-green-700" : "bg-yellow-50 text-yellow-700 border-yellow-700"),
-                                                                            children: status
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 793,
-                                                                            columnNumber: 31
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 789,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                    className: "text-sm font-black text-neutral-600 uppercase tracking-tight",
-                                                                    children: inv.projectTitle || inv.title || "Untitled Project"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 804,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "flex items-center gap-6 text-[11px] text-neutral-400 font-bold uppercase tracking-wider pt-1",
-                                                                    children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                            className: "flex items-center gap-1.5",
-                                                                            children: [
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$history$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__History$3e$__["History"], {
-                                                                                    className: "w-3 h-3"
-                                                                                }, void 0, false, {
-                                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                    lineNumber: 809,
-                                                                                    columnNumber: 33
-                                                                                }, this),
-                                                                                " Issued:",
-                                                                                " ",
-                                                                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(new Date(inv.createdAt), "dd MMM yy")
-                                                                            ]
-                                                                        }, void 0, true, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 808,
-                                                                            columnNumber: 31
-                                                                        }, this),
-                                                                        inv.dueDate && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex items-center gap-1.5", new Date(inv.dueDate) < new Date() && !isPaid ? "text-red-500" : ""),
-                                                                            children: [
-                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertCircle$3e$__["AlertCircle"], {
-                                                                                    className: "w-3 h-3"
-                                                                                }, void 0, false, {
-                                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                    lineNumber: 821,
-                                                                                    columnNumber: 35
-                                                                                }, this),
-                                                                                " Due:",
-                                                                                " ",
-                                                                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(new Date(inv.dueDate), "dd MMM yy")
-                                                                            ]
-                                                                        }, void 0, true, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 813,
-                                                                            columnNumber: 33
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 807,
-                                                                    columnNumber: 29
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                              /*#__PURE__*/ (0,
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                "jsxDEV"
+                                                              ])(
+                                                                "div",
+                                                                {
+                                                                  className:
+                                                                    "flex items-center gap-3",
+                                                                  children: [
+                                                                    /*#__PURE__*/ (0,
+                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                      "jsxDEV"
+                                                                    ])(
+                                                                      "span",
+                                                                      {
+                                                                        className:
+                                                                          "font-black text-xl tracking-tighter",
+                                                                        children:
+                                                                          inv.invoiceNo,
+                                                                      },
+                                                                      void 0,
+                                                                      false,
+                                                                      {
+                                                                        fileName:
+                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                        lineNumber: 790,
+                                                                        columnNumber: 31,
+                                                                      },
+                                                                      this,
+                                                                    ),
+                                                                    /*#__PURE__*/ (0,
+                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                      "jsxDEV"
+                                                                    ])(
+                                                                      "span",
+                                                                      {
+                                                                        className:
+                                                                          (0,
+                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                            "cn"
+                                                                          ])(
+                                                                            "px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-widest border-2",
+                                                                            isPaid
+                                                                              ? "bg-green-50 text-green-700 border-green-700"
+                                                                              : "bg-yellow-50 text-yellow-700 border-yellow-700",
+                                                                          ),
+                                                                        children:
+                                                                          status,
+                                                                      },
+                                                                      void 0,
+                                                                      false,
+                                                                      {
+                                                                        fileName:
+                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                        lineNumber: 793,
+                                                                        columnNumber: 31,
+                                                                      },
+                                                                      this,
+                                                                    ),
+                                                                  ],
+                                                                },
+                                                                void 0,
+                                                                true,
+                                                                {
+                                                                  fileName:
+                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                  lineNumber: 789,
+                                                                  columnNumber: 29,
+                                                                },
+                                                                this,
+                                                              ),
+                                                              /*#__PURE__*/ (0,
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                "jsxDEV"
+                                                              ])(
+                                                                "p",
+                                                                {
+                                                                  className:
+                                                                    "text-sm font-black text-neutral-600 uppercase tracking-tight",
+                                                                  children:
+                                                                    inv.projectTitle ||
+                                                                    inv.title ||
+                                                                    "Untitled Project",
+                                                                },
+                                                                void 0,
+                                                                false,
+                                                                {
+                                                                  fileName:
+                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                  lineNumber: 804,
+                                                                  columnNumber: 29,
+                                                                },
+                                                                this,
+                                                              ),
+                                                              /*#__PURE__*/ (0,
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                "jsxDEV"
+                                                              ])(
+                                                                "div",
+                                                                {
+                                                                  className:
+                                                                    "flex items-center gap-6 text-[11px] text-neutral-400 font-bold uppercase tracking-wider pt-1",
+                                                                  children: [
+                                                                    /*#__PURE__*/ (0,
+                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                      "jsxDEV"
+                                                                    ])(
+                                                                      "span",
+                                                                      {
+                                                                        className:
+                                                                          "flex items-center gap-1.5",
+                                                                        children:
+                                                                          [
+                                                                            /*#__PURE__*/ (0,
+                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                              "jsxDEV"
+                                                                            ])(
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$history$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__History$3e$__[
+                                                                                "History"
+                                                                              ],
+                                                                              {
+                                                                                className:
+                                                                                  "w-3 h-3",
+                                                                              },
+                                                                              void 0,
+                                                                              false,
+                                                                              {
+                                                                                fileName:
+                                                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                lineNumber: 809,
+                                                                                columnNumber: 33,
+                                                                              },
+                                                                              this,
+                                                                            ),
+                                                                            " Issued:",
+                                                                            " ",
+                                                                            (0,
+                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
+                                                                              "format"
+                                                                            ])(
+                                                                              new Date(
+                                                                                inv.createdAt,
+                                                                              ),
+                                                                              "dd MMM yy",
+                                                                            ),
+                                                                          ],
+                                                                      },
+                                                                      void 0,
+                                                                      true,
+                                                                      {
+                                                                        fileName:
+                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                        lineNumber: 808,
+                                                                        columnNumber: 31,
+                                                                      },
+                                                                      this,
+                                                                    ),
+                                                                    inv.dueDate &&
+                                                                      /*#__PURE__*/ (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "span",
+                                                                        {
+                                                                          className:
+                                                                            (0,
+                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                              "cn"
+                                                                            ])(
+                                                                              "flex items-center gap-1.5",
+                                                                              new Date(
+                                                                                inv.dueDate,
+                                                                              ) <
+                                                                                new Date() &&
+                                                                                !isPaid
+                                                                                ? "text-red-500"
+                                                                                : "",
+                                                                            ),
+                                                                          children:
+                                                                            [
+                                                                              /*#__PURE__*/ (0,
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                "jsxDEV"
+                                                                              ])(
+                                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertCircle$3e$__[
+                                                                                  "AlertCircle"
+                                                                                ],
+                                                                                {
+                                                                                  className:
+                                                                                    "w-3 h-3",
+                                                                                },
+                                                                                void 0,
+                                                                                false,
+                                                                                {
+                                                                                  fileName:
+                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                  lineNumber: 821,
+                                                                                  columnNumber: 35,
+                                                                                },
+                                                                                this,
+                                                                              ),
+                                                                              " Due:",
+                                                                              " ",
+                                                                              (0,
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
+                                                                                "format"
+                                                                              ])(
+                                                                                new Date(
+                                                                                  inv.dueDate,
+                                                                                ),
+                                                                                "dd MMM yy",
+                                                                              ),
+                                                                            ],
+                                                                        },
+                                                                        void 0,
+                                                                        true,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 813,
+                                                                          columnNumber: 33,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                  ],
+                                                                },
+                                                                void 0,
+                                                                true,
+                                                                {
+                                                                  fileName:
+                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                  lineNumber: 807,
+                                                                  columnNumber: 29,
+                                                                },
+                                                                this,
+                                                              ),
+                                                            ],
+                                                          },
+                                                          void 0,
+                                                          true,
+                                                          {
+                                                            fileName:
+                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                                                             lineNumber: 788,
-                                                            columnNumber: 27
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "flex items-center gap-10 md:text-right w-full md:w-auto",
+                                                            columnNumber: 27,
+                                                          },
+                                                          this,
+                                                        ),
+                                                        /*#__PURE__*/ (0,
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                          "jsxDEV"
+                                                        ])(
+                                                          "div",
+                                                          {
+                                                            className:
+                                                              "flex items-center gap-10 md:text-right w-full md:w-auto",
                                                             children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "space-y-1",
-                                                                    children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: "text-[10px] font-black text-neutral-400 uppercase tracking-widest",
-                                                                            children: "Outstanding"
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 830,
-                                                                            columnNumber: 31
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("text-2xl font-black", balance > 0 ? "text-red-600" : "text-green-600"),
-                                                                            children: formatCurrency(balance)
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 833,
-                                                                            columnNumber: 31
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                            className: "text-[10px] font-bold text-neutral-400 italic",
-                                                                            children: [
-                                                                                "Total: ",
-                                                                                formatCurrency(total)
-                                                                            ]
-                                                                        }, void 0, true, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 841,
-                                                                            columnNumber: 31
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 829,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "flex flex-col gap-2 min-w-[120px]",
-                                                                    children: [
-                                                                        !isPaid && !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                                            size: "sm",
-                                                                            className: "bg-black hover:bg-neutral-800 text-white font-black uppercase text-xs h-10 border-2 border-black",
-                                                                            onClick: ()=>handlePayClick(inv),
-                                                                            children: "Record Pay"
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 847,
-                                                                            columnNumber: 33
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                            onClick: ()=>toggleInvoiceExpand(inv._id || inv.id),
-                                                                            className: "text-[10px] font-black uppercase tracking-widest text-neutral-500 hover:text-black flex items-center justify-center gap-1",
-                                                                            children: isExpanded ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-                                                                                children: [
-                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronUp$3e$__["ChevronUp"], {
-                                                                                        className: "w-3 h-3"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                        lineNumber: 860,
-                                                                                        columnNumber: 37
-                                                                                    }, this),
-                                                                                    " Less Detail"
-                                                                                ]
-                                                                            }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-                                                                                children: [
-                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
-                                                                                        className: "w-3 h-3"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                        lineNumber: 862,
-                                                                                        columnNumber: 37
-                                                                                    }, this),
-                                                                                    " Full Detail"
-                                                                                ]
-                                                                            }, void 0, true)
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 855,
-                                                                            columnNumber: 31
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 845,
-                                                                    columnNumber: 29
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                              /*#__PURE__*/ (0,
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                "jsxDEV"
+                                                              ])(
+                                                                "div",
+                                                                {
+                                                                  className:
+                                                                    "space-y-1",
+                                                                  children: [
+                                                                    /*#__PURE__*/ (0,
+                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                      "jsxDEV"
+                                                                    ])(
+                                                                      "p",
+                                                                      {
+                                                                        className:
+                                                                          "text-[10px] font-black text-neutral-400 uppercase tracking-widest",
+                                                                        children:
+                                                                          "Outstanding",
+                                                                      },
+                                                                      void 0,
+                                                                      false,
+                                                                      {
+                                                                        fileName:
+                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                        lineNumber: 830,
+                                                                        columnNumber: 31,
+                                                                      },
+                                                                      this,
+                                                                    ),
+                                                                    /*#__PURE__*/ (0,
+                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                      "jsxDEV"
+                                                                    ])(
+                                                                      "p",
+                                                                      {
+                                                                        className:
+                                                                          (0,
+                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                            "cn"
+                                                                          ])(
+                                                                            "text-2xl font-black",
+                                                                            balance >
+                                                                              0
+                                                                              ? "text-red-600"
+                                                                              : "text-green-600",
+                                                                          ),
+                                                                        children:
+                                                                          formatCurrency(
+                                                                            balance,
+                                                                          ),
+                                                                      },
+                                                                      void 0,
+                                                                      false,
+                                                                      {
+                                                                        fileName:
+                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                        lineNumber: 833,
+                                                                        columnNumber: 31,
+                                                                      },
+                                                                      this,
+                                                                    ),
+                                                                    /*#__PURE__*/ (0,
+                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                      "jsxDEV"
+                                                                    ])(
+                                                                      "p",
+                                                                      {
+                                                                        className:
+                                                                          "text-[10px] font-bold text-neutral-400 italic",
+                                                                        children:
+                                                                          [
+                                                                            "Total: ",
+                                                                            formatCurrency(
+                                                                              total,
+                                                                            ),
+                                                                          ],
+                                                                      },
+                                                                      void 0,
+                                                                      true,
+                                                                      {
+                                                                        fileName:
+                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                        lineNumber: 841,
+                                                                        columnNumber: 31,
+                                                                      },
+                                                                      this,
+                                                                    ),
+                                                                  ],
+                                                                },
+                                                                void 0,
+                                                                true,
+                                                                {
+                                                                  fileName:
+                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                  lineNumber: 829,
+                                                                  columnNumber: 29,
+                                                                },
+                                                                this,
+                                                              ),
+                                                              /*#__PURE__*/ (0,
+                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                "jsxDEV"
+                                                              ])(
+                                                                "div",
+                                                                {
+                                                                  className:
+                                                                    "flex flex-col gap-2 min-w-[120px]",
+                                                                  children: [
+                                                                    !isPaid &&
+                                                                      !isClient &&
+                                                                      /*#__PURE__*/ (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                          "Button"
+                                                                        ],
+                                                                        {
+                                                                          size: "sm",
+                                                                          className:
+                                                                            "bg-black hover:bg-neutral-800 text-white font-black uppercase text-xs h-10 border-2 border-black",
+                                                                          onClick:
+                                                                            () =>
+                                                                              handlePayClick(
+                                                                                inv,
+                                                                              ),
+                                                                          children:
+                                                                            "Record Pay",
+                                                                        },
+                                                                        void 0,
+                                                                        false,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 847,
+                                                                          columnNumber: 33,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                    /*#__PURE__*/ (0,
+                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                      "jsxDEV"
+                                                                    ])(
+                                                                      "button",
+                                                                      {
+                                                                        onClick:
+                                                                          () =>
+                                                                            toggleInvoiceExpand(
+                                                                              inv._id ||
+                                                                                inv.id,
+                                                                            ),
+                                                                        className:
+                                                                          "text-[10px] font-black uppercase tracking-widest text-neutral-500 hover:text-black flex items-center justify-center gap-1",
+                                                                        children:
+                                                                          isExpanded
+                                                                            ? /*#__PURE__*/ (0,
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                "jsxDEV"
+                                                                              ])(
+                                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                  "Fragment"
+                                                                                ],
+                                                                                {
+                                                                                  children:
+                                                                                    [
+                                                                                      /*#__PURE__*/ (0,
+                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                        "jsxDEV"
+                                                                                      ])(
+                                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronUp$3e$__[
+                                                                                          "ChevronUp"
+                                                                                        ],
+                                                                                        {
+                                                                                          className:
+                                                                                            "w-3 h-3",
+                                                                                        },
+                                                                                        void 0,
+                                                                                        false,
+                                                                                        {
+                                                                                          fileName:
+                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                          lineNumber: 860,
+                                                                                          columnNumber: 37,
+                                                                                        },
+                                                                                        this,
+                                                                                      ),
+                                                                                      " Less Detail",
+                                                                                    ],
+                                                                                },
+                                                                                void 0,
+                                                                                true,
+                                                                              )
+                                                                            : /*#__PURE__*/ (0,
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                "jsxDEV"
+                                                                              ])(
+                                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                  "Fragment"
+                                                                                ],
+                                                                                {
+                                                                                  children:
+                                                                                    [
+                                                                                      /*#__PURE__*/ (0,
+                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                        "jsxDEV"
+                                                                                      ])(
+                                                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__[
+                                                                                          "ChevronDown"
+                                                                                        ],
+                                                                                        {
+                                                                                          className:
+                                                                                            "w-3 h-3",
+                                                                                        },
+                                                                                        void 0,
+                                                                                        false,
+                                                                                        {
+                                                                                          fileName:
+                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                          lineNumber: 862,
+                                                                                          columnNumber: 37,
+                                                                                        },
+                                                                                        this,
+                                                                                      ),
+                                                                                      " Full Detail",
+                                                                                    ],
+                                                                                },
+                                                                                void 0,
+                                                                                true,
+                                                                              ),
+                                                                      },
+                                                                      void 0,
+                                                                      false,
+                                                                      {
+                                                                        fileName:
+                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                        lineNumber: 855,
+                                                                        columnNumber: 31,
+                                                                      },
+                                                                      this,
+                                                                    ),
+                                                                  ],
+                                                                },
+                                                                void 0,
+                                                                true,
+                                                                {
+                                                                  fileName:
+                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                  lineNumber: 845,
+                                                                  columnNumber: 29,
+                                                                },
+                                                                this,
+                                                              ),
+                                                            ],
+                                                          },
+                                                          void 0,
+                                                          true,
+                                                          {
+                                                            fileName:
+                                                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                                                             lineNumber: 828,
-                                                            columnNumber: 27
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 787,
-                                                    columnNumber: 25
-                                                }, this),
-                                                isExpanded && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "border-t-2 border-black bg-neutral-50/80 p-6 animate-in slide-in-from-top-2",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "grid grid-cols-1 md:grid-cols-2 gap-10",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "space-y-4",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                                        className: "text-xs font-black uppercase tracking-[0.2em] text-neutral-400 border-b-2 border-neutral-200 pb-2",
-                                                                        children: "Business Details"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 873,
-                                                                        columnNumber: 33
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "space-y-3 text-sm",
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: "grid grid-cols-3",
-                                                                                children: [
-                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                        className: "font-black text-neutral-400 uppercase text-[10px]",
-                                                                                        children: "Client"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                        lineNumber: 878,
-                                                                                        columnNumber: 37
-                                                                                    }, this),
-                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                        className: "col-span-2 font-bold",
-                                                                                        children: inv.clientName
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                        lineNumber: 879,
-                                                                                        columnNumber: 37
-                                                                                    }, this)
-                                                                                ]
-                                                                            }, void 0, true, {
-                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                lineNumber: 877,
-                                                                                columnNumber: 35
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: "grid grid-cols-3",
-                                                                                children: [
-                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                        className: "font-black text-neutral-400 uppercase text-[10px]",
-                                                                                        children: "Project"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                        lineNumber: 882,
-                                                                                        columnNumber: 37
-                                                                                    }, this),
-                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                        className: "col-span-2 font-bold",
-                                                                                        children: inv.projectTitle || "-"
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                        lineNumber: 883,
-                                                                                        columnNumber: 37
-                                                                                    }, this)
-                                                                                ]
-                                                                            }, void 0, true, {
-                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                lineNumber: 881,
-                                                                                columnNumber: 35
-                                                                            }, this),
-                                                                            inv.description && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: "pt-2 italic text-neutral-500 text-xs border-t border-dashed border-neutral-300",
-                                                                                children: [
-                                                                                    '"',
-                                                                                    inv.description,
-                                                                                    '"'
-                                                                                ]
-                                                                            }, void 0, true, {
-                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                lineNumber: 886,
-                                                                                columnNumber: 37
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 876,
-                                                                        columnNumber: 33
-                                                                    }, this)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                lineNumber: 872,
-                                                                columnNumber: 31
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "space-y-4",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                                        className: "text-xs font-black uppercase tracking-[0.2em] text-neutral-400 border-b-2 border-neutral-200 pb-2 flex items-center justify-between",
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                children: "Payment History"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                lineNumber: 894,
-                                                                                columnNumber: 35
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$history$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__History$3e$__["History"], {
-                                                                                className: "w-3 h-3"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                lineNumber: 895,
-                                                                                columnNumber: 35
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 893,
-                                                                        columnNumber: 33
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "space-y-3",
-                                                                        children: inv.paymentHistory && inv.paymentHistory.length > 0 ? inv.paymentHistory.map((h, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: "flex justify-between items-center p-3 bg-white border-2 border-neutral-200 rounded-lg shadow-sm hover:border-neutral-300 transition-colors",
-                                                                                children: [
-                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                        className: "space-y-0.5 flex-1",
-                                                                                        children: [
-                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                                className: "flex items-center gap-2",
-                                                                                                children: [
-                                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                                        className: "font-black text-sm text-green-700",
-                                                                                                        children: formatCurrency(h.amount)
-                                                                                                    }, void 0, false, {
-                                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                        lineNumber: 906,
-                                                                                                        columnNumber: 45
-                                                                                                    }, this),
-                                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                                        className: "text-[8px] font-black uppercase py-0.5 px-1.5 bg-neutral-100 text-neutral-600 rounded",
-                                                                                                        children: h.mode
-                                                                                                    }, void 0, false, {
-                                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                        lineNumber: 909,
-                                                                                                        columnNumber: 45
-                                                                                                    }, this)
-                                                                                                ]
-                                                                                            }, void 0, true, {
-                                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                lineNumber: 905,
-                                                                                                columnNumber: 43
-                                                                                            }, this),
-                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                                className: "text-[10px] text-neutral-400 font-bold uppercase",
-                                                                                                children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(new Date(h.date), "dd MMM yyyy")
-                                                                                            }, void 0, false, {
-                                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                lineNumber: 913,
-                                                                                                columnNumber: 43
-                                                                                            }, this),
-                                                                                            h.remarks && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                                className: "text-[10px] font-medium text-neutral-400 italic",
-                                                                                                children: h.remarks
-                                                                                            }, void 0, false, {
-                                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                lineNumber: 917,
-                                                                                                columnNumber: 45
-                                                                                            }, this)
-                                                                                        ]
-                                                                                    }, void 0, true, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                        lineNumber: 904,
-                                                                                        columnNumber: 41
-                                                                                    }, this),
-                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                        className: "flex items-center gap-1 ml-2",
-                                                                                        children: !isClient && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-                                                                                            children: [
-                                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                                                    onClick: ()=>handleEditPayment(inv, idx),
-                                                                                                    className: "p-1.5 hover:bg-blue-50 rounded border border-transparent hover:border-blue-200 transition-colors",
-                                                                                                    title: "Edit payment",
-                                                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$pen$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Edit$3e$__["Edit"], {
-                                                                                                        className: "w-3.5 h-3.5 text-blue-600"
-                                                                                                    }, void 0, false, {
-                                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                        lineNumber: 930,
-                                                                                                        columnNumber: 49
-                                                                                                    }, this)
-                                                                                                }, void 0, false, {
-                                                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                    lineNumber: 925,
-                                                                                                    columnNumber: 47
-                                                                                                }, this),
-                                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                                                    onClick: ()=>handleDeletePayment(inv, idx),
-                                                                                                    className: "p-1.5 hover:bg-red-50 rounded border border-transparent hover:border-red-200 transition-colors",
-                                                                                                    title: "Delete payment",
-                                                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__["Trash2"], {
-                                                                                                        className: "w-3.5 h-3.5 text-red-600"
-                                                                                                    }, void 0, false, {
-                                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                        lineNumber: 937,
-                                                                                                        columnNumber: 49
-                                                                                                    }, this)
-                                                                                                }, void 0, false, {
-                                                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                                    lineNumber: 932,
-                                                                                                    columnNumber: 47
-                                                                                                }, this)
-                                                                                            ]
-                                                                                        }, void 0, true)
-                                                                                    }, void 0, false, {
-                                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                        lineNumber: 922,
-                                                                                        columnNumber: 41
-                                                                                    }, this)
-                                                                                ]
-                                                                            }, idx, true, {
-                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                lineNumber: 900,
-                                                                                columnNumber: 39
-                                                                            }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                            className: "py-6 text-center border-2 border-dashed border-neutral-200 rounded-lg bg-white/50",
-                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                className: "text-[10px] text-neutral-400 font-bold uppercase tracking-widest italic",
-                                                                                children: "No payments detected"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                                lineNumber: 946,
-                                                                                columnNumber: 39
-                                                                            }, this)
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                            lineNumber: 945,
-                                                                            columnNumber: 37
-                                                                        }, this)
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                        lineNumber: 897,
-                                                                        columnNumber: 33
-                                                                    }, this)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                lineNumber: 892,
-                                                                columnNumber: 31
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                        lineNumber: 871,
-                                                        columnNumber: 29
-                                                    }, this)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 870,
-                                                    columnNumber: 27
-                                                }, this)
-                                            ]
-                                        }, inv._id || inv.id, true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 778,
-                                            columnNumber: 23
-                                        }, this);
-                                    })
-                                }, void 0, false, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 766,
-                                    columnNumber: 17
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                            lineNumber: 602,
-                            columnNumber: 13
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                        lineNumber: 590,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                            columnNumber: 27,
+                                                          },
+                                                          this,
+                                                        ),
+                                                      ],
+                                                    },
+                                                    void 0,
+                                                    true,
+                                                    {
+                                                      fileName:
+                                                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                      lineNumber: 787,
+                                                      columnNumber: 25,
+                                                    },
+                                                    this,
+                                                  ),
+                                                  isExpanded &&
+                                                    /*#__PURE__*/ (0,
+                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                      "jsxDEV"
+                                                    ])(
+                                                      "div",
+                                                      {
+                                                        className:
+                                                          "border-t-2 border-black bg-neutral-50/80 p-6 animate-in slide-in-from-top-2",
+                                                        children:
+                                                          /*#__PURE__*/ (0,
+                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                            "jsxDEV"
+                                                          ])(
+                                                            "div",
+                                                            {
+                                                              className:
+                                                                "grid grid-cols-1 md:grid-cols-2 gap-10",
+                                                              children: [
+                                                                /*#__PURE__*/ (0,
+                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                  "jsxDEV"
+                                                                ])(
+                                                                  "div",
+                                                                  {
+                                                                    className:
+                                                                      "space-y-4",
+                                                                    children: [
+                                                                      /*#__PURE__*/ (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "h4",
+                                                                        {
+                                                                          className:
+                                                                            "text-xs font-black uppercase tracking-[0.2em] text-neutral-400 border-b-2 border-neutral-200 pb-2",
+                                                                          children:
+                                                                            "Business Details",
+                                                                        },
+                                                                        void 0,
+                                                                        false,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 873,
+                                                                          columnNumber: 33,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                      /*#__PURE__*/ (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "div",
+                                                                        {
+                                                                          className:
+                                                                            "space-y-3 text-sm",
+                                                                          children:
+                                                                            [
+                                                                              /*#__PURE__*/ (0,
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                "jsxDEV"
+                                                                              ])(
+                                                                                "div",
+                                                                                {
+                                                                                  className:
+                                                                                    "grid grid-cols-3",
+                                                                                  children:
+                                                                                    [
+                                                                                      /*#__PURE__*/ (0,
+                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                        "jsxDEV"
+                                                                                      ])(
+                                                                                        "span",
+                                                                                        {
+                                                                                          className:
+                                                                                            "font-black text-neutral-400 uppercase text-[10px]",
+                                                                                          children:
+                                                                                            "Client",
+                                                                                        },
+                                                                                        void 0,
+                                                                                        false,
+                                                                                        {
+                                                                                          fileName:
+                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                          lineNumber: 878,
+                                                                                          columnNumber: 37,
+                                                                                        },
+                                                                                        this,
+                                                                                      ),
+                                                                                      /*#__PURE__*/ (0,
+                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                        "jsxDEV"
+                                                                                      ])(
+                                                                                        "span",
+                                                                                        {
+                                                                                          className:
+                                                                                            "col-span-2 font-bold",
+                                                                                          children:
+                                                                                            inv.clientName,
+                                                                                        },
+                                                                                        void 0,
+                                                                                        false,
+                                                                                        {
+                                                                                          fileName:
+                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                          lineNumber: 879,
+                                                                                          columnNumber: 37,
+                                                                                        },
+                                                                                        this,
+                                                                                      ),
+                                                                                    ],
+                                                                                },
+                                                                                void 0,
+                                                                                true,
+                                                                                {
+                                                                                  fileName:
+                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                  lineNumber: 877,
+                                                                                  columnNumber: 35,
+                                                                                },
+                                                                                this,
+                                                                              ),
+                                                                              /*#__PURE__*/ (0,
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                "jsxDEV"
+                                                                              ])(
+                                                                                "div",
+                                                                                {
+                                                                                  className:
+                                                                                    "grid grid-cols-3",
+                                                                                  children:
+                                                                                    [
+                                                                                      /*#__PURE__*/ (0,
+                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                        "jsxDEV"
+                                                                                      ])(
+                                                                                        "span",
+                                                                                        {
+                                                                                          className:
+                                                                                            "font-black text-neutral-400 uppercase text-[10px]",
+                                                                                          children:
+                                                                                            "Project",
+                                                                                        },
+                                                                                        void 0,
+                                                                                        false,
+                                                                                        {
+                                                                                          fileName:
+                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                          lineNumber: 882,
+                                                                                          columnNumber: 37,
+                                                                                        },
+                                                                                        this,
+                                                                                      ),
+                                                                                      /*#__PURE__*/ (0,
+                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                        "jsxDEV"
+                                                                                      ])(
+                                                                                        "span",
+                                                                                        {
+                                                                                          className:
+                                                                                            "col-span-2 font-bold",
+                                                                                          children:
+                                                                                            inv.projectTitle ||
+                                                                                            "-",
+                                                                                        },
+                                                                                        void 0,
+                                                                                        false,
+                                                                                        {
+                                                                                          fileName:
+                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                          lineNumber: 883,
+                                                                                          columnNumber: 37,
+                                                                                        },
+                                                                                        this,
+                                                                                      ),
+                                                                                    ],
+                                                                                },
+                                                                                void 0,
+                                                                                true,
+                                                                                {
+                                                                                  fileName:
+                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                  lineNumber: 881,
+                                                                                  columnNumber: 35,
+                                                                                },
+                                                                                this,
+                                                                              ),
+                                                                              inv.description &&
+                                                                                /*#__PURE__*/ (0,
+                                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                  "jsxDEV"
+                                                                                ])(
+                                                                                  "div",
+                                                                                  {
+                                                                                    className:
+                                                                                      "pt-2 italic text-neutral-500 text-xs border-t border-dashed border-neutral-300",
+                                                                                    children:
+                                                                                      [
+                                                                                        '"',
+                                                                                        inv.description,
+                                                                                        '"',
+                                                                                      ],
+                                                                                  },
+                                                                                  void 0,
+                                                                                  true,
+                                                                                  {
+                                                                                    fileName:
+                                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                    lineNumber: 886,
+                                                                                    columnNumber: 37,
+                                                                                  },
+                                                                                  this,
+                                                                                ),
+                                                                            ],
+                                                                        },
+                                                                        void 0,
+                                                                        true,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 876,
+                                                                          columnNumber: 33,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                    ],
+                                                                  },
+                                                                  void 0,
+                                                                  true,
+                                                                  {
+                                                                    fileName:
+                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                    lineNumber: 872,
+                                                                    columnNumber: 31,
+                                                                  },
+                                                                  this,
+                                                                ),
+                                                                /*#__PURE__*/ (0,
+                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                  "jsxDEV"
+                                                                ])(
+                                                                  "div",
+                                                                  {
+                                                                    className:
+                                                                      "space-y-4",
+                                                                    children: [
+                                                                      /*#__PURE__*/ (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "h4",
+                                                                        {
+                                                                          className:
+                                                                            "text-xs font-black uppercase tracking-[0.2em] text-neutral-400 border-b-2 border-neutral-200 pb-2 flex items-center justify-between",
+                                                                          children:
+                                                                            [
+                                                                              /*#__PURE__*/ (0,
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                "jsxDEV"
+                                                                              ])(
+                                                                                "span",
+                                                                                {
+                                                                                  children:
+                                                                                    "Payment History",
+                                                                                },
+                                                                                void 0,
+                                                                                false,
+                                                                                {
+                                                                                  fileName:
+                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                  lineNumber: 894,
+                                                                                  columnNumber: 35,
+                                                                                },
+                                                                                this,
+                                                                              ),
+                                                                              /*#__PURE__*/ (0,
+                                                                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                "jsxDEV"
+                                                                              ])(
+                                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$history$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__History$3e$__[
+                                                                                  "History"
+                                                                                ],
+                                                                                {
+                                                                                  className:
+                                                                                    "w-3 h-3",
+                                                                                },
+                                                                                void 0,
+                                                                                false,
+                                                                                {
+                                                                                  fileName:
+                                                                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                  lineNumber: 895,
+                                                                                  columnNumber: 35,
+                                                                                },
+                                                                                this,
+                                                                              ),
+                                                                            ],
+                                                                        },
+                                                                        void 0,
+                                                                        true,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 893,
+                                                                          columnNumber: 33,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                      /*#__PURE__*/ (0,
+                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                        "jsxDEV"
+                                                                      ])(
+                                                                        "div",
+                                                                        {
+                                                                          className:
+                                                                            "space-y-3",
+                                                                          children:
+                                                                            inv.paymentHistory &&
+                                                                            inv
+                                                                              .paymentHistory
+                                                                              .length >
+                                                                              0
+                                                                              ? inv.paymentHistory.map(
+                                                                                  (
+                                                                                    h,
+                                                                                    idx,
+                                                                                  ) =>
+                                                                                    /*#__PURE__*/ (0,
+                                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                      "jsxDEV"
+                                                                                    ])(
+                                                                                      "div",
+                                                                                      {
+                                                                                        className:
+                                                                                          "flex justify-between items-center p-3 bg-white border-2 border-neutral-200 rounded-lg shadow-sm hover:border-neutral-300 transition-colors",
+                                                                                        children:
+                                                                                          [
+                                                                                            /*#__PURE__*/ (0,
+                                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                              "jsxDEV"
+                                                                                            ])(
+                                                                                              "div",
+                                                                                              {
+                                                                                                className:
+                                                                                                  "space-y-0.5 flex-1",
+                                                                                                children:
+                                                                                                  [
+                                                                                                    /*#__PURE__*/ (0,
+                                                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                                      "jsxDEV"
+                                                                                                    ])(
+                                                                                                      "div",
+                                                                                                      {
+                                                                                                        className:
+                                                                                                          "flex items-center gap-2",
+                                                                                                        children:
+                                                                                                          [
+                                                                                                            /*#__PURE__*/ (0,
+                                                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                                              "jsxDEV"
+                                                                                                            ])(
+                                                                                                              "p",
+                                                                                                              {
+                                                                                                                className:
+                                                                                                                  "font-black text-sm text-green-700",
+                                                                                                                children:
+                                                                                                                  formatCurrency(
+                                                                                                                    h.amount,
+                                                                                                                  ),
+                                                                                                              },
+                                                                                                              void 0,
+                                                                                                              false,
+                                                                                                              {
+                                                                                                                fileName:
+                                                                                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                                lineNumber: 906,
+                                                                                                                columnNumber: 45,
+                                                                                                              },
+                                                                                                              this,
+                                                                                                            ),
+                                                                                                            /*#__PURE__*/ (0,
+                                                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                                              "jsxDEV"
+                                                                                                            ])(
+                                                                                                              "span",
+                                                                                                              {
+                                                                                                                className:
+                                                                                                                  "text-[8px] font-black uppercase py-0.5 px-1.5 bg-neutral-100 text-neutral-600 rounded",
+                                                                                                                children:
+                                                                                                                  h.mode,
+                                                                                                              },
+                                                                                                              void 0,
+                                                                                                              false,
+                                                                                                              {
+                                                                                                                fileName:
+                                                                                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                                lineNumber: 909,
+                                                                                                                columnNumber: 45,
+                                                                                                              },
+                                                                                                              this,
+                                                                                                            ),
+                                                                                                          ],
+                                                                                                      },
+                                                                                                      void 0,
+                                                                                                      true,
+                                                                                                      {
+                                                                                                        fileName:
+                                                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                        lineNumber: 905,
+                                                                                                        columnNumber: 43,
+                                                                                                      },
+                                                                                                      this,
+                                                                                                    ),
+                                                                                                    /*#__PURE__*/ (0,
+                                                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                                      "jsxDEV"
+                                                                                                    ])(
+                                                                                                      "p",
+                                                                                                      {
+                                                                                                        className:
+                                                                                                          "text-[10px] text-neutral-400 font-bold uppercase",
+                                                                                                        children:
+                                                                                                          (0,
+                                                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__[
+                                                                                                            "format"
+                                                                                                          ])(
+                                                                                                            new Date(
+                                                                                                              h.date,
+                                                                                                            ),
+                                                                                                            "dd MMM yyyy",
+                                                                                                          ),
+                                                                                                      },
+                                                                                                      void 0,
+                                                                                                      false,
+                                                                                                      {
+                                                                                                        fileName:
+                                                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                        lineNumber: 913,
+                                                                                                        columnNumber: 43,
+                                                                                                      },
+                                                                                                      this,
+                                                                                                    ),
+                                                                                                    h.remarks &&
+                                                                                                      /*#__PURE__*/ (0,
+                                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                                        "jsxDEV"
+                                                                                                      ])(
+                                                                                                        "p",
+                                                                                                        {
+                                                                                                          className:
+                                                                                                            "text-[10px] font-medium text-neutral-400 italic",
+                                                                                                          children:
+                                                                                                            h.remarks,
+                                                                                                        },
+                                                                                                        void 0,
+                                                                                                        false,
+                                                                                                        {
+                                                                                                          fileName:
+                                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                          lineNumber: 917,
+                                                                                                          columnNumber: 45,
+                                                                                                        },
+                                                                                                        this,
+                                                                                                      ),
+                                                                                                  ],
+                                                                                              },
+                                                                                              void 0,
+                                                                                              true,
+                                                                                              {
+                                                                                                fileName:
+                                                                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                lineNumber: 904,
+                                                                                                columnNumber: 41,
+                                                                                              },
+                                                                                              this,
+                                                                                            ),
+                                                                                            /*#__PURE__*/ (0,
+                                                                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                              "jsxDEV"
+                                                                                            ])(
+                                                                                              "div",
+                                                                                              {
+                                                                                                className:
+                                                                                                  "flex items-center gap-1 ml-2",
+                                                                                                children:
+                                                                                                  !isClient &&
+                                                                                                  /*#__PURE__*/ (0,
+                                                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                                    "jsxDEV"
+                                                                                                  ])(
+                                                                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                                      "Fragment"
+                                                                                                    ],
+                                                                                                    {
+                                                                                                      children:
+                                                                                                        [
+                                                                                                          /*#__PURE__*/ (0,
+                                                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                                            "jsxDEV"
+                                                                                                          ])(
+                                                                                                            "button",
+                                                                                                            {
+                                                                                                              onClick:
+                                                                                                                () =>
+                                                                                                                  handleEditPayment(
+                                                                                                                    inv,
+                                                                                                                    idx,
+                                                                                                                  ),
+                                                                                                              className:
+                                                                                                                "p-1.5 hover:bg-blue-50 rounded border border-transparent hover:border-blue-200 transition-colors",
+                                                                                                              title:
+                                                                                                                "Edit payment",
+                                                                                                              children:
+                                                                                                                /*#__PURE__*/ (0,
+                                                                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                                                  "jsxDEV"
+                                                                                                                ])(
+                                                                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$pen$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Edit$3e$__[
+                                                                                                                    "Edit"
+                                                                                                                  ],
+                                                                                                                  {
+                                                                                                                    className:
+                                                                                                                      "w-3.5 h-3.5 text-blue-600",
+                                                                                                                  },
+                                                                                                                  void 0,
+                                                                                                                  false,
+                                                                                                                  {
+                                                                                                                    fileName:
+                                                                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                                    lineNumber: 930,
+                                                                                                                    columnNumber: 49,
+                                                                                                                  },
+                                                                                                                  this,
+                                                                                                                ),
+                                                                                                            },
+                                                                                                            void 0,
+                                                                                                            false,
+                                                                                                            {
+                                                                                                              fileName:
+                                                                                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                              lineNumber: 925,
+                                                                                                              columnNumber: 47,
+                                                                                                            },
+                                                                                                            this,
+                                                                                                          ),
+                                                                                                          /*#__PURE__*/ (0,
+                                                                                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                                            "jsxDEV"
+                                                                                                          ])(
+                                                                                                            "button",
+                                                                                                            {
+                                                                                                              onClick:
+                                                                                                                () =>
+                                                                                                                  handleDeletePayment(
+                                                                                                                    inv,
+                                                                                                                    idx,
+                                                                                                                  ),
+                                                                                                              className:
+                                                                                                                "p-1.5 hover:bg-red-50 rounded border border-transparent hover:border-red-200 transition-colors",
+                                                                                                              title:
+                                                                                                                "Delete payment",
+                                                                                                              children:
+                                                                                                                /*#__PURE__*/ (0,
+                                                                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                                                  "jsxDEV"
+                                                                                                                ])(
+                                                                                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__[
+                                                                                                                    "Trash2"
+                                                                                                                  ],
+                                                                                                                  {
+                                                                                                                    className:
+                                                                                                                      "w-3.5 h-3.5 text-red-600",
+                                                                                                                  },
+                                                                                                                  void 0,
+                                                                                                                  false,
+                                                                                                                  {
+                                                                                                                    fileName:
+                                                                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                                    lineNumber: 937,
+                                                                                                                    columnNumber: 49,
+                                                                                                                  },
+                                                                                                                  this,
+                                                                                                                ),
+                                                                                                            },
+                                                                                                            void 0,
+                                                                                                            false,
+                                                                                                            {
+                                                                                                              fileName:
+                                                                                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                              lineNumber: 932,
+                                                                                                              columnNumber: 47,
+                                                                                                            },
+                                                                                                            this,
+                                                                                                          ),
+                                                                                                        ],
+                                                                                                    },
+                                                                                                    void 0,
+                                                                                                    true,
+                                                                                                  ),
+                                                                                              },
+                                                                                              void 0,
+                                                                                              false,
+                                                                                              {
+                                                                                                fileName:
+                                                                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                                lineNumber: 922,
+                                                                                                columnNumber: 41,
+                                                                                              },
+                                                                                              this,
+                                                                                            ),
+                                                                                          ],
+                                                                                      },
+                                                                                      idx,
+                                                                                      true,
+                                                                                      {
+                                                                                        fileName:
+                                                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                        lineNumber: 900,
+                                                                                        columnNumber: 39,
+                                                                                      },
+                                                                                      this,
+                                                                                    ),
+                                                                                )
+                                                                              : /*#__PURE__*/ (0,
+                                                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                  "jsxDEV"
+                                                                                ])(
+                                                                                  "div",
+                                                                                  {
+                                                                                    className:
+                                                                                      "py-6 text-center border-2 border-dashed border-neutral-200 rounded-lg bg-white/50",
+                                                                                    children:
+                                                                                      /*#__PURE__*/ (0,
+                                                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                                                        "jsxDEV"
+                                                                                      ])(
+                                                                                        "p",
+                                                                                        {
+                                                                                          className:
+                                                                                            "text-[10px] text-neutral-400 font-bold uppercase tracking-widest italic",
+                                                                                          children:
+                                                                                            "No payments detected",
+                                                                                        },
+                                                                                        void 0,
+                                                                                        false,
+                                                                                        {
+                                                                                          fileName:
+                                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                          lineNumber: 946,
+                                                                                          columnNumber: 39,
+                                                                                        },
+                                                                                        this,
+                                                                                      ),
+                                                                                  },
+                                                                                  void 0,
+                                                                                  false,
+                                                                                  {
+                                                                                    fileName:
+                                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                                    lineNumber: 945,
+                                                                                    columnNumber: 37,
+                                                                                  },
+                                                                                  this,
+                                                                                ),
+                                                                        },
+                                                                        void 0,
+                                                                        false,
+                                                                        {
+                                                                          fileName:
+                                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                          lineNumber: 897,
+                                                                          columnNumber: 33,
+                                                                        },
+                                                                        this,
+                                                                      ),
+                                                                    ],
+                                                                  },
+                                                                  void 0,
+                                                                  true,
+                                                                  {
+                                                                    fileName:
+                                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                                    lineNumber: 892,
+                                                                    columnNumber: 31,
+                                                                  },
+                                                                  this,
+                                                                ),
+                                                              ],
+                                                            },
+                                                            void 0,
+                                                            true,
+                                                            {
+                                                              fileName:
+                                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                              lineNumber: 871,
+                                                              columnNumber: 29,
+                                                            },
+                                                            this,
+                                                          ),
+                                                      },
+                                                      void 0,
+                                                      false,
+                                                      {
+                                                        fileName:
+                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                        lineNumber: 870,
+                                                        columnNumber: 27,
+                                                      },
+                                                      this,
+                                                    ),
+                                                ],
+                                              },
+                                              inv._id || inv.id,
+                                              true,
+                                              {
+                                                fileName:
+                                                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                lineNumber: 778,
+                                                columnNumber: 23,
+                                              },
+                                              this,
+                                            );
+                                          }),
+                                        },
+                                        void 0,
+                                        false,
+                                        {
+                                          fileName:
+                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                          lineNumber: 766,
+                                          columnNumber: 17,
+                                        },
+                                        this,
+                                      ),
+                              ],
+                            },
+                            void 0,
+                            true,
+                            {
+                              fileName:
+                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                              lineNumber: 602,
+                              columnNumber: 13,
+                            },
+                            this,
+                          ),
+                    },
+                    void 0,
+                    false,
+                    {
+                      fileName:
+                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                      lineNumber: 590,
+                      columnNumber: 9,
+                    },
+                    this,
+                  ),
+                ],
+              },
+              void 0,
+              true,
+              {
+                fileName:
+                  "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                 lineNumber: 520,
-                columnNumber: 7
-            }, this),
-            activeInvoice && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
-                    className: "max-w-md w-full border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white animate-in zoom-in-95 duration-300",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardHeader"], {
-                            className: "bg-neutral-50 border-b-2 border-black pb-4 relative",
+                columnNumber: 7,
+              },
+              this,
+            ),
+            activeInvoice &&
+              /*#__PURE__*/ (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "jsxDEV"
+              ])(
+                "div",
+                {
+                  className:
+                    "fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4",
+                  children: /*#__PURE__*/ (0,
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    "jsxDEV"
+                  ])(
+                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                      "Card"
+                    ],
+                    {
+                      className:
+                        "max-w-md w-full border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white animate-in zoom-in-95 duration-300",
+                      children: [
+                        /*#__PURE__*/ (0,
+                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                          "jsxDEV"
+                        ])(
+                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                            "CardHeader"
+                          ],
+                          {
+                            className:
+                              "bg-neutral-50 border-b-2 border-black pb-4 relative",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardTitle"], {
-                                    className: "text-2xl font-black uppercase tracking-tighter italic",
-                                    children: "Receive Funds"
-                                }, void 0, false, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 971,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
-                                    className: "font-bold text-black opacity-60",
-                                    children: [
-                                        "Recording for Invoice # ",
-                                        activeInvoice.invoiceNo
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 974,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                              /*#__PURE__*/ (0,
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                "jsxDEV"
+                              ])(
+                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                  "CardTitle"
+                                ],
+                                {
+                                  className:
+                                    "text-2xl font-black uppercase tracking-tighter italic",
+                                  children: "Receive Funds",
+                                },
+                                void 0,
+                                false,
+                                {
+                                  fileName:
+                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                  lineNumber: 971,
+                                  columnNumber: 15,
+                                },
+                                this,
+                              ),
+                              /*#__PURE__*/ (0,
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                "jsxDEV"
+                              ])(
+                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                  "CardDescription"
+                                ],
+                                {
+                                  className: "font-bold text-black opacity-60",
+                                  children: [
+                                    "Recording for Invoice # ",
+                                    activeInvoice.invoiceNo,
+                                  ],
+                                },
+                                void 0,
+                                true,
+                                {
+                                  fileName:
+                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                  lineNumber: 974,
+                                  columnNumber: 15,
+                                },
+                                this,
+                              ),
+                            ],
+                          },
+                          void 0,
+                          true,
+                          {
+                            fileName:
+                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                             lineNumber: 970,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
+                            columnNumber: 13,
+                          },
+                          this,
+                        ),
+                        /*#__PURE__*/ (0,
+                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                          "jsxDEV"
+                        ])(
+                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                            "CardContent"
+                          ],
+                          {
                             className: "space-y-5 pt-6 pb-8 px-8",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "space-y-2",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                            className: "font-black uppercase text-[10px] tracking-widest text-neutral-500",
-                                            children: "Amount Received (INR) + 18% GST"
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 980,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "relative",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__["DollarSign"], {
-                                                    className: "absolute left-4 top-3 h-6 w-6 text-neutral-400"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 984,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                    type: "number",
-                                                    className: "pl-12 h-14 border-2 border-black text-2xl font-black bg-white focus-visible:ring-0 focus-visible:border-blue-600 transition-colors",
-                                                    value: paymentAmount,
-                                                    onChange: (e)=>setPaymentAmount(e.target.value)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 985,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 983,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "bg-blue-50 p-3 border-2 border-blue-200 rounded space-y-1",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "flex justify-between items-center text-xs font-black",
+                              /*#__PURE__*/ (0,
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                "jsxDEV"
+                              ])(
+                                "div",
+                                {
+                                  className: "space-y-2",
+                                  children: [
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "Label"
+                                      ],
+                                      {
+                                        className:
+                                          "font-black uppercase text-[10px] tracking-widest text-neutral-500",
+                                        children:
+                                          "Amount Received (INR) + 18% GST",
+                                      },
+                                      void 0,
+                                      false,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 980,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      "div",
+                                      {
+                                        className: "relative",
+                                        children: [
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$dollar$2d$sign$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__DollarSign$3e$__[
+                                              "DollarSign"
+                                            ],
+                                            {
+                                              className:
+                                                "absolute left-4 top-3 h-6 w-6 text-neutral-400",
+                                            },
+                                            void 0,
+                                            false,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 984,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "Input"
+                                            ],
+                                            {
+                                              type: "number",
+                                              className:
+                                                "pl-12 h-14 border-2 border-black text-2xl font-black bg-white focus-visible:ring-0 focus-visible:border-blue-600 transition-colors",
+                                              value: paymentAmount,
+                                              onChange: (e) =>
+                                                setPaymentAmount(
+                                                  e.target.value,
+                                                ),
+                                            },
+                                            void 0,
+                                            false,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 985,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                        ],
+                                      },
+                                      void 0,
+                                      true,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 983,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      "div",
+                                      {
+                                        className:
+                                          "bg-blue-50 p-3 border-2 border-blue-200 rounded space-y-1",
+                                        children: [
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            "div",
+                                            {
+                                              className:
+                                                "flex justify-between items-center text-xs font-black",
+                                              children: [
+                                                /*#__PURE__*/ (0,
+                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                  "jsxDEV"
+                                                ])(
+                                                  "span",
+                                                  {
+                                                    className: "text-blue-600",
+                                                    children: "Bill Amount:",
+                                                  },
+                                                  void 0,
+                                                  false,
+                                                  {
+                                                    fileName:
+                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                    lineNumber: 994,
+                                                    columnNumber: 21,
+                                                  },
+                                                  this,
+                                                ),
+                                                /*#__PURE__*/ (0,
+                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                  "jsxDEV"
+                                                ])(
+                                                  "span",
+                                                  {
+                                                    className: "text-blue-700",
+                                                    children: formatCurrency(
+                                                      (activeInvoice.amount ||
+                                                        0) -
+                                                        (activeInvoice.paidAmount ||
+                                                          0),
+                                                    ),
+                                                  },
+                                                  void 0,
+                                                  false,
+                                                  {
+                                                    fileName:
+                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                    lineNumber: 995,
+                                                    columnNumber: 21,
+                                                  },
+                                                  this,
+                                                ),
+                                              ],
+                                            },
+                                            void 0,
+                                            true,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 993,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            "div",
+                                            {
+                                              className:
+                                                "flex justify-between items-center text-xs font-black",
+                                              children: [
+                                                /*#__PURE__*/ (0,
+                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                  "jsxDEV"
+                                                ])(
+                                                  "span",
+                                                  {
+                                                    className: "text-blue-600",
+                                                    children: "GST (18%):",
+                                                  },
+                                                  void 0,
+                                                  false,
+                                                  {
+                                                    fileName:
+                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                    lineNumber: 1000,
+                                                    columnNumber: 21,
+                                                  },
+                                                  this,
+                                                ),
+                                                /*#__PURE__*/ (0,
+                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                  "jsxDEV"
+                                                ])(
+                                                  "span",
+                                                  {
+                                                    className: "text-blue-700",
+                                                    children: formatCurrency(
+                                                      ((activeInvoice.amount ||
+                                                        0) -
+                                                        (activeInvoice.paidAmount ||
+                                                          0)) *
+                                                        0.18,
+                                                    ),
+                                                  },
+                                                  void 0,
+                                                  false,
+                                                  {
+                                                    fileName:
+                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                    lineNumber: 1001,
+                                                    columnNumber: 21,
+                                                  },
+                                                  this,
+                                                ),
+                                              ],
+                                            },
+                                            void 0,
+                                            true,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 999,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            "div",
+                                            {
+                                              className:
+                                                "flex justify-between items-center text-xs font-black border-t border-blue-200 pt-1 mt-1",
+                                              children: [
+                                                /*#__PURE__*/ (0,
+                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                  "jsxDEV"
+                                                ])(
+                                                  "span",
+                                                  {
+                                                    className:
+                                                      "text-blue-700 uppercase tracking-wider",
+                                                    children:
+                                                      "Total to Receive:",
+                                                  },
+                                                  void 0,
+                                                  false,
+                                                  {
+                                                    fileName:
+                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                    lineNumber: 1006,
+                                                    columnNumber: 21,
+                                                  },
+                                                  this,
+                                                ),
+                                                /*#__PURE__*/ (0,
+                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                  "jsxDEV"
+                                                ])(
+                                                  "span",
+                                                  {
+                                                    className:
+                                                      "text-blue-900 text-sm",
+                                                    children: formatCurrency(
+                                                      ((activeInvoice.amount ||
+                                                        0) -
+                                                        (activeInvoice.paidAmount ||
+                                                          0)) *
+                                                        1.18,
+                                                    ),
+                                                  },
+                                                  void 0,
+                                                  false,
+                                                  {
+                                                    fileName:
+                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                    lineNumber: 1007,
+                                                    columnNumber: 21,
+                                                  },
+                                                  this,
+                                                ),
+                                              ],
+                                            },
+                                            void 0,
+                                            true,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 1005,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                        ],
+                                      },
+                                      void 0,
+                                      true,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 992,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                  ],
+                                },
+                                void 0,
+                                true,
+                                {
+                                  fileName:
+                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                  lineNumber: 979,
+                                  columnNumber: 15,
+                                },
+                                this,
+                              ),
+                              /*#__PURE__*/ (0,
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                "jsxDEV"
+                              ])(
+                                "div",
+                                {
+                                  className: "grid grid-cols-2 gap-4",
+                                  children: [
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      "div",
+                                      {
+                                        className: "space-y-2",
+                                        children: [
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "Label"
+                                            ],
+                                            {
+                                              className:
+                                                "font-black uppercase text-[10px] tracking-widest text-neutral-500",
+                                              children: "Date",
+                                            },
+                                            void 0,
+                                            false,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 1016,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "Input"
+                                            ],
+                                            {
+                                              type: "date",
+                                              className:
+                                                "border-2 border-black font-bold h-12",
+                                              value: paymentDate,
+                                              onChange: (e) =>
+                                                setPaymentDate(e.target.value),
+                                            },
+                                            void 0,
+                                            false,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 1019,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                        ],
+                                      },
+                                      void 0,
+                                      true,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 1015,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      "div",
+                                      {
+                                        className: "space-y-2",
+                                        children: [
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "Label"
+                                            ],
+                                            {
+                                              className:
+                                                "font-black uppercase text-[10px] tracking-widest text-neutral-500",
+                                              children: "Mode",
+                                            },
+                                            void 0,
+                                            false,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 1027,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "Select"
+                                            ],
+                                            {
+                                              value: paymentMode,
+                                              onValueChange: setPaymentMode,
+                                              children: [
+                                                /*#__PURE__*/ (0,
+                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                  "jsxDEV"
+                                                ])(
+                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                    "SelectTrigger"
+                                                  ],
+                                                  {
+                                                    className:
+                                                      "border-2 border-black font-bold h-12 bg-white",
+                                                    children: /*#__PURE__*/ (0,
+                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                      "jsxDEV"
+                                                    ])(
+                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                        "SelectValue"
+                                                      ],
+                                                      {},
+                                                      void 0,
+                                                      false,
+                                                      {
+                                                        fileName:
+                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                        lineNumber: 1032,
+                                                        columnNumber: 23,
+                                                      },
+                                                      this,
+                                                    ),
+                                                  },
+                                                  void 0,
+                                                  false,
+                                                  {
+                                                    fileName:
+                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                    lineNumber: 1031,
+                                                    columnNumber: 21,
+                                                  },
+                                                  this,
+                                                ),
+                                                /*#__PURE__*/ (0,
+                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                  "jsxDEV"
+                                                ])(
+                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                    "SelectContent"
+                                                  ],
+                                                  {
+                                                    className:
+                                                      "border-2 border-black font-bold",
                                                     children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "text-blue-600",
-                                                            children: "Bill Amount:"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                            lineNumber: 994,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "text-blue-700",
-                                                            children: formatCurrency((activeInvoice.amount || 0) - (activeInvoice.paidAmount || 0))
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                            lineNumber: 995,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 993,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "flex justify-between items-center text-xs font-black",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "text-blue-600",
-                                                            children: "GST (18%):"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                            lineNumber: 1000,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "text-blue-700",
-                                                            children: formatCurrency(((activeInvoice.amount || 0) - (activeInvoice.paidAmount || 0)) * 0.18)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                            lineNumber: 1001,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 999,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "flex justify-between items-center text-xs font-black border-t border-blue-200 pt-1 mt-1",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "text-blue-700 uppercase tracking-wider",
-                                                            children: "Total to Receive:"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                            lineNumber: 1006,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "text-blue-900 text-sm",
-                                                            children: formatCurrency(((activeInvoice.amount || 0) - (activeInvoice.paidAmount || 0)) * 1.18)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                            lineNumber: 1007,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 1005,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 992,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 979,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "grid grid-cols-2 gap-4",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "space-y-2",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                                    className: "font-black uppercase text-[10px] tracking-widest text-neutral-500",
-                                                    children: "Date"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 1016,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                    type: "date",
-                                                    className: "border-2 border-black font-bold h-12",
-                                                    value: paymentDate,
-                                                    onChange: (e)=>setPaymentDate(e.target.value)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 1019,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 1015,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "space-y-2",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                                    className: "font-black uppercase text-[10px] tracking-widest text-neutral-500",
-                                                    children: "Mode"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 1027,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
-                                                    value: paymentMode,
-                                                    onValueChange: setPaymentMode,
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
-                                                            className: "border-2 border-black font-bold h-12 bg-white",
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                lineNumber: 1032,
-                                                                columnNumber: 23
-                                                            }, this)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                            lineNumber: 1031,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
-                                                            className: "border-2 border-black font-bold",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
-                                                                    value: "Bank Transfer",
-                                                                    children: "NEFT/IMPS"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 1035,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
-                                                                    value: "UPI",
-                                                                    children: "UPI / QR"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 1036,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
-                                                                    value: "Cheque",
-                                                                    children: "CHEQUE"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 1037,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
-                                                                    value: "Cash",
-                                                                    children: "CASH"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 1038,
-                                                                    columnNumber: 23
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                            lineNumber: 1034,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 1030,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 1026,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 1014,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "space-y-2",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                            className: "font-black uppercase text-[10px] tracking-widest text-neutral-500",
-                                            children: "Transaction Ref / Remarks"
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 1045,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                            placeholder: "e.g. TXN-9876543210",
-                                            className: "border-2 border-black font-bold h-12",
-                                            value: paymentRemarks,
-                                            onChange: (e)=>setPaymentRemarks(e.target.value)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 1048,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 1044,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "pt-4 flex flex-col gap-3",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                            className: "w-full bg-black hover:bg-neutral-800 text-white h-14 font-black text-xl transition-all hover:scale-[1.02] active:scale-95 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]",
-                                            onClick: submitPayment,
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
-                                                    className: "mr-2 h-6 w-6"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 1061,
-                                                    columnNumber: 19
-                                                }, this),
-                                                "SUBMIT TRANSACTION"
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 1057,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            className: "w-full font-black uppercase text-xs tracking-widest text-neutral-400 hover:text-black transition-colors py-2",
-                                            onClick: ()=>setActiveInvoice(null),
-                                            children: "Dismiss Modal"
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 1064,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 1056,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                      /*#__PURE__*/ (0,
+                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                        "jsxDEV"
+                                                      ])(
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                          "SelectItem"
+                                                        ],
+                                                        {
+                                                          value:
+                                                            "Bank Transfer",
+                                                          children: "NEFT/IMPS",
+                                                        },
+                                                        void 0,
+                                                        false,
+                                                        {
+                                                          fileName:
+                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                          lineNumber: 1035,
+                                                          columnNumber: 23,
+                                                        },
+                                                        this,
+                                                      ),
+                                                      /*#__PURE__*/ (0,
+                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                        "jsxDEV"
+                                                      ])(
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                          "SelectItem"
+                                                        ],
+                                                        {
+                                                          value: "UPI",
+                                                          children: "UPI / QR",
+                                                        },
+                                                        void 0,
+                                                        false,
+                                                        {
+                                                          fileName:
+                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                          lineNumber: 1036,
+                                                          columnNumber: 23,
+                                                        },
+                                                        this,
+                                                      ),
+                                                      /*#__PURE__*/ (0,
+                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                        "jsxDEV"
+                                                      ])(
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                          "SelectItem"
+                                                        ],
+                                                        {
+                                                          value: "Cheque",
+                                                          children: "CHEQUE",
+                                                        },
+                                                        void 0,
+                                                        false,
+                                                        {
+                                                          fileName:
+                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                          lineNumber: 1037,
+                                                          columnNumber: 23,
+                                                        },
+                                                        this,
+                                                      ),
+                                                      /*#__PURE__*/ (0,
+                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                        "jsxDEV"
+                                                      ])(
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                          "SelectItem"
+                                                        ],
+                                                        {
+                                                          value: "Cash",
+                                                          children: "CASH",
+                                                        },
+                                                        void 0,
+                                                        false,
+                                                        {
+                                                          fileName:
+                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                          lineNumber: 1038,
+                                                          columnNumber: 23,
+                                                        },
+                                                        this,
+                                                      ),
+                                                    ],
+                                                  },
+                                                  void 0,
+                                                  true,
+                                                  {
+                                                    fileName:
+                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                    lineNumber: 1034,
+                                                    columnNumber: 21,
+                                                  },
+                                                  this,
+                                                ),
+                                              ],
+                                            },
+                                            void 0,
+                                            true,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 1030,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                        ],
+                                      },
+                                      void 0,
+                                      true,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 1026,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                  ],
+                                },
+                                void 0,
+                                true,
+                                {
+                                  fileName:
+                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                  lineNumber: 1014,
+                                  columnNumber: 15,
+                                },
+                                this,
+                              ),
+                              /*#__PURE__*/ (0,
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                "jsxDEV"
+                              ])(
+                                "div",
+                                {
+                                  className: "space-y-2",
+                                  children: [
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "Label"
+                                      ],
+                                      {
+                                        className:
+                                          "font-black uppercase text-[10px] tracking-widest text-neutral-500",
+                                        children: "Transaction Ref / Remarks",
+                                      },
+                                      void 0,
+                                      false,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 1045,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "Input"
+                                      ],
+                                      {
+                                        placeholder: "e.g. TXN-9876543210",
+                                        className:
+                                          "border-2 border-black font-bold h-12",
+                                        value: paymentRemarks,
+                                        onChange: (e) =>
+                                          setPaymentRemarks(e.target.value),
+                                      },
+                                      void 0,
+                                      false,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 1048,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                  ],
+                                },
+                                void 0,
+                                true,
+                                {
+                                  fileName:
+                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                  lineNumber: 1044,
+                                  columnNumber: 15,
+                                },
+                                this,
+                              ),
+                              /*#__PURE__*/ (0,
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                "jsxDEV"
+                              ])(
+                                "div",
+                                {
+                                  className: "pt-4 flex flex-col gap-3",
+                                  children: [
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "Button"
+                                      ],
+                                      {
+                                        className:
+                                          "w-full bg-black hover:bg-neutral-800 text-white h-14 font-black text-xl transition-all hover:scale-[1.02] active:scale-95 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]",
+                                        onClick: submitPayment,
+                                        children: [
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__[
+                                              "CheckCircle2"
+                                            ],
+                                            {
+                                              className: "mr-2 h-6 w-6",
+                                            },
+                                            void 0,
+                                            false,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 1061,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                          "SUBMIT TRANSACTION",
+                                        ],
+                                      },
+                                      void 0,
+                                      true,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 1057,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      "button",
+                                      {
+                                        className:
+                                          "w-full font-black uppercase text-xs tracking-widest text-neutral-400 hover:text-black transition-colors py-2",
+                                        onClick: () => setActiveInvoice(null),
+                                        children: "Dismiss Modal",
+                                      },
+                                      void 0,
+                                      false,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 1064,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                  ],
+                                },
+                                void 0,
+                                true,
+                                {
+                                  fileName:
+                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                  lineNumber: 1056,
+                                  columnNumber: 15,
+                                },
+                                this,
+                              ),
+                            ],
+                          },
+                          void 0,
+                          true,
+                          {
+                            fileName:
+                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                             lineNumber: 978,
-                            columnNumber: 13
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                    lineNumber: 969,
-                    columnNumber: 11
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                lineNumber: 968,
-                columnNumber: 9
-            }, this),
-            editingPayment && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
-                    className: "max-w-md w-full border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white animate-in zoom-in-95 duration-300",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardHeader"], {
-                            className: "bg-blue-50 border-b-2 border-black pb-4 relative",
+                            columnNumber: 13,
+                          },
+                          this,
+                        ),
+                      ],
+                    },
+                    void 0,
+                    true,
+                    {
+                      fileName:
+                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                      lineNumber: 969,
+                      columnNumber: 11,
+                    },
+                    this,
+                  ),
+                },
+                void 0,
+                false,
+                {
+                  fileName:
+                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                  lineNumber: 968,
+                  columnNumber: 9,
+                },
+                this,
+              ),
+            editingPayment &&
+              /*#__PURE__*/ (0,
+              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                "jsxDEV"
+              ])(
+                "div",
+                {
+                  className:
+                    "fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4",
+                  children: /*#__PURE__*/ (0,
+                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                    "jsxDEV"
+                  ])(
+                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                      "Card"
+                    ],
+                    {
+                      className:
+                        "max-w-md w-full border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white animate-in zoom-in-95 duration-300",
+                      children: [
+                        /*#__PURE__*/ (0,
+                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                          "jsxDEV"
+                        ])(
+                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                            "CardHeader"
+                          ],
+                          {
+                            className:
+                              "bg-blue-50 border-b-2 border-black pb-4 relative",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardTitle"], {
-                                    className: "text-2xl font-black uppercase tracking-tighter italic",
-                                    children: "Edit Payment"
-                                }, void 0, false, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 1081,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardDescription"], {
-                                    className: "font-bold text-black opacity-60",
-                                    children: [
-                                        "Updating payment for Invoice # ",
-                                        editingPayment.invoice.invoiceNo
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 1084,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                              /*#__PURE__*/ (0,
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                "jsxDEV"
+                              ])(
+                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                  "CardTitle"
+                                ],
+                                {
+                                  className:
+                                    "text-2xl font-black uppercase tracking-tighter italic",
+                                  children: "Edit Payment",
+                                },
+                                void 0,
+                                false,
+                                {
+                                  fileName:
+                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                  lineNumber: 1081,
+                                  columnNumber: 15,
+                                },
+                                this,
+                              ),
+                              /*#__PURE__*/ (0,
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                "jsxDEV"
+                              ])(
+                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                  "CardDescription"
+                                ],
+                                {
+                                  className: "font-bold text-black opacity-60",
+                                  children: [
+                                    "Updating payment for Invoice # ",
+                                    editingPayment.invoice.invoiceNo,
+                                  ],
+                                },
+                                void 0,
+                                true,
+                                {
+                                  fileName:
+                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                  lineNumber: 1084,
+                                  columnNumber: 15,
+                                },
+                                this,
+                              ),
+                            ],
+                          },
+                          void 0,
+                          true,
+                          {
+                            fileName:
+                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                             lineNumber: 1080,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
+                            columnNumber: 13,
+                          },
+                          this,
+                        ),
+                        /*#__PURE__*/ (0,
+                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                          "jsxDEV"
+                        ])(
+                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                            "CardContent"
+                          ],
+                          {
                             className: "space-y-5 pt-6 pb-8 px-8",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "space-y-2",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                            className: "font-black uppercase text-[10px] tracking-widest text-neutral-500",
-                                            children: "Amount Received"
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 1090,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                            type: "number",
-                                            placeholder: "0.00",
-                                            className: "border-2 border-black font-black text-2xl h-16 text-center",
-                                            value: editAmount,
-                                            onChange: (e)=>setEditAmount(e.target.value)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 1093,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 1089,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "grid grid-cols-2 gap-4",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "space-y-2",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                                    className: "font-black uppercase text-[10px] tracking-widest text-neutral-500",
-                                                    children: "Payment Date"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 1104,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                    type: "date",
-                                                    className: "border-2 border-black font-bold h-12",
-                                                    value: editDate,
-                                                    onChange: (e)=>setEditDate(e.target.value)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 1107,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 1103,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "space-y-2",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                                    className: "font-black uppercase text-[10px] tracking-widest text-neutral-500",
-                                                    children: "Payment Mode"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 1115,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
-                                                    value: editMode,
-                                                    onValueChange: setEditMode,
+                              /*#__PURE__*/ (0,
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                "jsxDEV"
+                              ])(
+                                "div",
+                                {
+                                  className: "space-y-2",
+                                  children: [
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "Label"
+                                      ],
+                                      {
+                                        className:
+                                          "font-black uppercase text-[10px] tracking-widest text-neutral-500",
+                                        children: "Amount Received",
+                                      },
+                                      void 0,
+                                      false,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 1090,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "Input"
+                                      ],
+                                      {
+                                        type: "number",
+                                        placeholder: "0.00",
+                                        className:
+                                          "border-2 border-black font-black text-2xl h-16 text-center",
+                                        value: editAmount,
+                                        onChange: (e) =>
+                                          setEditAmount(e.target.value),
+                                      },
+                                      void 0,
+                                      false,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 1093,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                  ],
+                                },
+                                void 0,
+                                true,
+                                {
+                                  fileName:
+                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                  lineNumber: 1089,
+                                  columnNumber: 15,
+                                },
+                                this,
+                              ),
+                              /*#__PURE__*/ (0,
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                "jsxDEV"
+                              ])(
+                                "div",
+                                {
+                                  className: "grid grid-cols-2 gap-4",
+                                  children: [
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      "div",
+                                      {
+                                        className: "space-y-2",
+                                        children: [
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "Label"
+                                            ],
+                                            {
+                                              className:
+                                                "font-black uppercase text-[10px] tracking-widest text-neutral-500",
+                                              children: "Payment Date",
+                                            },
+                                            void 0,
+                                            false,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 1104,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "Input"
+                                            ],
+                                            {
+                                              type: "date",
+                                              className:
+                                                "border-2 border-black font-bold h-12",
+                                              value: editDate,
+                                              onChange: (e) =>
+                                                setEditDate(e.target.value),
+                                            },
+                                            void 0,
+                                            false,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 1107,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                        ],
+                                      },
+                                      void 0,
+                                      true,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 1103,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      "div",
+                                      {
+                                        className: "space-y-2",
+                                        children: [
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "Label"
+                                            ],
+                                            {
+                                              className:
+                                                "font-black uppercase text-[10px] tracking-widest text-neutral-500",
+                                              children: "Payment Mode",
+                                            },
+                                            void 0,
+                                            false,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 1115,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                              "Select"
+                                            ],
+                                            {
+                                              value: editMode,
+                                              onValueChange: setEditMode,
+                                              children: [
+                                                /*#__PURE__*/ (0,
+                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                  "jsxDEV"
+                                                ])(
+                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                    "SelectTrigger"
+                                                  ],
+                                                  {
+                                                    className:
+                                                      "border-2 border-black font-bold h-12 bg-white",
+                                                    children: /*#__PURE__*/ (0,
+                                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                      "jsxDEV"
+                                                    ])(
+                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                        "SelectValue"
+                                                      ],
+                                                      {},
+                                                      void 0,
+                                                      false,
+                                                      {
+                                                        fileName:
+                                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                        lineNumber: 1120,
+                                                        columnNumber: 23,
+                                                      },
+                                                      this,
+                                                    ),
+                                                  },
+                                                  void 0,
+                                                  false,
+                                                  {
+                                                    fileName:
+                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                    lineNumber: 1119,
+                                                    columnNumber: 21,
+                                                  },
+                                                  this,
+                                                ),
+                                                /*#__PURE__*/ (0,
+                                                __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                  "jsxDEV"
+                                                ])(
+                                                  __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                    "SelectContent"
+                                                  ],
+                                                  {
+                                                    className:
+                                                      "border-2 border-black font-bold",
                                                     children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
-                                                            className: "border-2 border-black font-bold h-12 bg-white",
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
-                                                                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                lineNumber: 1120,
-                                                                columnNumber: 23
-                                                            }, this)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                            lineNumber: 1119,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
-                                                            className: "border-2 border-black font-bold",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
-                                                                    value: "Bank Transfer",
-                                                                    children: "NEFT/IMPS"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 1123,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
-                                                                    value: "UPI",
-                                                                    children: "UPI / QR"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 1124,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
-                                                                    value: "Cheque",
-                                                                    children: "CHEQUE"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 1125,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
-                                                                    value: "Cash",
-                                                                    children: "CASH"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                                    lineNumber: 1126,
-                                                                    columnNumber: 23
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                            lineNumber: 1122,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 1118,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 1114,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 1102,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "space-y-2",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                            className: "font-black uppercase text-[10px] tracking-widest text-neutral-500",
-                                            children: "Transaction Ref / Remarks"
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 1133,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                            placeholder: "e.g. TXN-9876543210",
-                                            className: "border-2 border-black font-bold h-12",
-                                            value: editRemarks,
-                                            onChange: (e)=>setEditRemarks(e.target.value)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 1136,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 1132,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "pt-4 flex flex-col gap-3",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                            className: "w-full bg-blue-600 hover:bg-blue-700 text-white h-14 font-black text-xl transition-all hover:scale-[1.02] active:scale-95",
-                                            onClick: submitEditPayment,
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
-                                                    className: "mr-2 h-6 w-6"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                                    lineNumber: 1149,
-                                                    columnNumber: 19
-                                                }, this),
-                                                "UPDATE PAYMENT"
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 1145,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            className: "w-full font-black uppercase text-xs tracking-widest text-neutral-400 hover:text-black transition-colors py-2",
-                                            onClick: ()=>setEditingPayment(null),
-                                            children: "Cancel"
-                                        }, void 0, false, {
-                                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                            lineNumber: 1152,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                                    lineNumber: 1144,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                      /*#__PURE__*/ (0,
+                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                        "jsxDEV"
+                                                      ])(
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                          "SelectItem"
+                                                        ],
+                                                        {
+                                                          value:
+                                                            "Bank Transfer",
+                                                          children: "NEFT/IMPS",
+                                                        },
+                                                        void 0,
+                                                        false,
+                                                        {
+                                                          fileName:
+                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                          lineNumber: 1123,
+                                                          columnNumber: 23,
+                                                        },
+                                                        this,
+                                                      ),
+                                                      /*#__PURE__*/ (0,
+                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                        "jsxDEV"
+                                                      ])(
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                          "SelectItem"
+                                                        ],
+                                                        {
+                                                          value: "UPI",
+                                                          children: "UPI / QR",
+                                                        },
+                                                        void 0,
+                                                        false,
+                                                        {
+                                                          fileName:
+                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                          lineNumber: 1124,
+                                                          columnNumber: 23,
+                                                        },
+                                                        this,
+                                                      ),
+                                                      /*#__PURE__*/ (0,
+                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                        "jsxDEV"
+                                                      ])(
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                          "SelectItem"
+                                                        ],
+                                                        {
+                                                          value: "Cheque",
+                                                          children: "CHEQUE",
+                                                        },
+                                                        void 0,
+                                                        false,
+                                                        {
+                                                          fileName:
+                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                          lineNumber: 1125,
+                                                          columnNumber: 23,
+                                                        },
+                                                        this,
+                                                      ),
+                                                      /*#__PURE__*/ (0,
+                                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                        "jsxDEV"
+                                                      ])(
+                                                        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                                          "SelectItem"
+                                                        ],
+                                                        {
+                                                          value: "Cash",
+                                                          children: "CASH",
+                                                        },
+                                                        void 0,
+                                                        false,
+                                                        {
+                                                          fileName:
+                                                            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                          lineNumber: 1126,
+                                                          columnNumber: 23,
+                                                        },
+                                                        this,
+                                                      ),
+                                                    ],
+                                                  },
+                                                  void 0,
+                                                  true,
+                                                  {
+                                                    fileName:
+                                                      "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                                    lineNumber: 1122,
+                                                    columnNumber: 21,
+                                                  },
+                                                  this,
+                                                ),
+                                              ],
+                                            },
+                                            void 0,
+                                            true,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 1118,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                        ],
+                                      },
+                                      void 0,
+                                      true,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 1114,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                  ],
+                                },
+                                void 0,
+                                true,
+                                {
+                                  fileName:
+                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                  lineNumber: 1102,
+                                  columnNumber: 15,
+                                },
+                                this,
+                              ),
+                              /*#__PURE__*/ (0,
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                "jsxDEV"
+                              ])(
+                                "div",
+                                {
+                                  className: "space-y-2",
+                                  children: [
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "Label"
+                                      ],
+                                      {
+                                        className:
+                                          "font-black uppercase text-[10px] tracking-widest text-neutral-500",
+                                        children: "Transaction Ref / Remarks",
+                                      },
+                                      void 0,
+                                      false,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 1133,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "Input"
+                                      ],
+                                      {
+                                        placeholder: "e.g. TXN-9876543210",
+                                        className:
+                                          "border-2 border-black font-bold h-12",
+                                        value: editRemarks,
+                                        onChange: (e) =>
+                                          setEditRemarks(e.target.value),
+                                      },
+                                      void 0,
+                                      false,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 1136,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                  ],
+                                },
+                                void 0,
+                                true,
+                                {
+                                  fileName:
+                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                  lineNumber: 1132,
+                                  columnNumber: 15,
+                                },
+                                this,
+                              ),
+                              /*#__PURE__*/ (0,
+                              __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                "jsxDEV"
+                              ])(
+                                "div",
+                                {
+                                  className: "pt-4 flex flex-col gap-3",
+                                  children: [
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                        "Button"
+                                      ],
+                                      {
+                                        className:
+                                          "w-full bg-blue-600 hover:bg-blue-700 text-white h-14 font-black text-xl transition-all hover:scale-[1.02] active:scale-95",
+                                        onClick: submitEditPayment,
+                                        children: [
+                                          /*#__PURE__*/ (0,
+                                          __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                            "jsxDEV"
+                                          ])(
+                                            __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__[
+                                              "CheckCircle2"
+                                            ],
+                                            {
+                                              className: "mr-2 h-6 w-6",
+                                            },
+                                            void 0,
+                                            false,
+                                            {
+                                              fileName:
+                                                "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                              lineNumber: 1149,
+                                              columnNumber: 19,
+                                            },
+                                            this,
+                                          ),
+                                          "UPDATE PAYMENT",
+                                        ],
+                                      },
+                                      void 0,
+                                      true,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 1145,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                    /*#__PURE__*/ (0,
+                                    __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+                                      "jsxDEV"
+                                    ])(
+                                      "button",
+                                      {
+                                        className:
+                                          "w-full font-black uppercase text-xs tracking-widest text-neutral-400 hover:text-black transition-colors py-2",
+                                        onClick: () => setEditingPayment(null),
+                                        children: "Cancel",
+                                      },
+                                      void 0,
+                                      false,
+                                      {
+                                        fileName:
+                                          "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                        lineNumber: 1152,
+                                        columnNumber: 17,
+                                      },
+                                      this,
+                                    ),
+                                  ],
+                                },
+                                void 0,
+                                true,
+                                {
+                                  fileName:
+                                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                                  lineNumber: 1144,
+                                  columnNumber: 15,
+                                },
+                                this,
+                              ),
+                            ],
+                          },
+                          void 0,
+                          true,
+                          {
+                            fileName:
+                              "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
                             lineNumber: 1088,
-                            columnNumber: 13
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                    lineNumber: 1079,
-                    columnNumber: 11
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-                lineNumber: 1078,
-                columnNumber: 9
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
-        lineNumber: 506,
-        columnNumber: 5
-    }, this);
-}
-_s(PaymentsPage, "gq/TopyKMhcJRiDMiExTHsT2KYk=", false, function() {
-    return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$auth$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"],
-        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useToast"]
-    ];
-});
-_c1 = PaymentsPage;
-var _c, _c1;
-__turbopack_context__.k.register(_c, "WhatsAppIcon");
-__turbopack_context__.k.register(_c1, "PaymentsPage");
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
-}),
+                            columnNumber: 13,
+                          },
+                          this,
+                        ),
+                      ],
+                    },
+                    void 0,
+                    true,
+                    {
+                      fileName:
+                        "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                      lineNumber: 1079,
+                      columnNumber: 11,
+                    },
+                    this,
+                  ),
+                },
+                void 0,
+                false,
+                {
+                  fileName:
+                    "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+                  lineNumber: 1078,
+                  columnNumber: 9,
+                },
+                this,
+              ),
+          ],
+        },
+        void 0,
+        true,
+        {
+          fileName:
+            "[project]/Desktop/Projects/final-pixelate/dashboard/src/app/(crm)/dashboard/payments/page.tsx",
+          lineNumber: 506,
+          columnNumber: 5,
+        },
+        this,
+      );
+    }
+    _s(PaymentsPage, "gq/TopyKMhcJRiDMiExTHsT2KYk=", false, function () {
+      return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$auth$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          "useAuth"
+        ],
+        __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Projects$2f$final$2d$pixelate$2f$dashboard$2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__[
+          "useToast"
+        ],
+      ];
+    });
+    _c1 = PaymentsPage;
+    var _c, _c1;
+    __turbopack_context__.k.register(_c, "WhatsAppIcon");
+    __turbopack_context__.k.register(_c1, "PaymentsPage");
+    if (
+      typeof globalThis.$RefreshHelpers$ === "object" &&
+      globalThis.$RefreshHelpers !== null
+    ) {
+      __turbopack_context__.k.registerExports(
+        __turbopack_context__.m,
+        globalThis.$RefreshHelpers$,
+      );
+    }
+  },
 ]);
 
 //# sourceMappingURL=Desktop_Projects_final-pixelate_dashboard_src_418ea6a0._.js.map

@@ -56,7 +56,13 @@ interface WaTemplate {
   buttons: WaButton[];
   variables: string[];
   notes?: string | null;
-  status: "LOCAL" | "SUBMITTED" | "APPROVED" | "REJECTED" | "PAUSED" | "UNKNOWN";
+  status:
+    | "LOCAL"
+    | "SUBMITTED"
+    | "APPROVED"
+    | "REJECTED"
+    | "PAUSED"
+    | "UNKNOWN";
   metaTemplateId?: string | null;
   syncedFromMeta?: boolean;
   createdAt: string;
@@ -155,7 +161,7 @@ interface FormState {
   footer: string;
   buttons: WaButton[];
   variables: string[];
-  exampleValues: string[];  // one per {{n}} variable — required by Meta
+  exampleValues: string[]; // one per {{n}} variable — required by Meta
   notes: string;
 }
 
@@ -193,11 +199,14 @@ export default function WhatsAppTemplatesPage() {
   const [form, setForm] = useState<FormState>(blankForm());
   const [saving, setSaving] = useState(false);
 
-  const [previewTemplate, setPreviewTemplate] = useState<WaTemplate | null>(null);
+  const [previewTemplate, setPreviewTemplate] = useState<WaTemplate | null>(
+    null,
+  );
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [submittingId, setSubmittingId] = useState<string | null>(null);
   const [newButtonText, setNewButtonText] = useState("");
-  const [newButtonType, setNewButtonType] = useState<WaButton["type"]>("QUICK_REPLY");
+  const [newButtonType, setNewButtonType] =
+    useState<WaButton["type"]>("QUICK_REPLY");
   const [newVariableLabel, setNewVariableLabel] = useState("");
   const [uploadingMedia, setUploadingMedia] = useState(false);
 
@@ -209,13 +218,19 @@ export default function WhatsAppTemplatesPage() {
       const data = await res.json();
       setTemplates(Array.isArray(data) ? data : []);
     } catch {
-      toast({ title: "Error", description: "Could not load templates.", variant: "destructive" });
+      toast({
+        title: "Error",
+        description: "Could not load templates.",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => { fetchTemplates(); }, []);
+  useEffect(() => {
+    fetchTemplates();
+  }, []);
 
   // ── sync from Meta ─────────────────────────────────────────────────────────
   const handleSync = async () => {
@@ -230,7 +245,11 @@ export default function WhatsAppTemplatesPage() {
       });
       await fetchTemplates();
     } catch (err: any) {
-      toast({ title: "Sync Failed", description: err.message, variant: "destructive" });
+      toast({
+        title: "Sync Failed",
+        description: err.message,
+        variant: "destructive",
+      });
     } finally {
       setSyncing(false);
     }
@@ -247,8 +266,7 @@ export default function WhatsAppTemplatesPage() {
         (t.notes ?? "").toLowerCase().includes(q);
       const matchCategory =
         filterCategory === "all" || t.category === filterCategory;
-      const matchStatus =
-        filterStatus === "all" || t.status === filterStatus;
+      const matchStatus = filterStatus === "all" || t.status === filterStatus;
       return matchSearch && matchCategory && matchStatus;
     });
   }, [templates, search, filterCategory, filterStatus]);
@@ -312,7 +330,11 @@ export default function WhatsAppTemplatesPage() {
         description: `"${data.fileName}" uploaded to Meta. Handle stored.`,
       });
     } catch (err: any) {
-      toast({ title: "Upload Failed", description: err.message, variant: "destructive" });
+      toast({
+        title: "Upload Failed",
+        description: err.message,
+        variant: "destructive",
+      });
     } finally {
       setUploadingMedia(false);
     }
@@ -363,7 +385,11 @@ export default function WhatsAppTemplatesPage() {
   // ── save ───────────────────────────────────────────────────────────────────
   const handleSave = async () => {
     if (!form.name.trim() || !form.body.trim()) {
-      toast({ title: "Required", description: "Template name and body are required.", variant: "destructive" });
+      toast({
+        title: "Required",
+        description: "Template name and body are required.",
+        variant: "destructive",
+      });
       return;
     }
     setSaving(true);
@@ -397,11 +423,18 @@ export default function WhatsAppTemplatesPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Save failed");
 
-      toast({ title: editTarget ? "Template Updated" : "Template Created", description: `"${data.name}" saved successfully.` });
+      toast({
+        title: editTarget ? "Template Updated" : "Template Created",
+        description: `"${data.name}" saved successfully.`,
+      });
       closeForm();
       await fetchTemplates();
     } catch (err: any) {
-      toast({ title: "Error", description: err.message, variant: "destructive" });
+      toast({
+        title: "Error",
+        description: err.message,
+        variant: "destructive",
+      });
     } finally {
       setSaving(false);
     }
@@ -409,15 +442,22 @@ export default function WhatsAppTemplatesPage() {
 
   // ── delete ─────────────────────────────────────────────────────────────────
   const handleDelete = async (t: WaTemplate) => {
-    if (!window.confirm(`Delete template "${t.name}"? This cannot be undone.`)) return;
+    if (!window.confirm(`Delete template "${t.name}"? This cannot be undone.`))
+      return;
     setDeletingId(t._id);
     try {
-      const res = await fetch(`/api/whatsapp-templates/${t._id}`, { method: "DELETE" });
+      const res = await fetch(`/api/whatsapp-templates/${t._id}`, {
+        method: "DELETE",
+      });
       if (!res.ok) throw new Error((await res.json()).error || "Delete failed");
       toast({ title: "Deleted", description: `"${t.name}" removed.` });
       setTemplates((prev) => prev.filter((x) => x._id !== t._id));
     } catch (err: any) {
-      toast({ title: "Error", description: err.message, variant: "destructive" });
+      toast({
+        title: "Error",
+        description: err.message,
+        variant: "destructive",
+      });
     } finally {
       setDeletingId(null);
     }
@@ -425,9 +465,14 @@ export default function WhatsAppTemplatesPage() {
 
   // ── copy name to clipboard ─────────────────────────────────────────────────
   const copyName = (name: string) => {
-    navigator.clipboard.writeText(name).then(() =>
-      toast({ title: "Copied", description: `Template name "${name}" copied.` }),
-    );
+    navigator.clipboard
+      .writeText(name)
+      .then(() =>
+        toast({
+          title: "Copied",
+          description: `Template name "${name}" copied.`,
+        }),
+      );
   };
 
   // ── add/remove button ──────────────────────────────────────────────────────
@@ -435,7 +480,10 @@ export default function WhatsAppTemplatesPage() {
     if (!newButtonText.trim()) return;
     setForm((f) => ({
       ...f,
-      buttons: [...f.buttons, { type: newButtonType, text: newButtonText.trim() }],
+      buttons: [
+        ...f.buttons,
+        { type: newButtonType, text: newButtonText.trim() },
+      ],
     }));
     setNewButtonText("");
   };
@@ -505,10 +553,26 @@ export default function WhatsAppTemplatesPage() {
       {/* ── Stats ── */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          { label: "Total Templates", value: stats.total, color: "bg-black text-white" },
-          { label: "Approved", value: stats.approved, color: "bg-green-600 text-white" },
-          { label: "Local Drafts", value: stats.local, color: "bg-neutral-100 text-neutral-800" },
-          { label: "Rejected", value: stats.rejected, color: "bg-red-50 text-red-700 border-2 border-red-200" },
+          {
+            label: "Total Templates",
+            value: stats.total,
+            color: "bg-black text-white",
+          },
+          {
+            label: "Approved",
+            value: stats.approved,
+            color: "bg-green-600 text-white",
+          },
+          {
+            label: "Local Drafts",
+            value: stats.local,
+            color: "bg-neutral-100 text-neutral-800",
+          },
+          {
+            label: "Rejected",
+            value: stats.rejected,
+            color: "bg-red-50 text-red-700 border-2 border-red-200",
+          },
         ].map((s) => (
           <div
             key={s.label}
@@ -517,7 +581,9 @@ export default function WhatsAppTemplatesPage() {
               s.color,
             )}
           >
-            <p className="text-[10px] font-black uppercase tracking-widest opacity-70">{s.label}</p>
+            <p className="text-[10px] font-black uppercase tracking-widest opacity-70">
+              {s.label}
+            </p>
             <p className="text-4xl font-black mt-1">{s.value}</p>
           </div>
         ))}
@@ -541,7 +607,9 @@ export default function WhatsAppTemplatesPage() {
           <SelectContent className="border-2 border-black font-bold">
             <SelectItem value="all">All Categories</SelectItem>
             {CATEGORIES.map((c) => (
-              <SelectItem key={c} value={c}>{CATEGORY_LABELS[c]}</SelectItem>
+              <SelectItem key={c} value={c}>
+                {CATEGORY_LABELS[c]}
+              </SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -552,7 +620,9 @@ export default function WhatsAppTemplatesPage() {
           <SelectContent className="border-2 border-black font-bold">
             <SelectItem value="all">All Statuses</SelectItem>
             {Object.keys(STATUS_CONFIG).map((s) => (
-              <SelectItem key={s} value={s}>{STATUS_CONFIG[s].label}</SelectItem>
+              <SelectItem key={s} value={s}>
+                {STATUS_CONFIG[s].label}
+              </SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -566,14 +636,19 @@ export default function WhatsAppTemplatesPage() {
       ) : filtered.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 border-2 border-dashed border-neutral-300 rounded-xl bg-neutral-50">
           <FileText className="w-12 h-12 text-neutral-300 mb-4" />
-          <p className="font-black text-neutral-400 uppercase text-lg">No templates found</p>
+          <p className="font-black text-neutral-400 uppercase text-lg">
+            No templates found
+          </p>
           <p className="text-neutral-400 text-sm mt-1">
             {templates.length === 0
               ? "Create your first template or sync from Meta."
               : "Try adjusting your search or filters."}
           </p>
           {templates.length === 0 && (
-            <Button className="mt-6 bg-black text-white font-black" onClick={openCreate}>
+            <Button
+              className="mt-6 bg-black text-white font-black"
+              onClick={openCreate}
+            >
               <Plus className="w-4 h-4 mr-2" /> Create First Template
             </Button>
           )}
@@ -603,7 +678,9 @@ export default function WhatsAppTemplatesPage() {
                       <span
                         className={cn(
                           "text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded border-2",
-                          sc.bg, sc.text, sc.border,
+                          sc.bg,
+                          sc.text,
+                          sc.border,
                         )}
                       >
                         {sc.label}
@@ -617,13 +694,18 @@ export default function WhatsAppTemplatesPage() {
                         </span>
                       )}
                     </div>
-                    <p className="font-black text-base mt-1.5 truncate" title={t.name}>
+                    <p
+                      className="font-black text-base mt-1.5 truncate"
+                      title={t.name}
+                    >
                       {t.name}
                     </p>
                     <p className="text-[10px] text-neutral-400 font-bold uppercase mt-0.5">
-                      {LANGUAGES.find((l) => l.code === t.language)?.label ?? t.language}
+                      {LANGUAGES.find((l) => l.code === t.language)?.label ??
+                        t.language}
                       {t.headerType !== "NONE" && ` · ${t.headerType} Header`}
-                      {t.buttons.length > 0 && ` · ${t.buttons.length} Button${t.buttons.length > 1 ? "s" : ""}`}
+                      {t.buttons.length > 0 &&
+                        ` · ${t.buttons.length} Button${t.buttons.length > 1 ? "s" : ""}`}
                     </p>
                   </div>
                 </div>
@@ -638,10 +720,14 @@ export default function WhatsAppTemplatesPage() {
                       </p>
                     )}
                     {["IMAGE", "DOCUMENT", "VIDEO"].includes(t.headerType) && (
-                      <div className={cn(
-                        "rounded h-14 flex items-center justify-center mb-2 gap-2",
-                        t.headerMediaHandle ? "bg-green-100 border border-green-300" : "bg-neutral-300",
-                      )}>
+                      <div
+                        className={cn(
+                          "rounded h-14 flex items-center justify-center mb-2 gap-2",
+                          t.headerMediaHandle
+                            ? "bg-green-100 border border-green-300"
+                            : "bg-neutral-300",
+                        )}
+                      >
                         {t.headerMediaHandle ? (
                           <>
                             <CheckCircle className="w-4 h-4 text-green-600" />
@@ -664,7 +750,9 @@ export default function WhatsAppTemplatesPage() {
                         {renderBodyPreview(t.body)}
                       </p>
                       {t.footer && (
-                        <p className="text-[10px] text-neutral-400 mt-1">{t.footer}</p>
+                        <p className="text-[10px] text-neutral-400 mt-1">
+                          {t.footer}
+                        </p>
                       )}
                     </div>
                     {t.buttons.length > 0 && (
@@ -694,11 +782,14 @@ export default function WhatsAppTemplatesPage() {
                     {needsMediaUpload && (
                       <p className="text-[10px] font-black text-amber-700 bg-amber-50 border border-amber-300 rounded px-2 py-1 flex items-center gap-1">
                         <Upload className="w-3 h-3 shrink-0" />
-                        Edit template to upload a sample {t.headerType.toLowerCase()} first
+                        Edit template to upload a sample{" "}
+                        {t.headerType.toLowerCase()} first
                       </p>
                     )}
                     <button
-                      onClick={() => needsMediaUpload ? openEdit(t) : handleSubmitToMeta(t)}
+                      onClick={() =>
+                        needsMediaUpload ? openEdit(t) : handleSubmitToMeta(t)
+                      }
                       disabled={isSubmitting}
                       className={cn(
                         "w-full flex items-center justify-center gap-2 font-black uppercase text-xs tracking-wider h-9 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed border-2",
@@ -717,8 +808,8 @@ export default function WhatsAppTemplatesPage() {
                       {isSubmitting
                         ? "Submitting…"
                         : needsMediaUpload
-                        ? "Upload Sample File First"
-                        : "Submit to Meta for Approval"}
+                          ? "Upload Sample File First"
+                          : "Submit to Meta for Approval"}
                     </button>
                   </div>
                 )}
@@ -818,14 +909,18 @@ export default function WhatsAppTemplatesPage() {
                   </Label>
                   <Select
                     value={form.category}
-                    onValueChange={(v) => setForm((f) => ({ ...f, category: v as any }))}
+                    onValueChange={(v) =>
+                      setForm((f) => ({ ...f, category: v as any }))
+                    }
                   >
                     <SelectTrigger className="border-2 border-black font-bold h-11 bg-white">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent className="border-2 border-black font-bold">
                       {CATEGORIES.map((c) => (
-                        <SelectItem key={c} value={c}>{CATEGORY_LABELS[c]}</SelectItem>
+                        <SelectItem key={c} value={c}>
+                          {CATEGORY_LABELS[c]}
+                        </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
@@ -839,14 +934,18 @@ export default function WhatsAppTemplatesPage() {
                   </Label>
                   <Select
                     value={form.language}
-                    onValueChange={(v) => setForm((f) => ({ ...f, language: v }))}
+                    onValueChange={(v) =>
+                      setForm((f) => ({ ...f, language: v }))
+                    }
                   >
                     <SelectTrigger className="border-2 border-black font-bold h-11 bg-white">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent className="border-2 border-black font-bold">
                       {LANGUAGES.map((l) => (
-                        <SelectItem key={l.code} value={l.code}>{l.label}</SelectItem>
+                        <SelectItem key={l.code} value={l.code}>
+                          {l.label}
+                        </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
@@ -857,14 +956,18 @@ export default function WhatsAppTemplatesPage() {
                   </Label>
                   <Select
                     value={form.headerType}
-                    onValueChange={(v) => setForm((f) => ({ ...f, headerType: v as any }))}
+                    onValueChange={(v) =>
+                      setForm((f) => ({ ...f, headerType: v as any }))
+                    }
                   >
                     <SelectTrigger className="border-2 border-black font-bold h-11 bg-white">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent className="border-2 border-black font-bold">
                       {HEADER_TYPES.map((h) => (
-                        <SelectItem key={h} value={h}>{h}</SelectItem>
+                        <SelectItem key={h} value={h}>
+                          {h}
+                        </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
@@ -881,7 +984,9 @@ export default function WhatsAppTemplatesPage() {
                     maxLength={60}
                     className="border-2 border-black font-bold h-11"
                     value={form.headerText}
-                    onChange={(e) => setForm((f) => ({ ...f, headerText: e.target.value }))}
+                    onChange={(e) =>
+                      setForm((f) => ({ ...f, headerText: e.target.value }))
+                    }
                   />
                 </div>
               )}
@@ -895,8 +1000,13 @@ export default function WhatsAppTemplatesPage() {
                         Upload Sample {form.headerType} — Required by Meta
                       </Label>
                       <p className="text-[10px] text-blue-600 mt-0.5">
-                        Meta needs a sample file to review the template. Upload a real{" "}
-                        {form.headerType === "DOCUMENT" ? "PDF" : form.headerType === "IMAGE" ? "image" : "video"}{" "}
+                        Meta needs a sample file to review the template. Upload
+                        a real{" "}
+                        {form.headerType === "DOCUMENT"
+                          ? "PDF"
+                          : form.headerType === "IMAGE"
+                            ? "image"
+                            : "video"}{" "}
                         file — it won&apos;t be sent to clients.
                       </p>
                     </div>
@@ -915,7 +1025,13 @@ export default function WhatsAppTemplatesPage() {
                       </div>
                       <button
                         type="button"
-                        onClick={() => setForm((f) => ({ ...f, headerMediaHandle: "", headerMediaName: "" }))}
+                        onClick={() =>
+                          setForm((f) => ({
+                            ...f,
+                            headerMediaHandle: "",
+                            headerMediaName: "",
+                          }))
+                        }
                         className="text-[10px] font-black text-red-500 hover:underline shrink-0"
                       >
                         Remove
@@ -926,13 +1042,18 @@ export default function WhatsAppTemplatesPage() {
                       {uploadingMedia ? (
                         <>
                           <Loader2 className="w-4 h-4 animate-spin text-blue-600" />
-                          <span className="text-xs font-black text-blue-600">Uploading to Meta…</span>
+                          <span className="text-xs font-black text-blue-600">
+                            Uploading to Meta…
+                          </span>
                         </>
                       ) : (
                         <>
                           <Upload className="w-4 h-4 text-blue-500" />
                           <span className="text-xs font-black text-blue-600">
-                            Click to upload sample {form.headerType === "DOCUMENT" ? "PDF" : form.headerType.toLowerCase()}
+                            Click to upload sample{" "}
+                            {form.headerType === "DOCUMENT"
+                              ? "PDF"
+                              : form.headerType.toLowerCase()}
                           </span>
                         </>
                       )}
@@ -944,8 +1065,8 @@ export default function WhatsAppTemplatesPage() {
                           form.headerType === "IMAGE"
                             ? "image/jpeg,image/png"
                             : form.headerType === "DOCUMENT"
-                            ? "application/pdf"
-                            : "video/mp4"
+                              ? "application/pdf"
+                              : "video/mp4"
                         }
                         onChange={(e) => {
                           const file = e.target.files?.[0];
@@ -973,11 +1094,15 @@ export default function WhatsAppTemplatesPage() {
                   </button>
                 </div>
                 <Textarea
-                  placeholder={"Hi {{1}},\n\nYour payment of {{2}} has been received.\n\nThank you!"}
+                  placeholder={
+                    "Hi {{1}},\n\nYour payment of {{2}} has been received.\n\nThank you!"
+                  }
                   rows={6}
                   className="border-2 border-black font-medium resize-none leading-relaxed"
                   value={form.body}
-                  onChange={(e) => setForm((f) => ({ ...f, body: e.target.value }))}
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, body: e.target.value }))
+                  }
                 />
                 {detectedVars.length > 0 && (
                   <div className="flex items-center gap-2 flex-wrap">
@@ -1007,7 +1132,9 @@ export default function WhatsAppTemplatesPage() {
                     className="border-2 border-black font-medium h-9 text-sm"
                     value={newVariableLabel}
                     onChange={(e) => setNewVariableLabel(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), addVariable())}
+                    onKeyDown={(e) =>
+                      e.key === "Enter" && (e.preventDefault(), addVariable())
+                    }
                   />
                   <Button
                     type="button"
@@ -1025,7 +1152,8 @@ export default function WhatsAppTemplatesPage() {
                         key={i}
                         className="flex items-center gap-1 text-[10px] font-black bg-neutral-100 border border-neutral-300 text-neutral-700 px-2 py-0.5 rounded"
                       >
-                        <span className="text-neutral-400">{`{{${i + 1}}}`}</span> {v}
+                        <span className="text-neutral-400">{`{{${i + 1}}}`}</span>{" "}
+                        {v}
                         <button
                           onClick={() =>
                             setForm((f) => ({
@@ -1053,7 +1181,8 @@ export default function WhatsAppTemplatesPage() {
                         Example Values — Required by Meta
                       </Label>
                       <p className="text-[10px] text-yellow-600 mt-0.5">
-                        Meta needs real sample values to review your template. Fill one per variable.
+                        Meta needs real sample values to review your template.
+                        Fill one per variable.
                       </p>
                     </div>
                   </div>
@@ -1075,7 +1204,10 @@ export default function WhatsAppTemplatesPage() {
                             onChange={(e) => {
                               const updated = [...form.exampleValues];
                               updated[i] = e.target.value;
-                              setForm((f) => ({ ...f, exampleValues: updated }));
+                              setForm((f) => ({
+                                ...f,
+                                exampleValues: updated,
+                              }));
                             }}
                           />
                         </div>
@@ -1095,7 +1227,9 @@ export default function WhatsAppTemplatesPage() {
                   maxLength={60}
                   className="border-2 border-black font-medium h-11"
                   value={form.footer}
-                  onChange={(e) => setForm((f) => ({ ...f, footer: e.target.value }))}
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, footer: e.target.value }))
+                  }
                 />
               </div>
 
@@ -1107,7 +1241,9 @@ export default function WhatsAppTemplatesPage() {
                 <div className="flex gap-2">
                   <Select
                     value={newButtonType}
-                    onValueChange={(v) => setNewButtonType(v as WaButton["type"])}
+                    onValueChange={(v) =>
+                      setNewButtonType(v as WaButton["type"])
+                    }
                   >
                     <SelectTrigger className="w-36 border-2 border-black font-bold h-9 bg-white text-sm">
                       <SelectValue />
@@ -1123,7 +1259,9 @@ export default function WhatsAppTemplatesPage() {
                     className="border-2 border-black font-medium h-9 text-sm"
                     value={newButtonText}
                     onChange={(e) => setNewButtonText(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), addButton())}
+                    onKeyDown={(e) =>
+                      e.key === "Enter" && (e.preventDefault(), addButton())
+                    }
                   />
                   <Button
                     type="button"
@@ -1167,7 +1305,9 @@ export default function WhatsAppTemplatesPage() {
                   placeholder="e.g. Used for payment receipt confirmations"
                   className="border-2 border-black font-medium h-11"
                   value={form.notes}
-                  onChange={(e) => setForm((f) => ({ ...f, notes: e.target.value }))}
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, notes: e.target.value }))
+                  }
                 />
               </div>
             </div>
@@ -1245,12 +1385,15 @@ export default function WhatsAppTemplatesPage() {
               </div>
               <div className="bg-[#e5ddd5] p-3 rounded-b-lg min-h-[120px]">
                 <div className="bg-white rounded-lg p-3 shadow-sm max-w-[90%]">
-                  {previewTemplate.headerType === "TEXT" && previewTemplate.headerText && (
-                    <p className="font-black text-sm text-[#1a1a1a] mb-2 border-b pb-2">
-                      {previewTemplate.headerText}
-                    </p>
-                  )}
-                  {["IMAGE", "DOCUMENT", "VIDEO"].includes(previewTemplate.headerType) && (
+                  {previewTemplate.headerType === "TEXT" &&
+                    previewTemplate.headerText && (
+                      <p className="font-black text-sm text-[#1a1a1a] mb-2 border-b pb-2">
+                        {previewTemplate.headerText}
+                      </p>
+                    )}
+                  {["IMAGE", "DOCUMENT", "VIDEO"].includes(
+                    previewTemplate.headerType,
+                  ) && (
                     <div className="bg-neutral-200 rounded h-20 flex items-center justify-center mb-2">
                       <span className="text-[10px] font-black text-neutral-500 uppercase">
                         {previewTemplate.headerType}
@@ -1265,7 +1408,9 @@ export default function WhatsAppTemplatesPage() {
                       {previewTemplate.footer}
                     </p>
                   )}
-                  <p className="text-[10px] text-neutral-300 text-right mt-1">09:41 ✓✓</p>
+                  <p className="text-[10px] text-neutral-300 text-right mt-1">
+                    09:41 ✓✓
+                  </p>
                 </div>
                 {previewTemplate.buttons.length > 0 && (
                   <div className="flex flex-col gap-1 mt-2 max-w-[90%]">
@@ -1304,7 +1449,8 @@ export default function WhatsAppTemplatesPage() {
             {previewTemplate.notes && (
               <div className="px-4 pb-4">
                 <p className="text-[10px] text-neutral-400 italic flex items-start gap-1">
-                  <Info className="w-3 h-3 mt-0.5 shrink-0" /> {previewTemplate.notes}
+                  <Info className="w-3 h-3 mt-0.5 shrink-0" />{" "}
+                  {previewTemplate.notes}
                 </p>
               </div>
             )}
@@ -1313,14 +1459,19 @@ export default function WhatsAppTemplatesPage() {
               <Button
                 variant="outline"
                 className="flex-1 border-2 border-black font-black h-10 gap-2"
-                onClick={() => { copyName(previewTemplate.name); }}
+                onClick={() => {
+                  copyName(previewTemplate.name);
+                }}
               >
                 <Copy className="w-3.5 h-3.5" /> Copy Name
               </Button>
               <Button
                 variant="outline"
                 className="flex-1 border-2 border-black font-black h-10 gap-2"
-                onClick={() => { setPreviewTemplate(null); openEdit(previewTemplate); }}
+                onClick={() => {
+                  setPreviewTemplate(null);
+                  openEdit(previewTemplate);
+                }}
               >
                 <Edit className="w-3.5 h-3.5" /> Edit
               </Button>
@@ -1340,15 +1491,28 @@ export default function WhatsAppTemplatesPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-neutral-600">
           <div className="space-y-1">
             <p className="font-black text-neutral-800">1. Create here</p>
-            <p>Draft your template with variables, buttons and preview it in the WhatsApp bubble format.</p>
+            <p>
+              Draft your template with variables, buttons and preview it in the
+              WhatsApp bubble format.
+            </p>
           </div>
           <div className="space-y-1">
             <p className="font-black text-neutral-800">2. Submit on Meta</p>
-            <p>Go to Meta Business Suite → WhatsApp Manager → Message Templates and submit for approval. Approval takes 2–48 hrs.</p>
+            <p>
+              Go to Meta Business Suite → WhatsApp Manager → Message Templates
+              and submit for approval. Approval takes 2–48 hrs.
+            </p>
           </div>
           <div className="space-y-1">
             <p className="font-black text-neutral-800">3. Sync & Use</p>
-            <p>Click <strong>Sync from Meta</strong> to pull live statuses. Use the template name in your <code className="text-[11px] bg-neutral-200 px-1 rounded">WHATSAPP_TEMPLATE_NAME</code> env var or API calls.</p>
+            <p>
+              Click <strong>Sync from Meta</strong> to pull live statuses. Use
+              the template name in your{" "}
+              <code className="text-[11px] bg-neutral-200 px-1 rounded">
+                WHATSAPP_TEMPLATE_NAME
+              </code>{" "}
+              env var or API calls.
+            </p>
           </div>
         </div>
       </div>

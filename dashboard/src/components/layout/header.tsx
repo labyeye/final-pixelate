@@ -24,7 +24,8 @@ export function MobileHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const { user, logout } = useAuth();
-  const [globalClientPages, setGlobalClientPages] = useState<string[]>(defaultClientAllowed);
+  const [globalClientPages, setGlobalClientPages] =
+    useState<string[]>(defaultClientAllowed);
 
   useEffect(() => {
     fetch("/api/settings/client-sidebar")
@@ -52,7 +53,11 @@ export function MobileHeader() {
   const linkClass = (href: string, exact = false) =>
     cn(
       "flex items-center gap-3 px-3 py-2.5 text-sm font-bold transition-all border-2 rounded-md",
-      (exact ? pathname === href : pathname === href || pathname.startsWith(href + "/"))
+      (
+        exact
+          ? pathname === href
+          : pathname === href || pathname.startsWith(href + "/")
+      )
         ? "bg-primary text-primary-foreground border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
         : "bg-transparent text-muted-foreground border-transparent hover:text-foreground hover:bg-muted hover:border-black/10",
     );
@@ -66,7 +71,11 @@ export function MobileHeader() {
         </Link>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="h-9 w-9 border-2 border-black">
+            <Button
+              variant="outline"
+              size="icon"
+              className="h-9 w-9 border-2 border-black"
+            >
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle Menu</span>
             </Button>
@@ -83,8 +92,12 @@ export function MobileHeader() {
                   alt="Kalahanu Tech Logo"
                   className="mx-auto mb-1 w-12 h-12"
                 />
-                <h1 className="text-xl font-black tracking-tighter text-center">Kalahanu Tech</h1>
-                <p className="text-xs text-muted-foreground font-bold text-center">Studios CRM</p>
+                <h1 className="text-xl font-black tracking-tighter text-center">
+                  Kalahanu Tech
+                </h1>
+                <p className="text-xs text-muted-foreground font-bold text-center">
+                  Studios CRM
+                </p>
               </Link>
             </div>
 
@@ -164,7 +177,10 @@ export function MobileHeader() {
                     {user.avatar ? (
                       <AvatarImage src={user.avatar} alt={user.name} />
                     ) : userAvatar ? (
-                      <AvatarImage src={userAvatar.imageUrl} alt="User Avatar" />
+                      <AvatarImage
+                        src={userAvatar.imageUrl}
+                        alt="User Avatar"
+                      />
                     ) : null}
                     <AvatarFallback className="rounded-lg bg-primary text-primary-foreground font-black text-sm">
                       {user.name?.charAt(0).toUpperCase() ?? "U"}
@@ -177,7 +193,10 @@ export function MobileHeader() {
                     </p>
                   </div>
                   <Button
-                    onClick={() => { logout(); close(); }}
+                    onClick={() => {
+                      logout();
+                      close();
+                    }}
                     variant="ghost"
                     size="icon"
                     className="h-8 w-8 hover:bg-destructive hover:text-destructive-foreground rounded-md"

@@ -1,25 +1,21 @@
 .final-team-section {
   padding: 100px 0;
 }
-
 .final-team-header {
   text-align: center;
   margin-bottom: 60px;
 }
-
 .final-team-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 30px;
   padding: 0 50px;
 }
-
 .final-team-card-wrapper {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
 .final-team-card {
   background: var(--glass-bg-1);
   border-radius: 16px;
@@ -30,12 +26,10 @@
   isolation: isolate;
   transform: translateY(-10px);
 }
-
 .final-team-card:hover {
   transform: translateY(-15px);
   z-index: 10;
 }
-
 .team-info-card {
   background: rgba(5, 75, 171, 0.05);
   border: 1px solid var(--glass-border);
@@ -48,27 +42,23 @@
     transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     opacity 0.4s ease;
 }
-
 .final-team-card-wrapper:hover .team-info-card {
   transform: translateY(0);
   opacity: 1;
   background: rgba(5, 75, 171, 0.15);
   border-color: var(--glass-border-hover);
 }
-
 .info-card-name {
   color: var(--primary-900);
   font-weight: 700;
   font-size: 18px;
   margin: 0 0 8px;
 }
-
 .info-card-role {
   color: var(--primary-900);
   font-size: 14px;
   margin: 0 0 12px;
 }
-
 .info-card-socials {
   display: flex;
   gap: 12px;
@@ -76,7 +66,6 @@
   align-items: center;
   margin-top: 12px;
 }
-
 .info-card-socials .social-link {
   display: inline-flex;
   align-items: center;
@@ -90,19 +79,16 @@
   width: 36px;
   height: 36px;
 }
-
 .info-card-socials .social-link:hover {
   background: var(--glass-bg-hover);
   transform: translateY(-3px) scale(1.1);
   box-shadow: 0 4px 12px var(--shadow-glass);
 }
-
 .info-card-socials .social-link svg {
   width: 20px;
   height: 20px;
   stroke: currentColor;
 }
-
 .social-icons-box {
   position: absolute;
   bottom: 0;
@@ -120,15 +106,13 @@
   z-index: 50;
   pointer-events: none;
 }
-
-.final-team-card:hover .social-icons-box,
+.final-team-card.is-hover .social-icons-box,
 .final-team-card:focus-within .social-icons-box,
-.final-team-card.is-hover .social-icons-box {
+.final-team-card:hover .social-icons-box {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
 }
-
 .social-icons-inner {
   display: flex;
   gap: 12px;
@@ -141,7 +125,6 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px var(--shadow-dark);
 }
-
 .social-icons-box .social-link {
   display: inline-flex;
   align-items: center;
@@ -155,34 +138,29 @@
   width: 36px;
   height: 36px;
 }
-
 .social-icons-box .social-link:hover {
   background: var(--glass-bg-hover);
   transform: translateY(-3px) scale(1.1);
   box-shadow: 0 4px 12px var(--shadow-glass);
 }
-
 .social-icons-box .social-link svg {
   width: 20px;
   height: 20px;
   stroke: currentColor;
 }
-
-.final-team-card:hover .final-team-image,
+.final-team-card:focus .final-team-image,
 .final-team-card:focus-within .final-team-image,
-.final-team-card:focus .final-team-image {
+.final-team-card:hover .final-team-image {
   transform: scale(1.08);
   filter: brightness(0.75);
   transition:
     transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     filter 0.4s ease;
 }
-
 .final-team-image-wrapper {
   aspect-ratio: 1;
   overflow: hidden;
 }
-
 .final-team-image {
   width: 100%;
   height: 100%;
@@ -193,7 +171,6 @@
     transform 0.35s ease,
     filter 0.35s ease;
 }
-
 .final-team-card::before {
   content: "";
   position: absolute;
@@ -202,36 +179,30 @@
   z-index: 0;
   pointer-events: none;
 }
-
 @media screen and (max-width: 767px) {
   .final-team-container {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
-
 @media (max-width: 991px) {
   .final-team-header {
     text-align: center;
   }
-
   .final-team-container {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
-
 @media (max-width: 480px) {
   .heading-wrap.h2 {
     font-size: 1.25rem;
   }
 }
-
 :root {
   --gutter: 16px;
   --gap: 16px;
   --site-max-width: 1200px;
   --radius: 6px;
   --transition: 220ms ease;
-
   --glass-bg-1: rgba(255, 255, 255, 0.05);
   --glass-bg-2: rgba(255, 255, 255, 0.08);
   --glass-bg-3: rgba(255, 255, 255, 0.12);
@@ -239,14 +210,11 @@
   --glass-bg-hover: rgba(255, 255, 255, 0.3);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-border-hover: rgba(255, 255, 255, 0.2);
-
   --text-white-70: rgba(255, 255, 255, 0.7);
   --text-white-80: rgba(255, 255, 255, 0.8);
-
   --shadow-dark: rgba(0, 0, 0, 0.3);
   --shadow-light: rgba(0, 0, 0, 0.06);
   --shadow-glass: rgba(255, 255, 255, 0.2);
-
   --overlay-black-top: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.95) 0%,
@@ -258,58 +226,48 @@
     rgba(0, 0, 0, 0.45) 100%
   );
 }
-
-html,
-body {
+body,
+html {
   overflow-x: hidden;
 }
-
 h1 {
   font-size: clamp(24px, calc(1.35rem + 1.2vw), 48px);
 }
-
 h2 {
   font-size: clamp(20px, calc(1.15rem + 1vw), 36px);
 }
-
 h3 {
   font-size: clamp(18px, calc(1rem + 0.6vw), 28px);
 }
-
-p,
+button,
 li,
-button {
+p {
   font-size: clamp(13px, calc(0.95rem + 0.2vw), 16px);
 }
-
 .container {
   width: 100%;
   max-width: var(--site-max-width);
   margin: 0 auto;
   padding: 0 calc(var(--gutter));
 }
-
 .row {
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap);
   align-items: flex-start;
 }
-
 .card {
   box-shadow: 0 6px 18px var(--shadow-light);
   border-radius: var(--radius);
   background: var(--text-primary);
 }
-
+iframe,
 img,
-video,
-iframe {
+video {
   max-width: 100%;
   height: auto;
   display: block;
 }
-
 .w-button {
   padding: 12px 18px;
   border-radius: 6px;
@@ -318,41 +276,34 @@ iframe {
   align-items: center;
   justify-content: center;
 }
-
 * {
   transition: var(--transition);
 }
-
 @media (min-width: 768px) and (max-width: 1023px) {
   :root {
     --gutter: 20px;
     --gap: 20px;
   }
 }
-
 @media (min-width: 1024px) and (max-width: 1439px) {
   :root {
     --gutter: 28px;
     --gap: 28px;
   }
-
   .container {
     padding: 0 calc(var(--gutter) * 0.75);
   }
 }
-
 @media (min-width: 1440px) {
   :root {
     --gutter: 42px;
     --gap: 32px;
     --site-max-width: 1440px;
   }
-
   .container {
     padding: 0 calc(var(--gutter));
   }
 }
-
 .title-caption {
   font-size: 38px;
   font-weight: 700;

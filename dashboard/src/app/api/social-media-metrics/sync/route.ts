@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import * as svc from "@/lib/services";
-import { fetchFbPostMetrics, fetchIgMediaMetrics, getUserPages } from "@/lib/meta-api";
+import {
+  fetchFbPostMetrics,
+  fetchIgMediaMetrics,
+  getUserPages,
+} from "@/lib/meta-api";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -82,7 +86,9 @@ export async function POST(request: Request) {
     if (post.clientId) {
       try {
         const clientsCol = await svc.getCollection("clients");
-        const client = await clientsCol.findOne({ _id: new ObjectId(post.clientId) });
+        const client = await clientsCol.findOne({
+          _id: new ObjectId(post.clientId),
+        });
         clientMetaToken = client?.metaAccessToken || null;
       } catch {}
     }
@@ -92,10 +98,9 @@ export async function POST(request: Request) {
     if (!baseToken || !account.platformAccountId) {
       return NextResponse.json(
         {
-          error:
-            !account.platformAccountId
-              ? "No Page ID saved for this account. Go to the client's Social Tokens tab and enter the Facebook Page ID."
-              : "No access token available. Go to the client's Social Tokens tab and add a System User Token.",
+          error: !account.platformAccountId
+            ? "No Page ID saved for this account. Go to the client's Social Tokens tab and enter the Facebook Page ID."
+            : "No access token available. Go to the client's Social Tokens tab and add a System User Token.",
           needsConnect: true,
           accountId,
         },
@@ -123,15 +128,23 @@ export async function POST(request: Request) {
 
     // Catch URL/platform mismatch early before wasting API calls
     const urlLower = postedUrl.toLowerCase();
-    if (platform === "Facebook" && !urlLower.includes("facebook.com") && !urlLower.includes("fb.com")) {
+    if (
+      platform === "Facebook" &&
+      !urlLower.includes("facebook.com") &&
+      !urlLower.includes("fb.com")
+    ) {
       return NextResponse.json(
-        { error: `URL mismatch: platform is Facebook but the posted link is not a Facebook URL (${postedUrl}). Update the posted link in the Planner.` },
+        {
+          error: `URL mismatch: platform is Facebook but the posted link is not a Facebook URL (${postedUrl}). Update the posted link in the Planner.`,
+        },
         { status: 400, headers: CORS },
       );
     }
     if (platform === "Instagram" && !urlLower.includes("instagram.com")) {
       return NextResponse.json(
-        { error: `URL mismatch: platform is Instagram but the posted link is not an Instagram URL (${postedUrl}). Update the posted link in the Planner.` },
+        {
+          error: `URL mismatch: platform is Instagram but the posted link is not an Instagram URL (${postedUrl}). Update the posted link in the Planner.`,
+        },
         { status: 400, headers: CORS },
       );
     }

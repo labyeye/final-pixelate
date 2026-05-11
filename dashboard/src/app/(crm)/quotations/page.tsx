@@ -364,310 +364,319 @@ export default function QuotationsPage() {
 
       <div className="border-2 border-black rounded-lg overflow-hidden">
         <div className="overflow-x-auto">
-        <Table>
-          <TableHeader>
-            <TableRow className="border-b-2 border-black bg-gray-50">
-              <TableHead className="text-xs sm:text-sm font-bold">
-                Quote ID / Title
-              </TableHead>
-              <TableHead className="text-xs sm:text-sm font-bold">Client</TableHead>
-              <TableHead className="text-xs sm:text-sm font-bold">Date</TableHead>
-              <TableHead className="text-xs sm:text-sm font-bold">Services</TableHead>
-              <TableHead className="text-xs sm:text-sm font-bold">Modules</TableHead>
-              <TableHead className="text-base font-bold text-right">
-                Total Amount
-              </TableHead>
-              <TableHead className="text-base font-bold text-center">
-                Status
-              </TableHead>
-              <TableHead className="text-base font-bold text-right">
-                Actions
-              </TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {quotations.length === 0 ? (
-              <TableRow>
-                <TableCell
-                  colSpan={8}
-                  className="text-center py-10 text-muted-foreground"
-                >
-                  No quotations found. Create your first quotation to get
-                  started.
-                </TableCell>
+          <Table>
+            <TableHeader>
+              <TableRow className="border-b-2 border-black bg-gray-50">
+                <TableHead className="text-xs sm:text-sm font-bold">
+                  Quote ID / Title
+                </TableHead>
+                <TableHead className="text-xs sm:text-sm font-bold">
+                  Client
+                </TableHead>
+                <TableHead className="text-xs sm:text-sm font-bold">
+                  Date
+                </TableHead>
+                <TableHead className="text-xs sm:text-sm font-bold">
+                  Services
+                </TableHead>
+                <TableHead className="text-xs sm:text-sm font-bold">
+                  Modules
+                </TableHead>
+                <TableHead className="text-base font-bold text-right">
+                  Total Amount
+                </TableHead>
+                <TableHead className="text-base font-bold text-center">
+                  Status
+                </TableHead>
+                <TableHead className="text-base font-bold text-right">
+                  Actions
+                </TableHead>
               </TableRow>
-            ) : (
-              quotations.map((quote, idx) => {
-                const servicesTotal = (quote.services || []).reduce(
-                  (sum: number, item: any) => {
-                    const fromAmount = Number(item?.amount ?? NaN);
-                    const fromTotal = Number(item?.total ?? NaN);
-                    const fromPriceQty =
-                      item?.price && item?.qty
-                        ? Number(item.price) * Number(item.qty)
-                        : NaN;
-                    const fromUnitPriceQty =
-                      item?.unitPrice && item?.qty
-                        ? Number(item.unitPrice) * Number(item.qty)
-                        : NaN;
-                    const val =
-                      Number.isFinite(fromAmount) && !Number.isNaN(fromAmount)
-                        ? fromAmount
-                        : Number.isFinite(fromTotal) && !Number.isNaN(fromTotal)
-                          ? fromTotal
-                          : Number.isFinite(fromPriceQty) &&
-                              !Number.isNaN(fromPriceQty)
-                            ? fromPriceQty
-                            : Number.isFinite(fromUnitPriceQty) &&
-                                !Number.isNaN(fromUnitPriceQty)
-                              ? fromUnitPriceQty
-                              : 0;
-                    return sum + val;
-                  },
-                  0,
-                );
-                const totalAmount = servicesTotal || quote.amount || 0;
-
-                return (
-                  <TableRow
-                    key={quote._id ?? quote.id ?? idx}
-                    className="border-b border-gray-200 last:border-b-0 hover:bg-orange-50 transition-colors"
+            </TableHeader>
+            <TableBody>
+              {quotations.length === 0 ? (
+                <TableRow>
+                  <TableCell
+                    colSpan={8}
+                    className="text-center py-10 text-muted-foreground"
                   >
-                    <TableCell className="py-4 max-w-xs">
-                      <div className="font-bold text-base text-[#F36F21]">
-                        {(quote as any).quoteId ||
-                          quote.id ||
-                          `PN-${String(idx + 1).padStart(5, "0")}`}
-                      </div>
-                      <div className="text-sm font-semibold text-gray-900 mt-1 truncate">
-                        {(quote as any).title || "Untitled Project"}
-                      </div>
-                      {(quote as any).subtitle && (
-                        <div className="text-xs text-gray-600 mt-0.5 truncate">
-                          {(quote as any).subtitle}
-                        </div>
-                      )}
-                    </TableCell>
+                    No quotations found. Create your first quotation to get
+                    started.
+                  </TableCell>
+                </TableRow>
+              ) : (
+                quotations.map((quote, idx) => {
+                  const servicesTotal = (quote.services || []).reduce(
+                    (sum: number, item: any) => {
+                      const fromAmount = Number(item?.amount ?? NaN);
+                      const fromTotal = Number(item?.total ?? NaN);
+                      const fromPriceQty =
+                        item?.price && item?.qty
+                          ? Number(item.price) * Number(item.qty)
+                          : NaN;
+                      const fromUnitPriceQty =
+                        item?.unitPrice && item?.qty
+                          ? Number(item.unitPrice) * Number(item.qty)
+                          : NaN;
+                      const val =
+                        Number.isFinite(fromAmount) && !Number.isNaN(fromAmount)
+                          ? fromAmount
+                          : Number.isFinite(fromTotal) &&
+                              !Number.isNaN(fromTotal)
+                            ? fromTotal
+                            : Number.isFinite(fromPriceQty) &&
+                                !Number.isNaN(fromPriceQty)
+                              ? fromPriceQty
+                              : Number.isFinite(fromUnitPriceQty) &&
+                                  !Number.isNaN(fromUnitPriceQty)
+                                ? fromUnitPriceQty
+                                : 0;
+                      return sum + val;
+                    },
+                    0,
+                  );
+                  const totalAmount = servicesTotal || quote.amount || 0;
 
-                    <TableCell className="py-4">
-                      <div className="font-bold text-gray-900">
-                        {(quote.clientId &&
-                          clientsMap[String(quote.clientId)]?.businessName) ||
-                          (quote.clientId &&
-                            clientsMap[String(quote.clientId)]?.name) ||
-                          quote.clientName ||
-                          "Client"}
-                      </div>
-                      {quote.clientId &&
-                        clientsMap[String(quote.clientId)]?.email && (
-                          <div className="text-xs text-gray-600 mt-0.5">
-                            {clientsMap[String(quote.clientId)].email}
+                  return (
+                    <TableRow
+                      key={quote._id ?? quote.id ?? idx}
+                      className="border-b border-gray-200 last:border-b-0 hover:bg-orange-50 transition-colors"
+                    >
+                      <TableCell className="py-4 max-w-xs">
+                        <div className="font-bold text-base text-[#F36F21]">
+                          {(quote as any).quoteId ||
+                            quote.id ||
+                            `PN-${String(idx + 1).padStart(5, "0")}`}
+                        </div>
+                        <div className="text-sm font-semibold text-gray-900 mt-1 truncate">
+                          {(quote as any).title || "Untitled Project"}
+                        </div>
+                        {(quote as any).subtitle && (
+                          <div className="text-xs text-gray-600 mt-0.5 truncate">
+                            {(quote as any).subtitle}
                           </div>
                         )}
-                    </TableCell>
+                      </TableCell>
 
-                    <TableCell className="py-4">
-                      <div className="text-sm text-gray-900">
-                        {(quote as any).date
-                          ? new Date((quote as any).date).toLocaleDateString(
-                              "en-GB",
-                              {
-                                day: "2-digit",
-                                month: "short",
-                                year: "numeric",
-                              },
-                            )
-                          : "N/A"}
-                      </div>
-                    </TableCell>
+                      <TableCell className="py-4">
+                        <div className="font-bold text-gray-900">
+                          {(quote.clientId &&
+                            clientsMap[String(quote.clientId)]?.businessName) ||
+                            (quote.clientId &&
+                              clientsMap[String(quote.clientId)]?.name) ||
+                            quote.clientName ||
+                            "Client"}
+                        </div>
+                        {quote.clientId &&
+                          clientsMap[String(quote.clientId)]?.email && (
+                            <div className="text-xs text-gray-600 mt-0.5">
+                              {clientsMap[String(quote.clientId)].email}
+                            </div>
+                          )}
+                      </TableCell>
 
-                    <TableCell className="py-4 max-w-xs">
-                      <div className="flex flex-wrap gap-1">
-                        {quote.services && quote.services.length > 0 ? (
-                          quote.services
-                            .slice(0, 3)
-                            .map((s: any, sidx: number) => (
-                              <Badge
-                                key={`${String(
-                                  s._id ?? s.id ?? s.serviceName ?? "service",
-                                )}-${sidx}`}
-                                variant="secondary"
-                                className="text-xs"
-                              >
-                                {s.serviceName || s.name || "Service"}
-                              </Badge>
-                            ))
-                        ) : (
-                          <span className="text-xs text-gray-500">
-                            No services
-                          </span>
-                        )}
-                        {quote.services && quote.services.length > 3 && (
-                          <Badge variant="outline" className="text-xs">
-                            +{quote.services.length - 3} more
-                          </Badge>
-                        )}
-                      </div>
-                    </TableCell>
+                      <TableCell className="py-4">
+                        <div className="text-sm text-gray-900">
+                          {(quote as any).date
+                            ? new Date((quote as any).date).toLocaleDateString(
+                                "en-GB",
+                                {
+                                  day: "2-digit",
+                                  month: "short",
+                                  year: "numeric",
+                                },
+                              )
+                            : "N/A"}
+                        </div>
+                      </TableCell>
 
-                    <TableCell className="py-4 max-w-xs">
-                      <div className="flex flex-wrap gap-1">
-                        {(quote as any).modules &&
-                        (quote as any).modules.length > 0 ? (
-                          (quote as any).modules
-                            .slice(0, 2)
-                            .map((m: any, midx: number) => (
-                              <Badge
-                                key={`${String(
-                                  m._id ?? m.id ?? m.moduleName ?? "module",
-                                )}-${midx}`}
-                                variant="outline"
-                                className="text-xs"
-                              >
-                                {m.moduleName || "Module"}
-                              </Badge>
-                            ))
-                        ) : (
-                          <span className="text-xs text-gray-500">
-                            No modules
-                          </span>
-                        )}
-                        {(quote as any).modules &&
-                          (quote as any).modules.length > 2 && (
+                      <TableCell className="py-4 max-w-xs">
+                        <div className="flex flex-wrap gap-1">
+                          {quote.services && quote.services.length > 0 ? (
+                            quote.services
+                              .slice(0, 3)
+                              .map((s: any, sidx: number) => (
+                                <Badge
+                                  key={`${String(
+                                    s._id ?? s.id ?? s.serviceName ?? "service",
+                                  )}-${sidx}`}
+                                  variant="secondary"
+                                  className="text-xs"
+                                >
+                                  {s.serviceName || s.name || "Service"}
+                                </Badge>
+                              ))
+                          ) : (
+                            <span className="text-xs text-gray-500">
+                              No services
+                            </span>
+                          )}
+                          {quote.services && quote.services.length > 3 && (
                             <Badge variant="outline" className="text-xs">
-                              +{(quote as any).modules.length - 2}
+                              +{quote.services.length - 3} more
                             </Badge>
                           )}
-                      </div>
-                    </TableCell>
+                        </div>
+                      </TableCell>
 
-                    <TableCell className="text-right font-bold text-base py-4">
-                      {formatCurrency(totalAmount)}
-                    </TableCell>
-
-                    <TableCell className="text-center py-4">
-                      {isClient ? (
-                        <span
-                          className={cn(
-                            "inline-block px-3 py-1 rounded-full text-xs font-semibold",
-                            quote.status === "APPROVED" &&
-                              "bg-green-100 text-green-800",
-                            quote.status === "REJECTED" &&
-                              "bg-red-100 text-red-800",
-                            (!quote.status || quote.status === "PENDING") &&
-                              "bg-yellow-100 text-yellow-800",
+                      <TableCell className="py-4 max-w-xs">
+                        <div className="flex flex-wrap gap-1">
+                          {(quote as any).modules &&
+                          (quote as any).modules.length > 0 ? (
+                            (quote as any).modules
+                              .slice(0, 2)
+                              .map((m: any, midx: number) => (
+                                <Badge
+                                  key={`${String(
+                                    m._id ?? m.id ?? m.moduleName ?? "module",
+                                  )}-${midx}`}
+                                  variant="outline"
+                                  className="text-xs"
+                                >
+                                  {m.moduleName || "Module"}
+                                </Badge>
+                              ))
+                          ) : (
+                            <span className="text-xs text-gray-500">
+                              No modules
+                            </span>
                           )}
-                        >
-                          {quote.status || "PENDING"}
-                        </span>
-                      ) : (
-                        <Select
-                          value={quote.status || "PENDING"}
-                          onValueChange={(v) => {
-                            setQuotations((prev) =>
-                              prev.map((q) => {
-                                const same =
-                                  (q as any)._id && (quote as any)._id
-                                    ? String((q as any)._id) ===
-                                      String((quote as any)._id)
-                                    : (q as any).id && (quote as any).id
-                                      ? (q as any).id === (quote as any).id
-                                      : false;
-                                return same ? { ...q, status: v as any } : q;
-                              }),
-                            );
-                            persistStatus(quote, v);
-                          }}
-                        >
-                          <SelectTrigger
+                          {(quote as any).modules &&
+                            (quote as any).modules.length > 2 && (
+                              <Badge variant="outline" className="text-xs">
+                                +{(quote as any).modules.length - 2}
+                              </Badge>
+                            )}
+                        </div>
+                      </TableCell>
+
+                      <TableCell className="text-right font-bold text-base py-4">
+                        {formatCurrency(totalAmount)}
+                      </TableCell>
+
+                      <TableCell className="text-center py-4">
+                        {isClient ? (
+                          <span
                             className={cn(
-                              "h-9 px-3 font-semibold text-xs w-[110px]",
+                              "inline-block px-3 py-1 rounded-full text-xs font-semibold",
                               quote.status === "APPROVED" &&
-                                "bg-green-100 text-green-800 border-green-300",
+                                "bg-green-100 text-green-800",
                               quote.status === "REJECTED" &&
-                                "bg-red-100 text-red-800 border-red-300",
+                                "bg-red-100 text-red-800",
                               (!quote.status || quote.status === "PENDING") &&
-                                "bg-yellow-100 text-yellow-800 border-yellow-300",
+                                "bg-yellow-100 text-yellow-800",
                             )}
                           >
-                            <SelectValue />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="PENDING">PENDING</SelectItem>
-                            <SelectItem value="APPROVED">APPROVED</SelectItem>
-                            <SelectItem value="REJECTED">REJECTED</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      )}
-                    </TableCell>
+                            {quote.status || "PENDING"}
+                          </span>
+                        ) : (
+                          <Select
+                            value={quote.status || "PENDING"}
+                            onValueChange={(v) => {
+                              setQuotations((prev) =>
+                                prev.map((q) => {
+                                  const same =
+                                    (q as any)._id && (quote as any)._id
+                                      ? String((q as any)._id) ===
+                                        String((quote as any)._id)
+                                      : (q as any).id && (quote as any).id
+                                        ? (q as any).id === (quote as any).id
+                                        : false;
+                                  return same ? { ...q, status: v as any } : q;
+                                }),
+                              );
+                              persistStatus(quote, v);
+                            }}
+                          >
+                            <SelectTrigger
+                              className={cn(
+                                "h-9 px-3 font-semibold text-xs w-[110px]",
+                                quote.status === "APPROVED" &&
+                                  "bg-green-100 text-green-800 border-green-300",
+                                quote.status === "REJECTED" &&
+                                  "bg-red-100 text-red-800 border-red-300",
+                                (!quote.status || quote.status === "PENDING") &&
+                                  "bg-yellow-100 text-yellow-800 border-yellow-300",
+                              )}
+                            >
+                              <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="PENDING">PENDING</SelectItem>
+                              <SelectItem value="APPROVED">APPROVED</SelectItem>
+                              <SelectItem value="REJECTED">REJECTED</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        )}
+                      </TableCell>
 
-                    <TableCell className="text-right py-4">
-                      <div className="flex items-center justify-end gap-2">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="h-8"
-                          onClick={() =>
-                            router.push(
-                              `/quotations/${
-                                (quote as any)._id || (quote as any).id
-                              }/view`,
-                            )
-                          }
-                        >
-                          View
-                        </Button>
-
-                        {!isClient && quote.status === "APPROVED" && (
+                      <TableCell className="text-right py-4">
+                        <div className="flex items-center justify-end gap-2">
                           <Button
                             size="sm"
-                            className="bg-[#F36F21] hover:bg-[#d85e1a] h-8"
-                            onClick={() => createProjectFromQuote(quote)}
+                            variant="outline"
+                            className="h-8"
+                            onClick={() =>
+                              router.push(
+                                `/quotations/${
+                                  (quote as any)._id || (quote as any).id
+                                }/view`,
+                              )
+                            }
                           >
-                            Create Project
+                            View
                           </Button>
-                        )}
 
-                        {!isClient && (
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                              <Button
-                                variant="ghost"
-                                size="icon"
-                                className="h-8 w-8"
-                              >
-                                <MoreVertical className="h-4 w-4" />
-                              </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                              <DropdownMenuItem
-                                onClick={() => {
-                                  const id =
-                                    (quote as any)._id || (quote as any).id;
-                                  if (
-                                    id &&
-                                    window.confirm(
-                                      "Are you sure you want to delete this quotation?",
-                                    )
-                                  ) {
-                                    deleteQuotation(String(id));
-                                  }
-                                }}
-                                className="text-destructive font-semibold"
-                              >
-                                Delete
-                              </DropdownMenuItem>
-                            </DropdownMenuContent>
-                          </DropdownMenu>
-                        )}
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                );
-              })
-            )}
-          </TableBody>
-        </Table>
+                          {!isClient && quote.status === "APPROVED" && (
+                            <Button
+                              size="sm"
+                              className="bg-[#F36F21] hover:bg-[#d85e1a] h-8"
+                              onClick={() => createProjectFromQuote(quote)}
+                            >
+                              Create Project
+                            </Button>
+                          )}
+
+                          {!isClient && (
+                            <DropdownMenu>
+                              <DropdownMenuTrigger asChild>
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  className="h-8 w-8"
+                                >
+                                  <MoreVertical className="h-4 w-4" />
+                                </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent align="end">
+                                <DropdownMenuItem
+                                  onClick={() => {
+                                    const id =
+                                      (quote as any)._id || (quote as any).id;
+                                    if (
+                                      id &&
+                                      window.confirm(
+                                        "Are you sure you want to delete this quotation?",
+                                      )
+                                    ) {
+                                      deleteQuotation(String(id));
+                                    }
+                                  }}
+                                  className="text-destructive font-semibold"
+                                >
+                                  Delete
+                                </DropdownMenuItem>
+                              </DropdownMenuContent>
+                            </DropdownMenu>
+                          )}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })
+              )}
+            </TableBody>
+          </Table>
         </div>
       </div>
     </div>

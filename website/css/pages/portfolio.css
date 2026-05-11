@@ -4,7 +4,7 @@
 }
 .portfolio-details-main {
   padding: 48px 20px;
-  background: #ffffff;
+  background: #fff;
   min-height: 60vh;
 }
 .details-card {
@@ -62,14 +62,13 @@
 }
 .btn-primary {
   background: var(--primary);
-  color: white;
+  color: #fff;
 }
 .btn-ghost {
-  background: transparent;
+  background: 0 0;
   color: var(--primary);
   border: 2px solid rgba(4, 75, 171, 0.08);
 }
-
 @media (min-width: 900px) {
   .details-card {
     grid-template-columns: 48% 52%;

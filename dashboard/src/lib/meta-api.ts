@@ -191,8 +191,8 @@ export async function fetchFbPostMetrics(
   if (!postId)
     throw new Error(
       `Could not extract post ID from URL: ${postUrl}. ` +
-      `Please use the direct post URL from your Facebook Page ` +
-      `(e.g. facebook.com/YourPage/posts/123456789) instead of a share link.`
+        `Please use the direct post URL from your Facebook Page ` +
+        `(e.g. facebook.com/YourPage/posts/123456789) instead of a share link.`,
     );
 
   // pfbid slugs are not numeric — resolve to real numeric ID via multiple strategies
@@ -216,7 +216,10 @@ export async function fetchFbPostMetrics(
     "id,likes.summary(true).limit(0),comments.summary(true).limit(0)",
   ];
 
-  async function fetchEngagement(id: string, token: string): Promise<any | null> {
+  async function fetchEngagement(
+    id: string,
+    token: string,
+  ): Promise<any | null> {
     for (const fields of engFields) {
       const url = new URL(`${META_GRAPH_API}/${id}`);
       url.searchParams.set("fields", fields);
@@ -226,10 +229,14 @@ export async function fetchFbPostMetrics(
       if (data.error) {
         const code = data.error.code;
         const subcode = data.error.error_subcode;
-        console.warn(`FB engagement error for ${id}: ${data.error.message} (code ${code}, subcode ${subcode})`);
+        console.warn(
+          `FB engagement error for ${id}: ${data.error.message} (code ${code}, subcode ${subcode})`,
+        );
         // Token expired — throw immediately, no point retrying
         if (code === 190) {
-          throw new Error(`Facebook access token has expired. Go to the client's Social Tokens tab and click "Connect Facebook" to get a new token.`);
+          throw new Error(
+            `Facebook access token has expired. Go to the client's Social Tokens tab and click "Connect Facebook" to get a new token.`,
+          );
         }
         // Permission error on this specific ID format (code 10) — try next field combo or caller will try bare ID
         // Field doesn't exist (code 100) — try next field combo without that field
@@ -243,27 +250,32 @@ export async function fetchFbPostMetrics(
   }
 
   const graphId = `${pageId}_${postId}`;
-  console.log(`[FB metrics] postUrl=${postUrl} postId=${postId} graphId=${graphId}`);
+  console.log(
+    `[FB metrics] postUrl=${postUrl} postId=${postId} graphId=${graphId}`,
+  );
 
   // Try all ID formats: pageId_postId, bare postId, then URL-resolved ID
   let eng: any =
-    await fetchEngagement(graphId, pageAccessToken) ||
-    await fetchEngagement(postId, pageAccessToken);
+    (await fetchEngagement(graphId, pageAccessToken)) ||
+    (await fetchEngagement(postId, pageAccessToken));
 
   if (!eng) {
     // Last resort: resolve URL to object ID and retry
-    const urlResolved = await resolveUrlToObjectId(resolvedUrl, pageAccessToken);
+    const urlResolved = await resolveUrlToObjectId(
+      resolvedUrl,
+      pageAccessToken,
+    );
     if (urlResolved && urlResolved !== postId) {
       eng =
-        await fetchEngagement(`${pageId}_${urlResolved}`, pageAccessToken) ||
-        await fetchEngagement(urlResolved, pageAccessToken);
+        (await fetchEngagement(`${pageId}_${urlResolved}`, pageAccessToken)) ||
+        (await fetchEngagement(urlResolved, pageAccessToken));
     }
   }
 
   if (!eng)
     throw new Error(
       `Could not fetch metrics for post ${postId} (page ${pageId}). ` +
-      `Check that the System User Token has 'pages_read_engagement' permission and the Page ID is correct.`
+        `Check that the System User Token has 'pages_read_engagement' permission and the Page ID is correct.`,
     );
 
   let views = 0;
@@ -284,12 +296,19 @@ export async function fetchFbPostMetrics(
         const insightRes = await fetch(insightUrl.toString());
         const insightData = await insightRes.json();
         if (insightData.error) {
-          console.warn(`FB insight [${insightId}] "${metric}" error: ${insightData.error.message}`);
+          console.warn(
+            `FB insight [${insightId}] "${metric}" error: ${insightData.error.message}`,
+          );
           continue;
         }
-        const found = (insightData.data || []).find((d: any) => d.name === metric);
+        const found = (insightData.data || []).find(
+          (d: any) => d.name === metric,
+        );
         const val = found?.values?.[0]?.value ?? found?.value ?? 0;
-        if (val > 0) { views = val; break outer; }
+        if (val > 0) {
+          views = val;
+          break outer;
+        }
       } catch {}
     }
   }
@@ -312,12 +331,16 @@ async function resolveIgMediaId(
   accessToken: string,
 ): Promise<{ id: string | null; failReason: string }> {
   const normalised = permalink.replace(/\/$/, "").toLowerCase().trim();
-  const shortcodeMatch = permalink.match(/instagram\.com\/(?:p|reel|tv)\/([A-Za-z0-9_-]+)/);
+  const shortcodeMatch = permalink.match(
+    /instagram\.com\/(?:p|reel|tv)\/([A-Za-z0-9_-]+)/,
+  );
   // Keep original case — Instagram shortcodes are case-sensitive (base64). Compare lowercased separately.
   const shortcode = shortcodeMatch?.[1] || null;
   const shortcodeLower = shortcode?.toLowerCase() || null;
 
-  console.log(`[IG resolve] Looking for: "${normalised}" | shortcode: "${shortcode}" | igAccountId: ${igAccountId}`);
+  console.log(
+    `[IG resolve] Looking for: "${normalised}" | shortcode: "${shortcode}" | igAccountId: ${igAccountId}`,
+  );
 
   // Search through account media
   let after: string | null = null;
@@ -338,13 +361,14 @@ async function resolveIgMediaId(
     if (!res.ok || data.error) {
       const code = data.error?.code;
       const msg = data.error?.message || `HTTP ${res.status}`;
-      apiError = code === 190
-        ? "Access token expired — regenerate the System User Token in Meta Business Suite."
-        : code === 10 || code === 200
-        ? `Token missing 'instagram_basic' permission — regenerate System User Token and select instagram_basic.`
-        : code === 100
-        ? `Instagram account ID ${igAccountId} not accessible — check igAccountId in the Social Tokens tab.`
-        : msg;
+      apiError =
+        code === 190
+          ? "Access token expired — regenerate the System User Token in Meta Business Suite."
+          : code === 10 || code === 200
+            ? `Token missing 'instagram_basic' permission — regenerate System User Token and select instagram_basic.`
+            : code === 100
+              ? `Instagram account ID ${igAccountId} not accessible — check igAccountId in the Social Tokens tab.`
+              : msg;
       console.warn(`[IG resolve] media API failed: ${msg} (code ${code})`);
       break;
     }
@@ -358,16 +382,24 @@ async function resolveIgMediaId(
 
     for (const item of items) {
       // Normalise item permalink the same way (lowercase, no trailing slash)
-      const itemPermalink = (item.permalink || "").replace(/\/$/, "").toLowerCase().trim();
+      const itemPermalink = (item.permalink || "")
+        .replace(/\/$/, "")
+        .toLowerCase()
+        .trim();
       // Extract shortcode from item permalink (already lowercased)
-      const itemShortcodeMatch = itemPermalink.match(/instagram\.com\/(?:p|reel|tv)\/([a-z0-9_-]+)/);
+      const itemShortcodeMatch = itemPermalink.match(
+        /instagram\.com\/(?:p|reel|tv)\/([a-z0-9_-]+)/,
+      );
       const itemShortcode = itemShortcodeMatch?.[1] || null;
 
       const exactMatch = itemPermalink === normalised;
       // Compare shortcodes in lowercase — shortcodes are case-sensitive but lowercasing both is safe for matching
-      const shortcodeHit = shortcodeLower && itemShortcode && itemShortcode === shortcodeLower;
+      const shortcodeHit =
+        shortcodeLower && itemShortcode && itemShortcode === shortcodeLower;
       if (exactMatch || shortcodeHit) {
-        console.log(`[IG resolve] Found! id=${item.id} permalink="${item.permalink}" (exact=${exactMatch} shortcode=${shortcodeHit})`);
+        console.log(
+          `[IG resolve] Found! id=${item.id} permalink="${item.permalink}" (exact=${exactMatch} shortcode=${shortcodeHit})`,
+        );
         return { id: item.id, failReason: "" };
       }
     }
@@ -376,9 +408,12 @@ async function resolveIgMediaId(
     if (!after) break;
   }
 
-  console.warn(`[IG resolve] Not found after ${totalScanned} items. Searching for: "${normalised}" | First item was: "${firstItemPermalink}"`);
+  console.warn(
+    `[IG resolve] Not found after ${totalScanned} items. Searching for: "${normalised}" | First item was: "${firstItemPermalink}"`,
+  );
 
-  const failReason = apiError ||
+  const failReason =
+    apiError ||
     (totalScanned > 0
       ? `Post not found after scanning ${totalScanned} items — it may be a collab post or belong to a different account.`
       : "No media returned from API.");
@@ -537,15 +572,30 @@ export async function fetchIgMediaMetrics(
   igAccountId: string,
   accessToken: string,
 ): Promise<MetaPostMetrics> {
-  const { id: mediaId, failReason } = await resolveIgMediaId(postUrl, igAccountId, accessToken);
+  const { id: mediaId, failReason } = await resolveIgMediaId(
+    postUrl,
+    igAccountId,
+    accessToken,
+  );
   if (!mediaId) {
     console.warn(`[IG sync] Skipping post — ${failReason}`);
-    return { views: 0, likes: 0, comments: 0, shares: 0, followers_gained: 0, skipped: true, skipReason: failReason } as any;
+    return {
+      views: 0,
+      likes: 0,
+      comments: 0,
+      shares: 0,
+      followers_gained: 0,
+      skipped: true,
+      skipReason: failReason,
+    } as any;
   }
 
   // Fetch basic media info including media_type to pick correct insight metrics
   const mediaUrl = new URL(`${META_GRAPH_API}/${mediaId}`);
-  mediaUrl.searchParams.set("fields", "id,like_count,comments_count,media_type,permalink");
+  mediaUrl.searchParams.set(
+    "fields",
+    "id,like_count,comments_count,media_type,permalink",
+  );
   mediaUrl.searchParams.set("access_token", accessToken);
 
   const mediaRes = await fetch(mediaUrl.toString());
@@ -580,10 +630,14 @@ export async function fetchIgMediaMetrics(
         const code = data.error.code;
         // code 100 = unsupported metric — log at debug level, not warn
         if (code === 100) {
-          console.log(`[IG insights] metric "${metric}" unsupported for ${mediaId}, trying next`);
+          console.log(
+            `[IG insights] metric "${metric}" unsupported for ${mediaId}, trying next`,
+          );
         } else {
           insightError = data.error.message;
-          console.warn(`[IG insights] error for "${metric}" on ${mediaId}: ${data.error.message}`);
+          console.warn(
+            `[IG insights] error for "${metric}" on ${mediaId}: ${data.error.message}`,
+          );
         }
         return 0;
       }
@@ -597,7 +651,10 @@ export async function fetchIgMediaMetrics(
   // Try view metrics one by one until we get a non-zero value
   for (const metric of viewMetrics) {
     const val = await fetchInsight(metric);
-    if (val > 0) { views = val; break; }
+    if (val > 0) {
+      views = val;
+      break;
+    }
   }
   shares = await fetchInsight("shares");
 

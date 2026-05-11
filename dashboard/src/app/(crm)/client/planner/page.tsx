@@ -715,7 +715,9 @@ function AnalyticsTab({ posts }: { posts: Post[] }) {
   const summary = postedPosts.reduce(
     (acc, p) => {
       const accountMetrics = (p as any).accountMetrics;
-      const accountIds = (p as any).socialAccountIds || ((p as any).socialAccountId ? [(p as any).socialAccountId] : null);
+      const accountIds =
+        (p as any).socialAccountIds ||
+        ((p as any).socialAccountId ? [(p as any).socialAccountId] : null);
       if (accountIds && accountMetrics) {
         for (const id of accountIds) {
           const m = accountMetrics[id];
@@ -738,10 +740,30 @@ function AnalyticsTab({ posts }: { posts: Post[] }) {
   );
 
   const statCards = [
-    { label: "Total Views", value: summary.views, icon: "👁", bg: "bg-blue-50 border-blue-300" },
-    { label: "Total Likes", value: summary.likes, icon: "❤️", bg: "bg-red-50 border-red-300" },
-    { label: "Comments", value: summary.comments, icon: "💬", bg: "bg-green-50 border-green-300" },
-    { label: "Shares", value: summary.shares, icon: "↗", bg: "bg-purple-50 border-purple-300" },
+    {
+      label: "Total Views",
+      value: summary.views,
+      icon: "👁",
+      bg: "bg-blue-50 border-blue-300",
+    },
+    {
+      label: "Total Likes",
+      value: summary.likes,
+      icon: "❤️",
+      bg: "bg-red-50 border-red-300",
+    },
+    {
+      label: "Comments",
+      value: summary.comments,
+      icon: "💬",
+      bg: "bg-green-50 border-green-300",
+    },
+    {
+      label: "Shares",
+      value: summary.shares,
+      icon: "↗",
+      bg: "bg-purple-50 border-purple-300",
+    },
   ];
 
   return (
@@ -749,7 +771,9 @@ function AnalyticsTab({ posts }: { posts: Post[] }) {
       {postedPosts.length === 0 ? (
         <div className="border-2 border-dashed border-gray-300 rounded-xl p-12 text-center text-muted-foreground">
           <p className="text-xl font-bold">No posted content yet</p>
-          <p className="text-sm mt-2">Analytics will appear here once posts go live</p>
+          <p className="text-sm mt-2">
+            Analytics will appear here once posts go live
+          </p>
         </div>
       ) : (
         <>
@@ -758,10 +782,14 @@ function AnalyticsTab({ posts }: { posts: Post[] }) {
             {statCards.map((s) => (
               <div key={s.label} className={`border-2 rounded-xl p-4 ${s.bg}`}>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">{s.label}</span>
+                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">
+                    {s.label}
+                  </span>
                   <span className="text-lg">{s.icon}</span>
                 </div>
-                <div className="text-3xl font-black">{s.value.toLocaleString()}</div>
+                <div className="text-3xl font-black">
+                  {s.value.toLocaleString()}
+                </div>
               </div>
             ))}
           </div>
@@ -769,44 +797,92 @@ function AnalyticsTab({ posts }: { posts: Post[] }) {
           {/* Posts table */}
           <div className="border-2 border-black rounded-xl overflow-hidden">
             <div className="bg-black text-white px-4 py-3">
-              <h3 className="font-black text-sm tracking-tight">POSTS PERFORMANCE</h3>
+              <h3 className="font-black text-sm tracking-tight">
+                POSTS PERFORMANCE
+              </h3>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="bg-gray-50 border-b-2 border-black">
                   <tr>
-                    <th className="text-left px-4 py-3 font-black text-xs uppercase tracking-wide">Post</th>
-                    <th className="text-left px-4 py-3 font-black text-xs uppercase tracking-wide">Platform</th>
-                    <th className="text-left px-4 py-3 font-black text-xs uppercase tracking-wide">Date</th>
-                    <th className="text-right px-4 py-3 font-black text-xs uppercase tracking-wide">Views</th>
-                    <th className="text-right px-4 py-3 font-black text-xs uppercase tracking-wide">Likes</th>
-                    <th className="text-right px-4 py-3 font-black text-xs uppercase tracking-wide">Comments</th>
-                    <th className="text-right px-4 py-3 font-black text-xs uppercase tracking-wide">Shares</th>
+                    <th className="text-left px-4 py-3 font-black text-xs uppercase tracking-wide">
+                      Post
+                    </th>
+                    <th className="text-left px-4 py-3 font-black text-xs uppercase tracking-wide">
+                      Platform
+                    </th>
+                    <th className="text-left px-4 py-3 font-black text-xs uppercase tracking-wide">
+                      Date
+                    </th>
+                    <th className="text-right px-4 py-3 font-black text-xs uppercase tracking-wide">
+                      Views
+                    </th>
+                    <th className="text-right px-4 py-3 font-black text-xs uppercase tracking-wide">
+                      Likes
+                    </th>
+                    <th className="text-right px-4 py-3 font-black text-xs uppercase tracking-wide">
+                      Comments
+                    </th>
+                    <th className="text-right px-4 py-3 font-black text-xs uppercase tracking-wide">
+                      Shares
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {postedPosts.map((post, i) => {
                     const accountMetrics = (post as any).accountMetrics;
-                    const accountIds = (post as any).socialAccountIds || ((post as any).socialAccountId ? [(post as any).socialAccountId] : null);
-                    let views = post.views || 0, likes = post.likes || 0, comments = post.comments || 0, shares = post.shares || 0;
+                    const accountIds =
+                      (post as any).socialAccountIds ||
+                      ((post as any).socialAccountId
+                        ? [(post as any).socialAccountId]
+                        : null);
+                    let views = post.views || 0,
+                      likes = post.likes || 0,
+                      comments = post.comments || 0,
+                      shares = post.shares || 0;
                     if (accountIds && accountMetrics) {
-                      views = 0; likes = 0; comments = 0; shares = 0;
+                      views = 0;
+                      likes = 0;
+                      comments = 0;
+                      shares = 0;
                       for (const id of accountIds) {
                         const m = accountMetrics[id];
-                        if (m) { views += m.views || 0; likes += m.likes || 0; comments += m.comments || 0; shares += m.shares || 0; }
+                        if (m) {
+                          views += m.views || 0;
+                          likes += m.likes || 0;
+                          comments += m.comments || 0;
+                          shares += m.shares || 0;
+                        }
                       }
                     }
                     return (
-                      <tr key={post._id} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                        <td className="px-4 py-3 font-semibold max-w-[200px] truncate">{post.title}</td>
-                        <td className="px-4 py-3">
-                          <span className="px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">{post.platform}</span>
+                      <tr
+                        key={post._id}
+                        className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                      >
+                        <td className="px-4 py-3 font-semibold max-w-[200px] truncate">
+                          {post.title}
                         </td>
-                        <td className="px-4 py-3 text-xs text-gray-500 font-semibold">{post.scheduledDate}</td>
-                        <td className="px-4 py-3 text-right font-black">{views.toLocaleString()}</td>
-                        <td className="px-4 py-3 text-right font-black">{likes.toLocaleString()}</td>
-                        <td className="px-4 py-3 text-right font-black">{comments.toLocaleString()}</td>
-                        <td className="px-4 py-3 text-right font-black">{shares.toLocaleString()}</td>
+                        <td className="px-4 py-3">
+                          <span className="px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
+                            {post.platform}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-xs text-gray-500 font-semibold">
+                          {post.scheduledDate}
+                        </td>
+                        <td className="px-4 py-3 text-right font-black">
+                          {views.toLocaleString()}
+                        </td>
+                        <td className="px-4 py-3 text-right font-black">
+                          {likes.toLocaleString()}
+                        </td>
+                        <td className="px-4 py-3 text-right font-black">
+                          {comments.toLocaleString()}
+                        </td>
+                        <td className="px-4 py-3 text-right font-black">
+                          {shares.toLocaleString()}
+                        </td>
                       </tr>
                     );
                   })}
@@ -979,328 +1055,338 @@ export default function ClientPlannerPage() {
 
       {activeTab === "analytics" && <AnalyticsTab posts={posts} />}
 
-      {activeTab === "posts" && <>
-      <div className="grid grid-cols-3 gap-4">
-        <div className="border-2 border-black bg-yellow-50 rounded-xl p-4 text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-          <div className="text-3xl font-black">{pendingPosts.length}</div>
-          <p className="text-sm font-semibold text-yellow-600 mt-1">
-            ⏳ Pending Review
-          </p>
-        </div>
-        <div className="border-2 border-black bg-green-50 rounded-xl p-4 text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-          <div className="text-3xl font-black text-green-700">
-            {approvedPosts.length}
-          </div>
-          <p className="text-sm font-semibold text-green-600 mt-1">
-            ✅ Approved
-          </p>
-        </div>
-        <div className="border-2 border-black bg-red-50 rounded-xl p-4 text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-          <div className="text-3xl font-black text-red-700">
-            {rejectedPosts.length}
-          </div>
-          <p className="text-sm font-semibold text-red-600 mt-1">❌ Rejected</p>
-        </div>
-      </div>
-
-      {loading ? (
-        <div className="border-2 border-black rounded-xl p-12 text-center text-muted-foreground">
-          Loading posts...
-        </div>
-      ) : posts.length === 0 ? (
-        <div className="border-2 border-black rounded-xl p-12 text-center">
-          <p className="text-xl font-bold">No posts yet</p>
-          <p className="text-sm text-muted-foreground mt-2">
-            Your team will share posts here for your approval
-          </p>
-        </div>
-      ) : (
+      {activeTab === "posts" && (
         <>
-          {}
-          <section className="space-y-4">
-            <h2 className="text-2xl font-black flex items-center gap-2">
-              ⏳ Pending Review
-              {pendingPosts.length > 0 && (
-                <span className="text-base font-bold text-yellow-600 bg-yellow-100 border border-yellow-300 px-2 py-0.5 rounded-full">
-                  {pendingPosts.length}
-                </span>
-              )}
-            </h2>
-            {pendingPosts.length === 0 ? (
-              <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center text-muted-foreground">
-                No posts pending review right now 🎉
+          <div className="grid grid-cols-3 gap-4">
+            <div className="border-2 border-black bg-yellow-50 rounded-xl p-4 text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              <div className="text-3xl font-black">{pendingPosts.length}</div>
+              <p className="text-sm font-semibold text-yellow-600 mt-1">
+                ⏳ Pending Review
+              </p>
+            </div>
+            <div className="border-2 border-black bg-green-50 rounded-xl p-4 text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              <div className="text-3xl font-black text-green-700">
+                {approvedPosts.length}
               </div>
-            ) : (
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {pendingPosts.map((post) => (
-                  <PendingPostCard
-                    key={post._id}
-                    post={post}
-                    onAction={doAction}
-                  />
-                ))}
+              <p className="text-sm font-semibold text-green-600 mt-1">
+                ✅ Approved
+              </p>
+            </div>
+            <div className="border-2 border-black bg-red-50 rounded-xl p-4 text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              <div className="text-3xl font-black text-red-700">
+                {rejectedPosts.length}
               </div>
-            )}
-          </section>
+              <p className="text-sm font-semibold text-red-600 mt-1">
+                ❌ Rejected
+              </p>
+            </div>
+          </div>
 
-          {}
-          <section className="space-y-4">
-            <h2 className="text-2xl font-black flex items-center gap-2">
-              ✅ Approved Posts
-              {approvedPosts.length > 0 && (
-                <span className="text-base font-bold text-green-700 bg-green-100 border border-green-300 px-2 py-0.5 rounded-full">
-                  {approvedPosts.length}
-                </span>
-              )}
-            </h2>
-            {approvedPosts.length === 0 ? (
-              <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center text-muted-foreground">
-                No approved posts yet
-              </div>
-            ) : (
-              <div className="border-2 border-black rounded-xl overflow-hidden shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead className="bg-green-50">
-                      <tr>
-                        <th className="text-left p-3 border-b-2 border-black font-bold">
-                          Title & Caption
-                        </th>
-                        <th className="text-left p-3 border-b-2 border-black font-bold">
-                          Platform
-                        </th>
-                        <th className="text-left p-3 border-b-2 border-black font-bold">
-                          Content Type
-                        </th>
-                        <th className="text-left p-3 border-b-2 border-black font-bold">
-                          Schedule
-                        </th>
-                        <th className="text-left p-3 border-b-2 border-black font-bold">
-                          Status
-                        </th>
-                        <th className="text-left p-3 border-b-2 border-black font-bold">
-                          Media
-                        </th>
-                        <th className="text-left p-3 border-b-2 border-black font-bold">
-                          Actions
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {approvedPosts.map((post) => (
-                        <tr
-                          key={post._id}
-                          className="border-b hover:bg-green-50/30 transition-colors"
-                        >
-                          <td className="p-3 align-top max-w-xs">
-                            <div className="font-semibold">{post.title}</div>
-                            <div className="text-xs text-muted-foreground mt-1 whitespace-pre-wrap break-words leading-relaxed">
-                              {post.caption}
-                            </div>
-                            {post.hashtags && (
-                              <div className="text-xs text-blue-600 font-mono mt-1 break-words">
-                                {post.hashtags}
-                              </div>
-                            )}
-                          </td>
-                          <td className="p-3 align-top">
-                            <span className="px-2 py-1 rounded bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
-                              {post.platform}
-                            </span>
-                          </td>
-                          <td className="p-3 align-top text-muted-foreground text-xs">
-                            {post.contentType || "—"}
-                          </td>
-                          <td className="p-3 align-top">
-                            <div className="font-semibold text-xs">
-                              {post.scheduledDate}
-                            </div>
-                            {post.scheduledTime && (
-                              <div className="text-xs text-muted-foreground">
-                                {post.scheduledTime}
-                              </div>
-                            )}
-                          </td>
-                          <td className="p-3 align-top">
-                            <span
-                              className={`px-2 py-1 rounded text-xs font-bold ${statusColors[post.status] || "bg-gray-100"}`}
+          {loading ? (
+            <div className="border-2 border-black rounded-xl p-12 text-center text-muted-foreground">
+              Loading posts...
+            </div>
+          ) : posts.length === 0 ? (
+            <div className="border-2 border-black rounded-xl p-12 text-center">
+              <p className="text-xl font-bold">No posts yet</p>
+              <p className="text-sm text-muted-foreground mt-2">
+                Your team will share posts here for your approval
+              </p>
+            </div>
+          ) : (
+            <>
+              {}
+              <section className="space-y-4">
+                <h2 className="text-2xl font-black flex items-center gap-2">
+                  ⏳ Pending Review
+                  {pendingPosts.length > 0 && (
+                    <span className="text-base font-bold text-yellow-600 bg-yellow-100 border border-yellow-300 px-2 py-0.5 rounded-full">
+                      {pendingPosts.length}
+                    </span>
+                  )}
+                </h2>
+                {pendingPosts.length === 0 ? (
+                  <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center text-muted-foreground">
+                    No posts pending review right now 🎉
+                  </div>
+                ) : (
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {pendingPosts.map((post) => (
+                      <PendingPostCard
+                        key={post._id}
+                        post={post}
+                        onAction={doAction}
+                      />
+                    ))}
+                  </div>
+                )}
+              </section>
+
+              {}
+              <section className="space-y-4">
+                <h2 className="text-2xl font-black flex items-center gap-2">
+                  ✅ Approved Posts
+                  {approvedPosts.length > 0 && (
+                    <span className="text-base font-bold text-green-700 bg-green-100 border border-green-300 px-2 py-0.5 rounded-full">
+                      {approvedPosts.length}
+                    </span>
+                  )}
+                </h2>
+                {approvedPosts.length === 0 ? (
+                  <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center text-muted-foreground">
+                    No approved posts yet
+                  </div>
+                ) : (
+                  <div className="border-2 border-black rounded-xl overflow-hidden shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead className="bg-green-50">
+                          <tr>
+                            <th className="text-left p-3 border-b-2 border-black font-bold">
+                              Title & Caption
+                            </th>
+                            <th className="text-left p-3 border-b-2 border-black font-bold">
+                              Platform
+                            </th>
+                            <th className="text-left p-3 border-b-2 border-black font-bold">
+                              Content Type
+                            </th>
+                            <th className="text-left p-3 border-b-2 border-black font-bold">
+                              Schedule
+                            </th>
+                            <th className="text-left p-3 border-b-2 border-black font-bold">
+                              Status
+                            </th>
+                            <th className="text-left p-3 border-b-2 border-black font-bold">
+                              Media
+                            </th>
+                            <th className="text-left p-3 border-b-2 border-black font-bold">
+                              Actions
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {approvedPosts.map((post) => (
+                            <tr
+                              key={post._id}
+                              className="border-b hover:bg-green-50/30 transition-colors"
                             >
-                              {post.status}
-                            </span>
-                          </td>
-                          <td className="p-3 align-top">
-                            <MediaCell url={post.mediaFile} />
-                          </td>
-                          <td className="p-3 align-top">
-                            <div className="flex flex-col gap-1.5">
-                              <Button
-                                size="sm"
-                                variant="outline"
-                                className="border-black text-xs h-7"
-                                onClick={() => setViewingPost(post)}
-                              >
-                                <FontAwesomeIcon
-                                  icon={faEye}
-                                  className="w-3 h-3 mr-1"
-                                />{" "}
-                                View
-                              </Button>
-                              <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-green-100 text-green-700 border border-green-300 text-xs font-bold">
-                                <FontAwesomeIcon
-                                  icon={faLock}
-                                  className="w-2.5 h-2.5"
-                                />{" "}
-                                Approved
-                              </span>
-                            </div>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
-          </section>
+                              <td className="p-3 align-top max-w-xs">
+                                <div className="font-semibold">
+                                  {post.title}
+                                </div>
+                                <div className="text-xs text-muted-foreground mt-1 whitespace-pre-wrap break-words leading-relaxed">
+                                  {post.caption}
+                                </div>
+                                {post.hashtags && (
+                                  <div className="text-xs text-blue-600 font-mono mt-1 break-words">
+                                    {post.hashtags}
+                                  </div>
+                                )}
+                              </td>
+                              <td className="p-3 align-top">
+                                <span className="px-2 py-1 rounded bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
+                                  {post.platform}
+                                </span>
+                              </td>
+                              <td className="p-3 align-top text-muted-foreground text-xs">
+                                {post.contentType || "—"}
+                              </td>
+                              <td className="p-3 align-top">
+                                <div className="font-semibold text-xs">
+                                  {post.scheduledDate}
+                                </div>
+                                {post.scheduledTime && (
+                                  <div className="text-xs text-muted-foreground">
+                                    {post.scheduledTime}
+                                  </div>
+                                )}
+                              </td>
+                              <td className="p-3 align-top">
+                                <span
+                                  className={`px-2 py-1 rounded text-xs font-bold ${statusColors[post.status] || "bg-gray-100"}`}
+                                >
+                                  {post.status}
+                                </span>
+                              </td>
+                              <td className="p-3 align-top">
+                                <MediaCell url={post.mediaFile} />
+                              </td>
+                              <td className="p-3 align-top">
+                                <div className="flex flex-col gap-1.5">
+                                  <Button
+                                    size="sm"
+                                    variant="outline"
+                                    className="border-black text-xs h-7"
+                                    onClick={() => setViewingPost(post)}
+                                  >
+                                    <FontAwesomeIcon
+                                      icon={faEye}
+                                      className="w-3 h-3 mr-1"
+                                    />{" "}
+                                    View
+                                  </Button>
+                                  <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-green-100 text-green-700 border border-green-300 text-xs font-bold">
+                                    <FontAwesomeIcon
+                                      icon={faLock}
+                                      className="w-2.5 h-2.5"
+                                    />{" "}
+                                    Approved
+                                  </span>
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+              </section>
 
-          {}
-          {rejectedPosts.length > 0 && (
-            <section className="space-y-4">
-              <h2 className="text-2xl font-black flex items-center gap-2">
-                ❌ Rejected Posts
-                <span className="text-base font-bold text-red-700 bg-red-100 border border-red-300 px-2 py-0.5 rounded-full">
-                  {rejectedPosts.length}
-                </span>
-              </h2>
-              <div className="border-2 border-black rounded-xl overflow-hidden shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead className="bg-red-50">
-                      <tr>
-                        <th className="text-left p-3 border-b-2 border-black font-bold">
-                          Title & Caption
-                        </th>
-                        <th className="text-left p-3 border-b-2 border-black font-bold">
-                          Platform
-                        </th>
-                        <th className="text-left p-3 border-b-2 border-black font-bold">
-                          Schedule
-                        </th>
-                        <th className="text-left p-3 border-b-2 border-black font-bold">
-                          Media
-                        </th>
-                        <th className="text-left p-3 border-b-2 border-black font-bold">
-                          Your Reason
-                        </th>
-                        <th className="text-left p-3 border-b-2 border-black font-bold">
-                          Actions
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {rejectedPosts.map((post) => (
-                        <tr
-                          key={post._id}
-                          className="border-b hover:bg-red-50/20 transition-colors"
-                        >
-                          <td className="p-3 align-top max-w-xs">
-                            <div className="font-semibold">{post.title}</div>
-                            <div className="text-xs text-muted-foreground mt-1 whitespace-pre-wrap break-words leading-relaxed">
-                              {post.caption}
-                            </div>
-                          </td>
-                          <td className="p-3 align-top">
-                            <span className="px-2 py-1 rounded bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
-                              {post.platform}
-                            </span>
-                          </td>
-                          <td className="p-3 align-top">
-                            <div className="font-semibold text-xs">
-                              {post.scheduledDate}
-                            </div>
-                            {post.scheduledTime && (
-                              <div className="text-xs text-muted-foreground">
-                                {post.scheduledTime}
-                              </div>
-                            )}
-                          </td>
-                          <td className="p-3 align-top">
-                            <MediaCell url={post.mediaFile} />
-                          </td>
-                          <td className="p-3 align-top max-w-[180px]">
-                            {post.rejectionReason ? (
-                              <p className="text-xs text-red-700 whitespace-pre-wrap break-words">
-                                {post.rejectionReason}
-                              </p>
-                            ) : (
-                              <span className="text-xs text-gray-400">—</span>
-                            )}
-                          </td>
-                          <td className="p-3 align-top">
-                            <div className="flex flex-col gap-1.5">
-                              <Button
-                                size="sm"
-                                variant="outline"
-                                className="border-black text-xs h-7"
-                                onClick={() => setViewingPost(post)}
-                              >
-                                <FontAwesomeIcon
-                                  icon={faEye}
-                                  className="w-3 h-3 mr-1"
-                                />{" "}
-                                View
-                              </Button>
-                              <Button
-                                size="sm"
-                                className="bg-green-600 hover:bg-green-700 text-white border-2 border-black text-xs h-7 font-bold"
-                                onClick={() => {
-                                  setActionPost(post);
-                                  setActionType("Approve");
-                                }}
-                              >
-                                <FontAwesomeIcon
-                                  icon={faCircleCheck}
-                                  className="w-3 h-3 mr-1"
-                                />{" "}
-                                Approve
-                              </Button>
-                              <Button
-                                size="sm"
-                                variant="outline"
-                                className="border-2 border-yellow-400 text-yellow-700 text-xs h-7 font-bold hover:bg-yellow-50"
-                                onClick={() => {
-                                  setActionPost(post);
-                                  setActionType("MarkPending");
-                                }}
-                              >
-                                <FontAwesomeIcon
-                                  icon={faArrowRotateLeft}
-                                  className="w-3 h-3 mr-1"
-                                />{" "}
-                                Re-open
-                              </Button>
-                            </div>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </section>
+              {}
+              {rejectedPosts.length > 0 && (
+                <section className="space-y-4">
+                  <h2 className="text-2xl font-black flex items-center gap-2">
+                    ❌ Rejected Posts
+                    <span className="text-base font-bold text-red-700 bg-red-100 border border-red-300 px-2 py-0.5 rounded-full">
+                      {rejectedPosts.length}
+                    </span>
+                  </h2>
+                  <div className="border-2 border-black rounded-xl overflow-hidden shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead className="bg-red-50">
+                          <tr>
+                            <th className="text-left p-3 border-b-2 border-black font-bold">
+                              Title & Caption
+                            </th>
+                            <th className="text-left p-3 border-b-2 border-black font-bold">
+                              Platform
+                            </th>
+                            <th className="text-left p-3 border-b-2 border-black font-bold">
+                              Schedule
+                            </th>
+                            <th className="text-left p-3 border-b-2 border-black font-bold">
+                              Media
+                            </th>
+                            <th className="text-left p-3 border-b-2 border-black font-bold">
+                              Your Reason
+                            </th>
+                            <th className="text-left p-3 border-b-2 border-black font-bold">
+                              Actions
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {rejectedPosts.map((post) => (
+                            <tr
+                              key={post._id}
+                              className="border-b hover:bg-red-50/20 transition-colors"
+                            >
+                              <td className="p-3 align-top max-w-xs">
+                                <div className="font-semibold">
+                                  {post.title}
+                                </div>
+                                <div className="text-xs text-muted-foreground mt-1 whitespace-pre-wrap break-words leading-relaxed">
+                                  {post.caption}
+                                </div>
+                              </td>
+                              <td className="p-3 align-top">
+                                <span className="px-2 py-1 rounded bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
+                                  {post.platform}
+                                </span>
+                              </td>
+                              <td className="p-3 align-top">
+                                <div className="font-semibold text-xs">
+                                  {post.scheduledDate}
+                                </div>
+                                {post.scheduledTime && (
+                                  <div className="text-xs text-muted-foreground">
+                                    {post.scheduledTime}
+                                  </div>
+                                )}
+                              </td>
+                              <td className="p-3 align-top">
+                                <MediaCell url={post.mediaFile} />
+                              </td>
+                              <td className="p-3 align-top max-w-[180px]">
+                                {post.rejectionReason ? (
+                                  <p className="text-xs text-red-700 whitespace-pre-wrap break-words">
+                                    {post.rejectionReason}
+                                  </p>
+                                ) : (
+                                  <span className="text-xs text-gray-400">
+                                    —
+                                  </span>
+                                )}
+                              </td>
+                              <td className="p-3 align-top">
+                                <div className="flex flex-col gap-1.5">
+                                  <Button
+                                    size="sm"
+                                    variant="outline"
+                                    className="border-black text-xs h-7"
+                                    onClick={() => setViewingPost(post)}
+                                  >
+                                    <FontAwesomeIcon
+                                      icon={faEye}
+                                      className="w-3 h-3 mr-1"
+                                    />{" "}
+                                    View
+                                  </Button>
+                                  <Button
+                                    size="sm"
+                                    className="bg-green-600 hover:bg-green-700 text-white border-2 border-black text-xs h-7 font-bold"
+                                    onClick={() => {
+                                      setActionPost(post);
+                                      setActionType("Approve");
+                                    }}
+                                  >
+                                    <FontAwesomeIcon
+                                      icon={faCircleCheck}
+                                      className="w-3 h-3 mr-1"
+                                    />{" "}
+                                    Approve
+                                  </Button>
+                                  <Button
+                                    size="sm"
+                                    variant="outline"
+                                    className="border-2 border-yellow-400 text-yellow-700 text-xs h-7 font-bold hover:bg-yellow-50"
+                                    onClick={() => {
+                                      setActionPost(post);
+                                      setActionType("MarkPending");
+                                    }}
+                                  >
+                                    <FontAwesomeIcon
+                                      icon={faArrowRotateLeft}
+                                      className="w-3 h-3 mr-1"
+                                    />{" "}
+                                    Re-open
+                                  </Button>
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </section>
+              )}
+            </>
           )}
+
+          <div className="border-2 border-black rounded-xl p-4 bg-primary/5">
+            <p className="text-sm">
+              <span className="font-bold">💡 How it works:</span> Your team
+              creates social media posts and sends them here for your review.
+              Click <strong>Approve</strong> or fill in a reason and click{" "}
+              <strong>Reject</strong> on each pending card.
+            </p>
+          </div>
         </>
       )}
-
-      <div className="border-2 border-black rounded-xl p-4 bg-primary/5">
-        <p className="text-sm">
-          <span className="font-bold">💡 How it works:</span> Your team creates
-          social media posts and sends them here for your review. Click{" "}
-          <strong>Approve</strong> or fill in a reason and click{" "}
-          <strong>Reject</strong> on each pending card.
-        </p>
-      </div>
-      </>}
 
       {viewingPost && (
         <PostDetailModal

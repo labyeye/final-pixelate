@@ -28,12 +28,18 @@ export async function POST(req: NextRequest) {
   try {
     formData = await req.formData();
   } catch {
-    return NextResponse.json({ error: "Could not parse form data." }, { status: 400 });
+    return NextResponse.json(
+      { error: "Could not parse form data." },
+      { status: 400 },
+    );
   }
 
   const file = formData.get("file") as File | null;
   if (!file) {
-    return NextResponse.json({ error: "No file provided. Send a `file` field." }, { status: 400 });
+    return NextResponse.json(
+      { error: "No file provided. Send a `file` field." },
+      { status: 400 },
+    );
   }
 
   const fileType = file.type || "application/octet-stream";
@@ -41,7 +47,9 @@ export async function POST(req: NextRequest) {
   const fileBytes = await file.arrayBuffer();
   const fileLength = fileBytes.byteLength;
 
-  console.info(`[upload-media] file="${fileName}" type="${fileType}" size=${fileLength}`);
+  console.info(
+    `[upload-media] file="${fileName}" type="${fileType}" size=${fileLength}`,
+  );
 
   // ── Step 1: Create upload session ─────────────────────────────────────────
   const sessionUrl =
@@ -66,9 +74,14 @@ export async function POST(req: NextRequest) {
   const sessionJson = await sessionRes.json().catch(() => ({}));
   if (!sessionRes.ok) {
     const errDetail = (sessionJson as any)?.error ?? {};
-    console.error("[upload-media] Session creation failed:", JSON.stringify(sessionJson, null, 2));
+    console.error(
+      "[upload-media] Session creation failed:",
+      JSON.stringify(sessionJson, null, 2),
+    );
     return NextResponse.json(
-      { error: `Meta session error: ${errDetail.message ?? JSON.stringify(sessionJson)}` },
+      {
+        error: `Meta session error: ${errDetail.message ?? JSON.stringify(sessionJson)}`,
+      },
       { status: 422 },
     );
   }
@@ -85,15 +98,18 @@ export async function POST(req: NextRequest) {
   // ── Step 2: Upload file bytes ──────────────────────────────────────────────
   let uploadRes: Response;
   try {
-    uploadRes = await fetch(`https://graph.facebook.com/${apiVersion}/${sessionId}`, {
-      method: "POST",
-      headers: {
-        Authorization: `OAuth ${accessToken}`,
-        file_offset: "0",
-        "Content-Type": fileType,
+    uploadRes = await fetch(
+      `https://graph.facebook.com/${apiVersion}/${sessionId}`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `OAuth ${accessToken}`,
+          file_offset: "0",
+          "Content-Type": fileType,
+        },
+        body: fileBytes,
       },
-      body: fileBytes,
-    });
+    );
   } catch (err: any) {
     return NextResponse.json(
       { error: "Network error uploading file: " + err.message },
@@ -104,9 +120,14 @@ export async function POST(req: NextRequest) {
   const uploadJson = await uploadRes.json().catch(() => ({}));
   if (!uploadRes.ok) {
     const errDetail = (uploadJson as any)?.error ?? {};
-    console.error("[upload-media] Upload failed:", JSON.stringify(uploadJson, null, 2));
+    console.error(
+      "[upload-media] Upload failed:",
+      JSON.stringify(uploadJson, null, 2),
+    );
     return NextResponse.json(
-      { error: `Meta upload error: ${errDetail.message ?? JSON.stringify(uploadJson)}` },
+      {
+        error: `Meta upload error: ${errDetail.message ?? JSON.stringify(uploadJson)}`,
+      },
       { status: 422 },
     );
   }
@@ -115,7 +136,11 @@ export async function POST(req: NextRequest) {
   const handle: string = (uploadJson as any)?.h;
   if (!handle) {
     return NextResponse.json(
-      { error: "Meta did not return a media handle. Response: " + JSON.stringify(uploadJson) },
+      {
+        error:
+          "Meta did not return a media handle. Response: " +
+          JSON.stringify(uploadJson),
+      },
       { status: 502 },
     );
   }

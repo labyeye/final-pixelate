@@ -93,7 +93,10 @@ export default function ReelsPage() {
     const entriesCopy = [...current];
     while (entriesCopy.length <= index)
       entriesCopy.push({ thumbnailBase64: "", link: "", title: "" });
-    entriesCopy[index] = { ...(entriesCopy[index] || {}), thumbnailBase64: data };
+    entriesCopy[index] = {
+      ...(entriesCopy[index] || {}),
+      thumbnailBase64: data,
+    };
     replace(entriesCopy);
   };
 
@@ -203,10 +206,7 @@ export default function ReelsPage() {
               </label>
               <div className="space-y-2">
                 {fields.map((f, idx) => (
-                  <div
-                    key={f.id}
-                    className="border rounded p-3 space-y-2"
-                  >
+                  <div key={f.id} className="border rounded p-3 space-y-2">
                     <div className="grid grid-cols-2 gap-2">
                       <Input
                         {...register(`entries.${idx}.link` as const)}

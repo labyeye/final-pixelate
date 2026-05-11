@@ -257,22 +257,28 @@ export async function POST(req: NextRequest) {
     `[WhatsApp] Sending to: ${digits} (sender phoneNumberId: ${phoneNumberId})`,
   );
   const templateName =
-    bodyTemplateName ||
-    process.env.WHATSAPP_TEMPLATE_NAME ||
-    "invoicing";
+    bodyTemplateName || process.env.WHATSAPP_TEMPLATE_NAME || "invoicing";
   const apiVersion = process.env.WHATSAPP_API_VERSION ?? "v21.0";
 
   // Resolve template language: body param > DB lookup > env > fallback
-  let templateLang = bodyTemplateLang || process.env.WHATSAPP_TEMPLATE_LANG || "en_US";
+  let templateLang =
+    bodyTemplateLang || process.env.WHATSAPP_TEMPLATE_LANG || "en_US";
   try {
     const db = await getDb();
-    const tmplDoc = await db.collection("whatsapp_templates").findOne({ name: templateName });
+    const tmplDoc = await db
+      .collection("whatsapp_templates")
+      .findOne({ name: templateName });
     if (tmplDoc?.language) {
       templateLang = tmplDoc.language;
-      console.info(`[WhatsApp] Resolved template language from DB: ${templateLang} (template: ${templateName})`);
+      console.info(
+        `[WhatsApp] Resolved template language from DB: ${templateLang} (template: ${templateName})`,
+      );
     }
   } catch (dbErr) {
-    console.warn("[WhatsApp] Could not look up template language from DB — using fallback:", templateLang);
+    console.warn(
+      "[WhatsApp] Could not look up template language from DB — using fallback:",
+      templateLang,
+    );
   }
 
   function sanitiseFilename(raw: string): string {

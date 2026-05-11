@@ -67,7 +67,10 @@ function ClientTokenSetup({
   const [showToken, setShowToken] = useState(false);
   const [saving, setSaving] = useState(false);
   const [testing, setTesting] = useState(false);
-  const [testResult, setTestResult] = useState<{ ok: boolean; msg: string } | null>(null);
+  const [testResult, setTestResult] = useState<{
+    ok: boolean;
+    msg: string;
+  } | null>(null);
 
   async function handleTest() {
     if (!token.trim()) {
@@ -81,7 +84,8 @@ function ClientTokenSetup({
       const res = await fetch(url);
       const data = await res.json();
       if (data.error) setTestResult({ ok: false, msg: data.error.message });
-      else setTestResult({ ok: true, msg: `✓ Valid — ${data.name} (${data.id})` });
+      else
+        setTestResult({ ok: true, msg: `✓ Valid — ${data.name} (${data.id})` });
     } catch (e: any) {
       setTestResult({ ok: false, msg: e.message });
     } finally {
@@ -91,7 +95,10 @@ function ClientTokenSetup({
 
   async function handleSave() {
     if (!token.trim()) {
-      toast({ title: "Paste a System User Token first", variant: "destructive" });
+      toast({
+        title: "Paste a System User Token first",
+        variant: "destructive",
+      });
       return;
     }
     setSaving(true);
@@ -145,7 +152,11 @@ function ClientTokenSetup({
             {hasToken ? "✓ Saved" : "Not Set"}
           </span>
         </div>
-        {open ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+        {open ? (
+          <ChevronUp className="w-4 h-4" />
+        ) : (
+          <ChevronDown className="w-4 h-4" />
+        )}
       </div>
 
       {open && (
@@ -167,20 +178,28 @@ function ClientTokenSetup({
                 </a>
               </li>
               <li>Select client's Business Portfolio from top-left dropdown</li>
-              <li>Click <strong>Add</strong> → Name it anything → Role: <strong>Admin</strong></li>
-              <li>Click <strong>Generate Token</strong> → Select your App</li>
               <li>
-                Check these permissions:
+                Click <strong>Add</strong> → Name it anything → Role:{" "}
+                <strong>Admin</strong>
               </li>
+              <li>
+                Click <strong>Generate Token</strong> → Select your App
+              </li>
+              <li>Check these permissions:</li>
             </ol>
 
             {/* Permission checklist */}
             <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-1.5 pl-4">
               {REQUIRED_PERMISSIONS.map((p) => (
-                <label key={p.key} className="flex items-center gap-2 cursor-default">
+                <label
+                  key={p.key}
+                  className="flex items-center gap-2 cursor-default"
+                >
                   <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
                   <span>
-                    <code className="font-mono bg-gray-200 px-1 rounded text-xs">{p.key}</code>
+                    <code className="font-mono bg-gray-200 px-1 rounded text-xs">
+                      {p.key}
+                    </code>
                     <span className="text-gray-500 ml-1">{p.desc}</span>
                   </span>
                 </label>
@@ -188,7 +207,8 @@ function ClientTokenSetup({
             </div>
 
             <p className="mt-2 text-gray-500">
-              6. Also click <strong>Add Assets</strong> and assign the client's Pages to this System User.
+              6. Also click <strong>Add Assets</strong> and assign the client's
+              Pages to this System User.
             </p>
             <p className="text-gray-500">
               7. Copy the generated token and paste below.
@@ -214,7 +234,11 @@ function ClientTokenSetup({
                   className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                   onClick={() => setShowToken((v) => !v)}
                 >
-                  {showToken ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  {showToken ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
                 </button>
               </div>
               <Button
@@ -389,7 +413,8 @@ function AccountRow({
                 className="border-2 border-black font-mono text-xs"
               />
               <p className="text-xs text-gray-400 mt-0.5">
-                Graph API Explorer → /me/accounts?fields=id,name,instagram_business_account
+                Graph API Explorer →
+                /me/accounts?fields=id,name,instagram_business_account
               </p>
             </div>
           )}
@@ -441,7 +466,9 @@ export function SocialAccountTokenPanel({ clientId }: { clientId: string }) {
   const metaAccounts = accounts.filter(
     (a) => a.platform === "Facebook" || a.platform === "Instagram",
   );
-  const connectedCount = metaAccounts.filter((a) => !!a.platformAccountId).length;
+  const connectedCount = metaAccounts.filter(
+    (a) => !!a.platformAccountId,
+  ).length;
 
   if (loading) {
     return (
@@ -474,7 +501,8 @@ export function SocialAccountTokenPanel({ clientId }: { clientId: string }) {
             )}
           </div>
           <p className="text-xs text-gray-500 mb-3">
-            Enter Page ID + Instagram ID for each account. Token from Step 1 is shared across all.
+            Enter Page ID + Instagram ID for each account. Token from Step 1 is
+            shared across all.
           </p>
 
           {metaAccounts.length === 0 ? (

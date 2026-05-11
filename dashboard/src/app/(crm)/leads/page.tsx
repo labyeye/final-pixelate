@@ -843,171 +843,175 @@ export default function LeadsPage() {
       {!loading && view === "table" && (
         <div className="border-2 border-black overflow-hidden">
           <div className="overflow-x-auto">
-          <Table>
-            <TableHeader>
-              <TableRow className="border-b-2 border-black bg-gray-50">
-                <TableHead className="w-10">
-                  <input
-                    type="checkbox"
-                    checked={
-                      filtered.length > 0 && selected.size === filtered.length
-                    }
-                    onChange={toggleAll}
-                    className="w-4 h-4 border-2 border-black rounded"
-                  />
-                </TableHead>
-                <TableHead className="font-bold">Name</TableHead>
-                <TableHead className="font-bold">Contact</TableHead>
-                <TableHead className="font-bold">Project / Budget</TableHead>
-                <TableHead className="font-bold">Source</TableHead>
-                <TableHead className="font-bold">Assigned</TableHead>
-                <TableHead className="font-bold">Priority</TableHead>
-                <TableHead className="font-bold">Follow-up</TableHead>
-                <TableHead className="font-bold">Status</TableHead>
-                <TableHead className="font-bold text-right">Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {filtered.length === 0 && (
-                <TableRow>
-                  <TableCell
-                    colSpan={10}
-                    className="text-center py-12 text-muted-foreground"
-                  >
-                    No leads match your filters.
-                  </TableCell>
+            <Table>
+              <TableHeader>
+                <TableRow className="border-b-2 border-black bg-gray-50">
+                  <TableHead className="w-10">
+                    <input
+                      type="checkbox"
+                      checked={
+                        filtered.length > 0 && selected.size === filtered.length
+                      }
+                      onChange={toggleAll}
+                      className="w-4 h-4 border-2 border-black rounded"
+                    />
+                  </TableHead>
+                  <TableHead className="font-bold">Name</TableHead>
+                  <TableHead className="font-bold">Contact</TableHead>
+                  <TableHead className="font-bold">Project / Budget</TableHead>
+                  <TableHead className="font-bold">Source</TableHead>
+                  <TableHead className="font-bold">Assigned</TableHead>
+                  <TableHead className="font-bold">Priority</TableHead>
+                  <TableHead className="font-bold">Follow-up</TableHead>
+                  <TableHead className="font-bold">Status</TableHead>
+                  <TableHead className="font-bold text-right">
+                    Actions
+                  </TableHead>
                 </TableRow>
-              )}
-              {filtered.map((lead) => {
-                const id = String(lead._id || lead.id);
-                const overdueFlag = isOverdue(lead.followUpDate);
-                return (
-                  <TableRow
-                    key={id}
-                    className={`border-b-2 border-black last:border-b-0 hover:bg-gray-50 transition-colors ${selected.has(id) ? "bg-blue-50" : ""}`}
-                  >
-                    <TableCell onClick={(e) => e.stopPropagation()}>
-                      <input
-                        type="checkbox"
-                        checked={selected.has(id)}
-                        onChange={() => toggleSelect(id)}
-                        className="w-4 h-4 border-2 border-black rounded"
-                      />
-                    </TableCell>
-                    <TableCell className="font-bold">
-                      <Link
-                        href={`/leads/${id}`}
-                        className="hover:underline flex items-center gap-1"
-                      >
-                        {lead.name}
-                        <ChevronRight className="w-3 h-3 opacity-40" />
-                      </Link>
-                      {lead.doNotDelete && (
-                        <span className="text-xs text-orange-600 flex items-center gap-0.5">
-                          <AlertTriangle className="w-3 h-3" /> protected
-                        </span>
-                      )}
-                    </TableCell>
-                    <TableCell>
-                      <div className="space-y-0.5">
-                        {lead.phone && (
-                          <div className="text-sm flex items-center gap-1">
-                            <Phone className="w-3 h-3 opacity-50" />
-                            {lead.phone}
-                          </div>
-                        )}
-                        {lead.email && (
-                          <div className="text-xs text-muted-foreground flex items-center gap-1 max-w-[160px] truncate">
-                            <Mail className="w-3 h-3 opacity-50 flex-shrink-0" />
-                            {lead.email}
-                          </div>
-                        )}
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <div className="text-sm">
-                        {lead.projectType || lead.subject || "—"}
-                      </div>
-                      {lead.budget && (
-                        <div className="text-xs font-bold text-green-700">
-                          ₹{lead.budget}
-                        </div>
-                      )}
-                    </TableCell>
-                    <TableCell>
-                      <span className="text-xs px-2 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
-                        {lead.source || "Unknown"}
-                      </span>
-                    </TableCell>
-                    <TableCell className="text-sm">
-                      {lead.assignedToName || "—"}
-                    </TableCell>
-                    <TableCell>
-                      {lead.priority ? (
-                        <span
-                          className={`text-xs px-2 py-1 rounded-full border font-medium ${priorityColors[lead.priority] || ""}`}
-                        >
-                          {lead.priority}
-                        </span>
-                      ) : (
-                        "—"
-                      )}
-                    </TableCell>
-                    <TableCell>
-                      {lead.followUpDate ? (
-                        <span
-                          className={`text-xs flex items-center gap-1 ${overdueFlag ? "text-red-600 font-bold" : "text-muted-foreground"}`}
-                        >
-                          <Calendar className="w-3 h-3" />
-                          {formatDate(lead.followUpDate)}
-                          {overdueFlag && <AlertTriangle className="w-3 h-3" />}
-                        </span>
-                      ) : (
-                        "—"
-                      )}
-                    </TableCell>
-                    <TableCell>
-                      <select
-                        value={lead.status || "not called"}
-                        onChange={(e) => updateLeadStatus(id, e.target.value)}
-                        onClick={(e) => e.stopPropagation()}
-                        className={`px-2 py-1 rounded-lg border-2 border-black text-xs font-bold ${leadStatusColors[lead.status || "not called"] || "bg-gray-100"}`}
-                      >
-                        {leadStatuses.map((s) => (
-                          <option key={s} value={s}>
-                            {s}
-                          </option>
-                        ))}
-                      </select>
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <div className="flex items-center gap-1 justify-end">
-                        <Link href={`/leads/${id}`}>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className="h-7 w-7"
-                          >
-                            <Eye className="w-3.5 h-3.5" />
-                          </Button>
-                        </Link>
-                        {role === "admin" && (
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className="h-7 w-7 text-red-500 hover:text-red-700"
-                            onClick={() => deleteLead(id)}
-                          >
-                            <Trash className="w-3.5 h-3.5" />
-                          </Button>
-                        )}
-                      </div>
+              </TableHeader>
+              <TableBody>
+                {filtered.length === 0 && (
+                  <TableRow>
+                    <TableCell
+                      colSpan={10}
+                      className="text-center py-12 text-muted-foreground"
+                    >
+                      No leads match your filters.
                     </TableCell>
                   </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
+                )}
+                {filtered.map((lead) => {
+                  const id = String(lead._id || lead.id);
+                  const overdueFlag = isOverdue(lead.followUpDate);
+                  return (
+                    <TableRow
+                      key={id}
+                      className={`border-b-2 border-black last:border-b-0 hover:bg-gray-50 transition-colors ${selected.has(id) ? "bg-blue-50" : ""}`}
+                    >
+                      <TableCell onClick={(e) => e.stopPropagation()}>
+                        <input
+                          type="checkbox"
+                          checked={selected.has(id)}
+                          onChange={() => toggleSelect(id)}
+                          className="w-4 h-4 border-2 border-black rounded"
+                        />
+                      </TableCell>
+                      <TableCell className="font-bold">
+                        <Link
+                          href={`/leads/${id}`}
+                          className="hover:underline flex items-center gap-1"
+                        >
+                          {lead.name}
+                          <ChevronRight className="w-3 h-3 opacity-40" />
+                        </Link>
+                        {lead.doNotDelete && (
+                          <span className="text-xs text-orange-600 flex items-center gap-0.5">
+                            <AlertTriangle className="w-3 h-3" /> protected
+                          </span>
+                        )}
+                      </TableCell>
+                      <TableCell>
+                        <div className="space-y-0.5">
+                          {lead.phone && (
+                            <div className="text-sm flex items-center gap-1">
+                              <Phone className="w-3 h-3 opacity-50" />
+                              {lead.phone}
+                            </div>
+                          )}
+                          {lead.email && (
+                            <div className="text-xs text-muted-foreground flex items-center gap-1 max-w-[160px] truncate">
+                              <Mail className="w-3 h-3 opacity-50 flex-shrink-0" />
+                              {lead.email}
+                            </div>
+                          )}
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="text-sm">
+                          {lead.projectType || lead.subject || "—"}
+                        </div>
+                        {lead.budget && (
+                          <div className="text-xs font-bold text-green-700">
+                            ₹{lead.budget}
+                          </div>
+                        )}
+                      </TableCell>
+                      <TableCell>
+                        <span className="text-xs px-2 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+                          {lead.source || "Unknown"}
+                        </span>
+                      </TableCell>
+                      <TableCell className="text-sm">
+                        {lead.assignedToName || "—"}
+                      </TableCell>
+                      <TableCell>
+                        {lead.priority ? (
+                          <span
+                            className={`text-xs px-2 py-1 rounded-full border font-medium ${priorityColors[lead.priority] || ""}`}
+                          >
+                            {lead.priority}
+                          </span>
+                        ) : (
+                          "—"
+                        )}
+                      </TableCell>
+                      <TableCell>
+                        {lead.followUpDate ? (
+                          <span
+                            className={`text-xs flex items-center gap-1 ${overdueFlag ? "text-red-600 font-bold" : "text-muted-foreground"}`}
+                          >
+                            <Calendar className="w-3 h-3" />
+                            {formatDate(lead.followUpDate)}
+                            {overdueFlag && (
+                              <AlertTriangle className="w-3 h-3" />
+                            )}
+                          </span>
+                        ) : (
+                          "—"
+                        )}
+                      </TableCell>
+                      <TableCell>
+                        <select
+                          value={lead.status || "not called"}
+                          onChange={(e) => updateLeadStatus(id, e.target.value)}
+                          onClick={(e) => e.stopPropagation()}
+                          className={`px-2 py-1 rounded-lg border-2 border-black text-xs font-bold ${leadStatusColors[lead.status || "not called"] || "bg-gray-100"}`}
+                        >
+                          {leadStatuses.map((s) => (
+                            <option key={s} value={s}>
+                              {s}
+                            </option>
+                          ))}
+                        </select>
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <div className="flex items-center gap-1 justify-end">
+                          <Link href={`/leads/${id}`}>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="h-7 w-7"
+                            >
+                              <Eye className="w-3.5 h-3.5" />
+                            </Button>
+                          </Link>
+                          {role === "admin" && (
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="h-7 w-7 text-red-500 hover:text-red-700"
+                              onClick={() => deleteLead(id)}
+                            >
+                              <Trash className="w-3.5 h-3.5" />
+                            </Button>
+                          )}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
           </div>
         </div>
       )}

@@ -423,149 +423,149 @@ export default function ClientsPage() {
       {}
       <div className="border-2 border-black rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
-        <Table>
-          <TableHeader>
-            <TableRow className="border-b-2 border-black bg-gray-50">
-              <TableHead className="text-base font-bold">Name</TableHead>
-              <TableHead className="text-base font-bold">Contact</TableHead>
-              <TableHead className="text-base font-bold">Location</TableHead>
-              <TableHead className="text-base font-bold">Status</TableHead>
-              <TableHead className="text-base font-bold">Tags</TableHead>
-              <TableHead className="text-base font-bold">Portal</TableHead>
-              <TableHead className="text-right text-base font-bold">
-                GST
-              </TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {filtered.length === 0 && (
-              <TableRow>
-                <TableCell
-                  colSpan={7}
-                  className="text-center py-12 text-muted-foreground"
-                >
-                  No clients match your filters.
-                </TableCell>
+          <Table>
+            <TableHeader>
+              <TableRow className="border-b-2 border-black bg-gray-50">
+                <TableHead className="text-base font-bold">Name</TableHead>
+                <TableHead className="text-base font-bold">Contact</TableHead>
+                <TableHead className="text-base font-bold">Location</TableHead>
+                <TableHead className="text-base font-bold">Status</TableHead>
+                <TableHead className="text-base font-bold">Tags</TableHead>
+                <TableHead className="text-base font-bold">Portal</TableHead>
+                <TableHead className="text-right text-base font-bold">
+                  GST
+                </TableHead>
               </TableRow>
-            )}
-            {filtered.map((c) => {
-              const cid = String(c._id ?? c.id);
-              const statusColor =
-                clientStatusColors[c.status || "active"] ||
-                "bg-green-100 text-green-700";
-              return (
-                <TableRow
-                  key={cid}
-                  className="border-b-2 border-black last:border-b-0 hover:bg-gray-50 transition-colors cursor-pointer"
-                  onClick={() => router.push(`/clients/${cid}`)}
-                >
-                  <TableCell className="font-bold text-base py-4">
-                    <div className="flex items-center gap-1">
-                      {c.name}
-                      <ChevronRight className="w-3 h-3 opacity-30" />
-                    </div>
-                    {c.industry && (
-                      <div className="text-xs text-muted-foreground font-normal">
-                        {c.industry}
-                      </div>
-                    )}
-                  </TableCell>
-                  <TableCell className="text-base py-4">
-                    {c.email && <div className="text-sm">{c.email}</div>}
-                    {c.phone && (
-                      <div className="text-sm text-muted-foreground">
-                        {c.phone}
-                      </div>
-                    )}
-                  </TableCell>
-                  <TableCell className="text-sm py-4 text-muted-foreground">
-                    {[c.city, c.state].filter(Boolean).join(", ") || "—"}
-                  </TableCell>
-                  <TableCell className="py-4">
-                    <span
-                      className={`text-xs font-bold px-2 py-1 rounded-full border ${statusColor}`}
-                    >
-                      {c.status || "active"}
-                    </span>
-                  </TableCell>
-                  <TableCell className="py-4">
-                    <div className="flex flex-wrap gap-1">
-                      {(c.tags || []).slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs px-1.5 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200"
-                        >
-                          #{tag}
-                        </span>
-                      ))}
-                      {(c.tags || []).length > 3 && (
-                        <span className="text-xs text-muted-foreground">
-                          +{(c.tags || []).length - 3}
-                        </span>
-                      )}
-                    </div>
-                  </TableCell>
-                  <TableCell className="py-4">
-                    {c.userId ? (
-                      <div className="flex items-center gap-1 text-green-600">
-                        <ShieldCheck className="w-4 h-4" />
-                        <span className="text-xs font-bold">Active</span>
-                      </div>
-                    ) : (
-                      <span className="text-xs text-muted-foreground">
-                        None
-                      </span>
-                    )}
-                  </TableCell>
-                  <TableCell className="text-right py-4">
-                    <div
-                      className="flex items-center justify-end gap-2"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      {c.hasGst ? (
-                        <Badge>Registered</Badge>
-                      ) : (
-                        <Badge variant="secondary">Not Registered</Badge>
-                      )}
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className="h-8 w-8"
-                          >
-                            <MoreVertical className="h-5 w-5" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuItem
-                            onClick={() => router.push(`/clients/${cid}`)}
-                          >
-                            View
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() => {
-                              setEditingClient(c);
-                              setIsEditDialogOpen(true);
-                            }}
-                          >
-                            Edit
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() => handleDeleteClient(c)}
-                            className="text-destructive"
-                          >
-                            Delete
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    </div>
+            </TableHeader>
+            <TableBody>
+              {filtered.length === 0 && (
+                <TableRow>
+                  <TableCell
+                    colSpan={7}
+                    className="text-center py-12 text-muted-foreground"
+                  >
+                    No clients match your filters.
                   </TableCell>
                 </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
+              )}
+              {filtered.map((c) => {
+                const cid = String(c._id ?? c.id);
+                const statusColor =
+                  clientStatusColors[c.status || "active"] ||
+                  "bg-green-100 text-green-700";
+                return (
+                  <TableRow
+                    key={cid}
+                    className="border-b-2 border-black last:border-b-0 hover:bg-gray-50 transition-colors cursor-pointer"
+                    onClick={() => router.push(`/clients/${cid}`)}
+                  >
+                    <TableCell className="font-bold text-base py-4">
+                      <div className="flex items-center gap-1">
+                        {c.name}
+                        <ChevronRight className="w-3 h-3 opacity-30" />
+                      </div>
+                      {c.industry && (
+                        <div className="text-xs text-muted-foreground font-normal">
+                          {c.industry}
+                        </div>
+                      )}
+                    </TableCell>
+                    <TableCell className="text-base py-4">
+                      {c.email && <div className="text-sm">{c.email}</div>}
+                      {c.phone && (
+                        <div className="text-sm text-muted-foreground">
+                          {c.phone}
+                        </div>
+                      )}
+                    </TableCell>
+                    <TableCell className="text-sm py-4 text-muted-foreground">
+                      {[c.city, c.state].filter(Boolean).join(", ") || "—"}
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <span
+                        className={`text-xs font-bold px-2 py-1 rounded-full border ${statusColor}`}
+                      >
+                        {c.status || "active"}
+                      </span>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <div className="flex flex-wrap gap-1">
+                        {(c.tags || []).slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-xs px-1.5 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200"
+                          >
+                            #{tag}
+                          </span>
+                        ))}
+                        {(c.tags || []).length > 3 && (
+                          <span className="text-xs text-muted-foreground">
+                            +{(c.tags || []).length - 3}
+                          </span>
+                        )}
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      {c.userId ? (
+                        <div className="flex items-center gap-1 text-green-600">
+                          <ShieldCheck className="w-4 h-4" />
+                          <span className="text-xs font-bold">Active</span>
+                        </div>
+                      ) : (
+                        <span className="text-xs text-muted-foreground">
+                          None
+                        </span>
+                      )}
+                    </TableCell>
+                    <TableCell className="text-right py-4">
+                      <div
+                        className="flex items-center justify-end gap-2"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {c.hasGst ? (
+                          <Badge>Registered</Badge>
+                        ) : (
+                          <Badge variant="secondary">Not Registered</Badge>
+                        )}
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="h-8 w-8"
+                            >
+                              <MoreVertical className="h-5 w-5" />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuItem
+                              onClick={() => router.push(`/clients/${cid}`)}
+                            >
+                              View
+                            </DropdownMenuItem>
+                            <DropdownMenuItem
+                              onClick={() => {
+                                setEditingClient(c);
+                                setIsEditDialogOpen(true);
+                              }}
+                            >
+                              Edit
+                            </DropdownMenuItem>
+                            <DropdownMenuItem
+                              onClick={() => handleDeleteClient(c)}
+                              className="text-destructive"
+                            >
+                              Delete
+                            </DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
         </div>
       </div>
     </div>
