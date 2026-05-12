@@ -557,13 +557,13 @@ export default function ClientLeadsPage() {
           error: data.error || `Server error (${res.status})`,
         };
       }
-      const updated = await res.json();
+      await res.json();
       setLeads((prev) =>
         prev.map((l) =>
-          String(l._id || l.id) !== id ? l : { ...l, ...updated },
+          String(l._id || l.id) !== id ? l : { ...l, ...updates },
         ),
       );
-      setSelectedLead((prev) => (prev ? { ...prev, ...updated } : prev));
+      setSelectedLead((prev) => (prev ? { ...prev, ...updates } : prev));
       return { ok: true };
     } catch (e: any) {
       return { ok: false, error: e.message || "Network error" };

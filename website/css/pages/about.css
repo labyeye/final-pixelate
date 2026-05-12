@@ -318,3 +318,25 @@ video {
   margin-top: 16px;
   line-height: 1.5;
 }
+.history-wrap {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.history-container {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 90%;
+}
+.history-img {
+  width: 1900px;
+  height: 300px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px var(--shadow-light);
+}

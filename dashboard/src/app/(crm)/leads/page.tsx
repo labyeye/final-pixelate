@@ -324,11 +324,15 @@ export default function LeadsPage() {
       ),
     );
     try {
-      await fetch(`/api/leads/${leadId}`, {
+      const res = await fetch(`/api/leads/${leadId}`, {
         method: "PATCH",
         headers: authH(),
         body: JSON.stringify({ status: newStatus, updatedAt: new Date() }),
       });
+      if (!res.ok) {
+        const items = await fetchLeads();
+        setLeads(items);
+      }
     } catch {
       const items = await fetchLeads();
       setLeads(items);
